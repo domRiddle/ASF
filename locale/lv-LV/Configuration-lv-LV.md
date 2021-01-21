@@ -29,7 +29,7 @@ Configuration can be done either manually - by creating proper JSON configs, or 
 
 ## Web-based ConfigGenerator
 
-The purpose of **[web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
+The purpose of **[web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
 
 Web-based ConfigGenerator is verified to run properly on Chrome and Firefox, but it should work properly in all most popular javascript-enabled browsers.
 
@@ -37,7 +37,7 @@ The usage is quite simple - select whether you want to generate `ASF` or `Bot` c
 
 * * *
 
-## Manual configuration
+## Manuālā iestatīšana
 
 I strongly recommend to use web-based ConfigGenerator, but if for some reason you don't want to, then you can also create proper configs yourself. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using our frontend, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and documentation below.
 
@@ -316,7 +316,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-## Bot config
+## Botu konfigurācija
 
 As you should know already, every bot should have its own config based on example JSON structure below. Start from deciding how you want to name your bot (e.g. `1.json`, `main.json`, `primary.json` or `AnythingElse.json`) and head over to configuration.
 
@@ -515,7 +515,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 | Vērtība | Nosaukums             | Apraksts                                                      |
 | ------- | --------------------- | ------------------------------------------------------------- |
-| 0       | Unknown               | Every type that doesn't fit in any of the below               |
+| 0       | Nezināms              | Every type that doesn't fit in any of the below               |
 | 1       | BoosterPack           | Booster pack containing 3 random cards from a game            |
 | 2       | Emoticon              | Emoticon to use in Steam Chat                                 |
 | 3       | FoilTradingCard       | Foil variant of `TradingCard`                                 |
@@ -523,9 +523,9 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 | 5       | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
 | 6       | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
 | 7       | SaleItem              | Special items awarded during Steam sales                      |
-| 8       | Consumable            | Special consumable items that disappear after being used      |
+| 8       | Izejmateriāls         | Special consumable items that disappear after being used      |
 | 9       | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10      | Sticker               | Special items that can be used on Steam chat                  |
+| 10      | Uzlīme                | Special items that can be used on Steam chat                  |
 | 11      | ChatEffect            | Special items that can be used on Steam chat                  |
 | 12      | MiniProfileBackground | Special background for Steam profile                          |
 | 13      | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
@@ -543,7 +543,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 | Vērtība | Nosaukums             | Apraksts                                                      |
 | ------- | --------------------- | ------------------------------------------------------------- |
-| 0       | Unknown               | Every type that doesn't fit in any of the below               |
+| 0       | Nezināms              | Every type that doesn't fit in any of the below               |
 | 1       | BoosterPack           | Booster pack containing 3 random cards from a game            |
 | 2       | Emoticon              | Emoticon to use in Steam Chat                                 |
 | 3       | FoilTradingCard       | Foil variant of `TradingCard`                                 |
@@ -746,9 +746,9 @@ For further explanation of ASF trading logic, and description of every available
 | 5       | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
 | 6       | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
 | 7       | SaleItem              | Special items awarded during Steam sales                      |
-| 8       | Consumable            | Special consumable items that disappear after being used      |
+| 8       | Izejmateriāls         | Special consumable items that disappear after being used      |
 | 9       | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10      | Sticker               | Special items that can be used on Steam chat                  |
+| 10      | Uzlīme                | Special items that can be used on Steam chat                  |
 | 11      | ChatEffect            | Special items that can be used on Steam chat                  |
 | 12      | MiniProfileBackground | Special background for Steam profile                          |
 | 13      | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
@@ -916,7 +916,7 @@ It's top priority for ASF to remain compatible with older configs. As you should
 
 * * *
 
-## Auto-reload
+## Auto-pārlāde
 
 Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
 

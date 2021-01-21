@@ -8,13 +8,13 @@
 
 ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**。
 
-### `master`
+### `main`
 
-这个分支始终指向 GitHub 中 master 分支的最新提交构建的 ASF，其工作原理与&#8203;**[发布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**&#8203;中描述的实验性 AppVeyor 构建相同。 一般而言，您应该避免使用该分支，因为它是用于开发目的，为开发人员和高级用户准备的，有最高的漏洞风险。 该映像会在每次提交到 GitHub master 分支后更新，因此您会发现它的更新十分频繁（并且经常出错），就像 AppVeyor 构建一样。 该分支记录了 ASF 项目的当前状态，但该状态不一定稳定或者经过测试，就像我们在发布周期中描述的那样。 这个分支不应该在任何的生产环境中使用。
+This tag always points to the ASF built from latest commit in `main` branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. 一般而言，您应该避免使用该分支，因为它是用于开发目的，为开发人员和高级用户准备的，有最高的漏洞风险。 The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken), just like in our AppVeyor build. 该分支记录了 ASF 项目的当前状态，但该状态不一定稳定或者经过测试，就像我们在发布周期中描述的那样。 这个分支不应该在任何的生产环境中使用。
 
 ### `released`
 
-与上述分支类似，这个分支始终指向最新&#8203;**[发布](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;的 ASF 版本，包括预览版本。 与 `master` 分支不同，该映像会在推送新的 GitHub 版本标签时更新。 一些高级用户喜欢立刻尝试最新的功能，选择处于稳定边缘的版本，这一分支就是为他们准备的。 如果您不想使用 `latest` 分支的话，我们推荐您使用这个分支。 请注意，使用此分支等同于使用我们的&#8203;**[预览版](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**。
+与上述分支类似，这个分支始终指向最新&#8203;**[发布](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;的 ASF 版本，包括预览版本。 Compared to `main` tag, this image is being updated each time a new GitHub tag is pushed. 一些高级用户喜欢立刻尝试最新的功能，选择处于稳定边缘的版本，这一分支就是为他们准备的。 如果您不想使用 `latest` 分支的话，我们推荐您使用这个分支。 请注意，使用此分支等同于使用我们的&#8203;**[预览版](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**。
 
 ### `latest`
 
@@ -32,7 +32,7 @@ ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archi
 
 这取决于您的目标。 对于大多数用户来说，`latest` 分支是最好的，因为它的行为与在桌面上运行 ASF 是相同的，区别仅仅在于它以服务形式运行在 Docker 容器内。 经常重建映像以及喜欢抢先尝试 ASF 最新功能的人可能会更喜欢 `released` 分支。 如果您希望使用某个特定版本的 ASF，可以选择 `A.B.C.D` 分支，如果没有您主动操作，这个分支就不会有任何变化，您可以将其视为一个固定的里程碑，随时可以返回到与之前完全相同的状态。
 
-我们通常不建议使用 `master` 构建，就像 AppVeyor 构建一样——这个构建仅仅是用来标记 ASF 项目当前状态的。 我们无法保证这种状态能够正常工作，但如果您对 ASF 的开发感兴趣，可以尝试一下。
+We generally discourage trying `main` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. 我们无法保证这种状态能够正常工作，但如果您对 ASF 的开发感兴趣，可以尝试一下。
 
 * * *
 

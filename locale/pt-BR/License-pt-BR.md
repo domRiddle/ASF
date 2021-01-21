@@ -1,12 +1,12 @@
 # Licença
 
-A menos que seja indicado o contrário, o ASF é licenciado sob a **[Licença Apache 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)**. Para uma rápida visão geral sobre o que você pode ou não fazer, acesse o site **[tl; dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+A menos que seja indicado o contrário, o ASF é licenciado sob a **[Licença Apache 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**. Para uma rápida visão geral sobre o que você pode ou não fazer, acesse o site **[tl; dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
 
 A licença do ASF é muito permissiva e você pode fazer muito mais do que o permitido em uma licença GPL padrão, como incluir o ASF em projetos comerciais sem a exigência de deixar código aberto. Em suma, como mencionado no tl;dr Legal:
 
 > You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
 
-Note que vários dos **[componentes do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** incluídos com `PackageReference` podem ser licenciados sob diferentes condições, como **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. O mesmo se aplica a todos os projetos de terceiros usados pelo ASF, especialmente todas as `tools` (ferramentas) que têm suas próprias licenças.
+Note que vários dos **[componentes do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** incluídos com `PackageReference` podem ser licenciados sob diferentes condições, como **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. O mesmo se aplica a todos os projetos de terceiros usados pelo ASF, especialmente todas as `tools` (ferramentas) que têm suas próprias licenças.
 
 * * *
 

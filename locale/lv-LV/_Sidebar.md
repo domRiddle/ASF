@@ -45,6 +45,6 @@
 ## Izstrādātājiem
 
 * **[Kompilēšāna](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Ieguldījumu vadlīnijas](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Ieguldījumu vadlīnijas](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[Licence](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Laidienu cikls](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

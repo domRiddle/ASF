@@ -45,6 +45,6 @@
 ## Προγραμματιστές
 
 * **[Συλλογή](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[Άδεια](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Κύκλος απελευθέρωσης](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

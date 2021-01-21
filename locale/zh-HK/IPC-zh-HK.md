@@ -33,7 +33,7 @@ ASF-ui 是一個社區項目，旨在創建用戶友好的圖形 Web 界面。 �
 
 如上所述，ASF-ui 是一個社區項目，不由 ASF 核心開發人員維護。 它的所有相關問題、錯誤，漏洞報告和建議應遵循自己的流程** [ ASF-ui repo ](https://github.com/JustArchiNET/ASF-ui) **。
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
 * * *
 

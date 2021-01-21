@@ -33,7 +33,7 @@ ASF-ui 是一个社区项目，主要为最终用户提供了一个用户友好�
 
 如上所述，ASF-ui 是一个社区项目，并非由 ASF 核心开发者维护。 它遵循自己的开发流程，所有相关的问题、讨论、漏洞报告和建议都应该发表于 **[ASF-ui 仓库](https://github.com/JustArchiNET/ASF-ui)**。
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
 * * *
 

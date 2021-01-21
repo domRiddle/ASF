@@ -45,6 +45,6 @@
 ## Fejlesztők
 
 * **[Összeállítás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Hozzájáruló irányelveket](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Hozzájáruló irányelveket](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[Licensz](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Kiadási ciklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

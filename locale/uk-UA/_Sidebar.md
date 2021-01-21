@@ -45,6 +45,6 @@
 ## Розробникам
 
 * **[Компіляція](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-uk-UA)**
-* **[Правила участі в розробці](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Правила участі в розробці](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[Ліцензія](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License-uk-UA)**
 * **[Цикл релізу](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-uk-UA)**

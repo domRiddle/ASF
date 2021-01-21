@@ -214,7 +214,7 @@ ASF 是一個沒有圖形使用者介面的主控台應用程式。 然而，我
 
 如果您所做的一切無誤，只要 ASF 正在執行，您現在將可以透過**[此連結](http://localhost:1242)**來存取 ASF 的 IPC 介面。 您可以使用 ASF-ui 用於各種目的，例如發送**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**。 請隨意看看來發現 ASF-ui 的全部功能。
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
 請注意，ASF-ui 當前處於預覽狀態，暫時無法保證所有功能都可用/正常工作，但要應對簡單的 ASF 使用應該綽綽有餘。
 

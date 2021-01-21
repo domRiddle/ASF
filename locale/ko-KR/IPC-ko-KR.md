@@ -33,7 +33,7 @@ ASF-ui는 최종사용자에게 사용자 친화적인 그래픽 웹 인터페�
 
 위에서 설명했듯이 ASF-ui는 ASF 핵심 개발자들이 유지관리하지 않는 커뮤니티 프로젝트입니다. **[ASF-ui 리포](https://github.com/JustArchiNET/ASF-ui)** 에 있는 자체 흐름을 따라가며, 이곳에서 모든 관련된 질문, 이슈, 버그 보고 및 제안이 이루어집니다.
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
 * * *
 

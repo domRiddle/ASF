@@ -1,12 +1,12 @@
 # Licenza
 
-A meno che non sia dichiarato ufficialmente, ASF è licenziato con la **[ Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)**. Per una rapida panoramica di quello che puoi fare e non puoi fare, puoi consultare **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+A meno che non sia dichiarato ufficialmente, ASF è licenziato con la **[ Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**. Per una rapida panoramica di quello che puoi fare e non puoi fare, puoi consultare **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
 
 La licenza di ASF è molto permissiva, ed hai l'autorizzazione di fare molto di più rispetto a quanto dichiarato nella licenza GPL, inclusa la possibilità di usare ASF in progetti commerciali senza l'obbligo di rendere il codice open-source. In breve, come scritto in tl;dr Legal:
 
 > Con il software puoi fare quello che più ti piace, purchè tu includa la seguente didascalia. Questa licenza permissiva contiene una licenza brevettuale rilasciata dai contributori del codice.
 
-Si prega di notare che diversi **[componenti di ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** inclusi nella `PackageReference` spesso possiedono una licenza diversa, come **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Lo stesso vale per tutti i progetti di terze-parti di cui ASF fa uso, specialmente tutti gli `strumenti` che possiedono le proprie licenze.
+Si prega di notare che diversi **[componenti di ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** inclusi nella `PackageReference` spesso possiedono una licenza diversa, come **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Lo stesso vale per tutti i progetti di terze-parti di cui ASF fa uso, specialmente tutti gli `strumenti` che possiedono le proprie licenze.
 
 * * *
 

@@ -45,6 +45,6 @@
 ## 開發人員
 
 * **[編譯](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[貢獻指南](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[貢獻指南](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[許可證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[發佈週期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

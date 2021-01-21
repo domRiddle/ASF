@@ -29,7 +29,7 @@ ASF 采用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存储其配置�
 
 ## 在线配置文件生成器
 
-**[在线配置文件生成器](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;的目标是给您提供一个用于生成 ASF 配置文件的友好前端。 它是 100% 基于客户端的，这意味着您输入的任何信息都不会被上传，而仅在本地进行处理。 这保证了安全性和可靠性，因为假设您愿意下载所有相关文件，并在您喜爱的浏览器中打开其中的 `index.html`，它甚至可以&#8203;**[离线](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)**&#8203;运行。
+**[在线配置文件生成器](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;的目标是给您提供一个用于生成 ASF 配置文件的友好前端。 它是 100% 基于客户端的，这意味着您输入的任何信息都不会被上传，而仅在本地进行处理。 这保证了安全性和可靠性，因为假设您愿意下载所有相关文件，并在您喜爱的浏览器中打开其中的 `index.html`，它甚至可以&#8203;**[离线](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**&#8203;运行。
 
 在线配置文件生成器已经在 Chrome 和 Firefox 上经过验证可以正常运行，但它也应该可以在所有流行的的支持 JavaScript 的浏览器中正常运行。
 

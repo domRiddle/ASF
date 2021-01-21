@@ -1,12 +1,12 @@
 # Licence
 
-Osim ako je kazano drugačije, ASF je licenciran pod **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)** licencom. Za brzi pregled onog čega možete da koristite, posjetite **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+Osim ako je kazano drugačije, ASF je licenciran pod **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)** licencom. Za brzi pregled onog čega možete da koristite, posjetite **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
 
 ASF licenca je veoma blaga i vi imate dozvolu da radite mnogo više od toga što je standardno u GPL licenci, uključujući i korišćenje ASF-a u komercijalne projekte bez uslova da kod bude otvoren (open-source). Ukratko, kao što je kazano i u tl;dr Legal:
 
 > možete koristiti ovaj softver kako želite, sve dok sadrži potrebne opaške. Ova blaga licenca sadrži patent licencu od saradnika ovog koda.
 
-Molimo vas da zapazite da razne **[ASF komponente](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** koje su sadržane sa `PackageReference` i često su licencirane pod drugim licencama, kao što je **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Isto važi i za sve projekte trećih strana koje ASF koristi, posebno sve `alatke` koje pored naše imaju svoje licence.
+Molimo vas da zapazite da razne **[ASF komponente](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** koje su sadržane sa `PackageReference` i često su licencirane pod drugim licencama, kao što je **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Isto važi i za sve projekte trećih strana koje ASF koristi, posebno sve `alatke` koje pored naše imaju svoje licence.
 
 * * *
 

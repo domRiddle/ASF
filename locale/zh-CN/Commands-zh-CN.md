@@ -42,7 +42,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 这是执行命令最先进、灵活的方式，非常适合用户集成（ASF-ui）或者第三方工具脚本（ASF API）。这种方式需要 ASF 运行在 `IPC` 模式下，并且客户端需要通过 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 接口来执行命令。
 
-![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
+![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
 * * *
 

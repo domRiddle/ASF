@@ -45,6 +45,6 @@
 ## разработчици
 
 * **[Строеж](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Основни насоки за принос](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Основни насоки за принос](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[Лиценз](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Цикъл на въвеждане на нови версии](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

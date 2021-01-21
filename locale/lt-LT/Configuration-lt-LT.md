@@ -29,7 +29,7 @@ Configuration can be done either manually - by creating proper JSON configs, or 
 
 ## Web-based ConfigGenerator
 
-The purpose of **[web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
+The purpose of **[web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
 
 Web-based ConfigGenerator is verified to run properly on Chrome and Firefox, but it should work properly in all most popular javascript-enabled browsers.
 
@@ -243,7 +243,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 | Reikšmė | Pavadinimas | Description                                                                                      |
 | ------- | ----------- | ------------------------------------------------------------------------------------------------ |
-| 0       | None        | No protocol                                                                                      |
+| 0       | Nėra        | No protocol                                                                                      |
 | 1       | TCP         | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
 | 2       | UDP         | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4       | WebSocket   | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
@@ -385,7 +385,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 | Reikšmė | Pavadinimas                   | Description                                                                                              |
 | ------- | ----------------------------- | -------------------------------------------------------------------------------------------------------- |
-| 0       | None                          | No special bot behaviour, the least invasive mode, default                                               |
+| 0       | Nėra                          | No special bot behaviour, the least invasive mode, default                                               |
 | 1       | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites                                    |
 | 2       | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers                                      |
 | 4       | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites                                     |
@@ -612,7 +612,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 | Reikšmė | Pavadinimas                        | Description                                                                                                                     |
 | ------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| 0       | None                               | No special redeeming preferences, default                                                                                       |
+| 0       | Nėra                               | No special redeeming preferences, default                                                                                       |
 | 1       | Forwarding                         | Forward keys unavailable to redeem to other bots                                                                                |
 | 2       | Distributing                       | Distribute all keys among itself and other bots                                                                                 |
 | 4       | KeepMissingGames                   | Keep keys for (potentially) missing games when forwarding, leaving them unused                                                  |
@@ -700,7 +700,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 | Reikšmė | Pavadinimas   | Description                                                                                                                                                                                        |
 | ------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0       | None          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
+| 0       | Nėra          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
 | 1       | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
 | 2       | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
 | 3       | Master        | Provides full access to given bot instance                                                                                                                                                         |
@@ -719,7 +719,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 | Reikšmė | Pavadinimas         | Description                                                                                                                                                                                          |
 | ------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0       | None                | No special trading preferences, default                                                                                                                                                              |
+| 0       | Nėra                | No special trading preferences, default                                                                                                                                                              |
 | 1       | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
 | 2       | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
 | 4       | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
@@ -882,7 +882,7 @@ For example, given following values:
 
 | Reikšmė | Pavadinimas |
 | ------- | ----------- |
-| 0       | None        |
+| 0       | Nėra        |
 | 1       | A           |
 | 2       | B           |
 | 4       | C           |

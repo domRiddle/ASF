@@ -45,6 +45,6 @@
 ## Kūrėjai
 
 * **[Kompiliavimas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Pagalbinės gairės](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Pagalbinės gairės](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[Licencija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Išleidimų ciklas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

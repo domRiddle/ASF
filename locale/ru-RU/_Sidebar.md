@@ -45,6 +45,6 @@
 ## Для разработчиков
 
 * **[Компиляция](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-ru-RU)**
-* **[Правила участия в разработке](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Правила участия в разработке](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[Лицензия](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License-ru-RU)**
 * **[Цикл выпуска](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ru-RU)**

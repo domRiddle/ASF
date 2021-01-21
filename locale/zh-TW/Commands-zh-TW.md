@@ -42,7 +42,7 @@ ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 
 這是最先進、靈活的執行指令方式，非常適合使用者互動（ASF-ui）或者第三方工具腳本（ASF API）。這種方式需要 ASF 執行在 `IPC` 模式下，並且用戶端需要透過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)** 介面來執行指令。
 
-![截圖](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
+![截圖](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
 * * *
 

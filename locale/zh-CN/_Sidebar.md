@@ -45,6 +45,6 @@
 ## 开发者
 
 * **[编译](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-zh-CN)**
-* **[贡献指南](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[贡献指南](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[许可](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License-zh-CN)**
 * **[发布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**

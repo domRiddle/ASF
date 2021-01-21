@@ -42,7 +42,7 @@ Por favor, ten en cuenta que enviar un comando al chat de grupo funciona como un
 
 La forma más avanzada y flexible de ejecutar comandos, perfecta para la interacción con el usuario (ASF-ui) así como con herramientas de terceros o con scripting (ASF API), requiere que ASF se ejecute en modo `IPC`, y un cliente que ejecute comandos a través de la interfaz **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es)**.
 
-![Captura de pantalla](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
+![Captura de pantalla](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
 * * *
 

@@ -1,12 +1,12 @@
 # Лицензия
 
-Если не указано иначе, ASF лицензируется по **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)**. Краткий обзор того, что вы можете и чего не можете делать вы можете найти на сайте **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**, а также вы можете прочесть неофициальный перевод на русский язык, расположенный **[тут](http://www.dataved.ru/2011/03/apache-license-2.html)**, но не забывайте, что юридическую силу имеет только полная английская версия.
+Если не указано иначе, ASF лицензируется по **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**. Краткий обзор того, что вы можете и чего не можете делать вы можете найти на сайте **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**, а также вы можете прочесть неофициальный перевод на русский язык, расположенный **[тут](http://www.dataved.ru/2011/03/apache-license-2.html)**, но не забывайте, что юридическую силу имеет только полная английская версия.
 
 Лицензия ASF очень либеральная, и вам разрешено делать намного больше чем при стандартной лицензии GPL, в том числе вы можете использовать ASF в коммерческих проектах без необходимости открывать исходный код. В кратце, как сказано в tl;dr Legal:
 
 > You can do what you like with the software, as long as you include the required notices (Вы можете делать что угодно с программным обеспечением, если вы прикладываете к нему необходимое уведомление). This permissive license contains a patent license from the contributors of the code (Эта либеральная лицензия содержит патентную лицензию от соавторов кода).
 
-Обратите внимание, что различные **[компоненты ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)**, указанные в разделе `PackageReference`, зачастую лицензируются с другими условиями, такими как **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. То же касается и всех проектов от третьих лиц, которые использует ASF, особенно всех утилит (`tools`) у которых есть свои собственные лицензии.
+Обратите внимание, что различные **[компоненты ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)**, указанные в разделе `PackageReference`, зачастую лицензируются с другими условиями, такими как **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. То же касается и всех проектов от третьих лиц, которые использует ASF, особенно всех утилит (`tools`) у которых есть свои собственные лицензии.
 
 * * *
 

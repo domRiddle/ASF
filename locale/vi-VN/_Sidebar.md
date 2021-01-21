@@ -45,6 +45,6 @@
 ## Dành cho lập trình viên
 
 * **[Trình biên dịch](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Hướng dẫn đóng góp](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Hướng dẫn đóng góp](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[Giấy phép](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Chu kỳ phát hành](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

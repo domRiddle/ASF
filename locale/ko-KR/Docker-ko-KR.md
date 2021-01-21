@@ -8,13 +8,13 @@ ASF는 3.0.3.2 버전부터 **[도커 컨테이너](https://www.docker.com/what-
 
 ASF는 4가지 주요 유형의 **[태그](https://hub.docker.com/r/justarchi/archisteamfarm/tags)** 상태를 갖습니다.
 
-### `master`
+### `main`
 
-이 태그는 항상 master 분기의 최신 커밋으로 빌드된 ASF를 가리킵니다. 이는 **[릴리스 주기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)**에서 묘사된 실험적 AppVeyor 빌드와 동일하게 동작합니다. 일반적으로 이 태그는 피해야 합니다. 이는 개발목적을 위해 개발자와 고급사용자용의 최고 수준으로 버그가 많은 소프트웨어입니다. GitHub master 분기의 모든 커밋마다 업데이트되며, AppVeyor 빌드처럼 업데이트가 매우 잦고 일부 깨진것이 있을 것입니다. 릴리스 주기에서 이야기한 것 처럼 이는 ASF 프로젝트의 현재 상태를 나타내기 위해 있는것이지, 안정적이거나 테스트완료되었음을 보장하는 것이 아닙니다. 이 태그는 제작 환경에서 사용해서는 안됩니다.
+This tag always points to the ASF built from latest commit in `main` branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. 일반적으로 이 태그는 피해야 합니다. 이는 개발목적을 위해 개발자와 고급사용자용의 최고 수준으로 버그가 많은 소프트웨어입니다. The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken), just like in our AppVeyor build. 릴리스 주기에서 이야기한 것 처럼 이는 ASF 프로젝트의 현재 상태를 나타내기 위해 있는것이지, 안정적이거나 테스트완료되었음을 보장하는 것이 아닙니다. 이 태그는 제작 환경에서 사용해서는 안됩니다.
 
 ### `released`
 
-위와 매우 유사하지만, 이 태그는 사전 릴리스를 포함한 최신 **[릴리스](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** 버전을 항상 가리킵니다. `master` 태그와 비교하면, GitHub 태그가 제출될때마다 업데이트 됩니다. 안정적이면서도 새로운, 최첨단에 있기를 좋아하는 고급 사용자를 위한 것입니다. `latest`를 사용하고 싶지 않은 경우 추천합니다. 이 태그의 사용은 **[사전 릴리스](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)** 의 사용과 동일합니다.
+위와 매우 유사하지만, 이 태그는 사전 릴리스를 포함한 최신 **[릴리스](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** 버전을 항상 가리킵니다. Compared to `main` tag, this image is being updated each time a new GitHub tag is pushed. 안정적이면서도 새로운, 최첨단에 있기를 좋아하는 고급 사용자를 위한 것입니다. `latest`를 사용하고 싶지 않은 경우 추천합니다. 이 태그의 사용은 **[사전 릴리스](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)** 의 사용과 동일합니다.
 
 ### `latest`
 
@@ -32,7 +32,7 @@ Due to the fact that the `latest` image comes with capability of auto-updates, i
 
 찾고 있는 것에 따라 다릅니다. 대부분의 사용자에게 `latest` 태그가 최선입니다. 이는 서비스로 되어있는 특별한 도커 컨테이너에 담겨있을 뿐 데스크탑 ASF가 제공하는 것을 정확하게 동일하게 제공합니다. 해당 릴리스에 ASF 버전이 묶여있는 대신 이미지를 꽤 자주 다시 빌드하는 사람은 `released` 태그를 사용하십시오. 당신의 명확한 의도 없이 어떤것도 바뀌지 않는 특정한 동결 버전을 사용하길 원한다면 `A.B.C.D` 릴리스가 당신이 항상 돌아갈 수 있는 고정된 ASF 마일스톤이 될 것입니다.
 
-자동화된 AppVeyor 빌드처럼 `master` 빌드의 사용은 추천하지 않습니다. 이 빌드는 ASF 프로젝트의 현재 상태를 나타내기 위한 것입니다. 그 상태는 어떤것도 정상작동을 보장하지 않지만, ASF 개발에 관심이 있다면 시도해보는 것도 좋습니다.
+We generally discourage trying `main` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. 그 상태는 어떤것도 정상작동을 보장하지 않지만, ASF 개발에 관심이 있다면 시도해보는 것도 좋습니다.
 
 * * *
 

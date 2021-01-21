@@ -45,6 +45,6 @@
 ## Sviluppatori
 
 * **[Compilazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Linee guida per contribuire](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Linee guida per contribuire](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[Licenza](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Ciclo di rilascio](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

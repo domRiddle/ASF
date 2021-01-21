@@ -214,7 +214,7 @@ Sada možete preuzeti vašu ASF konfiguraciju i sačuvati je u `config` direktor
 
 Ako ste sve pravilno uradili, onda ćete imati pristup ASF-ovom IPC interfejsu na **[ovom](http://localhost:1242)** linku, sve dok je ASF pokrenut. Možete koristiti ASF-ui za razne svrhe, npr. slanje **[komandi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Slobodno razgledajte okolo da bi pronašli razne ASF-ui funkcije.
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
 Zapamtite da ASF-ui trenutno u preglednom stanju i da još sve nije dostupno/ili još ne radi, ali je više nego dovoljno za jednostavno korišćenje ASF-a.
 

@@ -42,7 +42,7 @@ Xin lưu ý rằng việc gửi lệnh đến trò chuyện nhóm hoạt động
 
 Một phương pháp khác nâng cao và linh động hơn để thực thi lệnh, hoàn hảo cho tương tác người dùng (ASF-ui) cũng như các công cụ bên thứ ba hay tập lệnh (ASF API), yêu cầu ASF chạy trong chế độ `IPC`, và một máy trạm thực thi lệnh thông qua giao diện **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**.
 
-![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
+![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
 * * *
 

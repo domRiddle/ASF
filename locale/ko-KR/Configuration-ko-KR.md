@@ -29,7 +29,7 @@ ASF는 환경설정 파일을 저장하기 위하여 **[JSON](https://ko.wikiped
 
 ## 웹 기반 환경설정 생성기(ConfigGenerator)
 
-**[웹 기반 환경설정 생성기](https://justarchinet.github.io/ASF-WebConfigGenerator)** 의 목적은 ASF 환경설정 파일을 생성하는 친숙한 화면을 제공하는 것입니다. 웹 기반 환경설정 생성기는 100% 클라이언트 기반입니다. 즉 입력한 세부내용은 다른 어디로도 보내지지 않고 로컬에서만 처리된다는 뜻입니다. 이렇게 해서 보안성과 신뢰성을 보장할 수 있습니다. 모든 파일을 다운로드 받고 `index.html` 파일을 당신의 웹 브라우저에서 실행하면 **[오프라인](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)** 으로 작동할 수도 있습니다.
+**[웹 기반 환경설정 생성기](https://justarchinet.github.io/ASF-WebConfigGenerator)** 의 목적은 ASF 환경설정 파일을 생성하는 친숙한 화면을 제공하는 것입니다. 웹 기반 환경설정 생성기는 100% 클라이언트 기반입니다. 즉 입력한 세부내용은 다른 어디로도 보내지지 않고 로컬에서만 처리된다는 뜻입니다. 이렇게 해서 보안성과 신뢰성을 보장할 수 있습니다. 모든 파일을 다운로드 받고 `index.html` 파일을 당신의 웹 브라우저에서 실행하면 **[오프라인](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)** 으로 작동할 수도 있습니다.
 
 웹 기반 환경설정 생성기는 크롬과 파이어폭스에서 정상작동됨을 검증하였습니다. 또한 자바스크립트가 가능한 대부분의 유명한 웹 브라우저에서도 정상적으로 작동할 것입니다.
 

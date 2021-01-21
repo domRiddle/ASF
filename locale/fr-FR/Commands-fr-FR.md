@@ -42,7 +42,7 @@ Veuillez noter que l'envoi d'une commande au chat de groupe agit comme un relais
 
 La manière la plus avancée et la plus souple d’exécution de commandes, idéale pour les interactions utilisateur (ASF-ui) ainsi que pour les outils tiers ou les scripts (API ASF), requiert que ASF soit exécuté en mode ` IPC `. une commande d'exécution client via l'interface **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**.
 
-![Capture d"écran](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
+![Capture d"écran](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
 * * *
 

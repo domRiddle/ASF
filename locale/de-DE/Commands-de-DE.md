@@ -42,7 +42,7 @@ Bitte bedenken Sie, dass das Senden eines Befehls an den Gruppen-Chat wie ein Re
 
 Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeignet für die Benutzerinteraktion (ASF-ui), für Drittanbieter-Programme oder Skripte (ASF-API). Diese Variante erfordert, dass ASF im `IPC` Modus ausgeführt wird und einen Client der Befehle über die **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** Schnittstelle ausführt.
 
-![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
+![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
 * * *
 

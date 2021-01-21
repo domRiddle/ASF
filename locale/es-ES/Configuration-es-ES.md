@@ -29,7 +29,7 @@ La configuración puede ser hecha manualmente - creando configuraciones JSON, o 
 
 ## ConfigGenerator basado en la web
 
-El propósito del **[ConfigGenerator basado en la web](https://justarchinet.github.io/ASF-WebConfigGenerator)** es proporcionar una interfaz amigable usada para generar archivos de configuración de ASF. El ConfigGenerator basado en la web está 100% basado en el cliente, lo que significa que los detalles que introduces no son enviados a ningún lado, sino que solo son procesados localmente. Esto garantiza seguridad y confiabilidad, que incluso puede funcionar **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)** si quieres descargar todos los archivos y ejecutar `index.html` en tu navegador favorito.
+El propósito del **[ConfigGenerator basado en la web](https://justarchinet.github.io/ASF-WebConfigGenerator)** es proporcionar una interfaz amigable usada para generar archivos de configuración de ASF. El ConfigGenerator basado en la web está 100% basado en el cliente, lo que significa que los detalles que introduces no son enviados a ningún lado, sino que solo son procesados localmente. Esto garantiza seguridad y confiabilidad, que incluso puede funcionar **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)** si quieres descargar todos los archivos y ejecutar `index.html` en tu navegador favorito.
 
 Está verificado que el ConfigGenerator basado en la web funciona correctamente en Chrome y Firefox, pero también debería funcionar correctamente en todos los navegadores más populares que usen javascript.
 

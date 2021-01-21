@@ -45,6 +45,6 @@
 ## Kehittäjille
 
 * **[Suorittaminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Osallistumisen reunaehdot](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Osallistumisen reunaehdot](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[Lisenssi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Julkaisukierto](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

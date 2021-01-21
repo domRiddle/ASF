@@ -1,12 +1,12 @@
 # 许可
 
-除非另有说明，ASF 基于 **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)** 许可证授权。 想要快速了解您能做什么与不能做什么，可以阅读 **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**。
+除非另有说明，ASF 基于 **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)** 许可证授权。 想要快速了解您能做什么与不能做什么，可以阅读 **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**。
 
 ASF 的许可证是非常宽松的，您可以做的事比标准 GPL 许可证规定的更多，包括在商业项目中使用 ASF，而不需要使代码开源。 简而言之，正如 tl;dr Legal 所述：
 
 > You can do what you like with the software, as long as you include the required notices. （参考译文：您可以使用此软件做任何事情，只要您在项目中作出原作者所要求的通知声明。） This permissive license contains a patent license from the contributors of the code.（参考译文：这种宽松的许可证会授予您一份来自代码贡献者的专利许可。）
 
-请注意，`PackageReference` 包含的各 **[ASF 组件](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)**&#8203;通常会有不同的许可，例如 **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**。 同样的情况也适用于 ASF 使用的所有其他第三方项目，特别是 `tools` 目录中的工具通常都有自己的许可证。
+请注意，`PackageReference` 包含的各 **[ASF 组件](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)**&#8203;通常会有不同的许可，例如 **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**。 同样的情况也适用于 ASF 使用的所有其他第三方项目，特别是 `tools` 目录中的工具通常都有自己的许可证。
 
 * * *
 

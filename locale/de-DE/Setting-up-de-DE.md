@@ -214,7 +214,7 @@ Jetzt kannst du deine ASF-Konfiguration herunterladen und wie gewohnt in dein `c
 
 Wenn du alles richtig gemacht hast, kannst du nun unter **[diesem](http://localhost:1242)** Link auf die IPC-Schnittstelle von ASF zugreifen, solange ASF läuft. Du kannst ASF-ui für verschiedene Zwecke verwenden, z.B. um **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** zu senden. Wirf einfach einen Blick darauf, um alle Funktionalitäten von ASF-ui kennenzulernen.
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
 Bitte bedenke, dass sich ASF-ui derzeit im Preview-Zustand befindet und noch nicht alles verfügbar/funktionsfähig ist, aber es ist mehr als genug für eine simple ASF-Nutzung.
 

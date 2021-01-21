@@ -58,11 +58,11 @@ ASF doesn't support any way of decrypting already encrypted passwords, as decryp
 
 ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
 
-| Value | Nume      |
-| ----- | --------- |
-| 0     | PlainText |
-| 1     | SCrypt    |
-| 2     | Pbkdf2    |
+| Valoare | Nume      |
+| ------- | --------- |
+| 0       | PlainText |
+| 1       | SCrypt    |
+| 2       | Pbkdf2    |
 
 Descrierea exactă și compararea acestora sunt disponibile mai jos.
 

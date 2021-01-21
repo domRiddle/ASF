@@ -45,6 +45,6 @@
 ## 개발자
 
 * **[컴파일](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-ko-KR)**
-* **[기여 가이드라인](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[기여 가이드라인](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[라이센스](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License-ko-KR)**
 * **[릴리스 주기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)**

@@ -80,6 +80,6 @@ ASF 清楚地说明指定游戏的卡牌在何时掉落。 您需要关注 ASF �
 
 无论您是否能够用其他程序（例如 IM）触发 Steam 漏洞，无论您是否同意我们的观点，将这种行为视为 DoS 攻击——这是由 Valve 来决断的，但只要我们将其视为通过滥发 Steam 网络请求对不可靠行为进行滥用，那么您就可以确信 Valve 的看法会与我们相似。
 
-ASF **永远不会**利用针对 Steam 的攻击、滥用、入侵或其他任何我们认为**违反** Steam 订户协议、Steam 在线行为准则的行为，以及任何其他可信来源表明的 Steam 网络未预期的行为，如&#8203;**[贡献指南](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**&#8203;所述。
+ASF is **never** going to take advantage of Steam exploits, abuses, hacks or any other activity that we see as **illegal or unwanted** according to Steam ToS, Steam Online Conduct or any other trusted source that could indicate that ASF activity is unwanted by Steam network, as stated in **[contributing](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)** section.
 
 如果您仍然愿意为了几分钱的卡牌冒险加快挂卡速度，ASF 永远不会支持自动执行这样的操作。但您仍然可以手动执行 `play` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;进行您想要对 Steam 网络做的任何事情。 我们不建议利用 Steam 漏洞为自己获利——无论是通过 ASF 还是其他工具。 然而，这是您自己的帐户，您可以选择如何使用它——只是要注意，我们警告过您。

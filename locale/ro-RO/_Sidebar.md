@@ -45,6 +45,6 @@
 ## Dezvoltatori
 
 * **[Compilare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Ghid pentru contributii](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Ghid pentru contributii](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[Licenţă](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Ciclu de lansare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

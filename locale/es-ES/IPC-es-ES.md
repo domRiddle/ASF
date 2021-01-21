@@ -33,7 +33,7 @@ ASF-ui es un proyecto comunitario que pretende crear una interfaz gráfica amiga
 
 Como se dijo antes, ASF-ui es un proyecto comunitario que no es mantenido por los desarrolladores de ASF. Sigue su propio curso en **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** el cual debe ser usado para todas las preguntas relacionadas, problemas, reporte de bugs y sugerencias.
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
 * * *
 

@@ -8,13 +8,13 @@
 
 ASF 有4種主要類型的**[標籤](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**：
 
-### `master`
+### `main`
 
-此標籤始終指向從主分支中的最新提交產生的 ASF，其工作原理與**[發佈週期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-TW)**中描述的實驗 AppVeyor 產生相同。 通常，您應該避免此標記，因為它有大量的漏洞，是以開發為目的專們給開發人員和高級使用者。 這映像檔會隨這每次 commit 至 GitHub 分支時更新，因此可以預期他會常常更新（以及有些東西損壞），就像我們的 AppVeyor 構建一樣。 他是標記 ASF 項目的當前狀態，不一定保證穩定或測試，就像在我們的發布週期中指出的那樣。 此標記不應在任何生產環境中使用。
+This tag always points to the ASF built from latest commit in `main` branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. 通常，您應該避免此標記，因為它有大量的漏洞，是以開發為目的專們給開發人員和高級使用者。 The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken), just like in our AppVeyor build. 他是標記 ASF 項目的當前狀態，不一定保證穩定或測試，就像在我們的發布週期中指出的那樣。 此標記不應在任何生產環境中使用。
 
 ### `released`
 
-Very similar to the above, this tag always points to the latest **[released](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** ASF version, including pre-releases. Compared to `master` tag, this image is being updated each time a new GitHub tag is pushed. Dedicated to advanced/power users that love to live on the edge of what can be considered stable and fresh at the same time. This is what we'd recommend if you don't want to use `latest` tag. Please note that using this tag is equal to using our **[pre-releases](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**.
+Very similar to the above, this tag always points to the latest **[released](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** ASF version, including pre-releases. Compared to `main` tag, this image is being updated each time a new GitHub tag is pushed. Dedicated to advanced/power users that love to live on the edge of what can be considered stable and fresh at the same time. This is what we'd recommend if you don't want to use `latest` tag. Please note that using this tag is equal to using our **[pre-releases](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**.
 
 ### `latest`
 
@@ -32,7 +32,7 @@ In comparison with above tags, this tag is completely frozen, which means that t
 
 That depends on what you're looking for. For majority of users, `latest` tag should be the best one as it offers exactly what desktop ASF does, just in special Docker container as a service. People that are rebuilding their images quite often and would instead prefer to have ASF version tied to given release are welcome to use `released` tag. If you instead want to use some specific frozen ASF version that will never change without your clear intention, `A.B.C.D` releases are available for you as fixed ASF milestones you can always fall back to.
 
-We generally discourage trying `master` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. Nothing guarantees that such state will work properly, but of course you're more than welcome to give them a try if you're interested in ASF development.
+We generally discourage trying `main` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. Nothing guarantees that such state will work properly, but of course you're more than welcome to give them a try if you're interested in ASF development.
 
 * * *
 

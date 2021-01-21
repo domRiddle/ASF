@@ -8,6 +8,6 @@ ASF Wiki へようこそ。 Wiki は、よく寄せられる質問、考えら�
 
 初めての方は、 &#8203;**[初期設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-ja-JP)**&#8203;から始めることをお勧めします。 他の関連する Wiki ページは、画面右側のサイドバーにあります。 上から始めることをお勧めしますが、興味のあるものから読み進んで頂いても構いません。
 
-さらにヘルプが必要な場合は、あらゆる質問や技術的な困難に対応できる&#8203;**[サポートチャンネル](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/SUPPORT.md)**&#8203;をチェックしてみてください。
+さらにヘルプが必要な場合は、あらゆる質問や技術的な困難に対応できる&#8203;**[サポートチャンネル](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**&#8203;をチェックしてみてください。
 
-GitHub の **[issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** ページは ASF の開発、特にバグや機能強化のために使用されています。 GitHub は開発専用のチャンネルであり、一般向けにサポートを提供する場&#8203;**ではない**&#8203;。一般的な問題は&#8203;**[サポートチャンネル](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/SUPPORT.md)**&#8203;をご利用下さい。 問題が ASF の開発に関連しているかどうかわからない場合でも、サポートチャンネルを利用することをお勧めします。 これに関しては非常に厳しいポリシーがあり、無効な GitHub の問題は直ちにクローズされ、回答は得られません。
+GitHub の **[issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** ページは ASF の開発、特にバグや機能強化のために使用されています。 GitHub は開発専用のチャンネルであり、一般向けにサポートを提供する場&#8203;**ではない**&#8203;。一般的な問題は&#8203;**[サポートチャンネル](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**&#8203;をご利用下さい。 問題が ASF の開発に関連しているかどうかわからない場合でも、サポートチャンネルを利用することをお勧めします。 これに関しては非常に厳しいポリシーがあり、無効な GitHub の問題は直ちにクローズされ、回答は得られません。

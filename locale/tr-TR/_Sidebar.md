@@ -45,6 +45,6 @@
 ## Geliştiriciler
 
 * **[Derleme](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Katkıda bulunma yönergeleri](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Katkıda bulunma yönergeleri](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[Lisans](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Yayın döngüsü](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

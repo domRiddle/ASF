@@ -45,6 +45,6 @@
 ## Vývojáři
 
 * **[Kompilace](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Jak přispět?](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Jak přispět?](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[Licence](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Cyklus vydávání](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

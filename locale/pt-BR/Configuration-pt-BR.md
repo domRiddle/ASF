@@ -29,7 +29,7 @@ A configuração pode ser feita manualmente criando configurações JSON adequad
 
 ## Gerador de configuração web
 
-A função do **[Gerenciador de Configuração Web](https://justarchinet.github.io/ASF-WebConfigGenerator)** é proporcionar uma interface amigável a ser utilizada na geração de configurações para o ASF. O gerador de configuração Web funciona 100% no lado do cliente, o que significa que os detalhes que você está inserindo não são enviados para nenhum lugar, mas processados apenas no seu computador. Isto garante segurança e confiabilidade, pois ele pode até mesmo trabalhar **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)**, basta baixar todos os arquivos e executar o `index.html` no seu navegador favorito.
+A função do **[Gerenciador de Configuração Web](https://justarchinet.github.io/ASF-WebConfigGenerator)** é proporcionar uma interface amigável a ser utilizada na geração de configurações para o ASF. O gerador de configuração Web funciona 100% no lado do cliente, o que significa que os detalhes que você está inserindo não são enviados para nenhum lugar, mas processados apenas no seu computador. Isto garante segurança e confiabilidade, pois ele pode até mesmo trabalhar **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**, basta baixar todos os arquivos e executar o `index.html` no seu navegador favorito.
 
 O Gerador de configuração Web foi testado e roda perfeitamente no Chrome e no Firefox, e deve funcionar corretamente em todos os navegadores mais populares com javascript habilitado.
 

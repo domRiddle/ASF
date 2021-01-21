@@ -8,13 +8,13 @@ A partir de la versión 3.0.3.2, ASF también está disponible como **[contenedo
 
 ASF está disponible mediante 4 tipos principales de **[etiquetas](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
 
-### `master`
+### `main`
 
-Esta etiqueta siempre apunta al ASF compilado a partir del último "commit" en la rama master, que funciona igual que la compilación AppVeyor experimental descrita en nuestro **[ciclo de lanzamiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-es-es)**. Normalmente debes evitar esta etiqueta, ya que es el nivel más alto de software con bugs dedicado a desarrolladores y usuarios avanzados para fines de desarrollo. La imagen se actualiza con cada "commit" en la rama master de GitHub, por lo tanto puedes esperar actualizaciones muy frecuentes (y cosas rotas), como en nuestra compilación AppVeyor. Esta aquí para que marquemos el estado actual del proyecto ASF, que no necesariamente se garantiza que sea estable o probado, tal como se indica en nuestro ciclo de lanzamiento. Esta etiqueta no debe ser usada en ningún entorno de producción.
+This tag always points to the ASF built from latest commit in `main` branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. Normalmente debes evitar esta etiqueta, ya que es el nivel más alto de software con bugs dedicado a desarrolladores y usuarios avanzados para fines de desarrollo. The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken), just like in our AppVeyor build. Esta aquí para que marquemos el estado actual del proyecto ASF, que no necesariamente se garantiza que sea estable o probado, tal como se indica en nuestro ciclo de lanzamiento. Esta etiqueta no debe ser usada en ningún entorno de producción.
 
 ### `released`
 
-Muy similar a la anterior, esta etiqueta siempre apunta a la última versión **[liberada](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** de ASF, incluyendo pre-versiones. Comparado con la etiqueta `master`, esta imagen se actualiza cada vez que se lanza el "push" a una nueva etiqueta GitHub. Dedicado a usuarios avanzados que les encanta vivir al límite de lo que se puede considerar estable y fresco al mismo tiempo. Esta es la que recomendamos si no quieres usar la etiqueta `latest`. Por favor, ten en cuenta que usar esta etiqueta es igual a usar nuestras **[pre-versiones](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-es-es)**.
+Muy similar a la anterior, esta etiqueta siempre apunta a la última versión **[liberada](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** de ASF, incluyendo pre-versiones. Compared to `main` tag, this image is being updated each time a new GitHub tag is pushed. Dedicado a usuarios avanzados que les encanta vivir al límite de lo que se puede considerar estable y fresco al mismo tiempo. Esta es la que recomendamos si no quieres usar la etiqueta `latest`. Por favor, ten en cuenta que usar esta etiqueta es igual a usar nuestras **[pre-versiones](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-es-es)**.
 
 ### `latest`
 
@@ -32,7 +32,7 @@ En comparación con las etiquetas anteriores, esta etiquetas está completamente
 
 Eso depende de lo que busques. Para la mayoría de los usuarios, la etiqueta `latest` debería ser la mejor ya que ofrece exactamente lo que hace ASF de escritorio, solo que en un contenedor Docker especial como servicio. Las personas que están reconstruyendo sus imágenes a menudo y en su lugar prefieren tener una versión de ASF atada a una publicación dada son bienvenidas a usar la etiqueta `released`. Si en cambio quieres usar alguna versión congelada de ASF que nunca cambiará sin tu clara intención, las versiones `A.B.C.D` están disponibles como marcas fijas a las que siempre puedes regresar.
 
-Generalmente no recomendamos probar las compilaciones `master`, al igual que las compilaciones automatizadas AppVeyor - esta compilación está para marcar el estado actual del proyecto ASF. Nada garantiza que dicho estado funcione correctamente, pero eres más que bienvenido a probarlas si estás interesado en el desarrollo de ASF.
+We generally discourage trying `main` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. Nada garantiza que dicho estado funcione correctamente, pero eres más que bienvenido a probarlas si estás interesado en el desarrollo de ASF.
 
 * * *
 

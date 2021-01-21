@@ -42,7 +42,7 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 
 사용자 상호 작용(ASF-ui) 및 서드-파티 도구 또는 스크립팅(ASF API) 에 대해서 가장 적합한 명령어들을 실행하는 가장 진보적이고 유연한 방법은 ASF가 `IPC` 모드로 실행하는 것을 요구하고 클라이언트는 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)** 인터페이스를 통해서 명령을 실행합니다.
 
-![스크린샷](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
+![스크린샷](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
 * * *
 

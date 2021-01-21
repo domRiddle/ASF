@@ -1,12 +1,12 @@
 # 許可證
 
-除非另有說明，ASF的許可證基於**[Apache許可證 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/master/LICENSE-2.0.txt)**。 您可以查閱 **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**以快速了解您可以做什麼和不能做什麼。
+除非另有說明，ASF的許可證基於**[Apache許可證 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**。 您可以查閱 **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**以快速了解您可以做什麼和不能做什麼。
 
 ASF許可證是非常寬鬆的，它允許的範圍比標準GPL許可證更大，包括允許您在商業項目中使用ASF，而不需要開源代碼。 總之，正如 tl;dr Legal 所述：
 
 > 只要您在項目中遵循開發人員的要求作出相關聲明，便可將此軟件作任意用途。 此許可證包含來自代碼貢獻者的專利許可。
 
-Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` are often licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. 同樣的情況也適用于 ASF 使用的所有其他第三方工具，尤其是`tools`目錄中那些將其許可證列於代碼頂部的工具。
+Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` are often licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. 同樣的情況也適用于 ASF 使用的所有其他第三方工具，尤其是`tools`目錄中那些將其許可證列於代碼頂部的工具。
 
 * * *
 

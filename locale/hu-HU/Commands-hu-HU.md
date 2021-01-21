@@ -42,7 +42,7 @@ A csoportos chat számára kiadott parancsokat mindenki megkapja. Ha azt írtod 
 
 A legfejlettebb és legrugalmasabb módja a parancsok kiadásának, tökéletes a felhasználói interakciókhoz (ASF-ui), valamint a harmadik féltől származó programokhoz, vagy szkriptekhez (ASF API), használatához az ASF-t `IPC` módban kell futtatni, valamint a kliensnek az **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interfészen keresztül kell parancsot kiadnia.
 
-![Képernyőmentés](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/commands.png)
+![Képernyőmentés](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
 * * *
 

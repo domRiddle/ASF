@@ -45,6 +45,6 @@
 ## Udviklere
 
 * **[Kompilering](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Retningslinjer for bidrag](https://github.com/JustArchiNET/ArchiSteamFarm/blob/master/.github/CONTRIBUTING.md)**
+* **[Retningslinjer for bidrag](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[Licens](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[Udgivelsescyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

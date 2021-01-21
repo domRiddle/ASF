@@ -29,7 +29,7 @@ La configuration peut être effectuée manuellement - en créant les configurati
 
 ## Panel Web de configuration
 
-Le but de **[web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** est de vous fournir une interface conviviale qui est utilisée pour générer des fichiers de configuration ASF. Le Panel Web de configuration est 100% basé sur le client, ce qui signifie que les détails que vous saisissez ne sont envoyés nulle part, mais traités localement uniquement. Cela garantit la sécurité et la fiabilité, car cela peut même fonctionner **[hors connexion](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/master/docs)** si vous souhaitez télécharger tous les fichiers et exécuter `index.html` dans votre navigateur préféré.
+Le but de **[web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** est de vous fournir une interface conviviale qui est utilisée pour générer des fichiers de configuration ASF. Le Panel Web de configuration est 100% basé sur le client, ce qui signifie que les détails que vous saisissez ne sont envoyés nulle part, mais traités localement uniquement. Cela garantit la sécurité et la fiabilité, car cela peut même fonctionner **[hors connexion](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)** si vous souhaitez télécharger tous les fichiers et exécuter `index.html` dans votre navigateur préféré.
 
 Le Panel Web de configuration est vérifié pour fonctionner correctement sur Chrome et Firefox, mais il devrait fonctionner correctement avec la plupart des navigateurs les plus populaires comptabile avec javascript.
 

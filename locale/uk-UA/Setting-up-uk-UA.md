@@ -214,7 +214,7 @@ ASF це консольна програма, і не включає в себе
 
 Якщо ви зробили усе вірно, тепер ви зможете дістатися до інтерфейсу IPC вашого ASF за **[цим](http://localhost:1242)** посиланням, у той час коли ASF запущено. Ви можете користуватися ASF-ui для різноманітних цілей, наприклад щоб надсилати **[команди](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-uk-UA)**. Ви вільні вивчати цей інтерфейс з метою дізнатися про усі можливості ASF-ui.
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/master/.github/previews/bots.png)
+![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
 Будь ласка, пам'ятайте що ASF-ui ще й досі на етапі тестування, і не усе можу бути вже доступним чи працювати, але вже зараз його достатньо для нескладного користування ASF.
 
