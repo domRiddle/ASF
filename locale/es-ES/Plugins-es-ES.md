@@ -84,7 +84,7 @@ dotnet publish YourPluginName -c "Release" -o "out"
 
 Después, tu plugin está lista para su despliegue. Depende de ti como quieres distribuirlo y publicarlo, pero recomendamos crear un archivo zip con un solo archivo llamado `YourNamespace.YourPluginName` (TuNombreespacio.NombreDeTuPlugin), dentro del cual pondrás tu plugin compilado junto con sus **[dependencias](#plugin-dependencies)**. Así el usuario simplemente necesitará desempaquetar tu archivo zip en su directorio `plugins` y nada más.
 
-Este solo es el escenario más básico para empezar. We have **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Siéntete libre de echar un vistazo si quieres aprender de un código funcional, o descubrir el namespace (espacio de nombres) `ArchiSteamFarm.Plugins` y dirígete a la documentación incluida para todas las opciones disponibles.
+Este solo es el escenario más básico para empezar. Tenemos el proyecto **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** que muestra interfaces de ejemplo y acciones que puedes realizar dentro de tu propio plugin, incluyendo comentarios útiles. Siéntete libre de echar un vistazo si quieres aprender de un código funcional, o descubrir el namespace (espacio de nombres) `ArchiSteamFarm.Plugins` y dirígete a la documentación incluida para todas las opciones disponibles.
 
 * * *
 
