@@ -105,7 +105,7 @@ Wenn Sie stattdessen nach einer Bot-basierten schwarzen Liste suchen, schauen Si
 
 ### `CommandPrefix`
 
-`string` Typ mit einem Standardwert von `!`. Diese Eigenschaft spezifiziert das **größensensitive** Präfix, das für **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** in ASF verwendet wird. Mit anderen Worten: Du solltest es jedem ASF-Befehl voranstellen, damit ASF dir zuhört. Es ist möglich, diesen Wert auf `null` oder leer zu setzen, damit ASF kein Befehlspräfix verwendet, in diesem Fall gibst du Befehle mit ihren einfachen Bezeichnern ein. Dies kann jedoch die Leistung von ASF beeinträchtigen, da ASF optimiert ist, um Nachrichten nicht weiter zu analysieren, wenn sie nicht mit `CommandPrefix` beginnen - wenn du dich absichtlich dazu entscheidest, sie nicht zu verwenden, wird ASF gezwungen sein, alle Nachrichten zu lesen und darauf zu reagieren, selbst wenn es sich nicht um ASF-Befehle handelt. Daher wird empfohlen, weiterhin irgendein `CommandPrefix` zu verwenden, wie z.B. `/`, wenn du den Standardwert von `!` nicht magst. Aus Konsistenzgründen betrifft `CommandPrefix` den gesamten ASF-Prozess. Wenn du keinen Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
+`string`-Typ mit einem Standardwert von `!`. Diese Eigenschaft spezifiziert das **größensensitive** Präfix, das für **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/commands-de-DE#befehle)** in ASF verwendet wird. Mit anderen Worten: Sie sollten dies jedem ASF-Befehl voranstellen, damit ASF Ihnen zuhört. Es ist möglich, diesen Wert auf `null` oder leer zu setzen, damit ASF kein Befehlspräfix verwendet. In diesem Fall werden die Befehle mit den jeweiligen einfachen Bezeichnern ein. Dies kann jedoch die Leistung von ASF beeinträchtigen, da ASF optimiert ist, um Nachrichten nicht weiter zu analysieren, wenn sie nicht mit `CommandPrefix` beginnen. Wenn Sie sich absichtlich dazu entscheiden, sie nicht zu verwenden, wird ASF gezwungen sein, alle Nachrichten zu lesen und darauf zu reagieren, selbst wenn es sich nicht um ASF-Befehle handelt. Daher wird empfohlen, weiterhin irgendein `CommandPrefix` zu verwenden, wie z. B. `/`, wenn Sie den Standardwert von `!` nicht mögen. Aus Konsistenzgründen betrifft `CommandPrefix` den gesamten ASF-Prozess. Wenn Sie keinen Grund hast diese Eigenschaft zu bearbeiten, sollten Sie den Standardwert belassen.
 
 * * *
 
@@ -209,7 +209,7 @@ Nebenbei bemerkt, wird dieser Wert auch als Load-Balancing-Puffer in allen ASF-g
 
 ### `MaxTradeHoldDuration`
 
-`byte` Typ mit einem Standardwert von `15`. Diese Eigenschaft definiert die maximale Dauer der Handelssperre in Tagen, die wir bereit sind zu akzeptieren - ASF lehnt Handelsangebote ab, die länger als `MaxTradeHoldDuration` Tage gehalten werden, wie in **[Handeln](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-de-DE)** Abschnitt definiert. Diese Option ist nur für Bots mit `TradingPreferences` von `SteamTradeMatcher` sinnvoll, da sie `Master` / `SteamOwnerID` Handelsangebote und keine Spenden betrifft. Handelssperren sind für alle ärgerlich, und niemand will sich wirklich um sie kümmern. ASF soll nach liberalen Regeln arbeiten und jedem helfen, egal ob er sich in einer Handelssperre befindet oder nicht - deshalb ist diese Option standardmäßig auf `15` gesetzt. Wenn du stattdessen lieber alle von Handelssperren betroffene Handelsangebote ablehnen möchtest, kannst du hier `0` angeben. Bitte bedenke, dass Karten mit kurzer Lebensdauer von dieser Option nicht betroffen sind und für Personen mit Handelssperren automatisch abgelehnt werden, wie im Abschnitt **[Handel](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-de-DE)** beschrieben, so dass es nicht notwendig ist, alle nur deshalb global abzulehnen. Wenn du keinen Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
+`byte` Typ mit einem Standardwert von `15`. Diese Eigenschaft definiert die maximale Dauer der Handelssperre in Tagen, die wir bereit sind zu akzeptieren - ASF lehnt Handelsangebote ab, die länger als `MaxTradeHoldDuration` Tage gehalten werden, wie in **[Handeln](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-de-DE)** Abschnitt definiert. Diese Option ist nur für Bots mit `TradingPreferences` von `SteamTradeMatcher` sinnvoll, da sie `Master` / `SteamOwnerID` Handelsangebote und keine Spenden betrifft. Handelssperren sind für alle ärgerlich, und niemand will sich wirklich um sie kümmern. ASF soll nach liberalen Regeln arbeiten und jedem helfen, egal ob er sich in einer Handelssperre befindet oder nicht - deshalb ist diese Option standardmäßig auf `15` gesetzt. Wenn du stattdessen lieber alle von Handelssperren betroffene Handelsangebote ablehnen möchtest, kannst du hier `0` angeben. Bitte bedenke, dass Karten mit kurzer Lebensdauer von dieser Option nicht betroffen sind und für Personen mit Handelssperren automatisch abgelehnt werden, wie im Abschnitt **[Handel](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-de-DE)** beschrieben, so dass es nicht notwendig ist, alle nur deshalb global abzulehnen. Wenn Sie keinen Grund hast diese Eigenschaft zu bearbeiten, sollten Sie den Standardwert belassen.
 
 * * *
 
@@ -221,7 +221,7 @@ Nebenbei bemerkt, wird dieser Wert auch als Load-Balancing-Puffer in allen ASF-g
 
 ### `Statistics`
 
-`bool` Typ mit einem Standardwert von `true`. Diese Eigenschaft legt fest, ob ASF die Statistik aktiviert haben soll. Eine detaillierte Erklärung, was genau diese Option bewirkt, findest du im Abschnitt **[Statistiken](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-de-DE)**. Wenn du keinen Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
+`bool` Typ mit einem Standardwert von `true`. Diese Eigenschaft legt fest, ob ASF die Statistik aktiviert haben soll. Eine detaillierte Erklärung, was genau diese Option bewirkt, findest du im Abschnitt **[Statistiken](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-de-DE)**. Wenn Sie keinen Grund hast diese Eigenschaft zu bearbeiten, sollten Sie den Standardwert belassen.
 
 * * *
 
@@ -280,7 +280,7 @@ Der Standardwert wurde unter der Annahme festgelegt, dass ASF das einzige Progra
 
 Im Allgemeinen wird das Herabsetzen von `WebLimiterDelay` unter den Standardwert **stark abgeraten**, da es zu verschiedenen IP-bezogenen Sperren führen kann, von denen einige dauerhaft sein können. Der Standardwert ist gut genug, um eine einzelne ASF-Instanz auf dem Server auszuführen und ASF im Normalfall zusammen mit dem ursprünglichen Steam-Client zu verwenden. Es sollte für die meisten Anwendungen zutreffend sein, und du solltest es nur erhöhen (nie senken), wenn du - abgesehen von der Verwendung von ASF - auch ein anderes Programm verwendest, das eine übermäßige Anzahl von Anfragen an dieselben Webdienste senden könnte, die ASF nutzt. Kurz gesagt, die globale Anzahl aller Anfragen, die von einer einzelnen IP an eine einzelne Steam-Domäne gesendet werden, sollte nie 1 Anfrage pro `300` ms überschreiten.
 
-Wenn du keinen Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
+Wenn Sie keinen Grund hast diese Eigenschaft zu bearbeiten, sollten Sie den Standardwert belassen.
 
 * * *
 
@@ -296,7 +296,7 @@ Wenn dein Proxy eine Benutzer-Authentifizierung erfordert, musst du auch `WebPro
 
 Im Moment verwendet ASF den Web-Proxy nur für `http` und `https` Anfragen, was **nicht** die interne Steam-Netzwerk-Kommunikation innerhalb des internen Steam-Clients von ASF beinhaltet. Es gibt derzeit keine Pläne dies zu unterstützen, hauptsächlich wegen der fehlenden **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** Funktionalität. Wenn du es brauchst/willst, würde ich vorschlagen, da anzufangen.
 
-Wenn du keinen Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
+Wenn Sie keinen Grund hast diese Eigenschaft zu bearbeiten, sollten Sie den Standardwert belassen.
 
 * * *
 
@@ -304,7 +304,7 @@ Wenn du keinen Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf d
 
 `string` Typ mit einem Standardwert von `null`. Diese Eigenschaft definiert das Feld für das Passwort, das bei der Basis-, Digest-, NTLM- und Kerberos-Authentifizierung verwendet wird und von einem Ziel `WebProxy`-Rechner mit Proxy-Funktionalität unterstützt wird. Wenn dein Proxy keine Benutzer-Anmeldeinformationen benötigt, ist es nicht notwendig, dass du hier etwas einträgst. Die Verwendung dieser Option ist nur sinnvoll, wenn auch `WebProxy` verwendet wird, da sie sonst keine Wirkung hat.
 
-Wenn du keinen Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
+Wenn Sie keinen Grund hast diese Eigenschaft zu bearbeiten, sollten Sie den Standardwert belassen.
 
 * * *
 
@@ -312,7 +312,7 @@ Wenn du keinen Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf d
 
 `string` Typ mit einem Standardwert von `null`. Diese Eigenschaft definiert das Feld für den Benutzernamen, das bei der Basis-, Digest-, NTLM- und Kerberos-Authentifizierung verwendet wird und von einem Ziel `WebProxy`-Rechner mit Proxy-Funktionalität unterstützt wird. Wenn dein Proxy keine Benutzer-Anmeldeinformationen benötigt, ist es nicht notwendig, dass du hier etwas einträgst. Die Verwendung dieser Option ist nur sinnvoll, wenn auch `WebProxy` verwendet wird, da sie sonst keine Wirkung hat.
 
-Wenn du keinen Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
+Wenn Sie keinen Grund hast diese Eigenschaft zu bearbeiten, sollten Sie den Standardwert belassen.
 
 * * *
 
