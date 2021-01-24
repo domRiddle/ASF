@@ -10,11 +10,11 @@ O ASF está disponível 4 tipos **[marcadores](https://hub.docker.com/r/justarch
 
 ### `main`
 
-This tag always points to the ASF built from latest commit in `main` branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. Normalmente você deve evitar essa versão, já que ela contém o nível mais elevado de software com erros, dedicado para desenvolvedores e usuários avançados para fins de desenvolvimento. The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken), just like in our AppVeyor build. Esse marcador está aqui para anotarmos o estado atual do projeto ASF, que não tem necessariamente garantia de ser estável ou testado, como salientado no nosso ciclo de lançamento. Esse marcador não deve ser usado em nenhum ambiente de produção.
+Esse marcador aponta para a compilação do ASF no "commit" mais recente do ramo `main`, que funciona da mesma forma que a compilação experimental do AppVeyour descrita em nosso **[ciclo de lançamento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-pt-BR)**. Normalmente você deve evitar essa versão, já que ela contém o nível mais elevado de software com erros, dedicado para desenvolvedores e usuários avançados para fins de desenvolvimento. A imagem é atualizada a cada "commit" no ramo `main` do GitHub, portanto você pode esperar por muitas atualizações (e coisas falhando), assim como em nossa compilação AppVeyour. Esse marcador está aqui para anotarmos o estado atual do projeto ASF, que não tem necessariamente garantia de ser estável ou testado, como salientado no nosso ciclo de lançamento. Esse marcador não deve ser usado em nenhum ambiente de produção.
 
 ### `released`
 
-Muito semelhante ao anterior, esse marcador sempre aponta para a **[versão](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** mais recente do ASF, incluindo pré-lançamentos. Compared to `main` tag, this image is being updated each time a new GitHub tag is pushed. Dedicado a usuários avançados que gostam de viver no limite do que pode ser considerado estável e mais novo ao mesmo tempo. Esse é o marcador que recomendamos se você não quer usar o `latest`. Observe que usar esse marcador é igual a usar o **[pre-lançamentos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**.
+Muito semelhante ao anterior, esse marcador sempre aponta para a **[versão](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** mais recente do ASF, incluindo pré-lançamentos. Comparado ao marcador `main`, essa imagem é atualizada toda vez que um novo marcador é criado no GitHub. Dedicado a usuários avançados que gostam de viver no limite do que pode ser considerado estável e mais novo ao mesmo tempo. Esse é o marcador que recomendamos se você não quer usar o `latest`. Observe que usar esse marcador é igual a usar o **[pre-lançamentos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**.
 
 ### `latest`
 
@@ -32,7 +32,7 @@ Em comparação com os marcadores acima, esse marcador é completamente congelad
 
 Isso depende do que você procura. Para a maioria dos usuários o marcador `latest` deve ser o melhor, uma vez que ele oferece exatamente a mesma coisa que o ASF da área de trabalho oferece, com a diferença do serviço especial do contêiner Docker. Pessoas que recompilam suas imagens com frequência e prefeririam ter sua versão do ASF amarrada a determinada versão são bem vindas a usar o marcador `released`. Se, ao invés disso, você preferir usar uma versão congelada específica do ASF que nunca vai mudar sem a sua intenção, as versões `A.B.C.D.` estão disponíveis para você como marcas as quais você sempre pode voltar.
 
-We generally discourage trying `main` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. Nada garante que tal versão vai funcionar corretamente, mas é claro, você é mais que bem vindo para fazer um teste se estiver interessado no desenvolvimento do ASF.
+Nós geralmente desencorajamos o uso de compilações `main`, assim como compilações automatizadas do AppVeyour; essas compilações estão aqui para marcarmos o estado atual do projeto ASF. Nada garante que tal versão vai funcionar corretamente, mas é claro, você é mais que bem vindo para fazer um teste se estiver interessado no desenvolvimento do ASF.
 
 * * *
 

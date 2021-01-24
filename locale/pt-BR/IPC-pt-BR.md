@@ -99,7 +99,7 @@ Sim, recomendamos usar um proxy reverso para isso (explicado abaixo). Dessa form
 
 **Sim**, nosso IPC é totalmente compatível com tal configuração, então você também pode usá-lo com suas próprias ferramentas para maior segurança e compatibilidade, se quiser. Em geral, o servidor http Kestrel do ASF é muito seguro e não possui nenhum risco ao ser conectado diretamente à internet, mas colocá-lo atrás de um proxy reverso como Apache ou Nginx pode fornecer funcionalidades extras que não seria possível conseguir de outra forma, como garantir a interface do ASF com uma **[autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
 
-Segue abaixo um exemplo de configuração Nginx. We've included full `server` block, although you're interested mainly in `location` ones. Consulte a **[documentação nginx](https://nginx.org/en/docs)** se você precisar de mais explicações.
+Segue abaixo um exemplo de configuração Nginx. Incluímos um bloco `server` completo, embora você esteja interessado principalmente nos blocos `location`. Consulte a **[documentação nginx](https://nginx.org/en/docs)** se você precisar de mais explicações.
 
 ```nginx
 server {
