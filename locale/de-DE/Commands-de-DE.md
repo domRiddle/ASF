@@ -136,7 +136,7 @@ Für einige Befehle sind auch Aliase verfügbar, um Zeit beim tippen zu sparen:
 
 `[Bots]` Argument ist eine spezielle Variante des Plural Arguments, da es neben der Annahme mehrerer Werte auch zusätzliche Funktionalität bietet.
 
-Es gibt zunächst ein spezielles Schlüsselwort `ASF`, das als "alle Bots im Prozess" fungiert, so dass der Befehl `status ASF` gleich `status all,your,bots,listed,here` ist. Dies kann auch verwendet werden, um die Bots zu identifizieren, auf die Sie Zugriff haben, da das `ASF`-Schlüsselwort, trotz der Ausrichtung auf alle Bots, nur von den Bots eine Antwort generiert, an die Sie den Befehl tatsächlich senden können.
+Es gibt zunächst ein spezielles Schlüsselwort `ASF`, das als "alle Bots im Prozess" fungiert, sodass der Befehl `status ASF` gleich `status all,your,bots,listed,here` ist. Dies kann auch verwendet werden, um die Bots zu identifizieren, auf die Sie Zugriff haben, da das `ASF`-Schlüsselwort, trotz der Ausrichtung auf alle Bots, nur von den Bots eine Antwort generiert, an die Sie den Befehl tatsächlich senden können.
 
 Das Argument `[Bots]` unterstützt eine speziellen "range"-Syntax, der es ermöglicht, einen Reihe von Bots einfacher auszuwählen. Der allgemeine Syntax für `[Bots]` ist in diesem Fall `ersterBot..letzterBot`. Wenn Sie zum Beispiel Bots mit den Namen `A, B, C, D, E, F` haben, können Sie `status B..E` ausführen, was in diesem Fall gleich `status B,C,D,E` ist. Bei Verwendung dieser Syntax verwendet ASF die alphabetische Sortierung, um festzustellen, welche Bots sich in dem von Ihnen angegebenen Bereich befinden. Sowohl `ersterBot` als auch `letzterBot` müssen gültige Bot-Namen sein, die von ASF erkannt werden, da sonst die Bereichs-Syntax vollständig übersprungen wird.
 
@@ -179,7 +179,7 @@ privacy Main 1
 privacy Main Private
 ```
 
-Dies liegt daran, dass ASF automatisch alle anderen Einstellungen als `Private` ansieht, so dass es nicht notwendig ist, sie anzugeben. Wenn Sie stattdessen alle Privatsphäre-Einstellungen auf `Public` setzen möchten, dann muss eine der folgenden Optionen verwendet werden:
+Dies liegt daran, dass ASF automatisch alle anderen Einstellungen als `Private` ansieht, sodass es nicht notwendig ist, sie anzugeben. Wenn Sie stattdessen alle Privatsphäre-Einstellungen auf `Public` setzen möchten, dann muss eine der folgenden Optionen verwendet werden:
 
 ```text
 privacy Main 3,3,3,3,3,3,3

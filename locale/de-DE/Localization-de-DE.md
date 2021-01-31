@@ -34,7 +34,7 @@ Oder:
 
 > {0} ist die Zahl der verbleibenden Spiele zum Sammeln.
 
-Diese Flexibilität wird speziell für dich bereitgestellt, so dass du den ASF-Satz leicht umformulieren kannst, um ihn besser an deine Sprache anzupassen und die von ASF bereitgestellte Nummer oder andere Informationen an einen Ort zu verschieben, der zu deiner Übersetzung passt (anstatt jeden Teil unabhängig zu übersetzen). Das Verbessert die allgemeine Übersetzungsqualität.
+Diese Flexibilität wird speziell für Sie bereitgestellt, sodass Sie den ASF-Satz leicht umformulieren können, um ihn besser an eine Sprache anzupassen und die von ASF bereitgestellte Nummer oder andere Informationen an einen Ort zu verschieben, der zu der Übersetzung passt (anstatt jeden Teil unabhängig zu übersetzen). Das Verbessert die allgemeine Übersetzungsqualität.
 
 * * *
 
@@ -101,7 +101,7 @@ Wir tun unser Bestes, um dir eine flexible Lokalisierung anzubieten, und so lang
 
 `PLURAL` Schlüsselwort wird hier besonders behandelt, da es dir erlaubt, alle Pluralformen einzubeziehen, die deine Sprache unterstützt. Wenn du einen Blick auf CLDR wirfst, wirst du sehen, dass es im Englischen nur 2 kardinale Formen gibt - "eine" und "andere". Und wie du oben sehen kannst, haben wir beide definiert - `{n} month` und `{n} months`.
 
-Unsere polnische Sprache umfasst jedoch 4 von ihnen - "eine", "wenige", "viele" und "andere". Das bedeutet, dass wir alle für die vollständige Umsetzung definieren sollten. Unsere Übersetzungsprogramme sind bereits intelligent genug, um eine geeignete Pluralform basierend auf Sprachregeln auszuwählen, so dass du nur alle diese in der Übersetzung definieren musst:
+Unsere polnische Sprache umfasst jedoch 4 von ihnen - "eine", "wenige", "viele" und "andere". Das bedeutet, dass wir alle für die vollständige Umsetzung definieren sollten. Unsere Übersetzungsprogramme sind bereits intelligent genug, um eine geeignete Pluralform basierend auf Sprachregeln auszuwählen, sodass Sie nur alle diese in der Übersetzung definieren müsssen:
 
 > Wydany {PLURAL:n|{n} miesiąc|{n} miesiące|{n} miesięcy|{n} miesiąca} temu
 
@@ -148,7 +148,7 @@ Nun, während der Übersetzung auf Crowdin, je nach Formatierung, siehst du ASF-
 * Zu übersetzende Zeichenkette zusammen mit HTML-Tags (Mehrheit der Zeichenketten, wobei nur ein Teil des Satzes ein Link ist)
 * Einzelne zu übersetzende Zeichenkette, mit Link in `Hidden texts` -> `Link addresses` (selten, wo die gesamte Zeichenkette ein Link ist, am häufigsten in der Seitenleiste)
 
-In unserem obigen Beispiel ist dies der erste Fall (da nur "Installation" ein Link ist), so dass wir es in Crowdin folgendermaßen sehen werden:
+In unserem obigen Beispiel ist dies der erste Fall (da nur "Installation" ein Link ist), sodass wir es in Crowdin folgendermaßen sehen werden:
 
 * * *
 

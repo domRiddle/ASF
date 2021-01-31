@@ -51,7 +51,7 @@ Auf diese Weise kann unsere Webseite erkennen, welche Konten für den Abgleich v
 
 Die Benutzer werden nach ihren Beständen (in absteigender Reihenfolge) sortiert - `MatchEverything` Bots mit `Any` Banner, die alle 1:1 Trades akzeptieren, dann `MatchableTypes` unique games count, und schließlich `MatchableTypes` items count.
 
-Bitte beachte, dass du **nicht** auf der Webseite angezeigt wirst, wenn du nicht alle Anforderungen erfüllst. ASF wird sich in diesem Fall nicht einmal die Mühe machen, mit unserem Server zu kommunizieren, so dass der zweite Punkt für Sie komplett übersprungen wird, wenn Sie `SteamTradeMatcher` nicht absichtlich aktiviert haben, um sich selbst zu helfen, Duplikate zu finden. Auch die öffentliche Auflistung ist nur mit der neuesten stabilen Version von ASF kompatibel und kann sich weigern, veraltete Bots anzuzeigen, insbesondere wenn ihnen Kernfunktionen fehlen, die nur in neueren Versionen zu finden sind.
+Bitte beachte, dass du **nicht** auf der Webseite angezeigt wirst, wenn du nicht alle Anforderungen erfüllst. ASF wird sich in diesem Fall nicht einmal die Mühe machen, mit unserem Server zu kommunizieren, sodass der zweite Punkt für Sie komplett übersprungen wird, wenn Sie `SteamTradeMatcher` nicht absichtlich aktiviert haben, um sich selbst zu helfen, Duplikate zu finden. Auch die öffentliche Auflistung ist nur mit der neuesten stabilen Version von ASF kompatibel und kann sich weigern, veraltete Bots anzuzeigen, insbesondere wenn ihnen Kernfunktionen fehlen, die nur in neueren Versionen zu finden sind.
 
 ### API
 

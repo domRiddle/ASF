@@ -162,7 +162,7 @@ ASF deaktiviert vorübergehend **alle** Regeln, die `ColoredConsole` oder `Conso
 
 ## Chat-Protokollierung
 
-ASF bietet erweiterte Unterstützung für das Chat-Logging, indem es nicht nur alle empfangene/gesendete Nachrichten auf `Trace` Logging-Ebene aufzeichnet, sondern auch zusätzliche Informationen zu ihnen in **[Ereigniss-Eigenschaften](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)** anzeigt. Dies liegt daran, dass wir Chat-Nachrichten ohnehin als Befehle behandeln müssen, so dass es uns nichts kostet, diese Ereignisse zu protokollieren, um es dir zu ermöglichen, zusätzliche Logik hinzuzufügen (z.B. ASF zu deinem persönlichen Steam-Chat-Archiv zu machen).
+ASF bietet erweiterte Unterstützung für das Chat-Logging, indem es nicht nur alle empfangene/gesendete Nachrichten auf `Trace` Logging-Ebene aufzeichnet, sondern auch zusätzliche Informationen zu ihnen in **[Ereigniss-Eigenschaften](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)** anzeigt. Dies liegt daran, dass wir Chat-Nachrichten ohnehin als Befehle behandeln müssen, sodass es uns nichts kostet, diese Ereignisse zu protokollieren, um es Ihnen zu ermöglichen, zusätzliche Logik hinzuzufügen (z.B. ASF zu einem persönlichen Steam-Chat-Archiv zu machen).
 
 ### Ereignis-Eigenschaften
 
@@ -288,7 +288,7 @@ Um alle Nachrichten von `Debug` Ebene und darüber, von dem Bot namens `MyBot` z
 
 Wenn du ASF mit `NLog.config` ähnlich wie oben gestartet hast, beginnt `MyBot` dem Steam-Benutzer `76561198006963719` alle üblichen ASF-Protokollmeldungen zu senden. Bedenke, dass `MyBot` verbunden sein muss, um Nachrichten zu senden, damit alle anfänglichen ASF-Nachrichten, die stattfanden, bevor unser Bot sich mit dem Steam-Netzwerk verbinden konnte, nicht weitergeleitet werden.
 
-Natürlich verfügt `SteamTarget` über alle typischen Funktionen, die du von generischem `TargetWithLayout` erwarten kannst, so dass du es in Verbindung mit z.B. benutzerdefinierten Layouts, Namen oder erweiterten Protokollierungsregeln verwenden kannst. Das obige Beispiel ist lediglich ein grundlegendes Beispiel.
+Natürlich verfügt `SteamTarget` über alle typischen Funktionen, die von generischem `TargetWithLayout` erwarten werden. So können Sie es in Verbindung mit z.B. benutzerdefinierten Layouts, Namen oder erweiterten Protokollierungsregeln verwenden. Das obige Beispiel ist lediglich ein grundlegendes Beispiel.
 
 * * *
 

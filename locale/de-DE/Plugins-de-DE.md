@@ -8,7 +8,7 @@ Ab ASF V4 bietet das Programm Unterstützung für benutzerdefinierte Plugins, di
 
 ASF lädt Plugins aus dem Verzeichnis `plugins`, das sich in deinem ASF-Ordner befindet. Es wird empfohlen, für jedes Plugin das du verwenden möchtest ein eigenes Verzeichnis zu erstellen, das auf seinem Namen basieren kann, wie z.B. `MeinPlugin`. Dies führt zur finalen Baumstruktur von `plugins/MeinPlugin`. Schließlich sollten alle Binärdateien des Plugins in diesem speziellen Ordner abgelegt werden. ASF wird dein Plugin nach dem Neustart ordnungsgemäß erkennen und verwenden.
 
-Normalerweise veröffentlichen Plugin-Entwickler ihre Plugins in Form einer `zip` Datei mit bereits vorbereiteter Struktur für dich, so dass es genügt, das Zip-Archiv in das Verzeichnis `plugins` zu entpacken, das automatisch den entsprechenden Ordner erstellt.
+Normalerweise veröffentlichen Plugin-Entwickler ihre Plugins in Form einer `zip`-Datei mit bereits vorbereiteter Struktur für Sie, sodass es genügt, das Zip-Archiv in das Verzeichnis `plugins` zu entpacken, welches automatisch den entsprechenden Ordner erstellt.
 
 Wenn das Plugin erfolgreich geladen wurde siehst du seinen Namen und seine Version in deinem Protokoll. Du solltest deinen Plugin-Entwickler konsultieren, wenn es um Fragen, Probleme oder die Verwendung der Plugins geht die du verwendest.
 
