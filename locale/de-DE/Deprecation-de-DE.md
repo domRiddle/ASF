@@ -6,7 +6,7 @@ Ab ASF V3.1.2.2.2 werden wir eine konsequente Verfallspolitik verfolgen, um sowo
 
 ## Was ist Verfall (engl. Deprecation)?
 
-Verfall (engl. Deprecation) beschreibt den Prozess kleinere oder größere Änderungen vorzunehmen, die zuvor verwendete Optionen, Argumente, Funktionalitäten oder Anwendungsfälle obsolet machen. Verfall (engl. Deprecation) bedeutet in der Regel, dass eine bestimmte Sache einfach in eine andere (ähnliche) Form umgeschrieben wurde und du solltest rechtzeitig dafür sorgen, dass du sie entsprechend umstellst. In diesem Fall geht es einfach darum, die gegebene Funktionalität an einen geeigneteren Ort zu verlagern.
+Verfall (engl. Deprecation) beschreibt den Prozess kleinere oder größere Änderungen vorzunehmen, die zuvor verwendete Optionen, Argumente, Funktionalitäten oder Anwendungsfälle obsolet machen. Verfall (engl. Deprecation) bedeutet in der Regel, dass eine bestimmte Sache einfach in eine andere (ähnliche) Form umgeschrieben wurde und Sie sollten rechtzeitig dafür sorgen, dass Sie sie entsprechend umstellen. In diesem Fall geht es einfach darum, die gegebene Funktionalität an einen geeigneteren Ort zu verlagern.
 
 ASF verändert sich schnell und strebt immer danach besser zu werden. Dies bedeutet leider, dass wir eventuell einige bestehende Funktionen ändern oder in ein anderes Teilstück des Programms verschieben müssen, damit es von neuen Funktionen, Kompatibilität oder Stabilität profitieren kann. Dank dessen müssen wir nicht an veralteten oder einfach schmerzhaft falschen Entscheidungen festhalten die wir vor Jahren getroffen haben. Wir versuchen immer einen vernünftigen Ersatz anzubieten, der der erwarteten Nutzung der zuvor verfügbaren Funktionalität entspricht, weshalb der Verfall (engl. Deprecation) meist harmlos ist und kleine Korrekturen für die vorherige Benutzung erfordert.
 
@@ -20,19 +20,19 @@ ASF wird zwei Phasen des Verfalls (engl. Deprecation) folgen, die den Übergang 
 
 Stufe 1 tritt ein, wenn ein bestimmtes Feature veraltet ist, mit sofortiger Verfügbarkeit einer anderen Lösung (oder keiner, wenn es keine Pläne zur Wiedereinführung gibt).
 
-Während dieser Phase gibt ASF eine entsprechende Warnung aus, wenn die veraltete Funktion verwendet wird. Solange es möglich ist, wird ASF versuchen das alte Verhalten nachzuahmen und damit kompatibel zu bleiben. ASF wird in Bezug auf diese Funktionalität mindestens bis zur nächsten stabilen Version in Stufe 1 bleiben. Dies ist der Moment in dem du, hoffentlich ohne die Kompatibilität zu beeinträchtigen, in all deinen Programmen und Strukturen den richtigen Wechsel vornehmen kannst, um neues Verhalten zu befriedigen. Du kannst bestätigen, dass du alle entsprechenden Änderungen vorgenommen hast, indem du die Verfalls-Warnung nicht mehr angezeigt bekommst.
+Während dieser Phase gibt ASF eine entsprechende Warnung aus, wenn die veraltete Funktion verwendet wird. Solange es möglich ist, wird ASF versuchen das alte Verhalten nachzuahmen und damit kompatibel zu bleiben. ASF wird in Bezug auf diese Funktionalität mindestens bis zur nächsten stabilen Version in Stufe 1 bleiben. Dies ist der Moment, in dem Sie, hoffentlich ohne die Kompatibilität zu beeinträchtigen, in all Ihren Programmen und Strukturen den richtigen Wechsel vornehmen können, um dem neuen Verhalten zu genügen. Sie können bestätigen, dass Sie alle entsprechenden Änderungen vorgenommen haben, indem Sie die Verfalls-Warnung nicht mehr angezeigt bekommen.
 
 ### Stufe 2
 
-Stufe 2 ist geplant, nachdem die oben beschriebene Stufe 1 stattgefunden hat und wird in einer stabilen Version freigegeben. In diesem Abschnitt wird die vollständige Entfernung der veralteten Feature-Existenz eingeführt, was bedeutet, dass ASF nicht einmal bestätigt, dass du veraltete Features verwendest, geschweige denn sie anerkennt, da sie im aktuellen Code einfach nicht existieren. ASF gibt keine Warnung mehr aus, da es nicht mehr erkennt was du versuchst zu tun.
+Stufe 2 ist geplant, nachdem die oben beschriebene Stufe 1 stattgefunden hat und wird in einer stabilen Version freigegeben. In diesem Abschnitt wird die vollständige Entfernung der veralteten Feature-Existenz eingeführt. Das bedeutet, dass ASF nicht einmal bestätigt, dass Sie veraltete Features verwenden, geschweige denn sie anerkennen, da sie im aktuellen Code einfach nicht existieren. ASF gibt keine Warnung mehr aus, da es nicht mehr erkennt was Sie versuchen zu tun.
 
 * * *
 
 ## Zusammenfassung
 
-Du hast mehr oder weniger einen **ganzen Monat** um einen entsprechenden Wechsel vorzunehmen, was mehr als genug sein sollte, selbst wenn du ein gelegentlicher ASF-Benutzer bist. Nach Ablauf dieses Zeitraums garantiert ASF nicht mehr, dass alte Einstellungen funktionieren werden (Stufe 2), wodurch bestimmte Funktionen wirkungsvoll abgeschaltet werden, ohne dass du es bemerkst. Wenn du ASF nach mehr als einem Monat Inaktivität startest, wird empfohlen, **[von Grund auf neu zu beginnen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE)**, oder alle verpassten Änderungsprotokolle zu lesen und deine Nutzung manuell an die aktuelle anzupassen.
+Sie haben mehr oder weniger einen **ganzen Monat** um einen entsprechenden Wechsel vorzunehmen, was mehr als genug sein sollte, selbst wenn Sie ein gelegentlicher ASF-Benutzer sind. Nach Ablauf dieses Zeitraums garantiert ASF nicht mehr, dass alte Einstellungen funktionieren werden (Stufe 2), wodurch bestimmte Funktionen wirkungsvoll abgeschaltet werden, ohne dass du es bemerkst. Wenn Sie ASF nach mehr als einem Monat Inaktivität starten, wird empfohlen, **[von Grund auf neu zu beginnen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE)**, oder alle verpassten Änderungsprotokolle zu lesen und Ihre Nutzung manuell an die aktuelle anzupassen.
 
-In den meisten Fällen wird die Missachtung der Verfallswarnung die allgemeine ASF-Funktionalität nicht beeinschränken, sondern auf das Standardverhalten zurückgreifen (das möglicherweise nicht mit deinen persönlichen Präferenzen übereinstimmt).
+In den meisten Fällen wird die Missachtung der Verfallswarnung die allgemeine ASF-Funktionalität nicht beeinschränken, sondern auf das Standardverhalten zurückgreifen (das möglicherweise nicht mit Ihren persönlichen Präferenzen übereinstimmt).
 
 * * *
 
