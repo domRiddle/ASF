@@ -1,6 +1,6 @@
 # FAQ
 
-Unser FAQ umfasst Standardfragen und Antworten, die du vielleicht hast. Für weniger häufig gestellte Fragen besuche bitte stattdessen unser **[erweitertes FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-de-DE)**.
+Unser FAQ umfasst Standardfragen und Antworten, die Sie vielleicht haben. Für weniger häufig gestellte Fragen besuchen Sie bitte stattdessen unser **[erweitertes FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-de-DE)**.
 
 # Inhaltsverzeichnis
 
