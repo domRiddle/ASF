@@ -248,7 +248,7 @@ Wenn du glaubst, dass etwas Unangemessenes in einem Codeblock enthalten ist oder
 
 ## Ruhmeshalle
 
-Wir möchten unseren ewigen Dank den Menschen zeigen, die viel ihrer Zeit und Bereitschaft gegeben haben die ASF Lokalisierung zu verbessern. Diese Mitwirkenden haben mindestens über **20 tausend Wörter** übersetzt, das entspricht ungefähr der Hälfte des gesamten Projektes. Ihre Mühe ist unglaublich, und Sie können komplette Übersetzungen, einschließlich des Wikis, vor allem dank ihnen genießen.
+Wir möchten unseren ewigen Dank den Menschen zeigen, die viel ihrer Zeit und Bereitschaft gegeben haben um die ASF Lokalisierung zu verbessern. Diese Mitwirkenden haben mindestens über **20 tausend Wörter** übersetzt, das entspricht ungefähr der Hälfte des gesamten Projektes. Ihre Mühe ist unglaublich und du kannst komplette Übersetzungen, einschließlich des Wikis, vor allem dank ihnen genießen.
 
 | Mitwirkender                                               | Sprachen             |
 | ---------------------------------------------------------- | -------------------- |
