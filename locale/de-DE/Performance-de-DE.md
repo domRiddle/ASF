@@ -1,4 +1,4 @@
-# Performance
+# Leistung
 
 Das Hauptziel von ASF ist es, so effektiv wie möglich zu sammeln, basierend auf zwei Arten von Daten, mit denen es arbeiten kann - einem kleinen Satz von benutzerdefinierten Daten, die für ASF unmöglich sind selbst zu erraten/kontrollieren, und einem größeren Satz von Daten, der von ASF automatisch überprüft werden kann.
 
