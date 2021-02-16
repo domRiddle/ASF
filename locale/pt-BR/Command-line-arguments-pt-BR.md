@@ -11,19 +11,19 @@ O uso depende do seu sistema operacional e da versão do ASF.
 Genérico:
 
 ```shell
-dotnet ArchiSteamFarm.dll --argument --otherOne
+dotnet ArchiSteamFarm.dll --argumento --segundoArgumento
 ```
 
 Windows:
 
 ```powershell
-.\ArchiSteamFarm.exe --argument --otherOne
+.\ArchiSteamFarm.exe --argumento --segundoArgumento
 ```
 
-Linux/OS X:
+Linux/macOS
 
 ```shell
-./ArchiSteamFarm --argument --otherOne
+./ArchiSteamFarm --argumento --segundoArgumento
 ```
 
 Argumentos de linha de comando também são suportados em códigos auxiliares genéricos como `ArchiSteamFarm.cmd` ou `ArchiSteamFarm.sh`. Além disso, ao usar códigos auxiliares você também pode usar a propriedade de ambiente `ASF_ARGS`, como indicado em nossa seção **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-pt-BR#argumentos-de-linha-de-comando)**.
@@ -44,7 +44,7 @@ No entanto, esses dois estão completamente corretos:
 
 ## Argumentos
 
-`--cryptkey <key>` ou `--cryptkey=<key>` - inicializará o ASF com um valor de chave de criptografia `<key>` personalizado. Essa opção afeta a **[segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-pt-BR)** e fará com que o ASF use sua chave personalizada `<key>` fornecida ao invés da que está codificada no executável. Uma vez que essa propriedade afeta a chave de criptografia padrão (para fins de criptografia), bem como o sal (para fins de hashing), tenha em mente que tudo o que for criptografado/"hasheado" com essa chave exigirá que ela seja ativada toda vez que o ASF for executado.
+`--cryptkey <key>` ou `--cryptkey=<key>` - inicializará o ASF com um valor de chave de criptografia `<key>` personalizado. Essa opção afeta a **[segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-pt-BR)** e fará com que o ASF use a chave personalizada `<key>` que você fornecer ao invés da que está codificada no executável. Uma vez que essa propriedade afeta a chave de criptografia padrão (para fins de criptografia), bem como o sal (para fins de hashing), tenha em mente que tudo o que for criptografado/"hasheado" com essa chave exigirá que ela seja ativada toda vez que o ASF for executado.
 
 Devido à natureza desta propriedade, também é possível definir a cryptkey declarando a variável de ambiente `ASF_CRYPTKEY`, que pode ser mais apropriada para pessoas que gostariam de evitar dados confidenciais nos argumentos do processo.
 
@@ -60,7 +60,7 @@ Devido à natureza desta propriedade, também é possível definir o valor decla
 
 * * *
 
-`--no-config-watch` - por padrão o ASF seta um `FileSystemWatcher` sobre a pasta `config` para monitorar quaisquer alteração nos arquivos, podento então se adaptar e essas mudanças. Por exemplo, isso inclui parar os bots caso alguma configuração seja apagada, reiniciar o bot quando a configuração for alterada, ou carregar as chaves para o **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** se você salvá-las na pasta `config`. Essa opção permite que você desative esse comportamento, fazendo com que o ASF ignore completamente todas as mudanças na pasta `config`, exigindo que você faça tais ações manualmente se considerar necessário. Recomendamos manter os eventos de configuração ativos, mas se você tem algum motivo para desativá-los, você pode usar esta configuração para esse fim.
+`--no-config-watch` - por padrão o ASF seta um `FileSystemWatcher` sobre a pasta `config` para monitorar quaisquer alteração nos arquivos, podento então se adaptar e essas mudanças. Por exemplo, isso inclui parar os bots caso alguma configuração seja apagada, reiniciar o bot quando a configuração for alterada, ou carregar os códigos de produto para o **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** se você salvá-las na pasta `config`. Essa opção permite que você desative esse comportamento, fazendo com que o ASF ignore completamente todas as mudanças na pasta `config`, exigindo que você faça tais ações manualmente se considerar necessário. Recomendamos manter os eventos de configuração ativos, mas se você tem algum motivo para desativá-los, você pode usar esta configuração para esse fim.
 
 * * *
 

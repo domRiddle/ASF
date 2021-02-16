@@ -22,11 +22,11 @@ A seção de perguntas frequentes cobre respostas a questões comuns que você p
 
 Antes de tentar entender o que é o ASF, certifique-se de que você entende o que são as cartas Colecionáveis Steam e como obtê-las, o que é muito bem descrito na seção oficial de perguntas frequentes **[aqui](https://steamcommunity.com/tradingcards/faq)**.
 
-Em resumo, as Cartas Colecionáveis são itens que você obtém ao jogar certos jogos, e podem ser usadas para criar insígnias, vender no mercado da Steam ou qualquer outro objetivo de sua escolha.
+Em resumo, as Cartas Colecionáveis são itens que você obtém ao jogar certos jogos, elas podem ser usadas para criar insígnias, serem vendidas no Mercado da Comunidade Steam ou qualquer outro objetivo de sua escolha.
 
 Os pontos principais são apresentados aqui novamente, porque geralmente as pessoas não querem concordar com eles e gostam de fingir que eles não existem:
 
-- **Você precisa ter o jogo na sua biblioteca Steam para ser elegível a ganhar cartas dele. Jogos compartilhados não contam.**
+- **Você precisa ter o jogo na sua biblioteca Steam para ser elegível a ganhar cartas dele. Compartilhamento de biblioteca não conta.**
 - **Você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Uma vez que você consiga todas elas (cerca de metade do jogo de cartas completo), o jogo não dará mais cartas. Não importa se você vendeu, trocou, criou insígnias ou esqueceu o que aconteceu com as cartas que você obteve, assim que acabarem as cartas disponíveis para determinado jogo. ele estará concluído.**
 - **Não é possível coletar cartas de jogos F2P (gratuitos para jogar) sem gastar nenhum dinheiro neles. Isso inclui jogos permanentemente gratuitos como Team Fortress 2 ou Dota 2. Possuir jogos F2P não te garante cartas.**
 - **Você não pode receber cartas em [contas limitadas](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=portuguese), independentemente dos jogos que possua. Isso foi possível no passado, mas não é mais o caso.**
@@ -408,7 +408,7 @@ O estado indica como determinada tentativa de resgate acabou. Há muitos estados
 | DuplicateActivationCode | A key fornecida já foi resgatada por alguma outra conta, ou revogada pelo desenvolvedor/editora.                                                                                                        |
 | AlreadyPurchased        | Sua conta já possui o `packageID` que está conectado a essa key. Note que isso não indica se a key é um caso de `DuplicateActivationCode` ou não - só que ela é válida e não foi usada nesta tentativa. |
 | RestrictedCountry       | Esta key tem bloqueio regional e sua conta não é da região que tem permissão para resgatá-la.                                                                                                           |
-| DoesNotOwnRequiredApp   | Você não pode resgatar essa key pois está faltando algum outro aplicativo necessário; isso ocorre principalmente quando você tenta resgatar uma DLC sem ter o jogo base.                                |
+| DoesNotOwnRequiredApp   | Você não pode resgatar esse código de produto pois está faltando algum outro aplicativo necessário; isso ocorre principalmente quando você tenta resgatar uma DLC sem ter o jogo base.                  |
 | RateLimited             | Você fez muitas tentativas de resgate e sua conta foi temporariamente bloqueada. Tente novamente em 1 hora.                                                                                             |
 
 * * *

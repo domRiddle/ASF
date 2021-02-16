@@ -145,7 +145,7 @@ A menos que você deseje fornecer chaves de criptografia personalizadas ou outra
 
 ## IPC
 
-Para usar o IPC, em primeiro lugar você deve mudar a **[propriedade de configuração global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configuração-global)** `IPC` para `true`. Além disso, você **deve** modificar o endereço de escuta padrão `localhost`, já que o docker não pode rotear tráfego externo para a interface de loopback. Um exemplo de configuração que irá escutar em todas as interfaces é `http://*:1242`. Claro, você também pode usar ligações mais restritivas, tais como apenas rede local ou VPN, mas tem que ser uma rota acessível de fora; `localhost` não funciona, já que a rota está inteiramente dentro do computador de convidado.
+Para usar o IPC, em primeiro lugar você deve mudar a **[propriedade de configuração global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configuração-global)** `IPC` para `true`. Além disso, você **deve** modificar o endereço de escuta padrão `localhost`, já que o docker não pode rotear tráfego externo para a interface de loopback. Um exemplo de configuração que irá escutar em todas as interfaces é `http://*:1242`. Claro, você também pode usar vinculos mais restritivos, tais como apenas rede local (LAN) ou VPN, mas tem que ser uma rota acessível de fora; `localhost` não funciona, já que a rota está inteiramente dentro do computador de convidado.
 
 Para obter o resultado descrito acima você deve usar uma **[configuração personalizada de IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR#configuração-personalizada)**, como o exemplo abaixo:
 
