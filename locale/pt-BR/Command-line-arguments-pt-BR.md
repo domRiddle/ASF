@@ -50,7 +50,7 @@ Devido à natureza desta propriedade, também é possível definir a cryptkey de
 
 * * *
 
-`--ignore-unsupported-environment` - fará com que o ASF ignore a deteção de ambiente não suportado, o que normalmente é sinalizado como erro e força o fechamento do ASF. Agora o ambiente não suportado será classificado como estar rodando a compilação .NET Framework na plataforma que pode rodar tal compilação .NET Core. Já que nós suportamos compilações `generic-netf` apenas em cenários muito limitados (com **[Mono](https://www.mono-project.com)**), usá-lo em outros casos (como no `win-x64`, por exemplo) não é suportado. Visite a seção **[compatibilidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)** para mais informações.
+`--ignore-unsupported-environment` - fará com que o ASF ignore a deteção de ambiente não suportado, o que normalmente é sinalizado como erro e força o fechamento do ASF. Agora o ambiente não suportado será classificado como estar rodando a compilação .NET Framework na plataforma que pode rodar tal compilação .NET Core. Já que nós suportamos compilações `generic-netf` apenas em cenários muito limitados (com **[Mono](https://www.mono-project.com)**), usá-lo em outros casos (como no `win-x64`, por exemplo) não é suportado. Acesse a seção **[compatibilidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)** para mais informações.
 
 * * *
 

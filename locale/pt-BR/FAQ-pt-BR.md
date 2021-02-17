@@ -36,7 +36,7 @@ Então, como você pode ver, Cartas Colecionáveis Steam são concedidas a você
 
 Agora que nós explicamos o básico do Steam, nós podemos explicar o ASF. O programa em si é bastante complexo para se entender totalmente, então ao invés de explicar todos os detalhes técnicos, vamos oferecer uma explicação mais simples abaixo.
 
-O ASF se conecta à sua conta Steam através de nosso Cliente Steam personalizado embutido no código usando as credenciais que você forneceu. Após se conectar com sucesso, ele analisa sua página de **[insígnias](https://steamcommunity.com/my/badges)** a fim de encontrar jogos que estão disponíveis para coleta (Jogo pode dar mais X cartas). Após analisar todas as páginas e fazer a lista final de jogos que estão aptos, o ASF escolhe o algoritmo de coleta mais eficiente e inicia o processo. O processo depende do **[algorítimo de coleta de cartas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-pt-BR)** escolhido, mas geralmente consiste em jogar um jogo elegível e, periodicamente (e a cada item recebido), verificar se o jogo já está totalmente coletado - se sim, o ASF pode prosseguir para o próximo título, usando o mesmo procedimento, até que todos os jogos sejam totalmente explorados.
+O ASF se conecta à sua conta Steam através de nosso Cliente Steam personalizado embutido no código usando as credenciais que você forneceu. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (`X` card drops remaining). Após analisar todas as páginas e fazer a lista final de jogos que estão aptos, o ASF escolhe o algoritmo de coleta mais eficiente e inicia o processo. O processo depende do **[algorítimo de coleta de cartas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-pt-BR)** escolhido, mas geralmente consiste em jogar um jogo elegível e, periodicamente (e a cada item recebido), verificar se o jogo já está totalmente coletado - se sim, o ASF pode prosseguir para o próximo título, usando o mesmo procedimento, até que todos os jogos sejam totalmente explorados.
 
 Tenha em mente que a explicação acima é simplificada e não descreve as dezenas de recursos e funções extras que o ASF oferece. Visite o resto da **[nossa wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR)** se você quiser conhecer cada detalhe do ASF. Eu tentei fazê-la simples o bastante para que todos a entendam, sem entrar em detalhes técnicos - usuários avançados são encorajados a cavar mais fundo.
 
@@ -52,7 +52,7 @@ Então resumindo - o ASF é um programa que ajuda a pegar as cartas que você é
 
 **Sim**. O ASF exige suas credenciais de conta da mesma forma que o cliente oficial da Steam, já que ele está usando o mesmo método para interagir com a rede Steam. No entanto, isso não significa que você tenha que colocar suas credenciais de conta nos arquivos de configuração do ASF, você pode usar o ASF com `SteamLogin` e/ou `SteamPassword` `null`/vazio, e colocar esses dados cada vez que abrir o ASF, quando for preciso (assim como várias outras credenciais de login, veja a seção configuração). Desta forma, seus dados não são salvos em lugar nenhum, mas é claro, assim o ASF não poderá auto-reiniciar sem a sua ajuda. O ASF também oferece várias outras formas de aumentar a sua **[segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, então sinta-se a a vontade para ler essa parte da wiki se você for um usuário avançado. Se você não for, e não quiser colocar suas credenciais nas configurações do ASF, então simplesmente não o faça, apenas insira-as quando o ASF as pedir.
 
-Tenha em mente que o ASF é uma ferramenta para seu uso pessoal e as suas credenciais nunca deixarão seu computador. Você também não estará compartilhando elas com ninguém, o que cumpre os termos de serviço da Steam - uma coisa muito importante da qual as pessoas esquecem. Você não vai mandar seus dados para nossos servidores ou o servidor de algum terceiro, somente diretamente para os servidores da Steam operados pela Valve. Nós não sabemos suas credenciais e não somos capazes de recuperá-las para você, independentemente de você as ter colocado nas configurações ou não.
+Tenha em mente que o ASF é uma ferramenta para seu uso pessoal e as suas credenciais nunca deixarão seu computador. You're also not sharing them with anybody, which fulfills **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** - a very important thing that many people forget about. Você não vai mandar seus dados para nossos servidores ou o servidor de algum terceiro, somente diretamente para os servidores da Steam operados pela Valve. Nós não sabemos suas credenciais e não somos capazes de recuperá-las para você, independentemente de você as ter colocado nas configurações ou não.
 
 * * *
 
@@ -84,7 +84,7 @@ O ASF é um programa C# que requer a implementação funcional do .NET Core. Atu
 
 ### O ASF pode coletar itens de jogos Steam, tais como CS:GO ou Unturned?
 
-**Não**, isso é contra os Termos de Serviço e a Valve afirmou isso claramente com a última onda de banimentos da comunidade por coleta de item do TF2. O ASF é um programa de coleta automática de Cartas Colecionáveis Steam, não de intens de jogos - ele não tem qualquer capacidade de coletar itens de jogo e não temos planos de adicionar tal característica no futuro, nunca, principalmente por violar os termos de uso da Steam. Não peça isso - o melhor que você vai conseguir é uma denúncia de algum usuário ofendido e um problema por conta disso. O mesmo se aplica a todos os outros tipos de coleta, como os souvenires das transmissões de CS:GO por exemplo. O ASF é focado exclusivamente em cartas colecionáveis Steam.
+**No**, this is against **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and Valve clearly stated that with last wave of community bans for farming TF2 items. O ASF é um programa de coleta automática de Cartas Colecionáveis Steam, não de intens de jogos - ele não tem qualquer capacidade de coletar itens de jogo e não temos planos de adicionar tal característica no futuro, nunca, principalmente por violar os termos de uso da Steam. Não peça isso - o melhor que você vai conseguir é uma denúncia de algum usuário ofendido e um problema por conta disso. O mesmo se aplica a todos os outros tipos de coleta, como os souvenires das transmissões de CS:GO por exemplo. O ASF é focado exclusivamente em cartas colecionáveis Steam.
 
 * * *
 
@@ -106,7 +106,7 @@ Como alternativa, você pode usar o comando **[`play`](https://github.com/JustAr
 
 * * *
 
-### Eu sou usuário do Linux / OS X, o ASF roda jogos que não estão disponíveis para a minha plataforma? O vai ASF roda jogos 64-bit se eu rodo um SO de 32-bit?
+### Eu sou usuário do Linux / macOS, o ASF roda jogos que não estão disponíveis para a minha plataforma? O vai ASF roda jogos 64-bit se eu rodo um SO de 32-bit?
 
 Sim, o ASF não vai baixar nenhum arquivo de jogo, então ele funciona com todas as licenças que estejam ligadas a sua conta Steam, independente de qualquer requisito técnico ou de plataforma. Ele também deve funcionar com jogos que tenham bloqueio regional, mesmo quando você não estiver na região correta, embora não garantimos isso (funcionou na última vez que testamos).
 
@@ -262,7 +262,7 @@ Especialmente porque:
 
 No entanto, a Valve reconhece claramente a existência de "Steam Idlers" (programas que rodam jogos automaticamente) conforme afirmado **[aqui](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**, então se você me perguntasse eu diria que tenho certeza de que se a Valve não os quer, eles já teriam feito algo mais concreto que apenas apontar que isso pode causar problemas com o VAC. A palavra chave aqui é **Steam** idlers, por exemplo o ASF, e não **game** idlers.
 
-Note que o que foi citado acima é apenas a nossa interpretação do Acordo de Assinatura do Steam e vários pontos; o ASF é licenciado pela Licença Apache 2.0, que afirma claramente:
+Please note that above is only our interpretation of **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and various points - ASF is licensed under Apache 2.0 License, which clearly states:
 
 > A menos que exigido por lei ou acordado por escrito, o ASF é distribuído "COMO ESTÁ", SEM GARANTIAS OU CONDIÇÕES DE QUALQUER TIPO, expressas ou implícitas.
 
@@ -284,7 +284,7 @@ Outro caso foi de um cara com mais de 170 bots ser banido durante a Promoção d
 
 > Sua conta foi bloqueada por violação do Acordo de Assinatura do Steam. Julgando pelas trocas e outros fatores, essa conta foi usada para coletar ilegalmente cartas colecionáveis do Steam, assim como atividades comerciais relacionadas, entre outras. A conta foi bloqueada permanentemente e o suporte Steam não pode fornecer suporte adicional sobre esta questão.
 
-Este é mais um caso muito difícil de analisar, por causa resposta vaga do suporte Steam que mal oferece os detalhes. Baseado em meus pensamentos pessoais, este usuário provavelmente trocou cartas Steam para algum tipo de dinheiro (algum bot para subir de nível?) ou de alguma outra maneira tentou retirar fundos do Steam. Caso você não saiba isso também é ilegal de acordo com o Acordo de Assinatura do Steam.
+Este é mais um caso muito difícil de analisar, por causa resposta vaga do suporte Steam que mal oferece os detalhes. Baseado em meus pensamentos pessoais, este usuário provavelmente trocou cartas Steam para algum tipo de dinheiro (algum bot para subir de nível?) ou de alguma outra maneira tentou retirar fundos do Steam. In case you were unaware, this is also illegal according to **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**.
 
 O último caso envolveu um usuário com mais de 120 bots ser banido por quebrar o **[Código de Conduta Online do Steam](https://store.steampowered.com/online_conduct?l=brasilian)**.
 
@@ -338,7 +338,7 @@ Com o módulo de coleta pausado/desabilitado, você pode utilizar as demais func
 
 ### Posso minimizar o ASF para a bandeja?
 
-O ASF é um aplicativo de console, não há janela para ser minimizada pois as janelas são criadas para você pelo seu SO. No entanto você pode usar qualquer ferramenta de terceiros capaz de fazer isso, tal como **[RBTray](https://github.com/benbuck/rbtray)** para Windows ou **[screen](https://linux.die.net/man/1/screen)** para Linux/OS X. Essas são apenas exemplos, há muitas outras ferramentas com o mesmo recurso.
+O ASF é um aplicativo de console, não há janela para ser minimizada pois as janelas são criadas para você pelo seu SO. No entanto você pode usar qualquer ferramenta de terceiros capaz de fazer isso, tal como **[RBTray](https://github.com/benbuck/rbtray)** para Windows ou **[screen](https://linux.die.net/man/1/screen)** para Linux/macOS. Esss são apenas exemplos, há muitas outras ferramentas com o mesmo recurso.
 
 * * *
 
@@ -388,7 +388,7 @@ A equipe do ASF sugere rodar (e **possuir**) **no máximo 10 bots**, não há su
 
 ### Então eu posso rodar mais instâncias do ASF?
 
-Você pode executar quantas instâncias do ASF você quiser em um computador, assumindo que cada instância tenha sua própria pasta e suas próprias configurações, e que uma conta usada em uma instância não seja usada em outra. No entanto, pergunte-se por que você quer fazer isso. O ASF é otimizado para lidar com uma dezena, ou até uma centena de contas ao mesmo tempo, e iniciar essas dezenas de bots em suas próprias instâncias do ASF diminui o desempenho, toma mais recursos do sistema operacional (como CPU e memória), e causa possíveis problemas de sincronização entre diferentes instâncias do ASF, já que o ASF é forçado a compartilhar seus limitadores com outras instâncias.
+Você pode executar quantas instâncias do ASF você quiser em um computador, assumindo que cada instância tenha sua própria pasta e suas próprias configurações, e que uma conta usada em uma instância não seja usada em outra. No entanto, pergunte-se por que você quer fazer isso. ASF is optimized to handle more than a hundred of accounts at the same time, and launching that hundred of bots in their own ASF instances degrades performance, takes more OS resources (such as CPU and memory), and causes a potential synchronization issues between standalone ASF instances, as ASF is forced to share its limiters with other instances.
 
 Portanto, eu **sugiro fortemente** sempre executar o máximo de uma instância ASF por IP/interface. Se você tiver mais IPs/interfaces, você pode executar tranquilamente mais instâncias do ASF com cada instância usando seu próprio IP/interface ou uma configuração de `WebProxy` individual. Caso contrário, abrir mais instâncias do ASF é totalmente inútil já que você não ganhará nada ao executar mais de 1 instância no mesmo IP/interface. O Steam não vai permitir magicamente que você rode mais bots apenas porque você os iniciou em outra instância do ASF, e pra começar, o ASF não te limita quanto a isso.
 
@@ -415,17 +415,17 @@ O estado indica como determinada tentativa de resgate acabou. Há muitos estados
 
 ### Vocês são afiliados a algum serviço de coleta de cartas?
 
-**Não**. O ASF não é afiliado a nenhum serviço e qualquer afirmação acerca disso é falsa. A sua conta Steam é propriedade sua e você pode usar sua conta da maneira que quiser, mas a Valve diz claramente no **[Acordo de Assinatura do Steam](https://store.steampowered.com/subscriber_agreement/english)** que:
+**Não**. O ASF não é afiliado a nenhum serviço e qualquer afirmação acerca disso é falsa. A sua conta Steam é propriedade sua e você pode usar sua conta da maneira que quiser, mas a Valve diz claramente no **[Acordo de Assinatura do Steam](https://store.steampowered.com/subscriber_agreement)** que:
 
 > Você é o responsável pela confidencialidade de seu nome de login e senha assim como pela segurança do seu sistema de computador. A Valve não é responsável pelo uso da sua senha e conta nem por todas as comunicações e atividades no Steam que resultem do uso do seu nome de usuário e senha por você, ou por qualquer pessoa a qual você tenha, de forma intencional ou não, divulgado o seu login e/ou senha em violação à disposição de confidencialidade.
 
-O ASF é licenciado pela a licença liberal Apache 2.0, que permite que outros desenvolvedores integrem legalmente o ASF com seus próprios projetos e serviços. No entanto, não garantimos que tais projetos de terceiros utilizando o ASF sejam seguros, revisados, apropriados ou legais de acordo com o **[Acordo de Assinatura do Steam](https://store.steampowered.com/subscriber_agreement/?l=brazilian)**. Se você quer saber a nossa opinião, **nós incentivamos fortemente você a NÃO compartilhar QUAISQUER detalhes de conta com serviços de terceiros**. Se acontecer de tal serviço ser um **tipo de fraude**, você vai estar sozinho com o problema, provavelmente sem sua conta Steam e o ASF não assume qualquer responsabilidade por serviços de terceiros que aleguem ser seguros, pois a equipe do ASF não autorizou nem revisou qualquer um desses. Em outras palavras, **você os esta usando por sua conta e risco, contra a sugestão feita acima**.
+O ASF é licenciado pela a licença liberal Apache 2.0, que permite que outros desenvolvedores integrem legalmente o ASF com seus próprios projetos e serviços. However, such third-party projects utilizing ASF are not guaranteed to be secure, reviewed, appropriate or legal according to **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. Se você quer saber a nossa opinião, **nós incentivamos fortemente você a NÃO compartilhar QUAISQUER detalhes de conta com serviços de terceiros**. Se acontecer de tal serviço ser um **tipo de fraude**, você vai estar sozinho com o problema, provavelmente sem sua conta Steam e o ASF não assume qualquer responsabilidade por serviços de terceiros que aleguem ser seguros, pois a equipe do ASF não autorizou nem revisou qualquer um desses. Em outras palavras, **você os esta usando por sua conta e risco, contra a sugestão feita acima**.
 
-Além disso, o Acordo de Assinatura do Steam diz claramente que:
+In addition to that, official **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** clearly states that:
 
 > Você não poderá revelar, compartilhar ou de outra forma permitir que outras pessoas usem sua senha ou Conta, exceto se for especificamente autorizado de outra forma pela Valve.
 
-É seu problema e sua escolha. Só não diga que ninguém te avisou. O ASF em si cumpre todas as regras mencionadas acima, já que você não está compartilhando detalhes da sua conta com ninguém, e você está usando o programa para seu uso pessoal, mas qualquer outro "serviço de coleta de cartas" exigirá suas credenciais de conta, portanto, também viola a regra acima (na verdade várias delas). Assim como na avaliação do Acordo de Assinatura do Steam, não estamos oferecendo qualquer aconselhamento legal, e você deve decidir por sua conta se você quer usar esses serviços ou não; de acordo com o que dissemos ele **viola diretamente o Acordo de Assinatura do Steam** e pode resultar em suspensão caso a Valve descubra. Conforme salientado acima, ** recomendamos NÃO usar nenhum dos tais serviços**.
+É seu problema e sua escolha. Só não diga que ninguém te avisou. O ASF em si cumpre todas as regras mencionadas acima, já que você não está compartilhando detalhes da sua conta com ninguém, e você está usando o programa para seu uso pessoal, mas qualquer outro "serviço de coleta de cartas" exigirá suas credenciais de conta, portanto, também viola a regra acima (na verdade várias delas). Like with **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** evaluation, we're not offering any legal advice, and you should decide yourself if you want to use those services, or not - according to us **it directly violates [Steam ToS](https://store.steampowered.com/subscriber_agreement)** and may result in suspension if Valve finds out. Conforme salientado acima, ** recomendamos NÃO usar nenhum dos tais serviços**.
 
 * * *
 

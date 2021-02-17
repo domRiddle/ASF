@@ -14,7 +14,7 @@ Em geral, é isso que vamos fazer nos próximos minutos:
 
 - Instalar o **[.NET Core](#net-core-prerequisites)**.
 - Baixar a **[última versão do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** na versão correta para o seu SO.
-- Extrair o arquivo em um novo local (e `chmod +x ArchiSteamFarm` se você usar Lunux/OS X).
+- Extrair o arquivo em um novo local (e `chmod +x ArchiSteamFarm` se você usar Linux/macOS).
 - **[Configurar o ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)**.
 - Executar o ASF e ver a mágica.
 
@@ -24,7 +24,7 @@ Parece simples o bastante, certo? Então, vamos ver.
 
 ### Pré-requisitos .NET Core
 
-O primeiro passo é garantir que seu sistema operacional pode mesmo executar o ASF corretamente. O ASF é escrito em C#, com base no .NET Core e pode requerer bibliotecas nativas que ainda não estão disponíveis na sua plataforma. Os requisitos serão diferentes se você usa Windows, Linux ou OS X, embora todos estejam listados no documento **[pré-requisitos .NET Core](https://docs.microsoft.com/dotnet/core/install)** que você deve seguir Esse é nosso material de referência e ele deve ser usado, mas para simplificar nós detalhamos todos os pacotes necessários abaixo para que você não precise ler todo o documento.
+O primeiro passo é garantir que seu sistema operacional pode mesmo executar o ASF corretamente. O ASF é escrito em C#, com base no .NET Core e pode requerer bibliotecas nativas que ainda não estão disponíveis na sua plataforma. Os requisitos serão diferentes se você usa Windows, Linux ou macOS, embora todos estejam listados no documento **[pré-requisitos .NET Core](https://docs.microsoft.com/dotnet/core/install)** que você deve seguir. Esse é nosso material de referência e ele deve ser usado, mas para simplificar nós detalhamos todos os pacotes necessários abaixo para que você não precise ler todo o documento.
 
 É perfeitamente normal que algumas dependências (ou mesmo todas) já tenham sido instaladas no seu sistema por algum outro software que você use. Ainda assim, você deve garantir executando o instalador apropriado para seu sistema operacional - sem essas dependências o ASF não vai nem iniciar.
 
@@ -49,9 +49,9 @@ Os nomes dos pacotes dependem da distribuição do Linux que você esteja usando
 
 Pelo menos a maioria deles já deve estar disponível nativamente no seu sistema. A instalação mínima do Debian estável requer apenas `libicu63`.
 
-#### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
+#### **[macOS](https://docs.microsoft.com/dotnet/core/install/macos)**:
 
-- Nenhum por enquanto, mas você deve ter a versão mais recente do OS X instalada, pelo menos 10.13+
+- Nenhum por enquanto, mas você deve ter a versão mais recente do macOS instalada, pelo menos 10.13+
 
 * * *
 
@@ -61,9 +61,9 @@ Uma vez que já tenhamos todas as dependências, o próximo passo é baixar a **
 
 ![Arquivos](https://i.imgur.com/Ym2xPE5.png)
 
-Após o download, comece extraindo o arquivo zip para sua própria pasta. Recomendamos usar o **[7-zip](https://www.7-zip.org)**, mas os utilitários padrão como o `unzip` do Linux/OS X também devem funcionar sem problemas.
+Após o download, comece extraindo o arquivo zip para sua própria pasta. Recomendamos usar o **[7-zip](https://www.7-zip.org)**, mas os utilitários padrão como o `unzip` do Linux/macOS também devem funcionar sem problemas.
 
-Se você estiver usando Linux/OS X não se esqueça do comando `chmod + x ArchiSteamFarm` na pasta extraída, já que as permissões não são definidas automaticamente no arquivo zip. Isso tem que ser feito somente uma vez após descompactar.
+Se você estiver usando Linux/macOS não se esqueça do comando `chmod +x ArchiSteamFarm` na pasta extraída, já que as permissões não são definidas automaticamente no arquivo zip. Isso tem que ser feito somente uma vez após descompactar.
 
 Certifique-se de descompactar o ASF para a **sua própria pasta** e não para outra existente que você esteja usando para outra coisa - as atualizações automáticas do ASF vão excluir todos os arquivos velhos e não relacionados, o que vao fazer você perder qualquer coisa não relacionada que esteja na mesma pasta. Se você tiver qualquer scripts ou arquivos extras que você quer usar com o ASF, coloque-os uma pasta acima.
 
@@ -245,8 +245,8 @@ Com etapas extras:
 - Instalar o **[.NET Core](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
 - Instalar o **[.NET Core SDK](https://www.microsoft.com/net/download)** (ou o tempo de execução mais recente) apropriado para seu sistema operacional. Você provavelmente vai desejar usar um instalador. Veja **[requisitos de tempo de execução](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** se você não tiver certeza de qual versão instalar.
 - Baixe a **[última versão do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** na versão genérica.
-- Extrair o arquivo em um novo local (e `chmod +x ArchiSteamFarm.sh` se você usar Lunux/OS X).
+- Extrair o arquivo em um novo local (e `chmod +x ArchiSteamFarm.sh` se você usar Lunux/macOS).
 - **[Configurar o ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)**.
 - Abra o ASF usando um script auxiliar ou executando `dotnet /path/to/ArchiSteamFarm.dll` manualmente pelo seu shell favorito.
 
-Scripts de ajuda (como `ArchiSteamFarm.cmd` para Windows e `ArchiSteamFarm.sh` para Linux/OSX) estão juntos com o `ArchiSteamFarm.dll` - eles são inclusos apenas na variante genérica. Você pode usá-los se você não quer executar o comando `dotnet` manualmente. Obviamente os scripts de ajuda não vão funcionar se você não instalou o SDK do .NET Core e não tem o executável `dotnet` disponível em seu `PATH`. Os scripts de ajuda são inteiramente opcionais, você pode sempre usar o método manual `dotnet /path/to/ArchiSteamFarm.dll`.
+Scripts de ajuda (como `ArchiSteamFarm.cmd` para Windows e `ArchiSteamFarm.sh` para Linux/macOS) estão juntos com o binário `ArchiSteamFarm.dll` - eles são inclusos apenas na variante genérica. Você pode usá-los se você não quer executar o comando `dotnet` manualmente. Obviamente os scripts de ajuda não vão funcionar se você não instalou o SDK do .NET Core e não tem o executável `dotnet` disponível em seu `PATH`. Os scripts de ajuda são inteiramente opcionais, você pode sempre usar o método manual `dotnet /path/to/ArchiSteamFarm.dll`.

@@ -36,7 +36,7 @@
 
 现在我们已经解释了 Steam 的基本知识，接下来解释 ASF。 这个程序本身非常复杂而且难以理解，所以我们只打算简单介绍，不会深入解释完整的技术细节。
 
-ASF 通过我们内置的自定义 Steam 客户端实现，使用您提供的登录凭据登录到您的 Steam 帐户。 登录成功后，它将会解析您的&#8203;**[徽章页面](https://steamcommunity.com/my/badges)**，以寻找可挂卡的游戏（您可以通过玩此游戏获得 X 张卡牌）。 所有页面解析完成，最终的挂卡游戏列表构建成功后，ASF 会选择最优的挂卡算法开始挂卡。 这个过程取决于&#8203;**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**，但通常由两部分组成，一部分是运行合适的游戏，另一部分是定期（以及有物品掉落时）检查该游戏是否已经掉落所有卡牌——如果已完成，ASF 将会继续到下一款游戏，重复这一过程，直到所有游戏都挂卡完成。
+ASF 通过我们内置的自定义 Steam 客户端实现，使用您提供的登录凭据登录到您的 Steam 帐户。 After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (`X` card drops remaining). 所有页面解析完成，最终的挂卡游戏列表构建成功后，ASF 会选择最优的挂卡算法开始挂卡。 这个过程取决于&#8203;**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**，但通常由两部分组成，一部分是运行合适的游戏，另一部分是定期（以及有物品掉落时）检查该游戏是否已经掉落所有卡牌——如果已完成，ASF 将会继续到下一款游戏，重复这一过程，直到所有游戏都挂卡完成。
 
 请注意，上述解释是经过简化的，也没有描述 ASF 提供的其他额外功能。 如果您希望了解 ASF 的细节，请访问 **[Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-CN)** 的其他页面。 我试图尽量简化它，让每个人都能理解，无需了解技术细节——并且鼓励高级用户深入研究。
 
@@ -52,7 +52,7 @@ ASF 通过我们内置的自定义 Steam 客户端实现，使用您提供的登
 
 **是的**。 ASF 与官方客户端一样需要您输入帐户凭据，因为它使用相同的方式与 Steam 网络交互。 但这不代表您需要在 ASF 配置文件中输入帐户凭据，您可以保持 `SteamLogin` 和/或 `SteamPassword` 属性为 `null` 或空值，然后在每次运行 ASF 时输入这些信息（以及其他相关的登录凭据，详见配置章节）。 这样，您的信息就不会被保存在任何地方，但您必须帮助 ASF 才能使它运行。 ASF 还提供了其他几种方法来增强&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**，所以如果您是高级用户，可以阅读这部分 Wiki。 如果您不是，并且不希望在 ASF 配置中留下帐户凭据，可以直接忽略这一步，然后在 ASF 需要这些信息时手动输入。
 
-请记住，ASF 工具仅供您私人使用，您的帐户凭据永远不会离开您的计算机。 您也不应该将这些信息与任何人共享，因为这违反 Steam 订户协议——这是一份非常重要但是没人关心的法律文件。 您的信息不会被发送到我们的服务器或者第三方，而是直接发给由 Valve 控制的 Steam 服务器。 无论您是否写入配置文件，我们都无法获得您的帐户凭据，也无法为您恢复它们。
+请记住，ASF 工具仅供您私人使用，您的帐户凭据永远不会离开您的计算机。 You're also not sharing them with anybody, which fulfills **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** - a very important thing that many people forget about. 您的信息不会被发送到我们的服务器或者第三方，而是直接发给由 Valve 控制的 Steam 服务器。 无论您是否写入配置文件，我们都无法获得您的帐户凭据，也无法为您恢复它们。
 
 * * *
 
@@ -84,7 +84,7 @@ ASF 是一个 C# 程序，需要安装正常工作的 .NET Core 环境实现。 
 
 ### ASF 可以挂游戏内物品吗，例如 CS:GO 或者 Unturned 的？
 
-**不**，这违反了 Steam 订户协议，Valve 通过上一次对挂机获得 TF2 物品的行为实施大规模社区封禁明确指出了这一点。 ASF 是一个 Steam 挂卡程序，而非游戏物品挂机工具——它没有任何挂游戏物品的能力，也不计划在未来添加这一功能，主要原因是这种行为违反 Steam 的使用条款。 请不要问这个问题——您能获得的最好结果就是其他用户的举报，而您会陷入更大的麻烦。 所有其他类型的挂机也是如此，例如在 CS:GO 的直播中挂机获取物品。 ASF 仅仅关注 Steam 集换式卡牌。
+**No**, this is against **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF 是一个 Steam 挂卡程序，而非游戏物品挂机工具——它没有任何挂游戏物品的能力，也不计划在未来添加这一功能，主要原因是这种行为违反 Steam 的使用条款。 请不要问这个问题——您能获得的最好结果就是其他用户的举报，而您会陷入更大的麻烦。 所有其他类型的挂机也是如此，例如在 CS:GO 的直播中挂机获取物品。 ASF 仅仅关注 Steam 集换式卡牌。
 
 * * *
 
@@ -262,7 +262,7 @@ ASF 真正需要关注的重点是：
 
 然而，如&#8203;**[此文章](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**&#8203;所述，Valve 明确知晓“Steam 挂机工具”的存在，因此，如果您问我，我很确定如果他们认为这种行为不妥，就早已采取措施来阻止，而不是指出这种行为会造成 VAC 的故障了。 这里的关键词是 **Steam** 挂机工具，例如 ASF，而不是**游戏**挂机工具。
 
-请注意，上文只是我们对 Steam 订户协议及其各条目的解释——ASF 本身依据 Apache 2.0 许可证授权，其中明确规定：
+Please note that above is only our interpretation of **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and various points - ASF is licensed under Apache 2.0 License, which clearly states:
 
 > Unless required by applicable law or agreed to in writing, ASF is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.（参考译文：除非适用法律要求或书面同意，否则 ASF 将按“原样”分发，不附带任何明示或暗示的担保或条件。）
 
@@ -284,7 +284,7 @@ ASF 真正需要关注的重点是：
 
 > Your account was blocked for violation of the agreement of the subscriber Steam.（译文：您的帐户因为违反 Steam 订户协议而被封禁。） Judging by the exchanges and other factors, this account was used to illegally collect collectible cards on Steam, as well as related and not only commercial activities.（译文：从交易和其他因素来看，这个帐户被用来非法收集 Steam 集换式卡牌，以及相关的商业以外的活动。） The account has been permanently blocked and Steam Support can not provide additional support on this issue.（译文：此帐户已被永久封禁，Steam 客服无法在此问题上为您提供进一步帮助。）
 
-这起事件同样难以分析，因为 Steam 客服的回应非常模糊，几乎没有提供任何细节。 根据我个人的想法，这名用户可能用 Steam 卡牌兑换了某种金钱（等级机器人？）或者以其他方式进行了 Steam 套现。 您可能不知道，这也违反了 Steam 订户协议。
+这起事件同样难以分析，因为 Steam 客服的回应非常模糊，几乎没有提供任何细节。 根据我个人的想法，这名用户可能用 Steam 卡牌兑换了某种金钱（等级机器人？）或者以其他方式进行了 Steam 套现。 In case you were unaware, this is also illegal according to **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**.
 
 最后一次事件涉及一名拥有超过 120 个机器人的用户，因违反 **[Steam 在线行为准则](https://store.steampowered.com/online_conduct?l=schinese)**&#8203;而被封禁。
 
@@ -388,7 +388,7 @@ ASF 团队建议您运行（包括**拥有**）**最多 10 个机器人**，如�
 
 ### 我可以同时运行多个 ASF 实例吗？
 
-您可以在一台计算机上运行任意数量的 ASF 实例，前提是每个实例都有独立的文件夹和配置，并且在一个实例中使用的帐户没有在另一个实例中使用。 但是，您应该想想为什么要这样做。 ASF 已被优化至可以同时处理十几个乃至上百个帐户，运行独立的 ASF 实例会降低性能、占用更多系统资源（例如 CPU 和内存）、造成不同实例之间潜在的同步问题，因为 ASF 会被强制与其他实例共享限制。
+您可以在一台计算机上运行任意数量的 ASF 实例，前提是每个实例都有独立的文件夹和配置，并且在一个实例中使用的帐户没有在另一个实例中使用。 但是，您应该想想为什么要这样做。 ASF is optimized to handle more than a hundred of accounts at the same time, and launching that hundred of bots in their own ASF instances degrades performance, takes more OS resources (such as CPU and memory), and causes a potential synchronization issues between standalone ASF instances, as ASF is forced to share its limiters with other instances.
 
 因此，我**强烈建议**在每个 IP/接口上最多只运行一个 ASF 实例。 如果您有多个 IP/接口，这意味着您可以运行多个 ASF 实例，每个实例都使用自己独立的 IP/接口，或者使用唯一的 `WebProxy` 设置。 否则，开启多个 ASF 实例就是完全无意义的，因为在单个 IP/接口上启动多个实例没有任何好处。 ASF 本身并没有对此进行任何限制，但 Steam 不会仅仅因为您启用多个 ASF 实例就神奇地允许您运行更多机器人。
 
@@ -415,17 +415,17 @@ ASF 团队建议您运行（包括**拥有**）**最多 10 个机器人**，如�
 
 ### 你与任何挂卡服务有关联吗？
 
-**不**。 ASF 不属于任何服务，一切类似的声明都是虚假的。 您的 Steam 帐户是您的财产，您可以通过任何方式使用您的帐户，但 Valve 在&#8203;**[官方订户协议](https://store.steampowered.com/subscriber_agreement/english)**&#8203;中明确指出：
+**不**。 ASF 不属于任何服务，一切类似的声明都是虚假的。 您的 Steam 帐户是您的财产，您可以通过任何方式使用您的帐户，但 Valve 在&#8203;**[官方订户协议](https://store.steampowered.com/subscriber_agreement)**&#8203;中明确指出：
 
 > You are responsible for the confidentiality of your login and password and for the security of your computer system.（参考译文：您有责任保护您的用户名和密码以及保证计算机系统的安全性。） Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, or by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.（参考译文：Valve 不负责您的密码和帐户的使用，也不对因您、您可能有意或因疏忽而泄露您的用户名和/或密码而导致的 Steam 上的任何通信和活动违反本保密条款负责。）
 
-ASF 基于宽松的 Apache 2.0 许可证授权，允许其他开发者合法地将 ASF 与自己的项目或服务进一步集成。 但是，此类使用 ASF 的第三方项目无法保证是安全的、经过审查的、适当的或者遵守 **[Steam 订户协议](https://store.steampowered.com/subscriber_agreement/english)**&#8203;的。 如果您想了解我们的意见，**我们强烈建议您不要与第三方服务分享任何帐户详细信息**。 如果这样的服务是**典型的骗局**，您的 Steam 帐户很可能会被盗，而 ASF 不会对任何第三方服务的安全声明负责，因为 ASF 团队从未授权或审查这些服务。 换句话说，**如果您选择忽略我们的建议，就需要在使用这些服务时自行承担风险**。
+ASF 基于宽松的 Apache 2.0 许可证授权，允许其他开发者合法地将 ASF 与自己的项目或服务进一步集成。 但是，此类使用 ASF 的第三方项目无法保证是安全的、经过审查的、适当的或者遵守 **[Steam 订户协议](https://store.steampowered.com/subscriber_agreement)**&#8203;的。 如果您想了解我们的意见，**我们强烈建议您不要与第三方服务分享任何帐户详细信息**。 如果这样的服务是**典型的骗局**，您的 Steam 帐户很可能会被盗，而 ASF 不会对任何第三方服务的安全声明负责，因为 ASF 团队从未授权或审查这些服务。 换句话说，**如果您选择忽略我们的建议，就需要在使用这些服务时自行承担风险**。
 
-此外，官方 Steam 订户协议明确指出：
+In addition to that, official **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** clearly states that:
 
 > You may not reveal, share or otherwise allow others to use your password or Account except as otherwise specifically authorized by Valve.（参考译文：除非 Valve 特别授权，否则您不得透露、分享或以其他方式允许他人使用您的密码或帐户。）
 
-这是您的帐户与您的选择。 但不要说没人警告过您。 ASF 是一个遵守上述所有规则的程序，因为您没有与任何人分享您的帐户详细信息，您以个人用途使用此程序，但任何其他的“挂卡服务”都需要您提供帐户凭据，所以它们违反了上述规则（实际上是其中数条规则）。 就像之前的 Steam 订户协议分析一样，我们不提供任何法律建议，您应该自己决定是否使用这些服务——我们的说法是，这种行为**直接违反 Steam 订户协议**，如果 Valve 发现，您的 Steam 帐户就可能被停用。 如上文所述，**我们强烈建议不使用任何此类服务**。
+这是您的帐户与您的选择。 但不要说没人警告过您。 ASF 是一个遵守上述所有规则的程序，因为您没有与任何人分享您的帐户详细信息，您以个人用途使用此程序，但任何其他的“挂卡服务”都需要您提供帐户凭据，所以它们违反了上述规则（实际上是其中数条规则）。 Like with **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** evaluation, we're not offering any legal advice, and you should decide yourself if you want to use those services, or not - according to us **it directly violates [Steam ToS](https://store.steampowered.com/subscriber_agreement)** and may result in suspension if Valve finds out. 如上文所述，**我们强烈建议不使用任何此类服务**。
 
 * * *
 

@@ -20,7 +20,7 @@ Assumindo que você tenha o SDK do .NET Core na versão apropriada, simplesmente
 dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
 ```
 
-Se você estiver usando Linux/OS X, você pode usar o código `cc.sh`, que fará o mesmo de uma maneira um pouco mais complexa.
+Se você estiver usando Linux/macOS, você pode usar o código `cc.sh`, que terá o mesmo resultado de uma maneira um pouco mais complexa.
 
 Se a compilação obteve sucesso você poderá encontrar a `source` da sua versão do ASF na pasta `out/generic`. Essa compilação é a mesma que a `genérica` do ASF, mas ela força o valor de `UpdateChannel` e `UpdatePeriod` para `0`, o que é o correto para versões auto compiladas.
 
@@ -54,7 +54,7 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 Se você gostaria de editar o código do ASF, você pode usar qualquer IDE compatível com o .NET Core, embora até mesmo isso seja opcional, uma vez que você pode editar em um bloco de notas e compilar com o comando `dotnet` descrito acima. Ainda assim, para Windows, recomendamos **[o Visual Studio mais recente](https://visualstudio.microsoft.com/downloads)** (a versão gratuita community é mais que o suficiente).
 
-Se, em vez disso, você quiser trabalhar com o código ASF no Linux/Mac OS X, recomendamos o **[Visual Studio Code mais recente](https://code.visualstudio.com/download)**. Ele não é tão rico quanto o Visual Studio clássico, mas é bom o suficiente.
+Caso você queira trabalhar com o código ASF no Linux/macOS, recomendamos o **[Visual Studio Code mais recente](https://code.visualstudio.com/download)**. Ele não é tão rico quanto o Visual Studio clássico, mas é bom o suficiente.
 
 Claro que todas as sugestões acima são apenas recomendações, você pode usar o que quiser, tudo se resume ao comando `dotnet build` de qualquer maneira. Nós usamos **[JetBrains Rider](https://www.jetbrains.com/rider)** para o desenvolvimento do ASF, com uma pequena parte de `ferramentas` de terceiros que você pode encontrar no repositório.
 

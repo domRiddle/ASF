@@ -36,7 +36,7 @@ So as you can see, Steam cards are awarded to you for playing a game that you bo
 
 Now that we've explained the basics of Steam, we can explain ASF. The program itself is quite complex to understand fully, so instead of digging into all the technical details, we'll offer a very simplified explanation below.
 
-ASF 使用您提供的憑據，通過內置自訂 Steam 用戶端實現登錄到您的Steam帳戶。 成功登錄後，它會分析您的**[徽章頁](https://steamcommunity.com/my/badges)**, 以查找可供掛卡的遊戲（您可以從玩這個遊戲中再獲得X張卡片）。 在分析了所有徽章頁面並構建了可用遊戲的最終清單後，ASF 選擇了最有效的掛卡算法並啟動進程。 這個過程取決於選擇的**[掛卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**，但通常包括玩合格的遊戲，並定期（當每個物品掉落）檢查遊戲是否已經完成掛卡——如果是，ASF 可以相同的流程繼續下一個遊戲，直到獲得所有的遊戲卡片。
+ASF 使用您提供的憑據，通過內置自訂 Steam 用戶端實現登錄到您的Steam帳戶。 After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (`X` card drops remaining). 在分析了所有徽章頁面並構建了可用遊戲的最終清單後，ASF 選擇了最有效的掛卡算法並啟動進程。 這個過程取決於選擇的**[掛卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**，但通常包括玩合格的遊戲，並定期（當每個物品掉落）檢查遊戲是否已經完成掛卡——如果是，ASF 可以相同的流程繼續下一個遊戲，直到獲得所有的遊戲卡片。
 
 請記住，上面的解釋是簡化的，並不阐述 ASF 提供的諸多額外功能和特性。 如果你想了解ASF的所有細節，請訪問我們的 **[wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)** 的其餘部分。 我盡可能簡明地講解，以讓每個人都能理解它，但並未帶來技術細節——在此鼓勵高級用戶更深入地挖掘。
 
@@ -52,7 +52,7 @@ ASF 使用您提供的憑據，通過內置自訂 Steam 用戶端實現登錄到
 
 **是的**。 ASF要求您的帳戶憑據的方式與官方Steam用戶端一致，因為它使用與Steam網絡交互相同的方法。 但是，這並不意味著您必須將您的帳戶憑據放在ASF配置中，您可以在` SteamLogin `和/或` SteamPassword `為` null ` 時繼續使用 ASF，並在必要時輸入每個 ASF 運行需要的數據（以及其他登錄憑據，請參閱配置）。 這樣，您的詳細資訊不會保存在任何地方，但如果沒有您的幫助，ASF 無法自行啟動。 ASF 還提供了其他幾種方法來提高您的 **[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**，因此，如果您是高級用戶，請隨時閱讀 wiki 的這一部分。 如果您不是, 並且不想將您的帳戶憑據放在ASF配置中, 則無需這樣做, 而是在ASF要求時根據需要輸入它們。
 
-請記住, ASF工具是供您個人使用的, 您的憑據永遠不會離開您的電腦。 您也不會和任何人分享這些信息，這遵循了Steam ToS ──這是很多人忘記的非常重要的事情。 您的詳細資訊將不會被發送到我們的伺服器或協力項目, 而將直接發送到Valve運營的 Steam 伺服器。 無論您是否將您的憑據放入配置中，我們都無從知道您的憑據，更無法為您恢復，。
+請記住, ASF工具是供您個人使用的, 您的憑據永遠不會離開您的電腦。 You're also not sharing them with anybody, which fulfills **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** - a very important thing that many people forget about. 您的詳細資訊將不會被發送到我們的伺服器或協力項目, 而將直接發送到Valve運營的 Steam 伺服器。 無論您是否將您的憑據放入配置中，我們都無從知道您的憑據，更無法為您恢復，。
 
 * * *
 
@@ -84,7 +84,7 @@ ASF 是一個需要 .NET Core運行時環境的C#程式。 當前沒有針對And
 
 ### ASF 可以從Steam遊戲中獲取掉落物品嗎？比如 CS:GO或Unturned？
 
-**不行**，這違反Steam ToS和Valve明確規定的最後一波關於TF2物品的社區禁令。 ASF 是一個 Steam 掛卡項目，而不是掛機項目——它沒沒有任何掛機的能力，並且未來也不會添加此類功能，因為這違反了 Steam 使用條款。 Please do not ask about this - the best you can get is a report from some salty user and you having problems. 所有其他類型的掛卡也是如此，例如 CS：GO 直播中的物品掉落。 ASF 專注于Steam交易卡片。
+**No**, this is against **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF 是一個 Steam 掛卡項目，而不是掛機項目——它沒沒有任何掛機的能力，並且未來也不會添加此類功能，因為這違反了 Steam 使用條款。 Please do not ask about this - the best you can get is a report from some salty user and you having problems. 所有其他類型的掛卡也是如此，例如 CS：GO 直播中的物品掉落。 ASF 專注于Steam交易卡片。
 
 * * *
 
@@ -262,7 +262,7 @@ Especially because:
 
 However, Valve clearly acknowledges "Steam idlers" existing, as stated **[here](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**, so if you asked me, I'm pretty sure that if they weren't fine with them, they'd already do something instead of pointing out that they could cause problems VAC-wise. The key word here is **Steam** idlers, for example ASF, and not **game** idlers.
 
-Please note that above is only our interpretation of Steam ToS and various points - ASF is licensed under Apache 2.0 License, which clearly states:
+Please note that above is only our interpretation of **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and various points - ASF is licensed under Apache 2.0 License, which clearly states:
 
 > Unless required by applicable law or agreed to in writing, ASF is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
@@ -284,7 +284,7 @@ Another case was a guy with 170+ bots getting banned during Steam's 2017 Winter 
 
 > Your account was blocked for violation of the agreement of the subscriber Steam. Judging by the exchanges and other factors, this account was used to illegally collect collectible cards on Steam, as well as related and not only commercial activities. The account has been permanently blocked and Steam Support can not provide additional support on this issue.
 
-This case is once again very hard to analyze, because of vague response from Steam support that barely offers any details. Based on my personal thoughts, this user probably exchanged Steam cards for some kind of money (level up bot?) or in some other way tried to cash out on Steam. In case you were unaware, this is also illegal according to Steam ToS.
+This case is once again very hard to analyze, because of vague response from Steam support that barely offers any details. Based on my personal thoughts, this user probably exchanged Steam cards for some kind of money (level up bot?) or in some other way tried to cash out on Steam. In case you were unaware, this is also illegal according to **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**.
 
 Last case involved user with 120+ bots being banned for breach of **[Steam online conduct](https://store.steampowered.com/online_conduct?l=english)**.
 
@@ -388,7 +388,7 @@ ASF team suggests running (and **owning**) up to **10 bots in total**, anything 
 
 ### 我可以運行更多的 ASF 實例嗎？
 
-You can run as many ASF instances on one machine as you like, assuming every instance has its own directory and its own configs, and account used in one instance is not used in another one. 然而，問問自己為什麼要這麼做。 ASF is optimized to handle a dozen, even a hundred of accounts at the same time, and launching those dozen of bots in their own ASF instances degrades performance, takes more OS resources (such as CPU and memory), and causes a potential synchronization issues between different ASF instances, as ASF is forced to share its limiters with other instances.
+You can run as many ASF instances on one machine as you like, assuming every instance has its own directory and its own configs, and account used in one instance is not used in another one. 然而，問問自己為什麼要這麼做。 ASF is optimized to handle more than a hundred of accounts at the same time, and launching that hundred of bots in their own ASF instances degrades performance, takes more OS resources (such as CPU and memory), and causes a potential synchronization issues between standalone ASF instances, as ASF is forced to share its limiters with other instances.
 
 Therefore, my **strong suggestion** is, always run maximum of one ASF instance per one IP/interface. If you have more IPs/interfaces, by all means you can run more ASF instances, with every instance using its own IP/interface or unique `WebProxy` setting. If you don't, launching more ASF instances is totally pointless, as you won't gain anything from launching more than 1 instance per a single IP/interface. Steam will not magically allow you to run more bots just because you've launched them in another ASF instance, and ASF doesn't limit you to begin with.
 
@@ -415,17 +415,17 @@ Status indicates how given redeem attempt turned out. There are many different s
 
 ### Are you affiliated with any cards farming/idling service?
 
-**從未**。 ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement/english)** that:
+**從未**。 ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement)** that:
 
 > You are responsible for the confidentiality of your login and password and for the security of your computer system. Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, or by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.
 
-ASF is licensed on liberal Apache 2.0 License, which allows other developers to further integrate ASF with their own projects and services legally. However, such third-party projects utilizing ASF are not guaranteed to be secure, reviewed, appropriate or legal according to **[Steam ToS](https://store.steampowered.com/subscriber_agreement/english)**. If you want to know our opinion, **we strongly encourage you to NOT share ANY of your account details with third-party services**. If such service turns out to be a **typical scam**, you'll be left alone with the problem, most likely without your Steam account and ASF won't take any responsibility for third-party services claiming to be safe and secure, because ASF team did not authorize neither reviewed any of those. In other words, **you're using them at your own risk, against our suggestion made above**.
+ASF is licensed on liberal Apache 2.0 License, which allows other developers to further integrate ASF with their own projects and services legally. However, such third-party projects utilizing ASF are not guaranteed to be secure, reviewed, appropriate or legal according to **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. If you want to know our opinion, **we strongly encourage you to NOT share ANY of your account details with third-party services**. If such service turns out to be a **typical scam**, you'll be left alone with the problem, most likely without your Steam account and ASF won't take any responsibility for third-party services claiming to be safe and secure, because ASF team did not authorize neither reviewed any of those. In other words, **you're using them at your own risk, against our suggestion made above**.
 
-In addition to that, official Steam ToS clearly states that:
+In addition to that, official **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** clearly states that:
 
 > You may not reveal, share or otherwise allow others to use your password or Account except as otherwise specifically authorized by Valve.
 
-It's your account and your choice. Just don't say that nobody warned you. ASF as a program meets all rules mentioned above, as you're not sharing your account details with anyone, and you're using the program for your own personal use, but any other "cards farming service" does require from you your account credentials, so it also violates the rule above (actually several of them). Like with Steam ToS evaluation, we're not offering any legal advice, and you should decide yourself if you want to use those services, or not - according to us **it directly violates Steam ToS** and may result in suspension if Valve finds out. Like pointed out above, **we strongly recommend to NOT use any of such services**.
+It's your account and your choice. Just don't say that nobody warned you. ASF as a program meets all rules mentioned above, as you're not sharing your account details with anyone, and you're using the program for your own personal use, but any other "cards farming service" does require from you your account credentials, so it also violates the rule above (actually several of them). Like with **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** evaluation, we're not offering any legal advice, and you should decide yourself if you want to use those services, or not - according to us **it directly violates [Steam ToS](https://store.steampowered.com/subscriber_agreement)** and may result in suspension if Valve finds out. Like pointed out above, **we strongly recommend to NOT use any of such services**.
 
 * * *
 
