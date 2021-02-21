@@ -25,7 +25,7 @@ Vous **pouvez** :
 - Prétendre que votre logiciel/service est propulsé par ASF, si vous **n'avez** pas effectué de modifications au code source
 - Utilisez ASF à différentes fins de référence, telles que l’association de l’origine du logiciel / service, de notre wiki ou *"selon les besoins pour une utilisation raisonnable et habituelle dans la description de l’origine de l’œuvre"*
 
-Vous **ne pouvez pas** :
+You **cannot**:
 
 - Prétendre que votre logiciel/service **est basé sur** ASF (ou son code
 - Qualifier votre logiciel/service de **ASF Fork**

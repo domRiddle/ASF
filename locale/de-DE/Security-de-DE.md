@@ -1,8 +1,8 @@
 # Sicherheit
 
-## Encryption
+## Verschlüsselung
 
-ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
+ASF unterstützt derzeit die folgenden Verschlüsselungsmethoden als Parameter für `ECryptoMethod`:
 
 | Wert | Name                        |
 | ---- | --------------------------- |
@@ -10,15 +10,15 @@ ASF currently supports the following encryption methods as a definition of `ECry
 | 1    | AES                         |
 | 2    | ProtectedDataForCurrentUser |
 
-The exact description and comparison of them is available below.
+Die genaue Beschreibung und Unterschiede zwischen diesen sind nachfolgend verfügbar.
 
-In order to generate encrypted password, e.g. for `SteamPassword` usage, you should execute `encrypt` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate encryption that you chose and your original plain-text password. Afterwards, put the encrypted string that you've got as `SteamPassword` bot config property, and finally change `PasswordFormat` to the one that matches your chosen encryption method.
+Um ein verschlüsseltes Password zu generieren, z.B. um es mit `SteamPassword` zu verwenden, müssen Sie den `encrypt` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** mit der gewünschten Verschlüsselungsmethode und Ihrem ursprünglichen klartext Passwort ausführen. Afterwards, put the encrypted string that you've got as `SteamPassword` bot config property, and finally change `PasswordFormat` to the one that matches your chosen encryption method.
 
 * * *
 
 ### PlainText
 
-This is the most simple and insecure way of storing a password, defined as `ECryptoMethod` of `0`. ASF expects the string to be a plain text - a password in its direct form. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+Dies ist die einfachste und zugleich unsicherste Methode das Passwort zu speichern, festgelegt durch `PasswordFormat` mit einem Wert von `0`. ASF expects the string to be a plain text - a password in its direct form. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
 
 * * *
 
@@ -42,7 +42,7 @@ Currently the most secure way of encrypting the password that ASF offers, and mu
 
 Wenn die Kompatibilität für dich kein Problem ist und du mit der Funktionsweise der `ProtectedDataForCurrentUser` Methode einverstanden bist, ist diese Option **empfohlen** um das Passwort in ASF zu speichern, da sie die beste Sicherheit bietet. Die Methode `AES` ist eine gute Wahl für Leute, die ihre Konfigurationen immer noch auf jedem beliebigen Computer verwenden wollen, während `PlainText` die einfachste Art ist das Passwort zu speichern, wenn es dir nichts ausmacht, dass jeder danach in der JSON-Konfigurationsdatei suchen kann.
 
-Bitte bedenke, dass diese 3 Methoden als **unsicher** betrachtet werden, wenn ein Angreifer Zugriff auf deinen PC hat. ASF must be able to decrypt the encrypted passwords, and if the program running on your machine is capable of doing that, then any other program running on the same machine will be capable of doing so, too. `ProtectedDataForCurrentUser` ist die sicherste Variante, da **auch andere Benutzer, die den gleichen PC verwenden, ihn nicht entschlüsseln können**, aber es ist trotzdem möglich die Daten zu entschlüsseln, wenn jemand in der Lage ist deine Login-Informationen und Maschineninformationen zusätzlich zur ASF-Konfigurationsdatei zu stehlen.
+Bitte bedenke, dass diese 3 Methoden als **unsicher** betrachtet werden, wenn ein Angreifer Zugriff auf deinen PC hat. ASF muss in der Lage sein das verschlüsselte Passwort zu entschlüsseln und wenn das auf deiner Maschine laufende Programm dazu in der Lage ist, dann kann auch jedes andere auf derselben Maschine laufende Programm dies tun. `ProtectedDataForCurrentUser` ist die sicherste Variante, da **auch andere Benutzer, die den gleichen PC verwenden, ihn nicht entschlüsseln können**, aber es ist trotzdem möglich die Daten zu entschlüsseln, wenn jemand in der Lage ist deine Login-Informationen und Maschineninformationen zusätzlich zur ASF-Konfigurationsdatei zu stehlen.
 
 In addition to encryption methods specified above, it's possible to also avoid specifying passwords entirely, for example as `SteamPassword` by using an empty string or `null` value. ASF will ask you for your password when it's required, and won't save it anywhere but keep in memory of currently running process, until you close it. While being the most secure method of dealing with passwords (they're not saved anywhere), it's also the most troublesome as you need to enter your password manually on each ASF run (when it's required). Wenn das kein Problem für dich ist ist dies die beste Wahl in Bezug auf Sicherheit.
 
@@ -56,7 +56,7 @@ ASF unterstützt keine Möglichkeit, bereits verschlüsselte Passwörter zu ents
 
 ## Hashing
 
-ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
+ASF unterstützt derzeit die folgenden Hashmethoden als Parameter für `EHashingMethod`:
 
 | Wert | Name      |
 | ---- | --------- |
@@ -64,7 +64,7 @@ ASF currently supports the following hashing methods as a definition of `EHashin
 | 1    | SCrypt    |
 | 2    | Pbkdf2    |
 
-The exact description and comparison of them is available below.
+Die genaue Beschreibung und Unterschiede zwischen diesen sind nachfolgend verfügbar.
 
 In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
 

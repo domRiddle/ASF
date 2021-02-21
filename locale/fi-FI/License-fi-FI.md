@@ -25,7 +25,7 @@ We do not grant you direct permission to use ASF/ArchiSteamFarm product name in 
 - Claim that your software/service is powered by ASF, if you **didn't** do any changes to the source code
 - Use ASF for various reference purposes, such as linking software/service origin, our wiki, or *"as required for reasonable and customary use in describing the origin of the Work"*
 
-Et **voi**:
+You **cannot**:
 
 - Väittää, että ohjelmistosi/palvelusi **on** ASF
 - Kutsua ohjelmistoasi/palveluasi **ASF:ksi**

@@ -25,7 +25,7 @@ Você **pode**:
 - Afirmar que o seu software/serviço faz uso do ASF, caso **não** tenha feito nenhuma alteração no código-fonte
 - Usar o ASF para propósitos de referência diversos, tais como links para a origem do software/serviço, nossa wiki, ou, como descrito na licença, *"as required for reasonable and customary use in describing the origin of the Work"*
 
-Você **não pode**:
+You **cannot**:
 
 - Afirmar que o seu software/serviço **é** o ASF
 - Referir-se ao seu software/serviço como **ASF**

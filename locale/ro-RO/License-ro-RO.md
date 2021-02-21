@@ -25,7 +25,7 @@ Nu vă acordăm permisiunea directă de a utiliza numele produsului ASF/ArchiSte
 - Revendicați că software/serviciul este alimentat de ASF, dacă **nu ați** făcut nicio modificare codului sursă
 - Utilizați ASF pentru diferite scopuri de referință, cum ar fi asocierea originii software/serviciu, wiki-ul nostru, sau *"așa cum este necesar pentru utilizare rezonabilă și obișnuită în descrierea originii lucrării"*
 
-**Nu poți**:
+You **cannot**:
 
 - Revendica faptul că software/serviciul tău **este** ASF
 - Referiți software/serviciul dumneavoastră ca **ASF**

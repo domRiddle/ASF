@@ -25,7 +25,7 @@ Mi vam ne dozvoljavamo da koristite ime produkta ASF/ArchiSteamFarm u vašem sof
 - da tvrdite da je vaš softver/usluga podržan od ASF-a, ako **niste** promijenili izvorni kod,
 - da koristite ASF za razne refrencijske upotrebe, kao što je povezivanje porijekla softvera/usluge, naše wiki-e, ili *"za ono što je razumno i uobičajeno za opisivanje porijekla Djelatnosti"*.
 
-**Ne možete**:
+You **cannot**:
 
 - reći da **je** vaš softver/usluga ASF,
 - odnositi se prema vašem softveru/usluzi kao da je **ASF**,

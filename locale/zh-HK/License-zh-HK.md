@@ -25,7 +25,7 @@ Please note that various **[ASF components](https://github.com/JustArchiNET/Arch
 - 聲明您的軟件/服務由 ASF 支援，如果您**並未**對原始程式碼進行任何更改
 - 將 ASF 用於各種參考目的，例如連結軟件/服務來源、我們的 Wiki，或*「用於描述工作所需的合理和習慣使用的來源」*
 
-您**不可**：
+You **cannot**:
 
 - 聲明您的軟件/服務**是**ASF
 - 命名您的軟件/服務為**ASF**

@@ -25,7 +25,7 @@ Du kannst die ASF-Handelsmöglichkeiten auch weiter anpassen, indem du die `Trad
 Wenn `SteamTradeMatcher` aktiv ist, wird ASF einen ziemlich komplexen Algorithmus verwenden, um zu überprüfen, ob das Handelsangebot die STM-Regeln erfüllt und zumindest neutral gegenüber steht. Die eigentliche Logik ist die folgende:
 
 - Lehne das Handelsangebot ab, wenn wir etwas anderes verlieren als die in unseren `MatchableTypes` angegebenen Objekttypen.
-- Reject the trade if we're not receiving at least the same number of items on per-game, per-type and per-rarity basis.
+- Lehne das Handelsangebot ab, wenn wir nicht mindestens die gleiche Anzahl an Gegenständen pro Spiel, Typ und Seltenheit erhalten.
 - Lehne das Handelsangebot ab, wenn der Benutzer nach speziellen Steam Sommer/Winter-Verkaufskarten fragt und eine Handelssperre hat.
 - Lehne das Handelsangebot ab, wenn die Dauer der Handelssperre die globale Konfigurationseigenschaft `MaxTradeHoldDuration` überschreitet.
 - Lehne das Handelsangebot ab, wenn wir nicht `MatchEverything` gesetzt haben und es für uns schlimmer als neutral ist.
@@ -35,9 +35,9 @@ Es ist nett zu erwähnen, dass ASF auch Überzahlungen unterstützt - die Logik 
 
 Die ersten 4 Ablehnungsprädikate sollten für jeden offensichtlich sein. Das letzte beinhaltet die Logik der tatsächlichen Duplikate, die den aktuellen Zustand unseres Inventars überprüft und entscheidet was der Status des Handelsangebotes ist.
 
-- Das Handelsangebot ist **gut**, wenn unser Fortschritt in Richtung Fertigstellung voranschreitet. Example: A A (before) <-> A B (nachher)
-- Das Handelsangebot ist **neutral**, wenn unser Fortschritt bei der Fertigstellung intakt bleibt. Example: A B (before) <-> A C (nachher)
-- Das Handelsangebot ist **schlecht**, wenn unser Fortschritt in Richtung Fertigstellung zurückgeht. Example: A C (before) <-> A A (nachher)
+- Das Handelsangebot ist **gut**, wenn unser Fortschritt in Richtung Fertigstellung voranschreitet. Beispiel: A A (vorher) <-> A B (nachher)
+- Das Handelsangebot ist **neutral**, wenn unser Fortschritt bei der Fertigstellung intakt bleibt. Beispiel: A B (vorher) <-> A C (nachher)
+- Das Handelsangebot ist **schlecht**, wenn unser Fortschritt in Richtung Fertigstellung zurückgeht. Beispiel: A C (vorher) <-> A A (nachher)
 
 STM arbeitet nur mit guten Handelsangeboten, was bedeutet, dass Benutzer die STM für den Duplikatabgleich verwenden uns immer nur gute Handelsangebote vorschlagen sollten. ASF ist jedoch liberal und akzeptiert auch neutrale Handelsangebote, denn in diesen Handelsangeboten verlieren wir nicht wirklich etwas, sodass es keinen wirklichen Grund gibt dies abzulehnen. Dies ist besonders nützlich für deine Freunde, da sie deine überschüssigen Karten ohne STM tauschen können solange du keinen Set-Fortschritt verlierst.
 
@@ -55,7 +55,7 @@ Die `MatchActively` Einstellung ist eine erweiterte Version von `SteamTradeMatch
 
 Um von dieser Option Gebrauch zu machen musst du eine Reihe von Anforderungen erfüllen. Zuerst musst du `SteamTradeMatcher` aktivieren (da dieses Feature eine Erweiterung davon ist) und sicherstellen, dass du `MatchEverything` **deaktiviert** hast (da Handels-Bots nie aktiv abgleichen). Afterwards, you have to be eligible for our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)**, with a bit relaxed requirements. At the minimum you must have `Statistics` enabled, **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active and at least one valid type in `MatchableTypes`, such as trading cards.
 
-If you meet all of the requirements above, ASF will periodically communicate with our **[public ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** in order to actively match bots that are currently available.
+Wenn du alle oben genannten Anforderungen erfüllst, wird ASF regelmäßig mit unserer **[öffentlichen ASF STM Liste](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** kommunizieren um aktiv mit aktuell verfügbaren Bots abzugleichen.
 
 - Each matching session is composed of "rounds", with `10` being maximum in a single matching session.
 - In jeder Runde holt ASF unser Inventar und das Inventar der ausgewählten Bots, die aufgelistet sind, um `MatchableTypes` Gegenstände zu finden, die zugeordnet werden können. Wenn die passende Übereinstimmung gefunden wird, sendet und bestätigt ASF das Handelsangebot automatisch.

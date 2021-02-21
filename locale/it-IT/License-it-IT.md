@@ -25,7 +25,7 @@ Non ti concediamo il permesso diretto di usare il nome del prodotto ASF/ArchiSte
 - Dichiarare che il tuo software/servizio è alimentato da ASF, se **non** hai applicato alcuna modifica al codice sorgente
 - Utilizzare ASF per vari motivi di riferimento, come fornire il link dell'origine del software/servizio, la nostra wiki, o *"come richiesto per un uso ragionevole e consueto nella descrizione dell'origine del lavoro"*
 
-**Non puoi**:
+You **cannot**:
 
 - Dichiarare che il tuo software/servizio **è** ASF
 - Riferire il tuo software/servizio come **ASF**
