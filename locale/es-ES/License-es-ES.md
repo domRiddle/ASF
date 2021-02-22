@@ -25,7 +25,7 @@ No te concedemos permiso directo para usar el nombre de producto ASF/ArchiSteamF
 - Declarar que tu software/servicio es alimentado por ASF, si **no hiciste** cambios en el código fuente
 - Usar ASF para varios propósitos de referencia, como vincular el origen del software/servicio, nuestra wiki, o *"cuando sea requerido para un uso razonable y habitual al describir el origen del Trabajo"*
 
-You **cannot**:
+**No puedes**:
 
 - Declarar que tu software/servicio **es** ASF
 - Referirte a tu software/servicio como **ASF**

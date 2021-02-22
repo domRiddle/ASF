@@ -86,6 +86,8 @@ dotnet publish YourPluginName -c "Release" -o "out"
 
 这只是开发插件最基本的场景。 我们提供了 **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** 项目，向您展示您可以在自己的插件内实现的接口和操作的示例，还有实用的注释。 如果您希望从现有的代码中学习，可以随意查看该项目，或者自行探索 `ArchiSteamFarm.Plugins` 命名空间，并且参考包含所有可用选项的文档。
 
+If instead of example plugins you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. In addition to that, there are also plugins developed by other developers, in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
+
 * * *
 
 ### API 可用性
@@ -102,7 +104,7 @@ dotnet publish YourPluginName -c "Release" -o "out"
 
 需要强调的是，ASF 是一个面向用户的应用程序，而不是一个您可以无条件依赖的、具有稳定 API 接口的库。 这意味着，您无法假定您的插件一经编译就可以在未来所有 ASF 版本中可用，如果您想进一步开发程序，这是不可能的，我们无法仅仅为了向后兼容就放弃不断适应 Steam 的变化。 这对您来说应该是符合逻辑的，但强调这个事实很重要。
 
-我们会尽最大努力保持 ASF 的公开部分能够正常、稳定，但如果有足够的理由，我们不会惧怕破坏兼容性，而是遵守&#8203;**[弃用](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-zh-CN)**&#8203;政策进行变更。 这对于作为 ASF 基础设施的一部分公开给您的内部 ASF 结构来说尤为重要，如上文所述（例如 `ArchiWebHandler`），它们可能会在未来的某个版本中作为 ASF 的增强而被改进（或者说被重写）。 我们会尽全力在更新日志中为您提供适当的说明，并且在运行时显示适当的与过时功能有关的警告。 我们不会故意为了重写而重写，因此您可以确信，下一个次要 ASF 版本不会仅仅因为版本号更高就让插件完全失效，但您最好时刻关注更新日志，并且偶尔实际验证是否一切都正常工作。
+我们会尽最大努力保持 ASF 的公开部分能够正常、稳定，但如果有足够的理由，我们不会惧怕破坏兼容性，而是遵守&#8203;**[弃用](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**&#8203;政策进行变更。 这对于作为 ASF 基础设施的一部分公开给您的内部 ASF 结构来说尤为重要，如上文所述（例如 `ArchiWebHandler`），它们可能会在未来的某个版本中作为 ASF 的增强而被改进（或者说被重写）。 我们会尽全力在更新日志中为您提供适当的说明，并且在运行时显示适当的与过时功能有关的警告。 我们不会故意为了重写而重写，因此您可以确信，下一个次要 ASF 版本不会仅仅因为版本号更高就让插件完全失效，但您最好时刻关注更新日志，并且偶尔实际验证是否一切都正常工作。
 
 * * *
 
@@ -124,8 +126,8 @@ dotnet publish YourPluginName -c "Release" -o "out"
 
 本机依赖项是作为特定操作系统构建的一部分生成的，因为此时宿主机上没有可用的 .NET Core 运行时环境，而 ASF 需要通过特定操作系统构建内自带的 .NET Core 运行时环境运行。 为了最大限度地减小构建大小，ASF 会削减其本机依赖项，使其仅包括程序中可能用到的代码，从而有效地减少运行时不会使用的部分。 这可能会给您的插件带来潜在的问题，您可能会突然发现自己的插件依赖于某些未在 ASF 中使用的 .NET Core 功能，从而使特定操作系统构建无法正确执行它，通常表现为进程抛出 `System.MissingMethodException` 异常或 `System.Reflection.ReflectionTypeLoadException` 异常。
 
-这对于 Generic 构建来说从来都不是问题，因为它们本来就不会自己处理本机依赖项（它们需要宿主机上的完整运行时环境来执行 ASF）。 这也是该问题的一个简单解决方案，**使您的插件只供 Generic 构建使用**，但其缺点也很明显，特定操作系统构建的 ASF 用户就无法使用您的插件。 如果您想知道您遇到的问题是否与本机依赖有关，也可以使用这种方法来验证，即在 ASF Generic 构建中加载您的插件，看看它是否正常工作。 如果能，则说明您的插件依赖项已完备，问题的根源在于本机依赖项。
+这对于 generic 构建来说从来都不是问题，因为它们本来就不会自己处理本机依赖项（它们需要宿主机上的完整运行时环境来执行 ASF）。 这也是该问题的一个简单解决方案，**使您的插件只供 Generic 构建使用**，但其缺点也很明显，特定操作系统构建的 ASF 用户就无法使用您的插件。 如果您想知道您遇到的问题是否与本机依赖有关，也可以使用这种方法来验证，即在 ASF Generic 构建中加载您的插件，看看它是否正常工作。 如果能，则说明您的插件依赖项已完备，问题的根源在于本机依赖项。
 
 不幸的是，我们必须做出一个难以抉择的决定，一是在特定操作系统构建中打包完整的运行时环境，二是删除其中未被使用的部分，使构建能比完整版本减少超过 50 MB。 我们选择了后者，因而，您无法在您的插件中使用运行时环境缺失的功能。 如果您的项目需要使用这些功能，就必须包含您依赖的完整的 .NET 运行时环境，这意味着您的插件需要与 ASF 的 `generic` 版本一起使用。 您无法在特定操作系统版本中使用此插件，因为那些版本缺少您所需的运行时环境功能，而 .NET Core 运行时环境目前无法支持“合并”您自己额外提供的本机依赖项。 也许在将来某天会支持，但现在不可能做到。
 
-ASF 特定操作系统包已包含运行我们官方插件的最基本功能。 除此之外，我们也涵盖到大多数基础插件所能用到的一些额外依赖。 因此，不是所有插件都需要担心本机依赖项——只有超出 ASF 与其官方插件功能的插件才需要考虑。 这是额外提供的，因为如果我们需要为我们自己的需求添加额外的本机依赖项，就可以直接把它们与 ASF 一同打包，使您可以更容易地使用它们。
+ASF 的特定操作系统构建已包含运行我们官方插件的最基本额外功能。 除此之外，这也稍微扩展为大多数基础插件可用的额外依赖项。 因此，不是所有插件都需要担心本机依赖项——只有超越 ASF 与其官方插件功能的插件才需要考虑。 这是额外提供的，因为如果我们需要为我们自己的需求添加额外的本机依赖项，就可以直接把它们与 ASF 一同打包，使您可以更容易地使用它们。
