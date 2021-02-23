@@ -86,7 +86,7 @@ dotnet publish YourPluginName -c "Release" -o "out"
 
 这只是开发插件最基本的场景。 我们提供了 **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** 项目，向您展示您可以在自己的插件内实现的接口和操作的示例，还有实用的注释。 如果您希望从现有的代码中学习，可以随意查看该项目，或者自行探索 `ArchiSteamFarm.Plugins` 命名空间，并且参考包含所有可用选项的文档。
 
-If instead of example plugins you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. In addition to that, there are also plugins developed by other developers, in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
+如果您认为示例插件还不够，需要学习一些真实的项目，我们也开发了 **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** 插件，与 ASF 一同打包。 此外，还有一些由其他开发者编写的插件，我们已将其列在&#8203;**[第三方项目](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-zh-CN#asf-插件)**&#8203;章节。
 
 * * *
 
