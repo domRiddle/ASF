@@ -199,7 +199,7 @@ Este exemplo é baseado em nosso exemplo básico de `ColoredConsole` acima. Ante
 
 Nós começamos com o nosso exemplo básico de `ColoredConsole` e o estendemos. Primeiro e mais importante, nós preparamos um arquivo de registro de chat permanente para cada canal de grupo e usuário do Steam; isto é possível graças às propriedades extras que o ASF nos mostra de uma maneira elegante. Também decidimos por um layout personalizado que grava apenas a data atual, a mensagem, informação enviada/recebida e o usuário Steam. Por último, habilitamos a nosso regra de registro do chat apenas para o nível `Trace`, somente para o bot `MainAccount` (conta principal) e apenas para funções relacionadas ao registro do chat (`OnIncoming*` que é usado para mensagens recebidas e ecos e `SendMessage*` para mensagens enviadas pelo ASF).
 
-O exemplo acima irá gerar o arquivo `0-0-76561198069026042.txt` quando conversarmos com o **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)**:
+The example above will generate `0-0-76561198069026042.txt` file when talking with **[ArchiBot](https://steamcommunity.com/profiles/76561198069026042)**:
 
 ```text
 2018-07-26 01:38:38 how are you doing? -> 76561198069026042

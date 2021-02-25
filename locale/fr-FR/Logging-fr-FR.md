@@ -199,7 +199,7 @@ Cet exemple est basé sur notre exemple de base `ColoredConsole` ci-dessus. Avan
 
 Nous avons commencé notre exemple de base `ColoredConsole` et l'avons étendu. Tout d’abord, nous avons préparé un fichier journal de discussion pour chaque canal de groupe et chaque utilisateur de Steam. C’est possible grâce aux propriétés supplémentaires que ASF nous expose de manière élégante. Nous avons également décidé d’utiliser une disposition personnalisée qui n’écrit que la date du jour, le message, les informations envoyées / reçues et l’utilisateur Steam lui-même. Enfin, nous avons activé notre règle de journalisation de discussion uniquement pour le niveau `Trace`, uniquement pour notre bot `MaiinAccount` et uniquement pour les fonctions liées à la journalisation de discussion (`OnIncoming*` utilisé pour recevoir des messages et des échos et `SendMessage*` pour l’envoi de messages ASF).
 
-L'exemple ci-dessus générera un fichier `0-0-76561198069026042.txt` lors d'une conversation avec **[ArchiBoT](https://steamcommunity.com/profiles/76561198069026042)**:
+The example above will generate `0-0-76561198069026042.txt` file when talking with **[ArchiBot](https://steamcommunity.com/profiles/76561198069026042)**:
 
 ```text
 2018-07-26 01:38:38 2018-07-26 01:38:38 comment allez-vous? -> 76561198069026042
