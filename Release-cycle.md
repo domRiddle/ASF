@@ -15,7 +15,7 @@ Version bump | Semver | Example of changes
 A | | Major .NET runtime changes, foundation changes, breaking changes that are beyond ASF's codebase
 B | Major | Minor .NET runtime changes, breaking changes in ASF codebase, major code edits that go beyond minor classification
 C | Minor | New monthly cycles, usually introducing new functionalities, commands, configuration properties or other changes that do not break the existing setups
-D | Patch | New pre-releases that are part of existing cycle (indicated by more significant number), critical bugfixes that introduce no code changes beyond necessary
+D | Patch | New pre-releases that are part of existing cycle (indicated by more significant number), critical bugfixes to existing stable releases that introduce no code changes beyond necessary
 
 Please note that newly introduced features and changes may be undocumented (e.g. on the wiki) until some time later, as documentation is usually written once final code of given feature is ready (to save us time rewriting documentation each time we decide to modify the feature we're currently working on). Due to the fact that pre-release may contain work-in-progress code that doesn't have a final form yet, documentation may arrive at later stage of the development. Same thing applies to general changelog that may be unavailable for given pre-release until some time later. Therefore if you decide to use pre-release then be prepared for looking inside ASF **[commits](https://github.com/JustArchiNET/ArchiSteamFarm/commits/main)** from time to time. Of course, lack of documentation applies **only** to pre-releases - each stable version must always have a complete changelog and documentation on the wiki the moment it's being released.
 
