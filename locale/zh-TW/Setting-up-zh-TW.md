@@ -230,11 +230,12 @@ ASF 是一個沒有圖形使用者介面的主控台應用程式。 然而，我
 
 這部分是為想要安裝 ASF **[通用（Generic）](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#通用Generic)** 套件的進階使用者準備的。 如果您可以**[安裝特定作業系統（OS-specific）套件](#安裝特定作業系統OS-specific套件)**，我們不推薦安裝您安装通用套件。
 
-您主要在以下三種情況才會用到通用套件（不過當然，您無須理由也可使用）：
+You want to use generic variant mainly in those situations (but of course you can use it regardless):
 
 - 當您正在使用沒有建置特定作業系統套件的系統（例如 32 位元 Windows）
 - 當您已經或想要安裝 .NET Core 執行階段/SDK
 - 當您想透過自行管理執行階段必要條件來最小化 ASF 結構大小
+- When you want to use a custom **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which requires a generic setup of ASF to run properly (due to missing native dependencies)
 
 不過，請注意在這種情況下您將需要安裝 .NET Core 執行階段。 這表示一旦您的 .NET Core SDK（執行階段）不可用、過時或損壞，ASF 就無法工作。 這就是一般使用者不推薦使用這個套件的原因，因為這樣您就需要確保 .NET Core SDK（執行階段）符合執行 ASF 的需求，使用**我們**驗證過的 ASF 配套的 .NET Core 執行階段則不需要這麼做。
 

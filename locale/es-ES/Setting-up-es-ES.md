@@ -230,11 +230,12 @@ Has configurado ASF con éxito para usar tus cuentas de Steam y ya lo has person
 
 Esta configuración es para usuarios avanzados que quieren establecer ASF para ejecutarlo en su variante **[genérica](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#gen%C3%A9rico)**. No se recomienda para personas que pueden usar la **[configuración de SO específico](#configuración-de-so-específico)**.
 
-Querrás usar la variante genérica principalmente en tres situaciones (por supuesto la puedes usar de todos modos):
+You want to use generic variant mainly in those situations (but of course you can use it regardless):
 
 - Cuando usas un sistema operativo para el cual no creamos un paquete de SO específico (tal como Windows de 32-bits)
 - Cuando ya tienes .NET Core Runtime/SDK, o quieres instalarlo y usarlo
 - Cuando quieres minimizar el tamaño de la estructura de ASF manejando los requerimientos de "runtime" por ti mismo
+- When you want to use a custom **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which requires a generic setup of ASF to run properly (due to missing native dependencies)
 
 Sin embargo, ten en cuenta que tú eres responsable del .NET Core runtime en este caso. Esto significa que si tu .NET Core SDK (runtime) no está disponible, está desactualizado o roto, ASF no funcionará. Es por esto que no recomendamos esta configuración para usuarios casuales, ya que ahora necesitas asegurarte de que tu .NET Core SDK (runtime) coincida con los requerimientos de ASF y puede ejecutarlo, en contraposición a que **nosotros** nos aseguremos que nuestro .NET Core runtime en conjunto con ASF puede hacerlo.
 

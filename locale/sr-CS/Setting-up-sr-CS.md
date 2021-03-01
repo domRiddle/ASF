@@ -230,11 +230,12 @@ Uspješno ste podesili ASF da koristi vaš Steam nalog i uspješno ste ga uredil
 
 Ova podešavanja su za napredne korisnike koji žele da podese ASF za pokretanje na **[opštoj](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** varijanti. Ovo nije preporučeno za ljude koji mogu da koriste **[OS-specifično podešavanje](#os-specific-setup)**.
 
-Vi možete da koristite opštu varijantu u tri situacije (ali ga možete koristiti i kako vi hoćete):
+You want to use generic variant mainly in those situations (but of course you can use it regardless):
 
 - Kada koristite OS za koji nema OS-specifičan paket (kao što je 32-bitni Windows)
 - Kada već imate .NET Core Runtime/SDK, ili želite da ga instalirate i koristite
 - Kada želite da smanjite veličinu ASF strukture tako što ćete podesite runtime zahtjeve ručno
+- When you want to use a custom **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which requires a generic setup of ASF to run properly (due to missing native dependencies)
 
 Ipak, zapamtite da ćete u tom slučaju vi biti odgovorni za .NET Core runtime. Ovo znači da ako je .NET Core SDK (runtime) nedostupan, zastareo ili pokvaren, ASF neće raditi. Zbog ovog ne preporučujemo ovaj metod za obične korisnike, pošto morate biti sigurni da se vaš .NET Core SDK (runtime) poklapa sa ASF zahtjevima i da može da pokrene ASF, dok u normalnoj verziji **mi** provjeravamo da li .NET Core runtime koji je upakovan u ASF može da ga pokrene.
 
