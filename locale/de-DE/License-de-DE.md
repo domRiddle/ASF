@@ -25,7 +25,7 @@ Du **kannst**:
 - Behaupten, dass deine Software/Dienstleistung von ASF bereitgestellt wird, falls du **keine** Änderungen am Quellcode vorgenommen hast
 - ASF für verschiedene Referenzzwecke verwenden, wie z.B. die Verknüpfung von Software/Dienstherkunft, unserem Wiki oder *"je nach Bedarf für eine angemessene und übliche Verwendung zur Beschreibung der Herkunft des Werkes"*
 
-You **cannot**:
+Sie **können nicht**:
 
 - Behaupten, dass dein Programm/Dienst ASF **ist**
 - Deine Software/Dienstleistung als **ASF** bezeichnen
