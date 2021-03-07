@@ -210,7 +210,7 @@ Você precisa fazer só mais uma coisa: alternar para as configurações avança
 
 Agora você pode baixar o arquivo de configuração e colocá-lo na pasta `config`. Aí é só abrir o ASF de novo e você verá que ele vai iniciar a interface IPC:
 
-![IPC 2](https://i.imgur.com/NhujZCN.png)
+![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
 Se você fez tudo corretamente, você será capaz de acessar a interface IPC do ASF **[nesse](http://localhost:1242)** link, enquanto ASF estiver em execução. Você pode usar a ASF-ui para muitas coisas, como por exemplo enviar **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)**. Sinta-se a vontade para dar uma olhada e descobrir todas as funcionalidade da ASF-ui.
 
@@ -230,12 +230,12 @@ Você já configurou com sucesso o ASF para que ele use suas contas Steam e voc�
 
 Esta configuração é para usuários avançados que desejam configurar a versão **[genérica](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** do ASF. Ela não é recomendada para pessoas que podem usar o **[instalador para sistemas operacionais específicos](#instalador-para-sistemas-operacionais-específicos)**.
 
-You want to use generic variant mainly in those situations (but of course you can use it regardless):
+Você deve preferir usar a variante genérica nessas situações (mas é claro você pode usá-la independentemente disso):
 
 - Quando você estiver usando um sistema operacional para o qual não temos um pacote específico (como o Windows 32-bit, por exemplo)
 - Quando você já tem o .NET Core Runtime/SDK, ou deseja instalar e usar um
 - Quando você deseja minimizar o tamanho da estrutura do ASF lidando com requisitos de tempo de execução você mesmo
-- When you want to use a custom **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which requires a generic setup of ASF to run properly (due to missing native dependencies)
+- Quando você deseja usar um **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** personalizado que requer uma configuração genérica do ASF para ser executado corretamente (devido à falta de dependências nativas)
 
 No entanto, tenha em mente que nesre caso você é responsável pelo tempo de execução do .NET Core. Isto significa que se o seu .NET SDK (tempo de execução) estiver indisponível, desatualizado ou com erro, o ASF não funcionará. É por isso que não recomendamos essa configuração para usuários casuais, já que você agora precisa garantir que seu .NET Core SDK (tempo de execução) corresponda as exigências do ASF e pode executá-lo, ao contrário da **nossa** garantia de que o.NET Core empacotado junto com o ASF faça isso.
 
