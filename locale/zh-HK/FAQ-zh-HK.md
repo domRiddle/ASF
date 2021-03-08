@@ -160,7 +160,7 @@ First and foremost, you have some built-in features mentioned **[above](#is-it-w
 
 - **ASF可以在后台為您兌換產品序號**（**[后台序號激活器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**功能）。 也許您有來自各種遊戲包的上百個密鑰，但您懶得自己打開一堆窗口並一遍又一遍地同意Steam條款和條件以兌換。 為什麼不將您的密鑰清單複製粘貼到ASF中並讓它自行完成工作呢？ ASF將自動在後台兌換所有這些密鑰，為您提供準確的輸出，讓您知道每次兌換嘗試的結果。 Moreover, if you have hundreds of keys, you're guaranteed to get rate-limited by Steam sooner or later, and ASF also knows about that, it'll patiently wait for the rate-limit to go away, and resume where it left.
 
-We could now go on and on with entire **[ASF wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**, pointing out every single feature of the program, but we have to draw a line somewhere. This is it, this is a list of features that you can enjoy as ASF user, where just one of those could easily be considered a major reason to never look back, and we actually listed **a lot** of them, with even more you can learn about on the rest of our wiki. 是的，我們甚至沒有詳細介紹過像ASF的API這樣的東西，允許你編寫自己的命令，或批量管理機械人，因為我們想保持簡潔。
+We could now go on and on with entire **[ASF wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**, pointing out every single feature of the program, but we have to draw a line somewhere. This is it, this is a list of features that you can enjoy as ASF user, where just one of those could easily be considered a major reason to never look back, and we actually listed **a lot** of them, with even more you can learn about on the rest of our wiki. Ah yes, and we didn't even go into detail with things like ASF's API allowing you to script your own commands, or awesome bots management, since we wanted to keep it simple.
 
 * * *
 
