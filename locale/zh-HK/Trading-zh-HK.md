@@ -43,7 +43,7 @@ STM 的運行規則僅會匹配對我們有利的交易，這意味著將 STM �
 
 預設情況下，ASF 將拒絕不利交易——作為一個用戶，這恰恰正是您想要的。 但是，您也可以選擇在`TradingPreferences`中啟用 `MatchEverything`，以讓ASF接受所有的冗餘物品交易，包括**不利交易**。 只有當您想要在您的帳戶下運行 1:1 交易機械人時，這一特性才有用，因為您瞭解 **ASF 將不再帮您完成徽章進度，反而可能會使您因 N 張相同卡片而損失收集進度**。 除非您有意運行一個交易機械人，該機械人**並不**期待集齊卡片，否則您不應啟用此選項。
 
-無論您選擇哪種 `TradingPreferences`，交易被 ASF 拒絕並不意味著您自己無法手動接受它。 如果您保留 `BotBehaviour` 的預設值（並未啟用 `RejectInvalidTrades`），ASF 將忽略這些交易，允許您自行決定。 同樣適用于一切 `MatchableTypes` 之外的物品交易，該模組僅幫助您自動化 STM 交易，而不會決定什麼是好的交易，什麼不是。 此規則的唯一例外是，當交易來自您使用 `bladd` 命令從交易模組中列入黑名單的用戶，無論 `BotBehaviour` 設置如何，這些交易都會立即被拒絕。
+無論您選擇哪種 `TradingPreferences`，交易被 ASF 拒絕並不意味著您自己無法手動接受它。 如果您保留 `BotBehaviour` 的預設值（並未啟用 `RejectInvalidTrades`），ASF 將忽略這些交易，允許您自行決定。 同樣適用于一切 `MatchableTypes` 之外的物品交易，該模組僅幫助您自動化 STM 交易，而不會決定什麼是好的交易，什麼不是。 The only exception from this rule is when talking about users that you blacklisted from trading module using `bladd` command - trades from those users are immediately rejected regardless of `BotBehaviour` settings.
 
 強烈建議在啟用此選項時使用 **ASF 2FA</0 >, 因為如果您決定手動確認每個交易, 則此功能將失去其全部潛力。 `SteamTradeMatcher` will work properly even without ability to confirm trades, but it can generate backlog of confirmations if you're not accepting them in time.</p> 
 
