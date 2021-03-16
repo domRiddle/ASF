@@ -56,7 +56,7 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 Если вы хотите работать с кодом ASF на Linux/OS X, мы рекомендуем **[ последнюю версию Visual Studio Code](https://code.visualstudio.com/download)**. Оно не обладает такими возможностями как классическая Visual Studio, но и этого вполне достаточно.
 
-Разумеется, всё предложенное выше это только наши рекоммендации, вы можете использовать что угодно, всё равно это в конце концов сводится к команде `dotnet build`. Мы пользуемся для разработки ASF **[JetBrains Rider](https://www.jetbrains.com/rider)**, а также небольшим количеством сторонних инструментов, которые вы найдёте в папке `tools` нашего репозитория.
+Разумеется, всё предложенное выше это только наши рекоммендации, вы можете использовать что угодно, всё равно это в конце концов сводится к команде `dotnet build`. We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, although it's not a free solution.
 
 * * *
 

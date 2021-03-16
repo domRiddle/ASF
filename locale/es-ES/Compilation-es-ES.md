@@ -56,7 +56,7 @@ Si quieres editar el código de ASF, puedes usar cualquier IDE (entorno de desar
 
 Si quieres trabajar con el código de ASF en Linux/OS X, recomendamos el **[Visual Studio Code más reciente](https://code.visualstudio.com/download)**. No es tan rico como Visual Studio clásico, pero es bastante bueno.
 
-Claro, todas las sugerencias anteriores son solo recomendaciones, puedes usar lo que desees, de todas forma se reduce al comando `dotnet build`. Usamos **[JetBrains Rider](https://www.jetbrains.com/rider)** para el desarrollo de ASF, con una pequeña parte de `herramientas` de terceros que puedes encontrar en el repositorio.
+Claro, todas las sugerencias anteriores son solo recomendaciones, puedes usar lo que desees, de todas forma se reduce al comando `dotnet build`. Usamos **[JetBrains Rider](https://www.jetbrains.com/rider)** para el desarrollo de ASF, aunque no es una solución gratuita.
 
 * * *
 

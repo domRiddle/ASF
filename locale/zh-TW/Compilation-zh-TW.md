@@ -56,7 +56,7 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 如果您要在 Linux/OS X 上開發 ASF 程式碼，我們推薦使用​**[最新版的 Visual Studio Code](https://code.visualstudio.com/download)**。 它沒有經典的 Visual Studio 那麼豐富的功能，但已足夠了。
 
-當然，以上的所有建議都僅僅是建議，您可以使用您想用的任何工具，最後您都要使用 `dotnet build` 指令進行構建。 We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, with a small part of third-party `tools` that you can find in the repo.
+當然，以上的所有建議都僅僅是建議，您可以使用您想用的任何工具，最後您都要使用 `dotnet build` 指令進行構建。 We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, although it's not a free solution.
 
 * * *
 

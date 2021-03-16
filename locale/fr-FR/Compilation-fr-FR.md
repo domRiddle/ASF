@@ -55,13 +55,13 @@ Si vous souhaitez modifier le code ASF, vous pouvez utiliser n'importe quel IDE 
 
 <p>Si vous souhaitez plutôt utiliser du code ASF sous Linux / OS X, nous vous recommandons <strong><a href="https://code.visualstudio.com/download"> le dernier Visual Studio Code</ 0>. Ce n'est pas aussi complet que le classique Visual Studio, mais c'est suffisant.</p>
 
-<p>Bien sûr, toutes les suggestions ci-dessus ne sont que des recommandations, vous pouvez utiliser ce que vous voulez, cela revient à la commande <code> dotnet build </ 0>. We use <strong><a href="https://www.jetbrains.com/rider">JetBrains Rider</a></strong> for ASF development, with a small part of third-party <code>tools` that you can find in the repo.
+<p>Bien sûr, toutes les suggestions ci-dessus ne sont que des recommandations, vous pouvez utiliser ce que vous voulez, cela revient à la commande <code> dotnet build </ 0>. We use <strong><a href="https://www.jetbrains.com/rider">JetBrains Rider</a></strong> for ASF development, although it's not a free solution.</p>
 
-* * *
+<hr />
 
-## Tags
+<h2>Tags</h2>
 
-`main` branch is not guaranteed to be in a state that allows successful compilation or flawless ASF execution in the first place, since it's development branch just like stated in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. If you want to compile or reference ASF from source, then you should use appropriate **[tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** for that purpose, which guarantees at least successful compilation, and very likely also flawless execution (if build was marked as stable release). In order to check the current "health" of the tree, you can use our continuous integrations - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** or **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**.
+<p><code>main` branch is not guaranteed to be in a state that allows successful compilation or flawless ASF execution in the first place, since it's development branch just like stated in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. If you want to compile or reference ASF from source, then you should use appropriate **[tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** for that purpose, which guarantees at least successful compilation, and very likely also flawless execution (if build was marked as stable release). In order to check the current "health" of the tree, you can use our continuous integrations - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** or **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**.
 
 * * *
 

@@ -52,11 +52,11 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ## Desenvolvimento
 
-Se você gostaria de editar o código do ASF, você pode usar qualquer IDE compatível com o .NET Core, embora até mesmo isso seja opcional, uma vez que você pode editar em um bloco de notas e compilar com o comando `dotnet` descrito acima. Ainda assim, para Windows, recomendamos **[o Visual Studio mais recente](https://visualstudio.microsoft.com/downloads)** (a versão gratuita community é mais que o suficiente).
+Se você quise editar o código do ASF, você pode usar qualquer IDE compatível com o .NET Core, embora até mesmo isso seja opcional, uma vez que você pode editar em um bloco de notas e compilar com o comando `dotnet` descrito acima. Mesmo assim, para o Windows nós recomendamos **[o Visual Studio mais recente](https://visualstudio.microsoft.com/downloads)** (a versão comunidade é mais que o suficiente, e é gratuita).
 
-Caso você queira trabalhar com o código ASF no Linux/macOS, recomendamos o **[Visual Studio Code mais recente](https://code.visualstudio.com/download)**. Ele não é tão rico quanto o Visual Studio clássico, mas é bom o suficiente.
+Caso você queira trabalhar com o código ASF no Linux/macOS, recomendamos o **[Visual Studio Code mais recente](https://code.visualstudio.com/download)**. Ele não é tão rico quanto o Visual Studio clássico, mas serve.
 
-Claro que todas as sugestões acima são apenas recomendações, você pode usar o que quiser, tudo se resume ao comando `dotnet build` de qualquer maneira. Nós usamos **[JetBrains Rider](https://www.jetbrains.com/rider)** para o desenvolvimento do ASF, com uma pequena parte de `ferramentas` de terceiros que você pode encontrar no repositório.
+Claro que as opções acima são apenas recomendações, você pode usar qual quiser pois tudo se resume ao comando `dotnet build`. Nós usamos o **[Rider da Jetbrains](https://www.jetbrains.com/rider)** para o desenvolvimento do ASF, embora não seja uma solução gratuita.
 
 * * *
 

@@ -56,7 +56,7 @@ ASF 코드를 편집하고 싶다면, 아무 .NET Core 호환 IDE나 사용할 �
 
 리눅스나 OS X에서 ASF 코드 작업을 하고 싶다면 **[최신 버전의 Visual Studio Code](https://code.visualstudio.com/download)**를 추천합니다. 고전 Visual Studio만큼 풍족하진 않지만, 충분히 좋습니다.
 
-물론 위의 모든 제안은 단지 권장사항일 뿐이고, 당신은 원하는 모든 것을 사용할 수 있지만, 결국 `dotnet build` 명령으로 귀결됩니다. We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, with a small part of third-party `tools` that you can find in the repo.
+물론 위의 모든 제안은 단지 권장사항일 뿐이고, 당신은 원하는 모든 것을 사용할 수 있지만, 결국 `dotnet build` 명령으로 귀결됩니다. We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, although it's not a free solution.
 
 * * *
 
