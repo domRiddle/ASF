@@ -56,7 +56,7 @@ Wenn Sie ASF-Quelltext bearbeiten möchten, können Sie zu diesem Zweck jede .NE
 
 Wenn Sie stattdessen den ASF-Quelltext unter Linux/OS X bearbeiten möchten, empfehlen wir eine **[aktuelle Visual Studio Code Version](https://code.visualstudio.com/download)**. Diese Version ist nicht so umfangreich wie das klassische Visual Studio, aber reicht vollkommen aus.
 
-Natürlich sind alle obigen Vorschläge nur Empfehlungen, Sie können verwenden was immer Sie möchten. Am Ende wird sowieso immer `dotnet build` ausgeführt. We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, although it's not a free solution.
+Natürlich sind alle obigen Vorschläge nur Empfehlungen, Sie können verwenden was immer Sie möchten. Am Ende wird sowieso immer `dotnet build` ausgeführt. Wir verwenden **[JetBrains Rider](https://www.jetbrains.com/rider)** für die ASF-Entwicklung, obwohl es keine freie Lösung ist.
 
 * * *
 
