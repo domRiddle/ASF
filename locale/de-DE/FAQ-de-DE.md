@@ -310,7 +310,7 @@ Eine detaillierte Erklärung ist im Abschnitt **[Statistiken](https://github.com
 
 ### Ich verwende ein nicht unterstütztes Betriebssystem z.B. 32-Bit-Windows, kann ich trotzdem die neueste ASF Version verwenden?
 
-Ja, und diese Version wird auch unterstützt, nur nicht offiziell erstellt. Schaue dir hierfür die generische Varianten im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)** an. ASF hat keine ausgeprägte Abhängigkeit vom Betriebssystem und es kann überall dort funktionieren, wo du eine funktionierende .NET Core Runtime, die auch 32-Bit Windows enthält, zum Laufen bekommen kannst, auch wenn es kein OS-spezifisches Paket für `win-x86` von uns gibt.
+Ja, und diese Version wird auch unterstützt, nur nicht offiziell erstellt. Sehen Sie sich hierfür die generische Varianten im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)** an. ASF hat keine ausgeprägte Abhängigkeit vom Betriebssystem und es kann überall dort funktionieren, wo Sie eine funktionierende .NET Core Runtime, die auch eine ausführbare 32-Bit Windows enthält, auch wenn es kein OS-spezifisches Paket für `win-x86` von uns gibt.
 
 * * *
 
