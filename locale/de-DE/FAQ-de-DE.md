@@ -288,7 +288,7 @@ Dieser Fall ist wieder einmal sehr schwer zu analysieren, da die Reaktion des St
 
 Letzter Fall, bei dem ein Benutzer mit 120+ Bots wegen Verletzung von **[Steam-Online-Verhalten](https://store.steampowered.com/online_conduct?l=german)** gesperrt wurde.
 
-> Hallo XXX, Vielen Dank für die Kontaktaufnahme mit dem Steam Support. Dieser und andere Accounts wurden für flooding unserer Netzwerk-Infrastruktur verwendet, was gegen das Steam-Online-Verhalten verstößt. Der Account wurde dauerhaft gesperrt und der Steam-Support kann in diesemFall keinen zusätzlichen Support diesbezüglich anbieten.
+> Hallo XXX, Vielen Dank für die Kontaktaufnahme mit dem Steam Support. Dieser und andere Accounts wurden für flooding unserer Netzwerk-Infrastruktur verwendet, was gegen das Steam-Online-Verhalten verstößt. Der Account wurde dauerhaft gesperrt und der Steam-Support kann in diesem Fall keinen zusätzlichen Support diesbezüglich anbieten.
 
 Dieser Fall ist Aufgrund der zusätzlichen Angaben des Benutzers etwas einfacher zu analysieren. Anscheinend verwendete der Benutzer **eine sehr veraltete ASF-Version**, die einen Fehler enthielt, der dazu führte, dass ASF eine übermäßige Anzahl von Anfragen an Steam-Server sendete. Der Fehler selbst existierte zunächst nicht, wurde aber wegen einer Änderung von Steam ausgelöst, die in einer späteren Version behoben wurde. **ASF wird nur in der **[aktuellen stabilen Version](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** unterstützt, die auf GitHub** veröffentlicht wurde. Software wird von Menschen geschrieben, und Menschen neigen dazu, Fehler zu begehen. Wenn der Fehler einen globalen Umfang hat, wird er schnell behoben und als Bugfix für alle Benutzer veröffentlicht. Valve wird nicht plötzlich eine halbe Million ASF-Benutzer Aufgrund meines Fehlers sperren, aus offensichtlichen Gründen. Wenn Sie jedoch absichtlich auf die Verwendung einer aktuellen Version von ASF verzichten, dann sind Sie per Definition in einer sehr kleinen Minderheit von Benutzern, die **Vorfällen wie diesen** wegen **mangelnder technischer Unterstützung** ausgesetzt sind, da niemand auf eine veraltete Version von ASF aufpasst, niemand sie repariert und sicherstellt, dass Sie nicht einfach durch den Start von ASF völlig gesperrt werden. **Bitte verwenden Sie stets die aktuellste Version**, nicht nur ASF, sondern auch alle anderen Anwendungen.
 
@@ -316,19 +316,19 @@ Ja, und diese Version wird auch unterstützt, nur nicht offiziell erstellt. Sehe
 
 ### ASF ist großartig! Kann ich spenden?
 
-Ja, und wir freuen uns sehr zu hören, dass dir unser Projekt gefällt! Unter jeder **[Veröffentlichung](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** und auch **[auf der Hauptseite](https://github.com/JustArchiNET/ArchiSteamFarm)** findest du verschiedene Möglichkeiten eine Spende zu tätigen. Es ist gut zu wissen, dass wir neben allgemeinen Geldspenden auch Steam-Gegenstände akzeptieren, sodass Sie nichts davon abhält, Skins, Keys oder einen kleinen Teil der Karten, die mit ASF gesammelt wurden, zu spenden. Natürlich nur wenn Sie möchten. Vielen Dank im Voraus für deine Großzügigkeit!
+Ja, und wir freuen uns sehr zu hören, dass Ihnen unser Projekt gefällt! Unter jeder **[Veröffentlichung](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** und auch **[auf der Hauptseite](https://github.com/JustArchiNET/ArchiSteamFarm)** finden Sie verschiedene Möglichkeiten eine Spende zu tätigen. Es ist gut zu wissen, dass wir neben allgemeinen Geldspenden auch Steam-Gegenstände akzeptieren, sodass Sie nichts davon abhält, Skins, Keys oder einen kleinen Teil der Karten, die mit ASF gesammelt wurden, zu spenden. Natürlich nur wenn Sie möchten. Vielen Dank im Voraus für Ihre Großzügigkeit!
 
 * * *
 
-### Ich verwende den Steam Parental Code um mein Konto zu schützen, muss ich sie irgendwo eingeben?
+### Ich verwende den Steam Parental Code um mein Konto zu schützen, muss ich diesen irgendwo eingeben?
 
-Ja, du musst ihn in der `SteamParentalCode` Bot-Konfigurationseigenschaft setzen. Dies liegt hauptsächlich daran, dass ASF auf viele geschützte Teile deines Steam-Kontos zugreift und es für ASF unmöglich ist ohne ihn zu arbeiten.
+Ja, Sie müssen ihn in der `SteamParentalCode` Bot-Konfigurationseigenschaft eingeben. Dies liegt hauptsächlich daran, dass ASF auf viele geschützte Teile Ihres Steam-Kontos zugreift und es für ASF unmöglich ist ohne ihn zu arbeiten.
 
 * * *
 
 ### Ich möchte nicht, dass ASF standardmäßig irgendwelche Spiele sammelt, aber ich möchte zusätzliche ASF-Funktionen verwenden. Ist das möglich?
 
-Ja, wenn Sie ASF nur mit dem pausierten Karten-Farming-Modul starten wollen, können Sie die Bot-Konfigurationseigenschaft `Paused` auf `true` setzen, um dies zu erreichen. Dies ermöglicht es Ihnen, es während der Laufzeit `fortzusetzen`.
+Ja, wenn Sie ASF nur mit dem pausierten Karten-Farming-Modul starten wollen, können Sie die Bot-Konfigurationseigenschaft `Paused` auf `true` setzen, um dies zu erreichen. Dies ermöglicht es Ihnen `resume` (fortsetzen) zu verwenden, während der Ausführung.
 
 Wenn Sie das Karten-Farming-Modul vollständig deaktivieren und sicherstellen möchten, dass es nie ausgeführt wird, ohne dass Sie es explizit anders angeben, dann empfehlen wir, `IdlePriorityQueueOnly` auf `true` zu setzen, was den Leerlauf komplett deaktiviert, anstatt es nur anzuhalten, bis Sie die Spiele selbst in die Warteschlange für ungenutzte Prioritäten aufnehmen.
 
@@ -338,51 +338,51 @@ Wenn das Karten-Farming-Modul angehalten/deaktiviert ist, können Sie zusätzlic
 
 ### Kann ich ASF in die Taskleiste minimieren?
 
-ASF ist eine Konsolenanwendung, es gibt kein zu minimierendes Fenster, da das Fenster von deinem Betriebssystem für dich erstellt wird. Du kannst jedoch ein beliebiges Drittanbieterprogramm verwenden wie z.B. **[RBTray](https://github.com/benbuck/rbtray)** für Windows oder **[screen](https://linux.die.net/man/1/screen)** für Linux/OS X. Das sind nur Beispiele, es gibt viele andere Programme mit ähnlicher Funktionalität.
+ASF ist eine Konsolenanwendung, es gibt kein zu minimiertes Fenster, da das Fenster von Ihrem Betriebssystem für Sie erstellt wird. Sie können jedoch ein beliebiges Drittanbieterprogramm verwenden wie z.B. **[RBTray](https://github.com/benbuck/rbtray)** für Windows oder **[screen](https://linux.die.net/man/1/screen)** für Linux/OS X. Das sind nur Beispiele, es gibt viele andere Programme mit ähnlicher Funktionalität.
 
 * * *
 
 ### Stellt die Verwendung von ASF die Berechtigung zum Erhalt von Booster Packs sicher?
 
-**Ja**. ASF verwendet die gleiche Methode wie der offizielle Client, um sich im Steam-Netzwerk anzumelden, daher enthält es auch die Möglichkeit, Booster Packs für die verwendeten Konten zu erhalten. Mehr noch: Um diese Fähigkeit zu bewahren, muss man sich nicht einmal in die Steam Community einloggen. Damit können Sie, falls Sie es wünschen, den `OnlineStatus` `Offline` sicher verwenden.
+**Ja**. ASF verwendet die gleiche Methode wie der offizielle Client, um sich im Steam-Netzwerk anzumelden, daher enthält es auch die Möglichkeit, Booster Packs für die verwendeten Konten zu erhalten. Mehr noch: Um diese Fähigkeit zu bewahren, muss man sich nicht einmal in die Steam-Community einloggen. Damit können Sie, falls Sie es wünschen, den `OnlineStatus` `Offline` sicher verwenden.
 
 * * *
 
 ### Gibt es eine Möglichkeit mit ASF zu kommunizieren?
 
-Ja, auf verschiedene Arten. Weitere Informationen findest du im Abschnitt **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**.
+Ja, auf verschiedene Arten. Weitere Informationen erhalten Sie im Abschnitt **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**.
 
 * * *
 
 ### Ich möchte bei der Übersetzung von ASF helfen, was muss ich tun?
 
-Vielen Dank für dein Intresse! Alle Details hierzu kannst du in unserem Abschnitt **[Lokalisierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-de-DE)** finden.
+Vielen Dank für Ihr Intresse! Alle Details hierzu könnenn Sie in unserem Abschnitt **[Lokalisierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-de-DE)** finden.
 
 * * *
 
 ### Ich habe nur ein (Haupt-)Konto zu ASF hinzugefügt, kann ich trotzdem Befehle per Steam-Chat senden?
 
-**Ja**, es wird im Abschnitt **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#notes)** erklärt. Du kannst dies über den Steam-Gruppen-Chat tun, obwohl die Verwendung von **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-ui)** für dich einfacher sein könnte.
+**Ja**, es wird im Abschnitt **<a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE#notes[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE#Anmerkungen)** erklärt. Sie können dies über den Steam-Gruppen-Chat erledigen, obwohl die Verwendung von **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-ui)** für Sie einfacher sein könnte.
 
 * * *
 
 ### ASF scheint zu funktionieren, aber ich bekomme keine Karten!
 
-Die Sammelrate der Karten ist von Spiel zu Spiel unterschiedlich, wie Sie in **[Leistung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE)** nachlesen können. Es dauert eine Weile, normalerweise **mehrere Stunden pro Spiel** und du solltest nicht erwarten, dass Karten in ein paar Minuten nach dem Start eines Programmes gesammelt werden. Wenn du sehen kannst, dass ASF den Kartenstatus aktiv überprüft und das Spiel wechselt, nachdem das aktuelle vollständig gesammelt wurde, dann funktioniert das Ganze einwandfrei. Es ist möglich, dass du eine Option wie `DismissInventoryNotifications` von `BotBehaviour` aktiviert hast, die Inventarbenachrichtigungen automatisch ausblendet. Siehe **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)** für Details.
+Die Sammelrate der Karten ist von Spiel zu Spiel unterschiedlich, wie Sie in **[Leistung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE)** nachlesen können. Es dauert eine Weile, normalerweise **mehrere Stunden pro Spiel** und Sie sollten nicht erwarten, dass Karten bereits wenige Minuten nach dem Start eines Programmes gesammelt werden. Wenn Sie sehen können, dass ASF den Kartenstatus aktiv überprüft und das Spiel wechselt, nachdem das aktuelle vollständig gesammelt wurde, dann funktioniert das Ganze einwandfrei. Es ist möglich, dass Sie eine Option wie `DismissInventoryNotifications` von `BotBehaviour` aktiviert haben, die Inventarbenachrichtigungen automatisch ausblendet. Weitere Details erfahren Sie unter **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**.
 
 * * *
 
 ### Wie kann ich den ASF-Prozess für mein Konto vollständig stoppen?
 
-Beende einfach den ASF-Prozess, z.B. durch Anklicken von [X] unter Windows. Wenn du stattdessen einen bestimmten Bot deiner Wahl stoppen, aber andere am Laufen halten möchtest, dann schaue dir die `Enabled` **[Bot-Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#bot-konfiguration)** an, oder den `stop` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**. Wenn du stattdessen den automatischen Sammel-Prozess stoppen willst, aber ASF für dein Konto am Laufen halten möchtest, dann ist das das, wofür `Paused` **[Bot-Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#bot-konfiguration)** und der `pause` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** ist.
+Beenden Sie einfach den ASF-Prozess, z.B. durch Anklicken von [X] unter Windows. Wenn Sie stattdessen einen bestimmten Bot Ihrer Wahl stoppen, aber andere am Laufen halten möchten, dann schauen Sie die `Enabled` **[Bot-Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#bot-konfiguration)** an, oder den `stop` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**. Wenn Sie stattdessen den automatischen Sammel-Prozess stoppen möchten, aber ASF für Ihr Konto am Laufen halten möchten, dann ist das das, wofür die **[Bot-Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#bot-konfiguration)** `Paused` und der `pause` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** ist.
 
 * * *
 
 ### Wie viele Bots kann ich mit ASF verwenden?
 
-ASF als Programm hat keine unmittelbare Obergrenze für Bot-Instanzen, sodass Sie so viele Bot-Instanzen ausführen können, wie Sie Speicher auf einem Computer sind, aber Sie sind immer noch durch das Steam-Netzwerk und andere Steam-Dienste limitiert. Derzeit kannst du bis zu 100-200 Bots mit einer einzigen IP und einer einzelnen ASF-Instanz laufen lassen. Es ist möglich, mehr Bots mit mehr IPs und mehr ASF-Instanzen auszuführen, indem man die IP-Beschränkungen umgeht. Bedenke, dass du, wenn du diese große Anzahl von Bots verwendest, deren Anzahl du selbst kontrollieren solltest, z.B. sicherstellen, dass sich alle tatsächlich anmelden und zur gleichen Zeit arbeiten. ASF wurde nicht für diese große Anzahl von Bots optimiert und die allgemeine Regel gilt, dass **je mehr Bots du hast, desto mehr Probleme wirst du bekommen**. Außerdem ist zu beachten, dass das obige Limit im Allgemeinen von vielen internen Faktoren abhängt - es ist eher eine Annäherung als ein strenges Limit - Du wirst höchstwahrscheinlich in der Lage sein, mehr/weniger Bots als oben beschrieben auszuführen.
+ASF als Programm hat keine unmittelbare Obergrenze für Bot-Instanzen, sodass Sie so viele Bot-Instanzen ausführen können, wie Sie Speicher auf einem Computer haben, aber Sie sind immer noch durch das Steam-Netzwerk und andere Steam-Dienste limitiert. Derzeit können Sie bis zu 100-200 Bots mit einer einzigen IP und einer einzelnen ASF-Instanz laufen lassen. Es ist möglich, mehr Bots mit mehr IPs und mehr ASF-Instanzen auszuführen, indem man die IP-Beschränkungen umgeht. Bedenken Sie, dass, sobald Sie diese große Anzahl von Bots verwenden, deren Anzahl Sie selbst kontrollieren sollten, z. B. sicherstellen, dass sich alle tatsächlich anmelden und zur gleichen Zeit arbeiten. ASF wurde nicht für diese große Anzahl von Bots optimiert und die allgemeine Regel gilt, dass **je mehr Bots Sie haben, desto mehr Probleme werden Sie erfahren**. Außerdem ist zu beachten, dass das obige Limit im Allgemeinen von vielen internen Faktoren abhängt - es ist eher eine Annäherung als ein strenges Limit - Sie werden höchstwahrscheinlich in der Lage sein, mehr/weniger Bots als oben beschrieben auszuführen.
 
-Das ASF-Team empfiehlt, bis zu **10 Bots insgesamt** laufen zu lassen (und zu **besitzen**), alles darüber wird nicht unterstützt und auf eigenes Risiko durchgeführt, gegen unseren Vorschlag, der hier gemacht wurde. Diese Empfehlung basiert auf internen Valve-Richtlinien sowie unseren eigenen Empfehlungen. Ob du diese Regel einhältst oder nicht, ist deine Entscheidung, ASF als Werkzeug wird nicht gegen deinen eigenen Willen handeln, auch wenn es dazu führen sollte, dass deine Steam-Konten dafür gesperrt werden. Daher wird ASF dir eine Warnung anzeigen, wenn du über das hinausgehst, was wir empfehlen, aber trotzdem alles, was du willst, auf eigenes Risiko und ohne unseren Support ausführen kannst.
+Das ASF-Team empfiehlt, bis zu **10 Bots insgesamt** laufen zu lassen (und zu **besitzen**), alles darüber wird nicht unterstützt und auf eigenes Risiko durchgeführt, gegen unseren Vorschlag, der hier gemacht wurde. Diese Empfehlung basiert auf internen Valve-Richtlinien sowie unseren eigenen Empfehlungen. Ob Sie diese Regel einhalten oder nicht, ist einzig Ihre Entscheidung, ASF als Werkzeug wird nicht gegen Ihren eigenen Willen handeln, auch wenn es dazu führen sollte, dass Ihre Steam-Konten dafür gesperrt werden. Daher wird ASF dir eine Warnung anzeigen, wenn du über das hinausgehst, was wir empfehlen, aber trotzdem alles, was du willst, auf eigenes Risiko und ohne unseren Support ausführen kannst.
 
 * * *
 
