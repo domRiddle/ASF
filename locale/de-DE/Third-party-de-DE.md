@@ -2,7 +2,7 @@
 
 Dieser Abschnitt enthält verschiedene Ergänzungen von Drittanbietern, die ausschließlich (oder hauptsächlich) für die Verwendung zusammen mit ASF geschrieben wurden. Sie reichen von ASF-Plugins über einfache Webanwendungen und interne Bibliotheken zur Integration bis hin zu voll ausgestatteten Bots für andere Plattformen. Wenn du etwas zur Liste hinzufügen möchtest, lass es uns im Discord oder über unsere Steam-Gruppe wissen.
 
-Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern beaufsichtigt werden und **wir daher keine Garantie für sie übernehmen**, insbesondere in Bezug auf die Sicherheit, den Schutz oder die Einhaltung der Steam Nutzungsbedingungen. Diese Liste wird nur als Referenz gepflegt. Du solltest immer sicherstellen, dass das Programm, das du benutzen wirst, für dich seriös genug ist, da du sie alle auf eigenem Risiko benutzt.
+Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern beaufsichtigt werden und **wir daher keine Garantie für sie übernehmen**, insbesondere in Bezug auf die Sicherheit, den Schutz oder die Einhaltung der Steam-Nutzungsbedingungen. Diese Liste wird nur als Referenz gepflegt. Du solltest immer sicherstellen, dass das Programm, das du benutzen wirst, für dich seriös genug ist, da du sie alle auf eigenem Risiko benutzt.
 
 * * *
 
