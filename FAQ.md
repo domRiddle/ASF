@@ -569,7 +569,7 @@ In any case, ASF can only **try** to send a proper request to Steam in order to 
 
 ---
 
-### Why do I have to put 2FA/SteamGuard code on each login? / `Removed expired login key`
+### Why do I have to put 2FA/SteamGuard code on each login? / *Removed expired login key*
 
 ASF uses login keys (if you kept `UseLoginKeys` enabled) for keeping credentials valid, the same mechanism that Steam uses - 2FA/SteamGuard token is required only once. However, due to Steam network issues and quirks, it's entirely possible that login key is not saved in the network, I've already seen such issues not only with ASF, but with regular steam client as well (a need to input login + password on each run, regardless of "remember me" option).
 
