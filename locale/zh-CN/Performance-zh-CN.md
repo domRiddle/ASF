@@ -50,7 +50,7 @@ ASF 清楚地说明指定游戏的卡牌在何时掉落。 您需要关注 ASF �
 
 目前，上述两种算法已经足以针对所有可能的帐户情况提高挂卡效率，因此不需要添加更多算法。
 
-值得注意的是，ASF 也支持通过 `play` 命令启用 `Manual`（手动）挂卡模式。 您可以阅读&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN#备注)**&#8203;章节了解详情。
+It's nice to note that ASF also includes manual farming mode that can be activated by `play` command. 您可以阅读&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN#备注)**&#8203;章节了解详情。
 
 * * *
 

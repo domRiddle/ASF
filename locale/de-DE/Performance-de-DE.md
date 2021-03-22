@@ -50,7 +50,7 @@ Standardmäßig geht ASF davon aus, dass `HoursUntilCardDrops` `3` ist, da der n
 
 Im Moment reichen zwei der oben genannten Algorithmen für alle derzeit möglichen Kontoszenarien aus, um so effektiv wie möglich zu wirtschaften, daher ist es nicht geplant, weitere hinzuzufügen.
 
-Es ist schön zu beachten, dass ASF auch `Manuell` Sammel-Modus beinhaltet, der durch den Befehl `play` aktiviert werden kann. Du kannst mehr darüber lesen in **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+E ist gut zu wissen, dass ASF ebenfalls einen manuellen Sammelmodus besitzt, welcher mittels den Befehls `play` aktiviert wird. Du kannst mehr darüber lesen in **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
 
 * * *
 

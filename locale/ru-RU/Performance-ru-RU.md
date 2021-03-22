@@ -50,7 +50,7 @@ ASF явно указывает когда выпала карточка из к
 
 На данный момент двух описанных выше алгоритмов достаточно для максимально эффективного фарма во всех известных сценариях, поэтому добавление других алгоритмов не планируется.
 
-Рады отметить, что в ASF также присутствует ручной(`Manual`) режим фарма, который активируется командой `play`. Вы можете прочесть об этом больше в разделе "**[команды](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)**".
+It's nice to note that ASF also includes manual farming mode that can be activated by `play` command. Вы можете прочесть об этом больше в разделе "**[команды](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)**".
 
 * * *
 

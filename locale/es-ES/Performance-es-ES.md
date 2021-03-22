@@ -50,7 +50,7 @@ Por defecto, ASF asume que `HoursUntilCardDrops` es `3`, ya que el efecto negati
 
 En este momento los dos algoritmos mencionados son suficientes para todos los escenarios de cuenta actualmente posibles, para recolectar lo más eficazmente posible, por lo tanto no se planea añadir otros.
 
-Es bueno notar que ASF también incluye un modo de recolección `Manual` que puede activarse con el comando `play`. Puedes leer más al respecto en **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)**.
+Es bueno notar que ASF también incluye un modo de recolección manual que puede activarse con el comando `play`. Puedes leer más al respecto en **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)**.
 
 * * *
 
