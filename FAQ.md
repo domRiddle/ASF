@@ -622,7 +622,7 @@ If you made sure that the date on your machine is appropriate and the error does
 
 ---
 
-### `System.Threading.Tasks.TaskCanceledException: A task was canceled.`
+### `System.Threading.Tasks.TaskCanceledException: A task was canceled`
 
 This warning means that Steam did not answer to ASF request in given time. Usually it's caused by Steam networking hiccups and does not affect ASF in any way. In other cases it's the same as request failing after 5 tries. Reporting this issue makes no sense most of the time, as we can't force Steam to respond to our requests.
 
