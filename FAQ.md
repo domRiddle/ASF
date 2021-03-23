@@ -484,7 +484,7 @@ However, if even .NET Core runtime isn't able to boot on your machine, then `log
 
 ---
 
-### ASF is kicking my Steam Client session while I'm playing! / `This account is logged on another PC`
+### ASF is kicking my Steam Client session while I'm playing! / *This account is logged on another PC*
 
 This shows up as a message in Steam overlay that the account is being used somewhere else while you're playing. This issue can have two different reasons.
 
