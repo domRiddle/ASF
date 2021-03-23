@@ -579,7 +579,7 @@ As a side note, you can also turn off login keys with `UseLoginKeys` config prop
 
 ---
 
-### I'm getting error: `Unable to login to Steam: InvalidPassword or RateLimitExceeded`
+### I'm getting error: *Unable to login to Steam: `InvalidPassword` or `RateLimitExceeded`*
 
 This error can mean a lot of things, some of them include:
 
