@@ -477,7 +477,7 @@ ASF 的一般规则是，警告**不是**错误，因此您**不**需要报告�
 
 在正常条件下，任何 ASF 的崩溃或退出都会在程序目录内生成一份 `log.txt` 供您查看，这可能会对排查错误有帮助。 此外，一些较早的日志会被归档在 `logs` 文件夹下，因为每次运行时，ASF 都会生成新的 `log.txt` 覆盖原来的日志文件。
 
-然而，如果连 .NET Core 运行时环境都无法在您的机器上启动，就无法生成 `log.txt`。 如果发生这种情况，很可能您忘了安装我们在&#8203;**[安装指南](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#安装操作系统包)**&#8203;中提到的 .NET Core 依赖项。 其他的常见问题包括您启动了错误的操作系统版本，或者您缺少了本机 .NET Core 运行时环境依赖项。 如果控制台窗口关闭得太快，您就无法看到错误消息，您可以打开一个独立的控制台窗口，然后从中启动 ASF 二进制文件。 For example on Windows, open ASF directory, hold `Shift`, right click inside the folder and choose "*open command window here*" (or *powershell*), then type into the console `.\ArchiSteamFarm.exe` and confirm with enter. 这样，您就可以获得 ASF 无法正常启动的原因说明。
+然而，如果连 .NET Core 运行时环境都无法在您的机器上启动，就无法生成 `log.txt`。 如果发生这种情况，很可能您忘了安装我们在&#8203;**[安装指南](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#安装操作系统包)**&#8203;中提到的 .NET Core 依赖项。 其他的常见问题包括您启动了错误的操作系统版本，或者您缺少了本机 .NET Core 运行时环境依赖项。 如果控制台窗口关闭得太快，您就无法看到错误消息，您可以打开一个独立的控制台窗口，然后从中启动 ASF 二进制文件。 例如，在 Windows 上，打开 ASF 文件夹，按住 `Shift` 键，右键单击文件夹空白处，选择“*在此处打开命令窗口*”（或 *Powershell*），然后在控制台中输入 `.\ArchiSteamFarm.exe`，按回车键确认。 这样，您就可以获得 ASF 无法正常启动的原因说明。
 
 * * *
 
@@ -521,13 +521,13 @@ ASF 将尽最大努力建立连接，不仅包括拉取最新的服务器列表�
 
 如果不是因为家庭监护 PIN，那么这是一个最常见的错误，您应该习惯这一点，它只是意味着 ASF 向 Steam 网络连续发送了 5 次请求，但没有得到有效的响应。 通常情况下，这意味着 Steam 宕机了、出现问题或者正在维护——ASF 能够发现这样的问题，您不应该为此担心，除非这种情况连续发生了几个小时，并且其他用户没有发生同样的问题。
 
-如何检查 Steam 是否宕机？ **[Steam Status](https://steamstat.us)** is an excellent source of checking if Steam **should be** up, if you notice errors, especially related to Community or Web API, then Steam is having difficulties. You may want to leave ASF alone and let it do its job after a short while of downtime, or wait yourself.
+如何检查 Steam 是否宕机？ **[Steam Status](https://steamstat.us)** 是一个检查 Steam 服务器是否**应该**正常的网站，如果您发现了错误，特别是社区或 Web API 的错误，则表明 Steam 遇到了问题。 您可以把 ASF 丢在一边让它稍后自行恢复，或者自己掌握等待的时间。
 
 然而，情况并非总是如此，因为在某些情况下 Steam Status 无法检测到 Steam 的问题，例如，2016 年 6 月 7 日，Valve 破坏了 HTTPS 支持，导致通过 HTTPS 访问 **[Steam 社区](https://steamcommunity.com)**&#8203;会发生错误。 因此，也不要盲目地相信 Steam Status，您最好自己检查是否一切正常。
 
 此外，Steam 还包括各种访问频率限制措施，如果您一次发送了大量请求，Steam 就会临时封禁您的 IP。 ASF 了解这种情况，已经在配置文件内为您提供了各种不同的限速属性。 默认设置已经过优化，能够管理**合理**数量的机器人，如果您的机器人数量过大导致 Steam 对您说不，您就需要调整这些属性避免发生这种事，或者忽略此事，继续面对错误。 我想没人会选择第二个选项，所以请阅读相关主题，并特别注意 `WebLimiterDelay` 属性，这是适用于所有 Web 请求的一个通用限制。
 
-没有适合任何人的“金科玉律”，因为封禁受到多种第三方因素的影响，这也是为何您需要自己实验，找到适合您的值。 您也可以忽略这一点，使用类似 `10000` 等一定能正常工作的值，但请不要抱怨 ASF 无论做什么操作都要花 10 秒时间，仅仅解析徽章页面就要花费 5 分钟。 除此之外，以上限制可能没有发挥作用，因为如果您的机器人数量很多，还有可能触及上文所述的&#8203;**[硬性限制](#asf-可以运行多少个机器人)**。 Yes, it's entirely possible that you'll be able to log in without issues into Steam network (client), but Steam web (website) will refuse to listen to you if you have 100 sessions established at once. ASF 需要 Steam 网络和 Steam Web 共同运行，其中每一个出现问题都会导致您遇到问题。
+没有适合任何人的“金科玉律”，因为封禁受到多种第三方因素的影响，这也是为何您需要自己实验，找到适合您的值。 您也可以忽略这一点，使用类似 `10000` 等一定能正常工作的值，但请不要抱怨 ASF 无论做什么操作都要花 10 秒时间，仅仅解析徽章页面就要花费 5 分钟。 除此之外，以上限制可能没有发挥作用，因为如果您的机器人数量很多，还有可能触及上文所述的&#8203;**[硬性限制](#asf-可以运行多少个机器人)**。 没错，您完全有可能登录 Steam 网络（客户端）没有任何问题，但是 Steam Web（网站）会在您一次建立 100 个会话之后开始拒绝您的连接。 ASF 需要 Steam 网络和 Steam Web 共同运行，其中每一个出现问题都会导致您遇到问题。
 
 如果以上解释都不能解决问题，并且您仍然不知道哪里发生了故障，可以随时启用 `Debug` 模式，自己检查 ASF 的日志了解请求失败的具体原因。 例如：
 
@@ -554,7 +554,7 @@ InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
 
 接下来，如果您没有使用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)** ，可能 ASF 实际上已经接受/发送了交易报价，但是您还需要通过电子邮件确认交易。 同样地，如果您使用经典 2FA，就需要在手机验证器中确认交易。 目前，交易确认是一项**强制**措施，所以如果您不想手动接受它们，就需要将您的验证器导入为 ASF 2FA。
 
-还需注意，您只能与好友或者公开交易链接的人交易。 If you're trying to initiate *Bot -> Master* trade, such as `loot`, then you need to either have your bot on your friendlist, or your `SteamTradeToken` declared in Bot's config. Make sure that the token is valid - otherwise, you won't be able to send a trade.
+还需注意，您只能与好友或者公开交易链接的人交易。 如果您尝试使用 `loot` 等命令发起*机器人发给 Master 用户*的交易，就需要保证机器人在您的好友列表中，或者在机器人的配置中设定您的 `SteamTradeToken`，请保证此令牌是有效的，否则您将无法发送交易。
 
 然后，请记住，新设备有 7 天的交易锁定，所以如果您刚刚将您的帐户添加到 ASF，就需要等待 7 天，之后一切都可以正常工作。 这项限制**同时**适用于接受**和**发送交易。 该限制并非一定会触发，有的人立刻就可以发送和接受交易。 但大多数人**会**受影响，遇到交易锁定，即使您可以通过同一台机器上的 Steam 客户端发送和接受交易。 耐心等待，您无法加速这个过程。 同样，如果您删除或更改各种 Steam 安全相关的设置，例如两步验证、Steam 令牌、密码、电子邮件地址等，很可能会遇到类似的交易锁定。 通常，您需要检查能否手动使用此帐户发送交易，如果可以，这很可能就是经典的 7 天新设备交易锁定。
 
