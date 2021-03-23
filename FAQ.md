@@ -277,7 +277,7 @@ One case was of a guy with over 1000+ bots getting trade banned (together with a
 > It looks like this account was used to manage a network of bot accounts.
 > Botting is a violation of the Steam Subscriber Agreement.
 
-Please, use some common sense and don't assume that you can do such crazy things only because ASF allows you to do that. Doing `loot ASF` on over 1k of bots can be easily considered a **[DDoS](https://en.wikipedia.org/wiki/DDoS)** attack, and personally I'm not shocked that somebody got banned for such a thing. Keep in mind some bare common sense and minimum of fair use in regards to Steam service, and _most likely_ you'll be fine.
+Please, use some common sense and don't assume that you can do such crazy things only because ASF allows you to do that. Doing `loot ASF` on over 1k of bots can be easily considered a **[DDoS](https://en.wikipedia.org/wiki/DDoS)** attack, and personally I'm not shocked that somebody got banned for such a thing. Keep in mind some bare common sense and minimum of fair use in regards to Steam service, and **most likely** you'll be fine.
 
 Another case was a guy with 170+ bots getting banned during Steam's 2017 Winter Sale.
 
