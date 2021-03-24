@@ -278,7 +278,7 @@ Un caso fue el de un individuo com más de 1000 bots que obtuvo bloqueo de inter
 
 > Hola XXX, Gracias por contactar con el Soporte de Steam. Parece que esta cuenta fue usada para administrar una red de bots. Usar bots es una violación al Acuerdo de Suscriptor a Steam.
 
-Por favor, usa algo de sentido común y no asumas que puedes hacer tales locuras solo porque ASF te permite hacerlo. Ejecutar `loot ASF` en más de 1000 bots fácilmente puede ser considerado como ataque **[DDoS](https://en.wikipedia.org/wiki/DDoS)**, y personalmente no me sorprende que alguien haya sido baneado por ello. Ten en cuenta el sentido común y un uso justo en lo que respecta al servicio de Steam, y *lo más probable* es que estés bien.
+Por favor, usa algo de sentido común y no asumas que puedes hacer tales locuras solo porque ASF te permite hacerlo. Ejecutar `loot ASF` en más de 1000 bots fácilmente puede ser considerado como ataque **[DDoS](https://en.wikipedia.org/wiki/DDoS)**, y personalmente no me sorprende que alguien haya sido baneado por ello. Ten en cuenta el sentido común y un uso justo en lo que respecta al servicio de Steam, y **lo más probable** es que estés bien.
 
 Otro caso fue el de un sujeto con más de 170 bots que fue baneado durante las Rebajas de Invierno de Steam 2017.
 
@@ -481,7 +481,7 @@ Sin embargo, si ni siquiera el tiempo de ejecución .NET Core es capaz de arranc
 
 * * *
 
-### ¡ASF está expulsando mi sesión en el Cliente de Steam mientras estoy jugando! / `Esta cuenta tiene iniciada una sesión en otro equipo`
+### ¡ASF está expulsando mi sesión en el Cliente de Steam mientras estoy jugando! / *Esta cuenta tiene iniciada una sesión en otro equipo*
 
 Esto se muestra como un mensaje en Steam de que la cuenta está siendo usado en otro lado mientras estás jugando. Este problema puede tener dos razones diferentes.
 
@@ -570,13 +570,13 @@ En cualquier caso, ASF solo puede **intentar** enviar una solicitud a Steam para
 
 ASF utiliza claves de acceso (si dejaste habilitado `UseLoginKeys`) para mantener credenciales válidas, el mismo mecanismo que utiliza Steam - el código 2FA/SteamGuard solo es requerido una vez. Sin embargo, debido a problemas en la red de Steam, es posible que la clave de acceso no se guarde en la red, ya he visto tales problemas no solo con ASF, sino también con el cliente regular de Steam (la necesidad de ingresar nombre de usuario + contraseña en cada ejecución, a pesar de la opción "recordarme").
 
-Podrías eliminar `BotName.db` (+ `BotName.bin`, si existe) de la cuenta afectada e intentar vincular ASF a tu cuenta una vez más, pero eso no tiene que funcionar. La solución real basada en ASF es importar tu autenticador como **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** - de esta manera ASF puede generar códigos automáticamente cuando sea necesario, y no tienes que ingresarlos manualmente. Usualmente el problema se soluciona mágicamente después de algún tiempo, así que simplemente puedes esperar a que eso suceda. Por supuesto, también puedes pedirle una solución a Valve, porque no puedo forzar a la red de Steam a aceptar nuestras claves de acceso.
+Podrías eliminar `BotName.db` y `BotName.bin` (si está disponible) de la cuenta afectada e intentar vincular ASF a tu cuenta de nuevo, pero eso no necesariamente tiene que funcionar. La solución real basada en ASF es importar tu autenticador como **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** - de esta manera ASF puede generar códigos automáticamente cuando sea necesario, y no tienes que ingresarlos manualmente. Usualmente el problema se soluciona mágicamente después de algún tiempo, así que simplemente puedes esperar a que eso suceda. Por supuesto, también puedes pedirle una solución a Valve, porque no puedo forzar a la red de Steam a aceptar nuestras claves de acceso.
 
 Como nota aparte, también puedes desactivar las claves de acceso con la propiedad de configuración `UseLoginKeys` establecida a `false`, pero esto no resolverá el problema, solo omitirá el fallo inicial. ASF ya es consciente del problema descrito aquí y hará lo mejor posible para no usar claves de acceso si puede garantizar todas las credenciales de inicio de sesión, así que no hay necesidad de modificar manualmente `UseLoginKeys` si puedes proporcionar todos los detalles de inicio de sesión al usar ASF 2FA.
 
 * * *
 
-### Estoy teniendo el error: `No se puede iniciar sesión en Steam: InvalidPassword o RateLimitExceeded`
+### Estoy teniendo el error: *No se puede iniciar sesión en Steam: `InvalidPassword` o `RateLimitExceeded`*
 
 Esto error puede significar muchas cosas, algunas de ellas incluyen:
 
@@ -609,17 +609,17 @@ Si **esperas** que esto suceda, quiere decir que **pretendes** ejecutar ASF en u
 
 ### `System.Net.Http.WinHttpException: A security error occurred`
 
-Este error ocurre cuando ASF no puede establecer una conexión seguro con un servidor dado, casi exclusivamente debido a la desconfianza del certificado SSL.
+Este error ocurre cuando ASF no puede establecer una conexión segura con un servidor dado, casi exclusivamente debido a la desconfianza del certificado SSL.
 
-En casi todos los casos este error es causado por **fecha/hora incorrecta en tu máquina**. Cada certificado SSL tiene un fecha de emisión y de caducidad. Si tu fecha es inválida y fuera de esos dos límites, el certificado se puede confiar en el certificado como un potencial ataque MITM y ASF se niega a hacer una conexión.
+En casi todos los casos este error es causado por **fecha/hora incorrecta en tu máquina**. Cada certificado SSL tiene un fecha de emisión y de caducidad. If your date is invalid and out of those two bounds then the certificate can't be trusted as a potential **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** attack and ASF refuses to make a connection.
 
 La solución obvia es establecer correctamente la fecha en tu máquina. Es altamente recomendable usar la sincronización de fecha automática, como la sincronización nativa disponible en Windows, o `ntpd` en Linux.
 
-Si estás seguro que la fecha en tu máquina es correcta y el error no desaparece, suponiendo que no es un problema temporal que debería debería pronto, los certificados SSL en los que confía tu sistema podrían estar obsoletos o ser no válidos. En este caso debes asegurarte de que tu máquina puede establecer conexiones seguras, por ejemplo, comprobando si puedes acceder a `https://github.com` con cualquier explorador, o con una herramienta CLI como `curl`. Si confirmas que esto funciona correctamente, siéntete libre de publicar el problema en nuestro grupo de Steam.
+Si te aseguraste de que la fecha en tu máquina es correcta y el error no desaparece, los certificados SSL en los que confía tu sistema podrían estar desactualizados o ser no válidos. En este caso debes asegurarte de que tu máquina puede establecer conexiones seguras, por ejemplo, comprobando si puedes acceder a `https://github.com` con cualquier explorador, o con una herramienta CLI como `curl`. Si confirmas que esto funciona correctamente, siéntete libre de publicar el problema en nuestro grupo de Steam.
 
 * * *
 
-### `System.Threading.Tasks.TaskCanceledException: A task was canceled.`
+### `System.Threading.Tasks.TaskCanceledException: A task was canceled`
 
 Esta advertencia significa que Steam no respondió a la solicitud de ASF en un tiempo dado. Generalmente es causado por errores en la red de Steam y no afecta a ASF de ninguna manera. En otros casos es lo mismo que la solicitud fallando después de 5 intentos. Reportar este error no tienen sentido la mayoría del tiempo, ya que no podemos forzar a Steam a responder a nuestras solicitudes.
 
@@ -627,7 +627,7 @@ Esta advertencia significa que Steam no respondió a la solicitud de ASF en un t
 
 ### `The type initializer for 'System.Security.Cryptography.CngKeyLite' threw an exception`
 
-Este problema es casi exclusivamente causado por el servicio de Windows `CNG Key Isolation` desactivado/detenido, este proporciona la funcionalidad de criptografía para ASF, y sin el cual el programa no puede ejecutarse. Puede solucionar este problema ejecutando `services.msc` y asegurarte de que el servicio de Windows `CNG Key Isolation` no tiene el inicio deshabilitado y que se encuentra en ejecución.
+Este problema es casi exclusivamente causado porque el servicio de Windows `CNG Key Isolation` se ha desactivado/detenido, este proporciona la funcionalidad de criptografía para ASF, y sin el cual el programa no puede ejecutarse. Puede solucionar este problema ejecutando `services.msc` y asegurarte de que el servicio de Windows `CNG Key Isolation` no tiene el inicio deshabilitado y que se encuentra en ejecución.
 
 * * *
 

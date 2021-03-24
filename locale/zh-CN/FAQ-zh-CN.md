@@ -278,7 +278,7 @@ ASF 真正需要关注的重点是：
 
 > Hello XXX, Thank you for contacting Steam Support.（译文：感谢您联系 Steam 客服。） It looks like this account was used to manage a network of bot accounts.（译文：看起来您的帐户被用于管理一个机器人帐户网络。） Botting is a violation of the Steam Subscriber Agreement.（译文：使用机器人违反了 Steam 订户协议。）
 
-请您了解一些常识，不要因为 ASF 允许您做，就做这种疯狂的事情。 对超过 1000 个机器人发起 `loot ASF` 请求完全可以视为一次 **[DDoS](https://en.wikipedia.org/wiki/DDoS)** 攻击，就我个人而言，我并不惊讶有人因为这种事情被封禁。 请了解有关 Steam 服务的一些基本常识，只要您不滥用 Steam 服务，就*几乎不可能*遇到问题。
+请您了解一些常识，不要因为 ASF 允许您做，就做这种疯狂的事情。 对超过 1000 个机器人发起 `loot ASF` 请求完全可以视为一次 **[DDoS](https://en.wikipedia.org/wiki/DDoS)** 攻击，就我个人而言，我并不惊讶有人因为这种事情被封禁。 请了解有关 Steam 服务的一些基本常识，只要您不滥用 Steam 服务，就**几乎不可能**遇到问题。
 
 另一起事件是一名拥有超过 170 个机器人的用户在 2017 年 Steam 冬季特卖期间被封禁。
 
@@ -481,7 +481,7 @@ ASF 的一般规则是，警告**不是**错误，因此您**不**需要报告�
 
 * * *
 
-### 在我玩游戏的时候，ASF 将我的 Steam 客户端踢掉线！ / `This account is logged on another PC`（这个帐户在另一台电脑登录）
+### 在我玩游戏的时候，ASF 将我的 Steam 客户端踢掉线！ / *This account is logged on another PC*（这个帐户在另一台电脑登录）
 
 您在游戏中时，Steam 界面会显示这条消息，表示该帐户正在其他地方使用。 此问题可能有两个不同的原因。
 
@@ -570,13 +570,13 @@ InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
 
 ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状态），这与 Steam 本身使用的机制相同——您只需要输入一次两步验证/Steam 令牌代码。 然而，由于 Steam 网络本身的问题，有可能登录密钥没有被保存，不仅 ASF 有这样的问题， Steam 官方客户端也有（即使勾选了“记住我的密码”，每次登录仍要输入用户名和密码）。
 
-您可以删除受影响机器人的 `BotName.db` 文件（如果有 `BotName.bin`，也一并删除），然后尝试再次将 ASF 链接到您的帐户，但该方法不一定能成功。 ASF 的解决方案是将您的验证器导入为 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**——当需要时，ASF 可以自动生成令牌代码，而不需要您手动输入。 通常，一段时间后，该问题就会自动消失，所以您也可以耐心等待。 当然，您也可以向 Valve 询问解决方案，因为我无法强制要求 Steam 网络认可我们的登录密钥。
+You could remove `BotName.db` and `BotName.bin` (if available) of affected account and try to link ASF to your account once again, but that doesn't have to succeed. ASF 的解决方案是将您的验证器导入为 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**——当需要时，ASF 可以自动生成令牌代码，而不需要您手动输入。 通常，一段时间后，该问题就会自动消失，所以您也可以耐心等待。 当然，您也可以向 Valve 询问解决方案，因为我无法强制要求 Steam 网络认可我们的登录密钥。
 
 作为一个旁注，您也可以将 `UseLoginKeys` 配置属性设置为 `false`，来禁用登录密钥功能，但这无法解决问题，仅仅能跳过登录密钥的报错。 ASF 已经了解此问题，如果它可以自己获取所有需要的登录凭据，就会尽量避免使用登录密钥，如果您可以提供所有登录细节，并且使用 ASF 2FA，就不需要手动调整 `UseLoginKeys` 属性。
 
 * * *
 
-### 我遇到错误：`Unable to login to Steam: InvalidPassword or RateLimitExceeded`
+### I'm getting error: *Unable to login to Steam: `InvalidPassword` or `RateLimitExceeded`*
 
 该错误可能指很多种情况，例如：
 
@@ -611,15 +611,15 @@ ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状
 
 当 ASF 无法与给定服务器建立安全连接时，就会发生此错误，这通常都是因为 SSL 证书不受信任造成的。
 
-在绝大多数情况下，该错误的原因是您的**设备日期/时间错误**。 每个 SSL 证书都有颁发时间和过期时间。 如果您的日期无效，并且超出这个范围，则该证书就会因为潜在的 MITM（中间人）攻击风险而不受信任，而 ASF 就会拒绝建立连接。
+在绝大多数情况下，该错误的原因是您的**设备日期/时间错误**。 每个 SSL 证书都有颁发时间和过期时间。 If your date is invalid and out of those two bounds then the certificate can't be trusted as a potential **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** attack and ASF refuses to make a connection.
 
 显而易见的解决方案是为您的机器设置正确的日期。 强烈建议您启用自动日期同步功能，例如 Windows 内置的日期同步，或者 Linux 上的 `ntpd`。
 
-如果您确定机器上的日期是正确的，但错误仍在，那么此问题大概并非暂时的，您系统信任的 SSL 证书可能无效或已过期。 此时您应该确保您的机器可以建立安全连接，例如，您可以用任意浏览器或者 `curl` 等命令行工具访问 `https://github.com`。 如果您确认其他连接没有问题，可以在我们的 Steam 群组反馈。
+If you made sure that the date on your machine is appropriate and the error doesn't want to go away, SSL certificates that your system trusts could be out-of-date or invalid. 此时您应该确保您的机器可以建立安全连接，例如，您可以用任意浏览器或者 `curl` 等命令行工具访问 `https://github.com`。 如果您确认其他连接没有问题，可以在我们的 Steam 群组反馈。
 
 * * *
 
-### `System.Threading.Tasks.TaskCanceledException: 已取消一个任务。`
+### `System.Threading.Tasks.TaskCanceledException: A task was canceled`
 
 此警告意味着 Steam 没有在给定时间内对 ASF 的请求作出响应。 通常这是由 Steam 网络波动引起的，不会影响 ASF。 如果是其他情况，则该问题与“请求在 5 次尝试后失败”错误相同。 大多数情况下，报告此问题是无意义的，因为我们无法强制 Steam 对我们的请求作出响应。
 
@@ -627,7 +627,7 @@ ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状
 
 ### `The type initializer for 'System.Security.Cryptography.CngKeyLite' threw an exception`
 
-这个问题几乎只由 Windows 服务 `CNG Key Isolation` 被禁用/未运行导致，这个服务为 ASF 提供了核心的加密功能，如果此服务未运行，ASF 也无法运行。 要修复此问题，您可以运行 `services.msc`，确认 `CNG Key Isolation` 服务没有被禁用，并且正在运行。
+This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation` Windows service, which provides core cryptography functionality for ASF, without which the program isn't able to run. You can fix this issue by launching `services.msc` and ensuring that `CNG Key Isolation` Windows service doesn't have disabled startup and is currently running.
 
 * * *
 
