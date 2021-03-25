@@ -521,7 +521,7 @@ Generalmente significa que estás usando un PIN del modo familiar de Steam para 
 
 Si el PIN del modo familiar no es la razón, entonces este es un error más común, y debes acostumbrarse a eso, simplemente significa que ASF envió una solicitud a la red de Steam, y no obtuvo una respuesta válida, 5 veces consecutivas. Generalmente significa que Steam está caído o está teniendo dificultades o en mantenimiento - ASF está consciente de tales problemas y no debes preocuparte por ellos, a menos que sucedan constantemente por más de varias horas, y otros usuarios no tengan dichos problemas.
 
-¿Cómo comprobar si Steam está caído? **[Steam Status](https://steamstat.us)** es una excelente fuente para comprobar si Steam **debería** estar en línea, si notas errores, especialmente relacionados con la Comunidad o la API Web, entonces Steam está teniendo dificultades. Tal vez quieras dejar a ASF y permitir que haga su trabajo después de un tiempo de inactividad, o puedes esperar.
+¿Cómo comprobar si Steam está caído? **[Steam Status](https://steamstat.us)** es una excelente fuente para comprobar si Steam **debería** estar en línea, si notas errores, especialmente relacionados con la Comunidad o la API Web, entonces Steam está teniendo dificultades. Tal vez quieras dejar a ASF y permitir que haga su trabajo después de un tiempo de inactividad, o puedes cerrarlo y esperar.
 
 Sin embargo, ese no siempre es el caso, ya que en algunas situaciones los problemas de Steam pueden no ser detectados por Steam Status, por ejemplo, este caso sucedió cuando Valve rompió el soporte HTTPS para la Comunidad de Steam el 7 de junio de 2016 - acceder a la **[Comunidad de Steam](https://steamcommunity.com)** a través de HTTPS arrojaba un error. Por lo tanto, tampoco confíes ciegamente en Steam Status, es mejor comprobar por ti mismo si todo funciona como debería.
 
@@ -611,7 +611,7 @@ Si **esperas** que esto suceda, quiere decir que **pretendes** ejecutar ASF en u
 
 Este error ocurre cuando ASF no puede establecer una conexión segura con un servidor dado, casi exclusivamente debido a la desconfianza del certificado SSL.
 
-En casi todos los casos este error es causado por **fecha/hora incorrecta en tu máquina**. Cada certificado SSL tiene un fecha de emisión y de caducidad. If your date is invalid and out of those two bounds then the certificate can't be trusted as a potential **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** attack and ASF refuses to make a connection.
+En casi todos los casos este error es causado por **fecha/hora incorrecta en tu máquina**. Cada certificado SSL tiene un fecha de emisión y de caducidad. Si tu fecha no es válida y está fuera de esos dos límites entonces no se puede confiar en el certificado debido a un potencial ataque **[MITM](https://es.wikipedia.org/wiki/Ataque_de_intermediario)** y ASF se niega a establecer una conexión.
 
 La solución obvia es establecer correctamente la fecha en tu máquina. Es altamente recomendable usar la sincronización de fecha automática, como la sincronización nativa disponible en Windows, o `ntpd` en Linux.
 

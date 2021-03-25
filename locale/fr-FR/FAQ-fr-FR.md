@@ -521,7 +521,7 @@ Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (*
     
     If parental PIN is not the reason, then this is a most common error, and you should get used to that, it simply means that ASF sent a request to Steam Network, and didn't get a valid response, 5 times in a row. Cela signifie généralement que Steam est en panne, ou en maintenance. ASF en est conscient et vous ne devez pas vous en inquiéter, à moins que cela ne se produise plusieurs heures à la fois et que les autres utilisateurs ne rencontrent pas de tels problèmes. 
     
-    Comment vérifier si Steam est en panne? **[Steam Status](https://steamstat.us)** is an excellent source of checking if Steam **should be** up, if you notice errors, especially related to Community or Web API, then Steam is having difficulties. You may want to leave ASF alone and let it do its job after a short while of downtime, or wait yourself.
+    Comment vérifier si Steam est en panne? **[Steam Status](https://steamstat.us)** is an excellent source of checking if Steam **should be** up, if you notice errors, especially related to Community or Web API, then Steam is having difficulties. You may want to leave ASF alone and let it do its job after a short while of downtime, or quit it and wait yourself.
     
     That's however not always the case, as in some situations Steam issues may not be detected by Steam Status, for example such case happened when Valve broke HTTPS support for Steam Community 7th June 2016 - accessing **[SteamCommunity](https://steamcommunity.com)** through HTTPS was throwing an error. Par conséquent, ne faites pas aveuglément confiance à Steam Status, il est préférable de vérifier vous-même si tout fonctionne comme prévu.
     
@@ -611,7 +611,7 @@ Tout d’abord, certaines fonctionnalités intégrées mentionnées plus haut (*
     
     Cette erreur se produit lorsque ASF ne peut pas établir de connexion sécurisée avec un serveur , presque exclusivement à cause de la méfiance du certificat SSL.
     
-    Dans presque tous les cas, cette erreur est provoquée par **une date/heure erronée sur votre ordinateur**. Chaque certificat SSL a une date d'émission et une date d'expiration. If your date is invalid and out of those two bounds then the certificate can't be trusted as a potential **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** attack and ASF refuses to make a connection.
+    Dans presque tous les cas, cette erreur est provoquée par **une date/heure erronée sur votre ordinateur**. Chaque certificat SSL a une date d'émission et une date d'expiration. If your date is invalid and out of those two bounds then the certificate can't be trusted due to a potential **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** attack and ASF refuses to make a connection.
     
     La solution évidente consiste à régler correctement la date sur votre machine. Il est vivement recommandé d'utiliser la synchronisation automatique des dates, telle que la synchronisation native disponible sous Windows, ou `ntpd` sous Linux.
     

@@ -278,7 +278,7 @@ Ein Fall war von jemandem mit über 1000+ Bots, der vom Handel ausgeschlossen wu
 
 > Hallo XXX, Vielen Dank, dass Sie den Steam-Support kontaktiert haben. Es scheint, als ob dieses Konto verwendet wurde, um ein Netzwerk von Bot-Accounts zu verwalten. Botting ist eine Verletzung der Steam-Abonnentenvereinbarung.
 
-Verwenden Sie bitte etwas gesunden Menschenverstand und gehen Sie nicht davon aus, dass solche verrückten Dinge nur tun können, weil ASF Ihnen dies erlaubt. Das Ausführen von `loot ASF` auf über 1k Bots kann leicht als **[DDoS](https://en.wikipedia.org/wiki/DDoS)** Angriff angesehen werden, und ich persönlich bin nicht schockiert, dass jemand für so eine Sache gesperrt wurde. Bedenke und benutze etwas gesunden Menschenverstand und ein Minimum an fairem Gebrauch in Bezug auf den Steam Service, und ** höchstwahrscheinlich** wird es dir gut gehen.
+Verwenden Sie bitte etwas gesunden Menschenverstand und gehen Sie nicht davon aus, dass solche verrückten Dinge nur tun können, weil ASF Ihnen dies erlaubt. Das Ausführen von `loot ASF` auf über 1k Bots kann leicht als **[DDoS](https://en.wikipedia.org/wiki/DDoS)** Angriff angesehen werden, und ich persönlich bin nicht schockiert, dass jemand für so eine Sache gesperrt wurde. Bedenken und benutzen Sie etwas gesunden Menschenverstand und sein Sie fair bei der Verwendung in Bezug auf den Steam Service, und ** höchstwahrscheinlich** wird es Ihnen gut gehen.
 
 Ein weiterer Fall war Jemand mit 170+ Bots, der während dem Steam Winter Sale gesperrt wurde.
 
@@ -481,7 +481,7 @@ Wenn jedoch selbst die .NET Core Runtime nicht in der Lage ist, auf Ihrer Maschi
 
 * * *
 
-### ASF wirft mich aus meiner Steam-Client-Sitzung während ich spiele! / *This account is logged on another PC*
+### ASF wirft mich aus meiner Steam-Client-Sitzung während ich spiele! / *Dieser Account wird an einem anderen PC verwendet*
 
 Dies wird als Meldung im Steam-Overlay angezeigt, sobald das Konto während des Spielens woanders verwendet wird. Dieses Problem kann zwei verschiedene Ursachen haben.
 
@@ -521,7 +521,7 @@ Normalerweise bedeutet das, dass Sie die Steam-Familienansicht-PIN für den Zugr
 
 Wenn die Steam-Familienansicht-PIN nicht der Grund dafür ist, dann ist dies ein häufiger Fehler, und Sie sollten sich daran gewöhnen. Das bedeutet einfach, dass ASF eine Anfrage an das Steam-Netzwerk gesendet, aber fünfmal in Folge keine gültige Antwort erhalten hat. Für gewöhnlich bedeutet es, dass Steam entweder außer Betrieb ist oder einige Schwierigkeiten oder Wartungsarbeiten hat - ASF ist sich solcher Probleme bewusst und Sie sollten sich keine Sorgen darum machen, es sei denn, sie passieren ständig für mehr als mehrere Stunden, und andere Benutzer haben keine derartigen Probleme.
 
-Wie kann man überprüfen, ob Steam außer Betrieb ist? **[Steam Status](https://steamstat.us)** ist eine ausgezeichnete Quelle, um zu überprüfen, **ob** Steam in Betrieb sein sollte. Wenn Sie Fehler (insbesondere im Zusammenhang mit der Community oder der Web-API) bemerken, dann hat Steam Schwierigkeiten. Sie können entweder ASF in Ruhe lassen, sodass es die Aufgaben nach einer kurzen Auszeit erledigt, oder Sie warten einfach selbst.
+Wie kann man überprüfen, ob Steam außer Betrieb ist? **[Steam Status](https://steamstat.us)** ist eine ausgezeichnete Quelle, um zu überprüfen, **ob** Steam in Betrieb sein sollte. Wenn Sie Fehler (insbesondere im Zusammenhang mit der Community oder der Web-API) bemerken, dann hat Steam Schwierigkeiten. You may want to leave ASF alone and let it do its job after a short while of downtime, or quit it and wait yourself.
 
 Das ist jedoch nicht immer der Fall, da in einigen Situationen Steam-Probleme möglicherweise nicht durch Steam Status erkannt werden, z.B. passierte ein solcher Fall, als Valve die HTTPS-Unterstützung für Steam Community am 7. Juni 2016 unterbrach - der Zugriff auf **[SteamCommunity](https://steamcommunity.com)** durch HTTPS führte zu einem Fehler. Verlasse Sie sich daher auch nicht blind auf den Steam Status. Überprüfen Sie am besten selbst, ob alles so funktioniert, wie es sollte.
 
@@ -570,13 +570,13 @@ In jedem Fall kann ASF nur **versuchen**, eine ordnungsgemäße Anfrage an Steam
 
 Sofern Sie `UseLoginKeys` aktivieren, verwendet ASF Anmelde-Schlüssel, um die Anmeldeinformationen gültig zu halten- den gleichen Mechanismus, den Steam verwendet - (2FA/SteamGuard-Code ist nur einmal erforderlich). Aufgrund von Steam-Netzwerkproblemen und -Eigenarten ist es jedoch durchaus möglich, dass der Anmelde-Schlüssel nicht im Netzwerk gespeichert ist. Ich habe solche Probleme bereits nicht nur mit ASF, sondern auch mit dem normalen Steam-Client gesehen (eine Notwendigkeit, bei jedem Durchlauf Login + Passwort einzugeben, unabhängig von der Option "Remember me").
 
-You could remove `BotName.db` and `BotName.bin` (if available) of affected account and try to link ASF to your account once again, but that doesn't have to succeed. Die eigentliche ASF-basierte Lösung besteht darin, Ihren Authentifikator als **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** zu importieren. So kann ASF Codes automatisch generieren, wenn diese benötigt werden, und Sie müssen sie nicht manuell eingeben. In der Regel löst sich das Problem nach einiger Zeit von selbst, sodass man es einfach abwarten kann. Natürlich können Sie auch Valve nach einer Lösung fragen, denn ich kann das Steam-Netzwerk nicht zwingen, unsere Login-Schlüssel zu akzeptieren.
+Sie könnten (falls vorhanden) `BotName.db` and `BotName.bin`) des betroffenen Kontos entfernen und versuchen, ASF wieder mit Ihrem Konto zu verbinden, aber das muss nicht zum Erfolg führen. Die eigentliche ASF-basierte Lösung besteht darin, Ihren Authentifikator als **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** zu importieren. So kann ASF Codes automatisch generieren, wenn diese benötigt werden, und Sie müssen sie nicht manuell eingeben. In der Regel löst sich das Problem nach einiger Zeit von selbst, sodass man es einfach abwarten kann. Natürlich können Sie auch Valve nach einer Lösung fragen, denn ich kann das Steam-Netzwerk nicht zwingen, unsere Login-Schlüssel zu akzeptieren.
 
 Als Randbemerkung können Sie auch die Anmelde-Schlüssel mit der Konfigurationseigenschaft `UseLoginKeys` mit `false` deaktivieren, aber das wird das Problem nicht lösen, sondern lediglich den Fehler des ersten Anmelde-Schlüssels überspringen. ASF ist sich des hier beschriebenen Problems bereits bewusst und wird versuchen, keine Anmelde-Schlüssel zu verwenden, wenn es sich selbst alle Anmeldeinformationen zuschicken kann, sodass es nicht notwendig ist, `UseLoginKeys` manuell zu optimieren, wenn Sie alle Zugangsdaten zusammen mit ASF 2FA angeben können.
 
 * * *
 
-### I'm getting error: *Unable to login to Steam: `InvalidPassword` or `RateLimitExceeded`*
+### Ich erhalte den Fehler: *Die Anmeldung bei Steam ist nicht möglich: `InvalidPassword` or `RateLimitExceeded`*
 
 Dieser Fehler kann vieles bedeuten, unter anderem auch:
 
@@ -589,7 +589,7 @@ Dieser Fehler kann vieles bedeuten, unter anderem auch:
 
 Im Falle von Anti-Bruteforce und Rate-Limiting wird das Problem nach einiger Zeit verschwinden Warten Sie einfach und versuche Sie sich in der Zwischenzeit nicht anzumelden. Sollten Sie dieses Problem häufiger haben, ist es vielleicht ratsam, `LoginLimiterDelay` Konfigurationseigenschaft von ASF zu erhöhen. Übermäßige Programmneustarts und andere absichtliche/nicht absichtliche Anmeldeanforderungen werden bei diesem Problem definitiv nicht helfen, also gilt es diese nach Möglichkeit zu vermeiden.
 
-Im Falle eines abgelaufenen Anmelde-Schlüssels wird ASF den alten entfernen und beim nächsten Anmelden nach einem neuen fragen (was erfordert, dass Sie einen 2FA-Code einstellen, falls Ihr Konto 2FA-geschützt ist). Wenn das Konto ASF-2FA verwendet, wird ein Code generiert und automatisch verwendet. Dies kann natürlich mit der Zeit geschehen, aber wenn dieses Problem bei jedem Login auftritt, ist es möglich, dass Steam aus irgendeinem Grund beschlossen hat, unsere Login-Schlüssel zu ignorieren, wie im Punkt **[oben](#warum-muss-ich-bei-der-anmeldung-jedesmal-den-2fa)** erwähnt. Sie können natürlich `UseLoginKeys` komplett deaktivieren, aber das löst das Problem nicht, sondern vermeidet nur, dass jedes mal abgelaufene Login Schlüssel entfernt werden müssen. Die wirkliche Lösung besteht darin, wie im Punkt oben erwähnt, ASF-2FA zu verwenden.
+Im Falle eines abgelaufenen Anmelde-Schlüssels wird ASF den alten entfernen und beim nächsten Anmelden nach einem neuen fragen (was erfordert, dass Sie einen 2FA-Code einstellen, falls Ihr Konto 2FA-geschützt ist). Wenn das Konto ASF-2FA verwendet, wird ein Code generiert und automatisch verwendet. Dies kann natürlich mit der Zeit geschehen, aber wenn dieses Problem bei jedem Login auftritt, ist es möglich, dass Steam aus irgendeinem Grund beschlossen hat, unsere Login-Schlüssel zu ignorieren, wie im Punkt **[oben](#warum-muss-ich-bei-der-anmeldung-jedesmal-den-2fasteamguard-code-eingeben--abgelaufener-anmelde-schl%C3%BCssel-entfernt)** erwähnt. Sie können natürlich `UseLoginKeys` komplett deaktivieren, aber das löst das Problem nicht, sondern vermeidet nur, dass jedes mal abgelaufene Login Schlüssel entfernt werden müssen. Die wirkliche Lösung besteht darin, wie im Punkt oben erwähnt, ASF-2FA zu verwenden.
 
 Und schlussendlich, falls Sie eine falsche Kombination aus Login und Passwort verwenden, müssen Sie dies natürlich korrigieren oder den Bot deaktivieren, der versucht, sich mit diesen Zugangsdaten zu verbinden. ASF kann nicht selbstständig erraten, ob `InvalidPassword` ungültige Anmeldeinformationen oder einen der oben genannten Gründe bedeutet. Daher wird es ASF weiter versuchen, bis der Login erfolgreich ist.
 
@@ -611,11 +611,11 @@ Falls Sie dieses Verhalten **erwarten**, Sie also ASF in einer eingabefreien Umg
 
 Dieser Fehler tritt auf, wenn ASF keine sichere Verbindung mit dem angegebenen Server herstellen kann, fast ausschließlich wegen des Misstrauens gegen ein SSL-Zertifikat.
 
-In fast allen Fällen wird dieser Fehler durch ein **falsches Datum/Uhrzeit auf Ihrem Gerät** verursacht. Jedes SSL-Zertifikat hat ein Ausstellungsdatum und ein Verfallsdatum. If your date is invalid and out of those two bounds then the certificate can't be trusted as a potential **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** attack and ASF refuses to make a connection.
+In fast allen Fällen wird dieser Fehler durch ein **falsches Datum/Uhrzeit auf Ihrem Gerät** verursacht. Jedes SSL-Zertifikat hat ein Ausstellungsdatum und ein Verfallsdatum. If your date is invalid and out of those two bounds then the certificate can't be trusted due to a potential **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** attack and ASF refuses to make a connection.
 
 Eine offensichtliche Lösung ist das Datum auf Ihrer Maschine entsprechend einzustellen. Es wird dringend empfohlen, eine automatische Datumssynchronisation zu verwenden, wie z. B. eine unter Windows verfügbare native Synchronisation oder `ntpd` unter Linux.
 
-If you made sure that the date on your machine is appropriate and the error doesn't want to go away, SSL certificates that your system trusts could be out-of-date or invalid. In diesem Fall sollten Sie sicherstellen, dass Ihre Maschine sichere Verbindungen herstellen kann, z.B. indem Sie über einen beliebigen Browser oder mit einem CLI-Tool wie `curl` überprüfen, ob Sie auf `https://github.com` zugreifen können. Wenn Sie sich sicher sind, dass dies ordnungsgemäß funktioniert, können Sie das Problem gerne in unserer Steam-Gruppe melden.
+Sobald Sie sich sicher sind, dass das Datum auf Ihrem Gerät korrekt ist und der Fehler nicht verschwinden will, dann könnten SSL-Zertifikate, denen Ihr System vertraut, veraltet oder ungültig sein. In diesem Fall sollten Sie sicherstellen, dass Ihre Maschine sichere Verbindungen herstellen kann, z.B. indem Sie über einen beliebigen Browser oder mit einem CLI-Tool wie `curl` überprüfen, ob Sie auf `https://github.com` zugreifen können. Wenn Sie sich sicher sind, dass dies ordnungsgemäß funktioniert, können Sie das Problem gerne in unserer Steam-Gruppe melden.
 
 * * *
 
@@ -627,7 +627,7 @@ Diese Warnung bedeutet, dass Steam während eines bestimmten Zeitraums nicht auf
 
 ### `The type initializer for 'System.Security.Cryptography.CngKeyLite' threw an exception`
 
-This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation` Windows service, which provides core cryptography functionality for ASF, without which the program isn't able to run. You can fix this issue by launching `services.msc` and ensuring that `CNG Key Isolation` Windows service doesn't have disabled startup and is currently running.
+Dieses Problem wird fast ausschließlich durch einem deaktivierten/gestoppten `CNG Key Isolation`-Windows-Dienst, die ASF Kernkryptographie-Funktionalität bietet, ohne dessen das Programm nicht ausführbar ist. Sie können dieses Problem beheben, indem Sie `services.msc` und sicherstellen, dass Windows den `CNG Key Isolation`-Dienst nicht deaktiviert hat und derzeit läuft.
 
 * * *
 

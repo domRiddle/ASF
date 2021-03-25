@@ -521,7 +521,7 @@ ASF будет прилагать все усилия к установке со
 
 Если причина не в ПИН семейного просмотра, то это одна из самых распространённых ошибок, привыкайте - это значит просто что ASF отправил запрос сети Steam и не получил верного ответа, в добавок - даже после 5 попыток подряд. Обычно это означает что Steam либо упал, либо испытывает какие-то сложности, либо находится на техобслуживании - ASF предусматривает такие ситуации, и о них не стоит беспокоиться, если конечно они не возникают всё время, больше нескольких часов, и у других пользователей нет подобных проблем.
 
-Как проверить что Steam упал? **[Steam Status](https://steamstat.us)** is an excellent source of checking if Steam **should be** up, if you notice errors, especially related to Community or Web API, then Steam is having difficulties. You may want to leave ASF alone and let it do its job after a short while of downtime, or wait yourself.
+Как проверить что Steam упал? **[Steam Status](https://steamstat.us)** is an excellent source of checking if Steam **should be** up, if you notice errors, especially related to Community or Web API, then Steam is having difficulties. You may want to leave ASF alone and let it do its job after a short while of downtime, or quit it and wait yourself.
 
 Однако это не всегда так, в некоторых ситуациях проблемы со Steam могут быть не обнаружены Steam Status, например такое случилось когда Valve сломали поддержку HTTPS для сообщества Steam 7 июня 2016 - при попытке получить доступ к **[сообществу Steam](https://steamcommunity.com)** через HTTPS выдавалась ошибка. Поэтому не стоит слепо доверять тому, что выдаёт Steam Status, лучше самостоятельно проверить что всё работает как положено.
 
@@ -611,7 +611,7 @@ You could remove `BotName.db` and `BotName.bin` (if available) of affected accou
 
 Эта ошибка появляется когда ASF не может установить защищённое соединение с заданным сервером, практически всегда это означает проблемы с сертификатами SSL.
 
-В большинстве случаев эта ошибка вызвана **неверным временем/датой на вашей машине**. У каждого сертификата SSL есть дата выдачи и дата окончания. If your date is invalid and out of those two bounds then the certificate can't be trusted as a potential **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** attack and ASF refuses to make a connection.
+В большинстве случаев эта ошибка вызвана **неверным временем/датой на вашей машине**. У каждого сертификата SSL есть дата выдачи и дата окончания. If your date is invalid and out of those two bounds then the certificate can't be trusted due to a potential **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** attack and ASF refuses to make a connection.
 
 Очевидным решением будет установить правильную дату на вашей машине. Настоятельно рекомендуется использовать автоматическую синхронизацию времени, такую как встроенная синхронизация в Windows, или `ntpd` под Linux.
 
