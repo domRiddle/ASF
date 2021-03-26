@@ -521,7 +521,7 @@ ASF 将尽最大努力建立连接，不仅包括拉取最新的服务器列表�
 
 如果不是因为家庭监护 PIN，那么这是一个最常见的错误，您应该习惯这一点，它只是意味着 ASF 向 Steam 网络连续发送了 5 次请求，但没有得到有效的响应。 通常情况下，这意味着 Steam 宕机了、出现问题或者正在维护——ASF 能够发现这样的问题，您不应该为此担心，除非这种情况连续发生了几个小时，并且其他用户没有发生同样的问题。
 
-如何检查 Steam 是否宕机？ **[Steam Status](https://steamstat.us)** 是一个检查 Steam 服务器是否**应该**正常的网站，如果您发现了错误，特别是社区或 Web API 的错误，则表明 Steam 遇到了问题。 You may want to leave ASF alone and let it do its job after a short while of downtime, or quit it and wait yourself.
+如何检查 Steam 是否宕机？ **[Steam Status](https://steamstat.us)** 是一个检查 Steam 服务器是否**应该**正常的网站，如果您发现了错误，特别是社区或 Web API 的错误，则表明 Steam 遇到了问题。 您可以把 ASF 丢在一边让它稍后自行恢复，或者退出程序自己掌握等待的时间。
 
 然而，情况并非总是如此，因为在某些情况下 Steam Status 无法检测到 Steam 的问题，例如，2016 年 6 月 7 日，Valve 破坏了 HTTPS 支持，导致通过 HTTPS 访问 **[Steam 社区](https://steamcommunity.com)**&#8203;会发生错误。 因此，也不要盲目地相信 Steam Status，您最好自己检查是否一切正常。
 
@@ -611,7 +611,7 @@ ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状
 
 当 ASF 无法与给定服务器建立安全连接时，就会发生此错误，这通常都是因为 SSL 证书不受信任造成的。
 
-在绝大多数情况下，该错误的原因是您的**设备日期/时间错误**。 每个 SSL 证书都有颁发时间和过期时间。 If your date is invalid and out of those two bounds then the certificate can't be trusted due to a potential **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** attack and ASF refuses to make a connection.
+在绝大多数情况下，该错误的原因是您的**设备日期/时间错误**。 每个 SSL 证书都有颁发时间和过期时间。 如果您的日期无效，并且超出这个范围，则该证书就会因为潜在的 **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)**（中间人）攻击风险而不受信任，而 ASF 就会拒绝建立连接。
 
 显而易见的解决方案是为您的机器设置正确的日期。 强烈建议您启用自动日期同步功能，例如 Windows 内置的日期同步，或者 Linux 上的 `ntpd`。
 
