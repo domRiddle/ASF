@@ -570,13 +570,13 @@ Em todo caso, o ASF pode apenas **tentar** enviar uma solicitação adequada par
 
 O ASF usa chaves de sessão (se você manteve `UseLoginKeys` habilitado) para manter as credenciais válidas, o mesmo mecanismo que o Steam usa - por isso o token 2FA/SteamGuard é necessário apenas uma vez. Mas devido a comportamentos estranhos e problemas comuns na rede Steam é totalmente possível que essa chave de sessão não seja salva na rede, eu já vi tais problemas não somente no ASF, mas no cliente padrão do Steam também (a necessidade de colocar usuário + senha toda vez, mesmo com a opção "lembre-me neste computador" marcada).
 
-Você pode remover os arquivos `BotName.db` e `BotName.bin` (caso ele exista) da conta afetada e tentar vincular ASF a sua conta novamente, mas isso provavelmente não vai adiantar. A solução real baseada no ASF é importar seu autenticador como **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** - desta forma o ASF pode gerar tokens automaticamente quando eles forem necessários, e você não precisa colocá-los manualmente. Geralmente esse problema se resolve magicamente sozinho depois de algum tempo, então você pode simplesmente esperar. É claro, você também pode pedir uma solução pra Valve, pois eu não posso forçar a rede Steam a aceitar nossas chaves de registro.
+Você pode remover os arquivos `BotName.db` e `BotName.bin` (caso ele exista) da conta afetada e tentar vincular ASF a sua conta novamente, mas isso provavelmente não vai adiantar. Mas a solução real para o ASF é importar seu autenticador para o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** - desta forma o ASF pode gerar tokens automaticamente quando eles forem necessários, e você não precisa colocá-los manualmente. Geralmente esse problema se resolve magicamente sozinho depois de algum tempo, então você pode simplesmente esperar. É claro, você também pode pedir uma solução pra Valve, pois eu não posso forçar a rede Steam a aceitar nossas chaves de registro.
 
 Além disso você também pode desativar as chaves de sessão definindo o parâmetro `UseLoginKeys` no arquivo de configuração como `false`, mas isso não vai resolver o problema, vai apenas pular a falha inicial acerca das chaves de login. ASF já está ciente do problema explicado aqui e vai tentar o possível para não usar as credenciais de login se ele conseguir garantir ele mesmo as credenciais de login, então não há necessidade de configurar `UseLoginKeys` manualmente se você puder indicar todos os detalhes de login além de usar o ASF 2FA.
 
 * * *
 
-### I'm getting error: *Unable to login to Steam: `InvalidPassword` or `RateLimitExceeded`*
+### Estou recebendo o erro: *Não foi possível iniciar a sessão no Steam: `InvalidPassword` ou `RateLimitExceeded`*
 
 Este erro pode ocorrer por muitos motivos, alguns deles podem ser:
 

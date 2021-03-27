@@ -521,7 +521,7 @@ Normalerweise bedeutet das, dass Sie die Steam-Familienansicht-PIN für den Zugr
 
 Wenn die Steam-Familienansicht-PIN nicht der Grund dafür ist, dann ist dies ein häufiger Fehler, und Sie sollten sich daran gewöhnen. Das bedeutet einfach, dass ASF eine Anfrage an das Steam-Netzwerk gesendet, aber fünfmal in Folge keine gültige Antwort erhalten hat. Für gewöhnlich bedeutet es, dass Steam entweder außer Betrieb ist oder einige Schwierigkeiten oder Wartungsarbeiten hat - ASF ist sich solcher Probleme bewusst und Sie sollten sich keine Sorgen darum machen, es sei denn, sie passieren ständig für mehr als mehrere Stunden, und andere Benutzer haben keine derartigen Probleme.
 
-Wie kann man überprüfen, ob Steam außer Betrieb ist? **[Steam Status](https://steamstat.us)** ist eine ausgezeichnete Quelle, um zu überprüfen, **ob** Steam in Betrieb sein sollte. Wenn Sie Fehler (insbesondere im Zusammenhang mit der Community oder der Web-API) bemerken, dann hat Steam Schwierigkeiten. You may want to leave ASF alone and let it do its job after a short while of downtime, or quit it and wait yourself.
+Wie kann man überprüfen, ob Steam außer Betrieb ist? **[Steam Status](https://steamstat.us)** ist eine ausgezeichnete Quelle, um zu überprüfen, **ob** Steam in Betrieb sein sollte. Wenn Sie Fehler (insbesondere im Zusammenhang mit der Community oder der Web-API) bemerken, dann hat Steam Schwierigkeiten. Sie können entweder ASF in Ruhe lassen, sodass es die Aufgaben nach einer kurzen Auszeit erledigt, oder Sie beenden ASF und warten einfach selbst.
 
 Das ist jedoch nicht immer der Fall, da in einigen Situationen Steam-Probleme möglicherweise nicht durch Steam Status erkannt werden, z.B. passierte ein solcher Fall, als Valve die HTTPS-Unterstützung für Steam Community am 7. Juni 2016 unterbrach - der Zugriff auf **[SteamCommunity](https://steamcommunity.com)** durch HTTPS führte zu einem Fehler. Verlasse Sie sich daher auch nicht blind auf den Steam Status. Überprüfen Sie am besten selbst, ob alles so funktioniert, wie es sollte.
 
@@ -611,7 +611,7 @@ Falls Sie dieses Verhalten **erwarten**, Sie also ASF in einer eingabefreien Umg
 
 Dieser Fehler tritt auf, wenn ASF keine sichere Verbindung mit dem angegebenen Server herstellen kann, fast ausschließlich wegen des Misstrauens gegen ein SSL-Zertifikat.
 
-In fast allen Fällen wird dieser Fehler durch ein **falsches Datum/Uhrzeit auf Ihrem Gerät** verursacht. Jedes SSL-Zertifikat hat ein Ausstellungsdatum und ein Verfallsdatum. If your date is invalid and out of those two bounds then the certificate can't be trusted due to a potential **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** attack and ASF refuses to make a connection.
+In fast allen Fällen wird dieser Fehler durch ein **falsches Datum/Uhrzeit auf Ihrem Gerät** verursacht. Jedes SSL-Zertifikat hat ein Ausstellungsdatum und ein Verfallsdatum. Wenn Ihr Datum ungültig ist und sich außerhalb dieser beiden Grenzen befindet, kann dem Zertifikat nicht als potentieller **[MITM](https://de.m.wikipedia.org/wiki/Man-in-the-Middle-Angriff)**-Angriff vertraut werden, weshalb ASF sich weigert, eine Verbindung herzustellen.
 
 Eine offensichtliche Lösung ist das Datum auf Ihrer Maschine entsprechend einzustellen. Es wird dringend empfohlen, eine automatische Datumssynchronisation zu verwenden, wie z. B. eine unter Windows verfügbare native Synchronisation oder `ntpd` unter Linux.
 

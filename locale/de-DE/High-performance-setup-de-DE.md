@@ -4,7 +4,7 @@ Dies ist genau das Gegenteil von **[Speichereffizientes Setup](https://github.co
 
 * * *
 
-ASF versucht bereits die Leistung zu bevorzugen, wenn es um die allgemeine ausgewogene Abstimmung geht. Daher gibt es nicht viel was man tun kann um die Leistung weiter zu steigern, auch wenn es zumindest einige Möglichkeiten gibt. Beachte jedoch, dass diese Optionen standardmäßig nicht aktiviert sind, was bedeutet, dass sie nicht gut genug sind, um sie für die Mehrheit der Anwendungen als ausgewogen zu betrachten. Deshalb solltest du selbst entscheiden, ob diese Optionen zur Speichererweiterung für dich akzeptabel sind.
+ASF versucht bereits die Leistung zu bevorzugen, wenn es um die allgemeine ausgewogene Abstimmung geht. Daher gibt es zwar nicht viele, aber zumindest einige Möglichkeiten um die Leistung weiter zu steigern. Beachten Sie jedoch, dass diese Optionen standardmäßig nicht aktiviert sind, was bedeutet, dass sie nicht gut genug sind, um sie für die Mehrheit der Anwendungen als ausgewogen zu gelten. Deshalb sollten Sie selbst entscheiden, ob diese Optionen zur Speichererweiterung für Sie akzeptabel sind.
 
 * * *
 
