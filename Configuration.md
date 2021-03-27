@@ -42,7 +42,7 @@ The usage is quite simple - select whether you want to generate `ASF` or `Bot` c
 
 Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
 
-In order to use ASF-ui, firstly you muse enable our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface itself. You can do that by using our Web-based ConfigGenerator explained above, generating a very simple `ASF` config with enabled `IPC` setting and nothing else. Alternatively, you could also generate such simple config yourself, as `ASF.json` file with `{ "IPC": true }` json content inside.
+In order to use ASF-ui, firstly you must enable our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface itself. You can do that by using our Web-based ConfigGenerator explained above, generating a very simple `ASF` config with enabled `IPC` setting and nothing else. Alternatively, you could also generate such simple config yourself, as `ASF.json` file with `{ "IPC": true }` json content inside.
 
 Afterwards, launch ASF with the above config, ensure that `IPC` interface is started, then navigate to ASF's **[IPC address](http://localhost:1242)**. You can now do the remaining configuration of ASF through ASF-ui interface.
 
