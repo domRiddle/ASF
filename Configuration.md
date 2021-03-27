@@ -779,6 +779,7 @@ Value | Name
 --- | ---
 `0` | Default
 `1` | BigPicture
+`2` | Mobile
 
 If you're not sure how to set this property, leave it with default value of `0`.
 
