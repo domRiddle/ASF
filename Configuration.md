@@ -355,7 +355,8 @@ The bot config has following structure:
 	"SteamUserPermissions": {},
 	"TradingPreferences": 0,
 	"TransferableTypes": [1, 3, 5],
-	"UseLoginKeys": true
+	"UseLoginKeys": true,
+	"UserInterfaceMode": 0
 }
 ```
 
@@ -767,6 +768,19 @@ Default ASF setting is based on the most common usage of the bot, with transferi
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
 However, some people could be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
+
+---
+
+### `UserInterfaceMode`
+
+`byte` type with default value of `0`. This property specifies user interface mode that the bot will be announced with after logging in to Steam network. Currently you can choose one of below modes:
+
+Value | Name
+--- | ---
+`0` | Default
+`1` | BigPicture
+
+If you're not sure how to set this property, leave it with default value of `0`.
 
 ---
 
