@@ -4,6 +4,7 @@ This page is dedicated for ASF configuration. It serves as a complete documentat
 
 * **[Introduction](#introduction)**
 * **[Web-based ConfigGenerator](#web-based-configgenerator)**
+* **[ASF-ui configuration](#asf-ui-configuration)**
 * **[Manual configuration](#manual-configuration)**
 * **[Global config](#global-config)**
 * **[Bot config](#bot-config)**
