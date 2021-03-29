@@ -4,14 +4,15 @@
 
 - **[Вступ](#user-content-Вступ)**
 - **[Генератор конфігурацій на базі веб](#user-content-Генератор-конфігурацій-на-базі-веб)**
-- **[Налаштування вручну](#user-content-Налаштування-вручну)**
-- **[Глобальна конфігурація](#user-content-Глобальна-конфігурація)**
-- **[Конфігурація боту](#user-content-Конфігурація-боту)**
-- **[Файлова структура](#user-content-Файлова-структура)**
-- **[Типи параметрів JSON](#user-content-Типи-параметрів-json)**
-- **[Сумісність типів](#user-content-Сумісність-типів)**
-- **[Сумісність конфігурацій](#user-content-Сумісність-конфігурацій)**
-- **[Автоматичне перезавантаження](#user-content-Автоматичне-перезавантаження)**
+- **[ASF-ui configuration](#asf-ui-configuration)**
+- **[Налаштування вручну](#manual-configuration)**
+- **[Глобальна конфігурація](#global-config)**
+- **[Конфігурація боту](#bot-config)**
+- **[Файлова структура](#file-structure)**
+- **[Типи параметрів JSON](#json-mapping)**
+- **[Сумісність типів](#compatibility-mapping)**
+- **[Сумісність конфігурацій](#configs-compatibility)**
+- **[Автоматичне перезавантаження](#auto-reload)**
 
 * * *
 
@@ -23,13 +24,13 @@
 
 ASF використовує формат **[JSON](https://uk.wikipedia.org/wiki/JSON)** для зберігання конфігураційних файлів. Це зручний для людини, легкий для читання та дуже універсальний формат, за допомогою якого ви можете конфігурувати програму. Однак не хвилюйтеся, вам немає потреби знати JSON щоб налаштувати ASF. Я лише зазначив це на випадок якщо ви забажаєте створити велику кількість конфігурацій ASF за допомогою якогось скрипта.
 
-Конфігурацію можна створити як вручну - створивши відповідні файли конфігурації у форматі JSON, так і за допомогою нашого **генератора конфігурацій на базі веб[](https://justarchinet.github.io/ASF-WebConfigGenerator)**, що має бути значно легше та зручніше. Якщо ви не вважаєте себе досвідченим користувачем, я пропоную вам скористуватися генератором конфігурацій, який буде описано нижче.
+Configuration can be done in several ways. You can use our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which is a local app independent of ASF. You can use our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC frontend for configuration done directly in ASF. Lastly, you can always generate config files manually, as they follow fixed JSON structure specified below. We'll explain shortly the available options.
 
 * * *
 
 ## Генератор конфігурацій на базі веб
 
-Призначення **[генератора конфігурацій на базі веб](https://justarchinet.github.io/ASF-WebConfigGenerator)** - надати вам дружній інтерфейс для генерації конфігураційних файлів ASF. Генератор конфігурацій на базі веб на 100% виконується на стороні клієнта, тобто ніякі дані, що ви вводите, нікуди не надсилаються, й оброблюються локально. Це гарантує безпеку і надійність, бо генератор може працювати навіть **[офлайн](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**, якщо ви завантажите усі файли та відкриєте `index.html` у вашому улюбленому браузері.
+The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. Генератор конфігурацій на базі веб на 100% виконується на стороні клієнта, тобто ніякі дані, що ви вводите, нікуди не надсилаються, й оброблюються локально. Це гарантує безпеку і надійність, бо генератор може працювати навіть **[офлайн](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**, якщо ви завантажите усі файли та відкриєте `index.html` у вашому улюбленому браузері.
 
 Генератор конфігурацій на базі веб перевірено на належну роботу у Chrome та Firefox, але він має працювати у більшості популярних браузерів з підтримкою javascript.
 
@@ -37,9 +38,19 @@ ASF використовує формат **[JSON](https://uk.wikipedia.org/wiki
 
 * * *
 
+## ASF-ui configuration
+
+Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
+
+In order to use ASF-ui, firstly you must enable our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface itself. You can do that by using our Web-based ConfigGenerator explained above, generating a very simple `ASF` config with enabled `IPC` setting and nothing else. Alternatively, you could also generate such simple config yourself, as `ASF.json` file with `{ "IPC": true }` json content inside.
+
+Afterwards, launch ASF with the above config, ensure that `IPC` interface is started, then navigate to ASF's **[IPC address](http://localhost:1242)**. You can now do the remaining configuration of ASF through ASF-ui interface.
+
+* * *
+
 ## Налаштування вручну
 
-Я наполегливо раджу користуватися генератором конфігурацій, але якщо з якоїсь причини ви не хочете цього робити, тоді ви можете створити файли конфігурацій самостійно. Ознайомтеся з прикладами JSON, наведеними нижче, це дасть вам гарний початок належної структури, ви можете скопіювати цю структуру у файл та використати як базу для вашої конфігурації. Оскільки ви не користуєтесь нашим інтерфейсом, переконайтеся що ваша конфігурація **[валідна](https://jsonlint.com)**, тому що ASF відмовиться її завантажувати якщо її неможливо розібрати. Належну структуру JSON для усіх наявних полів ви можете знайти у розділі **[Типи параметрів JSON](#user-content-Типи-параметрів-json)** та документації нижче.
+In general we strongly recommend using either our ConfigGenerator or ASF-ui, as it's much easier and ensures you won't make a mistake in the JSON structure, but if for some reason you don't want to, then you can also create proper configs manually. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using any of our frontends, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Even if it's a valid JSON, you also have to ensure that all the properties have the proper type, as required by ASF. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and our documentation below.
 
 * * *
 
@@ -111,7 +122,7 @@ ASF за замовчуванням має два чорні списки - `Glo
 
 ### `ConfirmationsLimiterDelay`
 
-параметр типу `byte` зі значенням за замовчуванням `10`. ASF буде забезпечувати щоб між двома послідовними запитами на підтвердження за допомогою ASF пройшло щонайменше `ConfirmationsLimiterDelay` секунд, щоб уникнути активації обмеження на частоту запитів - такі запроси використовуються **[2ФА ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-uk-UA)** під час, наприклад, команди `2faok`, а також по мірі необхідності під час виконання різноманітних операцій, пов'язаних з обмінами. Значення за замовчуванням встановлено на основі наших випробувань, і не повинно бути зменшено якщо ви бажаєте уникнати проблем. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+параметр типу `byte` зі значенням за замовчуванням `10`. ASF буде забезпечувати щоб якнайменше `ConfirmationsLimiterDelay` секунд пройшло між двома послідовними запитами на підтвердження за допомогою ASF щоб уникнути активації обмеження на частоту запитів - такі запроси використовуються **[2ФА ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-uk-UA)** під час, наприклад, команди `2faok`, а також по мірі необхідності під час виконання різноманітних операцій, пов'язаних з обмінами. Значення за замовчуванням встановлено на основі наших випробувань, і не повинно бути зменшено якщо ви бажаєте уникнати проблем. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 * * *
 
@@ -189,7 +200,7 @@ ASF за замовчуванням має два чорні списки - `Glo
 
 ### `IPCPasswordFormat`
 
-`byte` type with default value of `0`. This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. Unless you know what you're doing, you should keep it with default value of `0`.
+параметр типу `byte` зі значенням за замовчуванням `0`. This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. Unless you know what you're doing, you should keep it with default value of `0`.
 
 * * *
 
@@ -215,7 +226,7 @@ ASF за замовчуванням має два чорні списки - `Glo
 
 ### `OptimizationMode`
 
-`byte` type with default value of `0`. Цей параметр визначає режим оптимізації, якого дотримується ASF протягом роботи. Наразі ASF підтримує два режими - `0` під назвою `MaxPerformance` (максимальна продуктивність), та `1` під назвою `MinMemoryUsage` (мінімальне вживання пам'яті). За замовчуванням ASF намагається робити якнайбільше задач паралельно (одночасно), що підвищує продуктивність через балансування навантаження на усіх ядрах ЦП, декількох потоках ЦП, декількох сокетах та декількох задачах пула потоків. Наприклад, ASF запросить першу сторінку значків для визначення ігор для фарма, а після отримання відповіді на цей запит ASF зчитає кількість сторінок та запросить їх усі одночасно. Це саме те що вам потрібно **у більшості випадків**, тому що накладні витрати мінімальні а переваги від асинхронного коду ASF помітні навіть на дуже старому обладнанні з єдиним ядром ЦП та обмеженою потужністю. Однак, при роботі багатьох процесів паралельно, ASF має займатися їх підтримкою, тобто, підтримувати відкриті сокети, живі потоки та задачі, що іноді може призвести до збільшення вживання пам'яті, тож якщо ви надзвичайно обмежені обсягом пам'яті у наявності, ви можете змінити значення цього параметра на `1` (`MinMemoryUsage`), щоб змусити ASF використовувати якнайменше задач, і виконувати асинхронний код, який зазвичай виконується паралельно, у синхронний манір. Вам варто розглядати зміну цього параметру тільки якщо перед цим ви прочитали розділ **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)** й свідомо бажаєте пожертвувати величезним підвищенням продуктивності заради незначного зменшення споживання пам'яті. Зазвичай цей параметр **значно гірший** ніж те, що ви можете досягти іншими методами, такими як обмеження використання ASF або налаштування збирача сміття, як описано у розділі **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)**. Тому, вам варто використовувати `MinMemoryUsage` як **останній засіб**, перед перекомпіляцією середовища виконання, якщо ви не змогли досягти задовільних результатів іншими (значно кращими) способами. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+параметр типу `byte` зі значенням за замовчуванням `0`. Цей параметр визначає режим оптимізації, якого дотримується ASF протягом роботи. Наразі ASF підтримує два режими - `0` під назвою `MaxPerformance` (максимальна продуктивність), та `1` під назвою `MinMemoryUsage` (мінімальне вживання пам'яті). За замовчуванням ASF намагається робити якнайбільше задач паралельно (одночасно), що підвищує продуктивність через балансування навантаження на усіх ядрах ЦП, декількох потоках ЦП, декількох сокетах та декількох задачах пула потоків. Наприклад, ASF запросить першу сторінку значків для визначення ігор для фарма, а після отримання відповіді на цей запит ASF зчитає кількість сторінок та запросить їх усі одночасно. Це саме те що вам потрібно **у більшості випадків**, тому що накладні витрати мінімальні а переваги від асинхронного коду ASF помітні навіть на дуже старому обладнанні з єдиним ядром ЦП та обмеженою потужністю. Однак, при роботі багатьох процесів паралельно, ASF має займатися їх підтримкою, тобто, підтримувати відкриті сокети, живі потоки та задачі, що іноді може призвести до збільшення вживання пам'яті, тож якщо ви надзвичайно обмежені обсягом пам'яті у наявності, ви можете змінити значення цього параметра на `1` (`MinMemoryUsage`), щоб змусити ASF використовувати якнайменше задач, і виконувати асинхронний код, який зазвичай виконується паралельно, у синхронний манір. Вам варто розглядати зміну цього параметру тільки якщо перед цим ви прочитали розділ **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)** й свідомо бажаєте пожертвувати величезним підвищенням продуктивності заради незначного зменшення споживання пам'яті. Зазвичай цей параметр **значно гірший** ніж те, що ви можете досягти іншими методами, такими як обмеження використання ASF або налаштування збирача сміття, як описано у розділі **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)**. Тому, вам варто використовувати `MinMemoryUsage` як **останній засіб**, перед перекомпіляцією середовища виконання, якщо ви не змогли досягти задовільних результатів іншими (значно кращими) способами. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 * * *
 
@@ -355,7 +366,8 @@ The bot config has following structure:
     "SteamUserPermissions": {},
     "TradingPreferences": 0,
     "TransferableTypes": [1, 3, 5],
-    "UseLoginKeys": true
+    "UseLoginKeys": true,
+    "UserInterfaceMode": 0
 }
 ```
 
@@ -646,7 +658,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `SendTradePeriod`
 
-`byte` type with default value of `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
+параметр типу `byte` зі значенням за замовчуванням `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
 
 Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. If you're not sure how to set this property, leave it with default value of `0`.
 
@@ -767,6 +779,20 @@ Default ASF setting is based on the most common usage of the bot, with transferi
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
 However, some people could be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
+
+* * *
+
+### `UserInterfaceMode`
+
+параметр типу `byte` зі значенням за замовчуванням `0`. This property specifies user interface mode that the bot will be announced with after logging in to Steam network. Currently you can choose one of below modes:
+
+| Value | Ім'я       |
+| ----- | ---------- |
+| `0`   | Default    |
+| `1`   | BigPicture |
+| `2`   | Mobile     |
+
+If you're not sure how to set this property, leave it with default value of `0`.
 
 * * *
 

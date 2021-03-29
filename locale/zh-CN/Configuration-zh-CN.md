@@ -4,14 +4,15 @@
 
 - **[简介](#简介)**
 - **[在线配置文件生成器](#在线配置文件生成器)**
-- **[手动配置](#手动配置)**
-- **[全局配置](#全局配置)**
-- **[机器人配置](#机器人配置)**
-- **[文件结构](#文件结构)**
-- **[JSON 映射](#json-映射)**
-- **[兼容性映射](#兼容性映射)**
-- **[配置兼容性](#配置兼容性)**
-- **[自动重载](#自动重载)**
+- **[ASF-ui configuration](#asf-ui-configuration)**
+- **[手动配置](#manual-configuration)**
+- **[全局配置](#global-config)**
+- **[机器人配置](#bot-config)**
+- **[文件结构](#file-structure)**
+- **[JSON 映射](#json-mapping)**
+- **[兼容性映射](#compatibility-mapping)**
+- **[配置兼容性](#configs-compatibility)**
+- **[自动重载](#auto-reload)**
 
 * * *
 
@@ -23,13 +24,13 @@ ASF 的配置分为两个主要的部分——全局（进程）配置和每个�
 
 ASF 采用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存储其配置文件。 这是人性化、可读性高且非常通用的格式，您可以在其中对程序进行配置。 不过不用担心，您不需要为了配置 ASF 去专门了解 JSON。 我提到它只是考虑到您可能会想要使用一些 Bash 脚本批量创建大量 ASF 配置文件。
 
-您可以通过创建合适的 JSON 配置文件来手动完成配置，也可以通过我们的&#8203;**[在线配置文件生成器](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;来进行配置，那将会简单方便很多。 除非您是高级用户，否则我建议您使用配置生成器，我们将会在下方对其进行具体说明。
+Configuration can be done in several ways. You can use our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which is a local app independent of ASF. You can use our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC frontend for configuration done directly in ASF. Lastly, you can always generate config files manually, as they follow fixed JSON structure specified below. We'll explain shortly the available options.
 
 * * *
 
 ## 在线配置文件生成器
 
-**[在线配置文件生成器](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;的目标是给您提供一个用于生成 ASF 配置文件的友好前端。 它是 100% 基于客户端的，这意味着您输入的任何信息都不会被上传，而仅在本地进行处理。 这保证了安全性和可靠性，因为假设您愿意下载所有相关文件，并在您喜爱的浏览器中打开其中的 `index.html`，它甚至可以&#8203;**[离线](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**&#8203;运行。
+The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. 它是 100% 基于客户端的，这意味着您输入的任何信息都不会被上传，而仅在本地进行处理。 这保证了安全性和可靠性，因为假设您愿意下载所有相关文件，并在您喜爱的浏览器中打开其中的 `index.html`，它甚至可以&#8203;**[离线](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**&#8203;运行。
 
 在线配置文件生成器已经在 Chrome 和 Firefox 上经过验证可以正常运行，但它也应该可以在所有流行的的支持 JavaScript 的浏览器中正常运行。
 
@@ -37,9 +38,19 @@ ASF 采用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存储其配置�
 
 * * *
 
+## ASF-ui configuration
+
+Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
+
+In order to use ASF-ui, firstly you must enable our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface itself. You can do that by using our Web-based ConfigGenerator explained above, generating a very simple `ASF` config with enabled `IPC` setting and nothing else. Alternatively, you could also generate such simple config yourself, as `ASF.json` file with `{ "IPC": true }` json content inside.
+
+Afterwards, launch ASF with the above config, ensure that `IPC` interface is started, then navigate to ASF's **[IPC address](http://localhost:1242)**. You can now do the remaining configuration of ASF through ASF-ui interface.
+
+* * *
+
 ## 手动配置
 
-我强烈建议使用在线配置文件生成器，但如果出于某种原因，您不想使用，那么您也可以自行创建正确的配置文件。 参考下面的 JSON 示例来保证结构正确，您可以将内容复制到文件中并在此基础上作修改。 由于您没有使用我们的前端，请确保您的配置&#8203;**[有效](https://jsonlint.com)**，因为如果 ASF 无法解析它，将拒绝加载。 关于各字段的正确 JSON 结构，请阅读本文中的 **[JSON 映射](#json-映射)**&#8203;一节。
+In general we strongly recommend using either our ConfigGenerator or ASF-ui, as it's much easier and ensures you won't make a mistake in the JSON structure, but if for some reason you don't want to, then you can also create proper configs manually. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using any of our frontends, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Even if it's a valid JSON, you also have to ensure that all the properties have the proper type, as required by ASF. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and our documentation below.
 
 * * *
 
@@ -105,7 +116,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `CommandPrefix`
 
-这是一个默认值为 `!` 的 `string` 类型属性。 这个属性为 ASF **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;指定一个**区分大小写**的命令前缀。 换句话说，您需要在每条 ASF 命令前面加上这个前缀，ASF 才会执行命令。 您也可以将这个值设置为 `null` 或者空字符串，使 ASF 不使用命令前缀，在这种情况下，您可以直接向 ASF 发送不带前缀的命令。 然而，这样做会显著降低 ASF 的性能，因为 ASF 的优化策略是只解析有命令前缀 `CommandPrefix` 的消息——如果您决定去掉命令前缀，ASF 就只能读取并回应所有消息，即使这些消息不是 ASF 命令。 因此，您应该保留 `CommandPrefix`，如果您不喜欢默认的 `!`，可以将它更改为 `/` 等其他字符。 为了保证一致性，`CommandPrefix` 将会影响整个 ASF 进程。 除非您有理由编辑此属性，否则应将其保留为默认值。
+这是一个默认值为 `!` 的 `string` 类型属性。 这个属性为 ASF **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;指定一个**大小写敏感**的命令前缀。 换句话说，您需要在每条 ASF 命令前面加上这个前缀，ASF 才会执行命令。 您也可以将这个值设置为 `null` 或者空字符串，使 ASF 不使用命令前缀，在这种情况下，您可以直接向 ASF 发送不带前缀的命令。 然而，这样做会显著降低 ASF 的性能，因为 ASF 的优化策略是只解析有命令前缀 `CommandPrefix` 的消息——如果您决定去掉命令前缀，ASF 就只能读取并回应所有消息，即使这些消息不是 ASF 命令。 因此，您应该保留 `CommandPrefix`，如果您不喜欢默认的 `!`，可以将它更改为 `/` 等其他字符。 为了保证一致性，`CommandPrefix` 将会影响整个 ASF 进程。 除非您有理由编辑此属性，否则应将其保留为默认值。
 
 * * *
 
@@ -129,7 +140,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `CurrentCulture`
 
-这是一个默认值为 `null` 的 `string` 类型属性。 默认情况下，ASF 会尝试使用您的操作系统语言，并且优先使用该语言中已翻译的字符串。 感谢我们的社区将 ASF **[本地化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-zh-CN)**&#8203;为各门主流语言。 如果处于某种原因，您不想使用操作系统的本地语言，则可以使用此属性选择另一门语言。 您可以在 **[MSDN](https://msdn.microsoft.com/zh-cn/library/cc233982.aspx)** 页面的 `Language tag` 标签查找所有可用的区域代码。 值得注意的是，ASF 接受包含地区的区域代码，例如 `en-GB`，也接受通用的区域代码，例如 `en`。 指定当前的区域还会影响其他与区域有关的行为，例如货币/日期格式等。 请注意，如果您选择了非本机的区域，则可能需要额外的字体/语言包才能显示该语言中的字符。 通常，如果您更喜欢以英语而不是您的母语使用 ASF，则需要更改这个属性。
+这是一个默认值为 `null` 的 `string` 类型属性。 默认情况下，ASF 会尝试使用您的操作系统语言，并且优先使用该语言中已翻译的字符串。 感谢我们的社区将 ASF **[本地化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-zh-CN)**&#8203;为各门主流语言。 如果处于某种原因，您不想使用操作系统的本地语言，则可以使用此属性选择另一门语言。 您可以在 **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)** 页面的 `Language tag` 标签查找所有可用的区域代码。 值得注意的是，ASF 接受包含地区的区域代码，例如 `en-GB`，也接受通用的区域代码，例如 `en`。 指定当前的区域还会影响其他与区域有关的行为，例如货币/日期格式等。 请注意，如果您选择了非本机的区域，则可能需要额外的字体/语言包才能显示该语言中的字符。 通常，如果您更喜欢以英语而不是您的母语使用 ASF，则需要更改这个属性。
 
 * * *
 
@@ -145,7 +156,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `FarmingDelay`
 
-这是一个默认值为 `15` 的 `byte` 类型属性。 ASF 会在运行过程中，每隔 `FarmingDelay` 分钟检查当前挂卡的游戏是否已经掉落了所有的卡牌。 将此属性设置得过低将会导致发送大量的 Steam 请求，而设置得过高将会使 ASF 在挂卡完成之后仍然挂满 `FarmingDelay` 分钟。 默认值应该适合大多数用户，但如果您有很多个机器人，就可能需要考虑将其增大到类似 `30` 分钟的值，以限制发送的 Steam 请求数。 值得注意的是，ASF 使用事件驱动机制，会在掉落每个 Steam 物品时检查游戏的徽章页面，所以通常**我们甚至不需要每隔固定时间进行检查**，但我们无法完全信任 Steam 网络——如果我们在 `FarmingDelay` 分钟内没有通过卡牌掉落事件进行检查（Steam 网络没有通知我们物品掉落的消息的情况），就仍然需要检查游戏的徽章页面。 假设 Steam 网络工作正常，减小这个值不仅**无法增加挂卡效率**，还会**显著增加网络开销**——建议保留默认值 `15` 分钟，并仅在需要的时候增大这个值。 除非您有**充分的**理由编辑此属性，否则应将其保留为默认值。
+这是一个默认值为 `15` 的 `byte` 类型属性。 ASF 会在运行过程中，每隔 `FarmingDelay` 分钟检查当前挂卡的游戏是否已经掉落了所有的卡牌。 将此属性设置得过低将会导致发送大量的 Steam 请求，而设置得过高将会使 ASF 在挂卡完成之后仍然挂满 `FarmingDelay` 分钟。 默认值应该适合大多数用户，但如果您有很多个机器人，就可能需要考虑将其增大到类似 `30` 分钟的值，以限制发送的 Steam 请求数。 值得注意的是，ASF 使用事件驱动机制，会在掉落每个 Steam 物品时检查游戏的徽章页面，所以通常**我们甚至不需要每隔固定时间进行检查**，但我们无法完全信任 Steam 网络——如果我们在 `FarmingDelay` 分钟内没有通过卡牌掉落事件进行检查（Steam 网络没有通知我们物品掉落的消息的情况），就仍然需要主动检查游戏的徽章页面。 假设 Steam 网络工作正常，减小这个值不仅**无法增加挂卡效率**，还会**显著增加网络开销**——建议保留默认值 `15` 分钟，并仅在需要的时候增大这个值。 除非您有**充分的**理由编辑此属性，否则应将其保留为默认值。
 
 * * *
 
@@ -171,7 +182,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `InventoryLimiterDelay`
 
-这是一个默认值为 `3` 的 `byte` 类型属性。 ASF 会确保连续两个库存请求之间至少间隔 `InventoryLimiterDelay` 秒，以避免触发频率限制——主要发生在获取 Steam 库存时，特别是在您执行 `transfer` 等命令或者启用 `MatchActively` 等功能时。 我们基于连续获取上百个机器人库存的数据设定了默认值 `3`，这个值应该满足绝大多数用户的需求。 如果您的机器人数量很少，可能希望减小这个值甚至更改为 `0`，使 ASF 忽略延迟，更快地获取库存物品。 但请注意，设置过低的值**将会**导致 Steam 临时封禁您的 IP，阻止您继续获取库存。 如果您有大量机器人，并且发送大量请求，则可能还需要增大此值，不过在这种情况下您可能需要考虑设法限制请求的数量。 除非您有**充分的**理由编辑此属性，否则应将其保留为默认值。
+这是一个默认值为 `3` 的 `byte` 类型属性。 ASF 会确保连续两个库存请求之间至少间隔 `InventoryLimiterDelay` 秒，以避免触发频率限制——主要发生在获取 Steam 库存时，特别是在您执行 `transfer` 等命令或者启用 `MatchActively` 等功能时。 我们基于连续获取上百个机器人库存的数据设定了默认值 `3`，这个值应该满足绝大多数用户的需求。 如果您的机器人数量很少，可能希望减小这个值甚至更改为 `0`，使 ASF 忽略延迟，更快地获取库存物品。 但请注意，设置过低的值**将会**导致 Steam 临时封禁您的 IP，彻底阻止您在这段时间内继续获取库存。 如果您有大量机器人，并且发送大量请求，则可能还需要增大此值，不过在这种情况下您可能需要考虑设法限制请求的数量。 除非您有**充分的**理由编辑此属性，否则应将其保留为默认值。
 
 * * *
 
@@ -233,7 +244,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `SteamOwnerID`
 
-这是一个默认值为 `0` 的 `ulong` 类型属性。 该属性定义 ASF 进程所有者的 64 位 Steam ID，所有者权限类似于机器人实例的 `Master` 权限，但所有者是全局的。 通常，您总是应该将这个属性设置为您的 Steam 主帐户 ID。 `Master` 权限可以完全控制给定的机器人实例，但是 `exit`、`restart` 或 `update` 等全局命令只能由 `SteamOwnerID` 用户执行。 这很方便，因为您可能需要为您的朋友运行机器人，但不允许他们控制 ASF 进程，例如发送 `exit` 退出命令。 默认值 `0` 表示 ASF 进程没有所有者，这意味着没有任何人可以发出全局 ASF 命令。 请注意，**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 命令需要以 `SteamOwnerID` 身份执行，所以您必须为该属性设置有效的值才能使用这些功能。
+这是一个默认值为 `0` 的 `ulong` 类型属性。 该属性定义 ASF 进程所有者的 64 位 Steam ID，所有者（Owner）权限类似于机器人实例的 `Master` 权限，但所有者是全局的。 通常，您总是应该将这个属性设置为您的 Steam 主帐户 ID。 `Master` 权限可以完全控制给定的机器人实例，但是 `exit`、`restart` 或 `update` 等全局命令只能由 `SteamOwnerID` 用户执行。 这很方便，因为您可能需要为您的朋友运行机器人，但不允许他们控制 ASF 进程，例如发送 `exit` 退出命令。 默认值 `0` 表示 ASF 进程没有所有者，这意味着没有任何人可以发出全局 ASF 命令。 请注意，**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 命令需要以 `SteamOwnerID` 身份执行，所以您必须为该属性设置有效的值才能使用这些功能。
 
 * * *
 
@@ -355,7 +366,8 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
     "SteamUserPermissions": {},
     "TradingPreferences": 0,
     "TransferableTypes": [1, 3, 5],
-    "UseLoginKeys": true
+    "UseLoginKeys": true,
+    "UserInterfaceMode": 0
 }
 ```
 
@@ -767,6 +779,20 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 登录密钥主要用来为您提供方便，使您无需每次登录都要输入 `SteamPassword`、Steam 令牌或者两步验证代码（当没有启用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)** 时）。 这也是一种先进的替代方法，因为登录密钥是一次性的，并且无法从中获得您的密码原文。 您的原版 Steam 客户端也在使用完全相同的方法，即为您的下一次登录保留用户名和登录密钥，效果等同于在 ASF 中设置 `SteamLogin` 和 `UseLoginKeys` 两个属性，并留空 `SteamPassword`。
 
 但是，仍然有人会担心这个小细节，因此，如果您希望确保 ASF 不存储任何形式的、用于在关闭程序后恢复上次会话的令牌，每次登录时都进行身份验证，那么您可以修改此属性。 禁用此选项与在官方 Steam 客户端中不勾选“记住我的密码”的效果是完全相同的。 除非您明确了解自己在做什么，否则请将其保留为默认值 `true`。
+
+* * *
+
+### `UserInterfaceMode`
+
+这是一个默认值为 `0` 的 `byte` 类型属性。 This property specifies user interface mode that the bot will be announced with after logging in to Steam network. Currently you can choose one of below modes:
+
+| 值   | 名称         |
+| --- | ---------- |
+| `0` | Default    |
+| `1` | BigPicture |
+| `2` | Mobile     |
+
+如果您不确定应该如何设置这个属性，请保留默认值 `0`。
 
 * * *
 

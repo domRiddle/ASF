@@ -4,6 +4,7 @@
 
 - **[簡介](#introduction)**
 - **[網頁設定檔產生器](#web-based-configgenerator)**
+- **[ASF-ui configuration](#asf-ui-configuration)**
 - **[手動設定](#manual-configuration)**
 - **[全域設定檔](#global-config)**
 - **[BOT 設定檔](#bot-config)**
@@ -23,13 +24,13 @@ ASF 設定檔分為兩個主要部分——全域（行程）設定檔，以及�
 
 ASF 使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式儲存其設定檔。 這是人性化、可讀性高且非常通用的格式，您可以在其中設定程式。 不過不用擔心，您不需要為了設定 ASF 去專門瞭解 JSON。 我提到它只是考慮到您可能會想要使用一些 Bash 腳本批次建立大量 ASF 設定檔。
 
-您可以透過建立合適的 JSON 設定檔來手動完成設定，也可以透過我們的**[​網頁設定檔產生器​](https://justarchinet.github.io/ASF-WebConfigGenerator)**來進行設定，那將會更簡單方便。 除非您是進階使用者，否則我建議您使用網頁設定檔產生器，我們將會在下方對其進行具體說明。
+Configuration can be done in several ways. You can use our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which is a local app independent of ASF. You can use our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC frontend for configuration done directly in ASF. Lastly, you can always generate config files manually, as they follow fixed JSON structure specified below. We'll explain shortly the available options.
 
 * * *
 
 ## 網頁設定檔產生器
 
-**[網頁設定檔產生器​](https://justarchinet.github.io/ASF-WebConfigGenerator)**的目標是給您提供一個用於產生 ASF 設定檔的友好前端。 網頁設定檔產生器是100%基於用戶端的，這意味著您輸入的任何資訊都不會被上傳，而僅在本地進行處理。 這保證了安全性和可靠性，因為如果您願意下載所有相關檔案，並在您喜愛的瀏覽器中開啟其中的 `index.html`，它甚至可以​**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**​執行。
+The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. 網頁設定檔產生器是100%基於用戶端的，這意味著您輸入的任何資訊都不會被上傳，而僅在本地進行處理。 這保證了安全性和可靠性，因為如果您願意下載所有相關檔案，並在您喜愛的瀏覽器中開啟其中的 `index.html`，它甚至可以​**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**​執行。
 
 網頁設定檔產生器已經在 Chrome 和 Firefox 上經過驗證可以正常執行，但它也應該可以在所有流行的支援 JavaScript 的瀏覽器中正常執行。
 
@@ -37,15 +38,25 @@ ASF 使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式儲存其設定�
 
 * * *
 
+## ASF-ui configuration
+
+Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
+
+In order to use ASF-ui, firstly you must enable our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface itself. You can do that by using our Web-based ConfigGenerator explained above, generating a very simple `ASF` config with enabled `IPC` setting and nothing else. Alternatively, you could also generate such simple config yourself, as `ASF.json` file with `{ "IPC": true }` json content inside.
+
+Afterwards, launch ASF with the above config, ensure that `IPC` interface is started, then navigate to ASF's **[IPC address](http://localhost:1242)**. You can now do the remaining configuration of ASF through ASF-ui interface.
+
+* * *
+
 ## 手動設定
 
-我強烈推薦使用網頁設定檔產生器，但若您出於某些原因不想使用它，您亦可手動建立設定檔。 查看下面的 JSON 範例以適當的結構開始建立，您可以複製內容到檔案並作為您的設定檔基礎。由於您沒有使用我們的前端，請確保您的設定檔**[有效](https://jsonlint.com)**，因為如果不符合語法，ASF 將會拒絕載入設定檔。 要取得適當的 JSON 結構的所有可用欄位，請參閱 **[JSON 對應](#json-mapping)**章節和下方的文件。
+In general we strongly recommend using either our ConfigGenerator or ASF-ui, as it's much easier and ensures you won't make a mistake in the JSON structure, but if for some reason you don't want to, then you can also create proper configs manually. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using any of our frontends, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Even if it's a valid JSON, you also have to ensure that all the properties have the proper type, as required by ASF. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and our documentation below.
 
 * * *
 
 ## 全域設定檔
 
-全域設定檔存放於 `ASF.json 檔案中`，其結構如下：
+全域設定存放於 `ASF.json 檔案中`，其結構如下：
 
 ```json
 {
@@ -355,7 +366,8 @@ The bot config has following structure:
     "SteamUserPermissions": {},
     "TradingPreferences": 0,
     "TransferableTypes": [1, 3, 5],
-    "UseLoginKeys": true
+    "UseLoginKeys": true,
+    "UserInterfaceMode": 0
 }
 ```
 
@@ -767,6 +779,20 @@ Default ASF setting is based on the most common usage of the bot, with transferi
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
 However, some people could be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
+
+* * *
+
+### `UserInterfaceMode`
+
+`byte` 類型，預設值為「`0`」。 This property specifies user interface mode that the bot will be announced with after logging in to Steam network. Currently you can choose one of below modes:
+
+| 值   | 名稱         |
+| --- | ---------- |
+| `0` | Default    |
+| `1` | BigPicture |
+| `2` | Mobile     |
+
+If you're not sure how to set this property, leave it with default value of `0`.
 
 * * *
 

@@ -4,14 +4,15 @@
 
 - **[소개](#소개)**
 - **[웹 기반 환경설정 생성기(ConfigGenerator)](#웹-기반-환경설정-생성기)**
-- **[수동 환경설정](#수동-환경설정)**
-- **[일반 환경설정](#일반-환경설정)**
-- **[봇 환경설정](#봇-환경설정)**
-- **[파일 구조](#파일-구조)**
-- **[JSON 매핑](#json-매핑)**
-- **[호환성 매핑](#호환성-매핑)**
-- **[환경설정 호환성](#환경설정-호환성)**
-- **[자동 재시작](#자동-재시작)**
+- **[ASF-ui configuration](#asf-ui-configuration)**
+- **[수동 환경설정](#manual-configuration)**
+- **[일반 환경설정](#global-config)**
+- **[봇 환경설정](#bot-config)**
+- **[파일 구조](#file-structure)**
+- **[JSON 매핑](#json-mapping)**
+- **[호환성 매핑](#compatibility-mapping)**
+- **[환경설정 호환성](#configs-compatibility)**
+- **[자동 재시작](#auto-reload)**
 
 * * *
 
@@ -23,13 +24,13 @@ ASF 환경설정은 두개의 주요 부분으로 나누어집니다. 일반(프
 
 ASF는 환경설정 파일을 저장하기 위하여 **[JSON](https://ko.wikipedia.org/wiki/JSON)** 형식을 사용합니다. 사람에게 친숙하고, 읽을 수 있으며 프로그램을 설정할 수 있는 가장 보편적인 형식입니다. 걱정하지 마십시오. ASF를 설정하기 위해 JSON을 알 필요는 없습니다. 어떤 종류의 bash 스크립트로 ASF 환경설정을 대량생성하길 원하는 경우가 있어서 언급했을 뿐입니다.
 
-환경설정은 정확한 JSON 환경설정을 작성하여 수동으로 혹은 훨씬 쉽고 편리한 **[웹 기반 환경설정 생성기(ConfigGenerator)](https://justarchinet.github.io/ASF-WebConfigGenerator)** 를 이용해서 가능합니다. 고급 사용자가 아니라면 아래에서 설명할 환경설정 생성기를 사용하는 것을 추천합니다.
+Configuration can be done in several ways. You can use our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which is a local app independent of ASF. You can use our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC frontend for configuration done directly in ASF. Lastly, you can always generate config files manually, as they follow fixed JSON structure specified below. We'll explain shortly the available options.
 
 * * *
 
 ## 웹 기반 환경설정 생성기(ConfigGenerator)
 
-**[웹 기반 환경설정 생성기](https://justarchinet.github.io/ASF-WebConfigGenerator)** 의 목적은 ASF 환경설정 파일을 생성하는 친숙한 화면을 제공하는 것입니다. 웹 기반 환경설정 생성기는 100% 클라이언트 기반입니다. 즉 입력한 세부내용은 다른 어디로도 보내지지 않고 로컬에서만 처리된다는 뜻입니다. 이렇게 해서 보안성과 신뢰성을 보장할 수 있습니다. 모든 파일을 다운로드 받고 `index.html` 파일을 당신의 웹 브라우저에서 실행하면 **[오프라인](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)** 으로 작동할 수도 있습니다.
+The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. 웹 기반 환경설정 생성기는 100% 클라이언트 기반입니다. 즉 입력한 세부내용은 다른 어디로도 보내지지 않고 로컬에서만 처리된다는 뜻입니다. 이렇게 해서 보안성과 신뢰성을 보장할 수 있습니다. 모든 파일을 다운로드 받고 `index.html` 파일을 당신의 웹 브라우저에서 실행하면 **[오프라인](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)** 으로 작동할 수도 있습니다.
 
 웹 기반 환경설정 생성기는 크롬과 파이어폭스에서 정상작동됨을 검증하였습니다. 또한 자바스크립트가 가능한 대부분의 유명한 웹 브라우저에서도 정상적으로 작동할 것입니다.
 
@@ -37,9 +38,19 @@ ASF는 환경설정 파일을 저장하기 위하여 **[JSON](https://ko.wikiped
 
 * * *
 
+## ASF-ui configuration
+
+Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
+
+In order to use ASF-ui, firstly you must enable our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface itself. You can do that by using our Web-based ConfigGenerator explained above, generating a very simple `ASF` config with enabled `IPC` setting and nothing else. Alternatively, you could also generate such simple config yourself, as `ASF.json` file with `{ "IPC": true }` json content inside.
+
+Afterwards, launch ASF with the above config, ensure that `IPC` interface is started, then navigate to ASF's **[IPC address](http://localhost:1242)**. You can now do the remaining configuration of ASF through ASF-ui interface.
+
+* * *
+
 ## 수동 환경설정
 
-웹기반 환경설정 생성기를 사용하는 것을 매우 권장합니다만, 모종의 이유로 사용을 원하지 않는 경우에는 직접 정확한 환경설정파일을 만들 수도 있습니다. 정확한 구조를 위해 아래의 JSON 예제를 참조하여, 이를 파일로 복사하여 자신의 환경설정의 기본으로 사용할 수도 있습니다. 우리의 프론트엔드를 사용하지 않으므로 환경설정이 **[유효한지](https://jsonlint.com)** 확인해야 합니다. 그렇지 않으면 ASF는 파싱할 수 없어 로딩을 거부할 것입니다. 모든 가능한 항목의 적절한 JSON 구조는 아래의 **[JSON 매핑](#json-매핑)** 항목과 설명을 참고하십시오.
+In general we strongly recommend using either our ConfigGenerator or ASF-ui, as it's much easier and ensures you won't make a mistake in the JSON structure, but if for some reason you don't want to, then you can also create proper configs manually. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using any of our frontends, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Even if it's a valid JSON, you also have to ensure that all the properties have the proper type, as required by ASF. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and our documentation below.
 
 * * *
 
@@ -355,7 +366,8 @@ In general, lowering `WebLimiterDelay` under default value is **strongly discour
     "SteamUserPermissions": {},
     "TradingPreferences": 0,
     "TransferableTypes": [1, 3, 5],
-    "UseLoginKeys": true
+    "UseLoginKeys": true,
+    "UserInterfaceMode": 0
 }
 ```
 
@@ -767,6 +779,20 @@ Default ASF setting is based on the most common usage of the bot, with transferi
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
 However, some people could be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
+
+* * *
+
+### `UserInterfaceMode`
+
+`byte` 타입으로 기본값은 `0`입니다. This property specifies user interface mode that the bot will be announced with after logging in to Steam network. Currently you can choose one of below modes:
+
+| 값   | 이름         |
+| --- | ---------- |
+| `0` | Default    |
+| `1` | BigPicture |
+| `2` | Mobile     |
+
+이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `0`으로 두십시오.
 
 * * *
 

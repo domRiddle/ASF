@@ -4,6 +4,7 @@
 
 - **[介紹](#introduction)**
 - **[網頁設定檔產生器](#web-based-configgenerator)**
+- **[ASF-ui configuration](#asf-ui-configuration)**
 - **[手動配置](#manual-configuration)**
 - **[全域配置](#global-config)**
 - **[機械人配置](#bot-config)**
@@ -23,13 +24,13 @@ ASF配置分為兩個主要部分──全域（流程）配置和每個機械�
 
 ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設定檔。 它是人性化的、可讀的、廣泛適用的格式，您可以在其中對程式進行配置。 不過不用擔心，您不需要為了配置 ASF 去專門了解 JSON。 我提到它只是考慮到您可能會想要使用某種 Bash 腳本批量創建大量 ASF 配置檔案。
 
-您可以通過創建合適的 JSON 配置檔案來手動完成配置，也可以通過我們的**[​網頁設定檔產生器​](https://justarchinet.github.io/ASF-WebConfigGenerator)**來進行配置，那將會更簡單方便。 除非您是高級用戶，否則我建議您使用網頁設定檔產生器，我們將會在下文對其詳細說明。
+Configuration can be done in several ways. You can use our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which is a local app independent of ASF. You can use our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC frontend for configuration done directly in ASF. Lastly, you can always generate config files manually, as they follow fixed JSON structure specified below. We'll explain shortly the available options.
 
 * * *
 
 ## 網頁設定檔產生器
 
-**[網頁設定檔產生器](https://justarchinet.github.io/ASF-WebConfigGenerator)**的目的是為您提供一個用於生成 ASF 配置檔的友好前端。 網頁設定檔產生器是100% 基於用戶端的，這意味著您輸入的詳細資訊都不會被上傳，而只在本地處理。 這保證了安全性和可靠性，因為如果您願意下載所有相關檔案，並在您喜愛的瀏覽器中打開其中的 `index.html`，它甚至可以​**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**​工作。
+The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. 網頁設定檔產生器是100% 基於用戶端的，這意味著您輸入的詳細資訊都不會被上傳，而只在本地處理。 這保證了安全性和可靠性，因為如果您願意下載所有相關檔案，並在您喜愛的瀏覽器中打開其中的 `index.html`，它甚至可以​**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**​工作。
 
 網頁設定檔產生器已經在 Chrome 和 Firefox 上經過驗證可以正常運行，但它也應該可以在所有流行的支援 JavaScript 的瀏覽器中正常工作。
 
@@ -37,9 +38,19 @@ ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設�
 
 * * *
 
+## ASF-ui configuration
+
+Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
+
+In order to use ASF-ui, firstly you must enable our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface itself. You can do that by using our Web-based ConfigGenerator explained above, generating a very simple `ASF` config with enabled `IPC` setting and nothing else. Alternatively, you could also generate such simple config yourself, as `ASF.json` file with `{ "IPC": true }` json content inside.
+
+Afterwards, launch ASF with the above config, ensure that `IPC` interface is started, then navigate to ASF's **[IPC address](http://localhost:1242)**. You can now do the remaining configuration of ASF through ASF-ui interface.
+
+* * *
+
 ## 手動配置
 
-我強烈建議使用網頁設定檔產生器，但如果由於某種原因，您不想使用，那麼您也可以手動創建正確的配置檔案。 檢查下面的 JSON 示例，以便在結構中有一個良好的開端，您可以將內容複寫到檔中，並將其用作配置的基礎。由於您沒有使用我們的前端，請確保您的配置為 **[valid](https://jsonlint.com)**，因為如果無法對其進行分析，ASF將拒絕載入它。 有關所有可用字段的正確 JSON 結構，請參閱下面的 **[JSON 映射](#json-mapping)**部分和文檔。
+In general we strongly recommend using either our ConfigGenerator or ASF-ui, as it's much easier and ensures you won't make a mistake in the JSON structure, but if for some reason you don't want to, then you can also create proper configs manually. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using any of our frontends, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Even if it's a valid JSON, you also have to ensure that all the properties have the proper type, as required by ASF. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and our documentation below.
 
 * * *
 
@@ -117,11 +128,11 @@ ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設�
 
 ### `ConnectionTimeout`
 
-這是一個預設值為`90` 的 `byte flags` 類型屬性。 此屬性定義 ASF執行的各種網路操作的超時 (以秒為單位)。 簡而言之, `ConnectionTimeout` 定義了 HTTP 和 IPC 請求的超時(秒數）, `ConnectionTimeout ` 定義了失敗活動訊號的最大數量, 而 `ConnectionTimeout/30 ` 定義了我們允許初始 Steam 網路連接請求的分鐘數。 ` 90 ` 的預設值對大多數人來說應該是合適的，但是，如果您的網路連接或PC速度相當慢，您可能希望稍微增大此值（如 ` 120 `）。 請記住, 即使是更大的值亦無法神奇地修復緩慢甚至無法訪問的 Steam 伺服器, 因此我們不應該無限等待不會發生的事情, 只需稍後再試。 如果將此值設置得過高, 將導致捕獲網路問題的過度延遲, 並降低整體性能。 將此值設置得過低也會降低整體穩定性和性能, 因為ASF將中止仍在分析的有效請求。 因此，將此值設置為低於預設值通常沒有優勢，因為 Steam伺服器往往有時會非常慢，並且可能需要更多的時間來分析ASF請求。 預設值是在相信我們的網路連接是穩定的和懷疑蒸汽網路在給定的超時下處理我們的請求之間的平衡。 如果您想更早地發現問題並使ASF的重新連接/回應速度更快，應該保持預設值（或略微降低，如 ` 60 `，從而減少ASF 的等待時間）。 如果您注意到 ASF 遇到了網絡問題，例如失敗的請求、失去心跳或與 Steam 的連接中斷，那麼如果您確定此問題是由您的網絡，而**非**Steam本身造成，則增加此值可能是有意義的，因為增加超時使ASF 更“有耐心”，而不是決定立即重新連接。
+這是一個預設值為`90` 的 `byte flags` 類型屬性。 此屬性定義 ASF執行的各種網路操作的超時 (以秒為單位)。 簡而言之, `ConnectionTimeout` 定義了 HTTP 和 IPC 請求的超時(秒數）, `ConnectionTimeout ` 定義了失敗活動訊號的最大數量, 而 `ConnectionTimeout/30 ` 定義了我們允許初始 Steam 網路連接請求的分鐘數。 ` 90 ` 的預設值對大多數人來說應該是合適的，但是，如果您的網路連接或PC速度相當慢，您可能希望稍微增大此值（如 ` 120 `）。 請記住, 即使是更大的值亦無法神奇地修復緩慢甚至無法訪問的 Steam 伺服器, 因此我們不應該無限等待不會發生的事情, 只需稍後再試。 如果將此值設置得過高, 將導致捕獲網路問題的過度延遲, 並降低整體性能。 將此值設置得過低也會降低整體穩定性和性能, 因為ASF將中止仍在分析的有效請求。 因此，將此值設置為低於預設值通常沒有優勢，因為 Steam伺服器往往有時會非常慢，並且可能需要更多的時間來分析ASF請求。 預設值是在相信我們的網路連接是穩定的和懷疑蒸汽網路在給定的超時下處理我們的請求之間的平衡。 如果您想更早地發現問題並使ASF的重新連接/回應速度更快, 預設值應該設為 (或略低於, 如 ` 60 `, 從而減少ASF 的等待時間)。 如果您注意到 ASF 遇到了網絡問題，例如失敗的請求、失去心跳或與 Steam 的連接中斷，那麼如果您確定此問題是由您的網絡，而**非**Steam本身造成，則增加此值可能是有意義的，因為增加超時使ASF 更“有耐心”，而不是決定立即重新連接。
 
-一個可能需要增加此屬性的示例情況是讓ASF處理一個非常巨大的交易提案，可能需要大于2分鐘的時間才能被Steam完全接受並處理。 通過增加超時的預設值，在決定放棄交易之前，ASF 將更有耐心，等待更長的時間。
+一個可能需要增加此屬性的示例情況是讓ASF處理一個非常巨大的交易提案，可能需要大于2分鐘的時間才能被Steam完全接受並處理。 通過增加超時的預設值, 在決定放棄交易之前，ASF 將更有耐心, 等待更長的時間。
 
-另一種情況可能是由於機器或互聯網連接非常慢，需要更多的時間來處理正在傳輸的資料。 這是非常罕見的情況，因為CPU/網絡頻寬幾乎從來都不是瓶頸，但這仍然是一個值得提及的可能性。
+另一種情況可能是由於機器或互聯網連接非常慢, 需要更多的時間來處理正在傳輸的資料。 這是非常罕見的情況, 因為CPU\ 網路頻寬幾乎從來都不是瓶頸, 但這仍然是一個值得提及的可能性。
 
 簡而言之, 預設值在大多數情況下應該是合適的, 但若需要，您可能要增加預設值。 不過，遠遠高於預設值也沒有多大意義，因為更大的超時亦無修復無法訪問的Steam 伺服器的魔法。 除非您有充分的修改理由，否則應保持它為預設值。
 
@@ -129,15 +140,15 @@ ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設�
 
 ### `CurrentCulture`
 
-預設值為 `null` 的 `string` 類型。 預設情況下，ASF將嘗試使用您的操作系統語言，並且更願意使用該語言中的翻譯字串（如果可用）。 這應感謝我們的社區成員，他們致力於推動ASF在各種主流語言中的**[本土化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**進程。 如果由於某種原因您不想使用本機語言，則可以使用此配置屬性選擇要使用的任何有效語言。 有關所有可用語系的清單，請訪問 **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)**並查找`語言標籤`。 很高興告訴您，ASF支援兩種語言代碼格式，特定區域的`en-GB`和廣泛區域的`en`。 指定當前語系還可能會影響其他依賴於語系的行為，如貨幣/日期格式等。 請注意，如果您選擇非本機語言，則可能需要額外的字體/語言包來正確顯示所選語言的字元。 通常，如果您更喜歡讓ASF使用英語而不是您的母語，則需使用此配置屬性。
+預設值為 `null` 的 `string` 類型。 預設情況下，ASF將嘗試使用您的操作系統語言，並且更願意使用該語言中的翻譯字串（如果可用）。 這應感謝我們的社區成員，他們致力於推動ASF在各種主流語言中的**[本土化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**進程。 如果由於某種原因您不想使用本機語言，則可以使用此配置屬性選擇要使用的任何有效語言。 有關所有可用語系的清單，請訪問 **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)**並查找`語言標籤`。 很高興告訴您，ASF支援兩種語言代碼格式，特定區域的`en-GB`和廣泛區域的`en`。 指定當前語系還可能會影響其他依賴於語系的行為，如貨幣/日期格式等。 請注意，如果您選擇非本機語言，則可能需要額外的字體/語言包來正確顯示所選語言的字元。 通常, 如果您更喜歡讓ASF使用英語而不是您的母語, 則需使用此配置屬性。
 
 * * *
 
 ### `Debug`
 
-預設值為 `false` 的 `bool` 類型。 此屬性定義進程是否應在偵錯模式下運行。 在偵錯模式下，ASF會在 `config` 旁邊創建一個特殊的 `debug` 目錄，用於跟蹤ASF和 Steam 伺服器之間的整體通信。 調試資訊有助於發現與網絡和一般ASF工作流相關的棘手問題。 除此之外，某些程式常式將更加詳細，例如 `WebBrowser` 將會說明請求失敗的確切原因──這些條目將被寫入正常的ASF日誌中。 **除非開發人員提出要求，否則您不應在偵錯模式下運行ASF。** 在偵錯模式 **下運行ASF會降低性能**，**不利於穩定性**，並且是 **生成過多訊息**，因此建議 **僅需要時**使用，以用於調試特定問題、重現錯誤或獲取有關失敗請求的更多資訊，但 **不應**在正常情況下運行此模式。 您將看到**一堆**新的錯誤、問題和異常──如果您決定自己分析所有這些內容，請確保您對ASF及Steam有充分的瞭解，因為並非所有內容都與問題相關。
+預設值為 `false` 的 `bool` 類型。 此屬性定義進程是否應在偵錯模式下運行。 在偵錯模式下, ASF會在 `config` 旁邊創建一個特殊的 `debug` 目錄, 用於跟蹤ASF和 Steam 伺服器之間的整體通信。 調試資訊有助於發現與網路和一般ASF工作流相關的棘手問題。 除此之外, 一些程式常式將更加詳細, 例如 `WebBrowser` 說明某些請求失敗的確切原因-這些條目被寫入正常的ASF日誌中。 **除非開發人員提出要求, 否則您不應在偵錯模式下運行 asf。** 在偵錯模式 **下運行ASF會降低性能**，**不利於穩定性**，並且是 **生成過多訊息**，因此建議 **僅需要時**使用，以用於調試特定問題、重現錯誤或獲取有關失敗請求的更多資訊，但 **不應**在正常情況下運行此模式。 您將看到**一堆**新的錯誤、問題和異常--如果您決定自己分析所有這些內容, 請確保您對ASF及Steam有充分的瞭解, 因為並非所有內容都是相關的。
 
-**警告：** 啟用此模式將記錄 **潜在的敏感**資訊，如登錄名和用於登錄到Steam的密碼（以作網絡日誌記錄）。 這些資料既寫入 `debug` 目錄，也寫入標準 `log.txt` (此資訊將被詳細地記錄)。 您不應該在任何公共位置發佈 ASF生成的調試內容，ASF 開發人員始終提醒您應將其發送到他的電子郵件或其他安全位置。 我們不會儲存或利用這些敏感資訊，他們只是作為可能的錯誤因素被記錄於調試內容中。 我們更希望您不以任何方式改變ASF日誌記錄，但如果您擔心，您可以編輯這些敏感的細節。
+**WARNING:** 啟用此模式將記錄 **潜在的敏感</0 > 資訊, 如登錄名和用於登錄到Steam的密碼 (由於網路日誌記錄)。 這些資料既寫入 `debug` 目錄, 也寫入標準 `log.txt` (此資訊將被詳細地記錄)。 您不應該在任何公共位置發佈 ASF生成的調試內容, ASF 開發人員始終提醒您應將其發送到他的電子郵件或其他安全位置。 我們不會儲存或利用這些敏感資訊，他們只是作為可能的錯誤因素被記錄於調試內容中。 我們更希望您不以任何方式改變ASF日誌記錄，但如果您擔心，您可以編輯這些敏感的細節。</p> 
 
 > 您可以用特殊符號替換敏感的細節，例如**。 你應該避免完全刪除敏感的數據，因為它們的存在可能與問題相關，應該予以保留。
 
@@ -157,7 +168,7 @@ ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設�
 
 ### `Headless`
 
-預設值為 `false` 的 `bool` 類型。 此屬性定義進程是否應在Headless模式下運行。 在 Headless 模式下，ASF 假定它在服務器或其他非交互式環境中運行，因此它不會嘗試通過控制台輸入讀取任何信息。 這包括需要的詳細信息（帳戶憑據，如 2FA 代碼，SteamGuard 代碼，密碼或 ASF 運行所需的任何其他變數）以及所有其他控制台輸入（如交互式命令控制台）。 換句話說，` Headless `模式等同於將 ASF 控制台設置為唯讀。 此設置主要用於在其服務器上運行 ASF 的用戶，當 ASF 需要與用戶交互，例如詢問 2FA 代碼時，ASF將通過停止帳戶以中止操作。 除非您在伺服器上運行ASF，並且您以前已確認ASF能夠在non-headless模式下運行，否則應禁用此屬性。 在無頭模式下，任何用戶交互都將被拒絕，如果您的帳戶在啟動過程中需要**任何**來自主控台的輸入，則ASF不會運行。 這對伺服器很有用，因為ASF可以在要求提供憑據時中止登錄帳戶的嘗試，而不是（無限）地等待用戶提供這些憑據。 啟用此模式還允許您使用`input`**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**替代標準主控台。 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
+預設值為 `false` 的 `bool` 類型。 此屬性定義進程是否應在偵錯模式下運行。 在 Headless 模式下，ASF 假定它在服務器或其他非交互式環境中運行，因此它不會嘗試通過控制台輸入讀取任何信息。 這包括需要的詳細信息（帳戶憑據，如 2FA 代碼，SteamGuard 代碼，密碼或 ASF 運行所需的任何其他變數）以及所有其他控制台輸入（如交互式命令控制台）。 換句話說，` Headless `模式等同於將 ASF 控制台設置為唯讀。 此設置主要用於在其服務器上運行 ASF 的用戶，當 ASF 需要與用戶交互，例如詢問 2FA 代碼時，ASF將通過停止帳戶以中止操作。 除非您在伺服器上運行ASF，並且您以前已確認ASF能夠在non-headless模式下運行，否則應禁用此屬性。 在無頭模式下，任何用戶交互都將被拒絕，如果您的帳戶在啟動過程中需要**任何**來自主控台的輸入，則ASF不會運行。 這對伺服器很有用，因為ASF可以在要求提供憑據時中止登錄帳戶的嘗試，而不是（無限）地等待用戶提供這些憑據。 啟用此模式還允許您使用`input`**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**替代標準主控台。 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
 
 如果您在伺服器上運行ASF，可能需要將此屬性與`--process-required`**[命令列參數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**配合使用。
 
@@ -215,7 +226,7 @@ ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設�
 
 ### `OptimizationMode`
 
-這是一個預設值為`0` 的 `byte flags` 類型。 此屬性定義 ASF 在運行時偏好的優化模式。 當前 ASF 支援兩種模式——`0`，即`MaxPerformance`；`1`，即`MinMemoryUsage`。 預設情況下，ASF希望盡可能多地並行（同時）運行，這通過跨所有 CPU 內核、多個 CPU 執行緒、多個通訊端和多個執行緒池任務的負載平衡工作來提高性能。 例如，ASF在檢查可掛卡遊戲時將請求您的第一個徽章頁面，在請求到達後，ASF 將從中讀取您實際擁有多少徽章頁面，然後同時向每個徽章頁發送請求。 這**應該總是**您想想要的，因為它在大多數情況下能使開銷最小化，甚至在單個 CPu 內核和功耗極大的最舊硬體上也能看到異步 ASF 代碼的好處。 但是，由於許多任務是並行處理的，因此 ASF 運行時負責維護它們，例如， 保持套接字打開，線程處於活動狀態並處理正在處理的任務，這可能會不時增加記憶體使用量，如果您受可用記憶體的限制，可能需要將此屬性切換為` 1 ` （` MinMemoryUsage `）以強制 ASF 盡可能少地使用任務，並且通常以同步方式運行可能的並行異步代碼。 只有當您讀過 **[低記憶體設置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**，並且您有意犧牲巨大的性能提升以減少非常小的記憶體開銷時，才應考慮切換此屬性。 通常，此選項**絕無可能**比使用其他可能方式實現的更強，例如通過限制 ASF 使用或調整運行時的垃圾收集器，如 **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**中所述。 因此，如果您無法通過其他（更優）選項獲得令人滿意的結果，則應使用 `MinMemoryUsage` 作為 **最後手段**。 除非您有**強烈**的修改意願，否則應保持它為预設值。
+這是一個預設值為`0` 的 `byte flags` 類型。 此屬性定義 ASF 在運行時偏好的優化模式。 當前 ASF 支援兩種模式——`0`，即`MaxPerformance`；`1`，即`MinMemoryUsage`。 預設情況下, ASF希望盡可能多地並行 (同時) 運行, 這通過跨所有 CPU 內核、多個 CPU 執行緒、多個通訊端和多個執行緒池任務的負載平衡工作來提高性能。 例如, ASF在檢查可掛卡遊戲時將請求您的第一個徽章頁面, 然後在請求到達後, ASF 將從中讀取您實際擁有多少徽章頁面, 然後同時向每個徽章頁發送請求。 這**應該總是**您想想要的，因為它在大多數情況下能使開銷最小化，甚至在單個 CPu 內核和功耗極大的最舊硬體上也能看到異步 ASF 代碼的好處。 但是，由於許多任務是並行處理的，因此 ASF 運行時負責維護它們，例如， 保持套接字打開，線程處於活動狀態並處理正在處理的任務，這可能會不時增加記憶體使用量，如果您受可用記憶體的限制，可能需要將此屬性切換為` 1 ` （` MinMemoryUsage `）以強制 ASF 盡可能少地使用任務，並且通常以同步方式運行可能的並行異步代碼。 只有當您讀過 **[低記憶體設置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**，並且您有意犧牲巨大的性能提升以減少非常小的記憶體開銷時，才應考慮切換此屬性。 通常，此選項**絕無可能**比使用其他可能方式實現的更強，例如通過限制 ASF 使用或調整運行時的垃圾收集器，如 **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**中所述。 因此，如果您無法通過其他（更優）選項獲得令人滿意的結果，則應使用 `MinMemoryUsage` 作為 **最後手段**。 除非您有**強烈**的修改意願，否則應保持它為预設值。
 
 * * *
 
@@ -227,7 +238,7 @@ ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設�
 
 ### `SteamMessagePrefix`
 
-預設值為 `"/me "` 的 `string` 類型。 此屬性定義了一個首碼, 該首碼將作為ASF發送的所有 Steam 消息的首碼。 預設情況下, ASF使用`"/me "` 首碼, 以便通過在 Steam 聊天中以不同的顏色顯示機械人消息來更輕鬆地區分機械人消息。 另一個值得提及的地方是 `"/pre "` 首碼, 它實現了類似的結果, 但使用了不同的格式。 您還可以將此屬性設置為空字串或 `null`, 以便完全禁用首碼, 並以傳統方式輸出所有ASF消息。 好消息是, 此屬性僅影響 Steam 消息-通過其他通道 (如 IPC) 返回的回應不受影響。 除非您要自訂標準 ASF 行為, 否則最好將其保留為預設值。
+預設值為 `"/me "` 的 `string` 類型。 此屬性定義了一個首碼, 該首碼將作為ASF發送的所有 Steam 消息的首碼。 預設情況下, ASF使用`"/me "` 首碼, 以便通過在 Steam 聊天中以不同的顏色顯示機器人消息來更輕鬆地區分機器人消息。 另一個值得提及的地方是 `"/pre "` 首碼, 它實現了類似的結果, 但使用了不同的格式。 您還可以將此屬性設置為空字串或 `null`, 以便完全禁用首碼, 並以傳統方式輸出所有ASF消息。 好消息是, 此屬性僅影響 Steam 消息-通過其他通道 (如 IPC) 返回的回應不受影響。 除非您要自訂標準 ASF 行為, 否則最好將其保留為預設值。
 
 * * *
 
@@ -239,7 +250,7 @@ ASF使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式來存儲其設�
 
 ### `SteamProtocols`
 
-這是一個預設值為`7` 的 `byte flags` 類型屬性。 此屬性定義了 ASF 在連接 Steam 伺服器時使用的網絡協議，其定義如下：
+這是一個預設值為`7` 的 `byte flags` 類型屬性。 此屬性定義了 ASF 在連接 Steam 伺服器時使用的網路協議，其定義如下：
 
 | 值 | 名稱         | 描述                                                                        |
 | - | ---------- | ------------------------------------------------------------------------- |
@@ -256,7 +267,7 @@ By default ASF will use all available Steam protocols as a measure for fighting 
 
 ### `UpdateChannel`
 
-這是一個預設值為`1` 的 `byte flags` 類型屬性。 此屬性定義正在使用的更新通道，用於自動更新（如果` UpdatePeriod `大於` 0 `），或收到更新通知時（其他情況）。 當前 ASF 支援三個更新通道──`0`，`無更新`；`1`，`穩定版`；`2`，`探索版`。 `穩定版`通道是預設值，適用於大多數用戶。 `探索版`通道除了`穩定版`，還包括**預發行版本**， 專用於高級用戶和其他開發人員，以測試新功能、確認錯誤修復或提出增強功能。 **探索版通常包含未修補的漏洞、正在測試的工作功能或某些重寫的實現**。 如果您不認為自己是高級用戶，請保留預設得 ` 1 `（穩定）更新通道。 `Experimental` 通道專門針對知道如何報告錯誤、處理問題和提供回饋的用戶——不會提供任何技術支援。 如果您想了解更多資訊，請查看 ASF **[發布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**。 如果要完全禁用所有版本更新，還可以將` UpdateChannel `設置為` 0 `（` None `）。 將 `UpdateChannel` 設置為 ` 0 ` 將完全禁用與更新相關的整個功能, 包括 `update` 命令。 **強烈建議不要**使用`None`通道，因為您會遇到各種問題（在下面的` UpdatePeriod `說明中提到）。
+這是一個預設值為`1` 的 `byte flags` 類型屬性。 此屬性定義正在使用的更新通道，用於自動更新（如果` UpdatePeriod `大於` 0 `），或收到更新通知時（其他情況）。 當前 ASF 支援三個更新通道──`0`，`無更新`；`1`，`穩定版`；`2`，`探索版`。 `穩定版`通道是預設值，適用於大多數用戶。 `探索版`通道除了`穩定版`，還包括**預發行版本**， 專用於高級用戶和其他開發人員，以測試新功能、確認錯誤修復或提出增強功能。 **探索版通常包含未修補的漏洞、正在測試的工作功能或某些重寫的實現**。 如果您不認為自己是高級使用者, 請保留預設 ` 1 ` (穩定) 更新通道。 `Experimental` 通道專門針對知道如何報告錯誤、處理問題和提供回饋的使用者--不會提供任何技術支援。 如果您想瞭解更多資訊, 請查看ASF**[發布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**。 如果要完全禁用所有版本更新，還可以將` UpdateChannel `設置為` 0 `（` None `）。 將 `UpdateChannel` 設置為 ` 0 ` 將完全禁用與更新相關的整個功能, 包括 `update` 命令。 **強烈建議不要**使用`None`通道，因為您會遇到各種問題（在下面的` UpdatePeriod `說明中提到）。
 
 **除非您知道您在做什麼**，否則我們 **強烈** 建議保持它為預設值。
 
@@ -355,7 +366,8 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
     "SteamUserPermissions": {},
     "TradingPreferences": 0,
     "TransferableTypes": [1, 3, 5],
-    "UseLoginKeys": true
+    "UseLoginKeys": true,
+    "UserInterfaceMode": 0
 }
 ```
 
@@ -373,7 +385,7 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
 
 ### `AutoSteamSaleEvent`
 
-預設值為 `false` 的 `bool` 類型。 眾所周知，在Steam夏季/冬季銷售活動期間，Steam每天通過瀏覽發現隊列以及其他特定活動來為您提供額外的卡片。 啟用此選項後, ASF 將每 ` 8` 小時 (從程式開始後1小時內開始)自動檢查Steam發現佇列，並在需要時進行清除。 如果您想自己執行此操作，則不建議使用此選項，通常此選項僅在機械人帳戶上才有意義。 此外，如果您希望首先收到這些卡，則需要確保您的帳戶級別至少為` 8 `，這是Steam的要求。 如果您不確定是否要啟用此功能，請將其保留為預設值` false `。
+預設值為 `false` 的 `bool` 類型。 眾所周知，在Steam夏季/冬季銷售活動期間，Steam每天通過瀏覽發現隊列以及其他特定活動來為您提供額外的卡片。 啟用此選項後, ASF 將每 ` 8` 小時 (從程式開始後1小時內開始)自動檢查Steam發現佇列，並在需要時進行清除。 如果您想自己執行此操作，則不建議使用此選項，通常此選項僅在機械人帳戶上才有意義。 此外，如果您希望首先收到這些卡，則需要確保您的帳戶級別至少為` 8 `，這是Steam的要求。 如果您不確定是否要啟用此功能，請將其保留為預設值 `false`。
 
 請注意，由於持續性的Valve漏洞，變更和問題，**我們無法保證此功能是否能正常運行**，因此完全有可能此選項**根本不起作用**。 我們不接受 **任何** 漏洞報告，也不支援關於此選項的請求。 它是在絕對沒有保證的情況下提供的, 一切風險將由您自行承擔。
 
@@ -767,6 +779,20 @@ ASF 預設基於機器人的最常見用法，僅交易擴充包和交易卡片�
 為方便起見，預設情況下使用已保存的登錄密鑰，因此您無需在每次登錄時輸入` SteamPassword `，SteamGuard或2FA代碼（未啓用**[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**的話）。 這也是優越的替代方法，因為登錄金鑰只能使用一次，故您的原始密碼不會以任何方式顯示。 它與您的Steam客戶端完全相同的方法，會保存您的帳戶名和登錄密鑰以用於下次登錄嘗試，與使用` UseLoginKeys `和` SteamLogin `並在ASF中清空` SteamPassword `的方式別無二致。
 
 但是，有些人可能在意這個細節，因此如果您想確保ASF不會存儲任何類型的代碼以允許其在關閉後恢復上一個會話，這裡可以啓用此選項，這將導致每次登錄嘗試都必須進行完全身份驗證。 禁用此選項的工作原理與在官方 Steam 用戶端不勾選「記住我」完全相同。 除非您知道自己在做什麼，否則應將其保留為預設值 `true`。
+
+* * *
+
+### `UserInterfaceMode`
+
+這是一個預設值為`0` 的 `byte flags` 類型。 This property specifies user interface mode that the bot will be announced with after logging in to Steam network. Currently you can choose one of below modes:
+
+| 值   | 名稱         |
+| --- | ---------- |
+| `0` | Default    |
+| `1` | BigPicture |
+| `2` | Mobile     |
+
+如果您不確定該如何設置此屬性，請將其保留為預設值`0`。
 
 * * *
 

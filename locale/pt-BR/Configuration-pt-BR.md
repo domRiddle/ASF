@@ -4,14 +4,15 @@ Esta página é dedicada a configuração do ASF. Ela serve como uma documentaç
 
 - **[Introdução](#introdução)**
 - **[Gerador de configuração web](#gerador-de-configuração-web)**
-- **[Configuração manual](#configuração-manual)**
-- **[Configuração global](#configuração-global)**
-- **[Configuração do Bot](#configuração-do-bot)**
-- **[Estrutura de arquivos](#estrutura-de-arquivos)**
-- **[Mapeamento JSON](#mapeamento-json)**
-- **[Mapeamento de compatibilidade](#mapeamento-de-compatibilidade)**
-- **[Configuração de compatibilidade](#configuração-de-compatibilidade)**
-- **[Recarregamento automático](#recarregamento-automático)**
+- **[ASF-ui configuration](#asf-ui-configuration)**
+- **[Configuração manual](#manual-configuration)**
+- **[Configuração global](#global-config)**
+- **[Configuração do Bot](#bot-config)**
+- **[Estrutura de arquivos](#file-structure)**
+- **[Mapeamento JSON](#json-mapping)**
+- **[Mapeamento de compatibilidade](#compatibility-mapping)**
+- **[Configuração de compatibilidade](#configs-compatibility)**
+- **[Recarregamento automático](#auto-reload)**
 
 * * *
 
@@ -23,13 +24,13 @@ Chamamos de bot qualquer conta do Steam usada no processo do ASF. Para trabalhar
 
 O ASF usa o formato **[JSON](https://pt.wikipedia.org/wiki/JSON)** para armazenar seus arquivos de configuração. Ele é um formato amigável, legível e universal, no qual você pode configurar o programa. Porém não se preocupe, você não precisa saber JSON para configurar o ASF. Apenas mencionei isso para o caso de você desejar criar configurações em massa do ASF com algum tipo de script.
 
-A configuração pode ser feita manualmente criando configurações JSON adequadas, ou usando o nosso **[Gerador de configuração web](https://justarchinet.github.io/ASF-WebConfigGenerator)**, que é muito mais fácil e conveniente. A menos que você seja um usuário avançado, sugiro usar o gerador de configuração que será descrito abaixo.
+Configuration can be done in several ways. You can use our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which is a local app independent of ASF. You can use our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC frontend for configuration done directly in ASF. Lastly, you can always generate config files manually, as they follow fixed JSON structure specified below. We'll explain shortly the available options.
 
 * * *
 
 ## Gerador de configuração web
 
-A função do **[Gerenciador de Configuração Web](https://justarchinet.github.io/ASF-WebConfigGenerator)** é proporcionar uma interface amigável a ser utilizada na geração de configurações para o ASF. O gerador de configuração Web funciona 100% no lado do cliente, o que significa que os detalhes que você está inserindo não são enviados para nenhum lugar, mas processados apenas no seu computador. Isto garante segurança e confiabilidade, pois ele pode até mesmo trabalhar **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**, basta baixar todos os arquivos e executar o `index.html` no seu navegador favorito.
+The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. O gerador de configuração Web funciona 100% no lado do cliente, o que significa que os detalhes que você está inserindo não são enviados para nenhum lugar, mas processados apenas no seu computador. Isto garante segurança e confiabilidade, pois ele pode até mesmo trabalhar **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**, basta baixar todos os arquivos e executar o `index.html` no seu navegador favorito.
 
 O Gerador de configuração Web foi testado e roda perfeitamente no Chrome e no Firefox, e deve funcionar corretamente em todos os navegadores mais populares com javascript habilitado.
 
@@ -37,9 +38,19 @@ O uso é muito simples: selecione se você deseja gerar uma configuração `ASF`
 
 * * *
 
+## ASF-ui configuration
+
+Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
+
+In order to use ASF-ui, firstly you must enable our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface itself. You can do that by using our Web-based ConfigGenerator explained above, generating a very simple `ASF` config with enabled `IPC` setting and nothing else. Alternatively, you could also generate such simple config yourself, as `ASF.json` file with `{ "IPC": true }` json content inside.
+
+Afterwards, launch ASF with the above config, ensure that `IPC` interface is started, then navigate to ASF's **[IPC address](http://localhost:1242)**. You can now do the remaining configuration of ASF through ASF-ui interface.
+
+* * *
+
 ## Configuração manual
 
-Eu recomendo fortemente usar o gerador de configuração web, mas se por algum motivo você não quiser, então você pode criar configurações adequadas manualmente. Veja os exemplos JSON abaixo para ter uma boa ideia da estrutura correta, você pode copiar o conteúdo eu um arquivo e usá-lo como base para a sua configuração. Já que você não está usando nosso gerador de configurações, certifique-se de que sua configuração é **[válida](https://jsonlint.com)** pois o ASF não vai carregá-la se ela não puder ser validada. Para conhecer a estrutura JSON correta de todos os campos disponíveis consulte a seção de **[mapeamento JSON](#mapeamento-json)** e a documentação abaixo.
+In general we strongly recommend using either our ConfigGenerator or ASF-ui, as it's much easier and ensures you won't make a mistake in the JSON structure, but if for some reason you don't want to, then you can also create proper configs manually. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using any of our frontends, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Even if it's a valid JSON, you also have to ensure that all the properties have the proper type, as required by ASF. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and our documentation below.
 
 * * *
 
@@ -97,7 +108,7 @@ Se for esse o caso, essa propriedade existe especialmente para você e você pod
 
 Tipo `ImmutableHashSet<uint>` com valor padrão vazio. Como o nome sugere, esta propriedade de configuração global define appIDs (jogos) que serão totalmente ignorados pelo processo de coleta automático do ASF. Infelizmente, o Steam adora marcar as insígnias das promoções de verão/inverno como "disponíveis para recebimento de cartas", o que confunde o processo do ASF, fazendo-o acreditar que é um jogo válido que deve ser coletado. Se não houvesse nenhum tipo de lista negra, o ASF acabaria por "travar" na coleta de um jogo que na verdade não é um jogo, e esperaria infinitamente pelo recebimento de cartas que nunca viriam. A lista negra do ASF serve para marcar essas insígnias como não disponíveis para a coleta, de modo que podemos silenciosamente ignorá-las e assim não cair na armadilha.
 
-O ASF inclui duas listas negras por padrão - `GlobalBlacklist`, que está codificada dentro do código do ASF e não pode ser editada, e a `Blacklist` normal, que é definida aqui. A `GlobalBlacklist` é atualizada juntamente com o ASF e normalmente inclui todos os appIDs "ruins" no momento do lançamento, então se você estiver usando a última versão você não precisa manter a sua `Blacklist` própria, descrita aqui. O principal objetivo desta propriedade é permitir que você adicione novos appIDs, ainda não conhecidos no momento do lançamento de uma nova versão do ASF, que não devam ser coletados. A `GlobalBlacklist` sempre é atualizada o mais rápido possível, portanto não há necessidade de atualizar a sua própria `Blacklist` se você estiver usando a versão mais recente do ASF, mas sem a `Blacklist` você seria forçado a atualizar o ASF para que ele "continuasse rodando" sempre que a Valve liberasse novas insígnias de promoções - não quero forçá-lo a usar o código mais recente do ASF, portanto ela existe para que você "conserte" o ASF por sua conta se por algum motivo você não quer ou não pode atualizar a `GlobalBlacklist` disponível em uma nova versão do ASF, mais ainda quer manter seu velho ASF funcionando. A menos que você tenha uma razão muito **forte** para editar essa propriedade, você deve mantê-la padrão.
+O ASF inclui duas listas negras por padrão - `GlobalBlacklist`, que está codificada dentro do código do ASF e não pode ser editada, e a `Blacklist` normal, que é definida aqui. A `GlobalBlacklist` é atualizada juntamente com o ASF e normalmente inclui todos os appIDs "ruins" no momento do lançamento, então se você estiver usando a última versão você não precisa manter a sua `Blacklist` própria, descrita aqui. O principal objetivo desta propriedade é permitir que você adicione novos appIDs, ainda não conhecidos no momento do lançamento de uma nova versão do ASF, que não devam ser coletados. A `GlobalBlacklist` é atualizada sempre o mais rápido possível, portanto não há necessidade de atualizar a sua própria `Blacklist` se você estiver usando a versão mais recente do ASF, mas sem a `Blacklist` você seria forçado a atualizar o ASF para que ele "continuasse rodando" sempre que a Valve liberasse novas insígnias de promoções - não quero forçá-lo a usar o código mais recente do ASF, portanto ela existe para que você "conserte" o ASF por sua conta se por algum motivo você não quer ou não pode atualizar a `GlobalBlacklist` disponível em uma nova versão do ASF, mais ainda quer manter seu velho ASF funcionando. A menos que você tenha uma razão muito **forte** para editar essa propriedade, você deve mantê-la padrão.
 
 Se você está procurando uma lista negra personalizada para cada bot, dê uma olhada nos **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `ib`, `ibadd` e `ibrm`.
 
@@ -129,7 +140,7 @@ Em resumo, o valor padrão é suficiente para a maioria dos casos, mas você pod
 
 ### `CurrentCulture`
 
-Tipo `string` com o valor padrão `null`. Por padrão o ASF tenta usar o idioma do seu sistema operacional e vai preferir usar linhas traduzidas para esse idioma se disponível. Isto é possível graças à nossa comunidade que tenta **[localizar](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)** o ASF para quase todos os idiomas mais populares. Se por algum motivo você não quiser usar o idioma nativo do seu SO, você pode usar esta propriedade de configuração para escolher qualquer outro idioma válido. Para obter uma lista de todas os idiomas disponíveis, acesse o **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)** e procure por `Language tag`. É bom notar que o ASF aceita tanto instruções de idioma por região, como `en-GB`, quanto o neutros, como `en`. Especificar o idioma atual também pode afetar outros comportamentos regionais específicos, como formato de moeda/data e outros. Por favor, note que você pode precisar de pacotes de idioma/fontes adicionais para exibir caracteres específicos do idioma corretamente, caso você tenha escolhido um idioma não-nativo que faça uso deles. Normalmente você fará uso desta propriedade se preferir o ASF em inglês ao invés da sua língua nativa.
+Tipo `string` com o valor padrão `null`. Por padrão o ASF tenta usar o idioma do seu sistema operacional e vai preferir usar linhas traduzidas para esse idioma se disponível. This is possible thanks to our community that tries to **[localize](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)** ASF in all most popular languages. Se por algum motivo você não quiser usar o idioma nativo do seu SO, você pode usar esta propriedade de configuração para escolher qualquer outro idioma válido. Para obter uma lista de todas os idiomas disponíveis, visite o **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)** e procure por `Language tag`. É bom notar que o ASF aceita tanto instruções de idioma por região, como `en-GB`, quanto o neutros, como `en`. Especificar o idioma atual também pode afetar outros comportamentos regionais específicos, como formato de moeda/data e outros. Por favor, note que você pode precisar de pacotes de idioma/fontes adicionais para exibir caracteres específicos do idioma corretamente, caso você tenha escolhido um idioma não-nativo que faça uso deles. Normalmente você fará uso desta propriedade se preferir o ASF em inglês ao invés da sua língua nativa.
 
 * * *
 
@@ -157,7 +168,7 @@ Tipo `byte` com o valor padrão `1`. O ASF vai garantir que haverá um atraso em
 
 ### `Headless`
 
-Tipo `bool` com valor padrão `false`. Esta propriedade define se o processo deve ser executado em modo não-interativo. Quando em modo headless, o ASF assume que está rodando em um servidor ou em outro ambiente não interativo, portanto ele não tentará ler qualquer informação através da entrada do console. Isto inclui detalhes sob demanda (credenciais de conta como o código 2FA, o código SteamGuard, a senha ou qualquer outra variável necessária para que o ASF opere) bem como todas as outras entradas de console (como o console de comando interativo). Em outras palavras, o modo `Headless` é igual a tornar o console do ASF somente leitura. Essa configuração é útil principalmente para usuários que executam o ASF em servidores, já que em vez de pedir, por exemplo, um código de autenticação, o ASF simplesmente abortará a operação parando a conta em questão. A menos que você esteja executando o ASF em um servidor e tenha confirmado anteriormente que o ASF é capaz de operar em modo não-interativo, você deve manter essa propriedade desabilitada. Qualquer interação do usuário será negada quando estiver nesse modo e suas contas não serão executadas se elas exigem **qualquer** entrada no console durante a inicialização. Ele é útil para servidores, já que o ASF vai abortar ao tentar se conectar a conta quando forem necessárias credenciais, em vez de esperar (infinitamente) para que o usuário os forneça. Ativando esse modo também permitirá que você use o **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `input` que funciona como um substituto para a entrada padrão do console. Se você não tem certeza de como definir essa propriedade, deixe-a com o valor padrão `false`.
+Tipo `bool` com valor padrão `false`. Esta propriedade define se o processo deve ser executado em modo não-interativo. Quando em modo headless, o ASF assume que está rodando em um servidor ou em outro ambiente não interativo, portanto ele não tentará ler qualquer informação através da entrada do console. Isto inclui detalhes sob demanda (credenciais de conta como o código 2FA, o código SteamGuard, a senha ou qualquer outra variável necessária para que o ASF opere) bem como todas as outras entradas de console (como o console de comando interativo). Em outras palavras, o modo `Headless` é igual a tornar o console do ASF somente leitura. Essa configuração é útil principalmente para usuários que executam o ASF em servidores, já que em vez de pedir, por exemplo, um código de autenticação, o ASF simplesmente abortará a operação parando a conta em questão. A menos que você esteja executando o ASF em um servidor e tenha confirmado anteriormente que o ASF é capaz de operar em modo não-interativo, você deve manter essa propriedade desabilitada. Qualquer interação do usuário será negada quando estiver nesse modo e suas contas não serão executadas se elas exigem **qualquer** entrada no console durante a inicialização. Ele é útil para servidores, já que o ASF vai abortar ao tentar se conectar a conta quando forem necessárias credenciais, em vez de esperar (infinitamente) para que o usuário os forneça. Ativando esse modo também permitirá que você use o **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `input` que funciona como um substituto para a entrada padrão do console. Se não tem certeza de como definir essa propriedade, deixe-a com o valor padrão `false`.
 
 Se você estiver executando o ASF no servidor, você provavelmente quer usar essa opção em conjunto com o **[argumento de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)** `--process-required`.
 
@@ -209,13 +220,13 @@ Tipo `byte` com o valor padrão `10`. Como você deve saber, o Steam nem sempre 
 
 ### `MaxTradeHoldDuration`
 
-Tipo `byte` com o valor padrão `15`. Essa propriedade define a duração máxima de retenção de trocas, em dias, que você está disposto a aceitar - o ASF vai rejeitar trocas que fiquem retidas por mais tempo que o valor de `MaxTradeHoldDuration`, como definido na seção de **[trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-pt-BR)**. Esta opção só faz sentido para bots com `SteamTradeMatcher` ativado em `TradingPreferences`, já que isso não afeta as trocas entre `Master`/`SteamOwnerID`, nem doações. Trocas retidas são irritantes para todos, e ninguém quer lidar com elas. Como supõe-se que o ASF funcione com regras liberais e ajude a todos, independentemente de trocas retidas ou não - essa opção é definida como `15` por padrão. No entanto, se você preferir rejeitar todas as transações afetadas pela retenção de trocas, você pode definir esse valor para `0`. Por favor, considere o fato de que cartas com vida curta não são afetadas por essa opção e são automaticamente rejeitadas para pessoas com retenção de trocas, conforme descrito na seção **[trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-pt-BR)**, então não há nenhuma necessidade de rejeitar globalmente todo mundo só por causa disso. A menos que você tenha uma razão para editar essa propriedade, você deve mantê-la padrão.
+Tipo `byte` com o valor padrão `15`. Essa propriedade define a duração máxima de retenção de trocas, em dias, que você está disposto a aceitar - o ASF vai rejeitar trocas que fiquem retidas mais que o valor em `MaxTradeHoldDuration`, como definido na seção de **[trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-pt-BR)**. Esta opção só faz sentido para bots com `SteamTradeMatcher` ativado em `TradingPreferences`, já que isso não afeta as trocas entre `Master`/`SteamOwnerID`, nem doações. Trocas retidas são irritantes para todos, e ninguém quer lidar com elas. Como supõe-se que o ASF funcione com regras liberais e ajude a todos, independentemente de trocas retidas ou não - essa opção é definida como `15` por padrão. No entanto, se você preferir rejeitar todas as transações afetadas pela retenção de trocas, você pode definir esse valor para `0`. Por favor, considere o fato de que cartas com vida curta não são afetadas por essa opção e são automaticamente rejeitadas para pessoas com retenção de trocas, conforme descrito na seção **[trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-pt-BR)**, então não há nenhuma necessidade de rejeitar globalmente todo mundo só por causa disso. A menos que você tenha uma razão para editar essa propriedade, você deve mantê-la padrão.
 
 * * *
 
 ### `OptimizationMode`
 
-Tipo `byte` com o valor padrão `0`. Esta propriedade define o modo de otimização que o ASF usará durante o tempo de execução. Atualmente, o ASF suporta dois modos - `0`, que é chamado de `MaxPerformance` e `1`, que é chamado `MinMemoryUsage`. Por padrão, o ASF executa tantas coisas em paralelo (simultaneamente) quanto possível, melhorando o desempenho pelo balanceamento de carga de trabalho entre todos os núcleos de CPU, vários threads de CPU, soquetes múltiplos e várias tarefas de pool de threads. Por exemplo, o ASF vai acessar a primeira página de insígnias quando procurar jogos para executar, e então uma vez que o pedido chegar, o ASF vai ler quantas páginas de insígnias você tem, e em seguida, solicitar todas as outras simultaneamente. Isto é o que você deve querer **quase sempre**, já que a sobrecarga, na maioria dos casos, é mínima e os benefícios do código assíncrono do ASF pode ser visto até mesmo em hardwares mais antigos com um único núcleo de CPU e potência fortemente limitada. No entanto, com muitas tarefas sendo processadas em paralelo, o tempo de execução do ASF é responsável pela manutenção, p. ex., mantendo soquetes abertos, threads ativos e tarefas sendo processadas, que pode resultar no aumento do uso de memória de vez em quando, e se você é extremamente limitado pela memória disponível, você pode querer mudar esta propriedade para `1` (`MinMemoryUsage`) a fim de forçar o ASF a usar o mínimo de tarefas possível e normalmente executar possíveis códigos assíncronos paralelos de forma síncrona. Você deve considerar mudar essa propriedade apenas se você leu a seção **[configuração para baixo consumo de memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-pt-BR)** e quer sacrificar intencionalmente um aumento enorme de desempenho por uma diminuição de sobrecarga de memória muito pequena. Normalmente, esta é a **pior** das opções, pois você pode obter melhores resultados limitando o uso do ASF ou ajustando o coletor de lixo do tempo de execução, conforme explicado em **[configuração para baixo consumo de memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Portanto, você deve usar `MinMemoryUsage` como **último recurso**, antes de recompilar o tempo de execução, caso você não tenha conseguido atingir resultados satisfatórios com outras opções (muito melhores). A menos que você tenha uma razão muito **forte** para editar essa propriedade, você deve mantê-la padrão.
+Tipo `byte` com o valor padrão `0`. Esta propriedade define o modo de otimização que o ASF usará durante o tempo de execução. Atualmente, o ASF suporta dois modos - `0`, que é chamado de `MaxPerformance` e `1`, que é chamado `MinMemoryUsage`. Por padrão, o ASF executa tantas coisas em paralelo (simultaneamente) quanto possível, melhorando o desempenho pelo balanceamento de carga de trabalho entre todos os núcleos de CPU, vários threads de CPU, soquetes múltiplos e várias tarefas de pool de threads. Por exemplo, o ASF vai acessar a primeira página de insígnias quando procurar jogos para executar, e então uma vez que o pedido chegar, o ASF vai ler quantas páginas de insígnias você tem, e em seguida, solicitar todas as outras simultaneamente. Isto é o que você deve querer **quase sempre**, já que a sobrecarga, na maioria dos casos, é mínima e os benefícios do código assíncrono do ASF pode ser visto até mesmo em hardwares mais antigos com um único núcleo de CPU e potência fortemente limitada. No entanto, com muitas tarefas sendo processadas em paralelo, o tempo de execução do ASF é responsável pela manutenção, p. ex., mantendo soquetes abertos, threads ativos e tarefas sendo processadas, que pode resultar no aumento do uso de memória de vez em quando, e se você é extremamente limitado pela memória disponível, você pode querer mudar esta propriedade para `1` (`MinMemoryUsage`) a fim de forçar o ASF a usar o mínimo de tarefas possível e normalmente executar possíveis códigos assíncronos paralelos de forma síncrona. Você deve considerar mudar essa propriedade apenas se você leu a seção **[configuração para baixo consumo de memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-pt-BR)** e quer sacrificar intencionalmente um aumento enorme de desempenho por uma diminuição de sobrecarga de memória muito pequena. Normalmente, esta é a **pior** das opções, pois você pode obter melhores resultados limitando o uso do ASF ou ajustando o coletor de lixo do tempo de execução, conforme explicado em **[configuração para baixo consumo de memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Portanto, você deve usar `MinMemoryUsage` como **último recurso**, direitamente antes de recompilação do tempo de execução, caso você não tenha conseguido atingir resultados satisfatórios com outras opções (muito melhores). A menos que você tenha uma razão muito **forte** para editar essa propriedade, você deve mantê-la padrão.
 
 * * *
 
@@ -248,7 +259,7 @@ Tipo `byte flags` com o valor padrão `7`. Esta propriedade define os protocolos
 | 2     | UDP       | **[User Datagram Protocol](https://pt.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4     | WebSocket | **[WebSocket](https://pt.wikipedia.org/wiki/WebSocket)**                                         |
 
-Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#mapeamento-json)** se você quiser aprender mais. Não habilitar nenhum flag resulta na opção `None`, e essa opção, por si só, é inválida.
+Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#json-mapping)** se você quiser aprender mais. Não habilitar nenhum flag resulta na opção `None`, e essa opção, por si só, é inválida.
 
 Por padrão ASF vai usar todos os protocolos Steam disponíveis como medida para lutar contra tempos de inatividade e outras questões semelhantes da Steam. Normalmente você vai querer alterar essa propriedade se desejar limitar o ASF para usar apenas um ou dois protocolos específicos, em vez de todos os que estão disponíveis. Tal medida seria necessária, por exemplo, se seu firewall permitir apenas tráfego TCP e você não quiser que o ASF tente conectar via UDP. No entanto, a menos que você esteja depurando um problema específico, você quase sempre vai desejar garantir que o ASF esteja livre para usar qualquer protocolo que seja suportado atualmente e não apenas um ou dois. A menos que você tenha uma razão muito **forte** para editar essa propriedade, você deve mantê-la padrão.
 
@@ -355,7 +366,8 @@ A configuração do bot tem a seguinte estrutura:
     "SteamUserPermissions": {},
     "TradingPreferences": 0,
     "TransferableTypes": [1, 3, 5],
-    "UseLoginKeys": true
+    "UseLoginKeys": true,
+    "UserInterfaceMode": 0
 }
 ```
 
@@ -393,13 +405,13 @@ Tipo `byte flags` com o valor padrão `0`. Esta propriedade define o comportamen
 | 16    | MarkReceivedMessagesAsRead    | Fará com que o ASF marque automaticamente todas as mensagens recebidas como lidas                                             |
 | 32    | MarkBotMessagesAsRead         | Fará com que o ASF marque automaticamente todas as mensagens dos outros bots (ativos na mesma instância) recebidas como lidas |
 
-Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#mapeamento-json)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
+Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#json-mapping)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
 
 Em geral você vai querer modificar esta propriedade se espera que o ASF faça certa quantidade de automação relacionados à sua atividade, como seria de esperar de uma conta bot, mas não uma conta primária usada no ASF. Portanto, alterar esta propriedade faz sentido principalmente para contas alternativas, embora você seja livre para usar as opções selecionadas para contas principais também.
 
 O comportamento normal do ASF (`None`) existe apenas para automatizar as coisas que o usuário quer (por exemplo, coleta de cartas ou propostas do `SteamTradeMatcher`, se definido em `TradingPreferences`). Este é o modo menos invasivo, e é benéfico para a maioria dos usuários já que você permanece com controle completo sobre sua conta e pode decidir se deseja permitir certas interações fora do escopo ou não.
 
-Um convite de amizade inválido é um convite que não vem de um usuário com a permissão `FamilySharing` ou superior (definida na opção `SteamUserPermissions`). No modo normal o ASF ignora esses convites, como seria de esperar, dando-lhe liberdade de escolha se deseja aceitá-los ou não. `RejectInvalidFriendInvites` fará com que esses convites sejam rejeitados automaticamente, que praticamente impedirá que outra pessoas te adicionem a lista de amigos delas (uma vez que o ASF negará todos os pedidos, exceto das pessoas definidas em ` SteamUserPermissions`). A menos que você queira negar completamente todos os convites de amizade, você não deve habilitar esta opção.
+Convite de amizade inválido é um convite que não vem de um usuário com permissão `FamilySharing` ou superior (definida na opção `SteamUserPermissions`). No modo normal o ASF ignora esses convites, como seria de esperar, dando-lhe liberdade de escolha se deseja aceitá-los ou não. `RejectInvalidFriendInvites` fará com que esses convites sejam rejeitados automaticamente, que praticamente impedirá que outra pessoas te adicionem a lista de amigos delas (uma vez que o ASF negará todos os pedidos, exceto das pessoas definidas em ` SteamUserPermissions`). A menos que você queira negar completamente todos os convites de amizade, você não deve habilitar esta opção.
 
 Oferta de troca inválida é uma oferta que não é aceita pelo módulo interno do ASF. Mais sobre este assunto pode ser encontrado na seção **[trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**, que define todos os tipos de trocas que o ASF está disposto a aceitar automaticamente. Trocas válidas também são definidas por outras configurações, especialmente `TradingPreferences`. `RejectInvalidTrades` fará com que todas as ofertas de trocas inválidas sejam rejeitadas, em vez de serem ignoradas. A menos que você queira negar completamente todas as ofertas de troca que não são automaticamente aceitas pelo ASF, você não deve habilitar esta opção.
 
@@ -477,7 +489,7 @@ Tipo `ImmutableList<byte>` com o valor padrão vazio. Essa propriedade define a 
 | 14    | MarketableAscending       | Tenta coletar dos jogos com cartas não comercializáveis primeiro                                         |
 | 15    | MarketableDescending      | Tenta coletar dos jogos com cartas comercializáveis primeiro                                             |
 
-Como essa essa propriedade é uma matriz, ela permite que você use várias configurações diferentes em sua ordem fixa. Por exemplo, você pode incluir os valores `15`, `11` e `7` a fim de classificar primeiro por jogos comercializáveis, em seguida, por aqueles com a insígnia de nível mais alto e, finalmente, em ordem alfabética. Como você pode imaginar, a ordem realmente importa, já que a ordem reversa (`7`, `11` e `15`) tem resultado inteiramente diferente. A maioria das pessoas provavelmente usará apenas uma dessas ordens, mas caso você queira, você pode também classificar por parâmetros extras.
+Como essa essa propriedade é um array, ela permite que você use várias configurações diferentes na ordem que você precisa. Por exemplo, você pode incluir os valores `15`, `11` e `7` a fim de classificar primeiro por jogos comercializáveis, em seguida, por aqueles com a insígnia de nível mais alto e, finalmente, em ordem alfabética. Como você pode imaginar, a ordem realmente importa, já que a ordem reversa (`7`, `11` e `15`) tem um resultado inteiramente diferente. A maioria dos usuários provavelmente usará apenas um método de classificação, mas caso queira você pode especificar a classificação com parâmetros adicionais.
 
 Note também a palavra "tenta" em todas as descrições acima - a ordem atual do ASF é fortemente afetada pelo **[algorítimo de coleta de cartas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** e a classificação afetará apenas os resultados que o ASF considera eficaz em termos de performance. Por exemplo, no algoritmo `Simple`, a ordem de coleta selecionada em `FarmingOrders` deve ser inteiramente respeitada na sessão atual de coleta (uma vez que cada jogo tem o mesmo valor de desempenho), enquanto no `Complex` a ordem atual do algoritmo é afetada primeiro pelas horas, e depois classificada de acordo com escolhido em `FarmingOrders`. Isto trará resultados diferentes, já que jogos com tempo de jogo existente terão prioridade sobre os outros, então o ASF vai rodar os jogos que já passaram do tempo configurado em `HoursUntilCardDrops` primeiro e só então classificar os demais de acordo com sua escolha em `FarmingOrders`. Da mesma forma, assim que o ASF terminar os jogos que já tem horas de jogo ele vai classificar a lista restante colocando os com mais horas em primeiro lugar (já que isso vai diminuir o tempo necessário de execução dos demais títulos que necessitem alcançar o `HoursUntilCardDrops`). Portanto, esta propriedade de configuração é apenas uma **sugestão** que o ASF tentará respeitar, desde que isso não afete negativamente o desempenho (neste caso, ASF sempre preferirá desempenho de coleta sobre `FarmingOrders`).
 
@@ -493,25 +505,25 @@ Tipo `ImmutableHashSet<uint>` com valor padrão vazio. Se o ASF não tem nada pa
 
 ### `HoursUntilCardDrops`
 
-Tipo `byte` com o valor padrão `3`. Esta propriedade define se a conta tem restrição na coleta de cartas, e caso sim, por quantas horas. Restrição de coleta de cartas significa que a conta não receberá cartas de determinados jogos até que os mesmos sejam jogados por pelo menos a quantidade de horas indicada em `HoursUntilCardDrops`. Infelizmente não existe uma fórmula mágica para detectar isso, então o ASF depende de você. Esta propriedade afeta o **[algorítimo de coleta de cartas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** que será usado. Configurar essa propriedade corretamente vai maximizar os lucros e minimizar o tempo necessário para que as cartas sejam coletadas. Lembre-se que não há nenhuma resposta óbvia se você deve usar um ou outro valor, desde que depende totalmente da sua conta. Parece que as contas mais antigas que nunca pediram reembolso têm o recebimento de cartas sem restrição, então elas devem usar o valor `0`, enquanto novas contas e aqueles que pediram reembolso tem essa restrição e devem manter o valor em `3`. No entanto isso é apenas uma teoria e não deve ser tomada como regra. O valor padrão para essa propriedade foi definido com base no "mal menor" e a maioria dos casos de uso.
+Tipo `byte` com o valor padrão `3`. Esta propriedade define se a conta tem restrição na coleta de cartas, e caso positivo, por quantas horas. Restrição de coleta de cartas significa que a conta não receberá cartas de determinados jogos até que os mesmos sejam jogados por pelo menos a quantidade de horas indicada em `HoursUntilCardDrops`. Infelizmente não existe uma fórmula mágica para detectar isso, então o ASF depende de você. Esta propriedade afeta o **[algorítimo de coleta de cartas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** que será usado. Configurar essa propriedade corretamente vai maximizar os lucros e minimizar o tempo necessário para que as cartas sejam coletadas. Lembre-se que não há nenhuma resposta óbvia quanto ao valor usado, uma vez que isso depende totalmente da sua conta. Parece que as contas mais antigas que nunca pediram reembolso têm o recebimento de cartas sem restrição, então elas devem usar o valor `0`, enquanto novas contas e aqueles que pediram reembolso tem essa restrição e devem manter o valor em `3`. No entanto isso é apenas uma teoria e não deve ser tomada como regra. O valor padrão para essa propriedade foi definido com base no "mal menor" e a maioria dos casos de uso.
 
 * * *
 
 ### `IdlePriorityQueueOnly`
 
-Tipo `bool` com valor padrão `false`. Esta propriedade define se o ASF deve considerar para coleta automática apenas os apps que você adicionou a fila de prioridade disponível com o comando **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `iq`. Quando esta opção estiver habilitada, o ASF ignorará todos `appIDs` que não estejam na lista, permitindo que você escolha efetivamente os jogos que deseja que o ASF colete automáticamente ASF. Tenha em mente que se você não adicionar nenhum jogo na lista o ASF atuará como se não houvesse nada para coletar na sua conta. Se você não tiver certeza se quer esse recurso habilitado ou não, mantenha-o com o valor `false` padrão.
+Tipo `bool` com valor padrão `false`. Esta propriedade define se o ASF deve considerar para coleta automática apenas os apps que você adicionou a fila de prioridade disponível com o comando **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `iq`. Quando esta opção estiver habilitada o ASF ignorará todos os `appIDs` que não estejam na lista, permitindo que você escolha os jogos que deseja que o ASF rode automaticamente. Tenha em mente que se você não adicionar nenhum jogo na lista o ASF vai se comportar como se não houvesse nada para coletar na sua conta. Se você não tiver certeza se quer esse recurso habilitado ou não, mantenha-o com o valor `false` padrão.
 
 * * *
 
 ### `IdleRefundableGames`
 
-Tipo `bool` com valor padrão `true`. Esta propriedade define se o ASF tem permissão para rodar jogos que ainda são reembolsáveis. Um jogo reembolsável é um jogo que você comprou na loja Steam nas últimas duas semanas e que ainda não foi jogado por mais de 2 horas, como indicado na página **[Reembolsos no Steam](https://store.steampowered.com/steam_refunds)**. Por padrão, quando esta opção estiver definida como `true`, o ASF ignora a política de reembolso inteiramente e coleta tudo, como a maioria das pessoas deve esperar. No entanto, você pode alterar esta opção para `false` se você deseja garantir que o ASF não rode qualquer um dos seus jogos reembolsáveis cedo demais, permitindo que você os avalie peça reembolso caso necessário, sem se preocupar com o ASF afetando negativamente seu tempo de jogo. Observe que, se você desabilitar essa opção os jogos que você comprar da loja do Steam não serão executados pelo ASF antes de 14 dias da data de ativação e será mostrado que não há jogos a serem coletados caso sua conta não tenha mais jogos a serem coletados. Se você não tiver certeza se quer esse recurso habilitado ou não, mantenha-o com o valor `true` padrão.
+Tipo `bool` com valor padrão `true`. Esta propriedade define se o ASF tem permissão para rodar jogos que ainda são reembolsáveis. Um jogo reembolsável é um jogo que você comprou na loja Steam nas últimas duas semanas e que ainda não foi jogado por mais de 2 horas, como indicado na página **[Reembolsos no Steam](https://store.steampowered.com/steam_refunds)**. Por padrão, quando esta opção estiver definida como `true`, o ASF ignora a política de reembolso inteiramente e coleta tudo, como a maioria das pessoas deve esperar. No entanto, você pode alterar esta opção para `false` se você deseja garantir que o ASF não rode qualquer um dos seus jogos reembolsáveis cedo demais, permitindo que você os avalie e peça reembolso caso necessário, sem se preocupar com o ASF afetando negativamente seu tempo de jogo. Observe que, se você desabilitar essa opção os jogos que você comprar da loja do Steam não serão executados pelo ASF antes de 14 dias da data de ativação e será mostrado que não há jogos a serem coletados caso sua conta não tenha mais jogos a serem coletados. Se você não tiver certeza se quer esse recurso habilitado ou não, mantenha-o com o valor `true` padrão.
 
 * * *
 
 ### `LootableTypes`
 
-Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 5`. Essa propriedade define o comportamento do ASF quando estiver coletando tanto manualmente quanto através de algum **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)**, ou mesmo automaticamente, atrávés de uma ou mais propriedades de configuração. O ASF garantirá que apenas itens definidos em `LootableTypes` serão incluídos na oferta de troca, portanto, essa propriedade permite que você escolha o que você deseja receber na uma oferta de troca que está sendo enviada a você.
+Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 5`. Essa propriedade define o comportamento do ASF quando estiver coletando tanto manualmente quanto através de algum **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)**, ou mesmo automaticamente, atrávés de uma ou mais propriedades de configuração. O ASF vai garantir que apenas itens definidos em `LootableTypes` serão incluídos na oferta de troca, assim você pode especificar o que deseja receber nas propostas que o bot te enviará.
 
 | Valor | Nome                  | Descrição                                                                   |
 | ----- | --------------------- | --------------------------------------------------------------------------- |
@@ -539,7 +551,7 @@ A configuração padrão do ASF baseia-se no uso mais comum do bot, coletando ap
 
 ### `MatchableTypes`
 
-Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `5`. Esta propriedade define quais tipos de itens Steam tem permissão de serem combinados se a opção `SteamTradeMatcher` estiver habilitada em `TradingPreferences`. Os tipos são definidos abaixo:
+Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `5`. Esta propriedade define quais tipos de itens Steam podem ser trocados se a opção `SteamTradeMatcher` estiver habilitada em `TradingPreferences`. Os tipos são definidos abaixo:
 
 | Valor | Nome                  | Descrição                                                                   |
 | ----- | --------------------- | --------------------------------------------------------------------------- |
@@ -608,7 +620,7 @@ Tipo `bool` com valor padrão `false`. Esta propriedade define o estado inicial 
 
 ### `RedeemingPreferences`
 
-Tipo `byte flags` com o valor padrão `0`. Essa propriedade define o comportamento do ASF quando estiver resgatando códigos de produto, e é explicada abaixo:
+Tipo `byte flags` com o valor padrão `0`. Essa propriedade define o comportamento do ASF quando estiver resgatando cd-keys, e é definida abaixo:
 
 | Valor | Nome                               | Descrição                                                                                                                   |
 | ----- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -618,7 +630,7 @@ Tipo `byte flags` com o valor padrão `0`. Essa propriedade define o comportamen
 | 4     | KeepMissingGames                   | Guarda os códigos de jogos que (possivelmente) não estejam em sua conta, deixando-os sem uso                                |
 | 8     | AssumeWalletKeyOnBadActivationCode | Assume que `BadActivationCode` são iguais à `CannotRedeemCodeFromClient` e, portanto, tenta resgatá-los como vales presente |
 
-Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#mapeamento-json)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
+Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#json-mapping)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
 
 `Forwarding` fará com que o bot encaminhe uma key que não possa ser ativada para outro bot que esteja conectado e ativo e que não tenha o jogo em particular (se for possível verificar). A situação mais comum é encaminhar um jogo `AlreadyPurchased` (já comprado) para outro bot que não o possua, mas esta opção também abrange outros cenários, tais como `DoesNotOwnRequiredApp` (não possui o jogo base), `RateLimited` (limite de tentativas excedido) ou `RestrictedCountry` (restrição regional).
 
@@ -640,7 +652,7 @@ Também tenha em mente que você não pode encaminhar ou distribuir keys para bo
 
 Tipo `bool` com valor padrão `false`. Quando o ASF termina a coleta em determinada conta, ele pode automaticamente enviar uma proposta de troca contendo tudo o que foi coletado até o momento para o usuário com permissão `Master`, o que é muito conveniente se você não quiser ficar se preocupando com trocas. Esta opção funciona da mesma forma que o comando `loot`, portanto, tenha em mente que ele requer um usuário com o conjunto de permissões `Master`, você também pode precisar de um `SteamTradeToken` válido, tanto quanto o uso de uma conta que seja, em primeiro lugar, elegível para trocas. Quando essa opção está ativada, além de iniciar o `loot` após terminar a coleta, o ASF também inicia o `loot` a cada notificação de novos itens (quando não estiver coletando) e depois de completar trocas que resultem em novos itens (sempre). Isso é especialmente útil para "encaminhar" itens recebidos de outras pessoas para a nossa conta.
 
-Normalmente você vai querer usar o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** juntamente com essa função, embora não seja um requisito se você quiser confirmar manualmente em seu tempo. Se você não tem certeza de como definir essa propriedade, deixe-a com o valor padrão `false`.
+Normalmente você vai querer usar o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** juntamente com essa função, embora não seja um requisito se você quiser confirmar manualmente em seu tempo. Se não tem certeza de como definir essa propriedade, deixe-a com o valor padrão `false`.
 
 * * *
 
@@ -648,7 +660,7 @@ Normalmente você vai querer usar o **[ASF 2FA](https://github.com/JustArchiNET/
 
 Tipo `byte` com o valor padrão `0`. Essa propriedade funciona de forma muito semelhante à propriedade `SendOnFarmingFinished`, com uma diferença - em vez de enviar a troca quando a coleta terminar, podemos envia-la no intervalo de tempo, em horas, determinado em `SendTradePeriod`, independente de quanto ainda temos para coletar. Isto é útil se você quiser receber os itens de suas contas adicionais regularmente ao invés de esperar que a coleta termine. O valor padrão `0` desativa este recurso e se você quer que o seu bot envie a proposta de troca, por exemplo, todos os dias, você deve colocar o valor `24` aqui.
 
-Normalmente você vai querer usar o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** juntamente com essa função, embora não seja um requisito se você quiser confirmar manualmente em seu tempo. Se não tem certeza de como definir essa propriedade, deixá-lo com o valor padrão `0`.
+Normalmente você vai querer usar o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)** juntamente com essa função, embora não seja um requisito se você quiser confirmar manualmente em seu tempo. Se você não tem certeza de como definir essa propriedade, deixe-a com o valor padrão `0`.
 
 * * *
 
@@ -656,7 +668,7 @@ Normalmente você vai querer usar o **[ASF 2FA](https://github.com/JustArchiNET/
 
 Tipo `bool` com valor padrão `false`. O ASF "ocupa" uma conta durante todo o tempo em que o processo esteja ativo. Quando ele termina a coleta nessa conta, o ASF verifica periodicamente (a cada hora configurada em `IdleFarmingPeriod`), se algum novo jogo com cartas Steam foi adicionado, então ele pode retomar a coleta naquela conta sem a necessidade de reiniciar o processo. Isso é útil para a maioria das pessoas, já que o ASF pode retomar automaticamente a coleta quando necessário. No entanto, você pode realmente querer parar o processo quando dada conta for totalmente explorada, você pode conseguir isso definindo essa propriedade como `true`. Quando habilitado, o ASF vai fazer logoff quando conta for totalmente explorada, o que significa que ela não será periodicamente verificada ou ocupada. Você deve decidir se você prefere que o ASF trabalhe em dada conta bot o tempo todo, ou se talvez o ASF deve interrompê-la quando o processo de coleta for termiando. Quando todas as contas estiverem paradas e o processo não estiver rodando no **[modo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-pt-BR)** `--process-required`, o ASF também se desligará, colocando seu computador em espera e permitindo que você programe outras ações, tais como suspender ou desligar assim que a última carta for recebida.
 
-Se você não tem certeza de como definir essa propriedade, deixe-a com o valor padrão `false`.
+Se não tem certeza de como definir essa propriedade, deixe-a com o valor padrão `false`.
 
 * * *
 
@@ -726,7 +738,7 @@ Tipo `byte flags` com o valor padrão `0`. Essa propriedade define o comportamen
 | 8     | DontAcceptBotTrades | Não aceita automaticamente as trocas `loot` de outras contas bot                                                                                                                                                              |
 | 16    | MatchActively       | Participa ativamente de trocas do tipo **[STM](https://www.steamtradematcher.com)**. Visite a seção **[trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** para mais informações             |
 
-Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#mapeamento-json)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
+Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#json-mapping)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
 
 Para obter mais explicações sobre a lógica de trocas do ASF e uma descrição de cada flag disponível, visite a seção **[trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**.
 
@@ -767,6 +779,20 @@ Tipo `bool` com valor padrão `true`. Esta propriedade define se o ASF deve usar
 Chaves de login são usadas por padrão para sua conveniência, portanto você não precisa inserir o `SteamPassword`, SteamGuard ou o código 2FA (quando não usar o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) em cada login. Também é uma alternativa superior, já que a chave de login pode ser usada apenas uma única vez e não revela sua senha original de forma alguma. Exatamente o mesmo método é usado pelo seu cliente Steam original, que salva seu nome de usuário e chave de login para a sua próxima tentativa de conexão, sendo efetivamente o mesmo que usar `SteamLogin` com `UseLoginKeys` e `SteamPassword` vazio no ASF.
 
 No entanto, algumas pessoas podem ficar preocupadas até mesmo com esse pequeno detalhe, portanto esta opção está disponível aqui para o caso de você querer garantir que o ASF não armazene nenhum tipo de token que permitiria retomar a sessão anterior após ela ser fechada, o que resultará na autenticação sendo totalmente obrigatória em cada tentativa de logon. Desabilitar essa opção vai funcionar exatamente da mesma forma que não marcar a opção "Lembrar-me neste computador" no cliente Steam oficial. A menos que você saiba o que está fazendo, você deve mantê-la com o valor `true` padrão.
+
+* * *
+
+### `UserInterfaceMode`
+
+Tipo `byte` com o valor padrão `0`. This property specifies user interface mode that the bot will be announced with after logging in to Steam network. Currently you can choose one of below modes:
+
+| Valor | Nome       |
+| ----- | ---------- |
+| `0`   | Default    |
+| `1`   | BigPicture |
+| `2`   | Mobile     |
+
+Se você não tem certeza de como definir essa propriedade, deixe-a com o valor padrão `0`.
 
 * * *
 
