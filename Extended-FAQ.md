@@ -30,6 +30,6 @@ I'm also using ASF as a perfect example of a modern C# project that always strik
 
 ---
 
-### I've launched the program on the April 1st and the ASF language changed into something strange, what is going on?
+### I've launched the program on April the 1st and the ASF language changed into something strange, what is going on?
 
-CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! If you didn't set custom `CurrentCulture` option, then ASF booted on April 1st will actually use **[LOLCAT](https://en.wikipedia.org/wiki/LOLcat)** language instead of your system language. If by any chance you'd like to disable that behaviour, you can simply set `CurrentCulture` to the locale that you'd like to use instead. It's also nice to note that you can enable our easter egg unconditionally, by setting your `CurrentCulture` to `qps-ploc` value.
+CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! If you didn't set custom `CurrentCulture` option, then ASF launched on April the 1st will actually use **[LOLCAT](https://en.wikipedia.org/wiki/LOLcat)** language instead of your system language. If by any chance you'd like to disable that behaviour, you can simply set `CurrentCulture` to the locale that you'd like to use instead. It's also nice to note that you can enable our easter egg unconditionally, by setting your `CurrentCulture` to `qps-ploc` value.
