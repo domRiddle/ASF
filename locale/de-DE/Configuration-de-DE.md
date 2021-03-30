@@ -4,13 +4,13 @@ Diese Seite widmet sich der Konfiguration von ASF. Es dient als eine lückenlose
 
 - **[Einleitung](#einleitung)**
 - **[Web-basierter ConfigGenerator](#web-basierter-configgenerator)**
-- **[ASF-ui configuration](#asf-ui-configuration)**
+- **[ASF-UI-Einstellungen](#asf-ui-configuration)**
 - **[Manuelle Konfiguration](#manual-configuration)**
 - **[Globale Konfiguration](#global-config)**
-- **[Bot Konfiguration](#bot-config)**
-- **[Dateistruktur](#file-structure)**
-- **[JSON-Mapping](#json-mapping)**
-- **[Kompatibilitätsmapping](#compatibility-mapping)**
+- **[Bot-Konfiguration](#bot-config)**
+- **[Datei-Struktur](#file-structure)**
+- **[JSON-Strukturierung](#json-mapping)**
+- **[Kompatibilitäts-Strukturierung](#compatibility-mapping)**
 - **[Konfigurations-Kompatibilität](#configs-compatibility)**
 - **[Automatisches Nachladen](#auto-reload)**
 
@@ -24,13 +24,13 @@ Ein Bot ist ein einzelnes Steam-Konto welches am ASF-Prozess teilnimmt. Um ordnu
 
 ASF verwendet das **[JSON](https://en.wikipedia.org/wiki/JSON)** Format zum Speichern seiner Konfigurationsdateien. Es ist ein benutzerfreundliches, lesbares und sehr universelles Format in dem man das Programm konfigurieren kann. Keine Sorge, Sie müssen sich nicht mit JSON auskennen um ASF zu konfigurieren. Wir erwähnen es nur, falls Sie bereits daran denken ASF-Konfigurationen mit einer Art Bash-Skript massenhaft zu erstellen.
 
-Configuration can be done in several ways. You can use our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which is a local app independent of ASF. You can use our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC frontend for configuration done directly in ASF. Lastly, you can always generate config files manually, as they follow fixed JSON structure specified below. We'll explain shortly the available options.
+Die Konfiguration kann auf verschiedene Art und Weise erfolgen. Sie können unseren **[webbasierten ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**verwenden, der eine von ASF unabhängige lokale App ist. Sie können unsere **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-ui)** IPC-Benutzeroberfläche für die Konfiguration direkt in ASF verwenden. Schließlich können Sie die Konfigurationsdateien immer manuell erzeugen, da sie der unten angegebenen festen JSON-Struktur folgen. Wir werden in aller Kürze die verfügbaren Optionen erklären.
 
 * * *
 
 ## Web-basierter ConfigGenerator
 
-The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. Der web-basierte ConfigGenerator ist zu 100% Client-basiert, was bedeutet, dass die von Ihnen eingegebenen Daten nirgendwo hin gesendet, sondern nur lokal verarbeitet werden. Dies garantiert Sicherheit und Zuverlässigkeit, da es sogar **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)** funktioniert, wenn zuvor alle Dateien heruntergeladen wurden. Sie müssen dann nur noch `index.html` im Browser öffnen.
+Der Zweck des **[web-basierten Config-Generators](https://justarchinet.github.io/ASF-WebConfigGenerator)** ist es, Ihnen ein benutzerfreundliches Frontend zur Verfügung zu stellen, das zum Erzeugen von ASF-Konfigurationsdateien verwendet wird. Der web-basierte ConfigGenerator ist zu 100% Client-basiert, was bedeutet, dass die von Ihnen eingegebenen Daten nirgendwo hin gesendet, sondern nur lokal verarbeitet werden. Dies garantiert Sicherheit und Zuverlässigkeit, da es sogar **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)** funktioniert, wenn zuvor alle Dateien heruntergeladen wurden. Sie müssen dann nur noch `index.html` im Browser öffnen.
 
 Der web-basierte ConfigGenerator wurde unter Chrome und Firefox getestet, sollte aber in allen gängigen JavaScript-fähigen Browsern ordnungsgemäß funktionieren.
 
@@ -38,9 +38,9 @@ Die Verwendung ist denkbar einfach - man wählt über die entsprechenden Registe
 
 * * *
 
-## ASF-ui configuration
+## ASF-UI-Einstellungen
 
-Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
+Unsere **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-ui)** IPC-Schnittstelle erlaubt es Ihnen auch ASF zu konfigurieren und ist eine bessere Lösung für die Neukonfiguration von ASF nach der Generierung der ersten Konfigurationen aufgrund der Tatsache, dass es die Konfigurationen im Ort bearbeiten kann im Gegensatz zum webbasierten Config-Generator, welcher sie statisch erzeugt.
 
 In order to use ASF-ui, firstly you must enable our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface itself. You can do that by using our Web-based ConfigGenerator explained above, generating a very simple `ASF` config with enabled `IPC` setting and nothing else. Alternatively, you could also generate such simple config yourself, as `ASF.json` file with `{ "IPC": true }` json content inside.
 
@@ -327,7 +327,7 @@ Wenn Sie keinen Grund haben diese Eigenschaft zu bearbeiten, solltest der Standa
 
 * * *
 
-## Bot Konfiguration
+## Bot-Konfiguration
 
 Wie Sie bereits wissen, sollte jeder Bot eine eigene Konfiguration haben, die auf der folgenden beispielhaften JSON-Struktur basiert. Entscheiden Sie sich wie den Bot benennen möchten (z. B. `1.json`, `main.json`, `haupt.json` oder `IrgendwasAnderes.json`) und beginnen Sie mit der Konfiguration.
 
@@ -796,7 +796,7 @@ Wenn du dir nicht sicher bist, wie du diese Eigenschaft einstellen sollst, belas
 
 * * *
 
-## Dateistruktur
+## Datei-Struktur
 
 ASF benutzt eine recht einfache Dateistruktur.
 
@@ -840,7 +840,7 @@ Neben den Konfigurationsdateien verwendet ASF auch das Verzeichnis `config` zum 
 
 * * *
 
-## JSON-Mapping
+## JSON-Strukturierung
 
 Jede Konfigurationseigenschaft hat ihren Typ. Der Typ der Eigenschaft definiert Werte, die für sie gültig sind. Du kannst nur Werte verwenden, die für einen bestimmten Typ gültig sind - wenn du einen ungültigen Wert verwendest, dann kann ASF deine Konfiguration nicht verarbeiten.
 
@@ -930,7 +930,7 @@ Zum Beispiel: `"SteamProtocols": 7`
 
 * * *
 
-## Kompatibilitätsmapping
+## Kompatibilitäts-Strukturierung
 
 Aufgrund von JavaScript-Beschränkungen, da einfache `ulong` Felder in JSON bei Verwendung des webbasierten ConfigGenerators nicht ordnungsgemäß serialisiert werden können, werden `ulong` Felder als Zeichenketten mit `s_` Präfix in der resultierenden Konfiguration dargestellt. Dazu gehört z.B. `"SteamOwnerID": 76561198006963719`, der von unserem ConfigGenerator als `"s_SteamOwnerID": "76561198006963719"` geschrieben wird. ASF enthält die entsprechende Logik für die automatische Verarbeitung dieses Zeichenketten-Mappings, so dass `s_` Einträge in deinen Konfigurationen tatsächlich gültig sind und korrekt generiert wurden. Wenn du selbst Konfigurationen generierst, empfehlen wir, nach Möglichkeit an den ursprünglichen `ulong` Feldern festzuhalten, aber wenn du dazu nicht in der Lage bist kannst du auch diesem Schema folgen und sie als Zeichenketten mit dem `s_` Präfix an ihren Namen kodieren. Wir hoffen, dass wir diese JavaScript-Einschränkung irgendwann aufheben können.
 

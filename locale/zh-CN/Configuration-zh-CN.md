@@ -4,7 +4,7 @@
 
 - **[简介](#简介)**
 - **[在线配置文件生成器](#在线配置文件生成器)**
-- **[ASF-ui configuration](#asf-ui-configuration)**
+- **[ASF-ui 配置](#asf-ui-configuration)**
 - **[手动配置](#manual-configuration)**
 - **[全局配置](#global-config)**
 - **[机器人配置](#bot-config)**
@@ -24,13 +24,13 @@ ASF 的配置分为两个主要的部分——全局（进程）配置和每个�
 
 ASF 采用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存储其配置文件。 这是人性化、可读性高且非常通用的格式，您可以在其中对程序进行配置。 不过不用担心，您不需要为了配置 ASF 去专门了解 JSON。 我提到它只是考虑到您可能会想要使用一些 Bash 脚本批量创建大量 ASF 配置文件。
 
-Configuration can be done in several ways. You can use our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which is a local app independent of ASF. You can use our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC frontend for configuration done directly in ASF. Lastly, you can always generate config files manually, as they follow fixed JSON structure specified below. We'll explain shortly the available options.
+您可以通过几种方式完成配置。 您可以使用独立于 ASF 的本地应用&#8203;**[在线配置文件生成器](https://justarchinet.github.io/ASF-WebConfigGenerator)**。 还可以使用我们的 IPC 前端 **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-ui)** 直接配置 ASF。 最后，您也可以随时按照下文所述的 JSON 结构，手动编写配置文件。 我们将快速解释一下这些方式。
 
 * * *
 
 ## 在线配置文件生成器
 
-The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. 它是 100% 基于客户端的，这意味着您输入的任何信息都不会被上传，而仅在本地进行处理。 这保证了安全性和可靠性，因为假设您愿意下载所有相关文件，并在您喜爱的浏览器中打开其中的 `index.html`，它甚至可以&#8203;**[离线](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**&#8203;运行。
+**[在线配置文件生成器](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;的目标是给您提供一个用于生成 ASF 配置文件的友好前端。 它是 100% 基于客户端的，这意味着您输入的任何信息都不会被上传，而仅在本地进行处理。 这保证了安全性和可靠性，因为假设您愿意下载所有相关文件，并在您喜爱的浏览器中打开其中的 `index.html`，它甚至可以&#8203;**[离线](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**&#8203;运行。
 
 在线配置文件生成器已经在 Chrome 和 Firefox 上经过验证可以正常运行，但它也应该可以在所有流行的的支持 JavaScript 的浏览器中正常运行。
 
@@ -38,19 +38,19 @@ The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/
 
 * * *
 
-## ASF-ui configuration
+## ASF-ui 配置
 
-Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
+我们的 **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC 接口同样支持配置 ASF，并且特别适合在第一次配置之后修改配置内容，因为与在线配置文件生成器总是生成新文件不同，ASF-ui 可以在原地直接编辑配置文件。
 
-In order to use ASF-ui, firstly you must enable our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface itself. You can do that by using our Web-based ConfigGenerator explained above, generating a very simple `ASF` config with enabled `IPC` setting and nothing else. Alternatively, you could also generate such simple config yourself, as `ASF.json` file with `{ "IPC": true }` json content inside.
+要使用 ASF-ui，首先您需要启用 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 接口本身。 您可以通过我们的在线配置文件生成器来启用，也就是生成一份非常简单的、仅仅启用了 `IPC` 的 `ASF` 配置。 或者，您也可以手动编写这种简单的配置文件，也就是内容为 `{ "IPC": true }` 的 `ASF.json` 文件。
 
-Afterwards, launch ASF with the above config, ensure that `IPC` interface is started, then navigate to ASF's **[IPC address](http://localhost:1242)**. You can now do the remaining configuration of ASF through ASF-ui interface.
+之后，通过上述配置文件启动 ASF，确保 `IPC` 接口已启动，再访问 ASF 的 **[IPC 地址](http://localhost:1242)**。 现在您可以通过 ASF-ui 的接口进行剩余的 ASF 配置。
 
 * * *
 
 ## 手动配置
 
-In general we strongly recommend using either our ConfigGenerator or ASF-ui, as it's much easier and ensures you won't make a mistake in the JSON structure, but if for some reason you don't want to, then you can also create proper configs manually. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using any of our frontends, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Even if it's a valid JSON, you also have to ensure that all the properties have the proper type, as required by ASF. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and our documentation below.
+我们通常强烈建议使用在线配置文件生成器或 ASF-ui，因为这些方式更简单，还可以确保您不会不小心造成 JSON 结构错误，但如果出于某种原因，您不想使用它们，那么您也可以手动创建正确的配置文件。 参考下面的 JSON 示例来保证结构正确，您可以将内容复制到文件中并在此基础上作修改。 由于您没有使用我们的前端，请确保您的配置&#8203;**[有效](https://jsonlint.com)**，因为如果 ASF 无法解析它，将拒绝加载。 即使它是有效的 JSON，您也必须确保所有属性都有正确的类型，正如 ASF 所要求的那样。 关于各字段的正确 JSON 结构，请阅读本文中的 **[JSON 映射](#json-映射)**&#8203;一节。
 
 * * *
 
@@ -784,13 +784,13 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ### `UserInterfaceMode`
 
-这是一个默认值为 `0` 的 `byte` 类型属性。 This property specifies user interface mode that the bot will be announced with after logging in to Steam network. Currently you can choose one of below modes:
+这是一个默认值为 `0` 的 `byte` 类型属性。 该属性指定机器人在登录到 Steam 网络后将自己广播为哪种用户界面模式。 目前您可以选择下列模式之一：
 
-| 值   | 名称         |
-| --- | ---------- |
-| `0` | Default    |
-| `1` | BigPicture |
-| `2` | Mobile     |
+| 值   | 名称                |
+| --- | ----------------- |
+| `0` | Default（默认）       |
+| `1` | BigPicture（大屏幕模式） |
+| `2` | Mobile（移动端）       |
 
 如果您不确定应该如何设置这个属性，请保留默认值 `0`。
 

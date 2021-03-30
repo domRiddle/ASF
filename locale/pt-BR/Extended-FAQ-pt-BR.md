@@ -27,3 +27,9 @@ O ASF foi criado com o objetivo de ser um sistema completamente automatizado que
 Não há pegadinha, eu criei o ASF **para mim** e o compartilhei com o resto da comunidade na esperança dele ser útil. O mesmo aconteceu em 1991, quando Linus Torvalds **[compartilhou seu primeiro kernel do Linux](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)** com o resto do mundo. Não há malware, mineração de dados, mineração de criptomoedas ou qualquer outra atividade escondida que gerasse qualquer benefício monetário para mim. O projeto ASF é suportado inteiramente por doações não obrigatórias enviadas por usuários contentes como você. Você pode usar o ASF exatamente da mesma forma que eu o uso, e se você gostar, você sempre pode me pagar um café, mostrando sua gratidão pelo que eu faço.
 
 Também estou usando o ASF como um exemplo perfeito de um projeto moderno em C# que sempre busca a perfeição e as melhores práticas, seja com tecnologia, gerenciamento de projeto ou o próprio código. É minha definição de "fazer a coisa certa", então se você, por algum motivo, aprender algo novo com o meu projeto, isso me deixará mais feliz.
+
+* * *
+
+### I've launched the program on April the 1st and the ASF language changed into something strange, what is going on?
+
+CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! If you didn't set custom `CurrentCulture` option, then ASF launched on April the 1st will actually use **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** language instead of your system language. If by any chance you'd like to disable that behaviour, you can simply set `CurrentCulture` to the locale that you'd like to use instead. It's also nice to note that you can enable our easter egg unconditionally, by setting your `CurrentCulture` to `qps-ploc` value.

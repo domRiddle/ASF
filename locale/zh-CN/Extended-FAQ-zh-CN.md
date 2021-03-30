@@ -27,3 +27,9 @@ ASF 是由 **[Archi](https://github.com/JustArchi)** 在 2015 年 10 月创作�
 您不需要付出代价，我**为自己**创作了 ASF，并将其分享给社区，希望对其他人有用。 1991 年发生过同样的事情，Linus Torvalds 将他的&#8203;**[第一份 Linux 内核](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)**&#8203;分享给了全世界。 这里没有暗藏恶意软件、数据挖掘、恶意挖矿或者其他任何能够为我产生利益的活动。 ASF 项目的支持完全来自于非强制性的捐款，这些捐款由像您一样的普通用户捐赠。 您可以像我一样使用 ASF，并且如果您喜欢它，您可以随时为我捐赠一杯咖啡来表达您对我工作的感激。
 
 此外，我也将 ASF 视为一个现代 C# 项目的完美示例，始终追求完美和最佳实践，无论是技术、项目管理还是代码本身。 这是我对于“把事情做好”的定义，所以假如您打算从我的项目中学到一些有用东西，那只会使我更高兴。
+
+* * *
+
+### I've launched the program on April the 1st and the ASF language changed into something strange, what is going on?
+
+CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! If you didn't set custom `CurrentCulture` option, then ASF launched on April the 1st will actually use **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** language instead of your system language. If by any chance you'd like to disable that behaviour, you can simply set `CurrentCulture` to the locale that you'd like to use instead. It's also nice to note that you can enable our easter egg unconditionally, by setting your `CurrentCulture` to `qps-ploc` value.
