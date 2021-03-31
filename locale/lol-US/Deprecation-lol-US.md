@@ -1,49 +1,49 @@
-# Deprecation
+# DEPRECASHUN
 
-Starting with ASF V3.1.2.2, we'll be following consistent deprecation policy in order to make both development as well as usage far more consistent.
-
-* * *
-
-## What is deprecation?
-
-Deprecation is the process of doing smaller or bigger breaking changes that render previously used options, arguments, functionalities or usage cases obsolete. Deprecation usually means that given thing was simply rewritten into another (similar) form, and you should ensure in timely manner that you'll make appropriate switch to it. In this case, it's simply moving given functionality to more appropriate place.
-
-ASF changes rapidly and always strikes for becoming better. This sadly means that we may change or move some existing functionality into another segment of the program in order for it to benefit from new features, compatibility or stability. Thanks to that we don't need to stick with obsolete or simply painfully wrong development decisions that we made years ago. We're always trying to provide reasonable replacement that fits expected usage of previously-available functionality, which is why deprecation is mostly harmless and requires small fixes to previous usage.
+STARTIN WIF ASF V3.1.2.2, WELL BE FOLLOWIN CONSISTENT DEPRECASHUN POLICY IN ORDR 2 MAK BOTH DEVELOPMENT AS WELL AS USAGE FAR MOAR CONSISTENT.
 
 * * *
 
-## Deprecation stages
+## WUT IZ DEPRECASHUN?
 
-ASF will follow 2 stages of deprecation, making transition much easier and less troublesome.
+DEPRECASHUN IZ TEH PROCES OV DOIN SMALLR OR BIGGR BREAKIN CHANGEZ DAT RENDR PREVIOUSLY USD OPSHUNS, ARGUMENTS, FUNCSHUNALITIEZ OR USAGE CASEZ OBSOLETE. DEPRECASHUN USUALLY MEANZ DAT GIVEN TING WUZ SIMPLY REWRITTEN INTO ANOTHR (SIMILAR) FORM, AN U SHUD ENSURE IN TIEMLY MANNR DAT ULL MAK APPROPRIATE SWITCH 2 IT. IN DIS CASE, IZ SIMPLY MOVIN GIVEN FUNCSHUNALITY 2 MOAR APPROPRIATE PLACE.
 
-### Stage 1
-
-Stage 1 happens once given feature becomes deprecated, with immediate availability of another solution (or none if there are no plans of re-introducing it).
-
-During this stage, ASF will print appropriate warning when deprecated function is being used. As long as it's possible, ASF will try to mimic the old behaviour and keep being compatible with it. ASF will keep being in stage 1 regarding that functionality at least until next stable version. This is the moment when, hopefully without breaking compatibility, you can make appropriate switch in all your tools and patterns to satisfy new behaviour. You can confirm whether you did all appropriate changes by no longer seeing the deprecation warning.
-
-### Stage 2
-
-Stage 2 is scheduled after stage 1 explained above takes place and gets released in a stable release. This stage introduces complete removal of deprecated feature existence, which means that ASF will not even acknowledge that you're attempting to use a deprecated feature, let alone respect it, since it simply doesn't exist in the current code. ASF will no longer print any warning, since it no longer recognizes what you're attempting to do.
+ASF CHANGEZ RAPIDLY AN ALWAYS STRIKEZ 4 BECOMIN BETTR. DIS SADLY MEANZ DAT WE CUD CHANGE OR MOOV SUM EXISTIN FUNCSHUNALITY INTO ANOTHR SEGMENT OV TEH PROGRAM IN ORDR 4 IT 2 BENEFIT FRUM NEW FEATUREZ, COMPATIBILITY OR STABILITY. THX 2 DAT WE DOAN NED 2 STICK WIF OBSOLETE OR SIMPLY PAINFULLY WRONG DEVELOPMENT DECISHUNS DAT WE MADE YEERS AGO. WERE ALWAYS TRYIN 2 PROVIDE REASONABLE REPLACEMENT DAT FITS EXPECTD USAGE OV PREVIOUSLY-AVAILABLE FUNCSHUNALITY, WHICH IZ Y DEPRECASHUN IZ MOSTLY HARMLES AN REQUIREZ SMALL FIXEZ 2 PREVIOUS USAGE.
 
 * * *
 
-## Summary
+## DEPRECASHUN STAGEZ
 
-You have more or less a **full month** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 2), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than a month of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs that you've missed and manually adapt your usage to current one.
+ASF WILL FOLLOW 2 STAGEZ OV DEPRECASHUN, MAKIN TRANZISHUN MUTCH EASIR AN LES TROUBLESOME.
 
-In most cases, disregarding deprecation warning will not render general ASF functionality unusable, but rather falling back to default behaviour (which may or may not match your personal preferences).
+### STAGE 1
+
+STAGE 1 HAPPENS ONCE GIVEN FEACHUR BECOMEZ DEPRECATD, WIF IMMEDIATE AVAILABILITY OV ANOTHR SOLUSHUN (OR NONE IF THAR R NO PLANZ OV RE-INTRODUCIN IT).
+
+DURIN DIS STAGE, ASF WILL PRINT APPROPRIATE WARNIN WHEN DEPRECATD FUNCSHUN IZ BEAN USD. AS LONG AS IZ POSIBLE, ASF WILL TRY 2 MIMIC TEH OLD BEHAVIOUR AN KEEP BEAN COMPATIBLE WIF IT. ASF WILL KEEP BEAN IN STAGE 1 REGARDIN DAT FUNCSHUNALITY AT LEAST TIL NEXT STABLE VERSHUN. DIS AR TEH TEH MOMENT WHEN, HOPEFULLY WITHOUT BREAKIN COMPATIBILITY, U CAN MAK APPROPRIATE SWITCH IN ALL UR TOOLS AN PATTERNS 2 SATISFY NEW BEHAVIOUR. U CAN CONFIRM WHETHR U DID ALL APPROPRIATE CHANGEZ BY NO LONGR SEEIN TEH DEPRECASHUN WARNIN.
+
+### STAGE 2
+
+STAGE 2 IZ SCHEDULD AFTR STAGE 1 EXPLAIND ABOOV TAKEZ PLACE AN GETS RELEASD IN STABLE RELEASE. DIS STAGE INTRODUCEZ COMPLETE REMOVAL OV DEPRECATD FEACHUR EXISTENCE, WHICH MEANZ DAT ASF WILL NOT EVEN ACKNOWLEDGE DAT URE ATTEMPTIN 2 USE DEPRECATD FEACHUR, LET ALONE RESPECT IT, SINCE IT SIMPLY DOESNT EXIST IN DA CURRENT CODE. ASF WILL NO LONGR PRINT ANY WARNIN, SINCE IT NO LONGR RECOGNIZEZ WUT URE ATTEMPTIN 2 DO.
 
 * * *
 
-## Example
+## SUMMARY
 
-We moved pre-V3.1.2.2 `--server` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** into `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**.
+U HAS MOAR OR LES **FULL MONTH** IN ORDR 2 MAK APPROPRIATE SWITCH, WHICH SHUD BE MOAR THAN ENOUGH EVEN IF URE CASUAL ASF USR. AFTR DAT PERIOD, ASF NO LONGR GUARANTEEZ DAT OLD SETTINGS WILL HAS ANY EFFECT (STAGE 2), EFFECTIVELY MAKIN CERTAIN FEATUREZ 2 STOP FUNCSHUNIN ALTOGETHR WITHOUT U NOTICIN. IF URE LAUNCHIN ASF AFTR MOAR THAN MONTH OV INACTIVITY, IZ RECOMMENDD 4 U 2 **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up">START FRUM SCRATCH</A>** AGAIN, OR READ ALL TEH CHANGELOGS DAT UVE MISD AN MANUALLY ADAPT UR USAGE 2 CURRENT WAN.
 
-### Stage 1
+IN MOST CASEZ, DISREGARDIN DEPRECASHUN WARNIN WILL NOT RENDR GENERAL ASF FUNCSHUNALITY UNUSABLE, BUT RATHR FALLIN BAK 2 DEFAULT BEHAVIOUR (WHICH CUD OR CUD NOT MATCH UR PERSONAL PREFERENCEZ).
 
-Stage 1 happened in version V3.1.2.2 where we added appropriate warning to usage of `--server`. Now-obsolete `--server` argument was automatically mapped into `IPC: true` global config property, effectively acting exactly the same as old `--server` switch for time being. This allowed everybody to do appropriate switch before ASF stops accepting old argument.
+* * *
 
-### Stage 2
+## EXAMPLE
 
-Stage 2 happened in version V3.1.3.0, right after V3.1.2.9 stable with stage 1 explained above. Stage 2 caused ASF to stop recognizing the `--server` argument at all, treating it like every other invalid argument being passed, which no longer has any effect on the program. For people that still didn't change their usage of `--server` into `IPC: true`, it caused IPC to stop functioning altogether, as ASF no longer did appropriate mapping.
+WE MOVD PRE-V3.1.2.2 `--SERVR` **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments">COMMAND-LINE ARGUMENT</A>** INTO `IPC` **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config">GLOBAL CONFIGURASHUN PROPERTY</A>**.
+
+### STAGE 1
+
+STAGE 1 HAPPEND IN VERSHUN V3.1.2.2 WER WE ADDD APPROPRIATE WARNIN 2 USAGE OV `--SERVR`. NAO-OBSOLETE `--SERVR` ARGUMENT WUZ AUTOMATICALLY MAPPD INTO `IPC: TRUE` GLOBAL CONFIG PROPERTY, EFFECTIVELY ACTIN EGSAKTLY TEH SAME AS OLD `--SERVR` SWITCH 4 TIEM BEAN. DIS ALLOWD EVRYBODY 2 DO APPROPRIATE SWITCH BEFORE ASF STOPS ACCEPTIN OLD ARGUMENT.
+
+### STAGE 2
+
+STAGE 2 HAPPEND IN VERSHUN V3.1.3.0, RITE AFTR V3.1.2.9 STABLE WIF STAGE 1 EXPLAIND ABOOV. STAGE 2 CAUSD ASF 2 STOP RECOGNIZIN TEH `--SERVR` ARGUMENT AT ALL, TREATIN IT LIEK EVRY OTHR INVALID ARGUMENT BEAN PASD, WHICH NO LONGR HAS ANY EFFECT ON TEH PROGRAM. 4 PEEPS DAT STILL DIDNT CHANGE THEIR USAGE OV `--SERVR` INTO `IPC: TRUE`, IT CAUSD IPC 2 STOP FUNCSHUNIN ALTOGETHR, AS ASF NO LONGR DID APPROPRIATE MAPPIN.

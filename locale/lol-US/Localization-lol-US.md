@@ -1,141 +1,141 @@
-# Localization
+# LOCALIZASHUN
 
-ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into all languages spoken worldwide. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
+ASF IZ POWERD BY CROWDIN SERVICE, WHICH MAKEZ IT POSIBLE 4 EVRYBODY 2 HALP TRANZLATIN ASF INTO ALL LANGUAGEZ SPOKEN WORLDWIDE. 4 MOAR DETAILD EXPLANASHUN HOW CROWDIN WERKZ, PLZ CHECK OUT **<A HREF="https://support.crowdin.com/crowdin-intro">CROWDIN INTRODUCSHUN</A>**.
 
-If you're interested in what is currently going on, you can check **[ASF Crowdin activity](https://crowdin.com/project/archisteamfarm/activity_stream)**.
-
-* * *
-
-## Scope
-
-Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
+IF URE INTERESTD IN WUT IZ CURRENTLY GOIN ON, U CAN CHECK **<A HREF="https://crowdin.com/project/archisteamfarm/activity_stream">ASF CROWDIN ACTIVITY</A>**.
 
 * * *
 
-## Signing up
+## SCOPE
 
-If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
-
-* * *
-
-### Translating
-
-If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as `{0}`. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format. This is especially important in RTL languages, such as Hebrew.
-
-For example, you could have a string like:
-
-> We have {0} games to idle.
-
-But based on your language, following sentence could make more sense:
-
-> The number of games to idle is equal to {0}.
-
-Or:
-
-> {0} is the number of games to idle.
-
-The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.
+R PLATFORM SUPPORTS LOCALIZASHUN OV R MAIN ASF PROGRAM, AS WELL AS WHOLE LOCALIZABLE CONTENT DAT WE OFFR TOGETHR WIF IT. DIS INCLUDEZ ESPECIALLY R ASF-WEBCONFIGGENERATOR, ASF-UI, AS WELL AS R WIKI. ALL OV DAT IZ POSIBLE 2 TRANZLATE THRU CONVENIENT CROWDIN INTERFACE.
 
 * * *
 
-### Reviewing
+## SIGNIN UP
 
-If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion - this enhances overall translation quality even further. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
-
-**You do not need approval to see your translated strings in ASF**. Approval simply means that somebody trusted from us has reviewed the content, as in - picked the final version of the translation. It's totally fine to have not-approved community-driven translations, where you vote for the best one. As long as it's translated, everything is fine! And if you think that current translation is bad, you can always vote for the better one, or suggest one yourself.
+IF UD LIEK 2 HALP WIF ASF, EITHR BY TRANZLATIN, REVIEWIN OR APPROVIN TRANZLASHUNS, PLZ SIGN UP ON R **<A HREF="https://crowdin.com/project/archisteamfarm">CROWDIN PROJECT PAEG</A>**. REGISTRASHUN IZ EASY AN ABSOLUTELY FREE! AFTR LOGGIN IN U CAN PICK LANGUAGEZ DAT UD LIEK 2 GIT ASSIGND 2, DEN PROCED 2 ASF STRINGS AN HALP TEH REST OV TEH COMMUNITY WIF TRANZLATIN ASF INTO ALL MOST POPULAR LANGUAGEZ!
 
 * * *
 
-### Proof-reading
+### TRANZLATIN
 
-It's a good idea to have a consistent translation, even if it could potentially take freedom from community review/voting process explained above. This is mainly because incorrect translations that are not necessarily bad may get so many upvotes that it's no longer possible to suggest any better translation, even if somebody has such.
+IF TEH LANGUAGE OV UR CHOICE IZ STILL MISIN SUM STRINGS, U CAN GRAB THEM AN START WERKIN ON TEH TRANZLASHUN. WE TRID 2 DO R BEST IN TERMS OV FLEXIBILITY OV TEH TRANZLASHUNS, THEREFORE LOTZ DA STRINGS INCLUDE EXTRA VARIABLEZ DAT ASF WILL PROVIDE DURIN RUNTIME - DOSE R ENCLOSD IN BRACKETS WIF NUMBR, SUCH AS `{0}`. DIS ALLOWS U 2 ALTR DEFAULT ASF FORMAT OV TEH STRIN, E.G. BY MOVIN ASF-PROVIDD VARIABLE IN PLACE DAT SATISFIEZ UR LANGUAGE AN UR TRANZLASHUN, INSTEAD OV BEAN FORCD 2 STRICT CONTEXT AN FORMAT. DIS AR TEH ESPECIALLY IMPORTANT IN RTL LANGUAGEZ, SUCH AS HEBREW.
 
-If you have past history of contributions on Crowdin or any other localization platform/service that we can verify and assume trustworthy, we're happy to give you a proof-reader access to given language you're contributing to, so you'll be able to approve given translation and make it consistent. Proof-reading is not an easy task, especially because ASF can be very "technical" from time to time and really difficult to translate, but we understand that it's often needed for a perfect translation. Therefore if you can help by proof-reading given language, **[let us know](https://crowdin.com/messages/create/13177432/240376)**, but keep in mind that you'll need to back up your request with past localization contributions that we can verify (e.g. working with ASF localization on Crowdin, or with any other project). We may also allow more advanced users to pick up initial proof-reading, if we know them personally and they're capable of cooperating with the rest of the community in order to localize ASF in that language best.
+4 EXAMPLE, U CUD HAS STRIN LIEK:
 
-General rules apply for proof-reading - do not rush, listen to your users, work as a project manager, resolve issues, ensure that you're making things better and not worse.
+> WE HAS {0} GAMEZ 2 IDLE.
+
+BUT BASD ON UR LANGUAGE, FOLLOWIN SENTENCE CUD MAK MOAR SENSE:
+
+> TEH NUMBR OV GAMEZ 2 IDLE IZ EQUAL 2 {0}.
+
+OR:
+
+> {0} IZ TEH NUMBR OV GAMEZ 2 IDLE.
+
+TEH FLEXIBILITY IZ PROVIDD SPECIALLY 4 U, SO U CAN SLIGHTLY REWORD ASF SENTENCE 2 FIT UR LANGUAGE BETTR AN MOOV ASF-PROVIDD NUMBR OR OTHR INFORMASHUN IN PLACE DAT FITS UR TRANZLASHUN (INSTEAD OV TRANZLATIN EACH PART INDEPENDENTLY). DIS IMPROOVEZ OVERALL TRANZLASHUN QUALITY.
+
+* * *
+
+### REVIEWIN
+
+IF UR STRIN WUZ ALREADY TRANZLATD BY SOMEBODY ELSE, U CAN VOTE 4 IT. VOTIN MAKEZ IT POSIBLE 2 CHOOSE TEH BEST VARIANT OV TEH TRANZLASHUN, INSTEAD OV STICKIN WIF INITIAL SUGGESHUN - DIS ENHANCEZ OVERALL TRANZLASHUN QUALITY EVEN FURTHR. U CAN VOTE ON ALREADY AVAILABLE SUGGESHUNS, OR SUGGEST UR OWN TRANZLASHUN, WHICH WILL GO THRU TEH SAME PROCES. EVENTUALLY, FINAL STRIN WILL BE CHOSEN EITHR BASD ON MOST VOTD SUGGESHUN, OR AS CHOICE OV PROOFREADR SELECTD 4 DAT LANGUAGE HOO PERSONALLY APPROVEZ GIVEN TRANZLASHUN (BASD ON UR VOTEZ AS WELL).
+
+**U DO NOT NED APPROVAL 2 C UR TRANZLATD STRINGS IN ASF**. APPROVAL SIMPLY MEANZ DAT SOMEBODY TRUSTD FRUM US HAS REVIEWD TEH CONTENT, AS IN - PICKD TEH FINAL VERSHUN OV TEH TRANZLASHUN. IZ TOTALLY FINE 2 HAS NOT-APPROVD COMMUNITY-DRIVEN TRANZLASHUNS, WER U VOTE 4 DA BEST WAN. AS LONG AS IZ TRANZLATD, EVRYTHIN IZ FINE! AN IF U FINKZ DAT CURRENT TRANZLASHUN IZ BAD, U CAN ALWAYS VOTE 4 DA BETTR WAN, OR SUGGEST WAN YOURSELF.
+
+* * *
+
+### PROOF-READIN
+
+IT BE GUD IDEA 2 HAS CONSISTENT TRANZLASHUN, EVEN IF IT CUD POTENTIALLY TAEK FREEDOM FRUM COMMUNITY REVIEW/VOTIN PROCES EXPLAIND ABOOV. DIS AR TEH MAINLY CUZ INCORRECT TRANZLASHUNS DAT R NOT NECESARILY BAD CUD GIT SO LOTZ DA UPVOTEZ DAT IZ NO LONGR POSIBLE 2 SUGGEST ANY BETTR TRANZLASHUN, EVEN IF SOMEBODY HAS SUCH.
+
+IF U HAS PAST HISTORY OV CONTRIBUSHUNS ON CROWDIN OR ANY OTHR LOCALIZASHUN PLATFORM/SERVICE DAT WE CAN VERIFY AN ASSUME TRUSTWORTHY, WERE HAPPEH 2 GIV U PROOF-READR ACCES 2 GIVEN LANGUAGE URE CONTRIBUTIN 2, SO ULL BE ABLE 2 APPROOV GIVEN TRANZLASHUN AN MAK IT CONSISTENT. PROOF-READIN IZ NOT AN EASY TASK, ESPECIALLY CUZ ASF CAN BE VRY "TECHNICAL" FRUM TIEM 2 TIEM AN RLY DIFFICULT 2 TRANZLATE, BUT WE UNDERSTAND DAT IZ OFTEN NEEDD 4 PERFIK TRANZLASHUN. THEREFORE IF U CAN HALP BY PROOF-READIN GIVEN LANGUAGE, **<A HREF="https://crowdin.com/messages/create/13177432/240376">LET US KNOE</A>**, BUT KEEP IN MIND DAT ULL NED 2 BAK UP UR REQUEST WIF PAST LOCALIZASHUN CONTRIBUSHUNS DAT WE CAN VERIFY (E.G. WERKIN WIF ASF LOCALIZASHUN ON CROWDIN, OR WIF ANY OTHR PROJECT). WE CUD ALSO ALLOW MOAR ADVANCD USERS 2 PICK UP INITIAL PROOF-READIN, IF WE KNOE THEM PERSONALLY AN THEYRE CAPABLE OV COOPERATIN WIF TEH REST OV TEH COMMUNITY IN ORDR 2 LOCALIZE ASF IN DAT LANGUAGE BEST.
+
+GENERAL RULEZ APPLY 4 PROOF-READIN - DO NOT RUSH, LISTEN 2 UR USERS, WERK AS PROJECT MANAGR, RESOLVE ISSUEZ, ENSURE DAT URE MAKIN THINGS BETTR AN NOT WORSE.
 
 * * *
 
 ### Issues
 
-If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
+IF U HAS PROBLEM WIF PARTICULAR TRANZLASHUN, E.G. U DO NOT KNOE HOW 2 TRANZLATE IT, APPROVD TRANZLASHUN IZ INCORRECT, U NED MOAR SPECIFIC CONTEXT, OR LIKEWIZE, PLZ POST COMMENT UNDR SPECIFIC STRIN, AN MARK IT WIF [X] ISSUE.
 
-**Please avoid using issue mark if you do not need technical/development explanation or admin action**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating to, so please stick with English when writing issue comment (so we can understand what the issue is).
+**PLZ AVOID USIN ISSUE MARK IF U DO NOT NED TECHNICAL/DEVELOPMENT EXPLANASHUN OR ADMIN ACSHUN**. URE FREE 2 USE COMMENTS 4 DISCUSHUN RELATD 2 TRANZLASHUN OV GIVEN STRIN, BUT ISSUE SHUD BE USD ONLY WHEN U NED FURTHR TECHNICAL EXPLANASHUN OR ADMIN CORRECSHUN, AN IT WILL TYPICALLY INVOLVE SOMEBODY HOO DO NOT EVEN SPEEK TEH LANGUAGE URE TRANZLATIN 2, SO PLZ STICK WIF ENGLISH WHEN WRITIN ISSUE COMMENT (SO WE CAN UNDERSTAND WUT TEH ISSUE IZ).
 
-There are currently 4 supported type of issues:
+THAR R CURRENTLY 4 SUPPORTD TYPE OV ISSUEZ:
 
-* General question - for everything else that doesn't fit any issue below. In general this type **should be avoided**, as if your problem does not fit, then it's very likely **not** a translation issue. Still, this option is available here for all other cases.
-* Current translation is wrong - this should be used **only** if translation was pre-approved by proof-reader already, and you believe that it's wrong, for example it has a typo or you have a valid suggestion how to improve it. This type should never be used in translations that are powered by the community (voting), as in this case you should contact with user of given translation and ask him for correction, or simply vote for better translation, as stated in reviewing section.
-* Lack of contextual information - this is what you should use if you're not sure what part of ASF you're translating, what is the context of given string, or its purpose. This type should be used for ASF development only, it means you need technical assistance as you're not sure how you should translate given string.
-* Mistake in the source string - this should be used only if you believe that original (English) string is incorrect. Quite rare, but I'm not speaking English natively either, so feel free to use it if you have a general idea how it could be improved.
-
-* * *
-
-### Translation progress
-
-Every language has two states of completion - translation, and proof-reading.
-
-Language is considered **translated** when its translation progress reaches 100%. At this point every localizable string used by ASF has proper meaning, which is great. However, that doesn't mean that there is no room for improvement - community voting is enabled all the time and you can still suggest better translation for already-translated parts, as well as vote for existing ones. Please note that fully-translated languages can still drop below 100% when we change existing strings or add new ones during development. You can set up appropriate crowdin notifications if you'd like to receive e-mail when this happens.
-
-Selected languages may have appropriate proof-readers that validate translations and approve final versions. This is final pass after translation takes place and allows to further improve localization.
-
-ASF will include given language **as soon as possible**, which means that it doesn't need to be approved, or even 100% translated. The actual strings that will be used are always the most popular ones in terms of the votes, unless chosen proofreader decided otherwise (rarely). Therefore, you can see your efforts being included in the very next ASF release - our automation systems merge translations from Crowdin back to ASF repo on daily basis.
+* GENERAL QUESHUN - 4 EVRYTHIN ELSE DAT DOESNT FIT ANY ISSUE BELOW. IN GENERAL DIS TYPE **SHUD BE AVOIDD**, AS IF UR PROBLEM DOEZ NOT FIT, DEN IZ VRY LIKELY **NOT** TRANZLASHUN ISSUE. STILL, DIS OPSHUN IZ AVAILABLE HER 4 ALL OTHR CASEZ.
+* CURRENT TRANZLASHUN IZ WRONG - DIS SHUD BE USD **ONLY** IF TRANZLASHUN WUZ PRE-APPROVD BY PROOF-READR ALREADY, AN U BLEEV DAT IZ WRONG, 4 EXAMPLE IT HAS TYPO OR U HAS VALID SUGGESHUN HOW 2 IMPROOOV IT. DIS TYPE SHUD NEVR BE USD IN TRANZLASHUNS DAT R POWERD BY TEH COMMUNITY (VOTIN), AS IN DIS CASE U SHUD CONTACT WIF USR OV GIVEN TRANZLASHUN AN ASK HIM 4 CORRECSHUN, OR SIMPLY VOTE 4 BETTR TRANZLASHUN, AS STATD IN REVIEWIN SECSHUN.
+* LACK OV CONTEXTUAL INFORMASHUN - DIS AR TEH WUT U SHUD USE IF URE NOT SURE WUT PART OV ASF URE TRANZLATIN, WUT IZ TEH CONTEXT OV GIVEN STRIN, OR ITZ PURPOSE. DIS TYPE SHUD BE USD 4 ASF DEVELOPMENT ONLY, IT MEANZ U NED TECHNICAL ASSISTANCE AS URE NOT SURE HOW U SHUD TRANZLATE GIVEN STRIN.
+* MISTAEK IN DA SOURCE STRIN - DIS SHUD BE USD ONLY IF U BLEEV DAT ORIGINAL (ENGLISH) STRIN IZ INCORRECT. QUITE RARE, BUT IM NOT SPEAKIN ENGLISH NATIVELY EITHR, SO FEELZ FREE 2 USE IT IF U HAS GENERAL IDEA HOW IT CUD BE IMPROOVD.
 
 * * *
 
-## Missing languages
+### TRANZLASHUN PROGRES
 
-By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or a local dialect to already available one), please **[let us know](https://crowdin.com/messages/create/13177432/240376)** and we'll add it ASAP. We don't want to open several hundred different languages if nobody is going to translate them, that's why we limited it to some fair number. Please don't hesitate to contact us if you'd like to translate some not-listed language, it's very easy for us to add another one. Just make sure that you have actual willings and determination to translate ASF into your language, before you decide to contact with us.
+EVRY LANGUAGE HAS 2 STATEZ OV COMPLESHUN - TRANZLASHUN, AN PROOF-READIN.
 
-For a complete list of all available languages that ASF can be translated to, **[click here](https://support.crowdin.com/api/language-codes)**.
+LANGUAGE IZ CONSIDERD **TRANZLATD** WHEN ITZ TRANZLASHUN PROGRES REACHEZ 100%. AT DIS POINT EVRY LOCALIZABLE STRIN USD BY ASF HAS PROPR MEANIN, WHICH IZ GREAT. HOWEVR, DAT DOESNT MEEN DAT THAR IZ NO ROOM 4 IMPROOVEMENT - COMMUNITY VOTIN IZ ENABLD ALL TEH TIEM AN U CAN STILL SUGGEST BETTR TRANZLASHUN 4 ALREADY-TRANZLATD PARTS, AS WELL AS VOTE 4 EXISTIN ONEZ. PLZ NOWT DAT FULLY-TRANZLATD LANGUAGEZ CAN STILL DROP BELOW 100% WHEN WE CHANGE EXISTIN STRINGS OR ADD NEW ONEZ DURIN DEVELOPMENT. U CAN SET UP APPROPRIATE CROWDIN NOTIFICASHUNS IF UD LIEK 2 RECEIV E-MAIL WHEN DIS HAPPENS.
+
+SELECTD LANGUAGEZ CUD HAS APPROPRIATE PROOF-READERS DAT VALIDATE TRANZLASHUNS AN APPROOV FINAL VERSHUNS. DIS AR TEH FINAL PAS AFTR TRANZLASHUN TAKEZ PLACE AN ALLOWS 2 FURTHR IMPROOOV LOCALIZASHUN.
+
+ASF WILL INCLUDE GIVEN LANGUAGE **AS SOON AS POSIBLE**, WHICH MEANZ DAT IT DOESNT NED 2 BE APPROVD, OR EVEN 100% TRANZLATD. TEH AKSHUL STRINGS DAT WILL BE USD R ALWAYS TEH MOST POPULAR ONEZ IN TERMS OV TEH VOTEZ, UNLES CHOSEN PROOFREADR DECIDD OTHERWIZE (RARELY). THEREFORE, U CAN C UR EFFORTS BEAN INCLUDD IN DA VRY NEXT ASF RELEASE - R AUTOMASHUN SISTEMS MERGE TRANZLASHUNS FRUM CROWDIN BAK 2 ASF REPO ON DAILY BASIS.
 
 * * *
 
-## Pluralization
+## MISIN LANGUAGEZ
 
-Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
+BY DEFAULT ASF PROJECT HAS OPEN TRANZLASHUN ONLY 4 TOP 30 LANGUAGEZ DAT R SPOKEN WORLDWIDE. IF UD LIEK 2 ADD ANOTHR WAN (OR LOCAL DIALECT 2 ALREADY AVAILABLE WAN), PLZ **<A HREF="https://crowdin.com/messages/create/13177432/240376">LET US KNOE</A>** AN WELL ADD IT ASAP. WE DOAN WANTS 2 OPEN SEVERAL HUNDRD DIFFERENT LANGUAGEZ IF NOBODY IZ GOIN 2 TRANZLATE THEM, THAZ Y WE LIMITD IT 2 SUM FAIR NUMBR. PLZ DOAN HESITATE 2 CONTACT US IF UD LIEK 2 TRANZLATE SUM NOT-LISTD LANGUAGE, IZ VRY EASY 4 US 2 ADD ANOTHR WAN. JUS MAK SURE DAT U HAS AKSHUL WILLINGS AN DETERMINASHUN 2 TRANZLATE ASF INTO UR LANGUAGE, BEFORE U DECIDE 2 CONTACT WIF US.
 
-We're doing our best to offer you flexible localization, and as long as possible, this will also include plural rules. For example, we'll translate following string into Polish today:
+4 COMPLETE LIST OV ALL AVAILABLE LANGUAGEZ DAT ASF CAN BE TRANZLATD 2, **<A HREF="https://support.crowdin.com/api/language-codes">CLICK HER</A>**.
 
-> Released {PLURAL:n|{n} month|{n} months} ago
+* * *
 
-`PLURAL` keyword here is treated in a special way as it allows you to include all plural forms that your language supports. If you take a look at CLDR, you'll see that in English there are only 2 cardinal forms - "one", and "other". And as you can see above, we have both of those defined - `{n} month` and `{n} months`.
+## PLURALIZASHUN
 
-However, our Polish language actually includes 4 of them - "one", "few", "many" and "other". This means that we should define all of them for completion. Our localization tools are already smart enough to pick appropriate plural form based on language rules, therefore you only have to define all of them in the translation:
+EVRY LANGUAGE HAS ITZ OWN RULEZ IN REGARDZ 2 PLURALIZASHUN. DOSE RULEZ CAN BE FINDZ ON **<A HREF="https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html">CLDR</A>** WHICH SPECIFIEZ THEIR NUMBR AN EGSAKT LANGUAGE CONDISHUNS.
 
-> Wydany {PLURAL:n|{n} miesiąc|{n} miesiące|{n} miesięcy|{n} miesiąca} temu
+WERE DOIN R BEST 2 OFFR U FLEXIBLE LOCALIZASHUN, AN AS LONG AS POSIBLE, DIS WILL ALSO INCLUDE PLURAL RULEZ. 4 EXAMPLE, WELL TRANZLATE FOLLOWIN STRIN INTO POLISH TODAI:
 
-This way we've defined all 4 plural forms for our Polish language, and since our localization library already knows the exact rules, it'll properly use the correct form for provided `{n}` number.
+> RELEASD {PLURAL:N|{N} MONTH|{N} MONTHS} AGO
 
-It's not mandatory to define all plural forms used by your language. If missing, our localization library will use last defined form in its place. It's a good idea to define all plural forms used by your language, but in some cases remaining plural forms could be the same as last one, in which case it's not needed to repeat them. In our example above it was mandatory, as "other" form in Polish for months is "miesiąca", and not "miesięcy" as in "many".
+`PLURAL` KEYWORD HER IZ TREATD IN SPESHUL WAI AS IT ALLOWS U 2 INCLUDE ALL PLURAL FORMS DAT UR LANGUAGE SUPPORTS. IF U TAEK LOOK AT CLDR, ULL C DAT IN ENGLISH THAR R ONLY 2 CARDINAL FORMS - "WAN", AN "OTHR". AN AS U CAN C ABOOV, WE HAS BOTH OV DOSE DEFIND - `{N} MONTH` AN `{N} MONTHS`.
+
+HOWEVR, R POLISH LANGUAGE AKSHULLY INCLUDEZ 4 OV THEM - "WAN", "FEW", "LOTZ DA" AN "OTHR". DIS MEANZ DAT WE SHUD DEFINE ALL OV THEM 4 COMPLESHUN. R LOCALIZASHUN TOOLS R ALREADY SMART ENOUGH 2 PICK APPROPRIATE PLURAL FORM BASD ON LANGUAGE RULEZ, THEREFORE U ONLY HAS 2 DEFINE ALL OV THEM IN DA TRANZLASHUN:
+
+> WYDANY {PLURAL:N|{N} MIESIĄC|{N} MIESIĄCE|{N} MIESIĘCY|{N} MIESIĄCA} TEMU
+
+DIS WAI WEVE DEFIND ALL 4 PLURAL FORMS 4 R POLISH LANGUAGE, AN SINCE R LOCALIZASHUN LIBRARY ALREADY KNOWS TEH EGSAKT RULEZ, ITLL PROPERLY USE TEH CORRECT FORM 4 PROVIDD `{N}` NUMBR.
+
+IZ NOT MANDATORY 2 DEFINE ALL PLURAL FORMS USD BY UR LANGUAGE. IF MISIN, R LOCALIZASHUN LIBRARY WILL USE LAST DEFIND FORM IN ITZ PLACE. IT BE GUD IDEA 2 DEFINE ALL PLURAL FORMS USD BY UR LANGUAGE, BUT IN SUM CASEZ REMAININ PLURAL FORMS CUD BE TEH SAME AS LAST WAN, IN WHICH CASE IZ NOT NEEDD 2 REPEAT THEM. IN R EXAMPLE ABOOV IT WUZ MANDATORY, AS "OTHR" FORM IN POLISH 4 MONTHS IZ "MIESIĄCA", AN NOT "MIESIĘCY" AS IN "LOTZ DA".
 
 * * *
 
 ## WIKI
 
-Our crowdin platform also allows you to localize even the wiki itself. This is a very powerful tool, since it allows you to create a whole ASF documentation in your native language, effectively solving the very last issue when it comes to ASF localization. Together with translation of the program and all its parts, this makes localization complete.
+R CROWDIN PLATFORM ALSO ALLOWS U 2 LOCALIZE EVEN TEH WIKI ITSELF. DIS AR TEH VRY POWERFUL TOOL, SINCE IT ALLOWS U 2 CREATE WHOLE ASF DOCUMENTASHUN IN UR NATIV LANGUAGE, EFFECTIVELY SOLVIN TEH VRY LAST ISSUE WHEN IT COMEZ 2 ASF LOCALIZASHUN. TOGETHR WIF TRANZLASHUN OV TEH PROGRAM AN ALL ITZ PARTS, DIS MAKEZ LOCALIZASHUN COMPLETE.
 
-Wiki is a bit special in this regard, since it's online help where you don't need to stick with original sentence too much. This means that you want to be as natural with your language as possible, and deliver original meaning and help - not necessarily stick with original string, used words and actual punctuation. Don't be afraid of rewriting the string into something far more natural for your language, as long as you keep the general direction and help included in the sentence.
+WIKI IZ BIT SPESHUL IN DIS REGARD, SINCE IZ ONLINE HALP WER U DOAN NED 2 STICK WIF ORIGINAL SENTENCE 2 MUTCH. DIS MEANZ DAT U WANTS 2 BE AS NACHURAL WIF UR LANGUAGE AS POSIBLE, AN DELIVR ORIGINAL MEANIN AN HALP - NOT NECESARILY STICK WIF ORIGINAL STRIN, USD WERDZ AN AKSHUL PUNCTUASHUN. DOAN BE AFRAID OV REWRITIN TEH STRIN INTO SOMETHIN FAR MOAR NACHURAL 4 UR LANGUAGE, AS LONG AS U KEEP TEH GENERAL DIRECSHUN AN HALP INCLUDD IN DA SENTENCE.
 
 * * *
 
-### Global links
+### GLOBAL LINKZ
 
-Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
+R CROWDIN PLATFORM ALSO ALLOWS U 2 ADAPT TEH ORIGINAL TEXT IN ORDR 2 MAK IT POINT 2 NEW (LOCALIZD) LOCASHUNS.
 
-ASF includes links on almost every page for easier navigation, as well as sidebar on the right. The awesome fact is that you can edit all of that, "fixing" links to point to proper localized pages for your language. It requires to be a bit careful doing that, but it's possible.
+ASF INCLUDEZ LINKZ ON ALMOST EVRY PAEG 4 EASIR NAVIGASHUN, AS WELL AS SIDEBAR ON TEH RITE. TEH AWSUM FACT IZ DAT U CAN EDIT ALL OV DAT, "FIXIN" LINKZ 2 POINT 2 PROPR LOCALIZD PAGEZ 4 UR LANGUAGE. IT REQUIREZ 2 BE BIT CAREFUL DOIN DAT, BUT IZ POSIBLE.
 
-For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
+4 EXAMPLE, ASF **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home">HOME PAEG</A>** INCLUDEZ TEXT SUCH AS:
 
-> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
+> IF URE NEW USR, WE RECOMMEND STARTIN WIF **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up">SETTIN UP</A>** GUIDE.
 
-Which is originally written as:
+WHICH IZ ORIGINALLY WRITTEN AS:
 
 ```markdown
 If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 ```
 
-On the crowdin, first thing you should do is going to your editor settings and ensuring that HTML tags are set to "Show" for you. This is very important if you decide to localize the wiki.
+ON TEH CROWDIN, FURST TING U SHUD DO IZ GOIN 2 UR EDITOR SETTINGS AN ENSURIN DAT HTML TAGS R SET 2 "SHOW" 4 U. DIS AR TEH VRY IMPORTANT IF U DECIDE 2 LOCALIZE TEH WIKI.
 
 * * *
 
@@ -143,12 +143,12 @@ On the crowdin, first thing you should do is going to your editor settings and e
 
 * * *
 
-Now, during translating on the crowdin, depending on formatting, you'll see ASF links in the text either as:
+NAO, DURIN TRANZLATIN ON TEH CROWDIN, DEPENDIN ON FORMATTIN, ULL C ASF LINKZ IN DA TEXT EITHR AS:
 
-* String to translate together with HTML tags (majority of strings, where only part of the sentence is a link)
-* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar)
+* STRIN 2 TRANZLATE TOGETHR WIF HTML TAGS (MAJORITY OV STRINGS, WER ONLY PART OV TEH SENTENCE IZ LINK)
+* ALONE STRIN 2 TRANZLATE, WIF LINK INCLUDD IN `HIDDEN TEXTS` -> `LINK ADDRESEZ` (RARE, WER ENTIRE STRIN IZ LINK, MOST COMMON IN SIDEBAR)
 
-In our example above, it's the first case (since only "setting up" is a link), so in crowdin we'll see it as:
+IN R EXAMPLE ABOOV, IZ TEH FURST CASE (SINCE ONLY "SETTIN UP" IZ LINK), SO IN CROWDIN WELL C IT AS:
 
 * * *
 
@@ -156,7 +156,7 @@ In our example above, it's the first case (since only "setting up" is a link), s
 
 * * *
 
-Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) intact. This would be example of translation for Polish language:
+REGARDLES OV CASE, FIRSTLY U SHUD COPY TEH SOURCE STRIN AN TRANZLATE IT AS USUAL, LEAVIN ENTIRE HTML (IF PRESENT) INTACT. DIS WUD BE EXAMPLE OV TRANZLASHUN 4 POLISH LANGUAGE:
 
 * * *
 
@@ -164,9 +164,9 @@ Regardless of case, firstly you should copy the source string and translate it a
 
 * * *
 
-Now, if the link is a generic link that points outside of the wiki (e.g. to latest ASF release), you can leave it as it is since you don't want to edit it. You can save it and move forward.
+NAO, IF TEH LINK IZ GENERIC LINK DAT POINTS OUTSIDE OV TEH WIKI (E.G. 2 LATEST ASF RELEASE), U CAN LEEF IT AS IT SINCE U DOAN WANTS 2 EDIT IT. U CAN SAVE IT AN MOOV FWD.
 
-However, if the link **does** point further inside the wiki, like the one above, you can actually correct it to point to new (localized) location. You do this by carefully appending `-locale` to target URL in `<a>` tag, like below:
+HOWEVR, IF TEH LINK **DOEZ** POINT FURTHR INSIDE TEH WIKI, LIEK TEH WAN ABOOV, U CAN AKSHULLY CORRECT IT 2 POINT 2 NEW (LOCALIZD) LOCASHUN. U DO DIS BY CAREFULLY APPENDIN `-LOCALE` 2 TARGET URL IN `<A>` TAG, LIEK BELOW:
 
 * * *
 
@@ -174,19 +174,19 @@ However, if the link **does** point further inside the wiki, like the one above,
 
 * * *
 
-Be extremely careful about this, and ensure that your URL indeed exists, since if you make a mistake, that link will stop functioning. If you succeeded, you now have a fully functional translation with link pointing to translated (in our case `Setting-up-pl-PL`) page.
+BE EXTREMELY CAREFUL BOUT DIS, AN ENSURE DAT UR URL INDED EXISTS, SINCE IF U MAK MISTAEK, DAT LINK WILL STOP FUNCSHUNIN. IF U SUCCEEDD, U NAO HAS FULLY FUNCSHUNAL TRANZLASHUN WIF LINK POINTIN 2 TRANZLATD (IN R CASE `SETTIN-UP-PL-PL`) PAEG.
 
-Doing the steps above will properly translate our HTML back to markdown:
+DOIN TEH STEPS ABOOV WILL PROPERLY TRANZLATE R HTML BAK 2 MARKDOWN:
 
 ```markdown
 Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 ```
 
-And finally into wiki text:
+AN FINALLY INTO WIKI TEXT:
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
+WHEN NO HTML IZ PRESENT (SECOND CASE), DIS AR TEH EVEN EASIR SINCE U CAN JUS GO 2 `HIDDEN TEXTS` -> `LINK ADDRESEZ`.
 
 * * *
 
@@ -194,7 +194,7 @@ When no HTML is present (second case), this is even easier since you can just go
 
 * * *
 
-From there you can easily correct the link to point to new location, without even bothering with HTML at all:
+FRUM THAR U CAN EASILY CORRECT TEH LINK 2 POINT 2 NEW LOCASHUN, WITHOUT EVEN BOTHERIN WIF HTML AT ALL:
 
 * * *
 
@@ -202,11 +202,11 @@ From there you can easily correct the link to point to new location, without eve
 
 * * *
 
-### Local links
+### LOCAL LINKZ
 
-Across the wiki you will also find local links that point to particular section of the document. Those links include `#` character, indicating the web browser that it should move towards that section of the document.
+ACROS TEH WIKI U WILL ALSO FIND LOCAL LINKZ DAT POINT 2 PARTICULAR SECSHUN OV TEH DOCUMENT. DOSE LINKZ INCLUDE `#` CHARACTR, INDICATIN TEH WEB BROWSR DAT IT SHUD MOOV TOWARDZ DAT SECSHUN OV TEH DOCUMENT.
 
-Now those are special cases, since those links are based on names of the sections of current document. While for URLs we have general convention of adding `-locale` to the URL, and it works everywhere, section names will be translated by you and other people, so you need to ensure that they point to proper location.
+NAO DOSE R SPESHUL CASEZ, SINCE DOSE LINKZ R BASD ON NAMEZ OV TEH SECSHUNS OV CURRENT DOCUMENT. WHILE 4 URLS WE HAS GENERAL CONVENSHUN OV ADDIN `-LOCALE` 2 TEH URL, AN IT WERKZ EVRYWHERE, SECSHUN NAMEZ WILL BE TRANZLATD BY U AN OTHR PEEPS, SO U NED 2 ENSURE DAT THEY POINT 2 PROPR LOCASHUN.
 
 For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)** section:
 
@@ -216,7 +216,7 @@ For example you can find `#introduction` link in our **[configuration](https://g
 
 * * *
 
-Since we're going to translate "Introduction" word into "Wprowadzenie" for our Polish language, we'll need to correct this link since it'll stop functioning the moment we do this.
+SINCE WERE GOIN 2 TRANZLATE "INTRODUCSHUN" WERD INTO "WPROWADZENIE" 4 R POLISH LANGUAGE, WELL NED 2 CORRECT DIS LINK SINCE ITLL STOP FUNCSHUNIN TEH MOMENT WE DO DIS.
 
 * * *
 
@@ -224,39 +224,39 @@ Since we're going to translate "Introduction" word into "Wprowadzenie" for our P
 
 * * *
 
-This way our local link will keep working, since it'll now point to name of the section that we're using. You can correct links inside HTML tags in exactly the same way.
+DIS WAI R LOCAL LINK WILL KEEP WERKIN, SINCE ITLL NAO POINT 2 NAYM OV TEH SECSHUN DAT WERE USIN. U CAN CORRECT LINKZ INSIDE HTML TAGS IN EGSAKTLY TEH SAME WAI.
 
 * * *
 
-### Code blocks
+### CODE BLOCKZ
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. For example:
+BE EXTREMELY CAREFUL WHEN U TRANZLATE SENTENCEZ WIF `<CODE></CODE>` BLOCKZ INSIDE. CODE BLOCK INDICATEZ FIXD ASF CODE NAMEZ OR TERMS DAT SHUD NOT BE TRANZLATD. 4 EXAMPLE:
 
-> This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
+> DIS AR TEH ESPECIALLY USEFUL IF U HAS LOT OV KEYS 2 REDEEM AN URE GUARANTED 2 HIT `RATELIMITD` STATUS BEFORE URE DUN WIF UR ENTIRE BATCH.
 
-As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status that should not be translated. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise.
+AS U CAN C, `RATELIMITD` WERD HER IZ INNA code BLOCK AN INDICATEZ INTERNAL ASF code STATUS DAT SHUD NOT BE TRANZLATD. LIKEWIZE, U SHOULDNT TRANZLATE OTHR code BLOCKZ, SUCH AS NAMEZ OV CONFIG PROPERTIEZ (E.G. `TRADINGPREFERENCEZ`), ENUM MEMBERS (E.G. `STABLE` AN `EXPERIMENTAL` OPSHUNS OV `UPDATECHANNEL`) AN LIKEWIZE.
 
-However, just because those words should not be translated, doesn't mean that you can't add appropriate translation next to them, for example in brackets.
+HOWEVR, JUS CUZ DOSE WERDZ SHUD NOT BE TRANZLATD, DOESNT MEEN DAT U CANT ADD APPROPRIATE TRANZLASHUN NEXT 2 THEM, 4 EXAMPLE IN BRACKETS.
 
-> Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
+> TA FUNKCJA JEST WYJĄTKOWO UŻYTECZNA W PRZYPADKU AKTYWACJI DUŻEJ ILOŚCI KLUCZY I GWARANCJI NAPOTKANIA STATUSU `RATELIMITD` (ZBYT CZĘSTEJ AKTYWACJI) PRZD UKOŃCZENIEM CAŁEJ PARTII.
 
-As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user may see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
+AS U CAN C ABOOV, WEVE ADDD "ZBYT CZĘSTEJ AKTYWACJI", LITERALLY "2 OFTEN ACTIVASHUN" NEXT 2 `RATELIMITD` IN ORDR 2 TRANZLATE DAT STATUS IN FRIENDLY WAI, WHILE AT TEH SAME TIEM KEEPIN ORIGINAL ASF MEANIN DAT TEH USR CUD C DURIN USAGE OV TEH PROGRAM. IN DA SAME WAI U CAN TRANZLATE/EXPLAIN OTHR, SIMILAR CASEZ OV VARIOUS WERDZ AN SENTENCEZ.
 
-If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**. This also serves as a practical example of using a local link.
+If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**. DIS ALSO SERVEZ AS PRACTICAL EXAMPLE OV USIN LOCAL LINK.
 
 * * *
 
-## Hall of fame
+## HALL OV FAME
 
-We'd like to show our eternal gratitude to people that have spent a significant amount of their time and willings to make ASF localization better. Those contributors have translated at least over **20 thousand words in total**, around a half of the whole project. Their effort is incredible, and you can enjoy complete translations, including the wiki, mostly thanks to them.
+WED LIEK 2 SHOW R ETERNAL GRATITUDE 2 PEEPS DAT HAS SPENT SIGNIFICANT AMOUNT OV THEIR TIEM AN WILLINGS 2 MAK ASF LOCALIZASHUN BETTR. DOSE CONTRIBUTORS HAS TRANZLATD AT LEAST OVAR **20 THOUSAND WERDZ IN TOTAL**, AROUND HALF OV TEH WHOLE PROJECT. THEIR EFFORT IZ INCREDIBLE, AN U CAN ENJOY COMPLETE TRANZLASHUNS, INCLUDIN TEH WIKI, MOSTLY THX 2 THEM.
 
-| Contributor                                                | Languages          |
-| ---------------------------------------------------------- | ------------------ |
-| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | Spanish            |
-| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portuguese (BR)    |
-| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinese (CN)       |
-| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russian, Ukrainian |
-| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | German             |
-| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinese (HK)       |
+| CONTRIBUTOR                                                | LANGUAGEZ         |
+| ---------------------------------------------------------- | ----------------- |
+| **[ASTAROTH](https://crowdin.com/profile/astaroth2012)**   | SPANISH           |
+| **[DEAD_SAM](https://crowdin.com/profile/Dead_Sam)**       | PORTUGUEES (BR)   |
+| **[DELUXGHOST](https://crowdin.com/profile/deluxghost)**   | CHINEES (CN)      |
+| **[RYZHEHVOST](https://crowdin.com/profile/Ryzhehvost)**   | RUSIAN, UKRAINIAN |
+| **[SKANKHUNTR](https://crowdin.com/profile/MrBurrBurr)**   | GERMAN            |
+| **[XINXINGCHEN](https://crowdin.com/profile/XinxingChen)** | CHINEES (HK)      |
 
-Thank you all for improving our ASF localization quality!
+THANK U ALL 4 IMPROOVIN R ASF LOCALIZASHUN QUALITY!

@@ -1,51 +1,51 @@
-# Third-party
+# THIRD-PARTY
 
-This section includes various third-party additions written exclusively (or mainly) for usage together with ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
+DIS SECSHUN INCLUDEZ VARIOUS THIRD-PARTY ADDISHUNS WRITTEN EXCLUSIVELY (OR MAINLY) 4 USAGE TOGETHR WIF ASF. THEY RANGE FRUM ASF PLUGINS, THRU SIMPLE WEB APPLICASHUNS AN INTERNAL LIBRARIEZ 4 INTEGRASHUN, ENDIN WIF FULLY-FEATURD BOTS 4 OTHR PLATFORMS. IF UD LIEK 2 ADD SOMETHIN 2 TEH LIST, LET US KNOE ON DISCORD OR ON R STEAM GROUP.
 
-Please note that below programs are **not** maintained by ASF developers and therefore **we give no guarantee about any of them**, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only. You should always ensure that the third-party utility you're about to use is legit enough for you, as you're using all of them at your own risk.
-
-* * *
-
-## ASF plugins
-
-- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin for ASF adding functionality of creating booster packs.
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin for ASF to make bot names case-insensitive.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin for ASF to re-implement key redeeming without a command.
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin for ASF to automatically accept trade request for certain type(s) of items.
-- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, plugin for ASF to automatically process Steam invites.
-- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin for ASF allowing proxifying WebSocket connections.
+PLZ NOWT DAT BELOW PROGRAMS R **NOT** MAINTAIND BY ASF DEVELOPERS AN THEREFORE **WE GIV NO GUARANTEE BOUT ANY OV THEM**, ESPECIALLY IN TERMS OV SECURITY, SAFETY OR STEAM TOS COMPLIANCE. DIS LIST IZ MAINTAIND 4 REFERENCE ONLY. U SHUD ALWAYS ENSURE DAT TEH THIRD-PARTY UTILITY URE BOUT 2 USE IZ LEGIT ENOUGH 4 U, AS URE USIN ALL OV THEM AT UR OWN RISK.
 
 * * *
 
-## Integrations
+## ASF PLUGINS
 
-- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (minimal) telegram bot written in python featuring ASF integration.
-
-* * *
-
-## Libraries
-
-- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
+- **[ASF ACHIEVEMENT MANAGR](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, PLUGIN 4 ASF DAT ALLOWS U 2 MANAGE STEAM ACHIEVEMENTS.
+- **[BOOSTERCREATOR](https://github.com/Ryzhehvost/BoosterCreator)**, PLUGIN 4 ASF ADDIN FUNCSHUNALITY OV CREATIN BOOSTR PACKZ.
+- **[CASE-INSENSITIV-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, PLUGIN 4 ASF 2 MAK BOT NAMEZ CASE-INSENSITIV.
+- **[COMMANDLES-REDEEM](https://github.com/Ryzhehvost/Commandless-Redeem)**, PLUGIN 4 ASF 2 RE-IMPLEMENT KEY REDEEMIN WITHOUT COMMAND.
+- **[ITEMDISPENSR](https://github.com/Ryzhehvost/ItemDispenser)**, PLUGIN 4 ASF 2 AUTOMATICALLY ACCEPT TRADE REQUEST 4 CERTAIN TYPE(S) OV ITEMS.
+- **[STEAMINVITEHELPR-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, PLUGIN 4 ASF 2 AUTOMATICALLY PROCES STEAM INVITEZ.
+- **[STEAMKITPROXYINJECSHUN](https://github.com/Vital7/SteamKitProxyInjection)**, PLUGIN 4 ASF ALLOWIN PROXIFYIN WEBSOCKET CONNECSHUNS.
 
 * * *
 
-## Packaging
+## INTEGRASHUNS
 
-- **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
-- **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, allowing you to easily install ASF on arch linux.
-
-* * *
-
-## Tools
-
-- **[Keys extractor](https://ske.xpixv.com)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
-- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, which allows to manage multiple ASF configs more easily.
+- **[ASFBOT](https://github.com/dmcallejo/ASFBot)**, TELEGRAM BOT WRITTEN IN PYTHON WIF ASF INTEGRASHUN.
+- **[ASF STM USERSCRIPT](https://greasyfork.org/en/scripts/404754-asf-stm)**, 4 DOSE HOO WANTS 2 SEND AUTOMATD TRADE OFFERS 2 BOTS ON R **[ASF STM LISTIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** THRU WEB BROWSR, WITHOUT USIN `MATCHACTIVELY` FEACHUR PROVIDD BY ASF.
+- **[TELEGRAM-ASF](https://github.com/deluxghost/telegram-asf)**, ANOTHR (MINIMAL) TELEGRAM BOT WRITTEN IN PYTHON FEATURIN ASF INTEGRASHUN.
 
 * * *
 
-## Want to find more?
+## LIBRARIEZ
 
-We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** topic on GitHub for all projects that integrate with ASF.
+- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, PYTHON LIBRARY 4 FURTHR INTEGRASHUN WIF ASFS IPC INTERFACE.
+
+* * *
+
+## PACKAGIN
+
+- **[AUR REPO #1](https://aur.archlinux.org/packages/asf)**, ALLOWIN U 2 EASILY INSTALL ASF ON ARCH LINUX.
+- **[AUR REPO #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, ALLOWIN U 2 EASILY INSTALL ASF ON ARCH LINUX.
+
+* * *
+
+## TOOLS
+
+- **[KEYS EXTRACTOR](https://ske.xpixv.com)**, ALLOWS U 2 COPY-PASTE KEYS IN VARIOUS FORMATS AN CREATE `REDEEM` COMMAND 4 ASF. CHECK**[GITHUB REPO](https://github.com/PixvIO/SKE)** 4 MOAR DETAILS.
+- **[ASF MAS CONFIG EDITOR](https://github.com/genesix-eu/ASF_MCE)**, WHICH ALLOWS 2 MANAGE MULTIPLE ASF CONFIGS MOAR EASILY.
+
+* * *
+
+## WANTS 2 FIND MOAR?
+
+WE RECOMMEND **[ARCHISTEAMFARM](https://github.com/topics/archisteamfarm)** TOPIC ON GITHUB 4 ALL PROJECTS DAT INTEGRATE WIF ASF.

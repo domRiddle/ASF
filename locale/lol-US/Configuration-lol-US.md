@@ -1,10 +1,10 @@
-# Configuration
+# CONFIGURASHUN
 
-This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
+DIS PAEG IZ DEDICATD 4 ASF CONFIGURASHUN. IT SERVEZ AS COMPLETE DOCUMENTASHUN OV `CONFIG` DIRECTORY, ALLOWIN U 2 TUNE ASF 2 UR NEEDZ.
 
-- **[Introduction](#introduction)**
-- **[Web-based ConfigGenerator](#web-based-configgenerator)**
-- **[ASF-ui configuration](#asf-ui-configuration)**
+- **[INTRODUCSHUN](#introduction)**
+- **[WEB-BASD CONFIGGENERATOR](#web-based-configgenerator)**
+- **[ASF-UI CONFIGURASHUN](#asf-ui-configuration)**
 - **[Manual configuration](#manual-configuration)**
 - **[Global config](#global-config)**
 - **[Bot config](#bot-config)**
@@ -16,260 +16,260 @@ This page is dedicated for ASF configuration. It serves as a complete documentat
 
 * * *
 
-## Introduction
+## Introducshun
 
-ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
+ASF CONFIGURASHUN IZ DIVIDD INTO 2 MAJOR PARTS - GLOBAL (PROCES) CONFIGURASHUN, AN CONFIGURASHUN OV EVRY BOT. EVRY BOT HAS ITZ OWN BOT CONFIGURASHUN FILE NAMD `BOTNAME.JSON` (WER `BOTNAME` IZ TEH NAYM OV TEH BOT), WHILE GLOBAL ASF (PROCES) CONFIGURASHUN IZ SINGLE FILE NAMD `ASF.JSON`.
 
-A bot is a single steam account that is taking part in ASF process. In order to work properly, ASF needs at least **one** defined bot instance. There is no process-enforced limit of bot instances, so you can use as many bots (steam accounts) as you want to.
+A BOT IZ SINGLE STEAM AKOWNT DAT IZ TAKIN PART IN ASF PROCES. IN ORDR 2 WERK PROPERLY, ASF NEEDZ AT LEAST **WAN** DEFIND BOT INSTANCE. THAR IZ NO PROCES-ENFORCD LIMIT OV BOT INSTANCEZ, SO U CAN USE AS LOTZ DA BOTS (STEAM ACCOUNTS) AS U WANTS 2.
 
-ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing its config files. It's human-friendly, readable and very universal format in which you can configure the program. Don't worry though, you don't need to know JSON in order to configure ASF. I just mentioned it in case you'd already want to mass-create ASF configs with some sort of bash script.
+ASF IZ USIN **<A HREF="https://en.wikipedia.org/wiki/JSON">JSON</A>** FORMAT 4 STORIN ITZ CONFIG FILEZ. IZ HOOMAN-FRIENDLY, READABLE AN VRY UNIVERSAL FORMAT IN WHICH U CAN CONFIGURE TEH PROGRAM. DOAN WORRY THOUGH, U DOAN NED 2 KNOE JSON IN ORDR 2 CONFIGURE ASF. I JUS MENSHUND IT IN CASE UD ALREADY WANTS 2 MAS-CREATE ASF CONFIGS WIF SUM SORT OV BASH SCRIPT.
 
-Configuration can be done in several ways. You can use our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which is a local app independent of ASF. You can use our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC frontend for configuration done directly in ASF. Lastly, you can always generate config files manually, as they follow fixed JSON structure specified below. We'll explain shortly the available options.
-
-* * *
-
-## Web-based ConfigGenerator
-
-The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
-
-Web-based ConfigGenerator is verified to run properly on Chrome and Firefox, but it should work properly in all most popular javascript-enabled browsers.
-
-The usage is quite simple - select whether you want to generate `ASF` or `Bot` config by switching to proper tab, ensure that chosen version of config file matches your ASF release, then input all details and hit "download" button. Move this file to ASF `config` directory, overwriting existing files if needed. Repeat for all eventual further modifications and refer to the rest of this section for explanation of all available options to configure.
+CONFIGURASHUN CAN BE DUN IN SEVERAL WAYS. U CAN USE R **<A HREF="https://justarchinet.github.io/ASF-WebConfigGenerator">WEB-BASD CONFIGGENERATOR</A>**, WHICH IZ LOCAL APP INDEPENDENT OV ASF. U CAN USE R **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui">ASF-UI</A>** IPC FRONTEND 4 CONFIGURASHUN DUN DIRECTLY IN ASF. LASTLY, U CAN ALWAYS GENERATE CONFIG FILEZ MANUALLY, AS THEY FOLLOW FIXD JSON STRUCCHUR SPECIFID BELOW. WELL EXPLAIN SHORTLY TEH AVAILABLE OPSHUNS.
 
 * * *
 
-## ASF-ui configuration
+## WEB-BASD CONFIGGENERATOR
 
-Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
+TEH PURPOSE OV R **<A HREF="https://justarchinet.github.io/ASF-WebConfigGenerator">WEB-BASD CONFIGGENERATOR</A>** IZ 2 PROVIDE U WIF FRIENDLY FRONTEND DAT IZ USD 4 GENERATIN ASF CONFIGURASHUN FILEZ. WEB-BASD CONFIGGENERATOR IZ 100% CLIENT-BASD, WHICH MEANZ DAT TEH DETAILS URE INPUTTIN R NOT BEAN SENT ANYWHERE, BUT PROCESD LOCALLY ONLY. DIS GUARANTEEZ SECURITY AN RELIABILITY, AS IT CAN EVEN WERK **<A HREF="https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs">OFFLINE</A>** IF UD LIEK 2 DOWNLOAD ALL TEH FILEZ AN RUN `INDEX.HTML` IN UR FAVOURITE BROWSR.
 
-In order to use ASF-ui, firstly you must enable our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface itself. You can do that by using our Web-based ConfigGenerator explained above, generating a very simple `ASF` config with enabled `IPC` setting and nothing else. Alternatively, you could also generate such simple config yourself, as `ASF.json` file with `{ "IPC": true }` json content inside.
+WEB-BASD CONFIGGENERATOR IZ VERIFID 2 RUN PROPERLY ON CHROME AN FIREFOX, BUT IT SHUD WERK PROPERLY IN ALL MOST POPULAR JAVASCRIPT-ENABLD BROWSERS.
 
-Afterwards, launch ASF with the above config, ensure that `IPC` interface is started, then navigate to ASF's **[IPC address](http://localhost:1242)**. You can now do the remaining configuration of ASF through ASF-ui interface.
-
-* * *
-
-## Manual configuration
-
-In general we strongly recommend using either our ConfigGenerator or ASF-ui, as it's much easier and ensures you won't make a mistake in the JSON structure, but if for some reason you don't want to, then you can also create proper configs manually. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using any of our frontends, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Even if it's a valid JSON, you also have to ensure that all the properties have the proper type, as required by ASF. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and our documentation below.
+TEH USAGE IZ QUITE SIMPLE - SELECT WHETHR U WANTS 2 GENERATE `ASF` OR `BOT` CONFIG BY SWITCHIN 2 PROPR TAB, ENSURE DAT CHOSEN VERSHUN OV CONFIG FILE MATCHEZ UR ASF RELEASE, DEN INPUT ALL DETAILS AN HIT "DOWNLOAD" BUTN. MOOV DIS FILE 2 ASF `CONFIG` DIRECTORY, OVERWRITIN EXISTIN FILEZ IF NEEDD. REPEAT 4 ALL EVENTUAL FURTHR MODIFICASHUNS AN REFR 2 TEH REST OV DIS SECSHUN 4 EXPLANASHUN OV ALL AVAILABLE OPSHUNS 2 CONFIGURE.
 
 * * *
 
-## Global config
+## ASF-UI CONFIGURASHUN
 
-Global config is located in `ASF.json` file and has following structure:
+R **<A HREF="HTTPS://GITHUB.COM/JUSTARCHINET/ARCHISTEAMFARM/WIKI/IPC#ASF-UI">ASF-UI</A>** IPC INTERFACE ALLOWS U 2 CONFIGURE ASF AS WELL, AN IZ SUPERIOR SOLUSHUN 4 RECONFIGURIN ASF AFTR GENERATIN TEH INITIAL CONFIGS DUE 2 TEH FACT DAT IT CAN EDIT TEH CONFIGS IN-PLACE, AS OPPOSD 2 WEB-BASD CONFIGGENERATOR WHICH GENERATEZ THEM STATICALLY.
+
+IN ORDR 2 USE ASF-UI, FIRSTLY U MUST ENABLE R **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC">IPC</A>** INTERFACE ITSELF. U CAN DO DAT BY USIN R WEB-BASD CONFIGGENERATOR EXPLAIND ABOOV, GENERATIN VRY SIMPLE `ASF` CONFIG WIF ENABLD `IPC` SETTIN AN NOTHIN ELSE. ALTERNATIVELY, U CUD ALSO GENERATE SUCH SIMPLE CONFIG YOURSELF, AS `ASF.JSON` FILE WIF `{ "IPC": TRUE }` JSON CONTENT INSIDE.
+
+AFTERWARDZ, LAUNCH ASF WIF TEH ABOOV CONFIG, ENSURE DAT `IPC` INTERFACE IZ STARTD, DEN NAVIGATE 2 ASFS **<A HREF="http://localhost:1242">IPC ADDRES</A>**. U CAN NAO DO TEH REMAININ CONFIGURASHUN OV ASF THRU ASF-UI INTERFACE.
+
+* * *
+
+## MANUAL CONFIGURASHUN
+
+IN GENERAL WE STRONGLY RECOMMEND USIN EITHR R CONFIGGENERATOR OR ASF-UI, AS IZ MUTCH EASIR AN ENSUREZ U WONT MAK MISTAEK IN DA JSON STRUCCHUR, BUT IF 4 SUM REASON U DOAN WANTS 2, DEN U CAN ALSO CREATE PROPR CONFIGS MANUALLY. CHECK JSON EXAMPLEZ BELOW 4 GUD START IN PROPR STRUCCHUR, U CAN COPY TEH CONTENT INTO FILE AN USE IT AS BASE 4 UR CONFIG. SINCE URE NOT USIN ANY OV R FRONTENDZ, ENSURE DAT UR CONFIG IZ **<A HREF="https://jsonlint.com">VALID</A>**, AS ASF WILL REFUSE 2 LOAD IT IF IT CANT BE PARSD. EVEN IF IT BE VALID JSON, U ALSO HAS 2 ENSURE DAT ALL TEH PROPERTIEZ HAS TEH PROPR TYPE, AS REQUIRD BY ASF. 4 PROPR JSON STRUCCHUR OV ALL AVAILABLE FIELDZ, REFR 2 **[JSON MAPPIN](#json-mappin)** SECSHUN AN R DOCUMENTASHUN BELOW.
+
+* * *
+
+## GLOBAL CONFIG
+
+GLOBAL CONFIG IZ LOCATD IN `ASF.JSON` FILE AN HAS FOLLOWIN STRUCCHUR:
 
 ```json
 {
-    "AutoRestart": true,
-    "Blacklist": [],
-    "CommandPrefix": "!",
-    "ConfirmationsLimiterDelay": 10,
-    "ConnectionTimeout": 90,
-    "CurrentCulture": null,
-    "Debug": false,
-    "FarmingDelay": 15,
-    "GiftsLimiterDelay": 1,
-    "Headless": false,
-    "IdleFarmingPeriod": 8,
-    "InventoryLimiterDelay": 3,
-    "IPC": false,
-    "IPCPassword": null,
-    "IPCPasswordFormat": 0,
-    "LoginLimiterDelay": 10,
-    "MaxFarmingTime": 10,
-    "MaxTradeHoldDuration": 15,
-    "OptimizationMode": 0,
-    "Statistics": true,
-    "SteamMessagePrefix": "/me ",
-    "SteamOwnerID": 0,
-    "SteamProtocols": 7,
-    "UpdateChannel": 1,
-    "UpdatePeriod": 24,
-    "WebLimiterDelay": 300,
-    "WebProxy": null,
-    "WebProxyPassword": null,
-    "WebProxyUsername": null
+    "AUTORESTART": TRUE,
+    "BLACKLIST": [],
+    "COMMANDPREFIX": "!",
+    "CONFIRMASHUNSLIMITERDELAY": 10,
+    "CONNECSHUNTIMEOUT": 90,
+    "CURRENTCULCHUR": NULL,
+    "DEBUG": FALSE,
+    "FARMINGDELAY": 15,
+    "GIFTSLIMITERDELAY": 1,
+    "HEADLES": FALSE,
+    "IDLEFARMINGPERIOD": 8,
+    "INVENTORYLIMITERDELAY": 3,
+    "IPC": FALSE,
+    "IPCPASWORD": NULL,
+    "IPCPASWORDFORMAT": 0,
+    "LOGINLIMITERDELAY": 10,
+    "MAXFARMINGTIME": 10,
+    "MAXTRADEHOLDDURASHUN": 15,
+    "OPTIMIZASHUNMODE": 0,
+    "STATISTICS": TRUE,
+    "STEAMMESAGEPREFIX": "/ME ",
+    "STEAMOWNERID": 0,
+    "STEAMPROTOCOLS": 7,
+    "UPDATECHANNEL": 1,
+    "UPDATEPERIOD": 24,
+    "WEBLIMITERDELAY": 300,
+    "WEBPROXY": NULL,
+    "WEBPROXYPASWORD": NULL,
+    "WEBPROXYUSERNAME": NULL
 }
 ```
 
 * * *
 
-All options are explained below:
+ALL OPSHUNS R EXPLAIND BELOW:
 
 ### `AutoRestart`
 
-`bool` type with default value of `true`. This property defines if ASF is allowed to perform a self-restart when needed. There are a few events that will require from ASF a self-restart, such as ASF update (done with `UpdatePeriod` or `update` command), as well as `ASF.json` config edit, `restart` command and likewise. Typically, restart includes two parts - creating new process, and finishing current one. Most users should be fine with it and keep this property with default value of `true`, however - if you're running ASF through your own script and/or with `dotnet`, you may want to have full control over starting the process, and avoid a situation such as having new (restarted) ASF process running somewhere silently in the background, and not in the foreground of the script, that exited together with old ASF process. This is especially important considering the fact that new process will no longer be your direct child, which would make you unable e.g. to use standard console input for it.
+`BOOL` TYPE WIF DEFAULT VALUE OV `TRUE`. DIS PROPERTY DEFINEZ IF ASF IZ ALLOWD 2 PERFORM SELF-RESTART WHEN NEEDD. THAR R FEW EVENTS DAT WILL REQUIRE FRUM ASF SELF-RESTART, SUCH AS ASF UPDATE (DUN WIF `UPDATEPERIOD` OR `UPDATE` COMMAND), AS WELL AS `ASF.JSON` CONFIG EDIT, `RESTART` COMMAND AN LIKEWIZE. TYPICALLY, RESTART INCLUDEZ 2 PARTS - CREATIN NEW PROCES, AN FINISHIN CURRENT WAN. MOST USERS SHUD BE FINE WIF IT AN KEEP DIS PROPERTY WIF DEFAULT VALUE OV `TRUE`, HOWEVR - IF URE RUNNIN ASF THRU UR OWN SCRIPT AN/OR WIF `DOTNET`, U CUD WANTS 2 HAS FULL CONTROL OVAR STARTIN TEH PROCES, AN AVOID SITUASHUN SUCH AS HAVIN NEW (RESTARTD) ASF PROCES RUNNIN SOMEWHERE SILENTLY IN DA BAKGROUND, AN NOT IN DA FOREGROUND OV TEH SCRIPT, DAT EXITD TOGETHR WIF OLD ASF PROCES. DIS AR TEH ESPECIALLY IMPORTANT CONSIDERIN TEH FACT DAT NEW PROCES WILL NO LONGR BE UR DIRECT CHILD, WHICH WUD MAK U UNABLE E.G. 2 USE STANDARD CONSOLE INPUT 4 IT.
 
-If that's the case, this property if specially for you and you can set it to `false`. However, keep in mind that in such case **you** are responsible for restarting the process. This is somehow important as ASF will only exit instead of spawning new process (e.g. after update), so if there is no logic added by you, it'll simply stop working until you start it again. ASF always exits with proper error code indicating success (zero) or non-success (non-zero), this way you're able to add proper logic in your script which should avoid auto-restarting ASF in case of failure, or at least make a local copy of `log.txt` for further analysis. Also keep in mind that `restart` command will always restart ASF regardless of how this property is set, as this property defines default behaviour, while `restart` command always restarts the process. Unless you have a reason to disable this feature, you should keep it enabled.
+IF THAZ TEH CASE, DIS PROPERTY IF SPECIALLY 4 U AN U CAN SET IT 2 `FALSE`. HOWEVR, KEEP IN MIND DAT IN SUCH CASE **U** R RESPONSIBLE 4 RESTARTIN TEH PROCES. DIS AR TEH SOMEHOW IMPORTANT AS ASF WILL ONLY EXIT INSTEAD OV SPAWNIN NEW PROCES (E.G. AFTR UPDATE), SO IF THAR IZ NO LOGIC ADDD BY U, ITLL SIMPLY STOP WERKIN TIL U START IT AGAIN. ASF ALWAYS EXITS WIF PROPR ERROR CODE INDICATIN SUCCES (ZERO) OR NON-SUCCES (NON-ZERO), DIS WAI URE ABLE 2 ADD PROPR LOGIC IN UR SCRIPT WHICH SHUD AVOID AUTO-RESTARTIN ASF IN CASE OV FAILURE, OR AT LEAST MAK LOCAL COPY OV `LOG.TXT` 4 FURTHR ANALYSIS. ALSO KEEP IN MIND DAT `RESTART` COMMAND WILL ALWAYS RESTART ASF REGARDLES OV HOW DIS PROPERTY IZ SET, AS DIS PROPERTY DEFINEZ DEFAULT BEHAVIOUR, WHILE `RESTART` COMMAND ALWAYS RESTARTS TEH PROCES. UNLES U HAS REASON 2 DISABLE DIS FEACHUR, U SHUD KEEP IT ENABLD.
 
 * * *
 
 ### `Blacklist`
 
-`ImmutableHashSet<uint>` type with default value of being empty. As the name suggests, this global config property defines appIDs (games) that will be entirely ignored by automatic ASF idling process. Unfortunately Steam loves to flag summer/winter sale badges as "available for cards drop", which confuses ASF process by making it believe that it's a valid game that should be farmed. If there was no any kind of blacklist, ASF would eventually "hang" at farming a game which is in fact not a game, and wait infinitely for cards drop that will not happen. ASF blacklist serves a purpose of marking those badges as not available for farming, so we can silently ignore them when deciding what to farm, and not fall into the trap.
+`IMMUTABLEHASHSET<UINT>` TYPE WIF DEFAULT VALUE OV BEAN EMPTY. AS TEH NAYM SUGGESTS, DIS GLOBAL CONFIG PROPERTY DEFINEZ APPIDZ (GAMEZ) DAT WILL BE ENTIRELY IGNORD BY AUTOMATIC ASF IDLIN PROCES. UNFORTUNATELY STEAM LOVEZ 2 FLAG SUMMR/WINTR SALE BADGEZ AS "AVAILABLE 4 CARDZ DROP", WHICH CONFUSEZ ASF PROCES BY MAKIN IT BLEEV DAT IT BE VALID GAME DAT SHUD BE FARMD. IF THAR WUZ NO ANY KIND OV BLACKLIST, ASF WUD EVENTUALLY "HANG" AT FARMIN GAME WHICH IZ IN FACT NOT GAME, AN WAIT INFINITELY 4 CARDZ DROP DAT WILL NOT HAPPEN. ASF BLACKLIST SERVEZ PURPOSE OV MARKIN DOSE BADGEZ AS NOT AVAILABLE 4 FARMIN, SO WE CAN SILENTLY IGNORE THEM WHEN DECIDIN WUT 2 FARM, AN NOT FALL INTO TEH TRAP.
 
-ASF includes two blacklists by default - `GlobalBlacklist`, which is hardcoded into the ASF code and not possible to edit, and normal `Blacklist`, which is defined here. `GlobalBlacklist` is updated together with ASF version and typically includes all "bad" appIDs at the time of release, so if you're using up-to-date ASF then you do not need to maintain your own `Blacklist` defined here. The main purpose of this property is to allow you blacklisting new, not-known at the time of ASF release appIDs, which should not be farmed. Hardcoded `GlobalBlacklist` is being updated as fast as possible, therefore you're not required to update your own `Blacklist` if you're using latest ASF version, but without `Blacklist` you'd be forced to update ASF in order to "keep running" when Valve releases new sale badge - I don't want to force you to use latest ASF code, therefore this property is here to allow you "fixing" ASF yourself if you for some reason don't want to, or can't, update to new hardcoded `GlobalBlacklist` in new ASF release, yet you want to keep your old ASF running. Unless you have a **strong** reason to edit this property, you should keep it at default.
+ASF INCLUDEZ 2 BLACKLISTS BY DEFAULT - `GLOBALBLACKLIST`, WHICH IZ HARDCODD INTO TEH ASF CODE AN NOT POSIBLE 2 EDIT, AN NORMAL `BLACKLIST`, WHICH IZ DEFIND HER. `GLOBALBLACKLIST` IZ UPDATD TOGETHR WIF ASF VERSHUN AN TYPICALLY INCLUDEZ ALL "BAD" APPIDZ AT TEH TIEM OV RELEASE, SO IF URE USIN UP-2-DATE ASF DEN U DO NOT NED 2 MAINTAIN UR OWN `BLACKLIST` DEFIND HER. TEH MAIN PURPOSE OV DIS PROPERTY IZ 2 ALLOW U BLACKLISTIN NEW, NOT-KNOWN AT TEH TIEM OV ASF RELEASE APPIDZ, WHICH SHUD NOT BE FARMD. HARDCODD `GLOBALBLACKLIST` IZ BEAN UPDATD AS FAST AS POSIBLE, THEREFORE URE NOT REQUIRD 2 UPDATE UR OWN `BLACKLIST` IF URE USIN LATEST ASF VERSHUN, BUT WITHOUT `BLACKLIST` UD BE FORCD 2 UPDATE ASF IN ORDR 2 "KEEP RUNNIN" WHEN VALVE RELEASEZ NEW SALE BADGE - I DOAN WANTS 2 FORCE U 2 USE LATEST ASF CODE, THEREFORE DIS PROPERTY IZ HER 2 ALLOW U "FIXIN" ASF YOURSELF IF U 4 SUM REASON DOAN WANTS 2, OR CANT, UPDATE 2 NEW HARDCODD `GLOBALBLACKLIST` IN NEW ASF RELEASE, YET U WANTS 2 KEEP UR OLD ASF RUNNIN. UNLES U HAS **STRONG** REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
-If you're looking for bot-based blacklist instead, take a look at `ib`, `ibadd` and `ibrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+IF URE LOOKIN 4 BOT-BASD BLACKLIST INSTEAD, TAEK LOOK AT `IB`, `IBADD` AN `IBRM` **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands">COMMANDZ</A>**.
 
 * * *
 
 ### `CommandPrefix`
 
-`string` type with default value of `!`. This property specifies **case-sensitive** prefix used for ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. In other words, this is what you need to prepend to each ASF command in order to make ASF listen to you. It's possible to set this value to `null` or empty in order to make ASF use no command prefix, in which case you input commands with their plain identifiers. However, doing so will potentially decrease ASF's performance as ASF is optimized to not parse message further if it doesn't start with `CommandPrefix` - if you intentionally decide to not use it, ASF will be forced to read all messages and respond to them, even if they're not ASF commands. Therefore it's recommended to keep using some `CommandPrefix`, such as `/` if you don't like default value of `!`. For consistency, `CommandPrefix` affects the entire ASF process. Unless you have a reason to edit this property, you should keep it at default.
+`STRIN` TYPE WIF DEFAULT VALUE OV `!`. DIS PROPERTY SPECIFIEZ **CASE-SENSITIV** PREFIX USD 4 ASF **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands">COMMANDZ</A>**. IN OTHR WERDZ, DIS AR TEH WUT U NED 2 PREPEND 2 EACH ASF COMMAND IN ORDR 2 MAK ASF LISTEN 2 U. IZ POSIBLE 2 SET DIS VALUE 2 `NULL` OR EMPTY IN ORDR 2 MAK ASF USE NO COMMAND PREFIX, IN WHICH CASE U INPUT COMMANDZ WIF THEIR PLAIN IDENTIFIERS. HOWEVR, DOIN SO WILL POTENTIALLY DECREASE ASFS PERFORMANCE AS ASF IZ OPTIMIZD 2 NOT PARSE MESAGE FURTHR IF IT DOESNT START WIF `COMMANDPREFIX` - IF U INTENSHUNALLY DECIDE 2 NOT USE IT, ASF WILL BE FORCD 2 READ ALL MESAGEZ AN RESPOND 2 THEM, EVEN IF THEYRE NOT ASF COMMANDZ. THEREFORE IZ RECOMMENDD 2 KEEP USIN SUM `COMMANDPREFIX`, SUCH AS `/` IF U DOAN LIEK DEFAULT VALUE OV `!`. 4 CONSISTENCY, `COMMANDPREFIX` AFFECTS TEH ENTIRE ASF PROCES. UNLES U HAS REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
 ### `ConfirmationsLimiterDelay`
 
-`byte` type with default value of `10`. ASF will ensure that there will be at least `ConfirmationsLimiterDelay` seconds in between of two consecutive 2FA confirmations fetching requests to avoid triggering rate-limit - those are being used by **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** during e.g. `2faok` command, as well as on as-needed basis when performing various trading-related operations. Default value was set based on our tests and should not be lowered if you don't want to run into issues. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`BYTE` TYPE WIF DEFAULT VALUE OV `10`. ASF WILL ENSURE DAT THAR WILL BE AT LEAST `CONFIRMASHUNSLIMITERDELAY` SECONDZ IN TWEEN OV 2 CONSECUTIV 2FA CONFIRMASHUNS FETCHIN REQUESTS 2 AVOID TRIGGERIN RATE-LIMIT - DOSE R BEAN USD BY **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication">ASF 2FA</A>** DURIN E.G. `2FAOK` COMMAND, AS WELL AS ON AS-NEEDD BASIS WHEN PERFORMIN VARIOUS TRADIN-RELATD OPERASHUNS. DEFAULT VALUE WUZ SET BASD ON R TESTS AN SHUD NOT BE LOWERD IF U DOAN WANTS 2 RUN INTO ISSUEZ. UNLES U HAS **STRONG** REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
 ### `ConnectionTimeout`
 
-`byte` type with default value of `90`. This property defines timeouts for various network actions done by ASF, in seconds. In particular, `ConnectionTimeout` defines timeout in seconds for HTTP and IPC requests, `ConnectionTimeout / 10` defines maximum number of failed heartbeats, while `ConnectionTimeout / 30` defines number of minutes we allow for initial Steam network connection request. Default value of `90` should be fine for majority of people, however, if you have rather slow network connection or PC, you may want to increase this number to something higher (like `120`). Keep in mind that bigger values will not magically fix slow or even inaccessible Steam servers, so we shouldn't infinitely wait for something that won't happen and simply try again later. Setting this value too high will result in excessive delay in catching network issues, as well as in decrease of overall performance. Setting this value too low will decrease overall stability and performance as well, as ASF will abort valid request still being parsed. Therefore setting this value lower than default has no advantage in general, as Steam servers tend to be super slow from time to time, and could require more time for parsing ASF requests. Default value is a balance between believing that our network connection is stable, and doubting in Steam network to handle our request in given timeout. If you want to detect issues sooner and make ASF reconnect/respond faster, default value should do (or very slightly below, like `60`, making ASF less patient). If you instead notice that ASF is running into network issues, such as failing requests, heartbeats being lost or connection to Steam interrupted, it probably makes sense to increase this value if you're sure that it's **not** caused by your network, but by Steam itself, as increasing timeouts makes ASF more "patient" and not deciding to reconnect right away.
+`BYTE` TYPE WIF DEFAULT VALUE OV `90`. DIS PROPERTY DEFINEZ TIEMOUTS 4 VARIOUS NETWORK ACSHUNS DUN BY ASF, IN SECONDZ. IN PARTICULAR, `CONNECSHUNTIMEOUT` DEFINEZ TIEMOUT IN SECONDZ 4 HTTP AN IPC REQUESTS, `CONNECSHUNTIMEOUT / 10` DEFINEZ MAXIMUM NUMBR OV FAILD HEARTBEATS, WHILE `CONNECSHUNTIMEOUT / 30` DEFINEZ NUMBR OV MINUTEZ WE ALLOW 4 INITIAL STEAM NETWORK CONNECSHUN REQUEST. DEFAULT VALUE OV `90` SHUD BE FINE 4 MAJORITY OV PEEPS, HOWEVR, IF U HAS RATHR SLOW NETWORK CONNECSHUN OR PC, U CUD WANTS 2 INCREASE DIS NUMBR 2 SOMETHIN HIGHR (LIEK `120`). KEEP IN MIND DAT BIGGR VALUEZ WILL NOT MAGICALLY FIX SLOW OR EVEN INACCESIBLE STEAM SERVERS, SO WE SHOULDNT INFINITELY WAIT 4 SOMETHIN DAT WONT HAPPEN AN SIMPLY TRY AGAIN LATR. SETTIN DIS VALUE 2 HIGH WILL RESULT IN EXCESIV DELAY IN KATCHIN NETWORK ISSUEZ, AS WELL AS IN DECREASE OV OVERALL PERFORMANCE. SETTIN DIS VALUE 2 LOW WILL DECREASE OVERALL STABILITY AN PERFORMANCE AS WELL, AS ASF WILL ABORT VALID REQUEST STILL BEAN PARSD. THEREFORE SETTIN DIS VALUE LOWR THAN DEFAULT HAS NO ADVANTAGE IN GENERAL, AS STEAM SERVERS TEND 2 BE SUPR SLOW FRUM TIEM 2 TIEM, AN CUD REQUIRE MOAR TIEM 4 PARSIN ASF REQUESTS. DEFAULT VALUE IZ BALANCE TWEEN BELIEVIN DAT R NETWORK CONNECSHUN IZ STABLE, AN DOUBTIN IN STEAM NETWORK 2 HANDLE R REQUEST IN GIVEN TIEMOUT. IF U WANTS 2 DETECT ISSUEZ SOONR AN MAK ASF RECONNECT/RESPOND FASTR, DEFAULT VALUE SHUD DO (OR VRY SLIGHTLY BELOW, LIEK `60`, MAKIN ASF LES PATIENT). IF U INSTEAD NOTICE DAT ASF IZ RUNNIN INTO NETWORK ISSUEZ, SUCH AS FAILIN REQUESTS, HEARTBEATS BEAN LOST OR CONNECSHUN 2 STEAM INTERRUPTD, IT PROBABLY MAKEZ SENSE 2 INCREASE DIS VALUE IF URE SURE DAT IZ **NOT** CAUSD BY UR NETWORK, BUT BY STEAM ITSELF, AS INCREASIN TIEMOUTS MAKEZ ASF MOAR "PATIENT" AN NOT DECIDIN 2 RECONNECT RITE AWAY.
 
-An example situation that may require increase of this property is letting ASF to deal with a very huge trade offers that can take good 2+ minutes to be fully accepted and handled by Steam. By increasing default timeout, ASF will be more patient and wait longer before deciding that the trade is not going through and abandon the initial request.
+AN EXAMPLE SITUASHUN DAT CUD REQUIRE INCREASE OV DIS PROPERTY IZ LETTIN ASF 2 DEAL WIF VRY HUGE TRADE OFFERS DAT CAN TAEK GUD 2+ MINUTEZ 2 BE FULLY ACCEPTD AN HANDLD BY STEAM. BY INCREASIN DEFAULT TIEMOUT, ASF WILL BE MOAR PATIENT AN WAIT LONGR BEFORE DECIDIN DAT TEH TRADE IZ NOT GOIN THRU AN ABANDON TEH INITIAL REQUEST.
 
-Another situation could be caused by very slow machine or internet connection that requires more time to handle the data being transmitted. This is pretty rare condition, as the CPU/network bandwidth is almost never a bottleneck, but still a possibility worth mentioning.
+ANOTHR SITUASHUN CUD BE CAUSD BY VRY SLOW MACHINE OR INTERNET CONNECSHUN DAT REQUIREZ MOAR TIEM 2 HANDLE TEH DATA BEAN TRANZMITTD. DIS AR TEH PRITEE RARE CONDISHUN, AS TEH CPU/NETWORK BANDWIDTH IZ ALMOST NEVR BOTTLENECK, BUT STILL POSIBILITY WORTH MENSHUNIN.
 
-In short, default value should be decent for most cases, but you may want to increase it if needed. Still, going far above the default value doesn't make much sense either, since bigger timeouts won't magically fix inaccessible Steam servers. Unless you have a reason to edit this property, you should keep it at default.
+IN SHORT, DEFAULT VALUE SHUD BE DESENT 4 MOST CASEZ, BUT U CUD WANTS 2 INCREASE IT IF NEEDD. STILL, GOIN FAR ABOOV TEH DEFAULT VALUE DOESNT MAK MUTCH SENSE EITHR, SINCE BIGGR TIEMOUTS WONT MAGICALLY FIX INACCESIBLE STEAM SERVERS. UNLES U HAS REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
-### `CurrentCulture`
+### `CURRENTCULCHUR`
 
-`string` type with default value of `null`. By default ASF attempts to use your operating system language, and will prefer to use translated strings in that language if available. This is possible thanks to our community that tries to **[localize](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)** ASF in all most popular languages. If for some reason you don't want to use your OS native language, you can use this config property to pick any valid language you'd want to use instead. For a list of all available cultures, please visit **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)** and look for `Language tag`. It's nice to note that ASF accepts both specific cultures, such as `en-GB`, but also neutral ones, such as `en`. Specifying current culture will also affect other culture-specific behaviour, such as currency/date format and alike. Please note that you may need additional font/language packs for displaying language-specific characters properly, if you picked non-native culture that makes use of them. Typically you want to make use of this config property if you prefer ASF in English instead of your native language.
+`STRIN` TYPE WIF DEFAULT VALUE OV `NUALL`. BY DEFAULT ASF ATTEMPTS 2 USE UR OPERATIN SISTEM LANGUAGE, AN WILL PREFR 2 USE TRANZLATD STRINGS IN DAT LANGUAGE IF AVAILABLE. DIS AR TEH POSIBLE THX 2 R COMMUNITY DAT TRIEZ 2 **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization">LOCALIZE</A>** ASF IN ALL MOST POPULAR LANGUAGEZ. IF 4 SUM REASON U DOAN WANTS 2 USE UR OS NATIV LANGUAGE, U CAN USE DIS CONFIG PROPERTY 2 PICK ANY VALID LANGUAGE UD WANTS 2 USE INSTEAD. 4 LIST OV ALL AVAILABLE CULTUREZ, PLZ VISIT **<A HREF="https://msdn.microsoft.com/en-us/library/cc233982.aspx">MSDN</A>** AN LOOK 4 `LANGUAGE TAG`. IZ NICE 2 NOWT DAT ASF ACCEPTS BOTH SPECIFIC CULTUREZ, SUCH AS `EN-GB`, BUT ALSO NEUTRAL ONEZ, SUCH AS `EN`. SPECIFYIN CURRENT CULCHUR WILL ALSO AFFECT OTHR CULCHUR-SPECIFIC BEHAVIOUR, SUCH AS CURRENCY/DATE FORMAT AN ALIKE. PLZ NOWT DAT U CUD NED ADDISHUNAL FONT/LANGUAGE PACKZ 4 DISPLAYIN LANGUAGE-SPECIFIC CHARACTERS PROPERLY, IF U PICKD NON-NATIV CULCHUR DAT MAKEZ USE OV THEM. TYPICALLY U WANTS 2 MAK USE OV DIS CONFIG PROPERTY IF U PREFR ASF IN ENGLISH INSTEAD OV UR NATIV LANGUAGE.
 
 * * *
 
 ### `Debug`
 
-`bool` type with default value of `false`. This property defines if process should run in debug mode. When in debug mode, ASF creates a special `debug` directory next to the `config`, which keeps track of whole communication between ASF and Steam servers. Debug information can help spotting nasty issues related to networking and general ASF workflow. In addition to that, some program routines will be far more verbose, such as `WebBrowser` stating exact reason why some requests are failing - those entries are written to normal ASF log. **You should not run ASF in Debug mode, unless asked by developer**. Running ASF in debug mode **decreases performance**, **affects stability negatively** and is **far more verbose in various places**, so it should be used **only** intentionally, in short-run, for debugging particular issue, reproducing the problem or getting more info about a failing request, and alike, but **not** for normal program execution. You will see **a lot** of new errors, issues, and exceptions - make sure that you have a decent knowledge about ASF, Steam and its quirks if you decide to analyze all of that yourself, as not everything is relevant.
+`BOOL` TYPE WIF DEFAULT VALUE OV `FALSE`. DIS PROPERTY DEFINEZ IF PROCES SHUD RUN IN DEBUG MODE. WHEN IN DEBUG MODE, ASF CREATEZ SPESHUL `DEBUG` DIRECTORY NEXT 2 TEH `CONFIG`, WHICH KEEPS TRACK OV WHOLE COMMUNICASHUN TWEEN ASF AN STEAM SERVERS. DEBUG INFORMASHUN CAN HALP SPOTTIN NASTY ISSUEZ RELATD 2 NETWORKIN AN GENERAL ASF WERKFLOW. IN ADDISHUN 2 DAT, SUM PROGRAM ROUTINEZ WILL BE FAR MOAR VERBOSE, SUCH AS `WEBBROWSR` STATIN EGSAKT REASON Y SUM REQUESTS R FAILIN - DOSE ENTRIEZ R WRITTEN 2 NORMAL ASF LOG. **U SHUD NOT RUN ASF IN DEBUG MODE, UNLES ASKD BY DEVELOPR**. RUNNIN ASF IN DEBUG MODE **DECREASEZ PERFORMANCE**, **AFFECTS STABILITY NEGATIVELY** AN IZ **FAR MOAR VERBOSE IN VARIOUS PLACEZ**, SO IT SHUD BE USD **ONLY** INTENSHUNALLY, IN SHORT-RUN, 4 DEBUGGIN PARTICULAR ISSUE, REPRODUCIN TEH PROBLEM OR GETTIN MOAR INFO BOUT FAILIN REQUEST, AN ALIKE, BUT **NOT** 4 NORMAL PROGRAM EXECUSHUN. U WILL C **A LOT** OV NEW ERRORS, ISSUEZ, AN EXCEPSHUNS - MAK SURE DAT U HAS DESENT KNOWLEDGE BOUT ASF, STEAM AN ITZ QUIRKZ IF U DECIDE 2 ANALYZE ALL OV DAT YOURSELF, AS NOT EVRYTHIN IZ RELEVANT. 
 
-**WARNING:** enabling this mode includes logging of **potentially sensitive** information such as logins and passwords that you're using for logging in to Steam (due to network logging). That data is written to both `debug` directory, as well as standard `log.txt` (that is now intentionally much more verbose to log this info). You should not post debug content generated by ASF in any public location, ASF developer should always remind you of sending it to his e-mail, or other secure location. We're not storing, neither making use of those sensitive details, they're written as part of debug routines since their presence could be relevant to the issue that is affecting you. We'd prefer if you didn't alter ASF logging in any way, but if you're worried, you're free to redact those sensitive details appropriately.
+**WARNIN:** ENABLIN DIS MODE INCLUDEZ LOGGIN OV **POTENTIALLY SENSITIV** INFORMASHUN SUCH AS LOGINS AN PASWORDZ DAT URE USIN 4 LOGGIN IN 2 STEAM (DUE 2 NETWORK LOGGIN). DAT DATA IZ WRITTEN 2 BOTH `DEBUG` DIRECTORY, AS WELL AS STANDARD `LOG.TXT` (DAT IZ NAO INTENSHUNALLY MUTCH MOAR VERBOSE 2 LOG DIS INFO). U SHUD NOT POST DEBUG CONTENT GENERATD BY ASF IN ANY PUBLIC LOCASHUN, ASF DEVELOPR SHUD ALWAYS REMIND U OV SENDIN IT 2 HIS E-MAIL, OR OTHR SECURE LOCASHUN. WERE NOT STORIN, NEITHR MAKIN USE OV DOSE SENSITIV DETAILS, THEYRE WRITTEN AS PART OV DEBUG ROUTINEZ SINCE THEIR PRESENCE CUD BE RELEVANT 2 TEH ISSUE DAT IZ AFFECTIN U. WED PREFR IF U DIDNT ALTR ASF LOGGIN IN ANY WAI, BUT IF URE WORRID, URE FREE 2 REDACT DOSE SENSITIV DETAILS APPROPRIATELY.
 
-> Redacting involves replacing sensitive details, for example with stars. You should refrain from removing sensitive lines entirely, as their pure existence could be relevant and should be preserved.
-
-* * *
-
-### `FarmingDelay`
-
-`byte` type with default value of `15`. In order for ASF to work, it will check currently farmed game every `FarmingDelay` minutes, if it perhaps dropped all cards already. Setting this property too low can result in excessive amount of steam requests being sent, while setting it too high can result in ASF still "farming" given title for up to `FarmingDelay` minutes after it's fully farmed. Default value should be excellent for most users, but if you have many bots running, you may consider increasing it to something like `30` minutes in order to limit steam requests being sent. It's nice to note that ASF uses event-based mechanism and checks game badge page on each Steam item dropped, so in general **we don't even need to check it in fixed time intervals**, but as we don't fully trust Steam network - we check game badge page anyway, if we didn't check it through card being dropped event in last `FarmingDelay` minutes (in case Steam network didn't inform us about item dropped or stuff like that). Assuming that Steam network is working properly, decreasing this value **will not improve farming efficiency in any way**, while **increasing network overhead significantly** - it's recommended only to increase it (if needed) from default of `15` minutes. Unless you have a **strong** reason to edit this property, you should keep it at default.
+> REDACTIN INVOLVEZ REPLACIN SENSITIV DETAILS, 4 EXAMPLE WIF STARS. U SHUD REFRAIN FRUM REMOVIN SENSITIV LINEZ ENTIRELY, AS THEIR PURE EXISTENCE CUD BE RELEVANT AN SHUD BE PRESERVD.
 
 * * *
 
-### `GiftsLimiterDelay`
+### `FARMINGDELAY`
 
-`byte` type with default value of `1`. ASF will ensure that there will be at least `GiftsLimiterDelay` seconds in between of two consecutive gift/key/license handling (redeeming) requests to avoid triggering rate-limit. In addition to that it'll also be used as global limiter for game list requests, such as the one issued by `owns` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you have a **strong** reason to edit this property, you should keep it at default.
-
-* * *
-
-### `Headless`
-
-`bool` type with default value of `false`. This property defines if process should run in headless mode. When in headless mode, ASF assumes that it's running on a server or in other non-interactive environment, therefore it will not attempt to read any information through console input. This includes on-demand details (account credentials such as 2FA code, SteamGuard code, password or any other variable required for ASF to operate) as well as all other console inputs (such as interactive command console). In other words, `Headless` mode is equal to making ASF console read-only. This setting is useful mainly for users running ASF on their servers, as instead of asking e.g. for 2FA code, ASF will silently abort the operation by stopping an account. Unless you're running ASF on a server, and you previously confirmed that ASF is able to operate in non-headless mode, you should keep this property disabled. Any user interaction will be denied when in headless mode, and your accounts will not run if they require **any** console input during starting. This is useful for servers, as ASF can abort trying to log onto the account when asked for credentials, instead of waiting (infinitely) for user to provide those. Enabling this mode will also allow you to use `input` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** which acts as a replacement for standard console input. If you're not sure how to set this property, leave it with default value of `false`.
-
-If you're running ASF on the server, you probably want to use this option together with `--process-required` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**.
+`BYTE` TYPE WIF DEFAULT VALUE OV `15`. IN ORDR 4 ASF 2 WERK, IT WILL CHECK CURRENTLY FARMD GAME EVRY `FARMINGDELAY` MINUTEZ, IF IT PERHAPS DROPPD ALL CARDZ ALREADY. SETTIN DIS PROPERTY 2 LOW CAN RESULT IN EXCESIV AMOUNT OV STEAM REQUESTS BEAN SENT, WHILE SETTIN IT 2 HIGH CAN RESULT IN ASF STILL "FARMIN" GIVEN TITLE 4 UP 2 `FARMINGDELAY` MINUTEZ AFTR IZ FULLY FARMD. DEFAULT VALUE SHUD BE AWSUM 4 MOST USERS, BUT IF U HAS LOTZ DA BOTS RUNNIN, U CUD CONSIDR INCREASIN IT 2 SOMETHIN LIEK `30` MINUTEZ IN ORDR 2 LIMIT STEAM REQUESTS BEAN SENT. IZ NICE 2 NOWT DAT ASF USEZ EVENT-BASD MECHANISM AN CHECKZ GAME BADGE PAEG ON EACH STEAM ITEM DROPPD, SO IN GENERAL **WE DOAN EVEN NED 2 CHECK IT IN FIXD TIEM INTERVALS**, BUT AS WE DOAN FULLY TRUST STEAM NETWORK - WE CHECK GAME BADGE PAEG ANYWAY, IF WE DIDNT CHECK IT THRU CARD BEAN DROPPD EVENT IN LAST `FARMINGDELAY` MINUTEZ (IN CASE STEAM NETWORK DIDNT INFORM US BOUT ITEM DROPPD OR STUFF LIEK DAT). ASSUMIN DAT STEAM NETWORK IZ WERKIN PROPERLY, DECREASIN DIS VALUE **WILL NOT IMPROOOV FARMIN EFFICIENCY IN ANY WAI**, WHILE **INCREASIN NETWORK OVERHEAD SIGNIFICANTLY** - IZ RECOMMENDD ONLY 2 INCREASE IT (IF NEEDD) FRUM DEFAULT OV `15` MINUTEZ. UNLES U HAS **STRONG** REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
-### `IdleFarmingPeriod`
+### `GIFTSLIMITERDELAY`
 
-`byte` type with default value of `8`. When ASF has nothing to farm, it will periodically check every `IdleFarmingPeriod` hours if perhaps account got some new games to farm. This feature is not needed when talking about new games we're getting, as ASF is smart enough to automatically check badge pages in this case. `IdleFarmingPeriod` is mainly for situations such as old games we already have having trading cards added. In this case there is no event, so ASF has to periodically check badge pages if we want to have this covered. Value of `0` disables this feature. Also check: `ShutdownOnFarmingFinished`.
+`BYTE` TYPE WIF DEFAULT VALUE OV `1`. ASF WILL ENSURE DAT THAR WILL BE AT LEAST `GIFTSLIMITERDELAY` SECONDZ IN TWEEN OV 2 CONSECUTIV GIFT/KEY/LICENSE HANDLIN (REDEEMIN) REQUESTS 2 AVOID TRIGGERIN RATE-LIMIT. IN ADDISHUN 2 DAT ITLL ALSO BE USD AS GLOBAL LIMITR 4 GAME LIST REQUESTS, SUCH AS TEH WAN ISSUD BY `OWNS` **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands">COMMAND</A>**. UNLES U HAS **STRONG** REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
+
+* * *
+
+### `HEADLES`
+
+`BOOL` TYPE WIF DEFAULT VALUE OV `FALSE`. DIS PROPERTY DEFINEZ IF PROCES SHUD RUN IN HEADLES MODE. WHEN IN HEADLES MODE, ASF ASSUMEZ DAT IZ RUNNIN ON SERVR OR IN OTHR NON-INTERACTIV ENVIRONMENT, THEREFORE IT WILL NOT ATTEMPT 2 READ ANY INFORMASHUN THRU CONSOLE INPUT. THIS INCLUDES ON-DEMAND DETAILS (ACCOUNT CREDENTIALS SUCH AS 2FA CODE, STEAMGUARD CODE, PASSWORD OR ANY OTHER VARIABLE REQUIRED FOR ASF TO OPERATE) AS WELL AS ALL OTHER CONSOLE INPUTS (SUCH AS INTERACTIVE COMMAND CONSOLE). IN OTHR WERDZ, `HEADLES` MODE IZ EQUAL 2 MAKIN ASF CONSOLE READ-ONLY. DIS SETTIN IZ USEFUL MAINLY 4 USERS RUNNIN ASF ON THEIR SERVERS, AS INSTEAD OV ASKIN E.G. 4 2FA CODE, ASF WILL SILENTLY ABORT TEH OPERASHUN BY STOPPIN AN AKOWNT. UNLES URE RUNNIN ASF ON SERVR, AN U PREVIOUSLY CONFIRMD DAT ASF IZ ABLE 2 OPERATE IN NON-HEADLES MODE, U SHUD KEEP DIS PROPERTY DISABLD. ANY USR INTERACSHUN WILL BE DENID WHEN IN HEADLES MODE, AN UR ACCOUNTS WILL NOT RUN IF THEY REQUIRE **ANY** CONSOLE INPUT DURIN STARTIN. DIS AR TEH USEFUL 4 SERVERS, AS ASF CAN ABORT TRYIN 2 LOG ONTO TEH AKOWNT WHEN ASKD 4 CREDENTIALS, INSTEAD OV WAITIN (INFINITELY) 4 USR 2 PROVIDE DOSE. ENABLIN DIS MODE WILL ALSO ALLOW U 2 USE `INPUT` **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands">COMMAND</A>** WHICH ACTS AS REPLACEMENT 4 STANDARD CONSOLE INPUT. IF URE NOT SURE HOW 2 SET DIS PROPERTY, LEEF IT WIF DEFAULT VALUE OV `FALSE`.
+
+IF URE RUNNIN ASF ON TEH SERVR, U PROBABLY WANTS 2 USE DIS OPSHUN TOGETHR WIF `--PROCES-REQUIRD` **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments">COMMAND-LINE ARGUMENT</A>**.
+
+* * *
+
+### `IDLEFARMINGPERIOD`
+
+`BYTE` TYPE WIF DEFAULT VALUE OV `8`. WHEN ASF HAS NOTHIN 2 FARM, IT WILL PERIODICALLY CHECK EVRY `IDLEFARMINGPERIOD` HOURS IF PERHAPS AKOWNT GOT SUM NEW GAMEZ 2 FARM. DIS FEACHUR IZ NOT NEEDD WHEN TALKIN BOUT NEW GAMEZ WERE GETTIN, AS ASF IZ SMART ENOUGH 2 AUTOMATICALLY CHECK BADGE PAGEZ IN DIS CASE. `IDLEFARMINGPERIOD` IZ MAINLY 4 SITUASHUNS SUCH AS OLD GAMEZ WE ALREADY HAS HAVIN TRADIN CARDZ ADDD. IN DIS CASE THAR IZ NO EVENT, SO ASF HAS 2 PERIODICALLY CHECK BADGE PAGEZ IF WE WANTS 2 HAS DIS COVERD. VALUE OV `0` DISABLEZ DIS FEACHUR. ALSO CHECK: `SHUTDOWNONFARMINGFINISHD`.
 
 * * *
 
 ### `InventoryLimiterDelay`
 
-`byte` type with default value of `3`. ASF will ensure that there will be at least `InventoryLimiterDelay` seconds in between of two consecutive inventory requests to avoid triggering rate-limit - those are being used for fetching Steam inventories, especially during your own commands such as `transfer`, as well as in features like `MatchActively`. Default value of `3` was set based on fetching inventories of over 100 consecutive bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and loot steam inventories much faster. Be warned though, as setting it too low **will** result in Steam temporarily banning your IP, and that will prevent you from fetching your inventory at all. You also may need to increase this value if you're running a lot of bots with a lot of inventory requests, although in this case you should probably try to limit number of those requests instead. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`BYTE` TYPE WIF DEFAULT VALUE OV `3`. ASF WILL ENSURE DAT THAR WILL BE AT LEAST `INVENTORYLIMITERDELAY` SECONDZ IN TWEEN OV 2 CONSECUTIV INVENTORY REQUESTS 2 AVOID TRIGGERIN RATE-LIMIT - DOSE R BEAN USD 4 FETCHIN STEAM INVENTORIEZ, ESPECIALLY DURIN UR OWN COMMANDZ SUCH AS `TRANZFR`, AS WELL AS IN FEATUREZ LIEK `MATCHACTIVELY`. DEFAULT VALUE OV `3` WUZ SET BASD ON FETCHIN INVENTORIEZ OV OVAR 100 CONSECUTIV BOT INSTANCEZ, AN SHUD SATISFY MOST (IF NOT ALL) OV TEH USERS. U CUD HOWEVR WANTS 2 DECREASE IT, OR EVEN CHANGE 2 `0` IF U HAS VRY LOW AMOUNT OV BOTS, SO ASF WILL IGNORE TEH DELAY AN LOOT STEAM INVENTORIEZ MUTCH FASTR. BE WARND THOUGH, AS SETTIN IT 2 LOW **WILL** RESULT IN STEAM TEMPORARILY BANNIN UR IP, AN DAT WILL PREVENT U FRUM FETCHIN UR INVENTORY AT ALL. U ALSO CUD NED 2 INCREASE DIS VALUE IF URE RUNNIN LOT OV BOTS WIF LOT OV INVENTORY REQUESTS, ALTHOUGH IN DIS CASE U SHUD PROBABLY TRY 2 LIMIT NUMBR OV DOSE REQUESTS INSTEAD. UNLES U HAS **STRONG** REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
 ### `IPC`
 
-`bool` type with default value of `false`. This property defines if ASF's **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** server should start together with the process. IPC allows for inter-process communication by booting a local HTTP server. If you're not going to make use of ASF's IPC server, then there is no reason for you to enable this option.
+`BOOL` TYPE WIF DEFAULT VALUE OV `FALSE`. DIS PROPERTY DEFINEZ IF ASFS **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC">IPC</A>** SERVR SHUD START TOGETHR WIF TEH PROCES. IPC ALLOWS 4 INTR-PROCES COMMUNICASHUN BY BOOTIN LOCAL HTTP SERVR. IF URE NOT GOIN 2 MAK USE OV ASFS IPC SERVR, DEN THAR IZ NO REASON 4 U 2 ENABLE DIS OPSHUN.
 
 * * *
 
 ### `IPCPassword`
 
-`string` type with default value of `null`. This property defines mandatory password for every API call done via IPC and serves as an extra security measure. When set to non-empty value, all IPC requests will require extra `password` property set to the password specified here. Default value of `null` will skip a need of the password, making ASF respect all queries. In addition to that, enabling this option also enables built-in IPC anti-bruteforce mechanism which will temporarily ban given `IPAddress` after sending too many unauthorized requests in a very short time. Unless you have a reason to edit this property, you should keep it at default.
+`STRIN` TYPE WIF DEFAULT VALUE OV `NULL`. DIS PROPERTY DEFINEZ MANDATORY PASWORD 4 EVRY API CALL DUN VIA IPC AN SERVEZ AS AN EXTRA SECURITY MEASURE. WHEN SET 2 NON-EMPTY VALUE, ALL IPC REQUESTS WILL REQUIRE EXTRA `PASWORD` PROPERTY SET 2 TEH PASWORD SPECIFID HER. DEFAULT VALUE OV `NULL` WILL SKIP NED OV TEH PASWORD, MAKIN ASF RESPECT ALL QUERIEZ. IN ADDISHUN 2 DAT, ENABLIN DIS OPSHUN ALSO ENABLEZ BUILT-IN IPC ANTI-BRUTEFORCE MECHANISM WHICH WILL TEMPORARILY BAN GIVEN `IPADDRES` AFTR SENDIN 2 LOTZ DA UNAUTHORIZD REQUESTS IN VRY SHORT TIEM. UNLES U HAS REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
 ### `IPCPasswordFormat`
 
-`byte` type with default value of `0`. This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. Unless you know what you're doing, you should keep it with default value of `0`.
+`BYTE` TYPE WIF DEFAULT VALUE OV `0`. DIS PROPERTY DEFINEZ TEH FORMAT OV `IPCPASWORD` PROPERTY AN USEZ `EHASHINGMETHOD` AS UNDERLYIN TYPE. PLZ REFR 2 **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security">SECURITY</A>** SECSHUN IF U WANTS 2 LERN MOAR, AS ULL NED 2 ENSURE DAT `IPCPASWORD` PROPERTY INDED INCLUDEZ PASWORD IN MATCHIN `IPCPASWORDFORMAT`. IN OTHR WERDZ, WHEN U CHANGE `IPCPASWORDFORMAT` DEN UR `IPCPASWORD` SHUD BE **ALREADY** IN DAT FORMAT, NOT JUS AIMIN 2 BE. UNLES U KNOE WUT URE DOIN, U SHUD KEEP IT WIF DEFAULT VALUE OV `0`.
 
 * * *
 
 ### `LoginLimiterDelay`
 
-`byte` type with default value of `10`. ASF will ensure that there will be at least `LoginLimiterDelay` seconds in between of two consecutive connection attempts to avoid triggering rate-limit. Default value of `10` was set based on connecting over 100 bot instances, and should satisfy most (if not all) of the users. You may however want to increase/decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and connect to Steam much faster. Be warned though, as setting it too low while having too many bots **will** result in Steam temporarily banning your IP, and that will prevent you from logging in **at all**, with `InvalidPassword/RateLimitExceeded` error - and that also includes your normal Steam client, not only ASF. Likewise, if you're running excessive number of bots, especially together with other Steam clients/tools using the same IP address, most likely you'll need to increase this value in order to spread logins across longer period of time.
+`BYTE` TYPE WIF DEFAULT VALUE OV `10`. ASF WILL ENSURE DAT THAR WILL BE AT LEAST `LOGINLIMITERDELAY` SECONDZ IN TWEEN OV 2 CONSECUTIV CONNECSHUN ATTEMPTS 2 AVOID TRIGGERIN RATE-LIMIT. DEFAULT VALUE OV `10` WUZ SET BASD ON CONNECTIN OVAR 100 BOT INSTANCEZ, AN SHUD SATISFY MOST (IF NOT ALL) OV TEH USERS. U CUD HOWEVR WANTS 2 INCREASE/DECREASE IT, OR EVEN CHANGE 2 `0` IF U HAS VRY LOW AMOUNT OV BOTS, SO ASF WILL IGNORE TEH DELAY AN CONNECT 2 STEAM MUTCH FASTR. BE WARND THOUGH, AS SETTIN IT 2 LOW WHILE HAVIN 2 LOTZ DA BOTS **WILL** RESULT IN STEAM TEMPORARILY BANNIN UR IP, AN DAT WILL PREVENT U FRUM LOGGIN IN **AT ALL**, WIF `INVALIDPASWORD/RATELIMITEXCEEDD` ERROR - AN DAT ALSO INCLUDEZ UR NORMAL STEAM CLIENT, NOT ONLY ASF. LIKEWIZE, IF URE RUNNIN EXCESIV NUMBR OV BOTS, ESPECIALLY TOGETHR WIF OTHR STEAM CLIENTS/TOOLS USIN TEH SAME IP ADDRES, MOST LIKELY ULL NED 2 INCREASE DIS VALUE IN ORDR 2 SPREAD LOGINS ACROS LONGR PERIOD OV TIEM.
 
-As a side note, this value is also used as load-balancing buffer in all ASF-scheduled actions, such as trades in `SendTradePeriod`. Unless you have a **strong** reason to edit this property, you should keep it at default.
+AS SIDE NOWT, DIS VALUE IZ ALSO USD AS LOAD-BALANCIN BUFFR IN ALL ASF-SCHEDULD ACSHUNS, SUCH AS TRADEZ IN `SENDTRADEPERIOD`. UNLES U HAS **STRONG** REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
 ### `MaxFarmingTime`
 
-`byte` type with default value of `10`. As you should know, Steam is not always working properly, sometimes weird situations can happen such as steam not being recording our playtime, despite of in fact playing a game. ASF will allow farming a single game in solo mode for maximum of `MaxFarmingTime` hours, and consider it fully farmed after that period. This is required to not freeze farming process in case of weird situations happening, but also if for some reason Steam released a new badge that would stop ASF from progressing further (see: `Blacklist`). Default value of `10` hours should be enough for dropping all steam cards from one game. Setting this property too low can result in valid games being skipped (and yes, there are valid games taking even up to 9 hours to farm), while setting it too high can result in farming process being frozen. Please note that this property affects only a single game in a single farming session (so after going through entire queue ASF will return to that title), also it's not based on total playtime but internal ASF farming time, so ASF will also return to that title after a restart. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`BYTE` TYPE WIF DEFAULT VALUE OV `10`. AS U SHUD KNOE, STEAM IZ NOT ALWAYS WERKIN PROPERLY, SOMETIMEZ WEIRD SITUASHUNS CAN HAPPEN SUCH AS STEAM NOT BEAN RECORDIN R PLAYTIME, DESPITE OV IN FACT PLAYIN GAME. ASF WILL ALLOW FARMIN SINGLE GAME IN SOLO MODE 4 MAXIMUM OV `MAXFARMINGTIME` HOURS, AN CONSIDR IT FULLY FARMD AFTR DAT PERIOD. DIS AR TEH REQUIRD 2 NOT FREEZE FARMIN PROCES IN CASE OV WEIRD SITUASHUNS HAPPENIN, BUT ALSO IF 4 SUM REASON STEAM RELEASD NEW BADGE DAT WUD STOP ASF FRUM PROGRESIN FURTHR (C: `BLACKLIST`). DEFAULT VALUE OV `10` HOURS SHUD BE ENOUGH 4 DROPPIN ALL STEAM CARDZ FRUM WAN GAME. SETTIN DIS PROPERTY 2 LOW CAN RESULT IN VALID GAMEZ BEAN SKIPPD (AN YEZ, THAR R VALID GAMEZ TAKIN EVEN UP 2 9 HOURS 2 FARM), WHILE SETTIN IT 2 HIGH CAN RESULT IN FARMIN PROCES BEAN FROZEN. PLZ NOWT DAT DIS PROPERTY AFFECTS ONLY SINGLE GAME IN SINGLE FARMIN SESHUN (SO AFTR GOIN THRU ENTIRE KEW ASF WILL RETURN 2 DAT TITLE), ALSO IZ NOT BASD ON TOTAL PLAYTIME BUT INTERNAL ASF FARMIN TIEM, SO ASF WILL ALSO RETURN 2 DAT TITLE AFTR RESTART. UNLES U HAS **STRONG** REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
 ### `MaxTradeHoldDuration`
 
-`byte` type with default value of `15`. This property defines maximum duration of trade hold in days that we're willing to accept - ASF will reject trades that are being held for more than `MaxTradeHoldDuration` days, as defined in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section. This option makes sense only for bots with `TradingPreferences` of `SteamTradeMatcher`, as it doesn't affect `Master`/`SteamOwnerID` trades, neither donations. Trade holds are annoying for everyone, and nobody really wants to deal with them. ASF is supposed to work on liberal rules and help everyone, regardless if on trade hold or not - that's why this option is set to `15` by default. However, if you'd instead prefer to reject all trades affected by trade holds, you can specify `0` here. Please consider the fact that cards with short lifespan are not affected by this option and automatically rejected for people with trade holds, as described in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section, so there is no need to globally reject everybody only because of that. Unless you have a reason to edit this property, you should keep it at default.
+`BYTE` TYPE WIF DEFAULT VALUE OV `15`. DIS PROPERTY DEFINEZ MAXIMUM DURASHUN OV TRADE HOLD IN DAIS DAT WERE WILLIN 2 ACCEPT - ASF WILL REJECT TRADEZ DAT R BEAN HELD 4 MOAR THAN `MAXTRADEHOLDDURASHUN` DAIS, AS DEFIND IN **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading">TRADIN</A>** SECSHUN. DIS OPSHUN MAKEZ SENSE ONLY 4 BOTS WIF `TRADINGPREFERENCEZ` OV `STEAMTRADEMATCHR`, AS IT DOESNT AFFECT `MASTAH`/`STEAMOWNERID` TRADEZ, NEITHR DONASHUNS. TRADE HOLDZ R ANNOYIN 4 EVRYONE, AN NOBODY RLY WANTS 2 DEAL WIF THEM. ASF IZ SUPPOSD 2 WERK ON LIBERAL RULEZ AN HALP EVRYONE, REGARDLES IF ON TRADE HOLD OR NOT - THAZ Y DIS OPSHUN IZ SET 2 `15` BY DEFAULT. HOWEVR, IF UD INSTEAD PREFR 2 REJECT ALL TRADEZ AFFECTD BY TRADE HOLDZ, U CAN SPECIFY `0` HER. PLZ CONSIDR TEH FACT DAT CARDZ WIF SHORT LIFESPAN R NOT AFFECTD BY DIS OPSHUN AN AUTOMATICALLY REJECTD 4 PEEPS WIF TRADE HOLDZ, AS DESCRIBD IN **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading">TRADIN</A>** SECSHUN, SO THAR IZ NO NED 2 GLOBALLY REJECT EVRYBODY ONLY CUZ OV DAT. UNLES U HAS REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
 ### `OptimizationMode`
 
-`byte` type with default value of `0`. This property defines optimization mode which ASF will prefer during runtime. Currently ASF supports two modes - `0` which is called `MaxPerformance`, and `1` which is called `MinMemoryUsage`. By default ASF prefers to run as many things in parallel (concurrently) as possible, which enhances performance by load-balancing work across all CPU cores, multiple CPU threads, multiple sockets and multiple threadpool tasks. For example, ASF will ask for your first badge page when checking for games to idle, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. This is what you should want **almost always**, as the overhead in most cases is minimal and benefits from asynchronous ASF code can be seen even on the oldest hardware with a single CPU core and heavily limited power. However, with many tasks being processed in parallel, ASF runtime is responsible for their maintenance, e.g. keeping sockets open, threads alive and tasks being processed, which can result in increased memory usage from time to time, and if you're extremely constrained by available memory, you may want to switch this property to `1` (`MinMemoryUsage`) in order to force ASF into using as little tasks as possible, and typically running possible-to-parallel asynchronous code in a synchronous manner. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`BYTE` TYPE WIF DEFAULT VALUE OV `0`. DIS PROPERTY DEFINEZ OPTIMIZASHUN MODE WHICH ASF WILL PREFR DURIN RUNTIME. CURRENTLY ASF SUPPORTS 2 MODEZ - `0` WHICH IZ CALLD `MAXPERFORMANCE`, AN `1` WHICH IZ CALLD `MINMEMORYUSAGE`. BY DEFAULT ASF PREFERS 2 RUN AS LOTZ DA THINGS IN PARALLEL (CONCURRENTLY) AS POSIBLE, WHICH ENHANCEZ PERFORMANCE BY LOAD-BALANCIN WERK ACROS ALL CPU COREZ, MULTIPLE CPU THREADZ, MULTIPLE SOCKETS AN MULTIPLE THREADPOOL TASKZ. 4 EXAMPLE, ASF WILL ASK 4 UR FURST BADGE PAEG WHEN CHECKIN 4 GAMEZ 2 IDLE, AN DEN ONCE REQUEST ARRIVD, ASF WILL READ FRUM IT HOW LOTZ DA BADGE PAGEZ U AKSHULLY HAS, DEN REQUEST EACH OTHR WAN CONCURRENTLY. DIS AR TEH WUT U SHUD WANTS **ALMOST ALWAYS**, AS TEH OVERHEAD IN MOST CASEZ IZ MINIMAL AN BENEFITS FRUM ASYNCHRONOUS ASF CODE CAN BE SEEN EVEN ON TEH OLDEST HARDWARE WIF SINGLE CPU CORE AN HEAVILY LIMITD POWR. HOWEVR, WIF LOTZ DA TASKZ BEAN PROCESD IN PARALLEL, ASF RUNTIME IZ RESPONSIBLE 4 THEIR MAINTENANCE, E.G. KEEPIN SOCKETS OPEN, THREADZ ALIV AN TASKZ BEAN PROCESD, WHICH CAN RESULT IN INCREASD MEMS USAGE FRUM TIEM 2 TIEM, AN IF URE EXTREMELY CONSTRAIND BY AVAILABLE MEMS, U CUD WANTS 2 SWITCH DIS PROPERTY 2 `1` (`MINMEMORYUSAGE`) IN ORDR 2 FORCE ASF INTO USIN AS LIL TASKZ AS POSIBLE, AN TYPICALLY RUNNIN POSIBLE-2-PARALLEL ASYNCHRONOUS CODE IN SYNCHRONOUS MANNR. U SHUD CONSIDR SWITCHIN DIS PROPERTY ONLY IF U PREVIOUSLY READ **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup">LOW-MEMS SETUP</A>** AN U INTENSHUNALLY WANTS 2 SACRIFICE GIGANTIC PERFORMANCE BOOST, 4 VRY SMALL MEMS OVERHEAD DECREASE. USUALLY DIS OPSHUN IZ **MUTCH WORSE** THAN WUT U CAN ACHIEVE WIF OTHR POSIBLE WAYS, SUCH AS BY LIMITIN UR ASF USAGE OR TUNIN RUNTIMEZ GARBAGE COLLECTOR, AS EXPLAIND IN **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup">LOW-MEMS SETUP</A>**. THEREFORE, U SHUD USE `MINMEMORYUSAGE` AS **LAST RESORT**, RITE BEFORE RUNTIME RECOMPILASHUN, IF U COULDNT ACHIEVE SATISFYIN RESULTS WIF OTHR (MUTCH BETTR) OPSHUNS. UNLES U HAS **STRONG** REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
 ### `Statistics`
 
-`bool` type with default value of `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
+`BOOL` TYPE WIF DEFAULT VALUE OV `TRUE`. DIS PROPERTY DEFINEZ IF ASF SHUD HAS STATISTICS ENABLD. DETAILD EXPLANASHUN WUT EGSAKTLY DIS OPSHUN DOEZ IZ AVAILABLE IN **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics">STATISTICS</A>** SECSHUN. UNLES U HAS REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
 ### `SteamMessagePrefix`
 
-`string` type with default value of `"/me "`. This property defines a prefix that will be prepended to all Steam messages being sent by ASF. By default ASF uses `"/me "` prefix in order to distinguish bot messages more easily by showing them in different color on Steam chat. Another worthy mention is `"/pre "` prefix which achieves similar result, but uses different formatting. You can also set this property to empty string or `null` in order to disable using prefix entirely and output all ASF messages in a traditional way. It's nice to note that this property affects Steam messages only - responses returned through other channels (such as IPC) are not affected. Unless you want to customize standard ASF behaviour, it's a good idea to leave it at default.
+`STRIN` TYPE WIF DEFAULT VALUE OV `"/ME "`. DIS PROPERTY DEFINEZ PREFIX DAT WILL BE PREPENDD 2 ALL STEAM MESAGEZ BEAN SENT BY ASF. BY DEFAULT ASF USEZ `"/ME "` PREFIX IN ORDR 2 DISTINGUISH BOT MESAGEZ MOAR EASILY BY SHOWIN THEM IN DIFFERENT COLOR ON STEAM CHAT. ANOTHR WORTHY MENSHUN IZ `"/PRE "` PREFIX WHICH ACHIEVEZ SIMILAR RESULT, BUT USEZ DIFFERENT FORMATTIN. U CAN ALSO SET DIS PROPERTY 2 EMPTY STRIN OR `NULL` IN ORDR 2 DISABLE USIN PREFIX ENTIRELY AN OUTPUT ALL ASF MESAGEZ IN TRADISHUNAL WAI. IZ NICE 2 NOWT DAT DIS PROPERTY AFFECTS STEAM MESAGEZ ONLY - RESPONSEZ RETURND THRU OTHR CHANNELS (SUCH AS IPC) R NOT AFFECTD. UNLES U WANTS 2 CUSTOMIZE STANDARD ASF BEHAVIOUR, IT BE GUD IDEA 2 LEEF IT AT DEFAULT.
 
 * * *
 
 ### `SteamOwnerID`
 
-`ulong` type with default value of `0`. This property defines Steam ID in 64-bit form of ASF process owner, and is very similar to `Master` permission of given bot instance (but global instead). You almost always want to set this property to ID of your own main Steam account. `Master` permission includes full control over his bot instance, but global commands such as `exit`, `restart` or `update` are reserved for `SteamOwnerID` only. This is convenient, as you may want to run bots for your friends, while not allowing them to control ASF process, such as exiting it via `exit` command. Default value of `0` specifies that there is no owner of ASF process, which means that nobody will be able to issue global ASF commands. Keep in mind that **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** commands work with `SteamOwnerID`, so if you want to use them, then you must provide a valid value here.
+`ULONG` TYPE WIF DEFAULT VALUE OV `0`. DIS PROPERTY DEFINEZ STEAM ID IN 64-BIT FORM OV ASF PROCES OWNR, AN IZ VRY SIMILAR 2 `MASTAH` PERMISHUN OV GIVEN BOT INSTANCE (BUT GLOBAL INSTEAD). U ALMOST ALWAYS WANTS 2 SET DIS PROPERTY 2 ID OV UR OWN MAIN STEAM AKOWNT. `MASTAH` PERMISHUN INCLUDEZ FULL CONTROL OVAR HIS BOT INSTANCE, BUT GLOBAL COMMANDZ SUCH AS `EXIT`, `RESTART` OR `UPDATE` R RESERVD 4 `STEAMOWNERID` ONLY. DIS AR TEH CONVENIENT, AS U CUD WANTS 2 RUN BOTS 4 UR FRENZ, WHILE NOT ALLOWIN THEM 2 CONTROL ASF PROCES, SUCH AS EXITIN IT VIA `EXIT` COMMAND. DEFAULT VALUE OV `0` SPECIFIEZ DAT THAR IZ NO OWNR OV ASF PROCES, WHICH MEANZ DAT NOBODY WILL BE ABLE 2 ISSUE GLOBAL ASF COMMANDZ. KEEP IN MIND DAT **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC">IPC</A>** COMMANDZ WERK WIF `STEAMOWNERID`, SO IF U WANTS 2 USE THEM, DEN U MUST PROVIDE VALID VALUE HER.
 
 * * *
 
 ### `SteamProtocols`
 
-`byte flags` type with default value of `7`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
+`BYTE FLAGS` TYPE WIF DEFAULT VALUE OV `7`. DIS PROPERTY DEFINEZ STEAM PROTOCOLS DAT ASF WILL USE WHEN CONNECTIN 2 STEAM SERVERS, WHICH R DEFIND AS BELOW:
 
-| Value | Name      | Description                                                                                      |
-| ----- | --------- | ------------------------------------------------------------------------------------------------ |
-| 0     | None      | No protocol                                                                                      |
-| 1     | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
-| 2     | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
-| 4     | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
+| VALUE | NAYM      | DESCRIPSHUN                                                                                     |
+| ----- | --------- | ----------------------------------------------------------------------------------------------- |
+| 0     | None      | NO PROTOCOL                                                                                     |
+| 1     | TCP       | **[TRANZMISHUN CONTROL PROTOCOL](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
+| 2     | UDP       | **[USR DATAGRAM PROTOCOL](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
+| 4     | WebSocket | **[WEBSOCKET](https://en.wikipedia.org/wiki/WebSocket)**                                        |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
+PLZ NOTICE DAT DIS PROPERTY IZ `FLAGS` FIELD, THEREFORE IZ POSIBLE 2 CHOOSE ANY COMBINASHUN OV AVAILABLE VALUEZ. CHECK OUT **<A HREF="#json-mappin">FLAGS MAPPIN</A>** IF UD LIEK 2 LERN MOAR. NOT ENABLIN ANY OV FLAGS RESULTS IN `NONE` OPSHUN, AN DAT OPSHUN IZ INVALID BY ITSELF.
 
-By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
+BY DEFAULT ASF WILL USE ALL AVAILABLE STEAM PROTOCOLS AS MEASURE 4 FIGHTIN WIF DOWNTIMEZ AN OTHR SIMILAR STEAM ISSUEZ. TYPICALLY U WANTS 2 CHANGE DIS PROPERTY IF U WANTS 2 LIMIT ASF INTO USIN ONLY WAN OR 2 SPECIFIC PROTOCOLS INSTEAD OV ALL AVAILABLE ONEZ. SUCH MEASURE CUD BE NEEDD IF URE E.G. ENABLIN ONLY TCP TRAFFIC ON UR FIREWALL AN U DO NOT WANTS ASF 2 TRY CONNECTIN VIA UDP. HOWEVR, UNLES URE DEBUGGIN PARTICULAR PROBLEM OR ISSUE, U ALMOST ALWAYS WANTS 2 ENSURE DAT ASF IZ FREE 2 USE ANY PROTOCOL DAT IZ CURRENTLY SUPPORTD AN NOT JUS WAN OR 2. UNLES U HAS **STRONG** REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
 ### `UpdateChannel`
 
-`byte` type with default value of `1`. This property defines update channel which is being used, either for auto-updates (if `UpdatePeriod` is greater than `0`), or update notifications (otherwise). Currently ASF supports three update channels - `0` which is called `None`, `1`, which is called `Stable`, and `2`, which is called `Experimental`. `Stable` channel is the default release channel, which should be used by majority of users. `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. If you don't consider yourself advanced user, please stay with default `1` (Stable) update channel. `Experimental` channel is dedicated to users who know how to report bugs, deal with issues and give feedback - no technical support will be given. Check out ASF **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)** if you'd like to learn more. You can also set `UpdateChannel` to `0` (`None`), if you want to completely remove all version checks. Setting `UpdateChannel` to `0` will entirely disable entire functionality related to updates, including `update` command. Using `None` channel is **strongly discouraged** due to exposing yourself to all sort of problems (mentioned in `UpdatePeriod` description below).
+`BYTE` TYPE WIF DEFAULT VALUE OV `1`. DIS PROPERTY DEFINEZ UPDATE CHANNEL WHICH IZ BEAN USD, EITHR 4 AUTO-UPDATEZ (IF `UPDATEPERIOD` IZ GREATR THAN `0`), OR UPDATE NOTIFICASHUNS (OTHERWIZE). CURRENTLY ASF SUPPORTS 3 UPDATE CHANNELS - `0` WHICH IZ CALLD `NONE`, `1`, WHICH IZ CALLD `STABLE`, AN `2`, WHICH IZ CALLD `EXPERIMENTAL`. `STABLE` CHANNEL IZ TEH DEFAULT RELEASE CHANNEL, WHICH SHUD BE USD BY MAJORITY OV USERS. `EXPERIMENTAL` CHANNEL IN ADDISHUN 2 `STABLE` RELEASEZ, ALSO INCLUDEZ **PRE-RELEASEZ** DEDICATD 4 ADVANCD USERS AN OTHR DEVELOPERS IN ORDR 2 TEST NEW FEATUREZ, CONFIRM BUGFIXEZ OR GIV FEEDBACK BOUT PLANND ENHANCEMENTS. **EXPERIMENTAL VERSHUNS OFTEN CONTAIN UNPATCHD BUGS, WERK-IN-PROGRES FEATUREZ OR REWRITTEN IMPLEMENTASHUNS**. IF U DOAN CONSIDR YOURSELF ADVANCD USR, PLZ STAY WIF DEFAULT `1` (STABLE) UPDATE CHANNEL. `EXPERIMENTAL` CHANNEL IZ DEDICATD 2 USERS HOO KNOE HOW 2 REPORT BUGS, DEAL WIF ISSUEZ AN GIV FEEDBACK - NO TECHNICAL SUPPORT WILL BE GIVEN. CHECK OUT ASF **<A HREF="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle">RELEASE CYCLE</A>** IF UD LIEK 2 LERN MOAR. U CAN ALSO SET `UPDATECHANNEL` 2 `0` (`NONE`), IF U WANTS 2 COMPLETELY REMOOV ALL VERSHUN CHECKZ. SETTIN `UPDATECHANNEL` 2 `0` WILL ENTIRELY DISABLE ENTIRE FUNCSHUNALITY RELATD 2 UPDATEZ, INCLUDIN `UPDATE` COMMAND. USIN `NONE` CHANNEL IZ **STRONGLY DISCOURAGD** DUE 2 EXPOSIN YOURSELF 2 ALL SORT OV PROBLEMS (MENSHUND IN `UPDATEPERIOD` DESCRIPSHUN BELOW).
 
-**Unless you know what you're doing**, we **strongly** recommend to keep it at default.
+**UNLES U KNOE WUT URE DOIN**, WE **STRONGLY** RECOMMEND 2 KEEP IT AT DEFAULT.
 
 * * *
 
@@ -291,7 +291,7 @@ Default value was set based on assumption that ASF is the only tool accessing St
 
 In general, lowering `WebLimiterDelay` under default value is **strongly discouraged** as it could lead to various IP-related blocks, some of which are possible to be permanent. Default value is good enough for running a single ASF instance on the server, as well as using ASF in normal scenario along with original Steam client. It should be correct for majority of usages, and you should only increase it (never lower it), if - apart from using ASF, you're also using another tool that may send excessive number of requests to the same web-services that ASF is making use of. In short, global number of all requests sent from a single IP to a single Steam domain should never exceed more than 1 request per `300` ms.
 
-Unless you have a reason to edit this property, you should keep it at default.
+UNLES U HAS REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
@@ -307,7 +307,7 @@ If your proxy requires user authentication, you will also need to set up `WebPro
 
 Right now ASF uses web proxy only for `http` and `https` requests, which **do not** include internal Steam network communication done within ASF's internal Steam client. There are currently no plans for supporting that, mainly due to missing **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** functionality. If you need/want it to happen, I'd suggest starting from there.
 
-Unless you have a reason to edit this property, you should keep it at default.
+UNLES U HAS REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
@@ -315,7 +315,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 `string` type with default value of `null`. This property defines password field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
 
-Unless you have a reason to edit this property, you should keep it at default.
+UNLES U HAS REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
@@ -323,7 +323,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 `string` type with default value of `null`. This property defines username field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
 
-Unless you have a reason to edit this property, you should keep it at default.
+UNLES U HAS REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 * * *
 
@@ -373,11 +373,11 @@ The bot config has following structure:
 
 * * *
 
-All options are explained below:
+ALL OPSHUNS R EXPLAIND BELOW:
 
 ### `AcceptGifts`
 
-`bool` type with default value of `false`. When enabled, ASF will automatically accept and redeem all steam gifts (including wallet gift cards) sent to the bot. This includes also gifts sent from users other than those defined in `SteamUserPermissions`. Keep in mind that gifts sent to e-mail address are not directly forwarded to the client, so ASF won't accept those without your help.
+`BOOL` TYPE WIF DEFAULT VALUE OV `FALSE`. When enabled, ASF will automatically accept and redeem all steam gifts (including wallet gift cards) sent to the bot. This includes also gifts sent from users other than those defined in `SteamUserPermissions`. Keep in mind that gifts sent to e-mail address are not directly forwarded to the client, so ASF won't accept those without your help.
 
 This option is recommended only for alt accounts, as it's very likely that you don't want to automatically redeem all gifts sent to your primary account. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
@@ -385,7 +385,7 @@ This option is recommended only for alt accounts, as it's very likely that you d
 
 ### `AutoSteamSaleEvent`
 
-`bool` type with default value of `false`. During Steam summer/winter sale events Steam is known for providing you extra cards for browsing discovery queue each day, as well as through other event-specific activities. When this option is enabled, ASF will automatically check Steam discovery queue each `8` hours (starting in one hour since program start), and clear it if needed. This option is not recommended if you want to do that action yourself, and typically it should make sense only on bot accounts. Moreover, you need to ensure that your account is at least of level `8` if you expect to receive those cards in the first place, which comes directly as Steam requirement. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`BOOL` TYPE WIF DEFAULT VALUE OV `FALSE`. During Steam summer/winter sale events Steam is known for providing you extra cards for browsing discovery queue each day, as well as through other event-specific activities. When this option is enabled, ASF will automatically check Steam discovery queue each `8` hours (starting in one hour since program start), and clear it if needed. This option is not recommended if you want to do that action yourself, and typically it should make sense only on bot accounts. Moreover, you need to ensure that your account is at least of level `8` if you expect to receive those cards in the first place, which comes directly as Steam requirement. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 Please note that due to constant Valve issues, changes and problems, **we give no guarantee whether this function will work properly**, therefore it's entirely possible that this option **will not work at all**. We do not accept **any** bug reports, neither support requests for this option. It's offered with absolutely no guarantees, you're using it at your own risk.
 
@@ -395,7 +395,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 `byte flags` type with default value of `0`. This property defines ASF bot-like behaviour during various events, and is defined as below:
 
-| Value | Name                          | Description                                                                                              |
+| VALUE | Name                          | DESCRIPSHUN                                                                                              |
 | ----- | ----------------------------- | -------------------------------------------------------------------------------------------------------- |
 | 0     | None                          | No special bot behaviour, the least invasive mode, default                                               |
 | 1     | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites                                    |
@@ -405,7 +405,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 | 16    | MarkReceivedMessagesAsRead    | Will cause ASF to automatically mark all received messages as read                                       |
 | 32    | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) as read |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+PLZ NOTICE DAT DIS PROPERTY IZ `FLAGS` FIELD, THEREFORE IZ POSIBLE 2 CHOOSE ANY COMBINASHUN OV AVAILABLE VALUEZ. CHECK OUT **<A HREF="#json-mappin">FLAGS MAPPIN</A>** IF UD LIEK 2 LERN MOAR. Not enabling any of flags results in `None` option.
 
 In general you want to modify this property if you expect from ASF to do certain amount of automation related to its activity, as it'd be expected from a bot account, but not a primary account used in ASF. Therefore, changing this property makes sense mainly for alt accounts, although you're free to use selected options for main accounts as well.
 
@@ -433,7 +433,7 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 As of today, the following item types are supported in this setting:
 
-| Value | Name            | Description                                                   |
+| VALUE | Name            | DESCRIPSHUN                                                   |
 | ----- | --------------- | ------------------------------------------------------------- |
 | 3     | FoilTradingCard | Foil variant of `TradingCard`                                 |
 | 5     | TradingCard     | Steam trading card, being used for crafting badges (non-foil) |
@@ -462,7 +462,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 ### `Enabled`
 
-`bool` type with default value of `false`. This property defines if bot is enabled. Enabled bot instance (`true`) will automatically start on ASF run, while disabled bot instance (`false`) will need to be started manually. By default every bot is disabled, so you probably want to switch this property to `true` for all of your bots that should be started automatically.
+`BOOL` TYPE WIF DEFAULT VALUE OV `FALSE`. This property defines if bot is enabled. Enabled bot instance (`true`) will automatically start on ASF run, while disabled bot instance (`false`) will need to be started manually. By default every bot is disabled, so you probably want to switch this property to `true` for all of your bots that should be started automatically.
 
 * * *
 
@@ -470,7 +470,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 `ImmutableList<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
 
-| Value | Name                      | Description                                                                      |
+| VALUE | Name                      | DESCRIPSHUN                                                                      |
 | ----- | ------------------------- | -------------------------------------------------------------------------------- |
 | 0     | Unordered                 | No sorting, slightly improving CPU performance                                   |
 | 1     | AppIDsAscending           | Try to farm games with lowest `appIDs` first                                     |
@@ -499,25 +499,25 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `GamesPlayedWhileIdle`
 
-`ImmutableHashSet<uint>` type with default value of being empty. If ASF has nothing to farm it can play your specified steam games (`appIDs`) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appIDs` total, therefore you can put only as many games in this property.
+`IMMUTABLEHASHSET<UINT>` TYPE WIF DEFAULT VALUE OV BEAN EMPTY. If ASF has nothing to farm it can play your specified steam games (`appIDs`) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appIDs` total, therefore you can put only as many games in this property.
 
 * * *
 
 ### `HoursUntilCardDrops`
 
-`byte` type with default value of `3`. This property defines if account has card drops restricted, and if yes, for how many initial hours. Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least `HoursUntilCardDrops` hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is no obvious answer whether you should use one or another value, since it fully depends on your account. It seems that older accounts which never asked for refund have unrestricted card drops, so they should use a value of `0`, while new accounts and those who did ask for refund have restricted card drops with a value of `3`. This is however only theory, and should not be taken as a rule. The default value for this property was set based on "lesser evil" and majority of use cases.
+`BYTE` TYPE WIF DEFAULT VALUE OV `3`. This property defines if account has card drops restricted, and if yes, for how many initial hours. Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least `HoursUntilCardDrops` hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is no obvious answer whether you should use one or another value, since it fully depends on your account. It seems that older accounts which never asked for refund have unrestricted card drops, so they should use a value of `0`, while new accounts and those who did ask for refund have restricted card drops with a value of `3`. DIS AR TEH HOWEVR ONLY THEORY, AN SHUD NOT BE TAKEN AS RULE. The default value for this property was set based on "lesser evil" and majority of use cases.
 
 * * *
 
 ### `IdlePriorityQueueOnly`
 
-`bool` type with default value of `false`. This property defines if ASF should consider for automatic idling only apps that you added yourself to priority idling queue available with `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF idling. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to idle on your account. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`BOOL` TYPE WIF DEFAULT VALUE OV `FALSE`. This property defines if ASF should consider for automatic idling only apps that you added yourself to priority idling queue available with `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF idling. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to idle on your account. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 * * *
 
 ### `IdleRefundableGames`
 
-`bool` type with default value of `true`. This property defines if ASF is permitted to idle games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `true`, ASF ignores Steam refunds policy entirely and idles everything, as most people would expect. However, you can change this option to `false` if you want to ensure that ASF won't idle any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you disable this option then games you purchased from Steam Store won't be idled by ASF for up to 14 days since redeem date, which will show as nothing to idle if your account doesn't own anything else. If you're unsure whether you want this feature enabled or not, keep it with default value of `true`.
+`BOOL` TYPE WIF DEFAULT VALUE OV `TRUE`. This property defines if ASF is permitted to idle games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `true`, ASF ignores Steam refunds policy entirely and idles everything, as most people would expect. However, you can change this option to `false` if you want to ensure that ASF won't idle any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you disable this option then games you purchased from Steam Store won't be idled by ASF for up to 14 days since redeem date, which will show as nothing to idle if your account doesn't own anything else. If you're unsure whether you want this feature enabled or not, keep it with default value of `true`.
 
 * * *
 
@@ -525,7 +525,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual, using a **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, as well as automatic one, through one or more configuration properties. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
-| Value | Name                  | Description                                                   |
+| VALUE | Name                  | DESCRIPSHUN                                                   |
 | ----- | --------------------- | ------------------------------------------------------------- |
 | 0     | Unknown               | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
@@ -553,7 +553,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 `ImmutableHashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-| Value | Name                  | Description                                                   |
+| VALUE | Name                  | DESCRIPSHUN                                                   |
 | ----- | --------------------- | ------------------------------------------------------------- |
 | 0     | Unknown               | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
@@ -581,9 +581,9 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 ### `OnlineStatus`
 
-`byte` type with default value of `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
+`BYTE` TYPE WIF DEFAULT VALUE OV `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
 
-| Value | Name           |
+| VALUE | Name           |
 | ----- | -------------- |
 | 0     | OFFLINE        |
 | 1     | ONLINE         |
@@ -608,13 +608,13 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 ### `PasswordFormat`
 
-`byte` type with default value of `0`. This property defines the format of `SteamPassword` property, and currently supports - `0` for `PlainText`, `1` for `AES` and `2` for `ProtectedDataForCurrentUser`. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. In other words, when you change `PasswordFormat` then your `SteamPassword` should be **already** in that format, not just aiming to be. Unless you know what you're doing, you should keep it with default value of `0`.
+`BYTE` TYPE WIF DEFAULT VALUE OV `0`. This property defines the format of `SteamPassword` property, and currently supports - `0` for `PlainText`, `1` for `AES` and `2` for `ProtectedDataForCurrentUser`. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. In other words, when you change `PasswordFormat` then your `SteamPassword` should be **already** in that format, not just aiming to be. UNLES U KNOE WUT URE DOIN, U SHUD KEEP IT WIF DEFAULT VALUE OV `0`.
 
 * * *
 
 ### `Paused`
 
-`bool` type with default value of `false`. This property defines initial state of `CardsFarmer` module. With default value of `false`, bot will automatically start farming when it's started, either because of `Enabled` or `start` command. Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`BOOL` TYPE WIF DEFAULT VALUE OV `FALSE`. This property defines initial state of `CardsFarmer` module. With default value of `false`, bot will automatically start farming when it's started, either because of `Enabled` or `start` command. Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 * * *
 
@@ -622,7 +622,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 `byte flags` type with default value of `0`. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
 
-| Value | Name                               | Description                                                                                                                     |
+| VALUE | Name                               | DESCRIPSHUN                                                                                                                     |
 | ----- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | 0     | None                               | No special redeeming preferences, default                                                                                       |
 | 1     | Forwarding                         | Forward keys unavailable to redeem to other bots                                                                                |
@@ -630,7 +630,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 | 4     | KeepMissingGames                   | Keep keys for (potentially) missing games when forwarding, leaving them unused                                                  |
 | 8     | AssumeWalletKeyOnBadActivationCode | Assume that `BadActivationCode` keys are equal to `CannotRedeemCodeFromClient`, and therefore try to redeem them as wallet keys |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+PLZ NOTICE DAT DIS PROPERTY IZ `FLAGS` FIELD, THEREFORE IZ POSIBLE 2 CHOOSE ANY COMBINASHUN OV AVAILABLE VALUEZ. CHECK OUT **<A HREF="#json-mappin">FLAGS MAPPIN</A>** IF UD LIEK 2 LERN MOAR. Not enabling any of flags results in `None` option.
 
 `Forwarding` will cause bot to forward a key that is not possible to redeem, to another connected and logged on bot that is missing that particular game (if possible to check). The most common situation is forwarding `AlreadyPurchased` game to another bot that is missing that particular game, but this option also covers other scenarios, such as `DoesNotOwnRequiredApp`, `RateLimited` or `RestrictedCountry`.
 
@@ -650,15 +650,15 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ### `SendOnFarmingFinished`
 
-`bool` type with default value of `false`. When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with `Master` permission, which is very convenient if you don't want to bother with trades yourself. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account.
+`BOOL` TYPE WIF DEFAULT VALUE OV `FALSE`. When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with `Master` permission, which is very convenient if you don't want to bother with trades yourself. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account.
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. If you're not sure how to set this property, leave it with default value of `false`.
+Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. IF URE NOT SURE HOW 2 SET DIS PROPERTY, LEEF IT WIF DEFAULT VALUE OV `FALSE`.
 
 * * *
 
 ### `SendTradePeriod`
 
-`byte` type with default value of `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
+`BYTE` TYPE WIF DEFAULT VALUE OV `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
 
 Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. If you're not sure how to set this property, leave it with default value of `0`.
 
@@ -666,9 +666,9 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `ShutdownOnFarmingFinished`
 
-`bool` type with default value of `false`. ASF is "occupying" an account for the whole time of process being active. When given account is done with farming, ASF periodically checks it (every `IdleFarmingPeriod` hours), if perhaps some new games with steam cards were added in the meantime, so it can resume farming of that account without a need to restart the process. This is useful for majority of people, as ASF can automatically resume farming when needed. However, you may actually want to stop the process when given account is fully farmed, you can achieve that by setting this property to `true`. When enabled, ASF will proceed with logging off when account is fully farmed, which means that it won't be periodically checked or occupied anymore. You should decide yourself if you prefer ASF to work on given bot instance for the whole time, or if perhaps ASF should stop it when farming process is done. When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well, putting your machine at rest and allowing you to schedule other actions, such as sleep or shutdown at the same moment of last card dropping.
+`BOOL` TYPE WIF DEFAULT VALUE OV `FALSE`. ASF is "occupying" an account for the whole time of process being active. When given account is done with farming, ASF periodically checks it (every `IdleFarmingPeriod` hours), if perhaps some new games with steam cards were added in the meantime, so it can resume farming of that account without a need to restart the process. This is useful for majority of people, as ASF can automatically resume farming when needed. However, you may actually want to stop the process when given account is fully farmed, you can achieve that by setting this property to `true`. When enabled, ASF will proceed with logging off when account is fully farmed, which means that it won't be periodically checked or occupied anymore. You should decide yourself if you prefer ASF to work on given bot instance for the whole time, or if perhaps ASF should stop it when farming process is done. When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well, putting your machine at rest and allowing you to schedule other actions, such as sleep or shutdown at the same moment of last card dropping.
 
-If you're not sure how to set this property, leave it with default value of `false`.
+IF URE NOT SURE HOW 2 SET DIS PROPERTY, LEEF IT WIF DEFAULT VALUE OV `FALSE`.
 
 * * *
 
@@ -680,7 +680,7 @@ If you're not sure how to set this property, leave it with default value of `fal
 
 ### `SteamMasterClanID`
 
-`ulong` type with default value of `0`. This property defines the steamID of the steam group that bot should automatically join, including its group chat. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/archiasf)**, then adding `/memberslistxml?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. In addition to trying to join given group at startup, the bot will also automatically accept group invites to this group, which makes it possible for you to invite your bot manually if your group has private membership. If you don't have any group dedicated for your bots, you should keep this property with default value of `0`.
+`ULONG` TYPE WIF DEFAULT VALUE OV `0`. This property defines the steamID of the steam group that bot should automatically join, including its group chat. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/archiasf)**, then adding `/memberslistxml?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. In addition to trying to join given group at startup, the bot will also automatically accept group invites to this group, which makes it possible for you to invite your bot manually if your group has private membership. If you don't have any group dedicated for your bots, you should keep this property with default value of `0`.
 
 * * *
 
@@ -710,7 +710,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 `ImmutableDictionary<ulong, byte>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
 
-| Value | Name          | Description                                                                                                                                                                                        |
+| VALUE | Name          | DESCRIPSHUN                                                                                                                                                                                        |
 | ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0     | None          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
 | 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
@@ -729,7 +729,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 `byte flags` type with default value of `0`. This property defines ASF behaviour when in trading, and is defined as below:
 
-| Value | Name                | Description                                                                                                                                                                                          |
+| VALUE | Name                | DESCRIPSHUN                                                                                                                                                                                          |
 | ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0     | None                | No special trading preferences, default                                                                                                                                                              |
 | 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
@@ -738,7 +738,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 | 8     | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                                                  |
 | 16    | MatchActively       | Actively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** for more info      |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+PLZ NOTICE DAT DIS PROPERTY IZ `FLAGS` FIELD, THEREFORE IZ POSIBLE 2 CHOOSE ANY COMBINASHUN OV AVAILABLE VALUEZ. CHECK OUT **<A HREF="#json-mappin">FLAGS MAPPIN</A>** IF UD LIEK 2 LERN MOAR. Not enabling any of flags results in `None` option.
 
 For further explanation of ASF trading logic, and description of every available flag, please visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section.
 
@@ -748,7 +748,7 @@ For further explanation of ASF trading logic, and description of every available
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines which Steam item types will be considered for transferring between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
 
-| Value | Name                  | Description                                                   |
+| VALUE | Name                  | DESCRIPSHUN                                                   |
 | ----- | --------------------- | ------------------------------------------------------------- |
 | 0     | Unknown               | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
@@ -774,7 +774,7 @@ Default ASF setting is based on the most common usage of the bot, with transferi
 
 ### `UseLoginKeys`
 
-`bool` type with default value of `true`. This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
+`BOOL` TYPE WIF DEFAULT VALUE OV `TRUE`. This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
 
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
@@ -784,9 +784,9 @@ However, some people could be concerned even about this little detail, therefore
 
 ### `UserInterfaceMode`
 
-`byte` type with default value of `0`. This property specifies user interface mode that the bot will be announced with after logging in to Steam network. Currently you can choose one of below modes:
+`BYTE` TYPE WIF DEFAULT VALUE OV `0`. This property specifies user interface mode that the bot will be announced with after logging in to Steam network. Currently you can choose one of below modes:
 
-| Value | Name       |
+| VALUE | Name       |
 | ----- | ---------- |
 | `0`   | Default    |
 | `1`   | BigPicture |
@@ -906,7 +906,7 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Value | Name |
+| VALUE | Name |
 | ----- | ---- |
 | 0     | None |
 | 1     | A    |

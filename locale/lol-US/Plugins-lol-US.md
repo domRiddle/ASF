@@ -1,36 +1,36 @@
-# Plugins
+# PLUGINS
 
-Starting with ASF V4, the program includes support for custom plugins that can be loaded during runtime. Plugins allow you to customize ASF behaviour, for example by adding custom commands, custom trading logic or whole integration with third-party services and APIs.
+STARTIN WIF ASF V4, TEH PROGRAM INCLUDEZ SUPPORT 4 CUSTOM PLUGINS DAT CAN BE LOADD DURIN RUNTIME. PLUGINS ALLOW U 2 CUSTOMIZE ASF BEHAVIOUR, 4 EXAMPLE BY ADDIN CUSTOM COMMANDZ, CUSTOM TRADIN LOGIC OR WHOLE INTEGRASHUN WIF THIRD-PARTY SERVICEZ AN APIS.
 
 * * *
 
-## For users
+## 4 USERS
 
-ASF loads plugins from `plugins` directory located in your ASF folder. It's a recommended practice to maintain a dedicated directory for each plugin that you want to use, which can be based off its name, such as `MyPlugin`. Doing so will result in the final tree structure of `plugins/MyPlugin`. Finally, all binary files of the plugin should be put inside that dedicated folder, and ASF will properly discover and use your plugin after restart.
+ASF LOADZ PLUGINS FRUM `PLUGINS` DIRECTORY LOCATD IN UR ASF FOLDR. IT BE RECOMMENDD PRACTICE 2 MAINTAIN DEDICATD DIRECTORY 4 EACH PLUGIN DAT U WANTS 2 USE, WHICH CAN BE BASD OFF ITZ NAYM, SUCH AS `MYPLUGIN`. DOIN SO WILL RESULT IN DA FINAL TREE STRUCCHUR OV `PLUGINS/MYPLUGIN`. FINALLY, ALL BINARY FILEZ OV TEH PLUGIN SHUD BE PUT INSIDE DAT DEDICATD FOLDR, AN ASF WILL PROPERLY DISCOVR AN USE UR PLUGIN AFTR RESTART.
 
-Usually plugin developers will publish their plugins in form of a `zip` file with already-prepared structure for you, so it's enough to unpack that zip archive into `plugins` directory, which will create the appropriate folder automatically.
+USUALLY PLUGIN DEVELOPERS WILL PUBLISH THEIR PLUGINS IN FORM OV `ZIP` FILE WIF ALREADY-PREPARD STRUCCHUR 4 U, SO IZ ENOUGH 2 UNPACK DAT ZIP ARCHIV INTO `PLUGINS` DIRECTORY, WHICH WILL CREATE TEH APPROPRIATE FOLDR AUTOMATICALLY.
 
-If the plugin was loaded successfully, you'll see its name and version in your log. You should consult your plugin developers in case of questions, issues or usage related to the plugins that you've decided to use.
+IF TEH PLUGIN WUZ LOADD SUCCESFULLY, ULL C ITZ NAYM AN VERSHUN IN UR LOG. U SHUD CONSULT UR PLUGIN DEVELOPERS IN CASE OV QUESHUNS, ISSUEZ OR USAGE RELATD 2 TEH PLUGINS DAT UVE DECIDD 2 USE.
 
 You can find some featured plugins in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
 
-**Please note that ASF plugins could be malicious**. You should always ensure that you're using plugins made by developers that you can trust. ASF developers can no longer guarantee you usual ASF benefits (such as lack of malware or being VAC-free) if you decide to use any custom plugins. We're also unable to support setups that utilize custom plugins, since you're no longer running vanilla ASF code.
+**PLZ NOWT DAT ASF PLUGINS CUD BE MALISHUS**. U SHUD ALWAYS ENSURE DAT URE USIN PLUGINS MADE BY DEVELOPERS DAT U CAN TRUST. ASF DEVELOPERS CAN NO LONGR GUARANTEE U USUAL ASF BENEFITS (SUCH AS LACK OV MALWARE OR BEAN VAC-FREE) IF U DECIDE 2 USE ANY CUSTOM PLUGINS. WERE ALSO UNABLE 2 SUPPORT SETUPS DAT UTILIZE CUSTOM PLUGINS, SINCE URE NO LONGR RUNNIN VANILLA ASF CODE.
 
 * * *
 
-## For developers
+## 4 DEVELOPERS
 
-Plugins are standard .NET libraries that inherit common `IPlugin` interface with ASF. You can develop plugins entirely independently of mainline ASF and reuse them in current and future ASF versions, as long as API remains compatible. Plugin system used in ASF is based on `System.Composition`, formerly known as **[Managed Extensibility Framework](https://docs.microsoft.com/dotnet/framework/mef)** which allows ASF to discover and load your libraries during runtime.
+PLUGINS R STANDARD .NET LIBRARIEZ DAT INHERIT COMMON `IPLUGIN` INTERFACE WIF ASF. U CAN DEVELOP PLUGINS ENTIRELY INDEPENDENTLY OV MAINLINE ASF AN REUSE THEM IN CURRENT AN FUCHUR ASF VERSHUNS, AS LONG AS API REMAINS COMPATIBLE. PLUGIN SISTEM USD IN ASF IZ BASD ON `SISTEM.COMPOSISHUN`, FORMERLY KNOWN AS **[MANAGD EXTENSIBILITY FRAMEWORK](https://docs.microsoft.com/dotnet/framework/mef)** WHICH ALLOWS ASF 2 DISCOVR AN LOAD UR LIBRARIEZ DURIN RUNTIME.
 
 * * *
 
-### Getting started
+### GETTIN STARTD
 
-Your project should be a standard .NET library targetting appropriate framework of your target ASF version, as specified in the **[compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**. We recommend you to target .NET Core, but .NET Framework plugins are also available.
+Your project should be a standard .NET library targetting appropriate framework of your target ASF version, as specified in the **[compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**. WE RECOMMEND U 2 TARGET .NET CORE, BUT .NET FRAMEWORK PLUGINS R ALSO AVAILABLE.
 
-The project must reference main `ArchiSteamFarm` assembly, either its prebuilt `ArchiSteamFarm.dll` library that you've downloaded as part of the release, or the source project (e.g. if you decided to add ASF tree as submodule). This will allow you to access and discover ASF structures, methods and properties, especially core `IPlugin` interface which you'll need to inherit from in the next step. The project must also reference `System.Composition.AttributedModel` at the minimum, which allows you to `[Export]` your `IPlugin` for ASF to use. In addition to that, you may want/need to reference other common libraries in order to interpret the data structures that are given to you in some interfaces, but unless you need them explicitly, that will be enough for now.
+TEH PROJECT MUST REFERENCE MAIN `ARCHISTEAMFARM` ASSEMBLY, EITHR ITZ PREBUILT `ARCHISTEAMFARM.DLL` LIBRARY DAT UVE DOWNLOADD AS PART OV TEH RELEASE, OR TEH SOURCE PROJECT (E.G. IF U DECIDD 2 ADD ASF TREE AS SUBMODULE). DIS WILL ALLOW U 2 ACCES AN DISCOVR ASF STRUCTUREZ, METHODZ AN PROPERTIEZ, ESPECIALLY CORE `IPLUGIN` INTERFACE WHICH ULL NED 2 INHERIT FRUM IN DA NEXT STEP. TEH PROJECT MUST ALSO REFERENCE `SISTEM.COMPOSISHUN.ATTRIBUTEDMODEL` AT TEH MINIMUM, WHICH ALLOWS U 2 `[EXPORT]` UR `IPLUGIN` 4 ASF 2 USE. IN ADDISHUN 2 DAT, U CUD WANTS/NED 2 REFERENCE OTHR COMMON LIBRARIEZ IN ORDR 2 INTERPRET TEH DATA STRUCTUREZ DAT R GIVEN 2 U IN SUM INTERFACEZ, BUT UNLES U NED THEM EXPLICITLY, DAT WILL BE ENOUGH 4 NAO.
 
-If you did everything properly, your `csproj` will be similar to below:
+IF U DID EVRYTHIN PROPERLY, UR `CSPROJ` WILL BE SIMILAR 2 BELOW:
 
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
@@ -51,7 +51,7 @@ If you did everything properly, your `csproj` will be similar to below:
 </Project>
 ```
 
-From the code side, your plugin class must inherit from `IPlugin` interface (either explicitly, or implicitly by inheriting from more specialized interface, such as `IASF`) and `[Export(typeof(IPlugin))]` in order to be recognized by ASF during runtime. The most bare example that achieves that would be the following:
+FRUM TEH CODE SIDE, UR PLUGIN CLAS MUST INHERIT FRUM `IPLUGIN` INTERFACE (EITHR EXPLICITLY, OR IMPLICITLY BY INHERITIN FRUM MOAR SPECIALIZD INTERFACE, SUCH AS `IASF`) AN `[EXPORT(TYPEOF(IPLUGIN))]` IN ORDR 2 BE RECOGNIZD BY ASF DURIN RUNTIME. TEH MOST BARE EXAMPLE DAT ACHIEVEZ DAT WUD BE TEH FOLLOWIN:
 
 ```csharp
 using System;
@@ -72,62 +72,62 @@ namespace YourNamespace.YourPluginName {
 }
 ```
 
-In order to make use of your plugin, you must firstly compile it. You can do that either from your IDE, or from within the root directory of your project via a command:
+IN ORDR 2 MAK USE OV UR PLUGIN, U MUST FIRSTLY COMPILE IT. U CAN DO DAT EITHR FRUM UR IDE, OR FRUM WITHIN TEH ROOT DIRECTORY OV UR PROJECT VIA COMMAND:
 
 ```shell
-# If your project is standalone (no need to define its name since it's the only one)
-dotnet publish -c "Release" -o "out"
+# IF UR PROJECT IZ STANDALONE (NO NED 2 DEFINE ITZ NAYM SINCE IZ TEH ONLY WAN)
+DOTNET PUBLISH -C "RELEASE" -O "OUT"
 
-# If your project is part of ASF source tree (to avoid compiling unnecessary parts)
-dotnet publish YourPluginName -c "Release" -o "out"
+# IF UR PROJECT IZ PART OV ASF SOURCE TREE (2 AVOID COMPILIN UNNECESARY PARTS)
+DOTNET PUBLISH YOURPLUGINNAME -C "RELEASE" -O "OUT"
 ```
 
-Afterwards, your plugin is ready for deployment. It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its **[dependencies](#plugin-dependencies)**. This way user will simply need to unpack your zip archive into his `plugins` directory and do nothing else.
+AFTERWARDZ, UR PLUGIN IZ READY 4 DEPLOYMENT. It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its **[dependencies](#plugin-dependencies)**. DIS WAI USR WILL SIMPLY NED 2 UNPACK UR ZIP ARCHIV INTO HIS `PLUGINS` DIRECTORY AN DO NOTHIN ELSE.
 
-This is only the most basic scenario to get you started. We have **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Feel free to take a look if you'd like to learn from a working code, or discover `ArchiSteamFarm.Plugins` namespace yourself and refer to the included documentation for all available options.
+DIS AR TEH ONLY TEH MOST BASIC SCENARIO 2 GIT U STARTD. WE HAS **[`EXAMPLEPLUGIN`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** PROJECT DAT SHOWS U EXAMPLE INTERFACEZ AN ACSHUNS DAT U CAN DO WITHIN UR OWN PLUGIN, INCLUDIN HELPFUL COMMENTS. FEELZ FREE 2 TAEK LOOK IF UD LIEK 2 LERN FRUM WERKIN CODE, OR DISCOVR `ARCHISTEAMFARM.PLUGINS` NAMESPACE YOURSELF AN REFR 2 TEH INCLUDD DOCUMENTASHUN 4 ALL AVAILABLE OPSHUNS.
 
-If instead of example plugins you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. In addition to that, there are also plugins developed by other developers, in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
-
-* * *
-
-### API availability
-
-ASF, apart from what you have access to in the interfaces themselves, exposes to you a lot of its internal APIs that you can make use of, in order to extend the functionality. For example, if you'd like to send some kind of new request to Steam web, then you do not need to implement everything from scratch, especially dealing with all the issues we've had to deal with before you. Simply use our `Bot.ArchiWebHandler` which already exposes a lot of `UrlWithSession()` methods for you to use, handling all the lower-level stuff such as authentication, session refresh or web limiting for you. Likewise, for sending web requests outside of Steam platform, you could use standard .NET `HttpClient` class, but it's much better idea to use `Bot.ArchiWebHandler.WebBrowser` that is available for you, which once again offers you a helpful hand, for example in regards to retrying failed requests.
-
-We have a very open policy in terms of our API availability, so if you'd like to make use of something that ASF code already includes, simply **[open an issue](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** and explain in it your planned use case of our ASF's internal API. We most likely won't have anything against, as long as your use case makes sense. It's simply impossible for us to open everything that somebody would like to make use of, so we've opened what makes the most sense for us, and waiting for your requests in case you'd like to have access to something that isn't `public` yet. This also includes all suggestions in regards to new `IPlugin` interfaces that could make sense to be added in order to extend existing functionality.
-
-In fact, internal ASF's API is the only real limitation in terms of what your plugin can do. Nothing is stopping you from e.g. including `Discord.Net` library in your application and creating a bridge between your Discord bot and ASF commands, since your plugin can also have dependencies on its own. The possibilities are endless, and we made our best to give you as much freedom and flexibility as possible within your plugin, so there are no artificial limits on anything, just us not being completely sure which ASF parts are crucial for your plugin development (which you can solve by letting us know, and even without that you can always reimplement the functionality that you need).
+IF INSTEAD OV EXAMPLE PLUGINS UD WANTS 2 LERN FRUM REAL PROJECTS, THAR IZ **[`STEAMTOKENDUMPR`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** PLUGIN DEVELOPD BY US, TEH WAN DAT IZ BUNDLD TOGETHR WIF ASF. In addition to that, there are also plugins developed by other developers, in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
 
 * * *
 
-### API compatibility
+### API AVAILABILITY
 
-It's important to emphasize that ASF is a consumer application and not a typical library with fixed API surface that you can depend on unconditionally. This means that you can't assume that your plugin once compiled will keep working with all future ASF releases regardless, it's just impossible if you want to keep developing the program further, and being unable to adapt to ever-ongoing Steam changes for the sake of backwards compatibility is just not appropriate for our case. This should be logical for you, but it's important to highlight that fact.
+ASF, APART FRUM WUT U HAS ACCES 2 IN DA INTERFACEZ THEMSELVEZ, EXPOSEZ 2 U LOT OV ITZ INTERNAL APIS DAT U CAN MAK USE OV, IN ORDR 2 EXTEND TEH FUNCSHUNALITY. 4 EXAMPLE, IF UD LIEK 2 SEND SUM KIND OV NEW REQUEST 2 STEAM WEB, DEN U DO NOT NED 2 IMPLEMENT EVRYTHIN FRUM SCRATCH, ESPECIALLY DEALIN WIF ALL TEH ISSUEZ WEVE HAD 2 DEAL WIF BEFORE U. SIMPLY USE R `BOT.ARCHIWEBHANDLR` WHICH ALREADY EXPOSEZ LOT OV `URLWITHSESHUN()` METHODZ 4 U 2 USE, HANDLIN ALL TEH LOWR-LEVEL STUFF SUCH AS AUTHENTICASHUN, SESHUN REFRESH OR WEB LIMITIN 4 U. LIKEWIZE, 4 SENDIN WEB REQUESTS OUTSIDE OV STEAM PLATFORM, U CUD USE STANDARD .NET `HTTPCLIENT` CLAS, BUT IZ MUTCH BETTR IDEA 2 USE `BOT.ARCHIWEBHANDLR.WEBBROWSR` DAT IZ AVAILABLE 4 U, WHICH ONCE AGAIN OFFERS U HELPFUL HAND, 4 EXAMPLE IN REGARDZ 2 RETRYIN FAILD REQUESTS.
 
-We'll do our best to keep public parts of ASF working and stable, but we'll not be afraid to break the compatibility if good enough reasons arise, following our **[deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)** policy in the process. This is especially important in regards to internal ASF structures that are exposed to you as part of ASF infrastructure, explained above (e.g. `ArchiWebHandler`) which could be improved (and therefore rewritten) as part of ASF enhancements in one of the future versions. We'll do our best to inform you appropriately in the changelogs, and include appropriate warnings during runtime about obsolete features. We do not intend to rewrite everything for the sake of rewriting it, so you can be fairly sure that the next minor ASF version won't just simply destroy your plugin entirely only because it has a higher version number, but keeping an eye on changelogs and occasional verification if everything works fine is a very good idea.
+WE HAS VRY OPEN POLICY IN TERMS OV R API AVAILABILITY, SO IF UD LIEK 2 MAK USE OV SOMETHIN DAT ASF CODE ALREADY INCLUDEZ, SIMPLY **[OPEN AN ISSUE](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** AN EXPLAIN IN IT UR PLANND USE CASE OV R ASFS INTERNAL API. WE MOST LIKELY WONT HAS ANYTHIN AGAINST, AS LONG AS UR USE CASE MAKEZ SENSE. IZ SIMPLY IMPOSIBLE 4 US 2 OPEN EVRYTHIN DAT SOMEBODY WUD LIEK 2 MAK USE OV, SO WEVE OPEND WUT MAKEZ TEH MOST SENSE 4 US, AN WAITIN 4 UR REQUESTS IN CASE UD LIEK 2 HAS ACCES 2 SOMETHIN DAT ISNT `PUBLIC` YET. DIS ALSO INCLUDEZ ALL SUGGESHUNS IN REGARDZ 2 NEW `IPLUGIN` INTERFACEZ DAT CUD MAK SENSE 2 BE ADDD IN ORDR 2 EXTEND EXISTIN FUNCSHUNALITY.
 
-* * *
-
-### Plugin dependencies
-
-Your plugin will include at least two dependencies by default, `ArchiSteamFarm` reference for internal API, and `PackageReference` of `System.Composition.AttributedModel` that is required for being recognized as ASF plugin to begin with. In addition to that, it may include more dependencies in regards to what you've decided to do in your plugin (e.g. `Discord.Net` library if you've decided to integrate with Discord).
-
-The output of your build will include your core `YourPluginName.dll` library, as well as all the dependencies that you've referenced. Since you're developing a plugin to already-working program, you don't have to, and even **shouldn't** include dependencies that ASF already includes, for example `ArchiSteamFarm`, `SteamKit2` or `Newtonsoft.Json`. Stripping down your build off dependencies shared with ASF is not the absolute requirement for your plugin to work, but doing so will dramatically cut the memory footprint and the size of your plugin, together with increasing the performance, due to the fact that ASF will share its own dependencies with you, and will load only those libraries that it doesn't know about itself.
-
-In general, it's a recommended practice to include only those libraries that ASF either doesn't include, or includes in the wrong/incompatible version. Examples of those would be obviously `YourPluginName.dll`, but for example also `Discord.Net.dll` if you decided to depend on it, as ASF doesn't include it itself. Bundling libraries that are shared with ASF can still make sense if you want to ensure API compatibility (e.g. being sure that `Newtonsoft.Json` which you depend on in your plugin will always be in version `X` and not the one that ASF ships with), but obviously doing that comes for a price of increased memory/size and worse performance, and therefore should be carefully evaluated.
-
-If you know that the dependency which you need is included in ASF, you can mark it with `IncludeAssets="compile"` as we showed you in the example `csproj` above. This will tell the compiler to avoid publishing referenced library itself, as ASF already includes that one. Likewise, notice that we reference the ASF project with `ExcludeAssets="all" Private="false"` which works in a very similar way - telling the compiler to not produce any ASF files (as the user already has them). This applies only when referencing ASF project, since if you reference a `dll` library, then you're not producing ASF files as part of your plugin.
-
-If you're confused about above statement and you don't know better, check which `dll` libraries are included in `ASF-generic.zip` package and ensure that your plugin includes only those that are not part of it yet. This will be only `YourPluginName.dll` for the most simple plugins. If you get any issues during runtime in regards to some libraries, include those affected libraries as well. If all else fails, you can always decide to bundle everything.
+IN FACT, INTERNAL ASFS API IZ TEH ONLY REAL LIMITASHUN IN TERMS OV WUT UR PLUGIN CAN DO. NOTHIN IZ STOPPIN U FRUM E.G. INCLUDIN `DISCORD.NET` LIBRARY IN UR APPLICASHUN AN CREATIN BRIDGE TWEEN UR DISCORD BOT AN ASF COMMANDZ, SINCE UR PLUGIN CAN ALSO HAS DEPENDENCIEZ ON ITZ OWN. TEH POSIBILITIEZ R ENDLES, AN WE MADE R BEST 2 GIV U AS MUTCH FREEDOM AN FLEXIBILITY AS POSIBLE WITHIN UR PLUGIN, SO THAR R NO ARTIFISHUL LIMITS ON ANYTHIN, JUS US NOT BEAN COMPLETELY SURE WHICH ASF PARTS R CRUSHUL 4 UR PLUGIN DEVELOPMENT (WHICH U CAN SOLVE BY LETTIN US KNOE, AN EVEN WITHOUT DAT U CAN ALWAYS REIMPLEMENT TEH FUNCSHUNALITY DAT U NED).
 
 * * *
 
-### Native dependencies
+### API COMPATIBILITY
 
-Native dependencies are generated as part of OS-specific builds, as there is no .NET Core runtime available on the host and ASF is running through its own .NET Core runtime that is bundled as part of OS-specific build. In order to minimize the build size, ASF trims its native dependencies to include only the code that can be possibly reached within the program, which effectively cuts the unused parts of the runtime. This can create a potential problem for you in regards to your plugin, if suddenly you find out yourself in a situation where your plugin depends on some .NET Core feature that isn't being used in ASF, and therefore OS-specific builds can't execute it properly, usually throwing `System.MissingMethodException` or `System.Reflection.ReflectionTypeLoadException` in the process.
+IZ IMPORTANT 2 EMFASIZE DAT ASF IZ CONSUMR APPLICASHUN AN NOT TYPICAL LIBRARY WIF FIXD API SURFACE DAT U CAN DEPEND ON UNCONDISHUNALLY. DIS MEANZ DAT U CANT ASSUME DAT UR PLUGIN ONCE COMPILD WILL KEEP WERKIN WIF ALL FUCHUR ASF RELEASEZ REGARDLES, IZ JUS IMPOSIBLE IF U WANTS 2 KEEP DEVELOPIN TEH PROGRAM FURTHR, AN BEAN UNABLE 2 ADAPT 2 EVR-ONGOIN STEAM CHANGEZ 4 DA SAEK OV BAKWARDZ COMPATIBILITY IZ JUS NOT APPROPRIATE 4 R CASE. DIS SHUD BE LOGICAL 4 U, BUT IZ IMPORTANT 2 HIGHLIGHT DAT FACT.
 
-This is never a problem with generic builds, because those are never dealing with native dependencies in the first place (as they have complete working runtime on the host, executing ASF). It's also automatically one solution to the problem, **use your plugin in generic builds exclusively**, but obviously that has its own downside of cutting your plugin from users that are running OS-specific builds of ASF. If you're wondering if your issue is related to native dependencies, you can also use this method for verification, load your plugin in ASF generic build and see if it works. If it does, you have plugin dependencies covered, and it's the native dependencies causing issues.
+We'll do our best to keep public parts of ASF working and stable, but we'll not be afraid to break the compatibility if good enough reasons arise, following our **[deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)** policy in the process. DIS AR TEH ESPECIALLY IMPORTANT IN REGARDZ 2 INTERNAL ASF STRUCTUREZ DAT R EXPOSD 2 U AS PART OV ASF INFRASTRUCCHUR, EXPLAIND ABOOV (E.G. `ARCHIWEBHANDLR`) WHICH CUD BE IMPROOVD (AN THEREFORE REWRITTEN) AS PART OV ASF ENHANCEMENTS IN WAN OV TEH FUCHUR VERSHUNS. WELL DO R BEST 2 INFORM U APPROPRIATELY IN DA CHANGELOGS, AN INCLUDE APPROPRIATE WARNINGS DURIN RUNTIME BOUT OBSOLETE FEATUREZ. WE DO NOT INTEND 2 REWRITE EVRYTHIN 4 DA SAEK OV REWRITIN IT, SO U CAN BE FAIRLY SURE DAT TEH NEXT MINOR ASF VERSHUN WONT JUS SIMPLY DESTROY UR PLUGIN ENTIRELY ONLY CUZ IT HAS HIGHR VERSHUN NUMBR, BUT KEEPIN AN EYE ON CHANGELOGS AN OCCASHUNAL VERIFICASHUN IF EVRYTHIN WERKZ FINE IZ VRY GUD IDEA.
 
-Unfortunately, we had to make a hard choice between publishing whole runtime as part of our OS-specific builds, and deciding to cut it out of unused features, making the build over 50 MB smaller compared to the full one. We've picked the second option, and it's unfortunately impossible for you to include the missing runtime features together with your plugin. If your project requires access to runtime features that are left out, you have to include full .NET runtime that you depend on, and that means running your plugin together with `generic` ASF flavour. You can't run your plugin in OS-specific builds, as those builds are simply missing a runtime feature that you need, and .NET Core runtime as of now is unable to "merge" native dependency that you could've provided with our own. Perhaps it'll improve one day in the future, but as of now it's simply not possible.
+* * *
 
-ASF's OS-specific builds include the bare minimum of additional functionality which is required to run our official plugins. Apart of that being possible, this also slightly extends the surface to extra dependencies required for the most basic plugins. Therefore not all plugins will need to worry about native dependencies to begin with - only those that go beyond what ASF and our official plugins directly need. This is done as an extra, since if we need to include additional native dependencies ourselves for our own use cases anyway, we can as well ship them directly with ASF, making them available, and therefore easier to cover, also for you.
+### PLUGIN DEPENDENCIEZ
+
+UR PLUGIN WILL INCLUDE AT LEAST 2 DEPENDENCIEZ BY DEFAULT, `ARCHISTEAMFARM` REFERENCE 4 INTERNAL API, AN `PACKAGEREFERENCE` OV `SISTEM.COMPOSISHUN.ATTRIBUTEDMODEL` DAT IZ REQUIRD 4 BEAN RECOGNIZD AS ASF PLUGIN 2 BEGIN WIF. IN ADDISHUN 2 DAT, IT CUD INCLUDE MOAR DEPENDENCIEZ IN REGARDZ 2 WUT UVE DECIDD 2 DO IN UR PLUGIN (E.G. `DISCORD.NET` LIBRARY IF UVE DECIDD 2 INTEGRATE WIF DISCORD).
+
+TEH OUTPUT OV UR BUILD WILL INCLUDE UR CORE `YOURPLUGINNAME.DLL` LIBRARY, AS WELL AS ALL TEH DEPENDENCIEZ DAT UVE REFERENCD. SINCE URE DEVELOPIN PLUGIN 2 ALREADY-WERKIN PROGRAM, U DOAN HAS 2, AN EVEN **SHOULDNT** INCLUDE DEPENDENCIEZ DAT ASF ALREADY INCLUDEZ, 4 EXAMPLE `ARCHISTEAMFARM`, `STEAMKIT2` OR `NEWTONSOFT.JSON`. STRIPPIN DOWN UR BUILD OFF DEPENDENCIEZ SHARD WIF ASF IZ NOT TEH ABSOLUTE REQUIREMENT 4 UR PLUGIN 2 WERK, BUT DOIN SO WILL DRAMATICALLY CUT TEH MEMS FOOTPRINT AN TEH SIZE OV UR PLUGIN, TOGETHR WIF INCREASIN TEH PERFORMANCE, DUE 2 TEH FACT DAT ASF WILL SHARE ITZ OWN DEPENDENCIEZ WIF U, AN WILL LOAD ONLY DOSE LIBRARIEZ DAT IT DOESNT KNOE BOUT ITSELF.
+
+IN GENERAL, IT BE RECOMMENDD PRACTICE 2 INCLUDE ONLY DOSE LIBRARIEZ DAT ASF EITHR DOESNT INCLUDE, OR INCLUDEZ IN DA WRONG/INCOMPATIBLE VERSHUN. EXAMPLEZ OV DOSE WUD BE OBVIOUSLY `YOURPLUGINNAME.DLL`, BUT 4 EXAMPLE ALSO `DISCORD.NET.DLL` IF U DECIDD 2 DEPEND ON IT, AS ASF DOESNT INCLUDE IT ITSELF. BUNDLIN LIBRARIEZ DAT R SHARD WIF ASF CAN STILL MAK SENSE IF U WANTS 2 ENSURE API COMPATIBILITY (E.G. BEAN SURE DAT `NEWTONSOFT.JSON` WHICH U DEPEND ON IN UR PLUGIN WILL ALWAYS BE IN VERSHUN `X` AN NOT TEH WAN DAT ASF SHIPS WIF), BUT OBVIOUSLY DOIN DAT COMEZ 4 PRICE OV INCREASD MEMS/SIZE AN WORSE PERFORMANCE, AN THEREFORE SHUD BE CAREFULLY EVALUATD.
+
+IF U KNOE DAT TEH DEPENDENCY WHICH U NED IZ INCLUDD IN ASF, U CAN MARK IT WIF `INCLUDEASETS="COMPILE"` AS WE SHOWD U IN DA EXAMPLE `CSPROJ` ABOOV. DIS WILL TELL TEH COMPILR 2 AVOID PUBLISHIN REFERENCD LIBRARY ITSELF, AS ASF ALREADY INCLUDEZ DAT WAN. LIKEWIZE, NOTICE DAT WE REFERENCE TEH ASF PROJECT WIF `EXCLUDEASETS="ALL" PRIVATE="FALSE"` WHICH WERKZ IN VRY SIMILAR WAI - TELLIN TEH COMPILR 2 NOT PRODUCE ANY ASF FILEZ (AS TEH USR ALREADY HAS THEM). DIS APPLIEZ ONLY WHEN REFERENCIN ASF PROJECT, SINCE IF U REFERENCE `DLL` LIBRARY, DEN URE NOT PRODUCIN ASF FILEZ AS PART OV UR PLUGIN.
+
+IF URE CONFUSD BOUT ABOOV STATEMENT AN U DOAN KNOE BETTR, CHECK WHICH `DLL` LIBRARIEZ R INCLUDD IN `ASF-GENERIC.ZIP` PACKAGE AN ENSURE DAT UR PLUGIN INCLUDEZ ONLY DOSE DAT R NOT PART OV IT YET. DIS WILL BE ONLY `YOURPLUGINNAME.DLL` 4 DA MOST SIMPLE PLUGINS. IF U GIT ANY ISSUEZ DURIN RUNTIME IN REGARDZ 2 SUM LIBRARIEZ, INCLUDE DOSE AFFECTD LIBRARIEZ AS WELL. IF ALL ELSE FAILS, U CAN ALWAYS DECIDE 2 BUNDLE EVRYTHIN.
+
+* * *
+
+### NATIV DEPENDENCIEZ
+
+NATIV DEPENDENCIEZ R GENERATD AS PART OV OS-SPECIFIC BUILDZ, AS THAR IZ NO .NET CORE RUNTIME AVAILABLE ON TEH HOST AN ASF IZ RUNNIN THRU ITZ OWN .NET CORE RUNTIME DAT IZ BUNDLD AS PART OV OS-SPECIFIC BUILD. IN ORDR 2 MINIMIZE TEH BUILD SIZE, ASF TRIMS ITZ NATIV DEPENDENCIEZ 2 INCLUDE ONLY TEH CODE DAT CAN BE POSIBLY REACHD WITHIN TEH PROGRAM, WHICH EFFECTIVELY CUTS TEH UNUSD PARTS OV TEH RUNTIME. DIS CAN CREATE POTENTIAL PROBLEM 4 U IN REGARDZ 2 UR PLUGIN, IF SUDDENLY U FIND OUT YOURSELF IN SITUASHUN WER UR PLUGIN DEPENDZ ON SUM .NET CORE FEACHUR DAT ISNT BEAN USD IN ASF, AN THEREFORE OS-SPECIFIC BUILDZ CANT EXECUTE IT PROPERLY, USUALLY THROWIN `SISTEM.MISINGMETHODEXCEPSHUN` OR `SISTEM.REFLECSHUN.REFLECSHUNTYPELOADEXCEPSHUN` IN DA PROCES.
+
+DIS AR TEH NEVR PROBLEM WIF GENERIC BUILDZ, CUZ DOSE R NEVR DEALIN WIF NATIV DEPENDENCIEZ IN DA FURST PLACE (AS THEY HAS COMPLETE WERKIN RUNTIME ON TEH HOST, EXECUTIN ASF). IZ ALSO AUTOMATICALLY WAN SOLUSHUN 2 TEH PROBLEM, **USE UR PLUGIN IN GENERIC BUILDZ EXCLUSIVELY**, BUT OBVIOUSLY DAT HAS ITZ OWN DOWNSIDE OV CUTTIN UR PLUGIN FRUM USERS DAT R RUNNIN OS-SPECIFIC BUILDZ OV ASF. IF URE WONDERIN IF UR ISSUE IZ RELATD 2 NATIV DEPENDENCIEZ, U CAN ALSO USE DIS METHOD 4 VERIFICASHUN, LOAD UR PLUGIN IN ASF GENERIC BUILD AN C IF IT WERKZ. IF IT DOEZ, U HAS PLUGIN DEPENDENCIEZ COVERD, AN IZ TEH NATIV DEPENDENCIEZ CAUSIN ISSUEZ.
+
+UNFORTUNATELY, WE HAD 2 MAK HARD CHOICE TWEEN PUBLISHIN WHOLE RUNTIME AS PART OV R OS-SPECIFIC BUILDZ, AN DECIDIN 2 CUT IT OUT OV UNUSD FEATUREZ, MAKIN TEH BUILD OVAR 50 MB SMALLR COMPARD 2 TEH FULL WAN. WEVE PICKD TEH SECOND OPSHUN, AN IZ UNFORTUNATELY IMPOSIBLE 4 U 2 INCLUDE TEH MISIN RUNTIME FEATUREZ TOGETHR WIF UR PLUGIN. IF UR PROJECT REQUIREZ ACCES 2 RUNTIME FEATUREZ DAT R LEFT OUT, U HAS 2 INCLUDE FULL .NET RUNTIME DAT U DEPEND ON, AN DAT MEANZ RUNNIN UR PLUGIN TOGETHR WIF `GENERIC` ASF FLAVR. U CANT RUN UR PLUGIN IN OS-SPECIFIC BUILDZ, AS DOSE BUILDZ R SIMPLY MISIN RUNTIME FEACHUR DAT U NED, AN .NET CORE RUNTIME AS OV NAO IZ UNABLE 2 "MERGE" NATIV DEPENDENCY DAT U CUDVE PROVIDD WIF R OWN. PERHAPS ITLL IMPROOOV WAN DAI IN DA FUCHUR, BUT AS OV NAO IZ SIMPLY NOT POSIBLE.
+
+ASFS OS-SPECIFIC BUILDZ INCLUDE TEH BARE MINIMUM OV ADDISHUNAL FUNCSHUNALITY WHICH IZ REQUIRD 2 RUN R OFFISHUL PLUGINS. APART OV DAT BEAN POSIBLE, DIS ALSO SLIGHTLY EXTENDZ TEH SURFACE 2 EXTRA DEPENDENCIEZ REQUIRD 4 DA MOST BASIC PLUGINS. THEREFORE NOT ALL PLUGINS WILL NED 2 WORRY BOUT NATIV DEPENDENCIEZ 2 BEGIN WIF - ONLY DOSE DAT GO BEYOND WUT ASF AN R OFFISHUL PLUGINS DIRECTLY NED. DIS AR TEH DUN AS AN EXTRA, SINCE IF WE NED 2 INCLUDE ADDISHUNAL NATIV DEPENDENCIEZ OURSELVEZ 4 R OWN USE CASEZ ANYWAY, WE CAN AS WELL SHIP THEM DIRECTLY WIF ASF, MAKIN THEM AVAILABLE, AN THEREFORE EASIR 2 COVR, ALSO 4 U.

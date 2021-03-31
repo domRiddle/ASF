@@ -1,10 +1,10 @@
-# Setting up
+# SETTIN UP
 
-If you arrived here for the first time, welcome! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - ASF is capable of doing a lot of different Steam-related things, but only as long as you **care enough to learn how to use it**. There is a steep learning curve involved here, and we expect from you to read the wiki in this regard, which explains in detail how everything operates.
+IF U ARRIVD HER 4 DA FURST TIEM, WELCOM! WERE VRY HAPPEH 2 C YET ANOTHR TRAVELR DAT IZ INTERESTD IN R PROJECT, ALTHOUGH BEAR IN MIND DAT WIF GREAT POWR COMEZ GREAT RESPONSIBILITY - ASF IZ CAPABLE OV DOIN LOT OV DIFFERENT STEAM-RELATD THINGS, BUT ONLY AS LONG AS U **CARE ENOUGH 2 LERN HOW 2 USE IT** THAR IZ STEEP LERNIN CURVE INVOLVD HER, AN WE EXPECT FRUM U 2 READ TEH WIKI IN DIS REGARD, WHICH EXPLAINS IN DETAIL HOW EVRYTHIN OPERATEZ.
 
-If you're still here then it means that you endured our text above, which is nice. Unless you skipped over it, then you're going to have a **[bad time](https://www.youtube.com/watch?v=WJgt6m6njVw)** soon enough... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to. ASF was mainly supposed to be run on servers, so it acts as a service (daemon) and not a desktop app.
+IF URE STILL HER DEN IT MEANZ DAT U ENDURD R TEXT ABOOV, WHICH IZ NICE. Unless you skipped over it, then you're going to have a **[bad time](https://www.youtube.com/watch?v=WJgt6m6njVw)** soon enough... ANYWAY, ASF IZ CONSOLE APP, WHICH MEANZ DAT TEH PROGRAM ITSELF DOESNT HAS FRIENDLY GUI DAT URE IN GENERAL USD 2. ASF WUZ MAINLY SUPPOSD 2 BE RUN ON SERVERS, SO IT ACTS AS SERVICE (DAEMON) AN NOT DESKTOP APP.
 
-This however doesn't mean that you can't use it on your PC or using it is in some way more complicated than usual, nothing like that. ASF is a standalone program that doesn't need installation, and works out of the box right away, but requires configuration prior to becoming useful. Configuration is telling ASF what it should in fact do after you launch it. If you launch it without configuration, then ASF won't do anything, simple.
+DIS HOWEVR DOESNT MEEN DAT U CANT USE IT ON UR PC OR USIN IT IN SUM WAI MOAR COMPLICATD THAN USUAL, NOTHIN LIEK DAT. ASF IZ STANDALONE PROGRAM DAT DOESNT NED INSTALLASHUN, AN WERKZ OUT OV TEH BOX RITE AWAY, BUT REQUIREZ CONFIGURASHUN PRIOR 2 BECOMIN USEFUL. CONFIGURASHUN IZ TELLIN ASF WUT IT SHUD IN FACT DO AFTR U LAUNCH IT. IF U LAUNCH IT WITHOUT CONFIGURASHUN, DEN ASF WONT DO ANYTHIN, SIMPLE.
 
 * * *
 
@@ -86,7 +86,7 @@ C:\ASF (where you put your own things)
 
 * * *
 
-### Configuration
+### CONFIGURASHUN
 
 We're now ready to do the very last step, the configuration. This is by far the most complicated step, since it involves a lot of new information you're not familiar with yet, so we'll try to provide some easy to understand examples and simplified explanation here.
 
@@ -220,7 +220,7 @@ Please note that ASF-ui is currently in preview state and not everything is avai
 
 * * *
 
-### Summary
+### SUMMARY
 
 You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you even managed to send a simple command through our ASF-ui interface. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen in advanced tab actually do, and what ASF can offer. If you've stumbled upon some issue or you have some generic question, read **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least majority of questions that you may have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Have fun!
 

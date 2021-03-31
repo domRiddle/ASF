@@ -30,6 +30,6 @@ ASF 是由 **[Archi](https://github.com/JustArchi)** 在 2015 年 10 月创作�
 
 * * *
 
-### I've launched the program on April the 1st and the ASF language changed into something strange, what is going on?
+### 我在 4 月 1 日启动了这个程序，ASF 的语言变得很奇怪，发生了什么？
 
-CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! If you didn't set custom `CurrentCulture` option, then ASF launched on April the 1st will actually use **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** language instead of your system language. If by any chance you'd like to disable that behaviour, you can simply set `CurrentCulture` to the locale that you'd like to use instead. It's also nice to note that you can enable our easter egg unconditionally, by setting your `CurrentCulture` to `qps-ploc` value.
+喵！我们藏起来的愚人节彩蛋被你发现了喵！ 如果您没有设置自定义的 `CurrentCulture`，那么 ASF 在 4 月 1 日运行时将会使用 **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** 语言而不是系统语言。 如果您的确希望禁用此行为，您可以直接将 `CurrentCulture` 改为您要使用的语言。 实际上，您还可以强制启用这个彩蛋，只需要将 `CurrentCulture` 设置为 `qps-Ploc`。

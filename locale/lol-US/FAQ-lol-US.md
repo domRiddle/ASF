@@ -1,94 +1,94 @@
 # FAQ
 
-Our basic FAQ covers standard questions and answers that you may have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+R BASIC FAQ COVERS STANDARD QUESHUNS AN ANZWERS DAT U CUD HAS. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
 
-# Table of contents
+# TABLE OV CONTENTS
 
-- [General](#general)
-- [Comparison with similar tools](#comparison-with-similar-tools)
+- [GENERAL](#general)
+- [COMPARISON WIF SIMILAR TOOLS](#comparison-with-similar-tools)
 - [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
 - [Misc](#misc)
-- [Issues](#issues)
+- [ISSUEZ](#issues)
 
 * * *
 
-## General
+## GENERAL
 
-### What is ASF?
+### WUT IZ ASF?
 
-### Why does the program claim that there is nothing to idle on my account?
+### Y DOEZ TEH PROGRAM CLAIM DAT THAR IZ NOTHIN 2 IDLE ON MAH AKOWNT?
 
-### Why is my account limited?
+### Y IZ MAH AKOWNT LIMITD?
 
 Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
 
-In short, Steam cards are collectible items that you're eligible for when owning particular game, and can be used for crafting badges, selling on Steam market or any other purpose of your choice.
+IN SHORT, STEAM CARDZ R COLLECTIBLE ITEMS DAT URE ELIGIBLE 4 WHEN OWNIN PARTICULAR GAME, AN CAN BE USD 4 CRAFTIN BADGEZ, SELLIN ON STEAM MARKIT OR ANY OTHR PURPOSE OV UR CHOICE.
 
-Core points are stated once again here, because people in general don't want to agree with them and like to pretend that those do not exist:
+CORE POINTS R STATD ONCE AGAIN HER, CUZ PEEPS IN GENERAL DOAN WANTS 2 AGREE WIF THEM AN LIEK 2 PRETEND DAT DOSE DO NOT EXIST:
 
-- **You need to own the game on your Steam account in order to be eligible for any card drops from it. Family sharing doesn't count.**
-- **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
-- **You can't drop cards from F2P games without spending any money in them. This involves permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you with card drops.**
-- **You can't drop cards on [limited accounts](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), regardless of owned games. It was possible in the past, but it's no longer the case.**
-- **Paid games that you've obtained for free during a promotion can't be idled for card drops, regardless of what is displayed on the store page. It was possible in the past, but it's no longer the case.**
+- **U NED 2 OWN TEH GAME ON UR STEAM AKOWNT IN ORDR 2 BE ELIGIBLE 4 ANY CARD DROPS FRUM IT. PPLZ SHARIN DOESNT COUNT.**
+- **U CANT FARM TEH GAME INFINITELY, EVRY GAME HAS FIXD NUMBR OV CARD DROPS. ONCE U DROP ALL OV THEM (AROUND HALF OV TEH FULL SET), TEH GAME IZ NOT CANDIDATE 4 IDLIN NOMORE. IT DOESNT MATTR WHETHR UVE SOLD, TRADD, CRAFTD OR FORGOT WUT HAPPEND 2 DOSE CARDZ UVE OBTAIND, ONCE U RUN OUT OV CARD DROPS, TEH GAME IZ FINISHD.**
+- **U CANT DROP CARDZ FRUM F2P GAMEZ WITHOUT SPENDIN ANY MONEY IN THEM. DIS INVOLVEZ PERMANENTLY F2P GAMEZ LIEK TEAM FORTRES 2 OR DOTA 2. OWNIN F2P GAMEZ DOEZ NOT GRANT U WIF CARD DROPS.**
+- **You can't drop cards on [limited accounts](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), regardless of owned games. IT WUZ POSIBLE IN DA PAST, BUT IZ NO LONGR TEH CASE.**
+- **PAID GAMEZ DAT UVE OBTAIND 4 FREE DURIN PROMOSHUN CANT BE IDLD 4 CARD DROPS, REGARDLES OV WUT IZ DISPLAYD ON TEH STORE PAEG. IT WUZ POSIBLE IN DA PAST, BUT IZ NO LONGR TEH CASE.**
 
-So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
+SO AS U CAN C, STEAM CARDZ R AWARDD 2 U 4 PLAYIN GAME DAT U BUYD, OR F2P GAME DAT UVE PUT MONEY INTO. IF U PULAY SUCH GAME LONG ENOUGH, ALL CARDZ 4 DAT GAME WILL EVENTUALLY DROP 2 UR INVENTORY, MAKIN IT POSIBLE 4 U 2 COMPLETE BADGE (AFTR OBTAININ TEH REMAININ HALF OV TEH SET), SELL THEM, OR DO WHATEVR ELSE U WANTS.
 
-Now that we've explained the basics of Steam, we can explain ASF. The program itself is quite complex to understand fully, so instead of digging into all the technical details, we'll offer a very simplified explanation below.
+NAO DAT WEVE EXPLAIND TEH BASICS OV STEAM, WE CAN EXPLAIN ASF. TEH PROGRAM ITSELF IZ QUITE COMPLEX 2 UNDERSTAND FULLY, SO INSTEAD OV DIGGIN INTO ALL TEH TECHNICAL DETAILS, WELL OFFR VRY SIMPLIFID EXPLANASHUN BELOW.
 
-ASF logs into your Steam account through our built-in, custom Steam client implementation using your provided credentials. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (`X` card drops remaining). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
+ASF LOGS INTO UR STEAM AKOWNT THRU R BUILT-IN, CUSTOM STEAM CLIENT IMPLEMENTASHUN USIN UR PROVIDD CREDENTIALS. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (`X` card drops remaining). AFTR PARSIN ALL PAGEZ AN CONSTRUCTIN FINAL LIST OV GAMEZ DAT R AVAILABLE, ASF CHOOSEZ MOST EFFICIENT FARMIN ALGORITHM AN STARTS TEH PROCES. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
 
-Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
+KEEP IN MIND DAT EXPLANASHUN ABOOV IZ SIMPLIFID AN DOESNT DESCRIBE DOZEN OV EXTRA FEATUREZ AN FUNCSHUNS DAT ASF OFFERS. Visit the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)** if you want to know every ASF detail. I TRID 2 MAK IT SIMPLE ENOUGH 2 UNDERSTAND 4 EVRYBODY, WITHOUT BRINGIN IN TECHNICAL DETAILS - ADVANCD USERS R ENCOURAGD 2 DIG DEEPR.
 
-Now as a program - ASF offers some magic. Firsty, it doesn't have to download any of your game files, it can play games right away. Secondly, it's entirely independent of your normal Steam client - you don't need to have Steam client running or even installed at all. Thirdly, it's automated solution - which means that ASF automatically does everything behind your back, without a need of telling it what to do - which saves you hassle and time. Lastly, it doesn't have to trick Steam network by process emulation (which e.g. Idle Master is using), as it can communicate with it directly. It's also super fast and lightweight, being an amazing solution for everybody who wants to get cards easily without much hassle - it comes especially useful by leaving it running in the background while doing something else, or even playing in offline mode.
+NAO AS PROGRAM - ASF OFFERS SUM MAGIC. FIRSTY, IT DOESNT HAS 2 DOWNLOAD ANY OV UR GAME FILEZ, IT CAN PULAY GAMEZ RITE AWAY. SECONDLY, IZ ENTIRELY INDEPENDENT OV UR NORMAL STEAM CLIENT - U DOAN NED 2 HAS STEAM CLIENT RUNNIN OR EVEN INSTALLD AT ALL. THIRDLY, IZ AUTOMATD SOLUSHUN - WHICH MEANZ DAT ASF AUTOMATICALLY DOEZ EVRYTHIN BEHIND UR BAK, WITHOUT NED OV TELLIN IT WUT 2 DO - WHICH SAVEZ U HASLE AN TIEM. LASTLY, IT DOESNT HAS 2 TRICK STEAM NETWORK BY PROCES EMULASHUN (WHICH E.G. IDLE MASTAH IZ USIN), AS IT CAN SPEEK WIF IT DIRECTLY. IZ ALSO SUPR FAST AN LIGHTWEIGHT, BEAN AN AMAZIN SOLUSHUN 4 EVRYBODY HOO WANTS 2 GIT CARDZ EASILY WITHOUT MUTCH HASLE - IT COMEZ ESPECIALLY USEFUL BY LEAVIN IT RUNNIN IN DA BAKGROUND WHILE DOIN SOMETHIN ELSE, OR EVEN PLAYIN IN OFFLINE MODE.
 
-All of the above is nice, but ASF also has some technical limitations that are enforced by Steam - we can't idle games that you don't own, we can't idle games forever in order to get extra drops past the enforced limit, and we can't idle games while you're playing. All of that should be "logical", considering the way how ASF works, but it's nice to note that ASF doesn't have super-powers and won't do something that is physically impossible, so keep that in mind - it's basically the same as if you told someone to log in on your account from another PC and idle those games for you.
+ALL OV TEH ABOOV IZ NICE, BUT ASF ALSO HAS SUM TECHNICAL LIMITASHUNS DAT R ENFORCD BY STEAM - WE CANT IDLE GAMEZ DAT U DOAN OWN, WE CANT IDLE GAMEZ FOREVR IN ORDR 2 GIT EXTRA DROPS PAST TEH ENFORCD LIMIT, AN WE CANT IDLE GAMEZ WHILE URE PLAYIN. ALL OV DAT SHUD BE "LOGICAL", CONSIDERIN TEH WAI HOW ASF WERKZ, BUT IZ NICE 2 NOWT DAT ASF DOESNT HAS SUPR-POWERS AN WONT DO SOMETHIN DAT IZ FYSICALLY IMPOSIBLE, SO KEEP DAT IN MIND - IZ BASICALLY TEH SAME AS IF U TOLD SOMEONE 2 LOG IN ON UR AKOWNT FRUM ANOTHR PC AN IDLE DOSE GAMEZ 4 U.
 
-So to sum up - ASF is a program that helps you drop those cards you're eligible for, without much hassle. It also offers several other functions, but let's stick to this one for now.
-
-* * *
-
-### Do I have to put my account credentials?
-
-**Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input them as-needed when ASF asks for them.
-
-Keep in mind that ASF tool is for your personal use and your credentials are never leaving your computer. You're also not sharing them with anybody, which fulfills **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** - a very important thing that many people forget about. You're not sending your details to our servers or some third-party, only directly to Steam servers operated by Valve. We don't know your credentials and we're also unable to recover them for you, regardless if you put them in your configs or not.
+SO 2 SUM UP - ASF IZ PROGRAM DAT HELPS U DROP DOSE CARDZ URE ELIGIBLE 4, WITHOUT MUTCH HASLE. IT ALSO OFFERS SEVERAL OTHR FUNCSHUNS, BUT LETS STICK 2 DIS WAN 4 NAO.
 
 * * *
 
-### How long do I have to wait for cards to drop?
+### DO I HAS 2 PUT MAH AKOWNT CREDENTIALS?
 
-**As long as it takes** - seriously. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. In addition to that, your account could be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section. Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section.
+**YEZ**. ASF REQUIREZ UR AKOWNT CREDENTIALS IN DA SAME WAI AS OFFISHUL STEAM CLIENT DOEZ, AS IZ USIN TEH SAME METHOD 4 STEAM NETWORK INTERACSHUN. DIS HOWEVR DOESNT MEEN DAT U HAS 2 PUT UR AKOWNT CREDENTIALS IN ASF CONFIGS, U CAN KEEP USIN ASF WIF `null`/EMPTY `SteamLogin` AN/OR `SteamPassword`, AN INPUT DAT DATA ON EACH ASF RUN, WHEN REQUIRD (AS WELL AS SEVERAL OTHR LOGIN CREDENTIALS, REFR 2 CONFIGURASHUN). DIS WAI UR DETAILS R NOT SAVD ANYWHERE, BUT OV COURSE ASF CANT AUTOSTART WITHOUT UR HALP. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. IF URE NOT, AN U DOAN WANTS 2 PUT UR AKOWNT CREDENTIALS IN ASF CONFIGS, DEN SIMPLY DOAN DO DAT, AN INSTEAD INPUT THEM AS-NEEDD WHEN ASF ASKZ 4 THEM.
 
-* * *
-
-### Farming takes too long, can I somehow speed it up?
-
-The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** for your bot instance. Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. If you really have an urge of making every single second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
+KEEP IN MIND DAT ASF TOOL IZ 4 UR PERSONAL USE AN UR CREDENTIALS R NEVR LEAVIN UR COMPUTR. You're also not sharing them with anybody, which fulfills **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** - a very important thing that many people forget about. URE NOT SENDIN UR DETAILS 2 R SERVERS OR SUM THIRD-PARTY, ONLY DIRECTLY 2 STEAM SERVERS OPERATD BY VALVE. WE DOAN KNOE UR CREDENTIALS AN WERE ALSO UNABLE 2 RECOVR THEM 4 U, REGARDLES IF U PUT THEM IN UR CONFIGS OR NOT.
 
 * * *
 
-### But ASF said that farming will take about X time!
+### HOW LONG DO I HAS 2 WAIT 4 CARDZ 2 DROP?
 
-ASF gives you rough approximation based on number of cards you need to drop, and your chosen algorithm - this is nowhere close to the actual time that you will spend on farming, which is usually longer than this, as ASF assumes best case only, and ignores all Steam Network quirks, internet disconnections, overload of Steam servers and likewise. It should be seen only as a general indicator how long you can expect ASF to be farming, very often in best case, as actual time will differ, even significantly in some cases. Like pointed out above, do not try to guess how long given game will be farmed, it's not up to you, neither ASF to decide.
-
-* * *
-
-### Can ASF work on my android/smartphone?
-
-ASF is a C# program that requires working implementation of .NET Core. Currently there is no native .NET Core build for Android itself, but there are proper and working builds for linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
-
-It's very likely that in the future we'll see working .NET Core for Android itself.
+**AS LONG AS IT TAKEZ** - SRSLY. EVRY GAME HAS DIFFERENT FARMIN DIFFICULTY SET BY DEVELOPR/PUBLISHR, AN IZ TOTALLY UP 2 THEM HOW FAST CARDZ R BEAN DROPPD. MAJORITY OV TEH GAMEZ FOLLOW 1 DROP PER 30 MINUTEZ OV PLAYIN, BUT THAR R ALSO GAMEZ REQUIRIN FRUM U 2 PULAY EVEN SEVERAL HOURS BEFORE DROPPIN CARD. In addition to that, your account could be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section. DO NOT ATTEMPT 2 MAK GUESEZ HOW LONG ASF SHUD FARM GIVEN TITLE - IZ NOT UP 2 U, NEITHR ASF 2 DECIDE. THAR IZ NOTHIN U CAN DO 2 MAK IT FASTR, AN THAR IZ NO "BUG" RELATD 2 CARDZ NOT BEAN DROPPD IN TIEMLY FASHION - U DO NOT CONTROL CARDZ DROPPIN PROCES, NEITHR DOEZ ASF. IN DA BEST CASE, ULL RECEIV AVERAGE OV 1 DROP PER 30 MINUTEZ. IN DA WURST CASE, U WONT RECEIV ANY CARD EVEN 4 4 HOURS SINCE STARTIN ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section.
 
 * * *
 
-### Can ASF idle items from Steam games, such as CS:GO or Unturned?
+### FARMIN TAKEZ 2 LONG, I CAN SOMEHOW SPED IT UP?
 
-**No**, this is against **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF is a Steam cards farming program, not game items farmer - it doesn't have any capability of farming game items, and it's not planned to add such feature in the future, ever, mainly because of violating Steam terms of use. Please do not ask about this - the best you can get is a report from some salty user and you having problems. The same goes for all other types of idling, such as idling drops from CS:GO broadcasts. ASF is focusing on Steam trading cards exclusively.
+The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** for your bot instance. EVRYTHIN ELSE HAS NEGLIGIBLE EFFECT AN WILL NOT MAK FARMIN FASTR, WHILE SUM ACSHUNS SUCH AS LAUNCHIN ASF PROCES SEVERAL TIEMS WILL EVEN **MAK IT WORSE**. If you really have an urge of making every single second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. HOWEVR, AS I SED, TEH EFFECT IZ NEGLIGIBLE, AN CHOOSIN PROPR CARDZ FARMIN ALGORITHM 4 GIVEN AKOWNT IZ WAN AN TEH ONLY CRUSHUL CHOICE DAT CAN HEAVILY AFFECT SPED OV FARMIN, EVRYTHIN ELSE IZ PURE COSMETIC. INSTEAD OV WORRYIN BOUT FARMIN SPED, JUS LAUNCH ASF AN LET IT DO ITZ JOB - I CAN ASSURE U DAT IZ DOIN IT IN DA MOST EFFECTIV WAI I CUD COME UP WIF. TEH LES U CARE, TEH MOAR U WILL BE SATISFID.
 
 * * *
 
-### Can I choose which games should be idled?
+### BUT ASF SED DAT FARMIN WILL TAEK BOUT X TIEM!
+
+ASF GIVEZ U ROUGH APPROXIMASHUN BASD ON NUMBR OV CARDZ U NED 2 DROP, AN UR CHOSEN ALGORITHM - DIS AR TEH NOWHERE CLOSE 2 TEH AKSHUL TIEM DAT U WILL SPEND ON FARMIN, WHICH IZ USUALLY LONGR THAN DIS, AS ASF ASSUMEZ BEST CASE ONLY, AN IGNOREZ ALL STEAM NETWORK QUIRKZ, INTERNET DISCONNECSHUNS, OVERLOAD OV STEAM SERVERS AN LIKEWIZE. IT SHUD BE SEEN ONLY AS GENERAL INDICATOR HOW LONG U CAN EXPECT ASF 2 BE FARMIN, VRY OFTEN IN BEST CASE, AS AKSHUL TIEM WILL DIFFR, EVEN SIGNIFICANTLY IN SUM CASEZ. LIEK POINTD OUT ABOOV, DO NOT TRY 2 GUES HOW LONG GIVEN GAME WILL BE FARMD, IZ NOT UP 2 U, NEITHR ASF 2 DECIDE.
+
+* * *
+
+### CAN ASF WERK ON MAH ANDROID/SMARTFONE?
+
+ASF IZ C# PROGRAM DAT REQUIREZ WERKIN IMPLEMENTASHUN OV .NET CORE. Currently there is no native .NET Core build for Android itself, but there are proper and working builds for linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
+
+IZ VRY LIKELY DAT IN DA FUCHUR WELL C WERKIN .NET CORE 4 ANDROID ITSELF.
+
+* * *
+
+### CAN ASF IDLE ITEMS FRUM STEAM GAMEZ, SUCH AS CS:GO OR UNTURND?
+
+**No**, this is against **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF IZ STEAM CARDZ FARMIN PROGRAM, NOT GAME ITEMS FARMR - IT DOESNT HAS ANY CAPABILITY OV FARMIN GAME ITEMS, AN IZ NOT PLANND 2 ADD SUCH FEACHUR IN DA FUCHUR, EVR, MAINLY CUZ OV VIOLATIN STEAM TERMS OV USE. PLZ DO NOT ASK BOUT DIS - TEH BEST U CAN GIT IZ REPORT FRUM SUM SALTY USR AN U HAVIN PROBLEMS. The same goes for all other types of idling, such as idling drops from CS:GO broadcasts. ASF is focusing on Steam trading cards exclusively.
+
+* * *
+
+### I CAN CHOOSE WHICH GAMEZ SHUD BE IDLD?
 
 **Yes**, through several different ways. If you want to alter the default order of idling queue, then that's what `FarmingOrders` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being idled automatically, you can use idling blacklist which is available with `ib` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you'd like to idle everything but give some apps priority over everything else, that is what idling priority queue available with `iq` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to idle specific games of your choice only, then you can use `IdlePriorityQueueOnly` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idling priority queue.
 
@@ -96,7 +96,7 @@ In addition to managing automatic cards farming module which was described above
 
 * * *
 
-### I'm not interested in card drops, I'd like to idle hours played instead, is that possible?
+### IM NOT INTERESTD IN CARD DROPS, ID LIEK 2 IDLE HOURS PLAYD INSTEAD, IZ DAT POSIBLE?
 
 Yes, ASF allows you to do that through at least several ways.
 
@@ -106,17 +106,17 @@ Alternatively, you can make use of the **[`play`](https://github.com/JustArchiNE
 
 * * *
 
-### I'm Linux / OS X user, will ASF idle games that are not available for my OS? Will ASF idle 64-bit games when I'm running it on 32-bit OS?
+### IM LINUX / OS X USR, WILL ASF IDLE GAMEZ DAT R NOT AVAILABLE 4 MAH OS? WILL ASF IDLE 64-BIT GAMEZ WHEN IM RUNNIN IT ON 32-BIT OS?
 
-Yes, ASF is not even bothering with downloading actual game files, so it will work with all your licenses tied to your Steam account, regardless of any platform or technical requirements. It should also work for games tied to specific region (region-locked games) even when you're not in the matching region, although we don't guarantee that (it worked last time we tried).
-
-* * *
-
-## Comparison with similar tools
+YEZ, ASF IZ NOT EVEN BOTHERIN WIF DOWNLOADIN AKSHUL GAME FILEZ, SO IT WILL WERK WIF ALL UR LICENSEZ TID 2 UR STEAM AKOWNT, REGARDLES OV ANY PLATFORM OR TECHNICAL REQUIREMENTS. IT SHUD ALSO WERK 4 GAMEZ TID 2 SPECIFIC REGION (REGION-LOCKD GAMEZ) EVEN WHEN URE NOT IN DA MATCHIN REGION, ALTHOUGH WE DOAN GUARANTEE DAT (IT WERKD LAST TIEM WE TRID).
 
 * * *
 
-### Is ASF similar to Idle Master?
+## COMPARISON WIF SIMILAR TOOLS
+
+* * *
+
+### IZ ASF SIMILAR 2 IDLE MASTAH?
 
 The only similarity is the general purpose of both programs, which is idling Steam games in order to receive card drops. Everything else, including the actual idling method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation (IM is running on .NET Framework, ASF on .NET Core). ASF was created to solve IM issues that were not possible to solve with a simple code edit - this is why ASF was written from scratch, without using a single code line or even general idea from IM, because that code and those ideas were entirely flawed to begin with. IM and ASF are like Windows and Linux - both are operating systems and both can be installed on your PC, but they share almost nothing with each other, apart from serving the similar purpose.
 
@@ -124,9 +124,9 @@ This is also why you shouldn't compare ASF to IM based on IM expectations. You s
 
 * * *
 
-### Is it worth it to use ASF, if I'm currently using Idle Master and it works fine for me?
+### IZ WORTH IT 2 USE ASF, IF IM CURRENTLY USIN IDLE MASTAH AN IT WERKZ FINE 4 ME?
 
-**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**YEZ**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Of course, it's not possible to idle those games until release date, so your idling process will be stuck. This will require you to either add it to the blacklist, wait for release, or skip manually. Neither of those solutions is good, and all of them require your attention - ASF automatically skips idling of unreleased games (temporarily), and returns back to them later when they are, completely avoiding the problem and dealing with it efficiently.
 
@@ -344,7 +344,7 @@ ASF is a console app, there is no window to be minimized, because window is crea
 
 ### Does using ASF preserve eligibility for receiving booster packs?
 
-**Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
+**YEZ**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
 
 * * *
 
@@ -400,7 +400,7 @@ Of course, there are still valid use cases for multiple ASF instances on the sam
 
 Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
 
-| Status                  | Description                                                                                                                                                                                                                    |
+| Status                  | DESCRIPSHUN                                                                                                                                                                                                                    |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | NoDetail                | "OK" status indicating success - the key was successfully redemeed.                                                                                                                                                            |
 | Timeout                 | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely was, but you can try again).                                                                                            |
@@ -429,11 +429,11 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 * * *
 
-## Issues
+## ISSUEZ
 
 * * *
 
-### One of my games is being farmed for more than 10 hours now, but I still didn't get any cards from it!
+### WAN OV MAH GAMEZ IZ BEAN FARMD 4 MOAR THAN 10 HOURS NAO, BUT I STILL DIDNT GIT ANY CARDZ FRUM IT!
 
 The reason for that could be related to known issue of Steam, which happens when you have two licenses for the same game, one of which has card drops limited. This usually happens when you activate game for free during a mass giveaway on Steam, and then activate a key for the same game (but without limitations), e.g. from a paid bundle. If such situation happens, Steam reports on badge page that game still has cards to drop, but no matter how much you play the game - cards will never drop due to free license on your account. Since it's not an ASF issue, but a Steam one, we can't somehow circumvent it on ASF's side, and you need to solve it yourself.
 
@@ -443,9 +443,9 @@ In order to remove the free license from your account, visit **[Steam support pa
 
 * * *
 
-### ASF doesn't detect game `X` as available for farming, yet I know it includes Steam trading cards!
+### ASF DOESNT DETECT GAME `X` AS AVAILABLE 4 FARMIN, YET I KNOE IT INCLUDEZ STEAM TRADIN CARDZ!
 
-There are two main reasons here. First and most obvious reason is the fact that you're referring to **Steam store** where given game is announced as card drops enabled game. This is **wrong** assumption, as it simply states that the game **has** card drops included, but not necessarily this function for that game is **enabled** right away. You can read more about this in **[official announcement](https://steamcommunity.com/games/593110/announcements/detail/1954971077935370845)**.
+THAR R 2 MAIN REASONS HER. First and most obvious reason is the fact that you're referring to **Steam store** where given game is announced as card drops enabled game. This is **wrong** assumption, as it simply states that the game **has** card drops included, but not necessarily this function for that game is **enabled** right away. You can read more about this in **[official announcement](https://steamcommunity.com/games/593110/announcements/detail/1954971077935370845)**.
 
 In short, card drops icon in Steam store doesn't mean anything, check your **[badge pages](https://steamcommunity.com/my/badges)** for confirmation whether a game has card drops enabled or not - this is also what ASF is doing. If your game doesn't appear on the list as a game with cards possible to drop, then this game is **not** possible to idle, regardless of reason.
 
@@ -455,13 +455,13 @@ Of course, all of that assumes that you're running ASF with default untouched se
 
 * * *
 
-### Why playtime of games idled through ASF doesn't increase?
+### Y PLAYTIME OV GAMEZ IDLD THRU ASF DOESNT INCREASE?
 
 It does, but **not in real-time**. Steam records your playtime in fixed intervals and schedules update for it, but you're not guaranteed to have it updated immediately the moment you quit the session, let alone during such. If it was possible to skip playtime while idling cards then you can be sure that we'd have it implemented in ASF long time ago, and actually use it in default settings. But we don't, and we don't exactly because it's not possible - just because the playtime isn't updated in real-time doesn't mean that it's not recorded.
 
 * * *
 
-### What is the difference between a warning and an error in the log?
+### WUT IZ TEH DIFFERENCE TWEEN WARNIN AN AN ERROR IN DA LOG?
 
 ASF writes to its log a bunch of information on various logging levels. Our objective is to explain **precisely** what ASF is doing, including what Steam issues it has to deal with, or other problems to overcome. Most of the time not everything is relevant, this is why we have two major levels being used in ASF in terms of problems - a warning level, and error level.
 
@@ -473,7 +473,7 @@ In one TL;DR sentence - report errors, don't report warnings. You can still ask 
 
 * * *
 
-### ASF doesn't start, the program window closes immediately!
+### ASF DOESNT START, TEH PROGRAM WINDOW CLOSEZ IMMEDIATELY!
 
 In normal conditions, any ASF crash or exit will generate a `log.txt` in the program's directory for you to view, which can be used for finding the cause of that. In addition to that, a few last log files are also archived in `logs` directory, since the main `log.txt` file is overwritten with each ASF run.
 
@@ -481,9 +481,9 @@ However, if even .NET Core runtime isn't able to boot on your machine, then `log
 
 * * *
 
-### ASF is kicking my Steam Client session while I'm playing! / *This account is logged on another PC*
+### ASF IZ KICKIN MAH STEAM CLIENT SESHUN WHILE IM PLAYIN! / *DIS AKOWNT IZ LOGGD ON ANOTHR PC*
 
-This shows up as a message in Steam overlay that the account is being used somewhere else while you're playing. This issue can have two different reasons.
+DIS SHOWS UP AS MESAGE IN STEAM OVERLAY DAT TEH AKOWNT IZ BEAN USD SOMEWHERE ELSE WHILE URE PLAYIN. This issue can have two different reasons.
 
 One reason is caused by broken packages (games) that specifically don't hold a playing lock properly, yet expect that lock to be possesed by the client. An example of such package would be Skyrim SE. Your Steam client launches the game properly, but that game doesn't register itself as being used. Because of that, ASF sees that it's free to resume the process, which it does, and that kicks you out of Steam network, as Steam suddenly detects that the account is being used in another place.
 
