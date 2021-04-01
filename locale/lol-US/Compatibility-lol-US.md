@@ -16,60 +16,60 @@ ASF IZ COMPATIBLE WIF RUNNIN MULTIPLE INSTANCEZ OV TEH PROCES ON TEH SAME MACHIN
 
 WHEN RUNNIN MULTIPLE INSTANCEZ FRUM TEH SAME BINARY, KEEP IN MIND DAT U SHUD TYPICALLY DISABLE AUTO-UPDATEZ IN ALL OV THEIR CONFIGS, AS THAR IZ NO SYNCHRONIZASHUN TWEEN THEM IN REGARDZ 2 AUTO-UPDATEZ. IF UD LIEK 2 KEEP HAVIN AUTO-UPDATEZ ENABLD, WE RECOMMEND STANDALONE INSTANCEZ, BUT U CAN STILL MAK UPDATEZ WERK, AS LONG AS U CAN ENSURE DAT ALL OTHR ASF INSTANCEZ R CLOSD.
 
-ASF WILL DO ITZ BEST 2 MAINTAIN MINIMUM AMOUNT OV OS-WIDE, CROS-PROCES COMMUNICASHUN WIF OTHR ASF INSTANCEZ. This includes ASF checking its configuration directory against other instances, as well as sharing core process-wide limiters configured with `*LimiterDelay` **[global config properties](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, ensuring that running multiple ASF instances will not cause a possibility to run into a rate-limiting issue. In regards to technical aspects, all platforms use our dedicated mechanism of custom ASF file-based locks created in temporary directory, which is `C:\Users\<YourUser>\AppData\Local\Temp\ASF` on Windows, and `/tmp/ASF` on Unix.
+ASF WILL DO ITZ BEST 2 MAINTAIN MINIMUM AMOUNT OV OS-WIDE, CROS-PROCES COMMUNICASHUN WIF OTHR ASF INSTANCEZ. This includes ASF checking its configuration directory against other instances, as well as sharing core process-wide limiters configured with `*LimiterDelay` **[global config properties](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, ensuring that running multiple ASF instances will not cause a possibility to run into a rate-limiting issue. IN REGARDZ 2 TECHNICAL ASPECTS, ALL PLATFORMS USE R DEDICATD MECHANISM OV CUSTOM ASF FILE-BASD LOCKZ CREATD IN TEMPORARY DIRECTORY, WHICH IZ `C:\USERS\<YOURUSR>\APPDATA\LOCAL\TEMP\ASF` ON WINDOWS, AN `/TMP/ASF` ON UNIX.
 
-It's not required for running ASF instances to share the same `*LimiterDelay` properties, they can use different values, as each ASF will add its own configured delay to the release time after acquiring the lock. If the configured `*LimiterDelay` is set to `0`, ASF instance will entirely skip waiting for the lock of given resource that is shared with other instances (that could potentially still maintain a shared lock with each other). When set to any other value, ASF will properly synchronize with other ASF instances and wait for its turn, then release the lock after configured delay, allowing other instances to continue.
+IZ NOT REQUIRD 4 RUNNIN ASF INSTANCEZ 2 SHARE TEH SAME `*LIMITERDELAY` PROPERTIEZ, THEY CAN USE DIFFERENT VALUEZ, AS EACH ASF WILL ADD ITZ OWN CONFIGURD DELAY 2 TEH RELEASE TIEM AFTR ACQUIRIN TEH LOCK. IF TEH CONFIGURD `*LIMITERDELAY` IZ SET 2 `0`, ASF INSTANCE WILL ENTIRELY SKIP WAITIN 4 DA LOCK OV GIVEN RESOURCE DAT IZ SHARD WIF OTHR INSTANCEZ (DAT CUD POTENTIALLY STILL MAINTAIN SHARD LOCK WIF EACH OTHR). WHEN SET 2 ANY OTHR VALUE, ASF WILL PROPERLY SYNCHRONIZE WIF OTHR ASF INSTANCEZ AN WAIT 4 ITZ TURN, DEN RELEASE TEH LOCK AFTR CONFIGURD DELAY, ALLOWIN OTHR INSTANCEZ 2 CONTINUE.
 
-ASF takes into account `WebProxy` setting when deciding about shared scope, which means that two ASF instances using different `WebProxy` configurations will not share their limiters with each other. This is implemented in order to allow `WebProxy` setups to operate without excessive delays, as expected from different network interfaces. This should be good enough for majority of use cases, however, if you have a specific custom setup in which you're e.g. routing requests yourself in a different way, you can specify network group yourself through `--network-group` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**, which will allow you to declare ASF group that will be synchronized with this instance. Keep in mind that custom network groups are used exclusively, which means that ASF will no longer use `WebProxy` for determining the right group, as you're in charge of grouping in this case.
-
-* * *
-
-## ASF packaging
-
-ASF comes in 2 main flavours - generic package and OS-specific. Functionality-wise both packages are exactly the same, they're both also capable of automatically updating themselves. The only difference between them is whether or not ASF **generic** package also comes with **OS-specific** runtime to power it.
+ASF TAKEZ INTO AKOWNT `WEBPROXY` SETTIN WHEN DECIDIN BOUT SHARD SCOPE, WHICH MEANZ DAT 2 ASF INSTANCEZ USIN DIFFERENT `WEBPROXY` CONFIGURASHUNS WILL NOT SHARE THEIR LIMITERS WIF EACH OTHR. DIS AR TEH IMPLEMENTD IN ORDR 2 ALLOW `WEBPROXY` SETUPS 2 OPERATE WITHOUT EXCESIV DELAYS, AS EXPECTD FRUM DIFFERENT NETWORK INTERFACEZ. This should be good enough for majority of use cases, however, if you have a specific custom setup in which you're e.g. routing requests yourself in a different way, you can specify network group yourself through `--network-group` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**, which will allow you to declare ASF group that will be synchronized with this instance. KEEP IN MIND DAT CUSTOM NETWORK GROUPS R USD EXCLUSIVELY, WHICH MEANZ DAT ASF WILL NO LONGR USE `WEBPROXY` 4 DETERMININ TEH RITE GROUP, AS URE IN CHARGE OV GROUPIN IN DIS CASE.
 
 * * *
 
-### Generic
+## ASF PACKAGIN
 
-Generic package is platform-agnostic build that doesn't include any machine-specific code. This setup requires from you to have .NET Core runtime already installed on your OS **in appropriate version**. We all know how troublesome it is to keep dependencies up-to-date, therefore this package is here mainly for people that **already use** .NET Core and don't want to duplicate their runtime solely for ASF if they can make use of what they have installed already. Generic package also allows you to run ASF **anywhere where you can obtain working implementation of .NET Core runtime**, regardless if there exists OS-specific ASF build for it, or not.
-
-It's not recommended to use generic flavour if you're casual or even advanced user that just wants to make ASF work and not dig into .NET Core technical details. In other words - if you know what this is, you can use it, otherwise it's much better to use OS-specific package explained below.
-
-#### .NET Framework package
-
-In addition to generic package mentioned above, there is also `generic-netf` package which is built on top of .NET Framework (and not .NET Core). This package is a legacy variant that provides missing compatibility known from ASF V2 times, and can be run e.g. with **[Mono](https://www.mono-project.com)**, while .NET Core `generic` package can't as of today.
-
-In general you should **avoid this package as much as possible**, as majority of operating systems and setups are perfectly (and much better) supported with `generic` package mentioned above. In fact, this package makes sense to be used only on platforms that lack working .NET Core runtime, while having working Mono implementation. Examples of such platforms include `linux-x86` (32-bit i386/i686 linux), as well as `linux-armel` (ARMv6 boards found e.g. in Raspberry Pi 0 & 1), all of which do not have official working .NET Core runtime as of today.
-
-As the time goes on with more platforms being supported by .NET Core and less compatibility between .NET Framework and .NET Core, `generic-netf` package will be entirely replaced with `generic` one in the future. Please refrain from using it if you can use any .NET Core package instead, as `generic-netf` is missing a lot of functionality and compatibility compared to .NET Core versions, and it'll be only less functional as the time goes on. We offer support for this package **only** on machines that can't use `generic` variant above (e.g. `linux-x86`), and only with up-to-date runtime (e.g. latest Mono).
+ASF COMEZ IN 2 MAIN FLAVOURS - GENERIC PACKAGE AN OS-SPECIFIC. FUNCSHUNALITY-WIZE BOTH PACKAGEZ R EGSAKTLY TEH SAME, THEYRE BOTH ALSO CAPABLE OV AUTOMATICALLY UPDATIN THEMSELVEZ. TEH ONLY DIFFERENCE TWEEN THEM IZ WHETHR OR NOT ASF **GENERIC** PACKAGE ALSO COMEZ WIF **OS-SPECIFIC** RUNTIME 2 POWR IT.
 
 * * *
 
-### OS-specific
+### GENERIC
 
-OS-specific package, apart from managed code included in generic package, also includes native code for given platform. In other words, OS-specific package **already includes proper .NET Core runtime inside**, which allows you to entirely skip the whole installation mess and just launch ASF directly. OS-specific package, as you can guess from the name, is OS-specific and every OS requires its own version - for example Windows requires PE32+ `ArchiSteamFarm.exe` binary while Linux works with Unix ELF `ArchiSteamFarm` binary. As you may know, those two types are not compatible with each other.
+GENERIC PACKAGE IZ PLATFORM-AGNOSTIC BUILD DAT DOESNT INCLUDE ANY MACHINE-SPECIFIC CODE. DIS SETUP REQUIREZ FRUM U 2 HAS .NET CORE RUNTIME ALREADY INSTALLD ON UR OS **IN APPROPRIATE VERSHUN**. WE ALL KNOE HOW TROUBLESOME IT 2 KEEP DEPENDENCIEZ UP-2-DATE, THEREFORE DIS PACKAGE IZ HER MAINLY 4 PEEPS DAT **ALREADY USE** .NET CORE AN DOAN WANTS 2 DUPLICATE THEIR RUNTIME SOLELY 4 ASF IF THEY CAN MAK USE OV WUT THEY HAS INSTALLD ALREADY. GENERIC PACKAGE ALSO ALLOWS U 2 RUN ASF **ANYWHERE WER U CAN OBTAIN WERKIN IMPLEMENTASHUN OV .NET CORE RUNTIME**, REGARDLES IF THAR EXISTS OS-SPECIFIC ASF BUILD 4 IT, OR NOT.
 
-ASF is currently available in following OS-specific variants:
+IZ NOT RECOMMENDD 2 USE GENERIC FLAVR IF URE CASUAL OR EVEN ADVANCD USR DAT JUS WANTS 2 MAK ASF WERK AN NOT DIG INTO .NET CORE TECHNICAL DETAILS. IN OTHR WERDZ - IF U KNOE WUT DIS AR TEH, U CAN USE IT, OTHERWIZE IZ MUTCH BETTR 2 USE OS-SPECIFIC PACKAGE EXPLAIND BELOW.
 
-- `win-x64` works on 64-bit Windows OSes. This includes Windows 7 (SP1+), 8.1, 10, Server 2012 R2, 2016, as well as future versions.
-- `linux-arm` works on 32-bit ARM-based (ARMv7+) GNU/Linux OSes. This includes platforms such as Raspberry Pi 2 (and newer) with all GNU/Linux OSes available for them (such as Raspbian), in current and future versions. This variant will not work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
-- `linux-arm64` works on 64-bit ARM-based (ARMv8+) GNU/Linux OSes. This includes platforms such as Raspberry Pi 3 (and newer) with all AArch64 GNU/Linux OSes available for them (such as Debian), in current and future versions. This variant will not work with 32-bit OSes that do not have required 64-bit libraries available (such as Raspbian), it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
-- `linux-x64` works on 64-bit GNU/Linux OSes. This includes Alpine, CentOS/Fedora/RHEL, Debian/Ubuntu/Linux Mint, OpenSUSE/SLES and many other ones, including their derivatives, in current and future versions.
-- `osx-x64` works on 64-bit OS X OSes. This includes 10.13, as well as future versions.
+#### .NET FRAMEWORK PACKAGE
 
-Of course, even if you don't have OS-specific package available for your OS-architecture combination, you can always install appropriate .NET Core runtime yourself and run generic ASF flavour, which is also the main reason why it exists in the first place. Generic ASF build is platform-agnostic and will run on any platform that has a working .NET Core runtime. This is important to note - ASF requires .NET Core runtime, not some specific OS or architecture. For example, if you're running 32-bit Windows then despite of no dedicated `win-x86` ASF version, you can still install .NET Core SDK in `win-x86` version and run generic ASF just fine. We simply can't target every OS-architecture combination that exists and is used by somebody, so we have to draw a line somewhere. x86 is a good example of that line, as it's obsolete architecture since at least 2004.
+IN ADDISHUN 2 GENERIC PACKAGE MENSHUND ABOOV, THAR IZ ALSO `GENERIC-NETF` PACKAGE WHICH IZ BUILT ON TOP OV .NET FRAMEWORK (AN NOT .NET CORE). DIS PACKAGE IZ LEGACY VARIANT DAT PROVIDEZ MISIN COMPATIBILITY KNOWN FRUM ASF V2 TIEMS, AN CAN BE RUN E.G. WIF **[MONO](https://www.mono-project.com)**, WHILE .NET CORE `GENERIC` PACKAGE CANT AS OV TODAI.
 
-For a complete list of all supported platforms and OSes by .NET Core 5.0, visit **[release notes](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md)**.
+IN GENERAL U SHUD **AVOID DIS PACKAGE AS MUTCH AS POSIBLE**, AS MAJORITY OV OPERATIN SISTEMS AN SETUPS R PERFECTLY (AN MUTCH BETTR) SUPPORTD WIF `GENERIC` PACKAGE MENSHUND ABOOV. IN FACT, DIS PACKAGE MAKEZ SENSE 2 BE USD ONLY ON PLATFORMS DAT LACK WERKIN .NET CORE RUNTIME, WHILE HAVIN WERKIN MONO IMPLEMENTASHUN. EXAMPLEZ OV SUCH PLATFORMS INCLUDE `LINUX-X86` (32-BIT I386/I686 LINUX), AS WELL AS `LINUX-ARMEL` (ARMV6 BOARDZ FINDZ E.G. IN RASPBERRY PI 0 & 1), ALL OV WHICH DO NOT HAS OFFISHUL WERKIN .NET CORE RUNTIME AS OV TODAI.
+
+AS TEH TIEM GOEZ ON WIF MOAR PLATFORMS BEAN SUPPORTD BY .NET CORE AN LES COMPATIBILITY TWEEN .NET FRAMEWORK AN .NET CORE, `GENERIC-NETF` PACKAGE WILL BE ENTIRELY REPLACD WIF `GENERIC` WAN IN DA FUCHUR. PLZ REFRAIN FRUM USIN IT IF U CAN USE ANY .NET CORE PACKAGE INSTEAD, AS `GENERIC-NETF` IZ MISIN LOT OV FUNCSHUNALITY AN COMPATIBILITY COMPARD 2 .NET CORE VERSHUNS, AN ITLL BE ONLY LES FUNCSHUNAL AS TEH TIEM GOEZ ON. WE OFFR SUPPORT 4 DIS PACKAGE **ONLY** ON MACHINEZ DAT CANT USE `GENERIC` VARIANT ABOOV (E.G. `LINUX-X86`), AN ONLY WIF UP-2-DATE RUNTIME (E.G. LATEST MONO).
 
 * * *
 
-## Runtime requirements
+### OS-SPECIFIC
 
-If you're using OS-specific package then you don't need to worry about runtime requirements, because ASF always ships with required and up-to-date runtime that will work properly as long as you have **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** installed and up-to-date. In other words, **you don't need to install .NET Core runtime or SDK**, as OS-specific builds require only native OS dependencies (prerequisites) and nothing else.
+OS-SPECIFIC PACKAGE, APART FRUM MANAGD CODE INCLUDD IN GENERIC PACKAGE, ALSO INCLUDEZ NATIV CODE 4 GIVEN PLATFORM. IN OTHR WERDZ, OS-SPECIFIC PACKAGE **ALREADY INCLUDEZ PROPR .NET CORE RUNTIME INSIDE**, WHICH ALLOWS U 2 ENTIRELY SKIP TEH WHOLE INSTALLASHUN MES AN JUS LAUNCH ASF DIRECTLY. OS-SPECIFIC PACKAGE, AS U CAN GUES FRUM TEH NAYM, IZ OS-SPECIFIC AN EVRY OS REQUIREZ ITZ OWN VERSHUN - 4 EXAMPLE WINDOWS REQUIREZ PE32+ `ARCHISTEAMFARM.EXE` BINARY WHILE LINUX WERKZ WIF UNIX ELF `ARCHISTEAMFARM` BINARY. AS U CUD KNOE, DOSE 2 TYPEZ R NOT COMPATIBLE WIF EACH OTHR.
 
-However, if you're trying to run **generic** ASF package then you must ensure that your .NET Core runtime supports platform required by ASF.
+ASF IZ CURRENTLY AVAILABLE IN FOLLOWIN OS-SPECIFIC VARIANTS:
 
-ASF as a program is targeting **.NET 5.0** (`net5.0`) right now, but it may target newer platform in the future. `net5.0` is supported since 5.0.100 SDK (5.0.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. Generic ASF variant may refuse to launch if your runtime is older than the minimum (target) one known during compilation.
+- `WIN-X64` WERKZ ON 64-BIT WINDOWS OSEZ. DIS INCLUDEZ WINDOWS 7 (SP1+), 8.1, 10, SERVR 2012 R2, 2016, AS WELL AS FUCHUR VERSHUNS.
+- `LINUX-ARM` WERKZ ON 32-BIT ARM-BASD (ARMV7+) GNU/LINUX OSEZ. DIS INCLUDEZ PLATFORMS SUCH AS RASPBERRY PI 2 (AN NEWR) WIF ALL GNU/LINUX OSEZ AVAILABLE 4 THEM (SUCH AS RASPBIAN), IN CURRENT AN FUCHUR VERSHUNS. DIS VARIANT WILL NOT WERK WIF OLDR ARM ARCHITECTUREZ, SUCH AS ARMV6 FINDZ IN RASPBERRY PI 0 & 1, IT WILL ALSO NOT WERK WIF OSEZ DAT DO NOT IMPLEMENT REQUIRD GNU/LINUX ENVIRONMENT (SUCH AS ANDROID).
+- `LINUX-ARM64` WERKZ ON 64-BIT ARM-BASD (ARMV8+) GNU/LINUX OSEZ. DIS INCLUDEZ PLATFORMS SUCH AS RASPBERRY PI 3 (AN NEWR) WIF ALL AARCH64 GNU/LINUX OSEZ AVAILABLE 4 THEM (SUCH AS DEBIAN), IN CURRENT AN FUCHUR VERSHUNS. DIS VARIANT WILL NOT WERK WIF 32-BIT OSEZ DAT DO NOT HAS REQUIRD 64-BIT LIBRARIEZ AVAILABLE (SUCH AS RASPBIAN), IT WILL ALSO NOT WERK WIF OSEZ DAT DO NOT IMPLEMENT REQUIRD GNU/LINUX ENVIRONMENT (SUCH AS ANDROID).
+- `LINUX-X64` WERKZ ON 64-BIT GNU/LINUX OSEZ. DIS INCLUDEZ ALPINE, SENTOS/FEDORA/RHEL, DEBIAN/UBUNTU/LINUX MINT, OPENSUSE/SLEZ AN LOTZ DA OTHR ONEZ, INCLUDIN THEIR DERIVATIVEZ, IN CURRENT AN FUCHUR VERSHUNS.
+- `OSX-X64` WERKZ ON 64-BIT OS X OSEZ. DIS INCLUDEZ 10.13, AS WELL AS FUCHUR VERSHUNS.
 
-If in doubt, check what our **[continuous integration uses](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** for compiling and deploying ASF releases on GitHub. You can find `dotnet --info` output on top of each build.
+OV COURSE, EVEN IF U DOAN HAS OS-SPECIFIC PACKAGE AVAILABLE 4 UR OS-ARCHITECCHUR COMBINASHUN, U CAN ALWAYS INSTALL APPROPRIATE .NET CORE RUNTIME YOURSELF AN RUN GENERIC ASF FLAVR, WHICH IZ ALSO TEH MAIN REASON Y IT EXISTS IN DA FURST PLACE. GENERIC ASF BUILD IZ PLATFORM-AGNOSTIC AN WILL RUN ON ANY PLATFORM DAT HAS WERKIN .NET CORE RUNTIME. DIS AR TEH IMPORTANT 2 NOWT - ASF REQUIREZ .NET CORE RUNTIME, NOT SUM SPECIFIC OS OR ARCHITECCHUR. 4 EXAMPLE, IF URE RUNNIN 32-BIT WINDOWS DEN DESPITE OV NO DEDICATD `WIN-X86` ASF VERSHUN, U CAN STILL INSTALL .NET CORE SDK IN `WIN-X86` VERSHUN AN RUN GENERIC ASF JUS FINE. WE SIMPLY CANT TARGET EVRY OS-ARCHITECCHUR COMBINASHUN DAT EXISTS AN IZ USD BY SOMEBODY, SO WE HAS 2 DRAW LINE SOMEWHERE. X86 IZ GUD EXAMPLE OV DAT LINE, AS IZ OBSOLETE ARCHITECCHUR SINCE AT LEAST 2004.
+
+4 COMPLETE LIST OV ALL SUPPORTD PLATFORMS AN OSEZ BY .NET CORE 5.0, VISIT **[RELEASE NOTEZ](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md)**.
+
+* * *
+
+## RUNTIME REQUIREMENTS
+
+IF URE USIN OS-SPECIFIC PACKAGE DEN U DOAN NED 2 WORRY BOUT RUNTIME REQUIREMENTS, CUZ ASF ALWAYS SHIPS WIF REQUIRD AN UP-2-DATE RUNTIME DAT WILL WERK PROPERLY AS LONG AS U HAS **[.NET CORE PREREQUIZIETS](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** INSTALLD AN UP-2-DATE. IN OTHR WERDZ, **U DOAN NED 2 INSTALL .NET CORE RUNTIME OR SDK**, AS OS-SPECIFIC BUILDZ REQUIRE ONLY NATIV OS DEPENDENCIEZ (PREREQUIZIETS) AN NOTHIN ELSE.
+
+HOWEVR, IF URE TRYIN 2 RUN **GENERIC** ASF PACKAGE DEN U MUST ENSURE DAT UR .NET CORE RUNTIME SUPPORTS PLATFORM REQUIRD BY ASF.
+
+ASF AS PROGRAM IZ TARGETIN **.NET 5.0** (`NET5.0`) RITE NAO, BUT IT CUD TARGET NEWR PLATFORM IN DA FUCHUR. `NET5.0` IZ SUPPORTD SINCE 5.0.100 SDK (5.0.0 RUNTIME), ALTHOUGH ASF IZ CONFIGURD 2 TARGET **LATEST RUNTIME AT TEH MOMENT OV COMPILASHUN**, SO U SHUD ENSURE DAT U HAS **[LATEST SDK](https://dotnet.microsoft.com/download)** (OR AT LEAST RUNTIME) AVAILABLE 4 UR MACHINE. GENERIC ASF VARIANT CUD REFUSE 2 LAUNCH IF UR RUNTIME IZ OLDR THAN TEH MINIMUM (TARGET) WAN KNOWN DURIN COMPILASHUN.
+
+IF IN DOUBT, CHECK WUT R **[CONTINUOUS INTEGRASHUN USEZ](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** 4 COMPILIN AN DEPLOYIN ASF RELEASEZ ON GITHUB. U CAN FIND `DOTNET --INFO` OUTPUT ON TOP OV EACH BUILD.

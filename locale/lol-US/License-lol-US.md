@@ -1,35 +1,35 @@
-# License
+# LICENSE
 
-Unless stated otherwise, ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**. For a quick overview what you can and cannot do, you can use **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+UNLES STATD OTHERWIZE, ASF IZ LICENSD UNDR **[APACHE LICENSE 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**. 4 QUICK OVERVIEW WUT U CAN AN CANT DO, U CAN USE **[TL;DR LEGAL](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
 
-ASF license is very permissive and you're allowed to do much more than in standard GPL license, including using ASF in commercial projects without a requirement of making code open-source. In short, as stated by tl;dr Legal:
+ASF LICENSE IZ VRY PERMISIV AN URE ALLOWD 2 DO MUTCH MOAR THAN IN STANDARD GPL LICENSE, INCLUDIN USIN ASF IN COMMERSHUL PROJECTS WITHOUT REQUIREMENT OV MAKIN CODE OPEN-SOURCE. IN SHORT, AS STATD BY TL;DR LEGAL:
 
-> You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
+> U CAN DO WUT U LIEK WIF TEH SOFTWARE, AS LONG AS U INCLUDE TEH REQUIRD NOTICEZ. DIS PERMISIV LICENSE CONTAINS PATENT LICENSE FRUM TEH CONTRIBUTORS OV TEH CODE.
 
-Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` are often licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, especially all `tools` that have their own licenses on top.
+PLZ NOWT DAT VARIOUS **[ASF COMPONENTS](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** INCLUDD WIF `PACKAGEREFERENCE` R OFTEN LICENSD UNDR DIFFERENT CONDISHUNS, SUCH AS **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. SAME TING APPLIEZ 2 ALL OTHR THIRD-PARTY PROJECTS DAT ASF MAKEZ USE OV, ESPECIALLY ALL `TOOLS` DAT HAS THEIR OWN LICENSEZ ON TOP.
 
 * * *
 
-## Remarks
+## REMARKZ
 
-If you're creating your own software/service based on ASF or part of its code, please review point 6 of the license:
+IF URE CREATIN UR OWN SOFTWARE/SERVICE BASD ON ASF OR PART OV ITZ CODE, PLZ REVIEW POINT 6 OV TEH LICENSE:
 
-> Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+> TRADEMARKZ. DIS LICENSE DOEZ NOT GRANT PERMISHUN 2 USE TEH TRADE NAMEZ, TRADEMARKZ, SERVICE MARKZ, OR PRODUCT NAMEZ OV TEH LICENSOR, EXCEPT AS REQUIRD 4 REASONABLE AN CUSTOMARY USE IN DESCRIBIN TEH ORIGIN OV TEH WERK AN REPRODUCIN TEH CONTENT OV TEH NOTICE FILE.
 
-We do not grant you direct permission to use ASF/ArchiSteamFarm product name in your own software, but we allow using it in some common-sense scenarios:
+WE DO NOT GRANT U DIRECT PERMISHUN 2 USE ASF/ARCHISTEAMFARM PRODUCT NAYM IN UR OWN SOFTWARE, BUT WE ALLOW USIN IT IN SUM COMMON-SENSE SCENARIOS:
 
-You **can**:
+U **CAN**:
 
-- Claim that your software/service **is based on** ASF (or its code)
-- Refer to your software/service as **ASF fork**
-- Claim that your software/service is powered by ASF, if you **didn't** do any changes to the source code
-- Use ASF for various reference purposes, such as linking software/service origin, our wiki, or *"as required for reasonable and customary use in describing the origin of the Work"*
+- CLAIM DAT UR SOFTWARE/SERVICE **IZ BASD ON** ASF (OR ITZ CODE)
+- REFR 2 UR SOFTWARE/SERVICE AS **ASF FORK**
+- CLAIM DAT UR SOFTWARE/SERVICE IZ POWERD BY ASF, IF U **DIDNT** DO ANY CHANGEZ 2 TEH SOURCE CODE
+- USE ASF 4 VARIOUS REFERENCE PURPOSEZ, SUCH AS LINKIN SOFTWARE/SERVICE ORIGIN, R WIKI, OR *"AS REQUIRD 4 REASONABLE AN CUSTOMARY USE IN DESCRIBIN TEH ORIGIN OV TEH WERK"*
 
-You **cannot**:
+U **CANT**:
 
-- Claim that your software/service **is** ASF
-- Refer to your software/service as **ASF**
-- Claim that your software/service is powered by ASF, if you **did** any changes to the source code
-- Use false advertising, such as stating that ASF or its developers are affiliated with your software/service
+- CLAIM DAT UR SOFTWARE/SERVICE **IZ** ASF
+- REFR 2 UR SOFTWARE/SERVICE AS **ASF**
+- CLAIM DAT UR SOFTWARE/SERVICE IZ POWERD BY ASF, IF U **DID** ANY CHANGEZ 2 TEH SOURCE CODE
+- USE FALSE ADVERTISIN, SUCH AS STATIN DAT ASF OR ITZ DEVELOPERS R AFFILIATD WIF UR SOFTWARE/SERVICE
 
-If in doubt, please contact with us, and we'll be happy to answer your legal/licensing questions.
+IF IN DOUBT, PLZ CONTACT WIF US, AN WELL BE HAPPEH 2 ANZWR UR LEGAL/LICENSIN QUESHUNS.

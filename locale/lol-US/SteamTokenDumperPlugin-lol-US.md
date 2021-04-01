@@ -1,35 +1,35 @@
-# SteamTokenDumperPlugin
+# STEAMTOKENDUMPERPLUGIN
 
-`SteamTokenDumperPlugin` is official ASF **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** available since ASF V4.2.2.2, developed by us, which allows you to contribute to **[SteamDB](https://steamdb.info)** project by sharing package tokens, app tokens and depot keys that your Steam account has access to. The extended info on collected data and why SteamDB needs it can be found on SteamDB's **[Token Dumper](https://steamdb.info/tokendumper)** page. The submitted data doesn't include any potentially-sensitive information, and posseses no security/privacy risk, as stated in above description.
+`STEAMTOKENDUMPERPLUGIN` IZ OFFISHUL ASF **[PLUGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-lol-US)** AVAILABLE SINCE ASF V4.2.2.2, DEVELOPD BY US, WHICH ALLOWS U 2 CONTRIBUTE 2  **[STEAMDB](https://steamdb.info)** PROJECT BY SHARIN PACKAGE TOKENS, APP TOKENS AN DEPOT KEYS DAT UR STEAM AKOWNT HAS ACCES 2. TEH EXTENDD INFO ON COLLECTD DATA AN Y STEAMDB NEEDZ IT CAN BE FINDZ ON STEAMDBS **[TOKEN DUMPR](https://steamdb.info/tokendumper)** PAEG. TEH SUBMITTD DATA DOESNT INCLUDE ANY POTENTIALLY-SENSITIV INFORMASHUN, AN POSESEZ NO SECURITY/PRIVACY RISK, AS STATD IN ABOOV DESCRIPSHUN.
 
 ---
 
-## Enabling the plugin
+## ENABLIN TEH PLUGIN
 
-ASF comes with `SteamTokenDumperPlugin` bundled together with the release, but the plugin itself is disabled by default. You can enable the plugin by setting `SteamTokenDumperPluginEnabled` ASF global config property to `true`, in JSON syntax:
+ASF COMEZ WIF `STEAMTOKENDUMPERPLUGIN` BUNDLD TOGETHR WIF TEH RELEASE, BUT TEH PLUGIN ITSELF IZ DISABLD BY DEFAULT. U CAN ENABLE TEH PLUGIN BY SETTIN `STEAMTOKENDUMPERPLUGINENABLD` ASF GLOBAL CONFIG PROPERTY 2 `TRUE`, IN JSON SYNTAX:
 
 ```json
 {
-  "SteamTokenDumperPluginEnabled": true
+  "STEAMTOKENDUMPERPLUGINENABLD": TRUE
 }
 ```
 
-On the launch of the ASF program, the plugin will let you know whether it was enabled successfully through standard ASF logging mechanism. You can also enable the plugin through our web-based config generator.
+ON TEH LAUNCH OV TEH ASF PROGRAM, TEH PLUGIN WILL LET U KNOE WHETHR IT WUZ ENABLD SUCCESFULLY THRU STANDARD ASF LOGGIN MECHANISM. U CAN ALSO ENABLE TEH PLUGIN THRU R WEB-BASD CONFIG GENERATOR.
 
 ---
 
-## Technical details
+## TECHNICAL DETAILS
 
-Upon enabling, the plugin will use the bots that you're running in ASF for data gathering in form of package tokens, app tokens and depot keys that your bots have access to. Data gathering module includes passive and active routines that are supposed to minimize the additional overhead caused by collecting data.
+UPON ENABLIN, TEH PLUGIN WILL USE TEH BOTS DAT URE RUNNIN IN ASF 4 DATA GATHERIN IN FORM OV PACKAGE TOKENS, APP TOKENS AN DEPOT KEYS DAT UR BOTS HAS ACCES 2. DATA GATHERIN MODULE INCLUDEZ PASIV AN ACTIV ROUTINEZ DAT R SUPPOSD 2 MINIMIZE TEH ADDISHUNAL OVERHEAD CAUSD BY COLLECTIN DATA.
 
-In order to fulfill the planned use case, in addition to data gathering routine explained above, submission routine is initialized as being responsible for determining what data needs to be submitted to SteamDB on periodic basis. This routine will fire in up to `1` hour since your ASF start, and will repeat itself every `24` hours. The plugin will do its best to minimize the amount of data that needs to be sent, therefore it's possible that some data which the plugin will collect will be determined as useless to submit, and therefore skipped (for example app update which doesn't change the access token).
+IN ORDR 2 FULFILL TEH PLANND USE CASE, IN ADDISHUN 2 DATA GATHERIN ROUTINE EXPLAIND ABOOV, SUBMISHUN ROUTINE IZ INITIALIZD AS BEAN RESPONSIBLE 4 DETERMININ WUT DATA NEEDZ 2 BE SUBMITTD 2 STEAMDB ON PERIODIC BASIS. DIS ROUTINE WILL FIRE IN UP 2 `1` HOUR SINCE UR ASF START, AN WILL REPEAT ITSELF EVRY `24` HOURS. TEH PLUGIN WILL DO ITZ BEST 2 MINIMIZE TEH AMOUNT OV DATA DAT NEEDZ 2 BE SENT, THEREFORE IZ POSIBLE DAT SUM DATA WHICH TEH PLUGIN WILL COLLECT WILL BE DETERMIND AS USELES 2 SUBMIT, AN THEREFORE SKIPPD (4 EXAMPLE APP UPDATE WHICH DOESNT CHANGE TEH ACCES TOKEN).
 
-The plugin uses a persistent cache database saved in `config/SteamTokenDumper.cache` location, which serves a similar purpose to `config/ASF.db` for ASF. The file is used in order to record the gathered and submitted data and minimize the amount of work that has to be done across different ASF runs. Removing the file causes the process to be restarted from scratch, which should be avoided if possible.
+TEH PLUGIN USEZ PERSISTENT CACHE DATABASE SAVD IN `CONFIG/STEAMTOKENDUMPR.CACHE` LOCASHUN, WHICH SERVEZ SIMILAR PURPOSE 2 `CONFIG/ASF.DB` 4 ASF. TEH FILE IZ USD IN ORDR 2 RECORD TEH GATHERD AN SUBMITTD DATA AN MINIMIZE TEH AMOUNT OV WERK DAT HAS 2 BE DUN ACROS DIFFERENT ASF RUNS. REMOVIN TEH FILE CAUSEZ TEH PROCES 2 BE RESTARTD FRUM SCRATCH, WHICH SHUD BE AVOIDD IF POSIBLE.
 
 ---
 
-## Data
+## DATA
 
-ASF includes the contributor `steamID` in the request, which is determined as `SteamOwnerID` that you set in ASF, or in case you didn't, the Steam ID of the bot which owns the most licenses. The announced contributor might receive some additional perks from SteamDB for continuous help (e.g. donator rank on the website), but that is entirely up to SteamDB's discretion.
+ASF INCLUDEZ TEH CONTRIBUTOR `STEAMID` IN DA REQUEST, WHICH IZ DETERMIND AS `STEAMOWNERID` DAT U SET IN ASF, OR IN CASE U DIDNT, TEH STEAM ID OV TEH BOT WHICH OWNS TEH MOST LICENSEZ. TEH ANNOUNCD CONTRIBUTOR MITE RECEIV SUM ADDISHUNAL PERKZ FRUM STEAMDB 4 CONTINUOUS HALP (E.G. DONATOR RANK ON TEH WEBSIET), BUT DAT IZ ENTIRELY UP 2 STEAMDBS DISCRESHUN.
 
-In any case, SteamDB staff would like to thank you in advance for your help. The submitted data allows SteamDB to operate, in particular to track info about packages, apps and depots, which would no longer be possible without your help.
+IN ANY CASE, STEAMDB STAFF WUD LIEK 2 THANK U IN ADVANCE 4 UR HALP. TEH SUBMITTD DATA ALLOWS STEAMDB 2 OPERATE, IN PARTICULAR 2 TRACK INFO BOUT PACKAGEZ, APPS AN DEPOTS, WHICH WUD NO LONGR BE POSIBLE WITHOUT UR HALP.

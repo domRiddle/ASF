@@ -1,61 +1,61 @@
-# High-performance setup
+# HIGH-PERFORMANCE SETUP
 
-This is exact opposite of **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and typically you want to follow those tips if you want to further increase ASF performance (in terms of CPU speed), for potential cost of increased memory usage.
-
-* * *
-
-ASF already tries to prefer performance when it comes to general balanced tuning, therefore there is not a lot you can do to further increase its performance, although you're not completely out of options either. However, keep in mind that those options are not enabled by default, which means that they're not good enough to consider them balanced for majority of usages, therefore you should decide yourself if memory increase brought by them is acceptable for you.
+DIS AR TEH EGSAKT OPPOSIET OV **[LOW-MEMS SETUP](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-lol-US)** AN TYPICALLY U WANTS 2 FOLLOW DOSE TIPS IF U WANTS 2 FURTHR INCREASE ASF PERFORMANCE (IN TERMS OV CPU SPED), 4 POTENTIAL COST OV INCREASD MEMS USAGE.
 
 * * *
 
-## Runtime tuning (advanced)
-
-Below tricks **involve serious memory increase** and should be used with caution.
-
-.NET Core runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
-
-The recommended way of applying those settings is through `COMPlus_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
-
-Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
-
-### [`gcServer`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
-
-> Configures whether the application uses workstation garbage collection or server garbage collection.
-
-You can read the exact specific of the server GC at **[fundamentals of garbage collection](https://docs.microsoft.com/dotnet/standard/garbage-collection/fundamentals)**.
-
-ASF is using workstation garbage collection by default. This is mainly because of a good balance between memory usage and performance, which is more than enough for just a few bots, as usually a single concurrent background GC thread is fast enough to handle entire memory allocated by ASF.
-
-However, today we have a lot of CPU cores that ASF can greatly benefit from, by having a dedicated GC thread per each CPU vCore that is available. This can greatly improve the performance during heavy ASF tasks such as parsing badge pages or the inventory, since every CPU vCore can help, as opposed to just 2 (main and GC). Server GC is recommended for machines with 3 CPU vCores and more, workstation GC is automatically forced if your machine has just 1 CPU vCore, and if you have exactly 2 then you can consider trying both (results may vary).
-
-Server GC itself does not result in a very huge memory increase by just being active, but it has much bigger generation sizes, and therefore is far more lazy when it comes to giving memory back to OS. You may find yourself in a sweet spot where server GC increases performance significantly and you'd like to keep using it, but at the same time you can't afford that huge memory increase that comes out of using it. Luckily for you, there is a "best of both worlds" setting, by using server GC with **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** configuration property set to `0`, which will still enable server GC, but limit generation sizes and focus more on memory. Alternatively, you might also experiment with another property, **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gcheaphardlimitpercent)**, or even both of them at the same time.
-
-However, if memory is not a problem for you (as GC still takes into account your available memory and tweaks itself), it's a much better idea to not change those properties at all, achieving superior performance in result.
+ASF ALREADY TRIEZ 2 PREFR PERFORMANCE WHEN IT COMEZ 2 GENERAL BALANCD TUNIN, THEREFORE THAR IZ NOT LOT U CAN DO 2 FURTHR INCREASE ITZ PERFORMANCE, ALTHOUGH URE NOT COMPLETELY OUT OV OPSHUNS EITHR. HOWEVR, KEEP IN MIND DAT DOSE OPSHUNS R NOT ENABLD BY DEFAULT, WHICH MEANZ DAT THEYRE NOT GUD ENOUGH 2 CONSIDR THEM BALANCD 4 MAJORITY OV USAGEZ, THEREFORE U SHUD DECIDE YOURSELF IF MEMS INCREASE BROUGHT BY THEM IZ ACCEPTABLE 4 U.
 
 * * *
 
-You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
+## RUNTIME TUNIN (ADVANCD)
+
+BELOW TRICKZ **INVOLVE SERIOUS MEMS INCREASE** AN SHUD BE USD WIF CAUSHUN.
+
+.NET CORE RUNTIME ALLOWS U 2 **[TWEAK GARBAGE COLLECTOR](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** IN LOT OV WAYS, EFFECTIVELY FINE-TUNIN TEH GC PROCES ACCORDIN 2 UR NEEDZ.
+
+TEH RECOMMENDD WAI OV APPLYIN DOSE SETTINGS IZ THRU `COMPLUS_` ENVIRONMENT PROPERTIEZ. OV COURSE, U CUD ALSO USE OTHR METHODZ, E.G. `RUNTIMECONFIG.JSON`, BUT SUM SETTINGS R IMPOSIBLE 2 BE SET DIS WAI, AN ON TOP OV DAT ASF WILL REPLACE UR CUSTOM `RUNTIMECONFIG.JSON` WIF ITZ OWN ON TEH NEXT UPDATE, THEREFORE WE RECOMMEND ENVIRONMENT PROPERTIEZ DAT U CAN SET EASILY PRIOR 2 LAUNCHIN TEH PROCES.
+
+REFR 2 TEH DOCUMENTASHUN 4 ALL TEH PROPERTIEZ DAT U CAN USE, WELL MENSHUN TEH MOST IMPORTANT ONEZ (IN R OPINION) BELOW:
+
+### [`GCSERVR`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
+
+> CONFIGUREZ WHETHR TEH APPLICASHUN USEZ WERKSTASHUN GARBAGE COLLECSHUN OR SERVR GARBAGE COLLECSHUN.
+
+U CAN READ TEH EGSAKT SPECIFIC OV TEH SERVR GC AT **[FUNDAMENTALS OV GARBAGE COLLECSHUN](https://docs.microsoft.com/dotnet/standard/garbage-collection/fundamentals)**.
+
+ASF IZ USIN WERKSTASHUN GARBAGE COLLECSHUN BY DEFAULT. DIS AR TEH MAINLY CUZ OV GUD BALANCE TWEEN MEMS USAGE AN PERFORMANCE, WHICH IZ MOAR THAN ENOUGH 4 JUS FEW BOTS, AS USUALLY SINGLE CONCURRENT BAKGROUND GC THREAD IZ FAST ENOUGH 2 HANDLE ENTIRE MEMS ALLOCATD BY ASF.
+
+HOWEVR, TODAI WE HAS LOT OV CPU COREZ DAT ASF CAN GREATLY BENEFIT FRUM, BY HAVIN DEDICATD GC THREAD PER EACH CPU VCORE DAT IZ AVAILABLE. DIS CAN GREATLY IMPROOOV TEH PERFORMANCE DURIN HEAVY ASF TASKZ SUCH AS PARSIN BADGE PAGEZ OR TEH INVENTORY, SINCE EVRY CPU VCORE CAN HALP, AS OPPOSD 2 JUS 2 (MAIN AN GC). SERVR GC IZ RECOMMENDD 4 MACHINEZ WIF 3 CPU VCOREZ AN MOAR, WERKSTASHUN GC IZ AUTOMATICALLY FORCD IF UR MACHINE HAS JUS 1 CPU VCORE, AN IF U HAS EGSAKTLY 2 DEN U CAN CONSIDR TRYIN BOTH (RESULTS CUD VARY).
+
+SERVR GC ITSELF DOEZ NOT RESULT IN VRY HUGE MEMS INCREASE BY JUS BEAN ACTIV, BUT IT HAS MUTCH BIGGR GENERASHUN SIZEZ, AN THEREFORE IZ FAR MOAR LAZY WHEN IT COMEZ 2 GIVIN MEMS BAK 2 OS. U CUD FIND YOURSELF IN SWEET SPOT WER SERVR GC INCREASEZ PERFORMANCE SIGNIFICANTLY AN UD LIEK 2 KEEP USIN IT, BUT AT TEH SAME TIEM U CANT AFFORD DAT HUGE MEMS INCREASE DAT COMEZ OUT OV USIN IT. LUCKILY 4 U, THAR IZ "BEST OV BOTH WORLDZ" SETTIN, BY USIN SERVR GC WIF **[`GCLATENCYLEVEL`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-lol-US#gclatencylevel)** CONFIGURASHUN PROPERTY SET 2 `0`, WHICH WILL STILL ENABLE SERVR GC, BUT LIMIT GENERASHUN SIZEZ AN FOCUS MOAR ON MEMS. ALTERNATIVELY, U MITE ALSO EXPERIMENT WIF ANOTHR PROPERTY, **[`GCHEAFARDLIMITPERSENT`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-lol-US#gcheafardlimitpersent)**, OR EVEN BOTH OV THEM AT TEH SAME TIEM.
+
+HOWEVR, IF MEMS IZ NOT PROBLEM 4 U (AS GC STILL TAKEZ INTO AKOWNT UR AVAILABLE MEMS AN TWEAKZ ITSELF), IT BE MUTCH BETTR IDEA 2 NOT CHANGE DOSE PROPERTIEZ AT ALL, ACHIEVIN SUPERIOR PERFORMANCE IN RESULT.
+
+* * *
+
+U CAN ENABLE ALL GC PROPERTIEZ BY SETTIN APPROPRIATE `COMPLUS_` ENVIRONMENT VARIABLEZ. 4 EXAMPLE, ON LINUX (SHELL):
 
 ```shell
-export COMPlus_gcServer=1
+EXPORT COMPLUS_GCSERVR=1
 
-./ArchiSteamFarm # For OS-specific build
+./ARCHISTEAMFARM # 4 OS-SPECIFIC BUILD
 ```
 
-Or on Windows (powershell):
+OR ON WINDOWS (POWERSHELL):
 
 ```powershell
-$Env:COMPlus_gcServer=1
+$ENV:COMPLUS_GCSERVR=1
 
-.\ArchiSteamFarm.exe # For OS-specific build
+.\ARCHISTEAMFARM.EXE # 4 OS-SPECIFIC BUILD
 ```
 
 * * *
 
-## Recommended optimization
+## RECOMMENDD OPTIMIZASHUN
 
-- Ensure that you're using default value of `OptimizationMode` which is `MaxPerformance`. This is by far the most important setting, as using `MinMemoryUsage` value has dramatic effects on performance.
-- Enable server GC. Server GC can be immediately seen as being active by significant memory increase compared to workstation GC.
-- If you can't afford that much memory increase, considering tweaking **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** and/or **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gcheaphardlimitpercent)** to achieve "the best of both worlds". However, if your memory can afford it, then it's better to keep it at default - server GC already tweaks itself during runtime and is smart enough to use less memory when your OS will truly need it.
+- ENSURE DAT URE USIN DEFAULT VALUE OV `OPTIMIZASHUNMODE` WHICH IZ `MAXPERFORMANCE`. DIS AR TEH BY FAR TEH MOST IMPORTANT SETTIN, AS USIN `MINMEMORYUSAGE` VALUE HAS DRAMATIC EFFECTS ON PERFORMANCE.
+- ENABLE SERVR GC. SERVR GC CAN BE IMMEDIATELY SEEN AS BEAN ACTIV BY SIGNIFICANT MEMS INCREASE COMPARD 2 WERKSTASHUN GC.
+- IF U CANT AFFORD DAT MUTCH MEMS INCREASE, CONSIDERIN TWEAKIN **[`GCLATENCYLEVEL`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-lol-US#gclatencylevel)** AN/OR **[`GCHEAFARDLIMITPERSENT`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-lol-US#gcheafardlimitpersent)** 2 ACHIEVE "TEH BEST OV BOTH WORLDZ". HOWEVR, IF UR MEMS CAN AFFORD IT, DEN IZ BETTR 2 KEEP IT AT DEFAULT - SERVR GC ALREADY TWEAKZ ITSELF DURIN RUNTIME AN IZ SMART ENOUGH 2 USE LES MEMS WHEN UR OS WILL TRULY NED IT.
 
-If you've enabled server GC and kept other configuration properties at their default values, then you have superior ASF performance that should be blazing fast even with hundreds or thousands of enabled bots. CPU should not be a bottleneck anymore, as ASF is able to use your entire CPU power when needed, cutting required time to bare minimum. The next step would be CPU and RAM upgrades.
+IF UVE ENABLD SERVR GC AN KEPT OTHR CONFIGURASHUN PROPERTIEZ AT THEIR DEFAULT VALUEZ, DEN U HAS SUPERIOR ASF PERFORMANCE DAT SHUD BE BLAZIN FAST EVEN WIF HUNDREDZ OR THOUSANDZ OV ENABLD BOTS. CPU SHUD NOT BE BOTTLENECK NOMORE, AS ASF IZ ABLE 2 USE UR ENTIRE CPU POWR WHEN NEEDD, CUTTIN REQUIRD TIEM 2 BARE MINIMUM. TEH NEXT STEP WUD BE CPU AN RAM UPGRADEZ.

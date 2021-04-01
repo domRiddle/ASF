@@ -1,73 +1,73 @@
-# Trading
+# TRADIN
 
-ASF includes support for Steam non-interactive (offline) trades. Both receiving (accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
-
-* * *
-
-## Logic
-
-ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
-
-ASF will reject trade offer, regardless of content, from any (non-master) user that is blacklisted from trading module. Blacklist is stored in standard `BotName.db` database, and can be managed via `bl`, `bladd` and `blrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. This should work as an alternative to standard user block offered by Steam - use with caution.
-
-ASF will accept all `loot`-like trades being sent across bots, unless `DontAcceptBotTrades` is specified in `TradingPreferences`. In short, default `TradingPreferences` of `None` will cause ASF to automatically accept trades from user with `Master` access to the bot (explained above), as well as all donation trades from other bots that are taking part in ASF process. If you want to disable donation trades from other bots, then that's what `DontAcceptBotTrades` in your `TradingPreferences` is for.
-
-When you enable `AcceptDonations` in your `TradingPreferences`, ASF will also accept any donation trade - a trade in which bot account is not losing any items. This property affects only non-bot accounts, as bot accounts are affected by `DontAcceptBotTrades`. `AcceptDonations` allows you to easily accept donations from other people, and also bots that are not taking part in ASF process.
-
-It's nice to note that `AcceptDonations` doesn't require **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**, as there is no confirmation needed if we're not losing any items.
-
-You can also further customize ASF trading capabilities by modifying `TradingPreferences` accordingly. One of the main `TradingPreferences` features is `SteamTradeMatcher` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](https://www.steamtradematcher.com)**, but can also work without it. It's further described below.
+ASF INCLUDEZ SUPPORT 4 STEAM NON-INTERACTIV (OFFLINE) TRADEZ. BOTH RECEIVIN (ACCEPTIN/DECLININ) AS WELL AS SENDIN TRADEZ IZ AVAILABLE RITE AWAY AN DOESNT REQUIRE SPESHUL CONFIGURASHUN, BUT OBVIOUSLY REQUIREZ UNRESTRICTD STEAM AKOWNT (TEH WAN DAT SPENT 5$ IN DA STORE ALREADY). TRADIN MODULE IZ UNAVAILABLE 4 RESTRICTD ACCOUNTS.
 
 * * *
 
-## `SteamTradeMatcher`
+## LOGIC
 
-When `SteamTradeMatcher` is active, ASF will use quite complex algorithm of checking if trade passes STM rules and is at least neutral towards us. The actual logic is following:
+ASF WILL ALWAYS ACCEPT ALL TRADEZ, REGARDLES OV ITEMS, SENT FRUM USR WIF `MASTAH` (OR HIGHR) ACCES 2 TEH BOT. DIS ALLOWS NOT ONLY EASILY LOOTIN STEAM CARDZ FARMD BY TEH BOT INSTANCE, BUT ALSO ALLOWS 2 EASILY MANAGE STEAM ITEMS DAT BOT STASHEZ IN DA INVENTORY - INCLUDIN DOSE FRUM OTHR GAMEZ (SUCH AS CS:GO).
 
-- Reject the trade if we're losing anything but item types specified in our `MatchableTypes`.
-- Reject the trade if we're not receiving at least the same number of items on per-game, per-type and per-rarity basis.
-- Reject the trade if user asks for special Steam summer/winter sale cards, and has a trade hold.
-- Reject the trade if trade hold duration exceeds `MaxTradeHoldDuration` global config property.
-- Reject the trade if we don't have `MatchEverything` set, and it's worse than neutral for us.
-- Accept the trade if we didn't reject it through any of the points above.
+ASF WILL REJECT TRADE OFFR, REGARDLES OV CONTENT, FRUM ANY (NON-MASTAH) USR DAT IZ BLACKLISTD FRUM TRADIN MODULE. BLACKLIST IZ STORD IN STANDARD `BOTNAME.DB` DATABASE, AN CAN BE MANAGD VIA `BL`, `BLADD` AN `BLRM` **[COMMANDZ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)**. DIS SHUD WERK AS AN ALTERNATIV 2 STANDARD USR BLOCK OFFERD BY STEAM - USE WIF CAUSHUN.
 
-It's nice to note that ASF also supports overpaying - the logic will work properly when user is adding something extra to the trade, as long as all above conditions are met.
+ASF WILL ACCEPT ALL `LOOT`-LIEK TRADEZ BEAN SENT ACROS BOTS, UNLES `DONTACCEPTBOTTRADEZ` IZ SPECIFID IN `TRADINGPREFERENCEZ`. IN SHORT, DEFAULT `TRADINGPREFERENCEZ` OV `NONE` WILL CAUSE ASF 2 AUTOMATICALLY ACCEPT TRADEZ FRUM USR WIF `MASTAH` ACCES 2 TEH BOT (EXPLAIND ABOOV), AS WELL AS ALL DONASHUN TRADEZ FRUM OTHR BOTS DAT R TAKIN PART IN ASF PROCES. IF U WANTS 2 DISABLE DONASHUN TRADEZ FRUM OTHR BOTS, DEN THAZ WUT `DONTACCEPTBOTTRADEZ` IN UR `TRADINGPREFERENCEZ` IZ 4.
 
-First 4 reject predicates should be obvious for everyone. The final one includes actual dupes logic which checks current state of our inventory and decides what is the status of the trade.
+WHEN U ENABLE `ACCEPTDONASHUNS` IN UR `TRADINGPREFERENCEZ`, ASF WILL ALSO ACCEPT ANY DONASHUN TRADE - TRADE IN WHICH BOT AKOWNT IZ NOT LOSIN ANY ITEMS. DIS PROPERTY AFFECTS ONLY NON-BOT ACCOUNTS, AS BOT ACCOUNTS R AFFECTD BY `DONTACCEPTBOTTRADEZ`. `ACCEPTDONASHUNS` ALLOWS U 2 EASILY ACCEPT DONASHUNS FRUM OTHR PEEPS, AN ALSO BOTS DAT R NOT TAKIN PART IN ASF PROCES.
 
-- Trade is **good** if our progress towards set completion advances. Example: A A (before) <-> A B (after)
-- Trade is **neutral** if our progress towards set completion stays in-tact. Example: A B (before) <-> A C (after)
-- Trade is **bad** if our progress towards set completion declines. Example: A C (before) <-> A A (after)
+IZ NICE 2 NOWT DAT `ACCEPTDONASHUNS` DOESNT REQUIRE **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-lol-US)**, AS THAR IZ NO CONFIRMASHUN NEEDD IF WERE NOT LOSIN ANY ITEMS.
 
-STM operates only on good trades, which means that user using STM for dupes matching should always suggest only good trades for us. However, ASF is liberal, and it also accepts neutral trades, because in those trades we're not actually losing anything, so there is no real reason to decline them. This is especially useful for your friends, since they can swap your excessive cards without using STM at all, as long as you're not losing any set progress.
-
-By default ASF will reject bad trades - this is almost always what you want as an user. However, you can optionally enable `MatchEverything` in your `TradingPreferences` in order to make ASF accept all dupe trades, including **bad ones**. This is useful only if you want to run a 1:1 trade bot under your account, as you understand that **ASF will no longer help you progress towards badge completion, and make you prone to losing entire finished set for N dupes of the same card**. Unless you intentionally want to run a trade bot that is **never** supposed to finish any set, you don't want to enable this option.
-
-Regardless of your chosen `TradingPreferences`, a trade being rejected by ASF doesn't mean that you can't accept it yourself. If you kept default value of `BotBehaviour`, which doesn't include `RejectInvalidTrades`, ASF will just ignore those trades - allowing you to decide yourself if you're interested in them or not. Same goes for trades with items outside of `MatchableTypes`, as well as everything else - the module is supposed to help you automate STM trades, not decide what is a good trade and what is not. The only exception from this rule is when talking about users that you blacklisted from trading module using `bladd` command - trades from those users are immediately rejected regardless of `BotBehaviour` settings.
-
-It's highly recommended to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** when you enable this option, as this function loses its whole potential if you decide to manually confirm every trade. `SteamTradeMatcher` will work properly even without ability to confirm trades, but it can generate backlog of confirmations if you're not accepting them in time.
+U CAN ALSO FURTHR CUSTOMIZE ASF TRADIN CAPABILITIEZ BY MODIFYIN `TRADINGPREFERENCEZ` ACCORDINGLY. WAN OV TEH MAIN `TRADINGPREFERENCEZ` FEATUREZ IZ `STEAMTRADEMATCHR` OPSHUN WHICH WILL CAUSE ASF 2 USE BUILT-IN LOGIC 4 ACCEPTIN TRADEZ DAT HALP U COMPLETE MISIN BADGEZ, WHICH IZ ESPECIALLY USEFUL IN COOPERASHUN WIF PUBLIC LISTIN OV **[STEAMTRADEMATCHR](https://www.steamtradematcher.com)**, BUT CAN ALSO WERK WITHOUT IT. IZ FURTHR DESCRIBD BELOW.
 
 * * *
 
-### `MatchActively`
+## `STEAMTRADEMATCHR`
 
-`MatchActively` setting is extended version of `SteamTradeMatcher` which in addition to passive matching offered by that option, also includes active matching in which the bot will send trades to other people.
+WHEN `STEAMTRADEMATCHR` IZ ACTIV, ASF WILL USE QUITE COMPLEX ALGORITHM OV CHECKIN IF TRADE PASEZ STM RULEZ AN IZ AT LEAST NEUTRAL TOWARDZ US. TEH AKSHUL LOGIC IZ FOLLOWIN:
 
-In order to make use of that option, you have a set of requirements to meet. Firstly, you need to enable `SteamTradeMatcher` (as this feature is extension of that), and ensure that you have `MatchEverything` **disabled** (as trading bots never match actively). Afterwards, you have to be eligible for our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)**, with a bit relaxed requirements. At the minimum you must have `Statistics` enabled, **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active and at least one valid type in `MatchableTypes`, such as trading cards.
+- REJECT TEH TRADE IF WERE LOSIN ANYTHIN BUT ITEM TYPEZ SPECIFID IN R `MATCHABLETYPEZ`.
+- REJECT TEH TRADE IF WERE NOT RECEIVIN AT LEAST TEH SAME NUMBR OV ITEMS ON PER-GAME, PER-TYPE AN PER-RARITY BASIS.
+- REJECT TEH TRADE IF USR ASKZ 4 SPESHUL STEAM SUMMR/WINTR SALE CARDZ, AN HAS TRADE HOLD.
+- REJECT TEH TRADE IF TRADE HOLD DURASHUN EXCEEDZ `MAXTRADEHOLDDURASHUN` GLOBAL CONFIG PROPERTY.
+- REJECT TEH TRADE IF WE DOAN HAS `MATCHEVERYTHIN` SET, AN IZ WORSE THAN NEUTRAL 4 US.
+- ACCEPT TEH TRADE IF WE DIDNT REJECT IT THRU ANY OV TEH POINTS ABOOV.
 
-If you meet all of the requirements above, ASF will periodically communicate with our **[public ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** in order to actively match bots that are currently available.
+IZ NICE 2 NOWT DAT ASF ALSO SUPPORTS OVERPAYIN - TEH LOGIC WILL WERK PROPERLY WHEN USR IZ ADDIN SOMETHIN EXTRA 2 TEH TRADE, AS LONG AS ALL ABOOV CONDISHUNS R MET.
 
-- Each matching session is composed of "rounds", with `10` being maximum in a single matching session.
-- In each round ASF will fetch our inventory and inventory of selected bots that are listed in order to find `MatchableTypes` items that can be matched. If match is found, ASF will send and confirm trade offer automatically.
-- Each set (composition of appID, type and rarity of the item) can be matched in a single round only once. This is implemented in order to minimize "items no longer available" and avoid a need to wait for each bot to react before sending all the trades. It's also the primary reason why matching is composed of rounds and not one ongoing process.
-- ASF will send no more than `255` items in a single trade, and no more than `5` trades to a single user in a single round. This is imposed by Steam limits, as well as our own load-balancing.
-- ASF has a hard limit of `40` unique bots that can be matched in a single round, if not cancelled before due to running out of sets to match - in this case, during the next round ASF will try to match bots that weren't matched yet firstly.
-- If ASF determines that the matching should continue, next round starts within `5` minutes since the last one (to add some cooldown and allow all bots to react to our trades), otherwise matching session ends and repeats itself in `8` hours.
+FURST 4 REJECT PREDICATEZ SHUD BE OBVIOUS 4 EVRYONE. TEH FINAL WAN INCLUDEZ AKSHUL DUPEZ LOGIC WHICH CHECKZ CURRENT STATE OV R INVENTORY AN DECIDEZ WUT IZ TEH STATUS OV TEH TRADE.
 
-This module is supposed to be transparent. Matching will start in approximately `1` hour since ASF start, and will repeat itself each `8` hours (if needed). `MatchActively` feature is aimed to be used as a long-run, periodical measure to ensure that we're actively heading towards sets completion, but without a short-term time and resources pressure that would happen if this was offered as a command. The target users of this module are primary accounts and "stash" alt accounts, although it can be used by any bot that is not set to `MatchEverything`.
+- TRADE IZ **GUD** IF R PROGRES TOWARDZ SET COMPLESHUN ADVANCEZ. EXAMPLE: A (BEFORE) <-> A B (AFTR)
+- TRADE IZ **NEUTRAL** IF R PROGRES TOWARDZ SET COMPLESHUN STAYS IN-TACT. EXAMPLE: B (BEFORE) <-> A C (AFTR)
+- TRADE IZ **BAD** IF R PROGRES TOWARDZ SET COMPLESHUN DECLINEZ. EXAMPLE: C (BEFORE) <-> A (AFTR)
 
-ASF does its best to minimize the amount of requests and pressure generated by using this option, while at the same time maximizing efficiency of matching to the upper limit. The exact algorithm of choosing the bots to match and otherwise organize the whole process, is ASF's implementation detail and can change in regards to feedback, situation and possible future ideas.
+STM OPERATEZ ONLY ON GUD TRADEZ, WHICH MEANZ DAT USR USIN STM 4 DUPEZ MATCHIN SHUD ALWAYS SUGGEST ONLY GUD TRADEZ 4 US. HOWEVR, ASF IZ LIBERAL, AN IT ALSO ACCEPTS NEUTRAL TRADEZ, CUZ IN DOSE TRADEZ WERE NOT AKSHULLY LOSIN ANYTHIN, SO THAR IZ NO REAL REASON 2 DECLINE THEM. DIS AR TEH ESPECIALLY USEFUL 4 UR FRENZ, SINCE THEY CAN SWAP UR EXCESIV CARDZ WITHOUT USIN STM AT ALL, AS LONG AS URE NOT LOSIN ANY SET PROGRES.
 
-The current version of the algorithm makes ASF prioritize `Any` bots first, especially those with better diversity of games that their items are from. When running out of `Any` bots, ASF will move on to the fair ones upon same diversity rule, with those owning excessive number of items further deprioritized due to higher chance of possible inventory-related problems compared to other bots. Regardless of that, ASF will try to match every available bot at least once, to ensure that we're not missing on a possible set progress.
+BY DEFAULT ASF WILL REJECT BAD TRADEZ - DIS AR TEH ALMOST ALWAYS WUT U WANTS AS AN USR. HOWEVR, U CAN OPSHUNALLY ENABLE `MATCHEVERYTHIN` IN UR `TRADINGPREFERENCEZ` IN ORDR 2 MAK ASF ACCEPT ALL DUPE TRADEZ, INCLUDIN **BAD ONEZ**. DIS AR TEH USEFUL ONLY IF U WANTS 2 RUN 1:1 TRADE BOT UNDR UR AKOWNT, AS U UNDERSTAND DAT **ASF WILL NO LONGR HALP U PROGRES TOWARDZ BADGE COMPLESHUN, AN MAK U PRONE 2 LOSIN ENTIRE FINISHD SET 4 N DUPEZ OV TEH SAME CARD**. UNLES U INTENSHUNALLY WANTS 2 RUN TRADE BOT DAT IZ **NEVR** SUPPOSD 2 FINISH ANY SET, U DOAN WANTS 2 ENABLE DIS OPSHUN.
 
-`MatchActively` takes into account bots that you blacklisted from trading through `bladd` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** and will not attempt to actively match them. This can be used for telling ASF which bots it should never match, even if they'd have potential dupes for us to use.
+REGARDLES OV UR CHOSEN `TRADINGPREFERENCEZ`, TRADE BEAN REJECTD BY ASF DOESNT MEEN DAT U CANT ACCEPT IT YOURSELF. IF U KEPT DEFAULT VALUE OV `BOTBEHAVIOUR`, WHICH DOESNT INCLUDE `REJECTINVALIDTRADEZ`, ASF WILL JUS IGNORE DOSE TRADEZ - ALLOWIN U 2 DECIDE YOURSELF IF URE INTERESTD IN THEM OR NOT. SAME GOEZ 4 TRADEZ WIF ITEMS OUTSIDE OV `MATCHABLETYPEZ`, AS WELL AS EVRYTHIN ELSE - TEH MODULE IZ SUPPOSD 2 HALP U AUTOMATE STM TRADEZ, NOT DECIDE WUT IZ GUD TRADE AN WUT IZ NOT. TEH ONLY EXCEPSHUN FRUM DIS RULE IZ WHEN TALKIN BOUT USERS DAT U BLACKLISTD FRUM TRADIN MODULE USIN `BLADD` COMMAND - TRADEZ FRUM DOSE USERS R IMMEDIATELY REJECTD REGARDLES OV `BOTBEHAVIOUR` SETTINGS.
+
+IZ HIGHLY RECOMMENDD 2 USE **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-lol-US)** WHEN U ENABLE DIS OPSHUN, AS DIS FUNCSHUN LOSEZ ITZ WHOLE POTENTIAL IF U DECIDE 2 MANUALLY CONFIRM EVRY TRADE. `STEAMTRADEMATCHR` WILL WERK PROPERLY EVEN WITHOUT ABILITY 2 CONFIRM TRADEZ, BUT IT CAN GENERATE BAKLOG OV CONFIRMASHUNS IF URE NOT ACCEPTIN THEM IN TIEM.
+
+* * *
+
+### `MATCHACTIVELY`
+
+`MATCHACTIVELY` SETTIN IZ EXTENDD VERSHUN OV `STEAMTRADEMATCHR` WHICH IN ADDISHUN 2 PASIV MATCHIN OFFERD BY DAT OPSHUN, ALSO INCLUDEZ ACTIV MATCHIN IN WHICH TEH BOT WILL SEND TRADEZ 2 OTHR PEEPS.
+
+IN ORDR 2 MAK USE OV DAT OPSHUN, U HAS SET OV REQUIREMENTS 2 MEET. FIRSTLY, U NED 2 ENABLE `STEAMTRADEMATCHR` (AS DIS FEACHUR IZ EXTENSHUN OV DAT), AN ENSURE DAT U HAS `MATCHEVERYTHIN` **DISABLD** (AS TRADIN BOTS NEVR MATCH ACTIVELY). AFTERWARDZ, U HAS 2 BE ELIGIBLE 4 R **[ASF STM LISTIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-lol-US#current-privacy-policy)**, WIF BIT RELAXD REQUIREMENTS. AT TEH MINIMUM U MUST HAS `STATISTICS` ENABLD, **[UNRESTRICTD](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** AKOWNT, **<A HREF="HTTPS://GITHUB.COM/JUSTARCHINET/ARCHISTEAMFARM/WIKI/2-FACTOR-AUTHENTICASHUN#ASF-2FA">ASF 2FA</a>** ACTIV AN AT LEAST WAN VALID TYPE IN `MATCHABLETYPEZ`, SUCH AS TRADIN CARDZ.
+
+IF U MEET ALL OV TEH REQUIREMENTS ABOOV, ASF WILL PERIODICALLY SPEEK WIF R **[PUBLIC ASF STM LISTIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-lol-US#public-asf-stm-listin)** IN ORDR 2 ACTIVELY MATCH BOTS DAT R CURRENTLY AVAILABLE.
+
+- EACH MATCHIN SESHUN IZ COMPOSD OV "ROUNDZ", WIF `10` BEAN MAXIMUM IN SINGLE MATCHIN SESHUN.
+- IN EACH ROUND ASF WILL FETCH R INVENTORY AN INVENTORY OV SELECTD BOTS DAT R LISTD IN ORDR 2 FIND `MATCHABLETYPEZ` ITEMS DAT CAN BE MATCHD. IF MATCH IZ FINDZ, ASF WILL SEND AN CONFIRM TRADE OFFR AUTOMATICALLY.
+- EACH SET (COMPOSISHUN OV APPID, TYPE AN RARITY OV TEH ITEM) CAN BE MATCHD IN SINGLE ROUND ONLY ONCE. DIS AR TEH IMPLEMENTD IN ORDR 2 MINIMIZE "ITEMS NO LONGR AVAILABLE" AN AVOID NED 2 WAIT 4 EACH BOT 2 REACT BEFORE SENDIN ALL TEH TRADEZ. IZ ALSO TEH PRIMARY REASON Y MATCHIN IZ COMPOSD OV ROUNDZ AN NOT WAN ONGOIN PROCES.
+- ASF WILL SEND NO MOAR THAN `255` ITEMS IN SINGLE TRADE, AN NO MOAR THAN `5` TRADEZ 2 SINGLE USR IN SINGLE ROUND. DIS AR TEH IMPOSD BY STEAM LIMITS, AS WELL AS R OWN LOAD-BALANCIN.
+- ASF HAS HARD LIMIT OV `40` UNIQUE BOTS DAT CAN BE MATCHD IN SINGLE ROUND, IF NOT CANCELLD BEFORE DUE 2 RUNNIN OUT OV SETS 2 MATCH - IN DIS CASE, DURIN TEH NEXT ROUND ASF WILL TRY 2 MATCH BOTS DAT WUZ NOT MATCHD YET FIRSTLY.
+- IF ASF DETERMINEZ DAT TEH MATCHIN SHUD CONTINUE, NEXT ROUND STARTS WITHIN `5` MINUTEZ SINCE TEH LAST WAN (2 ADD SUM COOLDOWN AN ALLOW ALL BOTS 2 REACT 2 R TRADEZ), OTHERWIZE MATCHIN SESHUN ENDZ AN REPEATS ITSELF IN `8` HOURS.
+
+DIS MODULE IZ SUPPOSD 2 BE TRANZPARENT. MATCHIN WILL START IN APPROXIMATELY `1` HOUR SINCE ASF START, AN WILL REPEAT ITSELF EACH `8` HOURS (IF NEEDD). `MATCHACTIVELY` FEACHUR IZ AIMD 2 BE USD AS LONG-RUN, PERIODICAL MEASURE 2 ENSURE DAT WERE ACTIVELY HEADIN TOWARDZ SETS COMPLESHUN, BUT WITHOUT SHORT-TURM TIEM AN RESOURCEZ PRESURE DAT WUD HAPPEN IF DIS WUZ OFFERD AS COMMAND. TEH TARGET USERS OV DIS MODULE R PRIMARY ACCOUNTS AN "STASH" ALT ACCOUNTS, ALTHOUGH IT CAN BE USD BY ANY BOT DAT IZ NOT SET 2 `MATCHEVERYTHIN`.
+
+ASF DOEZ ITZ BEST 2 MINIMIZE TEH AMOUNT OV REQUESTS AN PRESURE GENERATD BY USIN DIS OPSHUN, WHILE AT TEH SAME TIEM MAXIMIZIN EFFICIENCY OV MATCHIN 2 TEH UPPR LIMIT. TEH EGSAKT ALGORITHM OV CHOOSIN TEH BOTS 2 MATCH AN OTHERWIZE ORGANIZE TEH WHOLE PROCES, IZ ASFS IMPLEMENTASHUN DETAIL AN CAN CHANGE IN REGARDZ 2 FEEDBACK, SITUASHUN AN POSIBLE FUCHUR IDEAS.
+
+TEH CURRENT VERSHUN OV TEH ALGORITHM MAKEZ ASF PRIORITIZE `ANY` BOTS FURST, ESPECIALLY DOSE WIF BETTR DIVERSITY OV GAMEZ DAT THEIR ITEMS R FRUM. WHEN RUNNIN OUT OV `ANY` BOTS, ASF WILL MOOV ON 2 TEH FAIR ONEZ UPON SAME DIVERSITY RULE, WIF DOSE OWNIN EXCESIV NUMBR OV ITEMS FURTHR DEPRIORITIZD DUE 2 HIGHR CHANCE OV POSIBLE INVENTORY-RELATD PROBLEMS COMPARD 2 OTHR BOTS. REGARDLES OV DAT, ASF WILL TRY 2 MATCH EVRY AVAILABLE BOT AT LEAST ONCE, 2 ENSURE DAT WERE NOT MISIN ON POSIBLE SET PROGRES.
+
+`MATCHACTIVELY` TAKEZ INTO AKOWNT BOTS DAT U BLACKLISTD FRUM TRADIN THRU `BLADD` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)** AN WILL NOT ATTEMPT 2 ACTIVELY MATCH THEM.AST ONCE, 2 ENSURE DAT WERE NOT MISIN ON POSIBLE SET PROGRES. DIS CAN BE USD 4 TELLIN ASF WHICH BOTS IT SHUD NEVR MATCH, EVEN IF THEYD HAS POTENTIAL DUPEZ 4 US 2 USE.

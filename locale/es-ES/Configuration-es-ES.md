@@ -4,15 +4,15 @@ Esta página está dedicada a la configuración de ASF. Sirve como documentació
 
 - **[Introducción](#introducción)**
 - **[ConfigGenerator basado en la Web](#configgenerator-basado-en-la-web)**
-- **[Configuración ASF-ui](#asf-ui-configuration)**
-- **[Configuración manual](#manual-configuration)**
-- **[Configuración global](#global-config)**
-- **[Configuración de bot](#bot-config)**
-- **[Estructura de archivos](#file-structure)**
-- **[Mapeo JSON](#json-mapping)**
-- **[Compatibilidad de mapeo](#compatibility-mapping)**
-- **[Compatibilidad de configuraciones](#configs-compatibility)**
-- **[Autorrecarga](#auto-reload)**
+- **[Configuración ASF-ui](#configuración-asf-ui)**
+- **[Configuración manual](#configuración-manual)**
+- **[Configuración global](#configuración-global)**
+- **[Configuración de bot](#configuración-de-bot)**
+- **[Estructura de archivos](#estructura-de-archivos)**
+- **[Mapeo JSON](#mapeo-json)**
+- **[Compatibilidad de mapeo](#compatibilidad-de-mapeo)**
+- **[Compatibilidad de configuraciones](#compatibilidad-de-configuraciones)**
+- **[Autorrecarga](#autorrecarga)**
 
 * * *
 

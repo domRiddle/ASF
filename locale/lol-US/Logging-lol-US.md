@@ -1,16 +1,16 @@
-# Logging
+# LOGGIN
 
-ASF allows you to configure your own custom logging module that will be used during runtime. You can do so by putting special file named `NLog.config` in application’s directory. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
+ASF ALLOWS U 2 CONFIGURE UR OWN CUSTOM LOGGIN MODULE DAT WILL BE USD DURIN RUNTIME. U CAN DO SO BY PUTTIN SPESHUL FILE NAMD `NLOG.CONFIG` IN APPLICASHUN’S DIRECTORY. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
 
 * * *
 
-## Default logging
+## DEFAULT LOGGIN
 
-By default, ASF is logging to `ColoredConsole` (standard output) and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
+BY DEFAULT, ASF IZ LOGGIN 2 `COLOREDCONSOLE` (STANDARD OUTPUT) AN `FILE`. `FILE` LOGGIN INCLUDEZ `LOG.TXT` FILE IN PROGRAMS DIRECTORY, AN `LOGS` DIRECTORY 4 ARCHIVAL PURPOSEZ.
 
-Using custom NLog config automatically disables default ASF config, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
+USIN CUSTOM NLOG CONFIG AUTOMATICALLY DISABLEZ DEFAULT ASF CONFIG, UR CONFIG OVERRIDEZ **COMPLETELY** DEFAULT ASF LOGGIN, WHICH MEANZ DAT IF U WANTS 2 KEEP E.G. R **COLOREDCONSOLE** TARGET, DEN U MUST DEFINE IT **YOURSELF**. DIS ALLOWS U 2 NOT ONLY ADD **EXTRA** LOGGIN TARGETS, BUT ALSO DISABLE OR MODIFY **DEFAULT** ONEZ.
 
-If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom `NLog.config`. Don't use custom `NLog.config` if you don't want to modify default ASF logging. For reference though, equivalent of hardcoded ASF default logging would be:
+IF U WANTS 2 USE DEFAULT ASF LOGGIN WITHOUT ANY MODIFICASHUNS, U DOAN NED 2 DO ANYTHIN - U ALSO DOAN NED 2 DEFINE IT IN CUSTOM `NLOG.CONFIG`. DOAN USE CUSTOM `NLOG.CONFIG` IF U DOAN WANTS 2 MODIFY DEFAULT ASF LOGGIN. 4 REFERENCE THOUGH, EQUIVALENT OV HARDCODD ASF DEFAULT LOGGIN WUD BE:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -33,17 +33,17 @@ If you want to use default ASF logging without any modifications, you don't need
 
 * * *
 
-## ASF integration
+## ASF INTEGRASHUN
 
-ASF includes some nice code tricks that enhance its integration with NLog, allowing you to catch specific messages more easily.
+ASF INCLUDEZ SUM NICE CODE TRICKZ DAT ENHANCE ITZ INTEGRASHUN WIF NLOG, ALLOWIN U 2 KATCH SPECIFIC MESAGEZ MOAR EASILY.
 
-NLog-specific `${logger}` variable will always distinguish the source of the message - it will be either `BotName` of one of your bots, or `ASF` if message comes from ASF process directly. This way you can easily catch messages considering specific bot(s), or ASF process (only), instead of all of them, based on the name of the logger.
+NLOG-SPECIFIC `${LOGGR}` VARIABLE WILL ALWAYS DISTINGUISH TEH SOURCE OV TEH MESAGE - IT WILL BE EITHR `BOTNAME` OV WAN OV UR BOTS, OR `ASF` IF MESAGE COMEZ FRUM ASF PROCES DIRECTLY. DIS WAI U CAN EASILY KATCH MESAGEZ CONSIDERIN SPECIFIC BOT(S), OR ASF PROCES (ONLY), INSTEAD OV ALL OV THEM, BASD ON TEH NAYM OV TEH LOGGR.
 
-ASF tries to mark messages appropriately based on NLog-provided warning levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them. Of course, logging level for specific message can't be customized, as it's ASF hardcoded decision how serious given message is, but you definitely can make ASF less/more silent, as you see fit.
+ASF TRIEZ 2 MARK MESAGEZ APPROPRIATELY BASD ON NLOG-PROVIDD WARNIN LEVELS, WHICH MAKEZ IT POSIBLE 4 U 2 KATCH ONLY SPECIFIC MESAGEZ FRUM SPECIFIC LOG LEVELS INSTEAD OV ALL OV THEM. OV COURSE, LOGGIN LEVEL 4 SPECIFIC MESAGE CANT BE CUSTOMIZD, AS IZ ASF HARDCODD DECISHUN HOW SERIOUS GIVEN MESAGE IZ, BUT U DEFINITELY CAN MAK ASF LES/MOAR SILENT, AS U C FIT.
 
-ASF logs extra info, such as user/chat messages on `Trace` logging level. Default ASF logging logs only `Debug` level and above, which hides that extra information, as it's not needed for majority of users, plus clutters output containing potentially more important messages. You can however make use of that information by re-enabling `Trace` logging level, especially in combination with logging only one specific bot of your choice, with particular event you're interested in.
+ASF LOGS EXTRA INFO, SUCH AS USR/CHAT MESAGEZ ON `TRACE` LOGGIN LEVEL. DEFAULT ASF LOGGIN LOGS ONLY `DEBUG` LEVEL AN ABOOV, WHICH HIDEZ DAT EXTRA INFORMASHUN, AS IZ NOT NEEDD 4 MAJORITY OV USERS, PLUS CLUTTERS OUTPUT CONTAININ POTENTIALLY MOAR IMPORTANT MESAGEZ. U CAN HOWEVR MAK USE OV DAT INFORMASHUN BY RE-ENABLIN `TRACE` LOGGIN LEVEL, ESPECIALLY IN COMBINASHUN WIF LOGGIN ONLY WAN SPECIFIC BOT OV UR CHOICE, WIF PARTICULAR EVENT URE INTERESTD IN.
 
-In general, ASF tries to make it as easy and convenient for you as possible, to log only messages you want instead of forcing you to manually filter it through third-party tools such as `grep` and alike. Simply configure NLog properly as written below, and you should be able to specify even very complex logging rules with custom targets such as entire databases.
+IN GENERAL, ASF TRIEZ 2 MAK IT AS EASY AN CONVENIENT 4 U AS POSIBLE, 2 LOG ONLY MESAGEZ U WANTS INSTEAD OV FORCIN U 2 MANUALLY FILTR IT THRU THIRD-PARTY TOOLS SUCH AS `GREP` AN ALIKE. SIMPLY CONFIGURE NLOG PROPERLY AS WRITTEN BELOW, AN U SHUD BE ABLE 2 SPECIFY EVEN VRY COMPLEX LOGGIN RULEZ WIF CUSTOM TARGETS SUCH AS ENTIRE DATABASEZ.
 
 Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. It's very often a version that is newer than latest stable, therefore it should not be a problem to use any feature you can find on NLog wiki in ASF, even features that are in very active development and WIP state - just make sure you're also using up-to-date ASF.
 
@@ -174,7 +174,7 @@ ASF includes extended support for chat logging by not only recording all receive
 | ChatID      | `ulong` type. This is the ID of the `ChatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                  |
 | SteamID     | `ulong` type. This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat). |
 
-### Example
+### EXAMPLE
 
 This example is based on our `ColoredConsole` basic example above. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
 

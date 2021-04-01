@@ -1,13 +1,13 @@
 # FAQ
 
-R BASIC FAQ COVERS STANDARD QUESHUNS AN ANZWERS DAT U CUD HAS. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+R BASIC FAQ COVERS STANDARD QUESHUNS AN ANZWERS DAT U CUD HAS. 4 LES COMMON MATTERS, PLZ VISIT R **[EXTENDD FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-lol-US)** INSTEAD.
 
 # TABLE OV CONTENTS
 
 - [GENERAL](#general)
 - [COMPARISON WIF SIMILAR TOOLS](#comparison-with-similar-tools)
-- [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
-- [Misc](#misc)
+- [SECURITY / PRIVACY / VAC / BANZ / TOS](#security--privacy--vac--bans--tos)
+- [MISC](#misc)
 - [ISSUEZ](#issues)
 
 * * *
@@ -20,7 +20,7 @@ R BASIC FAQ COVERS STANDARD QUESHUNS AN ANZWERS DAT U CUD HAS. For a less common
 
 ### Y IZ MAH AKOWNT LIMITD?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+BEFORE TRYIN 2 UNDERSTAND WUT ASF IZ, U SHUD MAK SURE DAT U UNDERSTAND WUT STEAM CARDZ R, AN HOW 2 OBTAIN THEM, WHICH IZ NICELY DESCRIBD IN OFFISHUL FAQ **[HER](https://steamcommunity.com/tradingcards/faq-lol-US)**.
 
 IN SHORT, STEAM CARDZ R COLLECTIBLE ITEMS DAT URE ELIGIBLE 4 WHEN OWNIN PARTICULAR GAME, AN CAN BE USD 4 CRAFTIN BADGEZ, SELLIN ON STEAM MARKIT OR ANY OTHR PURPOSE OV UR CHOICE.
 
@@ -29,16 +29,16 @@ CORE POINTS R STATD ONCE AGAIN HER, CUZ PEEPS IN GENERAL DOAN WANTS 2 AGREE WIF 
 - **U NED 2 OWN TEH GAME ON UR STEAM AKOWNT IN ORDR 2 BE ELIGIBLE 4 ANY CARD DROPS FRUM IT. PPLZ SHARIN DOESNT COUNT.**
 - **U CANT FARM TEH GAME INFINITELY, EVRY GAME HAS FIXD NUMBR OV CARD DROPS. ONCE U DROP ALL OV THEM (AROUND HALF OV TEH FULL SET), TEH GAME IZ NOT CANDIDATE 4 IDLIN NOMORE. IT DOESNT MATTR WHETHR UVE SOLD, TRADD, CRAFTD OR FORGOT WUT HAPPEND 2 DOSE CARDZ UVE OBTAIND, ONCE U RUN OUT OV CARD DROPS, TEH GAME IZ FINISHD.**
 - **U CANT DROP CARDZ FRUM F2P GAMEZ WITHOUT SPENDIN ANY MONEY IN THEM. DIS INVOLVEZ PERMANENTLY F2P GAMEZ LIEK TEAM FORTRES 2 OR DOTA 2. OWNIN F2P GAMEZ DOEZ NOT GRANT U WIF CARD DROPS.**
-- **You can't drop cards on [limited accounts](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), regardless of owned games. IT WUZ POSIBLE IN DA PAST, BUT IZ NO LONGR TEH CASE.**
+- **U CANT DROP CARDZ ON [LIMITD ACCOUNTS](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), REGARDLES OV OWND GAMEZ. IT WUZ POSIBLE IN DA PAST, BUT IZ NO LONGR TEH CASE.**
 - **PAID GAMEZ DAT UVE OBTAIND 4 FREE DURIN PROMOSHUN CANT BE IDLD 4 CARD DROPS, REGARDLES OV WUT IZ DISPLAYD ON TEH STORE PAEG. IT WUZ POSIBLE IN DA PAST, BUT IZ NO LONGR TEH CASE.**
 
 SO AS U CAN C, STEAM CARDZ R AWARDD 2 U 4 PLAYIN GAME DAT U BUYD, OR F2P GAME DAT UVE PUT MONEY INTO. IF U PULAY SUCH GAME LONG ENOUGH, ALL CARDZ 4 DAT GAME WILL EVENTUALLY DROP 2 UR INVENTORY, MAKIN IT POSIBLE 4 U 2 COMPLETE BADGE (AFTR OBTAININ TEH REMAININ HALF OV TEH SET), SELL THEM, OR DO WHATEVR ELSE U WANTS.
 
 NAO DAT WEVE EXPLAIND TEH BASICS OV STEAM, WE CAN EXPLAIN ASF. TEH PROGRAM ITSELF IZ QUITE COMPLEX 2 UNDERSTAND FULLY, SO INSTEAD OV DIGGIN INTO ALL TEH TECHNICAL DETAILS, WELL OFFR VRY SIMPLIFID EXPLANASHUN BELOW.
 
-ASF LOGS INTO UR STEAM AKOWNT THRU R BUILT-IN, CUSTOM STEAM CLIENT IMPLEMENTASHUN USIN UR PROVIDD CREDENTIALS. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for idling (`X` card drops remaining). AFTR PARSIN ALL PAGEZ AN CONSTRUCTIN FINAL LIST OV GAMEZ DAT R AVAILABLE, ASF CHOOSEZ MOST EFFICIENT FARMIN ALGORITHM AN STARTS TEH PROCES. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully idled already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
+ASF LOGS INTO UR STEAM AKOWNT THRU R BUILT-IN, CUSTOM STEAM CLIENT IMPLEMENTASHUN USIN UR PROVIDD CREDENTIALS. AFTR SUCCESFULLY LOGGIN IN, IT PARSEZ UR **[BADGEZ](https://steamcommunity.com/my/badges)** IN ORDR 2 FIND GAMEZ DAT R AVAILABLE 4 IDLIN (`X` CARD DROPS REMAININ). AFTR PARSIN ALL PAGEZ AN CONSTRUCTIN FINAL LIST OV GAMEZ DAT R AVAILABLE, ASF CHOOSEZ MOST EFFICIENT FARMIN ALGORITHM AN STARTS TEH PROCES. TEH PROCES DEPENDZ UPON CHOSEN **[CARDZ FARMIN ALGORITHM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-lol-US)** BUT USUALLY IT CONSISTS OV PLAYIN ELIGIBLE GAME AN PERIODICALLY (PLUS ON EACH ITEM DROP) CHECKIN IF GAME IZ FULLY IDLD ALREADY - IF YEZ, ASF CAN PROCED WIF TEH NEXT TITLE, USIN TEH SAME PROCEDURE, TIL ALL GAMEZ R FULLY FARMD.
 
-KEEP IN MIND DAT EXPLANASHUN ABOOV IZ SIMPLIFID AN DOESNT DESCRIBE DOZEN OV EXTRA FEATUREZ AN FUNCSHUNS DAT ASF OFFERS. Visit the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)** if you want to know every ASF detail. I TRID 2 MAK IT SIMPLE ENOUGH 2 UNDERSTAND 4 EVRYBODY, WITHOUT BRINGIN IN TECHNICAL DETAILS - ADVANCD USERS R ENCOURAGD 2 DIG DEEPR.
+KEEP IN MIND DAT EXPLANASHUN ABOOV IZ SIMPLIFID AN DOESNT DESCRIBE DOZEN OV EXTRA FEATUREZ AN FUNCSHUNS DAT ASF OFFERS. VISIT TEH REST OV **[R WIKI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-lol-US)** IF U WANTS 2 KNOE EVRY ASF DETAIL. I TRID 2 MAK IT SIMPLE ENOUGH 2 UNDERSTAND 4 EVRYBODY, WITHOUT BRINGIN IN TECHNICAL DETAILS - ADVANCD USERS R ENCOURAGD 2 DIG DEEPR.
 
 NAO AS PROGRAM - ASF OFFERS SUM MAGIC. FIRSTY, IT DOESNT HAS 2 DOWNLOAD ANY OV UR GAME FILEZ, IT CAN PULAY GAMEZ RITE AWAY. SECONDLY, IZ ENTIRELY INDEPENDENT OV UR NORMAL STEAM CLIENT - U DOAN NED 2 HAS STEAM CLIENT RUNNIN OR EVEN INSTALLD AT ALL. THIRDLY, IZ AUTOMATD SOLUSHUN - WHICH MEANZ DAT ASF AUTOMATICALLY DOEZ EVRYTHIN BEHIND UR BAK, WITHOUT NED OV TELLIN IT WUT 2 DO - WHICH SAVEZ U HASLE AN TIEM. LASTLY, IT DOESNT HAS 2 TRICK STEAM NETWORK BY PROCES EMULASHUN (WHICH E.G. IDLE MASTAH IZ USIN), AS IT CAN SPEEK WIF IT DIRECTLY. IZ ALSO SUPR FAST AN LIGHTWEIGHT, BEAN AN AMAZIN SOLUSHUN 4 EVRYBODY HOO WANTS 2 GIT CARDZ EASILY WITHOUT MUTCH HASLE - IT COMEZ ESPECIALLY USEFUL BY LEAVIN IT RUNNIN IN DA BAKGROUND WHILE DOIN SOMETHIN ELSE, OR EVEN PLAYIN IN OFFLINE MODE.
 
@@ -50,21 +50,21 @@ SO 2 SUM UP - ASF IZ PROGRAM DAT HELPS U DROP DOSE CARDZ URE ELIGIBLE 4, WITHOUT
 
 ### DO I HAS 2 PUT MAH AKOWNT CREDENTIALS?
 
-**YEZ**. ASF REQUIREZ UR AKOWNT CREDENTIALS IN DA SAME WAI AS OFFISHUL STEAM CLIENT DOEZ, AS IZ USIN TEH SAME METHOD 4 STEAM NETWORK INTERACSHUN. DIS HOWEVR DOESNT MEEN DAT U HAS 2 PUT UR AKOWNT CREDENTIALS IN ASF CONFIGS, U CAN KEEP USIN ASF WIF `null`/EMPTY `SteamLogin` AN/OR `SteamPassword`, AN INPUT DAT DATA ON EACH ASF RUN, WHEN REQUIRD (AS WELL AS SEVERAL OTHR LOGIN CREDENTIALS, REFR 2 CONFIGURASHUN). DIS WAI UR DETAILS R NOT SAVD ANYWHERE, BUT OV COURSE ASF CANT AUTOSTART WITHOUT UR HALP. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. IF URE NOT, AN U DOAN WANTS 2 PUT UR AKOWNT CREDENTIALS IN ASF CONFIGS, DEN SIMPLY DOAN DO DAT, AN INSTEAD INPUT THEM AS-NEEDD WHEN ASF ASKZ 4 THEM.
+**YEZ**. ASF REQUIREZ UR AKOWNT CREDENTIALS IN DA SAME WAI AS OFFISHUL STEAM CLIENT DOEZ, AS IZ USIN TEH SAME METHOD 4 STEAM NETWORK INTERACSHUN. DIS HOWEVR DOESNT MEEN DAT U HAS 2 PUT UR AKOWNT CREDENTIALS IN ASF CONFIGS, U CAN KEEP USIN ASF WIF `null`/EMPTY `SteamLogin` AN/OR `SteamPassword`, AN INPUT DAT DATA ON EACH ASF RUN, WHEN REQUIRD (AS WELL AS SEVERAL OTHR LOGIN CREDENTIALS, REFR 2 CONFIGURASHUN). DIS WAI UR DETAILS R NOT SAVD ANYWHERE, BUT OV COURSE ASF CANT AUTOSTART WITHOUT UR HALP. ASF ALSO OFFERS SEVERAL OTHR WAYS OV INCREASIN UR **[SECURITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-lol-US)**, SO FEELZ FREE 2 READ DAT PART OV TEH WIKI IF URE ADVANCD USR. IF URE NOT, AN U DOAN WANTS 2 PUT UR AKOWNT CREDENTIALS IN ASF CONFIGS, DEN SIMPLY DOAN DO DAT, AN INSTEAD INPUT THEM AS-NEEDD WHEN ASF ASKZ 4 THEM.
 
-KEEP IN MIND DAT ASF TOOL IZ 4 UR PERSONAL USE AN UR CREDENTIALS R NEVR LEAVIN UR COMPUTR. You're also not sharing them with anybody, which fulfills **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** - a very important thing that many people forget about. URE NOT SENDIN UR DETAILS 2 R SERVERS OR SUM THIRD-PARTY, ONLY DIRECTLY 2 STEAM SERVERS OPERATD BY VALVE. WE DOAN KNOE UR CREDENTIALS AN WERE ALSO UNABLE 2 RECOVR THEM 4 U, REGARDLES IF U PUT THEM IN UR CONFIGS OR NOT.
+KEEP IN MIND DAT ASF TOOL IZ 4 UR PERSONAL USE AN UR CREDENTIALS R NEVR LEAVIN UR COMPUTR. URE ALSO NOT SHARIN THEM WIF ANYBODY, WHICH FULFILLS **[STEAM TOS](https://store.steampowered.com/subscriber_agreement)** - VRY IMPORTANT TING DAT LOTZ DA PEEPS FORGET BOUT. URE NOT SENDIN UR DETAILS 2 R SERVERS OR SUM THIRD-PARTY, ONLY DIRECTLY 2 STEAM SERVERS OPERATD BY VALVE. WE DOAN KNOE UR CREDENTIALS AN WERE ALSO UNABLE 2 RECOVR THEM 4 U, REGARDLES IF U PUT THEM IN UR CONFIGS OR NOT.
 
 * * *
 
 ### HOW LONG DO I HAS 2 WAIT 4 CARDZ 2 DROP?
 
-**AS LONG AS IT TAKEZ** - SRSLY. EVRY GAME HAS DIFFERENT FARMIN DIFFICULTY SET BY DEVELOPR/PUBLISHR, AN IZ TOTALLY UP 2 THEM HOW FAST CARDZ R BEAN DROPPD. MAJORITY OV TEH GAMEZ FOLLOW 1 DROP PER 30 MINUTEZ OV PLAYIN, BUT THAR R ALSO GAMEZ REQUIRIN FRUM U 2 PULAY EVEN SEVERAL HOURS BEFORE DROPPIN CARD. In addition to that, your account could be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section. DO NOT ATTEMPT 2 MAK GUESEZ HOW LONG ASF SHUD FARM GIVEN TITLE - IZ NOT UP 2 U, NEITHR ASF 2 DECIDE. THAR IZ NOTHIN U CAN DO 2 MAK IT FASTR, AN THAR IZ NO "BUG" RELATD 2 CARDZ NOT BEAN DROPPD IN TIEMLY FASHION - U DO NOT CONTROL CARDZ DROPPIN PROCES, NEITHR DOEZ ASF. IN DA BEST CASE, ULL RECEIV AVERAGE OV 1 DROP PER 30 MINUTEZ. IN DA WURST CASE, U WONT RECEIV ANY CARD EVEN 4 4 HOURS SINCE STARTIN ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section.
+**AS LONG AS IT TAKEZ** - SRSLY. EVRY GAME HAS DIFFERENT FARMIN DIFFICULTY SET BY DEVELOPR/PUBLISHR, AN IZ TOTALLY UP 2 THEM HOW FAST CARDZ R BEAN DROPPD. MAJORITY OV TEH GAMEZ FOLLOW 1 DROP PER 30 MINUTEZ OV PLAYIN, BUT THAR R ALSO GAMEZ REQUIRIN FRUM U 2 PULAY EVEN SEVERAL HOURS BEFORE DROPPIN CARD. IN ADDISHUN 2 DAT, UR AKOWNT CUD BE RESTRICTD FRUM RECEIVIN CARD DROPS FRUM GAMEZ U DIDNT PULAY 4 ENOUGH TIEM YET, AS STATD IN **[PERFORMANCE](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-lol-US)** SECSHUN. DO NOT ATTEMPT 2 MAK GUESEZ HOW LONG ASF SHUD FARM GIVEN TITLE - IZ NOT UP 2 U, NEITHR ASF 2 DECIDE. THAR IZ NOTHIN U CAN DO 2 MAK IT FASTR, AN THAR IZ NO "BUG" RELATD 2 CARDZ NOT BEAN DROPPD IN TIEMLY FASHION - U DO NOT CONTROL CARDZ DROPPIN PROCES, NEITHR DOEZ ASF. IN DA BEST CASE, ULL RECEIV AVERAGE OV 1 DROP PER 30 MINUTEZ. IN DA WURST CASE, U WONT RECEIV ANY CARD EVEN 4 4 HOURS SINCE STARTIN ASF. BOTH OV DOSE SITUASHUNS R NORMAL AN COVERD IN R **[PERFORMANCE](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-lol-US)** SECSHUN.
 
 * * *
 
 ### FARMIN TAKEZ 2 LONG, I CAN SOMEHOW SPED IT UP?
 
-The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** for your bot instance. EVRYTHIN ELSE HAS NEGLIGIBLE EFFECT AN WILL NOT MAK FARMIN FASTR, WHILE SUM ACSHUNS SUCH AS LAUNCHIN ASF PROCES SEVERAL TIEMS WILL EVEN **MAK IT WORSE**. If you really have an urge of making every single second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. HOWEVR, AS I SED, TEH EFFECT IZ NEGLIGIBLE, AN CHOOSIN PROPR CARDZ FARMIN ALGORITHM 4 GIVEN AKOWNT IZ WAN AN TEH ONLY CRUSHUL CHOICE DAT CAN HEAVILY AFFECT SPED OV FARMIN, EVRYTHIN ELSE IZ PURE COSMETIC. INSTEAD OV WORRYIN BOUT FARMIN SPED, JUS LAUNCH ASF AN LET IT DO ITZ JOB - I CAN ASSURE U DAT IZ DOIN IT IN DA MOST EFFECTIV WAI I CUD COME UP WIF. TEH LES U CARE, TEH MOAR U WILL BE SATISFID.
+TEH ONLY TING WHICH HEAVILY AFFECTS SPED OV FARMIN IZ SELECTD **[CARDZ FARMIN ALGORITHM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-lol-US)** 4 UR BOT INSTANCE. EVRYTHIN ELSE HAS NEGLIGIBLE EFFECT AN WILL NOT MAK FARMIN FASTR, WHILE SUM ACSHUNS SUCH AS LAUNCHIN ASF PROCES SEVERAL TIEMS WILL EVEN **MAK IT WORSE**. IF U RLY HAS AN URGE OV MAKIN EVRY SINGLE SECOND FRUM FARMIN PROCES, DEN ASF ALLOWS U 2 FINE-TUNE SUM CORE FARMIN VARIABLEZ SUCH AS `FARMINGDELAY` - ALL OV THEM R EXPLAIND IN **[CONFIGURASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US)**. HOWEVR, AS I SED, TEH EFFECT IZ NEGLIGIBLE, AN CHOOSIN PROPR CARDZ FARMIN ALGORITHM 4 GIVEN AKOWNT IZ WAN AN TEH ONLY CRUSHUL CHOICE DAT CAN HEAVILY AFFECT SPED OV FARMIN, EVRYTHIN ELSE IZ PURE COSMETIC. INSTEAD OV WORRYIN BOUT FARMIN SPED, JUS LAUNCH ASF AN LET IT DO ITZ JOB - I CAN ASSURE U DAT IZ DOIN IT IN DA MOST EFFECTIV WAI I CUD COME UP WIF. TEH LES U CARE, TEH MOAR U WILL BE SATISFID.
 
 * * *
 
@@ -76,7 +76,7 @@ ASF GIVEZ U ROUGH APPROXIMASHUN BASD ON NUMBR OV CARDZ U NED 2 DROP, AN UR CHOSE
 
 ### CAN ASF WERK ON MAH ANDROID/SMARTFONE?
 
-ASF IZ C# PROGRAM DAT REQUIREZ WERKIN IMPLEMENTASHUN OV .NET CORE. Currently there is no native .NET Core build for Android itself, but there are proper and working builds for linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
+ASF IZ C# PROGRAM DAT REQUIREZ WERKIN IMPLEMENTASHUN OV .NET CORE. CURRENTLY THAR IZ NO NATIV .NET CORE BUILD 4 ANDROID ITSELF, BUT THAR R PROPR AN WERKIN BUILDZ 4 LINUX ON ARM ARCHITECCHUR, SO IZ TOTALLY POSIBLE 2 USE SOMETHIN LIEK **[LINUX DEPLOY](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** 4 INSTALLIN LINUX, DEN USIN ASF IN SUCH LINUX CHROOT AS USUAL.
 
 IZ VRY LIKELY DAT IN DA FUCHUR WELL C WERKIN .NET CORE 4 ANDROID ITSELF.
 
@@ -84,25 +84,25 @@ IZ VRY LIKELY DAT IN DA FUCHUR WELL C WERKIN .NET CORE 4 ANDROID ITSELF.
 
 ### CAN ASF IDLE ITEMS FRUM STEAM GAMEZ, SUCH AS CS:GO OR UNTURND?
 
-**No**, this is against **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF IZ STEAM CARDZ FARMIN PROGRAM, NOT GAME ITEMS FARMR - IT DOESNT HAS ANY CAPABILITY OV FARMIN GAME ITEMS, AN IZ NOT PLANND 2 ADD SUCH FEACHUR IN DA FUCHUR, EVR, MAINLY CUZ OV VIOLATIN STEAM TERMS OV USE. PLZ DO NOT ASK BOUT DIS - TEH BEST U CAN GIT IZ REPORT FRUM SUM SALTY USR AN U HAVIN PROBLEMS. The same goes for all other types of idling, such as idling drops from CS:GO broadcasts. ASF is focusing on Steam trading cards exclusively.
+**NO**, DIS AR TEH AGAINST **[STEAM TOS](https://store.steampowered.com/subscriber_agreement)** AN VALVE CLEARLY STATD DAT WIF LAST WAVE OV COMMUNITY BANZ 4 FARMIN TF2 ITEMS. ASF IZ STEAM CARDZ FARMIN PROGRAM, NOT GAME ITEMS FARMR - IT DOESNT HAS ANY CAPABILITY OV FARMIN GAME ITEMS, AN IZ NOT PLANND 2 ADD SUCH FEACHUR IN DA FUCHUR, EVR, MAINLY CUZ OV VIOLATIN STEAM TERMS OV USE. PLZ DO NOT ASK BOUT DIS - TEH BEST U CAN GIT IZ REPORT FRUM SUM SALTY USR AN U HAVIN PROBLEMS. TEH SAME GOEZ 4 ALL OTHR TYPEZ OV IDLIN, SUCH AS IDLIN DROPS FRUM CS:GO BROADCASTS. ASF IZ FOCUSIN ON STEAM TRADIN CARDZ EXCLUSIVELY.
 
 * * *
 
 ### I CAN CHOOSE WHICH GAMEZ SHUD BE IDLD?
 
-**Yes**, through several different ways. If you want to alter the default order of idling queue, then that's what `FarmingOrders` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being idled automatically, you can use idling blacklist which is available with `ib` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you'd like to idle everything but give some apps priority over everything else, that is what idling priority queue available with `iq` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to idle specific games of your choice only, then you can use `IdlePriorityQueueOnly` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idling priority queue.
+**YEZ**, THRU SEVERAL DIFFERENT WAYS. IF U WANTS 2 ALTR TEH DEFAULT ORDR OV IDLIN KEW, DEN THAZ WUT `FARMINGORDERS` **[BOT CONFIGURASHUN PROPERTY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#bot-config)** CAN BE USD 4. IF U WANTS 2 MANUALLY BLACKLIST GIVEN GAMEZ FRUM BEAN IDLD AUTOMATICALLY, U CAN USE IDLIN BLACKLIST WHICH IZ AVAILABLE WIF `IB` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)**. IF UD LIEK 2 IDLE EVRYTHIN BUT GIV SUM APPS PRIORITY OVAR EVRYTHIN ELSE, DAT IZ WUT IDLIN PRIORITY KEW AVAILABLE WIF `IQ` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)** CAN BE USD 4. AN FINALLY, IF U WANTS 2 IDLE SPECIFIC GAMEZ OV UR CHOICE ONLY, DEN U CAN USE `IDLEPRIORITYQUEUEONLY` **[BOT CONFIGURASHUN PROPERTY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#bot-config)** IN ORDR 2 ACHIEVE DIS, TOGETHR WIF ADDIN UR SELECTD APPS 2 IDLIN PRIORITY KEW.
 
-In addition to managing automatic cards farming module which was described above, you can also switch ASF to manual farming mode with `play` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, or use some other misc external settings such as `GamesPlayedWhileIdle` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**.
+IN ADDISHUN 2 MANAGIN AUTOMATIC CARDZ FARMIN MODULE WHICH WUZ DESCRIBD ABOOV, U CAN ALSO SWITCH ASF 2 MANUAL FARMIN MODE WIF `PULAY` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)**, OR USE SUM OTHR MISC EXTERNAL SETTINGS SUCH AS `GAMESPLAYEDWHILEIDLE` **[BOT CONFIGURASHUN PROPERTY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#bot-config)**.
 
 * * *
 
 ### IM NOT INTERESTD IN CARD DROPS, ID LIEK 2 IDLE HOURS PLAYD INSTEAD, IZ DAT POSIBLE?
 
-Yes, ASF allows you to do that through at least several ways.
+YEZ, ASF ALLOWS U 2 DO DAT THRU AT LEAST SEVERAL WAYS.
 
-The most optimal way to achieve that is to make use of **[`GamesPlayedWhileIdle`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#gamesplayedwhileidle)** configuration property, which will idle your chosen appIDs when ASF has no cards to idle. If you'd like to idle your games all the time, even if you do have card drops from other games, then you can combine it with **[`IdlePriorityQueueOnly`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#idlepriorityqueueonly)**, so ASF will idle only those games for card drops that you explicitly set, or **[`Paused`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#paused)**, which will cause cards farming module to be paused until you unpause it yourself.
+TEH MOST OPTIMAL WAI 2 ACHIEVE DAT IZ 2 MAK USE OV **[`GAMESPLAYEDWHILEIDLE`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#gamesplayedwhileidle)** CONFIGURASHUN PROPERTY, WHICH WILL IDLE UR CHOSEN APPIDZ WHEN ASF HAS NO CARDZ 2 IDLE. IF UD LIEK 2 IDLE UR GAMEZ ALL TEH TIEM, EVEN IF U DO HAS CARD DROPS FRUM OTHR GAMEZ, DEN U CAN COMBINE IT WIF **[`IDLEPRIORITYQUEUEONLY`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#idlepriorityqueueonly)**, SO ASF WILL IDLE ONLY DOSE GAMEZ 4 CARD DROPS DAT U EXPLICITLY SET, OR **[`PAUSD`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#pausd)**, WHICH WILL CAUSE CARDZ FARMIN MODULE 2 BE PAUSD TIL U UNPAUSE IT YOURSELF.
 
-Alternatively, you can make use of the **[`play`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#commands-1)** command, which will cause ASF to play your selected games. However, keep in mind that `play` should be used only for games you want to idle temporarily, as it's not a persistent state, causing ASF to revert back to default state e.g. upon disconnection from Steam network. Therefore, we recommend you to use `GamesPlayedWhileIdle`, unless you indeed want to start your selected games just for a short time period, and then revert back to general flow.
+ALTERNATIVELY, U CAN MAK USE OV TEH **[`PULAY`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US#commandz-1)** COMMAND, WHICH WILL CAUSE ASF 2 PULAY UR SELECTD GAMEZ. HOWEVR, KEEP IN MIND DAT `PULAY` SHUD BE USD ONLY 4 GAMEZ U WANTS 2 IDLE TEMPORARILY, AS IZ NOT PERSISTENT STATE, CAUSIN ASF 2 REVERT BAK 2 DEFAULT STATE E.G. UPON DISCONNECSHUN FRUM STEAM NETWORK. THEREFORE, WE RECOMMEND U 2 USE `GAMESPLAYEDWHILEIDLE`, UNLES U INDED WANTS 2 START UR SELECTD GAMEZ JUS 4 SHORT TIEM PERIOD, AN DEN REVERT BAK 2 GENERAL FLOW.
 
 * * *
 
@@ -118,314 +118,314 @@ YEZ, ASF IZ NOT EVEN BOTHERIN WIF DOWNLOADIN AKSHUL GAME FILEZ, SO IT WILL WERK 
 
 ### IZ ASF SIMILAR 2 IDLE MASTAH?
 
-The only similarity is the general purpose of both programs, which is idling Steam games in order to receive card drops. Everything else, including the actual idling method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation (IM is running on .NET Framework, ASF on .NET Core). ASF was created to solve IM issues that were not possible to solve with a simple code edit - this is why ASF was written from scratch, without using a single code line or even general idea from IM, because that code and those ideas were entirely flawed to begin with. IM and ASF are like Windows and Linux - both are operating systems and both can be installed on your PC, but they share almost nothing with each other, apart from serving the similar purpose.
+TEH ONLY SIMILARITY IZ TEH GENERAL PURPOSE OV BOTH PROGRAMS, WHICH IZ IDLIN STEAM GAMEZ IN ORDR 2 RECEIV CARD DROPS. EVRYTHIN ELSE, INCLUDIN TEH AKSHUL IDLIN METHOD, USD ALGORITHMS, PROGRAM STRUCCHUR, FUNCSHUNALITY, COMPATIBILITY, ENDIN WIF TEH SOURCE CODE ITSELF, IZ ENTIRELY DIFFERENT AN DOSE 2 PROGRAMS HAS NOTHIN COMMON WIF EACH OTHR, EVEN TEH CORE FOUNDASHUN (IM IZ RUNNIN ON .NET FRAMEWORK, ASF ON .NET CORE). ASF WUZ CREATD 2 SOLVE IM ISSUEZ DAT WUZ NOT POSIBLE 2 SOLVE WIF SIMPLE CODE EDIT - DIS AR TEH Y ASF WUZ WRITTEN FRUM SCRATCH, WITHOUT USIN SINGLE CODE LINE OR EVEN GENERAL IDEA FRUM IM, CUZ DAT CODE AN DOSE IDEAS WUZ ENTIRELY FLAWD 2 BEGIN WIF. IM AN ASF R LIEK WINDOWS AN LINUX - BOTH R OPERATIN SISTEMS AN BOTH CAN BE INSTALLD ON UR PC, BUT THEY SHARE ALMOST NOTHIN WIF EACH OTHR, APART FRUM SERVIN TEH SIMILAR PURPOSE.
 
-This is also why you shouldn't compare ASF to IM based on IM expectations. You should treat ASF and IM as entirely independent programs with their own exclusive sets of features. Some of them indeed overlap and you can find a particular feature in both of them, but very rarely, as ASF is serving its purpose with entirely different approach compared to IM.
+DIS AR TEH ALSO Y U SHOULDNT COMPARE ASF 2 IM BASD ON IM EXPECTASHUNS. U SHUD TREAT ASF AN IM AS ENTIRELY INDEPENDENT PROGRAMS WIF THEIR OWN EXCLUSIV SETS OV FEATUREZ. SUM OV THEM INDED OVERLAP AN U CAN FIND PARTICULAR FEACHUR IN BOTH OV THEM, BUT VRY RARELY, AS ASF IZ SERVIN ITZ PURPOSE WIF ENTIRELY DIFFERENT APPROACH COMPARD 2 IM.
 
 * * *
 
 ### IZ WORTH IT 2 USE ASF, IF IM CURRENTLY USIN IDLE MASTAH AN IT WERKZ FINE 4 ME?
 
-**YEZ**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**YEZ**. ASF IZ MUTCH MOAR RELIABLE AN INCLUDEZ LOTZ DA BUILT-IN FUNCSHUNS DAT R **CRUSHUL** REGARDLES OV TEH WAI HOW U IDLE, DAT IM SIMPLY DOESNT OFFR.
 
-ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Of course, it's not possible to idle those games until release date, so your idling process will be stuck. This will require you to either add it to the blacklist, wait for release, or skip manually. Neither of those solutions is good, and all of them require your attention - ASF automatically skips idling of unreleased games (temporarily), and returns back to them later when they are, completely avoiding the problem and dealing with it efficiently.
+ASF HAS PROPR LOGIC 4 **UNRELEASD GAMEZ** - IM WILL ATTEMPT 2 IDLE GAMEZ DAT HAS CARDZ ADDD ALREADY, EVEN IF THEY WUZ NOT RELEASD YET. OV COURSE, IZ NOT POSIBLE 2 IDLE DOSE GAMEZ TIL RELEASE DATE, SO UR IDLIN PROCES WILL BE STUCK. DIS WILL REQUIRE U 2 EITHR ADD IT 2 TEH BLACKLIST, WAIT 4 RELEASE, OR SKIP MANUALLY. NEITHR OV DOSE SOLUSHUNS IZ GUD, AN ALL OV THEM REQUIRE UR ATTENSHUN - ASF AUTOMATICALLY SKIPS IDLIN OV UNRELEASD GAMEZ (TEMPORARILY), AN RETURNS BAK 2 THEM LATR WHEN THEY R, COMPLETELY AVOIDIN TEH PROBLEM AN DEALIN WIF IT EFFICIENTLY.
 
-ASF also has proper logic of **series** videos. There are many videos on Steam that have cards, yet are announced with wrong `appID` on the badges page, such as **[Double Fine Adventure](https://store.steampowered.com/app/402590)** - IM will falsely idle wrong `appID`, which will yield no drops and process being stuck. Once again, you'll need to either blacklist it or skip manually, both requiring your attention. ASF automatically discovers proper `appID` for idling which does result in card drops.
+ASF ALSO HAS PROPR LOGIC OV **SERIEZ** VIDEOS. THAR R LOTZ DA VIDEOS ON STEAM DAT HAS CARDZ, YET R ANNOUNCD WIF WRONG `APPID` ON TEH BADGEZ PAEG, SUCH AS **[DOUBLE FINE ADVENCHUR](https://store.steampowered.com/app/402590)** - IM WILL FALSELY IDLE WRONG `APPID`, WHICH WILL YIELD NO DROPS AN PROCES BEAN STUCK. ONCE AGAIN, ULL NED 2 EITHR BLACKLIST IT OR SKIP MANUALLY, BOTH REQUIRIN UR ATTENSHUN. ASF AUTOMATICALLY DISCOVERS PROPR `APPID` 4 IDLIN WHICH DOEZ RESULT IN CARD DROPS.
 
-In addition to that, ASF is **much more stable and reliable** when it comes to network problems and Steam quirks - it works most of the time and doesn't require your attention at all once configured, while IM often breaks for many people, requires extra fixes or simply doesn't work regardless. It's also fully dependent on your Steam client, which means that it can't work when your Steam client is experiencing any serious issues. ASF is working properly as long as it can connect to Steam network, and doesn't require Steam client running or even being installed.
+IN ADDISHUN 2 DAT, ASF IZ **MUTCH MOAR STABLE AN RELIABLE** WHEN IT COMEZ 2 NETWORK PROBLEMS AN STEAM QUIRKZ - IT WERKZ MOST OV TEH TIEM AN DOESNT REQUIRE UR ATTENSHUN AT ALL ONCE CONFIGURD, WHILE IM OFTEN BREAKZ 4 LOTZ DA PEEPS, REQUIREZ EXTRA FIXEZ OR SIMPLY DOESNT WERK REGARDLES. IZ ALSO FULLY DEPENDENT ON UR STEAM CLIENT, WHICH MEANZ DAT IT CANT WERK WHEN UR STEAM CLIENT IZ EXPERIENCIN ANY SERIOUS ISSUEZ. ASF IZ WERKIN PROPERLY AS LONG AS IT CAN CONNECT 2 STEAM NETWORK, AN DOESNT REQUIRE STEAM CLIENT RUNNIN OR EVEN BEAN INSTALLD.
 
-Those are 3 **very important** points why you should consider using ASF, as they directly affect everybody idling Steam cards and there is no way to say "this doesn't consider me", since Steam maintenances and quirks are happening to everybody. There are dozen of extra less and more important reasons which you may learn about in the rest of the FAQ. So shortly speaking, **yes**, you should use ASF even when you don't need any extra ASF feature that is available when compared to IM.
+DOSE R 3 **VRY IMPORTANT** POINTS Y U SHUD CONSIDR USIN ASF, AS THEY DIRECTLY AFFECT EVRYBODY IDLIN STEAM CARDZ AN THAR IZ NOWAI 2 SAY "DIS DOESNT CONSIDR ME", SINCE STEAM MAINTENANCEZ AN QUIRKZ R HAPPENIN 2 EVRYBODY. THAR R DOZEN OV EXTRA LES AN MOAR IMPORTANT REASONS WHICH U CUD LERN BOUT IN DA REST OV TEH FAQ. SO SHORTLY SPEAKIN, **YEZ**, U SHUD USE ASF EVEN WHEN U DOAN NED ANY EXTRA ASF FEACHUR DAT IZ AVAILABLE WHEN COMPARD 2 IM.
 
-In addition to that, IM is officially discontinued and can break completely in the future, without anybody bothering to fix it, considering existence of much more powerful solutions (not only ASF). IM already doesn't work for a lot of people, and that number is only going up, not down. You should avoid using obsolete software in the first place, not only IM but all other deprecated programs as well. No active maintainer means that nobody cares whether it works or not, nobody verifies if it does and **nobody is responsible for its functionality**, which is a crucial matter in terms of security. It's enough that there will be a critical bug causing actual problems to Steam infrastructure - with nobody fixing it, Steam can issue another ban wave in which you'll get hit without even being aware of this being an issue, as already happened to people using, guess what, obsolete version of ASF.
-
-* * *
-
-### What interesting features ASF offers that Idle Master does not?
-
-It depends what you consider "interesting" for you. If you plan to idle more accounts than one then the answer is already obvious since ASF allows you to idle all of them with one superior solution, saving resources, hassle, and compatibility issues. However, if you're asking that question then most likely you don't have this particular need, so let's evaluate other benefits that apply to one single account used in ASF.
-
-First and foremost, you have some built-in features mentioned **[above](#is-it-worth-it-to-use-asf-if-im-currently-using-idle-master-and-it-works-fine-for-me)** that are core for idling regardless of your end-goal, and very often that alone is already enough to consider using ASF. But you already know that, so let's move onto some more interesting features:
-
-- **You can idle offline** (`OnlineStatus` of `Offline` feature). Idling offline makes it possible for you to skip your Steam in-game status entirely, which allows you to idle with ASF while showing "Online" on Steam at the same time, without your friends even noticing that ASF is playing a game on your behalf. This is superior feature, since it allows you to remain online in your Steam client, while not annoying your friends with constant game changes, or misleading them into thinking that you're playing a game while in reality you're not. This point alone makes it worthwhile to use ASF if you respect your own friends, but it's only the beginning. It's also nice to note that this feature has nothing to do with Steam privacy settings - if you launch the game yourself, then you'll properly show as in-game to your friends, making only ASF part invisible and not affecting your account at all.
-
-- **You can skip refundable games** (`IdleRefundableGames` feature). ASF has proper built-in logic for refundable games and you can configure ASF to not idle refundable games automatically. This allows you to evaluate yourself if your newly-bought game from Steam store was worth your money, without ASF trying to drop cards from it as soon as possible. If you play it for 2+ hours, or 2 weeks pass since your purchase, then ASF will proceed with that game as it's not refundable anymore. Until then you have full control whether you enjoy it or not and you can easily refund it if needed, without having to manually blacklist that game or not use ASF for entire duration.
-
-- **You can automatically mark new items as received** (`BotBehaviour` of `DismissInventoryNotifications` feature). Idling with ASF will result in your account receiving new card drops. You already know that this is going to happen, so let ASF clear that useless notification for you, ensuring that only important things will raise your attention. Of course, only if you want to.
-
-- **You can automatically receive cards from Steam events** (`AutoSteamSaleEvent` feature). ASF allows you to automate going through discovery queue during Steam sale, of course only if you'd like to make use of that. This saves enormous amount of time each day while Steam sale is on, and ensures that you'll never miss your daily card drops again.
-
-- **You can customize preferred farming order with more available options** (`FarmingOrders` feature). Perhaps you want to idle your newly bought games first? Or your oldest ones? According to number of card drops? Badge levels you already crafted? Played hours? Alphabetically? According to AppIDs? Or maybe fully random? That's entirely up to you to decide.
-
-- **ASF can help you complete your sets** (`TradingPreferences` with `SteamTradeMatcher` feature). With a bit more advanced tinkering, you can convert your ASF into fully-featured user-bot that will automatically accept **[STM](https://www.steamtradematcher.com)** offers, helping you each day to match your sets without any user interaction. ASF even includes its very own ASF 2FA module allowing you to import your Steam mobile authenticator and let you fully automate the entire process with accepting confirmations as well. Or, maybe you want to accept manually and let ASF only prepare those trades for you? That's once again, fully up to you to decide.
-
-- **ASF can redeem keys in background for you** (**[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** feature). Maybe you have a hundred of keys from various bundles that you're too lazy to redeem yourself, going through bunch of windows and agreeing to Steam terms and conditions over and over again. Why not copy-paste your list of keys into ASF and let it do its job? ASF will automatically redeem all of those keys in background, providing you with appropriate output to let you know how each redeem attempt turned out. Moreover, if you have hundreds of keys, you're guaranteed to get rate-limited by Steam sooner or later, and ASF also knows about that, it'll patiently wait for the rate-limit to go away, and resume where it left.
-
-We could now go on and on with entire **[ASF wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**, pointing out every single feature of the program, but we have to draw a line somewhere. This is it, this is a list of features that you can enjoy as ASF user, where just one of those could easily be considered a major reason to never look back, and we actually listed **a lot** of them, with even more you can learn about on the rest of our wiki. Ah yes, and we didn't even go into detail with things like ASF's API allowing you to script your own commands, or awesome bots management, since we wanted to keep it simple.
+IN ADDISHUN 2 DAT, IM IZ OFFICIALLY DISCONTINUD AN CAN BREAK COMPLETELY IN DA FUCHUR, WITHOUT ANYBODY BOTHERIN 2 FIX IT, CONSIDERIN EXISTENCE OV MUTCH MOAR POWERFUL SOLUSHUNS (NOT ONLY ASF). IM ALREADY DOESNT WERK 4 LOT OV PEEPS, AN DAT NUMBR IZ ONLY GOIN UP, NOT DOWN. U SHUD AVOID USIN OBSOLETE SOFTWARE IN DA FURST PLACE, NOT ONLY IM BUT ALL OTHR DEPRECATD PROGRAMS AS WELL. NO ACTIV MAINTAINR MEANZ DAT NOBODY CAREZ WHETHR IT WERKZ OR NOT, NOBODY VERIFIEZ IF IT DOEZ AN **NOBODY IZ RESPONSIBLE 4 ITZ FUNCSHUNALITY**, WHICH IZ CRUSHUL MATTR IN TERMS OV SECURITY. IZ ENOUGH DAT THAR WILL BE CRITICAL BUG CAUSIN AKSHUL PROBLEMS 2 STEAM INFRASTRUCCHUR - WIF NOBODY FIXIN IT, STEAM CAN ISSUE ANOTHR BAN WAVE IN WHICH ULL GIT HIT WITHOUT EVEN BEAN AWARE OV DIS BEAN AN ISSUE, AS ALREADY HAPPEND 2 PEEPS USIN, GUES WUT, OBSOLETE VERSHUN OV ASF.
 
 * * *
 
-### Is ASF faster than Idle Master?
+### WUT INTERESTIN FEATUREZ ASF OFFERS DAT IDLE MASTAH DOEZ NOT?
 
-**Yes**, although the explanation is rather complicated.
+IT DEPENDZ WUT U CONSIDR "INTERESTIN" 4 U. IF U PLAN 2 IDLE MOAR ACCOUNTS THAN WAN DEN TEH ANZWR IZ ALREADY OBVIOUS SINCE ASF ALLOWS U 2 IDLE ALL OV THEM WIF WAN SUPERIOR SOLUSHUN, SAVIN RESOURCEZ, HASLE, AN COMPATIBILITY ISSUEZ. HOWEVR, IF URE ASKIN DAT QUESHUN DEN MOST LIKELY U DOAN HAS DIS PARTICULAR NED, SO LETS EVALUATE OTHR BENEFITS DAT APPLY 2 WAN SINGLE AKOWNT USD IN ASF.
 
-On each new process spawned and terminated on your system, steam client automatically sends a request containing all of your games that you're currently playing - this way steam network can calculate hours and make cards drop. However, steam network counts your time played in 1-second intervals, and sending new request resets the current status. In other words, if you did spawn/kill new process every 0.5 second, you'd never drop any card because every 0.5 second steam client would send a new request and steam network would never count even 1 second of play time. Moreover, because of how operating system works, it's actually quite common to see new processes being spawned/terminated without you even doing anything, so even if you're doing nothing on your PC - there are many processes still working in the background, spawning/terminating other processes all the time. Idle master is based on steam client, so this mechanism affects you if you're using it.
+FURST AN FOREMOST, U HAS SUM BUILT-IN FEATUREZ MENSHUND **[ABOOV](#iz-worth-it-2-use-asf-if-im-currently-usin-idle-mastah-an-it-werkz-fine-4-me)** DAT R CORE 4 IDLIN REGARDLES OV UR END-GOAL, AN VRY OFTEN DAT ALONE IZ ALREADY ENOUGH 2 CONSIDR USIN ASF. BUT U ALREADY KNOE DAT, SO LETS MOOV ONTO SUM MOAR INTERESTIN FEATUREZ:
 
-ASF is not based on steam client, it has its own steam client implementation. Thanks to that, what ASF is doing, is not spawning any process, but actually sending one, real request to steam network that we started playing a game. This is the same request that would be sent by steam client, but because we have actual control over the ASF steam client, we don't need to spawn new processes, and we're not mimicking steam client regarding send request on every process change, so the mechanism explained above doesn't affect us. Thanks to that, we never interrupt that 1 second interval on steam web side, and that enhances our farming speed.
+- **U CAN IDLE OFFLINE** (`ONLINESTATUS` OV `OFFLINE` FEACHUR). IDLIN OFFLINE MAKEZ IT POSIBLE 4 U 2 SKIP UR STEAM IN-GAME STATUS ENTIRELY, WHICH ALLOWS U 2 IDLE WIF ASF WHILE SHOWIN "ONLINE" ON STEAM AT TEH SAME TIEM, WITHOUT UR FRENZ EVEN NOTICIN DAT ASF IZ PLAYIN GAME ON UR BEHALF. DIS AR TEH SUPERIOR FEACHUR, SINCE IT ALLOWS U 2 REMAIN ONLINE IN UR STEAM CLIENT, WHILE NOT ANNOYIN UR FRENZ WIF CONSTANT GAME CHANGEZ, OR MISLEADIN THEM INTO THINKIN DAT URE PLAYIN GAME WHILE IN REALITY URE NOT. DIS POINT ALONE MAKEZ IT WORTHWHILE 2 USE ASF IF U RESPECT UR OWN FRENZ, BUT IZ ONLY TEH BEGINNIN. IZ ALSO NICE 2 NOWT DAT DIS FEACHUR HAS NOTHIN 2 DO WIF STEAM PRIVACY SETTINGS - IF U LAUNCH TEH GAME YOURSELF, DEN ULL PROPERLY SHOW AS IN-GAME 2 UR FRENZ, MAKIN ONLY ASF PART INVISABLE AN NOT AFFECTIN UR AKOWNT AT ALL.
 
-* * *
+- **U CAN SKIP REFUNDABLE GAMEZ** (`IDLEREFUNDABLEGAMEZ` FEACHUR). ASF HAS PROPR BUILT-IN LOGIC 4 REFUNDABLE GAMEZ AN U CAN CONFIGURE ASF 2 NOT IDLE REFUNDABLE GAMEZ AUTOMATICALLY. DIS ALLOWS U 2 EVALUATE YOURSELF IF UR NEWLY-BUYD GAME FRUM STEAM STORE WUZ WORTH UR MONEY, WITHOUT ASF TRYIN 2 DROP CARDZ FRUM IT AS SOON AS POSIBLE. IF U PULAY IT 4 2+ HOURS, OR 2 WEEKZ PAS SINCE UR PURCHASE, DEN ASF WILL PROCED WID DAT GAME AS IZ NOT REFUNDABLE NOMORE. TIL DEN U HAS FULL CONTROL WHETHR U ENJOY IT OR NOT AN U CAN EASILY REFUND IT IF NEEDD, WITHOUT HAVIN 2 MANUALLY BLACKLIST DAT GAME OR NOT USE ASF 4 ENTIRE DURASHUN.
 
-### But is the difference really noticeable?
+- **U CAN AUTOMATICALLY MARK NEW ITEMS AS RECEIVD** (`BOTBEHAVIOUR` OV `DISMISINVENTORYNOTIFICASHUNS` FEACHUR). IDLIN WIF ASF WILL RESULT IN UR AKOWNT RECEIVIN NEW CARD DROPS. U ALREADY KNOE DAT DIS AR TEH GOIN 2 HAPPEN, SO LET ASF CLEAR DAT USELES NOTIFICASHUN 4 U, ENSURIN DAT ONLY IMPORTANT THINGS WILL RAIZE UR ATTENSHUN. OV COURSE, ONLY IF U WANTS 2.
 
-No. The interrupts that are happening with normal steam client and idle master have negligible effect on the card drops, so it's not any noticeable difference that would make ASF superior.
+- **U CAN AUTOMATICALLY RECEIV CARDZ FRUM STEAM EVENTS** (`AUTOSTEAMSALEEVENT` FEACHUR). ASF ALLOWS U 2 AUTOMATE GOIN THRU DISCOVERY KEW DURIN STEAM SALE, OV COURSE ONLY IF UD LIEK 2 MAK USE OV DAT. DIS SAVEZ ENORMOUS AMOUNT OV TIEM EACH DAI WHILE STEAM SALE IZ ON, AN ENSUREZ DAT ULL NEVR MIS UR DAILY CARD DROPS AGAIN.
 
-However, there **is** a difference, and you can clearly notice that, as depending on how busy your OS is, cards **will** drop faster, from a few seconds to even a few minutes, if you're extremely unlucky. Although I wouldn't consider using ASF only because it drops cards faster, as both ASF and Idle Master are affected by how steam web works, ASF just interacts with steam web more effectively, while Idle Master can't control what steam client is actually doing (so it's not Idle Master's fault, but steam client's itself).
+- **U CAN CUSTOMIZE PREFERRD FARMIN ORDR WIF MOAR AVAILABLE OPSHUNS** (`FARMINGORDERS` FEACHUR). PERHAPS U WANTS 2 IDLE UR NEWLY BUYD GAMEZ FURST? OR UR OLDEST ONEZ? ACCORDIN 2 NUMBR OV CARD DROPS? BADGE LEVELS U ALREADY CRAFTD? PLAYD HOURS? ALFABETICALLY? ACCORDIN 2 APPIDZ? OR MAYBE FULLY RANDOM? THAZ ENTIRELY UP 2 U 2 DECIDE.
 
-* * *
+- **ASF CAN HALP U COMPLETE UR SETS** (`TRADINGPREFERENCEZ` WIF `STEAMTRADEMATCHR` FEACHUR). WIF BIT MOAR ADVANCD TINKERIN, U CAN CONVERT UR ASF INTO FULLY-FEATURD USR-BOT DAT WILL AUTOMATICALLY ACCEPT **[STM](https://www.steamtradematcher.com)** OFFERS, HELPIN U EACH DAI 2 MATCH UR SETS WITHOUT ANY USR INTERACSHUN. ASF EVEN INCLUDEZ ITZ VRY OWN ASF 2FA MODULE ALLOWIN U 2 IMPORT UR STEAM MOBILE AUTHENTICATOR AN LET U FULLY AUTOMATE TEH ENTIRE PROCES WIF ACCEPTIN CONFIRMASHUNS AS WELL. OR, MAYBE U WANTS 2 ACCEPT MANUALLY AN LET ASF ONLY PREPARE DOSE TRADEZ 4 U? THAZ ONCE AGAIN, FULLY UP 2 U 2 DECIDE.
 
-### Can ASF idle multiple games at once?
+- **ASF CAN REDEEM KEYS IN BAKGROUND 4 U** (**[BAKGROUND GAMEZ REDEEMR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-lol-US)** FEACHUR). MAYBE U HAS HUNDRD OV KEYS FRUM VARIOUS BUNDLEZ DAT URE 2 LAZY 2 REDEEM YOURSELF, GOIN THRU BUNCH OV WINDOWS AN AGREEIN 2 STEAM TERMS AN CONDISHUNS OVAR AN OVAR AGAIN. Y NOT COPY-PASTE UR LIST OV KEYS INTO ASF AN LET IT DO ITZ JOB? ASF WILL AUTOMATICALLY REDEEM ALL OV DOSE KEYS IN BAKGROUND, PROVIDIN U WIF APPROPRIATE OUTPUT 2 LET U KNOE HOW EACH REDEEM ATTEMPT TURND OUT. MOREOVR, IF U HAS HUNDREDZ OV KEYS, URE GUARANTED 2 GIT RATE-LIMITD BY STEAM SOONR OR LATR, AN ASF ALSO KNOWS BOUT DAT, ITLL PATIENTLY WAIT 4 DA RATE-LIMIT 2 GO AWAY, AN RESUME WER IT LEFT.
 
-**Yes**, although ASF knows better when to use that feature, based on selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. Card drops rate when idling multiple games is close to zero, this is why ASF is using multiple games idling exclusively for hours in order to overcome `HoursUntilCardDrops` faster, for up to `32` games at once. This is also why you should focus on configuration part of the ASF, and let algorithms decide what is the most optimal way to achieve the goal - what you think is right, is not necessarily right in reality, idling multiple games at once will not provide you with any card drops.
-
-* * *
-
-### Can ASF skip through games fast?
-
-**No**, ASF doesn't support, neither encourages usage of **[Steam glitches](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance#steam-glitches)**.
+WE CUD NAO GO ON AN ON WIF ENTIRE **[ASF WIKI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-lol-US)**, POINTIN OUT EVRY SINGLE FEACHUR OV TEH PROGRAM, BUT WE HAS 2 DRAW LINE SOMEWHERE. DIS AR TEH IT, DIS AR TEH LIST OV FEATUREZ DAT U CAN ENJOY AS ASF USR, WER JUS WAN OV DOSE CUD EASILY BE CONSIDERD MAJOR REASON 2 NEVR LOOK BAK, AN WE AKSHULLY LISTD **A LOT** OV THEM, WIF EVEN MOAR U CAN LERN BOUT ON TEH REST OV R WIKI. AH YEZ, AN WE DIDNT EVEN GO INTO DETAIL WIF THINGS LIEK ASFS API ALLOWIN U 2 SCRIPT UR OWN COMMANDZ, OR AWSUM BOTS MANAGEMENT, SINCE WE WANTD 2 KEEP IT SIMPLE.
 
 * * *
 
-### Can ASF automatically idle each game for X hours before cards are added?
+### IZ ASF FASTR THAN IDLE MASTAH?
 
-**No**, the whole point of Steam cards system change was to fight with false statistics and ghost players. ASF won't contribute towards that more than necessary, adding such feature is not planned and won't happen. If your game receives card drops in usual way, ASF will idle them as soon as possible.
+**YEZ**, ALTHOUGH TEH EXPLANASHUN IZ RATHR COMPLICATD.
 
-* * *
+ON EACH NEW PROCES SPAWND AN TERMINATD ON UR SISTEM, STEAM CLIENT AUTOMATICALLY SENDZ REQUEST CONTAININ ALL OV UR GAMEZ DAT URE CURRENTLY PLAYIN - DIS WAI STEAM NETWORK CAN CALCULATE HOURS AN MAK CARDZ DROP. HOWEVR, STEAM NETWORK COUNTS UR TIEM PLAYD IN 1-SECOND INTERVALS, AN SENDIN NEW REQUEST RESETS TEH CURRENT STATUS. IN OTHR WERDZ, IF U DID SPAWN/KILL NEW PROCES EVRY 0.5 SECOND, UD NEVR DROP ANY CARD CUZ EVRY 0.5 SECOND STEAM CLIENT WUD SEND NEW REQUEST AN STEAM NETWORK WUD NEVR COUNT EVEN 1 SECOND OV PULAY TIEM. MOREOVR, CUZ OV HOW OPERATIN SISTEM WERKZ, IZ AKSHULLY QUITE COMMON 2 C NEW PROCESEZ BEAN SPAWND/TERMINATD WITHOUT U EVEN DOIN ANYTHIN, SO EVEN IF URE DOIN NOTHIN ON UR PC - THAR R LOTZ DA PROCESEZ STILL WERKIN IN DA BAKGROUND, SPAWNIN/TERMINATIN OTHR PROCESEZ ALL TEH TIEM. IDLE MASTAH IZ BASD ON STEAM CLIENT, SO DIS MECHANISM AFFECTS U IF URE USIN IT.
 
-### Can I play a game while ASF is farming?
-
-**No**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
-
-Keep in mind that cards drop rate when playing multiple games is close to 0 anyway, therefore there are no direct benefits from being able to do that with IM, while there are strong benefits of no interfering with other games launched with ASF, which is crucial e.g. VAC-wise.
+ASF IZ NOT BASD ON STEAM CLIENT, IT HAS ITZ OWN STEAM CLIENT IMPLEMENTASHUN. THX 2 DAT, WUT ASF IZ DOIN, IZ NOT SPAWNIN ANY PROCES, BUT AKSHULLY SENDIN WAN, REAL REQUEST 2 STEAM NETWORK DAT WE STARTD PLAYIN GAME. DIS AR TEH TEH SAME REQUEST DAT WUD BE SENT BY STEAM CLIENT, BUT CUZ WE HAS AKSHUL CONTROL OVAR TEH ASF STEAM CLIENT, WE DOAN NED 2 SPAWN NEW PROCESEZ, AN WERE NOT MIMICKIN STEAM CLIENT REGARDIN SEND REQUEST ON EVRY PROCES CHANGE, SO TEH MECHANISM EXPLAIND ABOOV DOESNT AFFECT US. THX 2 DAT, WE NEVR INTERRUPT DAT 1 SECOND INTERVAL ON STEAM WEB SIDE, AN DAT ENHANCEZ R FARMIN SPED.
 
 * * *
 
-## Security / Privacy / VAC / Bans / ToS
+### BUT IZ TEH DIFFERENCE RLY NOTICEABLE?
+
+NO. TEH INTERRUPTS DAT R HAPPENIN WIF NORMAL STEAM CLIENT AN IDLE MASTAH HAS NEGLIGIBLE EFFECT ON TEH CARD DROPS, SO IZ NOT ANY NOTICEABLE DIFFERENCE DAT WUD MAK ASF SUPERIOR.
+
+HOWEVR, THAR **IZ** DIFFERENCE, AN U CAN CLEARLY NOTICE DAT, AS DEPENDIN ON HOW BUSY UR OS IZ, CARDZ **WILL** DROP FASTR, FRUM FEW SECONDZ 2 EVEN FEW MINUTEZ, IF URE EXTREMELY UNLUCKY. ALTHOUGH I WOULDNT CONSIDR USIN ASF ONLY CUZ IT DROPS CARDZ FASTR, AS BOTH ASF AN IDLE MASTAH R AFFECTD BY HOW STEAM WEB WERKZ, ASF JUS INTERACTS WIF STEAM WEB MOAR EFFECTIVELY, WHILE IDLE MASTAH CANT CONTROL WUT STEAM CLIENT IZ AKSHULLY DOIN (SO IZ NOT IDLE MASTAHS FAULT, BUT STEAM CLIENTS ITSELF).
 
 * * *
 
-### Can I get VAC ban for using this?
+### CAN ASF IDLE MULTIPLE GAMEZ AT ONCE?
 
-No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor its processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running - this is because **ASF doesn't even require Steam Client being installed at all** in order to work properly. ASF is the only farming program that can currently guarantee being VAC-free.
-
-* * *
-
-### Can using ASF prevent me from playing on VAC-secured servers, as stated **[here](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**?
-
-ASF does not require Steam client being running or even installed at all. According to this concept, it should **not** cause any VAC-related issues, because ASF guarantees lack of interfering with Steam client and all its processes - this is the main point when talking about VAC-free guarantee that ASF offers.
-
-According to users and best of my knowledge, this is the case right now, as nobody reported any issues like stated in the link above while using ASF. We couldn't reproduce the issue above with ASF as well, while clearly reproducing it with Idle Master.
-
-However, keep in mind that Valve could still add ASF to the blacklist at some point, but it's a complete nonsense as even if they do that, you could still play VAC-secured games from your PC, and use ASF at the same time e.g. on your server, so I'm pretty sure that they know very well that ASF should not be a suspect VAC-wise, and they won't make our lifes harder by blacklisting ASF for no reason. Still, in the worst case you'll be unable to play, like stated above, because VAC-free guarantee of ASF is still here regardless if Steam blacklists ASF binary, or not (and you can still launch ASF on any other machine without Steam client being installed at all). Right now there is no need to do any of that, and let's hope it stays like this.
+**YEZ**, ALTHOUGH ASF KNOWS BETTR WHEN 2 USE DAT FEACHUR, BASD ON SELECTD **[CARDZ FARMIN ALGORITHM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. CARD DROPS RATE WHEN IDLIN MULTIPLE GAMEZ IZ CLOSE 2 ZERO, DIS AR TEH Y ASF IZ USIN MULTIPLE GAMEZ IDLIN EXCLUSIVELY 4 HOURS IN ORDR 2 OVERCOME `HOURSUNTILCARDDROPS` FASTR, 4 UP 2 `32` GAMEZ AT ONCE. DIS AR TEH ALSO Y U SHUD FOCUS ON CONFIGURASHUN PART OV TEH ASF, AN LET ALGORITHMS DECIDE WUT IZ TEH MOST OPTIMAL WAI 2 ACHIEVE TEH GOAL - WUT U FINKZ IZ RITE, IZ NOT NECESARILY RITE IN REALITY, IDLIN MULTIPLE GAMEZ AT ONCE WILL NOT PROVIDE U WIF ANY CARD DROPS.
 
 * * *
 
-### Is it safe?
+### CAN ASF SKIP THRU GAMEZ FAST?
 
-If you ask if ASF is safe as a software, which means that it won't cause any damage to your computer, won't steal your private data, install viruses or any other stuff like that - it is safe. ASF is free of malware, data stealing, cryptocurrency miners and any (and all) other doubtful behaviour that can be considered malicious or unwanted by the user. In addition to that we have a dedicated **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section which covers our privacy policy and ASF behaviour that goes beyond what you configured the program to do yourself.
-
-Our code is open-source, and distributed binaries are always compiled from **[publicly available sources](https://en.wikipedia.org/wiki/Open-source_software)** by **[automated and trusted continuous integration systems](https://en.wikipedia.org/wiki/Build_automation)**, and not even developers themselves. Each build is reproducible by following our build script and will result in exactly the same, **[deterministic](https://en.wikipedia.org/wiki/Deterministic_system)** IL (binary) code. If you for whatever reason don't trust our builds, you can always compile and use ASF from source, including all libraries that ASF is using (such as SteamKit2), which are open-source too.
-
-In the end however, it's always a matter of trust to the developer(s) of your application, so you should decide yourself if you consider ASF safe or not, potentially supporting your decision with technical arguments specified above. Do not blindly believe something only because I said so - check yourself, as that's the only way to make sure.
+**NO**, ASF DOESNT SUPPORT, NEITHR ENCOURAGEZ USAGE OV **[STEAM GLITCHEZ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-lol-US#steam-glitchez)**.
 
 * * *
 
-### Can I get banned for this?
+### CAN ASF AUTOMATICALLY IDLE EACH GAME 4 X HOURS BEFORE CARDZ R ADDD?
 
-In order to answer that question, we should take a closer look at **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. Steam doesn't prohibit using of multiple accounts, in fact, **[it allows it](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)** implying that you can use same mobile authenticator on more than one account. What it however doesn't allow is sharing accounts with other people, but we're not doing that here.
-
-The only real point that considers ASF is the following:
-
-> You may not use Cheats, automation software (bots), mods, hacks, or any other unauthorized third-party software, to modify or automate any Subscription Marketplace process.
-
-The question is what in fact is Subscription Marketplace process. As we can read:
-
-> An example of a Subscription Marketplace is the Steam Community Market
-
-We're not modifying or automating subscription marketplace process, if by subscription marketplace we understand steam community market or steam store. However...
-
-> Valve may cancel your Account or any particular Subscription(s) at any time in the event that (a) Valve ceases providing such Subscriptions to similarly situated Subscribers generally, or (b) you breach any terms of this Agreement (including any Subscription Terms or Rules of Use).
-
-Therefore, as with every Steam software, ASF is not authorized by Valve and I cannot guarantee that you won't be suspended if Valve suddenly decides that they're banning accounts using ASF now. This is exceptionally unlikely considering the fact that ASF is being used on more than half a million of Steam accounts, but still a possibility, regardless of actual probability.
-
-Especially because:
-
-> In regard to all Subscriptions, Content and Services that are not authored by Valve, Valve does not screen such third-party content available on Steam or through other sources. Valve assumes no responsibility or liability for such third party content. Some third-party application software is capable of being used by businesses for business purposes - however, you may only acquire such software via Steam for private personal use.
-
-However, Valve clearly acknowledges "Steam idlers" existing, as stated **[here](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**, so if you asked me, I'm pretty sure that if they weren't fine with them, they'd already do something instead of pointing out that they could cause problems VAC-wise. The key word here is **Steam** idlers, for example ASF, and not **game** idlers.
-
-Please note that above is only our interpretation of **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and various points - ASF is licensed under Apache 2.0 License, which clearly states:
-
-> Unless required by applicable law or agreed to in writing, ASF is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-
-You're using this software at your own risk. It's very unlikely that you can get banned for that, but if you do, you can blame only yourself for that.
+**NO**, TEH WHOLE POINT OV STEAM CARDZ SISTEM CHANGE WUZ 2 FIGHT WIF FALSE STATISTICS AN GHOST PLAYERS. ASF WONT CONTRIBUTE TOWARDZ DAT MOAR THAN NECESARY, ADDIN SUCH FEACHUR IZ NOT PLANND AN WONT HAPPEN. IF UR GAME RECEIVEZ CARD DROPS IN USUAL WAI, ASF WILL IDLE THEM AS SOON AS POSIBLE.
 
 * * *
 
-### Did somebody get banned for it?
+### I CAN PULAY GAME WHILE ASF IZ FARMIN?
 
-**Yes**, we had at least a few incidents so far that resulted in some kind of Steam suspension. Whether ASF itself was the root cause or not is entirely different story that we'll probably never get to know.
+**NO**. ASF UNLIKE IM HAS INDEPENDENT STEAM CLIENT INCLUDD, AN STEAM NETWORK ALLOWS ONLY **WAN STEAM CLIENT AT TIEM** 2 PULAY GAME. U CAN HOWEVR DISCONNECT ASF ANY TIEM U LIEK BY STARTIN GAME (AN CLICKIN "K" WHEN ASKD IF STEAM NETWORK SHUD DISCONNECT OTHR CLIENT) - ASF WILL DEN PATIENTLY WAIT TILL URE DUN PLAYIN, AN RESUME TEH PROCES AFTERWARDZ. ALTERNATIVELY, U CAN STILL PULAY IN OFFLINE MODE ANYTIME U LIEK, IF DAT IZ SATISFYIN 4 U.
 
-One case was of a guy with over 1000+ bots getting trade banned (together with all bots), most likely due to excessive usage of `loot ASF` executed on all bots at once, or other suspicious one-side amount of trades in a very short time.
-
-> Hello XXX, Thank you for contacting Steam Support. It looks like this account was used to manage a network of bot accounts. Botting is a violation of the Steam Subscriber Agreement.
-
-Please, use some common sense and don't assume that you can do such crazy things only because ASF allows you to do that. Doing `loot ASF` on over 1k of bots can be easily considered a **[DDoS](https://en.wikipedia.org/wiki/DDoS)** attack, and personally I'm not shocked that somebody got banned for such a thing. Keep in mind some bare common sense and minimum of fair use in regards to Steam service, and **most likely** you'll be fine.
-
-Another case was a guy with 170+ bots getting banned during Steam's 2017 Winter Sale.
-
-> Your account was blocked for violation of the agreement of the subscriber Steam. Judging by the exchanges and other factors, this account was used to illegally collect collectible cards on Steam, as well as related and not only commercial activities. The account has been permanently blocked and Steam Support can not provide additional support on this issue.
-
-This case is once again very hard to analyze, because of vague response from Steam support that barely offers any details. Based on my personal thoughts, this user probably exchanged Steam cards for some kind of money (level up bot?) or in some other way tried to cash out on Steam. In case you were unaware, this is also illegal according to **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**.
-
-Last case involved user with 120+ bots being banned for breach of **[Steam online conduct](https://store.steampowered.com/online_conduct?l=english)**.
-
-> Hello XXX, Thank you for contacting Steam Support. This and other accounts were used for flooding our network infrastructure, which is a violation of Steam online conduct. The account has been permanently blocked and Steam Support can not provide additional support on this issue.
-
-This case is a bit easier to analyze because of extra details provided by the user. Apparently the user was using **a very outdated ASF version** that included a bug causing ASF to send excessive number of requests to Steam servers. The bug itself did not exist at first but was activated due to Steam breaking change that was fixed in future version. **ASF is supported only in **[latest stable version](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** released on GitHub**. Software is written by humans, and humans tend to make mistakes. If the mistake has a global scope, it's quickly being patched up and released to all users as a bugfix. Valve won't suddenly ban half a million of ASF users due to my mistake, for obvious reasons. However, if you intentionally resign from using up-to-date ASF, then by definition you're in a very small minority of users that are **exposed to incidents like these** due to **no support**, as there is nobody watching over your outdated version of ASF, nobody fixing it and nobody ensuring that you won't get outright banned by just launching it. **Please use up-to-date software**, not only ASF, but all other applications as well.
+KEEP IN MIND DAT CARDZ DROP RATE WHEN PLAYIN MULTIPLE GAMEZ IZ CLOSE 2 0 ANYWAY, THEREFORE THAR R NO DIRECT BENEFITS FRUM BEAN ABLE 2 DO DAT WIF IM, WHILE THAR R STRONG BENEFITS OV NO INTERFERIN WIF OTHR GAMEZ LAUNCHD WIF ASF, WHICH IZ CRUSHUL E.G. VAC-WIZE.
 
 * * *
 
-All of the incidents above have one thing in common - ASF is just a tool and it's **your** decision how you're going to make use of it. You do not get banned for using ASF directly, but for **how** you're using it. It can be a helper tool idling just one single account, or a massive farming network made from thousands of bots. In any of those cases, I'm not offering legal advice, and you should decide yourself about your ASF usage in the first place. I'm not hiding any information that could help you, e.g. the fact that ASF got some people banned, as I have no reason to - it's your choice what you want to do with that information. If you ask me - use some common sense, avoid owning more bots than our recommendation, do not send hundreds of trades at the same time, always use up-to-date ASF version and you *should* be fine. Every single incident of this nature for **some reason** always happened to people that have disregarded our recommendation and decided that they know better than us how many bots they can run. Whether it's just a coincidence or some actual factor, that's up to you to decide. I'm not offering any legal advice, only giving you my thoughts that you can find useful, or disregard them entirely and operate only on facts linked above.
+## SECURITY / PRIVACY / VAC / BANZ / TOS
 
 * * *
 
-### What privacy information ASF discloses?
+### I CAN GIT VAC BAN 4 USIN DIS?
 
-You can find detailed explanation in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. You should review it if you care about your privacy, e.g. if you're wondering why accounts being used in ASF are joining our Steam group. ASF doesn't collect any sensitive information, and doesn't share it with any third-parties.
-
-* * *
-
-## Misc
+NO, IZ NOT POSIBLE CUZ ASF (UNLIKE IDLE MASTAH OR SAM) DOEZ NOT INTERFERE IN ANY WAI WIF STEAM CLIENT NOR ITZ PROCESEZ. IZ FYSICALLY IMPOSIBLE 2 GIT VAC BAN 4 USIN ASF, EVEN DURIN PLAYIN ON SECURD SERVERS WHILE ASF IZ RUNNIN - DIS AR TEH CUZ **ASF DOESNT EVEN REQUIRE STEAM CLIENT BEAN INSTALLD AT ALL** IN ORDR 2 WERK PROPERLY. ASF IZ TEH ONLY FARMIN PROGRAM DAT CAN CURRENTLY GUARANTEE BEAN VAC-FREE.
 
 * * *
 
-### I'm using unsupported OS such as 32-bit Windows, can I still use the latest version of ASF?
+### CAN USIN ASF PREVENT ME FRUM PLAYIN ON VAC-SECURD SERVERS, AS STATD **[HER](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**?
 
-Yes, and that version is not unsupported in any way, just not officially built. Check out **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section for generic variant. ASF doesn't have any strong dependency upon the OS, and it can work anywhere where you can get a working .NET Core runtime, which includes 32-bit Windows, even if there is no `win-x86` OS-specific package from us.
+ASF DOEZ NOT REQUIRE STEAM CLIENT BEAN RUNNIN OR EVEN INSTALLD AT ALL. ACCORDIN 2 DIS CONCEPT, IT SHUD **NOT** CAUSE ANY VAC-RELATD ISSUEZ, CUZ ASF GUARANTEEZ LACK OV INTERFERIN WIF STEAM CLIENT AN ALL ITZ PROCESEZ - DIS AR TEH TEH MAIN POINT WHEN TALKIN BOUT VAC-FREE GUARANTEE DAT ASF OFFERS.
 
-* * *
+ACCORDIN 2 USERS AN BEST OV MAH KNOWLEDGE, DIS AR TEH TEH CASE RITE NAO, AS NOBODY REPORTD ANY ISSUEZ LIEK STATD IN DA LINK ABOOV WHILE USIN ASF. WE COULDNT REPRODUCE TEH ISSUE ABOOV WIF ASF AS WELL, WHILE CLEARLY REPRODUCIN IT WIF IDLE MASTAH.
 
-### ASF is great! Can I make a donation?
-
-Yes, and we're very happy to hear that you're enjoying our project! You can find various donation possibilities under every **[release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** and also **[on the main page](https://github.com/JustArchiNET/ArchiSteamFarm)**. It's nice to note that in addition to generic money donations we also accept Steam items, so nothing is stopping you from donating skins, keys or a small part of the cards that you've idled with ASF if you'd like to. Thank you in advance for your generosity!
+HOWEVR, KEEP IN MIND DAT VALVE CUD STILL ADD ASF 2 TEH BLACKLIST AT SUM POINT, BUT IT BE COMPLETE NONSENSE AS EVEN IF THEY DO DAT, U CUD STILL PULAY VAC-SECURD GAMEZ FRUM UR PC, AN USE ASF AT TEH SAME TIEM E.G. ON UR SERVR, SO IM PRITEE SURE DAT THEY KNOE VRY WELL DAT ASF SHUD NOT BE SUSPECT VAC-WIZE, AN THEY WONT MAK R LIFEZ HARDR BY BLACKLISTIN ASF 4 NO REASON. STILL, IN DA WURST CASE ULL BE UNABLE 2 PULAY, LIEK STATD ABOOV, CUZ VAC-FREE GUARANTEE OV ASF IZ STILL HER REGARDLES IF STEAM BLACKLISTS ASF BINARY, OR NOT (AN U CAN STILL LAUNCH ASF ON ANY OTHR MACHINE WITHOUT STEAM CLIENT BEAN INSTALLD AT ALL). RITE NAO THAR IZ NO NED 2 DO ANY OV DAT, AN LETS HOPE IT STAYS LIEK DIS.
 
 * * *
 
-### I'm using Steam parental PIN to protect my account, do I need to input it somewhere?
+### IZ SAFE?
 
-Yes, you must set it in `SteamParentalCode` bot config property. This is mainly because ASF does access many protected parts of your Steam account and it's impossible for ASF to operate without it.
+IF U ASK IF ASF IZ SAFE AS SOFTWARE, WHICH MEANZ DAT IT WONT CAUSE ANY DAMAGE 2 UR COMPUTR, WONT STEEL UR PRIVATE DATA, INSTALL VIRUSEZ OR ANY OTHR STUFF LIEK DAT - IT SAFE. ASF IZ FREE OV MALWARE, DATA STEELIN, CRYPTOCURRENCY MINERS AN ANY (AN ALL) OTHR DOUBTFUL BEHAVIOUR DAT CAN BE CONSIDERD MALISHUS OR UNWANTD BY TEH USR. IN ADDISHUN 2 DAT WE HAS DEDICATD **[STATISTICS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-lol-US)** SECSHUN WHICH COVERS R PRIVACY POLICY AN ASF BEHAVIOUR DAT GOEZ BEYOND WUT U CONFIGURD TEH PROGRAM 2 DO YOURSELF.
 
-* * *
+R CODE IZ OPEN-SOURCE, AN DISTRIBUTD BINARIEZ R ALWAYS COMPILD FRUM **[PUBLICLY AVAILABLE SOURCEZ](https://en.wikipedia.org/wiki/Open-source_software)** BY **[AUTOMATD AN TRUSTD CONTINUOUS INTEGRASHUN SISTEMS](https://en.wikipedia.org/wiki/Build_automation)**, AN NOT EVEN DEVELOPERS THEMSELVEZ. EACH BUILD IZ REPRODUCIBLE BY FOLLOWIN R BUILD SCRIPT AN WILL RESULT IN EGSAKTLY TEH SAME, **[DETERMINISTIC](https://en.wikipedia.org/wiki/Deterministic_system)** IL (BINARY) CODE. IF U 4 WHATEVR REASON DOAN TRUST R BUILDZ, U CAN ALWAYS COMPILE AN USE ASF FRUM SOURCE, INCLUDIN ALL LIBRARIEZ DAT ASF IZ USIN (SUCH AS STEAMKIT2), WHICH R OPEN-SOURCE 2.
 
-### I don't want ASF to farm any games by default, yet I want to use extra ASF features. Is this possible?
-
-Yes, if you just want to start ASF with paused cards farming module, you can set `Paused` bot config property to `true` in order to achieve that. This will allow you to `resume` it during runtime.
-
-If you want to completely disable cards farming module and ensure that it'll never run without you explicitly telling it otherwise, then we recommend to set `IdlePriorityQueueOnly` to `true`, which instead of just pausing it, will disable the idling completely until you add the games to idle priority queue yourself.
-
-With cards farming module paused/disabled, you can make use of extra ASF features, such as `GamesPlayedWhileIdle`.
+IN DA END HOWEVR, IZ ALWAYS MATTR OV TRUST 2 TEH DEVELOPR(S) OV UR APPLICASHUN, SO U SHUD DECIDE YOURSELF IF U CONSIDR ASF SAFE OR NOT, POTENTIALLY SUPPORTIN UR DECISHUN WIF TECHNICAL ARGUMENTS SPECIFID ABOOV. DO NOT BLINDLY BLEEV SOMETHIN ONLY CUZ I SED SO - CHECK YOURSELF, AS THAZ TEH ONLY WAI 2 MAK SURE.
 
 * * *
 
-### Can ASF minimize to tray?
+### I CAN GIT BANND 4 DIS?
 
-ASF is a console app, there is no window to be minimized, because window is created for you by your OS. You can however use any third-party tool capable of doing so, such as **[RBTray](https://github.com/benbuck/rbtray)** for Windows, or **[screen](https://linux.die.net/man/1/screen)** for Linux/OS X. Those are only examples, there are many other apps with similar functionality.
+IN ORDR 2 ANZWR DAT QUESHUN, WE SHUD TAEK CLOSR LOOK AT **[STEAM TOS](https://store.steampowered.com/subscriber_agreement)**. STEAM DOESNT PROHIBIT USIN OV MULTIPLE ACCOUNTS, IN FACT, **[IT ALLOWS IT](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)** IMPLYIN DAT U CAN USE SAME MOBILE AUTHENTICATOR ON MOAR THAN WAN AKOWNT. WUT IT HOWEVR DOESNT ALLOW IZ SHARIN ACCOUNTS WIF OTHR PEEPS, BUT WERE NOT DOIN DAT HER.
 
-* * *
+TEH ONLY REAL POINT DAT CONSIDERS ASF IZ TEH FOLLOWIN:
 
-### Does using ASF preserve eligibility for receiving booster packs?
+> U CUD NOT USE CHEATS, AUTOMASHUN SOFTWARE (BOTS), MODZ, HACKZ, OR ANY OTHR UNAUTHORIZD THIRD-PARTY SOFTWARE, 2 MODIFY OR AUTOMATE ANY SUBSCRIPSHUN MARKETPLACE PROCES.
 
-**YEZ**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
+TEH QUESHUN IZ WUT IN FACT IZ SUBSCRIPSHUN MARKETPLACE PROCES. AS WE CAN READ:
 
-* * *
+> AN EXAMPLE OV SUBSCRIPSHUN MARKETPLACE IZ TEH STEAM COMMUNITY MARKIT
 
-### Is there any way to communicate with ASF?
+WERE NOT MODIFYIN OR AUTOMATIN SUBSCRIPSHUN MARKETPLACE PROCES, IF BY SUBSCRIPSHUN MARKETPLACE WE UNDERSTAND STEAM COMMUNITY MARKIT OR STEAM STORE. HOWEVR...
 
-Yes, through several different ways. Check out **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** section for more info.
+> VALVE CUD CANCEL UR AKOWNT OR ANY PARTICULAR SUBSCRIPSHUN(S) AT ANY TIEM IN DA EVENT DAT (A) VALVE CEASEZ PROVIDIN SUCH SUBSCRIPSHUNS 2 SIMILARLY SITUATD SUBSCRIBERS GENERALLY, OR (B) U BREACH ANY TERMS OV DIS AGREEMENT (INCLUDIN ANY SUBSCRIPSHUN TERMS OR RULEZ OV USE).
 
-* * *
+THEREFORE, AS WIF EVRY STEAM SOFTWARE, ASF IZ NOT AUTHORIZD BY VALVE AN I CANT GUARANTEE DAT U WONT BE SUSPENDD IF VALVE SUDDENLY DECIDEZ DAT THEYRE BANNIN ACCOUNTS USIN ASF NAO. DIS AR TEH EXCEPSHUNALLY UNLIKELY CONSIDERIN TEH FACT DAT ASF IZ BEAN USD ON MOAR THAN HALF MILLION OV STEAM ACCOUNTS, BUT STILL POSIBILITY, REGARDLES OV AKSHUL PROBABILITY.
 
-### I'd like to help with ASF translation, what do I need to do?
+ESPECIALLY CUZ:
 
-Thank you for your interest! You can find all details in our **[localization](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)** section.
+> IN REGARD 2 ALL SUBSCRIPSHUNS, CONTENT AN SERVICEZ DAT R NOT AUTHORD BY VALVE, VALVE DOEZ NOT SCREEN SUCH THIRD-PARTY CONTENT AVAILABLE ON STEAM OR THRU OTHR SOURCEZ. VALVE ASSUMEZ NO RESPONSIBILITY OR LIABILITY 4 SUCH THIRD PARTY CONTENT. SUM THIRD-PARTY APPLICASHUN SOFTWARE IZ CAPABLE OV BEAN USD BY BUSINESEZ 4 BUSINES PURPOSEZ - HOWEVR, U CUD ONLY ACQUIRE SUCH SOFTWARE VIA STEAM 4 PRIVATE PERSONAL USE.
 
-* * *
+HOWEVR, VALVE CLEARLY ACKNOWLEDGEZ "STEAM IDLERS" EXISTIN, AS STATD **[HER](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**, SO IF U ASKD ME, IM PRITEE SURE DAT IF THEY WUZ NOT FINE WIF THEM, THEYD ALREADY DO SOMETHIN INSTEAD OV POINTIN OUT DAT THEY CUD CAUSE PROBLEMS VAC-WIZE. TEH KEY WERD HER IZ **STEAM** IDLERS, 4 EXAMPLE ASF, AN NOT **GAME** IDLERS.
 
-### I have only one (main) account added to ASF, can I still issue commands through steam chat?
+PLZ NOWT DAT ABOOV IZ ONLY R INTERPRETASHUN OV **[STEAM TOS](https://store.steampowered.com/subscriber_agreement)** AN VARIOUS POINTS - ASF IZ LICENSD UNDR APACHE 2.0 LICENSE, WHICH CLEARLY STATEZ:
 
-**Yes**, it's explained in **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#notes)** section. You can do so through Steam group chat, although using **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** could be easier for you.
+> UNLES REQUIRD BY APPLICABLE LAW OR AGRED 2 IN WRITIN, ASF IZ DISTRIBUTD ON AN "AS IZ" BASIS, WITHOUT WARRANTIEZ OR CONDISHUNS OV ANY KIND, EITHR EXPRES OR IMPLID.
 
-* * *
-
-### ASF seems to be working, but I'm not receiving any card drops!
-
-Cards farming rate differs from game to game, as you can read in **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. It takes a while, usually **several hours per game**, and you shouldn't expect cards to drop in a few minutes since launching a program. If you can see that ASF actively checks cards status, and switches the game after current one is fully idled, then everything works fine. It's possible that you've enabled an option such as `DismissInventoryNotifications` of `BotBehaviour` which automatically dismisses inventory notifications. Check out **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** for details.
+URE USIN DIS SOFTWARE AT UR OWN RISK. IZ VRY UNLIKELY DAT U CAN GIT BANND 4 DAT, BUT IF U DO, U CAN BLAME ONLY YOURSELF 4 DAT.
 
 * * *
 
-### How to completely stop ASF process for my account?
+### DID SOMEBODY GIT BANND 4 IT?
 
-Simply shutdown the ASF process, for example by clicking [X] on Windows. If instead you want to stop a particular bot of your choice but keep other ones running, then take a look at `Enabled` **[bot config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**, or `stop` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you instead want to stop automatic idling process, yet keep ASF running for your account, then that's what `Paused` **[bot config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** and `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** is for.
+**YEZ**, WE HAD AT LEAST FEW INCIDENTS SO FAR DAT RESULTD IN SUM KIND OV STEAM SUSPENSHUN. WHETHR ASF ITSELF WUZ TEH ROOT CAUSE OR NOT IZ ENTIRELY DIFFERENT STORY DAT WELL PROBABLY NEVR GIT 2 KNOE.
 
-* * *
+WAN CASE WUZ OV GUY WIF OVAR 1000+ BOTS GETTIN TRADE BANND (TOGETHR WIF ALL BOTS), MOST LIKELY DUE 2 EXCESIV USAGE OV `LOOT ASF` EXECUTD ON ALL BOTS AT ONCE, OR OTHR SUSPISHUS WAN-SIDE AMOUNT OV TRADEZ IN VRY SHORT TIEM.
 
-### How many bots can I run with ASF?
+> Y HALO THAR XXX, THANK U 4 CONTACTIN STEAM SUPPORT. IT LOOKZ LIEK DIS AKOWNT WUZ USD 2 MANAGE NETWORK OV BOT ACCOUNTS. BOTTIN IZ VIOLASHUN OV TEH STEAM SUBSCRIBR AGREEMENT.
 
-ASF as a program doesn't have any hard upper limit of bot instances, so you can run as much as you have memory on your machine, however, you're still being limited by the Steam network and other Steam services. Currently you can run up to 100-200 bots with a single IP and a single ASF instance. It's possible to run more bots with more IPs and more ASF instances, by working around IP limitations. Keep in mind that if you're using that big amount of bots, you should control their number yourself, such as making sure that all of them in fact are logging in and working at the same time. ASF was not tweaked for that huge number of bots, and the general rule applies that **the more bots you have, the more issues you'll encounter**. Also notice that the limit above in general depends on many internal factors, it's approximation rather than a strict limit - you will most likely be able to run more/less bots than specified above.
+PLZ, USE SUM COMMON SENSE AN DOAN ASSUME DAT U CAN DO SUCH CRAZY THINGS ONLY CUZ ASF ALLOWS U 2 DO DAT. DOIN `LOOT ASF` ON OVAR 1K OV BOTS CAN BE EASILY CONSIDERD **[DDOS](https://en.wikipedia.org/wiki/DDoS)** ATTACK, AN PERSONALLY IM NOT SHOCKD DAT SOMEBODY GOT BANND 4 SUCH TING. KEEP IN MIND SUM BARE COMMON SENSE AN MINIMUM OV FAIR USE IN REGARDZ 2 STEAM SERVICE, AN **MOST LIKELY** ULL BE FINE.
 
-ASF team suggests running (and **owning**) up to **10 bots in total**, anything above is not supported and done at your own risk, against our suggestion made here. This recommendation is based on internal Valve guidelines, as well as our own suggestions. Whether you're going to comply with this rule or not is your choice, ASF as a tool will not go against your own will, even if it'll result in your Steam accounts being suspended for doing so. Therefore, ASF will display you a warning if you'll go above what we recommend, but still allow you to run anything you want at your own risk and lack of our support.
+ANOTHR CASE WUZ GUY WIF 170+ BOTS GETTIN BANND DURIN STEAMS 2017 WINTR SALE.
 
-* * *
+> UR AKOWNT WUZ BLOCKD 4 VIOLASHUN OV TEH AGREEMENT OV TEH SUBSCRIBR STEAM. JUDGIN BY TEH EXCHANGEZ AN OTHR FACTORS, DIS AKOWNT WUZ USD 2 ILLEGALLY COLLECT COLLECTIBLE CARDZ ON STEAM, AS WELL AS RELATD AN NOT ONLY COMMERSHUL ACTIVITIEZ. TEH AKOWNT HAS BEEN PERMANENTLY BLOCKD AN STEAM SUPPORT CAN NOT PROVIDE ADDISHUNAL SUPPORT ON DIS ISSUE.
 
-### Can I run more ASF instances then?
+DIS CASE IZ ONCE AGAIN VRY HARD 2 ANALYZE, CUZ OV VAGUE RESPONSE FRUM STEAM SUPPORT DAT BARELY OFFERS ANY DETAILS. BASD ON MAH PERSONAL THOUGHTS, DIS USR PROBABLY EXCHANGD STEAM CARDZ 4 SUM KIND OV MONEY (LEVEL UP BOT?) OR IN SUM OTHR WAI TRID 2 CASH OUT ON STEAM. IN CASE U WUZ UNAWARE, DIS AR TEH ALSO ILLEGAL ACCORDIN 2 **[STEAM TOS](https://store.steampowered.com/subscriber_agreement)**.
 
-You can run as many ASF instances on one machine as you like, assuming every instance has its own directory and its own configs, and account used in one instance is not used in another one. However, ask yourself why you want to do that. ASF is optimized to handle more than a hundred of accounts at the same time, and launching that hundred of bots in their own ASF instances degrades performance, takes more OS resources (such as CPU and memory), and causes a potential synchronization issues between standalone ASF instances, as ASF is forced to share its limiters with other instances.
+LAST CASE INVOLVD USR WIF 120+ BOTS BEAN BANND 4 BREACH OV **[STEAM ONLINE CONDUCT](https://store.steampowered.com/online_conduct?l=english)**.
 
-Therefore, my **strong suggestion** is, always run maximum of one ASF instance per one IP/interface. If you have more IPs/interfaces, by all means you can run more ASF instances, with every instance using its own IP/interface or unique `WebProxy` setting. If you don't, launching more ASF instances is totally pointless, as you won't gain anything from launching more than 1 instance per a single IP/interface. Steam will not magically allow you to run more bots just because you've launched them in another ASF instance, and ASF doesn't limit you to begin with.
+> Y HALO THAR XXX, THANK U 4 CONTACTIN STEAM SUPPORT. DIS AN OTHR ACCOUNTS WUZ USD 4 FLOODIN R NETWORK INFRASTRUCCHUR, WHICH IZ VIOLASHUN OV STEAM ONLINE CONDUCT. TEH AKOWNT HAS BEEN PERMANENTLY BLOCKD AN STEAM SUPPORT CAN NOT PROVIDE ADDISHUNAL SUPPORT ON DIS ISSUE.
 
-Of course, there are still valid use cases for multiple ASF instances on the same network interface, such as hosting ASF service for your friends with each friend having its own unique ASF instance in order to guarantee isolation between bots and even the ASF processes themselves, however, you're not circumventing any Steam limitations this way, that's entirely different purpose.
-
-* * *
-
-### What is the meaning of status when redeeming a key?
-
-Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
-
-| Status                  | DESCRIPSHUN                                                                                                                                                                                                                    |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| NoDetail                | "OK" status indicating success - the key was successfully redemeed.                                                                                                                                                            |
-| Timeout                 | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely was, but you can try again).                                                                                            |
-| BadActivationCode       | The provided key is invalid (not recognized as any valid key by Steam network).                                                                                                                                                |
-| DuplicateActivationCode | The provided key was already redeemed by some other account, or revoked by developer/publisher.                                                                                                                                |
-| AlreadyPurchased        | Your account already owns `packageID` that is connected with this key. Keep in mind that this does not indicate whether the key is `DuplicateActivationCode` or not - only that it's valid and it wasn't used in this attempt. |
-| RestrictedCountry       | This is region-locked key and your account is not in the valid region that is permitted to redeem it.                                                                                                                          |
-| DoesNotOwnRequiredApp   | You can't redeem that key as you're missing some other app - mainly base game when you're attempting to redeem DLC package.                                                                                                    |
-| RateLimited             | You made too many redeem attempts and your account was temporarily blocked. Try again in an hour.                                                                                                                              |
+DIS CASE IZ BIT EASIR 2 ANALYZE CUZ OV EXTRA DETAILS PROVIDD BY TEH USR. APPARENTLY TEH USR WUZ USIN **A VRY OUTDATD ASF VERSHUN** DAT INCLUDD BUG CAUSIN ASF 2 SEND EXCESIV NUMBR OV REQUESTS 2 STEAM SERVERS. TEH BUG ITSELF DID NOT EXIST AT FURST BUT WUZ ACTIVATD DUE 2 STEAM BREAKIN CHANGE DAT WUZ FIXD IN FUCHUR VERSHUN. **ASF IS SUPPORTED ONLY IN **[LATEST STABLE VERSHUN](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** RELEASD ON GITHUB**. SOFTWARE IZ WRITTEN BY HUMANZ, AN HUMANZ TEND 2 MAK MISTAKEZ. IF TEH MISTAEK HAS GLOBAL SCOPE, IZ QUICKLY BEAN PATCHD UP AN RELEASD 2 ALL USERS AS BUGFIX. VALVE WONT SUDDENLY BAN HALF MILLION OV ASF USERS DUE 2 MAH MISTAEK, 4 OBVIOUS REASONS. HOWEVR, IF U INTENSHUNALLY RESIGN FRUM USIN UP-2-DATE ASF, DEN BY DEFINISHUN URE IN VRY SMALL MINORITY OV USERS DAT R **EXPOSD 2 INCIDENTS LIEK THEES** DUE 2 **NO SUPPORT**, AS THAR IZ NOBODY WATCHIN OVAR UR OUTDATD VERSHUN OV ASF, NOBODY FIXIN IT AN NOBODY ENSURIN DAT U WONT GIT OUTRIGHT BANND BY JUS LAUNCHIN IT. **PLZ USE UP-2-DATE SOFTWARE**, NOT ONLY ASF, BUT ALL OTHR APPLICASHUNS AS WELL.
 
 * * *
 
-### Are you affiliated with any cards farming/idling service?
+ALL OV TEH INCIDENTS ABOOV HAS WAN TING IN COMMON - ASF IZ JUS TOOL AN IZ **UR** DECISHUN HOW URE GOIN 2 MAK USE OV IT. U DO NOT GIT BANND 4 USIN ASF DIRECTLY, BUT 4 **HOW** URE USIN IT. IT CAN BE HELPR TOOL IDLIN JUS WAN SINGLE AKOWNT, OR MASIF FARMIN NETWORK MADE FRUM THOUSANDZ OV BOTS. IN ANY OV DOSE CASEZ, IM NOT OFFERIN LEGAL ADVICE, AN U SHUD DECIDE YOURSELF BOUT UR ASF USAGE IN DA FURST PLACE. IM NOT HIDIN ANY INFORMASHUN DAT CUD HALP U, E.G. TEH FACT DAT ASF GOT SUM PEEPS BANND, AS I HAS NO REASON 2 - IZ UR CHOICE WUT U WANTS 2 DO WID DAT INFORMASHUN. IF U ASK ME - USE SUM COMMON SENSE, AVOID OWNIN MOAR BOTS THAN R RECOMMENDASHUN, DO NOT SEND HUNDREDZ OV TRADEZ AT TEH SAME TIEM, ALWAYS USE UP-2-DATE ASF VERSHUN AN U *SHUD* BE FINE. EVRY SINGLE INCIDENT OV DIS NACHUR 4 **SUM REASON** ALWAYS HAPPEND 2 PEEPS DAT HAS DISREGARDD R RECOMMENDASHUN AN DECIDD DAT THEY KNOE BETTR THAN US HOW LOTZ DA BOTS THEY CAN RUN. WHETHR IZ JUS COINCIDENCE OR SUM AKSHUL FACTOR, THAZ UP 2 U 2 DECIDE. IM NOT OFFERIN ANY LEGAL ADVICE, ONLY GIVIN U MAH THOUGHTS DAT U CAN FIND USEFUL, OR DISREGARD THEM ENTIRELY AN OPERATE ONLY ON FACTS LINKD ABOOV.
 
-**No**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement)** that:
+* * *
 
-> You are responsible for the confidentiality of your login and password and for the security of your computer system. Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, or by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.
+### WUT PRIVACY INFORMASHUN ASF DISCLOSEZ?
 
-ASF is licensed on liberal Apache 2.0 License, which allows other developers to further integrate ASF with their own projects and services legally. However, such third-party projects utilizing ASF are not guaranteed to be secure, reviewed, appropriate or legal according to **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. If you want to know our opinion, **we strongly encourage you to NOT share ANY of your account details with third-party services**. If such service turns out to be a **typical scam**, you'll be left alone with the problem, most likely without your Steam account and ASF won't take any responsibility for third-party services claiming to be safe and secure, because ASF team did not authorize neither reviewed any of those. In other words, **you're using them at your own risk, against our suggestion made above**.
+U CAN FIND DETAILD EXPLANASHUN IN **[STATISTICS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-lol-US)** SECSHUN. U SHUD REVIEW IT IF U CARE BOUT UR PRIVACY, E.G. IF URE WONDERIN Y ACCOUNTS BEAN USD IN ASF R JOININ R STEAM GROUP. ASF DOESNT COLLECT ANY SENSITIV INFORMASHUN, AN DOESNT SHARE IT WIF ANY THIRD-PARTIEZ.
 
-In addition to that, official **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** clearly states that:
+* * *
 
-> You may not reveal, share or otherwise allow others to use your password or Account except as otherwise specifically authorized by Valve.
+## MISC
 
-It's your account and your choice. Just don't say that nobody warned you. ASF as a program meets all rules mentioned above, as you're not sharing your account details with anyone, and you're using the program for your own personal use, but any other "cards farming service" does require from you your account credentials, so it also violates the rule above (actually several of them). Like with **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** evaluation, we're not offering any legal advice, and you should decide yourself if you want to use those services, or not - according to us **it directly violates [Steam ToS](https://store.steampowered.com/subscriber_agreement)** and may result in suspension if Valve finds out. Like pointed out above, **we strongly recommend to NOT use any of such services**.
+* * *
+
+### IM USIN UNSUPPORTD OS SUCH AS 32-BIT WINDOWS, I CAN STILL USE TEH LATEST VERSHUN OV ASF?
+
+YEZ, AN DAT VERSHUN IZ NOT UNSUPPORTD IN ANY WAI, JUS NOT OFFICIALLY BUILT. CHECK OUT **[COMPATIBILITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US)** SECSHUN 4 GENERIC VARIANT. ASF DOESNT HAS ANY STRONG DEPENDENCY UPON TEH OS, AN IT CAN WERK ANYWHERE WER U CAN GIT WERKIN .NET CORE RUNTIME, WHICH INCLUDEZ 32-BIT WINDOWS, EVEN IF THAR IZ NO `WIN-X86` OS-SPECIFIC PACKAGE FRUM US.
+
+* * *
+
+### ASF IZ GREAT! I CAN MAK DONASHUN?
+
+YEZ, AN WERE VRY HAPPEH 2 HEAR DAT URE ENJOYIN R PROJECT! U CAN FIND VARIOUS DONASHUN POSIBILITIEZ UNDR EVRY **[RELEASE](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** AN ALSO **[ON TEH MAIN PAEG](https://github.com/JustArchiNET/ArchiSteamFarm)**. IZ NICE 2 NOWT DAT IN ADDISHUN 2 GENERIC MONEY DONASHUNS WE ALSO ACCEPT STEAM ITEMS, SO NOTHIN IZ STOPPIN U FRUM DONATIN SKINS, KEYS OR SMALL PART OV TEH CARDZ DAT UVE IDLD WIF ASF IF UD LIEK 2. THANK U IN ADVANCE 4 UR GENEROSITY!
+
+* * *
+
+### IM USIN STEAM PARENTAL PIN 2 PROTECT MAH AKOWNT, DO NEEDZ 2 INPUT IT SOMEWHERE?
+
+YEZ, U MUST SET IT IN `STEAMPARENTALCODE` BOT CONFIG PROPERTY. DIS AR TEH MAINLY CUZ ASF DOEZ ACCES LOTZ DA PROTECTD PARTS OV UR STEAM AKOWNT AN IZ IMPOSIBLE 4 ASF 2 OPERATE WITHOUT IT.
+
+* * *
+
+### I DOAN WANTS ASF 2 FARM ANY GAMEZ BY DEFAULT, YET I WANTS 2 USE EXTRA ASF FEATUREZ. IZ DIS POSIBLE?
+
+YEZ, IF U JUS WANTS 2 START ASF WIF PAUSD CARDZ FARMIN MODULE, U CAN SET `PAUSD` BOT CONFIG PROPERTY 2 `TRUE` IN ORDR 2 ACHIEVE DAT. DIS WILL ALLOW U 2 `RESUME` IT DURIN RUNTIME.
+
+IF U WANTS 2 COMPLETELY DISABLE CARDZ FARMIN MODULE AN ENSURE DAT ITLL NEVR RUN WITHOUT U EXPLICITLY TELLIN IT OTHERWIZE, DEN WE RECOMMEND 2 SET `IDLEPRIORITYQUEUEONLY` 2 `TRUE`, WHICH INSTEAD OV JUS PAUSIN IT, WILL DISABLE TEH IDLIN COMPLETELY TIL U ADD TEH GAMEZ 2 IDLE PRIORITY KEW YOURSELF.
+
+WIF CARDZ FARMIN MODULE PAUSD/DISABLD, U CAN MAK USE OV EXTRA ASF FEATUREZ, SUCH AS `GAMESPLAYEDWHILEIDLE`.
+
+* * *
+
+### CAN ASF MINIMIZE 2 TRAY?
+
+ASF IZ CONSOLE APP, THAR IZ NO WINDOW 2 BE MINIMIZD, CUZ WINDOW IZ CREATD 4 U BY UR OS. U CAN HOWEVR USE ANY THIRD-PARTY TOOL CAPABLE OV DOIN SO, SUCH AS **[RBTRAY](https://github.com/benbuck/rbtray)** 4 WINDOWS, OR **[SCREEN](https://linux.die.net/man/1/screen)** 4 LINUX/OS X. DOSE R ONLY EXAMPLEZ, THAR R LOTZ DA OTHR APPS WIF SIMILAR FUNCSHUNALITY.
+
+* * *
+
+### DOEZ USIN ASF PRESERVE ELIGIBILITY 4 RECEIVIN BOOSTR PACKZ?
+
+**YEZ**. ASF IZ USIN TEH SAME METHOD 2 LOG IN 2 STEAM NETWORK AS TEH OFFISHUL CLIENT, THEREFORE IT ALSO PRESERVEZ ABILITY 2 RECEIV BOOSTR PACKZ 4 ACCOUNTS DAT R BEAN USD IN ASF. MOREOVR, PRESERVIN DAT ABILITY DOESNT EVEN REQUIRE LOGGIN IN INTO STEAM COMMUNITY, SO U CAN SAFELY USE `ONLINESTATUS` OV `OFFLINE` IF UD LIEK 2.
+
+* * *
+
+### IZ THAR ANY WAI 2 SPEEK WIF ASF?
+
+YEZ, THRU SEVERAL DIFFERENT WAYS. CHECK OUT **[COMMANDZ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)** SECSHUN 4 MOAR INFO.
+
+* * *
+
+### ID LIEK 2 HALP WIF ASF TRANZLASHUN, WUT DO NEEDZ 2 DO?
+
+THANK U 4 UR INTEREST! U CAN FIND ALL DETAILS IN R **[LOCALIZASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-lol-US)** SECSHUN.
+
+* * *
+
+### I HAS ONLY WAN (MAIN) AKOWNT ADDD 2 ASF, I CAN STILL ISSUE COMMANDZ THRU STEAM CHAT?
+
+**YEZ**, IZ EXPLAIND IN **[COMMANDZ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US#notez)** SECSHUN. U CAN DO SO THRU STEAM GROUP CHAT, ALTHOUGH USIN **[ASF-UI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US#asf-ui)** CUD BE EASIR 4 U.
+
+* * *
+
+### ASF SEEMS 2 BE WERKIN, BUT IM NOT RECEIVIN ANY CARD DROPS!
+
+CARDZ FARMIN RATE DIFFERS FRUM GAME 2 GAME, AS U CAN READ IN **[PERFORMANCE](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-lol-US)**. IT TAKEZ WHILE, USUALLY **SEVERAL HOURS PER GAME**, AN U SHOULDNT EXPECT CARDZ 2 DROP IN FEW MINUTEZ SINCE LAUNCHIN PROGRAM. IF U CAN C DAT ASF ACTIVELY CHECKZ CARDZ STATUS, AN SWITCHEZ TEH GAME AFTR CURRENT WAN IZ FULLY IDLD, DEN EVRYTHIN WERKZ FINE. IZ POSIBLE DAT UVE ENABLD AN OPSHUN SUCH AS `DISMISINVENTORYNOTIFICASHUNS` OV `BOTBEHAVIOUR` WHICH AUTOMATICALLY DISMISEZ INVENTORY NOTIFICASHUNS. CHECK OUT **[CONFIGURASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US)** 4 DETAILS.
+
+* * *
+
+### HOW 2 COMPLETELY STOP ASF PROCES 4 MAH AKOWNT?
+
+SIMPLY SHUTDOWN TEH ASF PROCES, 4 EXAMPLE BY CLICKIN [X] ON WINDOWS. IF INSTEAD U WANTS 2 STOP PARTICULAR BOT OV UR CHOICE BUT KEEP OTHR ONEZ RUNNIN, DEN TAEK LOOK AT `ENABLD` **[BOT CONFIG PROPERTY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#bot-config)**, OR `STOP` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)</code>. IF U INSTEAD WANTS 2 STOP AUTOMATIC IDLIN PROCES, YET KEEP ASF RUNNIN 4 UR AKOWNT, DEN THAZ WUT `PAUSD` **[BOT CONFIG PROPERTY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#bot-config)** AN `PAUSE` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)** IZ 4.</p> 
+
+* * *
+
+### HOW LOTZ DA BOTS I CAN RUN WIF ASF?
+
+ASF AS PROGRAM DOESNT HAS ANY HARD UPPR LIMIT OV BOT INSTANCEZ, SO U CAN RUN AS MUTCH AS U HAS MEMS ON UR MACHINE, HOWEVR, URE STILL BEAN LIMITD BY TEH STEAM NETWORK AN OTHR STEAM SERVICEZ. CURRENTLY U CAN RUN UP 2 100-200 BOTS WIF SINGLE IP AN SINGLE ASF INSTANCE. IZ POSIBLE 2 RUN MOAR BOTS WIF MOAR IPS AN MOAR ASF INSTANCEZ, BY WERKIN AROUND IP LIMITASHUNS. KEEP IN MIND DAT IF URE USIN DAT HOOJ AMOUNT OV BOTS, U SHUD CONTROL THEIR NUMBR YOURSELF, SUCH AS MAKIN SURE DAT ALL OV THEM IN FACT R LOGGIN IN AN WERKIN AT TEH SAME TIEM. ASF WUZ NOT TWEAKD 4 DAT HUGE NUMBR OV BOTS, AN TEH GENERAL RULE APPLIEZ DAT **TEH MOAR BOTS U HAS, TEH MOAR ISSUEZ ULL ENCOUNTR**. ALSO NOTICE DAT TEH LIMIT ABOOV IN GENERAL DEPENDZ ON LOTZ DA INTERNAL FACTORS, IZ APPROXIMASHUN RATHR THAN STRICT LIMIT - U WILL MOST LIKELY BE ABLE 2 RUN MOAR/LES BOTS THAN SPECIFID ABOOV.
+
+ASF TEAM SUGGESTS RUNNIN (AN **OWNIN**) UP 2 **10 BOTS IN TOTAL**, ANYTHIN ABOOV IZ NOT SUPPORTD AN DUN AT UR OWN RISK, AGAINST R SUGGESHUN MADE HER. DIS RECOMMENDASHUN IZ BASD ON INTERNAL VALVE GUIDELINEZ, AS WELL AS R OWN SUGGESHUNS. WHETHR URE GOIN 2 COMPLY WIF DIS RULE OR NOT IZ UR CHOICE, ASF AS TOOL WILL NOT GO AGAINST UR OWN WILL, EVEN IF ITLL RESULT IN UR STEAM ACCOUNTS BEAN SUSPENDD 4 DOIN SO. THEREFORE, ASF WILL DISPLAY U WARNIN IF ULL GO ABOOV WUT WE RECOMMEND, BUT STILL ALLOW U 2 RUN ANYTHIN U WANTS AT UR OWN RISK AN LACK OV R SUPPORT.
+
+* * *
+
+### I CAN RUN MOAR ASF INSTANCEZ DEN?
+
+U CAN RUN AS LOTZ DA ASF INSTANCEZ ON WAN MACHINE AS U LIEK, ASSUMIN EVRY INSTANCE HAS ITZ OWN DIRECTORY AN ITZ OWN CONFIGS, AN AKOWNT USD IN WAN INSTANCE IZ NOT USD IN ANOTHR WAN. HOWEVR, ASK YOURSELF Y U WANTS 2 DO DAT. ASF IZ OPTIMIZD 2 HANDLE MOAR THAN HUNDRD OV ACCOUNTS AT TEH SAME TIEM, AN LAUNCHIN DAT HUNDRD OV BOTS IN THEIR OWN ASF INSTANCEZ DEGRADEZ PERFORMANCE, TAKEZ MOAR OS RESOURCEZ (SUCH AS CPU AN MEMS), AN CAUSEZ POTENTIAL SYNCHRONIZASHUN ISSUEZ TWEEN STANDALONE ASF INSTANCEZ, AS ASF IZ FORCD 2 SHARE ITZ LIMITERS WIF OTHR INSTANCEZ.
+
+THEREFORE, MAH **STRONG SUGGESHUN** IZ, ALWAYS RUN MAXIMUM OV WAN ASF INSTANCE PER WAN IP/INTERFACE. IF U HAS MOAR IPS/INTERFACEZ, BY ALL MEANZ U CAN RUN MOAR ASF INSTANCEZ, WIF EVRY INSTANCE USIN ITZ OWN IP/INTERFACE OR UNIQUE `WEBPROXY` SETTIN.code IF U DOAN, LAUNCHIN MOAR ASF INSTANCEZ IZ TOTALLY POINTLES, AS U WONT GAIN ANYTHIN FRUM LAUNCHIN MOAR THAN 1 INSTANCE PER SINGLE IP/INTERFACE. STEAM WILL NOT MAGICALLY ALLOW U 2 RUN MOAR BOTS JUS CUZ UVE LAUNCHD THEM IN ANOTHR ASF INSTANCE, AN ASF DOESNT LIMIT U 2 BEGIN WIF.
+
+OV COURSE, THAR R STILL VALID USE CASEZ 4 MULTIPLE ASF INSTANCEZ ON TEH SAME NETWORK INTERFACE, SUCH AS HOSTIN ASF SERVICE 4 UR FRENZ WIF EACH FREND HAVIN ITZ OWN UNIQUE ASF INSTANCE IN ORDR 2 GUARANTEE ISOLASHUN TWEEN BOTS AN EVEN TEH ASF PROCESEZ THEMSELVEZ, HOWEVR, URE NOT CIRCUMVENTIN ANY STEAM LIMITASHUNS DIS WAI, THAZ ENTIRELY DIFFERENT PURPOSE.
+
+* * *
+
+### WUT IZ TEH MEANIN OV STATUS WHEN REDEEMIN KEY?
+
+STATUS INDICATEZ HOW GIVEN REDEEM ATTEMPT TURND OUT. THAR R LOTZ DA DIFFERENT STATUSEZ POSIBLE, MOST COMMON ONEZ INCLUDE:
+
+| STATUS                  | DESCRIPSHUN                                                                                                                                                                                                     |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NODETAIL                | "K" STATUS INDICATIN SUCCES - TEH KEY WUZ SUCCESFULLY REDEMED.                                                                                                                                                  |
+| TIEMOUT                 | STEAM NETWORK DIDNT RESPOND IN GIVEN TIEM, WE DOAN KNOE IF TEH KEY WUZ REDEEMD, OR NOT (MOST LIKELY WUZ, BUT U CAN TRY AGAIN).                                                                                  |
+| BADACTIVASHUNCODE       | TEH PROVIDD KEY IZ INVALID (NOT RECOGNIZD AS ANY VALID KEY BY STEAM NETWORK).                                                                                                                                   |
+| DUPLICATEACTIVASHUNCODE | TEH PROVIDD KEY WUZ ALREADY REDEEMD BY SUM OTHR AKOWNT, OR REVOKD BY DEVELOPR/PUBLISHR.                                                                                                                         |
+| ALREADYPURCHASD         | UR AKOWNT ALREADY OWNS `PACKAGEID` DAT IZ CONNECTD WIF DIS KEY. KEEP IN MIND DAT DIS DOEZ NOT INDICATE WHETHR TEH KEY IZ `DUPLICATEACTIVASHUNCODE` OR NOT - ONLY DAT IZ VALID AN IT WUZ NOT USD IN DIS ATTEMPT. |
+| RESTRICTEDCOUNTRY       | DIS AR TEH REGION-LOCKD KEY AN UR AKOWNT IZ NOT IN DA VALID REGION DAT IZ PERMITTD 2 REDEEM IT.                                                                                                                 |
+| DOESNOTOWNREQUIREDAPP   | U CANT REDEEM DAT KEY AS URE MISIN SUM OTHR APP - MAINLY BASE GAME WHEN URE ATTEMPTIN 2 REDEEM DLC PACKAGE.                                                                                                     |
+| RATELIMITD              | U MADE 2 LOTZ DA REDEEM ATTEMPTS AN UR AKOWNT WUZ TEMPORARILY BLOCKD. TRY AGAIN IN AN HOUR.                                                                                                                     |
+
+* * *
+
+### R U AFFILIATD WIF ANY CARDZ FARMIN/IDLIN SERVICE?
+
+**NO**. ASF IZ NOT AFFILIATD WIF ANY SERVICE AN ALL SUCH CLAIMS R FALSE. UR STEAM AKOWNT IZ UR PROPERTY AN U CAN USE UR AKOWNT IN WHATEVR WAI U WISH, BUT VALVE CLEARLY STATD IN **[OFFISHUL TOS](https://store.steampowered.com/subscriber_agreement)** DAT:
+
+> U R RESPONSIBLE 4 DA CONFIDENTIALITY OV UR LOGIN AN PASWORD AN 4 DA SECURITY OV UR COMPUTR SISTEM. VALVE IZ NOT RESPONSIBLE 4 DA USE OV UR PASWORD AN AKOWNT OR 4 ALL OV TEH COMMUNICASHUN AN ACTIVITY ON STEAM DAT RESULTS FRUM USE OV UR LOGIN NAYM AN PASWORD BY U, OR BY ANY PERSON 2 WHOM U CUD HAS INTENSHUNALLY OR BY NEGLIGENCE DISCLOSD UR LOGIN AN/OR PASWORD IN VIOLASHUN OV DIS CONFIDENTIALITY PROVISHUN.
+
+ASF IZ LICENSD ON LIBERAL APACHE 2.0 LICENSE, WHICH ALLOWS OTHR DEVELOPERS 2 FURTHR INTEGRATE ASF WIF THEIR OWN PROJECTS AN SERVICEZ LEGALLY. HOWEVR, SUCH THIRD-PARTY PROJECTS UTILIZIN ASF R NOT GUARANTED 2 BE SECURE, REVIEWD, APPROPRIATE OR LEGAL ACCORDIN 2 **[STEAM TOS](https://store.steampowered.com/subscriber_agreement)**. IF U WANTS 2 KNOE R OPINION, **WE STRONGLY ENCOURAGE U 2 NOT SHARE ANY OV UR AKOWNT DETAILS WIF THIRD-PARTY SERVICEZ**. IF SUCH SERVICE TURNS OUT 2 BE **TYPICAL SCAM**, ULL BE LEFT ALONE WIF TEH PROBLEM, MOST LIKELY WITHOUT UR STEAM AKOWNT AN ASF WONT TAEK ANY RESPONSIBILITY 4 THIRD-PARTY SERVICEZ CLAIMIN 2 BE SAFE AN SECURE, CUZ ASF TEAM DID NOT AUTHORIZE NEITHR REVIEWD ANY OV DOSE. IN OTHR WERDZ, **URE USIN THEM AT UR OWN RISK, AGAINST R SUGGESHUN MADE ABOOV**.
+
+IN ADDISHUN 2 DAT, OFFISHUL **[STEAM TOS](https://store.steampowered.com/subscriber_agreement)** CLEARLY STATEZ DAT:
+
+> U CUD NOT REVEAL, SHARE OR OTHERWIZE ALLOW OTHERS 2 USE UR PASWORD OR AKOWNT EXCEPT AS OTHERWIZE SPECIFICALLY AUTHORIZD BY VALVE.
+
+IZ UR AKOWNT AN UR CHOICE. JUS DOAN SAY DAT NOBODY WARND U. ASF AS PROGRAM MEETS ALL RULEZ MENSHUND ABOOV, AS URE NOT SHARIN UR AKOWNT DETAILS WIF ANYONE, AN URE USIN TEH PROGRAM 4 UR OWN PERSONAL USE, BUT ANY OTHR "CARDZ FARMIN SERVICE" DOEZ REQUIRE FRUM U UR AKOWNT CREDENTIALS, SO IT ALSO VIOLATEZ TEH RULE ABOOV (AKSHULLY SEVERAL OV THEM). LIEK WIF **[STEAM TOS](https://store.steampowered.com/subscriber_agreement)** EVALUASHUN, WERE NOT OFFERIN ANY LEGAL ADVICE, AN U SHUD DECIDE YOURSELF IF U WANTS 2 USE DOSE SERVICEZ, OR NOT - ACCORDIN 2 US **IT DIRECTLY VIOLATEZ [STEAM TOS](https://store.steampowered.com/subscriber_agreement)** AN CUD RESULT IN SUSPENSHUN IF VALVE FINDZ OUT. LIEK POINTD OUT ABOOV, **WE STRONGLY RECOMMEND 2 NOT USE ANY OV SUCH SERVICEZ**.
 
 * * *
 
@@ -435,206 +435,206 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ### WAN OV MAH GAMEZ IZ BEAN FARMD 4 MOAR THAN 10 HOURS NAO, BUT I STILL DIDNT GIT ANY CARDZ FRUM IT!
 
-The reason for that could be related to known issue of Steam, which happens when you have two licenses for the same game, one of which has card drops limited. This usually happens when you activate game for free during a mass giveaway on Steam, and then activate a key for the same game (but without limitations), e.g. from a paid bundle. If such situation happens, Steam reports on badge page that game still has cards to drop, but no matter how much you play the game - cards will never drop due to free license on your account. Since it's not an ASF issue, but a Steam one, we can't somehow circumvent it on ASF's side, and you need to solve it yourself.
+TEH REASON 4 DAT CUD BE RELATD 2 KNOWN ISSUE OV STEAM, WHICH HAPPENS WHEN U HAS 2 LICENSEZ 4 DA SAME GAME, WAN OV WHICH HAS CARD DROPS LIMITD. DIS USUALLY HAPPENS WHEN U ACTIVATE GAME 4 FREE DURIN MAS GIVEAWAY ON STEAM, AN DEN ACTIVATE KEY 4 DA SAME GAME (BUT WITHOUT LIMITASHUNS), E.G. FRUM PAID BUNDLE. IF SUCH SITUASHUN HAPPENS, STEAM REPORTS ON BADGE PAEG DAT GAME STILL HAS CARDZ 2 DROP, BUT NO MATTR HOW MUTCH U PULAY TEH GAME - CARDZ WILL NEVR DROP DUE 2 FREE LICENSE ON UR AKOWNT. SINCE IZ NOT AN ASF ISSUE, BUT STEAM WAN, WE CANT SOMEHOW CIRCUMVENT IT ON ASFS SIDE, AN U NED 2 SOLVE IT YOURSELF.
 
-There are two ways to solve the issue. Firstly, you can blacklist this game in ASF, either with `ibadd` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** or with `Blacklist` **[configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. This will prevent ASF from trying to farm cards from this game, but will not solve the underlying issue which prevents you from obtaining card drops from the affected game. Secondly, you can use Steam support self-service tool to remove free license from your account, leaving only full license that includes the card drops. In order to do so, firstly visit your **[licenses and product key activations](https://store.steampowered.com/account/licenses)** page and locate both free and paid license for the affected game. Usually it's fairly easy - both have similar name, but free one has "limited free promotional package" or other "promo" in the license name, plus "complimentary" in "acquisition method" field. Sometimes it might be more tricky, for example if free package was in some bundle and has a different name. If you have found two licenses like that - then it's indeed the issue described here, and you can safely remove free license without losing the game.
+THAR R 2 WAYS 2 SOLVE TEH ISSUE. FIRSTLY, U CAN BLACKLIST DIS GAME IN ASF, EITHR WIF `IBADD` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)** OR WIF `BLACKLIST` **[CONFIGURASHUN PROPERTY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US)**. DIS WILL PREVENT ASF FRUM TRYIN 2 FARM CARDZ FRUM DIS GAME, BUT WILL NOT SOLVE TEH UNDERLYIN ISSUE WHICH PREVENTS U FRUM OBTAININ CARD DROPS FRUM TEH AFFECTD GAME. SECONDLY, U CAN USE STEAM SUPPORT SELF-SERVICE TOOL 2 REMOOV FREE LICENSE FRUM UR AKOWNT, LEAVIN ONLY FULL LICENSE DAT INCLUDEZ TEH CARD DROPS. IN ORDR 2 DO SO, FIRSTLY VISIT UR **[LICENSEZ AN PRODUCT KEY ACTIVASHUNS](https://store.steampowered.com/account/licenses)** PAEG AN LOCATE BOTH FREE AN PAID LICENSE 4 DA AFFECTD GAME. USUALLY IZ FAIRLY EASY - BOTH HAS SIMILAR NAYM, BUT FREE WAN HAS "LIMITD FREE PROMOSHUNAL PACKAGE" OR OTHR "PROMO" IN DA LICENSE NAYM, PLUS "COMPLIMENTARY" IN "ACQUIZISHUN METHOD" FIELD. SOMETIMEZ IT MITE BE MOAR TRICKY, 4 EXAMPLE IF FREE PACKAGE WUZ IN SUM BUNDLE AN HAS DIFFERENT NAYM. IF U HAS FINDZ 2 LICENSEZ LIEK DAT - DEN IZ INDED TEH ISSUE DESCRIBD HER, AN U CAN SAFELY REMOOV FREE LICENSE WITHOUT LOSIN TEH GAME.
 
-In order to remove the free license from your account, visit **[Steam support page](https://help.steampowered.com/wizard/HelpWithGame)** and put the affected game name into the search field, the game should be available in "products" section, click on it. Alternatively, you can just use `https://help.steampowered.com/wizard/HelpWithGame?appid=<appID>` link and replace `<appID>` with appID of the game that causes troubles. Afterwards, click on "I want to permanently remove this game from my account" and then select the faulty free license that you've found above, usually the one with "limited free promotional package" in the name (or similar). After removal of the free license, ASF should be able to drop cards from the affected game without issues, you should restart the idling operation after the removal just to be sure that Steam picks up the right license this time.
+IN ORDR 2 REMOOV TEH FREE LICENSE FRUM UR AKOWNT, VISIT **[STEAM SUPPORT PAEG](https://help.steampowered.com/wizard/HelpWithGame)** AN PUT TEH AFFECTD GAME NAYM INTO TEH SEARCH FIELD, TEH GAME SHUD BE AVAILABLE IN "PRODUCTS" SECSHUN, CLICK ON IT. ALTERNATIVELY, U CAN JUS USE `HTTPS://HALP.STEAMPOWERD.COM/WIZARD/HELPWITHGAME?APPID=&lt;APPID&gt;` LINK AN REPLACE `<APPID>` WIF APPID OV TEH GAME DAT CAUSEZ TROUBLEZ. AFTERWARDZ, CLICK ON "I WANTS 2 PERMANENTLY REMOOV DIS GAME FRUM MAH AKOWNT" AN DEN SELECT TEH FAULTY FREE LICENSE DAT UVE FINDZ ABOOV, USUALLY TEH WAN WIF "LIMITD FREE PROMOSHUNAL PACKAGE" IN DA NAYM (OR SIMILAR). AFTR REMOVAL OV TEH FREE LICENSE, ASF SHUD BE ABLE 2 DROP CARDZ FRUM TEH AFFECTD GAME WITHOUT ISSUEZ, U SHUD RESTART TEH IDLIN OPERASHUN AFTR TEH REMOVAL JUS 2 BE SURE DAT STEAM PICKZ UP TEH RITE LICENSE DIS TIEM.
 
 * * *
 
 ### ASF DOESNT DETECT GAME `X` AS AVAILABLE 4 FARMIN, YET I KNOE IT INCLUDEZ STEAM TRADIN CARDZ!
 
-THAR R 2 MAIN REASONS HER. First and most obvious reason is the fact that you're referring to **Steam store** where given game is announced as card drops enabled game. This is **wrong** assumption, as it simply states that the game **has** card drops included, but not necessarily this function for that game is **enabled** right away. You can read more about this in **[official announcement](https://steamcommunity.com/games/593110/announcements/detail/1954971077935370845)**.
+THAR R 2 MAIN REASONS HER. FURST AN MOST OBVIOUS REASON IZ TEH FACT DAT URE REFERRIN 2 **STEAM STORE** WER GIVEN GAME IZ ANNOUNCD AS CARD DROPS ENABLD GAME. DIS AR TEH **WRONG** ASSUMPSHUN, AS IT SIMPLY STATEZ DAT TEH GAME **HAS** CARD DROPS INCLUDD, BUT NOT NECESARILY DIS FUNCSHUN 4 DAT GAME IZ **ENABLD** RITE AWAY. U CAN READ MOAR BOUT DIS IN **[OFFISHUL ANNOUNCEMENT](https://steamcommunity.com/games/593110/announcements/detail/1954971077935370845)**.
 
-In short, card drops icon in Steam store doesn't mean anything, check your **[badge pages](https://steamcommunity.com/my/badges)** for confirmation whether a game has card drops enabled or not - this is also what ASF is doing. If your game doesn't appear on the list as a game with cards possible to drop, then this game is **not** possible to idle, regardless of reason.
+IN SHORT, CARD DROPS ICON IN STEAM STORE DOESNT MEEN ANYTHIN, CHECK UR **[BADGE PAGEZ](https://steamcommunity.com/my/badges)** 4 CONFIRMASHUN WHETHR GAME HAS CARD DROPS ENABLD OR NOT - DIS AR TEH ALSO WUT ASF IZ DOIN. IF UR GAME DOESNT APPEAR ON TEH LIST AS GAME WIF CARDZ POSIBLE 2 DROP, DEN DIS GAME IZ **NOT** POSIBLE 2 IDLE, REGARDLES OV REASON.
 
-Second issue is less obvious, and it's the situation when you can see that your game indeed is available with card drops on your badge page, yet it's not being idled by ASF right away. Unless you're hitting some other bug, such as ASF being unable to check badge pages (described below), it's simply a cache effect and on ASF side Steam is still reporting outdated badges page. This issue should solve itself sooner or later, when cache gets invalidated. There is also no way to fix this on our side.
+SECOND ISSUE IZ LES OBVIOUS, AN IZ TEH SITUASHUN WHEN U CAN C DAT UR GAME INDED IZ AVAILABLE WIF CARD DROPS ON UR BADGE PAEG, YET IZ NOT BEAN IDLD BY ASF RITE AWAY. UNLES URE HITTIN SUM OTHR BUG, SUCH AS ASF BEAN UNABLE 2 CHECK BADGE PAGEZ (DESCRIBD BELOW), IZ SIMPLY CACHE EFFECT AN ON ASF SIDE STEAM IZ STILL REPORTIN OUTDATD BADGEZ PAEG. DIS ISSUE SHUD SOLVE ITSELF SOONR OR LATR, WHEN CACHE GETS INVALIDATD. THAR IZ ALSO NOWAI 2 FIX DIS ON R SIDE.
 
-Of course, all of that assumes that you're running ASF with default untouched settings, since you could also add this game to idling blacklist, use `IdlePriorityQueueOnly` of `true`, use `IdleRefundableGames` of `false` and so on.
+OV COURSE, ALL OV DAT ASSUMEZ DAT URE RUNNIN ASF WIF DEFAULT UNTOUCHD SETTINGS, SINCE U CUD ALSO ADD DIS GAME 2 IDLIN BLACKLIST, USE `IDLEPRIORITYQUEUEONLY` OV `TRUE`, USE `IDLEREFUNDABLEGAMEZ` OV `FALSE` AN SO ON.
 
 * * *
 
 ### Y PLAYTIME OV GAMEZ IDLD THRU ASF DOESNT INCREASE?
 
-It does, but **not in real-time**. Steam records your playtime in fixed intervals and schedules update for it, but you're not guaranteed to have it updated immediately the moment you quit the session, let alone during such. If it was possible to skip playtime while idling cards then you can be sure that we'd have it implemented in ASF long time ago, and actually use it in default settings. But we don't, and we don't exactly because it's not possible - just because the playtime isn't updated in real-time doesn't mean that it's not recorded.
+IT DOEZ, BUT **NOT IN REAL-TIEM**. STEAM RECORDZ UR PLAYTIME IN FIXD INTERVALS AN SCHEDULEZ UPDATE 4 IT, BUT URE NOT GUARANTED 2 HAS IT UPDATD IMMEDIATELY TEH MOMENT U QUIT TEH SESHUN, LET ALONE DURIN SUCH. IF IT WUZ POSIBLE 2 SKIP PLAYTIME WHILE IDLIN CARDZ DEN U CAN BE SURE DAT WED HAS IT IMPLEMENTD IN ASF LONG TIEM AGO, AN AKSHULLY USE IT IN DEFAULT SETTINGS. BUT WE DOAN, AN WE DOAN EGSAKTLY CUZ IZ NOT POSIBLE - JUS CUZ TEH PLAYTIME ISNT UPDATD IN REAL-TIEM DOESNT MEEN DAT IZ NOT RECORDD.
 
 * * *
 
 ### WUT IZ TEH DIFFERENCE TWEEN WARNIN AN AN ERROR IN DA LOG?
 
-ASF writes to its log a bunch of information on various logging levels. Our objective is to explain **precisely** what ASF is doing, including what Steam issues it has to deal with, or other problems to overcome. Most of the time not everything is relevant, this is why we have two major levels being used in ASF in terms of problems - a warning level, and error level.
+ASF WRITEZ 2 ITZ LOG BUNCH OV INFORMASHUN ON VARIOUS LOGGIN LEVELS. R OBJECTIV IZ 2 EXPLAIN **PRECISELY** WUT ASF IZ DOIN, INCLUDIN WUT STEAM ISSUEZ IT HAS 2 DEAL WIF, OR OTHR PROBLEMS 2 OVERCOME. MOST OV TEH TIEM NOT EVRYTHIN IZ RELEVANT, DIS AR TEH Y WE HAS 2 MAJOR LEVELS BEAN USD IN ASF IN TERMS OV PROBLEMS - WARNIN LEVEL, AN ERROR LEVEL.
 
-General ASF rule is that warnings are **not** errors, therefore they should **not** be reported. A warning is an indicator to you that something potentially unwanted happen. Whether it was Steam not reacting, API throwing errors or your network connection being down - it's a warning, and it means we expected it to happen, so don't bother ASF development with it. Of course you're free to ask about them or get help by using our support, but you shouldn't assume that those are ASF errors worth reporting (unless we confirm otherwise).
+GENERAL ASF RULE IZ DAT WARNINGS R **NOT** ERRORS, THEREFORE THEY SHUD **NOT** BE REPORTD. A WARNIN IZ AN INDICATOR 2 U DAT SOMETHIN POTENTIALLY UNWANTD HAPPEN. WHETHR IT WUZ STEAM NOT REACTIN, API THROWIN ERRORS OR UR NETWORK CONNECSHUN BEAN DOWN - IT BE WARNIN, AN IT MEANZ WE EXPECTD IT 2 HAPPEN, SO DOAN BOTHR ASF DEVELOPMENT WIF IT. OV COURSE URE FREE 2 ASK BOUT THEM OR GIT HALP BY USIN R SUPPORT, BUT U SHOULDNT ASSUME DAT DOSE R ASF ERRORS WORTH REPORTIN (UNLES WE CONFIRM OTHERWIZE).
 
-Errors on the other hand indicate a situation that should not happen, therefore they're worth reporting as long as you made sure that it's not you who is causing them. If it's a common situation that we expect to happen, then it'll be converted to a warning instead. Otherwise, it's possibly a bug that should be corrected, not silently ignored, assuming it's not a result of your own technical issue. For example, putting invalid content in `ASF.json` file will throw an error, as ASF won't be able to parse it, but it was you who put it there, so you should not report that error to us (unless you confirmed that ASF is wrong and your structure is in fact absolutely correct).
+ERRORS ON TEH OTHR HAND INDICATE SITUASHUN DAT SHUD NOT HAPPEN, THEREFORE THEYRE WORTH REPORTIN AS LONG AS U MADE SURE DAT IZ NOT U HOO IZ CAUSIN THEM. IF IT BE COMMON SITUASHUN DAT WE EXPECT 2 HAPPEN, DEN ITLL BE CONVERTD 2 WARNIN INSTEAD. OTHERWIZE, IZ POSIBLY BUG DAT SHUD BE CORRECTD, NOT SILENTLY IGNORD, ASSUMIN IZ NOT RESULT OV UR OWN TECHNICAL ISSUE. 4 EXAMPLE, PUTTIN INVALID CONTENT IN `ASF.JSON` FILE WILL THROW AN ERROR, AS ASF WONT BE ABLE 2 PARSE IT, BUT IT WUZ U HOO PUT IT THAR, SO U SHUD NOT REPORT DAT ERROR 2 US (UNLES U CONFIRMD DAT ASF IZ WRONG AN UR STRUCCHUR IZ IN FACT ABSOLUTELY CORRECT).
 
-In one TL;DR sentence - report errors, don't report warnings. You can still ask about warnings and receive help in our support sections.
+IN WAN TL;DR SENTENCE - REPORT ERRORS, DOAN REPORT WARNINGS. U CAN STILL ASK BOUT WARNINGS AN RECEIV HALP IN R SUPPORT SECSHUNS.
 
 * * *
 
 ### ASF DOESNT START, TEH PROGRAM WINDOW CLOSEZ IMMEDIATELY!
 
-In normal conditions, any ASF crash or exit will generate a `log.txt` in the program's directory for you to view, which can be used for finding the cause of that. In addition to that, a few last log files are also archived in `logs` directory, since the main `log.txt` file is overwritten with each ASF run.
+IN NORMAL CONDISHUNS, ANY ASF CRASH OR EXIT WILL GENERATE `LOG.TXT` IN DA PROGRAMS DIRECTORY 4 U 2 VIEW, WHICH CAN BE USD 4 FINDIN TEH CAUSE OV DAT. IN ADDISHUN 2 DAT, FEW LAST LOG FILEZ R ALSO ARCHIVD IN `LOGS` DIRECTORY, SINCE TEH MAIN `LOG.TXT` FILE IZ OVERWRITTEN WIF EACH ASF RUN.
 
-However, if even .NET Core runtime isn't able to boot on your machine, then `log.txt` will not be generated. If that happens to you then you most likely forgot to install .NET Core prerequisites, as stated in **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)** guide. Other common problems include trying to launch wrong ASF variant for your OS, or in other way missing native .NET Core runtime dependencies. If the console window closes too soon for you to read the message, then open independent console and launch ASF binary from there. For example on Windows, open ASF directory, hold `Shift`, right click inside the folder and choose "*open command window here*" (or *powershell*), then type into the console `.\ArchiSteamFarm.exe` and confirm with enter. This way you'll get precise message why ASF is not starting properly.
+HOWEVR, IF EVEN .NET CORE RUNTIME ISNT ABLE 2 BOOT ON UR MACHINE, DEN `LOG.TXT` WILL NOT BE GENERATD. IF DAT HAPPENS 2 U DEN U MOST LIKELY FORGOT 2 INSTALL .NET CORE PREREQUIZIETS, AS STATD IN **[SETTIN UP](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-lol-US#os-specific-setup)** GUIDE. OTHR COMMON PROBLEMS INCLUDE TRYIN 2 LAUNCH WRONG ASF VARIANT 4 UR OS, OR IN OTHR WAI MISIN NATIV .NET CORE RUNTIME DEPENDENCIEZ. IF TEH CONSOLE WINDOW CLOSEZ 2 SOON 4 U 2 READ TEH MESAGE, DEN OPEN INDEPENDENT CONSOLE AN LAUNCH ASF BINARY FRUM THAR. 4 EXAMPLE ON WINDOWS, OPEN ASF DIRECTORY, HOLD `SHIFT`, RITE CLICK INSIDE TEH FOLDR AN CHOOSE "*OPEN COMMAND WINDOW HER*" (OR *POWERSHELL*), DEN TYPE INTO TEH CONSOLE `.\ARCHISTEAMFARM.EXE` AN CONFIRM WIF ENTR. DIS WAI ULL GIT PRECIZE MESAGE Y ASF IZ NOT STARTIN PROPERLY.
 
 * * *
 
 ### ASF IZ KICKIN MAH STEAM CLIENT SESHUN WHILE IM PLAYIN! / *DIS AKOWNT IZ LOGGD ON ANOTHR PC*
 
-DIS SHOWS UP AS MESAGE IN STEAM OVERLAY DAT TEH AKOWNT IZ BEAN USD SOMEWHERE ELSE WHILE URE PLAYIN. This issue can have two different reasons.
+DIS SHOWS UP AS MESAGE IN STEAM OVERLAY DAT TEH AKOWNT IZ BEAN USD SOMEWHERE ELSE WHILE URE PLAYIN. DIS ISSUE CAN HAS 2 DIFFERENT REASONS.
 
-One reason is caused by broken packages (games) that specifically don't hold a playing lock properly, yet expect that lock to be possesed by the client. An example of such package would be Skyrim SE. Your Steam client launches the game properly, but that game doesn't register itself as being used. Because of that, ASF sees that it's free to resume the process, which it does, and that kicks you out of Steam network, as Steam suddenly detects that the account is being used in another place.
+WAN REASON IZ CAUSD BY BROKD PACKAGEZ (GAMEZ) DAT SPECIFICALLY DOAN HOLD PLAYIN LOCK PROPERLY, YET EXPECT DAT LOCK 2 BE POSESD BY TEH CLIENT. AN EXAMPLE OV SUCH PACKAGE WUD BE SKYRIM SE. UR STEAM CLIENT LAUNCHEZ TEH GAME PROPERLY, BUT DAT GAME DOESNT REGISTR ITSELF AS BEAN USD. CUZ OV DAT, ASF SEEZ DAT IZ FREE 2 RESUME TEH PROCES, WHICH IT DOEZ, AN DAT KICKZ U OUT OV STEAM NETWORK, AS STEAM SUDDENLY DETECTS DAT TEH AKOWNT IZ BEAN USD IN ANOTHR PLACE.
 
-Second reason could come up if you're playing on your PC while ASF is waiting (especially on another machine) and you lose your network connection. In this case, Steam network marks you as offline and releases playing lock (like above), which triggers ASF (e.g. on another machine) into resuming farming. When your PC comes back online, Steam can't acquire playing lock anymore (that is now held by ASF, also similar to above) and shows the same message.
+SECOND REASON CUD COME UP IF URE PLAYIN ON UR PC WHILE ASF IZ WAITIN (ESPECIALLY ON ANOTHR MACHINE) AN U LOSE UR NETWORK CONNECSHUN. IN DIS CASE, STEAM NETWORK MARKZ U AS OFFLINE AN RELEASEZ PLAYIN LOCK (LIEK ABOOV), WHICH TRIGGERS ASF (E.G. ON ANOTHR MACHINE) INTO RESUMIN FARMIN. WHEN UR PC COMEZ BAK ONLINE, STEAM CANT ACQUIRE PLAYIN LOCK NOMORE (DAT IZ NAO HELD BY ASF, ALSO SIMILAR 2 ABOOV) AN SHOWS TEH SAME MESAGE.
 
-Both causes on the ASF side are actually very hard to workaround, as ASF simply resumes farming once Steam network informs it that account is free to be used again. This is what is happening normally when you close the game, but with broken packages this can happen immediately, even if your game is still running. ASF has no way to know whether you got disconnected, stopped playing a game or that you're still playing a game that doesn't hold playing lock appropriately.
+BOTH CAUSEZ ON TEH ASF SIDE R AKSHULLY VRY HARD 2 WERKAROUND, AS ASF SIMPLY RESUMEZ FARMIN ONCE STEAM NETWORK INFORMS IT DAT AKOWNT IZ FREE 2 BE USD AGAIN. DIS AR TEH WUT IZ HAPPENIN NORMALLY WHEN U CLOSE TEH GAME, BUT WIF BROKD PACKAGEZ DIS CAN HAPPEN IMMEDIATELY, EVEN IF UR GAME IZ STILL RUNNIN. ASF HAS NOWAI 2 KNOE WHETHR U GOT DISCONNECTD, STOPPD PLAYIN GAME OR DAT URE STILL PLAYIN GAME DAT DOESNT HOLD PLAYIN LOCK APPROPRIATELY.
 
-The only proper solution to this problem is manually pausing your bot with `pause` before you start playing, and resuming it with `resume` once you're done. Alternatively you can just ignore the problem and act the same as if you played with offline Steam client.
-
-* * *
-
-### `Disconnected from Steam!` - I can't establish connection with Steam servers.
-
-ASF can only **try** to establish connection with Steam servers, and it can fail due to many reasons, including lack of internet connection, Steam being down, your firewall blocking connection, third-party tools, incorrectly configured routes or temporary failures. You can enable `Debug` mode to check out more verbose log stating exact failure reasons, although usually it's simply caused by your own actions, such as using "CS:GO MM Server Picker" that blacklists a lot of Steam IPs, making it very hard for you to actually reach Steam network.
-
-ASF will do its best to establish connection, which includes not only asking about updated list of servers but also trying another IP when last one fails, so if it's truly a temporary problem with some specific server or route, ASF will connect sooner or later. However, if you're behind firewall or in some other way unable to reach Steam servers, then obviously you need to fix it yourself, with potential help of `Debug` mode.
-
-It's also possible that your machine is not able to establish connection with Steam servers using default protocol in ASF. You can alter protocols that ASF is permitted to use by modifying `SteamProtocols` global configuration property. For example, if you have problems reaching Steam with `UDP` protocol (e.g. due to firewalls), perhaps you'll have more luck with `TCP` or `WebSocket`.
-
-In a very unlikely situation of having incorrect servers being cached, for example because of moving ASF `config` folder from one machine to another machine located in entirely different country, deleting `ASF.db` in order to refresh Steam servers on the next launch may help. Very often it's not needed and doesn't have to be done, as that list is automatically refreshed on first launch, as well as when the connection is established - we're just mentioning it as a way to purge anything related to list of Steam servers cached by ASF.
+TEH ONLY PROPR SOLUSHUN 2 DIS PROBLEM IZ MANUALLY PAUSIN UR BOT WIF `PAUSE` BEFORE U START PLAYIN, AN RESUMIN IT WIF `RESUME` ONCE URE DUN. ALTERNATIVELY U CAN JUS IGNORE TEH PROBLEM AN ACT TEH SAME AS IF U PLAYD WIF OFFLINE STEAM CLIENT.
 
 * * *
 
-### `Could not get badges information, will try again later!`
+### `DISCONNECTD FRUM STEAM!` - I CANT ESTABLISH CONNECSHUN WIF STEAM SERVERS.
 
-Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalCode`.
+ASF CAN ONLY **TRY** 2 ESTABLISH CONNECSHUN WIF STEAM SERVERS, AN IT CAN FAIL DUE 2 LOTZ DA REASONS, INCLUDIN LACK OV INTERNET CONNECSHUN, STEAM BEAN DOWN, UR FIREWALL BLOCKIN CONNECSHUN, THIRD-PARTY TOOLS, INCORRECTLY CONFIGURD ROUTEZ OR TEMPORARY FAILUREZ. U CAN ENABLE `DEBUG` MODE 2 CHECK OUT MOAR VERBOSE LOG STATIN EGSAKT FAILURE REASONS, ALTHOUGH USUALLY IZ SIMPLY CAUSD BY UR OWN ACSHUNS, SUCH AS USIN "CS:GO MM SERVR PICKR" DAT BLACKLISTS LOT OV STEAM IPS, MAKIN IT VRY HARD 4 U 2 AKSHULLY REACH STEAM NETWORK.
 
-Other reasons include temporary Steam problem, network issue or likewise. If issue won't solve itself after several hours and you're sure that you configured ASF appropriately, feel free to let us know about that.
+ASF WILL DO ITZ BEST 2 ESTABLISH CONNECSHUN, WHICH INCLUDEZ NOT ONLY ASKIN BOUT UPDATD LIST OV SERVERS BUT ALSO TRYIN ANOTHR IP WHEN LAST WAN FAILS, SO IF IZ TRULY TEMPORARY PROBLEM WIF SUM SPECIFIC SERVR OR ROUTE, ASF WILL CONNECT SOONR OR LATR. HOWEVR, IF URE BEHIND FIREWALL OR IN SUM OTHR WAI UNABLE 2 REACH STEAM SERVERS, DEN OBVIOUSLY U NED 2 FIX IT YOURSELF, WIF POTENTIAL HALP OV `DEBUG` MODE.
+
+IZ ALSO POSIBLE DAT UR MACHINE IZ NOT ABLE 2 ESTABLISH CONNECSHUN WIF STEAM SERVERS USIN DEFAULT PROTOCOL IN ASF. U CAN ALTR PROTOCOLS DAT ASF IZ PERMITTD 2 USE BY MODIFYIN `STEAMPROTOCOLS` GLOBAL CONFIGURASHUN PROPERTY. 4 EXAMPLE, IF U HAS PROBLEMS REACHIN STEAM WIF `UDP` PROTOCOL (E.G. DUE 2 FIREWALLS), PERHAPS ULL HAS MOAR LUCK WIF `TCP` OR `WEBSOCKET`.
+
+IN VRY UNLIKELY SITUASHUN OV HAVIN INCORRECT SERVERS BEAN CACHD, 4 EXAMPLE CUZ OV MOVIN ASF `CONFIG` FOLDR FRUM WAN MACHINE 2 ANOTHR MACHINE LOCATD IN ENTIRELY DIFFERENT COUNTRY, DELETIN `ASF.DB` IN ORDR 2 REFRESH STEAM SERVERS ON TEH NEXT LAUNCH CUD HALP. VRY OFTEN IZ NOT NEEDD AN DOESNT HAS 2 BE DUN, AS DAT LIST IZ AUTOMATICALLY REFRESHD ON FURST LAUNCH, AS WELL AS WHEN TEH CONNECSHUN IZ ESTABLISHD - WERE JUS MENSHUNIN IT AS WAI 2 PURGE ANYTHIN RELATD 2 LIST OV STEAM SERVERS CACHD BY ASF.
 
 * * *
 
-### ASF is failing with `Request failed after 5 tries` errors!
+### `CUD NOT GIT BADGEZ INFORMASHUN, WILL TRY AGAIN LATR!`
 
-Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalCode`.
+USUALLY IT MEANZ DAT URE USIN STEAM PARENTAL PIN 2 ACCES UR AKOWNT, YET U FORGOT 2 PUT IT IN ASF CONFIG. U MUST PUT VALID PIN IN `STEAMPARENTALCODE` BOT CONFIG PROPERTY, OTHERWIZE ASF WILL NOT BE ABLE 2 ACCES MOST OV WEB CONTENT, THEREFORE WILL NOT BE ABLE 2 WERK PROPERLY. HEAD OVAR 2 **[CONFIGURASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US)** IN ORDR 2 LERN MOAR BOUT `STEAMPARENTALCODE`.
 
-If parental PIN is not the reason, then this is a most common error, and you should get used to that, it simply means that ASF sent a request to Steam Network, and didn't get a valid response, 5 times in a row. Usually it means that Steam is either down or is having some difficulties or maintenance - ASF is aware of such issues and you should not worry about them, unless they're happening constantly for longer than several hours, and other users do not have such problems.
+OTHR REASONS INCLUDE TEMPORARY STEAM PROBLEM, NETWORK ISSUE OR LIKEWIZE. IF ISSUE WONT SOLVE ITSELF AFTR SEVERAL HOURS AN URE SURE DAT U CONFIGURD ASF APPROPRIATELY, FEELZ FREE 2 LET US KNOE BOUT DAT.
 
-How to check if Steam is being down? **[Steam Status](https://steamstat.us)** is an excellent source of checking if Steam **should be** up, if you notice errors, especially related to Community or Web API, then Steam is having difficulties. You may want to leave ASF alone and let it do its job after a short while of downtime, or quit it and wait yourself.
+* * *
 
-That's however not always the case, as in some situations Steam issues may not be detected by Steam Status, for example such case happened when Valve broke HTTPS support for Steam Community 7th June 2016 - accessing **[SteamCommunity](https://steamcommunity.com)** through HTTPS was throwing an error. Therefore, do not blindly trust Steam Status either, it's best to check yourself if everything works as supposed to.
+### ASF IZ FAILIN WIF `REQUEST FAILD AFTR 5 TRIEZ` ERRORS!
 
-In addition to that, Steam includes various rate-limiting measures which will temporarily ban your IP if you make excessive number of requests at once. ASF is aware of that and offers you several different limiters in the config, which you should make use of. Default settings were tweaked based on **sane** amount of bots, if you're using so huge amount that even Steam is telling you to go away, then you either tweak them until it no longer tells you to, or you do as you're told. I assume second way is not an option to you, so go read on that topic and pay special attention to `WebLimiterDelay` which is a general limiter that applies to all web requests.
+USUALLY IT MEANZ DAT URE USIN STEAM PARENTAL PIN 2 ACCES UR AKOWNT, YET U FORGOT 2 PUT IT IN ASF CONFIG. U MUST PUT VALID PIN IN `STEAMPARENTALCODE` BOT CONFIG PROPERTY, OTHERWIZE ASF WILL NOT BE ABLE 2 ACCES MOST OV WEB CONTENT, THEREFORE WILL NOT BE ABLE 2 WERK PROPERLY. HEAD OVAR 2 **[CONFIGURASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US)** IN ORDR 2 LERN MOAR BOUT `STEAMPARENTALCODE`.
 
-There is no "golden rule" that works for everybody, because blocks are heavily influenced by third-party factors, that's why you have to experiment yourself and find a value that works for you. You can also ignore what I say and use something like `10000` which is guaranteed to work correctly, but then don't complain how your ASF reacts to everything in 10 seconds and how badge parsing takes 5 minutes. In addition to that, it's entirely possible that no limiter will do anything because you have so huge amount of bots that you're hitting **[hard limit](#how-many-bots-can-i-run-with-asf)** that was mentioned above. Yes, it's entirely possible that you'll be able to log in without issues into Steam network (client), but Steam web (website) will refuse to listen to you if you have 100 sessions established at once. ASF requires both Steam network and Steam web to be cooperative, it takes just one down to make you issues you won't recover from.
+IF PARENTAL PIN IZ NOT TEH REASON, DEN DIS AR TEH MOST COMMON ERROR, AN U SHUD GIT USD 2 DAT, IT SIMPLY MEANZ DAT ASF SENT REQUEST 2 STEAM NETWORK, AN DIDNT GIT VALID RESPONSE, 5 TIEMS IN ROW. USUALLY IT MEANZ DAT STEAM IZ EITHR DOWN OR IZ HAVIN SUM DIFFICULTIEZ OR MAINTENANCE - ASF IZ AWARE OV SUCH ISSUEZ AN U SHUD NOT WORRY BOUT THEM, UNLES THEYRE HAPPENIN CONSTANTLY 4 LONGR THAN SEVERAL HOURS, AN OTHR USERS DO NOT HAS SUCH PROBLEMS.
 
-If nothing helps and you have no clue what is broken, you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. For example:
+HOW 2 CHECK IF STEAM IZ BEAN DOWN? **[STEAM STATUS](https://steamstat.us)** IZ AN AWSUM SOURCE OV CHECKIN IF STEAM **SHUD BE** UP, IF U NOTICE ERRORS, ESPECIALLY RELATD 2 COMMUNITY OR WEB API, DEN STEAM IZ HAVIN DIFFICULTIEZ. U CUD WANTS 2 LEEF ASF ALONE AN LET IT DO ITZ JOB AFTR SHORT WHILE OV DOWNTIME, OR QUIT IT AN WAIT YOURSELF.
+
+THAZ HOWEVR NOT ALWAYS TEH CASE, AS IN SUM SITUASHUNS STEAM ISSUEZ CUD NOT BE DETECTD BY STEAM STATUS, 4 EXAMPLE SUCH CASE HAPPEND WHEN VALVE BROKE HTTPS SUPPORT 4 STEAM COMMUNITY 7TH JUNE 2016 - ACCESIN **[STEAMCOMMUNITY](https://steamcommunity.com)** THRU HTTPS WUZ THROWIN AN ERROR. THEREFORE, DO NOT BLINDLY TRUST STEAM STATUS EITHR, IZ BEST 2 CHECK YOURSELF IF EVRYTHIN WERKZ AS SUPPOSD 2.
+
+IN ADDISHUN 2 DAT, STEAM INCLUDEZ VARIOUS RATE-LIMITIN MEASUREZ WHICH WILL TEMPORARILY BAN UR IP IF U MAK EXCESIV NUMBR OV REQUESTS AT ONCE. ASF IZ AWARE OV DAT AN OFFERS U SEVERAL DIFFERENT LIMITERS IN DA CONFIG, WHICH U SHUD MAK USE OV. DEFAULT SETTINGS WUZ TWEAKD BASD ON **SANE** AMOUNT OV BOTS, IF URE USIN SO HUGE AMOUNT DAT EVEN STEAM IZ TELLIN U 2 GO AWAY, DEN U EITHR TWEAK THEM TIL IT NO LONGR TELLS U 2, OR U DO AS URE TOLD. I ASSUME SECOND WAI IZ NOT AN OPSHUN 2 U, SO GO READ ON DAT TOPIC AN PAI SPESHUL ATTENSHUN 2 `WEBLIMITERDELAY` WHICH IZ GENERAL LIMITR DAT APPLIEZ 2 ALL WEB REQUESTS.
+
+THAR IZ NO "GOLDEN RULE" DAT WERKZ 4 EVRYBODY, CUZ BLOCKZ R HEAVILY INFLUENCD BY THIRD-PARTY FACTORS, THAZ Y U HAS 2 EXPERIMENT YOURSELF AN FIND VALUE DAT WERKZ 4 U. U CAN ALSO IGNORE WUT I SAY AN USE SOMETHIN LIEK `10000` WHICH IZ GUARANTED 2 WERK RITE, BUT DEN DOAN COMPLAIN HOW UR ASF REACTS 2 EVRYTHIN IN 10 SECONDZ AN HOW BADGE PARSIN TAKEZ 5 MINUTEZ. IN ADDISHUN 2 DAT, IZ ENTIRELY POSIBLE DAT NO LIMITR WILL DO ANYTHIN CUZ U HAS SO HUGE AMOUNT OV BOTS DAT URE HITTIN **[HARD LIMIT](#how-lotz-da-bots-i-can-run-wif-asf)** DAT WUZ MENSHUND ABOOV. YEZ, IZ ENTIRELY POSIBLE DAT ULL BE ABLE 2 LOG IN WITHOUT ISSUEZ INTO STEAM NETWORK (CLIENT), BUT STEAM WEB (WEBSIET) WILL REFUSE 2 LISTEN 2 U IF U HAS 100 SESHUNS ESTABLISHD AT ONCE. ASF REQUIREZ BOTH STEAM NETWORK AN STEAM WEB 2 BE COOPERATIV, IT TAKEZ JUS WAN DOWN 2 MAK U ISSUEZ U WONT RECOVR FRUM.
+
+IF NOTHIN HELPS AN U HAS NO CLUE WUT IZ BROKD, U CAN ALWAYS ENABLE `DEBUG` MODE AN C YOURSELF IN ASF LOG Y EGSAKTLY REQUESTS R FAILIN. 4 EXAMPLE:
 
 ```text
-InternalRequest() HEAD https://steamcommunity.com/my/edit/settings
-InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
+INTERNALREQUEST() HEAD HTTPS://STEAMCOMMUNITY.COM/MAH/EDIT/SETTINGS
+INTERNALREQUEST() FORBIDDEN <- HEAD HTTPS://STEAMCOMMUNITY.COM/MAH/EDIT/SETTINGS
 ```
 
-See that `Forbidden` code? This means that you got temporarily banned for excessive amount of requests, because you didn't tweak `WebLimiterDelay` properly yet (assuming you get the same error code for all other requests as well). There could be other reasons listed there, such as `InternalServerError`, `ServiceUnavailable` and timeouts that indicate Steam maintenance/issues. You can always try to visit the link mentioned by ASF yourself and check if it works - if it doesn't, then you know why ASF can't access that either. If it does, and the same error doesn't go away after a day or two, it may be worth investigating and reporting.
+C DAT `FORBIDDEN` CODE? DIS MEANZ DAT U GOT TEMPORARILY BANND 4 EXCESIV AMOUNT OV REQUESTS, CUZ U DIDNT TWEAK `WEBLIMITERDELAY` PROPERLY YET (ASSUMIN U GIT TEH SAME ERROR CODE 4 ALL OTHR REQUESTS AS WELL). THAR CUD BE OTHR REASONS LISTD THAR, SUCH AS `INTERNALSERVERERROR`, `SERVICEUNAVAILABLE` AN TIEMOUTS DAT INDICATE STEAM MAINTENANCE/ISSUEZ. U CAN ALWAYS TRY 2 VISIT TEH LINK MENSHUND BY ASF YOURSELF AN CHECK IF IT WERKZ - IF IT DOESNT, DEN U KNOE Y ASF CANT ACCES DAT EITHR. IF IT DOEZ, AN TEH SAME ERROR DOESNT GO AWAY AFTR DAI OR 2, IT CUD BE WORTH INVESTIGATIN AN REPORTIN.
 
-Before doing that you should **make sure that the error is worth reporting in the first place**. If it's mentioned in this FAQ, such as trading-related issue, then that's out. If it's temporary issue that happened once or twice, especially when your network was unstable or Steam was down - that's out. However, if you were able to reproduce your issue several times in a row, across 2 days, restarted ASF as well as your machine in the process and made sure that there is no FAQ entry here to help resolve it, then this may be worth asking about.
-
-* * *
-
-### ASF seems to freeze and doesn't print anything on the console until I press a key!
-
-You're most likely using Windows and your console has QuickEdit mode enabled. Refer to **[this](https://stackoverflow.com/questions/30418886/how-and-why-does-quickedit-mode-in-command-prompt-freeze-applications)** question on StackOverflow for technical explanation. You should disable QuickEdit mode by right clicking your ASF console window, opening properties, and unchecking appropriate checkbox.
+BEFORE DOIN DAT U SHUD **MAK SURE DAT TEH ERROR IZ WORTH REPORTIN IN DA FURST PLACE**. IF IZ MENSHUND IN DIS FAQ, SUCH AS TRADIN-RELATD ISSUE, DEN THAZ OUT. IF IZ TEMPORARY ISSUE DAT HAPPEND ONCE OR TWICE, ESPECIALLY WHEN UR NETWORK WUZ UNSTABLE OR STEAM WUZ DOWN - THAZ OUT. HOWEVR, IF U WUZ ABLE 2 REPRODUCE UR ISSUE SEVERAL TIEMS IN ROW, ACROS 2 DAIS, RESTARTD ASF AS WELL AS UR MACHINE IN DA PROCES AN MADE SURE DAT THAR IZ NO FAQ ENTRY HER 2 HALP RESOLVE IT, DEN DIS CUD BE WORTH ASKIN BOUT.
 
 * * *
 
-### ASF can't accept or send trades!
+### ASF SEEMS 2 FREEZE AN DOESNT PRINT ANYTHIN ON TEH CONSOLE TIL I PRES KEY!
 
-Obvious thing first - new accounts start as limited. Until you unlock account by loading its wallet or spending $5 in the store, ASF can't accept neither send trades using this account. In this case, ASF will state that inventory seems empty, because every card that is in it is non-tradable. It also won't be possible to receive any trade, as that part requires ASF to be able to fetch API key, and API key functionality is disabled for limited accounts. In short - trading is off for all limited accounts, no exceptions.
-
-Next, if you do not use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**, it's possible that ASF in fact accepted/sent trade, but you need to confirm it via your e-mail. Likewise, if you use classic 2FA, you need to confirm the trade via your authenticator. Confirmations are **mandatory** now, so if you don't want to accept them by yourself, consider importing your authenticator into ASF 2FA.
-
-Also notice that you can trade only with your friends, and people with known trade link. If you're trying to initiate *Bot -> Master* trade, such as `loot`, then you need to either have your bot on your friendlist, or your `SteamTradeToken` declared in Bot's config. Make sure that the token is valid - otherwise, you won't be able to send a trade.
-
-Lastly, remember that new devices have 7-days trade lock, so if you've just added your account to ASF, wait at least 7 days - everything should work after that period. That limitation includes **both** accepting **and** sending trades. It does not always trigger, and there are people who can send and accept trades instantly. Majority of the people are affected though, and the lock **will** happen, even if you can send and accept trades through your steam client on the same machine. Just wait patiently, there's nothing you can do to make it faster. Likewise, you may get similar lock for removing/changing various Steam security-related settings, such as 2FA, SteamGuard, password, e-mail and likewise. In general, check if you can send a trade from that account yourself, if yes, very likely it's classic 7-days lock from new device.
-
-And finally, keep in mind that one account can have only 5 pending trades to another one, so ASF will fail to send trades if you have 5 (or more) pending ones from that one bot to accept already. This is rarely a problem, but it's also worth mentioning, especially if you set ASF to auto-send trades, yet you're not using ASF 2FA and forgot to actually confirm them.
-
-If nothing helped, you can always enable `Debug` mode and check yourself why requests are failing. Please note that Steam talks nonsense most of the time, and provided reason may not make any logical sense, or can be even entirely incorrect - if you decide to interpret that reason, make sure you have decent knowledge about Steam and its quirks. It's also quite common to see that issue with no logical reason, and the only suggested solution in this case is to re-add account to ASF (and wait 7 days again). Sometimes this issue also fixes itself *magically*, the same way it breaks. However, usually it's just either 7-days trade lock, temporary steam problem, or both. It's best to give it a few days before manually checking what is wrong, unless you have some urge to debug the real cause (and usually you'll be forced to wait anyway, because error message won't make any sense, neither help you in the slightest).
-
-In any case, ASF can only **try** to send a proper request to Steam in order to accept/send trade. Whether Steam accepts that request, or not, is out of the scope of ASF, and ASF will not magically make it work. There's no bug related to that feature, and there is also nothing to improve, because logic is happening outside of ASF. Therefore, do not ask for fixing stuff that is not broken, and also do not ask why ASF can't accept or send trades - **I don't know, and ASF doesn't know either**. Either deal with it, or fix yourself, if you know better.
+URE MOST LIKELY USIN WINDOWS AN UR CONSOLE HAS QUICKEDIT MODE ENABLD. REFR 2 **[DIS](https://stackoverflow.com/questions/30418886/how-and-why-does-quickedit-mode-in-command-prompt-freeze-applications)** QUESHUN ON STACKOVERFLOW 4 TECHNICAL EXPLANASHUN. U SHUD DISABLE QUICKEDIT MODE BY RITE CLICKIN UR ASF CONSOLE WINDOW, OPENIN PROPERTIEZ, AN UNCHECKIN APPROPRIATE CHECKBOX.
 
 * * *
 
-### Why do I have to put 2FA/SteamGuard code on each login? / *Removed expired login key*
+### ASF CANT ACCEPT OR SEND TRADEZ!
 
-ASF uses login keys (if you kept `UseLoginKeys` enabled) for keeping credentials valid, the same mechanism that Steam uses - 2FA/SteamGuard token is required only once. However, due to Steam network issues and quirks, it's entirely possible that login key is not saved in the network, I've already seen such issues not only with ASF, but with regular steam client as well (a need to input login + password on each run, regardless of "remember me" option).
+OBVIOUS TING FURST - NEW ACCOUNTS START AS LIMITD. TIL U UNLOCK AKOWNT BY LOADIN ITZ WALLET OR SPENDIN $5 IN DA STORE, ASF CANT ACCEPT NEITHR SEND TRADEZ USIN DIS AKOWNT. IN DIS CASE, ASF WILL STATE DAT INVENTORY SEEMS EMPTY, CUZ EVRY CARD DAT IZ IN IT NON-TRADABLE. IT ALSO WONT BE POSIBLE 2 RECEIV ANY TRADE, AS DAT PART REQUIREZ ASF 2 BE ABLE 2 FETCH API KEY, AN API KEY FUNCSHUNALITY IZ DISABLD 4 LIMITD ACCOUNTS. IN SHORT - TRADIN IZ OFF 4 ALL LIMITD ACCOUNTS, NO EXCEPSHUNS.
 
-You could remove `BotName.db` and `BotName.bin` (if available) of affected account and try to link ASF to your account once again, but that doesn't have to succeed. The real ASF-based solution is to import your authenticator as **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** - this way ASF can generate tokens automatically when they're needed, and you don't have to input them manually. Usually the issue magically solves itself after some time, so you can simply wait for that to happen. Of course you can also ask Valve for solution, because I can't force Steam network to accept our login keys.
+NEXT, IF U DO NOT USE **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-lol-US)**, IZ POSIBLE DAT ASF IN FACT ACCEPTD/SENT TRADE, BUT U NED 2 CONFIRM IT VIA UR E-MAIL. LIKEWIZE, IF U USE CLASIC 2FA, U NED 2 CONFIRM TEH TRADE VIA UR AUTHENTICATOR. CONFIRMASHUNS R **MANDATORY** NAO, SO IF U DOAN WANTS 2 ACCEPT THEM BY YOURSELF, CONSIDR IMPORTIN UR AUTHENTICATOR INTO ASF 2FA.
 
-As a side note, you can also turn off login keys with `UseLoginKeys` config property set to `false`, but this will not solve the problem, only skip the initial login key failure. ASF is already aware of the issue explained here and will try its best to not use login keys if it can guarantee itself all login credentials, so there is no need to tweak `UseLoginKeys` manually if you can provide all login details together with using ASF 2FA.
+ALSO NOTICE DAT U CAN TRADE ONLY WIF UR FRENZ, AN PEEPS WIF KNOWN TRADE LINK. IF URE TRYIN 2 INITIATE *BOT -> MASTAH* TRADE, SUCH AS `LOOT`, DEN U NED 2 EITHR HAS UR BOT ON UR FRIENDLIST, OR UR `STEAMTRADETOKEN` DECLARD IN BOTS CONFIG. MAK SURE DAT TEH TOKEN IZ VALID - OTHERWIZE, U WONT BE ABLE 2 SEND TRADE.
 
-* * *
+LASTLY, REMEMBR DAT NEW DEVICEZ HAS 7-DAIS TRADE LOCK, SO IF UVE JUS ADDD UR AKOWNT 2 ASF, WAIT AT LEAST 7 DAIS - EVRYTHIN SHUD WERK AFTR DAT PERIOD. DAT LIMITASHUN INCLUDEZ **BOTH** ACCEPTIN **AN** SENDIN TRADEZ. IT DOEZ NOT ALWAYS TRIGGR, AN THAR R PEEPS HOO CAN SEND AN ACCEPT TRADEZ INSTANTLY. MAJORITY OV TEH PEEPS R AFFECTD THOUGH, AN TEH LOCK **WILL** HAPPEN, EVEN IF U CAN SEND AN ACCEPT TRADEZ THRU UR STEAM CLIENT ON TEH SAME MACHINE. JUS WAIT PATIENTLY, THARS NOTHIN U CAN DO 2 MAK IT FASTR. LIKEWIZE, U CUD GIT SIMILAR LOCK 4 REMOVIN/CHANGIN VARIOUS STEAM SECURITY-RELATD SETTINGS, SUCH AS 2FA, STEAMGUARD, PASWORD, E-MAIL AN LIKEWIZE. IN GENERAL, CHECK IF U CAN SEND TRADE FRUM DAT AKOWNT YOURSELF, IF YEZ, VRY LIKELY IZ CLASIC 7-DAIS LOCK FRUM NEW DEVICE.
 
-### I'm getting error: *Unable to login to Steam: `InvalidPassword` or `RateLimitExceeded`*
+AN FINALLY, KEEP IN MIND DAT WAN AKOWNT CAN HAS ONLY 5 PENDIN TRADEZ 2 ANOTHR WAN, SO ASF WILL FAIL 2 SEND TRADEZ IF U HAS 5 (OR MOAR) PENDIN ONEZ FRUM DAT WAN BOT 2 ACCEPT ALREADY. DIS AR TEH RARELY PROBLEM, BUT IZ ALSO WORTH MENSHUNIN, ESPECIALLY IF U SET ASF 2 AUTO-SEND TRADEZ, YET URE NOT USIN ASF 2FA AN FORGOT 2 AKSHULLY CONFIRM THEM.
 
-This error can mean a lot of things, some of them include:
+IF NOTHIN HELPD, U CAN ALWAYS ENABLE `DEBUG` MODE AN CHECK YOURSELF Y REQUESTS R FAILIN. PLZ NOWT DAT STEAM TALKZ NONSENSE MOST OV TEH TIEM, AN PROVIDD REASON CUD NOT MAK ANY LOGICAL SENSE, OR CAN BE EVEN ENTIRELY INCORRECT - IF U DECIDE 2 INTERPRET DAT REASON, MAK SURE U HAS DESENT KNOWLEDGE BOUT STEAM AN ITZ QUIRKZ. IZ ALSO QUITE COMMON 2 C DAT ISSUE WIF NO LOGICAL REASON, AN TEH ONLY SUGGESTD SOLUSHUN IN DIS CASE IZ 2 RE-ADD AKOWNT 2 ASF (AN WAIT 7 DAIS AGAIN). SOMETIMEZ DIS ISSUE ALSO FIXEZ ITSELF *MAGICALLY*, TEH SAME WAI IT BREAKZ. HOWEVR, USUALLY IZ JUS EITHR 7-DAIS TRADE LOCK, TEMPORARY STEAM PROBLEM, OR BOTH. IZ BEST 2 GIV IT FEW DAIS BEFORE MANUALLY CHECKIN WUT IZ WRONG, UNLES U HAS SUM URGE 2 DEBUG TEH REAL CAUSE (AN USUALLY ULL BE FORCD 2 WAIT ANYWAY, CUZ ERROR MESAGE WONT MAK ANY SENSE, NEITHR HALP U IN DA SLIGHTEST).
 
-- Invalid Login/Password combination (obviously)
-- Expired login key used by ASF for logging in
-- Too many failed login attempts in short period of time (anti-bruteforce)
-- Too many login attempts in short period of time (rate-limiting)
-- Requirement of captcha to log in (very likely to be caused by two reasons above)
-- Any other reason Steam Network may have preventing you from logging in.
-
-In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime. If you hit that issue frequently, perhaps it's wise to increase `LoginLimiterDelay` config property of ASF. Excessive program restarts and other intentional/non-intentional login requests definitely won't help with that issue, so try to avoid it if possible.
-
-In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically). This can naturally happen over time, but if you get this issue on each login, it's possible that Steam for some reason decided to ignore our login key save requests, as mentioned in the issue **[above](#why-do-i-have-to-put-2fasteamguard-code-on-each-login--removed-expired-login-key)**. You can of course disable `UseLoginKeys` entirely, but that won't solve the issue, only avoid a need of removing expired login keys each time. The real solution, as per the issue above, is to use ASF 2FA.
-
-And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials. ASF can't guess on its own whether `InvalidPassword` means invalid credentials, or any of the reasons listed above, therefore it'll keep trying until it succeeds.
-
-Keep in mind that ASF has its own built-in system to react accordingly to steam quirks, eventually it will connect and resume its job, therefore it's not required to do anything if the issue is temporary. Restarting ASF in order to magically fix problems will only make things worse (as new ASF won't know previous ASF state of not being able to log in, and try to connect instead of waiting), so avoid doing that unless you know what you're doing.
-
-Finally, as with every Steam request - ASF can only **try** to log in, using your provided credentials. Whether that request will succeed or not is out of the scope and logic of ASF - there is no bug, and nothing can be fixed neither improved in this regard.
+IN ANY CASE, ASF CAN ONLY **TRY** 2 SEND PROPR REQUEST 2 STEAM IN ORDR 2 ACCEPT/SEND TRADE. WHETHR STEAM ACCEPTS DAT REQUEST, OR NOT, IZ OUT OV TEH SCOPE OV ASF, AN ASF WILL NOT MAGICALLY MAK IT WERK. THARS NO BUG RELATD 2 DAT FEACHUR, AN THAR IZ ALSO NOTHIN 2 IMPROOOV, CUZ LOGIC IZ HAPPENIN OUTSIDE OV ASF. THEREFORE, DO NOT ASK 4 FIXIN STUFF DAT IZ NOT BROKD, AN ALSO DO NOT ASK Y ASF CANT ACCEPT OR SEND TRADEZ - **I DOAN KNOE, AN ASF DOESNT KNOE EITHR**. EITHR DEAL WIF IT, OR FIX YOURSELF, IF U KNOE BETTR.
 
 * * *
 
-### `System.IO.IOException: Input/output error`
+### Y DO I HAS 2 PUT 2FA/STEAMGUARD CODE ON EACH LOGIN? / *REMOVD EXPIRD LOGIN KEY*
 
-If this error happened during ASF input (e.g. you can see `Console.ReadLine()` in the stacktrace) then it's caused by your environment which prohibits ASF from reading standard input of your console. That can occur due to a lot of reasons, but the most common one is you running ASF in the wrong environment (e.g. in `nohup` or `&` background instead of `screen` on Linux). If ASF can't access its standard input, then you'll see this error logged and ASF's inability to use your details during runtime.
+ASF USEZ LOGIN KEYS (IF U KEPT `USELOGINKEYS` ENABLD) 4 KEEPIN CREDENTIALS VALID, TEH SAME MECHANISM DAT STEAM USEZ - 2FA/STEAMGUARD TOKEN IZ REQUIRD ONLY ONCE. HOWEVR, DUE 2 STEAM NETWORK ISSUEZ AN QUIRKZ, IZ ENTIRELY POSIBLE DAT LOGIN KEY IZ NOT SAVD IN DA NETWORK, I HAS ALREADY SEEN SUCH ISSUEZ NOT ONLY WIF ASF, BUT WIF REGULAR STEAM CLIENT AS WELL (A NED 2 INPUT LOGIN + PASWORD ON EACH RUN, REGARDLES OV "REMEMBR ME" OPSHUN).
 
-If you **expect** this to happen, so you **intend** to run ASF in input-less environment, then you should explicitly tell ASF that it's the case, by setting **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** mode appropriately. This will tell ASF to never ask for user input under any circumstance, allowing you to run ASF in input-less environments safely.
+U CUD REMOOV `BOTNAME.DB` AN `BOTNAME.BIN` (IF AVAILABLE) OV AFFECTD AKOWNT AN TRY 2 LINK ASF 2 UR AKOWNT ONCE AGAIN, BUT DAT DOESNT HAS 2 SUCCED. TEH REAL ASF-BASD SOLUSHUN IZ 2 IMPORT UR AUTHENTICATOR AS **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-lol-US)** - DIS WAI ASF CAN GENERATE TOKENS AUTOMATICALLY WHEN THEYRE NEEDD, AN U DOAN HAS 2 INPUT THEM MANUALLY. USUALLY TEH ISSUE MAGICALLY SOLVEZ ITSELF AFTR SUM TIEM, SO U CAN SIMPLY WAIT 4 DAT 2 HAPPEN. OV COURSE U CAN ALSO ASK VALVE 4 SOLUSHUN, CUZ I CANT FORCE STEAM NETWORK 2 ACCEPT R LOGIN KEYS.
 
-* * *
-
-### `System.Net.Http.WinHttpException: A security error occurred`
-
-This error happens when ASF can't establish secure connection with given server, almost exclusively because of SSL certificate mistrust.
-
-In almost all cases this error is caused by **wrong date/time on your machine**. Every SSL certificate has issued date and expiry date. If your date is invalid and out of those two bounds then the certificate can't be trusted due to a potential **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** attack and ASF refuses to make a connection.
-
-Obvious solution is to set the date on your machine appropriately. It's highly recommended to use automatic date synchronization, such as native synchronization available on Windows, or `ntpd` on Linux.
-
-If you made sure that the date on your machine is appropriate and the error doesn't want to go away, SSL certificates that your system trusts could be out-of-date or invalid. In this case you should ensure that your machine can establish secure connections, for example by checking if you can access `https://github.com` with any browser of your choice, or CLI tool such as `curl`. If you confirmed that this works properly, feel free to post issue on our Steam group.
+AS SIDE NOWT, U CAN ALSO TURN OFF LOGIN KEYS WIF `USELOGINKEYS` CONFIG PROPERTY SET 2 `FALSE`, BUT DIS WILL NOT SOLVE TEH PROBLEM, ONLY SKIP TEH INITIAL LOGIN KEY FAILURE. ASF IZ ALREADY AWARE OV TEH ISSUE EXPLAIND HER AN WILL TRY ITZ BEST 2 NOT USE LOGIN KEYS IF IT CAN GUARANTEE ITSELF ALL LOGIN CREDENTIALS, SO THAR IZ NO NED 2 TWEAK `USELOGINKEYS` MANUALLY IF U CAN PROVIDE ALL LOGIN DETAILS TOGETHR WIF USIN ASF 2FA.
 
 * * *
 
-### `System.Threading.Tasks.TaskCanceledException: A task was canceled`
+### IM GETTIN ERROR: *UNABLE 2 LOGIN 2 STEAM: `INVALIDPASWORD` OR `RATELIMITEXCEEDD`*
 
-This warning means that Steam did not answer to ASF request in given time. Usually it's caused by Steam networking hiccups and does not affect ASF in any way. In other cases it's the same as request failing after 5 tries. Reporting this issue makes no sense most of the time, as we can't force Steam to respond to our requests.
+DIS ERROR CAN MEEN LOT OV THINGS, SUM OV THEM INCLUDE:
+
+- INVALID LOGIN/PASWORD COMBINASHUN (OBVIOUSLY)
+- EXPIRD LOGIN KEY USD BY ASF 4 LOGGIN IN
+- 2 LOTZ DA FAILD LOGIN ATTEMPTS IN SHORT PERIOD OV TIEM (ANTI-BRUTEFORCE)
+- 2 LOTZ DA LOGIN ATTEMPTS IN SHORT PERIOD OV TIEM (RATE-LIMITIN)
+- REQUIREMENT OV CAPTCHA 2 LOG IN (VRY LIKELY 2 BE CAUSD BY 2 REASONS ABOOV)
+- ANY OTHR REASON STEAM NETWORK CUD HAS PREVENTIN U FRUM LOGGIN IN.
+
+IN CASE OV ANTI-BRUTEFORCE AN RATE-LIMITIN, PROBLEM WILL DISAPPEAR AFTR SUM TIEM, SO JUS WAIT AN DOAN ATTEMPT 2 LOG IN IN DA MEANTIME. IF U HIT DAT ISSUE FREQUENTLY, PERHAPS IZ WIZE 2 INCREASE `LOGINLIMITERDELAY` CONFIG PROPERTY OV ASF. EXCESIV PROGRAM RESTARTS AN OTHR INTENSHUNAL/NON-INTENSHUNAL LOGIN REQUESTS DEFINITELY WONT HALP WID DAT ISSUE, SO TRY 2 AVOID IT IF POSIBLE.
+
+IN CASE OV EXPIRD LOGIN KEY - ASF WILL REMOOV OLD WAN AN ASK 4 NEW WAN ON NEXT LOGIN (WHICH WILL REQUIRE FRUM U PUTTIN 2FA TOKEN IF UR AKOWNT IZ 2FA-PROTECTD. IF UR AKOWNT IZ USIN ASF 2FA, TOKEN WILL BE GENERATD AN USD AUTOMATICALLY). DIS CAN NATURALLY HAPPEN OVAR TIEM, BUT IF U GIT DIS ISSUE ON EACH LOGIN, IZ POSIBLE DAT STEAM 4 SUM REASON DECIDD 2 IGNORE R LOGIN KEY SAVE REQUESTS, AS MENSHUND IN DA ISSUE **[ABOOV](#y-do-i-has-2-put-2fasteamguard-code-on-each-login--removd-expird-login-key)**. U CAN OV COURSE DISABLE `USELOGINKEYS` ENTIRELY, BUT DAT WONT SOLVE TEH ISSUE, ONLY AVOID NED OV REMOVIN EXPIRD LOGIN KEYS EACH TIEM. TEH REAL SOLUSHUN, AS PER TEH ISSUE ABOOV, IZ 2 USE ASF 2FA.
+
+AN LASTLY, IF U USD WRONG LOGIN + PASWORD COMBINASHUN, OBVIOUSLY U NED 2 CORRECT DIS, OR DISABLE BOT DAT IZ ATTEMPTIN 2 CONNECT USIN DOSE CREDENTIALS. ASF CANT GUES ON ITZ OWN WHETHR `INVALIDPASWORD` MEANZ INVALID CREDENTIALS, OR ANY OV TEH REASONS LISTD ABOOV, THEREFORE ITLL KEEP TRYIN TIL IT SUCCEEDZ.
+
+KEEP IN MIND DAT ASF HAS ITZ OWN BUILT-IN SISTEM 2 REACT ACCORDINGLY 2 STEAM QUIRKZ, EVENTUALLY IT WILL CONNECT AN RESUME ITZ JOB, THEREFORE IZ NOT REQUIRD 2 DO ANYTHIN IF TEH ISSUE IZ TEMPORARY. RESTARTIN ASF IN ORDR 2 MAGICALLY FIX PROBLEMS WILL ONLY MAK THINGS WORSE (AS NEW ASF WONT KNOE PREVIOUS ASF STATE OV NOT BEAN ABLE 2 LOG IN, AN TRY 2 CONNECT INSTEAD OV WAITIN), SO AVOID DOIN DAT UNLES U KNOE WUT URE DOIN.
+
+FINALLY, AS WIF EVRY STEAM REQUEST - ASF CAN ONLY **TRY** 2 LOG IN, USIN UR PROVIDD CREDENTIALS. WHETHR DAT REQUEST WILL SUCCED OR NOT IZ OUT OV TEH SCOPE AN LOGIC OV ASF - THAR IZ NO BUG, AN NOTHIN CAN BE FIXD NEITHR IMPROOVD IN DIS REGARD.
 
 * * *
 
-### `The type initializer for 'System.Security.Cryptography.CngKeyLite' threw an exception`
+### `SISTEM.IO.IOEXCEPSHUN: INPUT/OUTPUT ERROR`
 
-This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation` Windows service, which provides core cryptography functionality for ASF, without which the program isn't able to run. You can fix this issue by launching `services.msc` and ensuring that `CNG Key Isolation` Windows service doesn't have disabled startup and is currently running.
+IF DIS ERROR HAPPEND DURIN ASF INPUT (E.G. U CAN C `CONSOLE.READLINE()` IN DA STACKTRACE) DEN IZ CAUSD BY UR ENVIRONMENT WHICH PROHIBITS ASF FRUM READIN STANDARD INPUT OV UR CONSOLE. DAT CAN OCCUR DUE 2 LOT OV REASONS, BUT TEH MOST COMMON WAN IZ U RUNNIN ASF IN DA WRONG ENVIRONMENT (E.G. IN `NOHUP` OR `&` BAKGROUND INSTEAD OV `SCREEN` ON LINUX). IF ASF CANT ACCES ITZ STANDARD INPUT, DEN ULL C DIS ERROR LOGGD AN ASFS INABILITY 2 USE UR DETAILS DURIN RUNTIME.
+
+IF U **EXPECT** DIS 2 HAPPEN, SO U **INTEND** 2 RUN ASF IN INPUT-LES ENVIRONMENT, DEN U SHUD EXPLICITLY TELL ASF DAT IZ TEH CASE, BY SETTIN **[`HEADLES`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#headles)** MODE APPROPRIATELY. DIS WILL TELL ASF 2 NEVR ASK 4 USR INPUT UNDR ANY CIRCUMSTANCE, ALLOWIN U 2 RUN ASF IN INPUT-LES ENVIRONMENTS SAFELY.
 
 * * *
 
-### ASF is being detected as a malware by my AntiVirus! What's going on?
+### `SISTEM.NET.HTTP.WINHTTPEXCEPSHUN: SECURITY ERROR OCCURRD`
 
-**Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and can contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
+DIS ERROR HAPPENS WHEN ASF CANT ESTABLISH SECURE CONNECSHUN WIF GIVEN SERVR, ALMOST EXCLUSIVELY CUZ OV SSL CERTIFICATE MISTRUST.
 
-If you confirmed that ASF is downloaded from trusted source, then very likely it's simply a false positive. This **happened in the past**, **is happening right now**, and **will happen in the future**. If you're worried about actual safety when using ASF, then I suggest scanning ASF with many different AVs for actual detection ratio, for example through **[VirusTotal](https://www.virustotal.com)** (or any other web service of your choice like this).
+IN ALMOST ALL CASEZ DIS ERROR IZ CAUSD BY **WRONG DATE/TIEM ON UR MACHINE**. EVRY SSL CERTIFICATE HAS ISSUD DATE AN EXPIRY DATE. IF UR DATE IZ INVALID AN OUT OV DOSE 2 BOUNDZ DEN TEH CERTIFICATE CANT BE TRUSTD DUE 2 POTENTIAL **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** ATTACK AN ASF REFUSEZ 2 MAK CONNECSHUN.
 
-If the AV that you're using falsely detects ASF as a malware, then **it's a good idea to send this file sample back to developers of your AV, so they can analyze it and improve their detection engine**, as clearly it's not working as good as you think it does. There is no issue in ASF code, and there is also nothing to fix for us, since we're not distributing malware in the first place, therefore it doesn't make any sense to report those false-positives to us. We highly recommend to send ASF sample for further analysis like stated above, but if you don't want to bother with it, then you can always add ASF to some kind of AV exceptions, disable your AV or simply use another one. Sadly, we're used to AVs being stupid, as every once in a while some AV detects ASF as a virus, which usually lasts very short and is being patched up quickly by the devs, but like we pointed out above - **it happened**, **happens** and **will happen** all the time. ASF doesn't include any malicious code, you can review ASF code and even compile from source yourself. We're not hackers to obfuscate ASF code in order to hide from AV heuristics and false positives, so do not expect from us to fix what is not broken - there is no "virus" for us to fix.
+OBVIOUS SOLUSHUN IZ 2 SET TEH DATE ON UR MACHINE APPROPRIATELY. IZ HIGHLY RECOMMENDD 2 USE AUTOMATIC DATE SYNCHRONIZASHUN, SUCH AS NATIV SYNCHRONIZASHUN AVAILABLE ON WINDOWS, OR `NTPD` ON LINUX.
+
+IF U MADE SURE DAT TEH DATE ON UR MACHINE IZ APPROPRIATE AN TEH ERROR DOESNT WANTS 2 GO AWAY, SSL CERTIFICATEZ DAT UR SISTEM TRUSTS CUD BE OUT-OV-DATE OR INVALID. IN DIS CASE U SHUD ENSURE DAT UR MACHINE CAN ESTABLISH SECURE CONNECSHUNS, 4 EXAMPLE BY CHECKIN IF U CAN ACCES `HTTPS://GITHUB.COM` WIF ANY BROWSR OV UR CHOICE, OR CLI TOOL SUCH AS `CURL`. IF U CONFIRMD DAT DIS WERKZ PROPERLY, FEELZ FREE 2 POST ISSUE ON R STEAM GROUP.
+
+* * *
+
+### `SISTEM.THREADIN.TASKZ.TASKCANCELEDEXCEPSHUN: TASK WUZ CANCELD`
+
+DIS WARNIN MEANZ DAT STEAM DID NOT ANZWR 2 ASF REQUEST IN GIVEN TIEM. USUALLY IZ CAUSD BY STEAM NETWORKIN HICCUPS AN DOEZ NOT AFFECT ASF IN ANY WAI. IN OTHR CASEZ IZ TEH SAME AS REQUEST FAILIN AFTR 5 TRIEZ. REPORTIN DIS ISSUE MAKEZ NO SENSE MOST OV TEH TIEM, AS WE CANT FORCE STEAM 2 RESPOND 2 R REQUESTS.
+
+* * *
+
+### `TEH TYPE INITIALIZR 4 SISTEM.SECURITY.CRYPTOGRAFY.CNGKEYLITE THREW AN EXCEPSHUN`
+
+DIS PROBLEM IZ ALMOST EXCLUSIVELY CAUSD BY DISABLD/STOPPD `CNG KEY ISOLASHUN` WINDOWS SERVICE, WHICH PROVIDEZ CORE CRYPTOGRAFY FUNCSHUNALITY 4 ASF, WITHOUT WHICH TEH PROGRAM ISNT ABLE 2 RUN. U CAN FIX DIS ISSUE BY LAUNCHIN `SERVICEZ.MSC` AN ENSURIN DAT `CNG KEY ISOLASHUN` WINDOWS SERVICE DOESNT HAS DISABLD STARTUP AN IZ CURRENTLY RUNNIN.
+
+* * *
+
+### ASF IZ BEAN DETECTD AS MALWARE BY MAH ANTIVIRUS! WUTS GOIN ON?
+
+**ENSURE DAT U DOWNLOADD ASF FRUM TRUSTD SOURCE**. TEH ONLY OFFISHUL AN TRUSTD SOURCE IZ **[ASF RELEASEZ](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** PAEG ON GITHUB (AN DIS AR TEH ALSO TEH SOURCE 4 ASF AUTO-UPDATEZ) - **ANY OTHR SOURCE IZ UNTRUSTD BY DEFINISHUN AN CAN CONTAIN MALWARE ADDD BY OTHR PEEPS** - U SHUD NOT TRUST ANY OTHR DOWNLOAD LOCASHUN BY DEFINISHUN, AN ENSURE DAT UR ASF ALWAYS COMEZ FRUM US.
+
+IF U CONFIRMD DAT ASF IZ DOWNLOADD FRUM TRUSTD SOURCE, DEN VRY LIKELY IZ SIMPLY FALSE POSITIV. DIS **HAPPEND IN DA PAST**, **IZ HAPPENIN RITE NAO**, AN **WILL HAPPEN IN DA FUCHUR**. IF URE WORRID BOUT AKSHUL SAFETY WHEN USIN ASF, DEN I SUGGEST SCANNIN ASF WIF LOTZ DA DIFFERENT AVS 4 AKSHUL DETECSHUN RATIO, 4 EXAMPLE THRU **[VIRUSTOTAL](https://www.virustotal.com)** (OR ANY OTHR WEB SERVICE OV UR CHOICE LIEK DIS).
+
+IF TEH AV DAT URE USIN FALSELY DETECTS ASF AS MALWARE, DEN **IT BE GUD IDEA 2 SEND DIS FILE SAMPLE BAK 2 DEVELOPERS OV UR AV, SO THEY CAN ANALYZE IT AN IMPROOOV THEIR DETECSHUN ENGINE**, AS CLEARLY IZ NOT WERKIN AS GUD AS U FINKZ IT DOEZ. THAR IZ NO ISSUE IN ASF CODE, AN THAR IZ ALSO NOTHIN 2 FIX 4 US, SINCE WERE NOT DISTRIBUTIN MALWARE IN DA FURST PLACE, THEREFORE IT DOESNT MAK ANY SENSE 2 REPORT DOSE FALSE-POSITIVEZ 2 US. WE HIGHLY RECOMMEND 2 SEND ASF SAMPLE 4 FURTHR ANALYSIS LIEK STATD ABOOV, BUT IF U DOAN WANTS 2 BOTHR WIF IT, DEN U CAN ALWAYS ADD ASF 2 SUM KIND OV AV EXCEPSHUNS, DISABLE UR AV OR SIMPLY USE ANOTHR WAN. SADLY, WERE USD 2 AVS BEAN STOOPID, AS EVRY ONCE IN WHILE SUM AV DETECTS ASF AS VIRUS, WHICH USUALLY LASTS VRY SHORT AN IZ BEAN PATCHD UP QUICKLY BY TEH DEVS, BUT LIEK WE POINTD OUT ABOOV - **IT HAPPEND**, **HAPPENS** AN **WILL HAPPEN** ALL TEH TIEM. ASF DOESNT INCLUDE ANY MALISHUS CODE, U CAN REVIEW ASF CODE AN EVEN COMPILE FRUM SOURCE YOURSELF. WERE NOT HACKERS 2 OBFUSCATE ASF CODE IN ORDR 2 HIDE FRUM AV HEURISTICS AN FALSE POSITIVEZ, SO DO NOT EXPECT FRUM US 2 FIX WUT IZ NOT BROKD - THAR IZ NO "VIRUS" 4 US 2 FIX.

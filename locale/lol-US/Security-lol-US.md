@@ -1,97 +1,97 @@
-# Security
+# SECURITY
 
-## Encryption
+## ENCRYPSHUN
 
-ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
+ASF CURRENTLY SUPPORTS TEH FOLLOWIN ENCRYPSHUN METHODZ AS DEFINISHUN OV `ECRYPTOMETHOD`:
 
-| VALUE | Name                        |
-| ----- | --------------------------- |
-| 0     | PlainText                   |
-| 1     | AES                         |
-| 2     | ProtectedDataForCurrentUser |
+| VALUE | NAYM                       |
+| ----- | -------------------------- |
+| 0     | PLAINTEXT                  |
+| 1     | AEZ                        |
+| 2     | PROTECTEDDATAFORCURRENTUSR |
 
-The exact description and comparison of them is available below.
+TEH EGSAKT DESCRIPSHUN AN COMPARISON OV THEM IZ AVAILABLE BELOW.
 
-In order to generate encrypted password, e.g. for `SteamPassword` usage, you should execute `encrypt` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate encryption that you chose and your original plain-text password. Afterwards, put the encrypted string that you've got as `SteamPassword` bot config property, and finally change `PasswordFormat` to the one that matches your chosen encryption method.
-
-* * *
-
-### PlainText
-
-This is the most simple and insecure way of storing a password, defined as `ECryptoMethod` of `0`. ASF expects the string to be a plain text - a password in its direct form. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+IN ORDR 2 GENERATE ENCRYPTD PASWORD, E.G. 4 `STEAMPASWORD` USAGE, U SHUD EXECUTE `ENCRYPT` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)** WIF TEH APPROPRIATE ENCRYPSHUN DAT U CHOSE AN UR ORIGINAL PLAIN-TEXT PASWORD. AFTERWARDZ, PUT TEH ENCRYPTD STRIN DAT UVE GOT AS `STEAMPASWORD` BOT CONFIG PROPERTY, AN FINALLY CHANGE `PASWORDFORMAT` 2 TEH WAN DAT MATCHEZ UR CHOSEN ENCRYPSHUN METHOD.
 
 * * *
 
-### AES
+### PLAINTEXT
 
-Considered secure by today standards, **[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** way of storing the password is defined as `ECryptoMethod` of `1`. ASF expects the string to be a **[base64-encoded](https://en.wikipedia.org/wiki/Base64)** sequence of characters resulting in AES-encrypted byte array after translation, which then should be decrypted using included **[initialization vector](https://en.wikipedia.org/wiki/Initialization_vector)** and ASF encryption key.
-
-The method above guarantees security as long as attacker doesn't know built-in ASF encryption key which is being used for decryption as well as encryption of passwords. ASF allows you to specify key via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning anybody can reverse the ASF encryption and get decrypted password. It still requires some effort and is not that easy to do, but possible, that's why you should almost always use `AES` encryption with your own `--cryptkey` which is kept in secret. AES method used in ASF provides security that should be satisfying and it's a balance between simplicity of `PlainText` and complexity of `ProtectedDataForCurrentUser`, but it's highly recommended to use it with custom `--cryptkey`. If used properly, guarantees decent security for safe storage.
+DIS AR TEH TEH MOST SIMPLE AN INSECURE WAI OV STORIN PASWORD, DEFIND AS `ECRYPTOMETHOD` OV `0`. ASF EXPEX TEH STRIN 2 BE PLAIN TEXT - PASWORD IN ITZ DIRECT FORM. IZ TEH EASIEST WAN 2 USE, AN 100% COMPATIBLE WIF ALL TEH SETUPS, THEREFORE IT BE DEFAULT WAI OV STORIN SECRETS, TOTALLY INSECURE 4 SAFE STORAGE.
 
 * * *
 
-### ProtectedDataForCurrentUser
+### AEZ
 
-Currently the most secure way of encrypting the password that ASF offers, and much safer than `AES` method explained above, is defined as `ECryptoMethod` of `2`. The major advantage of this method is at the same time the major disadvantage - instead of using encryption key (like in `AES`), data is encrypted using login credentials of currently logged in user, which means that it's possible to decrypt the data **only** on the machine it was encrypted on, and in addition to that, **only** by the user who issued the encryption. This ensures that even if you send your entire `Bot.json` with encrypted `SteamPassword` using this method to somebody else, he will not be able to decrypt the password without direct access to your PC. This is excellent security measure, but at the same time has a major disadvantage of being least compatible, as the password encrypted using this method will be incompatible with any other user as well as machine - including **your own** if you decide to e.g. reinstall your operating system. Still, it's one of the best methods of storing passwords, and if you're worried about security of `PlainText`, and don't want to put password each time, then this is your best bet as long as you don't have to access your configs from any other machine than your own.
+CONSIDERD SECURE BY TODAI STANDARDZ, **[AEZ](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** WAI OV STORIN TEH PASWORD IZ DEFIND AS `ECRYPTOMETHOD` OV `1`. ASF EXPEX TEH STRIN 2 BE **[BASE64-ENCODD](https://en.wikipedia.org/wiki/Base64)** SEQUENCE OV CHARACTERS RESULTIN IN AEZ-ENCRYPTD BYTE ARRAY AFTR TRANZLASHUN, WHICH DEN SHUD BE DECRYPTD USIN INCLUDD **[INITIALIZASHUN VECTOR](https://en.wikipedia.org/wiki/Initialization_vector)** AN ASF ENCRYPSHUN KEY.
 
-**Please note that this option is available only for machines running Windows OS as of now.**
-
-* * *
-
-## Recommendation
-
-If compatibility is not an issue for you, and you're fine with the way how `ProtectedDataForCurrentUser` method works, it is the **recommended** option of storing the password in ASF, as it provides the best security. `AES` method is a good choice for people who still want to make use of their configs on any machine they want, while `PlainText` is the most simple way of storing the password, if you don't mind that anybody can look into JSON configuration file for it.
-
-Please keep in mind that all of those 3 methods are considered **insecure** if attacker has access to your PC. ASF must be able to decrypt the encrypted passwords, and if the program running on your machine is capable of doing that, then any other program running on the same machine will be capable of doing so, too. `ProtectedDataForCurrentUser` is the most secure variant as **even other user using the same PC will not be able to decrypt it**, but it's still possible to decrypt the data if somebody is able to steal your login credentials and machine info in addition to ASF config file.
-
-In addition to encryption methods specified above, it's possible to also avoid specifying passwords entirely, for example as `SteamPassword` by using an empty string or `null` value. ASF will ask you for your password when it's required, and won't save it anywhere but keep in memory of currently running process, until you close it. While being the most secure method of dealing with passwords (they're not saved anywhere), it's also the most troublesome as you need to enter your password manually on each ASF run (when it's required). If that's not a problem for you, this is your best bet security-wise.
+TEH METHOD ABOOV GUARANTEEZ SECURITY AS LONG AS ATTACKR DOESNT KNOE BUILT-IN ASF ENCRYPSHUN KEY WHICH IZ BEAN USD 4 DECRYPSHUN AS WELL AS ENCRYPSHUN OV PASWORDZ. ASF ALLOWS U 2 SPECIFY KEY VIA `--CRYPTKEY` **[COMMAND-LINE ARGUMENT](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-lol-US)**, WHICH U SHUD USE 4 MAXIMUM SECURITY. IF U DECIDE 2 OMIT IT, ASF WILL USE ITZ OWN KEY WHICH IZ **KNOWN** AN HARDCODD INTO TEH APPLICASHUN, MEANIN ANYBODY CAN REVERSE TEH ASF ENCRYPSHUN AN GIT DECRYPTD PASWORD. IT STILL REQUIREZ SUM EFFORT AN IZ NOT DAT EASY 2 DO, BUT POSIBLE, THAZ Y U SHUD ALMOST ALWAYS USE `AEZ` ENCRYPSHUN WIF UR OWN `--CRYPTKEY` WHICH IZ KEPT IN SEEKRET. AEZ METHOD USD IN ASF PROVIDEZ SECURITY DAT SHUD BE SATISFYIN AN IT BE BALANCE TWEEN SIMPLICITY OV `PLAINTEXT` AN COMPLEXITY OV `PROTECTEDDATAFORCURRENTUSR`, BUT IZ HIGHLY RECOMMENDD 2 USE IT WIF CUSTOM `--CRYPTKEY`. IF USD PROPERLY, GUARANTEEZ DESENT SECURITY 4 SAFE STORAGE.
 
 * * *
 
-## Decryption
+### PROTECTEDDATAFORCURRENTUSR
 
-ASF doesn't support any way of decrypting already encrypted passwords, as decryption methods are used only internally for accessing the data inside the process. If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply repeat the procedure from beginning in the new environment.
+IF USD PROPACURRENTLY TEH MOST SECURE WAI OV ENCRYPTIN TEH PASWORD DAT ASF OFFERS, AN MUTCH SAFR THAN `AEZ` METHOD EXPLAIND ABOOV, IZ DEFIND AS `ECRYPTOMETHOD` OV `2`.ERLY, GUARANTEEZ DESENT SECURITY 4 SAFE STORAGE. TEH MAJOR ADVANTAGE OV DIS METHOD IZ AT TEH SAME TIEM TEH MAJOR DISADVANTAGE - INSTEAD OV USIN ENCRYPSHUN KEY (LIEK IN `AEZ`), DATA IZ ENCRYPTD USIN LOGIN CREDENTIALS OV CURRENTLY LOGGD IN USR, WHICH MEANZ DAT IZ POSIBLE 2 DECRYPT TEH DATA **ONLY** ON TEH MACHINE IT WUZ ENCRYPTD ON, AN IN ADDISHUN 2 DAT, **ONLY** BY TEH USR HOO ISSUD TEH ENCRYPSHUN. DIS ENSUREZ DAT EVEN IF U SEND UR ENTIRE `BOT.JSON` WIF ENCRYPTD `STEAMPASWORD` USIN DIS METHOD 2 SOMEBODY ELSE, HE WILL NOT BE ABLE 2 DECRYPT TEH PASWORD WITHOUT DIRECT ACCES 2 UR PC. DIS AR TEH AWSUM SECURITY MEASURE, BUT AT TEH SAME TIEM HAS MAJOR DISADVANTAGE OV BEAN LEAST COMPATIBLE, AS TEH PASWORD ENCRYPTD USIN DIS METHOD WILL BE INCOMPATIBLE WIF ANY OTHR USR AS WELL AS MACHINE - INCLUDIN **UR OWN** IF U DECIDE 2 E.G. REINSTALL UR OPERATIN SISTEM. STILL, IZ WAN OV TEH BEST METHODZ OV STORIN PASWORDZ, AN IF URE WORRID BOUT SECURITY OV `PLAINTEXT`, AN DOAN WANTS 2 PUT PASWORD EACH TIEM, DEN DIS AR TEH UR BEST BET AS LONG AS U DOAN HAS 2 ACCES UR CONFIGS FRUM ANY OTHR MACHINE THAN UR OWN.
+
+**PLZ NOWT DAT DIS OPSHUN IZ AVAILABLE ONLY 4 MACHINEZ RUNNIN WINDOWS OS AS OV NAO.**
 
 * * *
 
-## Hashing
+## RECOMMENDASHUN
 
-ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
+IF COMPATIBILITY IZ NOT AN ISSUE 4 U, AN URE FINE WIF TEH WAI HOW `PROTECTEDDATAFORCURRENTUSR` METHOD WERKZ, IT TEH **RECOMMENDD** OPSHUN OV STORIN TEH PASWORD IN ASF, AS IT PROVIDEZ TEH BEST SECURITY. `AEZ` METHOD IZ GUD CHOICE 4 PEEPS HOO STILL WANTS 2 MAK USE OV THEIR CONFIGS ON ANY MACHINE THEY WANTS, WHILE `PLAINTEXT` IZ TEH MOST SIMPLE WAI OV STORIN TEH PASWORD, IF U DOAN MIND DAT ANYBODY CAN LOOK INTO JSON CONFIGURASHUN FILE 4 IT.
 
-| VALUE | Name      |
+PLZ KEEP IN MIND DAT ALL OV DOSE 3 METHODZ R CONSIDERD **INSECURE** IF ATTACKR HAS ACCES 2 UR PC. ASF MUST BE ABLE 2 DECRYPT TEH ENCRYPTD PASWORDZ, AN IF TEH PROGRAM RUNNIN ON UR MACHINE IZ CAPABLE OV DOIN DAT, DEN ANY OTHR PROGRAM RUNNIN ON TEH SAME MACHINE WILL BE CAPABLE OV DOIN SO, 2. `PROTECTEDDATAFORCURRENTUSR` IZ TEH MOST SECURE VARIANT AS **EVEN OTHR USR USIN TEH SAME PC WILL NOT BE ABLE 2 DECRYPT IT**, BUT IZ STILL POSIBLE 2 DECRYPT TEH DATA IF SOMEBODY IZ ABLE 2 STEEL UR LOGIN CREDENTIALS AN MACHINE INFO IN ADDISHUN 2 ASF CONFIG FILE.
+
+IN ADDISHUN 2 ENCRYPSHUN METHODZ SPECIFID ABOOV, IZ POSIBLE 2 ALSO AVOID SPECIFYIN PASWORDZ ENTIRELY, 4 EXAMPLE AS `STEAMPASWORD` BY USIN AN EMPTY STRIN OR `NULL` VALUE. ASF WILL ASK U 4 UR PASWORD WHEN IZ REQUIRD, AN WONT SAVE IT ANYWHERE BUT KEEP IN MEMS OV CURRENTLY RUNNIN PROCES, TIL U CLOSE IT. WHILE BEAN TEH MOST SECURE METHOD OV DEALIN WIF PASWORDZ (THEYRE NOT SAVD ANYWHERE), IZ ALSO TEH MOST TROUBLESOME AS U NED 2 ENTR UR PASWORD MANUALLY ON EACH ASF RUN (WHEN IZ REQUIRD). IF THAZ NOT PROBLEM 4 U, DIS AR TEH UR BEST BET SECURITY-WIZE.
+
+* * *
+
+## DECRYPSHUN
+
+ASF DOESNT SUPPORT ANY WAI OV DECRYPTIN ALREADY ENCRYPTD PASWORDZ, AS DECRYPSHUN METHODZ R USD ONLY INTERNALLY 4 ACCESIN TEH DATA INSIDE TEH PROCES. IF U WANTS 2 REVERT ENCRYPSHUN PROCEDURE E.G. 4 MOVIN ASF 2 OTHR MACHINE WHEN USIN `PROTECTEDDATAFORCURRENTUSR`, DEN SIMPLY REPEAT TEH PROCEDURE FRUM BEGINNIN IN DA NEW ENVIRONMENT.
+
+* * *
+
+## HASHIN
+
+ASF CURRENTLY SUPPORTS TEH FOLLOWIN HASHIN METHODZ AS DEFINISHUN OV `EHASHINGMETHOD`:
+
+| VALUE | NAYM      |
 | ----- | --------- |
-| 0     | PlainText |
-| 1     | SCrypt    |
-| 2     | Pbkdf2    |
+| 0     | PLAINTEXT |
+| 1     | SCRYPT    |
+| 2     | PBKDF2    |
 
-The exact description and comparison of them is available below.
+TEH EGSAKT DESCRIPSHUN AN COMPARISON OV THEM IZ AVAILABLE BELOW.
 
-In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
-
-* * *
-
-### PlainText
-
-This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+IN ORDR 2 GENERATE HASH, E.G. 4 `IPCPASWORD` USAGE, U SHUD EXECUTE `HASH` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)** WIF TEH APPROPRIATE HASHIN METHOD DAT U CHOSE AN UR ORIGINAL PLAIN-TEXT PASWORD. AFTERWARDZ, PUT TEH HASHD STRIN DAT UVE GOT AS `IPCPASWORD` ASF CONFIG PROPERTY, AN FINALLY CHANGE `IPCPASWORDFORMAT` 2 TEH WAN DAT MATCHEZ UR CHOSEN HASHIN METHOD.
 
 * * *
 
-### SCrypt
+### PLAINTEXT
 
-Considered secure by today standards, **[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** way of hashing the password is defined as `EHashingMethod` of `1`. ASF will use the `SCrypt` implementation using `8` blocks, `8192` iterations, `32` hash length and encryption key as a salt to generate the array of bytes. The resulting bytes will then be encoded as **[base64](https://en.wikipedia.org/wiki/Base64)** string.
-
-ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure. If used properly, guarantees decent security for safe storage.
+DIS AR TEH TEH MOST SIMPLE AN INSECURE WAI OV HASHIN PASWORD, DEFIND AS `EHASHINGMETHOD` OV `0`. ASF WILL GENERATE HASH MATCHIN TEH ORIGINAL INPUT. IZ TEH EASIEST WAN 2 USE, AN 100% COMPATIBLE WIF ALL TEH SETUPS, THEREFORE IT BE DEFAULT WAI OV STORIN SECRETS, TOTALLY INSECURE 4 SAFE STORAGE.
 
 * * *
 
-### Pbkdf2
+### SCRYPT
 
-Considered weak by today standards, **[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** way of hashing the password is defined as `EHashingMethod` of `2`. ASF will use the `Pbkdf2` implementation using `10000` iterations, `32` hash length and encryption key as a salt, with `SHA-256` as a hmac algorithm to generate the array of bytes. The resulting bytes will then be encoded as **[base64](https://en.wikipedia.org/wiki/Base64)** string.
+CONSIDERD SECURE BY TODAI STANDARDZ, **[SCRYPT](https://en.wikipedia.org/wiki/Scrypt)** WAI OV HASHIN TEH PASWORD IZ DEFIND AS `EHASHINGMETHOD` OV `1`. ASF WILL USE TEH `SCRYPT` IMPLEMENTASHUN USIN `8` BLOCKZ, `8192` ITERASHUNS, `32` HASH LENGTH AN ENCRYPSHUN KEY AS SALT 2 GENERATE TEH ARRAY OV BYTEZ. TEH RESULTIN BYTEZ WILL DEN BE ENCODD AS **[BASE64](https://en.wikipedia.org/wiki/Base64)** STRIN.
 
-ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure.
+ASF ALLOWS U 2 SPECIFY SALT 4 DIS METHOD VIA `--CRYPTKEY` **[COMMAND-LINE ARGUMENT](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-lol-US)**, WHICH U SHUD USE 4 MAXIMUM SECURITY. IF U DECIDE 2 OMIT IT, ASF WILL USE ITZ OWN KEY WHICH IZ **KNOWN** AN HARDCODD INTO TEH APPLICASHUN, MEANIN HASHIN WILL BE LES SECURE. IF USD PROPERLY, GUARANTEEZ DESENT SECURITY 4 SAFE STORAGE.
 
 * * *
 
-## Recommendation
+### PBKDF2
 
-If you'd like to use a hashing method for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).
+CONSIDERD WEAK BY TODAI STANDARDZ,**[PBKDF2](https://en.wikipedia.org/wiki/PBKDF2)** WAI OV HASHIN TEH PASWORD IZ DEFIND AS `EHASHINGMETHOD` OV `2`. ASF WILL USE TEH `PBKDF2` IMPLEMENTASHUN USIN `10000` ITERASHUNS, `32` HASH LENGTH AN ENCRYPSHUN KEY AS SALT, WIF `SHA-256` AS HMAC ALGORITHM 2 GENERATE TEH ARRAY OV BYTEZ. TEH RESULTIN BYTEZ WILL DEN BE ENCODD AS **[BASE64](https://en.wikipedia.org/wiki/Base64)** STRIN.
+
+ASF ALLOWS U 2 SPECIFY SALT 4 DIS METHOD VIA `--CRYPTKEY` **[COMMAND-LINE ARGUMENT](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-lol-US)**, WHICH U SHUD USE 4 MAXIMUM SECURITY. IF U DECIDE 2 OMIT IT, ASF WILL USE ITZ OWN KEY WHICH IZ **KNOWN** AN HARDCODD INTO TEH APPLICASHUN, MEANIN HASHIN WILL BE LES SECURE.
+
+* * *
+
+## RECOMMENDASHUN
+
+IF UD LIEK 2 USE HASHIN METHOD 4 STORIN SUM SECRETS, SUCH AS `IPCPASWORD`, WE RECOMMEND 2 USE `SCRYPT` WIF CUSTOM SALT, AS IT PROVIDEZ VRY DESENT SECURITY AGAINST BRUTE-FORCIN ATTEMPTS. `PBKDF2` IZ OFFERD ONLY 4 COMPATIBILITY REASONS, MAINLY CUZ WE ALREADY HAS WERKIN (AN NEEDD) IMPLEMENTASHUN OV IT 4 OTHR USE CASEZ ACROS STEAM PLATFORM (E.G. PARENTAL PINS). IZ STILL CONSIDERD SECURE, BUT WEAK COMPARD 2 ALTERNATIVEZ (E.G. `SCRYPT`).

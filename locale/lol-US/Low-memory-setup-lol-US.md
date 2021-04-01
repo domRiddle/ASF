@@ -1,127 +1,127 @@
-# Low-memory setup
+# LOW-MEMS SETUP
 
-This is exact opposite of **[high-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)** and typically you want to follow those tips if you want to decrease ASF's memory usage, for cost of lowering overall performance.
-
-* * *
-
-ASF is extremely lightweight on resources by definition, depending on your usage even 128 MB VPS with Linux is capable of running it, although going that low is not recommended and can lead to various issues. While being light, ASF is not afraid of asking OS for more memory, if such memory is needed for ASF to operate with optimal speed.
-
-ASF as an application tries to be as much optimized and efficient as possible, which also takes in mind resources being used during execution. When it comes to memory, ASF prefers performance over memory consumption, which can result in temporary memory "spikes", that can be noticed e.g. with accounts having 3+ badge pages, as ASF will fetch and parse first page, read from it total number of pages, then launch fetch task for every extra page, which results in concurrent fetching and parsing of remaining pages. That "extra" memory usage (compared to bare minimum for operation) can dramatically speed up execution and overall performance, for the cost of increased memory usage that is needed to do all of those things in parallel. Similar thing is happening to all other general ASF tasks that can be run in parallel, e.g. with parsing active trade offers, ASF can parse all of them at once, as they're all independent of each other. On top of that, ASF (C# runtime) will **not** return unused memory back to OS immediately afterwards, which you can quickly notice in form of ASF process only taking more and more memory, but never giving that memory back to the OS. Some people may already find it questionable, maybe even suspect a memory leak, but don't worry, all of this is to be expected.
-
-ASF is extremely well optimized, and makes use of available resources as much as possible. High memory usage of ASF doesn't mean that ASF actively **uses** that memory and **needs it**. Very often ASF will keep allocated memory as "room" for future actions, because we can drastically improve performance if we don't need to ask OS for every memory chunk that we're about to use. The runtime should automatically release unused ASF memory back to OS when OS will **truly** need it. **[Unused memory is wasted memory](https://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full)**. You run into issues when the memory you **need** is higher than the memory that is available for you, not when ASF keeps some extra allocated with purpose of speeding up functions that will execute in a moment. You run into problems when your Linux kernel is killing ASF process due to OOM (out of memory), not when you see ASF process as top memory consumer in `htop`.
-
-Garbage collector being used in ASF is a very complex mechanism, smart enough to take into account not only ASF itself, but also your OS and other processes. When you have a lot of free memory, ASF will ask for whatever is needed to improve the performance. This can be even as much as 1 GB (with server GC). When your OS memory is close to being full, ASF will automatically release some of it back to the OS to help things settle down, which can result in overall ASF memory usage as low as 50 MB. The difference between 50 MB and 1 GB is huge, but so is the difference between small 512 MB VPS and huge dedicated server with 32 GB. If ASF can guarantee that this memory will come useful, and at the same time nothing else requires it right now, it'll prefer to keep it and automatically optimize itself based on routines that were executed in the past. The GC used in ASF is self-tuning and will achieve better results the longer the process is running.
-
-This is also why ASF process memory varies from setup to setup, as ASF will do its best to use available resources in **as efficient way as possible**, and not in a fixed way like it was done during Windows XP times. The actual (real) memory usage that ASF is using can be verified with `stats` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, and is usually around 4 MB for just a few bots, up to 30 MB if you use stuff like **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** and other advanced features. Keep in mind that memory returned by `stats` command also includes free memory that hasn't been reclaimed by garbage collector yet. Everything else is shared runtime memory (around 40-50 MB) and room for execution (vary). This is also why the same ASF can use as little as 50 MB in low-memory VPS environment, while using even up to 1 GB on your desktop. ASF is actively adapting to your environment and will try to find optimal balance in order to neither put your OS under pressure, nor limit its own performance when you have a lot of unused memory that could be put in use.
+DIS AR TEH EGSAKT OPPOSIET OV **[HIGH-PERFORMANCE SETUP](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-lol-US)** AN TYPICALLY U WANTS 2 FOLLOW DOSE TIPS IF U WANTS 2 DECREASE ASFS MEMS USAGE, 4 COST OV LOWERIN OVERALL PERFORMANCE.
 
 * * *
 
-Of course, there are a lot of ways how you can help point ASF at the right direction in terms of the memory you expect to use. In general if you don't need to do it, it's best to let garbage collector work in peace and do whatever it considers is best. But this is not always possible, for example if your Linux server is also hosting several websites, MySQL database and PHP workers, then you can't really afford ASF shrinking itself when you run close to OOM, as it's usually too late and performance degradation comes sooner. This is usually when you could be interested in further tuning, and therefore reading this page.
+ASF IZ EXTREMELY LIGHTWEIGHT ON RESOURCEZ BY DEFINISHUN, DEPENDIN ON UR USAGE EVEN 128 MB VPS WIF LINUX IZ CAPABLE OV RUNNIN IT, ALTHOUGH GOIN DAT LOW IZ NOT RECOMMENDD AN CAN LEAD 2 VARIOUS ISSUEZ. WHILE BEAN LIGHT, ASF IZ NOT AFRAID OV ASKIN OS 4 MOAR MEMS, IF SUCH MEMS IZ NEEDD 4 ASF 2 OPERATE WIF OPTIMAL SPED.
 
-Below suggestions are divided into a few categories, with varied difficulty.
+ASF AS AN APPLICASHUN TRIEZ 2 BE AS MUTCH OPTIMIZD AN EFFICIENT AS POSIBLE, WHICH ALSO TAKEZ IN MIND RESOURCEZ BEAN USD DURIN EXECUSHUN. WHEN IT COMEZ 2 MEMS, ASF PREFERS PERFORMANCE OVAR MEMS CONSUMPSHUN, WHICH CAN RESULT IN TEMPORARY MEMS "SPIKEZ", DAT CAN BE NOTICD E.G. WIF ACCOUNTS HAVIN 3+ BADGE PAGEZ, AS ASF WILL FETCH AN PARSE FURST PAEG, READ FRUM IT TOTAL NUMBR OV PAGEZ, DEN LAUNCH FETCH TASK 4 EVRY EXTRA PAEG, WHICH RESULTS IN CONCURRENT FETCHIN AN PARSIN OV REMAININ PAGEZ. DAT "EXTRA" MEMS USAGE (COMPARD 2 BARE MINIMUM 4 OPERASHUN) CAN DRAMATICALLY SPED UP EXECUSHUN AN OVERALL PERFORMANCE, 4 DA COST OV INCREASD MEMS USAGE DAT IZ NEEDD 2 DO ALL OV DOSE THINGS IN PARALLEL. SIMILAR TING IZ HAPPENIN 2 ALL OTHR GENERAL ASF TASKZ DAT CAN BE RUN IN PARALLEL, E.G. WIF PARSIN ACTIV TRADE OFFERS, ASF CAN PARSE ALL OV THEM AT ONCE, AS THEYRE ALL INDEPENDENT OV EACH OTHR. ON TOP OV DAT, ASF (C# RUNTIME) WILL **NOT** RETURN UNUSD MEMS BAK 2 OS IMMEDIATELY AFTERWARDZ, WHICH U CAN QUICKLY NOTICE IN FORM OV ASF PROCES ONLY TAKIN MOAR AN MOAR MEMS, BUT NEVR GIVIN DAT MEMS BAK 2 TEH OS. SUM PEEPS CUD ALREADY FIND IT QUESHUNABLE, MAYBE EVEN SUSPECT MEMS LEAK, BUT DOAN WORRY, ALL OV DIS AR TEH 2 BE EXPECTD.
 
-* * *
+ASF IZ EXTREMELY WELL OPTIMIZD, AN MAKEZ USE OV AVAILABLE RESOURCEZ AS MUTCH AS POSIBLE. HIGH MEMS USAGE OV ASF DOESNT MEEN DAT ASF ACTIVELY **USEZ** DAT MEMS AN **NEEDZ IT**. VRY OFTEN ASF WILL KEEP ALLOCATD MEMS AS "ROOM" 4 FUCHUR ACSHUNS, CUZ WE CAN DRASTICALLY IMPROOOV PERFORMANCE IF WE DOAN NED 2 ASK OS 4 EVRY MEMS CHUNK DAT WERE BOUT 2 USE. TEH RUNTIME SHUD AUTOMATICALLY RELEASE UNUSD ASF MEMS BAK 2 OS WHEN OS WILL **TRULY** NED IT. **[UNUSD MEMS IZ WASTD MEMS](https://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full)**. U RUN INTO ISSUEZ WHEN TEH MEMS U **NED** IZ HIGHR THAN TEH MEMS DAT IZ AVAILABLE 4 U, NOT WHEN ASF KEEPS SUM EXTRA ALLOCATD WIF PURPOSE OV SPEEDIN UP FUNCSHUNS DAT WILL EXECUTE IN MOMENT. U RUN INTO PROBLEMS WHEN UR LINUX KERNEL IZ KILLIN ASF PROCES DUE 2 OOM (OUT OV MEMS), NOT WHEN U C ASF PROCES AS TOP MEMS CONSUMR IN `HTOP`.
 
-## ASF setup (easy)
+GARBAGE COLLECTOR BEAN USD IN ASF IZ VRY COMPLEX MECHANISM, SMART ENOUGH 2 TAEK INTO AKOWNT NOT ONLY ASF ITSELF, BUT ALSO UR OS AN OTHR PROCESEZ. WHEN U HAS LOT OV FREE MEMS, ASF WILL ASK 4 WHATEVR IZ NEEDD 2 IMPROOOV TEH PERFORMANCE. ITSELF, BUT ALSO UR OS AN OTHR PROCESEZ. DIS CAN BE EVEN AS MUTCH AS 1 GB (WIF SERVR GC). WHEN UR OS MEMS IZ CLOSE 2 BEAN FULL, ASF WILL AUTOMATICALLY RELEASE SUM OV IT BAK 2 TEH OS 2 HALP THINGS SETTLE DOWN, WHICH CAN RESULT IN OVERALL ASF MEMS USAGE AS LOW AS 50 MB. TEH DIFFERENCE TWEEN 50 MB AN 1 GB IZ HUGE, BUT SO IZ TEH DIFFERENCE TWEEN SMALL 512 MB VPS AN HUGE DEDICATD SERVR WIF 32 GB. IF ASF CAN GUARANTEE DAT DIS MEMS WILL COME USEFUL, AN AT TEH SAME TIEM NOTHIN ELSE REQUIREZ IT RITE NAO, ITLL PREFR 2 KEEP IT AN AUTOMATICALLY OPTIMIZE ITSELF BASD ON ROUTINEZ DAT WUZ EXECUTD IN DA PAST. TEH GC USD IN ASF IZ SELF-TUNIN AN WILL ACHIEVE BETTR RESULTS TEH LONGR TEH PROCES IZ RUNNIN.
 
-Below tricks **do not affect performance negatively** and can be safely applied to all setups.
-
-- Never run more than one ASF instance. ASF is meant to handle unlimited number of bots all at once, and unless you're binding every ASF instance to different interface/IP address, you should have exactly **one** ASF process, with multiple bots (if needed).
-- Make use of `ShutdownOnFarmingFinished`. Active bot takes more resources than deactivated one. It's not a significant save, as the state of bot still needs to be kept, but you're saving some amount of resources, especially all resources related to networking, such as TCP sockets. You need only one active bot to keep ASF instance running, and you can always bring up other bots if needed.
-- Keep your bots number low. Not `Enabled` bot instance takes less resources, as ASF doesn't bother starting it. Also keep in mind that ASF has to create a bot for each of your configs, therefore if you don't need to `start` given bot and you want to save some extra memory, you can temporarily rename `Bot.json` to e.g. `Bot.json.bak` in order to avoid creating state for your disabled bot instance in ASF. This way you won't be able to `start` it without renaming it back, but ASF also won't bother keeping state of this bot in memory, leaving room for other things (very small save, in 99.9% cases you shouldn't bother with it, just keep your bots with `Enabled` of `false`).
-- Fine-tune your configs. Especially global ASF config has many variables to adjust, for example by increasing `LoginLimiterDelay` you'll bring up your bots slower, which will allow already started instance to fetch badges in the meantime, as opposed to bringing up your bots faster, which will take more resources as more bots will do major work (such as parsing badges) at the same time. The less work that has to be done at the same time - the less memory used.
-
-Those are a few things you can keep in mind when dealing with memory usage. However, those things don't have any "crucial" matter on memory usage, because memory usage comes mostly from things ASF has to deal with, and not from internal structures used for cards farming.
-
-The most resources-heavy functions are:
-
-- Badge page parsing
-- Inventory parsing
-
-Which means that memory will spike the most when ASF is dealing with reading badge pages, and when it's dealing with its inventory (e.g. sending trade or working with STM). This is because ASF has to deal with really huge amount of data - the memory usage of your favourite browser launching those two pages will not be any lower than that. Sorry, that's how it works - decrease number of your badge pages, and keep number of your inventory items low, that can for sure help.
+DIS AR TEH ALSO Y ASF PROCES MEMS VARIEZ FRUM SETUP 2 SETUP, AS ASF WILL DO ITZ BEST 2 USE AVAILABLE RESOURCEZ IN **AS EFFICIENT WAI AS POSIBLE**, AN NOT IN FIXD WAI LIEK IT WUZ DUN DURIN WINDOWS XP TIEMS. TEH AKSHUL (REAL) MEMS USAGE DAT ASF IZ USIN CAN BE VERIFID WIF `STATS` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)**, AN IZ USUALLY AROUND 4 MB 4 JUS FEW BOTS, UP 2 30 MB IF U USE STUFF LIEK **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US)** AN OTHR ADVANCD FEATUREZ. KEEP IN MIND DAT MEMS RETURND BY `STATS` COMMAND ALSO INCLUDEZ FREE MEMS DAT HASNT BEEN RECLAIMD BY GARBAGE COLLECTOR YET. EVRYTHIN ELSE IZ SHARD RUNTIME MEMS (AROUND 40-50 MB) AN ROOM 4 EXECUSHUN (VARY). DIS AR TEH ALSO Y TEH SAME ASF CAN USE AS LIL AS 50 MB IN LOW-MEMS VPS ENVIRONMENT, WHILE USIN EVEN UP 2 1 GB ON UR DESKTOP. ASF IZ ACTIVELY ADAPTIN 2 UR ENVIRONMENT AN WILL TRY 2 FIND OPTIMAL BALANCE IN ORDR 2 NEITHR PUT UR OS UNDR PRESURE, NOR LIMIT ITZ OWN PERFORMANCE WHEN U HAS LOT OV UNUSD MEMS DAT CUD BE PUT IN USE.
 
 * * *
 
-## Runtime tuning (advanced)
+OV COURSE, THAR R LOT OV WAYS HOW U CAN HALP POINT ASF AT TEH RITE DIRECSHUN IN TERMS OV TEH MEMS U EXPECT 2 USE. IN GENERAL IF U DOAN NED 2 DO IT, IZ BEST 2 LET GARBAGE COLLECTOR WERK IN PEACE AN DO WHATEVR IT CONSIDERS IZ BEST. BUT DIS AR TEH NOT ALWAYS POSIBLE, 4 EXAMPLE IF UR LINUX SERVR IZ ALSO HOSTIN SEVERAL WEBSIETS, MYSQL DATABASE AN FP WERKERS, DEN U CANT RLY AFFORD ASF SHRINKIN ITSELF WHEN U RUN CLOSE 2 OOM, AS IZ USUALLY 2 LATE AN PERFORMANCE DEGRADASHUN COMEZ SOONR. DIS AR TEH USUALLY WHEN U CUD BE INTERESTD IN FURTHR TUNIN, AN THEREFORE READIN DIS PAEG.
 
-Below tricks **involve performance degradation** and should be used with caution.
-
-.NET Core runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
-
-The recommended way of applying those settings is through `COMPlus_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
-
-Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
-
-### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
-
-> Specifies the GC heap usage as a percentage of the total memory.
-
-The "hard" memory limit for ASF process, this setting tunes GC to use only a subset of total memory and not all of it. It may become especially useful in various server-like situations where you can dedicate a fixed percentage of your server's memory for ASF, but never more than that. Be advised that limiting memory for ASF to use will not magically make all of those required memory allocations go away, therefore setting this value too low might result in running into out of memory scenarios, where ASF process will be forced to terminate.
-
-On the other hand, setting this value high enough is a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing the program to do its job as efficiently as possible.
-
-### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
-
-> Memory load is indicated by the percentage of physical memory in use.
-
-This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
-
-### `GCLatencyLevel`
-
-> Specifies the GC latency level that you want to optimize for.
-
-This is undocumented property that turned out to work exceptionally well for ASF, by limiting size of GC generations and in result make GC purge them more frequently and more aggressively. Default (balanced) latency level is `1`, we'll want to use `0`, which will tune for memory usage.
-
-### [`gcTrimCommitOnLowMemory`](https://docs.microsoft.com/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
-
-> When set we trim the committed space more aggressively for the ephemeral seg. This is used for running many instances of server processes where they want to keep as little memory committed as possible.
-
-This offers little improvement, but may make GC even more aggressive when system will be low on memory, especially for ASF which makes use of threadpool tasks heavily.
+BELOW SUGGESHUNS R DIVIDD INTO FEW KATEGORIEZ, WIF VARID DIFFICULTY.
 
 * * *
 
-You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
+## ASF SETUP (EASY)
+
+BELOW TRICKZ **DO NOT AFFECT PERFORMANCE NEGATIVELY** AN CAN BE SAFELY APPLID 2 ALL SETUPS.
+
+- NEVR RUN MOAR THAN WAN ASF INSTANCE. ASF IZ MEANT 2 HANDLE UNLIMITD NUMBR OV BOTS ALL AT ONCE, AN UNLES URE BINDIN EVRY ASF INSTANCE 2 DIFFERENT INTERFACE/IP ADDRES, U SHUD HAS EGSAKTLY **WAN** ASF PROCES, WIF MULTIPLE BOTS (IF NEEDD).
+- MAK USE OV `SHUTDOWNONFARMINGFINISHD`. ACTIV BOT TAKEZ MOAR RESOURCEZ THAN DEACTIVATD WAN. IZ NOT SIGNIFICANT SAVE, AS TEH STATE OV BOT STILL NEEDZ 2 BE KEPT, BUT URE SAVIN SUM AMOUNT OV RESOURCEZ, ESPECIALLY ALL RESOURCEZ RELATD 2 NETWORKIN, SUCH AS TCP SOCKETS. U NED ONLY WAN ACTIV BOT 2 KEEP ASF INSTANCE RUNNIN, AN U CAN ALWAYS BRIN UP OTHR BOTS IF NEEDD.
+- KEEP UR BOTS NUMBR LOW. NOT `ENABLD` BOT INSTANCE TAKEZ LES RESOURCEZ, AS ASF DOESNT BOTHR STARTIN IT. ALSO KEEP IN MIND DAT ASF HAS 2 CREATE BOT 4 EACH OV UR CONFIGS, THEREFORE IF U DOAN NED 2 `START` GIVEN BOT AN U WANTS 2 SAVE SUM EXTRA MEMS, U CAN TEMPORARILY RENAME `BOT.JSON` 2 E.G. `BOT.JSON.BAK` IN ORDR 2 AVOID CREATIN STATE 4 UR DISABLD BOT INSTANCE IN ASF. DIS WAI U WONT BE ABLE 2 `START` IT WITHOUT RENAMIN IT BAK, BUT ASF ALSO WONT BOTHR KEEPIN STATE OV DIS BOT IN MEMS, LEAVIN ROOM 4 OTHR THINGS (VRY SMALL SAVE, IN 99.9% CASEZ U SHOULDNT BOTHR WIF IT, JUS KEEP UR BOTS WIF `ENABLD` OV `FALSE`).
+- FINE-TUNE UR CONFIGS. ESPECIALLY GLOBAL ASF CONFIG HAS LOTZ DA VARIABLEZ 2 ADJUST, 4 EXAMPLE BY INCREASIN `LOGINLIMITERDELAY` ULL BRIN UP UR BOTS SLOWR, WHICH WILL ALLOW ALREADY STARTD INSTANCE 2 FETCH BADGEZ IN DA MEANTIME, AS OPPOSD 2 BRINGIN UP UR BOTS FASTR, WHICH WILL TAEK MOAR RESOURCEZ AS MOAR BOTS WILL DO MAJOR WERK (SUCH AS PARSIN BADGEZ) AT TEH SAME TIEM. TEH LES WERK DAT HAS 2 BE DUN AT TEH SAME TIEM - TEH LES MEMS USD.
+
+DOSE R FEW THINGS U CAN KEEP IN MIND WHEN DEALIN WIF MEMS USAGE.HAS 2 BE DUN AT TEH SAME TIEM - TEH LES MEMS USD. HOWEVR, DOSE THINGS DOAN HAS ANY "CRUSHUL" MATTR ON MEMS USAGE, CUZ MEMS USAGE COMEZ MOSTLY FRUM THINGS ASF HAS 2 DEAL WIF, AN NOT FRUM INTERNAL STRUCTUREZ USD 4 CARDZ FARMIN.
+
+TEH MOST RESOURCEZ-HEAVY FUNCSHUNS R:
+
+- BADGE PAEG PARSIN
+- INVENTORY PARSIN
+
+WHICH MEANZ DAT MEMS WILL SPIKE TEH MOST WHEN ASF IZ DEALIN WIF READIN BADGE PAGEZ, AN WHEN IZ DEALIN WIF ITZ INVENTORY (E.G. SENDIN TRADE OR WERKIN WIF STM). DIS AR TEH CUZ ASF HAS 2 DEAL WIF RLY HUGE AMOUNT OV DATA - TEH MEMS USAGE OV UR FAVOURITE BROWSR LAUNCHIN DOSE 2 PAGEZ WILL NOT BE ANY LOWR THAN DAT. SRY, THAZ HOW IT WERKZ - DECREASE NUMBR OV UR BADGE PAGEZ, AN KEEP NUMBR OV UR INVENTORY ITEMS LOW, DAT CAN 4 SURE HALP.
+
+* * *
+
+## RUNTIME TUNIN (ADVANCD)
+
+BELOW TRICKZ **INVOLVE PERFORMANCE DEGRADASHUN** AN SHUD BE USD WIF CAUSHUN.
+
+.NET CORE RUNTIME ALLOWS U 2 **[TWEAK GARBAGE COLLECTOR](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** IN LOT OV WAYS, EFFECTIVELY FINE-TUNIN TEH GC PROCES ACCORDIN 2 UR NEEDZ.
+
+TEH RECOMMENDD WAI OV APPLYIN DOSE SETTINGS IZ THRU `COMPLUS_` ENVIRONMENT PROPERTIEZ. OV COURSE, U CUD ALSO USE OTHR METHODZ, E.G. `RUNTIMECONFIG.JSON`, BUT SUM SETTINGS R IMPOSIBLE 2 BE SET DIS WAI, AN ON TOP OV DAT ASF WILL REPLACE UR CUSTOM `RUNTIMECONFIG.JSON` WIF ITZ OWN ON TEH NEXT UPDATE, THEREFORE WE RECOMMEND ENVIRONMENT PROPERTIEZ DAT U CAN SET EASILY PRIOR 2 LAUNCHIN TEH PROCES.
+
+REFR 2 TEH DOCUMENTASHUN 4 ALL TEH PROPERTIEZ DAT U CAN USE, WELL MENSHUN TEH MOST IMPORTANT ONEZ (IN R OPINION) BELOW:
+
+### [`GCHEAFARDLIMITPERSENT`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
+
+> SPECIFIEZ TEH GC HEAP USAGE AS PERSENTAGE OV TEH TOTAL MEMS.
+
+TEH "HARD" MEMS LIMIT 4 ASF PROCES, DIS SETTIN TUNEZ GC 2 USE ONLY SUBSET OV TOTAL MEMS AN NOT ALL OV IT. IT CUD BECOME ESPECIALLY USEFUL IN VARIOUS SERVR-LIEK SITUASHUNS WER U CAN DEDICATE FIXD PERSENTAGE OV UR SERVERS MEMS 4 ASF, BUT NEVR MOAR THAN DAT. BE ADVISD DAT LIMITIN MEMS 4 ASF 2 USE WILL NOT MAGICALLY MAK ALL OV DOSE REQUIRD MEMS ALLOCASHUNS GO AWAY, THEREFORE SETTIN DIS VALUE 2 LOW MITE RESULT IN RUNNIN INTO OUT OV MEMS SCENARIOS, WER ASF PROCES WILL BE FORCD 2 TERMINATE.
+
+ON TEH OTHR HAND, SETTIN DIS VALUE HIGH ENOUGH IZ PERFIK WAI 2 ENSURE DAT ASF WILL NEVR USE MOAR MEMS THAN U CAN REALISTICALLY AFFORD, GIVIN UR MACHINE SUM BREATHIN ROOM EVEN UNDR HEAVY LOAD, WHILE STILL ALLOWIN TEH PROGRAM 2 DO ITZ JOB AS EFFICIENTLY AS POSIBLE.
+
+### [`GCHIGHMEMPERSENT`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
+
+> MEMS LOAD IZ INDICATD BY TEH PERSENTAGE OV FYSICAL MEMS IN USE.
+
+DIS SETTIN CONFIGUREZ TEH MEMS TRESHOLD OV UR WHOLE OS, WHICH ONCE PASD, CAUSEZ GC 2 BECOME MOAR AGGRESIV AN ATTEMPT 2 HALP TEH OS LOWR TEH MEMS LOAD BY RUNNIN MOAR INTENSIV GC PROCES AN IN RESULT RELEASIN MOAR FREE MEMS BAK 2 TEH OS. IT BE GUD IDEA 2 SET DIS PROPERTY 2 MAXIMUM AMOUNT OV MEMS (AS PERSENTAGE) WHICH U CONSIDR "CRITICAL" 4 UR WHOLE OS PERFORMANCE. DEFAULT IZ 90%, AN USUALLY U WANTS 2 KEEP IT IN 80-97% RANGE, AS 2 LOW VALUE WILL CAUSE UNNECESARY AGGRESHUN FRUM TEH GC AN PERFORMANCE DEGRADASHUN 4 NO REASON, WHILE 2 HIGH VALUE WILL PUT UNNECESARY LOAD ON UR OS, CONSIDERIN ASF CUD RELEASE SUM OV ITZ MEMS 2 HALP.
+
+### `GCLATENCYLEVEL`
+
+> SPECIFIEZ TEH GC LATENCY LEVEL DAT U WANTS 2 OPTIMIZE 4.
+
+DIS AR TEH UNDOCUMENTD PROPERTY DAT TURND OUT 2 WERK EXCEPSHUNALLY WELL 4 ASF, BY LIMITIN SIZE OV GC GENERASHUNS AN IN RESULT MAK GC PURGE THEM MOAR FREQUENTLY AN MOAR AGGRESIVELY. DEFAULT (BALANCD) LATENCY LEVEL IZ `1`, WELL WANTS 2 USE `0`, WHICH WILL TUNE 4 MEMS USAGE.
+
+### [`GCTRIMCOMMITONLOWMEMORY`](https://docs.microsoft.com/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
+
+> WHEN SET WE TRIM TEH COMMITTD SPACE MOAR AGGRESIVELY 4 DA EFEMERAL SEG. DIS AR TEH USD 4 RUNNIN LOTZ DA INSTANCEZ OV SERVR PROCESEZ WER THEY WANTS 2 KEEP AS LIL MEMS COMMITTD AS POSIBLE.
+
+DIS OFFERS LIL IMPROOVEMENT, BUT CUD MAK GC EVEN MOAR AGGRESIV WHEN SISTEM WILL BE LOW ON MEMS, ESPECIALLY 4 ASF WHICH MAKEZ USE OV THREADPOOL TASKZ HEAVILY.
+
+* * *
+
+U CAN ENABLE ALL GC PROPERTIEZ BY SETTIN APPROPRIATE `COMPLUS_` ENVIRONMENT VARIABLEZ. 4 EXAMPLE, ON LINUX (SHELL):
 
 ```shell
-# Don't forget to tune those if you're planning to make use of them
-export COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
-export COMPlus_GCHighMemPercent=50 # 80% as hex
+# DOAN FORGET 2 TUNE DOSE IF URE PLANNIN 2 MAK USE OV THEM
+EXPORT COMPLUS_GCHEAFARDLIMITPERSENT=4B # 75% AS HEX
+EXPORT COMPLUS_GCHIGHMEMPERSENT=50 # 80% AS HEX
 
-export COMPlus_GCLatencyLevel=0
-export COMPlus_gcTrimCommitOnLowMemory=1
+EXPORT COMPLUS_GCLATENCYLEVEL=0
+EXPORT COMPLUS_GCTRIMCOMMITONLOWMEMORY=1
 
-./ArchiSteamFarm # For OS-specific build
+./ARCHISTEAMFARM # 4 OS-SPECIFIC BUILD
 ```
 
-Or on Windows (powershell):
+OR ON WINDOWS (POWERSHELL):
 
 ```powershell
-# Don't forget to tune those if you're planning to make use of them
-$Env:COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
-$Env:COMPlus_GCHighMemPercent=50 # 80% as hex
+# DOAN FORGET 2 TUNE DOSE IF URE PLANNIN 2 MAK USE OV THEM
+$ENV:COMPLUS_GCHEAFARDLIMITPERSENT=4B # 75% AS HEX
+$ENV:COMPLUS_GCHIGHMEMPERSENT=50 # 80% AS HEX
 
-$Env:COMPlus_GCLatencyLevel=0
-$Env:COMPlus_gcTrimCommitOnLowMemory=1
+$ENV:COMPLUS_GCLATENCYLEVEL=0
+$ENV:COMPLUS_GCTRIMCOMMITONLOWMEMORY=1
 
-.\ArchiSteamFarm.exe # For OS-specific build
+.\ARCHISTEAMFARM.EXE # 4 OS-SPECIFIC BUILD
 ```
 
-Especially `GCLatencyLevel` will come very useful as we verified that the runtime indeed optimizes code for memory and therefore drops average memory usage significantly, even with server GC. It's one of the best tricks that you can apply if you want to significantly lower ASF memory usage while not degrading performance too much with `OptimizationMode`.
+ESPECIALLY `GCLATENCYLEVEL` WILL COME VRY USEFUL AS WE VERIFID DAT TEH RUNTIME INDED OPTIMIZEZ CODE 4 MEMS AN THEREFORE DROPS AVERAGE MEMS USAGE SIGNIFICANTLY, EVEN WIF SERVR GC. IZ WAN OV TEH BEST TRICKZ DAT U CAN APPLY IF U WANTS 2 SIGNIFICANTLY LOWR ASF MEMS USAGE WHILE NOT DEGRADIN PERFORMANCE 2 MUTCH WIF `OPTIMIZASHUNMODE`.
 
 * * *
 
-## ASF tuning (intermediate)
+## ASF TUNIN (INTERMEDIATE)
 
-Below tricks **involve serious performance degradation** and should be used with caution.
+ASF TUNIN (INTEBELOW TRICKZ **INVOLVE SERIOUS PERFORMANCE DEGRADASHUN** AN SHUD BE USD WIF CAUSHUN.ARMEDIATE)
 
-- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this.
+- AS LAST RESORT, U CAN TUNE ASF 4 `MINMEMORYUSAGE` THRU `OPTIMIZASHUNMODE` **[GLOBAL CONFIG PROPERTY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#global-config)**. READ CAREFULLY ITZ PURPOSE, AS DIS AR TEH SERIOUS PERFORMANCE DEGRADASHUN 4 NEARLY NO MEMS BENEFITS. DIS AR TEH TYPICALLY **TEH LAST TING U WANTS 2 DO**, LONG AFTR U GO THRU **[RUNTIME TUNIN](#runtime-tunin-advancd)** 2 ENSURE DAT URE FORCD 2 DO DIS.
 
 * * *
 
-## Recommended optimization
+## RECOMMENDD OPTIMIZASHUN
 
-- Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
-- If it's still not enough, enable all configuration properties listed above by setting appropriate `COMPlus_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.
-- If even that didn't help, as a last resort enable `MinMemoryUsage` `OptimizationMode`. This forces ASF to execute almost everything in synchronous matter, making it work much slower but also not relying on thread pool to balance things out when it comes to parallel execution.
+- START FRUM SIMPLE ASF SETUP TRICKZ, PERHAPS URE JUS USIN UR ASF IN WRONG WAI SUCH AS STARTIN TEH PROCES SEVERAL TIEMS 4 ALL OV UR BOTS, OR KEEPIN ALL OV THEM ACTIV IF U NED JUS WAN OR 2 2 AUTOSTART.
+- IF IZ STILL NOT ENOUGH, ENABLE ALL CONFIGURASHUN PROPERTIEZ LISTD ABOOV BY SETTIN APPROPRIATE `COMPLUS_` ENVIRONMENT VARIABLEZ. ESPECIALLY `GCLATENCYLEVEL` OFFERS SIGNIFICANT RUNTIME IMPROOVEMENTS 4 LIL COST ON PERFORMANCE.
+- IF EVEN DAT DIDNT HALP, AS LAST RESORT ENABLE `MINMEMORYUSAGE` `OPTIMIZASHUNMODE`. DIS FORCEZ ASF 2 EXECUTE ALMOST EVRYTHIN IN SYNCHRONOUS MATTR, MAKIN IT WERK MUTCH SLOWR BUT ALSO NOT RELYIN ON THREAD POOL 2 BALANCE THINGS OUT WHEN IT COMEZ 2 PARALLEL EXECUSHUN.
 
-It's physically impossible to decrease memory even further, your ASF is already heavily degraded in terms of performance and you depleted all your possibilities, both code-wise and runtime-wise. Consider adding some extra memory for ASF to use, even 128 MB would make a great difference.
+IZ FYSICALLY IMPOSIBLE 2 DECREASE MEMS EVEN FURTHR, UR ASF IZ ALREADY HEAVILY DEGRADD IN TERMS OV PERFORMANCE AN U DEPLETD ALL UR POSIBILITIEZ, BOTH CODE-WIZE AN RUNTIME-WIZE. CONSIDR ADDIN SUM EXTRA MEMS 4 ASF 2 USE, EVEN 128 MB WUD MAK GREAT DIFFERENCE.

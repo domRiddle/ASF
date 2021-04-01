@@ -1,27 +1,27 @@
-# Background games redeemer
+# BAKGROUND GAMEZ REDEEMR
 
-Background games redeemer is a special built-in ASF feature that allows you to import given set of Steam cd-keys (together with their names) to be redeemed in the background. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+BAKGROUND GAMEZ REDEEMR IZ SPESHUL BUILT-IN ASF FEACHUR DAT ALLOWS U 2 IMPORT GIVEN SET OV STEAM CD-KEYS (TOGETHR WIF THEIR NAMEZ) 2 BE REDEEMD IN DA BAKGROUND. DIS AR TEH ESPECIALLY USEFUL IF U HAS LOT OV KEYS 2 REDEEM AN URE GUARANTED 2 HIT `RATELIMITD` **[STATUS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-lol-US#wut-iz-teh-meanin-ov-status-when-redeemin-key)** BEFORE URE DUN WIF UR ENTIRE BATCH.
 
-Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, if needed.
+BAKGROUND GAMEZ REDEEMR IZ MADE 2 HAS SINGLE BOT SCOPE, WHICH MEANZ DAT IT DOEZ NOT MAK USE OV `REDEEMINGPREFERENCEZ`. DIS FEACHUR CAN BE USD TOGETHR WIF (OR INSTEAD OV) `REDEEM` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)**, IF NEEDD.
 
 * * *
 
-## Import
+## IMPORT
 
-The import process can be done through two ways - either by using a file, or IPC.
+TEH IMPORT PROCES CAN BE DUN THRU 2 WAYS - EITHR BY USIN FILE, OR IPC.
 
-### File
+### FILE
 
-ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. For example:
+ASF WILL RECOGNIZE IN ITZ `CONFIG` DIRECTORY FILE NAMD `BOTNAME.KEYS` WER `BOTNAME` IZ TEH NAYM OV UR BOT. DAT FILE HAS EXPECTD AN FIXD STRUCCHUR OV NAYM OV TEH GAME WIF CD-KEY, SEPARATD FRUM EACH OTHR BY TAB CHARACTR AN ENDIN WIF NEWLINE 2 INDICATE TEH NEXT ENTRY. IF MULTIPLE TABS R USD, DEN FURST ENTRY IZ CONSIDERD GAMEZ NAYM, LAST ENTRY IZ CONSIDERD CD-KEY, AN EVRYTHIN IN-TWEEN IZ IGNORD. 4 EXAMPLE:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
-Domino Craft VR 12345-67890-ZXCVB
-A Week of Circus Terror POIUY-KJHGD-QWERT
-Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
+DOMINO CRAFT VR 12345-67890-ZXCVB
+A WEEK OV CIRCUS TERROR POIUY-KJHGD-QWERT
+TERRARIA    THISISIGNORD   THISISIGNOREDTOO    ZXCVB-ASDFG-QWERT
 ```
 
-Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+ALTERNATIVELY, URE ALSO ABLE 2 USE KEYS ONLY FORMAT (STILL WIF NEWLINE TWEEN EACH ENTRY). ASF IN DIS CASE WILL USE STEAMS RESPONSE (IF POSIBLE) 2 FILL TEH RITE NAYM. 4 ANY KIND OV KEYS TAGGIN, WE RECOMMEND DAT U NAYM UR KEYS YOURSELF, AS PACKAGEZ BEAN REDEEMD ON STEAM DO NOT HAS 2 FOLLOW LOGIC OV GAMEZ DAT THEYRE ACTIVATIN, SO DEPENDIN ON WUT TEH DEVELOPR HAS PUT, U CUD C CORRECT GAME NAMEZ, CUSTOM PACKAGE NAMEZ (E.G. HUMBLE INDIE BUNDLE 18) OR OUTRIGHT WRONG AN POTENTIALLY EVEN MALISHUS ONEZ (E.G. HALF-LIFE 4).
 
 ```text
 ABCDE-EFGHJ-IJKLM
@@ -30,40 +30,40 @@ POIUY-KJHGD-QWERT
 ZXCVB-ASDFG-QWERT
 ```
 
-Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+REGARDLES WHICH FORMAT UVE DECIDD 2 STICK WIF, ASF WILL IMPORT UR `KEYS` FILE, EITHR ON BOT STARTUP, OR LATR DURIN EXECUSHUN. AFTR SUCCESFUL PARSE OV UR FILE AN EVENTUAL OMIT OV INVALID ENTRIEZ, ALL PROPERLY DETECTD GAMEZ WILL BE ADDD 2 TEH BAKGROUND KEW, AN TEH `BOTNAME.KEYS` FILE ITSELF WILL BE REMOVD FRUM `CONFIG` DIRECTORY.
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+IN ADDISHUN 2 USIN KEYS FILE MENSHUND ABOOV, ASF ALSO EXPOSEZ `GAMESTOREDEEMINBACKGROUND` **[ASF API ENDPOINT](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US#asf-api)** WHICH CAN BE EXECUTD BY ANY IPC TOOL, INCLUDIN R ASF-UI. USIN IPC CUD BE MOAR POWERFUL, AS U CAN DO APPROPRIATE PARSIN YOURSELF, SUCH AS USIN CUSTOM DELIMITR INSTEAD OV BEAN FORCD 2 TAB CHARACTR, OR EVEN INTRODUCIN UR ENTIRELY OWN CUSTOMIZD KEYS STRUCCHUR.
 
 * * *
 
-## Queue
+## KEW
 
-Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+ONCE GAMEZ R SUCCESFULLY IMPORTD, THEYRE ADDD 2 TEH KEW. ASF AUTOMATICALLY GOEZ THRU ITZ BAKGROUND KEW AS LONG AS BOT IZ CONNECTD 2 STEAM NETWORK, AN TEH KEW IZ NOT EMPTY. A KEY DAT WUZ ATTEMPTD 2 BE REDEEMD AN DID NOT RESULT IN `RATELIMITD` IZ REMOVD FRUM TEH KEW, WIF ITZ STATUS PROPERLY WRITTEN 2 FILE IN `CONFIG` DIRECTORY - EITHR `BOTNAME.KEYS.USD` IF TEH KEY WUZ USD IN DA PROCES (E.G. `NODETAIL`, `BADACTIVASHUNCODE`, `DUPLICATEACTIVASHUNCODE`), OR `BOTNAME.KEYS.UNUSD` OTHERWIZE. ASF INTENSHUNALLY USEZ UR PROVIDD GAMEZ NAYM SINCE KEY IZ NOT GUARANTED 2 HAS MEANINGFUL NAYM RETURND BY STEAM NETWORK - DIS WAI U CAN TAG UR KEYS USIN EVEN CUSTOM NAMEZ IF NEEDD/WANTD.
 
-If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
-
-* * *
-
-## Example
-
-Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
-
-Now you can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
-
-You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
-
-Instead of using `BotName.keys` file, you could also use IPC API endpoint, or even combining both if you want to.
-
-After some time, `BotName.keys.used` and `BotName.keys.unused` files will be generated. Those files contain results of our redeeming process. For example, you could rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since previous bot didn't make use of those keys himself. Or you could simply copy-paste unused keys to some other file and keep it for later, your call. Keep in mind that as ASF goes through the queue, new entries will be added to our output `used` and `unused` files, therefore it's recommended to wait for the queue to be fully emptied before making use of them. If you absolutely must access those files before queue is fully emptied, you should firstly **move** output file you want to access to some other directory, **then** parse it. This is because ASF can append some new results while you're doing your thing, and that could potentially lead to loss of some keys if you read a file having e.g. 3 keys inside, then delete it, totally missing the fact that ASF added 4 other keys to your removed file in the meantime. If you want to access those files, ensure to move them away from ASF `config` directory before reading them, for example by rename.
-
-It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
+IF DURIN TEH PROCES R AKOWNT HITS `RATELIMITD` STATUS, TEH KEW IZ TEMPORARILY SUSPENDD 4 FULL HOUR IN ORDR 2 WAIT 4 COOLDOWN 2 DISAPPEAR. AFTERWARDZ, TEH PROCES CONTINUEZ WER IT LEFT, TIL TEH ENTIRE KEW IZ EMPTY.
 
 * * *
 
-## Remarks
+## EXAMPLE
 
-Background keys redeemer uses `OrderedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file (or IPC API call). This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above, but not below. For example, this means that if you have DLC `D` that requires game `G` to be activated firstly, then cd-key for game `G` should **always** be included before cd-key for DLC `D`. Likewise, if DLC `D` would have dependencies on `A`, `B` and `C`, then all 3 should be included before (in any order, unless they have dependencies on their own).
+LETS ASSUME DAT U HAS LIST OV 100 KEYS. FIRSTLY U SHUD CREATE NEW `BOTNAME.KEYS.NEW` FILE IN ASF `CONFIG` DIRECTORY.HAT U HAS LIST OV 100 KEYS. WE APPENDD `.NEW` EXTENSHUN IN ORDR 2 LET ASF KNOE DAT IT SHOULDNT PICK UP DIS FILE IMMEDIATELY TEH MOMENT IZ CREATD (AS IZ NEW EMPTY FILE, NOT READY 4 IMPORT YET).
 
-Not following the scheme above will result in your DLC not being activated with `DoesNotOwnRequiredApp`, even if your account would be eligible for activating it after going through its entire queue. If you want to avoid that then you must make sure that your DLC is always included after the base game in your queue.
+NAO U CAN OPEN R NEW FILE AN COPY-PASTE LIST OV R 100 KEYS THAR, FIXIN TEH FORMAT IF NEEDD. AFTR FIXEZ R `BOTNAME.KEYS.NEW` FILE WILL HAS EGSAKTLY 100 (OR 101, WIF LAST NEWLINE) LINEZ, EACH LINE HAVIN STRUCCHUR OV `GAMENAME\TCD-KEY\N`, WER `\T` IZ TAB CHARACTR AN `\N` IZ NEWLINE.
+
+URE NAO READY 2 RENAME DIS FILE FRUM `BOTNAME.KEYS.NEW` 2 `BOTNAME.KEYS` IN ORDR 2 LET ASF KNOE DAT IZ READY 2 BE PICKD UP. TEH MOMENT U DO DIS, ASF WILL AUTOMATICALLY IMPORT TEH FILE (WITHOUT NED OV RESTART) AN DELETE IT AFTERWARDZ, CONFIRMIN DAT ALL R GAMEZ WUZ PARSD AN ADDD 2 TEH KEW.
+
+INSTEAD OV USIN `BOTNAME.KEYS` FILE, U CUD ALSO USE IPC API ENDPOINT, OR EVEN COMBININ BOTH IF U WANTS 2.
+
+AFTR SUM TIEM, `BOTNAME.KEYS.USD` AN `BOTNAME.KEYS.UNUSD` FILEZ WILL BE GENERATD. DOSE FILEZ CONTAIN RESULTS OV R REDEEMIN PROCES. 4 EXAMPLE, U CUD RENAME `BOTNAME.KEYS.UNUSD` INTO `BOTNAME2.KEYS` FILE AN THEREFORE SUBMIT R UNUSD KEYS 4 SUM OTHR BOT, SINCE PREVIOUS BOT DIDNT MAK USE OV DOSE KEYS HIM. OR U CUD SIMPLY COPY-PASTE UNUSD KEYS 2 SUM OTHR FILE AN KEEP IT 4 LATR, UR CALL. KEEP IN MIND DAT AS ASF GOEZ THRU TEH KEW, NEW ENTRIEZ WILL BE ADDD 2 R OUTPUT `USD` AN `UNUSD` FILEZ, THEREFORE IZ RECOMMENDD 2 WAIT 4 DA KEW 2 BE FULLY EMPTID BEFORE MAKIN USE OV THEM. IF U ABSOLUTELY MUST ACCES DOSE FILEZ BEFORE KEW IZ FULLY EMPTID, U SHUD FIRSTLY **MOOV** OUTPUT FILE U WANTS 2 ACCES 2 SUM OTHR DIRECTORY, **DEN** PARSE IT. DIS AR TEH CUZ ASF CAN APPEND SUM NEW RESULTS WHILE URE DOIN UR TING, AN DAT CUD POTENTIALLY LEAD 2 LOS OV SUM KEYS IF U READ FILE HAVIN E.G. 3 KEYS INSIDE, DEN DELETE IT, TOTALLY MISIN TEH FACT DAT ASF ADDD 4 OTHR KEYS 2 UR REMOVD FILE IN DA MEANTIME. IF U WANTS 2 ACCES DOSE FILEZ, ENSURE 2 MOOV THEM AWAY FRUM ASF `CONFIG` DIRECTORY BEFORE READIN THEM, 4 EXAMPLE BY RENAME.
+
+IZ ALSO POSIBLE 2 ADD EXTRA GAMEZ 2 IMPORT WHILE HAVIN SUM GAMEZ ALREADY IN R KEW, BY REPEATIN ALL ABOOV STEPS. ASF WILL PROPERLY ADD R EXTRA ENTRIEZ 2 ALREADY-ONGOIN KEW AN DEAL WIF IT EVENTUALLY.
+
+* * *
+
+## REMARKZ
+
+BAKGROUND KEYS REDEEMR USEZ `ORDEREDDICSHUNARY` UNDR TEH HOOD, WHICH MEANZ DAT UR CD-KEYS WILL HAS PRESERVD ORDR AS THEY WUZ SPECIFID IN DA FILE (OR IPC API CALL). DIS MEANZ DAT U CAN (AN SHUD) PROVIDE LIST WER GIVEN CD-KEY CAN ONLY HAS DIRECT DEPENDENCIEZ ON CD-KEYS LISTD ABOOV, BUT NOT BELOW. 4 EXAMPLE, DIS MEANZ DAT IF U HAS DLC `D` DAT REQUIREZ GAME `G` 2 BE ACTIVATD FIRSTLY, DEN CD-KEY 4 GAME `G` SHUD **ALWAYS** BE INCLUDD BEFORE CD-KEY 4 DLC `D`. LIKEWIZE, IF DLC `D` WUD HAS DEPENDENCIEZ ON `A`, `B` AN `C`, DEN ALL 3 SHUD BE INCLUDD BEFORE (IN ANY ORDR, UNLES THEY HAS DEPENDENCIEZ ON THEIR OWN).
+
+NOT FOLLOWIN TEH SCHEME ABOOV WILL RESULT IN UR DLC NOT BEAN ACTIVATD WIF `DOESNOTOWNREQUIREDAPP`, EVEN IF UR AKOWNT WUD BE ELIGIBLE 4 ACTIVATIN IT AFTR GOIN THRU ITZ ENTIRE KEW. IF U WANTS 2 AVOID DAT DEN U MUST MAK SURE DAT UR DLC IZ ALWAYS INCLUDD AFTR TEH BASE GAME IN UR KEW.

@@ -1,110 +1,110 @@
-# Command-line arguments
+# COMMAND-LINE ARGUMENTS
 
-ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF INCLUDEZ SUPPORT 4 SEVERAL COMMAND-LINE ARGUMENTS DAT CAN AFFECT TEH PROGRAM RUNTIME. DOSE CAN BE USD BY ADVANCD USERS IN ORDR 2 SPECIFY HOW PROGRAM SHUD RUN. IN COMPARISON WIF DEFAULT WAI OV `ASF.JSON` CONFIGURASHUN FILE, COMMAND-LINE ARGUMENTS R USD 4 CORE INITIALIZASHUN (E.G. `--PATH`), PLATFORM-SPECIFIC SETTINGS (E.G. `--SISTEM-REQUIRD`) OR SENSITIV DATA (E.G. `--CRYPTKEY`).
 
 * * *
 
-## Usage
+## USAGE
 
-Usage depends on your OS and ASF flavour.
+USAGE DEPENDZ ON UR OS AN ASF FLAVR.
 
-Generic:
+GENERIC:
 
 ```shell
-dotnet ArchiSteamFarm.dll --argument --otherOne
+DOTNET ARCHISTEAMFARM.DLL --ARGUMENT --OTHERONE
 ```
 
-Windows:
+WINDOWS:
 
 ```powershell
-.\ArchiSteamFarm.exe --argument --otherOne
+.\ARCHISTEAMFARM.EXE --ARGUMENT --OTHERONE
 ```
 
-Linux/OS X
+LINUX/OS X
 
 ```shell
-./ArchiSteamFarm --argument --otherOne
+./ARCHISTEAMFARM --ARGUMENT --OTHERONE
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+COMMAND-LINE ARGUMENTS R ALSO SUPPORTD IN GENERIC HELPR SCRIPTS SUCH AS `ARCHISTEAMFARM.CMD` OR `ARCHISTEAMFARM.SH`. IN ADDISHUN 2 DAT, WHEN USIN HELPR SCRIPTS U CAN ALSO USE `ASF_ARGS` ENVIRONMENT PROPERTY, LIEK STATD IN R **[DOCKR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments-lol-US)** SECSHUN.
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+IF UR ARGUMENT INCLUDEZ SPACEZ, DOAN FORGET 2 QUOTE IT. DOSE 2 R WRONG:
 
 ```shell
-./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
-./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
+./ARCHISTEAMFARM --PATH /HOME/ARCHI/MAH DOWNLOADZ/ASF # BAD!
+./ARCHISTEAMFARM --PATH=/HOME/ARCHI/MAH DOWNLOADZ/ASF # BAD!
 ```
 
-However, those two are completely fine:
+HOWEVR, DOSE 2 R COMPLETELY FINE:
 
 ```shell
-./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
-./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
+./ARCHISTEAMFARM --PATH "/HOME/ARCHI/MAH DOWNLOADZ/ASF" # K
+./ARCHISTEAMFARM "--PATH=/HOME/ARCHI/MAH DOWNLOADZ/ASF" # K
 ```
 
-## Arguments
+## ARGUMENTS
 
-`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
+`--CRYPTKEY <key>` OR `--CRYPTKEY=<key>` - WILL START ASF WIF CUSTOM CRYPTOGRAFIC KEY OV `<KEY>` VALUE. DIS OPSHUN AFFECTS **[SECURITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-lol-US)** AN WILL CAUSE ASF 2 USE UR CUSTOM PROVIDD `<KEY>` KEY INSTEAD OV DEFAULT WAN HARDCODD INTO TEH EXECUTABLE. SINCE DIS PROPERTY AFFECTS DEFAULT ENCRYPSHUN KEY (4 ENCRYPTIN PURPOSEZ) AS WELL AS SALT (4 HASHIN PURPOSEZ), KEEP IN MIND DAT EVRYTHIN ENCRYPTD/HASHD WIF DIS KEY WILL REQUIRE IT 2 BE PASD ON EACH ASF RUN.
 
-Due to the nature of this property, it's also possible to set cryptkey by declaring `ASF_CRYPTKEY` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
-
-* * *
-
-`--ignore-unsupported-environment` - will cause ASF to ignore detection of unsupported environment, which normally is signalized with an error and forced exit. As of now, unsupported environment is classifed as running .NET Framework build on platform that could be running .NET Core build instead. Since we support `generic-netf` builds only in very limited scenarios (with **[Mono](https://www.mono-project.com)**), using it for other cases (e.g. for launching on `win-x64` platform) is not supported. Visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** for more info.
+DUE 2 TEH NACHUR OV DIS PROPERTY, IZ ALSO POSIBLE 2 SET CRYPTKEY BY DECLARIN `ASF_CRYPTKEY` ENVIRONMENT VARIABLE, WHICH CUD BE MOAR APPROPRIATE 4 PEEPS DAT WUD WANTS 2 AVOID SENSITIV DETAILS IN DA PROCES ARGUMENTS.
 
 * * *
 
-`--network-group <group>` or `--network-group=<group>` - will cause ASF to init its limiters with a custom network group of `<group>` value. This option affects running ASF in **[multiple instances](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** by signalizing that given instance is dependent only on instances sharing the same network group, and independent of the rest. Typically you want to use this property only if you're routing ASF requests through custom mechanism (e.g. different IP addresses) and you want to set networking groups yourself, without relying on ASF to do it automatically (which currently includes taking into account `WebProxy` only). Keep in mind that when using a custom network group, this is unique identifier within the local machine, and ASF will not take into account any other details, such as `WebProxy` value, allowing you to e.g. start two instances with different `WebProxy` values which are still dependent on each other.
-
-Due to the nature of this property, it's also possible to set the value by declaring `ASF_NETWORK_GROUP` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+`--IGNORE-UNSUPPORTD-ENVIRONMENT` - WILL CAUSE ASF 2 IGNORE DETECSHUN OV UNSUPPORTD ENVIRONMENT, WHICH NORMALLY IZ SIGNALIZD WIF AN ERROR AN FORCD EXIT. AS OV NAO, UNSUPPORTD ENVIRONMENT IZ CLASIFD AS RUNNIN .NET FRAMEWORK BUILD ON PLATFORM DAT CUD BE RUNNIN .NET CORE BUILD INSTEAD. SINCE WE SUPPORT `GENERIC-NETF` BUILDZ ONLY IN VRY LIMITD SCENARIOS (WIF **[MONO](https://www.mono-project.com)**), USIN IT 4 OTHR CASEZ (E.G. 4 LAUNCHIN ON `WIN-X64` PLATFORM) IZ NOT SUPPORTD. VISIT **[COMPATIBILITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US)** 4 MOAR INFO.
 
 * * *
 
-`--no-config-watch` - by default ASF sets up a `FileSystemWatcher` over your `config` directory in order to listen for events related to file changes, so it can interactively adapt to them. For example, this includes stopping bots on config deletion, restarting bot on config being changed, or loading keys into **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** once you drop them into the `config` directory. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate. Usually we recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--NETWORK-GROUP <GROUP >` OR `--NETWORK-GROUP=<GROUP >` - WILL CAUSE ASF 2 INIT ITZ LIMITERS WIF CUSTOM NETWORK GROUP OV `<GROUP >` VALUE. DIS OPSHUN AFFECTS RUNNIN ASF IN **[MULTIPLE INSTANCEZ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances-lol-US)** BY SIGNALIZIN DAT GIVEN INSTANCE IZ DEPENDENT ONLY ON INSTANCEZ SHARIN TEH SAME NETWORK GROUP, AN INDEPENDENT OV TEH REST. TYPICALLY U WANTS 2 USE DIS PROPERTY ONLY IF URE ROUTIN ASF REQUESTS THRU CUSTOM MECHANISM (E.G. DIFFERENT IP ADDRESEZ) AN U WANTS 2 SET NETWORKIN GROUPS YOURSELF, WITHOUT RELYIN ON ASF 2 DO IT AUTOMATICALLY (WHICH CURRENTLY INCLUDEZ TAKIN INTO AKOWNT `WEBPROXY` ONLY). KEEP IN MIND DAT WHEN USIN CUSTOM NETWORK GROUP, DIS AR TEH UNIQUE IDENTIFIR WITHIN TEH LOCAL MACHINE, AN ASF WILL NOT TAEK INTO AKOWNT ANY OTHR DETAILS, SUCH AS `WEBPROXY` VALUE, ALLOWIN U 2 E.G. START 2 INSTANCEZ WIF DIFFERENT `WEBPROXY` VALUEZ WHICH R STILL DEPENDENT ON EACH OTHR.
+
+DUE 2 TEH NACHUR OV DIS PROPERTY, IZ ALSO POSIBLE 2 SET TEH VALUE BY DECLARIN `ASF_NETWORK_GROUP` ENVIRONMENT VARIABLE, WHICH CUD BE MOAR APPROPRIATE 4 PEEPS DAT WUD WANTS 2 AVOID SENSITIV DETAILS IN DA PROCES ARGUMENTS.
 
 * * *
 
-`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Of course, if you're running ASF inside a script, you may also make use of this switch (otherwise you're better with global config property).
+`--NO-CONFIG-WATCH` - BY DEFAULT ASF SETS UP `FILESYSTEMWATCHR` OVAR UR `CONFIG` DIRECTORY IN ORDR 2 LISTEN 4 EVENTS RELATD 2 FILE CHANGEZ, SO IT CAN INTERACTIVELY ADAPT 2 THEM. 4 EXAMPLE, DIS INCLUDEZ STOPPIN BOTS ON CONFIG DELESHUN, RESTARTIN BOT ON CONFIG BEAN CHANGD, OR LOADIN KEYS INTO **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-lol-US)** ONCE U DROP THEM INTO TEH `CONFIG` DIRECTORY. DIS SWITCH ALLOWS U 2 DISABLE SUCH BEHAVIOUR, WHICH WILL CAUSE ASF 2 COMPLETELY IGNORE ALL TEH CHANGEZ IN `CONFIG` DIRECTORY, REQUIRIN FRUM U 2 DO SUCH ACSHUNS MANUALLY, IF DEEMD APPROPRIATE. USUALLY WE RECOMMEND 2 KEEP TEH CONFIG EVENTS ENABLD, BUT IF U HAS PARTICULAR REASON 4 DISABLIN THEM AN WUD INSTEAD PREFR ASF 2 NOT DO DAT, U CAN USE DIS SWITCH 4 ACHIEVIN DAT PURPOSE.
 
 * * *
 
-`--path <path>` or `--path=<path>` - ASF always navigates to its own directory on startup. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for various application parts (including `config`, `plugins` and `www` directories, as well as `NLog.config` file), without a need of duplicating binary in the same place. It may come especially useful if you'd like to separate binary from actual config, as it's done in Linux-like packaging - this way you can use one (up-to-date) binary with several different setups. The path can be either relative according to current place of ASF binary, or absolute. Keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with config directory inside, see below example for explanation.
+`--NO-RESTART` - DIS SWITCH IZ MAINLY USD BY R **[DOCKR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-lol-US)** CONTAINERS AN FORCEZ `AUTORESTART` OV `FALSE`. UNLES U HAS PARTICULAR NED, U SHUD INSTEAD CONFIGURE `AUTORESTART` PROPERTY DIRECTLY IN UR CONFIG. DIS SWITCH IZ HER SO R DOCKR SCRIPT WONT NED 2 TOUCH UR GLOBAL CONFIG IN ORDR 2 ADAPT IT 2 ITZ OWN ENVIRONMENT. OV COURSE, IF URE RUNNIN ASF INNA SCRIPT, U CUD ALSO MAK USE OV DIS SWITCH (OTHERWIZE URE BETTR WIF GLOBAL CONFIG PROPERTY).
 
-Due to the nature of this property, it's also possible to set expected path by declaring `ASF_PATH` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+* * *
 
-If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[compatibility page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** on this manner.
+`--PATH <PATH>` OR `--PATH=<PATH>` - ASF ALWAYS NAVIGATEZ 2 ITZ OWN DIRECTORY ON STARTUP. BY SPECIFYIN DIS ARGUMENT, ASF WILL NAVIGATE 2 GIVEN DIRECTORY AFTR INITIALIZASHUN, WHICH ALLOWS U 2 USE CUSTOM PATH 4 VARIOUS APPLICASHUN PARTS (INCLUDIN `CONFIG`, `PLUGINS` AN `WWW` DIRECTORIEZ, AS WELL AS `NLOG.CONFIG` FILE), WITHOUT NED OV DUPLICATIN BINARY IN DA SAME PLACE. IT CUD COME ESPECIALLY USEFUL IF UD LIEK 2 SEPARATE BINARY FRUM AKSHUL CONFIG, AS IZ DUN IN LINUX-LIEK PACKAGIN - DIS WAI U CAN USE WAN (UP-2-DATE) BINARY WIF SEVERAL DIFFERENT SETUPS. TEH PATH CAN BE EITHR RELATIV ACCORDIN 2 CURRENT PLACE OV ASF BINARY, OR ABSOLUTE. KEEP IN MIND DAT DIS COMMAND POINTS 2 NEW "ASF HOME" - TEH DIRECTORY DAT HAS TEH SAME STRUCCHUR AS ORIGINAL ASF, WIF CONFIG DIRECTORY INSIDE, C BELOW EXAMPLE 4 EXPLANASHUN.
 
-Examples:
+DUE 2 TEH NACHUR OV DIS PROPERTY, IZ ALSO POSIBLE 2 SET EXPECTD PATH BY DECLARIN `ASF_PATH` ENVIRONMENT VARIABLE, WHICH CUD BE MOAR APPROPRIATE 4 PEEPS DAT WUD WANTS 2 AVOID SENSITIV DETAILS IN DA PROCES ARGUMENTS.
+
+IF URE CONSIDERIN USIN DIS COMMAND-LINE ARGUMENT 4 RUNNIN MULTIPLE INSTANCEZ OV ASF, WE RECOMMEND READIN R **[COMPATIBILITY PAEG](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instancez-lol-US)** ON DIS MANNR.
+
+EXAMPLEZ:
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
-ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env variable
+DOTNET /OPT/ASF/ARCHISTEAMFARM.DLL --PATH /OPT/TARGETDIRECTORY # ABSOLUTE PATH
+DOTNET /OPT/ASF/ARCHISTEAMFARM.DLL --PATH ../TARGETDIRECTORY # RELATIV PATH WERKZ AS WELL
+ASF_PATH=/OPT/TARGETDIRECTORY DOTNET /OPT/ASF/ARCHISTEAMFARM.DLL # SAME AS ENV VARIABLE
 ```
 
 ```text
-├── /opt
+├── /OPT
 │     ├── ASF
-│     │     ├── ArchiSteamFarm.dll
+│     │     ├── ARCHISTEAMFARM.DLL
 │     │     └── ...
-│     └── TargetDirectory
-│           ├── config
-│           ├── logs (generated)
-│           ├── plugins (optional)
-│           ├── www (optional)
-│           ├── log.txt (generated)
-│           └── NLog.config (optional)
+│     └── TARGETDIRECTORY
+│           ├── CONFIG
+│           ├── LOGS (GENERATD)
+│           ├── PLUGINS (OPSHUNAL)
+│           ├── WWW (OPSHUNAL)
+│           ├── LOG.TXT (GENERATD)
+│           └── NLOG.CONFIG (OPSHUNAL)
 └── ...
 ```
 
 * * *
 
-`--process-required` - declaring this switch will disable default ASF behaviour of shutting down when no bots are running. No auto-shutdown behaviour is especially useful in combination with **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** where majority of users would expect their web service to be running regardless of the amount of bots that are enabled. If you're using IPC option or otherwise need ASF process to be running all the time until you close it yourself, this is the right option.
+`--PROCES-REQUIRD` - DECLARIN DIS SWITCH WILL DISABLE DEFAULT ASF BEHAVIOUR OV SHUTTIN DOWN WHEN NO BOTS R RUNNIN. NO AUTO-SHUTDOWN BEHAVIOUR IZ ESPECIALLY USEFUL IN COMBINASHUN WIF **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US)** WER MAJORITY OV USERS WUD EXPECT THEIR WEB SERVICE 2 BE RUNNIN REGARDLES OV TEH AMOUNT OV BOTS DAT R ENABLD. IF URE USIN IPC OPSHUN OR OTHERWIZE NED ASF PROCES 2 BE RUNNIN ALL TEH TIEM TIL U CLOSE IT YOURSELF, DIS AR TEH TEH RITE OPSHUN.
 
-If you do not intend to run IPC, this option will be rather useless for you, as you can just start the process again when needed (as opposed to ASF's web server where you require it listening all the time in order to send commands).
+IF U DO NOT INTEND 2 RUN IPC, DIS OPSHUN WILL BE RATHR USELES 4 U, AS U CAN JUS START TEH PROCES AGAIN WHEN NEEDD (AS OPPOSD 2 ASFS WEB SERVR WER U REQUIRE IT LISTENIN ALL TEH TIEM IN ORDR 2 SEND COMMANDZ).
 
 * * *
 
-`--system-required` - declaring this switch will cause ASF to try signalizing the OS that the process requires system to be up and running for its entire lifetime. Currently this switch has effect only on Windows machines where it'll forbid your system from going into sleep mode as long as the process is running. This can be proven especially useful when idling on your PC or laptop during night, as ASF will be able to keep your system awake while it's idling, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once idling is finished.
+`--SISTEM-REQUIRD` - DECLARIN DIS SWITCH WILL CAUSE ASF 2 TRY SIGNALIZIN TEH OS DAT TEH PROCES REQUIREZ SISTEM 2 BE UP AN RUNNIN 4 ITZ ENTIRE LIFETIME. CURRENTLY DIS SWITCH HAS EFFECT ONLY ON WINDOWS MACHINEZ WER ITLL FORBID UR SISTEM FRUM GOIN INTO SLEEP MODE AS LONG AS TEH PROCES IZ RUNNIN. DIS CAN BE PROVEN ESPECIALLY USEFUL WHEN IDLIN ON UR PC OR LAPTOP DURIN NITE, AS ASF WILL BE ABLE 2 KEEP UR SISTEM AWAEK WHILE IZ IDLIN, DEN, ONCE ASF IZ DUN, ITLL SHUTDOWN ITSELF LIEK USUAL, MAKIN UR SISTEM ALLOWD 2 ENTR INTO SLEEP MODE AGAIN, THEREFORE SAVIN POWR IMMEDIATELY ONCE IDLIN IZ FINISHD.
 
-Keep in mind that for proper auto-shutdown of ASF you need other settings - especially avoiding `--process-required` and ensuring that all your bots are following `ShutdownOnFarmingFinished`. Of course, auto-shutdown is only a possibility for this feature, not a requirement, since you can also use this flag together with e.g. `--process-required`, effectively making your system awake infinitely after starting ASF.
+KEEP IN MIND DAT 4 PROPR AUTO-SHUTDOWN OV ASF U NED OTHR SETTINGS - ESPECIALLY AVOIDIN `--PROCES-REQUIRD` AN ENSURIN DAT ALL UR BOTS R FOLLOWIN `SHUTDOWNONFARMINGFINISHD`. OV COURSE, AUTO-SHUTDOWN IZ ONLY POSIBILITY 4 DIS FEACHUR, NOT REQUIREMENT, SINCE U CAN ALSO USE DIS FLAG TOGETHR WIF E.G. `--PROCES-REQUIRD`, EFFECTIVELY MAKIN UR SISTEM AWAEK INFINITELY AFTR STARTIN ASF.

@@ -1,196 +1,196 @@
-# Docker
+# DOCKR
 
-Starting with version 3.0.3.2, ASF is now also available as **[docker container](https://www.docker.com/what-container)**. Running ASF in docker container typically has no advantages for casual users, but it could be an excellent way of making use of ASF on servers, ensuring that ASF is being run in sandboxed environment separated from all other apps. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+Starting with version 3.0.3.2, ASF is now also available as **[docker container](https://www.docker.com/what-container)**. RUNNIN ASF IN DOCKR CONTAINR TYPICALLY HAS NO ADVANTAGEZ 4 CASUAL USERS, BUT IT CUD BE AN AWSUM WAI OV MAKIN USE OV ASF ON SERVERS, ENSURIN DAT ASF IZ BEAN RUN IN SANDBOXD ENVIRONMENT SEPARATD FRUM ALL OTHR APPS. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 * * *
 
-## Tags
+## TAGS
 
 ASF is available through 4 main types of **[tags](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
 
-### `main`
+### `MAIN`
 
-This tag always points to the ASF built from latest commit in `main` branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. Typically you should avoid this tag, as it's the highest level of bugged software dedicated to developers and advanced users for development purposes. The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken), just like in our AppVeyor build. It's here for us to mark current state of ASF project, which is not necessarily guaranteed to be stable or tested, just like pointed out in our release cycle. This tag should not be used in any production environment.
+This tag always points to the ASF built from latest commit in `main` branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. TYPICALLY U SHUD AVOID DIS TAG, AS IZ TEH HIGHEST LEVEL OV BUGGD SOFTWARE DEDICATD 2 DEVELOPERS AN ADVANCD USERS 4 DEVELOPMENT PURPOSEZ. TEH IMAGE IZ BEAN UPDATD WIF EACH COMMIT IN DA `MAIN` GITHUB BRANCH, THEREFORE U CAN EXPECT VRY OFTEN UPDATEZ (AN STUFF BEAN BROKD), JUS LIEK IN R APPVEYOR BUILD. IZ HER 4 US 2 MARK CURRENT STATE OV ASF PROJECT, WHICH IZ NOT NECESARILY GUARANTED 2 BE STABLE OR TESTD, JUS LIEK POINTD OUT IN R RELEASE CYCLE. DIS TAG SHUD NOT BE USD IN ANY PRODUCSHUN ENVIRONMENT.
 
-### `released`
+### `RELEASD`
 
-Very similar to the above, this tag always points to the latest **[released](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** ASF version, including pre-releases. Compared to `main` tag, this image is being updated each time a new GitHub tag is pushed. Dedicated to advanced/power users that love to live on the edge of what can be considered stable and fresh at the same time. This is what we'd recommend if you don't want to use `latest` tag. Please note that using this tag is equal to using our **[pre-releases](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**.
+Very similar to the above, this tag always points to the latest **[released](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** ASF version, including pre-releases. COMPARD 2 `MAIN` TAG, DIS IMAGE IZ BEAN UPDATD EACH TIEM NEW GITHUB TAG IZ PUSHD. DEDICATD 2 ADVANCD/POWR USERS DAT LUV 2 LIV ON TEH EDGE OV WUT CAN BE CONSIDERD STABLE AN FRESH AT TEH SAME TIEM. DIS AR TEH WUT WED RECOMMEND IF U DOAN WANTS 2 USE `LATEST` TAG. Please note that using this tag is equal to using our **[pre-releases](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**.
 
-### `latest`
+### `LATEST`
 
-This tag in comparison with others, is the only one that includes ASF auto-updates feature and points to the latest **[stable](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** ASF version. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating, OS-specific build of ASF. Because of that, the image doesn't have to be updated as often as possible, as included ASF version will always be capable of updating itself if needed. Of course, `UpdatePeriod` can be safely turned off (set to `0`), but in this case you should probably use frozen `A.B.C.D` release instead. Likewise, you can modify default `UpdateChannel` in order to make auto-updating `released` tag instead.
+This tag in comparison with others, is the only one that includes ASF auto-updates feature and points to the latest **[stable](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** ASF version. TEH OBJECTIV OV DIS TAG IZ 2 PROVIDE SANE DEFAULT DOCKR CONTAINR DAT IZ CAPABLE OV RUNNIN SELF-UPDATIN, OS-SPECIFIC BUILD OV ASF. CUZ OV DAT, TEH IMAGE DOESNT HAS 2 BE UPDATD AS OFTEN AS POSIBLE, AS INCLUDD ASF VERSHUN WILL ALWAYS BE CAPABLE OV UPDATIN ITSELF IF NEEDD. OV COURSE, `UPDATEPERIOD` CAN BE SAFELY TURND OFF (SET 2 `0`), BUT IN DIS CASE U SHUD PROBABLY USE FROZEN `A.B.C.D` RELEASE INSTEAD. LIKEWIZE, U CAN MODIFY DEFAULT `UPDATECHANNEL` IN ORDR 2 MAK AUTO-UPDATIN `RELEASD` TAG INSTEAD.
 
-Due to the fact that the `latest` image comes with capability of auto-updates, it includes bare OS with OS-specific ASF version, contrary to all other tags that include OS with .NET Core runtime and `generic` ASF version. This is because newer (updated) ASF version might also require newer runtime than the one the image could possibly be built with, which would otherwise require image to be re-built from scratch, nullifying the planned use-case.
+DUE 2 TEH FACT DAT TEH `LATEST` IMAGE COMEZ WIF CAPABILITY OV AUTO-UPDATEZ, IT INCLUDEZ BARE OS WIF OS-SPECIFIC ASF VERSHUN, CONTRARY 2 ALL OTHR TAGS DAT INCLUDE OS WIF .NET CORE RUNTIME AN `GENERIC` ASF VERSHUN. DIS AR TEH CUZ NEWR (UPDATD) ASF VERSHUN MITE ALSO REQUIRE NEWR RUNTIME THAN TEH WAN TEH IMAGE CUD POSIBLY BE BUILT WIF, WHICH WUD OTHERWIZE REQUIRE IMAGE 2 BE RE-BUILT FRUM SCRATCH, NULLIFYIN TEH PLANND USE-CASE.
 
 ### `A.B.C.D`
 
-In comparison with above tags, this tag is completely frozen, which means that the image won't be updated once published. This works similar to our GitHub releases that are never touched after the initial release, which guarantees you stable and frozen environment. Typically you should use this tag when you want to use some specific ASF release (older than `latest`) and you don't want to use any kind of auto-updates (e.g. those offered in `latest` tag).
+IN COMPARISON WIF ABOOV TAGS, DIS TAG IZ COMPLETELY FROZEN, WHICH MEANZ DAT TEH IMAGE WONT BE UPDATD ONCE PUBLISHD. DIS WERKZ SIMILAR 2 R GITHUB RELEASEZ DAT R NEVR TOUCHD AFTR TEH INITIAL RELEASE, WHICH GUARANTEEZ U STABLE AN FROZEN ENVIRONMENT. TYPICALLY U SHUD USE DIS TAG WHEN U WANTS 2 USE SUM SPECIFIC ASF RELEASE (OLDR THAN `LATEST`) AN U DOAN WANTS 2 USE ANY KIND OV AUTO-UPDATEZ (E.G. DOSE OFFERD IN `LATEST` TAG).
 
 * * *
 
-## Which tag is the best for me?
+## WHICH TAG IZ TEH BEST 4 ME?
 
-That depends on what you're looking for. For majority of users, `latest` tag should be the best one as it offers exactly what desktop ASF does, just in special Docker container as a service. People that are rebuilding their images quite often and would instead prefer to have ASF version tied to given release are welcome to use `released` tag. If you instead want to use some specific frozen ASF version that will never change without your clear intention, `A.B.C.D` releases are available for you as fixed ASF milestones you can always fall back to.
+DAT DEPENDZ ON WUT URE LOOKIN 4. 4 MAJORITY OV USERS, `LATEST` TAG SHUD BE TEH BEST WAN AS IT OFFERS EGSAKTLY WUT DESKTOP ASF DOEZ, JUS IN SPESHUL DOCKR CONTAINR AS SERVICE. PEEPS DAT R REBUILDIN THEIR IMAGEZ QUITE OFTEN AN WUD INSTEAD PREFR 2 HAS ASF VERSHUN TID 2 GIVEN RELEASE R WELCOM 2 USE `RELEASD` TAG. IF U INSTEAD WANTS 2 USE SUM SPECIFIC FROZEN ASF VERSHUN DAT WILL NEVR CHANGE WITHOUT UR CLEAR INTENSHUN, `A.B.C.D` RELEASEZ R AVAILABLE 4 U AS FIXD ASF MILESTONEZ U CAN ALWAYS FALL BAK 2.
 
-We generally discourage trying `main` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. Nothing guarantees that such state will work properly, but of course you're more than welcome to give them a try if you're interested in ASF development.
-
-* * *
-
-## Architectures
-
-ASF docker image is currently built on `linux` platform with 3 architectures - `x64`, `arm` and `arm64`. You can read more about them in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section.
-
-Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker pull`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
+WE GENERALLY DISCOURAGE TRYIN `MAIN` BUILDZ, JUS LIEK AUTOMATD APPVEYOR BUILDZ - DIS BUILD IZ HER 4 US 2 MARK CURRENT STATE OV ASF PROJECT. NOTHIN GUARANTEEZ DAT SUCH STATE WILL WERK PROPERLY, BUT OV COURSE URE MOAR THAN WELCOM 2 GIV THEM TRY IF URE INTERESTD IN ASF DEVELOPMENT.
 
 * * *
 
-## Usage
+## ARCHITECTUREZ
+
+ASF DOCKR IMAGE IZ CURRENTLY BUILT ON `LINUX` PLATFORM WIF 3 ARCHITECTUREZ - `X64`, `ARM` AN `ARM64`. You can read more about them in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section.
+
+SINCE ASF VERSHUN V5.0.2.2, R TAGS R USIN MULTI-PLATFORM MANIFEST, WHICH MEANZ DAT DOCKR INSTALLD ON UR MACHINE WILL AUTOMATICALLY SELECT TEH PROPR IMAGE 4 UR PLATFORM WHEN PULLIN TEH IMAGE. IF BY ANY CHANCE UD LIEK 2 PULL SPECIFIC PLATFORM IMAGE WHICH DOESNT MATCH TEH WAN URE CURRENTLY RUNNIN, U CAN DO DAT THRU `--PLATFORM` SWITCH IN APPROPRIATE DOCKR COMMANDZ, SUCH AS `DOCKR PULL`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
+
+* * *
+
+## USAGE
 
 For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/commandline/docker)**, we'll cover only basic usage in this guide, you're more than welcome to dig deeper.
 
-### Hello ASF!
+### Y HALO THAR ASF!
 
-Firstly we should verify if our docker is even working correctly, this will serve as our ASF "hello world":
+FIRSTLY WE SHUD VERIFY IF R DOCKR IZ EVEN WERKIN RITE, DIS WILL SERVE AS R ASF "Y HALO THAR WURLD":
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it --name asf --rm justarchi/archisteamfarm
+DOCKR PULL JUSTARCHI/ARCHISTEAMFARM
+DOCKR RUN -IT --NAYM ASF --RM JUSTARCHI/ARCHISTEAMFARM
 ```
 
-`docker pull` command ensures that you're using up-to-date `justarchi/archisteamfarm` image, just in case you had outdated local copy in your cache. `docker run` creates a new ASF docker container for you and runs it in the foreground (`-it`). `--rm` ensures that our container will be purged once stopped, since we're just testing if everything works fine for now.
+`DOCKR PULL` COMMAND ENSUREZ DAT URE USIN UP-2-DATE `JUSTARCHI/ARCHISTEAMFARM` IMAGE, JUS IN CASE U HAD OUTDATD LOCAL COPY IN UR CACHE. `DOCKR RUN` CREATEZ NEW ASF DOCKR CONTAINR 4 U AN RUNS IT IN DA FOREGROUND (`-IT`). `--RM` ENSUREZ DAT R CONTAINR WILL BE PURGD ONCE STOPPD, SINCE WERE JUS TESTIN IF EVRYTHIN WERKZ FINE 4 NAO.
 
-If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `docker stop asf`.
+IF EVRYTHIN ENDD SUCCESFULLY, AFTR PULLIN ALL LAYERS AN STARTIN CONTAINR, U SHUD NOTICE DAT ASF PROPERLY STARTD AN INFORMD US DAT THAR R NO DEFIND BOTS, WHICH IZ GUD - WE VERIFID DAT ASF IN DOCKR WERKZ PROPERLY. HIT `CTRL+P` DEN `CTRL+Q` IN ORDR 2 QUIT FOREGROUND DOCKR CONTAINR, DEN STOP ASF CONTAINR WIF `DOCKR STOP ASF`.
 
-If you take a closer look at the command then you'll notice that we didn't declare any tag, which automatically defaulted to `latest` one. If you want to use other tag than `latest`, for example `released`, then you should declare it explicitly:
+IF U TAEK CLOSR LOOK AT TEH COMMAND DEN ULL NOTICE DAT WE DIDNT DECLARE ANY TAG, WHICH AUTOMATICALLY DEFAULTD 2 `LATEST` WAN. If you want to use other tag than `latest`, for example `released`, then you should declare it explicitly:
 
 ```shell
-docker pull justarchi/archisteamfarm:released
-docker run -it --name asf --rm justarchi/archisteamfarm:released
+DOCKR PULL JUSTARCHI/ARCHISTEAMFARM:RELEASD
+DOCKR RUN -IT --NAYM ASF --RM JUSTARCHI/ARCHISTEAMFARM:RELEASD
 ```
 
 * * *
 
-## Using a volume
+## USIN VOLUME
 
-If you're using ASF in docker container then obviously you need to configure the program itself. You can do it in various different ways, but the recommended one would be to create ASF `config` directory on local machine, then mount it as a shared volume in ASF docker container.
+IF URE USIN ASF IN DOCKR CONTAINR DEN OBVIOUSLY U NED 2 CONFIGURE TEH PROGRAM ITSELF. U CAN DO IT IN VARIOUS DIFFERENT WAYS, BUT TEH RECOMMENDD WAN WUD BE 2 CREATE ASF `CONFIG` DIRECTORY ON LOCAL MACHINE, DEN MOUNT IT AS SHARD VOLUME IN ASF DOCKR CONTAINR.
 
-For example, we'll assume that your ASF config folder is in `/home/archi/ASF/config` directory. This directory contains core `ASF.json` as well as bots that we want to run. Now all we need to do is simply attaching that directory as shared volume in our docker container, where ASF expects its config directory (`/app/config`).
-
-```shell
-docker pull justarchi/archisteamfarm
-docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
-```
-
-And that's it, now your ASF docker container will use shared directory with your local machine in read-write mode, which is everything you need for configuring ASF. In similar way you can mount other volumes that you'd like to share with ASF, such as `/app/logs` or `/app/plugins`.
-
-Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF docker container. We're only covering basic usage in this guide.
-
-### Volume permissions
-
-ASF is by default run with default `root` user inside a container. This is not a problem security-wise, since we're already inside Docker container, but it does affect the shared volume as newly-generated files will be normally owned by `root`, which may not be desired situation when using a shared volume.
-
-Docker allows you to pass `--user` **[flag](https://docs.docker.com/engine/reference/run/#user)** to `docker run` command which will define default user that ASF will run under. You can check your `uid` and `gid` for example with `id` command, then pass it to the rest of the command. For example, if your target user has `uid` and `gid` of 1000:
+4 EXAMPLE, WELL ASSUME DAT UR ASF CONFIG FOLDR IZ IN `/HOME/ARCHI/ASF/CONFIG` DIRECTORY. DIS DIRECTORY CONTAINS CORE `ASF.JSON` AS WELL AS BOTS DAT WE WANTS 2 RUN. NAO ALL WE NED 2 DO IZ SIMPLY ATTACHIN DAT DIRECTORY AS SHARD VOLUME IN R DOCKR CONTAINR, WER ASF EXPEX ITZ CONFIG DIRECTORY (`/APP/CONFIG`).
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
+DOCKR PULL JUSTARCHI/ARCHISTEAMFARM
+DOCKR RUN -IT -V /HOME/ARCHI/ASF/CONFIG:/APP/CONFIG --NAYM ASF JUSTARCHI/ARCHISTEAMFARM
 ```
 
-Remember that by default `/app` directory used by ASF is still owned by `root`. If you run ASF under custom user, then your ASF process won't have write access to its own files. This access is not mandatory for operation, but it is crucial e.g. for auto-updates feature. In order to fix this, it's enough to change ownership of all ASF files from default `root` to your new custom user.
+AN THAZ IT, NAO UR ASF DOCKR CONTAINR WILL USE SHARD DIRECTORY WIF UR LOCAL MACHINE IN READ-RITE MODE, WHICH IZ EVRYTHIN U NED 4 CONFIGURIN ASF. IN SIMILAR WAI U CAN MOUNT OTHR VOLUMEZ DAT UD LIEK 2 SHARE WIF ASF, SUCH AS `/APP/LOGS` OR `/APP/PLUGINS`.
+
+OV COURSE, DIS AR TEH JUS WAN SPECIFIC WAI 2 ACHIEVE WUT WE WANTS, NOTHIN IZ STOPPIN U FRUM E.G. CREATIN UR OWN `DOCKERFILE` DAT WILL COPY UR CONFIG FILEZ INTO `/APP/CONFIG` DIRECTORY INSIDE ASF DOCKR CONTAINR. WERE ONLY COVERIN BASIC USAGE IN DIS GUIDE.
+
+### VOLUME PERMISHUNS
+
+ASF IZ BY DEFAULT RUN WIF DEFAULT `ROOT` USR INNA CONTAINR. DIS AR TEH NOT PROBLEM SECURITY-WIZE, SINCE WERE ALREADY INSIDE DOCKR CONTAINR, BUT IT DOEZ AFFECT TEH SHARD VOLUME AS NEWLY-GENERATD FILEZ WILL BE NORMALLY OWND BY `ROOT`, WHICH CUD NOT BE DESIRD SITUASHUN WHEN USIN SHARD VOLUME.
+
+Docker allows you to pass `--user` **[flag](https://docs.docker.com/engine/reference/run/#user)** to `docker run` command which will define default user that ASF will run under. U CAN CHECK UR `UID` AN `GID` 4 EXAMPLE WIF `ID` COMMAND, DEN PAS IT 2 TEH REST OV TEH COMMAND. 4 EXAMPLE, IF UR TARGET USR HAS `UID` AN `GID` OV 1000:
 
 ```shell
-docker exec -u root asf chown -hR 1000:1000 /app
+DOCKR PULL JUSTARCHI/ARCHISTEAMFARM
+DOCKR RUN -IT -U 1000:1000 -V /HOME/ARCHI/ASF/CONFIG:/APP/CONFIG --NAYM ASF JUSTARCHI/ARCHISTEAMFARM
 ```
 
-This has to be done only once after you created your container with `docker run`, and only if you decided to use custom user for ASF process. Also don't forget to change `1000:1000` argument in both commands above to the `uid` and `gid` you actually want to run ASF under.
+REMEMBR DAT BY DEFAULT `/APP` DIRECTORY USD BY ASF IZ STILL OWND BY `ROOT`. IF U RUN ASF UNDR CUSTOM USR, DEN UR ASF PROCES WONT HAS RITE ACCES 2 ITZ OWN FILEZ. DIS ACCES IZ NOT MANDATORY 4 OPERASHUN, BUT IT CRUSHUL E.G. 4 AUTO-UPDATEZ FEACHUR. IN ORDR 2 FIX DIS, IZ ENOUGH 2 CHANGE OWNERSHIP OV ALL ASF FILEZ FRUM DEFAULT `ROOT` 2 UR NEW CUSTOM USR.
+
+```shell
+DOCKR EXEC -U ROOT ASF CHOWN -HR 1000:1000 /APP
+```
+
+DIS HAS 2 BE DUN ONLY ONCE AFTR U CREATD UR CONTAINR WIF `DOCKR RUN`, AN ONLY IF U DECIDD 2 USE CUSTOM USR 4 ASF PROCES. Also don't forget to change `1000:1000` argument in both commands above to the `uid` and `gid` you actually want to run ASF under.
 
 * * *
 
-## Multiple instances synchronization
+## MULTIPLE INSTANCEZ SYNCHRONIZASHUN
 
-ASF includes support for multiple instances synchronization, as stated in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** section. When running ASF in docker container, you can optionally "opt-in" into the process, in case you're running multiple containers with ASF and you'd like for them to synchronize with each other.
+ASF includes support for multiple instances synchronization, as stated in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** section. WHEN RUNNIN ASF IN DOCKR CONTAINR, U CAN OPSHUNALLY "OPT-IN" INTO TEH PROCES, IN CASE URE RUNNIN MULTIPLE CONTAINERS WIF ASF AN UD LIEK 4 THEM 2 SYNCHRONIZE WIF EACH OTHR.
 
-By default, each ASF running inside a docker container is standalone, which means that no synchronization takes place. In order to enable synchronization between them, you must bind `/tmp/ASF` path in every ASF container that you want to synchronize, to one, shared path on your docker host, in read-write mode. This is achieved exactly the same as binding a volume which was described above, just with different paths:
+BY DEFAULT, EACH ASF RUNNIN INNA DOCKR CONTAINR IZ STANDALONE, WHICH MEANZ DAT NO SYNCHRONIZASHUN TAKEZ PLACE. IN ORDR 2 ENABLE SYNCHRONIZASHUN TWEEN THEM, U MUST BIND `/TMP/ASF` PATH IN EVRY ASF CONTAINR DAT U WANTS 2 SYNCHRONIZE, 2 WAN, SHARD PATH ON UR DOCKR HOST, IN READ-RITE MODE. DIS AR TEH ACHIEVD EGSAKTLY TEH SAME AS BINDIN VOLUME WHICH WUZ DESCRIBD ABOOV, JUS WIF DIFFERENT PATHS:
 
 ```shell
-mkdir -p /tmp/ASF-g1
-docker pull justarchi/archisteamfarm
-docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 justarchi/archisteamfarm
-docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 justarchi/archisteamfarm
-# And so on, all ASF containers are now synchronized with each other
+MKDIR -P /TMP/ASF-G1
+DOCKR PULL JUSTARCHI/ARCHISTEAMFARM
+DOCKR RUN -V /TMP/ASF-G1:/TMP/ASF -V /HOME/ARCHI/ASF/CONFIG:/APP/CONFIG --NAYM ASF1 JUSTARCHI/ARCHISTEAMFARM
+DOCKR RUN -V /TMP/ASF-G1:/TMP/ASF -V /HOME/JOHN/ASF/CONFIG:/APP/CONFIG --NAYM ASF2 JUSTARCHI/ARCHISTEAMFARM
+# AN SO ON, ALL ASF CONTAINERS R NAO SYNCHRONIZD WIF EACH OTHR
 ```
 
-We recommend to bind ASF's `/tmp/ASF` directory also to a temporary `/tmp` directory on your machine, but of course you're free to choose any other one that satisfies your usage. Each ASF container that is expected to be synchronized should have its `/tmp/ASF` directory shared with other containers that are taking part in the same synchronization process.
+WE RECOMMEND 2 BIND ASFS `/TMP/ASF` DIRECTORY ALSO 2 TEMPORARY `/TMP` DIRECTORY ON UR MACHINE, BUT OV COURSE URE FREE 2 CHOOSE ANY OTHR WAN DAT SATISFIEZ UR USAGE. EACH ASF CONTAINR DAT IZ EXPECTD 2 BE SYNCHRONIZD SHUD HAS ITZ `/TMP/ASF` DIRECTORY SHARD WIF OTHR CONTAINERS DAT R TAKIN PART IN DA SAME SYNCHRONIZASHUN PROCES.
 
-As you've probably guessed from example above, it's also possible to create two or more "synchronization groups", by binding different docker host paths into ASF's `/tmp/ASF`.
+AS UVE PROBABLY GUESD FRUM EXAMPLE ABOOV, IZ ALSO POSIBLE 2 CREATE 2 OR MOAR "SYNCHRONIZASHUN GROUPS", BY BINDIN DIFFERENT DOCKR HOST PATHS INTO ASFS `/TMP/ASF`.
 
-Mounting `/tmp/ASF` is completely optional and actually not recommended, unless you explicitly want to synchronize two or more ASF containers. We do not recommend mounting `/tmp/ASF` for single-container usage, as it brings absolutely no benefits if you expect to run just one ASF container, and it might actually cause issues that could otherwise be avoided.
+MOUNTIN `/TMP/ASF` IZ COMPLETELY OPSHUNAL AN AKSHULLY NOT RECOMMENDD, UNLES U EXPLICITLY WANTS 2 SYNCHRONIZE 2 OR MOAR ASF CONTAINERS. WE DO NOT RECOMMEND MOUNTIN `/TMP/ASF` 4 SINGLE-CONTAINR USAGE, AS IT BRINGS ABSOLUTELY NO BENEFITS IF U EXPECT 2 RUN JUS WAN ASF CONTAINR, AN IT MITE AKSHULLY CAUSE ISSUEZ DAT CUD OTHERWIZE BE AVOIDD.
 
 * * *
 
-## Command-line arguments
+## COMMAND-LINE ARGUMENTS
 
-ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container through environment variables. You should use specific environment variables for supported switches, and `ASF_ARGS` for the rest. This can be achieved with `-e` switch added to `docker run`, for example:
+ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container through environment variables. U SHUD USE SPECIFIC ENVIRONMENT VARIABLEZ 4 SUPPORTD SWITCHEZ, AN `ASF_ARGS` 4 DA REST. DIS CAN BE ACHIEVD WIF `-E` SWITCH ADDD 2 `DOCKR RUN`, 4 EXAMPLE:
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
+DOCKR PULL JUSTARCHI/ARCHISTEAMFARM
+DOCKR RUN -IT -E "ASF_CRYPTKEY=MYPASWORD" -E "ASF_ARGS=--PROCES-REQUIRD" --NAYM ASF JUSTARCHI/ARCHISTEAMFARM
 ```
 
-This will properly pass your `--cryptkey` argument to ASF process being run inside docker container, as well as other args. Of course, if you're advanced user then you can also modify `ENTRYPOINT` or add `CMD` and pass your custom arguments yourself.
+DIS WILL PROPERLY PAS UR `--CRYPTKEY` ARGUMENT 2 ASF PROCES BEAN RUN INSIDE DOCKR CONTAINR, AS WELL AS OTHR ARGS. OV COURSE, IF URE ADVANCD USR DEN U CAN ALSO MODIFY `ENTRYPOINT` OR ADD `CMD` AN PAS UR CUSTOM ARGUMENTS YOURSELF.
 
-Unless you want to provide custom encryption key or other advanced options, usually you don't need to include any special environment variables, as our docker containers are already configured to run with a sane expected default options of `--no-restart` `--process-required` `--system-required`, so as you can see our `ASF_ARGS` above are redundant in this case, and only `ASF_CRYPTKEY` is relevant.
+UNLES U WANTS 2 PROVIDE CUSTOM ENCRYPSHUN KEY OR OTHR ADVANCD OPSHUNS, USUALLY U DOAN NED 2 INCLUDE ANY SPESHUL ENVIRONMENT VARIABLEZ, AS R DOCKR CONTAINERS R ALREADY CONFIGURD 2 RUN WIF SANE EXPECTD DEFAULT OPSHUNS OV `--NO-RESTART` `--PROCES-REQUIRD` `--SISTEM-REQUIRD`, SO AS U CAN C R `ASF_ARGS` ABOOV R REDUNDANT IN DIS CASE, AN ONLY `ASF_CRYPTKEY` IZ RELEVANT.
 
 * * *
 
 ## IPC
 
-For using IPC, firstly you should switch `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** to `true`. In addition to that, you **must** modify default listening address of `localhost`, as docker can't route outside traffic to loopback interface. An example of a setting that will listen on all interfaces would be `http://*:1242`. Of course, you can also use more restrictive bindings, such as local LAN or VPN network only, but it has to be a route accessible from the outside - `localhost` won't do, as the route is entirely within guest machine.
+For using IPC, firstly you should switch `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** to `true`. IN ADDISHUN 2 DAT, U **MUST** MODIFY DEFAULT LISTENIN ADDRES OV `LOCALHOST`, AS DOCKR CANT ROUTE OUTSIDE TRAFFIC 2 LOOPBACK INTERFACE. AN EXAMPLE OV SETTIN DAT WILL LISTEN ON ALL INTERFACEZ WUD BE `HTTP://*:1242`. OV COURSE, U CAN ALSO USE MOAR RESTRICTIV BINDINGS, SUCH AS LOCAL LAN OR VPN NETWORK ONLY, BUT IT HAS 2 BE ROUTE ACCESIBLE FRUM TEH OUTSIDE - `LOCALHOST` WONT DO, AS TEH ROUTE IZ ENTIRELY WITHIN GUEST MACHINE.
 
 For doing the above you should use **[custom IPC config](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#custom-configuration)** such as the one below:
 
 ```json
 {
-    "Kestrel": {
-        "Endpoints": {
+    "KESTREL": {
+        "ENDPOINTS": {
             "HTTP": {
-                "Url": "http://*:1242"
+                "URL": "HTTP://*:1242"
             }
         }
     }
 }
 ```
 
-Once we set up IPC on non-loopback interface, we need to tell docker to map ASF's `1242/tcp` port either with `-P` or `-p` switch.
+ONCE WE SET UP IPC ON NON-LOOPBACK INTERFACE, WE NED 2 TELL DOCKR 2 MAP ASFS `1242/TCP` PORT EITHR WIF `-P` OR `-P` SWITCH.
 
-For example, this command would expose ASF IPC interface to host machine (only):
+4 EXAMPLE, DIS COMMAND WUD EXPOSE ASF IPC INTERFACE 2 HOST MACHINE (ONLY):
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/archisteamfarm
+DOCKR PULL JUSTARCHI/ARCHISTEAMFARM
+DOCKR RUN -IT -P 127.0.0.1:1242:1242 -P [::1]:1242:1242 --NAYM ASF JUSTARCHI/ARCHISTEAMFARM
 ```
 
-If you set everything properly, `docker run` command above will make **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface work from your host machine, on standard `localhost:1242` route that is now properly redirected to your guest machine. It's also nice to note that we do not expose this route further, so connection can be done only within docker host, and therefore keeping it secure. Of course, you can expose the route further if you know what you're doing and ensure appropriate security measures.
+If you set everything properly, `docker run` command above will make **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface work from your host machine, on standard `localhost:1242` route that is now properly redirected to your guest machine. IZ ALSO NICE 2 NOWT DAT WE DO NOT EXPOSE DIS ROUTE FURTHR, SO CONNECSHUN CAN BE DUN ONLY WITHIN DOCKR HOST, AN THEREFORE KEEPIN IT SECURE. OV COURSE, U CAN EXPOSE TEH ROUTE FURTHR IF U KNOE WUT URE DOIN AN ENSURE APPROPRIATE SECURITY MEASUREZ.
 
 * * *
 
-### Complete example
+### COMPLETE EXAMPLE
 
-Combining whole knowledge above, an example of a complete setup would look like this:
+COMBININ WHOLE KNOWLEDGE ABOOV, AN EXAMPLE OV COMPLETE SETUP WUD LOOK LIEK DIS:
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
+DOCKR PULL JUSTARCHI/ARCHISTEAMFARM
+DOCKR RUN -IT -P 127.0.0.1:1242:1242 -P [::1]:1242:1242 -V /HOME/ARCHI/ASF:/APP/CONFIG --NAYM ASF JUSTARCHI/ARCHISTEAMFARM
 ```
 
-This assumes that you'll use a single ASF container, with all ASF config files in `/home/archi/asf`. You should modify the config path to the one that matches your machine. This setup is also ready for optional IPC usage if you've decided to include `IPC.config` in your config directory with a content like below:
+DIS ASSUMEZ DAT ULL USE SINGLE ASF CONTAINR, WIF ALL ASF CONFIG FILEZ IN `/HOME/ARCHI/ASF`. U SHUD MODIFY TEH CONFIG PATH 2 TEH WAN DAT MATCHEZ UR MACHINE. DIS SETUP IZ ALSO READY 4 OPSHUNAL IPC USAGE IF UVE DECIDD 2 INCLUDE `IPC.CONFIG` IN UR CONFIG DIRECTORY WIF CONTENT LIEK BELOW:
 
 ```json
 {
-    "Kestrel": {
-        "Endpoints": {
+    "KESTREL": {
+        "ENDPOINTS": {
             "HTTP": {
-                "Url": "http://*:1242"
+                "URL": "HTTP://*:1242"
             }
         }
     }
@@ -199,10 +199,10 @@ This assumes that you'll use a single ASF container, with all ASF config files i
 
 * * *
 
-## Pro tips
+## PRO TIPS
 
-When you already have your ASF docker container ready, you don't have to use `docker run` every time. You can easily stop/start ASF docker container with `docker stop asf` and `docker start asf`. Keep in mind that if you're not using `latest` tag then updating ASF will still require from you to `docker stop`, `docker rm`, `docker pull` and `docker run` again. This is because you must rebuild your container from fresh ASF docker image every time you want to use ASF version included in that image. In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it's still a good idea to do it from time to time in order to use fresh .NET Core runtime and underlying OS).
+WHEN U ALREADY HAS UR ASF DOCKR CONTAINR READY, U DOAN HAS 2 USE `DOCKR RUN` EVRY TIEM. U CAN EASILY STOP/START ASF DOCKR CONTAINR WIF `DOCKR STOP ASF` AN `DOCKR START ASF`. KEEP IN MIND DAT IF URE NOT USIN `LATEST` TAG DEN UPDATIN ASF WILL STILL REQUIRE FRUM U 2 `DOCKR STOP`, `DOCKR RM`, `DOCKR PULL` AN `DOCKR RUN` AGAIN. DIS AR TEH CUZ U MUST REBUILD UR CONTAINR FRUM FRESH ASF DOCKR IMAGE EVRY TIEM U WANTS 2 USE ASF VERSHUN INCLUDD IN DAT IMAGE. IN `LATEST` TAG, ASF HAS INCLUDD CAPABILITY 2 AUTO-UPDATE ITSELF, SO REBUILDIN TEH IMAGE IZ NOT NECESARY 4 USIN UP-2-DATE ASF (BUT IZ STILL GUD IDEA 2 DO IT FRUM TIEM 2 TIEM IN ORDR 2 USE FRESH .NET CORE RUNTIME AN UNDERLYIN OS).
 
-As hinted by above, ASF in tag other than `latest` won't automatically update itself, which means that **you** are in charge of using up-to-date `justarchi/archisteamfarm` repo. This has many advantages as typically the app should not touch its own code when being run, but we also understand convenience that comes from not having to worry about ASF version in your docker container. If you care about good practices and proper docker usage, `released` tag is what we'd suggest instead of `latest`, but if you can't be bothered with it and you just want to make ASF both work and auto-update itself, then `latest` will do.
+AS HINTD BY ABOOV, ASF IN TAG OTHR THAN `LATEST` WONT AUTOMATICALLY UPDATE ITSELF, WHICH MEANZ DAT **U** R IN CHARGE OV USIN UP-2-DATE `JUSTARCHI/ARCHISTEAMFARM` REPO. DIS HAS LOTZ DA ADVANTAGEZ AS TYPICALLY TEH APP SHUD NOT TOUCH ITZ OWN CODE WHEN BEAN RUN, BUT WE ALSO UNDERSTAND CONVENIENCE DAT COMEZ FRUM NOT HAVIN 2 WORRY BOUT ASF VERSHUN IN UR DOCKR CONTAINR. IF U CARE BOUT GUD PRACTICEZ AN PROPR DOCKR USAGE, `RELEASD` TAG IZ WUT WED SUGGEST INSTEAD OV `LATEST`, BUT IF U CANT BE BOTHERD WIF IT AN U JUS WANTS 2 MAK ASF BOTH WERK AN AUTO-UPDATE ITSELF, DEN `LATEST` WILL DO.
 
-You should typically run ASF in docker container with `Headless: true` global setting. This will clearly tell ASF that you're not here to provide missing details and it should not ask for those. Of course, for initial setup you should consider leaving that option at `false` so you can easily set up things, but in long-run you're typically not attached to ASF console, therefore it'd make sense to inform ASF about that and use `input` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** if need arises. This way ASF won't have to wait infinitely for user input that will not happen (and waste resources while doing so). It will also allow ASF to run in non-interactive mode inside container, which is crucial e.g. in regards to forwarding signals, making it possible for ASF to gracefully close on `docker stop asf` request.
+U SHUD TYPICALLY RUN ASF IN DOCKR CONTAINR WIF `HEADLES: TRUE` GLOBAL SETTIN. DIS WILL CLEARLY TELL ASF DAT URE NOT HER 2 PROVIDE MISIN DETAILS AN IT SHUD NOT ASK 4 DOSE. Of course, for initial setup you should consider leaving that option at `false` so you can easily set up things, but in long-run you're typically not attached to ASF console, therefore it'd make sense to inform ASF about that and use `input` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** if need arises. DIS WAI ASF WONT HAS 2 WAIT INFINITELY 4 USR INPUT DAT WILL NOT HAPPEN (AN WASTE RESOURCEZ WHILE DOIN SO). IT WILL ALSO ALLOW ASF 2 RUN IN NON-INTERACTIV MODE INSIDE CONTAINR, WHICH IZ CRUSHUL E.G. IN REGARDZ 2 FORWARDIN SIGNALS, MAKIN IT POSIBLE 4 ASF 2 GRACEFULLY CLOSE ON `DOCKR STOP ASF` REQUEST.
