@@ -256,7 +256,7 @@ We'd like to show our eternal gratitude to people that have spent a significant 
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | 葡萄牙語（巴西） |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | 中文（中國）   |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | 俄文、烏克蘭文  |
-| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | 德文       |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | 德文       |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 中文（香港）   |
 
 感謝你們提升 ASF 的在地化品質！

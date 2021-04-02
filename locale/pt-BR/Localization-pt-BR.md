@@ -256,7 +256,7 @@ Gostaríamos de mostrar nossa eterna gratidão a pessoas que gastaram uma grande
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Português (BR)   |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinês (CN)      |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russo, Ucraniano |
-| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | Alemão           |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | Alemão           |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinês (HK)      |
 
 Obrigado a todos por melhorar a qualidade de tradução do ASF!

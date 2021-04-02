@@ -256,7 +256,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Португальська (BR)      |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Китайська (CN)          |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Українська та російська |
-| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | Німецька                |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | Німецька                |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Китайська (HK)          |
 
 Дякуємо вам усім за вдосконалення якості локалізації ASF!

@@ -256,7 +256,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | 포르투칼어(BR)    |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | 중국어(CN)      |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | 러시아어와 우크라이나어 |
-| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | 독일어          |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | 독일어          |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 중국어(HK)      |
 
 ASF 현지화의 품질을 개선해주셔서 감사합니다!

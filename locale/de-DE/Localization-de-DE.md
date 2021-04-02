@@ -256,7 +256,7 @@ Wir möchten unseren ewigen Dank den Menschen zeigen, die viel ihrer Zeit und Be
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portugiesisch (BR)   |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinesisch (CN)      |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russisch, Ukrainisch |
-| **[SKANKHUNTER](https://crowdin.com/profile/MrBurrBurr)**  | Deutsch              |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | Deutsch              |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinesisch (HK)      |
 
 Vielen Dank an euch alle für die Verbesserung unserer ASF-Lokalisierungsqualität!

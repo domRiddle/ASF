@@ -256,7 +256,7 @@ WED LIEK 2 SHOW R ETERNAL GRATITUDE 2 PEEPS DAT HAS SPENT SIGNIFICANT AMOUNT OV 
 | **[DEAD_SAM](https://crowdin.com/profile/Dead_Sam)**       | PORTUGUEES (BR)   |
 | **[DELUXGHOST](https://crowdin.com/profile/deluxghost)**   | CHINEES (CN)      |
 | **[RYZHEHVOST](https://crowdin.com/profile/Ryzhehvost)**   | RUSIAN, UKRAINIAN |
-| **[SKANKHUNTR](https://crowdin.com/profile/MrBurrBurr)**   | GERMAN            |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | GERMAN            |
 | **[XINXINGCHEN](https://crowdin.com/profile/XinxingChen)** | CHINEES (HK)      |
 
 THANK U ALL 4 IMPROOVIN R ASF LOCALIZASHUN QUALITY!
