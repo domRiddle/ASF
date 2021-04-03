@@ -1,48 +1,48 @@
 # Compilazione
 
-Compilation is the process of creating executable file. This is what you want to do if you want to add your own changes to ASF, or if you for whatever reason don't trust executable files provided in official **[releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**. If you're user and not a developer, most likely you want to use already precompiled binaries, but if you'd like to use your own ones, or learn something new, continue reading.
+La compilazione è il processo di creazione del file eseguibile. Questo è quanto vuoi fare se vuoi aggiungere le tue modifiche ad ASF, o se per qualche motivo non ti fidi dei file eseguibili forniti nelle **[versioni](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** ufficiali. Se sei un utente e non uno sviluppatore, molto probabilmente vorrai usare i binari già precompilati, ma se vuoi usare i tuoi, o vuoi imparare qualcosa di nuovo, continua a leggere.
 
-ASF can be compiled on any currently supported platform, as long as you have all needed tools to do so.
+ASF è compilabile su ogni piattaforma correntemente supportata, finché hai tutti gli strumenti per farlo.
 
 * * *
 
-## .NET Core SDK
+## SDK .NET Core
 
-Regardless of platform, you need full .NET Core SDK (not just runtime) in order to compile ASF. Installation instructions can be found on **[.NET Core installation page](https://dotnet.microsoft.com/download)**. You need to install appropriate .NET Core SDK version for your OS. After successful installation, `dotnet` command should be working and operative. You can verify if it works with `dotnet --info`. Also ensure that your .NET Core SDK matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
+Indipendentemente dalla piattaforma, necessiterai del SDK .NET Core completa (non solo in esecuzione) per compilare ASF. Puoi trovare le istruzioni di installazione sulla **[pagina di installazione di .NET Core](https://dotnet.microsoft.com/download)**. Devi installare la versione appropriata del SDK di .NET Core per il tuo OS. Dopo l'installazione riuscita, il comando `dotnet` dovrebbe esser funzionante e operativo. Puoi verificare che funzioni con `dotnet --info`. Assicurati anche che l'SDK di .NET Core corrisponda ai **[requisiti d'esecuzione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** di ASF.
 
 * * *
 
 ## Compilazione
 
-Assuming you have .NET Core SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:
+Presumendo che tu abbia l'SDK di .NET Core operativa e nella versione appropriata, naviga semplicemente alla cartella sorgente di ASF (repository clonata o scaricata e decompressa di ASF) ed esegui:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
 ```
 
-If you're using Linux/OS X, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
+Se usi LINUS/OS X, puoi invece usare lo script `cc.sh` che farà lo stesso, in un modo un po' più complesso.
 
-If compilation ended successfully, you can find your ASF in `source` flavour in `out/generic` directory. This is the same as official `generic` ASF build, but it has forced `UpdateChannel` and `UpdatePeriod` of `0`, which is appropriate for self-builds.
+Se la compilazione è terminata correttamente, puoi trovare il tuo ASF in forma di `sorgente` nella cartella `out/generic`. Ha pari valore alla build ufficiale `generica` di ASF, ma ha `UpdateChannel` e `UpdatePeriod` di `0` forzati, il che è appropriato per le build personali.
 
-### OS-specific
+### Specifico all'OS
 
-You can also generate OS-specific .NET Core package if you have a specific need. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET Core runtime that you've used for the compilation in the first place, but just in case you want to:
+Puoi anche generare pacchetti di .NET Core specifici per l'OS se hai un'esigenza specifica. In generale non dovresti farlo perché hai appena compilato il tipo `generico` che puoi eseguire con l'esecuzione del .NET Core già installato usato in primo luogo per la compilazione, ma se volessi farlo:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
-Of course, replace `linux-x64` with OS-architecture that you want to target, such as `win-x64`. This build will also have updates disabled.
+Ovviamente, sostituisci `linux-64` con l'architettura OS a cui vuoi destinarlo, come `win-x64`. Questa build avrà inoltre gli aggiornamenti disabilitati.
 
-### .NET Framework
+### Framework .NET
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net5.0` to `net48`. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET Core SDK, so the below will work only on Windows:
+In un caso molto raro, qualora volessi costruire il pacchetto `generic-netf`, puoi modificare il framework di destinazione da `net5.0` a `net48`. Tieni a mente che necessiterai del pacchetto sviluppatore appropriato del **[Framework di .NET](https://dotnet.microsoft.com/download/visual-studio-sdks)** per compilare la variante `netf`, oltre all'SDK di .NET Core, quindi il seguente funzionerà solo su Windows:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
-In case of being unable to install .NET Framework or even .NET Core SDK itself (e.g. because of building on `linux-x86` with `mono`), you can call `msbuild` directly. You'll also need to specify `ASFNetFramework` manually, as ASF by default disables `netf` build on non-Windows platforms:
+In caso di incapacità di installare il Framework di .NET o persino l'SDK stesso di .NET Core (es. per la costruzione su `linux-x86` con `mono`), potrai direttamente chiamare `msbuild`. Dovrai anche specificare manualmente `ASFNetFramework`, poiché ASF di default disabilita la build `netf` su piattaforme non Windows:
 
 ```shell
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
@@ -50,22 +50,22 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 * * *
 
-## Development
+## Sviluppo
 
-If you'd like to edit ASF code, you can use any .NET Core compatible IDE for that purpose, although even that is optional, since you can as well edit with a notepad and compile with `dotnet` command described above. Still, for Windows we recommend **[latest Visual Studio](https://visualstudio.microsoft.com/downloads)** (free community version is more than enough).
+Se vorresti modificare il codice di ASF, potrai usare l'IDE compatibile con .NET Core per tale scopo, sebbene anche ciò sia opzionale, poiché puoi anche modificare con un blocco note e compilare con il comando `dotnet` descritto sopra. Tuttavia, per Windows consigliamo l'**[ultimo Visual Studio](https://visualstudio.microsoft.com/downloads)** (la versione gratuita della community è più che sufficiente).
 
-If you'd like to work with ASF code on Linux/OS X instead, we recommend **[latest Visual Studio Code](https://code.visualstudio.com/download)**. It's not as rich as classic Visual Studio, but it's good enough.
+Se vorresti lavorare con il codice di ASF su Linux/OS X, invece, consigliamo l'**[ultima versione di Visual Studio Code](https://code.visualstudio.com/download)**. Non è ricca come il classico Visual Studio, ma va abbastanza bene.
 
-Of course all suggestions above are only recommendations, you can use whatever you want to, it comes down to `dotnet build` command anyway. We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, although it's not a free solution.
-
-* * *
-
-## Tags
-
-`main` branch is not guaranteed to be in a state that allows successful compilation or flawless ASF execution in the first place, since it's development branch just like stated in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. If you want to compile or reference ASF from source, then you should use appropriate **[tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** for that purpose, which guarantees at least successful compilation, and very likely also flawless execution (if build was marked as stable release). In order to check the current "health" of the tree, you can use our continuous integrations - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** or **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**.
+Ovviamente tutti i suggerimenti sopra sono solo consigli, puoi usare ciò che vuoi, si riduce comunque al comando `dotnet build`. Usiamo **[JetBrains Rider](https://www.jetbrains.com/rider)** per lo sviluppo di ASF, sebbene non sia una soluzione gratuita.
 
 * * *
 
-## Official releases
+## Tag
 
-Official ASF releases are compiled by **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** on Windows, with latest .NET Core SDK that matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**. After passing tests, all packages are deployed as the release, also on GitHub. This also guarantees transparency, since GitHub always uses official public source for all builds, and you can compare checksums of GitHub artifacts with GitHub release assets. ASF developers do not compile or publish builds themselves, except for private development process and debugging.
+Il ramo `main` non è garantito in uno stato che consenta una compilazione di successo o un'esecuzione impeccabile di ASF in primo luogo, poiché è il suo ramo di sviluppo, proprio come dichiarato nel nostro **[ciclo di rilascio](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. Se vuoi compilare o riferirti ad ASF dalla sorgente, allora dovresti usare il **[tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** appropriato per tale scopo, garantendo almeno una compilazione di successo, e molto probabilmente anche l'esecuzione impeccabile (se la build era segnata come versione stabile). Per controllare la "salute" corrente dell'albero, puoi usare le nostre integrazioni continue - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** o **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**.
+
+* * *
+
+## Versioni ufficiali
+
+Le versioni ufficiali di ASF sono compilate da **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** su Windows, con l'ultima SDK di .NET Core che corrisponda ai **[requisiti d'esecuzione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** di ASF. Dopo aver superato i testi, tutti i pacchetti sono distribuiti come versione, anche su GitHub. Questo garantisce anche la trasparenza, dato che GitHub usa sempre sorgenti pubbliche ufficiali per tutte le build e poiché puoi comparare le somme di controllo degli artefatti di GitHub con le risorse di rilascio di GitHub. Gli sviluppatori di ASF non compilano o pubblicano loro stessi le build, eccetto per il processo di sviluppo privato e il debug.

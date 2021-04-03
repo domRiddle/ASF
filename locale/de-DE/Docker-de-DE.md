@@ -137,7 +137,7 @@ docker pull justarchi/archisteamfarm
 docker run -it -e "ASF_CRYPTKEY=MeinPasswort" -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
 ```
 
-Dies wird sowohl das Argument `--cryptkey` korrekt an den ASF-Prozess übergeben, der im Docker-Container ausgeführt wird, als auch andere Argumente. Falls Sie ein fortgeschrittener Benutzer sind, können Sie natürlich auch den `ENTRYPOINT` bearbeiten oder eine `CMD` hinzufügen und Ihre Argumente (z. B. an sich selbst) übergeben.
+Dies wird sowohl das Argument `--cryptkey` korrekt an den ASF-Prozess übergeben, der im Docker-Container ausgeführt wird, als auch andere Argumente. Falls Sie ein fortgeschrittener Benutzer sind, können Sie natürlich auch den `ENTRYPOINT` bearbeiten oder eine `CMD` hinzufügen und Ihre Argumente selbst übergeben.
 
 Sofern Sie keinen benutzerdefinierten Verschlüsselungsschlüssel oder andere erweiterte Optionen bereitstellen möchten, müssen Sie in der Regel keine speziellen Umgebungsvariablen einbinden, da unsere Docker-Container bereits so konfiguriert sind, dass sie mit zu erwarteten Standardoptionen von `--no-restart` `--process-required` `--system-required` funktionieren. Wie Sie sehen können, ist `ASF_ARGS` in diesem Fall redundant und nur `ASF_CRYPTKEY` relevant.
 

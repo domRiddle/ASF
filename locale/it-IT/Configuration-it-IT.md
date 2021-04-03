@@ -1,62 +1,62 @@
 # Configurazione
 
-This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
+Questa pagina è dedicata alla configurazione di ASF. Serve da documentazione completa della cartella `config`, consentendoti di sintonizzare ASF alle tue esigenze.
 
 - **[Introduzione](#introduction)**
-- **[Web-based ConfigGenerator](#web-based-configgenerator)**
-- **[ASF-ui configuration](#asf-ui-configuration)**
+- **[ConfigGenerator basato sul web](#web-based-configgenerator)**
+- **[Configurazione di ASF-ui](#asf-ui-configuration)**
 - **[Configurazione manuale](#manual-configuration)**
 - **[Configurazione globale](#global-config)**
-- **[Bot config](#bot-config)**
+- **[Configurazione bot](#bot-config)**
 - **[Struttura dei file](#file-structure)**
-- **[JSON mapping](#json-mapping)**
-- **[Compatibility mapping](#compatibility-mapping)**
-- **[Configs compatibility](#configs-compatibility)**
-- **[Auto-reload](#auto-reload)**
+- **[Mappatura JSON](#json-mapping)**
+- **[Mappatura di compatibilità](#compatibility-mapping)**
+- **[Compatibilità delle configurazioni](#configs-compatibility)**
+- **[Ricarica automatica](#auto-reload)**
 
 * * *
 
 ## Introduzione
 
-ASF configuration is divided into two major parts - global (process) configuration, and configuration of every bot. Every bot has its own bot configuration file named `BotName.json` (where `BotName` is the name of the bot), while global ASF (process) configuration is a single file named `ASF.json`.
+La configurazione di ASF è divisa in due parti principali: configurazione globale (processo) e configurazione di ogni bot. Ogni bot ha il proprio file di configurazione denominato `BotName.json` (dove `BotName` è il nome del bot), mentre la configurazione globale di ASF (processo) è un file singolo denominato `ASF.json`.
 
-A bot is a single steam account that is taking part in ASF process. In order to work properly, ASF needs at least **one** defined bot instance. There is no process-enforced limit of bot instances, so you can use as many bots (steam accounts) as you want to.
+Un bot è un singolo profilo di steam che prende parte al processo di ASF. Per funzionare propriamente, ASF necessita di almeno **una** istanza di bot definita. Non esiste alcun limite imposto di istanze dei bot del processo, quindi puoi usare tanti bot (profili di Steam) quanto desideri.
 
-ASF is using **[JSON](https://en.wikipedia.org/wiki/JSON)** format for storing its config files. It's human-friendly, readable and very universal format in which you can configure the program. Don't worry though, you don't need to know JSON in order to configure ASF. I just mentioned it in case you'd already want to mass-create ASF configs with some sort of bash script.
+ASF usa il formato **[JSON](https://en.wikipedia.org/wiki/JSON)** per memorizzare i suoi file di configurazione. È un formato comprensibile, leggibile e molto universale in cui puoi configurare il programma. Non preoccuparti però, non devi conoscere JSON per configurare ASF. L'ho solo menzionato nel caso volessi già creare configurazioni in massa di ASF con qualche sorta di script di bash.
 
-Configuration can be done in several ways. You can use our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which is a local app independent of ASF. You can use our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC frontend for configuration done directly in ASF. Lastly, you can always generate config files manually, as they follow fixed JSON structure specified below. We'll explain shortly the available options.
-
-* * *
-
-## Web-based ConfigGenerator
-
-The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. Web-based ConfigGenerator is 100% client-based, which means that the details you're inputting are not being sent anywhere, but processed locally only. This guarantees security and reliability, as it can even work **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)** if you'd like to download all the files and run `index.html` in your favourite browser.
-
-Web-based ConfigGenerator is verified to run properly on Chrome and Firefox, but it should work properly in all most popular javascript-enabled browsers.
-
-The usage is quite simple - select whether you want to generate `ASF` or `Bot` config by switching to proper tab, ensure that chosen version of config file matches your ASF release, then input all details and hit "download" button. Move this file to ASF `config` directory, overwriting existing files if needed. Repeat for all eventual further modifications and refer to the rest of this section for explanation of all available options to configure.
+La configurazione si può fare in diversi modi. Puoi usare il nostro **[ConfigGenerator basato sul web](https://justarchinet.github.io/ASF-WebConfigGenerator)**, ovvero un'app locale indipendente di ASF. Puoi usare il nostro frontend di IPC di **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** per la configurazione fatta direttamente in ASF. Infine, puoi sempre generare manualmente file di configurazione, seguendo la struttura fissa di JSON sotto specificata. Spiegheremo brevemente le opzioni disponibili.
 
 * * *
 
-## ASF-ui configuration
+## ConfigGenerator basato sul web
 
-Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
+Lo scopo del nostro **[ConfigGenerator basato sul web](https://justarchinet.github.io/ASF-WebConfigGenerator)** è di fornirvi un frontend semplice usato per generare i file di configurazioned i ASF. Il ConfigGenerator basato sul web è basato al 100% sul client, a significare che i dettagli che inserisci non sono inviati da alcuna parte, ma solo elaborati localmente. Questo garantisce sicurezza e affidabilità, potendo funzionare anche **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)** se volessi scaricare tutti i file ed eseguire `index.html` nel tuo browser preferito.
 
-In order to use ASF-ui, firstly you must enable our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface itself. You can do that by using our Web-based ConfigGenerator explained above, generating a very simple `ASF` config with enabled `IPC` setting and nothing else. Alternatively, you could also generate such simple config yourself, as `ASF.json` file with `{ "IPC": true }` json content inside.
+Il ConfigGenerator basato sul web è verificato per funzionare propriamente su Chrome e Firefox, ma dovrebbe funzionare propriamente in tutti i più popolari browser aventi javascript abilitato.
 
-Afterwards, launch ASF with the above config, ensure that `IPC` interface is started, then navigate to ASF's **[IPC address](http://localhost:1242)**. You can now do the remaining configuration of ASF through ASF-ui interface.
+L'uso è abbastanza semplice: seleziona se vuoi generare la configurazione di `ASF` o del `Bot` passando alla scheda adatta, assicurati di aver scelto la versione del file di configurazione corrispondente alla tua versione di ASF, poi inserisci tutti i dettagli e clicca il pulsante "scarica". Sposta questo file alla cartella `config` di ASF, sovrascrivendo i file esistenti se necessario. Ripeti per tutte le eventuali modifiche e riferisci al resto di questa sezione per spiegazioni di tutte le opzioni disponibili da configurare.
+
+* * *
+
+## Configurazione di ASF-ui
+
+La nostra interfaccia IPC di **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** ti consente di configurare anche ASF, ed è la soluzione superiore per riconfigurare ASF dopo aver generato le configurazioni iniziali a causa del fatto che può modificare le configurazioni sul posto, a differenza del ConfigGenerator basato sul web che le genera staticamente.
+
+Per usare ASF-ui, devi prima abilitare la nostra stessa interfaccia **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**. Puoi farlo usando il nostro ConfigGenerator basato sul web spiegato sopra, generando una configurazione `ASF` molto semplice con l'impostazione `IPC` abilitata e nient'altro. In alternativa, potresti anche generare tale semplice configurazione da solo, come file `ASF.json` con all'interno contenuto il json `{ "IPC": true }`.
+
+In seguito, lancia ASF con la configurazione sopra, assicurati che l'interfaccia `IPC` sia avviata, poi naviga all'**[indirizzo IPC](http://localhost:1242)** di ASF. Puoi ora eseguire la restante configurazione di ASF tramite l'interfaccia ASF-ui.
 
 * * *
 
 ## Configurazione manuale
 
-In general we strongly recommend using either our ConfigGenerator or ASF-ui, as it's much easier and ensures you won't make a mistake in the JSON structure, but if for some reason you don't want to, then you can also create proper configs manually. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using any of our frontends, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Even if it's a valid JSON, you also have to ensure that all the properties have the proper type, as required by ASF. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and our documentation below.
+In generale consigliamo fortemente di usare il nostro ConfigGenerator o ASF-ui, essendo molto più facile ed assicurandovi di non fare errori nella struttura JSON, ma se per qualche motivo non volete, allora potete anche creare configurazioni corrette manualmente. Controlla gli esempi JSON sotto per un buon inizio sulla struttura corretta, potete copiare il contenuto in un file e usarlo come base per la vostra configurazione. Poiché non state usando alcuno dei nostri frontend, assicuratevi che la vostra configurazione sia **[valida](https://jsonlint.com)**, poiché ASF si rifiuterà di caricarla se non è analizzabile. Anche se è un JSON valido, dovete anche assicurarvi che tutte le proprietà siano di tipo adatto, come richiesto da ASF. Per una struttura idonea di JSON di tutti i campi disponibili, riferitevi alla sezione di **[mappatura di JSON](#json-mapping)** e la nostra documentazione sotto.
 
 * * *
 
 ## Configurazione globale
 
-Global config is located in `ASF.json` file and has following structure:
+La configurazione globale si trova nel file `ASF.json` e ha la seguente struttura:
 
 ```json
 {
@@ -94,19 +94,19 @@ Global config is located in `ASF.json` file and has following structure:
 
 * * *
 
-All options are explained below:
+Tutte le opzioni sono spiegate sotto:
 
 ### `AutoRestart`
 
-`bool` tipo con valore predefinito `true`. This property defines if ASF is allowed to perform a self-restart when needed. There are a few events that will require from ASF a self-restart, such as ASF update (done with `UpdatePeriod` or `update` command), as well as `ASF.json` config edit, `restart` command and likewise. Typically, restart includes two parts - creating new process, and finishing current one. Most users should be fine with it and keep this property with default value of `true`, however - if you're running ASF through your own script and/or with `dotnet`, you may want to have full control over starting the process, and avoid a situation such as having new (restarted) ASF process running somewhere silently in the background, and not in the foreground of the script, that exited together with old ASF process. This is especially important considering the fact that new process will no longer be your direct child, which would make you unable e.g. to use standard console input for it.
+Tipo `booleano` con valore predefinito di `true`. Questa proprietà definisce se ASF può eseguire un riavvio automatico quando necessario. Ci sono pochi eventi che lo richiederanno, come un aggiornamento di ASF (eseguito con il comando `UpdatePeriod` o `update`), nonché la modifica di configurazione `ASF.json`, il comando `restart` e simili. Tipicamente, il riavvio include due parti: la creazione del nuovo processo e la conclusione di quello corrente. Gran parte degli utenti dovrebbero non avere problemi per esso e mantenere tale proprietà con il valore predefinito di `true`, tuttavia, se state eseguendo ASF tramite il vostro script e/o con `dotnet`, potreste voler avere il controllo completo sull'avvio del processo ed evitare una situazione come avere l'esecuzione silenziosa in background di un nuovo processo ASF (riavviato) da qualche parte, e non in primo piano nello script, in uscita con il vecchio processo di ASF. Questo è specialmente importante considerando il fatto che il nuovo processo non sarà più il tuo figlio diretto, rendendoti incapace, per esempio, di usare l'input standard della console per esso.
 
-If that's the case, this property if specially for you and you can set it to `false`. However, keep in mind that in such case **you** are responsible for restarting the process. This is somehow important as ASF will only exit instead of spawning new process (e.g. after update), so if there is no logic added by you, it'll simply stop working until you start it again. ASF always exits with proper error code indicating success (zero) or non-success (non-zero), this way you're able to add proper logic in your script which should avoid auto-restarting ASF in case of failure, or at least make a local copy of `log.txt` for further analysis. Also keep in mind that `restart` command will always restart ASF regardless of how this property is set, as this property defines default behaviour, while `restart` command always restarts the process. Unless you have a reason to disable this feature, you should keep it enabled.
+Se questo è il caso, questa proprietà è specialmente per voi e potete impostarla a `false`. Tuttavia, tieni a mente che in tal caso **tu** sei responsabile del riavvio del processo. Questo è in qualche modo importante poiché ASF non sarà chiuso invece di generare il nuovo processo (es. dopo l'aggiornamento), quindi se non esiste logica da te aggiunta, semplicemente smetterà di funzionare finché non lo riavvierete. ASF esce sempre con il codice d'errore corretto che indica il successo (zero) o l'insuccesso (non zero), così puoi aggiungere logica adatta nel tuo script, evitando il riavvio automatico di ASF in caso di fallimento, o almeno creando una copia locale di `log.txt` per ulteriori analisi. Tieni anche a mente che il comando `restart` riavvierà sempre ASF indipendentemente da come questa proprietà è impostata, definendo il comportamento predefinito, mentre il comando `restart` riavvia sempre il processo. A meno che non abbiate motivo di disabilitare questa funzionalità, la dovreste tenere abilitata.
 
 * * *
 
 ### `Blacklist`
 
-`ImmutableHashSet<uint>` type with default value of being empty. As the name suggests, this global config property defines appIDs (games) that will be entirely ignored by automatic ASF idling process. Unfortunately Steam loves to flag summer/winter sale badges as "available for cards drop", which confuses ASF process by making it believe that it's a valid game that should be farmed. If there was no any kind of blacklist, ASF would eventually "hang" at farming a game which is in fact not a game, and wait infinitely for cards drop that will not happen. ASF blacklist serves a purpose of marking those badges as not available for farming, so we can silently ignore them when deciding what to farm, and not fall into the trap.
+Tipo `ImmutableHashSet<uint>` con valore predefinito vuoto. Come suggerisce il nome, questa proprietà di configurazione globale definisce gli appID (giochi) che saranno interamente ignorati dal processo di inattività automatico di ASF. Unfortunately Steam loves to flag summer/winter sale badges as "available for cards drop", which confuses ASF process by making it believe that it's a valid game that should be farmed. If there was no any kind of blacklist, ASF would eventually "hang" at farming a game which is in fact not a game, and wait infinitely for cards drop that will not happen. ASF blacklist serves a purpose of marking those badges as not available for farming, so we can silently ignore them when deciding what to farm, and not fall into the trap.
 
 ASF includes two blacklists by default - `GlobalBlacklist`, which is hardcoded into the ASF code and not possible to edit, and normal `Blacklist`, which is defined here. `GlobalBlacklist` is updated together with ASF version and typically includes all "bad" appIDs at the time of release, so if you're using up-to-date ASF then you do not need to maintain your own `Blacklist` defined here. The main purpose of this property is to allow you blacklisting new, not-known at the time of ASF release appIDs, which should not be farmed. Hardcoded `GlobalBlacklist` is being updated as fast as possible, therefore you're not required to update your own `Blacklist` if you're using latest ASF version, but without `Blacklist` you'd be forced to update ASF in order to "keep running" when Valve releases new sale badge - I don't want to force you to use latest ASF code, therefore this property is here to allow you "fixing" ASF yourself if you for some reason don't want to, or can't, update to new hardcoded `GlobalBlacklist` in new ASF release, yet you want to keep your old ASF running. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
@@ -232,7 +232,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 ### `Statistiche`
 
-`bool` tipo con valore predefinito `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
+Tipo `booleano` con valore predefinito di `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
@@ -327,7 +327,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 * * *
 
-## Bot config
+## Configurazione bot
 
 As you should know already, every bot should have its own config based on example JSON structure below. Start from deciding how you want to name your bot (e.g. `1.json`, `main.json`, `primary.json` or `AnythingElse.json`) and head over to configuration.
 
@@ -373,7 +373,7 @@ The bot config has following structure:
 
 * * *
 
-All options are explained below:
+Tutte le opzioni sono spiegate sotto:
 
 ### `AcceptGifts`
 
@@ -499,7 +499,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `GamesPlayedWhileIdle`
 
-`ImmutableHashSet<uint>` type with default value of being empty. If ASF has nothing to farm it can play your specified steam games (`appIDs`) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appIDs` total, therefore you can put only as many games in this property.
+Tipo `ImmutableHashSet<uint>` con valore predefinito vuoto. If ASF has nothing to farm it can play your specified steam games (`appIDs`) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appIDs` total, therefore you can put only as many games in this property.
 
 * * *
 
@@ -517,7 +517,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 ### `IdleRefundableGames`
 
-`bool` tipo con valore predefinito `true`. This property defines if ASF is permitted to idle games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `true`, ASF ignores Steam refunds policy entirely and idles everything, as most people would expect. However, you can change this option to `false` if you want to ensure that ASF won't idle any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you disable this option then games you purchased from Steam Store won't be idled by ASF for up to 14 days since redeem date, which will show as nothing to idle if your account doesn't own anything else. If you're unsure whether you want this feature enabled or not, keep it with default value of `true`.
+Tipo `booleano` con valore predefinito di `true`. This property defines if ASF is permitted to idle games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `true`, ASF ignores Steam refunds policy entirely and idles everything, as most people would expect. However, you can change this option to `false` if you want to ensure that ASF won't idle any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you disable this option then games you purchased from Steam Store won't be idled by ASF for up to 14 days since redeem date, which will show as nothing to idle if your account doesn't own anything else. If you're unsure whether you want this feature enabled or not, keep it with default value of `true`.
 
 * * *
 
@@ -774,7 +774,7 @@ Default ASF setting is based on the most common usage of the bot, with transferi
 
 ### `UseLoginKeys`
 
-`bool` tipo con valore predefinito `true`. This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
+Tipo `booleano` con valore predefinito di `true`. This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
 
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
@@ -840,7 +840,7 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 * * *
 
-## JSON mapping
+## Mappatura JSON
 
 Every configuration property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
 
@@ -930,19 +930,19 @@ Example: `"SteamProtocols": 7`
 
 * * *
 
-## Compatibility mapping
+## Mappatura di compatibilità
 
 Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
 
 * * *
 
-## Configs compatibility
+## Compatibilità delle configurazioni
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself (e.g. `WebLimiterDelay`).
 
 * * *
 
-## Auto-reload
+## Ricarica automatica
 
 Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
 

@@ -4,7 +4,7 @@ Starting with version 3.0.3.2, ASF is now also available as **[docker container]
 
 * * *
 
-## Tags
+## Tag
 
 ASF is available through 4 main types of **[tags](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
 

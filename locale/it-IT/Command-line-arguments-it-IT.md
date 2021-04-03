@@ -35,16 +35,16 @@ Se il tuo argomento include spazi, non dimenticarti di citarlo. Questi due sono 
 ./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
 ```
 
-However, those two are completely fine:
+Tuttavia, queste due vanno completamente bene:
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
 ./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
 ```
 
-## Arguments
+## Argomenti
 
-`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
+`--cryptkey <key>` o `--cryptkey=<key>`, avvieranno ASF con la chiave crittografica personalizzata di valore `<key>`. Quest'opzione influenza la **[sicurezza](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** e causerà ad ASF di usare la tua chiave personalizzata `<key>` fornita invece di quella predefinita codificata nell'eseguibile. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
 
 Due to the nature of this property, it's also possible to set cryptkey by declaring `ASF_CRYPTKEY` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
@@ -74,7 +74,7 @@ Due to the nature of this property, it's also possible to set expected path by d
 
 If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[compatibility page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** on this manner.
 
-Examples:
+Esempi:
 
 ```shell
 dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path

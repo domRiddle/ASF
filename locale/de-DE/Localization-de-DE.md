@@ -79,7 +79,7 @@ Eine Sprache gilt als **übersetzt** wenn ihr Übersetzungsfortschritt 100% erre
 
 Gewählte Sprachen können entsprechende Korrekturleser haben, die Übersetzungen validieren und endgültige Versionen auswählen. Dies ist der letzte Schritt nach der Übersetzung und erlaubt weitere Verbesserungen.
 
-ASF wird die Sprache **so bald wie möglich** beinhalten, was bedeutet, dass sie nicht genehmigt oder zu 100% übersetzt werden muss. Die tatsächlich verwendeten Zeichenketten sind immer die am beliebtesten im Bezug auf Stimmen, außer der gewählte Korrekturleser hat anders entschieden (sehr selten). Daher kannst du sehen, dass deine Bemühungen bereits im nächsten ASF-Release enthalten sind - unsere automatisierten Systeme pflegen täglich die Übersetzungen von Crowdin im ASF-Verzeichnis ein.
+ASF wird die Sprache **so bald wie möglich** beinhalten, was bedeutet, dass sie nicht genehmigt oder zu 100% übersetzt werden muss. Die tatsächlich verwendeten Zeichenketten sind immer die am beliebtesten im Bezug auf Stimmen, außer der gewählte Korrekturleser hat anders entschieden (sehr selten). Daher können Sie sehen, dass Ihre Bemühungen bereits im nächsten ASF-Release enthalten sind - unsere automatisierten Systeme pflegen täglich die Übersetzungen von Crowdin im ASF-Verzeichnis ein.
 
 * * *
 
@@ -93,7 +93,7 @@ Für eine komplette Liste der verfügbaren Sprachen, in die ASF übersetzt werde
 
 ## Pluralisierung
 
-Jede Sprache hat ihre eigenen Regeln in Bezug auf die Pluralisierung. Diese Regeln findest du unter **[CLDR](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html)**, welche ihre Anzahl und genauen Sprachbedingungen angibt.
+Jede Sprache hat ihre eigenen Regeln in Bezug auf die Pluralisierung. Diese Regeln können Sie auf **[CLDR](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html)** finden, welche ihre Anzahl und genauen Sprachbedingungen angibt.
 
 Wir tun unser Bestes, um dir eine flexible Lokalisierung anzubieten, und so lange wie möglich, wird dies auch Regeln für Pluralisierung beinhalten. Als Beispiel werden wir heute folgende Zeichenkette ins Polnische übersetzen:
 
@@ -248,7 +248,7 @@ Wenn du glaubst, dass etwas Unangemessenes in einem Codeblock enthalten ist oder
 
 ## Ruhmeshalle
 
-Wir möchten unseren ewigen Dank den Menschen zeigen, die viel ihrer Zeit und Bereitschaft gegeben haben um die ASF Lokalisierung zu verbessern. Diese Mitwirkenden haben mindestens über **20 tausend Wörter** übersetzt, das entspricht ungefähr der Hälfte des gesamten Projektes. Ihre Mühe ist unglaublich und du kannst komplette Übersetzungen, einschließlich des Wikis, vor allem dank ihnen genießen.
+Wir möchten unseren ewigen Dank denjenigen Menschen zeigen, die sehr viel ihrer Zeit und Bereitschaft gegeben haben um die ASF Übersetzung zu verbessern. Diese Mitwirkenden haben mindestens über **20 tausend Wörter** übersetzt, das entspricht ungefähr der Hälfte des gesamten Projektes. Ihr Aufwand ist unglaublich, und Sie können sich an kompletten Übersetzungen erfreuen, einschließlich des Wikis, hauptsächlich dank ihnen.
 
 | Mitwirkender                                               | Sprachen             |
 | ---------------------------------------------------------- | -------------------- |
@@ -259,4 +259,4 @@ Wir möchten unseren ewigen Dank den Menschen zeigen, die viel ihrer Zeit und Be
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | Deutsch              |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinesisch (HK)      |
 
-Vielen Dank an euch alle für die Verbesserung unserer ASF-Lokalisierungsqualität!
+Vielen Dank an euch alle für die Verbesserung unserer ASF-Übersetzungsqualität!

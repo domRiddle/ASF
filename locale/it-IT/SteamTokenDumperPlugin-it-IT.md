@@ -1,6 +1,6 @@
-# Plugin SteamTokenDumper
+# SteamTokenDumperPlugin
 
-`SteamTokenDumperPlugin` is official ASF **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** available since ASF V4.2.2.2, developed by us, which allows you to contribute to **[SteamDB](https://steamdb.info)** project by sharing package tokens, app tokens and depot keys that your Steam account has access to. The extended info on collected data and why SteamDB needs it can be found on SteamDB's **[Token Dumper](https://steamdb.info/tokendumper)** page. The submitted data doesn't include any potentially-sensitive information, and posseses no security/privacy risk, as stated in above description.
+`SteamTokenDumperPlugin` è il **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** ufficiale di ASF disponibile dalla V4.2.2.2 di ASF, sviluppata da noi, che ti consente di contribuire al progetto **[SteamDB](https://steamdb.info)** condividendo i token del pacchetto, i token dell'app e le chiavi di depot a cui il tuo profilo di Steam ha accesso. Le informazioni estese sui dati raccolti e perché SteamDB li necessita si possono trovare sulla pagina di SteamDB **[Token Dumper](https://steamdb.info/tokendumper)**. I dati inoltrati non includono alcuna informazione potenzialmente sensibile e non possiedono rischi di sicurezza/privacy, come dichiarato nella descrizione sopra.
 
 ---
 
@@ -20,16 +20,16 @@ All'avvio dell'applicazione ASF, il plugin comunicherà se è stato abilitato co
 
 ## Dettagli tecnici
 
-Upon enabling, the plugin will use the bots that you're running in ASF for data gathering in form of package tokens, app tokens and depot keys that your bots have access to. Data gathering module includes passive and active routines that are supposed to minimize the additional overhead caused by collecting data.
+All'abilitazione, il plugin userà i bot che esegui in ASF per la raccolta dei dati in forma di token del pacchetto, token dell'app e chiavi di depot cui i tuoi bot hanno accesso. Il modulo di raccolta dei dati include le routine passive e attive che dovrebbero minimizzare il sovraccarico aggiuntivo causato dalla raccolta di dati.
 
-In order to fulfill the planned use case, in addition to data gathering routine explained above, submission routine is initialized as being responsible for determining what data needs to be submitted to SteamDB on periodic basis. This routine will fire in up to `1` hour since your ASF start, and will repeat itself every `24` hours. The plugin will do its best to minimize the amount of data that needs to be sent, therefore it's possible that some data which the plugin will collect will be determined as useless to submit, and therefore skipped (for example app update which doesn't change the access token).
+Per soddisfare il caso d'uso pianificato, oltre alla routine di raccolta dati sopra menzionata, la routine di invio è inizializzata come responsabile per la determinazione di quali dati vanno inviati a SteamDB su base periodica. Questa routine sarà eseguita fino a `1` ora dal tuo avvio di ASF, e si ripeterà ogni `24` ore. Il plugin farà del suo meglio per ridurre la quantità di dati che devono esser inviati, dunque è possibile che alcuni dati che il plugin raccoglie saranno determinati come inutili da inviare, e dunque saltati (per esempio l'aggiornamento dell'app che non cambia il token d'accesso).
 
-The plugin uses a persistent cache database saved in `config/SteamTokenDumper.cache` location, which serves a similar purpose to `config/ASF.db` for ASF. The file is used in order to record the gathered and submitted data and minimize the amount of work that has to be done across different ASF runs. Removing the file causes the process to be restarted from scratch, which should be avoided if possible.
+Il plugin usa un database della cache persistente salvato nella posizione `config/SteamTokenDumper.cache`, che serve come scopo simile a `config/ASF.db` per ASF. Il file è usato per registrare i dati raccolti e inviati e minimizza la quantità di lavoro da eseguire per le diverse esecuzioni di ASF. Rimuovere il file causa il riavvio da zero del processo, cosa da evitare se possibile.
 
 ---
 
-## Data
+## Dati
 
-ASF includes the contributor `steamID` in the request, which is determined as `SteamOwnerID` that you set in ASF, or in case you didn't, the Steam ID of the bot which owns the most licenses. The announced contributor might receive some additional perks from SteamDB for continuous help (e.g. donator rank on the website), but that is entirely up to SteamDB's discretion.
+ASF include il contributore `steamID` nella richiesta, determinato come `SteamOwnerID`, che imposti in ASF, o nel caso non lo avessi fatto, l'ID di Steam del bot che possiede gran parte delle licenze. Il contributore annunciato potrebbe ricevere vantaggi aggiuntivi da SteamDB per aiuto continuo (es. rango di donatore sul sito web), ma è totalmente a tua discrezione.
 
-In any case, SteamDB staff would like to thank you in advance for your help. The submitted data allows SteamDB to operate, in particular to track info about packages, apps and depots, which would no longer be possible without your help.
+In ogni caso, lo staff di SteamDB vorrebbe ringraziarti in anticipo per il tuo aiuto. I dati inoltrati consentono a SteamDB di operare, in particolare per monitorare le informazioni sui pacchetti, le app e i depot, cosa che non sarà più possibile senza il tuo aiuto.

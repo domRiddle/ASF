@@ -1,22 +1,22 @@
 # Comandi
 
-ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
+ASF supporta diversi comandi, utilizzabili per controllare il comportamento delle istanze di processo e dei bot.
 
-Below commands can be sent to the bot through various different ways:
+I comandi sotto sono inviabili al bot tramite vari diversi metodi:
 
-- Through interactive ASF console
-- Through Steam private/group chat
-- Through our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface
+- Tramite la console ASF interattiva
+- Tramite la chat di gruppo/privata di Steam
+- Tramite la nostra interfaccia **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 
-Keep in mind that ASF interaction requires from you to be eligible for the command according to ASF permissions. Check out `SteamUserPermissions` and `SteamOwnerID` config properties for more details.
+Tieni a mente che l'interazione di ASF ti richiede di essere idoneo per il comando in base ai permessi di ASF. Dai un'occhiata alle proprietà di configurazione `SteamUserPermissions` e `SteamOwnerID` per ulteriori dettagli.
 
-Commands executed through Steam chat are affected by `CommandPrefix` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, which is `!` by default. This means that for executing e.g. `status` command, you should actually write `!status` (or custom `CommandPrefix` of your choice that you set instead). `CommandPrefix` is not mandatory when using console or IPC and can be omitted.
+I comandi eseguiti tramite la chat di Steam sono influenzati da `CommandPrefix`, la **[proprietà di configurazione globale](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, `!` di default. Questo significa che per eseguire ad es. il comando `status`, dovresti in realtà scrivere `!status` (o il `CommandPrefix` personalizzato di tua scelta che hai invece impostato). `CommandPrefix` non è obbligatorio usando la console o l'IPC e può esser emesso.
 
 * * *
 
-### Interactive console
+### Console interattiva
 
-Starting with V4.0.0.9, ASF has support for interactive console that can be enabled by setting up [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) property. Afterwards, simply press `c` button in order to enable command mode, type your command and confirm with enter.
+A partire dalla V4.0.0.9, ASF supporta la console interattiva, abilitabile configurando la proprietà [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid). Dopodiché, premi semplicemente il pulsante `c` per recuperare la modalità del comando, digita il tuo comando e conferma con invio.
 
 ![Screenshot](https://i.imgur.com/bH5Gtjq.png)
 
@@ -24,13 +24,13 @@ Interactive console is not available in [**`Headless`**](https://github.com/Just
 
 * * *
 
-### Steam chat
+### Chat di Steam
 
-You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
+Puoi eseguire il comando al bot dato di ASF tramite la chat di Steam. Ovviamente non puoi parlare direttamente da solo, dunque dorai almeno avere un altro profilo del bot se vuoi eseguire comandi diretti al tuo profilo principale.
 
 ![Screenshot](https://i.imgur.com/IvFRJ5S.png)
 
-In similar way you can also use group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account, as opposed to private chat. You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there).
+In modo simile, puoi anche usare la chat di gruppo o il gruppo dato di Steam. Tieni a mente che quest'opzione richiede la proprietà `SteamMasterClanID` propriamente impostata, nel qual caso il bot ascolterà i comandi anche sulla chat del gruppo (e unisciti se necessario). Questo è anche utilizzabile per "parlare da soli" poiché non richiede un profilo del bot dedicato, al contrario della chat privata. You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there).
 
 Please note that sending a command to the group chat acts like a relay. If you're saying `redeem X` to 3 of your bots sitting together with you on the group chat, it'll result in the same as you'd say `redeem X` to every single one of them privately. In most cases **this is not what you want**, and instead you should use `given bot` command that is being sent to **a single bot in private window**. ASF supports group chat, as in many cases it can be useful source for communication with your only bot, but you should almost never execute any command on the group chat if there are 2 or more ASF bots sitting there, unless you fully understand ASF behaviour written here and you in fact want to relay the same command to every single bot that is listening to you.
 

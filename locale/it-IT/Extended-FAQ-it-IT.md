@@ -1,35 +1,35 @@
-# Domande frequenti aggiuntive
+# FAQ Estesa
 
-Our extended FAQ covers a bit less common questions and answers that you may have. For a more common matters, please visit our **[basic FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead.
-
-* * *
-
-### Who has created ASF?
-
-ASF was created by **[Archi](https://github.com/JustArchi)** in October 2015. In case you were wondering, I'm a **[Steam user](https://steamcommunity.com/profiles/76561198006963719)** just like you. Apart from playing games, I also love to put my skills and determination to use, which you can explore right now. There is no big company involved here, no team of developers and no $1M of budget to cover all of that - just me, fixing things that are not broken.
-
-However, ASF is open-source project, and I can't express enough that I'm not behind everything that you can see here. We have a few **[other](https://github.com/JustArchiNET?q=ASF-)** ASF projects that are being developed almost exclusively by other developers. Even core ASF project has a lot of **[contributors](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)** that helped me to make all of this happen. On top of that, there are several third-party services supporting ASF development, especially **[GitHub](https://github.com)**, **[JetBrains](https://www.jetbrains.com)**, **[AppVeyor](https://www.appveyor.com)** and **[Crowdin](https://crowdin.com)**. You also can't forget about all the awesome libraries and tools that made ASF happen, such as **[Rider](https://www.jetbrains.com/rider)** that we use as IDE (we love **[ReSharper](https://www.jetbrains.com/resharper)** additions) and especially **[SteamKit2](https://github.com/SteamRE/SteamKit)** without which ASF would not exist in the first place. ASF also wouldn't be where it is today without my **[sponsors](https://github.com/sponsors/JustArchi)**, **[patrons](https://www.patreon.com/JustArchi)** and various donators, supporting me in everything that I'm doing here.
-
-Thank you all for helping in ASF development! You're awesome.
+La nostra FAQ estesa copre le domande un po' meno comuni e le risposte che potresti avere. Per questioni più comuni, sei invece pregato di visitare la nostra **[FAQ di base](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**.
 
 * * *
 
-### Why was ASF created in the first place?
+### Chi ha creato ASF?
 
-ASF was created with primary purpose of being fully automated Steam idling tool for Linux, without a need of any external dependencies (such as Steam client). In fact, this still remains its primary purpose and focus, because my concept of ASF didn't change since then and I'm still using it in exactly the same way as I used it back in 2015. Of course, there was really **a lot** of changes since then, and I'm very happy to see how far ASF has progressed, mostly thanks to its users, because I'd never code even half of the features if it was for myself only.
+ASF è stato creato da **[Archi](https://github.com/JustArchi)** a Ottobre 2015. Nel caso te lo stessi chiedendo, sono come te un **[utente di Steam](https://steamcommunity.com/profiles/76561198006963719)**. Oltre a giocare a giochi, amo anche mettere in uso le mie abilità e determinazione, che puoi esplorare ora. Nessuna grande azienda è coinvolta qui, nessun team di sviluppatori e nessun budget di $1M per coprire tutto questo; solo io, a correggere cose che non sono rotte.
 
-It's nice to note that ASF was never made to compete with other idlers, especially **[Idle Master](https://www.steamidlemaster.com)**, because ASF was never designed to be a desktop/user app, and it still isn't today. If you analyze primary purpose of ASF described above, then you'll see how Idle master is **the exact opposite** of all of that. While you can most definitely find similar to ASF idlers today, nothing was good enough for me back then (and still isn't today), so I created my own idler, the way I wanted it. Over time users have migrated to ASF mainly due to robustness, stability and security, but also all the features that I've developed across all those years. Today, ASF is better than ever before.
+Tuttavia, ASF è un progetto open-source e non so come dire che non sono dietro tutto ciò che vedete qui. Abbiamo alcuni **[altri](https://github.com/JustArchiNET?q=ASF-)** progetti di ASF in via di sviluppo quasi esclusivamente da altri sviluppatori. Anche il progetto principale di ASF ha molti **[collaboratori](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)** che mi hanno aiutato a far succedere tutto questo. Oltre ciò, ci sono diversi servizi di terze parti a supporto dello sviluppo di ASF, specialmente **[GitHub](https://github.com)**, **[JetBrains](https://www.jetbrains.com)**, **[AppVeyor](https://www.appveyor.com)** e **[Crowdin](https://crowdin.com)**. Non si possono anche dimenticare tutte i meravigliosi strumenti e le librerie che hanno reso possibile ASF, come **[Rider](https://www.jetbrains.com/rider)** che usiamo come IDE (adoriamo le aggiunte di **[ReSharper](https://www.jetbrains.com/resharper)**) e specialmente **[SteamKit2](https://github.com/SteamRE/SteamKit)** senza cui ASF non esisterebbe in primo luogo. ASF non sarebbe qui oggi senza i miei **[sponsor](https://github.com/sponsors/JustArchi)**, **[patron](https://www.patreon.com/JustArchi)** e vari donatori, che mi supportano in tutto ciò che sto facendo qui.
 
-* * *
-
-### OK, where is the catch? What do you gain from sharing ASF?
-
-There is no catch, I created ASF **for myself** and shared it with the rest of the community in hope that it'll come useful. Exactly the same thing happened back in 1991, when Linus Torvalds **[shared his first Linux kernel](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)** with the rest of the world. There is no hidden malware, data mining, crypto mining or any other activity that would generate any monetary benefit for me. ASF project is supported entirely by non-obligatory donations sent by happy users such as you. You can use ASF in exactly the same way how I'm using it, and if you like it, you can always buy me a coffee, showing your gratitude for what I'm doing.
-
-I'm also using ASF as a perfect example of a modern C# project that always strikes for perfection and best practices, be it with technology, project management or the code itself. It's my definition of "things done right", so if by any chance you manage to learn something useful from my project, then that will make me only more happy.
+Grazie a tutti per l'aiuto nello sviluppo di ASF! Siete fantastici.
 
 * * *
 
-### I've launched the program on April the 1st and the ASF language changed into something strange, what is going on?
+### Perché ASF è stato creato in primo luogo?
 
-CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! If you didn't set custom `CurrentCulture` option, then ASF launched on April the 1st will actually use **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** language instead of your system language. If by any chance you'd like to disable that behaviour, you can simply set `CurrentCulture` to the locale that you'd like to use instead. It's also nice to note that you can enable our easter egg unconditionally, by setting your `CurrentCulture` to `qps-Ploc` value.
+ASF è stato creato con l'obiettivo principale di essere uno strumento di inattività completamente automatizzato di Steam per Linux, senza il bisogno di alcuna dipendenza esterna (come il client di Steam). Difatti, rimane ancora il suo obiettivo e punto focale principale, perché il mio concetto di ASF non è cambiato da allora e lo uso ancora allo stesso modo di come lo usavo nel 2015. Di certo, ci sono stati davvero **molti** cambiamenti da allora, e sono felice di vedere quanto ASF sia progredito, principalmente grazie ai suoi utenti, perché non programmerei mai nemmeno metà delle funzionalità se fossi totalmente solo.
+
+È bello notare che ASF non è mai stato pensato per competere con altri idler, specialmente **[Idle Master](https://www.steamidlemaster.com)**, poiché ASF non era progettato come app desktop/utente e ancora oggi non lo è. Se analizzi lo scopo principale di ASF sopra descritto, vedrai come Idle Master è **l'esatto opposto** di tutto questo. Mentre puoi sicuramente trovare idler simili ad ASF oggi, allora nulla era abbastanza per me (e ancora non lo è oggi), quindi ho creato il mio idler, come lo volevo. Nel tempo gli utenti sono passati ad ASF principalmente per la sua robustezza, stabilità e sicurezza, ma anche per tutte le funzionalità che ho sviluppato in tutti questi anni. Oggi, ASF è meglio che mai.
+
+* * *
+
+### OK, dov'è il trucco? Cosa guadagni dalla condivisione di ASF?
+
+Nessun trucco, ho creato ASF **per me stesso** e l'ho condiviso con il resto della community nella speranza che diventasse utile. Esattamente la stessa cosa è successa nel 1991, quando Linus Torvalds **[condivise il suo primo kernel di Linux](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)** con il resto del mondo. Nessun malware nascosto, mining di dati, mining di criptovalute o ogni altra attività che genererebbe alcun beneficio finanziario per me. Il progetto di ASF è supportato interamente da donazioni facoltative inviate da utenti felici come te. Puoi usare ASF esattamente al mio stesso modo, e se ti piace, puoi sempre offrirmi un caffè, mostrandomi la tua gratitudine per ciò che sto facendo.
+
+Uso ASF anche come un perfetto esempio di un moderno progetto in C# che colpisce sempre alla perfezione e ha le migliori pratiche, che sia con la tecnologia, la gestione del progetto o il codice stesso. È la mia definizione di "cose fatte bene", quindi se per caso riesci a imparare qualcosa di utile dal mio progetto, allora questo mi renderà solo più felice.
+
+* * *
+
+### Ho lanciato il programma il 1 di Aprile e la lingua di ASF è cambiata in qualcosa di strano, che succede?
+
+CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! Se non hai impostato l'opzione personalizzata `CurrentCulture`, allora ASF lanciato il primo d'Aprile userà in realtà la lingua **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** invece della tua lingua di sistema. Se per qualche motivo vorresti disabilitare questo comportamento, puoi semplicemente impostare `CurrentCulture` al locale che vorresti piuttosto usare. Bello da notare anche che puoi abilitare incondizionatamente il nostro easter egg, impostando il tuo valore `CurrentCulture` a `qps-Ploc`.

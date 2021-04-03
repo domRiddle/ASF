@@ -12,13 +12,13 @@ ASF unterstützt derzeit die folgenden Verschlüsselungsmethoden als Parameter f
 
 Die genaue Beschreibung und Unterschiede zwischen diesen sind nachfolgend verfügbar.
 
-Um ein verschlüsseltes Password zu generieren, z.B. um es mit `SteamPassword` zu verwenden, müssen Sie den `encrypt` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** mit der gewünschten Verschlüsselungsmethode und Ihrem ursprünglichen klartext Passwort ausführen. Afterwards, put the encrypted string that you've got as `SteamPassword` bot config property, and finally change `PasswordFormat` to the one that matches your chosen encryption method.
+Um ein verschlüsseltes Password zu generieren, z.B. um es mit `SteamPassword` zu verwenden, müssen Sie den `encrypt` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** mit der gewünschten Verschlüsselungsmethode und Ihrem ursprünglichen klartext Passwort ausführen. Danach setzen Sie die verschlüsselte Zeichenfolge, die Sie als `SteamPassword` Bot-Konfigurationseigenschaft haben, und ändern Sie schließlich `PasswordFormat` auf diejenige, die Ihrer gewählten Verschlüsselungsmethode entspricht.
 
 * * *
 
 ### PlainText
 
-Dies ist die einfachste und zugleich unsicherste Methode das Passwort zu speichern, festgelegt durch `PasswordFormat` mit einem Wert von `0`. ASF expects the string to be a plain text - a password in its direct form. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+Dies ist die einfachste und zugleich unsicherste Methode das Passwort zu speichern, festgelegt durch `PasswordFormat` mit einem Wert von `0`. ASF erwartet, dass die Zeichenkette ein Klartext ist - ein Passwort in seiner direkten Form. Sie ist am einfachsten zu benutzen und zu 100% kompatibel mit allen Setups, daher ist sie eine Standardmethode zum Speichern von Geheimnissen, völlig unsicher für eine sichere Speicherung.
 
 * * *
 
@@ -72,7 +72,7 @@ In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `h
 
 ### PlainText
 
-This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. Sie ist am einfachsten zu benutzen und zu 100% kompatibel mit allen Setups, daher ist sie eine Standardmethode zum Speichern von Geheimnissen, völlig unsicher für eine sichere Speicherung.
 
 * * *
 
