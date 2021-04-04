@@ -1,4 +1,4 @@
-# Preguntas frecuentes extendido
+# Preguntas frecuentes adicionales
 
 Nuestras preguntas frecuentes extendidas cubren preguntas menos comunes y sus respuestas. Para asuntos más comunes, por favor visita nuestras **[preguntas frecuentes básicas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-es)**.
 

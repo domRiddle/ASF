@@ -30,6 +30,6 @@ Ich benutze auch ASF als perfektes Beispiel für ein modernes C# Projekt, das im
 
 * * *
 
-### I've launched the program on April the 1st and the ASF language changed into something strange, what is going on?
+### Ich habe das Programm am 1. April gestartet und die ASF-Sprache wechselte in etwas seltsames, was geht vor?
 
-CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! If you didn't set custom `CurrentCulture` option, then ASF launched on April the 1st will actually use **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** language instead of your system language. If by any chance you'd like to disable that behaviour, you can simply set `CurrentCulture` to the locale that you'd like to use instead. It's also nice to note that you can enable our easter egg unconditionally, by setting your `CurrentCulture` to `qps-Ploc` value.
+CONGRATULASHUNS ZUR ENTDECKUNG UNSERES APRILSCHERZES! Sofern Sie `CurrentCulture` nicht definiert haben, verwendet ASF nach dem Start am 1. April die Lokalisation **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** anstatt der Systemsprache. Sollten Sie dieses Verhalten deaktivieren woillen, kann stattdessen die Lokalisation in `CurrentCulture` eingestellt werden, die Sie nutzen möchten. It's also nice to note that you can enable our easter egg unconditionally, by setting your `CurrentCulture` to `qps-Ploc` value.

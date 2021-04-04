@@ -8,14 +8,14 @@
 
 * * *
 
-## General
+## Básico
 
 * **[Inicio](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-es-es)**
 * **[Configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es)**
 * **[Preguntas frecuentes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-es)**
 * **[Instalación](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-es-es)** **(empezar aquí)**
 
-## Núcleo
+## Principal
 
 * **[Activador de juegos en segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-es-es)**
 * **[Comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)**
@@ -30,7 +30,7 @@
 * **[Argumentos de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-es)**
 * **[Obsolescencia](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-es-es)**
 * **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-es-es)**
-* **[Preguntas frecuentes extendido](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-es-es)**
+* **[Preguntas frecuentes adicionales](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-es-es)**
 * **[Configuración de alto rendimiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-es-es)**
 * **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es)**
 * **[Localización](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-es-es)**
