@@ -65,9 +65,9 @@
 目前有这 4 种议题受到支持：
 
 * 一般议题——所有不符合下述其他类型的议题。 通常，应**尽量避免**这种议题，如果遇到的问题不符合其他情况，很可能它并**不是**一个翻译议题。 但这一选项仍然为所有其他情况保留。
-* 当前翻译错误——这一议题**仅**应在当前翻译已被审校者批准的情况下使用，并且您确认它有错误，例如它有拼写错误或者您有一条更好的建议来改进它。 这种议题不能用于社区驱动（投票）的翻译，在这种情况下您应该联系翻译的提供者，让他更正翻译，或者如“审核”一节所述，直接为更好的翻译投票。
+* 当前翻译错误——这一议题**仅**应在当前翻译已被审校者批准的情况下使用，并且您确认它有错误，例如它有拼写错误或者您有一条更好的建议来改进它。 这种议题不能用于社区驱动（投票）的翻译，在这种情况下您应该联系翻译的提供者，让他更正翻译，或者如“审核”一节所述，直接为更好的翻译投票。 我们会删除对翻译的批准，并通知负责相应语言的审校者查看与验证您的评论。
 * 缺少上下文信息——如果您不确定您正在翻译 ASF 的哪一部分、文本的上下文是什么、它的作用是什么，那就应该使用这一议题。 这一类型仅应被用于 ASF 开发，表示您不确定应该如何翻译这条文本，需要技术支持。
-* 源文本错误——这一议题仅应用于您确定源文本（英语）有错误的情况。 尽管很罕见，但我本人也不是英语母语者，所以如果您对源文本有改进意见，可以随意使用它。
+* 源文本错误——这一议题仅应用于您确定源文本（英语）有错误的情况。 尽管很罕见，但我本人也不是英语母语者，所以如果您对源文本有改进意见，可以随意使用它。 或者，因为这种情况与开发过程直接相关，您也可以使用我们的 **[GitHub Issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** 来讨论。
 
 * * *
 
@@ -146,7 +146,7 @@ If you're a new user, we recommend starting with **[setting up](https://github.c
 现在，在翻译过程中，取决于格式，您将会在文本中看到下列形式的 ASF 链接：
 
 * 要与 HTML 标签一起翻译的文本（大部分是文本，句子的一部分是链接）
-* 单独翻译文本，而链接包含在 `Hidden texts` -> `Link addresses` 中（罕见，整个文本都是链接，在边栏中最常见）
+* 单独翻译文本，而链接包含在 `Hidden texts` -> `Link addresses` 中（罕见，整个文本都是链接，在边栏中最常见——只有审校者可以翻译这部分）
 
 上面的示例是第一种形式（因为其中只有“setting up”是链接），所以在 Crowdin 中会显示成：
 
@@ -250,13 +250,13 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 我们向花费大量时间与精力参与 ASF 本地化工作的人致以衷心的感谢。 这些参与者至少翻译了**两万单词**，几乎是整个项目的一半。 他们的努力是惊人的，您能够获得完整的本地化体验，包括此 Wiki，主要归功于这些人。
 
-| 贡献者                                                        | 语言       |
-| ---------------------------------------------------------- | -------- |
-| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | 西班牙语     |
-| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | 葡萄牙语（巴西） |
-| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | 汉语（中国大陆） |
-| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | 俄语、乌克兰语  |
-| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | 德语       |
-| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 汉语（中国香港） |
+| 贡献者                                                        | 语言          |
+| ---------------------------------------------------------- | ----------- |
+| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT、西班牙语 |
+| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | 葡萄牙语（巴西）    |
+| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | 汉语（中国大陆）    |
+| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | 俄语、乌克兰语     |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT、德语   |
+| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 汉语（中国香港）    |
 
 感谢你们帮助提高 ASF 的本地化质量！

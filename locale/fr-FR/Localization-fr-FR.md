@@ -66,15 +66,15 @@ S'il manque encore des chaînes dans la langue de votre choix, vous pouvez les r
 
 <p>If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.</p>
 
-<p><strong>Please avoid using issue mark if you do not need technical/development explanation or admin action</strong>. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who do not even speak the language you're translating to, so please stick with English when writing issue comment (so we can understand what the issue is).</p>
+<p><strong>Please avoid using issue mark if you do not need technical/development explanation or admin action</strong>. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who does not even speak the language you're translating to, so please stick with English when writing issue comment (so we can understand what the issue is).</p>
 
 <p>There are currently 4 supported type of issues:</p>
 
 <ul>
 <li>General question - for everything else that doesn't fit any issue below. In general this type <strong>should be avoided</strong>, as if your problem does not fit, then it's very likely <strong>not</strong> a translation issue. Still, this option is available here for all other cases.</li>
-<li>Current translation is wrong - this should be used <strong>only</strong> if translation was pre-approved by proof-reader already, and you believe that it's wrong, for example it has a typo or you have a valid suggestion how to improve it. This type should never be used in translations that are powered by the community (voting), as in this case you should contact with user of given translation and ask him for correction, or simply vote for better translation, as stated in reviewing section.</li>
+<li>Current translation is wrong - this should be used <strong>only</strong> if translation was pre-approved by proof-reader already, and you believe that it's wrong, for example it has a typo or you have a valid suggestion how to improve it. This type should never be used in translations that are powered by the community (voting), as in this case you should contact with user of given translation and ask him for correction, or simply vote for better translation, as stated in reviewing section. We'll remove the approval of the translation and notify the appropriate proof-reader in charge of the language to take into account your comment and verify again.</li>
 <li>Lack of contextual information  - this is what you should use if you're not sure what part of ASF you're translating, what is the context of given string, or its purpose. This type should be used for ASF development only, it means you need technical assistance as you're not sure how you should translate given string.</li>
-<li>Mistake in the source string - this should be used only if you believe that original (English) string is incorrect. Quite rare, but I'm not speaking English natively either, so feel free to use it if you have a general idea how it could be improved.</li>
+<li>Mistake in the source string - this should be used only if you believe that original (English) string is incorrect. Quite rare, but I'm not speaking English natively either, so feel free to use it if you have a general idea how it could be improved. Alternatively, since this is strictly related to the development, you may use our <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose">GitHub issues</a></strong> for that purpose, if you'd like to.</li>
 </ul>
 
 <hr />
@@ -155,8 +155,8 @@ On the crowdin, first thing you should do is going to your editor settings and e
 
 Now, during translating on the crowdin, depending on formatting, you'll see ASF links in the text either as:
 
-* String to translate together with HTML tags (majority of strings, where only part of the sentence is a link)
-* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar)
+* String to translate together with HTML tags (majority of strings, where only a part of the sentence is a link)
+* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar - those require proofreader access to translate, sadly)
 
 In our example above, it's the first case (since only "setting up" is a link), so in crowdin we'll see it as:
 
@@ -262,11 +262,11 @@ We'd like to show our eternal gratitude to people that have spent a significant 
 
 | Contributor                                                | Languages          |
 | ---------------------------------------------------------- | ------------------ |
-| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | Spanish            |
+| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Spanish    |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portuguese (BR)    |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinese (CN)       |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russian, Ukrainian |
-| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | German             |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, German     |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinese (HK)       |
 
 Thank you all for improving our ASF localization quality!

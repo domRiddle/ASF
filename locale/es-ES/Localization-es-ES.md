@@ -65,9 +65,9 @@ Si tienes un problema con una traducción en particular, por ejemplo, si no sabe
 Actualmente hay 4 tipos soportados de problema:
 
 * Pregunta general - para todo aquello que no encaje en ninguno de los siguientes problemas. En general, este tipo **debe ser evitado**, si tu problema no encaja, probablemente **no** es un problema de traducción. Sin embargo, esta opción está disponible para todos los demás casos.
-* La traducción actual es incorrecta - este debe ser usado **solo** si la traducción ya fue preaprobada por un "proof-reader", y crees que está mal, por ejemplo, si tiene un error tipográfico o tienes una sugerencia válida de cómo mejorarla. Este tipo nunca debe utilizarse en traducciones apoyadas por la comunidad (votación), ya que en este caso debes contactar con el usuario de dicha traducción y pedirle que la corrija, o simplemente vota por una traducción mejor, como se indica en la sección de revisión.
+* La traducción actual es incorrecta - este debe ser usado **solo** si la traducción ya fue preaprobada por un "proof-reader", y crees que está mal, por ejemplo, si tiene un error tipográfico o tienes una sugerencia válida de cómo mejorarla. Este tipo nunca debe utilizarse en traducciones apoyadas por la comunidad (votación), ya que en este caso debes contactar con el usuario de dicha traducción y pedirle que la corrija, o simplemente vota por una traducción mejor, como se indica en la sección de revisión. Eliminaremos la aprobación de la traducción y notificaremos al proof-reader correspondiente a cargo del idioma para que tome en cuenta tu comentario y verifique de nuevo.
 * Falta de información contextual - este es el que debes usar si no estás seguro qué parte de ASF estás traduciendo, cuál es el contexto de una cadena dada, o su propósito. Este tipo debe ser usado solo para el desarrollo de ASF, significa que necesitas asistencia técnica ya que no estás seguro de cómo debes traducir una determinada cadena.
-* Error en la cadena original - este solo debe ser usado si crees que la cadena original (inglés) es incorrecta. Muy raro, pero yo tampoco hablo inglés nativamente, así que siéntete libre de usarlo si tienes una idea general de cómo podría mejorar.
+* Error en la cadena original - este solo debe ser usado si crees que la cadena original (inglés) es incorrecta. Muy raro, pero yo tampoco hablo inglés nativamente, así que siéntete libre de usarlo si tienes una idea general de cómo podría mejorar. Alternativamente, ya que esto se relaciona estrictamente con el desarrollo, puedes usar **[GitHub issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** para ese propósito, si lo deseas.
 
 * * *
 
@@ -145,8 +145,8 @@ En Crowdin, lo primero que debes hacer es ir a tus ajustes de edición y asegura
 
 Ahora, durante la traducción en Crowdin, dependiendo del formato, verás los enlaces de ASF en el texto ya sea como:
 
-* Cadena para traducir junto con etiquetas HTML (la mayoría de las cadenas, donde solo parte de la frase es un enlace)
-* Cadena a traducir, con enlace incluido en `Hidden texts` -> `Link addresses` (raro, donde toda la cadena es un enlace, el caso más común es la barra lateral)
+* Cadena para traducir junto con etiquetas HTML (la mayoría de las cadenas, donde solo una parte de la frase es un enlace)
+* Cadena para traducir, con un enlace incluido en `Hidden texts` textos ocultos -> `Link addresses` direcciones de enlace (raras, donde la cadena completa es un enlace, más común en la barra lateral - desafortunadamente, esos requieren acceso de proof-reader para traducirlas)
 
 En nuestro ejemplo anterior, es el primer caso (ya que solo "setting up" es un enlace), así que en Crowdin lo veremos como:
 
@@ -252,11 +252,11 @@ Nos gustaría mostrar nuestra eterna gratitud a las personas que han pasado una 
 
 | Colaborador                                                | Idiomas         |
 | ---------------------------------------------------------- | --------------- |
-| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | Español         |
+| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Español |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portugués (BR)  |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chino (CN)      |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Ruso, Ucraniano |
-| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | Alemán          |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, Alemán  |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chino (HK)      |
 
 ¡Gracias a todos por mejorar la calidad de nuestra localización de ASF!

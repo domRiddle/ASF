@@ -200,13 +200,9 @@ Em `SteamOwnerID` você precisa colocar o ID Steam de 64-bits exclusivo da sua c
 
 Na minha conta, ele é o número `76561198006963719`. Você vai ter um código parecido, também começando com `7656`. Copie-o.
 
-Agora navegue mais uma vez até nosso gerador de configuração web e coloque esse número em SteamOwnerID.
+Agora navegue mais uma vez até nosso gerador de configuração web e coloque esse número em SteamOwnerID. Lastly, you need to enable `IPC` option nearby for the interface to activate.
 
-![SteamOwnerID](https://i.imgur.com/V6jslfQ.png)
-
-Você precisa fazer só mais uma coisa: alternar para as configurações avançadas, encontrar o opção `IPC` e habilitá-la.
-
-![IPC](https://i.imgur.com/NhujZCN.png)
+![IPC](https://i.imgur.com/BMyasHt.png)
 
 Agora você pode baixar o arquivo de configuração e colocá-lo na pasta `config`. Aí é só abrir o ASF de novo e você verá que ele vai iniciar a interface IPC:
 
@@ -250,4 +246,4 @@ Com etapas extras:
 - **[Configurar o ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)**.
 - Abra o ASF usando um script auxiliar ou executando `dotnet /path/to/ArchiSteamFarm.dll` manualmente pelo seu shell favorito.
 
-Scripts de ajuda (como `ArchiSteamFarm.cmd` para Windows e `ArchiSteamFarm.sh` para Linux/macOS) estão juntos com o binário `ArchiSteamFarm.dll` - eles são inclusos apenas na variante genérica. Você pode usá-los se você não quer executar o comando `dotnet` manualmente. Obviamente os scripts de ajuda não vão funcionar se você não instalou o SDK do .NET Core e não tem o executável `dotnet` disponível em seu `PATH`. Os scripts de ajuda são inteiramente opcionais, você pode sempre usar o método manual `dotnet /path/to/ArchiSteamFarm.dll`.
+Scripts de ajuda (como `ArchiSteamFarm.cmd` para Windows e `ArchiSteamFarm.sh` para Linux/OSX) estão juntos com o `ArchiSteamFarm.dll` - eles são inclusos apenas na variante genérica. Você pode usá-los se você não quer executar o comando `dotnet` manualmente. Obviamente os scripts de ajuda não vão funcionar se você não instalou o SDK do .NET Core e não tem o executável `dotnet` disponível em seu `PATH`. Os scripts de ajuda são inteiramente opcionais, você pode sempre usar o método manual `dotnet /path/to/ArchiSteamFarm.dll`.

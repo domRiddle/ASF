@@ -60,14 +60,14 @@ Regras gerais se aplicam para a prova de leitura - não tenha pressa, ouça seus
 
 Se você tiver um problema com uma tradução em particular, por exemplo, você não sabe como traduzir, a tradução aprovada é incorreta, você precisa de um contexto mais específico, ou outra coisa, por favor poste um comentário na frase específica e marque [X] a caixa Issue.
 
-**Por favor, evite marcar a caixa "Issue" se você não precisa de explicação técnica/de desenvolvimento ou uma ação do administrador**. Você é livre para usar comentários para discussões relacionadas a tradução de determinada frase, mas você só deve marcar a frase como problema ("Issue") quando precisar de uma explicação mais técnica ou de correção de um administrador, e isso normalmente envolve alguém que não fala o idioma para o qual você está traduzindo, então, por favor, opte pelo inglês ao escrever um comentário descrevendo um problema (para que possamos entender qual é o problema).
+**Por favor, evite marcar a caixa "Issue" se você não precisa de explicação técnica/de desenvolvimento ou uma ação do administrador**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who does not even speak the language you're translating to, so please stick with English when writing issue comment (so we can understand what the issue is).
 
 Existem 4 tipos de problemas suportados no momento:
 
 * Questões gerais: tudo o que não se encaixa em nenhuma das opções abaixo. Em geral este tipo **deve ser evitado**, uma vez que se o seu problema não se encaixa em nenhuma opção abaixo é muito provável que **não** seja uma questão de tradução. Ainda assim, esta opção está disponível para todos os outros casos.
-* A tradução atual está errada - deve ser usado **apenas** se a tradução já foi pré-aprovada pelo revisor, e você acredita que está errada, um erro de digitação, por exemplo, ou você tem uma sugestão válida de como melhorá-la. Ele nunca deve ser usado em traduções que foram aprovadas pela comunidade (votação), já que nesse caso você deve entrar em contato com o usuário de determinada tradução e pedir a correção, ou simplesmente votar para a melhor tradução como indicado na seção de revisão.
+* A tradução atual está errada - deve ser usado **apenas** se a tradução já foi pré-aprovada pelo revisor, e você acredita que está errada, um erro de digitação, por exemplo, ou você tem uma sugestão válida de como melhorá-la. Ele nunca deve ser usado em traduções que foram aprovadas pela comunidade (votação), já que nesse caso você deve entrar em contato com o usuário de determinada tradução e pedir a correção, ou simplesmente votar para a melhor tradução como indicado na seção de revisão. We'll remove the approval of the translation and notify the appropriate proof-reader in charge of the language to take into account your comment and verify again.
 * Falta de informações contextuais - é isso que você deve usar se não tem certeza de que parte do ASF está traduzindo, qual é o contexto ou o propósito da frase. Este tipo deve ser usado apenas para o desenvolvimento do ASF, isso significa que você precisa de assistência técnica já que você não tem certeza de como deve traduzir determinada frase.
-* Erro na frase de origem - deve ser usado somente se você acredita que a frase original (inglês) está incorreta. É raro, mas eu também não sou um falante nativo do inglês, então se sinta a vontade para usá-lo se você tiver uma ideia de como ela pode ser melhorada.
+* Erro na frase de origem - deve ser usado somente se você acredita que a frase original (inglês) está incorreta. É raro, mas eu também não sou um falante nativo do inglês, então se sinta a vontade para usá-lo se você tiver uma ideia de como ela pode ser melhorada. Alternatively, since this is strictly related to the development, you may use our **[GitHub issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** for that purpose, if you'd like to.
 
 * * *
 
@@ -145,8 +145,8 @@ No Crowdin, a primeira coisa que você deve fazer é ir até as configurações 
 
 Agora, durante a tradução no Crowdin, dependendo da formatação, você verá links ASF no texto nas formas abaixo:
 
-* Linhas para traduzir com tags HTML (a maior parte delas, onde apenas uma parte da frase é um link)
-* Apenas linhas para traduzir, com o link incluso em `Hidden texts` -> `Link addresses` (raros, ocorre onde a linha toda é um link, mais comum na barra lateral)
+* String to translate together with HTML tags (majority of strings, where only a part of the sentence is a link)
+* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar - those require proofreader access to translate, sadly)
 
 No exemplo acima vemos o primeiro caso (já que apenas "setting up" é um link), então você terá:
 
@@ -252,11 +252,11 @@ Gostaríamos de mostrar nossa eterna gratidão a pessoas que gastaram uma grande
 
 | Colaborador                                                | Idiomas          |
 | ---------------------------------------------------------- | ---------------- |
-| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | Espanhol         |
+| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Spanish  |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Português (BR)   |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinês (CN)      |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russo, Ucraniano |
-| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | Alemão           |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, German   |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinês (HK)      |
 
 Obrigado a todos por melhorar a qualidade de tradução do ASF!

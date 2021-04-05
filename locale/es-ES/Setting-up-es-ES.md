@@ -200,13 +200,9 @@ Para `SteamOwnerID`, necesitas introducir el identificador único de tu cuenta d
 
 Para mi cuenta, es este número `76561198006963719`. Tendrás uno similar, que también inicia con `7656`. Cópialo.
 
-Ahora dirígete una vez más a nuestro generador de configuración web e ingresa ese número como SteamOwnerID.
+Ahora dirígete una vez más a nuestro generador de configuración web e ingresa ese número como SteamOwnerID. Por último, necesitas activar la opción `IPC` para que se habilite la interfaz.
 
-![SteamOwnerID](https://i.imgur.com/V6jslfQ.png)
-
-Solo necesitas hacer una cosa más, cambia a configuración avanzada, busca la opción `IPC`, y actívala.
-
-![IPC](https://i.imgur.com/NhujZCN.png)
+![IPC](https://i.imgur.com/BMyasHt.png)
 
 Ahora puedes descargar tu configuración de ASF y ponerla en el directorio `config`, como de costumbre. Posteriormente, ejecuta ASF de nuevo, y debes poder confirmar que inició correctamente la interfaz IPC:
 

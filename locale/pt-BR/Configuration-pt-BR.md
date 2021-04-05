@@ -4,7 +4,7 @@ Esta página é dedicada a configuração do ASF. Ela serve como uma documentaç
 
 - **[Introdução](#introdução)**
 - **[Gerador de configuração web](#gerador-de-configuração-web)**
-- **[ASF-ui configuration](#asf-ui-configuration)**
+- **[Cofiguração da Interface do ASF](#asf-ui-configuration)**
 - **[Configuração manual](#manual-configuration)**
 - **[Configuração global](#global-config)**
 - **[Configuração do Bot](#bot-config)**
@@ -24,13 +24,13 @@ Chamamos de bot qualquer conta do Steam usada no processo do ASF. Para trabalhar
 
 O ASF usa o formato **[JSON](https://pt.wikipedia.org/wiki/JSON)** para armazenar seus arquivos de configuração. Ele é um formato amigável, legível e universal, no qual você pode configurar o programa. Porém não se preocupe, você não precisa saber JSON para configurar o ASF. Apenas mencionei isso para o caso de você desejar criar configurações em massa do ASF com algum tipo de script.
 
-Configuration can be done in several ways. You can use our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which is a local app independent of ASF. You can use our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC frontend for configuration done directly in ASF. Lastly, you can always generate config files manually, as they follow fixed JSON structure specified below. We'll explain shortly the available options.
+A configuração pode ser feita de várias formas. Você pode usar nosso **[Gerador de configuração web](https://justarchinet.github.io/ASF-WebConfigGenerator)**, que é um aplicativo local independente do ASF. Você pode usar nosso front-end IPC **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR#asf-ui)** para configurar diretamente no ASF. Ou você sempre pode gerar arquivos de configuração manualmente, já que eles seguem uma estrutura JSON fixa como mostrado abaixo. Explicaremos brevemente as opções disponíveis.
 
 * * *
 
 ## Gerador de configuração web
 
-The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. O gerador de configuração Web funciona 100% no lado do cliente, o que significa que os detalhes que você está inserindo não são enviados para nenhum lugar, mas processados apenas no seu computador. Isto garante segurança e confiabilidade, pois ele pode até mesmo trabalhar **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**, basta baixar todos os arquivos e executar o `index.html` no seu navegador favorito.
+A função do **[Gerenciador de Configuração web](https://justarchinet.github.io/ASF-WebConfigGenerator)** é proporcionar uma interface amigável a ser utilizada na geração de configurações para o ASF. O gerador de configuração Web funciona 100% no lado do cliente, o que significa que os detalhes que você está inserindo não são enviados para nenhum lugar, mas processados apenas no seu computador. Isto garante segurança e confiabilidade, pois ele pode até mesmo trabalhar **[offline](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**, basta baixar todos os arquivos e executar o `index.html` no seu navegador favorito.
 
 O Gerador de configuração Web foi testado e roda perfeitamente no Chrome e no Firefox, e deve funcionar corretamente em todos os navegadores mais populares com javascript habilitado.
 
@@ -38,19 +38,19 @@ O uso é muito simples: selecione se você deseja gerar uma configuração `ASF`
 
 * * *
 
-## ASF-ui configuration
+## Cofiguração da Interface do ASF
 
-Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
+Nossa interface IPC **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR#asf-ui)** também permite que você configure o ASF, e é a melhor forma de reconfigurar o ASF depois de gerar as configurações iniciais devido ao fato de você poder editar as configurações in-loco, diferente do Gerador de Configuração web que as gera estaticamente.
 
-In order to use ASF-ui, firstly you must enable our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface itself. You can do that by using our Web-based ConfigGenerator explained above, generating a very simple `ASF` config with enabled `IPC` setting and nothing else. Alternatively, you could also generate such simple config yourself, as `ASF.json` file with `{ "IPC": true }` json content inside.
+Para usar a ASF-ui você deve habilitar nossa interface **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR)**. Você pode fazer isso usando o Gerador de Configuração web explicado acima, gerando uma configuração `ASF` simples com a configuração `IPC` ativada e nada mais. Como alternativa, você também pode gerar essa configuração simples manualmente, já que ela nada mais é que um arquivo `ASF.json` com `{ "IPC": true }` em formato json dentro.
 
-Afterwards, launch ASF with the above config, ensure that `IPC` interface is started, then navigate to ASF's **[IPC address](http://localhost:1242)**. You can now do the remaining configuration of ASF through ASF-ui interface.
+Depois, abra o ASF com a configuração acima, certifique-se de que a interface `IPC` seja iniciada, e navegue para o **[endereço IPC](http://localhost:1242) do ASF.**. Agora você pode fazer a configuração restante do ASF através da interface ASF-ui.
 
 * * *
 
 ## Configuração manual
 
-In general we strongly recommend using either our ConfigGenerator or ASF-ui, as it's much easier and ensures you won't make a mistake in the JSON structure, but if for some reason you don't want to, then you can also create proper configs manually. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using any of our frontends, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Even if it's a valid JSON, you also have to ensure that all the properties have the proper type, as required by ASF. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and our documentation below.
+Em geral, recomendamos fortemente o uso do nosso Gerador de Configuração ou da ASF-ui, pois é muito mais fácil e garante que você não cometa nem um erro na estrutura JSON, mas se por algum motivo você não quiser, então você também pode criar as configurações adequadas manualmente. Veja os exemplos JSON abaixo para ter uma boa ideia da estrutura correta, você pode copiar o conteúdo eu um arquivo e usá-lo como base para a sua configuração. Já que você não está usando nenhum dos nossos front-ends, certifique-se de que sua configuração é **[válida](https://jsonlint.com)** pois o ASF não vai carregá-la se ela não puder ser validada. Mesmo se for um JSON válido, você também precisa garantir que todas as propriedades tenham o tipo adequado, conforme exigido pelo ASF. Para conhecer a estrutura JSON correta de todos os campos disponíveis consulte a seção **[mapeamento JSON](#mapeamento-json)** abaixo na nossa documentação.
 
 * * *
 
@@ -140,7 +140,7 @@ Em resumo, o valor padrão é suficiente para a maioria dos casos, mas você pod
 
 ### `CurrentCulture`
 
-Tipo `string` com o valor padrão `null`. Por padrão o ASF tenta usar o idioma do seu sistema operacional e vai preferir usar linhas traduzidas para esse idioma se disponível. This is possible thanks to our community that tries to **[localize](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)** ASF in all most popular languages. Se por algum motivo você não quiser usar o idioma nativo do seu SO, você pode usar esta propriedade de configuração para escolher qualquer outro idioma válido. Para obter uma lista de todas os idiomas disponíveis, visite o **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)** e procure por `Language tag`. É bom notar que o ASF aceita tanto instruções de idioma por região, como `en-GB`, quanto o neutros, como `en`. Especificar o idioma atual também pode afetar outros comportamentos regionais específicos, como formato de moeda/data e outros. Por favor, note que você pode precisar de pacotes de idioma/fontes adicionais para exibir caracteres específicos do idioma corretamente, caso você tenha escolhido um idioma não-nativo que faça uso deles. Normalmente você fará uso desta propriedade se preferir o ASF em inglês ao invés da sua língua nativa.
+Tipo `string` com o valor padrão `null`. Por padrão o ASF tenta usar o idioma do seu sistema operacional e vai preferir usar linhas traduzidas para esse idioma se disponível. Isto é possível graças à nossa comunidade que tenta **[traduzir](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-pt-BR)** o ASF para quase todos os idiomas mais populares. Se por algum motivo você não quiser usar o idioma nativo do seu SO, você pode usar esta propriedade de configuração para escolher qualquer outro idioma válido. Para obter uma lista de todas os idiomas disponíveis, visite o **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)** e procure por `Language tag`. É bom notar que o ASF aceita tanto instruções de idioma por região, como `en-GB`, quanto o neutros, como `en`. Especificar o idioma atual também pode afetar outros comportamentos regionais específicos, como formato de moeda/data e outros. Por favor, note que você pode precisar de pacotes de idioma/fontes adicionais para exibir caracteres específicos do idioma corretamente, caso você tenha escolhido um idioma não-nativo que faça uso deles. Normalmente você fará uso desta propriedade se preferir o ASF em inglês ao invés da sua língua nativa.
 
 * * *
 
@@ -784,7 +784,7 @@ No entanto, algumas pessoas podem ficar preocupadas até mesmo com esse pequeno 
 
 ### `UserInterfaceMode`
 
-Tipo `byte` com o valor padrão `0`. This property specifies user interface mode that the bot will be announced with after logging in to Steam network. Currently you can choose one of below modes:
+Tipo `byte` com o valor padrão `0`. Esta propriedade especifica o modo de interface de usuário com o qual o bot será anunciado após acessar a rede Steam. Atualmente você pode escolher um dos modos abaixo:
 
 | Valor | Nome       |
 | ----- | ---------- |

@@ -30,6 +30,6 @@ Ich benutze auch ASF als perfektes Beispiel für ein modernes C# Projekt, das im
 
 * * *
 
-### Ich habe das Programm am 1. April gestartet und die ASF-Sprache wechselte in etwas seltsames, was geht vor?
+### Ich habe das Programm am 1. April gestartet und die ASF-Sprache wechselte in etwas seltsames, was ist hier los?
 
-CONGRATULASHUNS ZUR ENTDECKUNG UNSERES APRILSCHERZES! Sofern Sie `CurrentCulture` nicht definiert haben, verwendet ASF nach dem Start am 1. April die Lokalisation **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** anstatt der Systemsprache. Sollten Sie dieses Verhalten deaktivieren woillen, kann stattdessen die Lokalisation in `CurrentCulture` eingestellt werden, die Sie nutzen möchten. It's also nice to note that you can enable our easter egg unconditionally, by setting your `CurrentCulture` to `qps-Ploc` value.
+CONGRATULASHUNS ZUR ENTDECKUNG UNSERES APRILSCHERZES! Sofern Sie `CurrentCulture` nicht definiert haben, verwendet ASF nach dem Start am 1. April die Lokalisation **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** anstatt der Systemsprache. Wenn Sie dieses Verhalten deaktivieren möchten, können Sie einfach `CurrentCulture` auf die Lokalisation setzen, das Sie stattdessen verwenden möchten. Schön ist auch, dass Sie unseren Aprilscherz bedingungslos aktivieren können, indem Sie Ihren `CurrentCulture`-Wert auf `qps-Ploc` setzen.

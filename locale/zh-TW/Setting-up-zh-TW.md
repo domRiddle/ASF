@@ -200,13 +200,9 @@ ASF 是一個沒有圖形使用者介面的主控台應用程式。 然而，我
 
 例如我的帳戶的 Steam 64位 ID 就是這串數字 `76561198006963719`。 您的 ID 也與其相似並同樣以 `7656` 開始。 複製它。
 
-現在重新回到網頁設定檔產生器，然後把剛剛複製的數字貼上 SteamOwnerID。
+現在重新回到網頁設定檔產生器，然後把剛剛複製的數字貼上 SteamOwnerID。 Lastly, you need to enable `IPC` option nearby for the interface to activate.
 
-![SteamOwnerID](https://i.imgur.com/V6jslfQ.png)
-
-您只需要再做一件事：開啟進階設定，找到並啟用 `IPC` 選項。
-
-![IPC](https://i.imgur.com/NhujZCN.png)
+![IPC](https://i.imgur.com/BMyasHt.png)
 
 現在您可以下載 ASF 設定檔並放置在 `config` 目錄，跟往常一樣。 然後重新啟動 ASF，您應該可以確認 IPC 介面正確啟動了：
 

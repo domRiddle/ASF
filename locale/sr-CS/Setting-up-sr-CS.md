@@ -200,13 +200,9 @@ Za `SteamOwnerId`, morate unijeti vaš unikatni Steam identifikator u 64-bit-noj
 
 Za moj nalog, to je broj `76561198006963719`. Vi ćete imati sličan broj, koji takođe počine sa `7656`. Kopirajte ga.
 
-Sada se vratite na tab web generatora konfiguracije i unesite broj u SteamOwnerID.
+Sada se vratite na tab web generatora konfiguracije i unesite broj u SteamOwnerID. Lastly, you need to enable `IPC` option nearby for the interface to activate.
 
-![SteamOwnerID](https://i.imgur.com/V6jslfQ.png)
-
-Morate uraditi još jednu stvar, pokrenite napredna podešavanja, pronađite `IPC` opciju, i omogućite je.
-
-![IPC](https://i.imgur.com/NhujZCN.png)
+![IPC](https://i.imgur.com/BMyasHt.png)
 
 Sada možete preuzeti vašu ASF konfiguraciju i sačuvati je u `config` direktorijumu, kao i obično. Nakon toga, pokrenite ASF ponovo, i tu bi trebalo da potvrdite da je IPC interfejs pokrenut pravilno:
 

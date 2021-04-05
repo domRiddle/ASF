@@ -200,13 +200,9 @@ Für `SteamOwnerID` musst du einen eindeutigen Steam-Identifikator in 64-Bit-For
 
 Für mein Konto ist dies die Nummer `76561198006963719`. Du wirst eine ähnliche haben, auch beginnend mit `7656`. Kopiere sie.
 
-Navigiere nun noch einmal zu unserem Web-Konfigurationsgenerator und trage diese Nummer als SteamOwnerID ein.
+Navigiere nun noch einmal zu unserem Web-Konfigurationsgenerator und trage diese Nummer als SteamOwnerID ein. Lastly, you need to enable `IPC` option nearby for the interface to activate.
 
-![SteamOwnerID](https://i.imgur.com/V6jslfQ.png)
-
-Du musst nur noch eine weitere Sache erledigen und zwar die erweiterten Einstellungen umschalten und die Option `IPC` finden und aktivieren.
-
-![IPC](https://i.imgur.com/NhujZCN.png)
+![IPC](https://i.imgur.com/BMyasHt.png)
 
 Jetzt kannst du deine ASF-Konfiguration herunterladen und wie gewohnt in dein `config` Verzeichnis legen. Starte danach ASF erneut, und du solltest bestätigen können, dass es die IPC-Schnittstelle ordnungsgemäß gestartet hat:
 

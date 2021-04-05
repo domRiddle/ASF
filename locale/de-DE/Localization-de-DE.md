@@ -60,14 +60,14 @@ Die generellen Regeln gelten auch für das Korrekturlesen - nimm dir Zeit, hör 
 
 Wenn du ein Problem mit einer bestimmten Übersetzung hast, weil du zum Beispiel nicht weißt, wie sie zu übersetzen ist, eine genehmigte Übersetzung falsch ist, du mehr Kontext benötigst oder Ähnliches, dann Poste bitte einen Kommentar unter dem betroffenen String und markiere ihn mit [X] als ein Problem.
 
-**Bitte vermeide das [x] wenn du keine technische Erklärung oder Aktion eines Admins benötigst**. Es steht dir frei Kommentare für Diskussionen zur Übersetzung einer Zeichenkette zu verwenden, aber der "Issue-Tag" sollte nur verwendet werden, wenn eine weitergehende technische Erklärung oder Lösung durch einen Admin benötigt wird und wird typischerweise jemanden betreffen, der deine Sprache nicht spricht, weshalb du Problem-Kommentare möglichst auf Englisch schreiben solltest (damit wir verstehen, was das Problem ist).
+**Bitte vermeide das [x] wenn du keine technische Erklärung oder Aktion eines Admins benötigst**. Es steht Ihnen frei, Kommentare für Diskussionen zu verwenden, die sich auf die Übersetzung der gegebenen Zeichenkette beziehen, aber "issue" sollte nur verwendet werden, wenn Sie weitere technische Erklärungen oder Korrekturen durch den Administrator benötigen, und es wird typischerweise jemanden betreffen, der nicht einmal die Sprache spricht, in die Sie übersetzen, also bleiben Sie bitte bei Englisch, wenn Sie mit "issue" kommentieren (damit wir verstehen können, worum es geht).
 
 Es gibt 4 Typen von Problemen, die wir unterstützen:
 
 * generelle Frage - Für alles, was keinen der anderen Typen betrifft. Dieser Typ **sollte vermieden** werden, weil es dann höchstwahrscheinlich **kein** Übersetzungsproblem ist. Trotzdem ist diese Möglichkeit für alle anderen Fälle offen.
-* Die aktuelle Übersetzung ist falsch - Dies sollte **nur** verwendet werden, wenn die Übersetzung von einem Korrekturleser genehmigt wurde und du glaubst, dass sie falsch ist, weil sie etwa einen Tippfehler beinhaltet oder du einen guten Vorschlag hast sie zu verbessern. Dieser Typ sollte nie bei Übersetzungen verwendet werden, die durch Community-Stimmen gewählt wurden, in welchem Fall du den Benutzer der die Übersetzung geschrieben hat kontaktieren und ihn um eine Korrektur bitten oder einfach für eine bessere Übersetzung stimmen solltest.
+* Die aktuelle Übersetzung ist falsch - Dies sollte **nur** verwendet werden, wenn die Übersetzung von einem Korrekturleser genehmigt wurde und du glaubst, dass sie falsch ist, weil sie etwa einen Tippfehler beinhaltet oder du einen guten Vorschlag hast sie zu verbessern. Dieser Typ sollte nie bei Übersetzungen verwendet werden, die durch Community-Stimmen gewählt wurden, in welchem Fall du den Benutzer der die Übersetzung geschrieben hat kontaktieren und ihn um eine Korrektur bitten oder einfach für eine bessere Übersetzung stimmen solltest. Wir entfernen die Freigabe der Übersetzung und benachrichtigen den für die Sprache zuständigen Korrekturleser, um Ihren Kommentar zu berücksichtigen und erneut zu überprüfen.
 * Fehlender Kontext - Dies ist, was du verwenden solltest, wenn du nicht sicher bist, welchen Teil von ASF du übersetzt und was der Kontext der gegebenen Zeichenkette oder sein Sinn ist. Dieser Typ sollte nur für die Entwicklung von ASF verwendet werden, da er bedeutet, dass du technische Hilfe benötigst, weil du nicht sicher bist, wie die Zeichenkette zu übersetzen ist.
-* Fehler in der Quell-Zeichenkette - Dies sollte nur verwendet werden, wenn du denkst, dass das Original (Englisch) falsch ist. Sehr selten, aber Englisch ist nicht meine Muttersprache von daher zögere nicht diesen zu verwenden, wenn du eine generelle Idee hast, wie man es verbessern könnte.
+* Fehler in der Quell-Zeichenkette - Dies sollte nur verwendet werden, wenn du denkst, dass das Original (Englisch) falsch ist. Sehr selten, aber Englisch ist nicht meine Muttersprache von daher zögere nicht diesen zu verwenden, wenn du eine generelle Idee hast, wie man es verbessern könnte. Alternatively, since this is strictly related to the development, you may use our **[GitHub issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** for that purpose, if you'd like to.
 
 * * *
 
@@ -145,8 +145,8 @@ Auf Crowdin solltest du zuerst zu deinen Editor-Einstellungen gehen und sicherst
 
 Nun, während der Übersetzung auf Crowdin, je nach Formatierung, siehst du ASF-Links im Text entweder als:
 
-* Zu übersetzende Zeichenkette zusammen mit HTML-Tags (Mehrheit der Zeichenketten, wobei nur ein Teil des Satzes ein Link ist)
-* Einzelne zu übersetzende Zeichenkette, mit Link in `Hidden texts` -> `Link addresses` (selten, wo die gesamte Zeichenkette ein Link ist, am häufigsten in der Seitenleiste)
+* Zeichenkette, die zusammen mit HTML-Tags übersetzt werden soll (Überwiegend von Zeichenketten, bei denen nur ein Teil des Satzes ein Link ist)
+* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar - those require proofreader access to translate, sadly)
 
 In unserem obigen Beispiel ist dies der erste Fall (da nur "Installation" ein Link ist), sodass wir es in Crowdin folgendermaßen sehen werden:
 
@@ -252,11 +252,11 @@ Wir möchten unseren ewigen Dank denjenigen Menschen zeigen, die sehr viel ihrer
 
 | Mitwirkender                                               | Sprachen             |
 | ---------------------------------------------------------- | -------------------- |
-| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | Spanisch             |
+| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Spanisch     |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portugiesisch (BR)   |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinesisch (CN)      |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russisch, Ukrainisch |
-| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | Deutsch              |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, Deutsch      |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinesisch (HK)      |
 
 Vielen Dank an euch alle für die Verbesserung unserer ASF-Übersetzungsqualität!

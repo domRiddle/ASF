@@ -200,13 +200,9 @@ ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们
 
 我的帐户的 Steam ID 是 `76561198006963719` 这一串数字。 您的 ID 与此类似，也以 `7656` 开头。 将其复制到剪贴板。
 
-现在，再次返回配置文件生成器，将这串数字填入 SteamOwnerID。
+现在，再次返回配置文件生成器，将这串数字填入 SteamOwnerID。 最后，您需要启用附近的 `IPC` 选项开启这个接口。
 
-![SteamOwnerID](https://i.imgur.com/V6jslfQ.png)
-
-您还需要做一件事，切换到高级设置，找到并启用 `IPC` 选项。
-
-![IPC](https://i.imgur.com/NhujZCN.png)
+![IPC](https://i.imgur.com/BMyasHt.png)
 
 现在，您可以下载 ASF 配置文件，将它放到 `config` 文件夹中。 然后，重新启动 ASF，您应该看到 IPC 接口已成功启动：
 
