@@ -202,19 +202,19 @@ For `SteamOwnerID`, you need to input unique Steam identificator in 64-bit form 
 
 For my account, this is `76561198006963719` number. You'll have a similar one, also starting from `7656`. Copy it.
 
-Now navigate once again to our web config generator and input that number as SteamOwnerID. Lastly, you need to enable `IPC` option nearby for the interface to activate.
+Ora naviga ancora una volta al nostro generatore della configurazione web e inserisci quel numero come SteamOwnerID. Infine, devi abilitare l'opzione `IPC` vicino all'interfaccia da attivare.
 
 ![IPC](https://i.imgur.com/BMyasHt.png)
 
-Now you can download your ASF config and put it in your `config` directory, as usual. Afterwards, launch ASF again, and you should be able to confirm that it properly started IPC interface:
+Ora puoi scaricare la tua configurazione di ASF e metterla nella tua cartella `config`, come al solito. In seguito, avvia di nuovo ASF, e dovresti poter confermare che abbia avviato propriamente l'interfaccia IPC:
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
-If you did everything properly, you'll now be able to access ASF's IPC interface under **[this](http://localhost:1242)** link, as long as ASF is running. You can use ASF-ui for various purposes, e.g. sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Feel free to take a look around in order to find out all ASF-ui functionalities.
+Se hai fatto tutto correttamente, potrai ora accedere all'interfaccia IPC di ASF sotto **[questo](http://localhost:1242)** link, finché ASF sarà in esecuzione. Puoi usare ASF-ui per vari scopi, es. inviare **[comandi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Sentiti libero di dare un'occhiata in giro per scoprire tutte le funzionalità di ASF-ui.
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-Please note that ASF-ui is currently in preview state and not everything is available/working yet, but it's more than enough for simple ASF usage.
+Sei pregato di notare che ASF-ui è correntemente in stato d'anteprima e non tutto è ancora disponibile/funzionante, ma è più che abbastanza per un uso semplice di ASF.
 
 * * *
 
