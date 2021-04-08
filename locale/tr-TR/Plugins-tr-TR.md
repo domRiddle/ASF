@@ -1,34 +1,34 @@
-# Pluginler
+# Eklentiler
 
-Starting with ASF V4, the program includes support for custom plugins that can be loaded during runtime. Plugins allow you to customize ASF behaviour, for example by adding custom commands, custom trading logic or whole integration with third-party services and APIs.
+ASF V4 ile başlarken, programın kendisi runtime sırasında özel eklentiler için destek vermeyi içermektedir. Eklentiler ASF'in davranışlarını özelleştirmeye yarar, örnek olarak özel komutlar ekleyerek, özel takas mantığı ekleyerek veya üçüncü parti servisleri ve uygulama programlama arayüzü ile entegrasyon ekleyerek.
 
 * * *
 
 ## Kullanıcılar için
 
-ASF loads plugins from `plugins` directory located in your ASF folder. It's a recommended practice to maintain a dedicated directory for each plugin that you want to use, which can be based off its name, such as `MyPlugin`. Doing so will result in the final tree structure of `plugins/MyPlugin`. Finally, all binary files of the plugin should be put inside that dedicated folder, and ASF will properly discover and use your plugin after restart.
+ASF eklentileri ASF klasöründe bulunan `plugins` dizininden yükler. Kullanmak istediğiniz her eklenti için, adına bağlı olabilen özel bir dizin tutmanız tavsiye edilen bir uygulamadır.`MyPlugin` gibi. Bunu yapmak, bu dizin yapısıyla sonuçlanacaktır `plugins/MyPlugin`. Son olarak, eklentinin tüm ikili dosyalarını bu belirtilen klasöre koymalısınız, ve ASF yeniden başlatıldıktan sonra eklentinizi doğru bir şekilde keşfedecek ve kullanacaktır.
 
-Usually plugin developers will publish their plugins in form of a `zip` file with already-prepared structure for you, so it's enough to unpack that zip archive into `plugins` directory, which will create the appropriate folder automatically.
+Genellikle eklenti geliştiricileri, eklentilerini sizin için önceden hazırlanmış bir yapıya sahip olan `zip` dosyası biçiminde yayınlar, bu yüzden bu zip arşivini `plugins` dizinine çıkarmak yeterlidir, bu da uygun klasörü otomatik olarak oluşturur.
 
-If the plugin was loaded successfully, you'll see its name and version in your log. You should consult your plugin developers in case of questions, issues or usage related to the plugins that you've decided to use.
+Eğer eklenti başarılı bir şekilde yüklendi ise, çıktıda ismini ve versiyonunu göreceksiniz. Kullanmaya karar verdiğiniz eklentilerle ilgili sorularınızı, sorunlarınızı veya kullanıma yönelik şeyleri eklenti geliştiricilerinize danışmalısınız.
 
-You can find some featured plugins in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
+Öne çıkan bazı eklentileri **[üçüncü-taraf](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** bölümümüzde bulabilirsiniz.
 
-**Please note that ASF plugins could be malicious**. You should always ensure that you're using plugins made by developers that you can trust. ASF developers can no longer guarantee you usual ASF benefits (such as lack of malware or being VAC-free) if you decide to use any custom plugins. We're also unable to support setups that utilize custom plugins, since you're no longer running vanilla ASF code.
+**Lütfen ASF eklentilerinin kötü amaçlı olabileceğini unutmayın.**. Her zaman güvenebileceğiniz geliştiriciler tarafından yapılan eklentileri kullandığınızdan emin olmalısınız. Herhangi bir özel eklenti kullanmaya karar verirseniz, ASF geliştiricileri artık size normal ASF avantajlarını (kötü amaçlı yazılımın olmaması veya VAC'siz olmama gibi şeyleri) garanti edemez. Ayrıca, ham ASF kodunu çalıştırmadığınız için özel eklentileri kullanan kurulumları da destekleyemiyoruz.
 
 * * *
 
 ## Geliştiriciler için
 
-Plugins are standard .NET libraries that inherit common `IPlugin` interface with ASF. You can develop plugins entirely independently of mainline ASF and reuse them in current and future ASF versions, as long as API remains compatible. Plugin system used in ASF is based on `System.Composition`, formerly known as **[Managed Extensibility Framework](https://docs.microsoft.com/dotnet/framework/mef)** which allows ASF to discover and load your libraries during runtime.
+Eklentiler, ASF ile ortak `IPlugin` arayüzünü devralan standart .NET kütüphaneleridir. Eklentileri ana hatları ASF'den tamamen bağımsız olarak geliştirebilir ve API(Uygulama Programlama Arayüzü) uyumlu kaldığı sürece bunları mevcut ve gelecekteki ASF sürümlerinde yeniden kullanabilirsiniz. ASF'de kullanılan eklenti sistemi, daha önce **[Yönetilen Genişletilebilirlik Çerçevesi](https://docs.microsoft.com/dotnet/framework/mef)** olarak bilinen ve ASF'in runtime sırasında kitaplıklarınızı keşfetmesine ve yüklemesine olanak tanıyan `System.Composition` 'a dayanır.
 
 * * *
 
 ### Başlarken
 
-Your project should be a standard .NET library targetting appropriate framework of your target ASF version, as specified in the **[compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**. We recommend you to target .NET Core, but .NET Framework plugins are also available.
+**[Derlemede](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)** belirtildiği gibi, projeniz hedef ASF sürümünüzün uygun çerçevesini hedefleyen standart bir .NET kitaplığı olmalıdır. .NET Core'u hedeflemenizi öneririz, ama .NET Framework eklentileri de mevcuttur.
 
-The project must reference main `ArchiSteamFarm` assembly, either its prebuilt `ArchiSteamFarm.dll` library that you've downloaded as part of the release, or the source project (e.g. if you decided to add ASF tree as submodule). This will allow you to access and discover ASF structures, methods and properties, especially core `IPlugin` interface which you'll need to inherit from in the next step. The project must also reference `System.Composition.AttributedModel` at the minimum, which allows you to `[Export]` your `IPlugin` for ASF to use. In addition to that, you may want/need to reference other common libraries in order to interpret the data structures that are given to you in some interfaces, but unless you need them explicitly, that will be enough for now.
+Proje esas ` ArchiSteamFarm ` birleştirmesine veya sürümün bir parçası olarak indirdiğiniz önceden oluşturulmuş `ArchiSteamFarm.dl ` kitaplığına başvurmalıdır, ya da projenin kaynağına (örneğin. ASF dizin ağacını alt modül olarak eklemeye karar verdiyseniz). Bu, ASF yapılarına, metodlarına ve özelliklerine, özellikle bir sonraki adımda devralmanız gereken çekirdek `IPlugin` arayüzüne erişmenize ve keşfetmenize olanak tanır. Proje aynı zamanda minimum olarak `System.Composition.AttributedModel`i referans almalıdır; bu, ASF'in kullanılması için `[Export]` `IPlugin`' i sağlar. In addition to that, you may want/need to reference other common libraries in order to interpret the data structures that are given to you in some interfaces, but unless you need them explicitly, that will be enough for now.
 
 If you did everything properly, your `csproj` will be similar to below:
 
@@ -108,7 +108,7 @@ We'll do our best to keep public parts of ASF working and stable, but we'll not 
 
 * * *
 
-### Plugin dependencies
+### Eklenti gereksinimleri
 
 Your plugin will include at least two dependencies by default, `ArchiSteamFarm` reference for internal API, and `PackageReference` of `System.Composition.AttributedModel` that is required for being recognized as ASF plugin to begin with. In addition to that, it may include more dependencies in regards to what you've decided to do in your plugin (e.g. `Discord.Net` library if you've decided to integrate with Discord).
 

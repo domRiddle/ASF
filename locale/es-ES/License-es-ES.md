@@ -2,7 +2,7 @@
 
 A menos que se indique lo contrario, ASF está licenciado bajo **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**. Para una visión general de lo que puedes y no puedes hacer, puedes usar **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
 
-La licencia de ASF es muy permisiva y tienes permitido hacer mucho más que con la licencia GPL estándar, incluyendo usar ASF en proyectos comerciales sin necesidad de hacer el código abierto. En resumen, como se menciona en tl;dr Legal:
+La licencia de ASF es muy permisiva y puedes hacer mucho más que con la licencia GPL estándar, incluyendo usar ASF en proyectos comerciales sin necesidad de hacer el código abierto. En resumen, como se menciona en tl;dr Legal:
 
 > Puede hacer lo que desee con el software, siempre que incluya los avisos requeridos. Esta licencia permisiva contiene un licencia de patente de los colaboradores del código.
 

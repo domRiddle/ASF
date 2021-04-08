@@ -6,15 +6,15 @@ A partir de ASF V4, el programa incluye soporte para plugins personalizados que 
 
 ## Para usuarios
 
-ASF carga los plugins desde el directorio `plugins` ubicado en tu carpeta de ASF. Es una práctica recomendada mantener un directorio dedicado para cada plugin que quieras usar, que se puede basar en su nombre, como `MyPlugin`. Hacerlo de este modo resultará en la estructura final de `plugins/MyPlugin`. Finalmente, todos los archivos binarios deben ser colocados dentro de esa carpeta dedicada, y ASF descubrirá y utilizará tu plugin después de reiniciar.
+ASF carga los plugins desde el directorio `plugins` ubicado en tu carpeta de ASF. Es una práctica recomendada mantener un directorio dedicado para cada plugin que quieras usar, que se puede basar en su nombre, tal como `MyPlugin`. Hacerlo de este modo resultará en la estructura final de `plugins/MyPlugin`. Finalmente, todos los archivos binarios deben ser colocados dentro de esa carpeta dedicada, y ASF descubrirá y utilizará tu plugin después de reiniciar.
 
 Generalmente los desarrolladores de plugins los publicarán en forma de archivo `zip` con una estructura ya preparada, por lo que basta con desempaquetar el archivo zip en el directorio `plugins`, lo que creará la carpeta apropiada automáticamente.
 
-Si el plugin se cargó con éxito, verás su nombre y versión en el registro. Debes consultar al desarrollador de tu plugin en caso de preguntas, problemas o uso relativo a los plugins que hayas decidido usar.
+Si el plugin se cargó con éxito, verás su nombre y versión en el registro. Debes consultar al desarrollador de tu plugin en caso de preguntas, problemas o uso relacionados con los plugins que hayas decidido usar.
 
 Puedes encontrar algunos plugins destacados en nuestra sección **[aplicaciones de terceros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-es-es#plugins-de-asf)**.
 
-**Por favor, ten en cuenta que los plugins de ASF podrían ser maliciosos**. Siempre debes asegurarte de que usas plugins hechos por desarrolladores en los que confíes. Los desarrolladores de ASF ya no pueden garantizarte los beneficios usuales de ASF (como falta de malware y ser libre de VAC) si decides usar cualquier plugin personalizado. Tampoco podemos dar soporte a configuraciones que utilicen plugins personalizados, dado que ya no estás usando el código original de ASF.
+**Por favor, ten en cuenta que los plugins de ASF podrían ser maliciosos**. Siempre debes asegurarte de que estás usando plugins hechos por desarrolladores en los que puedes confiar. Los desarrolladores de ASF ya no pueden garantizar los beneficios usuales de ASF (como ausencia de malware y ser libre de VAC) si decides usar cualquier plugin personalizado. Tampoco podemos dar soporte a configuraciones que utilicen plugins personalizados, dado que ya no estás usando el código original de ASF.
 
 * * *
 
@@ -28,7 +28,7 @@ Los plugins son bibliotecas .NET estándar que heredan la interfaz común `IPlug
 
 Tu proyecto debe ser una biblioteca .NET estándar que tenga como objetivo el entorno de trabajo apropiado para tu versión de ASF, como se especifica en la **[compilación](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-es-es)**. Recomendamos que apuntes a .NET Core, pero los plugins en .NET Framework también están.
 
-El proyecto debe hacer referencia al ensamblado principal `ArchiSteamFarm`, ya sea una biblioteca `ArchiSteamFarm.dll` preconstruida que hayas descargado como parte de la versión, o el proyecto fuente (por ejemplo, si decides añadir ASF tree como submódulo). Este te permitirá acceder y descubrir estructuras, métodos y propiedades de ASF, especialmente la interfaz `IPlugin` la que necesitarás para heredar en el siguiente paso. El proyecto también debe referenciar `System.Composition.AttributedModel` al mínimo, lo que te permite exportar `[Export]` tu `IPlugin` para que ASF use. Además, tal vez quieras/necesites referenciar otros bibliotecas comunes para interpretar las estructuras de datos que se te presentan en algunos interfaces, pero a menos que las necesite explícitamente, eso sería suficiente por ahora.
+El proyecto debe hacer referencia al ensamblado principal `ArchiSteamFarm`, ya sea una biblioteca `ArchiSteamFarm.dll` preconstruida que hayas descargado como parte de la versión, o el proyecto fuente (por ejemplo, si decides añadir ASF tree como submódulo). Este te permitirá acceder y descubrir estructuras, métodos y propiedades de ASF, especialmente la interfaz `IPlugin` la que necesitarás para heredar en el siguiente paso. El proyecto también debe referenciar `System.Composition.AttributedModel` como mínimo, lo que te permite exportar `[Export]` tu `IPlugin` para que lo use ASF. Además, tal vez quieras/necesites referenciar otras bibliotecas comunes para interpretar las estructuras de datos que se te presentan en algunas interfaces, pero a menos que las necesites explícitamente, eso sería suficiente por ahora.
 
 Si hiciste todo correctamente, tu `csproj` será similar al siguiente:
 
@@ -72,7 +72,7 @@ namespace YourNamespace.YourPluginName {
 }
 ```
 
-Para usar tu plugin, primero debes compilarlo. Puedes hacerlo ya sea desde tu IDE (Entorno de Desarrollo Integrado), o desde el directorio raíz de tu proyecto a través de comando:
+Para usar tu plugin, primero debes compilarlo. Puedes hacerlo ya sea desde tu IDE (Entorno de Desarrollo Integrado), o desde el directorio raíz de tu proyecto mediante un comando:
 
 ```shell
 # Si tu proyecto es individual (no hay necesidad de definir su nombre ya que es el único)
@@ -82,9 +82,9 @@ dotnet publish -c "Release" -o "out"
 dotnet publish YourPluginName -c "Release" -o "out"
 ```
 
-Después, tu plugin está lista para su despliegue. Depende de ti como quieres distribuirlo y publicarlo, pero recomendamos crear un archivo zip con un solo archivo llamado `YourNamespace.YourPluginName` (TuNombreespacio.NombreDeTuPlugin), dentro del cual pondrás tu plugin compilado junto con sus **[dependencias](#plugin-dependencies)**. Así el usuario simplemente necesitará desempaquetar tu archivo zip en su directorio `plugins` y nada más.
+Después, tu plugin está lista para su despliegue. Depende de ti cómo quieres distribuirlo y publicarlo, pero recomendamos crear un archivo zip con una sola carpeta llamada `YourNamespace.YourPluginName`, dentro de la cual pondrás tu plugin compilado junto con sus **[dependencias](#dependencias-de-plugin)**. De esta manera el usuario simplemente necesitará desempaquetar tu archivo zip en su directorio `plugins` y nada más.
 
-Este solo es el escenario más básico para empezar. Tenemos el proyecto **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** que muestra interfaces de ejemplo y acciones que puedes realizar dentro de tu propio plugin, incluyendo comentarios útiles. Siéntete libre de echar un vistazo si quieres aprender de un código funcional, o descubrir el namespace (espacio de nombres) `ArchiSteamFarm.Plugins` y dirígete a la documentación incluida para todas las opciones disponibles.
+Este solo es el escenario más básico para empezar. Tenemos el proyecto **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** que muestra ejemplos de interfaces y acciones que puedes realizar dentro de tu propio plugin, con comentarios útiles incluidos. Siéntete libre de echar un vistazo si quieres aprender de un código funcional, o descubrir el namespace (espacio de nombres) `ArchiSteamFarm.Plugins` y dirígete a la documentación incluida para todas las opciones disponibles.
 
 Si en lugar de ejemplos quieres aprender de proyectos reales, está el plugin **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** desarrollado por nosotros, y que viene junto con ASF. Además, también hay plugins hechos por otros desarrolladores, en nuestra sección **[aplicaciones de terceros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-es-es#plugins-de-asf)**.
 
