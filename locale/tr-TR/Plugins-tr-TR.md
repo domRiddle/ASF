@@ -28,9 +28,9 @@ Eklentiler, ASF ile ortak `IPlugin` arayüzünü devralan standart .NET kütüph
 
 **[Derlemede](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)** belirtildiği gibi, projeniz hedef ASF sürümünüzün uygun çerçevesini hedefleyen standart bir .NET kitaplığı olmalıdır. .NET Core'u hedeflemenizi öneririz, ama .NET Framework eklentileri de mevcuttur.
 
-Proje esas ` ArchiSteamFarm ` birleştirmesine veya sürümün bir parçası olarak indirdiğiniz önceden oluşturulmuş `ArchiSteamFarm.dl ` kitaplığına başvurmalıdır, ya da projenin kaynağına (örneğin. ASF dizin ağacını alt modül olarak eklemeye karar verdiyseniz). Bu, ASF yapılarına, metodlarına ve özelliklerine, özellikle bir sonraki adımda devralmanız gereken çekirdek `IPlugin` arayüzüne erişmenize ve keşfetmenize olanak tanır. Proje aynı zamanda minimum olarak `System.Composition.AttributedModel`i referans almalıdır; bu, ASF'in kullanılması için `[Export]` `IPlugin`' i sağlar. In addition to that, you may want/need to reference other common libraries in order to interpret the data structures that are given to you in some interfaces, but unless you need them explicitly, that will be enough for now.
+Proje esas `ArchiSteamFarm` birleştirmesine veya sürümün bir parçası olarak indirdiğiniz önceden oluşturulmuş `ArchiSteamFarm.dl ` kitaplığına başvurmalıdır, ya da projenin kaynağına (örneğin. ASF dizin ağacını alt modül olarak eklemeye karar verdiyseniz). Bu, ASF yapılarına, metodlarına ve özelliklerine, özellikle bir sonraki adımda devralmanız gereken çekirdek `IPlugin` arayüzüne erişmenize ve keşfetmenize olanak tanır. Proje aynı zamanda minimum olarak `System.Composition.AttributedModel`i referans almalıdır; bu, ASF'in kullanılması için `[Export]` `IPlugin`' i sağlar. Ek olarak, bazı arayüzlerde size verilen veri yapılarını yorumlamak için diğer ortak kütüphanelere başvurmak isteyebilir/ihtiyaç duyabilirsiniz, ancak bunlara açıkça ihtiyaç duymadığınız sürece şimdilik yeterli olacaktır.
 
-If you did everything properly, your `csproj` will be similar to below:
+Eğer her şeyi doğru bir şekilde yaptıysanız, `csproj` dosyanız aşağıdakine benzer olacaktır:
 
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
@@ -45,13 +45,14 @@ If you did everything properly, your `csproj` will be similar to below:
   <ItemGroup>
     <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
 
-    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
+    <!-- 
+ASF kaynak ağacının bir parçası olarak oluşturuyorsanız, yukarıdakiler yerine bunu kullanın <Reference> yukarıdakiler -->
     <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
 ```
 
-From the code side, your plugin class must inherit from `IPlugin` interface (either explicitly, or implicitly by inheriting from more specialized interface, such as `IASF`) and `[Export(typeof(IPlugin))]` in order to be recognized by ASF during runtime. The most bare example that achieves that would be the following:
+Kod açısından, eklenti sınıfınız `IPlugin` arayüzünden (açık veya dolaylı olarak `IASF` gibi daha özel bir arabirimden devralarak) ve `[Export (typeof (IPlugin))]`, runtime sırasında ASF tarafından tanınmak için. Bunu başaran en açık örnek şudur:
 
 ```csharp
 using System;
@@ -59,11 +60,11 @@ using System.Composition;
 using ArchiSteamFarm;
 using ArchiSteamFarm.Plugins;
 
-namespace YourNamespace.YourPluginName {
+namespace CalismaAlaniIsmi.EklentiIsminiz {
     [Export(typeof(IPlugin))]
-    public sealed class YourPluginName : IPlugin {
-        public string Name => nameof(YourPluginName);
-        public Version Version => typeof(YourPluginName).Assembly.GetName().Version;
+    public sealed class EklentiIsminiz : IPlugin {
+        public string Name => nameof(EklentiIsminiz);
+        public Version Version => typeof(EklentiIsminiz).Assembly.GetName().Version;
 
         public void OnLoaded() {
             ASF.ArchiLogger.LogGenericInfo("Meow");
@@ -72,39 +73,38 @@ namespace YourNamespace.YourPluginName {
 }
 ```
 
-In order to make use of your plugin, you must firstly compile it. You can do that either from your IDE, or from within the root directory of your project via a command:
+Eklentinizi kullanmak için öncelikle onu derlemelisiniz. Bunu IDE'nizden veya projenizin kök dizininden bir komutla yapabilirsiniz:
 
 ```shell
-# If your project is standalone (no need to define its name since it's the only one)
+# Projeniz tek başına çalışan bileşen ise (tek proje olduğu için adını tanımlamanıza gerek yoktur.)
 dotnet publish -c "Release" -o "out"
-
-# If your project is part of ASF source tree (to avoid compiling unnecessary parts)
+# Projeniz ASF kaynak ağacının parçasıysa (gereksiz parçaları derlemekten kaçınmak için)
 dotnet publish YourPluginName -c "Release" -o "out"
 ```
 
-Afterwards, your plugin is ready for deployment. It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its **[dependencies](#plugin-dependencies)**. This way user will simply need to unpack your zip archive into his `plugins` directory and do nothing else.
+Daha sonra eklentiniz dağıtım için hazırdır. Eklentinizi tam olarak nasıl dağıtmak ve yayınlamak istediğiniz size kalmış, ancak `Calisma AlaniIsmi.EklentiIsminiz` adlı tek bir klasörle bir zip arşivi oluşturmanızı öneririz.**[Gereksinimler](#plugin-dependencies)**. Bu şekilde kullanıcının zip arşivinizi `plugins` dizinine açması yeterli olacaktır.
 
-This is only the most basic scenario to get you started. We have **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Feel free to take a look if you'd like to learn from a working code, or discover `ArchiSteamFarm.Plugins` namespace yourself and refer to the included documentation for all available options.
+Bu, başlamanıza yardımcı olacak en basit senaryodur. Yardımcı yorumlar da dahil olmak üzere kendi eklentiniz içinde yapabileceğiniz örnek arayüzleri ve eylemleri gösteren **[`OrnekEklenti`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** projemiz var. Çalışan bir koddan öğrenmek isterseniz göz atmaya çekinmeyin, veya `ArchiSteamFarm.Plugins` ad alanını kendiniz keşfedin ve mevcut tüm seçenekler için birlikte verilen belgelere bakın.
 
-If instead of example plugins you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. In addition to that, there are also plugins developed by other developers, in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
-
-* * *
-
-### API availability
-
-ASF, apart from what you have access to in the interfaces themselves, exposes to you a lot of its internal APIs that you can make use of, in order to extend the functionality. For example, if you'd like to send some kind of new request to Steam web, then you do not need to implement everything from scratch, especially dealing with all the issues we've had to deal with before you. Simply use our `Bot.ArchiWebHandler` which already exposes a lot of `UrlWithSession()` methods for you to use, handling all the lower-level stuff such as authentication, session refresh or web limiting for you. Likewise, for sending web requests outside of Steam platform, you could use standard .NET `HttpClient` class, but it's much better idea to use `Bot.ArchiWebHandler.WebBrowser` that is available for you, which once again offers you a helpful hand, for example in regards to retrying failed requests.
-
-We have a very open policy in terms of our API availability, so if you'd like to make use of something that ASF code already includes, simply **[open an issue](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** and explain in it your planned use case of our ASF's internal API. We most likely won't have anything against, as long as your use case makes sense. It's simply impossible for us to open everything that somebody would like to make use of, so we've opened what makes the most sense for us, and waiting for your requests in case you'd like to have access to something that isn't `public` yet. This also includes all suggestions in regards to new `IPlugin` interfaces that could make sense to be added in order to extend existing functionality.
-
-In fact, internal ASF's API is the only real limitation in terms of what your plugin can do. Nothing is stopping you from e.g. including `Discord.Net` library in your application and creating a bridge between your Discord bot and ASF commands, since your plugin can also have dependencies on its own. The possibilities are endless, and we made our best to give you as much freedom and flexibility as possible within your plugin, so there are no artificial limits on anything, just us not being completely sure which ASF parts are crucial for your plugin development (which you can solve by letting us know, and even without that you can always reimplement the functionality that you need).
+Örnek eklentiler yerine gerçek projelerden öğrenmek istiyorsanız, bizim tarafımızdan geliştirilen **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** eklentisi var, ASF ile birlikte paketlenmiş bir eklenti. Buna ek olarak, **[üçüncü-taraf](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** bölümümüzde diğer geliştiriciler tarafından geliştirilen eklentiler de var.
 
 * * *
 
-### API compatibility
+### API kullanılabilirliği
 
-It's important to emphasize that ASF is a consumer application and not a typical library with fixed API surface that you can depend on unconditionally. This means that you can't assume that your plugin once compiled will keep working with all future ASF releases regardless, it's just impossible if you want to keep developing the program further, and being unable to adapt to ever-ongoing Steam changes for the sake of backwards compatibility is just not appropriate for our case. This should be logical for you, but it's important to highlight that fact.
+ASF, arabirimlerde eriştiğiniz şeylerin yanı sıra, işlevselliği genişletmek için kullanabileceğiniz birçok dahili API'yi size sunar. Örneğin, Steam web'e bir tür yeni istek göndermek istiyorsanız, her şeyi en baştan uygulamanıza gerek yoktur, özellikle de sizden uğraşmak zorunda olduğumuz tüm sorunlarla. Sizin için kimlik doğrulama, oturum yenileme veya web sınırlama gibi daha düşük seviyeli şeyleri idare ederek, kullanmanız için halihazırda birçok `UrlWithSession()` yöntemini açığa çıkaran `Bot.ArchiWebHandler` kullanın. Benzer şekilde, Steam platformu dışında web istekleri göndermek için standart .NET `HttpClient` sınıfını kullanabilirsiniz, ancak sizin için mevcut olan `Bot.ArchiWebHandler.WebBrowser`'i kullanmak çok daha iyi bir fikirdir, bu da size bir kez daha yardımcı bir el sunar, örneğin gönderdiğiniz başarısız istekleri yeniden denemesi gibi.
 
-We'll do our best to keep public parts of ASF working and stable, but we'll not be afraid to break the compatibility if good enough reasons arise, following our **[deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)** policy in the process. This is especially important in regards to internal ASF structures that are exposed to you as part of ASF infrastructure, explained above (e.g. `ArchiWebHandler`) which could be improved (and therefore rewritten) as part of ASF enhancements in one of the future versions. We'll do our best to inform you appropriately in the changelogs, and include appropriate warnings during runtime about obsolete features. We do not intend to rewrite everything for the sake of rewriting it, so you can be fairly sure that the next minor ASF version won't just simply destroy your plugin entirely only because it has a higher version number, but keeping an eye on changelogs and occasional verification if everything works fine is a very good idea.
+API kullanılabilirliğimiz açısından çok açık bir politikamız var, bu nedenle ASF kodunun zaten içerdiği bir şeyden yararlanmak istiyorsanız, **[bir sorun açın](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** ve planlanan kullanım durumunuzu açıklayın. ASF'in dahili API'si dahilinde. Kullanım durumunuz mantıklı olduğu sürece, büyük olasılıkla buna karşı bir şeyimiz olmayacak. Birinin kullanmak istediği her şeyi açmamız imkansız, bu yüzden bizim için en mantıklı olanı açtık ve henüz `herkese açık olmayan` bir şeye erişmek istemeniz durumunda isteklerinizi bekliyoruz. Bu aynı zamanda, mevcut işlevselliği genişletmek için eklenmesi anlamlı olabilecek yeni `IPlugin` arabirimleriyle ilgili tüm önerileri de içerir.
+
+Aslında, dahili ASF'in API'si, eklentinizin yapabilecekleri açısından tek gerçek sınırlamadır. Örnek olarak sizi hiçbir şey uygulamanıza `Discord.Net` kitaplığı dahil etmek ve Discord botunuz ile ASF komutları arasında bir köprü oluşturmaktan alı koyamaz, çünkü eklentinizin kendi başına gereksinimleri olabilir. İmkanlar sonsuzdur, ve eklentiniz dahilinde size olabildiğince fazla özgürlük ve esneklik sağlamak için elimizden gelenin en iyisini yaptık. yani hiçbir şeyde yapay bir sınır yok, sadece eklenti geliştirmeniz için hangi ASF parçalarının çok önemli olduğundan tam olarak emin değiliz (bunu bize bildirerek çözebilirsiniz ve bu olmadan bile ihtiyacınız olan işlevselliği her zaman yeniden uygulayabilirsiniz).
+
+* * *
+
+### API uyumluluğu
+
+ASF'in bir tüketici uygulaması olduğunu ve koşulsuz olarak güvenebileceğiniz sabit API yüzeyine sahip tipik bir kitaplık olmadığını vurgulamak önemlidir. Bu, eklentinizin derlendikten sonra gelecekteki tüm ASF sürümleriyle çalışmaya devam edeceğini varsayamayacağınız anlamına gelir. Programı daha da geliştirmeye devam etmek istiyorsanız ve geriye dönük uyumluluk uğruna sürekli devam eden Steam değişikliklerine uyum sağlayamamak bizim durumumuz için uygun değildir. Bu sizin için mantıklı olmalı, ama bu gerçeği vurgulamak önemli.
+
+ASF'in herkese açık kısımlarını çalışır durumda ve istikrarlı tutmak için elimizden gelenin en iyisini yapacağız, ancak süreçte **[kullanımdan kaldırma](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)** politikamızı izleyerek yeterince iyi nedenler ortaya çıkarsa uyumluluğu bozmaktan korkmayacağız. Bu, ASF altyapısının bir parçası olarak size maruz kalan ve yukarıda açıklanan(örneğin `ArchiWebHandler`) ve ASF geliştirmelerinin bir parçası olarak iyileştirilebilen (ve dolayısıyla yeniden yazılan) dahili ASF yapıları açısından özellikle önemlidir gelecek sürümlerin bir parçası olarak. Değişiklik çıktılarında sizi uygun şekilde bilgilendirmek için elimizden gelenin en iyisini yapacağız ve eski özellikler hakkında çalışma süresi boyunca uygun uyarıları dahil edeceğiz. Yeniden yazma uğruna her şeyi yeniden yazma niyetinde değiliz, bu nedenle bir sonraki küçük ASF sürümünün yalnızca daha yüksek bir sürüm numarasına sahip olduğu için eklentinizi tamamen yok etmeyeceğinden emin olabilirsiniz, ancak değişiklik çıktılarına göz atıp her şeyin yolunda olup olmadığını kontrol etmek iyi bir fikirdir.
 
 * * *
 
@@ -122,7 +122,7 @@ If you're confused about above statement and you don't know better, check which 
 
 * * *
 
-### Native dependencies
+### Yerel gereksinimler
 
 Native dependencies are generated as part of OS-specific builds, as there is no .NET Core runtime available on the host and ASF is running through its own .NET Core runtime that is bundled as part of OS-specific build. In order to minimize the build size, ASF trims its native dependencies to include only the code that can be possibly reached within the program, which effectively cuts the unused parts of the runtime. This can create a potential problem for you in regards to your plugin, if suddenly you find out yourself in a situation where your plugin depends on some .NET Core feature that isn't being used in ASF, and therefore OS-specific builds can't execute it properly, usually throwing `System.MissingMethodException` or `System.Reflection.ReflectionTypeLoadException` in the process.
 

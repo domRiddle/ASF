@@ -23,7 +23,7 @@
 * **[Performans](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[İstatistikler](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
 * **[Steam Aile Paylaşımı](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[Ticaret](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+* **[Takas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## Gelişmiş
 
