@@ -20,9 +20,9 @@ ASF在全域配置中預設啟用`統計資訊`。 如果您想見證新版本�
 
 2. 如果您的帳戶**[未受限](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**，啓用**[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**，**[物品庫隱私為公開](https://steamcommunity.com/my/edit/settings)**且擁有大於100個符合`MatchableTypes`類型的物品，並在`TradingPreferences`中啓用了`SteamTradeMatcher`，那麽ASF將定期與我們的**[伺服器](https://asf.justarchi.net)**通信以實現此功能。 實際資料由唯一的 ASF ID（由ASF生成）和以下與帳戶相關的資訊組成：
 
-* 您的Steam身份驗證器（64位形式，用於生成連結）
-* 您的昵稱（用於顯示）
-* 您的頭像（哈希，用於顯示）
+* Your Steam identificator (in 64-bit form, for generating links, public info)
+* Your nickname (for display purposes, public info)
+* Your avatar (hash, for display purposes, public info)
 * 您的**[交易代碼](https://steamcommunity.com/my/tradeoffers/privacy)**（用於允許不在您好友名單中的用戶對您發起交易）
 * 您的 `匹配類型`（用於顯示和匹配）
 * 您在`TradingPreferences`中設置 的`MatchEverything`的值（用於顯示和匹配）

@@ -20,9 +20,9 @@ Considerăm că grupul Steam este un element crucial în ceea ce privește comun
 
 2. Dacă contul tău este **[nerestricționat](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, folosind **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**, are **[inventar public](https://steamcommunity.com/my/edit/settings)** cu cel puțin 100 `MatchableTypes` articole în el și ați activat intenționat `SteamTradeMatcher` în `TradingPreferences`, apoi ASF va comunica periodic cu **[serverul nostru](https://asf.justarchi.net)** pentru a ține funcționalitatea activată. Datele efective constau în ID ASF unic (generat de ASF) și următoarele informații legate de cont:
 
-* Identificatorul tău de Steam (în forma 64-biți, pentru generarea link-urilor)
-* Porecla ta (pentru scopuri de afișare)
-* Avatarul tău (hash, folosit pentru afișare)
+* Your Steam identificator (in 64-bit form, for generating links, public info)
+* Your nickname (for display purposes, public info)
+* Your avatar (hash, for display purposes, public info)
 * **[simbolul tău de tranzacționare](https://steamcommunity.com/my/tradeoffers/privacy)** (astfel încât oamenii din afara listei tale de prieteni îți pot trimite tranzacții)
 * Valoarea ta de `MatchableTypes` (pentru scopuri de afișare și potrivire)
 * Valoarea de `MatchEverything` în `TradingPreferences` (pentru scopuri de afișare și potrivire)

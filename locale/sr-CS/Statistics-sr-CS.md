@@ -20,9 +20,9 @@ Mi smatramo da je steam grupa važan dio ASF zajednice. Ovo je naš glavni nači
 
 2. Ako vaš nalog nije **[limitiran](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, imate **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**, **[javni inventar](https://steamcommunity.com/my/edit/settings)** sa minimum 100 `MatchableTypes` itema i ako ste omogućili `SteamTradeMatcher` u vašim `TradingPreferences`, onda će ASF periodično komunicirati sa našim **[serverom](https://asf.justarchi.net)** da bi ostvario tu funkcionalnost. Ti podaci sastoje se od unikatnog ASF ID-a (generisanog od strane ASF-a), i sledećih srodnih informacija:
 
-* Vašeg Steam identifikatora (u 64-bitnoj formi, za generisanje linkova)
-* Vašeg nadimka (za svrhe prikazivanja)
-* Vašeg avatara (heš, za svrhe prikazivanja)
+* Your Steam identificator (in 64-bit form, for generating links, public info)
+* Your nickname (for display purposes, public info)
+* Your avatar (hash, for display purposes, public info)
 * Vašeg **[tokena za razmjenu](https://steamcommunity.com/my/tradeoffers/privacy)** (da bi mogli da vršite razmjene sa ljudima koji nisu vaši prijatelji)
 * Vašeg `MatchableTypes` (za svrhe prikazivanja i pronalaženja)
 * Vrijednost `MatchEverything` iz vaših `TradingPreferences` (za svrhe prikazivanja i pronalaženja)

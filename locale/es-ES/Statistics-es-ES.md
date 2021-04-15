@@ -20,9 +20,9 @@ Consideramos el grupo de Steam como una parte crucial en relación a la comunida
 
 2. Si tu cuenta es **[ilimitada](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663&l=spanish)**, usa **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-es#asf-2fa)**, tiene **[inventario público](https://steamcommunity.com/my/edit/settings)** con al menos 100 artículos `MatchableTypes` e intencionalmente habilitaste `SteamTradeMatcher` en tus `TradingPreferences`, entonces ASF se comunicará periódicamente con nuestro **[servidor](https://asf.justarchi.net)** para llevar a cabo la funcionalidad habilitada. Los datos reales consisten en ASF ID único (generado por ASF), y la siguiente información relacionada con la cuenta:
 
-* Tu identificador de Steam (en forma de 64 bits, para generar enlaces)
-* Tu nombre de usuario (para efectos de visualización)
-* Tu avatar (para efectos de visualización)
+* Tu identificador de Steam (en forma de 64 bits, para generar enlaces, información pública)
+* Tu nombre de perfil (para fines de visualización, información pública)
+* Tu avatar (hash, para fines de visualización, información pública)
 * Tu **[token de intercambio](https://steamcommunity.com/my/tradeoffers/privacy)** (para que las personas fuera de tu lista de amigos puedan enviarte intercambios)
 * Tus `MatchableTypes` (para efectos de visualización y emparejamiento)
 * El valor de `MatchEverything` en tus `TradingPreferences` (para efectos de visualización y emparejamiento)

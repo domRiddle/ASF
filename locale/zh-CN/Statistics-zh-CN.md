@@ -20,9 +20,9 @@ ASF 默认启用了 `Statistics` 全局配置属性。 如果您希望看到发�
 
 2. 如果您的帐户&#8203;**[没有受限](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**、使用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN#asf-两步验证)**、**[公开库存](https://steamcommunity.com/my/edit/settings)**&#8203;内有至少 100 件 `MatchableTypes` 物品并且您有意在 `TradingPreferences` 中启用了 `SteamTradeMatcher` 选项，那么 ASF 将会定期与我们的&#8203;**[服务器](https://asf.justarchi.net)**&#8203;通信以实现被启用的功能。 实际数据由唯一的 ASF ID（由 ASF 生成）和以下与帐户相关的信息组成：
 
-* 您的 Steam ID（64 位形式，用于生成链接）
-* 您的昵称（用于显示目的）
-* 您的头像（经过哈希，用于显示目的）
+* 您的 Steam ID（64 位形式，用于生成链接，属于公开信息）
+* 您的昵称（用于显示目的，属于公开信息）
+* 您的头像（经过哈希，用于显示目的，属于公开信息）
 * 您的&#8203;**[交易令牌](https://steamcommunity.com/my/tradeoffers/privacy)**（使不是您好友的人可以向您发送交易报价）
 * 您的 `MatchableTypes`（用于显示和匹配目的）
 * 您在 `TradingPreferences` 中为 `MatchEverything` 设置的值（用于显示和匹配目的）
