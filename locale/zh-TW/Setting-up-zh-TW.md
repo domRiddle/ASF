@@ -200,7 +200,7 @@ ASF 是一個沒有圖形使用者介面的主控台應用程式。 然而，我
 
 例如我的帳戶的 Steam 64位 ID 就是這串數字 `76561198006963719`。 您的 ID 也與其相似並同樣以 `7656` 開始。 複製它。
 
-現在重新回到網頁設定檔產生器，然後把剛剛複製的數字貼上 SteamOwnerID。 Lastly, you need to enable `IPC` option nearby for the interface to activate.
+現在重新回到網頁設定檔產生器，然後把剛剛複製的數字貼上 SteamOwnerID。 Lastly, you need to enable `IPC` option for the interface to activate.
 
 ![IPC](https://i.imgur.com/BMyasHt.png)
 

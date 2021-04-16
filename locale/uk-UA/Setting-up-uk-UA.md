@@ -200,7 +200,7 @@ ASF це консольна програма, і не включає в себе
 
 Для мого облікового запису це число `76561198006963719`. У вас буде щось схоже, яке також починається з `7656`. Скопіюйте його.
 
-Тепер знову перейдіть до нашого веб генератора конфігурацій та введіть це число у параметр `SteamOwnerID`. Lastly, you need to enable `IPC` option nearby for the interface to activate.
+Тепер знову перейдіть до нашого веб генератора конфігурацій та введіть це число у параметр `SteamOwnerID`. Lastly, you need to enable `IPC` option for the interface to activate.
 
 ![IPC](https://i.imgur.com/BMyasHt.png)
 

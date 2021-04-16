@@ -67,7 +67,7 @@ Es gibt 4 Typen von Problemen, die wir unterstützen:
 * generelle Frage - Für alles, was keinen der anderen Typen betrifft. Dieser Typ **sollte vermieden** werden, weil es dann höchstwahrscheinlich **kein** Übersetzungsproblem ist. Trotzdem ist diese Möglichkeit für alle anderen Fälle offen.
 * Die aktuelle Übersetzung ist falsch - Dies sollte **nur** verwendet werden, wenn die Übersetzung von einem Korrekturleser genehmigt wurde und du glaubst, dass sie falsch ist, weil sie etwa einen Tippfehler beinhaltet oder du einen guten Vorschlag hast sie zu verbessern. Dieser Typ sollte nie bei Übersetzungen verwendet werden, die durch Community-Stimmen gewählt wurden, in welchem Fall du den Benutzer der die Übersetzung geschrieben hat kontaktieren und ihn um eine Korrektur bitten oder einfach für eine bessere Übersetzung stimmen solltest. Wir entfernen die Freigabe der Übersetzung und benachrichtigen den für die Sprache zuständigen Korrekturleser, um Ihren Kommentar zu berücksichtigen und erneut zu überprüfen.
 * Fehlender Kontext - Dies ist, was du verwenden solltest, wenn du nicht sicher bist, welchen Teil von ASF du übersetzt und was der Kontext der gegebenen Zeichenkette oder sein Sinn ist. Dieser Typ sollte nur für die Entwicklung von ASF verwendet werden, da er bedeutet, dass du technische Hilfe benötigst, weil du nicht sicher bist, wie die Zeichenkette zu übersetzen ist.
-* Fehler in der Quell-Zeichenkette - Dies sollte nur verwendet werden, wenn du denkst, dass das Original (Englisch) falsch ist. Sehr selten, aber Englisch ist nicht meine Muttersprache von daher zögere nicht diesen zu verwenden, wenn du eine generelle Idee hast, wie man es verbessern könnte. Alternatively, since this is strictly related to the development, you may use our **[GitHub issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** for that purpose, if you'd like to.
+* Fehler in der Quell-Zeichenkette - Dies sollte nur verwendet werden, wenn du denkst, dass das Original (Englisch) falsch ist. Sehr selten, aber Englisch ist nicht meine Muttersprache von daher zögere nicht diesen zu verwenden, wenn du eine generelle Idee hast, wie man es verbessern könnte. Da dies eng mit der Entwicklung verbunden ist, können Sie alternativ unsere **[GitHub Issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** für diesen Zweck verwenden, wenn Sie es wünschen.
 
 * * *
 
@@ -146,7 +146,7 @@ Auf Crowdin solltest du zuerst zu deinen Editor-Einstellungen gehen und sicherst
 Nun, während der Übersetzung auf Crowdin, je nach Formatierung, siehst du ASF-Links im Text entweder als:
 
 * Zeichenkette, die zusammen mit HTML-Tags übersetzt werden soll (Überwiegend von Zeichenketten, bei denen nur ein Teil des Satzes ein Link ist)
-* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar - those require proofreader access to translate, sadly)
+* Einzelne zu übersetzende Zeichenkette, mit Link in `Hidden texts` -> `Link addresses` (selten, wo die gesamte Zeichenkette ein Link ist, am häufigsten in der Seitenleiste. Leider aben nur Korrekturlesen die Möglichkeit diese zu übersetzen)
 
 In unserem obigen Beispiel ist dies der erste Fall (da nur "Installation" ein Link ist), sodass wir es in Crowdin folgendermaßen sehen werden:
 

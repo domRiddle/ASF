@@ -28,7 +28,7 @@ Glavne tačke su izložene ponovo ovdje, zato što ljudi uglavnom ne slaži sa n
 
 - **Morate posjedovati igricu na vašem Steam nalogu da bi mogli da dobijate kartice od istih. Porodično podijeljene igrice se ne računaju.**
 - **Ne možete farmati neograničen broj kartica, svaka igrica ima određen broj kartica koje možete dobiti. Kada ih dobijete sve (uglavnom pola od punog kompleta), igrica nije više kandidat za idlovanje. Nema veze da li ste ih prodali, razmijenili, napravili bedž ili zaboravili šta se sa njima desilo, kada dobijete sve kartice nećete dobiti ni jednu više.**
-- **Ne možete dobiti kartice iz F2P (besplatnih) igrica ako niste potrošili određenu količinu novca u njima. Ovo se odnosi na besplatne igrice kao što su Team Fortress 2 ili Dota 2. Samo posjedovanje F2P igrica ne daje vam mogućnost da dobijete kartice.**
+- **Ne možete dobiti kartice iz F2P (besplatnih) igrica ako niste potrošili određenu količinu novca u njima. This means permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you card drops.**
 - **Ne možete dobiti kartice na [limitiranim nalozima](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), bez obzira što ih posjedujete. To je prije bilo moguće, ali nije više.**
 - **Plaćene igrice koje ste uzeli besplatno tokom promocija ne mogu dati kartice, bez obzira na to što je kazano na store stranici. To je prije bilo moguće, ali nije više.**
 

@@ -28,7 +28,7 @@ Core points are stated once again here, because people in general don't want to 
 
 - **You need to own the game on your Steam account in order to be eligible for any card drops from it. 親友同享的遊戲不包含在內。**
 - **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
-- **如果您沒有在遊戲內購買，免費遊戲將不會掉落卡片。 這跟永久免費遊玩的遊戲有關，像是《絕地要塞2》或 Dota 2。 擁有免費遊戲不會讓您掉落卡片。**
+- **如果您沒有在遊戲內購買，免費遊戲將不會掉落卡片。 This means permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you card drops.**
 - **無論是否擁有遊戲，[受限制的使用者帳戶](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=traditional%20chinese)都無法掉落卡片。 （曾經可以，但現在已經無法掉落了。）**
 - **Paid games that you've obtained for free during a promotion can't be idled for card drops, regardless of what is displayed on the store page. （曾經可以，但現在已經無法掉落了。）**
 

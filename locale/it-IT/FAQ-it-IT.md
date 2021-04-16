@@ -28,7 +28,7 @@ I punti fondamentali sono ribaditi qui, perché le persone in generale non vogli
 
 - **Devi possedere il gioco sul tuo profilo di Steam per essere idoneo a ricevere ogni carta da esso. La condivisione familiare non conta.**
 - **Non puoi farmare infinitamente il gioco, ogni gioco ha un numero fisso di carte ottenibili. Una volta raccolti tutti (circa metà del mazzo completo), il gioco non è più candidato al farming. Non importa che tu abbia venduto, scambiato, creato o dimenticato cosa sia successo a quelle carte che hai ottenuto, una volta finite le carte ottenibili, il gioco è finito.**
-- **Non puoi ottenere carte dai giochi F2P senza spendere denaro in essi. Questo include permanentemente giochi F2P come Team Fortress 2 o Dota 2. Possedere giochi F2P non ti garantisce carte.**
+- **Non puoi ottenere carte dai giochi F2P senza spendere denaro in essi. This means permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you card drops.**
 - **Non puoi ottenere carte su [profili limitati](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), indipendentemente dai giochi posseduti. Era possibile in passato, ma non è più il caso.**
 - **I giochi a pagamento che hai ottenuto gratis durante una promozione non sono idonei per farmare le carte, indipendentemente da cosa sia mostrato sulla pagina del negozio. Era possibile in passato, ma non è più il caso.**
 

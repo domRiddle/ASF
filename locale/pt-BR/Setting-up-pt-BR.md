@@ -200,7 +200,7 @@ Em `SteamOwnerID` você precisa colocar o ID Steam de 64-bits exclusivo da sua c
 
 Na minha conta, ele é o número `76561198006963719`. Você vai ter um código parecido, também começando com `7656`. Copie-o.
 
-Agora navegue mais uma vez até nosso gerador de configuração web e coloque esse número em SteamOwnerID. Lastly, you need to enable `IPC` option nearby for the interface to activate.
+Agora navegue mais uma vez até nosso gerador de configuração web e coloque esse número em SteamOwnerID. Lastly, you need to enable `IPC` option for the interface to activate.
 
 ![IPC](https://i.imgur.com/BMyasHt.png)
 

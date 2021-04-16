@@ -200,31 +200,31 @@ Für `SteamOwnerID` musst du einen eindeutigen Steam-Identifikator in 64-Bit-For
 
 Für mein Konto ist dies die Nummer `76561198006963719`. Du wirst eine ähnliche haben, auch beginnend mit `7656`. Kopiere sie.
 
-Navigiere nun noch einmal zu unserem Web-Konfigurationsgenerator und trage diese Nummer als SteamOwnerID ein. Lastly, you need to enable `IPC` option nearby for the interface to activate.
+Navigieren Sie nun noch einmal zu unserem Web-Konfigurationsgenerator und tragen Sie diese Nummer als SteamOwnerID ein. Abschließend müssen Sie die `IPC` Option aktivieren, um die Schnittstelle ansprechen zu können.
 
 ![IPC](https://i.imgur.com/BMyasHt.png)
 
-Jetzt kannst du deine ASF-Konfiguration herunterladen und wie gewohnt in dein `config` Verzeichnis legen. Starte danach ASF erneut, und du solltest bestätigen können, dass es die IPC-Schnittstelle ordnungsgemäß gestartet hat:
+Jetzt können Sie Ihre ASF-Konfiguration herunterladen und wie gewohnt im `config`-Verzeichnis speichern. Starten Sie danach ASF erneut, und Sie sollten bestätigen können, dass die IPC-Schnittstelle ordnungsgemäß gestartet wurde:
 
 ![IPC 2](https://i.imgur.com/ZmkO8pk.png)
 
-Wenn du alles richtig gemacht hast, kannst du nun unter **[diesem](http://localhost:1242)** Link auf die IPC-Schnittstelle von ASF zugreifen, solange ASF läuft. Du kannst ASF-ui für verschiedene Zwecke verwenden, z.B. um **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** zu senden. Wirf einfach einen Blick darauf, um alle Funktionalitäten von ASF-ui kennenzulernen.
+Wenn Sie alles richtig eingerichtet haben, können Sie nun unter **[diesem](http://localhost:1242)** Link auf die IPC-Schnittstelle von ASF zugreifen, solange ASF läuft. Sie können ASF-ui für verschiedene Zwecke verwenden, z.B. um **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** zu senden. Schauen Sie es sich einfach an, um alle Funktionalitäten von ASF-ui kennenzulernen.
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-Bitte bedenke, dass sich ASF-ui derzeit im Preview-Zustand befindet und noch nicht alles verfügbar/funktionsfähig ist, aber es ist mehr als genug für eine simple ASF-Nutzung.
+Bitte beachten Sie, dass sich ASF-ui derzeit im Preview-Zustand befindet und noch nicht alles verfügbar/funktionsfähig ist, aber es ist mehr als genug für eine simple ASF-Nutzung.
 
 * * *
 
 ### Zusammenfassung
 
-Du hast ASF bereits erfolgreich so eingestellt, dass es deine Steam-Konten nutzt, und du hast es bereits ein wenig nach deinen Wünschen angepasst. Wenn du unseren gesamten Leitfaden befolgt hast, dann hast du es sogar geschafft, einen einfachen Befehl über unsere ASF-ui-Schnittstelle zu senden. Jetzt ist ein guter Zeitpunkt, unseren gesamten Abschnitt **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** zu lesen, um zu erfahren, was all die verschiedenen Einstellungen, die du auf der Registerkarte Erweitert gesehen hast, tatsächlich bewirken und was ASF bieten kann. Wenn du über ein Problem gestolpert bist oder eine allgemeine Frage hast, lies stattdessen das **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-de-DE)**, was alle oder zumindest die meisten Fragen abdecken sollte, die du haben könntest. Wenn du alles über ASF erfahren möchtest und wie es dein Leben einfacher machen kann, dann schaue dir den Rest von **[unserem Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE)** an. Viel Spaß!
+Sie haben ASF bereits erfolgreich so eingestellt, dass es Ihre Steam-Konten nutzt, und es bereits ein wenig nach Ihren Wünschen angepasst. Sofern Sie unseren gesamten Leitfaden befolgt haben, dann haben Sie es sogar geschafft, einen einfachen Befehl über unsere ASF-ui-Schnittstelle zu senden. Jetzt ist ein guter Zeitpunkt, unseren gesamten Abschnitt **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)** zu lesen, um zu erfahren, was all die verschiedenen Einstellungen, die Sie auf der Registerkarte Erweitert sahen, tatsächlich bewirken kann und was ASF bietet. Falls Sie über ein Problem stolpern oder eine allgemeine Frage haben, lesen Sie stattdessen das **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-de-DE)**, wo zumindest die meisten Fragen erklärt werden, die Sie haben könnten. Wenn Sie alles über ASF erfahren möchten und wie es Ihr Leben einfacher machen kann, dann lesen Sie sich den Rest von **[unserem Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE)** durch. Viel Spaß!
 
 * * *
 
 ## Generisches Setup
 
-Dieses Setup ist für fortgeschrittene Benutzer, die ASF so einrichten möchten, dass es in der Variante **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** läuft. Es wird nicht für Personen empfohlen, die das **[betriebssystemspezifische Setup](#os-specific-setup)** verwenden können.
+Dieses Setup ist für fortgeschrittene Benutzer, die ASF so einrichten möchten, dass es in der Variante **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#generisch)** funktioniert. Es wird nicht für Personen empfohlen, die das **[betriebssystemspezifische Setup](#betriebssystemspezifisches-setup)** verwenden können.
 
 Sie wollen die generische Variante hauptsächlich in drei Situationen verwenden (kann aber natürlich trotzdem anderweitig verwendet werden):
 
@@ -233,9 +233,9 @@ Sie wollen die generische Variante hauptsächlich in drei Situationen verwenden 
 - Wenn du die ASF-Strukturgröße minimieren willst, indem du die Laufzeitanforderungen selbst handhabst
 - Wenn Sie ein benutzerdefiniertes **[Plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-de-DE)** verwenden möchten, das eine generische Installation von ASF benötigt (aufgrund fehlender nativer Abhängigkeiten)
 
-Bedenke jedoch, dass du in diesem Fall für die .NET Core Runtime verantwortlich bist. Das bedeutet, dass, wenn deine .NET Core SDK (Runtime) nicht verfügbar, veraltet oder defekt ist, ASF nicht funktioniert. Aus diesem Grund empfehlen wir dieses Setup nicht für Gelegenheitsnutzer, da du nun sicherstellen musst, dass dein .NET Core SDK (Runtime) den ASF-Anforderungen entspricht und ASF ausführen kann, anstatt dass **wir** sicherstellen, dass unsere mit ASF gebündelte .NET Core Runtime dies tun kann.
+Bedenken Sie jedoch, dass Sie in diesem Fall für die .NET Core Runtime verantwortlich sind. Das bedeutet, dass, wenn Sie Ihre .NET Core SDK (Runtime) nicht verfügbar, veraltet oder defekt ist, ASF nicht funktioniert. Aus diesem Grund empfehlen wir dieses Setup nicht für Gelegenheitsnutzer, da Sie nun sicherstellen müssen, dass Ihr .NET Core SDK (Runtime) den ASF-Anforderungen entspricht und ASF ausführen kann, anstatt dass **wir** sicherstellen, dass unsere mit ASF gebündelte .NET Core Runtime dies ermöglicht.
 
-Für das generische Pakete kannst du dem gesamten betriebssystemspezifischen Leitfaden oben folgen, mit zwei kleinen Abweichungen. Zusätzlich zur Installation der .NET Core Prerequisites möchtest du auch das .NET Core SDK installieren, und anstatt eine betriebssystemspezifische `ArchiSteamFarm(.exe)` ausführbare Datei zu haben, hast du nun eine generische `ArchiSteamFarm.dll` Binärdatei. Alles andere ist genau gleich.
+Für das generische Paket können Sie dem gesamten betriebssystemspezifischen Leitfaden oben folgen, mit zwei kleinen Abweichungen. Zusätzlich zur Installation der .NET Core Prerequisites möchten Sie auch das .NET Core SDK installieren, und anstatt eine betriebssystemspezifische `ArchiSteamFarm(.exe)` ausführbare Datei zu haben, nutzen Sie nun eine generische `ArchiSteamFarm.dll` Binärdatei. Alles andere ist identisch.
 
 Mit zusätzlichen Schritten:
 
@@ -246,4 +246,4 @@ Mit zusätzlichen Schritten:
 - **[Konfiguriere ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**.
 - Starte ASF entweder mit einem Hilfs-Skript oder führe `dotnet /pfad/zu/ArchiSteamFarm.dll` aus deiner Lieblings-Shell heraus manuell aus.
 
-Hilfs-Skripte (z.B. `ArchiSteamFarm.cmd` für Windows und `ArchiSteamFarm.sh` für Linux/OS X) befinden sich neben der `ArchiSteamFarm.dll` Binärdatei - diese sind nur in der generischen Variante enthalten. Du kannst sie verwenden, wenn du den Befehl `dotnet` nicht manuell ausführen willst. Offensichtlich funktionieren Hilfs-Skripte nicht, wenn du .NET Core SDK nicht installiert hast und du keine `dotnet` ausführbare Datei in deinem `PATH` hast. Hilfs-Skripte sind völlig optional zu verwenden, du kannst jederzeit `dotnet /pfad/zu/ArchiSteamFarm.dll` manuell eingeben.
+Hilfs-Skripte (z.B. `ArchiSteamFarm.cmd` für Windows und `ArchiSteamFarm.sh` für Linux/OS X) befinden sich neben der `ArchiSteamFarm.dll` Binärdatei - diese sind nur in der generischen Variante enthalten. Sie können diese verwenden, wenn Sie den Befehl `dotnet` nicht manuell ausführen möchten. Offensichtlich funktionieren Hilfs-Skripte nicht, wenn Sie .NET Core SDK nicht installieren und Sie keine `dotnet` ausführbare Datei in Ihrem `PATH` haben. Hilfs-Skripte sind völlig optional verwendbar, Sie können jederzeit `dotnet /pfad/zu/ArchiSteamFarm.dll` manuell eingeben.

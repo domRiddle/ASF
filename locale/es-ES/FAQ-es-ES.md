@@ -28,7 +28,7 @@ Los puntos principales se repiten aquí, porque la gente en general no quiere ac
 
 - **Necesitas poseer el juego en tu cuenta de Steam para poder obtener cromos de él. El préstamo familiar no cuenta.**
 - **No puedes recolectar el juego infinitamente, cada juego tiene un número fijo de cromos a obtener. Una vez que obtienes todos (alrededor de la mitad del set completo), el juego ya no es candidato para recolección. No importa si has vendido, intercambiado, fabricado u olvidado lo que ocurrió con las cromos que obtuviste, una vez que te quedas sin cromos obtenibles, el juego está terminado.**
-- **No puedes obtener cromos de juegos F2P sin gastar dinero en ellos. Esto incluye juegos permanentemente F2P como Team Fortress 2 o Dota 2. Poseer juegos F2P no te concede cromos obtenibles.**
+- **No puedes obtener cromos de juegos F2P sin gastar dinero en ellos. Esto significa juegos permanentemente F2P como Team Fortress 2 o Dota 2. Poseer juegos F2P no te otorga cromos obtenibles.**
 - **No puedes obtener cromos en [cuentas limitadas](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), independientemente de los juegos que tengan. Antes era posible, para ya no es el caso.**
 - **Los juegos de paga que obtengas gratis durante una promoción no pueden ser recolectados para obtener cromos, independientemente de lo que se muestre en la página de la tienda. Antes era posible, para ya no es el caso.**
 

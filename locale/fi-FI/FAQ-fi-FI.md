@@ -28,7 +28,7 @@ Tässä toistetaan jälleen kerran muutama asia, joihin ihmiset eivät usko tai 
 
 - **Jos haluat saada pelin kortteja, sinun tulee omistaa se Steam-tililläsi. Steamin Lainaamoa ei lasketa.**
 - **Ei voi farmata peliä loputtomasti, jokaisella pelillä on vain tietty määrä korttien pudotuksia. Kun kaikki kortit on pudotettu (yleensä puolet koko setistä), peli ei enää sovi idlaamiseen. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
-- **Ilmaispelit eivät pudota kortteja, ellet ensin käytä niihin rahaa. Tämä pätee pysyvästi ilmaisiin peleihin, kuten Team Fortress 2 tai Dota 2. Ilmaispelien omistaminen ei anna sinulle korttien pudotuksia.**
+- **Ilmaispelit eivät pudota kortteja, ellet ensin käytä niihin rahaa. This means permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you card drops.**
 - **[Rajoitetuilla tileillä](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663) ei voi saada korttien pudotuksia, omistetuista peleistä riippumatta. Se oli aiemmin mahdollista, mutta näin ei enää ole.**
 - **Maksullisia pelejä, jotka olet hankkinut ilmaiseksi kampanjan aikana, ei voi käyttää korttien pudotusten idlaamiseen, riippumatta siitä, mitä kauppasivulla sanotaan. Se oli aiemmin mahdollista, mutta näin ei enää ole.**
 

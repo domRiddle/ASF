@@ -28,7 +28,7 @@ Hier werden noch einmal die Kernpunkte genannt, weil Leute im Allgemeinen nicht 
 
 - **Sie müssen das Spiel auf dem Steam-Account besitzen, um für die dazu gehörigen Kartenfunde berechtigt zu sein. Spiele die über die Steam-Familienbibliothek geteilt werden zählen nicht.**
 - **Sie können nicht unendlich lange sammeln; jedes Spiel hat eine feste Anzahl an Kartenfunde. Sobald Sie alle Karten gesammelt haben (ungefähr die Hälfte eines vollständigen Satzes), ist das Spiel kein Idling-Kandidat mehr. Es ist unwichtig, ob Sie die Karten verkauft, gehandelt, Abzeichen hergestellt oder lediglich vergessen haben, was damit geschehen ist; sobald die maximale Anzahl erreicht wurde, wird für dieses Spiel nicht weiter gesammelt.**
-- **Sie können keine Karten von F2P-Spielen erhalten, ohne dabei Geld auszugeben. Dies beinhaltet dauerhafte F2P Spiele so wie Team Fortress 2 oder Dota 2. Der Besitz von F2P-Spielen allein garantiert keinen Kartenfund.**
+- **Sie können keine Karten von F2P-Spielen erhalten, ohne dabei Geld auszugeben. This means permanently F2P games like Team Fortress 2 or Dota 2. Der Besitz von F2P-Spielen allein garantiert Ihnen keinen Kartenfund.**
 - **Sie erhalten keine Karten auf [beschränkten Accounts](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=german), ungeachtet der registrierten Spiele. Es war in der Vergangenheit möglich, aber dies ist nicht mehr der Fall.**
 - **Bezahlte Spiele, die Sie während einer Promotion kostenlos erhalten haben, können nicht für Kartendrops eingetauscht werden, unabhängig davon, was auf der Shop-Seite angezeigt wird. Es war in der Vergangenheit möglich, aber dies ist nicht mehr der Fall.**
 

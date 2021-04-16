@@ -202,7 +202,7 @@ For `SteamOwnerID`, you need to input unique Steam identificator in 64-bit form 
 
 For my account, this is `76561198006963719` number. You'll have a similar one, also starting from `7656`. Copy it.
 
-Ora naviga ancora una volta al nostro generatore della configurazione web e inserisci quel numero come SteamOwnerID. Infine, devi abilitare l'opzione `IPC` vicino all'interfaccia da attivare.
+Ora naviga ancora una volta al nostro generatore della configurazione web e inserisci quel numero come SteamOwnerID. Lastly, you need to enable `IPC` option for the interface to activate.
 
 ![IPC](https://i.imgur.com/BMyasHt.png)
 

@@ -1,4 +1,4 @@
-# Mise en place: 
+# Mise en place
 
 Si vous arrivez ici pour la première fois, bienvenue! Nous sommes très heureux de voir encore un autre voyageur intéressé par notre projet, bien que vous ayez à l'esprit qu'une grande responsabilité implique une grande responsabilité - ASF est capable de faire beaucoup de choses différentes liées à Steam, mais seulement tant que vous ** prenez le temps pour apprendre à l'utiliser** Il s’agit là d’une courbe d’apprentissage, et nous attendons de vous que vous lisiez le wiki à cet égard, qui explique en détail le fonctionnement de tout.
 
@@ -24,7 +24,7 @@ Ca a l'air plutôt simple, pas vrai ? Alors c'est parti.
 
 ### Prérequis du .NET Core
 
-La première étape consiste à vérifier que votre OS peut lancer ASF correctement. ASF is written in C#, based on .NET Core and may require native libraries that are not available on your platform yet. Suivant votre OS (Windows, Linux, ou OS X), vous aurez des prérequis différents, qui sont tous listés dans **[les prérequis du .NET Core](https://docs.microsoft.com/dotnet/core/install)** que vous devriez suivre. C'est le guide de référence qui devrait être utilisé, mais pour plus de simplicité (et pour vous éviter de devoir lire le doc entier), nous avons détaillé tous les packages requis ci-dessous.
+La première étape consiste à vérifier que votre OS peut lancer ASF correctement. ASF est écrit en C#, basé sur .NET Core et peut nécessiter des bibliothèques natives qui ne sont pas encore disponibles sur votre plateforme. Suivant votre OS (Windows, Linux, ou OS X), vous aurez des prérequis différents, qui sont tous listés dans **[les prérequis du .NET Core](https://docs.microsoft.com/dotnet/core/install)** que vous devriez suivre. C'est le guide de référence qui devrait être utilisé, mais pour plus de simplicité (et pour vous éviter de devoir lire le doc entier), nous avons détaillé tous les packages requis ci-dessous.
 
 Il est parfaitement normal que quelques (ou mêmes tous) les prérequis soient déjà installés sur votre système, notamment par des programmes tiers qui les nécessitent. Mais vous devriez quand même vous assurer que ça soit le cas en lançant les installeurs appropriés pour votre OS - sans ces dépendances, ASF ne se lancera même pas.
 
@@ -200,7 +200,7 @@ For `SteamOwnerID`, you need to input unique Steam identificator in 64-bit form 
 
 For my account, this is `76561198006963719` number. You'll have a similar one, also starting from `7656`. Copy it.
 
-Now navigate once again to our web config generator and input that number as SteamOwnerID. Lastly, you need to enable `IPC` option nearby for the interface to activate.
+Now navigate once again to our web config generator and input that number as SteamOwnerID. Lastly, you need to enable `IPC` option for the interface to activate.
 
 ![IPC](https://i.imgur.com/BMyasHt.png)
 

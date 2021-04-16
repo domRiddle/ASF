@@ -17,12 +17,12 @@
 
 ## Fonctions Principales
 
-* **[Activateur de Jeux de Fond](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[Activateur de jeux en arrière-plan](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[Commandes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[Compatibilité](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[Statistiques](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
-* **[Partage Familial Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[Partage familial Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Échange](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 ## Configuration avancée

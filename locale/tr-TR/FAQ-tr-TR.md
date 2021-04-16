@@ -28,7 +28,7 @@ Core points are stated once again here, because people in general don't want to 
 
 - **You need to own the game on your Steam account in order to be eligible for any card drops from it. Aile paylaşımı kart hakkı vermez.**
 - **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for idling anymore. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
-- **You can't drop cards from F2P games without spending any money in them. Team Fortress 2 veya Dota 2 gibi sürekli oynaması ücretsiz oyunlar da buna dahildir. Owning F2P games does not grant you with card drops.**
+- **You can't drop cards from F2P games without spending any money in them. This means permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you card drops.**
 - **You can't drop cards on [limited accounts](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), regardless of owned games. Geçmişte mümkündü, ancak artık mümkün değil.**
 - **Paid games that you've obtained for free during a promotion can't be idled for card drops, regardless of what is displayed on the store page. Geçmişte mümkündü, ancak artık mümkün değil.**
 
