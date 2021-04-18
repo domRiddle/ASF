@@ -28,7 +28,7 @@ Os pontos principais são apresentados aqui novamente, porque geralmente as pess
 
 - **Você precisa ter o jogo na sua biblioteca Steam para ser elegível a ganhar cartas dele. Compartilhamento de biblioteca não conta.**
 - **Você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Uma vez que você consiga todas elas (cerca de metade do jogo de cartas completo), o jogo não dará mais cartas. Não importa se você vendeu, trocou, criou insígnias ou esqueceu o que aconteceu com as cartas que você obteve, assim que acabarem as cartas disponíveis para determinado jogo. ele estará concluído.**
-- **Não é possível coletar cartas de jogos F2P (gratuitos para jogar) sem gastar nenhum dinheiro neles. This means permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you card drops.**
+- **Não é possível coletar cartas de jogos F2P (gratuitos para jogar) sem gastar nenhum dinheiro neles. Isso significa jogos permanentemente gratuitos como Team Fortress 2 ou Dota 2. Possuir jogos F2P não te garante cartas.**
 - **Você não pode receber cartas em [contas limitadas](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=portuguese), independentemente dos jogos que possua. Isso foi possível no passado, mas não é mais o caso.**
 - **Jogos pagos que você obteve de graça durante alguma promoção não podem ser coletados, independente do que esteja escrito na página da loja. Isso foi possível no passado, mas não é mais o caso.**
 
@@ -611,11 +611,11 @@ Se você **espera** que isso aconteça é porque você **pretende** executar o A
 
 Esse erro acontece quando o ASF não consegue estabelecer conexão segura com o servidor especificado, quase sempre por problemas com certificados SSL.
 
-Em quase todos os casos esse erro é causado por **data/hora errados em seu computador**. Todo certificado SSL tem uma data de emissão e uma de validade. If your date is invalid and out of those two bounds then the certificate can't be trusted due to a potential **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** attack and ASF refuses to make a connection.
+Em quase todos os casos esse erro é causado pela **data/hora errados em seu computador**. Todo certificado SSL tem uma data de emissão e uma de validade. Se a data no seu sistema for inválida e estiver fora desses dois limites, o certificado não poderá ser confiável devido a um potencial ataque **[MITM](https://pt.wikipedia.org/wiki/Ataque_man-in-the-middle)** e o ASF se recusa a fazer uma conexão.
 
 A solução arrumar a data no seu computador. É altamente recomendado usar a sincronização automática de data, como a sincronização nativa do Windows ou o `ntpd` no Linux.
 
-If you made sure that the date on your machine is appropriate and the error doesn't want to go away, SSL certificates that your system trusts could be out-of-date or invalid. Neste caso você deve garantir que seu computador pode estabelecer conexões seguras, por exemplo, verificando se você pode acessar `https://github.com` com qualquer navegador de sua escolha, ou uma ferramenta CLI como `curl`. Se você confirmou que funciona, sinta-se livre para postar a questão no nosso grupo Steam.
+Se você tem certeza de que a data no seu computador está certa e mesmo assim o erro persiste, então, assumindo que não é uma questão temporária, os certificados SSL em que seu sistema confia podem estar desatualizados ou inválidos. Neste caso você deve garantir que seu computador pode estabelecer conexões seguras, por exemplo, verificando se você pode acessar `https://github.com` com qualquer navegador de sua escolha, ou uma ferramenta CLI como `curl`. Se você confirmou que funciona, sinta-se livre para postar a questão no nosso grupo Steam.
 
 * * *
 
@@ -627,7 +627,7 @@ Este aviso significa que o Steam não respondeu à solicitação do ASF no tempo
 
 ### `O inicializador de tipo de 'System.Security.Cryptography.CngKeyLite' acionou uma exceção`
 
-This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation` Windows service, which provides core cryptography functionality for ASF, without which the program isn't able to run. You can fix this issue by launching `services.msc` and ensuring that `CNG Key Isolation` Windows service doesn't have disabled startup and is currently running.
+Esse problema é quase exclusivamente causado por conta do serviço do windows `Isolamento de Chave CNG` estar parado/desabilitado, ele fornece a funcionalidade de criptografia básica para o ASF, sem o qual o programa não consegue rodar. Você pode resolver este problema abrindo `services.msc` e garantindo que o serviço `Isolamento de Chave CNG` não esteja desativado na inicialização e esteja atualmente em execução.
 
 * * *
 

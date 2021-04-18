@@ -50,7 +50,7 @@ Por padrão, o ASF assume que `HoursUntilCardDrops` com o valor `3`, já que o e
 
 No momento os dois algorítimos acima são suficientes para coletar automaticamente da forma mais efetiva em todos os cenários atuais possíveis, portanto não há planejamento de adicionar novos.
 
-It's nice to note that ASF also includes manual farming mode that can be activated by `play` command. Você pode ler mais sobre isso na seção **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)**.
+É legal notar que o ASF também inclui o modo de coleta manual que pode ser ativado pelo comando `play`. Você pode ler mais sobre isso na seção **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)**.
 
 * * *
 
