@@ -226,24 +226,24 @@ Uspješno ste podesili ASF da koristi vaš Steam nalog i uspješno ste ga uredil
 
 Ova podešavanja su za napredne korisnike koji žele da podese ASF za pokretanje na **[opštoj](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** varijanti. Ovo nije preporučeno za ljude koji mogu da koriste **[OS-specifično podešavanje](#os-specific-setup)**.
 
-You want to use generic variant mainly in those situations (but of course you can use it regardless):
+You want to use `generic` variant mainly in those situations (but of course you can use it regardless):
 
 - Kada koristite OS za koji nema OS-specifičan paket (kao što je 32-bitni Windows)
 - Kada već imate .NET Core Runtime/SDK, ili želite da ga instalirate i koristite
 - Kada želite da smanjite veličinu ASF strukture tako što ćete podesite runtime zahtjeve ručno
-- When you want to use a custom **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which requires a generic setup of ASF to run properly (due to missing native dependencies)
+- When you want to use a custom **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which requires a `generic` setup of ASF to run properly (due to missing native dependencies)
 
 Ipak, zapamtite da ćete u tom slučaju vi biti odgovorni za .NET Core runtime. Ovo znači da ako je .NET Core SDK (runtime) nedostupan, zastareo ili pokvaren, ASF neće raditi. Zbog ovog ne preporučujemo ovaj metod za obične korisnike, pošto morate biti sigurni da se vaš .NET Core SDK (runtime) poklapa sa ASF zahtjevima i da može da pokrene ASF, dok u normalnoj verziji **mi** provjeravamo da li .NET Core runtime koji je upakovan u ASF može da ga pokrene.
 
-Za opšti paket, možete pratiti cijeli OS-specifični vodič iznad, sa dvije male promjene. U dodatku sa instaliranjem .NET Core prerequisites, isto trebate da instalirate .NET Core SDK, i umjesto što imate OS-specifični `ArchiSteamFarm(.exe)` eksekjucioni fajl, sada ćete imati opšti `ArchiSteamFarm.dll` binarni fajl. Sve ostalo je isto.
+For `generic` package, you can follow entire OS-specific guide above, with two small changes. U dodatku sa instaliranjem .NET Core prerequisites, isto trebate da instalirate .NET Core SDK, i umjesto što imate OS-specifični `ArchiSteamFarm(.exe)` eksekjucioni fajl, sada ćete imati opšti `ArchiSteamFarm.dll` binarni fajl. Sve ostalo je isto.
 
 Sa dodatnim koracima:
 
 - Instalirajte **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
 - Instalirajte **[.NET Core SDK](https://www.microsoft.com/net/download)** (ili bar runtime) za vaš OS. Vjerovatno ćete željeti da koristite automatsku instalaciju. Pogledajte **[runtime zahtjeve](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** ako niste sigurni koju verziju da instalirate.
-- Preuzmite **[poslednje ASF izdanje](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** za opštu varijantu.
+- Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.
 - Ekstraktujte arhivu u novoj lokaciji (i `chmod +x ArchiSteamFarm.sh` ako ste na Linux-u/OS X-u),.
 - **[Konfigurišete ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - Pokrenite ASF koristeći pomoćni skript ili ručnom ekekjucijom `dotnet /ruta/do/ArchiSteamFarm.dll` iz vaše omiljene ljuske.
 
-Pomoćni skript (kao što je `ArchiSteamFarm.cmd` za Windows i `ArchiSteamFarm.sh` za Linux/OS X) se nalaze pored `ArchiSteamFarm.dll` binarnog fajla - koji su sadržani samo u opštem izdanju. Njih možete koristiti ako ne želite da ručno ekekjutujete `dotnet` komande. Pomoćni skriptovi naravno neće raditi ako niste instalirali .NET Core SDK i ako nemate `dotnet` dostupan u vašem `PATH`-u. Pomoćni skriptovi su skroz opcionalni, uvijek možete ručno koristiti `dotnet /ruta/do/ArchiSteamFarm.dll`.
+Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in `generic` variant only. Njih možete koristiti ako ne želite da ručno ekekjutujete `dotnet` komande. Pomoćni skriptovi naravno neće raditi ako niste instalirali .NET Core SDK i ako nemate `dotnet` dostupan u vašem `PATH`-u. Pomoćni skriptovi su skroz opcionalni, uvijek možete ručno koristiti `dotnet /ruta/do/ArchiSteamFarm.dll`.

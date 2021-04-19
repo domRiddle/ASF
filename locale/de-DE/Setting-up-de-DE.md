@@ -226,24 +226,24 @@ Sie haben ASF bereits erfolgreich so eingestellt, dass es Ihre Steam-Konten nutz
 
 Dieses Setup ist für fortgeschrittene Benutzer, die ASF so einrichten möchten, dass es in der Variante **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#generisch)** funktioniert. Es wird nicht für Personen empfohlen, die das **[betriebssystemspezifische Setup](#betriebssystemspezifisches-setup)** verwenden können.
 
-Sie wollen die generische Variante hauptsächlich in drei Situationen verwenden (kann aber natürlich trotzdem anderweitig verwendet werden):
+You want to use `generic` variant mainly in those situations (but of course you can use it regardless):
 
 - Wenn du ein Betriebssystem verwendest, für das wir kein betriebssystemspezifisches Paket erstellen (z.B. 32-Bit Windows)
 - Wenn du bereits die .NET Core Runtime/SDK hast, oder eine installieren und verwenden möchtest
 - Wenn du die ASF-Strukturgröße minimieren willst, indem du die Laufzeitanforderungen selbst handhabst
-- Wenn Sie ein benutzerdefiniertes **[Plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-de-DE)** verwenden möchten, das eine generische Installation von ASF benötigt (aufgrund fehlender nativer Abhängigkeiten)
+- When you want to use a custom **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which requires a `generic` setup of ASF to run properly (due to missing native dependencies)
 
 Bedenken Sie jedoch, dass Sie in diesem Fall für die .NET Core Runtime verantwortlich sind. Das bedeutet, dass, wenn Sie Ihre .NET Core SDK (Runtime) nicht verfügbar, veraltet oder defekt ist, ASF nicht funktioniert. Aus diesem Grund empfehlen wir dieses Setup nicht für Gelegenheitsnutzer, da Sie nun sicherstellen müssen, dass Ihr .NET Core SDK (Runtime) den ASF-Anforderungen entspricht und ASF ausführen kann, anstatt dass **wir** sicherstellen, dass unsere mit ASF gebündelte .NET Core Runtime dies ermöglicht.
 
-Für das generische Paket können Sie dem gesamten betriebssystemspezifischen Leitfaden oben folgen, mit zwei kleinen Abweichungen. Zusätzlich zur Installation der .NET Core Prerequisites möchten Sie auch das .NET Core SDK installieren, und anstatt eine betriebssystemspezifische `ArchiSteamFarm(.exe)` ausführbare Datei zu haben, nutzen Sie nun eine generische `ArchiSteamFarm.dll` Binärdatei. Alles andere ist identisch.
+For `generic` package, you can follow entire OS-specific guide above, with two small changes. Zusätzlich zur Installation der .NET Core Prerequisites möchten Sie auch das .NET Core SDK installieren, und anstatt eine betriebssystemspezifische `ArchiSteamFarm(.exe)` ausführbare Datei zu haben, nutzen Sie nun eine generische `ArchiSteamFarm.dll` Binärdatei. Alles andere ist identisch.
 
 Mit zusätzlichen Schritten:
 
 - Installiere **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
 - Installiere **[.NET Core SDK](https://www.microsoft.com/net/download)** (oder zumindest die Runtime), die für dein Betriebssystem geeignet ist. Du möchtest höchstwahrscheinlich ein Installationsprogramm verwenden. Ließ die **[Runtime-Anforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#runtime-anforderungen)**, wenn du nicht sicher bist, welche Version du installieren sollst.
-- Lade die **[aktuellste ASF-Version](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in generischer Variante herunter.
+- Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.
 - Entpack das Archiv an einen neuen Ort (und `chmod +x ArchiSteamFarm.sh` wenn du unter Linux/OS X bist).
 - **[Konfiguriere ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**.
 - Starte ASF entweder mit einem Hilfs-Skript oder führe `dotnet /pfad/zu/ArchiSteamFarm.dll` aus deiner Lieblings-Shell heraus manuell aus.
 
-Hilfs-Skripte (z.B. `ArchiSteamFarm.cmd` für Windows und `ArchiSteamFarm.sh` für Linux/OS X) befinden sich neben der `ArchiSteamFarm.dll` Binärdatei - diese sind nur in der generischen Variante enthalten. Sie können diese verwenden, wenn Sie den Befehl `dotnet` nicht manuell ausführen möchten. Offensichtlich funktionieren Hilfs-Skripte nicht, wenn Sie .NET Core SDK nicht installieren und Sie keine `dotnet` ausführbare Datei in Ihrem `PATH` haben. Hilfs-Skripte sind völlig optional verwendbar, Sie können jederzeit `dotnet /pfad/zu/ArchiSteamFarm.dll` manuell eingeben.
+Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in `generic` variant only. Sie können diese verwenden, wenn Sie den Befehl `dotnet` nicht manuell ausführen möchten. Offensichtlich funktionieren Hilfs-Skripte nicht, wenn Sie .NET Core SDK nicht installieren und Sie keine `dotnet` ausführbare Datei in Ihrem `PATH` haben. Hilfs-Skripte sind völlig optional verwendbar, Sie können jederzeit `dotnet /pfad/zu/ArchiSteamFarm.dll` manuell eingeben.

@@ -226,24 +226,24 @@ ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们
 
 这一节是为想要使用 ASF **[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#generic)** 包的高级用户准备的。 如果您可以&#8203;**[安装操作系统包](#安装操作系统包)**，就不建议您安装 Generic 包。
 
-您可能会在以下几种情况选择使用 Generic 包（当然，没有理由也可以）：
+您可能会在以下几种情况选择使用 `generic` 包（当然，没有理由也可以）：
 
 - 我们没有为您所使用的操作系统（例如 32 位 Windows）提供操作系统包
 - 您已经安装了 .NET Core 运行时环境/SDK，或者打算安装
 - 您希望自行管理运行时需求来最小化 ASF 的结构
-- 您想要使用的自定义插件需要 Generic 版本的 ASF 才能正常工作（因为缺少本机依赖项）
+- 您想要使用的自定义插件需要 `generic` 版本的 ASF 才能正常工作（因为缺少本机依赖项）
 
 但是，请注意，此时您需要负责安装管理 .NET Core 运行时环境。 这意味着，如果您的 .NET Core SDK（运行时环境）不可用、已过期或者已损坏，ASF 就无法工作。 这就是我们不建议普通用户安装此包的原因，因为现在您需要确保 .NET Core SDK（运行时环境）符合 ASF 的要求，能够用于运行 ASF，而不是使用**我们**验证过的 ASF 自带的 .NET Core 运行时环境。
 
-对于 Generic 包，您需要参考上述的操作系统包的安装指南，但有两点小小的区别。 除了要安装 .NET Core 依赖项之外，您还需要安装 .NET Core SDK，并且 `ArchiSteamFarm.dll` 二进制文件将会取代操作系统特定的 `ArchiSteamFarm(.exe)` 可执行文件， 其他的步骤都是相同的。
+对于 `generic` 包，您需要参考上述的操作系统包的安装指南，但有两点小小的区别。 除了要安装 .NET Core 依赖项之外，您还需要安装 .NET Core SDK，并且 `ArchiSteamFarm.dll` 二进制文件将会取代操作系统特定的 `ArchiSteamFarm(.exe)` 可执行文件， 其他的步骤都是相同的。
 
 添加额外的步骤之后：
 
 - 安装 **[.NET Core 依赖项](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**。
 - 安装适合您操作系统的 **[.NET Core SDK](https://www.microsoft.com/net/download)**（或至少安装运行时环境）。 您可能需要使用一个安装器。 如果您不确定应该安装哪个版本，请参考&#8203;**[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**。
-- 在 **[ASF 发布页面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下载 Generic 包。
+- 在 **[ASF 发布页面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下载 `generic` 包。
 - 将下载的压缩包解压到新位置，如果您使用 Linux/macOS，还需要执行命令 `chmod +x ArchiSteamFarm.sh`。
 - **[配置 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**。
 - 使用助手脚本或者在 shell 中执行 `dotnet /path/to/ArchiSteamFarm.dll` 启动 ASF。
 
-助手脚本（用于 Windows 的 `ArchiSteamFarm.cmd` 和用于 Linux/macOS 的 `ArchiSteamFarm.sh`）与 `ArchiSteamFarm.dll` 二进制文件处于同一个位置——这些文件都是 Generic 包特有的。 如果您不想手动执行 `dotnet` 命令，就可以使用这些助手脚本。 显然，如果您没有安装 .NET Core SDK，或者 `dotnet` 可执行文件不在系统的 `PATH` 环境变量中，助手脚本也无法运行。 助手脚本是完全可选的，您随时可以手动执行 `dotnet /path/to/ArchiSteamFarm.dll` 命令来启动 ASF。
+助手脚本（用于 Windows 的 `ArchiSteamFarm.cmd` 和用于 Linux/macOS 的 `ArchiSteamFarm.sh`）与 `ArchiSteamFarm.dll` 二进制文件处于同一个位置——这些文件都是 `generic` 包特有的。 如果您不想手动执行 `dotnet` 命令，就可以使用这些助手脚本。 显然，如果您没有安装 .NET Core SDK，或者 `dotnet` 可执行文件不在系统的 `PATH` 环境变量中，助手脚本也无法运行。 助手脚本是完全可选的，您随时可以手动执行 `dotnet /path/to/ArchiSteamFarm.dll` 命令来启动 ASF。
