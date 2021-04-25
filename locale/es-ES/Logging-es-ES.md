@@ -1,6 +1,6 @@
 # Registro
 
-ASF te permite configurar tu propio módulo de registro personalizado que se utilizará durante el tiempo de ejecución. Lo puedes hacer poniendo un archivo especial llamado `NLog.config` en el directorio de la aplicación. Puedes leer toda la documentación de NLog en **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, pero además aquí también encontrarás algunos ejemplos útiles.
+ASF te permite configurar tu propio módulo de registro que será usado durante el tiempo de ejecución. Lo puedes hacer colocando un archivo especial llamado `NLog.config` en el directorio de la aplicación. Puedes leer toda la documentación de NLog en **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, donde también encontrarás algunos ejemplos útiles.
 
 * * *
 
@@ -10,7 +10,7 @@ Por defecto, ASF registra a `ColoredConsole` (salida estándar) y a `File`. El r
 
 Usar una configuración NLog personalizada automáticamente desactiva el registro por defecto de ASF, tu configuración anula **por completo** el registro predeterminado de ASF, lo que significa que si quieres mantener, por ejemplo, el objetivo `ColoredConsole`, entonces debes definirlo **tú mismo**. Esto te permite no solo añadir objetivos de registro **adicionales**, sino también desactivar o modificar los **predeterminados**.
 
-Si quieres usar el registro por defecto de ASF sin modificaciones, no necesitas hacer nada - tampoco necesitas definirlo en `NLog.config`. No uses el `NLog.config` personalizado si no quieres modificar el registro predeterminado de ASF. Para referencia, el equivalente del registro predeterminado de ASF sería:
+Si quieres usar el registro por defecto de ASF sin modificaciones, no necesitas hacer nada - tampoco necesitas definirlo en `NLog.config`. No uses un `NLog.config` personalizado si no quieres modificar el registro predeterminado de ASF. Para referencia, el equivalente del registro predeterminado de ASF sería:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -199,7 +199,7 @@ Este ejemplo se basa en nuestro ejemplo básico de `ColoredConsole` que se mostr
 
 Hemos empezado desde nuestro ejemplo básico de `ColoredConsole` y lo hemos extendido. En primer lugar, hemos preparado un archivo permanente de registro de chat por cada grupo y usuario de Steam - esto es posible gracias a las propiedades adicionales que ASF nos expone de manera elegante. También hemos decidido ir con un layout personalizado que solo escribe la fecha actual, el mensaje, información enviada/recibida y el usuario de Steam. Por último, hemos habilitado nuestra regla de registro de chat para el nivel `Trace`, solo para nuestro bot `MainAccount` y solo para funciones relacionadas con el registro de chat (`OnIncoming*` que es usado para recibir mensajes y ecos, y `SendMessage*` para enviar mensajes de ASF).
 
-El ejemplo anterior generará el archivo `0-0-76561198069026042.txt` cuando hablando con **[ArchiBot](https://steamcommunity.com/profiles/76561198069026042)**:
+El ejemplo anterior generará el archivo `0-0-76561198069026042.txt` al hablar con **[ArchiBot](https://steamcommunity.com/profiles/76561198069026042)**:
 
 ```text
 2018-07-26 01:38:38 ¿cómo te va? -> 76561198069026042
@@ -253,7 +253,7 @@ Lee más sobre el uso del [Archivo de Configuración](https://github.com/NLog/NL
 
 ##### Opciones de Layout
 
-*layout* - Texto a ser renderizado. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Requerido. Por defecto: `${level:uppercase=true}|${logger}|${message}`
+*layout* - Texto a ser procesado. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Requerido. Por defecto: `${level:uppercase=true}|${logger}|${message}`
 
 * * *
 
@@ -331,7 +331,7 @@ Lee más sobre el uso del [Archivo de Configuración](https://github.com/NLog/NL
 
 ##### Opciones de Layout
 
-*layout* - Texto a ser renderizado. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Requerido. Por defecto: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+*layout* - Texto a ser procesado. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Requerido. Por defecto: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 * * *
 
@@ -343,6 +343,6 @@ Lee más sobre el uso del [Archivo de Configuración](https://github.com/NLog/NL
 
 ## Advertencias
 
-Ten cuidado cuando decidas combinar el nivel de registro `Debug` on inferior en tu `SteamTarget` con un `steamID` que tome parte en el proceso de ASF. Esto puede derivar potencialmente en `StackOverflowException` porque crearás un bucle infinito de ASF recibiendo un mensaje dado, luego registrándolo a través de Steam, resultando en otro mensaje que necesita ser registrado. Actualmente la única posibilidad de que ocurra es registrar el nivel `Trace` (donde ASF registra sus propios mensajes de chat), o el nivel `Debug` mientras también se ejecuta ASF en modo `Debug` (donde ASF registra todos los paquetes de Steam).
+Ten cuidado cuando decidas combinar el nivel de registro `Debug` o inferior en tu `SteamTarget` con un `steamID` que tome parte en el proceso de ASF. Esto puede derivar potencialmente en `StackOverflowException` porque crearás un bucle infinito de ASF recibiendo un mensaje dado, luego registrándolo a través de Steam, resultando en otro mensaje que necesita ser registrado. Actualmente la única posibilidad de que ocurra es registrar el nivel `Trace` (donde ASF registra sus propios mensajes de chat), o el nivel `Debug` mientras también se ejecuta ASF en modo `Debug` (donde ASF registra todos los paquetes de Steam).
 
 En resumen, si tu `steamID` toma parte en el mismo proceso de ASF, entonces el `minlevel` nivel mínimo de registro de tu `SteamTarget` debe ser `Info` (o `Debug` si no estás ejecutando ASF en modo `Debug`) y superior. Alternativamente puedes definir tu propio filtro de registro `<when>` para evitar un bucle de registro infinito, si modificar el nivel no es apropiado para tu caso. Esta advertencia también aplica para los chats de grupo.
