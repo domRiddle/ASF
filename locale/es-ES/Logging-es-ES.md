@@ -6,7 +6,7 @@ ASF te permite configurar tu propio módulo de registro que será usado durante 
 
 ## Registro por defecto
 
-Por defecto, ASF registra a `ColoredConsole` (salida estándar) y a `File`. El registro en `File` incluye el archivo `log.txt` en el directorio del programa, y el directorio `logs` para fines de archivar.
+Por defecto, ASF registra a `ColoredConsole` (salida estándar) y a `File`. El registro en `File` incluye el archivo `log.txt` en el directorio del programa, y el directorio `logs` con el propósito de archivar.
 
 Usar una configuración NLog personalizada automáticamente desactiva el registro por defecto de ASF, tu configuración anula **por completo** el registro predeterminado de ASF, lo que significa que si quieres mantener, por ejemplo, el objetivo `ColoredConsole`, entonces debes definirlo **tú mismo**. Esto te permite no solo añadir objetivos de registro **adicionales**, sino también desactivar o modificar los **predeterminados**.
 
@@ -37,9 +37,9 @@ Si quieres usar el registro por defecto de ASF sin modificaciones, no necesitas 
 
 ASF incluye algunos trucos de código que mejoran su integración NLog, permitiéndote captar mensaje específicos con más facilidad.
 
-La variable `${logger}` específica de NLog siempre distinguirá el origen del mensaje - será `BotName` de uno de tus bots, o `ASF` si el mensaje viene directamente del proceso ASF. Así puedes captar mensajes fácilmente considerando bots específicos, o el proceso ASF (solo), en lugar de todos ellos, basado en el nombre del logger.
+La variable `${logger}` específica de NLog siempre distinguirá el origen del mensaje - será `BotName` de uno de tus bots, o `ASF` si el mensaje viene directamente del proceso de ASF. Así puedes captar mensajes fácilmente considerando bots específicos, o el proceso de ASF (solo), en lugar de todos ellos, basado en el nombre del logger.
 
-ASF intenta marcar los mensaje de forma adecuada basándose en los niveles de advertencia proporcionados por NLog, lo que hace posible captar solo mensajes específicos de niveles de registro específicos en lugar de todos ellos. Por supuesto, el nivel de registro para un mensaje específico no puede ser personalizado, ya que es decisión de ASF qué tan serio es un mensaje, pero definitivamente puedes hacer a ASF menos/más silencioso, como te parezca oportuno.
+ASF intenta marcar los mensaje de forma adecuada basándose en los niveles de advertencia proporcionados por NLog, lo que hace posible captar solo mensajes específicos de niveles de registro específicos en lugar de todos ellos. Por supuesto, el nivel de registro para un mensaje específico no puede ser personalizado, ya que es decisión de ASF qué tan importante es un mensaje determinado, pero definitivamente puedes hacer a ASF menos/más silencioso, como te parezca oportuno.
 
 ASF registra información adicional, tal como mensajes de usuario/chat en el nivel de registro `Trace`. El registro por defecto de ASF solo registra el nivel `Debug` y superior, el cual oculta esa información adicional, ya que no es necesaria para la mayoría de los usuarios, además de que se opacan mensajes potencialmente más importantes. Sin embargo puedes usar esa información reactivando el nivel de registro `Trace`, especialmente en combinación con registrar solo un bot específico de tu elección, con el evento particular en el que estás interesado.
 
