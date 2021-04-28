@@ -43,9 +43,9 @@ ASF intenta marcar los mensaje de forma adecuada basándose en los niveles de ad
 
 ASF registra información adicional, tal como mensajes de usuario/chat en el nivel de registro `Trace`. El registro por defecto de ASF solo registra el nivel `Debug` y superior, el cual oculta esa información adicional, ya que no es necesaria para la mayoría de los usuarios, además de que se opacan mensajes potencialmente más importantes. Sin embargo puedes usar esa información reactivando el nivel de registro `Trace`, especialmente en combinación con registrar solo un bot específico de tu elección, con el evento particular en el que estás interesado.
 
-En general, ASF intenta hacerlo tan fácil y conveniente como sea posible, registrar solo los mensajes que quieres en lugar de obligarte a filtrarlos manualmente mediante herramientas de terceros como `grep` y similares. Simplemente configura NLog correctamente como se escribe a configure, y deberías poder especificar incluso reglas muy complejas de registro con objetivos personalizados tal como bases de datos enteras.
+En general, ASF intenta hacerlo tan fácil y conveniente como sea posible, registrar solo los mensajes que quieres en lugar de obligarte a filtrarlos manualmente mediante herramientas de terceros como `grep` y similares. Simplemente configura NLog correctamente como se describe a continuación, y deberías poder especificar incluso reglas de registro muy complejas con objetivos personalizados tal como bases de datos enteras.
 
-En cuanto a la versión - ASF siempre intenta salir con la versión más actualizada de NLog que esté disponible en **[NuGet](https://www.nuget.org/packages/NLog)** al momento de la publicación de ASF. A menudo es una versión más reciente que la última estable, por lo tanto no debería haber problema por usar en ASF cualquier función que puedas encontrar en la wiki de NLog, incluso funciones que están en desarrollo y estado WIP (work in process). solo asegúrate de que también estás usando ASF actualizado.
+En cuanto a la versión - ASF siempre intenta contar con la versión más actualizada de NLog que esté disponible en **[NuGet](https://www.nuget.org/packages/NLog)** al momento de la publicación de ASF. A menudo es una versión más reciente que la última estable, por lo tanto no debería haber problema al usar en ASF cualquier función que puedas encontrar en la wiki de NLog, incluso funciones que están en desarrollo y en estado WIP (work in process) - solo asegúrate de que también estás usando ASF actualizado.
 
 Como parte de la integración, ASF también incluye soporte para objetivos de registro adicionales de ASF NLog, lo que se explica abajo.
 
@@ -144,19 +144,19 @@ Finalmente, hagamos algo un poco más avanzado y vamos a registrar todos los men
 </nlog>
 ```
 
-Puedes ver cómo usamos la integración ASF y fácilmente distinguimos la fuente del mensaje basados en la propiedad `${logger}`.
+Puedes ver cómo usamos la integración de ASF y fácilmente distinguimos la fuente del mensaje con base en la propiedad `${logger}`.
 
 * * *
 
 ## Uso avanzado
 
-Los ejemplos anteriores son bastante sencillos y hechos para mostrarte lo fácil que es definir tus propias reglas de registro que se pueden usar con ASF. Puedes usar NLog para diferentes cosas, incluyendo objetivos complejos (tal como mantener los registros en `Database`), rotación de registros (tal como eliminar registros `File` viejos), usar `Layout` personalizados, declarar tu propio filtro de registro `<when>` y mucho más. Te invito a leer toda la **[documentación NLog](https://github.com/nlog/nlog/wiki/Configuration-file)** para aprender sobre todas las opciones que tienes disponibles, permitiéndote modificar el módulo de registro de ASF de la forma que quieras. Es una herramienta muy potente y personalizar el registro de ASF nunca fue tan fácil.
+Los ejemplos anteriores son bastante sencillos y hechos para mostrarte lo fácil que es definir tus propias reglas de registro que pueden ser usadas con ASF. Puedes usar NLog para diferentes cosas, incluyendo objetivos complejos (tal como mantener los registros en `Database`), rotación de registros (tal como eliminar registros `File` viejos), usar `Layout` personalizados, declarar tus propios filtros de registro `<when>` y mucho más. Te animo a leer toda la **[documentación NLog](https://github.com/nlog/nlog/wiki/Configuration-file)** para aprender sobre cada opción disponible, permitiéndote modificar el módulo de registro de ASF de la forma que quieras. Es una herramienta muy potente y personalizar el registro de ASF nunca fue tan fácil.
 
 * * *
 
 ## Limitaciones
 
-ASF desactivará temporalmente **todas** las reglas que incluyan los objetivos `ColoredConsole` o `Console` cuando espere interacción del usuario. Por lo tanto, si quieres seguir registrando para otros objetivos incluso cuando ASF espera interacción del usuario, debes definir esos objetivos con sus propias reglas, como se mostró en los ejemplos anteriores, en lugar de poner muchos objetivos en `writeTo` de la misma regla (a menos que este sea el comportamiento deseado). La desactivación temporal de los objetivos de la consola se hace para mantenerla limpia cuando se está esperando interacción del usuario.
+ASF desactivará temporalmente **todas** las reglas que incluyan los objetivos `ColoredConsole` o `Console` cuando esté esperando interacción del usuario. Por lo tanto, si quieres seguir registrando para otros objetivos incluso cuando ASF espera interacción del usuario, debes definir esos objetivos con sus propias reglas, como se mostró en los ejemplos anteriores, en lugar de poner muchos objetivos en `writeTo` de la misma regla (a menos que este sea el comportamiento deseado). La desactivación temporal de los objetivos de la consola se hace para mantenerla limpia cuando se está esperando interacción del usuario.
 
 * * *
 
