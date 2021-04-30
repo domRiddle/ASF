@@ -261,9 +261,9 @@ ASF 包括了对聊天记录的扩展支持，不仅在 `Trace` 日志级别中�
 
 *chatGroupID*——以 64 位无符号长整型数字声明的群组聊天 ID。 可选。 默认为 `0`，这将禁用群组聊天功能，而是发送到私人聊天。 启用后（设置为非零值），下面的 `steamID` 将会表现为 `chatID`，并且机器人将会向指定的 `chatGroupID` 发送消息。
 
-*steamID*——以 64 位无符号长整型数字声明的 SteamID，指定目标 Steam 用户（类似 `SteamOwnerID`），或者目标 `chatID`（如果设置了 `chatGroupID`）。 必填。 Defaults to `0` which disables logging target entirely.
+*steamID*——以 64 位无符号长整型数字声明的 SteamID，指定目标 Steam 用户（类似 `SteamOwnerID`），或者目标 `chatID`（如果设置了 `chatGroupID`）。 必填。 默认为 `0`，这将完全禁用该日志目标。
 
-*botName* - Name of the bot (as it's recognized by ASF, case-sensitive) that will be sending messages to `steamID` declared above. 可选。 默认为 `null`，这将会使 ASF 自动选择当前已连接的**任意**机器人。 建议为此选项设置合适的值，因为 `SteamTarget` 没有考虑很多 Steam 帐户限制，例如实际上目标的 `steamID` 必须在您的好友列表中。 此变量为 [Layout](https://github.com/NLog/NLog/wiki/Layouts) 类型，因此您可以使用特殊的语法，例如使用 `${logger}` 来表示生成当前消息的机器人。
+*botName*——机器人的名称（供 ASF 识别，区分大小写），该机器人将会向之前声明的 `steamID` 发送消息。 可选。 默认为 `null`，这将会使 ASF 自动选择当前已连接的**任意**机器人。 建议为此选项设置合适的值，因为 `SteamTarget` 没有考虑很多 Steam 帐户限制，例如实际上目标的 `steamID` 必须在您的好友列表中。 此变量为 [Layout](https://github.com/NLog/NLog/wiki/Layouts) 类型，因此您可以使用特殊的语法，例如使用 `${logger}` 来表示生成当前消息的机器人。
 
 * * *
 
