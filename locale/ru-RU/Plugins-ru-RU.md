@@ -39,13 +39,13 @@ ASF загружает плагины из папки `plugins` располож
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="*" />
+    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
 
-    <!-- При сборке в качестве части дерева исходников ASF используйте эту строку вместо <Reference> выше -->
+    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
     <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
@@ -84,7 +84,7 @@ dotnet publish YourPluginName -c "Release" -o "out"
 
 После этого, ваш плагин готов к развертыванию. Как именно вы хотите распространять и публиковать ваш плагин - решать вам, но мы рекомендуем создать zip-архив c единственной папкой `YourNamespace.YourPluginName`, внутри которой находится ваш скомпилированный плагин вместе со всеми **[зависимостями](#Зависимости-плагинов)**. Таким образом пользователю нужно будет просто распаковать ваш zip-архив в его папку `plugins`, и ничего более.
 
-Это самый простой сценарий, просто чтобы помочь вам начать. We have **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Не стесняйтесь заглянуть туда, если предпочитаете учиться по работающему коду, или сами изучите пространство имён `ArchiSteamFarm.Plugins` и обратитесь ко встроенной документации чтобы узнать все доступные возможности.
+Это самый простой сценарий, просто чтобы помочь вам начать. У нас также есть проект **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** который представляет собой пример интерфейсов и действий, которые вы можете использовать в своём плагине, включая полезные комментарии. Не стесняйтесь заглянуть туда, если предпочитаете учиться по работающему коду, или сами изучите пространство имён `ArchiSteamFarm.Plugins` и обратитесь ко встроенной документации чтобы узнать все доступные возможности.
 
 If instead of example plugins you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. In addition to that, there are also plugins developed by other developers, in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
 

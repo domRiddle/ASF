@@ -39,14 +39,13 @@ Eğer her şeyi doğru bir şekilde yaptıysanız, `csproj` dosyanız aşağıda
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="*" />
+    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
 
-    <!-- 
-ASF kaynak ağacının bir parçası olarak oluşturuyorsanız, yukarıdakiler yerine bunu kullanın <Reference> yukarıdakiler -->
+    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
     <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>

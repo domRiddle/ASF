@@ -248,4 +248,4 @@ Die folgende Konfiguration ermöglicht den Fernzugriff von allen Quellen. Daher 
 }
 ```
 
-Wenn Sie nicht von allen Quellen Zugriff benötigen, aber zum Beispiel nur von ihrem Netzwerk, dann ist es viel besser, so etwas wie `192.168.0.*` anstelle von `*` zu verwenden. Passen Sie die Netzwerkadresse entsprechend an, wenn Sie eine andere verwenden.
+Wenn Sie nicht von allen Quellen Zugriff benötigen, aber zum Beispiel nur von Ihrem Netzwerk, dann ist es viel besser, so etwas wie `192.168.0.*` anstelle von `*` zu verwenden. Passen Sie die Netzwerkadresse entsprechend an, wenn Sie eine andere verwenden.

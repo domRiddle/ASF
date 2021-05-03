@@ -40,7 +40,7 @@ We generally discourage trying `main` builds, just like automated AppVeyor build
 
 ASF docker image is currently built on `linux` platform with 3 architectures - `x64`, `arm` and `arm64`. You can read more about them in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section.
 
-Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker pull`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
+Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker run`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
 
 * * *
 
@@ -53,19 +53,17 @@ For complete reference you should use **[official docker documentation](https://
 Firstly we should verify if our docker is even working correctly, this will serve as our ASF "hello world":
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it --name asf --rm justarchi/archisteamfarm
+docker run -it --name asf --pull always --rm justarchi/archisteamfarm
 ```
 
-`docker pull` command ensures that you're using up-to-date `justarchi/archisteamfarm` image, just in case you had outdated local copy in your cache. `docker run` creates a new ASF docker container for you and runs it in the foreground (`-it`). `--rm` osigurava da će naš direktorijum biti izbrisan nakon zaustavijanja, jer mi samo testiramo da li sve radi kako treba za sada.
+`docker run` creates a new ASF docker container for you and runs it in the foreground (`-it`). `--pull always` ensures that up-to-date image will be pulled first, and `--rm` ensures that our container will be purged once stopped, since we're just testing if everything works fine for now.
 
 If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Pritisni `CTRL+P` pa `CTRL+Q` da zaustavite docker direktorijum, pa zaustavite ASF direktorijum sa `docker stop asf`.
 
 If you take a closer look at the command then you'll notice that we didn't declare any tag, which automatically defaulted to `latest` one. If you want to use other tag than `latest`, for example `released`, then you should declare it explicitly:
 
 ```shell
-docker pull justarchi/archisteamfarm:released
-docker run -it --name asf --rm justarchi/archisteamfarm:released
+docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 ```
 
 * * *
@@ -77,8 +75,7 @@ If you're using ASF in docker container then obviously you need to configure the
 For example, we'll assume that your ASF config folder is in `/home/archi/ASF/config` directory. This directory contains core `ASF.json` as well as bots that we want to run. Now all we need to do is simply attaching that directory as shared volume in our docker container, where ASF expects its config directory (`/app/config`).
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
+docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 And that's it, now your ASF docker container will use shared directory with your local machine in read-write mode, which is everything you need for configuring ASF. In similar way you can mount other volumes that you'd like to share with ASF, such as `/app/logs` or `/app/plugins`.
@@ -92,8 +89,7 @@ ASF is by default run with default `root` user inside a container. This is not a
 Docker allows you to pass `--user` **[flag](https://docs.docker.com/engine/reference/run/#user)** to `docker run` command which will define default user that ASF will run under. You can check your `uid` and `gid` for example with `id` command, then pass it to the rest of the command. For example, if your target user has `uid` and `gid` of 1000:
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
+docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 Remember that by default `/app` directory used by ASF is still owned by `root`. If you run ASF under custom user, then your ASF process won't have write access to its own files. This access is not mandatory for operation, but it is crucial e.g. for auto-updates feature. In order to fix this, it's enough to change ownership of all ASF files from default `root` to your new custom user.
@@ -114,10 +110,9 @@ By default, each ASF running inside a docker container is standalone, which mean
 
 ```shell
 mkdir -p /tmp/ASF-g1
-docker pull justarchi/archisteamfarm
-docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 justarchi/archisteamfarm
-docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 justarchi/archisteamfarm
-# itd. svi ASF kontejneri su sada sinhronizovani jedan sa drugim
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 --pull always justarchi/archisteamfarm
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 --pull always justarchi/archisteamfarm
+# And so on, all ASF containers are now synchronized with each other
 ```
 
 We recommend to bind ASF's `/tmp/ASF` directory also to a temporary `/tmp` directory on your machine, but of course you're free to choose any other one that satisfies your usage. Each ASF container that is expected to be synchronized should have its `/tmp/ASF` directory shared with other containers that are taking part in the same synchronization process.
@@ -133,8 +128,7 @@ Mounting `/tmp/ASF` is completely optional and actually not recommended, unless 
 ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container through environment variables. You should use specific environment variables for supported switches, and `ASF_ARGS` for the rest. This can be achieved with `-e` switch added to `docker run`, for example:
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
+docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf --pull always justarchi/archisteamfarm
 ```
 
 This will properly pass your `--cryptkey` argument to ASF process being run inside docker container, as well as other args. Of course, if you're advanced user then you can also modify `ENTRYPOINT` or add `CMD` and pass your custom arguments yourself.
@@ -166,8 +160,7 @@ Once we set up IPC on non-loopback interface, we need to tell docker to map ASF'
 For example, this command would expose ASF IPC interface to host machine (only):
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull always justarchi/archisteamfarm
 ```
 
 If you set everything properly, `docker run` command above will make **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface work from your host machine, on standard `localhost:1242` route that is now properly redirected to your guest machine. It's also nice to note that we do not expose this route further, so connection can be done only within docker host, and therefore keeping it secure. Of course, you can expose the route further if you know what you're doing and ensure appropriate security measures.
@@ -179,8 +172,7 @@ If you set everything properly, `docker run` command above will make **[IPC](htt
 Combining whole knowledge above, an example of a complete setup would look like this:
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 This assumes that you'll use a single ASF container, with all ASF config files in `/home/archi/asf`. You should modify the config path to the one that matches your machine. This setup is also ready for optional IPC usage if you've decided to include `IPC.config` in your config directory with a content like below:
@@ -201,7 +193,7 @@ This assumes that you'll use a single ASF container, with all ASF config files i
 
 ## Pro tips
 
-When you already have your ASF docker container ready, you don't have to use `docker run` every time. You can easily stop/start ASF docker container with `docker stop asf` and `docker start asf`. Keep in mind that if you're not using `latest` tag then updating ASF will still require from you to `docker stop`, `docker rm`, `docker pull` and `docker run` again. This is because you must rebuild your container from fresh ASF docker image every time you want to use ASF version included in that image. In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it's still a good idea to do it from time to time in order to use fresh .NET Core runtime and underlying OS).
+When you already have your ASF docker container ready, you don't have to use `docker run` every time. You can easily stop/start ASF docker container with `docker stop asf` and `docker start asf`. Keep in mind that if you're not using `latest` tag then using up-to-date ASF will still require from you to `docker stop`, `docker rm` and `docker run` again. This is because you must rebuild your container from fresh ASF docker image every time you want to use ASF version included in that image. In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it's still a good idea to do it from time to time in order to use fresh .NET Core runtime and underlying OS).
 
 As hinted by above, ASF in tag other than `latest` won't automatically update itself, which means that **you** are in charge of using up-to-date `justarchi/archisteamfarm` repo. This has many advantages as typically the app should not touch its own code when being run, but we also understand convenience that comes from not having to worry about ASF version in your docker container. If you care about good practices and proper docker usage, `released` tag is what we'd suggest instead of `latest`, but if you can't be bothered with it and you just want to make ASF both work and auto-update itself, then `latest` will do.
 

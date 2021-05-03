@@ -40,7 +40,7 @@ WE GENERALLY DISCOURAGE TRYIN `main` BUILDZ, JUS LIEK AUTOMATD APPVEYOR BUILDZ -
 
 ASF DOCKR IMAGE IZ CURRENTLY BUILT ON `linux` PLATFORM WIF 3 ARCHITECTUREZ - `x64`, `arm` AN `arm64`. U CAN READ MOAR BOUT THEM IN **[COMPATIBILITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US)** SECSHUN.
 
-SINCE ASF VERSHUN V5.0.2.2, R TAGS R USIN MULTI-PLATFORM MANIFEST, WHICH MEANZ DAT DOCKR INSTALLD ON UR MACHINE WILL AUTOMATICALLY SELECT TEH PROPR IMAGE 4 UR PLATFORM WHEN PULLIN TEH IMAGE. IF BY ANY CHANCE UD LIEK 2 PULL SPECIFIC PLATFORM IMAGE WHICH DOESNT MATCH TEH WAN URE CURRENTLY RUNNIN, U CAN DO DAT THRU `--platform` SWITCH IN APPROPRIATE DOCKR COMMANDZ, SUCH AS `docker pull`. C DOCKR DOCUMENTASHUN ON **[IMAGE MANIFEST](https://docs.docker.com/registry/spec/manifest-v2-2)** 4 MOAR INFO.
+SINCE ASF VERSHUN V5.0.2.2, R TAGS R USIN MULTI-PLATFORM MANIFEST, WHICH MEANZ DAT DOCKR INSTALLD ON UR MACHINE WILL AUTOMATICALLY SELECT TEH PROPR IMAGE 4 UR PLATFORM WHEN PULLIN TEH IMAGE. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker run`. C DOCKR DOCUMENTASHUN ON **[IMAGE MANIFEST](https://docs.docker.com/registry/spec/manifest-v2-2)** 4 MOAR INFO.
 
 * * *
 
@@ -53,19 +53,17 @@ SINCE ASF VERSHUN V5.0.2.2, R TAGS R USIN MULTI-PLATFORM MANIFEST, WHICH MEANZ D
 FIRSTLY WE SHUD VERIFY IF R DOCKR IZ EVEN WERKIN RITE, DIS WILL SERVE AS R ASF "Y HALO THAR WURLD":
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it --name asf --rm justarchi/archisteamfarm
+docker run -it --name asf --pull always --rm justarchi/archisteamfarm
 ```
 
-`docker pull` COMMAND ENSUREZ DAT URE USIN UP-2-DATE `justarchi/archisteamfarm` IMAGE, JUS IN CASE U HAD OUTDATD LOCAL COPY IN UR CACHE. `docker run` CREATEZ NEW ASF DOCKR CONTAINR 4 U AN RUNS IT IN DA FOREGROUND (`-it`). `--rm` ENSUREZ DAT R CONTAINR WILL BE PURGD ONCE STOPPD, SINCE WERE JUS TESTIN IF EVRYTHIN WERKZ FINE 4 NAO.
+`docker run` CREATEZ NEW ASF DOCKR CONTAINR 4 U AN RUNS IT IN DA FOREGROUND (`-it`). `--pull always` ensures that up-to-date image will be pulled first, and `--rm` ensures that our container will be purged once stopped, since we're just testing if everything works fine for now.
 
 IF EVRYTHIN ENDD SUCCESFULLY, AFTR PULLIN ALL LAYERS AN STARTIN CONTAINR, U SHUD NOTICE DAT ASF PROPERLY STARTD AN INFORMD US DAT THAR R NO DEFIND BOTS, WHICH IZ GUD - WE VERIFID DAT ASF IN DOCKR WERKZ PROPERLY. HIT `CTRL+P` DEN `CTRL+Q` IN ORDR 2 QUIT FOREGROUND DOCKR CONTAINR, DEN STOP ASF CONTAINR WIF `docker stop asf`.
 
 IF U TAEK CLOSR LOOK AT TEH COMMAND DEN ULL NOTICE DAT WE DIDNT DECLARE ANY TAG, WHICH AUTOMATICALLY DEFAULTD 2 `latest` WAN. IF U WANTS 2 USE OTHR TAG THAN `latest`, 4 EXAMPLE `released`, DEN U SHUD DECLARE IT EXPLICITLY:
 
 ```shell
-docker pull justarchi/archisteamfarm:released
-docker run -it --name asf --rm justarchi/archisteamfarm:released
+docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 ```
 
 * * *
@@ -77,8 +75,7 @@ IF URE USIN ASF IN DOCKR CONTAINR DEN OBVIOUSLY U NED 2 CONFIGURE TEH PROGRAM IT
 4 EXAMPLE, WELL ASSUME DAT UR ASF CONFIG FOLDR IZ IN `/home/archi/ASF/config` DIRECTORY. DIS DIRECTORY CONTAINS CORE `ASF.json` AS WELL AS BOTS DAT WE WANTS 2 RUN. NAO ALL WE NED 2 DO IZ SIMPLY ATTACHIN DAT DIRECTORY AS SHARD VOLUME IN R DOCKR CONTAINR, WER ASF EXPEX ITZ CONFIG DIRECTORY (`/app/config`).
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
+docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 AN THAZ IT, NAO UR ASF DOCKR CONTAINR WILL USE SHARD DIRECTORY WIF UR LOCAL MACHINE IN READ-RITE MODE, WHICH IZ EVRYTHIN U NED 4 CONFIGURIN ASF. IN SIMILAR WAI U CAN MOUNT OTHR VOLUMEZ DAT UD LIEK 2 SHARE WIF ASF, SUCH AS `/app/logs` OR `/app/plugins`.
@@ -92,8 +89,7 @@ ASF IZ BY DEFAULT RUN WIF DEFAULT `root` USR INNA CONTAINR. DIS AR TEH NOT PROBL
 DOCKR ALLOWS U 2 PAS `--user` **[FLAG](https://docs.docker.com/engine/reference/run/#user)** 2 `docker run` COMMAND WHICH WILL DEFINE DEFAULT USR DAT ASF WILL RUN UNDR. U CAN CHECK UR `uid` AN `gid` 4 EXAMPLE WIF `id` COMMAND, DEN PAS IT 2 TEH REST OV TEH COMMAND. 4 EXAMPLE, IF UR TARGET USR HAS `uid` AN `gid` OV 1000:
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
+docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 REMEMBR DAT BY DEFAULT `/app` DIRECTORY USD BY ASF IZ STILL OWND BY `root`. IF U RUN ASF UNDR CUSTOM USR, DEN UR ASF PROCES WONT HAS RITE ACCES 2 ITZ OWN FILEZ. DIS ACCES IZ NOT MANDATORY 4 OPERASHUN, BUT IT CRUSHUL E.G. 4 AUTO-UPDATEZ FEACHUR. IN ORDR 2 FIX DIS, IZ ENOUGH 2 CHANGE OWNERSHIP OV ALL ASF FILEZ FRUM DEFAULT `root` 2 UR NEW CUSTOM USR.
@@ -114,9 +110,8 @@ BY DEFAULT, EACH ASF RUNNIN INNA DOCKR CONTAINR IZ STANDALONE, WHICH MEANZ DAT N
 
 ```shell
 mkdir -p /tmp/ASF-g1
-docker pull justarchi/archisteamfarm
-docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 justarchi/archisteamfarm
-docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 justarchi/archisteamfarm
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 --pull always justarchi/archisteamfarm
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 --pull always justarchi/archisteamfarm
 # And so on, all ASF containers are now synchronized with each other
 ```
 
@@ -133,8 +128,7 @@ MOUNTIN `/tmp/ASF` IZ COMPLETELY OPSHUNAL AN AKSHULLY NOT RECOMMENDD, UNLES U EX
 ASF ALLOWS U 2 PAS **[COMMAND-LINE ARGUMENTS ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-lol-US)** IN DOCKR CONTAINR THRU ENVIRONMENT VARIABLEZ. U SHUD USE SPECIFIC ENVIRONMENT VARIABLEZ 4 SUPPORTD SWITCHEZ, AN `ASF_ARGS` 4 DA REST. DIS CAN BE ACHIEVD WIF `-e` SWITCH ADDD 2 `docker run`, 4 EXAMPLE:
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
+docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf --pull always justarchi/archisteamfarm
 ```
 
 DIS WILL PROPERLY PAS UR `--cryptkey` ARGUMENT 2 ASF PROCES BEAN RUN INSIDE DOCKR CONTAINR, AS WELL AS OTHR ARGS. OV COURSE, IF URE ADVANCD USR DEN U CAN ALSO MODIFY `ENTRYPOINT` OR ADD `CMD` AN PAS UR CUSTOM ARGUMENTS YOURSELF.
@@ -166,8 +160,7 @@ ONCE WE SET UP IPC ON NON-LOOPBACK INTERFACE, WE NED 2 TELL DOCKR 2 MAP ASFS `12
 4 EXAMPLE, DIS COMMAND WUD EXPOSE ASF IPC INTERFACE 2 HOST MACHINE (ONLY):
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull always justarchi/archisteamfarm
 ```
 
 IF U SET EVRYTHIN PROPERLY, `docker run` COMMAND ABOOV WILL MAK **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US)** INTERFACE WERK FRUM UR HOST MACHINE, ON STANDARD `localhost:1242` ROUTE DAT IZ NAO PROPERLY REDIRECTD 2 UR GUEST MACHINE. IZ ALSO NICE 2 NOWT DAT WE DO NOT EXPOSE DIS ROUTE FURTHR, SO CONNECSHUN CAN BE DUN ONLY WITHIN DOCKR HOST, AN THEREFORE KEEPIN IT SECURE. OV COURSE, U CAN EXPOSE TEH ROUTE FURTHR IF U KNOE WUT URE DOIN AN ENSURE APPROPRIATE SECURITY MEASUREZ.
@@ -179,8 +172,7 @@ IF U SET EVRYTHIN PROPERLY, `docker run` COMMAND ABOOV WILL MAK **[IPC](https://
 COMBININ WHOLE KNOWLEDGE ABOOV, AN EXAMPLE OV COMPLETE SETUP WUD LOOK LIEK DIS:
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 DIS ASSUMEZ DAT ULL USE SINGLE ASF CONTAINR, WIF ALL ASF CONFIG FILEZ IN `/home/archi/asf`. U SHUD MODIFY TEH CONFIG PATH 2 TEH WAN DAT MATCHEZ UR MACHINE. DIS SETUP IZ ALSO READY 4 OPSHUNAL IPC USAGE IF UVE DECIDD 2 INCLUDE `IPC.config` IN UR CONFIG DIRECTORY WIF CONTENT LIEK BELOW:
@@ -201,7 +193,7 @@ DIS ASSUMEZ DAT ULL USE SINGLE ASF CONTAINR, WIF ALL ASF CONFIG FILEZ IN `/home/
 
 ## PRO TIPS
 
-WHEN U ALREADY HAS UR ASF DOCKR CONTAINR READY, U DOAN HAS 2 USE `docker run` EVRY TIEM. U CAN EASILY STOP/START ASF DOCKR CONTAINR WIF `docker stop asf` AN `docker start asf`. KEEP IN MIND DAT IF URE NOT USIN `latest` TAG DEN UPDATIN ASF WILL STILL REQUIRE FRUM U 2 `docker stop`, `docker rm`, `docker pull` AN `docker run` AGAIN. DIS AR TEH CUZ U MUST REBUILD UR CONTAINR FRUM FRESH ASF DOCKR IMAGE EVRY TIEM U WANTS 2 USE ASF VERSHUN INCLUDD IN DAT IMAGE. IN `latest` TAG, ASF HAS INCLUDD CAPABILITY 2 AUTO-UPDATE ITSELF, SO REBUILDIN TEH IMAGE IZ NOT NECESARY 4 USIN UP-2-DATE ASF (BUT IZ STILL GUD IDEA 2 DO IT FRUM TIEM 2 TIEM IN ORDR 2 USE FRESH .NET CORE RUNTIME AN UNDERLYIN OS).
+WHEN U ALREADY HAS UR ASF DOCKR CONTAINR READY, U DOAN HAS 2 USE `docker run` EVRY TIEM. U CAN EASILY STOP/START ASF DOCKR CONTAINR WIF `docker stop asf` AN `docker start asf`. Keep in mind that if you're not using `latest` tag then using up-to-date ASF will still require from you to `docker stop`, `docker rm` and `docker run` again. DIS AR TEH CUZ U MUST REBUILD UR CONTAINR FRUM FRESH ASF DOCKR IMAGE EVRY TIEM U WANTS 2 USE ASF VERSHUN INCLUDD IN DAT IMAGE. IN `latest` TAG, ASF HAS INCLUDD CAPABILITY 2 AUTO-UPDATE ITSELF, SO REBUILDIN TEH IMAGE IZ NOT NECESARY 4 USIN UP-2-DATE ASF (BUT IZ STILL GUD IDEA 2 DO IT FRUM TIEM 2 TIEM IN ORDR 2 USE FRESH .NET CORE RUNTIME AN UNDERLYIN OS).
 
 AS HINTD BY ABOOV, ASF IN TAG OTHR THAN `latest` WONT AUTOMATICALLY UPDATE ITSELF, WHICH MEANZ DAT **U** R IN CHARGE OV USIN UP-2-DATE `justarchi/archisteamfarm` REPO. DIS HAS LOTZ DA ADVANTAGEZ AS TYPICALLY TEH APP SHUD NOT TOUCH ITZ OWN CODE WHEN BEAN RUN, BUT WE ALSO UNDERSTAND CONVENIENCE DAT COMEZ FRUM NOT HAVIN 2 WORRY BOUT ASF VERSHUN IN UR DOCKR CONTAINR. IF U CARE BOUT GUD PRACTICEZ AN PROPR DOCKR USAGE, `released` TAG IZ WUT WED SUGGEST INSTEAD OV `latest`, BUT IF U CANT BE BOTHERD WIF IT AN U JUS WANTS 2 MAK ASF BOTH WERK AN AUTO-UPDATE ITSELF, DEN `latest` WILL DO.
 

@@ -1,6 +1,6 @@
 # Hintergrundproduktschlüsselaktivierer (BGR)
 
-Der Hintergrundproduktschlüsselaktivierer ist ein speziell eingebautes ASF-Feature, mit dem Sie einen bestimmten Satz von Steam-Produktschlüsseln (zusammen mit ihren Namen) importieren können, damit diese dann im Hintergrund aktiviert werden. Das ist besonders nützlich, wenn Sie eine große Menge an Produktschlüsseln aktivieren möchten und so sicherlich den `RateLimited` **[Status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-de-DE#was-bedeutet-status-beim-einlösen-eines-produktschlüssels?)** erreichen, bevor Sie mit ihrer gesamten Charge fertig sind.
+Der Hintergrundproduktschlüsselaktivierer ist ein speziell eingebautes ASF-Feature, mit dem Sie einen bestimmten Satz von Steam-Produktschlüsseln (zusammen mit Ihren Namen) importieren können, damit diese dann im Hintergrund aktiviert werden. Das ist besonders nützlich, wenn Sie eine große Menge an Produktschlüsseln aktivieren möchten und so sicherlich den `RateLimited` **[Status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-de-DE#was-bedeutet-status-beim-einlösen-eines-produktschlüssels?)** erreichen, bevor Sie mit Ihrer gesamten Charge fertig sind.
 
 Der Hintergrundproduktschlüsselaktivierer bezieht sich nur auf eine einzelne Bot-Instanz, was bedeutet, dass `RedeemingPreferences` nicht berücksichtigt wird. Dieses Feature kann bei Bedarf zusammen mit dem (oder anstelle vom) `redeem` **[Befehl](https://github.com/JustArchi/ArchiSteamFarm/wiki/Commands-de-DE)** benutzt werden.
 
@@ -12,7 +12,7 @@ Der Importvorgang kann auf zwei Arten durchgeführt werden - entweder über eine
 
 ### Datei
 
-ASF erkennt in seinem `config`-Verzeichnis eine Datei mit dem Namen `BotName.keys`, wobei `BotName` der Name ihres Bots ist. Diese Datei hat eine erwartete und feste Struktur, bestehend aus dem Namen des Spiels und dessen Produktschlüssel, getrennt von einander durch ein Tab-Zeichen und endend mit einem Zeilenumbruch zur Kennzeichnung des nächsten Eintrags. Wenn mehrere Tabulatoren verwendet werden, dann gilt der erste Eintrag als Spielname, der letzte Eintrag als Produktschlüssel und alles dazwischen wird ignoriert. Zum Beispiel:
+ASF erkennt in seinem `config`-Verzeichnis eine Datei mit dem Namen `BotName.keys`, wobei `BotName` der Name Ihres Bots ist. Diese Datei hat eine erwartete und feste Struktur, bestehend aus dem Namen des Spiels und dessen Produktschlüssel, getrennt von einander durch ein Tab-Zeichen und endend mit einem Zeilenumbruch zur Kennzeichnung des nächsten Eintrags. Wenn mehrere Tabulatoren verwendet werden, dann gilt der erste Eintrag als Spielname, der letzte Eintrag als Produktschlüssel und alles dazwischen wird ignoriert. Zum Beispiel:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -30,7 +30,7 @@ POIUY-KJHGD-QWERT
 ZXCVB-ASDFG-QWERT
 ```
 
-Egal für welches Format Sie sich entschieden, ASF importiert ihre `keys`-Datei entweder beim Start des Bots oder später während der Ausführung. Nach dem erfolgreichen Parsen ihrer Datei und dem eventuellen Weglassen ungültiger Einträge werden alle ordnungsgemäß erkannten Spiele der Hintergrundwarteschlange hinzugefügt und die Datei `BotName.keys` selbst wird aus dem Verzeichnis `config` entfernt.
+Egal für welches Format Sie sich entschieden, ASF importiert Ihre `keys`-Datei entweder beim Start des Bots oder später während der Ausführung. Nach dem erfolgreichen Parsen Ihrer Datei und dem eventuellen Weglassen ungültiger Einträge werden alle ordnungsgemäß erkannten Spiele der Hintergrundwarteschlange hinzugefügt und die Datei `BotName.keys` selbst wird aus dem Verzeichnis `config` entfernt.
 
 ### IPC
 
@@ -66,4 +66,4 @@ Es ist auch möglich, zusätzliche Spiele zu importieren, während sich einige S
 
 Der BGR verwendet intern `OrderedDictionary`, was bedeutet, dass deine Produktschlüssel die Reihenfolge beibehalten werden, wie sie in der Datei (oder dem IPC-API-Aufruf) angegeben wurden. Das bedeutet, Sie können (und sollten) eine Liste erstellen, in der der angegebene Produktschlüssel nur direkte Abhängigkeiten von den weiter oben aufgeführten Produktschlüsseln haben kann, aber nicht von denen weiter unten. Zum Beispiel bedeutet dies, dass, wenn Sie DLC `D` haben, welches erfordert, dass das Spiel `G` zuerst aktiviert wird, dann sollte der Produktschlüssel für das Spiel `G` **immer** vor dem Produktschlüssel für DLC `D` enthalten sein. Dies gilt ebenfalls wenn das DLC `D` abhängig ist von `A`, `B` und `C`, dann sollten alle 3 vorher enthalten sein (in beliebiger Reihenfolge, es sei denn, es gäbe wiederum Abhängigkeiten untereinander).
 
-Wenn Sie dem obigen Schema nicht folgen, wird Ihr DLC nicht aktiviert und Sie erhältst `DoesNotOwnRequiredApp` als Rückmeldung, selbst wenn ihr Konto nach dem Durchlaufen der gesamten Warteschlange für die Aktivierung berechtigt wäre. Um dies zu vermeiden, sollten Sie sicherstellen, dass das DLC immer nach dem Basis-Spiel in deiner Warteschlange steht.
+Wenn Sie dem obigen Schema nicht folgen, wird Ihr DLC nicht aktiviert und Sie erhältst `DoesNotOwnRequiredApp` als Rückmeldung, selbst wenn Ihr Konto nach dem Durchlaufen der gesamten Warteschlange für die Aktivierung berechtigt wäre. Um dies zu vermeiden, sollten Sie sicherstellen, dass das DLC immer nach dem Basis-Spiel in deiner Warteschlange steht.

@@ -40,7 +40,7 @@ We generally discourage trying `main` builds, just like automated AppVeyor build
 
 ASF docker image is currently built on `linux` platform with 3 architectures - `x64`, `arm` and `arm64`. 더 많은 정보는 **[호환성](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR)** 항목을 참고하십시오.
 
-Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker pull`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
+Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker run`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
 
 * * *
 
@@ -53,19 +53,17 @@ Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which me
 먼저 도커가 정상적으로 작동하는지 확인해야합니다. 이것이 ASF의 "Hello World!" 입니다.
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it --name asf --rm justarchi/archisteamfarm
+docker run -it --name asf --pull always --rm justarchi/archisteamfarm
 ```
 
-캐시에 오래된 사본이 있을수 있으므로 `docker pull` 명령으로 최신의 `justarchi/archisteamfarm` 이미지를 사용하고 있음을 확인합니다. `docker run` 으로 당신의 새로운 ASF 도커 컨테이너를 생성하고 전경에서 실행되도록 합니다(`-it`). 지금은 잘 작동하는지 단지 테스트하는 중이므로, `--rm` 으로 컨테이너가 멈추면 제거하도록 합니다.
+`docker run` 으로 당신의 새로운 ASF 도커 컨테이너를 생성하고 전경에서 실행되도록 합니다(`-it`). `--pull always` ensures that up-to-date image will be pulled first, and `--rm` ensures that our container will be purged once stopped, since we're just testing if everything works fine for now.
 
 모든것이 성공적으로 끝나면, 모든 레이어를 당기고 컨테이너를 시작한 뒤 ASF가 정상적으로 시작해서 정의된 봇이 없다고 알리고 있음을 알게 됩니다. ASF가 도커에서 정상적으로 작동하고 있습니다. `CTRL+P`와 `CTRL+Q`를 순서대로 눌러서 전경 도커 컨테이너에서 빠져나옵니다. 그리고 `docker stop asf`를 입력해 ASF를 중지합니다.
 
 명령어를 자세히 봤다면 태그를 선언하지 않았음을 알게 되었을 겁니다. 태그는 자동으로 기본값인 `latest` 가 됩니다. If you want to use other tag than `latest`, for example `released`, then you should declare it explicitly:
 
 ```shell
-docker pull justarchi/archisteamfarm:released
-docker run -it --name asf --rm justarchi/archisteamfarm:released
+docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 ```
 
 * * *
@@ -77,8 +75,7 @@ ASF를 도커 컨테이너에서 사용하고 있다면 프로그램 자체를 �
 예를 들어, 당신의 ASF 환경설정 폴더가 `/home/archi/ASF/config` 디렉토리에 있다고 가정합니다. 이 디렉토리는 핵심 `ASF.json`과 실행하려는 봇이 담겨 있습니다. 이제 할일은 단순히 이 디렉토리를 도커 컨테이너에 공유볼륨으로 붙이는 것입니다. ASF는 여기에 환경설정 디렉토리(`/app/config`)가 있다고 생각합니다.
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
+docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 그러면 끝입니다. 이제 ASF 도커 컨테이너는 로컬 기기에 있는 공유 디렉토리를 읽기-쓰기 모드로 사용하고, 이는 ASF를 설정하는데 필요한 전부입니다. In similar way you can mount other volumes that you'd like to share with ASF, such as `/app/logs` or `/app/plugins`.
@@ -92,8 +89,7 @@ ASF는 기본적으로 컨테이너 내부에서 기본값인 `root` 사용자�
 도커는 `docker run` 명령어에 `--user` **[플래그](https://docs.docker.com/engine/reference/run/#user)** 를 전달하여 ASF를 실행할 기본 사용자를 정의할 수 있습니다. 예를 들어 `id` 명령어를 통해 `uid`와 `gid`를 확인하고 이를 명령어의 일부로 줄 수 있습니다. 예를 들어, 해당 사용자의 `uid`와 `gid`가 1000 인 경우,
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
+docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 기본적으로 ASF가 사용하는 `/app` 디렉토리는 여전히 `root`의 소유임을 명심하십시오. ASF를 다른 사용자로 실행하면 ASF 프로세스는 파일에 쓰기 권한을 갖지 못합니다. 쓰기 권한은 작업에 필수적인 것은 아니지만 자동 업데이트 기능 등에서는 치명적입니다. 이를 수정하기 위해서는 모든 ASF 파일을 기본 `root`에서 새 사용자로 소유권을 변경하는 것만으로 충분합니다.
@@ -114,9 +110,8 @@ By default, each ASF running inside a docker container is standalone, which mean
 
 ```shell
 mkdir -p /tmp/ASF-g1
-docker pull justarchi/archisteamfarm
-docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 justarchi/archisteamfarm
-docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 justarchi/archisteamfarm
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 --pull always justarchi/archisteamfarm
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 --pull always justarchi/archisteamfarm
 # And so on, all ASF containers are now synchronized with each other
 ```
 
@@ -133,8 +128,7 @@ Mounting `/tmp/ASF` is completely optional and actually not recommended, unless 
 ASF는 환경변수를 통해 **[명령줄 인자](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ko-KR)** 를 도커 컨테이너로 넘겨줄 수 있습니다. 지원하는 스위치를 위해서는 특별한 환경변수를, 그 외에는 `ASF_ARGS` 를 사용해야 합니다. `docker run` 에 `-e` 스위치를 붙이면 됩니다. 다음은 예시입니다.
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
+docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf --pull always justarchi/archisteamfarm
 ```
 
 이렇게 하면 `--cryptkey` 인자 뿐 아니라 다른 인자들도 도커 컨테이너 내부에서 실행되는 ASF 프로세스로 전달할 것입니다. Of course, if you're advanced user then you can also modify `ENTRYPOINT` or add `CMD` and pass your custom arguments yourself.
@@ -166,8 +160,7 @@ IPC를 루프백이 아닌 인터페이스에 설정하고 나면, `-P` 나 `-p`
 예를 들어, 이 명령어는 ASF의 IPC 인터페이스를 호스트 기기에 열 것입니다.
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull always justarchi/archisteamfarm
 ```
 
 모든 것을 정확하게 설정했다면 위의 `docker run` 명령어는 호스트 기기의 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)** 인터페이스가 게스트 기기로 리다이렉트된 표준 `localhost:1242` 라우트에서동작하도록 할 것입니다. 이 라우트를 더 많이 노출하지 않음을 알아 두십시오. 연결은 오직 도커 호스트안에서만 이루어지고 안전하게 유지됩니다. Of course, you can expose the route further if you know what you're doing and ensure appropriate security measures.
@@ -179,8 +172,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/ar
 위의 지식을 모두 합치면 완전한 설치 예시는 다음과 같습니다.
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 This assumes that you'll use a single ASF container, with all ASF config files in `/home/archi/asf`. You should modify the config path to the one that matches your machine. 다음과 같은 `IPC.config` 를 환경설정 디렉토리에 넣기로 결정했다면 추가로 IPC 사용도 가능합니다.
@@ -201,7 +193,7 @@ This assumes that you'll use a single ASF container, with all ASF config files i
 
 ## 프로 팁
 
-ASF 도커 컨테이너가 준비되어있다면 `docker run`를 매번 실행할 필요가 없습니다. `docker stop asf`와 `docker start asf`로 ASF 도커 컨테이너를 쉽게 멈추고 시작할 수 있습니다. `latest` 태그를 사용하고 있지 않다면 ASF를 업데이트 하는 경우 `docker stop`, `docker rm`, `docker pull`, `docker run` 을 다시 한번 실행해야 함을 명심하십시오. 이는 매 버전마다 새로운 ASF 도커 이미지로부터 다시 빌드해야 하기 때문입니다. `latest` 태그에서는 ASF가 스스로 자동 업데이트할 수 있으며, 최신 ASF를 사용하는데 이미지를 다시 빌드할 필요가 없습니다. 물론 새로운 .NET Core 런타임과 그 밑의 OS를 사용하기 위해 때때로 다시 빌드하는 것도 좋은 생각입니다.
+ASF 도커 컨테이너가 준비되어있다면 `docker run`를 매번 실행할 필요가 없습니다. `docker stop asf`와 `docker start asf`로 ASF 도커 컨테이너를 쉽게 멈추고 시작할 수 있습니다. Keep in mind that if you're not using `latest` tag then using up-to-date ASF will still require from you to `docker stop`, `docker rm` and `docker run` again. 이는 매 버전마다 새로운 ASF 도커 이미지로부터 다시 빌드해야 하기 때문입니다. `latest` 태그에서는 ASF가 스스로 자동 업데이트할 수 있으며, 최신 ASF를 사용하는데 이미지를 다시 빌드할 필요가 없습니다. 물론 새로운 .NET Core 런타임과 그 밑의 OS를 사용하기 위해 때때로 다시 빌드하는 것도 좋은 생각입니다.
 
 위에서 암시하였듯이, `latest` 가 아닌 ASF 태그는 스스로 자동 업데이트하지 않습니다. 즉, **당신이** 최신의 `justarchi/archisteamfarm` 저장소를 사용할 주체입니다. 보통 앱이 실행중에는 코드를 건드려서는 안되기 때문에 많은 장점을 갖지만, 도커 컨테이너에 있는 ASF는 걱정할 필요가 없다는 편리함도 있습니다. 좋은 사례와 정확한 도커 사용례를 잘 살핀다면 우리가 추천하는 것은 `latest` 태그가 아닌 `released` 태그입니다. 하지만 그게 귀찮고 ASF가 동작도 잘하고 자동 업데이트도 하길 원하면 `latest` 태그가 그 답입니다.
 

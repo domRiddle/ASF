@@ -39,7 +39,7 @@ ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 建议您根据�
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="*" />
+    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>

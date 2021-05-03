@@ -39,7 +39,7 @@ IF U DID EVRYTHIN PROPERLY, UR `csproj` WILL BE SIMILAR 2 BELOW:
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="*" />
+    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>

@@ -40,7 +40,7 @@ ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archi
 
 ASF Docker 映像目前基于 `linux` 平台构建，支持 3 种架构——`x64`、`arm` 和 `arm64`。 您可以阅读&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解更多。
 
-从 ASF V5.0.2.2 版本开始，我们的标签已使用多平台 Manifest，这意味着您机器上的 Docker 会在您拉取时自动按照平台选择合适的映像。 如果您需要拉取某个不符合当前平台的映像，您可以为相应的 docker 命令，例如 `docker pull` 指定 `--platform` 参数。 您可以查看 Docker 的 **[Image Manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** 文档了解更多。
+从 ASF V5.0.2.2 版本开始，我们的标签已使用多平台 Manifest，这意味着您机器上的 Docker 会在您拉取时自动按照平台选择合适的映像。 如果您需要拉取某个不符合当前平台的映像，您可以为相应的 docker 命令，例如 `docker run` 指定 `--platform` 参数。 您可以查看 Docker 的 **[Image Manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** 文档了解更多。
 
 * * *
 
@@ -53,19 +53,17 @@ ASF Docker 映像目前基于 `linux` 平台构建，支持 3 种架构——`x6
 首先，我们应该验证 Docker 是否工作正常，这将是我们 ASF 的“Hello World”：
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it --name asf --rm justarchi/archisteamfarm
+docker run -it --name asf --pull always --rm justarchi/archisteamfarm
 ```
 
-`docker pull` 命令确保您使用的 `justarchi/archisteamfarm` 映像是最新的，防止您本地有旧版映像的副本。 `docker run` 会为您创建一个新的 ASF Docker 容器，并在前台运行它（`-it` 参数）。 `--rm` 参数用于确保我们的容器在停止之后会被完整删除，因为我们现在只是想测试一下是否一切正常，不需要保留。
+`docker run` 会为您创建一个新的 ASF Docker 容器，并在前台运行它（`-it` 参数）。 `--pull always` 用于确保首先拉取最新的映像，`--rm` 参数用于确保我们的容器在停止之后会被完整删除，因为我们现在只是想测试一下是否一切正常，不需要保留。
 
 如果一切正常，在拉取所有层并启动容器后，您应该注意到 ASF 已正确启动并通知我们目前没有任何机器人，这是正常的——我们已经验证了 Docker 中的 ASF 运行正常。 按下 `CTRL+P` 和 `CTRL+Q` 以退出前台 Docker 容器，然后执行 `docker stop asf` 命令停止该容器。
 
 如果您仔细观察这些命令就会发现我们没有指定任何分支，实际上使用的是默认的 `latest` 分支。 如果您希望使用非 `latest` 分支，例如 `released`，就应该显式地指明：
 
 ```shell
-docker pull justarchi/archisteamfarm:released
-docker run -it --name asf --rm justarchi/archisteamfarm:released
+docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 ```
 
 * * *
@@ -77,8 +75,7 @@ docker run -it --name asf --rm justarchi/archisteamfarm:released
 例如，我们假设您的 ASF 配置文件夹位于 `/home/archi/ASF/config` 目录。 这个目录包含了核心的 `ASF.json` 以及机器人配置。 现在，我们只需要将这个目录作为共享数据卷附加到 Docker 容器内 ASF 的配置文件夹（`/app/config`）。
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
+docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 就这样，现在 ASF Docker 容器将会以读写模式使用您本地的共享目录，您可以在其中对 ASF 进行一切配置。 您可以用同样方式挂载 ASF 的其他目录，例如 `/app/logs` 或 `/app/plugins`。
@@ -92,8 +89,7 @@ docker run -it -v /home/archi/ASF/config:/app/config --name asf justarchi/archis
 Docker 允许您向 `docker run` 命令传递 `--user` **[参数](https://docs.docker.com/engine/reference/run/#user)**，定义运行 ASF 的默认用户。 您可以通过 `id` 命令等查询您的 `uid` 和 `gid`，然后将其放到命令参数中传递。 例如，假设您的目标用户的 `uid` 和 `gid` 都为 1000：
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf justarchi/archisteamfarm
+docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 请记住，在默认情况下，ASF 使用的 `/app` 目录仍然为 `root` 用户所有。 如果您在自定义用户下运行 ASF，则 ASF 进程将没有权限向自己的文件写入内容。 该权限不是必需的，但对于某些功能来说很重要，例如自动更新功能。 为了解决这个问题，只需要将所有 ASF 文件的所有者从默认的 `root` 更改为您设定的新用户。
@@ -114,9 +110,8 @@ ASF 支持多实例同步，如&#8203;**[兼容性](https://github.com/JustArchi
 
 ```shell
 mkdir -p /tmp/ASF-g1
-docker pull justarchi/archisteamfarm
-docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 justarchi/archisteamfarm
-docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 justarchi/archisteamfarm
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 --pull always justarchi/archisteamfarm
+docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 --pull always justarchi/archisteamfarm
 # 以此类推，所有 ASF 容器都会互相同步
 ```
 
@@ -133,8 +128,7 @@ docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name a
 ASF 允许您通过设定环境变量，来向 Docker 容器内传递&#8203;**[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**。 对于部分受支持的参数，您应该使用特定的环境变量，而 `ASF_ARGS` 适用于其他参数。 您可以向 `docker run` 命令添加 `-e` 参数，例如：
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf justarchi/archisteamfarm
+docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf --pull always justarchi/archisteamfarm
 ```
 
 这会把您的 `--cryptkey` 以及其他参数正确地传递给 Docker 容器内部的 ASF 进程。 当然，如果您是一名高级用户，也可以修改 `ENTRYPOINT`，或者添加 `CMD`，以手动传递自定义参数。
@@ -166,8 +160,7 @@ docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --n
 例如，此命令将会把 ASF IPC 接口暴露给（仅限）宿主机：
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull always justarchi/archisteamfarm
 ```
 
 如果一切设置正确，上面的 `docker run` 命令将会使 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 接口在宿主机上正常工作，标准的 `localhost:1242` 路由已经被正确重定向到客户机上。 值得注意的是，我们没有进一步暴露此路由，因此只有 Docker 宿主机能够成功连接，确保了接口的安全性。 当然，如果您知道您在做什么，并且确保采取适当的安全措施，也可以进一步暴露此路由。
@@ -179,8 +172,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf justarchi/ar
 结合上述的全部内容，完整安装的一个示例如下所示：
 
 ```shell
-docker pull justarchi/archisteamfarm
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 此示例假定您将使用单个 ASF 容器，所有配置文件都放在 `/home/archi/asf`。 您需要修改此处的配置文件路径以匹配您的环境。 如果您打算编写内容如下的 `IPC.config` 配置文件，则此 ASF 也能够正常启用 IPC 接口：
@@ -201,7 +193,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app
 
 ## 高级技巧
 
-在安装好 ASF Docker 容器之后，您不再需要每次使用 `docker run` 命令。 您可以通过 `docker stop asf` 和 `docker start asf` 命令方便地停止/启动 ASF 容器。 请记住，如果您使用的不是 `latest` 分支，则您仍然需要执行 `docker stop`、`docker rm`、`docker pull` 和 `docker run` 这一系列命令来更新 ASF。 这是因为每次要使用映像内包含的版本时，您必须从新的 ASF Docker 映像重建容器。 在 `latest` 分支中，ASF 已经能够自动更新自己，所以您不需要重建映像就可以保证 ASF 为最新（但为了使用最新的 .NET Core 运行时环境和底层操作系统，有时仍然需要重建映像）。
+在安装好 ASF Docker 容器之后，您不再需要每次使用 `docker run` 命令。 您可以通过 `docker stop asf` 和 `docker start asf` 命令方便地停止/启动 ASF 容器。 请记住，如果您使用的不是 `latest` 分支，则您仍然需要执行 `docker stop`、`docker rm` 和 `docker run` 这一系列命令来使用新版 ASF。 这是因为每次要使用映像内包含的版本时，您必须从新的 ASF Docker 映像重建容器。 在 `latest` 分支中，ASF 已经能够自动更新自己，所以您不需要重建映像就可以保证 ASF 为最新（但为了使用最新的 .NET Core 运行时环境和底层操作系统，有时仍然需要重建映像）。
 
 正如上文所述，非 `latest` 分支中的 ASF 不会自动更新，这意味着**您**必须为使用最新 `justarchi/archisteamfarm` 仓库负责。 这种方式有很多优势，因为通常应用程序不应该在运行时修改自己的代码，但我们也理解无需关心容器内 ASF 版本的便利。 如果您关心最佳实践并且希望正确使用 Docker，我们更建议使用 `released` 而非 `latest` 分支，但如果您不在意这些，只想让 ASF 正常工作并且自动更新，则 `latest` 分支足矣。
 
