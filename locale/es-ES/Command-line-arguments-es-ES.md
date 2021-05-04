@@ -4,7 +4,7 @@ ASF incluye soporte para varios argumentos de la línea de comandos que pueden a
 
 * * *
 
-## Utilización
+## Uso
 
 El uso depende de tu Sistema Operativo y la versión de ASF.
 
