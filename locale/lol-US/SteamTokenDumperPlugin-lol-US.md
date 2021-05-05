@@ -36,11 +36,11 @@ IN ANY CASE, STEAMDB STAFF WUD LIEK 2 THANK U IN ADVANCE 4 UR HALP. TEH SUBMITTD
 
 ---
 
-## Advanced config
+## ADVANCD CONFIG
 
-Starting with ASF V5.0.7.0, our plugin supports advanced config which might come useful for people that would like to tweak the internals to their preference.
+STARTIN WIF ASF V5.0.7.0, R PLUGIN SUPPORTS ADVANCD CONFIG WHICH MITE COME USEFUL 4 PEEPS DAT WUD LIEK 2 TWEAK TEH INTERNALS 2 THEIR PREFERENCE.
 
-The advanced config has the following structure located within `ASF.json`:
+TEH ADVANCD CONFIG HAS TEH FOLLOWIN STRUCCHUR LOCATD WITHIN `ASF.json`:
 
 ```json
 {
@@ -58,37 +58,37 @@ ALL OPSHUNS R EXPLAIND BELOW:
 
 ### `Enabled`
 
-`bool` TYPE WIF DEFAULT VALUE OV `false`. This property acts the same as `SteamTokenDumperPluginEnabled` root-level property explained above, and can be used instead, dedicated to people that would prefer to have entire plugin-related config in its own structure (so most likely those already using other advanced properties explained below).
+`bool` TYPE WIF DEFAULT VALUE OV `false`. DIS PROPERTY ACTS TEH SAME AS `SteamTokenDumperPluginEnabled` ROOT-LEVEL PROPERTY EXPLAIND ABOOV, AN CAN BE USD INSTEAD, DEDICATD 2 PEEPS DAT WUD PREFR 2 HAS ENTIRE PLUGIN-RELATD CONFIG IN ITZ OWN STRUCCHUR (SO MOST LIKELY DOSE ALREADY USIN OTHR ADVANCD PROPERTIEZ EXPLAIND BELOW).
 
 ---
 
 ### `SecretAppIDs`
 
-`ImmutableHashSet<uint>` TYPE WIF DEFAULT VALUE OV BEAN EMPTY. This property specifies `appIDs` that the plugin won't resolve, and if they're already resolved, won't submit the token for. This property can be useful for people with access to potentially-sensitive information about unpublished items, especially the developers, publishers or closed beta testers.
+`ImmutableHashSet<uint>` TYPE WIF DEFAULT VALUE OV BEAN EMPTY. DIS PROPERTY SPECIFIEZ `appIDs` DAT TEH PLUGIN WONT RESOLVE, AN IF THEYRE ALREADY RESOLVD, WONT SUBMIT TEH TOKEN 4. DIS PROPERTY CAN BE USEFUL 4 PEEPS WIF ACCES 2 POTENTIALLY-SENSITIV INFORMASHUN BOUT UNPUBLISHD ITEMS, ESPECIALLY TEH DEVELOPERS, PUBLISHERS OR CLOSD BETA TESTERS.
 
 ---
 
 ### `SecretDepotIDs`
 
-`ImmutableHashSet<uint>` TYPE WIF DEFAULT VALUE OV BEAN EMPTY. This property specifies `depotIDs` that the plugin won't resolve, and if they're already resolved, won't submit the key for. This property can be useful for people with access to potentially-sensitive information about unpublished items, especially the developers, publishers or closed beta testers.
+`ImmutableHashSet<uint>` TYPE WIF DEFAULT VALUE OV BEAN EMPTY. DIS PROPERTY SPECIFIEZ `depotIDs` DAT TEH PLUGIN WONT RESOLVE, AN IF THEYRE ALREADY RESOLVD, WONT SUBMIT TEH KEY 4. DIS PROPERTY CAN BE USEFUL 4 PEEPS WIF ACCES 2 POTENTIALLY-SENSITIV INFORMASHUN BOUT UNPUBLISHD ITEMS, ESPECIALLY TEH DEVELOPERS, PUBLISHERS OR CLOSD BETA TESTERS.
 
 ---
 
 ### `SecretPackageIDs`
 
-`ImmutableHashSet<uint>` TYPE WIF DEFAULT VALUE OV BEAN EMPTY. This property specifies `packageIDs` (also known as `subIDs`) that the plugin won't resolve, and if they're already resolved, won't submit the token for. This property can be useful for people with access to potentially-sensitive information about unpublished items, especially the developers, publishers or closed beta testers.
+`ImmutableHashSet<uint>` TYPE WIF DEFAULT VALUE OV BEAN EMPTY. DIS PROPERTY SPECIFIEZ `packageIDs` (ALSO KNOWN AS `subIDs`) DAT TEH PLUGIN WONT RESOLVE, AN IF THEYRE ALREADY RESOLVD, WONT SUBMIT TEH TOKEN 4. DIS PROPERTY CAN BE USEFUL 4 PEEPS WIF ACCES 2 POTENTIALLY-SENSITIV INFORMASHUN BOUT UNPUBLISHD ITEMS, ESPECIALLY TEH DEVELOPERS, PUBLISHERS OR CLOSD BETA TESTERS.
 
 ---
 
 ### `SkipAutoGrantPackages`
 
-`bool` TYPE WIF DEFAULT VALUE OV `false`. This property acts very similar to `SecretPackageIDs` and when enabled, will cause packages with `EPaymentMethod` of `AutoGrant` to be skipped during resolve routine explained below. `AutoGrant` payment method is used by **[Steamworks](https://partner.steamgames.com)** to automatically grant packages on developer accounts. While this is not as explicit as other `Secret` options, and therefore doesn't guarantee anything (since you might have other packages than `AutoGrant` that you still don't want to submit), it should be good enough for skipping majority, if not all, of the secret packages.
+`bool` TYPE WIF DEFAULT VALUE OV `false`. DIS PROPERTY ACTS VRY SIMILAR 2 `SecretPackageIDs` AN WHEN ENABLD, WILL CAUSE PACKAGEZ WIF `EPaymentMethod` OV `AutoGrant` 2 BE SKIPPD DURIN RESOLVE ROUTINE EXPLAIND BELOW. `AutoGrant` PAYMENT METHOD IZ USD BY **[STEAMWORKZ](https://partner.steamgames.com)** 2 AUTOMATICALLY GRANT PACKAGEZ ON DEVELOPR ACCOUNTS. WHILE DIS AR TEH NOT AS EXPLICIT AS OTHR `Secret` OPSHUNS, AN THEREFORE DOESNT GUARANTEE ANYTHIN (SINCE U MITE HAS OTHR PACKAGEZ THAN `AutoGrant` DAT U STILL DOAN WANTS 2 SUBMIT), IT SHUD BE GUD ENOUGH 4 SKIPPIN MAJORITY, IF NOT ALL, OV TEH SEEKRET PACKAGEZ.
 
 ---
 
-## Further explanation
+## FURTHR EXPLANASHUN
 
-At the root level, every Steam account owns a set of packages (licenses, subscriptions), which are classified by their `packageID` (also known as `subID`). Every package may contain several apps classified by their `appID`. Every app may then include several depots classified by their `depotID`.
+AT TEH ROOT LEVEL, EVRY STEAM AKOWNT OWNS SET OV PACKAGEZ (LICENSEZ, SUBSCRIPSHUNS), WHICH R CLASIFID BY THEIR `packageID` (ALSO KNOWN AS `subID`). EVRY PACKAGE CUD CONTAIN SEVERAL APPS CLASIFID BY THEIR `appID`. EVRY APP CUD DEN INCLUDE SEVERAL DEPOTS CLASIFID BY THEIR `depotID`.
 
 ```text
 ├── sub/124923
@@ -101,10 +101,10 @@ At the root level, every Steam account owns a set of packages (licenses, subscri
 └── ...
 ```
 
-Our plugin includes two routines which take into account skipped items - the resolve routine and submission routine.
+R PLUGIN INCLUDEZ 2 ROUTINEZ WHICH TAEK INTO AKOWNT SKIPPD ITEMS - TEH RESOLVE ROUTINE AN SUBMISHUN ROUTINE.
 
-The resolve routine is responsible for resolving the tree you can see above. By blacklisting the packages/apps/depots in advance, you'll effectively cut the tree in the place of blacklisted branch/leaf without additional need of specifying the remaining parts of it. In our example above, if `124923` package was ignored, whether by `SecretPackageIDs` or `SkipAutoGrantPackages`, and it was the only package you own which linked to the `292030` appID, then appID `292030` wouldn't get resolved either, and by definition, if there were no other resolved apps which linked to the `292031` and `378648` depots, then they wouldn't get resolved either. However, keep in mind that if the plugin has already resolved the tree, then effectively this will only stop given item from being updated (e.g. new apps added), it will not make the plugin "forget" about the existing items that were already resolved (e.g. apps found in that package before you decided to blacklist it).
+TEH RESOLVE ROUTINE IZ RESPONSIBLE 4 RESOLVIN TEH TREE U CAN C ABOOV. BY BLACKLISTIN TEH PACKAGEZ/APPS/DEPOTS IN ADVANCE, ULL EFFECTIVELY CUT TEH TREE IN DA PLACE OV BLACKLISTD BRANCH/LEAF WITHOUT ADDISHUNAL NED OV SPECIFYIN TEH REMAININ PARTS OV IT. IN R EXAMPLE ABOOV, IF `124923` PACKAGE WUZ IGNORD, WHETHR BY `SecretPackageIDs` OR `SkipAutoGrantPackages`, AN IT WUZ TEH ONLY PACKAGE U OWN WHICH LINKD 2 TEH `292030` APPID, DEN APPID `292030` WOULDNT GIT RESOLVD EITHR, AN BY DEFINISHUN, IF THAR WUZ NO OTHR RESOLVD APPS WHICH LINKD 2 TEH `292031` AN `378648` DEPOTS, DEN THEY WOULDNT GIT RESOLVD EITHR. HOWEVR, KEEP IN MIND DAT IF TEH PLUGIN HAS ALREADY RESOLVD TEH TREE, DEN EFFECTIVELY DIS WILL ONLY STOP GIVEN ITEM FRUM BEAN UPDATD (E.G. NEW APPS ADDD), IT WILL NOT MAK TEH PLUGIN "FORGET" BOUT TEH EXISTIN ITEMS DAT WUZ ALREADY RESOLVD (E.G. APPS FINDZ IN DAT PACKAGE BEFORE U DECIDD 2 BLACKLIST IT).
 
-The submission routine is responsible for submitting package tokens, app tokens and depot keys of already resolved items (by the resolve routine above). Here your blacklist has immediate effect, as even if the plugin has already resolved the info, the submission routine will not actually submit it over to SteamDB if you have it blacklisted, regardless if it has been resolved or not. Keep in mind however that we're not talking about the tree anymore at this point, the submission routine does not know whether the information about the app comes from this or that package, so it only skips information about particular, blacklisted items, regardless of the relation they're in with other.
+TEH SUBMISHUN ROUTINE IZ RESPONSIBLE 4 SUBMITTIN PACKAGE TOKENS, APP TOKENS AN DEPOT KEYS OV ALREADY RESOLVD ITEMS (BY TEH RESOLVE ROUTINE ABOOV). HER UR BLACKLIST HAS IMMEDIATE EFFECT, AS EVEN IF TEH PLUGIN HAS ALREADY RESOLVD TEH INFO, TEH SUBMISHUN ROUTINE WILL NOT AKSHULLY SUBMIT IT OVAR 2 STEAMDB IF U HAS IT BLACKLISTD, REGARDLES IF IT HAS BEEN RESOLVD OR NOT. KEEP IN MIND HOWEVR DAT WERE NOT TALKIN BOUT TEH TREE NOMORE AT DIS POINT, TEH SUBMISHUN ROUTINE DOEZ NOT KNOE WHETHR TEH INFORMASHUN BOUT TEH APP COMEZ FRUM DIS OR DAT PACKAGE, SO IT ONLY SKIPS INFORMASHUN BOUT PARTICULAR, BLACKLISTD ITEMS, REGARDLES OV TEH RELASHUN THEYRE IN WIF OTHR.
 
-For majority of the developers and publishers, it should be enough to enable `SkipAutoGrantPackages`, potentially empowered with `SecretPackageIDs` only, as it effectively cuts the tree at the beginning branch and guarantees that the apps and depots included further will not get submitted as long as there is no other package linking to the same app. If you want to be double sure, in addition to that you can also use `SecretAppIDs`, which will skip the resolve of the app even if there are some other licenses you didn't blacklist linking to it. Using `SecretDepotIDs` should not be needed, unless you have a particular, specific need (such as skipping only a particular depot while still submitting info about packages and apps), or if you want to add yet another layer to be triple safe.
+4 MAJORITY OV TEH DEVELOPERS AN PUBLISHERS, IT SHUD BE ENOUGH 2 ENABLE `SkipAutoGrantPackages`, POTENTIALLY EMPOWERD WIF `SecretPackageIDs` ONLY, AS IT EFFECTIVELY CUTS TEH TREE AT TEH BEGINNIN BRANCH AN GUARANTEEZ DAT TEH APPS AN DEPOTS INCLUDD FURTHR WILL NOT GIT SUBMITTD AS LONG AS THAR IZ NO OTHR PACKAGE LINKIN 2 TEH SAME APP. IF U WANTS 2 BE DOUBLE SURE, IN ADDISHUN 2 DAT U CAN ALSO USE `SecretAppIDs`, WHICH WILL SKIP TEH RESOLVE OV TEH APP EVEN IF THAR R SUM OTHR LICENSEZ U DIDNT BLACKLIST LINKIN 2 IT. USIN `SecretDepotIDs` SHUD NOT BE NEEDD, UNLES U HAS PARTICULAR, SPECIFIC NED (SUCH AS SKIPPIN ONLY PARTICULAR DEPOT WHILE STILL SUBMITTIN INFO BOUT PACKAGEZ AN APPS), OR IF U WANTS 2 ADD YET ANOTHR LAYR 2 BE TRIPLE SAFE.

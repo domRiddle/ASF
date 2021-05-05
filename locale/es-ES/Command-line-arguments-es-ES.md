@@ -6,7 +6,7 @@ ASF incluye soporte para varios argumentos de la línea de comandos que pueden a
 
 ## Uso
 
-El uso depende de tu Sistema Operativo y la versión de ASF.
+El uso depende de tu sistema operativo y la variante de ASF.
 
 Genérico:
 
@@ -31,11 +31,11 @@ Los argumentos de la línea de comandos también están soportados en scripts de
 Si tu argumento incluye espacios, no olvides ponerlo entre comillas. Estos dos están mal:
 
 ```shell
-./ArchiSteamFarm --path /home/archi/Mis Descargas/ASF # Mal!
-./ArchiSteamFarm --path=/home/archi/Mis Descargas/ASF # Mal!
+./ArchiSteamFarm --path /home/archi/Mis Descargas/ASF # ¡Mal!
+./ArchiSteamFarm --path=/home/archi/Mis Descargas/ASF # ¡Mal!
 ```
 
-Sin embargo, éstas dos están perfectamente bien:
+Sin embargo, estos dos están completamente bien:
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/Mis Descargas/ASF" # OK

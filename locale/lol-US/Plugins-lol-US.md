@@ -45,7 +45,7 @@ IF U DID EVRYTHIN PROPERLY, UR `csproj` WILL BE SIMILAR 2 BELOW:
   <ItemGroup>
     <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
 
-    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
+    <!-- IF BUILDIN AS PART OV ASF SOURCE TREE, USE DIS INSTEAD OV <Reference> ABOOV -->
     <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
