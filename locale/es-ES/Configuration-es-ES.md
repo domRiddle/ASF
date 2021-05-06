@@ -798,7 +798,7 @@ Si no estás seguro de cómo establecer esta propiedad, déjala con su valor pre
 
 ## Estructura de archivos
 
-ASF usa una está de archivos bastante sencilla.
+ASF usa una estructura de archivos bastante sencilla.
 
 ```text
 ├── config
