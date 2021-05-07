@@ -175,24 +175,24 @@ Puedes usar un nombre, que no distingue mayúsculas, o un valor numérico. Los a
 
 ### Ejemplo
 
-Si quieres establecer **todos** los ajustes de privacidad de tu bot llamado `Principal` a `Private` privado, puedes usar cualquiera de los siguientes:
+Si quieres establecer **todos** los ajustes de privacidad de tu bot llamado `Main` a `Private` privado, puedes usar cualquiera de los siguientes:
 
 ```text
-privacy Principal 1
-privacy Principal Private
+privacy Main 1
+privacy Main Private
 ```
 
 Esto es porque ASF asumirá automáticamente que todos los demás ajustes son `Private` privados, así que no hay necesidad de introducirlos. Por otra parte, si quieres establecer todos los ajustes de privacidad a `Public` público, entonces deberías usar cualquiera de los siguientes:
 
 ```text
-privacy Principal 3,3,3,3,3,3,3
-privacy Principal Public,Public,Public,Public,Public,Public,Public
+privacy Main 3,3,3,3,3,3,3
+privacy Main Public,Public,Public,Public,Public,Public,Public
 ```
 
 De esta manera también puedes establecer opciones independientes de la forma que quieras:
 
 ```text
-privacy Principal Public,FriendsOnly,Private,Public,Public,Private,Public
+privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 ```
 
 Lo anterior establecerá el perfil a público, los juegos poseídos a solo amigos, el tiempo de juego a privado, la lista de amigos a público, el inventario a público, el inventario de regalos a privado y los comentarios en el perfil a público. Puedes lograr lo mismo con valores numéricos si así lo quieres.
