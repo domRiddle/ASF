@@ -1,14 +1,14 @@
 # Compilación
 
-La compilación es el proceso de crear un archivo ejecutable. Esto es lo que quieres hacer si quieres añadir tus propios cambios a ASF, o si por cualquier razón no confías en los archivos ejecutables proporcionados en las **[versiones](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** oficiales. Si eres usuario y no desarrollador, lo más probable es que quieras usar ejecutables ya compilados, pero si quieres usar los tuyos propios, a aprender algo nuevo, continua leyendo.
+La compilación es el proceso de crear un archivo ejecutable. Esto es lo que necesitas hacer si deseas añadir tus propios cambios a ASF, o si por cualquier razón no confías en los archivos ejecutables proporcionados en las **[versiones](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** oficiales. Si eres usuario y no un desarrollador, lo más probable es que quieras usar ejecutables ya compilados, pero si quieres usar los tuyos propios, a aprender algo nuevo, continua leyendo.
 
-ASF puede ser compilado en cualquier plataforma actualmente soportada, siempre que tengas todas las herramientas para hacerlo.
+ASF puede ser compilado en cualquier plataforma soportada actualmente, siempre que tengas todas las herramientas para hacerlo.
 
 * * *
 
 ## .NET Core SDK
 
-Independientemente de la plataforma, necesita .NET Core SDK completo (no solo runtime) para compilar ASF. Las instrucciones de instalación se pueden encontrar en la **[página de instalación de .NET Core](https://dotnet.microsoft.com/download)**. Necesitas instalar la versión apropiada de .NET Core SDK para tu sistema operativo. Después de una instalación exitosa, el comando `dotnet` debería estar funcionando y operativo. Puedes verificar si funciona con `dotnet --info`. También asegúrate de que tu .NET Core SDK coincida con los **[requisitos de runtime](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#requisitos-de-runtime)** de ASF.
+Independientemente de la plataforma, necesitas .NET Core SDK completo (no solo runtime) para compilar ASF. Las instrucciones de instalación se pueden encontrar en la **[página de instalación de .NET Core](https://dotnet.microsoft.com/download)**. Necesitas instalar la versión apropiada de .NET Core SDK para tu sistema operativo. Después de una instalación exitosa, el comando `dotnet` debería estar funcionando y operativo. Puedes verificar si funciona con `dotnet --info`. También asegúrate de que tu .NET Core SDK coincida con los **[requisitos de runtime](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#requisitos-de-runtime)** de ASF.
 
 * * *
 
