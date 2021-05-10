@@ -162,7 +162,7 @@ A continuación puedes encontrar un ejemplo de configuración Apache. Por favor,
         SSLCertificateFile /path/to/your/fullchain.pem
         SSLCertificateKeyFile /path/to/your/privkey.pem
 
-        # TODO: Apache can't do case-insensitive matching properly, so we hardcode two most commonly used cases
+        # TODO: Apache no puede hacer correctamente el emparejamiento que no distinga mayúsculas y minúsculas, por lo tanto codificamos los dos casos de uso más comunes
         ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
         ProxyPass "/Api/NLog" "ws://127.0.0.1:1242/Api/NLog"
 

@@ -38,7 +38,7 @@ En cualquier caso, el personal de SteamDB te agradece de antemano por tu ayuda. 
 
 ## Configuración avanzada
 
-A partir de ASF V5.0.7.0, nuestro plugin soporta una configuración avanzada que puede resultar útil para las personas que deseen ajustar la configuración interna del plugin a su preferencia.
+A partir de ASF V5.1.0.0, nuestro plugin soporta una configuración avanzada que puede resultar útil para las personas que deseen ajustar la configuración interna del plugin a su preferencia.
 
 La configuración avanzada tiene la siguiente estructura en el archivo `ASF.json`:
 
