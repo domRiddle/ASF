@@ -276,21 +276,21 @@ Il est important de noter que le mode de récupération avancée va passer outre
 
 ## `encrypt` command
 
-Encrypt command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` must be one of the encryption methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
+`encrypt` command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` must be one of the encryption methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
 * * *
 
 ## `hash` command
 
-Hash command allows you to generated hashes of arbitrary strings using ASF's hashing methods. `<hashingMethod>` must be one of the hashing methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
+`hash` command allows you to generate hashes of arbitrary strings using ASF's hashing methods. `<hashingMethod>` must be one of the hashing methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
 * * *
 
 ## Commande `input`
 
-La commande Input ne peut être utilisée qu'en mode ` Headless </ 0>, pour la saisie de données via <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC"> IPC </ 1> ou le chat Steam lorsque ASF est en cours d'exécution sans prise en charge de l'interaction utilisateur.</p>
+`input` command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 
-<p>General syntax is <code>input [Bots] <Type> <Value>`.
+General syntax is `input [Bots] <Type> <Value>`.
 
 `<Type>` est insensible à la casse et définit le type d'entrée reconnu par ASF. Actuellement, ASF reconnaît les types suivants:
 
@@ -306,7 +306,7 @@ La commande Input ne peut être utilisée qu'en mode ` Headless </ 0>, pour la s
 
 ### Exemple
 
-Disons que nous avons un bot protégé par SteamGuard en mode non-2FA. Nous voulons lancer ce bot avec `Headless` défini sur true.
+Disons que nous avons un bot protégé par SteamGuard en mode non-2FA. We want to launch that bot with `Headless` set to `true`.
 
 Pour ce faire, nous devons exécuter les commandes suivantes:
 

@@ -272,19 +272,19 @@ Es ist wichtig zu beachten, dass fortgeschrittenes Einlösen nur die `RedeemingP
 
 ## `encrypt` Befehl
 
-Der Encrypt-Befehl ermöglicht es Ihnen beliebige Zeichenketten mit den ASF-Verschlüsselungsmethoden zu verschlüsseln. `<encryptionMethod>` muss eine der Verschlüsselungsmethoden sein, welche im Abschnitt **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE#Sicherheit)** angegeben und erklärt ist. Dieser Befehl ist nützlich, wenn Sie bereits im Voraus verschlüsselte Details erzeugen möchten, z. B. um zu vermeiden, dass Sie zuerst Ihr `PlainText`-Passwort in die Konfiguration eingiben und dann den Befehl `Passwort` verwenden. Wir empfehlen, diesen Befehl über sichere Kanäle zu verwenden (ASF-Konsole oder IPC-Schnittstelle, für die es auch einen dedizierten API-Endpunkt gibt), da sonst sensible Details von verschiedenen Dritten protokolliert werden könnten (z. B. Chat-Nachrichten, die von Steam-Servern protokolliert werden).
+`encrypt` command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` muss eine der Verschlüsselungsmethoden sein, welche im Abschnitt **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE#Sicherheit)** angegeben und erklärt ist. Dieser Befehl ist nützlich, wenn Sie bereits im Voraus verschlüsselte Details erzeugen möchten, z. B. um zu vermeiden, dass Sie zuerst Ihr `PlainText`-Passwort in die Konfiguration eingiben und dann den Befehl `Passwort` verwenden. Wir empfehlen, diesen Befehl über sichere Kanäle zu verwenden (ASF-Konsole oder IPC-Schnittstelle, für die es auch einen dedizierten API-Endpunkt gibt), da sonst sensible Details von verschiedenen Dritten protokolliert werden könnten (z. B. Chat-Nachrichten, die von Steam-Servern protokolliert werden).
 
 * * *
 
 ## `hash` Befehl
 
-Mit dem Hash-Befehl ist es möglich Hashes beliebiger Zeichenketten mittels der ASF-Hashing-Methoden erzeugen. `<hashingMethod>` muss eine der Hashing-Methoden sein, welche im Abschnitt **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE)** angegeben und erklärt ist. Wir empfehlen, diesen Befehl über sichere Kanäle zu verwenden (ASF-Konsole oder IPC-Schnittstelle, für die es auch einen dedizierten API-Endpunkt gibt), da sonst sensible Details von verschiedenen Dritten protokolliert werden könnten (z. B. Chat-Nachrichten, die von Steam-Servern protokolliert werden).
+`hash` command allows you to generate hashes of arbitrary strings using ASF's hashing methods. `<hashingMethod>` muss eine der Hashing-Methoden sein, welche im Abschnitt **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE)** angegeben und erklärt ist. Wir empfehlen, diesen Befehl über sichere Kanäle zu verwenden (ASF-Konsole oder IPC-Schnittstelle, für die es auch einen dedizierten API-Endpunkt gibt), da sonst sensible Details von verschiedenen Dritten protokolliert werden könnten (z. B. Chat-Nachrichten, die von Steam-Servern protokolliert werden).
 
 * * *
 
 ## `input` Befehl
 
-Der Input-Befehl kann nur im `Headless`-Modus verwendet werden, um die angegebenen Daten über **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** oder Steam-Chat einzugeben, wenn ASF ohne Unterstützung für Benutzerinteraktion läuft.
+`input` command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
 
 Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
 
@@ -302,7 +302,7 @@ Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
 
 ### Beispiel
 
-Nehmen wir an, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. Wir wollen diesen Bot starten während das Konfigurationsfeld `Headless` auf wahr gesetzt ist.
+Nehmen wir an, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. We want to launch that bot with `Headless` set to `true`.
 
 Um das zu tun, müssen wir folgende Befehle ausführen:
 
