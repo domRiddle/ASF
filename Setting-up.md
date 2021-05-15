@@ -181,7 +181,7 @@ Once you do that and start ASF again, you'll notice that ASF now displays your c
 
 This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
 
-Editing your ASF configs can be much easier by using our ASF-ui frontend, which will be explained further below.
+Editing your ASF configs can be done much easier by using our ASF-ui frontend, which will be explained further below.
 
 ---
 
