@@ -189,7 +189,7 @@ Editing your ASF configs can be done much easier by using our ASF-ui frontend, w
 
 ASF is a console app and doesn't include a graphical user interface. However, we're actively working on **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** frontend to our IPC interface, which can be a very decent and user-friendly way to access various ASF features.
 
-In order to use ASF-ui, you need to have `IPC` enabled, which is the default option starting with ASF V5.1.0.0. After starting ASF, you should be able to confirm that it properly started the IPC interface:
+In order to use ASF-ui, you need to have `IPC` enabled, which is the default option starting with ASF V5.1.0.0. Once you launch ASF, you should be able to confirm that it properly started the IPC interface automatically:
 
 ![IPC](https://i.imgur.com/ZmkO8pk.png)
 
