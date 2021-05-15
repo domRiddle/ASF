@@ -261,9 +261,9 @@ Leia mais sobre como usar o [arquivo de configuração](https://github.com/NLog/
 
 *chatGroupID* - ID do chat em grupo declarado como um inteiro longo não assinado de 64-bit. Opcional. Padronizado como `0` que vai desabilitar a funcionalidade de chat em grupo e usar o chat privado em seu lugar. Quando habilitado (configurado com valor diferente de 0), a propriedade `steamID` acima age como `chatID` e especifica a ID do canal nesse `chatGroupID` para o qual o bot deve enviar as mensagens.
 
-*steamID* - SteamID declarado como um inteiro longo não assinado de 64-bit do usuário Steam alvo (como `SteamOwnerID`), ou alvo `chatID` (quando `chatGroupID` estiver definido). Obrigatório. Defaults to `0` which disables logging target entirely.
+*steamID* - SteamID declarado como um inteiro longo não assinado de 64-bit do usuário Steam alvo (como `SteamOwnerID`), ou alvo `chatID` (quando `chatGroupID` estiver definido). Obrigatório. O valor padrão é `0<0>, que desativa inteiramente o registro do alvo.</p>
 
-*botName* - Name of the bot (as it's recognized by ASF, case-sensitive) that will be sending messages to `steamID` declared above. Opcional. O padrão é `null` que selecionará automaticamente **qualquer** bot conectado no momento. É recomendado definir esse valor apropriadamente, já que o `SteamTarget` não leva em conta muitas das limitações do Steam, como o fato de que você deve ter o `steamID` do alvo na sua lista de amigos. Essa variável é definida como tipo [layout](https://github.com/NLog/NLog/wiki/Layouts), portanto você pode usar uma sintaxe especial nela, como `${logger}` para usar o bot que gerou a mensagem.
+<p><em>botName</em> - Nome do bot (como é reconhecido pelo ASF, diferenciando maiúsculas de minúsculas) alvo que estará enviando mensagens para o <code>steamID` declarado acima. Não é obrigatório. O padrão é `null` que selecionará automaticamente **qualquer** bot conectado no momento. É recomendado definir esse valor apropriadamente, já que o `SteamTarget` não leva em conta muitas das limitações do Steam, como o fato de que você deve ter o `steamID` do alvo na sua lista de amigos. Essa variável é definida como tipo [layout](https://github.com/NLog/NLog/wiki/Layouts), portanto você pode usar uma sintaxe especial nela, como `${logger}` para usar o bot que gerou a mensagem.
 
 * * *
 

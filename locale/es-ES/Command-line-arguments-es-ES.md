@@ -26,7 +26,7 @@ Linux/OS X:
 ./ArchiSteamFarm --argumento --otroArgumento
 ```
 
-Los argumentos de la línea de comandos también están soportados en scripts de ayuda genéricos como `ArchiSteamFarm.cmd` o `ArchiSteamFarm.sh`. Además, al usar scripts de ayuda también puedes emplear la propiedad de entorno `ASF_ARGS`, tal y como se explica en la sección **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-es-es#argumentos-de-la-l%C3%ADnea-de-comandos)**.
+Los argumentos de la línea de comandos también están soportados en scripts auxiliares genéricos tal como `ArchiSteamFarm.cmd` o `ArchiSteamFarm.sh`. Además, al usar scripts auxiliares también puedes emplear la propiedad de entorno `ASF_ARGS`, tal como se explica en la sección **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-es-es#argumentos-de-la-l%C3%ADnea-de-comandos)**.
 
 Si tu argumento incluye espacios, no olvides ponerlo entre comillas. Estos dos están mal:
 
@@ -44,13 +44,13 @@ Sin embargo, estos dos están completamente bien:
 
 ## Argumentos
 
-`--cryptkey <key>` o `--cryptkey=<key>` - lanzará ASF con una clave criptográfica personalizada de valor `<key>`. Esta opción afecta a la **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-es)** y hará que ASF use la clave personalizada `<key>` que has proporcionado, en lugar de la que está establecida por defecto en el ejecutable. Dado que esta propiedad afecta la clave de cifrado predeterminada (para propósitos de cifrado) así como la sal (para propósitos de hashing), ten en cuenta que todo lo cifrado/hashed con esta clave requerirá ser pasado en cada ejecución de ASF.
+`--cryptkey <key>` o `--cryptkey=<key>` - lanzará ASF con una clave criptográfica personalizada de valor `<key>`. Esta opción afecta a la **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-es)** y hará que ASF use la clave personalizada `<key>` que has proporcionado, en lugar de la que está establecida por defecto en el ejecutable. Dado que esta propiedad afecta la clave de cifrado predeterminada (para propósitos de cifrado) así como la sal (para propósitos de hashing), ten en cuenta que todo lo cifrado/hasheado con esta clave requerirá ser pasado en cada ejecución de ASF.
 
-Debido a la naturaleza de esta propiedad, también es posible establecer la clave de encriptado declarando la variable de entorno `ASF_CRYPTKEY`, que podría ser más apropiada para quienes quieran evitar información sensible en los argumentos del proceso.
+Debido a la naturaleza de esta propiedad, también es posible establecer la clave de cifrado declarando la variable de entorno `ASF_CRYPTKEY`, que podría ser más apropiada para quienes deseen evitar información sensible en los argumentos del proceso.
 
 * * *
 
-`--ignore-unsupported-environment` - hará que ASF ignore la detección de un entorno no soportado, lo que normalmente se indica con un error y un cierre forzado. A partir de ahora, un entorno no soportado se clasifica como un build .NET Framework ejecutándose en una plataforma que podría estar ejecutando en su lugar un build .NET Core. Ya que se soportan builds `generic-netf` solo en escenarios muy limitados (con **[Mono](https://www.mono-project.com)**), usarlo para otros casos (como para ejecutarlo en una plataforma `win-x64`) no está soportado. Visita la sección de **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es)** para más información.
+`--ignore-unsupported-environment` - hará que ASF ignore la detección de un entorno no soportado, lo que normalmente se indica con un error y un cierre forzado. Actualmente, se clasifica como un entorno no soportado aquel que ejecuta una compilación .NET Framework en una plataforma que podría estar ejecutando en su lugar una compilación .NET Core. Ya que se soportan compilaciones `generic-netf` solo en escenarios muy limitados (con **[Mono](https://www.mono-project.com)**), usarlo para otros casos (como para ejecutarlo en una plataforma `win-x64`) no está soportado. Visita la sección de **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es)** para más información.
 
 * * *
 
