@@ -2,7 +2,7 @@
 
 Ako ste ovdje prvi put, dobro došli! Srećni smo da vidimo još nekog ko je zainteresovan za naš projekat, ali zapamtite da sa velikom moći dolazi velika odgovornost - ASF ima mogućnost da kontroliše mnogo stvari na Steam-u, ali samo ako **pazite kako da ga naučite**. Strma je linija učenja, a mi očekujemo od vas da pročitate wiki-u zbog toga, koja objašnjava u detalju kako sve radi.
 
-Ako ste još ovdje znači da ste izdržali tekst iznad, što je lijepo. Ako ste je preskočili, onda će vam uskoro biti **[loše](https://www.youtube.com/watch?v=WJgt6m6njVw)**... U svakom slučaju, ASF je konsolska aplikacija, što znači da program nema GUI interfejs na koji ste možda navikli. ASF je najviše namijenjen da se koristi na serveru, pa zbog toga izgleda kao servis (daemon) a ne kao desktop aplikacija.
+Ako ste još ovdje znači da ste izdržali tekst iznad, što je lijepo. Ako ste je preskočili, onda će vam uskoro biti **[loše](https://www.youtube.com/watch?v=WJgt6m6njVw)**... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to, at least out of the box. ASF je najviše namijenjen da se koristi na serveru, pa zbog toga izgleda kao servis (daemon) a ne kao desktop aplikacija.
 
 Ovo ipak ne znači da ga ne možete koristiti na vašem PC-u ili na nečem više komplikovanom nego obično. ASF je zaseban program koji ne zahtijeva instalaciju, i odmah radi ali zahtijeva konfiguraciju da bi vam bio od koristi. Konfiguracija kazuje ASF-u šta u stvari treba da radi nakon što ga pokrenete. Ako ga pokrenete bez konfiguracije, ASF onda neće raditi ništa, tako jednostavno.
 
@@ -92,7 +92,7 @@ Sada smo na poslednjem koraku, konfiguraciji. Ovo je do sad najkomplikovaniji ko
 
 Prvo i najvažnije, postoji stranica **[konfiguracija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** koja objašnjava **sve** što je povezano sa konfiguracijom, ali sadrži veliku količinu informacija, od kojih je većinu ne morate odmah znati. Umjesto toga, naučićemo vas kako da nađete informacije koje su vam potrebne.
 
-ASF konfiguracija može biti napravljena pomoću dva načina - koristeći web generator konfiguracije ili ručno. Ovo je duboko objašnjena sekcija **[konfiguracije](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**, pa se njom pozabavite ako želite detaljne informacije. Mi ćemo koristiti web generator konfiguracije, pošto je to mnogo lakši način.
+ASF configuration can be done in at least three ways - through our web config generator, ASF-ui or manually. Ovo je duboko objašnjena sekcija **[konfiguracije](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**, pa se njom pozabavite ako želite detaljne informacije. We'll use web config generator as a starting point.
 
 Pođite na našu stranicu **[web generator konfiguracije](https://justarchinet.github.io/ASF-WebConfigGenerator)** pomoću vašeg pretraživača. Ovdje morate imati JavaScript omogućen ako ste ga ručno onemogućili. Mi predlažemo Chrome ili Firefox, ali će vjerovatno raditi na svim poznatim pretraživačima.
 
@@ -186,39 +186,29 @@ Nakon što to uradite, pokrenite ASF ponovo, vidjećete da ASF sada prikazuje va
 
 Ovo potvrđuje da ste uspješno uredili vašu konfiguraciju. Na isti način možete promijeniti globalna ASF podešavanja, pređite sa bot taba na "ASF" tab, konfigurišite i preuzmite napravljenu `ASF.json` konfiguraciju i sačuvajte je u `config` direktorijumu.
 
+Editing your ASF configs can be done much easier by using our ASF-ui frontend, which will be explained further below.
+
 * * *
 
 #### Korišćenje ASF-ui
 
 ASF je aplikacija u konsoli i ne sadrži grafički korisnički interfejs. Ipak, mi aktivno radimo na **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** interfejsu za naš IPC, koji je veoma lak za korišćenje i pristup raznim ASF mogućnostima.
 
-Da bi koristili ASF-ui, morate omogućiti `IPC` i podesiti `SteamOwnerID` u globalnoj konfiguraciju (ASF tabu).
+In order to use ASF-ui, you need to have `IPC` enabled, which is the default option starting with ASF V5.1.0.0. Once you launch ASF, you should be able to confirm that it properly started the IPC interface automatically:
 
-Za `SteamOwnerId`, morate unijeti vaš unikatni Steam identifikator u 64-bit-noj formi za vaš nalog. Možete ga pronaći na razne načine, mi ćemo koristiti **[SteamRep](https://steamrep.com)** za ovaj način. Otvorite sajt, locirajte "sign in throgh Steam" dugme u gornjem desnom uglu, pa se prijavite. Nakon toga, na istom mjestu, pritisnite na vaš avatar, i pronađite polje `steamID64` na vašem profilu.
+![IPC](https://i.imgur.com/ZmkO8pk.png)
 
-![SteamRep](https://i.imgur.com/RUuJ63i.png)
-
-Za moj nalog, to je broj `76561198006963719`. Vi ćete imati sličan broj, koji takođe počine sa `7656`. Kopirajte ga.
-
-Sada se vratite na tab web generatora konfiguracije i unesite broj u SteamOwnerID. Lastly, you need to enable `IPC` option for the interface to activate.
-
-![IPC](https://i.imgur.com/BMyasHt.png)
-
-Sada možete preuzeti vašu ASF konfiguraciju i sačuvati je u `config` direktorijumu, kao i obično. Nakon toga, pokrenite ASF ponovo, i tu bi trebalo da potvrdite da je IPC interfejs pokrenut pravilno:
-
-![IPC 2](https://i.imgur.com/ZmkO8pk.png)
-
-Ako ste sve pravilno uradili, onda ćete imati pristup ASF-ovom IPC interfejsu na **[ovom](http://localhost:1242)** linku, sve dok je ASF pokrenut. Možete koristiti ASF-ui za razne svrhe, npr. slanje **[komandi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Slobodno razgledajte okolo da bi pronašli razne ASF-ui funkcije.
+You can access ASF's IPC interface under **[this](http://localhost:1242)** link, as long as ASF is running, from the same machine. You can use ASF-ui for various purposes, e.g. editing the config files in-place or sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Slobodno razgledajte okolo da bi pronašli razne ASF-ui funkcije.
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-Zapamtite da ASF-ui trenutno u preglednom stanju i da još sve nije dostupno/ili još ne radi, ali je više nego dovoljno za jednostavno korišćenje ASF-a.
+Please note that some features, such as sending commands, require a properly set `SteamOwnerID` global config property. Now that you have ASF-ui up and running, why not give it a try and set it from the frontend itself? You'll need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, for example through **[STEAMID I/O](https://steamid.io)** or **[SteamRep](https://steamrep.com)**. The number you're looking for should be similar to `76561198006963719`, which is my account's ID.
 
 * * *
 
 ### Zaključak
 
-Uspješno ste podesili ASF da koristi vaš Steam nalog i uspješno ste ga uredili onako kako vam odgovara. Ako ste pratili naš cijeli vodič, onda ste uspjeli da pošaljete i jednostavne komande pomoću našeg ASF-ui interfejsa. Sada je dobro vrijeme da pročitate cijelu sekciju **[konfiguracija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** da bi naučili razna podešavanja koja sve vidjeli u naprednom tabu, i sve ostalo što ASF ima u ponudi. Ako ste zapeli na nekom problemu ili imate neko opšte pitanje, pročitajte **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** koji bi trebao skoro sve da pokrije, ili većinu pitanja koja možete imati. Ako želite da naučite sve što postoji u ASF-u i kako vam to može pomoći, posjetite ostatak **[naše wiki-e](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. Uživajte!
+Uspješno ste podesili ASF da koristi vaš Steam nalog i uspješno ste ga uredili onako kako vam odgovara. If you followed our entire guide, then you also managed to tweak ASF through our ASF-ui interface and found out that ASF actually has a GUI of some sort. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen actually do, and what ASF has to offer. If you've stumbled upon some issue or you have some generic question, read our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least a vast majority of questions that you may have. Ako želite da naučite sve što postoji u ASF-u i kako vam to može pomoći, posjetite ostatak **[naše wiki-e](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. If you found out our program to be useful for you and you're feeling generous, you can also consider donating to our project. In any case, have fun!
 
 * * *
 

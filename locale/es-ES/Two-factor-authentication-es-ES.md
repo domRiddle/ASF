@@ -8,7 +8,7 @@ Como puedes ver, todos los intercambios son retenidos hasta por 15 días, lo que
 
 # Lógica de ASF
 
-Independientemente de si usas o no ASF 2FA, explicado a continuación ASF incluye la lógica adecuada y es plenamente consciente de las cuentas protegidas por 2FA estándar. Te pedirá la información requerida cuando se necesite (como durante el inicio de sesión). Si usas ASF 2FA, el programa podrá omitir esas solicitudes y generar automáticamente los códigos requeridos, ahorrándote la molestia y habilitando funcionalidad adicional (descrita abajo).
+Independientemente de si usas o no ASF 2FA, explicado a continuación, ASF incluye la lógica adecuada y es plenamente consciente de las cuentas protegidas por 2FA estándar. Te pedirá la información requerida cuando se necesite (como durante el inicio de sesión). Si usas ASF 2FA, el programa podrá omitir esas solicitudes y generar automáticamente los códigos requeridos, ahorrándote la molestia y habilitando funcionalidad adicional (descrita abajo).
 
 * * *
 

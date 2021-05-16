@@ -345,10 +345,9 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
     "CustomGamePlayedWhileIdle": null,
     "Enabled": false,
     "FarmingOrders": [],
+    "FarmPriorityQueueOnly": false,
     "GamesPlayedWhileIdle": [],
     "HoursUntilCardDrops": 3,
-    "IdlePriorityQueueOnly": false,
-    "IdleRefundableGames": true,
     "LootableTypes": [1, 3, 5],
     "MatchableTypes": [5],
     "OnlineStatus": 1,
@@ -358,6 +357,7 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,
+    "SkipRefundableGames": false,
     "SteamLogin": null,
     "SteamMasterClanID": 0,
     "SteamParentalCode": null,
@@ -497,6 +497,12 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 * * *
 
+### `FarmPriorityQueueOnly`
+
+預設值為 `false` 的 `bool` 類型。 此屬性定義ASF是否應考慮僅對您自己使用 `iq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**添加到優先隊列中的遊戲進行掛卡。 啟用此選項後，ASF 將跳過清單中缺少的所有` appIDs `，從而有效地允許您挑選可供 ASF 自行掛卡的遊戲。 請記住，如果您沒有向佇列中添加任何遊戲，則 ASF 將認為您的帳戶上沒有可供遊玩的遊戲。 如果您不確定是否要啟用此功能，請將其保留為預設值 `false`。
+
+* * *
+
 ### `GamesPlayedWhileIdle`
 
 預設值為空的 `ImmutableHashSet<uint>` 類型。 如果 ASF 沒有任何遊戲可供掛卡，它可以遊玩指定的 Steam 遊戲 (`appIDs`)。 以這樣的方式玩遊戲會增加那些遊戲的「遊玩時長」，但除此之外，別無他用。 In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. 此功能可以與` CustomGamePlayedWhileIdle `同時啟用，以便在Steam網絡中顯示自訂遊戲狀態，但在` CustomGamePlayedWhileFarming `這類情況中， 實際的顯示順序無法保證。 請注意，Steam 允許 ASF 最多同時遊玩 `32` 個 `appIDs`，因此您設置該屬性時應參考此值。
@@ -506,18 +512,6 @@ ASF provides a few special variables that you can optionally use in your text. `
 ### `HoursUntilCardDrops`
 
 這是一個預設值為`3`的`byte`類型屬性。 此屬性定義帳戶是否有卡片掉落限制，若有，則定義初始小時數。 受限制的卡掉落意味著帳戶在給定的遊戲玩了至少 `hoursuntilcards`小時前不會獲得任何掉落的卡片。 不幸的是，沒有神奇的方法來檢測它，所以ASF依賴於你。 此屬性影響將使用的**[掛卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**。 正確設置此屬性將最大限度地提高效率，並最大限度地減少掛卡所需的時間。 請記住，您是否應該使用何值，這沒有明顯的答案，因為它完全取決於您的帳戶。 從來沒有要求退款的老用戶似乎在卡片掉落上不受限制，所以他們應該使用` 0 `的值，而新帳戶和那些要求退款的人在卡片掉落上有`3`小時的限制。 然而，這只是理論，不應作為一條定理。 此屬性的默認值是基於“兩害相權取其輕”和大多數用例設置的。
-
-* * *
-
-### `IdlePriorityQueueOnly`
-
-預設值為 `false` 的 `bool` 類型。 此屬性定義ASF是否應考慮僅對您自己使用 `iq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**添加到優先隊列中的遊戲進行掛卡。 啟用此選項後，ASF 將跳過清單中缺少的所有` appIDs `，從而有效地允許您挑選可供 ASF 自行掛卡的遊戲。 請記住，如果您沒有向佇列中添加任何遊戲，則 ASF 將認為您的帳戶上沒有可供遊玩的遊戲。 如果您不確定是否要啟用此功能，請將其保留為預設值 `false`。
-
-* * *
-
-### `IdleRefundableGames`
-
-預設值為 `true` 的 `bool` 類型。 此屬性定義 ASF 是否能對可退款的遊戲進行掛卡。 所謂可退款的遊戲，是你在過去2周內通過 Steam 商店購買但遊戲時間不超過2小時的遊戲，如 **[Steam 退款](https://store.steampowered.com/steam_refunds)**頁面所述。 預設情況下，當此選項設置為 `true`時，ASF 完全忽略 Steam 退款策略，並像大多數人預期的那樣對所有遊戲進行掛卡。 但是，如果您希望確保ASF不會過早對您的任何可退款遊戲進行掛卡，您可以將此選項更改為` false `，這樣您就可以在退款期限內自行評估這些遊戲，而無需擔心ASF影響遊戲時間。 請注意，如果您禁用此選項，那麼您從Steam商店購買的遊戲自購買日期起最多14天內將不會被ASF進行掛卡，如果您的帳戶中沒有其他任何遊戲，則ASF會顯示沒有任何可供掛卡的遊戲。 如果您不確定是否要啟用此功能，請將其保留為預設值 `true`。
 
 * * *
 
@@ -669,6 +663,12 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 預設值為 `false` 的 `bool` 類型。 ASF 會在整個進程中「佔用」處於活動狀態的帳戶。 當給定帳戶完成掛卡之後，ASF 會定期（每個` IdleFarmingPeriod `小時）檢查帳戶狀態，如果在此期間新增了一些帶有 Steam 卡的新遊戲，那麼它可以在無需重啓的情況下恢復該帳戶的掛卡進程。 這對大多數人都很有用，因為 ASF 可以在需要時自動復原掛卡。 但是，您可能實際上希望在給定帳戶完全結束掛卡後停止該過程，您可以通過將此屬性設置為 `true` 來實現。 啟用後，ASF 將在帳戶完全結束掛卡後登出，這意味著 ASF 不會對此帳戶進行定期檢查或佔用。 您應該自己決定是否更喜歡ASF在整個時間內使用給定的機械人實例，或者ASF是否應該在掛卡過程完成時停止它。 當所有帳戶都停止並且進程未在 `--process-required` **[模式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**下運行時，ASF 也將關閉，讓您的機器處於休眠狀態，並允許您安排其他操作，例如在獲得最後一張掉落卡片之後進入睡眠或關機狀態。
 
 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
+
+* * *
+
+### `SkipRefundableGames`
+
+預設值為 `false` 的 `bool` 類型。 This property defines if ASF is permitted to farm games that are still refundable. 所謂可退款的遊戲，是你在過去2周內通過 Steam 商店購買但遊戲時間不超過2小時的遊戲，如 **[Steam 退款](https://store.steampowered.com/steam_refunds)**頁面所述。 By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. 如果您不確定是否要啟用此功能，請將其保留為預設值 `false`。
 
 * * *
 

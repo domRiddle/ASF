@@ -2,7 +2,7 @@
 
 Wenn du hier zum ersten Mal angekommen bist, herzlich willkommen! Wir freuen uns sehr, einen weiteren Reisenden zu sehen, der sich für unser Projekt interessiert, obwohl wir berücksichtigen müssen, dass mit großer Macht eine große Verantwortung einhergeht - ASF ist in der Lage, viele verschiedene Dinge rund um Steam zu tun, aber nur, solange man sich **genug kümmert, um zu lernen, wie man ihn benutzt**. Es gibt hier eine steile Lernkurve, und wir erwarten von dir, dass du das Wiki in dieser Hinsicht liest, das im Detail erklärt, wie alles funktioniert.
 
-Wenn du immer noch hier bist, heißt das, dass du den Text oben überstanden hast, was toll ist. Außer du hast ihn übersprungen, was heißt, dass du bald **[schlechte Zeiten](https://www.youtube.com/watch?v=WJgt6m6njVw)** vor dir hast... Wie auch immer: ASF ist eine Konsolenanwendung, was bedeutet, dass das Programm selbst keine freundliche Benutzeroberfläche hat, wie du es eventuell gewohnt bist. ASF sollte hauptsächlich auf Servern laufen, sodass es als Dienst (Daemon) und nicht als Desktop-App fungiert.
+Wenn du immer noch hier bist, heißt das, dass du den Text oben überstanden hast, was toll ist. Außer du hast ihn übersprungen, was heißt, dass du bald **[schlechte Zeiten](https://www.youtube.com/watch?v=WJgt6m6njVw)** vor dir hast... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to, at least out of the box. ASF sollte hauptsächlich auf Servern laufen, sodass es als Dienst (Daemon) und nicht als Desktop-App fungiert.
 
 Das bedeutet jedoch nicht, dass du es nicht auf deinem PC benutzen kannst oder dass die Benutzung etwas komplizierter ist als sonst, nichts dergleichen. ASF ist ein eigenständiges Programm, das keine Installation benötigt und sofort einsatzbereit ist. Allerdings wird eine Konfiguration erfordert, bevor es nützlich wird. Die Konfiguration sagt ASF, was es nach dem Start tatsächlich tun soll. Wenn du ASF ohne Konfiguration startest, dann wird es nichts tun. Ganz einfach.
 
@@ -92,7 +92,7 @@ Wir sind nun bereit, den allerletzten Schritt, die Konfiguration, durchzuführen
 
 In erster Linie gibt es die Seite **[Installation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**, die **alles** erklärt, was sich auf die Konfiguration bezieht, aber es ist eine riesige Menge an neuen Informationen, von denen wir im Moment nicht alle benötigen werden. Stattdessen zeigen wir dir, wie du die Informationen bekommst, die du tatsächlich suchst.
 
-Die ASF-Konfiguration kann auf zwei Arten erfolgen - entweder mit Hilfe unseres Web-Konfigurationsgenerators oder manuell. Dies wird ausführlich auf der Seite **[Installation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)** erläutert, also beziehe dich darauf, wenn du detailliertere Informationen benötigst. Wir werden den Web-Konfigurationsgenerator verwenden, da er viel einfacher ist.
+ASF configuration can be done in at least three ways - through our web config generator, ASF-ui or manually. Dies wird ausführlich auf der Seite **[Installation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)** erläutert, also beziehe dich darauf, wenn du detailliertere Informationen benötigst. We'll use web config generator as a starting point.
 
 Besuche unsere **[Web-Konfigurationsgenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** Seite mit deinem Lieblingsbrowser (du musst JavaScript aktiviert haben, falls du es manuell deaktiviert hast). Wir empfehlen Chrome oder Firefox, aber es sollte mit allen gängigen Browsern funktionieren.
 
@@ -186,45 +186,35 @@ Sobald du das getan hast und ASF erneut startest, wirst du feststellen, dass ASF
 
 Dies bestätigt, dass du deine Konfiguration erfolgreich bearbeitet hast. Auf genau die gleiche Weise kannst du globale ASF-Eigenschaften ändern, indem du vom Bot-Tab zum "ASF"-Tab wechselst, die generierte `ASF.json` Konfigurationsdatei herunterlädst und sie in dein `config` Verzeichnis legst.
 
+Editing your ASF configs can be done much easier by using our ASF-ui frontend, which will be explained further below.
+
 * * *
 
 #### Verwendung von ASF-ui
 
 ASF ist eine Konsolenanwendung und beinhaltet keine grafische Benutzeroberfläche. Wir arbeiten jedoch aktiv an unserem IPC-Schnittstellen Frontend **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, was eine sehr gute und benutzerfreundliche Möglichkeit sein kann, auf verschiedene ASF-Funktionen zuzugreifen.
 
-Um ASF-ui verwenden zu können, solltest du sicherstellen, dass du die globale Konfigurationseigenschaften `IPC` und `SteamOwnerID` (Registerkarte ASF) einrichtest.
+In order to use ASF-ui, you need to have `IPC` enabled, which is the default option starting with ASF V5.1.0.0. Once you launch ASF, you should be able to confirm that it properly started the IPC interface automatically:
 
-Für `SteamOwnerID` musst du einen eindeutigen Steam-Identifikator in 64-Bit-Form deines Kontos eingeben. Du kannst sie auf verschiedene Arten einsehen, wir werden dafür **[SteamRep](https://steamrep.com)** verwenden. Rufe die Website auf, finde die "Anmeldung über Steam"-Schaltfläche oben rechts in der Ecke und melde dich dann an. Anschließend klicke an gleicher Stelle auf deinen Avatar und schaue im Feld `steamID64` in deinem Profil nach.
+![IPC](https://i.imgur.com/ZmkO8pk.png)
 
-![SteamRep](https://i.imgur.com/RUuJ63i.png)
-
-Für mein Konto ist dies die Nummer `76561198006963719`. Du wirst eine ähnliche haben, auch beginnend mit `7656`. Kopiere sie.
-
-Navigieren Sie nun noch einmal zu unserem Web-Konfigurationsgenerator und tragen Sie diese Nummer als SteamOwnerID ein. Abschließend müssen Sie die `IPC` Option aktivieren, um die Schnittstelle ansprechen zu können.
-
-![IPC](https://i.imgur.com/BMyasHt.png)
-
-Jetzt können Sie Ihre ASF-Konfiguration herunterladen und wie gewohnt im `config`-Verzeichnis speichern. Starten Sie danach ASF erneut, und Sie sollten bestätigen können, dass die IPC-Schnittstelle ordnungsgemäß gestartet wurde:
-
-![IPC 2](https://i.imgur.com/ZmkO8pk.png)
-
-Wenn Sie alles richtig eingerichtet haben, können Sie nun unter **[diesem](http://localhost:1242)** Link auf die IPC-Schnittstelle von ASF zugreifen, solange ASF läuft. Sie können ASF-ui für verschiedene Zwecke verwenden, z.B. um **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** zu senden. Schauen Sie es sich einfach an, um alle Funktionalitäten von ASF-ui kennenzulernen.
+You can access ASF's IPC interface under **[this](http://localhost:1242)** link, as long as ASF is running, from the same machine. You can use ASF-ui for various purposes, e.g. editing the config files in-place or sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Wirf einfach einen Blick darauf, um alle Funktionalitäten von ASF-ui kennenzulernen.
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-Bitte beachten Sie, dass sich ASF-ui derzeit im Preview-Zustand befindet und noch nicht alles verfügbar/funktionsfähig ist, aber es ist mehr als genug für eine simple ASF-Nutzung.
+Please note that some features, such as sending commands, require a properly set `SteamOwnerID` global config property. Now that you have ASF-ui up and running, why not give it a try and set it from the frontend itself? You'll need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, for example through **[STEAMID I/O](https://steamid.io)** or **[SteamRep](https://steamrep.com)**. The number you're looking for should be similar to `76561198006963719`, which is my account's ID.
 
 * * *
 
 ### Zusammenfassung
 
-Sie haben ASF bereits erfolgreich so eingestellt, dass es Ihre Steam-Konten nutzt, und es bereits ein wenig nach Ihren Wünschen angepasst. Sofern Sie unseren gesamten Leitfaden befolgt haben, dann haben Sie es sogar geschafft, einen einfachen Befehl über unsere ASF-ui-Schnittstelle zu senden. Jetzt ist ein guter Zeitpunkt, unseren gesamten Abschnitt **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)** zu lesen, um zu erfahren, was all die verschiedenen Einstellungen, die Sie auf der Registerkarte Erweitert sahen, tatsächlich bewirken kann und was ASF bietet. Falls Sie über ein Problem stolpern oder eine allgemeine Frage haben, lesen Sie stattdessen das **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-de-DE)**, wo zumindest die meisten Fragen erklärt werden, die Sie haben könnten. Wenn Sie alles über ASF erfahren möchten und wie es Ihr Leben einfacher machen kann, dann lesen Sie sich den Rest von **[unserem Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE)** durch. Viel Spaß!
+Du hast ASF bereits erfolgreich so eingestellt, dass es deine Steam-Konten nutzt, und du hast es bereits ein wenig nach deinen Wünschen angepasst. If you followed our entire guide, then you also managed to tweak ASF through our ASF-ui interface and found out that ASF actually has a GUI of some sort. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen actually do, and what ASF has to offer. If you've stumbled upon some issue or you have some generic question, read our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least a vast majority of questions that you may have. Wenn du alles über ASF erfahren möchtest und wie es dein Leben einfacher machen kann, dann schaue dir den Rest von **[unserem Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE)** an. If you found out our program to be useful for you and you're feeling generous, you can also consider donating to our project. In any case, have fun!
 
 * * *
 
 ## Generisches Setup
 
-Dieses Setup ist für fortgeschrittene Benutzer, die ASF so einrichten möchten, dass es in der Variante **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#generisch)** funktioniert. Es wird nicht für Personen empfohlen, die das **[betriebssystemspezifische Setup](#betriebssystemspezifisches-setup)** verwenden können.
+Dieses Setup ist für fortgeschrittene Benutzer, die ASF so einrichten möchten, dass es in der Variante **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** läuft. Es wird nicht für Personen empfohlen, die das **[betriebssystemspezifische Setup](#betriebssystemspezifisches-setup)** verwenden können.
 
 You want to use `generic` variant mainly in those situations (but of course you can use it regardless):
 

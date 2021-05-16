@@ -345,10 +345,9 @@ La configuración del bot tiene la siguiente estructura:
     "CustomGamePlayedWhileIdle": null,
     "Enabled": false,
     "FarmingOrders": [],
+    "FarmPriorityQueueOnly": false,
     "GamesPlayedWhileIdle": [],
     "HoursUntilCardDrops": 3,
-    "IdlePriorityQueueOnly": false,
-    "IdleRefundableGames": true,
     "LootableTypes": [1, 3, 5],
     "MatchableTypes": [5],
     "OnlineStatus": 1,
@@ -358,6 +357,7 @@ La configuración del bot tiene la siguiente estructura:
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,
+    "SkipRefundableGames": false,
     "SteamLogin": null,
     "SteamMasterClanID": 0,
     "SteamParentalCode": null,
@@ -497,6 +497,12 @@ También hay una cola de prioridad de recolección accesible a través de los **
 
 * * *
 
+### `FarmPriorityQueueOnly`
+
+Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si ASF debe considerar para recolección solamente las apps que tú mismo hayas añadido a la cola de prioridad de recolección, disponible mediante los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `iq`. Cuando esta opción está activada, ASF omitirá todas las `appIDs` que no estén en la lista, permitiéndote seleccionar los juegos para que ASF recolecte automáticamente. Ten en cuenta que si no añadiste ningún juego a la cola, entonces ASF actuará como si no hubiera nada que recolectar en tu cuenta. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
+
+* * *
+
 ### `GamesPlayedWhileIdle`
 
 Tipo `ImmutableHashSet<uint>` con valor predeterminado estando vacío. Si ASF no tiene para recolectar, en su lugar puede jugar tus juegos especificados (`appIDs`). Jugar juegos de este modo incrementa tus "horas jugadas" para esos juegos, pero nada más aparte de eso. Para que esta característica funcione correctamente, tu cuenta de Steam **debe** poseer una licencia válida para todas las `appIDs` que especifiques aquí, esto también incluye juegos F2P. Esta característica puede ser habilitada al mismo tiempo con `CustomGamePlayedWhileIdle` para jugar tus juegos seleccionados mientras se muestra un estado personalizado en la red de Steam, pero en este caso, como en el de `CustomGamePlayedWhileFarming`, el orden de visualización real no está garantizado. Por favor, ten en cuenta que Steam solo le permite a ASF jugar hasta un total de `32` `appIDs`, por lo tanto solo puedes poner esa cantidad de juegos en esta propiedad.
@@ -505,25 +511,13 @@ Tipo `ImmutableHashSet<uint>` con valor predeterminado estando vacío. Si ASF no
 
 ### `HoursUntilCardDrops`
 
-Tipo `byte` con valor predeterminado de `3`. Esta propiedad define si una cuenta tiene cromos obtenibles restringidos, y si es así, por cuántas horas iniciales. Los cromos obtenibles restringidos significa que una cuenta no recibirá ningún cromo de un juego dado hasta que el juego haya sido jugado por al menos `HoursUntilCardDrops` horas. Desafortunadamente no hay una forma mágica de saber eso, por lo que ASF confía en ti. Esta propiedad afecta el **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-es)** que será usado. Establecer esta propiedad adecuadamente maximizará los beneficios y minimizará el tiempo requerido para que los cromos sean recolectados. Recuerda que no hay una forma obvio de responder si debes usar uno u otro valor, ya que depende completamente de tu cuenta. Parece ser que las cuentas más antiguas que nunca solicitaron un reembolso tienen cromos obtenibles sin restricción, así que esas deberían usar un valor de `0`, mientras que las cuentas nuevas y aquellas que solicitaron reembolso tienen los cromos obtenibles restringidos con un valor de `3`. Sin embargo, esto solo es una teoría, y no debe ser tomado como una regla. El valor predeterminado de esta propiedad se estableció basado en "el mal menor" y la mayoría de los casos de uso.
-
-* * *
-
-### `IdlePriorityQueueOnly`
-
-Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si ASF debe considerar para recolección solamente las apps que tú mismo hayas añadido a la cola de prioridad de recolección, disponible mediante los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `iq`. Cuando esta opción está activada, ASF omitirá todas las `appIDs` que no estén en la lista, permitiéndote seleccionar los juegos para que ASF recolecte automáticamente. Ten en cuenta que si no añadiste ningún juego a la cola, entonces ASF actuará como si no hubiera nada que recolectar en tu cuenta. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
-
-* * *
-
-### `IdleRefundableGames`
-
-Tipo `bool` con valor predeterminado de `true`. Esta propiedad define si ASF tiene permitido recolectar juegos que todavía son reembolsables. Un juego reembolsable es aquel que compraste en las últimas dos semanas a través de la Tienda de Steam y que aún no has jugado por más de 2 horas, como se indica en la página de **[reembolsos de Steam](https://store.steampowered.com/steam_refunds)**. Por defecto, cuando esta opción se establece en `true`, ASF ignora completamente la política de reembolsos de Steam y recolecta todo, como la mayoría espera. Sin embargo, puedes cambiar esta opción a `false` si quieres asegurarte que ASF no recolectará muy pronto ninguno de tus juegos reembolsables, permitiéndote evaluar esos juegos por ti mismo y reembolsarlos si es necesario, sin preocuparte por que ASF afecte negativamente el tiempo de juego. Por favor, ten en cuenta que si deshabilitas esta opción, los juegos comprados en la Tienda de Steam no serán recolectados por ASF hasta por 14 días desde la fecha de activación, lo cual se mostrará como que hay nada para recolectar en tu cuenta si no posees otros juegos. Si no estás seguro si quieres esta función activada o no, deja el valor predeterminado de `true`.
+Tipo `byte` con valor predeterminado de `3`. Esta propiedad define si una cuenta tiene cromos obtenibles restringidos, y si es así, por cuántas horas iniciales. Los cromos obtenibles restringidos significa que una cuenta no recibirá ningún cromo de un juego dado hasta que el juego haya sido jugado por al menos `HoursUntilCardDrops` horas. Desafortunadamente no hay una forma mágica de saber eso, por lo que ASF confía en ti. Esta propiedad afecta el **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** que será usado. Establecer esta propiedad adecuadamente maximizará los beneficios y minimizará el tiempo requerido para que los cromos sean recolectados. Recuerda que no hay una forma obvio de responder si debes usar uno u otro valor, ya que depende completamente de tu cuenta. Parece ser que las cuentas más antiguas que nunca solicitaron un reembolso tienen cromos obtenibles sin restricción, así que esas deberían usar un valor de `0`, mientras que las cuentas nuevas y aquellas que solicitaron reembolso tienen los cromos obtenibles restringidos con un valor de `3`. Sin embargo, esto solo es una teoría, y no debe ser tomado como una regla. El valor predeterminado de esta propiedad se estableció basado en "el mal menor" y la mayoría de los casos de uso.
 
 * * *
 
 ### `LootableTypes`
 
-Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de artículo de Steam. Esta propiedad define el comportamiento de ASF cuando lootea - tanto manual, usando un **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)**, así como automáticamente, a través de una o más propiedades de configuración. ASF se asegurará que solos los artículos de `LootableTypes` sea incluidos en una oferta de intercambio, por lo tanto, esta propiedad te permite elegir lo que quieres recibir en una oferta de intercambio que te sea enviada.
+Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de artículo de Steam. Esta propiedad define el comportamiento de ASF cuando lootea - tanto manual, usando un **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, así como automáticamente, a través de una o más propiedades de configuración. ASF se asegurará que solos los artículos de `LootableTypes` sea incluidos en una oferta de intercambio, por lo tanto, esta propiedad te permite elegir lo que quieres recibir en una oferta de intercambio que te sea enviada.
 
 | Valor | Nombre                | Descripción                                                                         |
 | ----- | --------------------- | ----------------------------------------------------------------------------------- |
@@ -608,19 +602,19 @@ Si no estás seguro de cómo configurar esta propiedad, se recomienda usar un va
 
 ### `PasswordFormat`
 
-Tipo `byte` con valor predeterminado de `0`. Esta propiedad define el formato de la propiedad `SteamPassword`, y actualmente soporta - `0` para `PlainText`, `1` para `AES` y `2` para `ProtectedDataForCurrentUser`. Por favor, consulta la sección **[Seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** si deseas aprender más, ya que necesitarás asegurarte que la propiedad `SteamPassword` incluye una contraseña que coincida con `PasswordFormat`. En otras palabras, cuando cambias `PasswordFormat` tu `SteamPassword` **ya** debería estar en ese formato, no solo apuntando a estarlo. A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de `0`.
+Tipo `byte` con valor predeterminado de `0`. Esta propiedad define el formato de la propiedad `SteamPassword`, y actualmente soporta - `0` para `PlainText`, `1` para `AES` y `2` para `ProtectedDataForCurrentUser`. Por favor, consulta la sección **[Seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-es)** si deseas aprender más, ya que necesitarás asegurarte que la propiedad `SteamPassword` incluye una contraseña que coincida con `PasswordFormat`. En otras palabras, cuando cambias `PasswordFormat` tu `SteamPassword` **ya** debería estar en ese formato, no solo apuntando a estarlo. A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de `0`.
 
 * * *
 
 ### `Paused`
 
-Tipo `bool` con valor predeterminado de `false`. Esta propiedad define el estado inicial del módulo `CardsFarmer`. Con un valor predeterminado de `false`, el bot comenzará a recolectar automáticamente cuando se inicie, ya sea a causa de `Enabled` o el comando `start`. Solo debes cambiar esta propiedad a `true` si quieres `resume` manualmente el proceso automático de recolección, por ejemplo, porque quieres usar `play` todo el tiempo y nunca usar el módulo automático de `CardsFarmer` - esto funciona exactamente igual que el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `pause`. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
+Tipo `bool` con valor predeterminado de `false`. Esta propiedad define el estado inicial del módulo `CardsFarmer`. Con un valor predeterminado de `false`, el bot comenzará a recolectar automáticamente cuando se inicie, ya sea a causa de `Enabled` o el comando `start`. Solo debes cambiar esta propiedad a `true` si quieres `resume` manualmente el proceso automático de recolección, por ejemplo, porque quieres usar `play` todo el tiempo y nunca usar el módulo automático de `CardsFarmer` - esto funciona exactamente igual que el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `pause`. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
 
 * * *
 
 ### `RedeemingPreferences`
 
-Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el como de ASF al activar claves de juego, y se describe a continuación:
+Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comportamiento de ASF al activar claves de juego, y se describe a continuación:
 
 | Valor | Nombre                             | Descripción                                                                                                                                                     |
 | ----- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -669,6 +663,12 @@ Normalmente querrás usar **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteam
 Tipo `bool` con valor predeterminado de `false`. ASF "ocupa" una cuenta durante todo el tiempo que el proceso está activo. Cuando una cuenta dada termina de recolectar, ASF comprueba periódicamente (cada `IdleFarmingPeriod` horas), si en ese tipo se añadió algún juego nuevo con cromos, así puede continuar recolectando en esa cuenta sin necesidad de reiniciar el proceso. Esto es útil para la mayoría de las personas, ya que ASF puede continuar recolectando automáticamente cuando sea necesario. Sin embargo, puede que quieras detener el proceso cuando una cuenta dada termine de recolectar, puedes lograr eso estableciendo esta propiedad a `true`. Cuando está habilitado, ASF procederá a cerrar sesión cuando la cuenta esté totalmente recolectada, lo que significa que ya no será comprobada periódicamente ni será usada. Debes decidir si prefieres que ASF trabaje en una instancia de bot dada todo el tiempo, o si ASF debe detenerla cuando el proceso de recolección esté terminado. Cuando todas las cuentas se detienen y el proceso no se está ejecutando en el **[modo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)** `--process-required`, ASF también se cerrará, haciendo descansar tu máquina y permitiéndote programar otras acciones, tal como suspender o apagarse al momento de obtener el último cromo disponible.
 
 Si no estás seguro de cómo establecer esta propiedad, déjala con su valor predeterminado de `false`.
+
+* * *
+
+### `SkipRefundableGames`
+
+Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si ASF tiene permitido recolectar juegos que todavía son reembolsables. Un juego reembolsable es aquel que compraste en las últimas dos semanas a través de la Tienda de Steam y que aún no has jugado por más de 2 horas, como se indica en la página de **[reembolsos de Steam](https://store.steampowered.com/steam_refunds)**. Por defecto, cuando esta opción se establece en `false`, ASF ignora completamente la política de reembolsos de Steam y recolecta todo, como la mayoría espera. Sin embargo, puedes cambiar esta opción a `true` si quieres asegurarte de que ASF no recolectará ninguno de tus juegos reembolsables, permitiéndote evaluar esos juegos y reembolsarlos si es necesario, sin preocuparte por que ASF afecte negativamente el tiempo de juego. Ten en cuenta que si habilitas esta opción los juegos comprados en la Tienda de Steam no serán recolectados por ASF durante un máximo de 14 días desde la fecha de activación, lo que mostrará que no hay nada para recolectar si tu cuenta no posee nada más. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
 
 * * *
 

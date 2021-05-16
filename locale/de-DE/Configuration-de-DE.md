@@ -345,10 +345,9 @@ Die Bot-Konfiguration hat folgende Struktur:
     "CustomGamePlayedWhileIdle": null,
     "Enabled": false,
     "FarmingOrders": [],
+    "FarmPriorityQueueOnly": false,
     "GamesPlayedWhileIdle": [],
     "HoursUntilCardDrops": 3,
-    "IdlePriorityQueueOnly": false,
-    "IdleRefundableGames": true,
     "LootableTypes": [1, 3, 5],
     "MatchableTypes": [5],
     "OnlineStatus": 1,
@@ -358,6 +357,7 @@ Die Bot-Konfiguration hat folgende Struktur:
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,
+    "SkipRefundableGames": false,
     "SteamLogin": null,
     "SteamMasterClanID": 0,
     "SteamParentalCode": null,
@@ -497,33 +497,27 @@ Es gibt auch eine priorisierte Sammel-Warteschlange, die über die `iq` **[Befeh
 
 * * *
 
+### `FarmPriorityQueueOnly`
+
+`bool` Typ mit einem Standardwert von `false`. Diese Eigenschaft legt fest, ob ASF für das automatische Sammeln nur Anwendungen berücksichtigen soll, die du selbst zur priorisierten Sammel-Warteschlange hinzugefügt hast, die mit `iq` **[Befehlen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** verfügbar ist. Wenn diese Option aktiviert ist, überspringt ASF alle `appIDs`, die auf der Liste fehlen, was es effektiv ermöglicht, Spiele für das automatische ASF-Sammeln auszuwählen. Bedenken Sie, dass ASF für das Konto untätig bleibt, wenn Sie keine Spiele zur Warteschlange hinzugefügen. Wenn du dir nicht sicher bist ob du diese Funktion aktivieren möchtest oder nicht, behalte sie mit dem Standardwert `false`.
+
+* * *
+
 ### `GamesPlayedWhileIdle`
 
-`ImmutableHashSet<uint>` Typ mit einem leeren Standardwert. Wenn ASF nichts zu sammeln hat, kann es stattdessen deine angegebenen Steam Spiele (`appIDs`) spielen. Das Spielen von Spielen auf diese Weise erhöht deine "gespielten Stunden" dieser Spiele, aber nichts anderes als das. Damit diese Funktion richtig funktioniert, **muss** das Steam-Konto eine gültige Lizenz für alle `AppIDs` besitzen, die Sie angegeben haben; dies schließt auch F2P-Spiele mit ein. Dieses Feature kann gleichzeitig mit `CustomGamePlayedWhileIdle` aktiviert werden, um die ausgewählten Spiele zu spielen, während der benutzerdefinierte Status im Steam-Netzwerk angezeigt wird, aber in diesem Fall, wie in `CustomGamePlayedWhileFarming`, ist die tatsächliche Anzeige-Reihenfolge nicht garantiert. Bitte beachte, dass Steam insgesamt ASF nur bis zu `32` `appIDs` spielen lässt, daher kannst du nur so viele Spiele in diese Eigenschaft aufnehmen.
+`ImmutableHashSet<uint>` Typ mit einem leeren Standardwert. Wenn ASF nichts zu sammeln hat, kann es stattdessen deine angegebenen Steam Spiele (`appIDs`) spielen. Das Spielen von Spielen auf diese Weise erhöht lediglich die "gesamte Spielzeit" dieser Spiele. Damit diese Funktion richtig funktioniert, **muss** das Steam-Konto eine gültige Lizenz für alle `AppIDs` besitzen, die Sie angegeben haben; dies schließt auch F2P-Spiele mit ein. Dieses Feature kann gleichzeitig mit `CustomGamePlayedWhileIdle` aktiviert werden, um die ausgewählten Spiele zu spielen, während der benutzerdefinierte Status im Steam-Netzwerk angezeigt wird. In diesem Fall, wie in `CustomGamePlayedWhileFarming`, ist die tatsächliche Anzeige-Reihenfolge jedoch nicht garantiert. Bitte beachte, dass Steam insgesamt ASF nur bis zu `32` `appIDs` spielen lässt, daher kannst du nur so viele Spiele in diese Eigenschaft aufnehmen.
 
 * * *
 
 ### `HoursUntilCardDrops`
 
-`byte` Typ mit einem Standardwert von `3`. Diese Eigenschaft legt fest, ob und wenn ja, für wie viele Anfangsstunden das Konto Kartendrops eingeschränkt hat. Eingeschränkte Kartendrops bedeuten, dass das Konto keine Karten von einem bestimmten Spiel erhält, bis das Spiel mindestens `HoursUntilCardDrops` Stunden lang gespielt wurde. Leider gibt es keinen magischen Weg, das zu erkennen, also verlässt sich ASF auf dich. Diese Eigenschaft wirkt sich auf den **[Karten-Sammel-Algorithmus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE)** aus, der verwendet wird. Wenn du diese Eigenschaft richtig einstellst, maximierst du den Gewinn und minimierst die Zeit, die für die Bearbeitung der Karten benötigt wird. Bedenke, dass es keine offensichtliche Antwort gibt, ob du den einen oder anderen Wert verwenden solltest, da es völlig von deinem Konto abhängt. Es scheint, dass ältere Konten, die nie um Rückerstattung gebeten haben, unbeschränkte Kartendrops haben, also solltest du einen Wert von `0` verwenden, während neue Konten und diejenigen, die um Rückerstattung gebeten haben, beschränkte Kartendrops mit einem Wert von `3` haben. Dies ist jedoch nur eine Theorie und sollte nicht als Tatsache betrachtet werden. Der Standardwert für diese Eigenschaft wurde basierend auf einem "kleinerem Übel" und der Mehrheit der Anwendungsfälle festgelegt.
-
-* * *
-
-### `IdlePriorityQueueOnly`
-
-`bool` Typ mit einem Standardwert von `false`. Diese Eigenschaft legt fest, ob ASF für das automatische Sammeln nur Anwendungen berücksichtigen soll, die du selbst zur priorisierten Sammel-Warteschlange hinzugefügt hast, die mit `iq` **[Befehlen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** verfügbar ist. Wenn diese Option aktiviert ist, überspringt ASF alle `appIDs`, die auf der Liste fehlen, was es dir effektiv ermöglicht, Spiele für das automatische ASF-Sammeln auszuwählen. Bedenke, dass, wenn du keine Spiele zur Warteschlange hinzugefügt hast, ASF so tut, als gäbe es für dein Konto nichts zu tun. Wenn du dir nicht sicher bist ob du diese Funktion aktivieren möchtest oder nicht, behalte sie mit dem Standardwert `false`.
-
-* * *
-
-### `IdleRefundableGames`
-
-`bool` Typ mit einem Standardwert von `true`. Diese Eigenschaft legt fest, ob es ASF erlaubt ist, Spiele zu sammeln, die noch erstattungsfähig sind. Ein rückerstattungsfähiges Spiel ist ein Spiel, das du in den letzten 2 Wochen über den Steam-Shop gekauft hast und das wir noch nicht länger als 2 Stunden gespielt haben, wie auf der **[Steam-Rückerstattungen](https://store.steampowered.com/steam_refunds)** Seite angegeben. Standardmäßig, wenn diese Option auf `true` gesetzt ist, ignoriert ASF die Steam-Rückerstattungen vollständig und Sammelt alles, wie es die meisten Benutzer erwarten würden. Du kannst diese Option jedoch auf `false` setzen, wenn du sicherstellen möchtest, dass ASF keines deiner rückerstattungsfähigen Spiele zu früh sammelt, so dass du diese Spiele selbst bewerten und bei Bedarf zurückerstatten kannst, ohne dir Sorgen zu machen, dass ASF die Spielzeit negativ beeinflusst. Bitte bedenke, dass, wenn du diese Option deaktivierst, Spiele, die du im Steam-Shop gekauft hast, bis zu 14 Tage nach dem Einlösedatum nicht von ASF gesammelt werden, was als nichts zu sammeln angezeigt wird, wenn dein Konto nichts anderes besitzt. Wenn du dir nicht sicher bist, ob du diese Funktion aktivieren möchtest oder nicht, behalte sie mit dem Standardwert `true`.
+`byte` Typ mit einem Standardwert von `3`. Diese Eigenschaft legt fest, ob (und falls dies zutrifft, für wie viele Anfangsstunden) Kartendrops auf dem Konto eingeschränkt sind. Eingeschränkte Kartendrops bedeuten, dass das Konto keine Karten von einem bestimmten Spiel erhält, bis das Spiel mindestens `HoursUntilCardDrops` Stunden lang gespielt wurde. Leider gibt es keinen magischen Weg, das zu erkennen, also verlässt sich ASF auf Sie. Diese Eigenschaft wirkt sich auf den **[Karten-Sammel-Algorithmus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE)** aus, der verwendet wird. Wenn diese Eigenschaft richtig eingestellt ist, wird der Gewinn maximiert und die benötigte Zeit für die Bearbeitung der Karten minimiert. Bedenke, dass es keine offensichtliche Antwort gibt, welchen Wert Sie verwenden sollten, da es völlig vom entsprechenden Konto abhängt. Es scheint, dass ältere Konten, die nie um Rückerstattung gebeten haben, unbeschränkte Kartendrops haben, also sollten Sie einen Wert von `0` verwenden, während neue Konten und diejenigen, die um Rückerstattung gebeten haben, beschränkte Kartendrops mit einem Wert von `3` haben. Dies ist jedoch nur eine Theorie und sollte nicht als Tatsache betrachtet werden. Der Standardwert für diese Eigenschaft wurde basierend auf das "kleinere Übel" und der Mehrheit der Anwendungsfälle festgelegt.
 
 * * *
 
 ### `LootableTypes`
 
-`ImmutableHashSet<byte>` Typ mit einem Standardwert von `1, 3, 5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert das ASF-Verhalten beim Plündern - sowohl manuell, durch Verwendung eines **[Befehls](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**, als auch automatisch über eine oder mehrere Konfigurationseigenschaften. ASF wird sicherstellen, dass nur Gegenstände von `LootableTypes` in ein Handelsangebot aufgenommen werden, daher kannst du mit dieser Eigenschaft wählen, was du in einem Handelsangebot erhalten möchtest, das an dich gesendet wird.
+`ImmutableHashSet<byte>` Typ mit einem Standardwert von `1, 3, 5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert das ASF-Verhalten beim Plündern - sowohl manuell, durch Verwendung eines **[Befehls](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**, als auch automatisch über eine oder mehrere Konfigurationseigenschaften. ASF wird sicherstellen, dass nur Gegenstände von `LootableTypes` in ein Handelsangebot aufgenommen werden, daher können Sie mit dieser Eigenschaft wählen, was Sie in einem Handelsangebot erhalten möchten, das an Sie gesendet wird.
 
 | Wert | Name                  | Beschreibung                                                                                  |
 | ---- | --------------------- | --------------------------------------------------------------------------------------------- |
@@ -545,13 +539,13 @@ Es gibt auch eine priorisierte Sammel-Warteschlange, die über die `iq` **[Befeh
 
 Bitte bedenke, dass ASF unabhängig von den obigen Einstellungen nur nach Steam (`appID` von 753) Community (`contextID` von 6) Gegenständen fragt, so dass alle Spiel-Gegenstände und Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
 
-Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bot, wobei nur Boosterpacks und Trading-Karten (einschließlich Folienkarten) geöffnet werden. Die hier definierte Eigenschaft ermöglicht es dir, dieses Verhalten so zu verändern, dass es dich zufrieden stellt. Bitte bedenke, dass alle nicht oben definierten Typen als `Unknown` Typ angezeigt werden, was besonders wichtig ist, wenn Valve einen neuen Steam-Gegenstand veröffentlicht, der ebenfalls von ASF als `Unknown` markiert wird, bis er hier (in der zukünftigen Version) hinzugefügt wird. Deshalb ist es im Allgemeinen nicht empfehlenswert, `Unknown` in deinen `LootableTypes` einzugeben, es sei denn, du weißt, was du tust, und du verstehst auch, dass ASF dein gesamtes Inventar in einem Handelsangebot versenden wird, wenn das Steam-Netzwerk wieder unterbrochen wird und alle deine Gegenstände als `Unknown` meldet. Mein nachdrücklicher Vorschlag ist, `Unknown` nicht in das Feld `LootableTypes` einzutragen, selbst wenn Sie alles übertragen möchten.
+Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bot, wobei nur Boosterpacks und Trading-Karten (einschließlich Folienkarten) geöffnet werden. Die hier definierte Eigenschaft ermöglicht es dir, dieses Verhalten so zu verändern, dass es dich zufrieden stellt. Bitte bedenke, dass alle nicht oben definierten Typen als `Unknown` Typ angezeigt werden, was besonders wichtig ist, wenn Valve einen neuen Steam-Gegenstand veröffentlicht, der ebenfalls von ASF als `Unknown` markiert wird, bis er hier (in der zukünftigen Version) hinzugefügt wird. Deshalb ist es im Allgemeinen nicht empfehlenswert, `Unknown` in Ihren `LootableTypes` einzugeben, es sei denn, Sie wissen genau, was Sie tun und verstehen auch, dass ASF das gesamtes Inventar in einem Handelsangebot versenden wird, wenn das Steam-Netzwerk wieder unterbrochen wird und alle Ihre Gegenstände als `Unknown` meldet. Mein nachdrücklicher Vorschlag ist, `Unknown` nicht in das Feld `LootableTypes` einzutragen, selbst wenn Sie alles übertragen möchten.
 
 * * *
 
 ### `MatchableTypes`
 
-`ImmutableHashSet<byte>` Typ mit einem Standardwert von `5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert, welche Steam Gegenstands-Typen angepasst werden dürfen, wenn die Option `SteamTradeMatcher` in `TradingPreferences` aktiviert ist. Die Typen sind wie folgt definiert:
+`ImmutableHashSet<byte>` Typ mit Standardwert von `5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert, welche Steam Gegenstands-Arten angepasst werden dürfen, wenn die Option `SteamTradeMatcher` in `TradingPreferences` aktiviert ist. Die Arten sind wie folgt definiert:
 
 | Wert | Name                  | Beschreibung                                                                                  |
 | ---- | --------------------- | --------------------------------------------------------------------------------------------- |
@@ -571,7 +565,7 @@ Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bo
 | 13   | AvatarProfileFrame    | Besonderer Avatarrahmen für das Steam-Profil                                                  |
 | 14   | AnimatedAvatar        | Besonders animierter Avatar für das Steam-Profil                                              |
 
-Natürlich beinhalten die Typen, die du für diese Eigenschaft verwenden solltest, typischerweise nur `2`, `3`, `4` und `5`, da nur diese Typen von STM unterstützt werden. ASF beinhaltet die passende Logik, um die Seltenheit der Gegenstände zu ermitteln, daher ist es auch sicher, Emoticons oder Hintergründe zu vergleichen, da ASF nur die Gegenstände aus dem gleichen Spiel und Typ, die auch die gleiche Seltenheit aufweisen, als fair erachten wird.
+Natürlich beinhalten die Typen, die Sie für diese Eigenschaft verwenden sollten, typischerweise nur `2`, `3`, `4` und `5`, da nur diese Typen von STM unterstützt werden. ASF beinhaltet die passende Logik, um die Seltenheit der Gegenstände zu ermitteln, daher ist es auch sicher, Emoticons oder Hintergründe zu vergleichen, da ASF nur die Gegenstände aus dem gleichen Spiel und Typ, die auch die gleiche Seltenheit aufweisen, als fair erachten wird.
 
 Bitte bedenke, dass **ASF kein Handels-Bot** ist und **sich NICHT um den Marktpreis schert.**. Wenn du Gegenstände der gleichen Seltenheit aus dem gleichen Set nicht als preislich gleichwertig betrachtest, dann ist diese Option NICHT für dich. Bitte überlege zweimal, ob du diese Erklärung verstehst und damit einverstanden bist, bevor du dich entscheidest, diese Einstellung zu ändern.
 
@@ -669,6 +663,12 @@ Normalerweise solltest du **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteam
 `bool` Typ mit einem Standardwert von `false`. ASF "belegt" ein Konto für die gesamte Zeit des aktiven Prozesses. Wenn ein Konto mit dem Sammeln fertig ist, überprüft ASF regelmäßig (jede `IdleFarmingPeriode` Stunden), ob in der Zwischenzeit vielleicht einige neue Spiele mit Steam-Karten hinzugefügt wurden, damit es das Sammeln dieses Kontos fortsetzen kann, ohne den Prozess neu starten zu müssen. Dies ist für die Mehrheit der Menschen nützlich, da ASF bei Bedarf automatisch das Sammeln wieder aufnehmen kann. Jedoch kannst du den Prozess tatsächlich stoppen wollen, wenn das angegebene Konto vollständig gesammelt ist, du kannst das erreichen, indem du diese Eigenschaft auf `true` setzt. Wenn aktiviert, fährt ASF mit der Abmeldung fort, wenn das Konto vollständig gesammelt ist, was bedeutet, dass es nicht mehr regelmäßig überprüft oder belegt wird. Du solltest selbst entscheiden, ob du es vorziehst, dass ASF die ganze Zeit an einer bestimmten Bot-Instanz arbeitet, oder ob ASF sie vielleicht stoppen sollte, wenn das Sammeln abgeschlossen ist. Wenn alle Konten gestoppt sind und der Prozess nicht in `--process-required` **[Modus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-de-DE)** läuft, wird ASF auch heruntergefahren, wodurch deine Maschine in den Ruhemodus geht und du andere Aktionen planen kannst wie z.B. Schlafmodus oder Herunterfahren sobald die letzte Karte gesammelt wurde.
 
 Wenn du dir nicht sicher bist wie du diese Eigenschaft einstellen sollst, belasse sie bei dem Standardwert `false`.
+
+* * *
+
+### `SkipRefundableGames`
+
+`bool` Typ mit einem Standardwert von `false`. This property defines if ASF is permitted to farm games that are still refundable. Ein rückerstattungsfähiges Spiel ist ein Spiel, das du in den letzten 2 Wochen über den Steam-Shop gekauft hast und das wir noch nicht länger als 2 Stunden gespielt haben, wie auf der **[Steam-Rückerstattungen](https://store.steampowered.com/steam_refunds)** Seite angegeben. By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. Wenn du dir nicht sicher bist ob du diese Funktion aktivieren möchtest oder nicht, behalte sie mit dem Standardwert `false`.
 
 * * *
 

@@ -345,10 +345,9 @@ In general, lowering `WebLimiterDelay` under default value is **strongly discour
     "CustomGamePlayedWhileIdle": null,
     "Enabled": false,
     "FarmingOrders": [],
+    "FarmPriorityQueueOnly": false,
     "GamesPlayedWhileIdle": [],
     "HoursUntilCardDrops": 3,
-    "IdlePriorityQueueOnly": false,
-    "IdleRefundableGames": true,
     "LootableTypes": [1, 3, 5],
     "MatchableTypes": [5],
     "OnlineStatus": 1,
@@ -358,6 +357,7 @@ In general, lowering `WebLimiterDelay` under default value is **strongly discour
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,
+    "SkipRefundableGames": false,
     "SteamLogin": null,
     "SteamMasterClanID": 0,
     "SteamParentalCode": null,
@@ -497,6 +497,12 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 * * *
 
+### `FarmPriorityQueueOnly`
+
+`bool` 타입으로 기본값은 `false`입니다. 이 속성값은 ASF가 `iq` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 로 농사 우선 대기열에 추가한 앱만 자동으로 농사짓도록 정의합니다. 이 옵션이 활성화되어있으면 자동 ASF 농사의 열매만 효과적으로 따먹을 수 있도록 목록에 없는 모든 `appIDs`를 건너뜁니다. 대기열에 게임을 하나도 추가하지 않았다면 계정에 농사지을 것이 없는 것처럼 행동함을 명심하십시오. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
+
+* * *
+
 ### `GamesPlayedWhileIdle`
 
 `ImmutableHashSet<uint>` 타입으로 기본값은 비어있습니다. ASF가 농사지을 것이 없다면 대신 특정 게임(`appIDs`)을 플레이할 수 있습니다. 이 방법으로 플레이하면 "플레이한 시간"을 늘릴 수 있지만, 그게 끝입니다. In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. 이 기능은 Steam 네트워크에서 사용자정의 상태를 보여주면서 선택한 게임을 플레이하기 위해 `CustomGamePlayedWhileIdle`와 동시에 활성화 될 수 있습니다. 하지만 이 경우 `CustomGamePlayedWhileFarming`의 경우와 같이 실제 표시 순서는 보장하지 않습니다. Steam은 ASF가 총 `32`개의 `appIDs`를 플레이 할 수 있도록 허락하고 있으며, 따라서 이 속성값에 그만큼을 넣을 수 있습니다.
@@ -506,18 +512,6 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 ### `HoursUntilCardDrops`
 
 `byte` 타입으로 기본값은 `3`입니다. 이 속성값은 이 계정에 카드 획득 제한이 있는지를 정의하고, 만약 제한이 있다면 최초 몇시간인지를 정의합니다. 카드 획득 제한이란, 그 계정에서 한 게임을 적어도 `HoursUntilCardDrops` 시간 동안 플레이하지 않으면 그 게임의 카드가 나오지 않는다는 의미입니다. 아쉽게도 이를 알아낼 수 있는 마법은 없으므로 ASF는 당신에게 의존합니다. 이 속성값은 사용할 **[카드 농사 알고리즘](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR)** 에 영향을 줍니다. 이 속성값을 설정하면 이득을 극대화하고 카드농사에 필요한 시간을 최소화합니다. 어떤 값을 사용할지에 대한 명확한 정답은 없고, 오로지 자신의 계정에 달려있음을 기억하십시오. 환불을 한번도 하지 않은 오래된 계정은 제한이 없는 것으로 보이므로 `0` 값을 사용하여야 하고, 새로운 계정과 환불을 받았던 계정은 획득 제한이 있으므로 `3` 값을 사용합니다. 하지만 이것은 단지 이론일 뿐이고 규칙으로 받아들여서는 안됩니다. 이 속성값의 기본값은 "소악(lesser evil)"과 대부분의 사용례에 근거해 설정되었습니다.
-
-* * *
-
-### `IdlePriorityQueueOnly`
-
-`bool` 타입으로 기본값은 `false`입니다. 이 속성값은 ASF가 `iq` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 로 농사 우선 대기열에 추가한 앱만 자동으로 농사짓도록 정의합니다. 이 옵션이 활성화되어있으면 자동 ASF 농사의 열매만 효과적으로 따먹을 수 있도록 목록에 없는 모든 `appIDs`를 건너뜁니다. 대기열에 게임을 하나도 추가하지 않았다면 계정에 농사지을 것이 없는 것처럼 행동함을 명심하십시오. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
-
-* * *
-
-### `IdleRefundableGames`
-
-`bool` 타입으로 기본값은 `true`입니다. 이 속성값은 아직 환불이 가능한 게임을 농사지어도 될지를 정의합니다. 환불 가능한 게임은 **[Steam 환불](https://store.steampowered.com/steam_refunds)** 페이지에 게시된 것 처럼 Steam 상점에서 구매한지 2주 이내이고 2시간을 넘지않게 플레이한 게임입니다. 기본적으로 이 옵션이 `true`로 설정되어있으면, ASF는 Steam 환불 정책을 완전히 무시하고 대부분의 사람들이 기대하는 바 처럼 모든 것을 농사짓습니다. 하지만 만약 당신이 ASF가 환불 가능한 게임을 너무 일찍 농사짓지 않기를 원한다면 이 옵션을 `false`로 변경할 수 있습니다. ASF가 플레이시간에 부정적인 영향을 끼칠 걱정 없이 이 게임을 당신이 직접 평가해보고 필요하면 환불할 수 있게 해줍니다. 만약 이 옵션을 비활성화하면 Steam 상점에서 구입한 게임은 등록일로부터 14일간 ASF가 농사짓지 않습니다. 계정에 그외에 아무것도 없다면 농사지을 것이 없는 것으로 표시됩니다. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `true`를 유지하십시오.
 
 * * *
 
@@ -551,7 +545,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 ### `MatchableTypes`
 
-`ImmutableHashSet<byte>` 타입으로 기본값은 `5` Steam 아이템 타입입니다. 이 속성값은 `TradingPreferences`의 `SteamTradeMatcher` 옵션이 활성화 되었을 때 매칭을 허락할 Steam 아이템 타입을 정의합니다. 타입은 아래와 같이 정의됩니다.
+`ImmutableHashSet<byte>` 타입으로 기본값은 `5` Steam 항목 타입입니다. 이 속성값은 `TradingPreferences`의 `SteamTradeMatcher` 옵션이 활성화 되었을 때 매칭을 허락할 Steam 아이템 타입을 정의합니다. 타입은 아래와 같이 정의됩니다.
 
 | 값  | 이름                          | 설명                                           |
 | -- | --------------------------- | -------------------------------------------- |
@@ -669,6 +663,12 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 `bool` 타입으로 기본값은 `false`입니다. ASF는 활성화된 모든 시간동안 계정을 "점유하고" 있습니다. 해당 계정의 농사가 끝났다면, ASF는 주기적으로 매 `IdleFarmingPeriod` 시간마다 Steam 카드가 있는 새로운 게임이 그 사이에 추가되었는지를 확인하여 프로세스를 재시작할 필요없이 농사를 계속할 수 있도록 합니다. 이는 대부분의 사람들에게 유용한데, ASF는 필요하면 자동으로 농사를 이어서할 수 있기 때문입니다. 하지만 해당 계정이 완전히 농사가 끝난 다음에 프로세스를 실제로 멈추고 싶다면, 이 속성값을 `true`로 설정함으로써 그렇게 할 수 있습니다. 활성화되면 ASF는 계정의 농사가 완전히 끝나면 로그오프하여 더이상 주기적으로 체크하거나 점유하지 않게 합니다. ASF가 모든 시간을 봇 인스턴스에 사용하도록 하거나, 혹은 농사 프로세스가 끝나면 멈추게 할지를 스스로 정해야 합니다. 모든 계정이 멈추고 프로세스가 `--process-required` **[모드](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-ko-KR)** 에서 실행중이 아니면, ASF 또한 종료되고 기기도 쉴 수 있게 되며, 마지막 카드 획득 순간에 대기모드나 종료 등 다른 작업을 할 수 있도록 합니다.
 
 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `false`로 두십시오.
+
+* * *
+
+### `SkipRefundableGames`
+
+`bool` 타입으로 기본값은 `false`입니다. This property defines if ASF is permitted to farm games that are still refundable. 환불 가능한 게임은 **[Steam 환불](https://store.steampowered.com/steam_refunds)** 페이지에 게시된 것 처럼 Steam 상점에서 구매한지 2주 이내이고 2시간을 넘지않게 플레이한 게임입니다. By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
 
 * * *
 

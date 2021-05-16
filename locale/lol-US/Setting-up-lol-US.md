@@ -2,7 +2,7 @@
 
 IF U ARRIVD HER 4 DA FURST TIEM, WELCOM! WERE VRY HAPPEH 2 C YET ANOTHR TRAVELR DAT IZ INTERESTD IN R PROJECT, ALTHOUGH BEAR IN MIND DAT WIF GREAT POWR COMEZ GREAT RESPONSIBILITY - ASF IZ CAPABLE OV DOIN LOT OV DIFFERENT STEAM-RELATD THINGS, BUT ONLY AS LONG AS U **CARE ENOUGH 2 LERN HOW 2 USE IT** THAR IZ STEEP LERNIN CURVE INVOLVD HER, AN WE EXPECT FRUM U 2 READ TEH WIKI IN DIS REGARD, WHICH EXPLAINS IN DETAIL HOW EVRYTHIN OPERATEZ.
 
-IF URE STILL HER DEN IT MEANZ DAT U ENDURD R TEXT ABOOV, WHICH IZ NICE. UNLES U SKIPPD OVAR IT, DEN URE GOIN 2 HAS **[BAD TIEM](https://www.youtube.com/watch?v=WJgt6m6njVw)** SOON ENOUGH... ANYWAY, ASF IZ CONSOLE APP, WHICH MEANZ DAT TEH PROGRAM ITSELF DOESNT HAS FRIENDLY GUI DAT URE IN GENERAL USD 2. ASF WUZ MAINLY SUPPOSD 2 BE RUN ON SERVERS, SO IT ACTS AS SERVICE (DAEMON) AN NOT DESKTOP APP.
+IF URE STILL HER DEN IT MEANZ DAT U ENDURD R TEXT ABOOV, WHICH IZ NICE. UNLES U SKIPPD OVAR IT, DEN URE GOIN 2 HAS **[BAD TIEM](https://www.youtube.com/watch?v=WJgt6m6njVw)** SOON ENOUGH... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to, at least out of the box. ASF WUZ MAINLY SUPPOSD 2 BE RUN ON SERVERS, SO IT ACTS AS SERVICE (DAEMON) AN NOT DESKTOP APP.
 
 DIS HOWEVR DOESNT MEEN DAT U CANT USE IT ON UR PC OR USIN IT IN SUM WAI MOAR COMPLICATD THAN USUAL, NOTHIN LIEK DAT. ASF IZ STANDALONE PROGRAM DAT DOESNT NED INSTALLASHUN, AN WERKZ OUT OV TEH BOX RITE AWAY, BUT REQUIREZ CONFIGURASHUN PRIOR 2 BECOMIN USEFUL. CONFIGURASHUN IZ TELLIN ASF WUT IT SHUD IN FACT DO AFTR U LAUNCH IT. IF U LAUNCH IT WITHOUT CONFIGURASHUN, DEN ASF WONT DO ANYTHIN, SIMPLE.
 
@@ -92,7 +92,7 @@ WERE NAO READY 2 DO TEH VRY LAST STEP, TEH CONFIGURASHUN. DIS AR TEH BY FAR TEH 
 
 FURST AN FOREMOST, THAR IZ **[CONFIGURASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US)** PAEG DAT EXPLAINS **EVRYTHIN** DAT RELATEZ 2 CONFIGURASHUN, BUT IT BE MASIF AMOUNT OV NEW INFORMASHUN, LOT OV WHICH WE DOAN NED 2 KNOE RITE AWAY. INSTEAD, WELL TEACH U HOW 2 GIT TEH INFORMASHUN URE AKSHULLY LOOKIN 4.
 
-ASF CONFIGURASHUN CAN BE DUN IN 2 WAYS - EITHR BY USIN R WEB CONFIG GENERATOR, OR MANUALLY. DIS AR TEH EXPLAIND IN-DEPTH IN **[CONFIGURASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US)** SECSHUN, SO REFR 2 DAT IF U WANTS MOAR DETAILD INFORMASHUN. WELL USE WEB CONFIG GENERATOR WAI, SINCE IZ MUTCH EASIR.
+ASF configuration can be done in at least three ways - through our web config generator, ASF-ui or manually. DIS AR TEH EXPLAIND IN-DEPTH IN **[CONFIGURASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US)** SECSHUN, SO REFR 2 DAT IF U WANTS MOAR DETAILD INFORMASHUN. We'll use web config generator as a starting point.
 
 NAVIGATE 2 R **[WEB CONFIG GENERATOR](https://justarchinet.github.io/ASF-WebConfigGenerator)** PAEG WIF UR FAVOURITE BROWSR, ULL NED 2 HAS JAVASCRIPT ENABLD IN CASE U MANUALLY DISABLD IT. WE RECOMMEND CHROME OR FIREFOX, BUT IT SHUD WERK ON ALL MOST POPULAR BROWSERS.
 
@@ -186,39 +186,29 @@ ONCE U DO DAT AN START ASF AGAIN, ULL NOTICE DAT ASF NAO DISPLAYS UR CUSTOM TEXT
 
 DIS CONFIRMS DAT UVE SUCCESFULLY EDITD UR CONFIG. IN EGSAKTLY TEH SAME WAI U CAN CHANGE GLOBAL ASF PROPERTIEZ, BY SWITCHIN FRUM BOT TAB 2 "ASF" TAB, DOWNLOADIN GENERATD `ASF.json` CONFIG FILE AN PUTTIN IT IN UR `config` DIRECTORY.
 
+Editing your ASF configs can be done much easier by using our ASF-ui frontend, which will be explained further below.
+
 * * *
 
 #### USIN ASF-UI
 
 ASF IZ CONSOLE APP AN DOESNT INCLUDE GRAFICAL USR INTERFACE. HOWEVR, WERE ACTIVELY WERKIN ON **[ASF-UI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US#asf-ui)** FRONTEND 2 R IPC INTERFACE, WHICH CAN BE VRY DESENT AN USR-FRIENDLY WAI 2 ACCES VARIOUS ASF FEATUREZ.
 
-IN ORDR 2 USE ASF-UI, U SHUD ENSURE DAT U SET UP `IPC` AN `SteamOwnerID` GLOBAL CONFIGURASHUN PROPERTIEZ (ASF TAB).
+In order to use ASF-ui, you need to have `IPC` enabled, which is the default option starting with ASF V5.1.0.0. Once you launch ASF, you should be able to confirm that it properly started the IPC interface automatically:
 
-4 `SteamOwnerID`, U NED 2 INPUT UNIQUE STEAM IDENTIFICATOR IN 64-BIT FORM OV UR AKOWNT. U CAN LOOK IT UP IN VARIOUS DIFFERENT WAYS, WELL USE **[STEAMREP](https://steamrep.com)** 4 DAT PURPOSE. OPEN TEH WEBSIET, LOCATE SIGN IN THRU STEAM BUTN IN TOP RITE CORNR, DEN LOG IN. AFTERWARDZ, IN DA SAME PLACE, CLICK ON UR AVATAR, AN LOOK UP `steamID64` FIELD ON UR PROFILE.
+![IPC](https://i.imgur.com/ZmkO8pk.png)
 
-![SteamRep](https://i.imgur.com/RUuJ63i.png)
-
-4 MAH AKOWNT, DIS AR TEH `76561198006963719` NUMBR. ULL HAS SIMILAR WAN, ALSO STARTIN FRUM `7656`. COPY IT.
-
-NAO NAVIGATE ONCE AGAIN 2 R WEB CONFIG GENERATOR AN INPUT DAT NUMBR AS SteamOwnerID. LASTLY, U NED 2 ENABLE `IPC` OPSHUN 4 DA INTERFACE 2 ACTIVATE.
-
-![IPC](https://i.imgur.com/BMyasHt.png)
-
-NAO U CAN DOWNLOAD UR ASF CONFIG AN PUT IT IN UR `config` DIRECTORY, AS USUAL. AFTERWARDZ, LAUNCH ASF AGAIN, AN U SHUD BE ABLE 2 CONFIRM DAT IT PROPERLY STARTD IPC INTERFACE:
-
-![IPC 2](https://i.imgur.com/ZmkO8pk.png)
-
-IF U DID EVRYTHIN PROPERLY, ULL NAO BE ABLE 2 ACCES ASFS IPC INTERFACE UNDR **[DIS](http://localhost:1242)** LINK, AS LONG AS ASF IZ RUNNIN. U CAN USE ASF-UI 4 VARIOUS PURPOSEZ, E.G. SENDIN **[COMMANDZ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)**. FEELZ FREE 2 TAEK LOOK AROUND IN ORDR 2 FIND OUT ALL ASF-UI FUNCSHUNALITIEZ.
+You can access ASF's IPC interface under **[this](http://localhost:1242)** link, as long as ASF is running, from the same machine. You can use ASF-ui for various purposes, e.g. editing the config files in-place or sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. FEELZ FREE 2 TAEK LOOK AROUND IN ORDR 2 FIND OUT ALL ASF-UI FUNCSHUNALITIEZ.
 
 ![ASF-UI](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-PLZ NOWT DAT ASF-UI IZ CURRENTLY IN PREVIEW STATE AN NOT EVRYTHIN IZ AVAILABLE/WERKIN YET, BUT IZ MOAR THAN ENOUGH 4 SIMPLE ASF USAGE.
+Please note that some features, such as sending commands, require a properly set `SteamOwnerID` global config property. Now that you have ASF-ui up and running, why not give it a try and set it from the frontend itself? You'll need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, for example through **[STEAMID I/O](https://steamid.io)** or **[SteamRep](https://steamrep.com)**. The number you're looking for should be similar to `76561198006963719`, which is my account's ID.
 
 * * *
 
 ### SUMMARY
 
-UVE SUCCESFULLY SET UP ASF 2 USE UR STEAM ACCOUNTS AN UVE ALREADY CUSTOMIZD IT 2 UR LIKIN LIL. IF U FOLLOWD R ENTIRE GUIDE, DEN U EVEN MANAGD 2 SEND SIMPLE COMMAND THRU R ASF-UI INTERFACE. NAO IZ GUD TIEM 2 READ R ENTIRE **[CONFIGURASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US)** SECSHUN IN ORDR 2 LERN WUT ALL DOSE DIFFERENT SETTINGS UVE SEEN IN ADVANCD TAB AKSHULLY DO, AN WUT ASF CAN OFFR. IF UVE STUMBLD UPON SUM ISSUE OR U HAS SUM GENERIC QUESHUN, READ **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-lol-US)** INSTEAD WHICH SHUD COVR ALL, OR AT LEAST MAJORITY OV QUESHUNS DAT U CUD HAS. IF U WANTS 2 LERN EVRYTHIN BOUT ASF AN HOW IT CAN MAK UR LIFE EASIR, HEAD OVAR 2 TEH REST OV **[R WIKI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-lol-US)**. HAS FUN!
+UVE SUCCESFULLY SET UP ASF 2 USE UR STEAM ACCOUNTS AN UVE ALREADY CUSTOMIZD IT 2 UR LIKIN LIL. If you followed our entire guide, then you also managed to tweak ASF through our ASF-ui interface and found out that ASF actually has a GUI of some sort. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen actually do, and what ASF has to offer. If you've stumbled upon some issue or you have some generic question, read our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least a vast majority of questions that you may have. IF U WANTS 2 LERN EVRYTHIN BOUT ASF AN HOW IT CAN MAK UR LIFE EASIR, HEAD OVAR 2 TEH REST OV **[R WIKI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-lol-US)**. If you found out our program to be useful for you and you're feeling generous, you can also consider donating to our project. In any case, have fun!
 
 * * *
 

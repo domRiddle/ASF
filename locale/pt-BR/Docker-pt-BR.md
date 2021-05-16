@@ -40,7 +40,7 @@ Nós geralmente desencorajamos o uso de compilações `main`, assim como compila
 
 A imagem docker do ASF é compilada atualmente no `linux` com 3 arquiteturas: `x64`, `arm` e `arm64`. Você pode ler mais sobre elas em **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**.
 
-Desde a versão V5.0.2.2 do ASF, nossas tags tem usado um manifesto multi-plataforma, o que significa que o Docker instalado na sua máquina irá selecionar automaticamente a imagem adequada da sua plataforma ao puxar a imagem. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker run`. Veja a documentação docker em **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** para mais informações.
+Desde a versão V5.0.2.2 do ASF, nossas tags tem usado um manifesto multi-plataforma, o que significa que o Docker instalado na sua máquina irá selecionar automaticamente a imagem adequada da sua plataforma ao puxar a imagem. Se por acaso você quiser baixar a imagem de alguma plataforma específica que não corresponde à que você está executando atualmente, você pode usar o switch `--platform` nos comandos docker apropriados, tal como `docker run`. Veja a documentação docker em **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** para mais informações.
 
 * * *
 
@@ -56,7 +56,7 @@ Primeiro devemos verificar se nosso docker está funcionando corretamente, isso 
 docker run -it --name asf --pull always --rm justarchi/archisteamfarm
 ```
 
-`docker run` cria um novo contêiner docker do ASF para você e o executa em primeiro plano (`-it`). `--pull always` ensures that up-to-date image will be pulled first, and `--rm` ensures that our container will be purged once stopped, since we're just testing if everything works fine for now.
+`docker run` cria um novo contêiner docker do ASF para você e o executa em primeiro plano (`-it`). `--pull always` garante que a imagem atualizada seja tirada primeiro, e `--rm` garante que nosso contêiner seja excluído assim que parado, já que por enquanto estamos apenas testando se está tudo certo.
 
 Se tudo correu bem, após receber todas as camadas e iniciar o contêiner, você deverá notar que o ASF foi iniciado e nos informou que não há bots definidos, o que é bom; nós acabamos de verificar que o ASF funcionou corretamente no docker. Aperte `CTRL+P` e então `CTRL+Q` para sair do contêiner docker em primeiro plano, então pare o contêiner ASF com o comando `docker stop asf`.
 
@@ -112,7 +112,7 @@ Por padrão, cada ASF rodando dentro de um contêiner docker é independente, o 
 mkdir -p /tmp/ASF-g1
 docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 --pull always justarchi/archisteamfarm
 docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 --pull always justarchi/archisteamfarm
-# And so on, all ASF containers are now synchronized with each other
+# E assim por diante, todos os conteiner ASF estarão sincronizados agora
 ```
 
 Recomendamos vincular a pasta `/tmp/ASF` do ASF também à pasta `/tmp` temporária no seu computador, mas claro que você é pode escolher qualquer outra pasta a seu gosto. Cada contêiner do ASF que se espera ser sincronizado deve ter sua pasta `/tmp/ASF` compartilhada com outros contêineres que participam do mesmo processo de sincronização.
@@ -193,7 +193,7 @@ Isso pressupõe que você usará um único contêiner do ASF, com todos os arqui
 
 ## Dicas profissionais
 
-Quando você já tem o contêiner docker do ASF pronto, você não precisa usar o comando `docker run` toda vez. Você pode parar/iniciar o contêiner docker do ASF facilmente com `docker stop asf` e `docker start asf`. Keep in mind that if you're not using `latest` tag then using up-to-date ASF will still require from you to `docker stop`, `docker rm` and `docker run` again. Isso porque você deve recompilar seu contêiner à partir de uma imagem nova do ASF toda vez que você quiser usar a versão do ASF inclusa naquela imagem. Na tag `latest`, o ASF incluiu a capacidade de se atualizar automaticamente, então recompilar a imagem não é necessário para usar o ASF atualizado (mas ainda é uma boa ideia fazer isso de tempos em tempos para obter uma versão recente do tempo de execução .NET Core e do Sistema Operacional utilizados).
+Quando você já tem o contêiner docker do ASF pronto, você não precisa usar o comando `docker run` toda vez. Você pode parar/iniciar o contêiner docker do ASF facilmente com `docker stop asf` e `docker start asf`. Tenha em mente que se você não estiver usando o marcador `latest` então você precisará usar os comandos `docker stop`, `docker rm` e `docker run` novamente para atualizar o ASF. Isso porque você deve recompilar seu contêiner à partir de uma imagem nova do ASF toda vez que você quiser usar a versão do ASF inclusa naquela imagem. Na tag `latest`, o ASF incluiu a capacidade de se atualizar automaticamente, então recompilar a imagem não é necessário para usar o ASF atualizado (mas ainda é uma boa ideia fazer isso de tempos em tempos para obter uma versão recente do tempo de execução .NET Core e do Sistema Operacional utilizados).
 
 Como dito acima, em qualquer outro marcador que não seja o `latest`, o ASF não vai se atualizar automaticamente, o que significa que **você** é o responsável por usar uma verão atualizada do repositório `justarchi/archisteamfarm`. Isso traz muitas vantagens já que normalmente o aplicativo não precisa mudar seu código durante a operação, mas nós entendemos a conveniência de não precisar se preocupar com a versão do ASF em seu contêiner docker. Se você se importa com boas práticas e o uso correto do contêiner docker, sugerimos o marcador `released` ao invés de `latest`, mas se você não quer se preocupar com isso e só quer fazer o ASF tanto funcionar quanto se atualizar automaticamente, então `latest` serve.
 
