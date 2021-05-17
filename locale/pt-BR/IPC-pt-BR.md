@@ -111,21 +111,21 @@ server {
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
 
-        # Apenas se você precisar substituir o host padrão
+        # Only if you need to override default host
 #       proxy_set_header Host 127.0.0.1;
 
-        # É necessário especificar os X-headers em situações onde o nginx estiver na mesma máquina que o ASF
-        # Eles são cruciais para o uso correto de um proxy reverso, permitindo ao ASF,  por exemplo, banir invasores e não o seu servidor nginx
-        # Especificá-los permitirá que o ASF determine corretamente os endereços IP dos usuários que enviaram as solicitações - permitindo que o nginx atue como um proxy reverso
-        # Não especificá-los fará com que o ASF trate seu nginx como um cliente - nesse caso o nginx vai agir como um proxy tradicional
-        # Se você não puder iniciar o serviço de host na mesma máquina que o ASF (por exemplo, se estiver em um contêiner docker diferente), será necessário comentar essas linhas
+        # X-headers should be specified in the situation where nginx is on the same machine as ASF
+        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
+        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
+        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
+        # If you're unable to host nginx service on the same machine as ASF (e.g. different docker container), you most likely want to set KnownNetworks appropriately in addition to those
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
 
-        # Adicionamos essas 3  linhas extras para proxy de websocketns, veja: https://nginx.org/en/docs/http/websocket.html
+        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
         proxy_http_version 1.1;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Upgrade $http_upgrade;
@@ -134,14 +134,14 @@ server {
     location / {
         proxy_pass http://127.0.0.1:1242;
 
-        # Apenas se você precisar substituir o host padrão
+        # Only if you need to override default host
 #       proxy_set_header Host 127.0.0.1;
 
-        # É necessário especificar os X-headers em situações onde o nginx estiver na mesma máquina que o ASF
-        # Eles são cruciais para o uso correto de um proxy reverso, permitindo ao ASF,  por exemplo, banir invasores e não o seu servidor nginx
-        # Especificá-los permitirá que o ASF determine corretamente os endereços IP dos usuários que enviaram as solicitações - permitindo que o nginx atue como um proxy reverso
-        # Não especificá-los fará com que o ASF trate seu nginx como um cliente - nesse caso o nginx vai agir como um proxy tradicional
-        # Se você não puder iniciar o serviço de host na mesma máquina que o ASF (por exemplo, se estiver em um contêiner docker diferente), será necessário comentar essas linhas
+        # X-headers should be specified in the situation where nginx is on the same machine as ASF
+        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
+        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
+        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
+        # If you're unable to host nginx service on the same machine as ASF (e.g. different docker container), you most likely want to set KnownNetworks appropriately in addition to those
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;

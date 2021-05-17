@@ -111,21 +111,21 @@ server {
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
 
-        # Only if you need to override default host
+        # ONLY IF U NED 2 OVERRIDE DEFAULT HOST
 #       proxy_set_header Host 127.0.0.1;
 
-        # X-headers should be specified in the situation where nginx is on the same machine as ASF
-        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
-        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
-        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service on the same machine as ASF (e.g. different docker container), you have to comment out these
+        # X-HEADERS SHUD BE SPECIFID IN DA SITUASHUN WER NGINX IZ ON TEH SAME MACHINE AS ASF
+        # THEYRE CRUSHUL 4 PROPR USAGE OV REVERSE-PROXY, ALLOWIN ASF 2 E.G. BAN TEH AKSHUL OFFENDERS INSTEAD OV UR NGINX SERVR
+        # SPECIFYIN THEM ALLOWS ASF 2 PROPERLY RESOLVE IP ADDRESEZ OV USERS MAKIN REQUESTS - MAKIN NGINX WERK AS REVERSE PROXY
+        # NOT SPECIFYIN THEM WILL CAUSE ASF 2 TREAT UR NGINX AS TEH CLIENT - NGINX WILL ACT AS TRADISHUNAL PROXY IN DIS CASE
+        # IF URE UNABLE 2 HOST NGINX SERVICE ON TEH SAME MACHINE AS ASF (E.G. DIFFERENT DOCKR CONTAINR), U MOST LIKELY WANTS 2 SET KNOWNNETWORKZ APPROPRIATELY IN ADDISHUN 2 DOSE
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
 
-        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
+        # WE ADD DOSE 3 EXTRA OPSHUNS 4 WEBSOCKETS PROXYIN, C HTTPS://NGINX.ORG/EN/DOCS/HTTP/WEBSOCKET.HTML
         proxy_http_version 1.1;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Upgrade $http_upgrade;
@@ -134,14 +134,14 @@ server {
     location / {
         proxy_pass http://127.0.0.1:1242;
 
-        # Only if you need to override default host
+        # ONLY IF U NED 2 OVERRIDE DEFAULT HOST
 #       proxy_set_header Host 127.0.0.1;
 
-        # X-headers should be specified in the situation where nginx is on the same machine as ASF
-        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
-        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
-        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service on the same machine as ASF (e.g. different docker container), you have to comment out these
+        # X-HEADERS SHUD BE SPECIFID IN DA SITUASHUN WER NGINX IZ ON TEH SAME MACHINE AS ASF
+        # THEYRE CRUSHUL 4 PROPR USAGE OV REVERSE-PROXY, ALLOWIN ASF 2 E.G. BAN TEH AKSHUL OFFENDERS INSTEAD OV UR NGINX SERVR
+        # SPECIFYIN THEM ALLOWS ASF 2 PROPERLY RESOLVE IP ADDRESEZ OV USERS MAKIN REQUESTS - MAKIN NGINX WERK AS REVERSE PROXY
+        # NOT SPECIFYIN THEM WILL CAUSE ASF 2 TREAT UR NGINX AS TEH CLIENT - NGINX WILL ACT AS TRADISHUNAL PROXY IN DIS CASE
+        # IF URE UNABLE 2 HOST NGINX SERVICE ON TEH SAME MACHINE AS ASF (E.G. DIFFERENT DOCKR CONTAINR), U MOST LIKELY WANTS 2 SET KNOWNNETWORKZ APPROPRIATELY IN ADDISHUN 2 DOSE
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;

@@ -42,9 +42,9 @@ ASF 采用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存储其配置�
 
 我们的 **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC 接口同样支持配置 ASF，并且特别适合在第一次配置之后修改配置内容，因为与在线配置文件生成器总是生成新文件不同，ASF-ui 可以在原地直接编辑配置文件。
 
-要使用 ASF-ui，首先您需要启用 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 接口本身。 您可以通过我们的在线配置文件生成器来启用，也就是生成一份非常简单的、仅仅启用了 `IPC` 的 `ASF` 配置。 或者，您也可以手动编写这种简单的配置文件，也就是内容为 `{ "IPC": true }` 的 `ASF.json` 文件。
+要使用 ASF-ui，首先您需要启用 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 接口本身。 自 ASF V5.1.0.0 版本开始，`IPC` 已默认启用，因此只要您没有手动禁用它，就可以直接开始访问。
 
-之后，通过上述配置文件启动 ASF，确保 `IPC` 接口已启动，再访问 ASF 的 **[IPC 地址](http://localhost:1242)**。 现在您可以通过 ASF-ui 的接口进行剩余的 ASF 配置。
+程序启动后，直接访问 ASF 的 **[IPC 地址](http://localhost:1242)**。 如果一切都正常工作，您也可以在这里更改 ASF 配置。
 
 * * *
 
@@ -668,7 +668,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ### `SkipRefundableGames`
 
-这是一个默认值为 `false` 的 `bool` 类型属性。 This property defines if ASF is permitted to farm games that are still refundable. 可退款游戏指的是您在 2 周内通过 Steam 商店购买的、游戏时间不超过 2 小时的游戏，详见 **[Steam 退款](https://store.steampowered.com/steam_refunds)**。 By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. 如果您不确定是否要启用此功能，请保留默认值 `false`。
+这是一个默认值为 `false` 的 `bool` 类型属性。 该属性定义了 ASF 是否应该挂仍可以退款的游戏。 可退款游戏指的是您在 2 周内通过 Steam 商店购买的、游戏时间不超过 2 小时的游戏，详见 **[Steam 退款](https://store.steampowered.com/steam_refunds)**。 该选项的默认值为 `false`，ASF 将会完全忽略 Steam 的退款策略，挂一切可以挂的游戏，这也是大多数用户所需要的。 然而，如果您不希望 ASF 马上开始挂您的可退款游戏，就可以将该选项改为 `true`，这样您就可以自己体验游戏，并在需要时退款，避免 ASF 影响您的游戏时间。 请注意，如果您启用此选项，自您在 Steam 商店购买游戏起的 14 天内，ASF 将不会挂这款游戏，如果在此期间，您没有其他可挂卡游戏，ASF 就会表现为闲置。 如果您不确定是否要启用此功能，请保留默认值 `false`。
 
 * * *
 

@@ -2,7 +2,7 @@
 
 如果您是第一次访问这里，欢迎！ 我们很高兴看到又一名旅客对我们的项目感兴趣，但能力越大，责任越大——只要您**愿意学习如何使用**，ASF 就有能力做很多与 Steam 有关的事情。 这里的学习曲线很陡峭，我们希望您阅读相关内容的 Wiki，其中解释了这一切究竟是如何运作的。
 
-如果您还没有关闭这个页面，那就意味着您愿意继续学习，非常好。 除非您打算跳过这个过程，那样您将会很快遇到一段&#8203;**[痛苦的经历](https://www.youtube.com/watch?v=WJgt6m6njVw)**…… Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to, at least out of the box. ASF 主要应该在服务器上运行，所以它更像是一个服务（守护进程）而不是一个桌面应用。
+如果您还没有关闭这个页面，那就意味着您愿意继续学习，非常好。 除非您打算跳过这个过程，那样您将会很快遇到一段&#8203;**[痛苦的经历](https://www.youtube.com/watch?v=WJgt6m6njVw)**…… 无论如何，ASF 是一个控制台应用程序，这意味着，至少在一开始，它没有提供一个您熟悉的友好 GUI 界面。 ASF 主要应该在服务器上运行，所以它更像是一个服务（守护进程）而不是一个桌面应用。
 
 但这并不意味着您不能在自己的 PC 上运行它，或者这会比通常的使用方式更复杂。 ASF 是一个独立的程序，无需安装过程，开箱即用，但在它可用之前需要有一个配置的过程。 配置是指在运行 ASF 之前告诉它之后应该怎样做。 如果您没有配置就运行 ASF，它就会什么也不做。
 
@@ -92,7 +92,7 @@ C:\ASF (放置您自己与 ASF 相关的东西)
 
 首先，**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;页面解释了关于配置 ASF 的**一切**，但是其中的选项太多了，我们现在不需要马上全部理解。 但我们会告诉您如何找到您想要了解的信息。
 
-ASF configuration can be done in at least three ways - through our web config generator, ASF-ui or manually. 这已经在&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;章节中进行了深入解释，所以如果您想了解详情可以前往阅读。 We'll use web config generator as a starting point.
+您可以通过至少三种方式配置 ASF——通过在线配置文件生成器、ASF-ui 或者手动配置。 这已经在&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;章节中进行了深入解释，所以如果您想了解详情可以前往阅读。 我们此处会以在线配置文件生成器为例。
 
 使用您常用的浏览器访问我们的&#8203;**[在线配置文件生成器](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;页面，如果您禁用了浏览器的 Javascript 功能，则需要启用它。 我们建议您使用 Chrome 或者 Firefox，但大多数现代浏览器应该都没有问题。
 
@@ -186,7 +186,7 @@ ASF 支持同时挂多个帐户，这也是它的主要功能之一。 您可以
 
 这证明您已经成功更改了配置文件。您也可以用同样的方式更改全局 ASF 属性，只需要切换到“ASF”标签，下载生成的 `ASF.json` 配置文件，将其放到 `config` 文件夹内。
 
-Editing your ASF configs can be done much easier by using our ASF-ui frontend, which will be explained further below.
+通过我们的 ASF-ui 前端，编辑 ASF 配置文件会更容易，我们将随后解释。
 
 * * *
 
@@ -194,21 +194,21 @@ Editing your ASF configs can be done much easier by using our ASF-ui frontend, w
 
 ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们正在积极开发 IPC 接口的前端 **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-ui)**，它是访问各种 ASF 功能的一种非常简便的、适合用户的方式。
 
-In order to use ASF-ui, you need to have `IPC` enabled, which is the default option starting with ASF V5.1.0.0. Once you launch ASF, you should be able to confirm that it properly started the IPC interface automatically:
+要使用 ASF-ui，您需要启用 `IPC`，自 V5.1.0.0 版本开始，ASF 已经默认启用。运行 ASF 后，您应该能看到表明 IPC 接口成功启动的确认消息：
 
 ![IPC](https://i.imgur.com/ZmkO8pk.png)
 
-You can access ASF's IPC interface under **[this](http://localhost:1242)** link, as long as ASF is running, from the same machine. You can use ASF-ui for various purposes, e.g. editing the config files in-place or sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. 您可以随意浏览一下，了解 ASF-ui 的所有功能。
+只要 ASF 还在运行，您就可以在同一台机器上，通过&#8203;**[这个链接](http://localhost:1242)**&#8203;访问 ASF 的 IPC 接口。 您可以使用 ASF-ui 进行各种操作，例如直接编辑配置文件或发送&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 您可以随意浏览一下，了解 ASF-ui 的所有功能。
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-Please note that some features, such as sending commands, require a properly set `SteamOwnerID` global config property. Now that you have ASF-ui up and running, why not give it a try and set it from the frontend itself? You'll need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, for example through **[STEAMID I/O](https://steamid.io)** or **[SteamRep](https://steamrep.com)**. The number you're looking for should be similar to `76561198006963719`, which is my account's ID.
+请注意，一些功能，例如发送命令，需要您在全局配置属性中正确设置 `SteamOwnerID`。 既然您已经让 ASF-ui 成功运行了，何不试试在前端页面上自己设置一下呢？ 您需要输入您帐户的唯一 64 位 Steam ID。 您可以在各种途径获取它，例如 **[STEAMID I/O](https://steamid.io)** 或 **[SteamRep](https://steamrep.com)**。 您需要找的数字应该看起来和我自己的帐户 ID `76561198006963719` 相似。
 
 * * *
 
 ### 总结
 
-您已经成功设置好了 ASF，让它管理您的 Steam 帐户，并且您也根据个人喜好对其进行了一定程度的定制。 If you followed our entire guide, then you also managed to tweak ASF through our ASF-ui interface and found out that ASF actually has a GUI of some sort. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen actually do, and what ASF has to offer. If you've stumbled upon some issue or you have some generic question, read our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least a vast majority of questions that you may have. 如果您希望了解 ASF 的一切以及 ASF 如何为您提供帮助，请继续阅读我们的 **[Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-CN)**。 If you found out our program to be useful for you and you're feeling generous, you can also consider donating to our project. In any case, have fun!
+您已经成功设置好了 ASF，让它管理您的 Steam 帐户，并且您也根据个人喜好对其进行了一定程度的定制。 如果您完整阅读了我们的指南，就应该已经成功通过 ASF-ui 接口调整 ASF 的设置，并且发现 ASF 实际上拥有某种 GUI 界面。 现在您可以阅读完整的&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;章节，了解您之前所见的不同选项究竟有何作用，以及 ASF 有哪些功能。 如果您遇到了问题，或者有任何疑问，可以阅读&#8203;**[常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN)**，其中涵盖了所有，或至少是绝大多数您想要问的问题。 如果您希望了解 ASF 的一切以及 ASF 如何为您提供帮助，请继续阅读我们的 **[Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-CN)**。 如果您认为我们的程序很有用，并且您愿意慷慨解囊，也可以考虑捐赠此项目。 无论如何，祝您愉快！
 
 * * *
 

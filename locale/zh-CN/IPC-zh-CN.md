@@ -118,7 +118,7 @@ server {
         # 这对正确配置反向代理至关重要，使 ASF 能够封禁真正的攻击者而非您的 Nginx 服务器
         # 指定这些头后，ASF 能正确解析发送请求用户的 IP 地址 - 使 Nginx 真正成为反向代理
         # 如果不这样设置，ASF 会认为您的 Nginx 是客户端 - 此时 Nginx 只是一个普通的代理程序
-        # 如果您无法在同一台机器上同时运行 Nginx 与 ASF（如在不同 Docker 容器中），则应该注释掉这部分
+        # 如果您无法在同一台机器上同时运行 Nginx 与 ASF（如在不同 Docker 容器中），则应该额外设置正确的 KnownNetworks
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -141,7 +141,7 @@ server {
         # 这对正确配置反向代理至关重要，使 ASF 能够封禁真正的攻击者而非您的 Nginx 服务器
         # 指定这些头后，ASF 能正确解析发送请求用户的 IP 地址 - 使 Nginx 真正成为反向代理
         # 如果不这样设置，ASF 会认为您的 Nginx 是客户端 - 此时 Nginx 只是一个普通的代理程序
-        # 如果您无法在同一台机器上同时运行 Nginx 与 ASF（如在不同 Docker 容器中），则应该注释掉这部分
+        # 如果您无法在同一台机器上同时运行 Nginx 与 ASF（如在不同 Docker 容器中），则应该额外设置正确的 KnownNetworks
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;

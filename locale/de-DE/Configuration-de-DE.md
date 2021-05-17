@@ -42,9 +42,9 @@ Die Verwendung ist denkbar einfach - man wählt über die entsprechenden Registe
 
 Unsere **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-ui)** IPC-Schnittstelle erlaubt es Ihnen auch ASF zu konfigurieren und ist eine bessere Lösung für die Neukonfiguration von ASF nach der Generierung der ersten Konfigurationen aufgrund der Tatsache, dass es die Konfigurationen im Ort bearbeiten kann im Gegensatz zum webbasierten Config-Generator, welcher sie statisch erzeugt.
 
-Um ASF-ui nutzen zu können, müssen Sie zunächst unser **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)**-Interface aktivieren. Sie können dies über unseren web-basierten ConfigGenerator (oben erklärt) abwickeln, um eine vereinfachte `ASF`-Konfiguration mit aktiviertem `IPC`-Einstellungen zu generieren. Alternativ können Sie solch eine einfache Konfiguration (als `ASF.json`-Datei mit json-Inhalt und `{"IPC":true}`) selbst erstellen.
+In order to use ASF-ui, you must have our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface enabled itself. `IPC` is enabled by default starting with ASF V5.1.0.0, therefore you can access it right away, as long as you didn't disable it yourself.
 
-Starten Sie anschließend ASF mit der obigen Konfiguration, und stellen Sie sicher, dass die `IPC`-Schnittstelle gestartet wird. Navigieren Sie dann zu ASF's **[IPC-Adresse](http://localhost:1242)**. Sie können nun die restliche Konfiguration von ASF über die ASF-ui Schnittstelle durchführen.
+After launching the program, simply navigate to ASF's **[IPC address](http://localhost:1242)**. If everything worked properly, you can change ASF configuration from there as well.
 
 * * *
 

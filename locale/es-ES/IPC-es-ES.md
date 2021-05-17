@@ -114,11 +114,11 @@ server {
         # Solo si necesitas reemplazar el host predeterminado
 #       proxy_set_header Host 127.0.0.1;
 
-        # Los X-headers deben ser especificados cuando nginx está en la misma máquina que ASF
-        # Son cruciales para el uso correcto de un proxy inverso, permitiendo a ASF, por ejemplo, bloquear a los atacantes y no tu servidor nginx
-        # Especificarlos permite a ASF resolver correctamente las direcciones IP de los usuarios que realizan solicitudes - haciendo que nginx funcione como un proxy inverso
-        # No especificarlos causará que ASF trate a tu nginx como un cliente - nginx actuará como un proxy tradicional en este caso
-        # Si no puedes alojar el servicio nginx en la misma máquina que ASF (por ejemplo, diferente contenedor docker), tienes que comentar estas líneas
+        # Los X-headers deben ser especificados en la situación donde nginx está en la misma máquina que ASF
+        # Son cruciales para el uso correcto de un proxy inverso, permitiendo a ASF, por ejemplo, bloquear a los atacantes y no tu servidor ngnix
+        # Especificarlos permite a ASF resolver correctamente las direcciones IP de los usuarios haciendo solicitudes - haciendo que nginx funcione como un proxy inverso
+        # No especificarlos causará que ASF trate tu ngnix como un cliente - ngnix actuará como un proxy tradicional en este caso
+        # Si no puedes alojar el servicio ngnix en la misma máquina que ASF (por ejemplo, diferente contenedor docker), probablemente quieras establecer KnownNetworks correctamente además de estos
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -137,11 +137,12 @@ server {
         # Solo si necesitas reemplazar el host predeterminado
 #       proxy_set_header Host 127.0.0.1;
 
-        # Los X-headers deben ser especificados cuando nginx está en la misma máquina que ASF
-        # Son cruciales para el uso correcto de un proxy inverso, permitiendo a ASF, por ejemplo, bloquear a los atacantes y no tu servidor nginx
-        # Especificarlos permite a ASF resolver correctamente las direcciones IP de los usuarios que realizan solicitudes - haciendo que nginx funcione como un proxy inverso
-        # No especificarlos causará que ASF trate a tu nginx como un cliente - nginx actuará como un proxy tradicional en este caso
-        # Si no puedes alojar el servicio nginx en la misma máquina que ASF (por ejemplo, diferente contenedor docker), tienes que comentar estas líneas
+        # X-headers should be specified in the situation where nginx is on the same machine as ASF
+        # Los X-headers deben ser especificados en la situación donde nginx está en la misma máquina que ASF
+        # Son cruciales para el uso correcto de un proxy inverso, permitiendo a ASF, por ejemplo, bloquear a los atacantes y no tu servidor ngnix
+        # Especificarlos permite a ASF resolver correctamente las direcciones IP de los usuarios haciendo solicitudes - haciendo que nginx funcione como un proxy inverso
+        # No especificarlos causará que ASF trate tu ngnix como un cliente - ngnix actuará como un proxy tradicional en este caso
+        # Si no puedes alojar el servicio ngnix en la misma máquina que ASF (por ejemplo, diferente contenedor docker), probablemente quieras establecer KnownNetworks correctamente además de estos
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
