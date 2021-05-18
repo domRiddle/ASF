@@ -48,7 +48,7 @@ Además de los métodos de cifrado especificados anteriormente, también es posi
 
 * * *
 
-## Desencriptación
+## Descifrado
 
 ASF no soporta ninguna forma de desencriptar contraseñas ya encriptadas, ya que los métodos de desencriptación solo son usados internamente para acceder a la información dentro del proceso. Si deseas revertir el procedimiento de cifrado, por ejemplo, para mover ASF a otra máquina al usar `ProtectedDataForCurrentUser`, entonces simplemente repite el procedimiento desde el principio en el nuevo entorno.
 
