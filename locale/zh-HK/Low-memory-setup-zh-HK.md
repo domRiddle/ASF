@@ -6,11 +6,11 @@
 
 根據您的使用情況，ASF在資源上非常輕量級，即使是使用128 MB VPS也可以在Linux上運行它，儘管不推薦這麼低的配置，因爲可能會導致各種問題。 在輕裝上陣的同時，ASF 並不害怕要求操作系統提供更多的記憶體以支援其以最佳速度運行。
 
-作為應用程序，ASF 試圖盡可能地優化和高效，這也考慮了在執行期間使用的資源。 當涉及到記憶體時，ASF 更喜歡提升性能而不是節省記憶體，這會導致臨時記憶體“峰值”，例如，您將會注意到，ASF將從具有3個以上徽章頁面的帳戶獲取並解析第一頁，從中讀取總頁數，然後為每個額外頁面啟動獲取任務，這導致並發獲取和解析剩餘頁面。 “額外”記憶體使用（與操作的最小值相比）可以顯著加快執行和整體性能，同時增加並行執行所有這些操作所需的記憶體使用成本。 類似的事情發生在可以並行運行的所有其他常規ASF任務上，例如解析活躍交易報價，ASF可以立即解析所有這些報價，因為它們彼此獨立。 最重要的是，ASF（C＃運行時）將**不會**立即將未使用的記憶體釋放給操作系統，您可以通過ASF進程的形式注意到ASF只佔用越來越多的記憶體，但從不將記憶體釋放到操作系統。 Some people may already find it questionable, maybe even suspect a memory leak, but don't worry, all of this is to be expected.
+作為應用程序，ASF 試圖盡可能地優化和高效，這也考慮了在執行期間使用的資源。 當涉及到記憶體時，ASF 更喜歡提升性能而不是節省記憶體，這會導致臨時記憶體“峰值”，例如，您將會注意到，ASF將從具有3個以上徽章頁面的帳戶獲取並解析第一頁，從中讀取總頁數，然後為每個額外頁面啟動獲取任務，這導致並發獲取和解析剩餘頁面。 “額外”記憶體使用（與操作的最小值相比）可以顯著加快執行和整體性能，同時增加並行執行所有這些操作所需的記憶體使用成本。 類似的事情發生在可以並行運行的所有其他常規ASF任務上，例如解析活躍交易報價，ASF可以立即解析所有這些報價，因為它們彼此獨立。 On top of that, ASF (C# runtime) will **not** return unused memory back to OS immediately afterwards, which you can quickly notice in form of ASF process only taking more and more memory, but (almost) never giving that memory back to the OS. Some people may already find it questionable, maybe even suspect a memory leak, but don't worry, all of this is to be expected.
 
 ASF 經過了非常好的優化，並會盡可能地利用可用的資源。 ASF的高內存使用率並不意味著ASF主動**使用**該記憶體並**需要它**。 ASF通常會將分配的記憶體作為未來操作的“空間”，因為如果我們不需要為我們即將使用的每個記憶體塊詢問操作系統，我們就可以大幅提高性能。 當操作系統**真正**需要它時，運行時應自動將未使用的ASF記憶體釋放回操作系統。 **[於記憶體而言，未使用即浪費](https://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full)**。 當您**需要**的內存高於可用的內存時，您可能會遇到問題，這並不是因爲ASF保留一些額外的分配以加速稍後將執行的功能。 You run into problems when your Linux kernel is killing ASF process due to OOM (out of memory), not when you see ASF process as top memory consumer in `htop`.
 
-Garbage collector being used in ASF is a very complex mechanism, smart enough to take into account not only ASF itself, but also your OS and other processes. When you have a lot of free memory, ASF will ask for whatever is needed to improve the performance. This can be even as much as 1 GB (with server GC). When your OS memory is close to being full, ASF will automatically release some of it back to the OS to help things settle down, which can result in overall ASF memory usage as low as 50 MB. The difference between 50 MB and 1 GB is huge, but so is the difference between small 512 MB VPS and huge dedicated server with 32 GB. If ASF can guarantee that this memory will come useful, and at the same time nothing else requires it right now, it'll prefer to keep it and automatically optimize itself based on routines that were executed in the past. The GC used in ASF is self-tuning and will achieve better results the longer the process is running.
+**[Garbage collection](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science))** process used in ASF is a very complex mechanism, smart enough to take into account not only ASF itself, but also your OS and other processes. When you have a lot of free memory, ASF will ask for whatever is needed to improve the performance. This can be even as much as 1 GB (with server GC). When your OS memory is close to being full, ASF will automatically release some of it back to the OS to help things settle down, which can result in overall ASF memory usage as low as 50 MB. The difference between 50 MB and 1 GB is huge, but so is the difference between small 512 MB VPS and huge dedicated server with 32 GB. If ASF can guarantee that this memory will come useful, and at the same time nothing else requires it right now, it'll prefer to keep it and automatically optimize itself based on routines that were executed in the past. The GC used in ASF is self-tuning and will achieve better results the longer the process is running.
 
 This is also why ASF process memory varies from setup to setup, as ASF will do its best to use available resources in **as efficient way as possible**, and not in a fixed way like it was done during Windows XP times. The actual (real) memory usage that ASF is using can be verified with `stats` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, and is usually around 4 MB for just a few bots, up to 30 MB if you use stuff like **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** and other advanced features. Keep in mind that memory returned by `stats` command also includes free memory that hasn't been reclaimed by garbage collector yet. Everything else is shared runtime memory (around 40-50 MB) and room for execution (vary). This is also why the same ASF can use as little as 50 MB in low-memory VPS environment, while using even up to 1 GB on your desktop. ASF is actively adapting to your environment and will try to find optimal balance in order to neither put your OS under pressure, nor limit its own performance when you have a lot of unused memory that could be put in use.
 
@@ -62,7 +62,7 @@ On the other hand, setting this value high enough is a perfect way to ensure tha
 
 ### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 
-> Memory load is indicated by the percentage of physical memory in use.
+> Specifies the amount of memory used after which GC becomes more aggressive.
 
 This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
 
@@ -70,7 +70,7 @@ This setting configures the memory treshold of your whole OS, which once passed,
 
 > Specifies the GC latency level that you want to optimize for.
 
-This is undocumented property that turned out to work exceptionally well for ASF, by limiting size of GC generations and in result make GC purge them more frequently and more aggressively. Default (balanced) latency level is `1`, we'll want to use `0`, which will tune for memory usage.
+This is undocumented property that turned out to work exceptionally well for ASF, by limiting size of GC generations and in result make GC purge them more frequently and more aggressively. Default (balanced) latency level is `1`, but you can use `0`, which will tune for memory usage.
 
 ### [`gcTrimCommitOnLowMemory`](https://docs.microsoft.com/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
 
@@ -114,7 +114,7 @@ Especially `GCLatencyLevel` will come very useful as we verified that the runtim
 
 Below tricks **involve serious performance degradation** and should be used with caution.
 
-- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this.
+- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this. Unless absolutely critical for your setup, we discourage using `MinMemoryUsage`, even in memory-constrained environments.
 
 * * *
 
