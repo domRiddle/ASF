@@ -60,6 +60,10 @@ DUE 2 TEH NACHUR OV DIS PROPERTY, IZ ALSO POSIBLE 2 SET TEH VALUE BY DECLARIN `A
 
 * * *
 
+`--no-config-migrate` - by default ASF will automatically migrate your config files to latest syntax. Migration includes conversion of deprecated properties into latest ones, removing properties with default values (as they have no effect), as well as cleaning up the file in general (correcting indentation and likewise). This is almost always a good idea, but you might have a particular situation where you'd prefer ASF to never overwrite the config files automatically. For example, you might want to `chmod 400` your config files (read permission for the owner only) or put `chattr +i` over them, in result denying write access for everyone, e.g. as a security measure. Usually we recommend to keep the config migration enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+
+* * *
+
 `--no-config-watch` - BY DEFAULT ASF SETS UP `FileSystemWatcher` OVAR UR `config` DIRECTORY IN ORDR 2 LISTEN 4 EVENTS RELATD 2 FILE CHANGEZ, SO IT CAN INTERACTIVELY ADAPT 2 THEM. 4 EXAMPLE, DIS INCLUDEZ STOPPIN BOTS ON CONFIG DELESHUN, RESTARTIN BOT ON CONFIG BEAN CHANGD, OR LOADIN KEYS INTO **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-lol-US)** ONCE U DROP THEM INTO TEH `config` DIRECTORY. DIS SWITCH ALLOWS U 2 DISABLE SUCH BEHAVIOUR, WHICH WILL CAUSE ASF 2 COMPLETELY IGNORE ALL TEH CHANGEZ IN `config` DIRECTORY, REQUIRIN FRUM U 2 DO SUCH ACSHUNS MANUALLY, IF DEEMD APPROPRIATE. USUALLY WE RECOMMEND 2 KEEP TEH CONFIG EVENTS ENABLD, BUT IF U HAS PARTICULAR REASON 4 DISABLIN THEM AN WUD INSTEAD PREFR ASF 2 NOT DO DAT, U CAN USE DIS SWITCH 4 ACHIEVIN DAT PURPOSE.
 
 * * *

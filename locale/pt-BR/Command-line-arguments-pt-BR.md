@@ -60,6 +60,10 @@ Devido à natureza desta propriedade, também é possível definir o valor decla
 
 * * *
 
+`--no-config-migrate` - by default ASF will automatically migrate your config files to latest syntax. Migration includes conversion of deprecated properties into latest ones, removing properties with default values (as they have no effect), as well as cleaning up the file in general (correcting indentation and likewise). This is almost always a good idea, but you might have a particular situation where you'd prefer ASF to never overwrite the config files automatically. For example, you might want to `chmod 400` your config files (read permission for the owner only) or put `chattr +i` over them, in result denying write access for everyone, e.g. as a security measure. Usually we recommend to keep the config migration enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+
+* * *
+
 `--no-config-watch` - por padrão o ASF seta um `FileSystemWatcher` sobre a pasta `config` para monitorar quaisquer alteração nos arquivos, podento então se adaptar e essas mudanças. Por exemplo, isso inclui parar os bots caso alguma configuração seja apagada, reiniciar o bot quando a configuração for alterada, ou carregar os códigos de produto para o **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** se você salvá-las na pasta `config`. Essa opção permite que você desative esse comportamento, fazendo com que o ASF ignore completamente todas as mudanças na pasta `config`, exigindo que você faça tais ações manualmente se considerar necessário. Recomendamos manter os eventos de configuração ativos, mas se você tem algum motivo para desativá-los, você pode usar esta configuração para esse fim.
 
 * * *
