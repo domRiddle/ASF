@@ -6,7 +6,7 @@ Nuestras preguntas frecuentes básicas cubren preguntas estándar y sus posibles
 
 - [General](#general)
 - [Comparación con herramientas similares](#comparación-con-herramientas-similares)
-- [Seguridad / Privacidad / VAC / Bans / ToS](seguridad--privacidad--vac--bans--tos)
+- [Seguridad / Privacidad / VAC / Bans / Términos de Servicio](seguridad--privacidad--vac--bans--tos)
 - [Extras](#extras)
 - [Problemas](#problemas)
 
@@ -178,37 +178,37 @@ ASF no está basado en el cliente de Steam, tiene su propia implementación del 
 
 No. Las interrupciones que ocurren con el cliente normal de Steam e Idle Master tienen un efecto mínimo en la obtención de cromos, por lo que no es ninguna diferencia notable que haga superior a ASF.
 
-Sin embargo, **sí hay** una diferencia, y puedes notar claramente que, dependiendo de qué tan ocupado esté tu sistema operativo, los cromos se **obtendrán** más rápido, desde unos segundos hasta incluso unos minutos, en el peor de los casos. Aunque yo no consideraría usar ASF solo porque se obtiene cromos más rápido, ya que tanto ASF como Idle Master son afectados por cómo funciona la web de Steam, ASF solo interactúa con la Steam web más eficazmente, mientras Idle Master no puede controlar lo que hace el cliente de Steam (así que no es culpa de Idle Master, sino del cliente de Steam en sí).
+Sin embargo, **sí hay** una diferencia, y puedes notar claramente que, dependiendo de qué tan ocupado esté tu sistema operativo, los cromos se **obtendrán** más rápido, desde unos segundos hasta incluso unos minutos, en el peor de los casos. Aunque yo no consideraría usar ASF solo porque obtiene cromos más rápido, ya que tanto ASF como Idle Master son afectados por cómo funciona la web de Steam, ASF solo interactúa con la Steam web de forma más eficaz, mientras que Idle Master no puede controlar lo que hace el cliente de Steam (así que no es culpa de Idle Master, sino del cliente de Steam en sí).
 
 * * *
 
 ### ¿ASF puede recolectar múltiples juegos a la vez?
 
-**Sí**, aunque ASF sabe mejor cuándo usar esa función, basado en el **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** seleccionado. La tasa de obtención de cromos cuando se recolectan múltiples juegos es cercana a cero, por esto ASF recolecta múltiples juegos por horas para superar `HoursUntilCardDrops` más rápido, con hasta `32` juegos a la vez. Esta es otra razón por la que debes enfocarte en la configuración de ASF, y dejar que los algoritmos decidan cuál es la forma más óptima de lograr el objetivo - lo que creas que es correcto, no lo es necesariamente en la realidad, recolectar múltiples juegos a la vez no dará ningún cromo.
+**Sí**, aunque ASF sabe mejor cuándo usar esa función, basado en el **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-ES)** seleccionado. La tasa de obtención de cromos cuando se recolectan múltiples juegos es cercana a cero, por esto ASF solo recolecta múltiples juegos para aumentar el tiempo de juego hasta superar el valor de `HoursUntilCardDrops` más rápido, con un máximo de `32` juegos al mismo tiempo. Esta es otra razón por la que debes enfocarte en la configuración de ASF, y dejar que los algoritmos decidan cuál es la forma más óptima de lograr el objetivo - lo que creas que es correcto, no lo es necesariamente en la realidad, recolectar múltiples juegos a la vez no dará ningún cromo.
 
 * * *
 
-### ¿ASF puede saltar entre juegos rápidamente?
+### ¿ASF puede cambiar rápidamente entre juegos?
 
-**No**, ASF no soporta, ni promueve el uso de los **[glitches de Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance#steam-glitches)**.
+**No**, ASF no soporta, ni promueve el uso de los **[glitches de Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-ES#glitches-de-steam)**.
 
 * * *
 
-### ¿ASF puede recolectar cada juego por X horas antes de que se añadan los cromos?
+### ¿ASF puede recolectar cada juego por X horas antes de que los cromos sean añadidos?
 
-**No**, el punto del cambio al sistema de cromos de Steam fue combatir las falsas estadísticas y jugadores fantasma. ASF no contribuirá a eso más de lo necesario, añadir esta característica no está planeado y no sucederá. Si tu juego recibe cromos de la forma usual, ASF lo recolectará lo antes posible.
+**No**, el objetivo de los cambios en el sistema de cromos de Steam fue combatir las falsas estadísticas y los jugadores fantasma. ASF no contribuirá a eso más de lo necesario, añadir esta característica no está planeado y no sucederá. Si tu juego recibe cromos de la forma usual, ASF lo recolectará lo antes posible.
 
 * * *
 
 ### ¿Puedo jugar mientras ASF está recolectando?
 
-**No**. ASF a diferencia de IM tiene incluido un cliente de Steam independiente, y la red de Steam solo permite jugar en **un cliente de Steam a la vez**. Sin embargo, puedes desconectar ASF siempre que quieras iniciando un juego (y haciendo clic en "Aceptar" cuando se te pregunta si la red de Steam debe desconectar el otro cliente) - ASF esperará pacientemente hasta que termines de jugar, y reanudará el proceso. Alternativamente, puedes jugar en modo desconectado siempre que quieras, si con eso estás satisfecho.
+**No**. ASF a diferencia de IM tiene incluido un cliente de Steam independiente, y la red de Steam solo permite jugar en **un cliente de Steam a la vez**. Sin embargo, puedes desconectar ASF siempre que quieras iniciando un juego (y haciendo clic en "Aceptar" cuando se te pregunta si la red de Steam debe desconectar el otro cliente) - ASF esperará pacientemente hasta que termines de jugar, y reanudará el proceso posteriormente. Alternativamente, puedes jugar en modo desconectado siempre que quieras, si con eso estás satisfecho.
 
-Ten en cuenta que la tasa de obtención de cromos al jugar múltiples juegos es cercana a 0, por lo tanto no hay beneficios directos de ser capaces de hacer eso con IM, mientras hay grandes beneficios de no interferir con otros juegos ejecutados con ASF, lo que es crucial, por ejemplo, en relación a VAC.
+Ten en cuenta que la tasa de obtención de cromos al jugar múltiples juegos es cercana a 0, por lo tanto no hay beneficios directos al poder hacer eso con IM, mientras que hay grandes beneficios de no interferir con otros juegos ejecutados con ASF, lo que es crucial, por ejemplo, en relación al VAC.
 
 * * *
 
-## Seguridad / Privacidad / VAC / Bans / ToS
+## Seguridad / Privacidad / VAC / Bans / Términos de Servicio
 
 * * *
 
@@ -218,35 +218,35 @@ No, no es posible porque ASF (a diferencia de Idle Master o SAM) no interfiere d
 
 * * *
 
-### ¿Usar ASF puede evitar que juegue en servidores asegurados por VAC, como se indica **[aquí](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**?
+### ¿Usar ASF puede impedir que juegue en servidores protegidos por VAC, como se indica **[aquí](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837&l=spanish)**?
 
-ASF no requiere que el cliente de Steam esté en ejecución o siquiera que esté instalado. De acuerdo a este concepto, **no** debe causar ningún problema relacionado con VAC, porque ASF garantiza que no interfiere con el cliente de Steam y todos sus procesos - este es el punto principal cuando hablamos de que ASF garantiza ser libre de VAC.
+ASF no requiere que el cliente de Steam esté en ejecución o siquiera que esté instalado. De acuerdo a este concepto, **no** debería causar ningún problema relacionado con VAC, porque ASF garantiza que no interfiere con el cliente de Steam y todos sus procesos - este es el punto principal cuando hablamos de que ASF garantiza ser libre de VAC.
 
-Según los usuarios y mi mejor opinión, este es el caso actualmente, ya que nadie ha reportado ningún problema como los mencionados en el enlace de arriba al usar ASF. No pudimos reproducir el problema señalado con ASF, mientras que lo reprodujimos claramente con ASF.
+De acuerdo a los usuarios y mi mejor opinión, este es el caso actualmente, ya que nadie ha reportado ningún problema como los mencionados en el enlace de arriba al usar ASF. Tampoco pudimos reproducir el problema descrito usando ASF, mientras que lo reprodujimos claramente con Idle Master.
 
-Sin embargo, ten en cuenta que Valve podría añadir ASF a la lista negra en algún punto, pero es un completo sinsentido ya que incluso si lo hacen, aún podrías jugar juegos con VAC desde tu PC, y usar ASF al mismo tiempo, por ejemplo, en tu servidor, así que estoy bastante seguro de que saben muy bien que ASF que debería ser sospechoso en relación al VAC, y no harán nuestras vidas más difíciles al añadir ASF a la lista negra sin razón alguna. Sin embargo, en el peor de los casos serás capaz de jugar, como se indicó anteriormente, porque la garantía libre de VAC de ASF sigue aquí independientemente de si Steam bloquea el binario de ASF, o no (y todavía puedes ejecutar ASF en cualquier otra máquina sin que el cliente de Steam está instalado). Ahora mismo no hay necesidad de hacer nada de eso, y esperemos que siga así.
+Sin embargo, ten en cuenta que Valve podría añadir ASF a la lista negra en algún punto, pero es un completo sinsentido ya que incluso si lo hacen, aún podrías jugar juegos protegidos por VAC desde tu PC, y usar ASF al mismo tiempo, por ejemplo, en tu servidor, así que estoy bastante seguro de que saben muy bien que ASF no debería ser sospechoso en relación al VAC, y no harán nuestras vidas más difíciles al añadir ASF a la lista negra sin razón alguna. Sin embargo, en el peor de los casos no podrás jugar, como se mencionó anteriormente, ya que la garantía de ser libre de VAC de ASF permanece independientemente de si Steam bloquea el binario de ASF, o no (y todavía puedes ejecutar ASF en cualquier otra máquina sin que el cliente de Steam esté instalado). Ahora mismo no hay necesidad de hacer nada de eso, y esperemos que siga así.
 
 * * *
 
 ### ¿Es seguro?
 
-Si preguntas si ASF es seguro como software, lo que significa que no causará ningún daño a tu computadora, no robará tus datos privados, instalará virus o cosas como esas - sí es seguro. ASF está libre de malware, robo de datos, minería de criptomonedas y cualquier (y todos) otro comportamiento dudoso que pueda ser considerado malicioso o no deseado por el usuario. Además de eso tenemos una sección dedicada de **[estadísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** que cubre nuestra política de privacidad y el comportamiento de ASF que va más allá de aquello para lo que configuraste el programa.
+Si preguntas si ASF es seguro como software, lo que significa que no causará ningún daño a tu computadora, no robará tus datos privados, instalará virus o cosas como esas - sí es seguro. ASF está libre de malware, robo de datos, minería de criptomonedas y cualquier (y todos) otro comportamiento dudoso que pueda ser considerado malicioso o no deseado por el usuario. Además de eso tenemos una sección dedicada de **[estadísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-es-ES)** que cubre nuestra política de privacidad y el comportamiento de ASF que va más allá de aquello para lo que configuraste el programa.
 
-Nuestro código es abierto, y los binarios distribuidos siempre son compilados desde **[fuentes disponibles públicamente](https://en.wikipedia.org/wiki/Open-source_software)** por **[sistemas automatizados y confiables de integración continua](https://en.wikipedia.org/wiki/Build_automation)**, y ni siquiera por los desarrolladores. Cada compilación es reproducible siguiente nuestro script y resultará en exactamente el mismo, código IL (binario) **[determinista](https://en.wikipedia.org/wiki/Deterministic_system)**. Si por cualquier razón con confías en nuestra compilaciones, siempre puedes compilar y usar ASF desde la fuente, incluyendo todas las librerías que usa ASF (como SteamKit2), que también son de código abierto.
+Nuestro código es abierto, y los binarios distribuidos siempre son compilados desde **[fuentes disponibles públicamente](https://en.wikipedia.org/wiki/Open-source_software)** por **[sistemas de integración continua automatizados y confiables](https://en.wikipedia.org/wiki/Build_automation)**, y ni siquiera por los propios desarrolladores. Cada compilación es reproducible siguiendo nuestro script de compilación y resultará en exactamente el mismo código IL (binario) **[determinista](https://es.wikipedia.org/wiki/Sistema_determinista)**. Si por cualquier razón con confías en nuestras compilaciones, siempre puedes compilar y usar ASF desde la fuente, incluyendo todas las bibliotecas que usa ASF (como SteamKit2), que también son de código abierto.
 
-Al final, sin embargo, siempre es una cuestión de confianza en el desarrollador de tu aplicación, tú mismo debes decidir si consideras seguro a ASF, potencialmente apoyando tu decisión con argumentos técnicos especificados arriba. No creas ciegamente en algo solo porque yo lo dije - compruébalo tú mismo, ya que esa es la única forma de estar seguro.
+Al final, sin embargo, siempre es una cuestión de confianza en el desarrollador de tu aplicación, tú mismo debes decidir si consideras seguro a ASF, potencialmente apoyando tu decisión con los argumentos técnicos especificados arriba. No creas ciegamente en algo solo porque yo lo dije - compruébalo tú mismo, ya que esa es la única forma de estar seguro.
 
 * * *
 
 ### ¿Puedo ser baneado por esto?
 
-Para responder esta pregunta, debemos ver de cerca los **[Términos de Servicio de Steam](https://store.steampowered.com/subscriber_agreement)**. Steam no prohíbe el uso de múltiples cuentas, de hecho, **[lo permite](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)** implicando que puedes usar el mismo autenticador móvil en más de una cuenta. Lo que no permite es compartir cuentas con otras personas, pero no estamos haciendo eso aquí.
+Para responder esta pregunta, debemos examinar de cerca el **[acuerdo de suscriptor a Steam](https://store.steampowered.com/subscriber_agreement/spanish/)**. Steam no prohíbe el uso de múltiples cuentas, de hecho, **[lo permite](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)** implicando que puedes usar el mismo autenticador móvil en más de una cuenta. Lo que no permite es compartir cuentas con otras personas, pero no estamos haciendo eso aquí.
 
 El único punto real que considera a ASF es el siguiente:
 
-> No está permitido utilizar trucos, software automatizado (bots), mods, aplicaciones de trampas (hacks) ni cualquier otro software de terceros no autorizado para modificar o automatizar cualquier proceso del bazar de suscripciones.
+> No está permitido utilizar Trampas, software automatizado (bots), mods, aplicaciones de trampas (hacks) ni cualquier otro software de terceros no autorizado para modificar o automatizar cualquier proceso del bazar de suscripciones.
 
-La preguntas qué es en realidad un proceso del bazar de suscripciones. Como podemos leer:
+La preguntas es, qué es en realidad un proceso del Bazar de Suscripciones. Como podemos leer:
 
 > Un ejemplo de bazar de suscripciones es el Mercado de la comunidad Steam
 
@@ -260,13 +260,13 @@ Especialmente porque:
 
 > En cuanto a las suscripciones y los contenidos y servicios ajenos a Valve, Valve no filtra ese contenido de terceros disponible en Steam o a través de otras fuentes. Valve no acepta responsabilidad ni obligación alguna por el contenido de terceros. Algunas aplicaciones de software de terceros pueden utilizarse con fines comerciales; no obstante, si usted adquiere ese software a través de Steam, solo puede utilizarlo con fines privados.
 
-Sin embargo, Valve claramente admite la existencia de los Steam idlers, como se indica **[aquí](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**, si me preguntas, estoy bastante seguro de que si no estuvieran de acuerdo con ellos, ya hubieran hecho algo en lugar de señalar que podrían causar problemas relacionados con VAC. La palabra clave aquí es **Steam** "idlers", por ejemplo ASF, y no "idlers" de **juegos**.
+Sin embargo, Valve claramente admite la existencia de los "recolectores de Steam", como se indica **[aquí](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**, si me preguntas, estoy bastante seguro de que si no estuvieran de acuerdo con ellos, ya hubieran hecho algo en lugar de señalar que podrían causar problemas relacionados con VAC. La palabra clave aquí es recolectores de **Steam**, por ejemplo ASF, y no recolectores de **juegos**.
 
-Ten en cuenta que lo anterior solo es nuestra interpretación de los **[Términos de Servicio de Steam](https://store.steampowered.com/subscriber_agreement)** y varios puntos - ASF está bajo la licencia Apache 2.0, que claramente establece:
+Ten en cuenta que lo anterior solo es nuestra interpretación de los **[Términos de Servicio de Steam](https://store.steampowered.com/subscriber_agreement/spanish)** y varios puntos - ASF está bajo la licencia Apache 2.0, que claramente establece:
 
 > A menos que sea requerido por una ley aplicable o aceptado por escrito, ASF se distribuye "TAL CUAL", SIN GARANTÍAS O CONDICIONES DE NINGÚN TIPO, ya sea expresa o implícitamente.
 
-Usas este software bajo tu propio riesgo. Es muy improbable que puedas ser baneado por eso, por si lo eres, solo puedes culparte a ti mismo.
+Usas este software bajo tu propio riesgo. Es muy improbable que puedas ser baneado por eso, pero si lo eres, solo puedes culparte a ti mismo.
 
 * * *
 
@@ -274,49 +274,49 @@ Usas este software bajo tu propio riesgo. Es muy improbable que puedas ser banea
 
 **Sí**, hemos tenido al menos unos incidentes hasta ahora que resultaron en algún tipo de suspensión por parte de Steam. Ya sea que el propio ASF haya sido la causa principal o no, eso es otra historia que probablemente nunca llegaremos a saber.
 
-Un caso fue el de un individuo com más de 1000 bots que obtuvo bloqueo de intercambio (junto con todos los bots), muy probablemente debido al excesivo uso de `loot ASF` ejecutado en todos los bots al mismo tiempo, u otra cantidad sospechosa de intercambios en un corto periodo de tiempo.
+Un caso fue el de un individuo com más de 1000 bots que recibió un bloqueo de intercambio (junto con todos los bots), muy probablemente debido al excesivo uso de `loot ASF` ejecutado en todos los bots al mismo tiempo, u otra cantidad sospechosa de intercambios en un corto periodo de tiempo.
 
 > Hola XXX, Gracias por contactar con el Soporte de Steam. Parece que esta cuenta fue usada para administrar una red de bots. Usar bots es una violación al Acuerdo de Suscriptor a Steam.
 
-Por favor, usa algo de sentido común y no asumas que puedes hacer tales locuras solo porque ASF te permite hacerlo. Ejecutar `loot ASF` en más de 1000 bots fácilmente puede ser considerado como ataque **[DDoS](https://en.wikipedia.org/wiki/DDoS)**, y personalmente no me sorprende que alguien haya sido baneado por ello. Ten en cuenta el sentido común y un uso justo en lo que respecta al servicio de Steam, y **lo más probable** es que estés bien.
+Por favor, usa algo de sentido común y no asumas que puedes hacer tales locuras solo porque ASF te permite hacerlo. Ejecutar el comando `loot ASF` en más de 1000 bots fácilmente puede ser considerado como un ataque **[DDoS](https://es.wikipedia.org/wiki/Ataque_de_denegaci%C3%B3n_de_servicio)**, y personalmente no me sorprende que alguien haya sido baneado por ello. Ten en cuenta el sentido común y un uso justo en lo que respecta al servicio de Steam, y **muy probablemente** estarás bien.
 
 Otro caso fue el de un sujeto con más de 170 bots que fue baneado durante las Rebajas de Invierno de Steam 2017.
 
-> Tu cuenta fue bloqueada por violar el Acuerdo de Suscriptor a Steam. Juzgando por los intercambios y otros factores, esta cuenta fue usada para coleccionar ilegalmente cromos en Steam, así como para actividades relacionadas y no solo comerciales. Esta cuenta ha sido bloqueada permanentemente y el Soporte de Steam no puede proporcionar soporte adicional con este problema.
+> Tu cuenta fue bloqueada por violar el Acuerdo de Suscriptor a Steam. Juzgando por los intercambios y otros factores, esta cuenta fue usada para recolectar cromos ilegalmente en Steam, así como para actividades relacionadas no solo comerciales. Esta cuenta ha sido bloqueada permanentemente y el Soporte de Steam no puede proporcionar soporte adicional con este problema.
 
-Este caso es, una vez más, muy difícil de analizar, por la respuesta vaga del soporte de Steam que apenas ofrece detalles. Basado en mi opinión personal, este usuario probablemente intercambió cromos de Steam por algún tipo de dinero (¿bot para subir de nivel?) o de alguna otra forma intentó sacar dinero de Steam. En caso de que no lo sepas, esto también es ilegal de acuerdo a los **[Términos de Servicio de Steam](https://store.steampowered.com/subscriber_agreement)**.
+Este caso es, una vez más, muy difícil de analizar, por la respuesta vaga del soporte de Steam que apenas ofrece detalles. Basado en mi opinión personal, este usuario probablemente intercambió cromos de Steam por algún tipo de dinero (¿bot para subir de nivel?) o de alguna otra forma intentó retirar fondos de Steam. En caso de que no lo sepas, esto también es ilegal de acuerdo a los **[Términos de Servicio de Steam](https://store.steampowered.com/subscriber_agreement/spanish/)**.
 
-El último caso implica a un usuario con más de 120 bots que fue baneado por incumplimiento de las **[normas de conducta online de Steam](https://store.steampowered.com/online_conduct?l=english)**.
+El último caso implica a un usuario con más de 120 bots que fue baneado por incumplimiento de las **[normas de conducta online de Steam](https://store.steampowered.com/online_conduct?l=spanish)**.
 
 > Hola XXX, Gracias por contactar con el Soporte de Steam. Esta y otras cuentas fueron usadas para hacer flooding en nuestra infraestructura de red, lo cual es una violación de las normas de conducta online de Steam. Esta cuenta ha sido bloqueada permanentemente y el Soporte de Steam no puede proporcionar soporte adicional con este problema.
 
-Este caso es un poco más fácil de analizar por los detalles adicionales proporcionados por el usuario. Aparentemente el usuario estaba usando **una versión de ASF muy desactualizada** la cual incluía un bug causando que ASF envíe un número excesivo de solicitudes a los servidores de Steam. El bug en sí no existía en principio pero fue activado por un cambio en Steam que se corrigió en futuras versiones. **ASF solo tiene soporte para la **[última versión estable](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** liberada en GitHub**. El software es escrito por humanos, y los humanos tienden a cometer errores. Si el error tiene un alcance global, es solucionado rápidamente y liberado a todos los usuarios como un bugfix. Valve no baneará repentinamente a medio millón de usuarios de ASF debido a mi error, por obvias razones. Sin embargo, si intencionadamente te rehusas a utilizar un ASF actualizado, entonces por definición estás en una muy pequeña minoría de usuarios que están **expuestos a incidentes como estos** debido a **no tener soporte**, ya que nadie está vigilando tu versión desactualizada de ASF, nadie arreglándola y nadie asegurando que no serás baneado solo por ejecutarlo. **Por favor, usa software actualizado**, no solo ASF, sino también todas las demás aplicaciones.
+Este caso es un poco más fácil de analizar por los detalles adicionales proporcionados por el usuario. Aparentemente el usuario estaba usando **una versión de ASF muy desactualizada** la cual incluía un bug causando que ASF envíe un número excesivo de solicitudes a los servidores de Steam. El bug no existía inicialmente pero fue activado debido a cambios importantes en Steam y fue corregido en futuras versiones. **ASF solo tiene soporte para la **[última versión estable](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** liberada en GitHub**. El software es escrito por humanos, y los humanos tienden a cometer errores. Si el error tiene un alcance global, es solucionado rápidamente y liberado a todos los usuarios como un bugfix. Valve no baneará repentinamente a medio millón de usuarios de ASF debido a un error mío, por obvias razones. Sin embargo, si intencionalmente te niegas a usar una versión actualizada de ASF, entonces por definición estás en una muy pequeña minoría de usuarios que están **expuestos a incidentes como estos** debido a **no tener soporte**, ya que nadie está vigilando tu versión desactualizada de ASF, nadie la está arreglando y nadie asegura que no serás baneado solo por ejecutarlo. **Por favor, usa software actualizado**, no solo ASF, sino también todas las demás aplicaciones.
 
 * * *
 
-Todos lo incidentes anteriores tienen algo en común - ASF solo es una herramienta y es **tu** decisión cómo haces uso de él. No serás baneado directamente por usar ASF, sino por **cómo** lo uses. Puede ser una herramienta útil para recolectar una sola cuenta, o una red masiva de recolección formada por miles de bots. En cualquier de esos casos, no ofrezco asesoría legal, y tú deberías decidir cómo usar ASF en primer lugar. No estoy ocultando ninguna información que podría ayudarte, por ejemplo, el hecho de que ASF hizo que baneen a algunas personas, no tengo razón para hacerlo - es tu decisión lo que quieras hacer con esa información. Si me preguntas - usa un poco de sentido común, evita tener más bots de los que recomendamos, no envíes cientos de intercambios al mismo tiempo, siempre usa una versión actualizada de ASF y *deberías* estar bien. Cada incidente de esta naturaleza por **alguna razón** siempre le han ocurrido a personas que ignoraron nuestra recomendación y decidieron que saben mejor que nosotros cuántos bots pueden ejecutar. Ya sea solo una coincidencia o un factor real, no depende de ti decidirlo. No estoy ofreciendo ningún consejo legal, solo manifiesto una opinión que te puede ser útil, o la puedes ignorar completamente y básate solo en los hechos relacionados anteriormente.
+Todos lo incidentes anteriores tienen algo en común - ASF solo es una herramienta y es **tu** decisión cómo vas a usarlo. No serás baneado solo por usar ASF, sino por **cómo** lo usas. Puede ser una herramienta útil para recolectar una sola cuenta, o una red masiva de recolección formada por miles de bots. En cualquiera de los casos, no estoy ofreciendo asesoría legal, y tú debes decidir cómo usar ASF. No estoy ocultando ninguna información que podría ayudarte, por ejemplo, el hecho de que ASF hizo que baneen a algunas personas, no tengo razón para hacerlo - es tu decisión lo que quieras hacer con esa información. Si me preguntas - usa un poco de sentido común, evita tener más bots de los que recomendamos, no envíes cientos de intercambios al mismo tiempo, siempre usa una versión actualizada de ASF y *deberías* estar bien. Cada incidente de esta naturaleza por **alguna razón** siempre le ha ocurrido a personas que ignoraron nuestra recomendación y decidieron que saben mejor que nosotros cuántos bots pueden ejecutar. Ya sea solo una coincidencia o un factor real, depende de ti decidirlo. No estoy ofreciendo ningún consejo legal, solo manifiesto una opinión que te puede ser útil, o la puedes ignorar completamente y basarte solo en los hechos relacionados anteriormente.
 
 * * *
 
 ### ¿Qué información de privacidad divulga ASF?
 
-Puedes encontrar una explicación detallada en la sección **[estadísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**. Deberías revisarla si te preocupa tu privacidad, por ejemplo, si te preguntas por qué las cuentas usadas en ASF se unen a nuestro grupo de Steam. ASF no recopila ninguna información sensible, y no la comparte con terceros.
+Puedes encontrar una explicación detallada en la sección de **[estadísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-es-ES)**. Deberías revisarla si te preocupa tu privacidad, por ejemplo, si te preguntas por qué las cuentas usadas en ASF se unen a nuestro grupo de Steam. ASF no recopila ninguna información confidencial, y no la comparte con terceros.
 
 * * *
 
-## Extras
+## Otros
 
 * * *
 
-### Estoy usando un sistema operativo no soportado como Windows de 32 bits, ¿puedo usar la última versión de ASF?
+### Estoy usando un sistema operativo no soportado, como Windows de 32 bits, ¿puedo usar la última versión de ASF?
 
-Sí, y esa versión no cuenta son soporte de ningún tipo. Revisa la sección **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** para la variante genérica. ASF no tiene ninguna dependencia del sistema operativo, y puede funcionar en donde quiera que puedas hacer funcionar .NET Core runtime, lo que incluye Windows de 32 bits, incluso si no hay un paquete `win-x86` de sistema opera específico de nuestra parte.
+Sí, y esa versión no está fuera de soporte, pero no la compilamos oficialmente. Revisa la sección de **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-ES)** para la variante genérica. ASF no tiene ninguna dependencia del sistema operativo, y puede funcionar en donde quiera que puedas hacer funcionar .NET Core runtime, lo que incluye Windows de 32 bits, incluso si no hay un paquete `win-x86` de sistema operativo específico por nuestra parte.
 
 * * *
 
 ### ¡ASF es genial! ¿Puedo hacer una donación?
 
-¡Sí, y estamos muy contentos de escuchar que disfrutas nuestro proyecto! Puedes encontrar varias posibilidades de donación en cada **[lanzamiento](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** y también **[en la página principal](https://github.com/JustArchiNET/ArchiSteamFarm)**. Es bueno notar que además de donaciones de dinero genéricas también aceptamos artículos de Steam, así que nada te impide donar skins, llaves o una pequeña parte de los cromos que has recolectado con ASF si gustas. ¡Gracias de antemano por tu generosidad!
+¡Sí, y estamos muy contentos de escuchar que disfrutas nuestro proyecto! Puedes encontrar varias posibilidades de donación en cada **[lanzamiento](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** y también **[en la página principal](https://github.com/JustArchiNET/ArchiSteamFarm)**. Es bueno notar que además de donaciones de dinero también aceptamos artículos de Steam, así que nada te impide donar skins, llaves o una pequeña parte de los cromos que has recolectado con ASF si gustas. ¡Gracias de antemano por tu generosidad!
 
 * * *
 
@@ -328,7 +328,7 @@ Sí, debes configurarlo en la propiedad de configuración del bot `SteamParental
 
 ### No quiero que ASF recolecte ningún juego por defecto, pero quiero usar las características adicionales de ASF. ¿Es posible?
 
-Sí, si solo quieres iniciar ASF con el módulo de recolección de cromos pausado, puedes establecer la propiedad de configuración del bot `Paused` a `true` para lograrlo. Esto te permitirá resumirlo `resume` durante el tiempo de ejecución.
+Sí, si solo quieres iniciar ASF con el módulo de recolección de cromos pausado, puedes establecer la propiedad de configuración del bot `Paused` a `true` para lograrlo. Esto te permitirá `resume` reanudarlo durante el tiempo de ejecución.
 
 Si quieres desactivar completamente el módulo de recolección de cromos y asegurarte de que nunca se ejecute sin que explícitamente le indiques lo contrario, entonces recomendamos establecer `FarmPriorityQueueOnly` a `true`, lo que en lugar de pausarlo, desactivará la recolección completamente hasta que añadas los juegos a la cola de prioridad de recolección.
 
@@ -350,72 +350,72 @@ ASF es una aplicación de consola, no hay ventana para ser minimizada, porque la
 
 ### ¿Hay alguna forma de comunicarse con ASF?
 
-Sí, a través de diferentes formas. Revisa la sección de **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** para más información.
+Sí, a través de diferentes formas. Revisa la sección de **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** para más información.
 
 * * *
 
 ### Me gustaría ayudar con la traducción de ASF, ¿qué necesito hacer?
 
-¡Gracias por tu interés! Puedes encontrar todos los detalles en nuestra sección de **[localización](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**.
+¡Gracias por tu interés! Puedes encontrar todos los detalles en nuestra sección de **[localización](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-es-ES)**.
 
 * * *
 
-### Solo tengo una (principal) cuenta añadida a ASF, ¿puedo enviar comandos a través del chat de Steam?
+### Solo tengo una cuenta (principal) añadida a ASF, ¿puedo enviar comandos a través del chat de Steam?
 
-**Sí**, se explica en la sección de **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#notes)**. Puedes hacerlo a través de un chat de grupo de Steam, aunque usar **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** podría ser más fácil para ti.
+**Sí**, se explica en la sección de **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES#notas)**. Puedes hacerlo a través de un chat de grupo de Steam, aunque usar **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES#asf-ui)** podría ser más fácil para ti.
 
 * * *
 
 ### ASF parece estar funcionando, ¡pero no estoy recibiendo ningún cromo!
 
-La tasa de recolección de cromos difiere entre juegos, como puedes leer en **[rendimiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. Se tarda un tiempo, normalmente **varias horas por juego**, y no deberías esperar que los cromos caigan en unos minutos desde que inicias un programa. Si puedes ver que ASF activamente comprueba el estado de los cromos, y cambia el juego después de que el actual está completamente recolectado, entonces todo funciona bien. Es posible que hayas activado una opción tal como `DismissInventoryNotifications` de `BotBehaviour` la cual automáticamente descarta las notificaciones del inventario. Revisa **[configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** para más detalles.
+La tasa de recolección de cromos difiere entre juegos, como puedes leer en la sección de **[rendimiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-ES)**. Se tarda un tiempo, normalmente **varias horas por juego**, y no deberías esperar que los cromos caigan en unos minutos desde que inicias un programa. Si puedes ver que ASF activamente comprueba el estado de los cromos, y cambia el juego después de que el actual está completamente recolectado, entonces todo funciona bien. Es posible que hayas activado una opción tal como `DismissInventoryNotifications` en `BotBehaviour` la cual automáticamente descarta las notificaciones del inventario. Revisa la sección de **[configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES)** para más detalles.
 
 * * *
 
 ### ¿Cómo puedo detener completamente el proceso de ASF para mi cuenta?
 
-Simplemente cierra el proceso de ASF, por ejemplo, haciendo clic en [X] en Windows. Si en cambio quieres detener un bot en particular pero mantener los demás en ejecución, entonces echa un vistazo a la **[propiedad de configuración del bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** `Enabled`, o al **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `stop`. Si en cambio quieres detener el proceso de recolección automática, pero mantener ASF en ejecución para tu cuenta, entonces para eso es la **[propiedad de configuración del bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** `Paused` y el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `pause`.
+Simplemente cierra el proceso de ASF, por ejemplo, haciendo clic en [X] en Windows. Si en cambio quieres detener un bot en particular pero mantener los demás en ejecución, entonces echa un vistazo a la **[propiedad de configuración del bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#configuraci%C3%B3n-de-bot)** `Enabled`, o al **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `stop`. Si en cambio quieres detener el proceso de recolección automática, pero mantener ASF en ejecución para tu cuenta, entonces para eso es la **[propiedad de configuración del bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#configuraci%C3%B3n-de-bot)** `Paused` y el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `pause`.
 
 * * *
 
-### ¿Cuántos bots puedo correr con ASF?
+### ¿Cuántos bots puedo ejecutar con ASF?
 
-ASF como programa no tiene un limite de instancias de bot, así que puedes ejecutar tantas como lo permita la memoria de tu máquina, sin embargo, estás limitado por la red de Steam y otros servicios de Steam. Actualmente puedes ejecutar hasta 100-200 bots con una sola IP y una sola instancia de ASF. Es posible ejecutar más bots con más IPs y más instancia de ASF, sorteando las limitaciones de IP. Ten en cuenta que si usas esa gran cantidad de bots, debes controlar sus números, asegurándote que todos ellos están, de hecho, iniciando sesión y funcionando al mismo tiempo. ASF no fue hecho para ese gran número de bots, y aplica la regla general de que **mientras más bots tengas, más problemas encontrarás**. También ten en cuenta que el límite anterior en general depende de muchos factores internos, es más una aproximación que un límite estricto - es probable que puedas ejecutar más/menos bots que los especificados arriba.
+ASF como programa no tiene un límite de instancias de bot, así que puedes ejecutar tantas como lo permita la memoria de tu máquina, sin embargo, estás limitado por la red de Steam y otros servicios de Steam. Actualmente puedes ejecutar hasta 100-200 bots con una sola IP y una sola instancia de ASF. Es posible ejecutar más bots con más IPs y más instancia de ASF, sorteando las limitaciones de IP. Ten en cuenta que si usas esa gran cantidad de bots, debes controlar sus números tú mismo, asegurándote que todos están, de hecho, iniciando sesión y funcionando al mismo tiempo. ASF no fue optimizado para ese gran número de bots, y aplica la regla general de que **mientras más bots tengas, más problemas experimentarás**. También ten en cuenta que el límite mencionado antes en general depende de muchos factores internos, es más una aproximación que un límite estricto - es probable que puedas ejecutar más/menos bots que los especificados arriba.
 
-El equipo de ASF sugiere ejecutar (y **poseer**) hasta **10 bots en total**, cualquier cosa arriba de eso no tiene soporte y lo haces bajo tu propio riesgo, en contra de nuestro consejo. Esta recomendación está basada en directrices internas de Valve, así como en nuestras propias sugerencias. Ya sea que cumplas con esta regla o no, es tu decisión, ASF como herramienta no irá contra tu voluntad, incluso si resulta en la suspensión de tus cuentas de Steam. Por lo tanto, ASF mostrará una advertencia si vas por encima de lo que recomendamos, pero aún te permitirá ejecutar lo que quieras bajo tu propio riesgo y con falta de soporte.
+El equipo de ASF sugiere ejecutar (y **poseer**) hasta **10 bots en total**, cualquier cosa arriba de eso no tiene soporte y lo haces bajo tu propio riesgo, en contra de nuestra sugerencia. Esta recomendación está basada en directrices internas de Valve, así como en nuestras propias sugerencias. Ya sea que cumplas con esta regla o no, es tu decisión, ASF como herramienta no irá contra tu voluntad, incluso si resulta en la suspensión de tus cuentas de Steam. Por lo tanto, ASF mostrará una advertencia si superas la cantidad recomendada, pero aún te permitirá ejecutar lo que quieras bajo tu propio riesgo y con falta de soporte.
 
 * * *
 
 ### ¿Entonces puedo ejecutar más instancias de ASF?
 
-Puedes ejecutar tantas instancias de ASF como quieras en una máquina, suponiendo que cada instancia tiene su propio directorio y sus propias configuraciones, y que la cuenta usada en instancia no es usada en otra. Sin embargo, pregúntate por qué querrías hacer eso. ASF está optimizado para manejar más de un centenar de cuentas al mismo tiempo, y ejecutar esa centena de bots en sus propias instancias de ASF reduce el rendimiento, requiere más recursos del sistema operativo (como CPU y memoria), y ocasiona posibles problemas de sincronización entre instancia independientes de ASF, ya que este se ve obligado a compartir sus limitadores con otras instancias.
+Puedes ejecutar tantas instancias de ASF como quieras en una máquina, suponiendo que cada instancia tiene su propio directorio y sus propias configuraciones, y que la cuenta usada en una instancia no es usada en otra. Sin embargo, pregúntate por qué querrías hacer eso. ASF está optimizado para manejar más de un centenar de cuentas al mismo tiempo, y ejecutar esa centena de bots en sus propias instancias de ASF reduce el rendimiento, requiere más recursos del sistema operativo (como CPU y memoria), y ocasiona posibles problemas de sincronización entre instancia independientes de ASF, ya que este se ve obligado a compartir sus limitadores con otras instancias.
 
-Por lo tanto, mi **fuerte recomendación** es, siempre ejecuta un máximo de una instancia por IP/interfaz. Si tienes más IPs/interfaces, ciertamente puedes ejecutar más instancias de ASF, con cada instancia usando su propia IP/interfaz o a través de su configuración `WebProxy` particular. Si no lo haces, ejecutar más instancias de ASF es totalmente inútil, ya que no ganarás nada al ejecutar más de una instancia por cada IP/interfaz. Steam no te permitirá mágicamente ejecutar más bots solo porque los ejecutaste en otra instancia de ASF, y para empezar ASF no te limita.
+Por lo tanto, mi **recomendación** es, siempre ejecuta un máximo de una instancia de ASF por IP/interfaz. Si tienes más IPs/interfaces, ciertamente puedes ejecutar más instancias de ASF, con cada instancia usando su propia IP/interfaz o a través de su configuración `WebProxy` individual. Si no lo haces, ejecutar más instancias de ASF es totalmente inútil, ya que no ganarás nada al ejecutar más de 1 instancia por cada IP/interfaz. Steam no te permitirá mágicamente ejecutar más bots solo porque los ejecutaste en otra instancia de ASF, y para empezar ASF no te limita.
 
-Por supuesto, existen casos de uso válidos para múltiples instancias de ASF en la misma interfaz de red, tal como alojar el servicio de ASF para tus amigos con cada amigo teniendo su propia instancia de ASF para garantizar el aislamiento entre bots e incluso entre los mismo procesos de ASF, sin embargo, no estás eludiendo ninguna limitación de Steam de esta forma, ese es un propósito completamente diferente.
+Por supuesto, existen casos de uso válidos para múltiples instancias de ASF en la misma interfaz de red, tal como alojar el servicio de ASF para tus amigos con cada amigo teniendo su propia instancia de ASF para garantizar el aislamiento entre bots e incluso entre los mismos procesos de ASF, sin embargo, no estás eludiendo ninguna limitación de Steam de esta forma, ese es un propósito completamente diferente.
 
 * * *
 
-### ¿Cuál es el significado de estatus al activar una clave?
+### ¿Cuál es el significado del estatus al activar una clave?
 
-El estado indica cómo resultó un intento de activación. Hay diferentes estados posibles, los más comunes incluyen:
+El estatus indica cómo resultó un intento de activación. Hay diferentes estatus posibles, los más comunes incluyen:
 
-| Estado                  | Descripción                                                                                                                                                                                                   |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NoDetail                | El estado "OK" indica éxito - la clave fue activada exitósamente.                                                                                                                                             |
-| Timeout                 | La red de Steam no respondió en un tiempo dado, no sabemos si la clave fue activada, o no (lo más probable es que sí, pero lo puedes intentar de nuevo).                                                      |
-| BadActivationCode       | La clave proporcionada no es válida (no se reconoce como una clave válida por la red de Steam).                                                                                                               |
-| DuplicateActivationCode | La clave proporcionada ya fue activada por otra cuenta, o revocada por el desarrollador/editor.                                                                                                               |
-| AlreadyPurchased        | Tu cuenta ya tiene el `packageID` asociado a esta clave. Ten en cuenta que esto no indica si la clave tiene el estado `DuplicateActivationCode` o no - solo que es válida y que no fue usada en este intento. |
-| RestrictedCountry       | Esta es una clave con bloque regional y tu cuenta no está en la región válida permitida para activarla.                                                                                                       |
-| DoesNotOwnRequiredApp   | No puedes activar esa clave porque te falta alguna otra aplicación - principalmente el juego base cuando estás intentando activar un paquete DLC.                                                             |
-| RateLimited             | Has hecho demasiados intentos de activación y tu cuenta fue bloqueada temporalmente. Intenta de nuevo en una hora.                                                                                            |
+| Estatus                 | Descripción                                                                                                                                                                                                 |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NoDetail                | El estatus "OK" indica éxito - la clave fue activada exitosamente.                                                                                                                                          |
+| Timeout                 | La red de Steam no respondió en un tiempo determinado, no sabemos si la clave fue activada o no (lo más probable es que sí, pero lo puedes intentar de nuevo).                                              |
+| BadActivationCode       | La clave proporcionada no es válida (no se reconoce como una clave válida por la red de Steam).                                                                                                             |
+| DuplicateActivationCode | La clave proporcionada ya fue activada por otra cuenta, o revocada por el desarrollador/editor.                                                                                                             |
+| AlreadyPurchased        | Tu cuenta ya tiene el `packageID` asociado a esta clave. Ten en cuenta que esto no indica si la clave es un caso de `DuplicateActivationCode` o no - solo que es válida y que no fue usada en este intento. |
+| RestrictedCountry       | Esta clave tiene bloqueo regional y tu cuenta no está en la región válida permitida para activarla.                                                                                                         |
+| DoesNotOwnRequiredApp   | No puedes activar esta clave porque te falta alguna otra aplicación - principalmente el juego base cuando estás intentando activar un paquete DLC.                                                          |
+| RateLimited             | Has hecho demasiados intentos de activación y tu cuenta fue bloqueada temporalmente. Intenta de nuevo en una hora.                                                                                          |
 
 * * *
 
 ### ¿Están afiliados con algún servicio de recolección de cromos?
 
-**No**. ASF no está con ningún servicio y cualquier afirmación al respecto es falsa. Tu cuenta de Steam es de tu propiedad y la puedes usar del modo que quieras, pero Valve claramente indica en los **[Términos de Servicio oficiales](https://store.steampowered.com/subscriber_agreement)** que:
+**No**. ASF no está afiliado con ningún servicio y cualquier afirmación al respecto es falsa. Tu cuenta de Steam es de tu propiedad y la puedes usar del modo que quieras, pero Valve claramente indica en los **[Términos de Servicio oficiales](https://store.steampowered.com/subscriber_agreement)** que:
 
 > El usuario es el responsable de la confidencialidad de su información de inicio de sesión y contraseña y de la seguridad de su equipo de cómputo. Valve no es responsable del uso que le dé a su contraseña y cuenta, así como de todas las comunicaciones y actividades realizadas en Steam que resulten del uso que le dé a su nombre de inicio de sesión y contraseña ni las que resulten del uso que les dé otra persona a la que se le hayan revelado de forma deliberada o por negligencia infringiendo esta disposición sobre la confidencialidad.
 
