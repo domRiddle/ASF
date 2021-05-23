@@ -10,7 +10,7 @@
 
 * **[🏡 Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[🔨 Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
-* **[🤔 FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[❓ FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 * **[⚙️ Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 
 
@@ -30,7 +30,7 @@
 * **[⌨️ Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[🚧 Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[🚢 Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[🧐 Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[🤔 Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[💨 High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[🌐 Localization](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
