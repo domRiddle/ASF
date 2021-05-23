@@ -6,7 +6,7 @@
 
 ***
 
-## ✅ Basics
+## 💻 Basics
 
 * **[🏡 Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[🔨 Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
@@ -14,7 +14,7 @@
 * **[⚙️ Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 
 
-## 💻 Core
+## 🤖 Core
 
 * **[🎮 Background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[💬 Commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
