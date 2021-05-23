@@ -6,7 +6,7 @@
 
 ***
 
-## Basics
+## ✅ Basics
 
 * **[🏡 Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[🔨 Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
@@ -14,7 +14,7 @@
 * **[⚙️ Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 
 
-## Core
+## 💻 Core
 
 * **[🎮 Background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[💬 Commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
@@ -25,7 +25,7 @@
 * **[💱 Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 
-## Advanced
+## 💭 Advanced
 
 * **[⌨️ Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[🚧 Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
@@ -43,7 +43,7 @@
 * **[☑️ Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 
-## Developers
+## 👷 Developers
 
 * **[🔧 Compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
 * **[🤝 Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
