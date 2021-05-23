@@ -6,7 +6,7 @@
 
 ***
 
-## 💻 Base
+## 👨‍🏫️ Base
 
 * **[🏡 Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[🔧 Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
