@@ -22,7 +22,7 @@
 * **[⏩ Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📊 Statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
 * **[👪 Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[🔁 Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+* **[🔄 Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 
 ## 💭 Advanced
