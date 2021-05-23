@@ -34,7 +34,7 @@
 * **[🚀 High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[🌐 Localization](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[📝 Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[📋 Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[🔌 Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[🔒 Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
