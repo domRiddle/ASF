@@ -14,7 +14,7 @@
 * **[⚙️ Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 
 
-## 🤖 Core
+## 🤖 Main
 
 * **[👥 Background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
