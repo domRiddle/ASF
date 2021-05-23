@@ -14,7 +14,7 @@
 * **[⚙️ Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 
 
-## 👨‍💻 Main
+## 👨‍🎓️ Main
 
 * **[👥 Background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
@@ -25,7 +25,7 @@
 * **[🔄 Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 
-## 👨‍🎓️ Advanced
+## 👨‍💻 Advanced
 
 * **[⌨️ Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[🚧 Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
