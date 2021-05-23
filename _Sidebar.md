@@ -29,7 +29,7 @@
 
 * **[⌨️ Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[🚧 Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
-* **[📦 Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
+* **[🚢 Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[🧐 Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[💨 High-performance setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
