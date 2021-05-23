@@ -9,7 +9,7 @@
 ## 💻 Basics
 
 * **[🏡 Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
-* **[🔨 Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+* **[🔧 Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[💬 FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
 * **[⚙️ Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 
@@ -45,7 +45,7 @@
 
 ## 👷 Developers
 
-* **[🔧 Compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
+* **[🔨 Compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
 * **[🤝 Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[⚖️ License](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[🏭 Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
