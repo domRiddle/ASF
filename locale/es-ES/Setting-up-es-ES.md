@@ -8,7 +8,7 @@ Sin embargo, esto no significa que no puedas usarlo en tu PC o que usarlo es de 
 
 * * *
 
-## Configuración de SO específico
+## Configuración de sistema operativo específico
 
 En general, aquí está lo que haremos los próximos minutos:
 
