@@ -14,13 +14,13 @@ A descrição e comparação exatas estão disponíveis abaixo.
 
 Para gerar uma senha criptografada, por exemplo, para usar como `SteamPassword` você deve executar o **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `encrypt` com o método de criptografia que você escolheu e sua senha original em texto simples. Depois, coloque a string criptografada que você recebeu na propriedade de configuração `SteamPassword` do bot, e mude o campo `PasswordFormat` para o valor que corresponda ao método de criptografia que você escolheu.
 
-* * *
+---
 
 ### PlainText (Texto sem formatação)
 
 É a forma mais simples e menos segura de salvar uma senha, definido com o valor `0` em `ECryptoMethod`. O ASF vai esperar que a string seja um texto sem formatação - uma senha na sua forma crua. É o método mais fácil de usar, e 100% compatível com todas as configurações, entretanto, sendo a maneira padrão de armazenar segredos, ela é totalmente insegura para um armazenamento seguro.
 
-* * *
+---
 
 ### AES
 
@@ -28,7 +28,7 @@ Considerado seguro pelos padrões de hoje, a forma de armazenamento **[AES](http
 
 O método acima garante segurança enquanto o agressor não saiba a chave de criptografia embutida do ASF que está sendo usada para descriptografia e criptografia de senhas. O ASF permite que você especifique a chave através do **[argumento de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-pt-BR)** `--cryptkey`, que você deve usar para segurança máxima. Se você decidir para omiti-lo, o ASF usará sua própria chave, que é **conhecida** e codificada no aplicativo, ou seja, qualquer um pode reverter a criptografia ASF e obter a senha descriptografada. Isso requer esforço e não é fácil de fazer, mas é possível e é por isso que você deve sempre que possível usar a encriptação `AES` com sua própria `--cryptkey` mantida em segredo. O método AES utilizado pelo ASF fornece segurança suficiente e é um equilíbrio entre a simplicidade do `PlainText` e a complexidade do `ProtectedDataForCurrentUser`, mas é altamente recomendado usá-lo com uma `--cryptkey` personalizada. Se for bem utilizado, garante uma segurança decente para um armazenamento seguro.
 
-* * *
+---
 
 ### ProtectedDataForCurrentUser
 
@@ -36,7 +36,7 @@ Atualmente a maneira mais segura que o ASF oferece para armazenar a senha, muito
 
 **Por favor, note que no momento esta opção está disponível apenas para computadores que executam o Windows.**
 
-* * *
+---
 
 ## Recomendação
 
@@ -46,13 +46,13 @@ Tenha em mente que todos esses 3 métodos são considerados **inseguros** se um 
 
 Além dos métodos de criptografia especificados acima, também é possível evitar especificar senhas completamente, por exemplo, usando um valor `nulo` ou uma string vazia em `SteamPassword`. O ASF vai pedir sua senha Steam quando for necessário, e não a salvará em lugar algum, mas a manterá na memória do processo executado no momento, até que você o feche. Enquanto sendo o método mais seguro de lidar com senhas (já que não são salvas em nenhum lugar), é também o mais problemático já que você tem que entrar com sua senha manualmente cada vez que abrir o ASF (quando for necessário). Se isso não for um problema para você, então é sua melhor aposta em termos de segurança.
 
-* * *
+---
 
 ## Descriptografar
 
 O ASF não suporta nenhuma forma de descriptografar senha já criptografadas, já que os métodos de descriptografia são usados internamente para acessar os dados dentro do processo. Se você quiser reverter o procedimento de criptografia, por exemplo, para mover o ASF para outro computador quando estiver usando o `ProtectedDataForCurrentUser`, então simplesmente repita o procedimento do início no novo ambiente.
 
-* * *
+---
 
 ## Hashing
 
@@ -68,13 +68,13 @@ A descrição e comparação exatas estão disponíveis abaixo.
 
 Para gerar um hash, por exemplo, para uso de `IPCPassword` você deve executar `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** com o método de hash apropriado que você escolheu e sua senha de texto simples. Depois, coloque a string hash que você recebeu na propriedade de configuração `IPCPassword` e mude o campo `IPCPasswordFormat` para o valor que corresponda ao método de criptografia que você escolheu.
 
-* * *
+---
 
 ### PlainText (Texto sem formatação)
 
 É a forma mais simples e menos segura de fazer hash em uma senha, definido pelo valor `0` em `EHashingMethod`. O ASF gerará o hash correspondente à entrada original. É o método mais fácil de usar, e 100% compatível com todas as configurações, entretanto, sendo a maneira padrão de armazenar segredos, ela é totalmente insegura para um armazenamento seguro.
 
-* * *
+---
 
 ### SCrypt
 
@@ -82,7 +82,7 @@ Considerado seguro pelos padrões de hoje, o método hash **[SCrypt](https://pt.
 
 O ASF permite que você especifique o sal para esse método através da **[argumento de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)** `--cryptkey`,que você deve usar para máxima segurança. Se você decidir para omiti-lo, o ASF usará sua própria chave, que é **conhecida** e codificada no aplicativo, tornando o hash menos seguro. Se for bem utilizado, garante uma segurança decente para um armazenamento seguro.
 
-* * *
+---
 
 ### Pbkdf2
 
@@ -90,7 +90,7 @@ Considerado fraco para os padrões atuais, o método hash **[Pbkdf2](https://en.
 
 O ASF permite que você especifique o sal para esse método através da **[argumento de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)** `--cryptkey`,que você deve usar para máxima segurança. Se você decidir para omiti-lo, o ASF usará sua própria chave, que é **conhecida** e codificada no aplicativo, tornando o hash menos seguro.
 
-* * *
+---
 
 ## Recomendação
 

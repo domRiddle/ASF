@@ -6,45 +6,48 @@
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |                                                                                                                                                                       |                                                                                                                                                              |                                                                                                                                                              |                                                                                                                                                              |
 
-* * *
+***
 
-## Basics
+## 👨‍🏫 Base
 
-* **[דף בית](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
-* **[תצורה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
-* **[שאלות ותשובות](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[מתחילים להגדיר](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(התחל כאן)**
+* **[🏡 Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+* **[🔧 Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+* **[💬 FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[⚙️ Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 
-## ליבה
 
-* **[רקע משחק](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
-* **[פקודות](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
-* **[תאימות](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
-* **[ביצועים](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[סטטיסטיקה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
-* **[סטים שיתוף משחקים עם משפחה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[מסחר](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+## 👨‍🎓️ Main
 
-## מתקדם
+* **[👥 רקע משחק](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[📢 Commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[🛠️ Compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[⏱️ Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
+* **[📊 Statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[👪 סטים שיתוף משחקים עם משפחה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[🔄 Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
-* **[ארגומנטים של שורת פקודה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[הוצא משימוש](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
-* **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[התקנת שימוש גבוה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[מקום](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[רישום](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[התקנת זיכרון נמוך](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
-* **[אבטחה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
-* **[Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
-## מפתחים
+## 🧙 Advanced
 
-* **[הידור](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
-* **[רישיון](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
-* **[Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
+* **[⌨️ Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[🚧 Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[🐳 Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
+* **[🤔 Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[🚀 התקנת שימוש גבוה](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+* **[🌐 Localization](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[📝 Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[💾 Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[🔌 Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[🔐 Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[📦 Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[📵 Two-factor authentication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+
+
+## 👷 Developers
+
+* **[🏗️ Compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
+* **[🤝 Contributing guidelines](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
+* **[⚖️ License](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
+* **[🏭 Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

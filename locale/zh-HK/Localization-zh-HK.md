@@ -4,19 +4,19 @@ ASF 由 Crowdin 服務提供支援，這使得每個人都可以幫助將 ASF �
 
 如果您想了解當前本土化工作的進程，可以關注 **[ASF Crowdin 動態](https://crowdin.com/project/archisteamfarm/activity_stream)**。
 
-* * *
+---
 
 ## 範圍
 
 我們的平臺支援我們的主要 ASF項目的當地語系化，以及我們與之一起提供的完整的可當地語系化內容。 這主要包括我們的ASF網頁設置檔生成器、ASF-ui 以及我們的wiki。 所有這些都可以輕鬆地通過Crowdin介面進行轉換。
 
-* * *
+---
 
 ## 註冊
 
 如果您想幫助對ASF的翻譯、審閱或批准翻譯，請註冊我們的 **[Crowdin 項目](https://crowdin.com/project/archisteamfarm)**。 註冊是簡單和完全免費的！ 登錄後，您可以選擇您想參與翻譯的語言，然後開始翻譯 ASF 字串，並協助其他社區成員將 ASF 翻譯成所有當下最流行的語言！
 
-* * *
+---
 
 ### 翻譯
 
@@ -36,7 +36,7 @@ ASF 由 Crowdin 服務提供支援，這使得每個人都可以幫助將 ASF �
 
 The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). 這提高了整體翻譯品質。
 
-* * *
+---
 
 ### 審查
 
@@ -44,7 +44,7 @@ The flexibility is provided specially for you, so you can slightly reword ASF se
 
 **您已翻譯的字串不需批准即可在ASF中查看**。 批准只是意味著有值得我們信任的人士審查了翻譯內容，並選擇了翻譯的最終版本。 It's totally fine to have not-approved community-driven translations, where you vote for the best one. 只要翻譯完成，萬事大吉！ 如果您認為現在的翻譯不好，您總是可以為您更欣賞的翻譯投票，或者自己提交一個。
 
-* * *
+---
 
 ### 校對
 
@@ -54,7 +54,7 @@ If you have past history of contributions on Crowdin or any other localization p
 
 適用于校對的一般規則──不要心急，傾聽用戶的聲音，統籌項目，解決問題，確保把事情做得更好，而不是更糟。
 
-* * *
+---
 
 ### 問題
 
@@ -63,13 +63,12 @@ If you have a problem with particular translation, e.g. you do not know how to t
 **Please avoid using issue mark if you do not need technical/development explanation or admin action**. You're free to use comments for discussion related to translation of given string, but issue should be used only when you need further technical explanation or admin correction, and it will typically involve somebody who does not even speak the language you're translating to, so please stick with English when writing issue comment (so we can understand what the issue is).
 
 當前我們對以下4類問題提供支援：
+- 一般問題──任何不符合下面任何標準的問題。 In general this type **should be avoided**, as if your problem does not fit, then it's very likely **not** a translation issue. Still, this option is available here for all other cases.
+- Current translation is wrong - this should be used **only** if translation was pre-approved by proof-reader already, and you believe that it's wrong, for example it has a typo or you have a valid suggestion how to improve it. This type should never be used in translations that are powered by the community (voting), as in this case you should contact with user of given translation and ask him for correction, or simply vote for better translation, as stated in reviewing section. We'll remove the approval of the translation and notify the appropriate proof-reader in charge of the language to take into account your comment and verify again.
+- Lack of contextual information  - this is what you should use if you're not sure what part of ASF you're translating, what is the context of given string, or its purpose. This type should be used for ASF development only, it means you need technical assistance as you're not sure how you should translate given string.
+- Mistake in the source string - this should be used only if you believe that original (English) string is incorrect. Quite rare, but I'm not speaking English natively either, so feel free to use it if you have a general idea how it could be improved. Alternatively, since this is strictly related to the development, you may use our **[GitHub issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** for that purpose, if you'd like to.
 
-* 一般問題──任何不符合下面任何標準的問題。 In general this type **should be avoided**, as if your problem does not fit, then it's very likely **not** a translation issue. Still, this option is available here for all other cases.
-* Current translation is wrong - this should be used **only** if translation was pre-approved by proof-reader already, and you believe that it's wrong, for example it has a typo or you have a valid suggestion how to improve it. This type should never be used in translations that are powered by the community (voting), as in this case you should contact with user of given translation and ask him for correction, or simply vote for better translation, as stated in reviewing section. We'll remove the approval of the translation and notify the appropriate proof-reader in charge of the language to take into account your comment and verify again.
-* Lack of contextual information - this is what you should use if you're not sure what part of ASF you're translating, what is the context of given string, or its purpose. This type should be used for ASF development only, it means you need technical assistance as you're not sure how you should translate given string.
-* Mistake in the source string - this should be used only if you believe that original (English) string is incorrect. Quite rare, but I'm not speaking English natively either, so feel free to use it if you have a general idea how it could be improved. Alternatively, since this is strictly related to the development, you may use our **[GitHub issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** for that purpose, if you'd like to.
-
-* * *
+---
 
 ### 翻譯進度
 
@@ -81,7 +80,7 @@ Selected languages may have appropriate proof-readers that validate translations
 
 ASF will include given language **as soon as possible**, which means that it doesn't need to be approved, or even 100% translated. The actual strings that will be used are always the most popular ones in terms of the votes, unless chosen proofreader decided otherwise (rarely). Therefore, you can see your efforts being included in the very next ASF release - our automation systems merge translations from Crowdin back to ASF repo on daily basis.
 
-* * *
+---
 
 ## Missing languages
 
@@ -89,7 +88,7 @@ By default ASF project has open translation only for top 30 languages that are s
 
 For a complete list of all available languages that ASF can be translated to, **[click here](https://support.crowdin.com/api/language-codes)**.
 
-* * *
+---
 
 ## Pluralization
 
@@ -109,7 +108,7 @@ This way we've defined all 4 plural forms for our Polish language, and since our
 
 It's not mandatory to define all plural forms used by your language. If missing, our localization library will use last defined form in its place. It's a good idea to define all plural forms used by your language, but in some cases remaining plural forms could be the same as last one, in which case it's not needed to repeat them. In our example above it was mandatory, as "other" form in Polish for months is "miesiąca", and not "miesięcy" as in "many".
 
-* * *
+---
 
 ## Wiki
 
@@ -117,7 +116,7 @@ Our crowdin platform also allows you to localize even the wiki itself. This is a
 
 Wiki is a bit special in this regard, since it's online help where you don't need to stick with original sentence too much. This means that you want to be as natural with your language as possible, and deliver original meaning and help - not necessarily stick with original string, used words and actual punctuation. Don't be afraid of rewriting the string into something far more natural for your language, as long as you keep the general direction and help included in the sentence.
 
-* * *
+---
 
 ### Global links
 
@@ -137,11 +136,11 @@ If you're a new user, we recommend starting with **[setting up](https://github.c
 
 On the crowdin, first thing you should do is going to your editor settings and ensuring that HTML tags are set to "Show" for you. This is very important if you decide to localize the wiki.
 
-* * *
+---
 
 ![Crowdin](https://i.imgur.com/YqAxiZ4.png)
 
-* * *
+---
 
 Now, during translating on the crowdin, depending on formatting, you'll see ASF links in the text either as:
 
@@ -150,29 +149,29 @@ Now, during translating on the crowdin, depending on formatting, you'll see ASF 
 
 In our example above, it's the first case (since only "setting up" is a link), so in crowdin we'll see it as:
 
-* * *
+---
 
 ![Crowdin 2](https://i.imgur.com/Li5RzS3.png)
 
-* * *
+---
 
 Regardless of case, firstly you should copy the source string and translate it as usual, leaving entire HTML (if present) intact. This would be example of translation for Polish language:
 
-* * *
+---
 
 ![Crowdin 3](https://i.imgur.com/NpKwfka.png)
 
-* * *
+---
 
 Now, if the link is a generic link that points outside of the wiki (e.g. to latest ASF release), you can leave it as it is since you don't want to edit it. You can save it and move forward.
 
 However, if the link **does** point further inside the wiki, like the one above, you can actually correct it to point to new (localized) location. You do this by carefully appending `-locale` to target URL in `<a>` tag, like below:
 
-* * *
+---
 
 ![Crowdin 4](https://i.imgur.com/TL8uwmb.png)
 
-* * *
+---
 
 Be extremely careful about this, and ensure that your URL indeed exists, since if you make a mistake, that link will stop functioning. If you succeeded, you now have a fully functional translation with link pointing to translated (in our case `Setting-up-pl-PL`) page.
 
@@ -188,19 +187,19 @@ And finally into wiki text:
 
 When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
 
-* * *
+---
 
 ![Crowdin 5](https://i.imgur.com/ZmgavCM.png)
 
-* * *
+---
 
 From there you can easily correct the link to point to new location, without even bothering with HTML at all:
 
-* * *
+---
 
 ![Crowdin 6](https://i.imgur.com/maG7kSm.png)
 
-* * *
+---
 
 ### Local links
 
@@ -210,41 +209,41 @@ Now those are special cases, since those links are based on names of the section
 
 For example you can find `#introduction` link in our **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)** section:
 
-* * *
+---
 
 ![Crowdin 7](https://i.imgur.com/EEHSPtK.png)
 
-* * *
+---
 
 Since we're going to translate "Introduction" word into "Wprowadzenie" for our Polish language, we'll need to correct this link since it'll stop functioning the moment we do this.
 
-* * *
+---
 
 ![Crowdin 8](https://i.imgur.com/JMJegO7.png)
 
-* * *
+---
 
 This way our local link will keep working, since it'll now point to name of the section that we're using. You can correct links inside HTML tags in exactly the same way.
 
-* * *
+---
 
 ### Code blocks
 
 Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. 範例：
 
-> This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
+> This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit <code>RateLimited</code> status before you're done with your entire batch.
 
 As you can see, `RateLimited` word here is inside a code block and indicates internal ASF code status that should not be translated. Likewise, you shouldn't translate other code blocks, such as names of config properties (e.g. `TradingPreferences`), enum members (e.g. `Stable` and `Experimental` options of `UpdateChannel`) and likewise.
 
 However, just because those words should not be translated, doesn't mean that you can't add appropriate translation next to them, for example in brackets.
 
-> Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
+> Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu <code>RateLimited</code> (zbyt częstej aktywacji) przed ukończeniem całej partii.
 
 As you can see above, we've added "zbyt częstej aktywacji", literally "too often activation" next to `RateLimited` in order to translate that status in a friendly way, while at the same time keeping original ASF meaning that the user may see during usage of the program. In the same way you can translate/explain other, similar cases of various words and sentences.
 
 If you believe that something inappropriate is included in a code block, or that there is a text that is not in a code block but should be inside it, feel free to ask on our crowdin by creating appropriate **[issue](#issues)**. This also serves as a practical example of using a local link.
 
-* * *
+---
 
 ## Hall of fame
 

@@ -2,7 +2,7 @@
 
 ASF prend en charge le partage familial Steam depuis la version 2.1.5.5+. Pour comprendre comment ASF fonctionne avec cela, vous devez d’abord lire le fonctionnement du **[partage familial](https://store.steampowered.com/promotion/familysharing)**, disponible sur le magasin Steam.
 
-* * *
+---
 
 ## ASF
 
@@ -14,7 +14,7 @@ En plus de ce qui précède, une fois connecté, ASF accédera à vos **[ param�
 
 La connexion des deux fonctionnalités décrites ci-dessus permet à vos amis de ` mettre en pause ~` le processus de farm de cartes, de démarrer une partie, de jouer aussi longtemps qu’ils le souhaitent, puis, une fois la lecture terminée, le processus de farm sera automatiquement repris par ASF. Bien entendu, l'émission de ` pause ~` n'est pas nécessaire si ASF n'effectue actuellement aucune activité de farm active, car vos amis peuvent lancer le jeu immédiatement, et la logique décrite ci-dessus garantit qu'ils ne seront pas expulsés du serveur.
 
-* * *
+---
 
 ## Restriction
 

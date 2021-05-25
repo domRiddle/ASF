@@ -1,12 +1,12 @@
-# Setup ad alte prestazioni
+# Configurazione ad alte prestazioni
 
 This is exact opposite of **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and typically you want to follow those tips if you want to further increase ASF performance (in terms of CPU speed), for potential cost of increased memory usage.
 
-* * *
+---
 
 ASF already tries to prefer performance when it comes to general balanced tuning, therefore there is not a lot you can do to further increase its performance, although you're not completely out of options either. However, keep in mind that those options are not enabled by default, which means that they're not good enough to consider them balanced for majority of usages, therefore you should decide yourself if memory increase brought by them is acceptable for you.
 
-* * *
+---
 
 ## Runtime tuning (advanced)
 
@@ -32,7 +32,7 @@ Server GC itself does not result in a very huge memory increase by just being ac
 
 However, if memory is not a problem for you (as GC still takes into account your available memory and tweaks itself), it's a much better idea to not change those properties at all, achieving superior performance in result.
 
-* * *
+---
 
 You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
@@ -50,7 +50,7 @@ $Env:COMPlus_gcServer=1
 .\ArchiSteamFarm.exe # For OS-specific build
 ```
 
-* * *
+---
 
 ## Recommended optimization
 

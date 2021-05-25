@@ -8,7 +8,7 @@ Esto también significa que ASF **no tiene requisitos específicos de sistema op
 
 Sin embargo, independientemente de dónde ejecutes ASF, debes asegurarte de que tu plataforma objetivo tiene los **[prerrequisitos .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** instalados. Estos prerrequisitos son bibliotecas de bajo nivel requeridas para una correcta funcionalidad de runtime y primordiales para el funcionamiento de ASF. Es muy probable que tengas algunas (o incluso todas) ya instaladas.
 
-* * *
+---
 
 ## Múltiples instancias
 
@@ -22,33 +22,33 @@ No es necesario que las instancias de ASF compartan las mismas propiedades `*Lim
 
 ASF toma en cuenta la configuración de `WebProxy` al decidir sobre el ámbito compartido, lo que significa que dos instancias de ASF que usan diferentes configuraciones `WebProxy` no compartirán sus limitadores entre sí. Esto se implementa para permitir que las configuraciones `WebProxy` funcionen sin retrasos excesivos, como se espera de diferentes interfaces de red. Esto debería ser suficiente para la mayoría de los casos de uso, sin embargo, si tienes una configuración personalizada en la que, por ejemplo, estés enrutando solicitudes de forma distinta, puedes especificar el grupo de red a través del **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-es)** `--network-group`, lo que te permitirá declarar el grupo de ASF que se sincronizará con esta instancia. Ten en cuenta que los grupos de red personalizados se utilizan exclusivamente, lo que significa que ASF ya no usará `WebProxy` para determinar el grupo correcto, ya que tú eres responsable del agrupamiento en este caso.
 
-* * *
+---
 
 ## Paquetes de ASF
 
-ASF viene en 2 variantes principales - paquete genérico y de sistema operativo específico. En cuanto a funcionalidad ambos paquetes son exactamente iguales, ambos son capaces de actualizarse automáticamente. La única diferencia entre ellos es si el paquete **genérico** de ASF viene o no con runtime **específico del sistema operativo**.
+ASF viene en 2 variantes principales - paquete genérico y de sistema operativo específico. En cuanto a funcionalidad ambos paquetes son exactamente iguales, ambos son capaces de actualizarse automáticamente. La única diferencia entre ellos es si el paquete **genérico** de ASF también viene con runtime **específico de SO** para impulsarlo.
 
-* * *
+---
 
 ### Genérico
 
-El paquete genérico es una compilación que no depende de plataformas y no incluye ningún código de máquina específico. Esta configuración requiere que tengas .NET Core runtime instalado en tu sistema operativo **en la versión apropiada**. Todos sabemos lo problemático que es mantener las dependencias actualizadas, por lo tanto este paquete está disponible principalmente para las personas que **ya usan** .Net Core y no quieren duplicar su runtime solo por ASF si pueden hacer uso de lo que ya tienen instalado. El paquete genérico también te permite ejecutar ASF **en cualquier lugar donde puedas obtener una implementación funcional de .NET Core runtime**, independientemente de si existe o no una compilación de ASF específica para el sistema operativo.
+El paquete genérico es una compilación que no depende de plataformas y no incluye ningún código de máquina específico. Esta configuración requiere que tengas .NET Core runtime instalado en su sistema operativo **en su versión apropiada**. Todos sabemos lo problemático que es mantener las dependencias actualizadas, por lo tanto este paquete está aquí principalmente para las personas que **ya usan** .Net Core y no quiere duplicar su runtime solo por ASF si pueden hacer uso de lo que ya tienen instalado. El paquete genérico también te permite ejecutar ASF **en cualquier lugar donde puedas obtener una implementación funcional de .NET Core runtime**, independientemente de si existe o no una compilación de ASF específica para el sistema operativo.
 
 No se recomienda usar la variante genérica si eres un usuario casual o incluso avanzado que solo quiere hacer funcionar ASF y no entrar en detalles técnicos de .NET Core. En otras palabras - si sabes qué es esto, lo puedes usar, de lo contrario es mucho mejor usar un paquete de sistema operativo específico.
 
 #### Paquete .NET Framework
 
-Además del paquete genérico mencionado antes, también hay un paquete `generic-netf` construido en .NET Framework (no .NET Core). Este paquete es una versión heredada que proporciona la compatibilidad faltante de los tiempos de ASF V2, y puede ejecutarse, por ejemplo, con **[Mono](https://www.mono-project.com)**, mientras que el paquete `generic` de .NET Core no puede hacer eso al día de hoy.
+Además del paquete genérico mencionado antes, también hay un paquete `generic-netf` construido en .NET Framework (no .NET Core). Este paquete es una variante legacy que proporciona compatibilidad faltante conocida de los tiempos de ASF V2, y puede ejecutarse, por ejemplo, con **[Mono](https://www.mono-project.com)**, mientras que el paquete `generic` de .NET Core no puede hacer eso al día de hoy.
 
-En general, deberías **evitar este paquete tanto como sea posible**, ya que la mayoría de los sistemas operativos y configuraciones están perfectamente (y mucho mejor) soportados con el paquete `generic` mencionado antes. De hecho, este paquete tiene sentido usarlo solo en plataformas que no tienen .NET Core runtime funcional, pero que tienen una implementación Mono funcional. Algunos ejemplos de tales plataformas incluyen `linux-x86` (32-bit i386/i686 linux), así como `linux-armel` (tarjetas ARMv6 encontradas, por ejemplo, en Raspberry Pi 0 & 1), de las cuales ninguna tiene .NET Core runtime que funcione oficialmente al día de hoy.
+En general, deberías **evitar este paquete como sea posible**, ya que la mayoría de los sistemas operativos y configuraciones están perfectamente (y mucho mejor) soportados con el paquete `generic` mencionado antes. De hecho, este paquete tiene sentido usarlo solo en plataformas que no tienen .NET Core runtime funcional, pero que tienen una implementación Mono funcional. Algunos ejemplos de tales plataformas incluyen `linux-x86` (32-bit i386/i686 linux), así como `linux-armel` (tarjetas ARMv6 encontradas, por ejemplo, en Raspberry Pi 0 & 1), de las cuales ninguna tiene .NET Core runtime que funcione oficialmente al día de hoy.
 
 A medida que el tiempo pasa más plataformas son soportadas por .NET Core y hay menos compatibilidad entre .NET Framework y .NET Core, el paquete `generic-netf` será totalmente reemplazado por `generic` en el futuro. Por favor, evita usarlo si en su lugar puedes usar cualquier paquete .NET Core, ya que `generic-netf` carece de mucha funcionalidad y compatibilidad en comparación con las versiones .NET Core, y cada vez será menos funcional mientras pasa el tiempo. Ofrecemos soporte para este paquete **solo** en máquinas que no pueden usar la variante `generic` antes mencionada (por ejemplo, `linux-x86`), y solo con runtime actualizado (por ejemplo, el más reciente Mono).
 
-* * *
+---
 
 ### Sistema operativo específico
 
-El paquete de sistema operativo específico, aparte del código incluido en el paquete genérico, también incluye código nativo para una plataforma determinada. En otras palabras, el paquete de sistema operativo específico **ya incluye el adecuado .NET Core runtime**, lo que permite omitir todo el desastre de la instalación y en su lugar ejecutar ASF directamente. El paquete de sistema operativo específico, como puedes adivinar por el nombre, es específico del sistema operativo y cada uno requiere su propia versión - por ejemplo, Windows requiere el binario PE32+ `ArchiSteamFarm.exe` mientras que Linux funciona con el binario ELF `ArchiSteamFarm`. Como debes saber, esos dos tipos no son compatibles entre sí.
+El paquete de sistema operativo específico, aparte del código incluido en el paquete genérico, también incluye código nativo para una plataforma determinada. En otras palabras, el paquete de SO específico **ya incluye dentro el adecuado .NET Core runtime**, lo que permite omitir todo el desastre de la instalación y ejecutar ASF directamente. El paquete de sistema operativo específico, como puedes adivinar por el nombre, es específico del sistema operativo y cada uno requiere su propia versión - por ejemplo, Windows requiere el binario PE32+ `ArchiSteamFarm.exe` mientras que Linux funciona con el binario ELF `ArchiSteamFarm`. Como debes saber, esos dos tipos no son compatibles entre sí.
 
 Actualmente ASF está disponible en las siguientes variantes de sistema operativo específico:
 
@@ -62,11 +62,11 @@ Por supuesto, incluso si no tienes un paquete de sistema operativo específico d
 
 Para una lista completa de todas las plataformas y sistemas operativos soportados por .NET Core 5.0, visita las **[notas de lanzamiento](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md)**.
 
-* * *
+---
 
 ## Requisitos de runtime
 
-Si estás usando un paquete de sistema operativo específico entonces no necesitas preocuparte por los requisitos de runtime, porque ASF siempre se publica con el runtime requerido y actualizado que funcionará correctamente siempre que tengas los **[prerrequisitos de .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** instalados y actualizados. En otras palabras, **no necesitas instalar .NET Core runtime o SDK**, ya que las compilaciones de sistema operativo específico solo requieren las dependencias nativas del sistema operativo (prerrequisitos) y nada más.
+Si estás usando un paquete de SO específico entonces no necesitas preocuparte por los requisitos de runtime, porque ASF siempre se publica con el runtime requerido y actualizado que funcionará correctamente siempre que tengas los **[prerrequisitos de .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** instalados y actualizados. En otras palabras, **no necesitas instalar .NET Core runtime o SDK**, ya que las compilaciones de SO específico solo requieren las dependencias nativas del SO (prerrequisitos) y nada más.
 
 Sin embargo, si estás intentando ejecutar un paquete **genérico** de ASF entonces debes asegurarte de que tu .NET Core runtime soporta la plataforma requerida por ASF.
 

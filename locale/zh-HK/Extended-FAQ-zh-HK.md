@@ -2,7 +2,7 @@
 
 我們的常見問題擴展涵蓋了您可能遇到的一些不常見的問題和答案。 有關更常見的事項，請訪問我們的**[常見問題基礎](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**。
 
-* * *
+---
 
 ### 誰創造了 ASF？
 
@@ -12,7 +12,7 @@ ASF于2015年10月由 **[Archi](https://github.com/JustArchi)** 創造。 如果
 
 感謝大家協助ASF開發！ You're awesome.
 
-* * *
+---
 
 ### 創造ASF的初心？
 
@@ -20,7 +20,7 @@ ASF于2015年10月由 **[Archi](https://github.com/JustArchi)** 創造。 如果
 
 很高興地宣告，ASF從未被視為其他掛卡工具（尤其是**[Idle Master](https://www.steamidlemaster.com)**的競品，因為時至今日，ASF從未被設計成為一個桌面/用戶應用程式。 如果您分析上述ASF的主要用途，您會發現Idle Master與此**截然相反**。 現在您肯定可以找到其他類似ASF的掛卡工具，但對於我來說，無論過去（還是現在）都沒有足以令我滿意的工具，因此我按照自己的設想創造了ASF。 Over time users have migrated to ASF mainly due to robustness, stability and security, but also all the features that I've developed across all those years. Today, ASF is better than ever before.
 
-* * *
+---
 
 ### 好吧，問我有何訴求？ What do you gain from sharing ASF?
 
@@ -28,7 +28,7 @@ There is no catch, I created ASF **for myself** and shared it with the rest of t
 
 I'm also using ASF as a perfect example of a modern C# project that always strikes for perfection and best practices, be it with technology, project management or the code itself. It's my definition of "things done right", so if by any chance you manage to learn something useful from my project, then that will make me only more happy.
 
-* * *
+---
 
 ### I've launched the program on April the 1st and the ASF language changed into something strange, what is going on?
 

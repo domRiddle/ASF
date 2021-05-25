@@ -2,7 +2,7 @@
 
 Започвайки от ASF V3.1.2.2, ще започнем етапи на отхвърляне, за да може развитието и ползването да бъдат постоянни и по-сигурни.
 
-* * *
+---
 
 ## Какво е отхвърляне?
 
@@ -10,7 +10,7 @@ Deprecation is the process of doing smaller or bigger breaking changes that rend
 
 ASF changes rapidly and always strikes for becoming better. This sadly means that we may change or move some existing functionality into another segment of the program in order for it to benefit from new features, compatibility or stability. Thanks to that we don't need to stick with obsolete or simply painfully wrong development decisions that we made years ago. We're always trying to provide reasonable replacement that fits expected usage of previously-available functionality, which is why deprecation is mostly harmless and requires small fixes to previous usage.
 
-* * *
+---
 
 ## Етапи на отхвърляне
 
@@ -26,7 +26,7 @@ During this stage, ASF will print appropriate warning when deprecated function i
 
 Stage 2 is scheduled after stage 1 explained above takes place and gets released in a stable release. This stage introduces complete removal of deprecated feature existence, which means that ASF will not even acknowledge that you're attempting to use a deprecated feature, let alone respect it, since it simply doesn't exist in the current code. ASF will no longer print any warning, since it no longer recognizes what you're attempting to do.
 
-* * *
+---
 
 ## Обобщение
 
@@ -34,7 +34,7 @@ You have more or less a **full month** in order to make appropriate switch, whic
 
 In most cases, disregarding deprecation warning will not render general ASF functionality unusable, but rather falling back to default behaviour (which may or may not match your personal preferences).
 
-* * *
+---
 
 ## Пример
 

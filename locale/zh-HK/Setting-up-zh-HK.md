@@ -6,12 +6,11 @@
 
 然而這並不代表您不能在 PC 上使用它，或它在某種程度上比常見的程式更複雜，並非如此。 ASF是一個獨立的程式，不需要安裝並且可以立即使用，但這之前需要進行設置。 設置 ASF 以定義它啟動之後應該做什麼。 如果你在沒有設置的情況下啟動它，那麼 ASF 將不會做任何事情，就是這麼簡單。
 
-* * *
+---
 
 ## 特定操作系統設置
 
 一般來說，這是我們在接下來的幾分鐘內要做的事情：
-
 - 安裝 **[.NET 核心套件](#net-core-prerequisites)**。
 - 下載適合您操作系統的**[最新版 ASF ](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**
 - 將安裝包解壓縮到您指定的位置 ( 若你使用Linux/OS X 系統，則需執行 `chmod +x ArchiSteamFarm`命令)。
@@ -20,7 +19,7 @@
 
 輕而易舉，對吧？ 所以讓我們繼續吧。
 
-* * *
+---
 
 ### .NET 核心套件
 
@@ -31,12 +30,10 @@
 請謹記，您不需要為特定于操作系統的 ASF 安裝包執行任何其他操作，尤其是 .NET Core SDK 甚至是運行時環境，因為此包自帶這些內容。 您只需要 .NET Core 核心套件（依賴項）即可運行 ASF 中包含的 .NET Core 運行時。
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
-
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
 - 強烈建議您確保已安裝所有 Windows 更新。 At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. 如果您的 Windows 是最新版本，則上述所有更新都已安裝。 在安裝 Visual C ++ 套件之前，請確保滿足這些要求。
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
-
 套裝名稱因您使用的 Linux 版本而異，我們列出了最常見的套裝軟件名稱。 您可以獲得所有這些適用於您操作系統的本機套件管理器（如適用於 Debian 的`apt`或適用於 CentOS 的 `yum`）。
 
 - `libc6` (`libc`)
@@ -50,10 +47,9 @@
 At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
-
 - None for now, but you should have latest version of OS X installed, at least 10.13+
 
-* * *
+---
 
 ### 下載
 
@@ -84,7 +80,7 @@ C:\ASF (where you put your own things)
          └── (...)
 ```
 
-* * *
+---
 
 ### 配置
 
@@ -107,7 +103,6 @@ ASF configuration can be done in at least three ways - through our web config ge
 在確定名稱後，開啓` Enabled `開關，這將定義 ASF 是否應該在啟動（程序之後）自動啟動您的機械人 。
 
 現在，您可以決定兩件事：
-
 - 您可以在` SteamLogin `字段中填入您的登錄帳號，並在` SteamPassword `字段中填入您的登錄密碼
 - 或者您可以讓它們空著
 
@@ -129,7 +124,7 @@ Your `config` directory will now look like this:
 
 恭喜！ 您剛剛完成了 ASF 機械人的基礎配置。 我們很快就會對此進行擴展説明，現在這就是您需要的一切。
 
-* * *
+---
 
 ### 運行 ASF
 
@@ -151,7 +146,7 @@ This proves that ASF is now successfully doing its job on your account, so you c
 
 This concludes our very basic setting up guide. You can now decide whether you want to configure ASF further, or let it do its job in default settings. We'll cover a few more basic details, then leave you entire wiki for discovery.
 
-* * *
+---
 
 ### 擴展配置
 
@@ -164,7 +159,7 @@ ASF supports idling more than one account at a time, which is its primary functi
 
 In other words, simply jump to configuration again and do exactly the same, just for your second or third account. Remember to use unique names for all of your bots.
 
-* * *
+---
 
 #### 變更設定
 
@@ -188,7 +183,7 @@ This confirms that you've successfully edited your config. In exactly the same w
 
 Editing your ASF configs can be done much easier by using our ASF-ui frontend, which will be explained further below.
 
-* * *
+---
 
 #### 使用 ASF-ui
 
@@ -204,20 +199,19 @@ You can access ASF's IPC interface under **[this](http://localhost:1242)** link,
 
 Please note that some features, such as sending commands, require a properly set `SteamOwnerID` global config property. Now that you have ASF-ui up and running, why not give it a try and set it from the frontend itself? You'll need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, for example through **[STEAMID I/O](https://steamid.io)** or **[SteamRep](https://steamrep.com)**. The number you're looking for should be similar to `76561198006963719`, which is my account's ID.
 
-* * *
+---
 
 ### 概要
 
 You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you also managed to tweak ASF through our ASF-ui interface and found out that ASF actually has a GUI of some sort. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen actually do, and what ASF has to offer. If you've stumbled upon some issue or you have some generic question, read our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least a vast majority of questions that you may have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. If you found out our program to be useful for you and you're feeling generous, you can also consider donating to our project. In any case, have fun!
 
-* * *
+---
 
 ## 通用設定
 
 This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended for people that can use **[OS-specific setup](#os-specific-setup)**.
 
 You want to use `generic` variant mainly in those situations (but of course you can use it regardless):
-
 - When you're using OS that we don't build OS-specific package for (such as 32-bit Windows)
 - When you already have .NET Core Runtime/SDK, or want to install and use one
 - When you want to minimize ASF structure size by handling runtime requirements yourself
@@ -228,7 +222,6 @@ However, keep in mind that you're in charge of .NET Core runtime in this case. T
 For `generic` package, you can follow entire OS-specific guide above, with two small changes. In addition to installing .NET Core prerequisites, you also want to install .NET Core SDK, and instead of having OS-specific `ArchiSteamFarm(.exe)` executable file, you now have a generic `ArchiSteamFarm.dll` binary only. Everything else is exactly the same.
 
 額外步驟：
-
 - 安裝 **[.NET 核心套件](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**。
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.

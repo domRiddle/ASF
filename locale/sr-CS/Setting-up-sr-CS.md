@@ -6,12 +6,11 @@ Ako ste još ovdje znači da ste izdržali tekst iznad, što je lijepo. Ako ste 
 
 Ovo ipak ne znači da ga ne možete koristiti na vašem PC-u ili na nečem više komplikovanom nego obično. ASF je zaseban program koji ne zahtijeva instalaciju, i odmah radi ali zahtijeva konfiguraciju da bi vam bio od koristi. Konfiguracija kazuje ASF-u šta u stvari treba da radi nakon što ga pokrenete. Ako ga pokrenete bez konfiguracije, ASF onda neće raditi ništa, tako jednostavno.
 
-* * *
+---
 
 ## OS-specifično postavljanje
 
 Opšte kazano, ovo ćete raditi u nekoliko sledećih minuta:
-
 - Instalirati **[.NET Core prerequisites](#net-core-prerequisites)**.
 - Preuzmite **[poslednje ASF izdanje](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** u odgovarajućoj OS-specifičnoj varijanti.
 - ekstraktujte arhivu u novoj lokaciji (i `chmod +x ArchiSteamFarm` ako ste na Linux-u/OS X-u),
@@ -20,7 +19,7 @@ Opšte kazano, ovo ćete raditi u nekoliko sledećih minuta:
 
 Zvuči jednostavno, zar ne? Pa počnimo.
 
-* * *
+---
 
 ### .NET Core prerequisites
 
@@ -31,12 +30,10 @@ Normalno je da neki (ili svi) zahtjevi već postoje na vašem sistemu zbog toga 
 Zapamtite da, osim ovog, ne morate ništa drugo raditi na vašem OS-u, posebno ne instalirati .NET Core SDK ili runtime, jer OS paket već sadrži to sve. Potrebni su vam samo .NET Core prerequisites (zahtjevi) da bi pokrenuli .NET Core runtime koje je u ASF-u.
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
-
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 za 64-bit Windows, x86 za 32-bit Windows)
 - Veoma je preporučljivo da budete sigurni da su sva postojeća Windows ažurirana instalirana. Morate minimalno imati **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** i **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, ali možda i još neko ažuriranje ako bude potrebno. Sve su već instalirane ako je Windows ažuriran do kraja. Budite sigurni da ste sve ovo uradili prije nego što instalirate Visual C++.
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
-
 Imena paketa zavise od Linux distribucije koju koristite, mi smo naveli najčešće varijacije. Možete ih instalirati sa nativnim paket menađerom na vašoj distribuciji (kao što je `apt` za Debian ili `yum` za CentOS).
 
 - `libc6` (`libc`)
@@ -50,10 +47,9 @@ Imena paketa zavise od Linux distribucije koju koristite, mi smo naveli najčeš
 Većina, ako ne i sve, bi trebalo da su već instalirane na vašem sistemi. Minimalna instalacija Debian stable zahtijeva samo `libicu63` od svih ovih.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
-
 - Ništa za sada, ali trebate imati poslednju verziju OS X instaliranu, najmanje 10.13+
 
-* * *
+---
 
 ### Preuzimanje
 
@@ -84,9 +80,9 @@ C:\ASF (gdje stavljate vaše stvari)
          └── (...)
 ```
 
-* * *
+---
 
-### Konfiguracija
+### Podešavanje
 
 Sada smo na poslednjem koraku, konfiguraciji. Ovo je do sad najkomplikovaniji korak, pošto sadrži dosta novih informacija koje možda još ne poznajete, pa ćemo dati nekoliko lako-razumljivih primjera i jednostavnih objašnjenja ovdje.
 
@@ -107,7 +103,6 @@ Počnite tako što ćete dati ime botu u predjelu označenom crvenom bojom. Ovo 
 Kada ste odlučili koje ime ćete dati botu, stisnite `Omogućeno`, ovo kazuje ASF-u da li će vaš bot biti pokrenut ili ne nakon pokrenanja programa.
 
 Sada možete odlučuti oko dvije stvari:
-
 - Možete upisati vaše kredencijale za prijavu u `SteamLogin` polju i vašu lozinku u `SteamPassword` polju
 - Ili ih možete ostaviti prazne
 
@@ -129,7 +124,7 @@ Vaš `config` direktorijum bi trebao da izgleda slično ovom:
 
 Čestitamo! Završili sve veoma jednostavnu konfiguraciju ASF bota. Ovo ćemo brzo dalje proširiti, ali za sad je to sve što vam je potrebno.
 
-* * *
+---
 
 ### Pokretanje ASF-a
 
@@ -151,7 +146,7 @@ Ovo pokazuje da ASF uspješno radi svoj posao na vašem nalogu, pa ga možete um
 
 Ovo je kraj našeg jednostavnog uputstva za podešavanje. Možete odlučiti da li želite da dalje konfigurišete ASF, ili da ga ostavite da radi pomoću opštih podešavanja. Proći ćemo kroz još nekoliko osnovnih stavki, a onda ćemo vam preputsiti da otkrijete ostatak wiki-e.
 
-* * *
+---
 
 ### Šira konfiguracija
 
@@ -164,7 +159,7 @@ ASF ima mogućnost da idluje više od jednog naloga odjednom, što je njegova pr
 
 Drugim riječima, jednostavno ponovo idite na konfiguraciju i uradite istu stvar, za vaš drugi ili treći nalog. Zapamtite da morate koristiti različita imena za svakog bota.
 
-* * *
+---
 
 #### Mijenjanje podešavanja
 
@@ -184,11 +179,11 @@ Nakon što to uradite, pokrenite ASF ponovo, vidjećete da ASF sada prikazuje va
 
 ![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
-Ovo potvrđuje da ste uspješno uredili vašu konfiguraciju. Na isti način možete promijeniti globalna ASF podešavanja, pređite sa bot taba na "ASF" tab, konfigurišite i preuzmite napravljenu `ASF.json` konfiguraciju i sačuvajte je u `config` direktorijumu.
+This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
 
 Editing your ASF configs can be done much easier by using our ASF-ui frontend, which will be explained further below.
 
-* * *
+---
 
 #### Korišćenje ASF-ui
 
@@ -204,20 +199,19 @@ You can access ASF's IPC interface under **[this](http://localhost:1242)** link,
 
 Please note that some features, such as sending commands, require a properly set `SteamOwnerID` global config property. Now that you have ASF-ui up and running, why not give it a try and set it from the frontend itself? You'll need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, for example through **[STEAMID I/O](https://steamid.io)** or **[SteamRep](https://steamrep.com)**. The number you're looking for should be similar to `76561198006963719`, which is my account's ID.
 
-* * *
+---
 
 ### Zaključak
 
 Uspješno ste podesili ASF da koristi vaš Steam nalog i uspješno ste ga uredili onako kako vam odgovara. If you followed our entire guide, then you also managed to tweak ASF through our ASF-ui interface and found out that ASF actually has a GUI of some sort. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen actually do, and what ASF has to offer. If you've stumbled upon some issue or you have some generic question, read our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least a vast majority of questions that you may have. Ako želite da naučite sve što postoji u ASF-u i kako vam to može pomoći, posjetite ostatak **[naše wiki-e](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. If you found out our program to be useful for you and you're feeling generous, you can also consider donating to our project. In any case, have fun!
 
-* * *
+---
 
 ## Opšta podešavanja
 
 Ova podešavanja su za napredne korisnike koji žele da podese ASF za pokretanje na **[opštoj](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** varijanti. Ovo nije preporučeno za ljude koji mogu da koriste **[OS-specifično podešavanje](#os-specific-setup)**.
 
 You want to use `generic` variant mainly in those situations (but of course you can use it regardless):
-
 - Kada koristite OS za koji nema OS-specifičan paket (kao što je 32-bitni Windows)
 - Kada već imate .NET Core Runtime/SDK, ili želite da ga instalirate i koristite
 - Kada želite da smanjite veličinu ASF strukture tako što ćete podesite runtime zahtjeve ručno
@@ -228,7 +222,6 @@ Ipak, zapamtite da ćete u tom slučaju vi biti odgovorni za .NET Core runtime. 
 For `generic` package, you can follow entire OS-specific guide above, with two small changes. U dodatku sa instaliranjem .NET Core prerequisites, isto trebate da instalirate .NET Core SDK, i umjesto što imate OS-specifični `ArchiSteamFarm(.exe)` eksekjucioni fajl, sada ćete imati opšti `ArchiSteamFarm.dll` binarni fajl. Sve ostalo je isto.
 
 Sa dodatnim koracima:
-
 - Instalirajte **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
 - Instalirajte **[.NET Core SDK](https://www.microsoft.com/net/download)** (ili bar runtime) za vaš OS. Vjerovatno ćete željeti da koristite automatsku instalaciju. Pogledajte **[runtime zahtjeve](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** ako niste sigurni koju verziju da instalirate.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.

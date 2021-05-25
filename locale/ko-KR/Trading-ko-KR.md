@@ -2,7 +2,7 @@
 
 ASF는 Steam 비-대화형(오프라인) 거래를 지원합니다. 거래를 받는것(수락/거절)과 보내는 것이 즉시 가능하고, 특별한 설정이 필요하지 않지만 분명히 제한되지 않은 Steam 계정이 필요합니다.(상점에서 $5를 이미 사용한 계정) 거래 모듈은 제한된 계정에서는 사용할 수 없습니다.
 
-* * *
+---
 
 ## 논리구조
 
@@ -18,7 +18,7 @@ ASF는 `TradingPreferences`에 `봇거래수락안함(DontAcceptBotTrades)`이 �
 
 `TradingPreferences`를 적절하게 수정하여 ASF의 거래 기능을 더 자세하게 지정할 수 있습니다. `TradingPreferences`의 주요 기능 중 하나는 `SteamTradeMatcher` 옵션으로, **[SteamTradeMatcher](https://www.steamtradematcher.com)** 의 공개 리스트와 협업할때 특히 유용한데, 배지를 완성할 수 있도록 거래를 받아들이는 ASF의 내장 논리구조를 사용하도록 합니다. 물론 SteamTradeMatcher 없이도 가능합니다. 아래에서 더 자세하게 설명하겠습니다.
 
-* * *
+---
 
 ## `SteamTradeMatcher`
 
@@ -47,7 +47,7 @@ Regardless of your chosen `TradingPreferences`, a trade being rejected by ASF do
 
 It's highly recommended to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** when you enable this option, as this function loses its whole potential if you decide to manually confirm every trade. `SteamTradeMatcher` will work properly even without ability to confirm trades, but it can generate backlog of confirmations if you're not accepting them in time.
 
-* * *
+---
 
 ### `능동적 매칭(MatchActively)`
 

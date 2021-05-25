@@ -6,45 +6,48 @@
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 |                                                                                                                                                                       |                                                                                                                                                              |                                                                                                                                                              |                                                                                                                                                              |
 
-* * *
+***
 
-## Temeller
+## 👨‍🏫 Base
 
-* **[Ana Sayfa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
-* **[Yapılandırma](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
-* **[SSS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[Kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(buradan başlayın)**
+* **[🏡 Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+* **[🔧 Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+* **[💬 FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[⚙️ Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
 
-## Temel
 
-* **[Arkaplan oyun etkinleştirici](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
-* **[Komutlar](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
-* **[Uyumluluk](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
-* **[Performans](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[İstatistikler](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
-* **[Steam Aile Paylaşımı](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[Takas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+## 👨‍🎓️ Main
 
-## Gelişmiş
+* **[👥 Arkaplan oyun etkinleştirici](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[📢 Commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[🛠️ Compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[⏱️ Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
+* **[📊 Statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[👪 Steam Aile Paylaşımı](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[🔄 Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
-* **[Komut satırı değişkenleri](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[Kullanımdan kaldırma](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
-* **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[Genişletilmiş SSS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
-* **[Yüksek performans kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[Yerelleştirme](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[Günlük kaydı](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[Düşük bellek kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[Eklentiler](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
-* **[Güvenlik](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[SteamTokenDumper Eklentisi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
-* **[Üçüncü-Parti](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[İki faktörlü kimlik doğrulaması](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
-## Geliştiriciler
+## 🧙 Advanced
 
-* **[Derleme](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[Katkıda bulunma yönergeleri](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
-* **[Lisans](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
-* **[Yayın döngüsü](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
+* **[⌨️ Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[🚧 Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[🐳 Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
+* **[🤔 Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[🚀 Yüksek performans kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
+* **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+* **[🌐 Localization](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[📝 Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[💾 Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[🔌 Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[🔐 Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[🧩 SteamTokenDumper Eklentisi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[📦 Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[📵 İki faktörlü kimlik doğrulaması](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+
+
+## 👷 Developers
+
+* **[🏗️ Compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
+* **[🤝 Katkıda bulunma yönergeleri](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
+* **[⚖️ License](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
+* **[🏭 Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

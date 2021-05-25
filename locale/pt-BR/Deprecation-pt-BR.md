@@ -2,7 +2,7 @@
 
 Desde o ASF V3.1.2.2 estamos seguindo uma política de depreciação a fim de manter tanto o desenvolvimento quanto o uso mais consistente.
 
-* * *
+---
 
 ## O que é depreciação?
 
@@ -10,7 +10,7 @@ Depreciação é o processo de fazer pequenas ou grandes alterações que tornam
 
 O ASF muda rápido e sempre em busca de se tornar melhor. Infelizmente, isto significa que podemos mudar ou mover algumas funcionalidades existentes para outro segmento do programa a fim de que elas possam se beneficiar de novos recursos, compatibilidade ou estabilidade. Graças a isso, não precisamos nos atar a decisões de desenvolvimento obsoletas ou dolorosamente erradas que fizemos anos atrás. Sempre buscamos trazer substituições sensatas que se encaixam ao uso esperado de funções anteriormente disponíveis, esse é motivo pelo qual a depreciação é geralmente inofensiva e requer pequenas correções no uso anterior.
 
-* * *
+---
 
 ## Etapas da depreciação
 
@@ -26,7 +26,7 @@ Durante esse estágio o ASF vai mostrar um aviso quando a função depreciada es
 
 A segunda etapa ocorre quando uma nova versão estável é lançada. Essa etapa introduz a remoção completa do recurso depreciado, o que significa que o ASF não vai reconhecer que você está tentando usar um recurso depreciado, muito menos respeitá-lo, uma vez que ele simplesmente não existe no código atual. O ASF não vai mais mostrar qualquer aviso, já que ele não reconhece o que você está tentando fazer.
 
-* * *
+---
 
 ## Resumo
 
@@ -34,7 +34,7 @@ Você tem mais ou menos **um mês inteiro** para fazer as mudanças necessárias
 
 Na maioria dos casos, ignorar o aviso de depreciação não deixara a funcionalidade geral do ASF inutilizada, mas fará com que ela volte ao comportamento padrão (que pode ou não coincidir com suas preferências pessoais).
 
-* * *
+---
 
 ## Exemplo
 

@@ -4,7 +4,7 @@ Pasyvusis žaidimų aktyvatorius (angl. Background games redeemer) yra speciali 
 
 Pasyvusis žaidimų aktyvatorius yra skirtas naudoti vienam botui, todėl jis nėra suderinamas kartu su `RedeemingPreferences`. Ši funkcija gali būti naudojama kartu su (arba vietoj) `redeem` **[komandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, jei reikia.
 
-* * *
+---
 
 ## Įkėlimas
 
@@ -36,7 +36,7 @@ Regardless which format you've decided to stick with, ASF will import your `keys
 
 In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
 
-* * *
+---
 
 ## Eilė
 
@@ -44,7 +44,7 @@ Kai žaidimai yra sėkmingai importuoti, jie yra pridedami į eilę. ASF automat
 
 Jei proceso metu gaunamas `RateLimited` statusas, eilė yra laikinai sustabdoma vienai valandai, tam jog atsipirkimo laikas sumažėtų. Paskui procesas tęsiamas iki tol, kol eilė yra tuščia.
 
-* * *
+---
 
 ## Pavyzdys
 
@@ -60,7 +60,7 @@ After some time, `BotName.keys.used` and `BotName.keys.unused` files will be gen
 
 Taip pat įmanoma pridėti papildomų žaidimų pakartojant visus žingsnius viršuje, kol yra kitų žaidimų eilėje. ASF tinkamai pridės papildomų įrašų į jau veikiančią eilę ir galiausiai ją panaudos.
 
-* * *
+---
 
 ## Pastabos
 

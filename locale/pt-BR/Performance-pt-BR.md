@@ -4,39 +4,39 @@ O principal objetivo do ASF é coletar cartas da forma mais eficiente possível,
 
 No modo automático o ASF não permite que você escolha quais jogos que devem ser executados, nem permite que você altere o algoritmo de coleta de cartas. **O ASF sabe melhor do que você o que ele deve fazer e quais decisões ele deve tomar para tornar o processo de coleta o mais rápido possível**. Seu objetivo é definir as propriedades de configuração corretamente já que ASF não pode adivinhá-las por conta própria, todo o resto é oculto.
 
-* * *
+---
 
 Há algum tempo a Valve mudou o algoritmo de recebimento de cartas. Desse ponto em diante, nós podemos dividir as contas do Steam em duas categorias: aquelas **com** recebimento de cartas restito e aquelas **sem**. A única diferença entre esses dois tipos é o fato de que as contas com restrição não recebem nenhuma carta de determinado jogo até que ele seja jogado por, no mínimo, `X` horas. Parece que contas mais antigas que nunca pediram reembolso têm **a coleta de cartas irrestrita**, enquanto novas contas e aqueles que pediram reembolso têm **a restrição**. No entanto isso é apenas uma teoria e não deve ser tomada como regra. É por isso que **não há uma resposta óbvia**, e o ASF depende de **você** dizer qual o caso da sua conta.
 
-* * *
+---
 
 O ASF possui atualmente dois algorítimos de coleta:
 
 O algorítimo **simples (Simple)** funciona melhor para contas que não tem restrição no recebimento de cartas. Este é o algoritmo padrão usado pelo ASF. O bot encontra jogos para coletar e os executa um por um até que todas as cartas sejam recebidas. Isso porque a taxa de obtenção de cartas quando se coleta de mais de um jogo ao mesmo tempo é próxima a zero e totalmente ineficaz.
 
-O **complexo (Complex)** é um algoritmo novo que foi implementado para ajudar contas restritas a maximizar seus lucros. O ASF usará primeiro o algorítimo padrão **Simple** em todos os jogos que já tem mais tempo de jogo que o definido em `HoursUntilCardDrops`, após isso ele executará todos os jogos (até o limite de `32`) que ainda não tenham atingido o valor de `HoursUntilCardDrops` simultaneamente até um deles atinja esse limite, então o ASF vai recomeçar o loop (usar o algorítimo **Simple** naquele jogo, retornar para a execução simultânea até atingir `HoursUntilCardDrops` e assim por diante). Podemos rodar vários jogos neste caso para aumentar as horas dos jogos que precisamos coletar até que eles atinjam o valor necessário. Tenha em mente que durante a "coleta de horas" o ASF **não** coleta cartas, portanto ele também não vai verificar por recebimento de cartas durante esse período (pelas razões citadas acima).
+O **complexo (Complex)** é um algoritmo novo que foi implementado para ajudar contas restritas a maximizar seus lucros. ASF will firstly use standard **Simple** algorithm on all games that passed `HoursUntilCardDrops` hours of playtime, then, if no games with >= `HoursUntilCardDrops` hours are left, it will farm all games (up to `32` limit) with < `HoursUntilCardDrops` hours left simultaneously, until any of them hits `HoursUntilCardDrops` hours mark, then ASF will continue the loop from beginning (use **Simple** on that game, return to simultaneous on < `HoursUntilCardDrops` and so on). Podemos rodar vários jogos neste caso para aumentar as horas dos jogos que precisamos coletar até que eles atinjam o valor necessário. Keep in mind that during farming hours, ASF **does not** farm cards, therefore it also won't check for any card drops during that period (for reasons stated above).
 
-Atualmente, o ASF escolhe o algoritmo de coleta baseado puramente no parâmetro de configuração `HoursUntilCardDrops` (que é definida por **você**). Se `HoursUntilCardDrops` for definida como `0`, o algorítimo **Simple** será usado, caso contrário, será usado o algorítimo **Complex**.
+Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDrops` config property (which is  set by **you**). If `HoursUntilCardDrops` is set to `0`, **Simple** algorithm will be used, otherwise, **Complex** algorithm will be used instead.
 
-* * *
+---
 
-### **Não há resposta óbvia sobre qual algorítimo é melhor para você**.
+### **There is no obvious answer which algorithm is better for you**.
 
-Esta é uma das razões pela qual você não escolhe o algorítimo de coleta, em vez disso, você dizer ao ASF se sua conta tem resrições no recebimento de cartas ou não. Se ela não tiver, o algorítimo **simples será o melhor**, já que não perderemos tempo fazendo todos os jogos terem `X` horas jogadas - a taxa de recebimento de cartas quando se coleta de vários jogos ao mesmo tempo é tende a 0%. Por outro lado, se sua conta tiver restrições no recebimento, o algorítimo **Complex** será melhor para você, pois não há lógica em coletar de um jogo sozinho que ainda não tenha atingido as horas definidas em `HoursUntilCardDrops` - então nós coletaremos **horas de jogo** primeiro, e **depois** cartas em modo solo.
+Esta é uma das razões pela qual você não escolhe o algorítimo de coleta, em vez disso, você dizer ao ASF se sua conta tem resrições no recebimento de cartas ou não. If account has non-restricted drops, **Simple** algorithm will **work better** on that account, as we won't be wasting time on bringing all games to `X` hours - cards drop ratio is close to 0% when farming multiple games. On the other hand, if your account has card drops restricted, **Complex** algorithm will be better for you, as there's no point in farming solo if game didn't reach `HoursUntilCardDrops` hours yet - so we'll farm **playtime** first, **then** cards in solo mode.
 
 Não defina cegamente `HoursUntilCardDrops` só porque alguém te disse para fazer - faça testes, compare resultados e, com base nos dados, decida qual opção deve ser melhor para você. Se você colocar um mínimo de esforço nisso, você vai garantir que ASF esteja trabalhando com a máxima eficiência possível na sua conta, que é provavelmente o que você quer já que você está lendo esta página da wiki agora. Se houvesse uma solução que funcione para todos, você não teria uma escolha, o ASF decidiria por conta própria.
 
-* * *
+---
 
 ### Qual é a melhor maneira de descobrir se sua conta é restrita?
 
 Tenha certeza de que você tem jogos dos quais coletar, preferencialmente cinco ou mais, e rode o ASF com o valor `0` em `HoursUntilCardDrops`. Seria uma boa ideia não jogar nada durante o período de coleta para obter resultados mais precisos (melhor rodar o ASF durante a noite). Deixe o ASF fazer o processo de coleta desses 5 jogos e, depois, confira o log para ver os resultados.
 
-O ASF diz claramente quando uma carta para determinado jogo foi recebida. Você está interessado no recebimento mais rápido alcançado pelo ASF. Por exemplo, se sua conta não tiver restrição, então a primeira carta deve aparecer após cerca de 30 minutos de coleta. Se você notar que recebeu uma carta de **pelo menos um ** jogo nesses 30 minutos iniciais é um indicador de que sua conta **não** tem restrições e você deve usar `HoursUntilCardDrops` com o valor `0`.
+O ASF diz claramente quando uma carta para determinado jogo foi recebida. Você está interessado no recebimento mais rápido alcançado pelo ASF. Por exemplo, se sua conta não tiver restrição, então a primeira carta deve aparecer após cerca de 30 minutos de coleta. If you notice **at least one** game that did drop card in those initial 30 minutes, then this is an indicator that your account is **not** restricted and should use `HoursUntilCardDrops` of `0`.
 
-Por outro lado, se você notar que **cada** jogo está levando pelo menos `X` horas antes de você receber sua primeira carta, então isso é um indicador de que você deve definir `HoursUntilCardDrops`. A maioria (se não todos) dos usuários com restrições precisam de pelo menos `3` horas de tempo de jogo até que as cartas apareçam e esse é o valor padrão da configuração `HoursUntilCardDrops`.
+On the other hand, if you notice that **every** game is taking at least `X` amount of hours before it drops its first card, then this is an indicator to you what you should set `HoursUntilCardDrops` to. A maioria (se não todos) dos usuários com restrições precisam de pelo menos `3` horas de tempo de jogo até que as cartas apareçam e esse é o valor padrão da configuração `HoursUntilCardDrops`.
 
-Lembre-se que os jogos podem ter uma taxa de tempo de recebimento de cartas diferente, por isso você deve testar se sua teoria está certa com **pelo menos** 3 jogos, preferencialmente com mais de 5 para garantir que você não está tendo resultados falsos por coincidência. Uma carta recebida de um jogo em menos de uma hora é uma confirmação de que sua conta **não é** restrita e pode usar `HoursUntilCardDrops` com o valor `0`, mas para confirmar que a sua conta **é** restrita, você precisa de pelo menos alguns jogos que não estão dando cartas até você atingir um valor fixo de horas.
+Remember that games can have different drop rate, this is why you should test if your theory is right with **at least** 3 games, preferably 5+ to ensure that you're not running into false results by a coincidence. A card drop of one game in less than an hour is a confirmation that your account **is not** restricted and can use `HoursUntilCardDrops` of `0`, but for confirming that your account **is** restricted, you need at least several games that are not dropping cards until you hit a fixed mark.
 
 É importante notar que no passado `HoursUntilCardDrops` tinha apenas o valor `0` ou `2` e é por isso que o ASF tinha uma propriedade única `CardDropsRestricted` que permitia alternar entre esses dois valores. Com as mudanças recentes constatamos que não só a maioria dos usuários necessitam de `3` horas ao invés de `2`, mas também que `HoursUntilCardDrops` agora é dinâmico e pode atingir qualquer valor baseado na conta.
 
@@ -44,7 +44,7 @@ No fim, claro, a decisão é sua.
 
 E para deixar tudo ainda pior - eu presenciei casos onde as pessoas mudaram de restrito para irrestrito e vice versa - tanto por causa de uma falha no Steam (sim, temos muitas) quanto por alguns ajustes de lógica feitos pela Valve. Então, mesmo que você tenha confirmado se sua conta é restrita (ou não), não acredite que ela permanecerá assim - uma vez que para mudar de irrestrita para restrita basta pedir um reembolso. Se você sentir que o valor definido anteriormente não é mais apropriado, você pode sempre refazer o teste e ajustar de acordo.
 
-* * *
+---
 
 Por padrão, o ASF assume que `HoursUntilCardDrops` com o valor `3`, já que o efeito negativo de configurar para `3` quando deveria ser menos é menor do que o contrário. Isso pelo fato de que no pior caso possível nós perderemos `3` horas de coleta a cada `32` jogos, comparado a perder `3` horas de coleta em cada jogo se `HoursUntilCardDrops` fosse configurado para `0` por padrão. No entanto, você ainda deve configurar essa variável de acordo com a sua conta para obter a máxima eficiência, uma vez que o valor padrão é apenas uma hipótese baseado em potenciais inconvenientes e na maioria dos usuários (estamos tentando escolher o "mau menor" por padrão).
 
@@ -52,7 +52,7 @@ No momento os dois algorítimos acima são suficientes para coletar automaticame
 
 É legal notar que o ASF também inclui o modo de coleta manual que pode ser ativado pelo comando `play`. Você pode ler mais sobre isso na seção **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)**.
 
-* * *
+---
 
 ## Falhas no Steam
 

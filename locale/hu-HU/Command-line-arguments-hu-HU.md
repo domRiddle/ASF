@@ -2,7 +2,7 @@
 
 Az ASF számos paranacssori argumentumot támogat, amikkel a program futását lehet befolyásolni. Haladó felhasználók számára ajánlott, akik finomítani szeretnék a program futását. Az alapértelmezett `ASF.json` konfigurációs fájlhoz képest a parancssori argumentumokkal az inicializációt (pl.: `--path`), platform specifikus beállításokat (pl.: `--system-required`), valamint érzékeny adatokat (pl.: `--cryptkey`) lehet beállítani.
 
-* * *
+---
 
 ## Használat
 
@@ -48,29 +48,29 @@ Viszont ez a két sor jó:
 
 A titkosító kulcsot lehetőség van úgy is beállítani, hogy az `ASF_CRYPTKEY` környezeti változót használod, ami azon emberek számára lehet hasznos, akik nem szeretnének érzékeny adatokat argumentumokon keresztül átadni.
 
-* * *
+---
 
 `--ignore-unsupported-environment` - will cause ASF to ignore detection of unsupported environment, which normally is signalized with an error and forced exit. As of now, unsupported environment is classifed as running .NET Framework build on platform that could be running .NET Core build instead. Since we support `generic-netf` builds only in very limited scenarios (with **[Mono](https://www.mono-project.com)**), using it for other cases (e.g. for launching on `win-x64` platform) is not supported. Visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** for more info.
 
-* * *
+---
 
 `--network-group <group>` or `--network-group=<group>` - will cause ASF to init its limiters with a custom network group of `<group>` value. This option affects running ASF in **[multiple instances](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** by signalizing that given instance is dependent only on instances sharing the same network group, and independent of the rest. Typically you want to use this property only if you're routing ASF requests through custom mechanism (e.g. different IP addresses) and you want to set networking groups yourself, without relying on ASF to do it automatically (which currently includes taking into account `WebProxy` only). Keep in mind that when using a custom network group, this is unique identifier within the local machine, and ASF will not take into account any other details, such as `WebProxy` value, allowing you to e.g. start two instances with different `WebProxy` values which are still dependent on each other.
 
 Due to the nature of this property, it's also possible to set the value by declaring `ASF_NETWORK_GROUP` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
-* * *
+---
 
 `--no-config-migrate` - by default ASF will automatically migrate your config files to latest syntax. Migration includes conversion of deprecated properties into latest ones, removing properties with default values (as they have no effect), as well as cleaning up the file in general (correcting indentation and likewise). This is almost always a good idea, but you might have a particular situation where you'd prefer ASF to never overwrite the config files automatically. For example, you might want to `chmod 400` your config files (read permission for the owner only) or put `chattr +i` over them, in result denying write access for everyone, e.g. as a security measure. Usually we recommend to keep the config migration enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
 
-* * *
+---
 
 `--no-config-watch` - by default ASF sets up a `FileSystemWatcher` over your `config` directory in order to listen for events related to file changes, so it can interactively adapt to them. For example, this includes stopping bots on config deletion, restarting bot on config being changed, or loading keys into **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** once you drop them into the `config` directory. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate. Usually we recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
 
-* * *
+---
 
-`--no-restart` - ezt a kapcsolót főként a **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** tárolóink használják és kikényszerítik, hogy az `AutoRestart` értéke `false` legyen. Hacsak nincs valami speciális igényed, akkor érdemesebb lehet az `AutoRestart` tulajdonságot beállítani a konfigurációdban. Ez a kapcsoló azért van itt, hogy a docker szkriptünknek ne kelljen hozzányúlnia a globális konfigurációdhoz azért, hogy átállítsa a saját környezetének megfelelően. Természetesen ha az ASF-t egy szkripten belül futtatod, akkor lehet még ennek a kapcsolónak létjogosultsága (de egyébként jobban jársz a globális konfigurációs tulajdonsággal).
+`--no-restart` - ezt a kapcsolót főként a **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** tárolóink használják és kikényszerítik, hogy az `AutoRestart` értéke `false` legyen. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Természetesen ha az ASF-t egy szkripten belül futtatod, akkor lehet még ennek a kapcsolónak létjogosultsága (de egyébként jobban jársz a globális konfigurációs tulajdonsággal).
 
-* * *
+---
 
 `--path <path>` or `--path=<path>` - alapértelmezetten az ASF mindig a saját könyvtárába fog navigálni induláskor. By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for various application parts (including `config`, `plugins` and `www` directories, as well as `NLog.config` file), without a need of duplicating binary in the same place. Jól jöhet, ha szeretnéd külön választani a binárist a konfigurációtól, ahogy az a linux-szerű csomagokban megszokott dolog - így egy binárist több különféle beállítással is használhatsz. Az útvonal lehet relatív az ASF bináris helyéhez képest, vagy abszolút. Keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with config directory inside, see below example for explanation.
 
@@ -101,13 +101,13 @@ ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env v
 └── ...
 ```
 
-* * *
+---
 
 `--process-required` - ha megadod ezt a kapcsolót, akkor az alapértelmezett viselkedésével ellentétben, az ASF nem fog leállni, ha egyetlen bot sem fut már. Ez a nem leálló viselkedés akkor lehet hasznos, ha az **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**-vel együtt használod, mivel a felhasználók nagy része elvárja, hogy a web szolgáltatásuk mindig fusson a futó botok számától függetlenül. Ha IPC-t használsz, vagy más okból szeretnéd, ha az ASF processz addig fusson amíg te magad be nem zárod, akkor ezt az opciót neked találták ki.
 
 Ha nem akarsz IPC-t futtatni, akkor ez az opció elég felesleges, mivel egyszerűen újraindíthatod a processzt, amikor szükség van rá (az ASF web szerverrel ellentétben, ahol folyamatosan futnia kell, ha parancsokat akarsz küldeni).
 
-* * *
+---
 
 `--system-required` - ha beállítod ezt a kapcsolót, akkor az ASF jelezni fog az operációs rendszer számára, hogy a szüksége van arra, hogy az fusson a teljes élettartama alatt. Jelenleg ennek a kapcsolónak csak windowsos gépeken van értelme, mivel ott meg lehet tiltani, hogy a rendszer alvó módba menjen, amíg a processz futna. Ez akkor lehet hasznos, ha a gépeden, vagy laptopodon este farmolnál, így az ASF ébren fogja tartani a géped a farmolás ideje alatt, majd miután végzett, le fogja állítani magát, így a rendszered képes lesz alvó módba lépni, ezzel is áramot spórolva a farmolás befejeztével.
 

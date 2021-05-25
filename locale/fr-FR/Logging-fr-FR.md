@@ -2,7 +2,7 @@
 
 ASF vous permet de configurer votre propre module de connexion personnalisé qui sera utilisé pendant l'exécution. Vous pouvez le faire en plaçant un fichier spécial nommé ` NLog.config` dans le répertoire de l’application. Vous pouvez lire la documentation complète de NLog sur **[ NLog wiki ](https://github.com/NLog/NLog/wiki/Configuration-file)**, mais vous y trouverez également des exemples utiles.
 
-* * *
+---
 
 ## Authentification par défaut
 
@@ -31,7 +31,7 @@ Si vous souhaitez utiliser l'authentification ASF par défaut sans aucune modifi
 </nlog>
 ```
 
-* * *
+---
 
 ## ASF intégration
 
@@ -45,15 +45,15 @@ ASF enregistre des informations supplémentaires, telles que des messages de l�
 
 En général, ASF essaie de vous rendre aussi facile et pratique que possible de consigner uniquement les messages souhaités au lieu de vous forcer à les filtrer manuellement au moyen d’outils tiers tels que `grep` et autres. Configurez simplement NLog correctement, comme indiqué ci-dessous, et vous devriez pouvoir spécifier des règles d'authentification même très complexes avec des cibles personnalisées telles que des bases de données complètes.
 
-En ce qui concerne la gestion des versions - ASF essaie de toujours utiliser la version la plus récente de NLog disponible sur **[ NuGet](https://www.nuget.org/packages/NLog)** au moment de la publication d'ASF. Il s’agit très souvent d’une version plus récente que la dernière version stable. Par conséquent, vous ne devriez pas avoir de problème à utiliser les fonctionnalités que vous pouvez trouver sur NLog wiki dans ASF, même celles qui sont en cours de développement et dans l’état WIP. également en utilisant ASF à jour.
+Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. Il s’agit très souvent d’une version plus récente que la dernière version stable. Par conséquent, vous ne devriez pas avoir de problème à utiliser les fonctionnalités que vous pouvez trouver sur NLog wiki dans ASF, même celles qui sont en cours de développement et dans l’état WIP. également en utilisant ASF à jour.
 
 Dans le cadre de l'intégration ASF, ASF prend également en charge d'autres cibles d'authentification ASF NLog, qui seront expliquées ci-dessous.
 
-* * *
+---
 
 ## Exemples
 
-Commençons par quelque chose de facile. Nous allons utiliser la cible **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** uniquement. uniquement. Notre `NLog.config` initial ressemblera à ceci:
+Commençons par quelque chose de facile. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Notre `NLog.config` initial ressemblera à ceci:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -68,11 +68,11 @@ Commençons par quelque chose de facile. Nous allons utiliser la cible **[Colore
 </nlog>
 ```
 
-L’explication de la configuration ci-dessus est assez simple: nous définissons une **cible de journalisation**, qui est `ColoredConsole`, puis nous redirigeons **tous les enregistreurs** (`*`) de niveau `Debug` et supérieur à la `ColoredConsole` définie précédemment. C'est tout.
+The explanation of above config is rather simple - we define one **logging target**, which is `ColoredConsole`, then we redirect **all loggers** (`*`) of level `Debug` and higher to `ColoredConsole` target we defined earlier. C'est tout.
 
 Si vous démarrez ASF avec `NLog.config` ci-dessus, seule la cible `ColoredConsole` sera active et ASF n'écrira pas dans le `Fichier`, indépendamment de configuration ASF NLog codée en dur.
 
-Maintenant, disons que nous n'aimons pas le format par défaut de `${longdate}|${level:uppercase=true}|${logger}|${message}` et nous voulons enregistrer le message uniquement. Nous pouvons le faire en modifiant **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** de notre cible.
+Maintenant, disons que nous n'aimons pas le format par défaut de `${longdate}|${level:uppercase=true}|${logger}|${message}` et nous voulons enregistrer le message uniquement. We can do so by modifying **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -89,7 +89,7 @@ Maintenant, disons que nous n'aimons pas le format par défaut de `${longdate}|$
 
 Si vous lancez ASF maintenant, vous remarquerez que la date, le niveau et le nom de l'enregistreur ont disparu - vous laissant uniquement des messages ASF au format `Function() Message`.
 
-Nous pouvons également modifier la configuration pour vous connecter à plusieurs cibles. Connectons-nous à `ColoredConsole` et au **[File](https://github.com/nlog/nlog/wiki/File-target)** en même temps.
+Nous pouvons également modifier la configuration pour vous connecter à plusieurs cibles. Let's log to `ColoredConsole` and **[File](https://github.com/nlog/nlog/wiki/File-target)** at the same time.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -106,9 +106,9 @@ Nous pouvons également modifier la configuration pour vous connecter à plusieu
 </nlog>
 ```
 
-Une fois fait, nous allons maintenant tout enregistrer dans `ColoredConsole` et `File`. Avez-vous remarqué que vous pouvez également spécifier des options personnalisées `fileName` et des options supplémentaires ?
+Une fois fait, nous allons maintenant tout enregistrer dans  `ColoredConsole` et `File`. Avez-vous remarqué que vous pouvez également spécifier des options personnalisées `fileName` et des options supplémentaires ?
 
-Enfin, ASF utilise différents niveaux de journalisation pour vous aider à comprendre ce qui se passe. Nous pouvons utiliser ces informations pour modifier la sévérité de la journalisation. Supposons que nous souhaitons consigner tout (`Trace`) dans `File`, mais uniquement `Warning` et supérieur au **[niveau de journalisation](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** de la `ColoredConsole` Nous pouvons y parvenir en modifiant nos `règles`:
+Enfin, ASF utilise différents niveaux de journalisation pour vous aider à comprendre ce qui se passe. Nous pouvons utiliser ces informations pour modifier la sévérité de la journalisation. Let's say that we want to log everything (`Trace`) to `File`, but only `Warning` and above **[log level](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** to the `ColoredConsole`. Nous pouvons y parvenir en modifiant nos `règles`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -146,23 +146,23 @@ Enfin, faites quelque chose d'un peu plus avancé et enregistrons tous les messa
 
 Vous pouvez voir comment nous avons utilisé l'intégration ASF ci-dessus et distinguer facilement la source du message en fonction de la propriété `${logger}`.
 
-* * *
+---
 
 ## Utilisation avancée
 
-Les exemples ci-dessus sont plutôt simples et conçus pour vous montrer à quel point il est facile de définir vos propres règles de journalisation pouvant être utilisées avec ASF. Vous pouvez utiliser NLog pour différentes choses, y compris des cibles complexes (telles que la conservation des journaux dans `DataBase`), la rotation des journaux (telle que la suppression des anciens journaux `File`), à l'aide de la personnalisation `Layout `, déclarant vos propres filtres `<when>` de journalisation et bien plus encore. Je vous encourage à lire toute la **[documentation NLog](https://github.com/nlog/nlog/wiki/Configuration-file)** pour connaître toutes les options disponibles, ce qui vous permettra d'ajuster avec précision la fonctionnalité de journalisation ASF. C'est un outil vraiment puissant et la personnalisation de la journalisation ASF n'a jamais été aussi simple.
+Les exemples ci-dessus sont plutôt simples et conçus pour vous montrer à quel point il est facile de définir vos propres règles de journalisation pouvant être utilisées avec ASF. Vous pouvez utiliser NLog pour différentes choses, y compris des cibles complexes (telles que la conservation des journaux dans `DataBase`), la rotation des journaux (telle que la suppression des anciens journaux `File`), à l'aide de la personnalisation `Layout `, déclarant vos propres filtres `<when>` de journalisation et bien plus encore. I encourage you to read through entire **[NLog documentation](https://github.com/nlog/nlog/wiki/Configuration-file)** to learn about every option that is available to you, allowing you to fine-tune ASF logging module in the way you want. C'est un outil vraiment puissant et la personnalisation de la journalisation ASF n'a jamais été aussi simple.
 
-* * *
+---
 
-## Limites
+## Restriction
 
-ASF désactivera temporairement **all** règles incluant des cibles ` <code>ColoredConsole` ou <1>Console</code> lors de l'attente de la saisie de l'utilisateur. Par conséquent, si vous souhaitez conserver la journalisation pour d'autres cibles même lorsque ASF attend une entrée de l'utilisateur, vous devez définir ces cibles avec leurs propres règles, comme indiqué dans les exemples ci-dessus, au lieu de mettre plusieurs cibles dans `writeTo` de la même règle (à moins qu'il ne s'agisse de votre comportement souhaité). La désactivation temporaire des cibles de la console est effectuée afin de garder la console propre pendant l'attente de la saisie de l'utilisateur.
+ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Par conséquent, si vous souhaitez conserver la journalisation pour d'autres cibles même lorsque ASF attend une entrée de l'utilisateur, vous devez définir ces cibles avec leurs propres règles, comme indiqué dans les exemples ci-dessus, au lieu de mettre plusieurs cibles dans `writeTo` de la même règle (à moins qu'il ne s'agisse de votre comportement souhaité). La désactivation temporaire des cibles de la console est effectuée afin de garder la console propre pendant l'attente de la saisie de l'utilisateur.
 
-* * *
+---
 
 ## Connexion au tchat
 
-ASF inclut une prise en charge étendue de la journalisation du tchat en enregistrant non seulement tous les messages reçus / envoyés sur le niveau de journalisation `Trace`, mais également en exposant des informations supplémentaires les concernant dans les **[propriétés d'événement](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. Ceci est dû au fait que nous devons tout de même gérer les messages de discussion en tant que commandes. Par conséquent, nous ne devons rien payer pour consigner ces événements afin de vous permettre d'ajouter une logique supplémentaire (par exemple, faire d'ASF votre archive personnelle de discussion Steam).
+ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. Ceci est dû au fait que nous devons tout de même gérer les messages de discussion en tant que commandes. Par conséquent, nous ne devons rien payer pour consigner ces événements afin de vous permettre d'ajouter une logique supplémentaire (par exemple, faire d'ASF votre archive personnelle de discussion Steam).
 
 ### Propriétés
 
@@ -176,7 +176,7 @@ ASF inclut une prise en charge étendue de la journalisation du tchat en enregis
 
 ### Exemple
 
-Cet exemple est basé sur notre exemple de base `ColoredConsole` ci-dessus. Avant d'essayer de le comprendre, je vous recommande vivement de jeter un coup d'oeil **[ci-dessus](#examples)** afin de vous familiariser d'abord avec les bases de la journalisation NLog.
+Cet exemple est basé sur notre exemple de base `ColoredConsole` ci-dessus. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -209,7 +209,7 @@ The example above will generate `0-0-76561198069026042.txt` file when talking wi
 
 Bien sûr, ce n’est qu’un exemple avec quelques astuces de mise en page bien présentées de manière pratique. Vous pouvez étendre cette idée à vos propres besoins, tels que filtrage supplémentaire, ordre personnalisé, mise en page personnelle, enregistrement uniquement des messages reçus, etc.
 
-* * *
+---
 
 ## ASF targets
 
@@ -217,7 +217,7 @@ En plus des cibles de journalisation NLog standard (telles que ` ColoredConsole`
 
 Pour une complétude maximale, la définition des cibles ASF suivra la convention de documentation NLog.
 
-* * *
+---
 
 ### SteamTarget
 
@@ -225,10 +225,9 @@ Comme vous pouvez le deviner, cette cible utilise des messages de discussion Ste
 
 Pris en charge dans tous les environnements utilisés par ASF.
 
-* * *
+---
 
 #### Syntaxe de configuration
-
 ```xml
 <targets>
   <target type="Steam"
@@ -242,31 +241,29 @@ Pris en charge dans tous les environnements utilisés par ASF.
 
 En savoir plus sur l’utilisation du [fichier de configuration](https://github.com/NLog/NLog/wiki/Configuration-file).
 
-* * *
+---
 
 #### Paramètres
 
 ##### Options Générales
+_Nom_ - Nom de la cible.
 
-* Nom* - Nom de la cible.
-
-* * *
+---
 
 ##### Options de mise en page
+_layout_ - Texte à restituer. [Mise en page](https://github.com/NLog/NLog/wiki/Layouts) Obligatoire. Par défaut : `${level:uppercase=true}|${logger}|${message}`
 
-*layout* - Texte à restituer. [Mise en page](https://github.com/NLog/NLog/wiki/Layouts) Obligatoire. Par défaut : `${level:uppercase=true}|${logger}|${message}`
-
-* * *
+---
 
 ##### Options SteamTarget
 
-*chatGroupID* - ID du groupe de discussion déclaré en tant qu'entier non signé en 64 bits. Non requis La valeur par défaut est `0`, ce qui désactivera la fonctionnalité de discussion en groupe et utilisera la discussion privée. Lorsqu'elle est activée (définie sur une valeur autre que zéro), la fonctionnalité `steamID` ci-dessous agit en tant que `chatID` et spécifie l'ID du canal dans ce `chatGroupID</ 0> ou le bot devrait envoyer des messages.</p>
+_chatGroupID_ - ID du groupe de discussion déclaré en tant qu'entier non signé en 64 bits. Non requis. La valeur par défaut est `0`, ce qui désactivera la fonctionnalité de discussion en groupe et utilisera la discussion privée. Lorsqu'elle est activée (définie sur une valeur autre que zéro), la fonctionnalité `steamID` ci-dessous agit en tant que `chatID` et spécifie l'ID du canal dans ce `chatGroupID</ 0> ou le bot devrait envoyer des messages.</p>
 
-<p><em>steamID</em> - SteamID déclaré comme non signé en 64 bits par l'utilisateur Steam cible (comme <code>SteamOwnerID`) ou la cible `chatID</ > (lorsque <code>chatGroupID` est défini). Obligatoire. Defaults to `0` which disables logging target entirely.
+<p spaces-before="0"><em x-id="4">steamID</em> - SteamID déclaré comme non signé en 64 bits par l'utilisateur Steam cible (comme <code>SteamOwnerID`) ou la cible `chatID</ > (lorsque <code>chatGroupID` est défini). Obligatoire. Defaults to `0` which disables logging target entirely.
 
-*botName* - Name of the bot (as it's recognized by ASF, case-sensitive) that will be sending messages to `steamID` declared above. Non requis La valeur par défaut est `null`, ce qui sélectionne automatiquement **n'importe quel** bot actuellement connecté. Il est recommandé de définir cette valeur correctement, car `SteamTarget` ne prend pas en compte de nombreuses limitations de Steam, telles que le fait que vous devez avoir `steamID` de la cible dans votre liste d'amis. This variable is defined as [layout](https://github.com/NLog/NLog/wiki/Layouts) type, therefore you can use special syntax in it, such as `${logger}` in order to use the bot that generated the message.
+_botName_ - Name of the bot (as it's recognized by ASF, case-sensitive) that will be sending messages to `steamID` declared above. Non requis. La valeur par défaut est `null`, ce qui sélectionne automatiquement **n'importe quel** bot actuellement connecté. Il est recommandé de définir cette valeur correctement, car `SteamTarget` ne prend pas en compte de nombreuses limitations de Steam, telles que le fait que vous devez avoir `steamID` de la cible dans votre liste d'amis. This variable is defined as [layout](https://github.com/NLog/NLog/wiki/Layouts) type, therefore you can use special syntax in it, such as `${logger}` in order to use the bot that generated the message.
 
-* * *
+---
 
 #### Exemples SteamTarget
 
@@ -291,13 +288,13 @@ Lorsque vous lancez ASF avec `NLog.config` comme ci-dessus, `MyBot` lance la mes
 
 Bien entendu, `SteamTarget` contient toutes les fonctions habituelles d’un générique `TargetWithLayout`. Vous pouvez donc l’utiliser conjointement avec par exemple des dispositions personnalisées, noms ou règles de journalisation avancées. L'exemple ci-dessus n'est que le plus fondamental.
 
-* * *
+---
 
 #### Captures d'écran
 
 ![Capture d"écran](https://i.imgur.com/5juKHMt.png)
 
-* * *
+---
 
 ### HistoryTarget
 
@@ -305,10 +302,9 @@ ASF utilise cette cible en interne pour fournir un historique de journalisation 
 
 Pris en charge dans tous les environnements utilisés par ASF.
 
-* * *
+---
 
 #### Syntaxe de configuration
-
 ```xml
 <targets>
   <target type="History"
@@ -320,30 +316,28 @@ Pris en charge dans tous les environnements utilisés par ASF.
 
 En savoir plus sur l’utilisation du [fichier de configuration](https://github.com/NLog/NLog/wiki/Configuration-file).
 
-* * *
+---
 
 #### Paramètres
 
 ##### Options Générales
+_Nom_ - Nom de la cible.
 
-* Nom* - Nom de la cible.
-
-* * *
+---
 
 ##### Options de mise en page
+_layout_ - Texte à restituer. [Mise en page](https://github.com/NLog/NLog/wiki/Layouts) Obligatoire. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
-*layout* - Texte à restituer. [Mise en page](https://github.com/NLog/NLog/wiki/Layouts) Obligatoire. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
-
-* * *
+---
 
 ##### Options HistoryTarget
 
-*maxCount* - Nombre maximal de journaux stockés pour l'historique à la demande. Non requis La valeur par défaut est `20`, ce qui constitue un bon équilibre pour fournir l'historique initial, tout en gardant à l'esprit l'utilisation de la mémoire qui correspond aux exigences de stockage. Doit être supérieur à `0`.
+_maxCount_ - Nombre maximal de journaux stockés pour l'historique à la demande. Non requis. La valeur par défaut est `20`, ce qui constitue un bon équilibre pour fournir l'historique initial, tout en gardant à l'esprit l'utilisation de la mémoire qui  correspond aux exigences de stockage. Doit être supérieur à `0`.
 
-* * *
+---
 
 ## Mises en garde
 
-Soyez prudent lorsque vous décidez d'associer le niveau de journalisation `Debug` ou inférieur dans votre `SteamTarget` avec `steamID` qui participe au processus ASF. Cela peut entraîner une `StackOverflowException` potentielle, car vous créerez une boucle infinie d'ASF recevant un message , que vous enregistrerez ensuite via Steam, ce qui créera un autre message qui doit être connecté. Actuellement, la seule possibilité est que vous enregistriez le niveau de traçage `Trace` (ASF enregistre ses propres messages de discussion à cette endroit) ou le niveau `Debug` tout en exécutant ASF dans le mode `Debug` (ASF enregistre tous les paquets Steamà cette endroit).
+Soyez prudent lorsque vous décidez d'associer le niveau de journalisation `Debug` ou inférieur dans votre `SteamTarget` avec `steamID` qui participe au processus ASF. Cela peut entraîner une `StackOverflowException` potentielle, car vous créerez une boucle infinie d'ASF recevant un message , que vous enregistrerez ensuite via Steam, ce qui créera un autre message qui doit être connecté. Actuellement, la seule possibilité est que vous enregistriez le niveau de traçage `Trace` (ASF enregistre ses propres messages de discussion à cette endroit) ou le niveau `Debug` tout en exécutant ASF dans le mode `Debug`  (ASF enregistre tous les paquets Steamà cette endroit).
 
 En bref, si votre `steamID` participe au même processus ASF, le niveau de journalisation `minlevel` de votre `SteamTarget` doit être `Info` (ou `Debug` si vous n'exécutez pas non plus ASF en mode `Debug`) et supérieur. Vous pouvez également définir vos propres filtres de journalisation `<when>` afin d'éviter une boucle de journalisation infinie, si la modification actuelle n'est pas appropriée pour votre cas. Cette mise en garde s'applique également aux discussions de groupe.

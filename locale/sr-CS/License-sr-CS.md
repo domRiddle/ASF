@@ -6,9 +6,9 @@ ASF licenca je veoma blaga i vi imate dozvolu da radite mnogo više od toga što
 
 > možete koristiti ovaj softver kako želite, sve dok sadrži potrebne opaške. Ova blaga licenca sadrži patent licencu od saradnika ovog koda.
 
-Molimo vas da zapazite da razne **[ASF komponente](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** koje su sadržane sa `PackageReference` i često su licencirane pod drugim licencama, kao što je **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Isto važi i za sve projekte trećih strana koje ASF koristi, posebno sve `alatke` koje pored naše imaju svoje licence.
+Molimo vas da zapazite da razne **[ASF komponente](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** koje su sadržane sa `PackageReference` i često su licencirane pod drugim licencama, kao što je **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
 
-* * *
+-----
 
 ## Primedbe
 
@@ -19,14 +19,12 @@ Ako kreirate vaš softver/uslugu baziranu na ASF-u ili dijelu njegovog koda, mol
 Mi vam ne dozvoljavamo da koristite ime produkta ASF/ArchiSteamFarm u vašem softveru, ali dozvoljavamo da to uradite u nekoliko zdravorazumskih scenarija:
 
 **Možete**:
-
 - da tvrdite da je vaš softver/usluga **baziran na** ASF (ili njegovom kodu),
 - da govorite of vašem softveru/usluzi kao **ASF kopiji**,
 - da tvrdite da je vaš softver/usluga podržan od ASF-a, ako **niste** promijenili izvorni kod,
 - da koristite ASF za razne refrencijske upotrebe, kao što je povezivanje porijekla softvera/usluge, naše wiki-e, ili *"za ono što je razumno i uobičajeno za opisivanje porijekla Djelatnosti"*.
 
 You **cannot**:
-
 - reći da **je** vaš softver/usluga ASF,
 - odnositi se prema vašem softveru/usluzi kao da je **ASF**,
 - tvrdite da je vaš softver/usluga podržan od ASF-a, ako **ste** promijenili izvorni kod,

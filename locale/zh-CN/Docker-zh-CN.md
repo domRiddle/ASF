@@ -2,19 +2,22 @@
 
 从 3.0.3.2 版本开始，ASF 也可以在 **[Docker 容器](https://www.docker.com/what-container)**&#8203;中运行。 对于普通用户来说，在 Docker 容器中运行 ASF 并没有什么特别的好处。但对于服务器用户来说，这可能是运行 ASF 的最佳方式，因为这样可以确保 ASF 运行在与其他应用分离的沙盒中。 我们的 Docker 仓库同时部署于 **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** 和 **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**。
 
-* * *
+---
 
-## 分支
+## 标签
 
 ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**。
+
 
 ### `main`
 
 这个分支始终指向 GitHub 中 `main` 分支的最新提交构建的 ASF，其工作原理与&#8203;**[发布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**&#8203;中描述的实验性 AppVeyor 构建相同。 一般而言，您应该避免使用该分支，因为它是用于开发目的，为开发人员和高级用户准备的，有最高的漏洞风险。 该映像会在每次提交到 GitHub `main` 分支后更新，因此您会发现它的更新十分频繁（并且经常出错），就像 AppVeyor 构建一样。 该分支记录了 ASF 项目的当前状态，但该状态不一定稳定或者经过测试，就像我们在发布周期中描述的那样。 这个分支不应该在任何的生产环境中使用。
 
+
 ### `released`
 
 与上述分支类似，这个分支始终指向最新&#8203;**[发布](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;的 ASF 版本，包括预览版本。 与 `main` 分支不同，该映像会在推送新的 GitHub 版本标签时更新。 一些高级用户喜欢立刻尝试最新的功能，选择处于稳定边缘的版本，这一分支就是为他们准备的。 如果您不想使用 `latest` 分支的话，我们推荐您使用这个分支。 请注意，使用此分支等同于使用我们的&#8203;**[预览版](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**。
+
 
 ### `latest`
 
@@ -26,7 +29,7 @@ ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archi
 
 与上面的分支相比，这个分支是完全冻结的，这意味着映像一旦发布就不会再更新。 这类似于我们的 GitHub 发布版本，一经发布就不会更改，这保证了环境的长期稳定。 通常，如果您希望使用特定的（早于 `latest` 的）ASF 版本，并且不希望启用任何自动更新功能（例如 `latest` 所提供的），就应该使用这种分支。
 
-* * *
+---
 
 ## 哪个分支最适合我？
 
@@ -34,7 +37,7 @@ ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archi
 
 我们通常不建议使用 `main` 构建，就像 AppVeyor 构建一样——这个构建仅仅是用来标记 ASF 项目当前状态的。 我们无法保证这种状态能够正常工作，但如果您对 ASF 的开发感兴趣，可以尝试一下。
 
-* * *
+---
 
 ## 架构
 
@@ -42,7 +45,7 @@ ASF Docker 映像目前基于 `linux` 平台构建，支持 3 种架构——`x6
 
 从 ASF V5.0.2.2 版本开始，我们的标签已使用多平台 Manifest，这意味着您机器上的 Docker 会在您拉取时自动按照平台选择合适的映像。 如果您需要拉取某个不符合当前平台的映像，您可以为相应的 docker 命令，例如 `docker run` 指定 `--platform` 参数。 您可以查看 Docker 的 **[Image Manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** 文档了解更多。
 
-* * *
+---
 
 ## 用法
 
@@ -66,7 +69,7 @@ docker run -it --name asf --pull always --rm justarchi/archisteamfarm
 docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 ```
 
-* * *
+---
 
 ## 使用数据卷
 
@@ -100,7 +103,7 @@ docker exec -u root asf chown -hR 1000:1000 /app
 
 在通过 `docker run` 命令创建 Docker 容器之后，您只需要执行一次该命令，并且只有您需要自定义执行 ASF 进程的用户时才需要。 也不要忘记将上述命令中的 `1000:1000` 更改为实际用户的 `uid` 和 `gid`。
 
-* * *
+---
 
 ## 多实例同步
 
@@ -121,7 +124,7 @@ docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name a
 
 挂载 `/tmp/ASF` 是完全可选的，并且也不推荐，除非您明确需要同步两个或多个 ASF 容器。 我们不推荐为单个容器挂载 `/tmp/ASF`，因为如果只运行一个 ASF 容器，这个操作是完全无用的，反而可能会带来本可以避免的其它问题。
 
-* * *
+---
 
 ## 命令行参数
 
@@ -135,7 +138,7 @@ docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --n
 
 除非您需要提供自定义加密密钥或者使用其他高级选项，否则通常您不需要指定任何环境变量，因为我们的 Docker 容器已被配置为使用合适的默认选项 `--no-restart` `--process-required` `--system-required`，所以您可能会发现，在上述示例中，`ASF_ARGS` 是多余的，只有 `ASF_CRYPTKEY` 发挥了作用。
 
-* * *
+---
 
 ## IPC
 
@@ -165,7 +168,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull alway
 
 如果一切设置正确，上面的 `docker run` 命令将会使 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 接口在宿主机上正常工作，标准的 `localhost:1242` 路由已经被正确重定向到客户机上。 值得注意的是，我们没有进一步暴露此路由，因此只有 Docker 宿主机能够成功连接，确保了接口的安全性。 当然，如果您知道您在做什么，并且确保采取适当的安全措施，也可以进一步暴露此路由。
 
-* * *
+---
 
 ### 完整示例
 
@@ -189,7 +192,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app
 }
 ```
 
-* * *
+---
 
 ## 高级技巧
 

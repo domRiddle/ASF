@@ -3,7 +3,6 @@
 O ASF suporta uma variedade de comandos, que podem ser usados para controlar o comportamento do processo e dos bots.
 
 Os comandos abaixo podem ser enviados para o bot várias maneiras:
-
 - Através do console interativo do ASF
 - Através da conversa privada/em grupo do Steam
 - Através da nossa interface **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR)**
@@ -12,7 +11,7 @@ Tenha em mente que a interação com o ASF requer que você tenha permissão par
 
 Os comandos executados através do chat Steam são afetados pela **[propriedade de configuração global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#commandprefix)** `CommandPrefix`, que é `!` por padrão. Isto significa que para executar, por exemplo, o comando `status`, você deve escrever `!status` (ou o `CommandPrefix` configurado de sua escolha). O `CommandPrefix` não é obrigatório ao usar o console ou o IPC e pode ser omitido.
 
-* * *
+---
 
 ### Console interativo
 
@@ -22,7 +21,7 @@ Os comandos executados através do chat Steam são afetados pela **[propriedade 
 
 O console interativo não está disponível no modo [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#headless) `(não-interativo)`.
 
-* * *
+---
 
 ### Chat Steam
 
@@ -36,7 +35,7 @@ Note que enviar um comando para o chat do grupo atua como uma retransmissão. Se
 
 *E mesmo nesse caso você deve usar o chat privado com a sintaxe `[Bots]`.*
 
-* * *
+---
 
 ### IPC
 
@@ -44,7 +43,7 @@ A forma mais avançada e flexível de executar comandos, perfeito para interaç�
 
 ![Captura da tela](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
-* * *
+---
 
 ## Comandos
 
@@ -72,7 +71,7 @@ A forma mais avançada e flexível de executar comandos, perfeito para interaç�
 | `iqadd [Bots] <AppIDs>`                                        | `Master`            | Adiciona os `appIDs` na lista prioritária de coleta automática nos bots indicados.                                                                                                                                                                                                                                                                                       |
 | `iqrm [Bots] <AppIDs>`                                         | `Master`            | Remove os `appIDs` da lista prioritária de coleta automática nos bots indicados.                                                                                                                                                                                                                                                                                         |
 | `level [Bots]`                                                       | `Master`            | Mostra o nível da conta Steam dos bots informados.                                                                                                                                                                                                                                                                                                                       |
-| `loot [Bots]`                                                        | `Master`            | Envia todos itens da comunidade Steam que se enquadram como `LootableTypes` dos bots indicados para o usuário definido como `Master` em `SteamUserPermissions` (para o de steamID mais baixo caso haja mais de um).                                                                                                                                                      |
+| `loot [Bots]`                                                        | `Master`            | Envia todos itens da comunidade Steam que se enquadram como `LootableTypes` dos bots indicados para o usuário definido como `Master` em `SteamUserPermissions` (com o steamID mais baixo caso haja mais de um).                                                                                                                                                          |
 | `loot@ [Bots] <AppIDs>`                                        | `Master`            | Envia todos itens da comunidade Steam que se enquadram como `LootableTypes`, e cujo `AppIDs` corresponda ao indicado, dos bots indicados para o usuário definido como `Master` em `SteamUserPermissions` (para o de steamID mais baixo caso haja mais de um). Funciona como o oposto de `loot%`.                                                                         |
 | `loot% [Bots] <AppIDs>`                                        | `Master`            | Envia todos itens da comunidade Steam que se enquadram como `LootableTypes`, independentemente de os `AppIDs` corresponderem ou não ao informado, dos bots indicados para o usuário definido como `Master` em `SteamUserPermissions` (para o de steamID mais baixo caso haja mais de um). Funciona como o oposto de `loot@`.                                             |
 | `loot^ [Bots] <AppID> <ContextID>`                       | `Master`            | Envia todos itens Steam do `AppID` de `ContextID` indicados dos bots indicados para o usuário definido como `Master` em `SteamUserPermissions` (para o de steamID mais baixo caso haja mais de um).                                                                                                                                                                      |
@@ -104,7 +103,7 @@ A forma mais avançada e flexível de executar comandos, perfeito para interaç�
 | `update`                                                             | `Owner`             | Verifica atualizações para o ASF no GitHub (isso é feito automaticamente a cada `UpdatePeriod`).                                                                                                                                                                                                                                                                         |
 | `version`                                                            | `FamilySharing`     | Mostra a versão do ASF.                                                                                                                                                                                                                                                                                                                                                  |
 
-* * *
+---
 
 ### Notas
 
@@ -122,7 +121,7 @@ O ASF "combina" os argumentos extras como sendo do tipo múltiplo do último arg
 
 Como você leu acima, um caractere de espaço está sendo usado como um delimitador para um comando, portanto não pode ser usado nos argumentos. No entanto, também como mencionado acima, o ASF pode combinar parâmetros redundantes, o que significa que você pode usar um espaço nos últimos parâmetros definidos para esse comando. Por exemplo, `nickname bob Great Bob` irá definir corretamente o apelido do bot `bob` como "Great Bob". De forma semelhante, você pode verificar nomes que contenham espaços no comando `owns`.
 
-* * *
+---
 
 Alguns comandos também estão disponíveis através de apelidos, para facilitar a digitação:
 
@@ -133,7 +132,7 @@ Alguns comandos também estão disponíveis através de apelidos, para facilitar
 | `redeem`     | `r`     |
 | `redeem^`    | `r^`    |
 
-* * *
+---
 
 ### Argumento `[Bots]`
 
@@ -145,7 +144,7 @@ O argumento `[Bots]` suporta uma sintaxe de "classe" especial, o que te permite 
 
 Além de sintaxe de classe descrita acima, o argumento `[Bots]` também suporta correspondência de **[expressão regular](https://pt.wikipedia.org/wiki/Express%C3%A3o_regular)**. Você pode ativar o padrão de expressão regular usando `r!<pattern>` como um nome de bot, onde `r!` é o ativador ASF para correspondência de expressão regular e `<pattern>` é o seu padrão de expressão regular. Um exemplo de comando de bot baseado em expressão regular seria `status r! \d{3}` que enviará o comando `status` para bots que tenham o nome composto por 3 dígitos (por exemplo, `123` e `981`). Sinta-se a vontade para dar uma olhada nos **[documentos](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** para mais explicações e mais exemplos de padrões de expressão regular disponíveis.
 
-* * *
+---
 
 ## Configurações de `privacidade`
 
@@ -161,7 +160,7 @@ Além de sintaxe de classe descrita acima, o argumento `[Bots]` também suporta 
 | 6         | InventoryGifts | Inventory  |
 | 7         | Comments       | Profile    |
 
-Para a descrição dos campos acima, acesse as **[configurações de privacidade do Steam](https://steamcommunity.com/my/edit/settings)**.
+Para a descrição dos campos acima, visite as **[configurações de privacidade do Steam](https://steamcommunity.com/my/edit/settings)**.
 
 Enquanto os valores válidos para todas elas são:
 
@@ -199,7 +198,7 @@ O comando acima vai definir o perfil como público, jogos na biblioteca como ape
 
 Lembre-se que um argumento filho nunca pode ter permissão mais ampla que o seu pai. Consulte a relação de argumentos para as opções disponíveis.
 
-* * *
+---
 
 ## `addlicense` Adicionar licenças
 
@@ -220,7 +219,7 @@ Exemplo de comando completo:
 addlicense ASF app/292030,sub/47807
 ```
 
-* * *
+---
 
 ## `owns` jogos
 
@@ -241,7 +240,7 @@ Exemplo de comando completo:
 owns ASF app/292030,name/Witcher
 ```
 
-* * *
+---
 
 ## Métodos `redeem^`
 
@@ -268,19 +267,19 @@ Por exemplo, digamos que queremos resgatar 3 códigos de produto em qualquer um 
 
 É importante notar que a ativação avançada substitui apenas as `RedeemingPreferences` que você **especificou no comando**. Por exemplo, se você habilitou `Distributing` em `RedeemingPreferences` então não vai ter diferença se você usar o modo `FD` ou não, porque a distribuição já estará ativa de qualquer maneira, devido a `RedeemingPreferences` que você usa. É por esse motivo que cada substituição ativada forçadamente também tem uma desativada, você pode decidir se você quer substituir uma desativada por uma ativada ou vice versa.
 
-* * *
+---
 
 ## Comando `encrypt`
 
-O comando `encrypt` permite que você criptografe sequências arbitrárias osando os métodos de criptografia do ASF. O `<encryptionMethod>` deve ser um dos métodos de criptografia especificados e explicados na seção **[segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-pt-BR)**. Esse comando é útil caso você queira gerar detalhes criptografados antecipadamente, por exemplo, para evitar colocar a sua senha em `PlainText` na configuração e depois usar o comando `password`. Recomendamos usar esse comando através de canais seguros (como o console do ASF ou a interface IPC, que também tem uma API endpoint dedicada a isso), uma vez que detalhes sensíveis podem, de outra forma, serem registrados por vários terceiros (como as mensagens de bate-papo registradas pelos servidores Steam).
+O comando `encrypt` permite que você criptografe sequências arbitrárias osando os métodos	 de criptografia do ASF. O `<encryptionMethod>` deve ser um dos métodos de criptografia especificados e explicados na seção **[segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-pt-BR)**. Esse comando é útil caso você queira gerar detalhes criptografados antecipadamente, por exemplo, para evitar colocar a sua senha em `PlainText` na configuração e depois usar o comando `password`. Recomendamos usar esse comando através de canais seguros (como o console do ASF ou a interface IPC, que também tem uma API endpoint dedicada a isso), uma vez que detalhes sensíveis podem, de outra forma, serem registrados por vários terceiros (como as mensagens de bate-papo registradas pelos servidores Steam).
 
-* * *
+---
 
 ## comando `hash`
 
 o comando `hash` permite que você gere hashes de sequências arbitrárias usando os métodos de hashing do ASF. O `<hashingMethod>` deve ser um dos métodos de hash especificados e explicados na seção **[segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-pt-BR)**. Recomendamos usar esse comando através de canais seguros (como o console do ASF ou a interface IPC, que também tem uma API endpoint dedicada a isso), uma vez que detalhes sensíveis podem, de outra forma, serem registrados por vários terceiros (como as mensagens de bate-papo registradas pelos servidores Steam).
 
-* * *
+---
 
 ## Comando `input`
 
@@ -292,8 +291,8 @@ A sintaxe geral é `input [Bots] <Type> <Value>`.
 
 | Tipo                    | Descrição                                                                                    |
 | ----------------------- | -------------------------------------------------------------------------------------------- |
-| Login                   | Propriedade de configuração do bot `SteamLogin`, caso esteja faltando no arquivo config.     |
-| Senha                   | Propriedade de configuração do bot `SteamPassword`, caso esteja faltando no arquivo config.  |
+| Login                   | Propriedade de configuração do bot `SteamLogin`, caso esteja faltando na config.             |
+| Password                | Propriedade de configuração do bot `SteamPassword`, caso esteja faltando na config.          |
 | SteamGuard              | Código de autenticação enviado para o seu-email se você não estiver usando o 2FA.            |
 | SteamParentalCode       | Propriedade de configuração do bot `SteamParentalCode`, caso esteja faltando na config.      |
 | TwoFactorAuthentication | Token de 2FA gerado a partir de seu celular, se você estiver usando o 2FA mas não o ASF 2FA. |
@@ -306,10 +305,10 @@ Digamos que temos um bot que é protegido pelo SteamGuard no modo não-2FA. Nós
 
 Para fazer isso, precisamos executar o seguintes comandos:
 
-`start MySteamGuardBot`-> O bot irá tentar logar, falhar devido a necessidade do código de autenticação, e, em seguida, parar devido à execução em modo `Headless`. Precisamos disso para fazer a rede Steam nos enviar o código de autenticação por e-mail; se não houvesse necessidade disso, pularíamos essa etapa inteiramente.
+`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. Precisamos disso para fazer a rede Steam nos enviar o código de autenticação no e-mail - se não houvesse necessidade disso, pularíamos essa etapa inteiramente.
 
-`input MySteamGuardBot SteamGuard ABCDE` -> Definimos a entrada `SteamGuard` do bot `MySteamGuardBot` para `ABCDE`. Claro, `ABCDE` neste caso é o código de autenticação que recebemos no nosso e-mail.
+`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Claro, `ABCDE` neste caso é o código de autenticação que recebemos no nosso e-mail.
 
-`start MySteamGuardBot`-> Nós iniciamos nosso bot (parado) novamente, desta vez, ele usa automaticamente o código de autenticação que definimos no comando anterior, ele loga devidamente, limpando-o em seguida.
+`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
 
 Da mesma forma, podemos acessar bots protegidos por 2FA (se eles não estiverem usando o ASF 2FA), bem como definir outras propriedades durante tempo de execução.

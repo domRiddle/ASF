@@ -2,7 +2,7 @@
 
 ASF soporta el Préstamo Familiar de Steam desde la versión 2.1.5.5+. Para entender cómo funciona ASF en este caso, primero debes leer cómo **[funciona el Préstamo Familiar de Steam](https://store.steampowered.com/promotion/familysharing)**, que está disponible en la tienda de Steam.
 
-* * *
+---
 
 ## ASF
 
@@ -14,7 +14,7 @@ Además de lo anterior, después de iniciar sesión, ASF accederá a tu **[confi
 
 Conectar las dos funcionalidades descritas arriba permite a tus amigos usar el comando `pause~` para pausar el proceso de recolección de cromos, iniciar un juego, jugar el tiempo que deseen, después que hayan terminado de jugar, el proceso de recolección de cromos será reanudado automáticamente por ASF. Por supuesto, enviar el comando `pause~` no es necesario si ASF no está recolectando nada, porque tus amigos pueden ejecutar el juego directamente, y la lógica descrita antes asegura que no serán expulsados de la sesión.
 
-* * *
+---
 
 ## Limitaciones
 

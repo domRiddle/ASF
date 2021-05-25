@@ -4,7 +4,7 @@ Activatorul de coduri în plan secundar este o caracteristică ASF special înco
 
 Activatorul de coduri în plan secundar este făcut să aibă un singur domeniu de aplicare al botului, ceea ce înseamnă că nu folosește `RedeemingPreferences`. Această caracteristică poate fi folosită împreună (sau în loc de) **[comanda](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `redeem`, dacă este necesar.
 
-* * *
+---
 
 ## Importă
 
@@ -36,7 +36,7 @@ Indiferent de formatul cu care ați decis să rămâneți, ASF va importa fișie
 
 În plus față de utilizarea cheilor menționate mai sus, ASF expune și `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** care poate fi executat de orice instrument IPC, inclusiv ASF-ui. Folosirea IPC ar putea fi mai puternică, pentru că te poți ocupa de procesare singur, cum ar fi utilizarea unui delimitator personalizat în loc să fie forțat la un caracter tab, sau chiar introducerea propriei structuri a cheilor personalizate.
 
-* * *
+---
 
 ## Coadă
 
@@ -44,7 +44,7 @@ Odată ce jocurile au fost importate cu succes, acestea sunt adăugate la coadă
 
 Dacă în timpul procesului contul nostru lovește starea `RateLimited`, coada de așteptare este suspendată temporar pentru o oră întreagă pentru a aștepta ca procesul de cooldown să dispară. Ulterior, procesul continuă acolo unde a rămas, până când întreaga coadă este goală.
 
-* * *
+---
 
 ## Exemplu
 
@@ -60,7 +60,7 @@ După ceva timp, fișierele `BotName.keys.used` și `BotName.keys.unused` vor fi
 
 De asemenea, este posibil să adaugi jocuri suplimentare de importat în timp ce ai unele jocuri deja în coadă prin repetarea tuturor pașilor de mai sus. ASF va adăuga corect intrările suplimentare la coada de așteptare deja în curs de desfășurare și în cele din urmă le va procesa.
 
-* * *
+---
 
 ## Observații
 

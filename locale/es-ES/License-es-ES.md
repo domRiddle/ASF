@@ -6,11 +6,11 @@ La licencia de ASF es muy permisiva y puedes hacer mucho más que con la licenci
 
 > Puede hacer lo que desee con el software, siempre que incluya los avisos requeridos. Esta licencia permisiva contiene un licencia de patente de los colaboradores del código.
 
-Por favor, ten en cuenta que varios **[componentes de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** incluidos con `PackageReference` a menudo son licenciados bajo condiciones diferentes, tal como **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Lo mismo aplica para todos los proyectos de terceros de los que ASF hace uso, especialmente todas las `herramientas` que tienen sus propias licencias.
+Por favor, ten en cuenta que varios **[componentes de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** incluidos con `PackageReference` a menudo son licenciados bajo condiciones diferentes, tal como **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Lo mismo aplica para todos los proyectos de terceros de los que ASF hace uso, por ejemplo, **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
 
-* * *
+-----
 
-## Observaciones
+## Comentarios
 
 Si estás creando tu propio software/servicio basado en ASF o parte de su código, por favor revisa el punto 6 de la licencia:
 
@@ -19,14 +19,12 @@ Si estás creando tu propio software/servicio basado en ASF o parte de su códig
 No te concedemos permiso directo para usar el nombre de producto ASF/ArchiSteamFarm en tu propio software, pero permitimos usarlo en algunos escenarios de sentido común:
 
 **Puedes**:
-
 - Declarar que tu software/servicio **está basado en** ASF (o su código)
 - Referirte a tu software/servicio como un **derivado de ASF**
 - Declarar que tu software/servicio es alimentado por ASF, si **no hiciste** cambios en el código fuente
 - Usar ASF para varios propósitos de referencia, como vincular el origen del software/servicio, nuestra wiki, o *"cuando sea requerido para un uso razonable y habitual al describir el origen del Trabajo"*
 
 **No puedes**:
-
 - Declarar que tu software/servicio **es** ASF
 - Referirte a tu software/servicio como **ASF**
 - Declarar que tu software/servicio es alimentado por ASF, si **hiciste** cambios al código fuente

@@ -8,7 +8,7 @@ ASF 是一个用 C# 语言编写并运行在 .NET Core 平台上的应用程序�
 
 但是，无论您想要在哪个平台上运行 ASF，您必须确保该平台安装了 **[.NET Core 的依赖项](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。 这些都是确保运行环境功能正常的底层库，也是确保 ASF 能够第一时间工作的绝对核心。 通常情况下，部分库（甚至全部）很有可能已经安装在系统内。
 
-* * *
+---
 
 ## 多实例
 
@@ -22,13 +22,13 @@ ASF 会尽全力减少操作系统层面的与其他 ASF 实例的跨进程通�
 
 ASF 在决定共享范围时会考虑到 `WebProxy` 设置，即使用不同 `WebProxy` 的 ASF 实例之间不会采用同一个限制。 实现此功能是为了让 `WebProxy` 设置不会导致过大的操作延迟，符合使用不同网络接口的预期。 对于大多数情况，这应该足够了，然而，如果您的方案使用自定义的机制，例如使用其他方式手动路由请求，您可以通过 `--network-group` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**&#8203;指定网络组，使您指定 ASF 需要与同一个组内的实例同步。 请注意，设置自定义网络组选项后，ASF 就不再根据 `WebProxy` 判断所需的组，因为此时由您自己管理分组。
 
-* * *
+---
 
 ## ASF 打包
 
 ASF 有两种主要的打包方式——Generic 包以及 OS-specific 包（操作系统包）。 从功能上来讲，这两种包是完全一样的，都能够自动进行更新。 唯一的区别就是 **Generic** 包中不包含 **OS-specific** 包内所具有的能使 ASF 运行的环境。
 
-* * *
+---
 
 ### Generic
 
@@ -44,7 +44,7 @@ Generic 包是一个与平台无关的版本，所以它不包含特定于计算
 
 随着时间的推移，.NET Core 会支持更多平台，而 .NET Framework 和 .NET Core 之间会更加不兼容，`Generic-netf` 包将会在未来完全被 `Generic` 包取代。 如果您可以使用任何 .NET Core 软件包，就不要使用框架包，因为 `Generic-netf` 与 .NET Core 版本相比缺少许多功能和兼容性，并且功能会随着时间的推移变少。 我们**仅**对无法使用 `Generic` 包的平台提供此版本的支持（例如 `linux-x86`），并且也仅基于最新版本的运行时环境（例如最新版 Mono）提供支持。
 
-* * *
+---
 
 ### OS-specific（特定操作系统）
 
@@ -62,7 +62,7 @@ ASF 目前提供以下几种 OS-specific 包：
 
 您可以访问&#8203;**[发行说明](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md)**&#8203;查看完整的 .NET Core 5.0 支持的平台与操作系统列表。
 
-* * *
+---
 
 ## 运行时环境需求
 

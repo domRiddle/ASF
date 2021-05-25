@@ -4,7 +4,7 @@ ASF 包含一个独特的 IPC 接口，可以用来与进程进行进一步交�
 
 IPC 可以用来做很多不同的事情，这取决于您的需求和技能。 例如，您可以用它获取 ASF 和所有机器人的状态、向 ASF 发送命令、获取和修改全局/机器人配置、添加新机器人、删除机器人、向 **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-CN)**（后台游戏激活器）导入游戏序列号或者访问 ASF 的日志文件。 所有操作都由我们的 API 提供，这意味着您可以开发工具或者脚本与 ASF 通信，并且在运行时影响 ASF 的行为。 除此之外，我们的 ASF-ui 还实现了特定的操作（例如发送命令），使您可以通过友好的 Web 界面进行这些操作。
 
-* * *
+---
 
 # 用法
 
@@ -25,7 +25,7 @@ INFO|ASF|Start() IPC 服务已就绪！
 
 **[ASF-ui](#asf-ui)** 是最高层的使用方式，它基于 ASF API，为用户提供了一种简单的方式进行各种 ASF 的操作。 这是我们为最终用户设计的使用 IPC 接口的默认方式，并且它还完美演示了您可以用 ASF API 开发什么。 如果您愿意，可以使用您的自定义 WebUI，即指定 `--path` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN#参数)**&#8203;选择从指定位置的 `www` 目录启用 Web 服务。
 
-* * *
+---
 
 # ASF-ui
 
@@ -35,7 +35,7 @@ ASF-ui 是一个社区项目，主要为最终用户提供了一个用户友好�
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-* * *
+---
 
 # ASF API
 
@@ -47,7 +47,7 @@ ASF-ui 是一个社区项目，主要为最终用户提供了一个用户友好�
 
 ![ASF API](https://i.imgur.com/yggjf5v.png)
 
-* * *
+---
 
 ## 身份认证
 
@@ -63,11 +63,11 @@ ASF-ui 是一个社区项目，主要为最终用户提供了一个用户友好�
 
 此外，您也可以在调用 URL 的末尾添加 `password` 参数，例如调用 `/Api/ASF?password=MyPassword` 取代 `/Api/ASF`。 这种方法也不错，但显然这会在公开的情况下直接暴露密码，在一些情况下并不合适。 此外，这种方法向请求字符串中添加了额外的参数，使 URL 更复杂，而且看起来像是针对特定 URL 的参数，但实际上密码对整个 ASF API 都适用。
 
-* * *
+---
 
 这两种方法都受到支持，您可以选择要使用哪一种。 我们建议在任何可能的情况下使用 HTTP 头，从使用的角度来说，它比请求字符串更合适。 但是，我们也支持请求字符串方法，主要的原因是请求头的各种限制。 一个例子是在 Javascript 中启动 WebSocket 时缺少自定义头部支持（尽管这是符合 RFC 标准的操作）。 在这种情况下，请求字符串是进行身份验证的唯一方法。
 
-* * *
+---
 
 ## Swagger 文档
 
@@ -77,7 +77,7 @@ ASF-ui 是一个社区项目，主要为最终用户提供了一个用户友好�
 
 ![Swagger 文档](https://i.imgur.com/mLpd5e4.png)
 
-* * *
+---
 
 # 常见问题
 
@@ -151,7 +151,7 @@ server {
 }
 ```
 
-下面是一份 Apache 示例配置文件。 如果您需要进一步的说明，请参考 **[Apache 文档](https://httpd.apache.org/docs)**。
+下面是一份 Apache 示例配置文件。 Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
 
 ```apache
 <IfModule mod_ssl.c>
@@ -173,11 +173,11 @@ server {
 
 ### 我可以通过 HTTPS 协议访问 IPC 吗？
 
-**是的**，有两种方法来实现。 推荐的方法是使用反向代理（如上所述），您可以像平常一样通过 HTTPS 访问您的 Web 服务器，并且通过它来访问在同一台机器上的 ASF IPC 接口。 这样，您的流量将完全加密，并且您不需要修改 IPC 的设置。
+**Yes**, you can achieve it through two different ways. 推荐的方法是使用反向代理（如上所述），您可以像平常一样通过 HTTPS 访问您的 Web 服务器，并且通过它来访问在同一台机器上的 ASF IPC 接口。 这样，您的流量将完全加密，并且您不需要修改 IPC 的设置。
 
-另一种方法是为 ASF IPC 指定&#8203;**[自定义配置](#自定义配置)**，直接为我们使用的 Kestrel HTTP 服务器启用 HTTPS 端点，并且提供合适的 SSL 证书。 如果您没有运行任何其他 Web 服务器，并且也不打算单独为了 ASF 运行，我们更推荐这种方式。 否则，通过反向代理机制来达成目标要容易得多。
+Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. 如果您没有运行任何其他 Web 服务器，并且也不打算单独为了 ASF 运行，我们更推荐这种方式。 否则，通过反向代理机制来达成目标要容易得多。
 
-* * *
+---
 
 ## 自定义配置
 
@@ -224,11 +224,11 @@ server {
 
 `Endpoints`——这是端点的集合，每个端点都有自己的唯一名称（例如 `example-http4`） 和 `Url` 属性指定监听地址，其格式为 `Protocol://Host:Port`。 默认情况下，ASF 会监听 IPv4 和 IPv6 的 HTTP 地址，但如果您需要，也可以参考我们的示例设置 HTTPS。 您应该只声​​明您需要的端点，我们在上面包含了 4 个示例端点，以便您可以更轻松地编辑它们。
 
-`Host` 接受各种合适的值，包括 `*` 值表示将 ASF HTTP 服务端绑定到所有可用的网络接口 在使用允许远程访问的 `Host` 值时要格外小心。 这样做将会允许其他机器访问 ASF 的 IPC 接口，这可能会带来安全风险。 在这种情况下，我们强烈建议您**至少**设置 `IPCPassword`（并且启用防火墙）。
+`Host` 接受各种合适的值，包括 `*` 值表示将 ASF HTTP 服务端绑定到所有可用的网络接口 在使用允许远程访问的 `Host` 值时要格外小心。 这样做将会允许其他机器访问 ASF 的 IPC 接口，这可能会带来安全风险。 We strongly recommend to use `IPCPassword` (and preferably your own firewall too) **at a minimum** in this case.
 
 `KnownNetworks`——此变量指定我们信任的网段。 这个属性非常重要，特别是在另一台机器的反向代理后部署 ASF 的时候——此时，您应该在这里声明对端机器的 IP 地址，使 ASF 信任它的 HTTP 代理头及其请求。 如果您不打算在反向代理后部署 ASF，或者反向代理与 ASF 在同一台机器上（即通过本地环回地址 `127.0.0.1` 与 ASF 的 IPC 通信），就不需要指定这个属性。 您需要对这里指定的网段极为小心，因为一旦可信机器被破坏，或该属性配置错误，就可能导致潜在的 IP 欺骗攻击。
 
-`PathBase`——这是 IPC 接口使用的根路径。 这个属性是可选的，默认是 `/`，并且在大多数情况下没有必要修改。 通过修改这个属性，您可以为整个 IPC 接口设置自定义前缀，例如以 `http://localhost:1242/MyPrefix` 代替 `http://localhost:1242`。 如果您希望仅代理特定的 URL，使用自定义 `PathBase` 还需要结合特定的反向代理设置，例如代理 `mydomain.com/ASF` 而不是整个 `mydomain.com` 域名。 原本，您需要为您的 Web 服务器编写一个重写规则，将 `mydomain.com/ASF/Api/X` 映射到 `localhost:1242/Api/X`，但通过将 `PathBase` 设置为 `/ASF`，您可以更简单地实现从 `mydomain.com/ASF/Api/X` 到 `localhost:1242/ASF/Api/X` 的映射。
+`PathBase`——这是 IPC 接口使用的根路径。 这个属性是可选的，默认是 `/`，并且在大多数情况下没有必要修改。 通过修改这个属性，您可以为整个 IPC 接口设置自定义前缀，例如以 `http://localhost:1242/MyPrefix` 代替 `http://localhost:1242`。 如果您希望仅代理特定的 URL，使用自定义 `PathBase` 还需要结合特定的反向代理设置，例如代理 `mydomain.com/ASF` 而不是整个 `mydomain.com` 域名。 Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
 
 除非您确实需要指定自定义根路径，否则最好将其保留为默认值。
 

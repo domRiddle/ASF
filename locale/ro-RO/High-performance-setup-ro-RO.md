@@ -2,11 +2,11 @@
 
 Acest lucru este exact opusul **[setării cu memorie mică](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** și de obicei doriți să urmați aceste sfaturi dacă doriți să creșteți în continuare performanța ASF (în termeni de viteză CPU), cu potențialul cost de utilizare crescută a memoriei.
 
-* * *
+---
 
 ASF încearcă deja să prefere performanța în ceea ce privește reglarea generală echilibrată; prin urmare nu puteţi face multe pentru a-i creşte performanţa, deși aveţi anumite opţiuni care pot fi configurate. Cu toate acestea, aveți în vedere faptul că aceste opțiuni nu sunt activate în mod implicit, ceea ce înseamnă că nu sunt suficient de bune pentru a le considera echilibrate pentru majoritatea utilizărilor; de aceea trebuie să vă decideţi dacă creşterea memoriei indusă de acestea este acceptabilă pentru dumneavoastră.
 
-* * *
+---
 
 ## Reglaj Runtime (avansat)
 
@@ -32,7 +32,7 @@ Server GC itself does not result in a very huge memory increase by just being ac
 
 However, if memory is not a problem for you (as GC still takes into account your available memory and tweaks itself), it's a much better idea to not change those properties at all, achieving superior performance in result.
 
-* * *
+---
 
 You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
@@ -50,7 +50,7 @@ $Env:COMPlus_gcServer=1
 .\ArchiSteamFarm.exe # For OS-specific build
 ```
 
-* * *
+---
 
 ## Recommended optimization
 

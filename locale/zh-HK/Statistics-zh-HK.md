@@ -4,7 +4,7 @@ ASF 開發的主要支援來自三個渠道：捐贈、用戶回饋和統計資�
 
 ASF在全域配置中預設啟用`統計資訊`。 如果您想見證新版本發佈，錯誤修復，新功能實現，您應該考慮保持統計功能啟用，所以我們可以利用這些數據，以便為您提供更好的軟件（但不僅如此）。 這一點尤為重要，因為 ASF 是**免費**的，但您總是可以表達一些小小謝意—— **告訴我們您在使用ASF **，因為這是我們目前主要統計的數據。 ASF 並不會收集或利用任何可能被視為個人隱私和/或針對您的數據。 我們將統計資料的使用保持在最低限度，我們所收集的每一個資訊會在這裡準確地陳述，並作出實際解釋。 這讓您充分瞭解我們收集的東西、目的是什麼，以及應該如何協助。 所有這些資訊都可以在下面找到。
 
-* * *
+---
 
 ## 當前隱私政策
 
@@ -18,40 +18,40 @@ ASF在全域配置中預設啟用`統計資訊`。 如果您想見證新版本�
 
 我們認為 Steam 群組是 ASF 社區的關鍵部分。 This is our main communication channel which we use for all important matters in regards to ASF, especially keeping you up-to-date with the development, potential issues, eventual warnings and all other matters that you should have access to as an user. 我們不會從該群組的維護中受益，它是專門支援 ASF 用戶的地方，我們認為您是我們社區的一部分。 由於該組的成員資格絕不表明您是 ASF 使用者，因此我們不認為這是隱私方面的問題。
 
-2. 如果您的帳戶**[未受限](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**，啓用**[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**，**[物品庫隱私為公開](https://steamcommunity.com/my/edit/settings)**且擁有大於100個符合`MatchableTypes`類型的物品，並在`TradingPreferences`中啓用了`SteamTradeMatcher`，那麽ASF將定期與我們的**[伺服器](https://asf.justarchi.net)**通信以實現此功能。 實際資料由唯一的 ASF ID（由ASF生成）和以下與帳戶相關的資訊組成：
+2. If your account is **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**, has **[public inventory](https://steamcommunity.com/my/edit/settings)** with at least 100 `MatchableTypes` items in it and you intentionally enabled `SteamTradeMatcher` in your `TradingPreferences`, then ASF will periodically communicate with our **[server](https://asf.justarchi.net)** in order to fulfill the enabled functionality. 實際資料由唯一的 ASF ID（由ASF生成）和以下與帳戶相關的資訊組成：
 
 * Your Steam identificator (in 64-bit form, for generating links, public info)
 * Your nickname (for display purposes, public info)
 * Your avatar (hash, for display purposes, public info)
-* 您的**[交易代碼](https://steamcommunity.com/my/tradeoffers/privacy)**（用於允許不在您好友名單中的用戶對您發起交易）
+* Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
 * 您的 `匹配類型`（用於顯示和匹配）
 * 您在`TradingPreferences`中設置 的`MatchEverything`的值（用於顯示和匹配）
 * 您庫存里符合`MatchableTypes`的 Steam 物品總數量（用於顯示和匹配）
 * 符合`MatchableTypes`的 Steam 物品所屬遊戲總數（用於顯示和匹配）
 
-ASF **不會**收集任何其他上述清單之外的數據，因此這一點不會在更改日誌中另行通知。 我們不認為上述任何事情應該被嚴肅地看待，我們提到它是為了讓您知道ASF在您自己配置的內容中做了什麼，因此人們可以更好地理解我們的觀點。
+ASF will **not** collect any other non-listed-above data without prior important notice in the changelog, and a very good practical reason in the first place. 我們不認為上述任何事情應該被嚴肅地看待，我們提到它是為了讓您知道ASF在您自己配置的內容中做了什麼，因此人們可以更好地理解我們的觀點。
 
-* * *
+---
 
 # 數據使用方式
 
-在第二點中提到的所有值都用於我們的 **公開 ASF STM 清單**，這將在下面解釋。 我們不會將任何其他數據用於任何其他目的。
+All values specified in second point are being used for our **Public ASF STM listing**, which is explained below. 我們不會將任何其他數據用於任何其他目的。
 
-* * *
+---
 
 ## 公開 ASF STM 清單
 
-我們的公開 ASF STM 清單位于**[此處](https://asf.justarchi.net/STM)**，它被用作使用` MatchActively `的ASF用戶的公共服務，以及幫助ASF和非ASF用戶進行手動匹配。
+Our public ASF STM listing is located on **[our website](https://asf.justarchi.net/STM)** and used as a public service for both ASF users that make use of `MatchActively`, as well as ASF and non-ASF users for manual matching.
 
 ### 工作原理
 
 登錄後，ASF 會發送一次初始數據，其中包含公開清單會使用的所有屬性。 然後，每10分鐘，ASF 發送一個非常小的心跳請求，通知我們的伺服器機械人仍在運行。 如果由於某種原因心跳訊號沒有到達，例如由於網絡問題，ASF 將每分鐘重試發送一次，直到伺服器註冊它。
 
-這允許我們的網站記錄哪些帳戶可用於匹配，以及它們是否仍處於活動狀態。 多虧了這一點，我們的網站可以顯示在**過去15分鐘**中活躍的所有啟用 ASF 2FA 和 STM 的帳戶。
+這允許我們的網站記錄哪些帳戶可用於匹配，以及它們是否仍處於活動狀態。 Thanks to that, our website can show all ASF 2FA+STM accounts that were active in **last 15 minutes**.
 
 用戶按照他們的庫存（按降序排序）——首先是` MatchEverything `機械人，`Any`橫幅意味著它接受所有1：1交易，然後是符合` MatchableTypes `的遊戲計數，最後是符合` MatchableTypes `的物品計數。
 
-請注意，如果您未符合所有要求，您將**不會**在網站上顯示 。 在這種情況下，ASF甚至不會費心與我們的服務器通信，因此，如果您沒有啟用` SteamTradeMatcher `以幫助自己匹配冗餘物品，則會完全跳過第二點。 Also public listing is compatible only with latest stable version of ASF and may refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
+Please note that you will **not** be displayed on the website if you do not meet all of the requirements. 在這種情況下，ASF甚至不會費心與我們的服務器通信，因此，如果您沒有啟用` SteamTradeMatcher `以幫助自己匹配冗餘物品，則會完全跳過第二點。 Also public listing is compatible only with latest stable version of ASF and may refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
 
 ### API
 
@@ -63,7 +63,7 @@ ASF STM 清單暫時只接受 ASF 機械人。 目前無法在我們的清單中
 
 *整個概念，網站集成以及 ASF 報表仍處於測試階段——可能隨著時間的推移進行更新/删除（一旦我們覺得對某功能沒有足夠的興趣，就會將其刪除）。*
 
-* * *
+---
 
 ## 選擇退出權
 

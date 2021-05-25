@@ -2,7 +2,7 @@
 
 A partir de ASF V3.1.2.2, seguiremos una política de obsolescencia consistente para hacer tanto el desarrollo como el uso mucho más congruentes.
 
-* * *
+---
 
 ## ¿Qué es la obsolescencia?
 
@@ -10,7 +10,7 @@ La obsolescencia es el proceso de hacer cambios pequeños o grandes que vuelven 
 
 ASF cambia rápidamente y siempre busca mejorar. Esto lamentablemente significa que podemos cambiar o mover alguna funcionalidad existente a otro segmento del programa para que se beneficie de nuevas características, compatibilidad o estabilidad. Gracias a eso no necesitamos apegarnos a decisiones de desarrollo obsoletas o simplemente equivocadas que hayamos tomado hace años. Siempre intentamos proporcionar un reemplazo razonable que se ajuste al uso de funcionalidades previamente disponibles, por lo cual la obsolescencia es mayormente inofensiva y requiere pequeños arreglos a lo que se usaba con anterioridad.
 
-* * *
+---
 
 ## Etapas de obsolescencia
 
@@ -26,7 +26,7 @@ Durante esta etapa, ASF mostrará la advertencia respectiva cuando se use una fu
 
 La etapa 2 está programada después de que la etapa 1 se produzca y sea publicada en una versión estable. Esta etapa introduce la completa eliminación de la característica obsoleta, lo que significa que ASF ni siquiera reconocerá que estás intentando usar una característica obsoleta, mucho menos respetarla, ya que simplemente no existe en el código actual. ASF ya no mostrará ninguna advertencia, porque ya no reconoce lo que estás intentando hacer.
 
-* * *
+---
 
 ## Sumario
 
@@ -34,7 +34,7 @@ Tienes más o menos un **mes completo** para hacer el cambio correspondiente, lo
 
 En la mayoría de los casos, ignorar la advertencia de obsolescencia no hará que la funcionalidad general de ASF se vuelva inutilizable, sino más bien regresará al comportamiento por defecto (lo que puede o no coincidir con tus preferencias personales).
 
-* * *
+---
 
 ## Ejemplo
 

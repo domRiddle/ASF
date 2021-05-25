@@ -2,7 +2,7 @@
 
 ASF V4 ile başlarken, programın kendisi runtime sırasında özel eklentiler için destek vermeyi içermektedir. Eklentiler ASF'in davranışlarını özelleştirmeye yarar, örnek olarak özel komutlar ekleyerek, özel takas mantığı ekleyerek veya üçüncü parti servisleri ve uygulama programlama arayüzü ile entegrasyon ekleyerek.
 
-* * *
+---
 
 ## Kullanıcılar için
 
@@ -16,13 +16,13 @@ Eğer eklenti başarılı bir şekilde yüklendi ise, çıktıda ismini ve versi
 
 **Lütfen ASF eklentilerinin kötü amaçlı olabileceğini unutmayın.**. Her zaman güvenebileceğiniz geliştiriciler tarafından yapılan eklentileri kullandığınızdan emin olmalısınız. Herhangi bir özel eklenti kullanmaya karar verirseniz, ASF geliştiricileri artık size normal ASF avantajlarını (kötü amaçlı yazılımın olmaması veya VAC'siz olmama gibi şeyleri) garanti edemez. Ayrıca, ham ASF kodunu çalıştırmadığınız için özel eklentileri kullanan kurulumları da destekleyemiyoruz.
 
-* * *
+---
 
 ## Geliştiriciler için
 
 Eklentiler, ASF ile ortak `IPlugin` arayüzünü devralan standart .NET kütüphaneleridir. Eklentileri ana hatları ASF'den tamamen bağımsız olarak geliştirebilir ve API(Uygulama Programlama Arayüzü) uyumlu kaldığı sürece bunları mevcut ve gelecekteki ASF sürümlerinde yeniden kullanabilirsiniz. ASF'de kullanılan eklenti sistemi, daha önce **[Yönetilen Genişletilebilirlik Çerçevesi](https://docs.microsoft.com/dotnet/framework/mef)** olarak bilinen ve ASF'in runtime sırasında kitaplıklarınızı keşfetmesine ve yüklemesine olanak tanıyan `System.Composition` 'a dayanır.
 
-* * *
+---
 
 ### Başlarken
 
@@ -81,23 +81,23 @@ dotnet publish -c "Release" -o "out"
 dotnet publish YourPluginName -c "Release" -o "out"
 ```
 
-Daha sonra eklentiniz dağıtım için hazırdır. Eklentinizi tam olarak nasıl dağıtmak ve yayınlamak istediğiniz size kalmış, ancak `Calisma AlaniIsmi.EklentiIsminiz` adlı tek bir klasörle bir zip arşivi oluşturmanızı öneririz.**[Gereksinimler](#plugin-dependencies)**. Bu şekilde kullanıcının zip arşivinizi `plugins` dizinine açması yeterli olacaktır.
+Daha sonra eklentiniz dağıtım için hazırdır. It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its **[dependencies](#plugin-dependencies)**. Bu şekilde kullanıcının zip arşivinizi `plugins` dizinine açması yeterli olacaktır.
 
-Bu, başlamanıza yardımcı olacak en basit senaryodur. Yardımcı yorumlar da dahil olmak üzere kendi eklentiniz içinde yapabileceğiniz örnek arayüzleri ve eylemleri gösteren **[`OrnekEklenti`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** projemiz var. Çalışan bir koddan öğrenmek isterseniz göz atmaya çekinmeyin, veya `ArchiSteamFarm.Plugins` ad alanını kendiniz keşfedin ve mevcut tüm seçenekler için birlikte verilen belgelere bakın.
+Bu, başlamanıza yardımcı olacak en basit senaryodur. We have **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Çalışan bir koddan öğrenmek isterseniz göz atmaya çekinmeyin, veya `ArchiSteamFarm.Plugins` ad alanını kendiniz keşfedin ve mevcut tüm seçenekler için birlikte verilen belgelere bakın.
 
-Örnek eklentiler yerine gerçek projelerden öğrenmek istiyorsanız, bizim tarafımızdan geliştirilen **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** eklentisi var, ASF ile birlikte paketlenmiş bir eklenti. Buna ek olarak, **[üçüncü-taraf](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** bölümümüzde diğer geliştiriciler tarafından geliştirilen eklentiler de var.
+If instead of example plugins you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. In addition to that, there are also plugins developed by other developers, in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
 
-* * *
+---
 
 ### API kullanılabilirliği
 
 ASF, arabirimlerde eriştiğiniz şeylerin yanı sıra, işlevselliği genişletmek için kullanabileceğiniz birçok dahili API'yi size sunar. Örneğin, Steam web'e bir tür yeni istek göndermek istiyorsanız, her şeyi en baştan uygulamanıza gerek yoktur, özellikle de sizden uğraşmak zorunda olduğumuz tüm sorunlarla. Sizin için kimlik doğrulama, oturum yenileme veya web sınırlama gibi daha düşük seviyeli şeyleri idare ederek, kullanmanız için halihazırda birçok `UrlWithSession()` yöntemini açığa çıkaran `Bot.ArchiWebHandler` kullanın. Benzer şekilde, Steam platformu dışında web istekleri göndermek için standart .NET `HttpClient` sınıfını kullanabilirsiniz, ancak sizin için mevcut olan `Bot.ArchiWebHandler.WebBrowser`'i kullanmak çok daha iyi bir fikirdir, bu da size bir kez daha yardımcı bir el sunar, örneğin gönderdiğiniz başarısız istekleri yeniden denemesi gibi.
 
-API kullanılabilirliğimiz açısından çok açık bir politikamız var, bu nedenle ASF kodunun zaten içerdiği bir şeyden yararlanmak istiyorsanız, **[bir sorun açın](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** ve planlanan kullanım durumunuzu açıklayın. ASF'in dahili API'si dahilinde. Kullanım durumunuz mantıklı olduğu sürece, büyük olasılıkla buna karşı bir şeyimiz olmayacak. Birinin kullanmak istediği her şeyi açmamız imkansız, bu yüzden bizim için en mantıklı olanı açtık ve henüz `herkese açık olmayan` bir şeye erişmek istemeniz durumunda isteklerinizi bekliyoruz. Bu aynı zamanda, mevcut işlevselliği genişletmek için eklenmesi anlamlı olabilecek yeni `IPlugin` arabirimleriyle ilgili tüm önerileri de içerir.
+We have a very open policy in terms of our API availability, so if you'd like to make use of something that ASF code already includes, simply **[open an issue](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** and explain in it your planned use case of our ASF's internal API. Kullanım durumunuz mantıklı olduğu sürece, büyük olasılıkla buna karşı bir şeyimiz olmayacak. Birinin kullanmak istediği her şeyi açmamız imkansız, bu yüzden bizim için en mantıklı olanı açtık ve henüz `herkese açık olmayan` bir şeye erişmek istemeniz durumunda isteklerinizi bekliyoruz. Bu aynı zamanda, mevcut işlevselliği genişletmek için eklenmesi anlamlı olabilecek yeni `IPlugin` arabirimleriyle ilgili tüm önerileri de içerir.
 
 Aslında, dahili ASF'in API'si, eklentinizin yapabilecekleri açısından tek gerçek sınırlamadır. Örnek olarak sizi hiçbir şey uygulamanıza `Discord.Net` kitaplığı dahil etmek ve Discord botunuz ile ASF komutları arasında bir köprü oluşturmaktan alı koyamaz, çünkü eklentinizin kendi başına gereksinimleri olabilir. İmkanlar sonsuzdur, ve eklentiniz dahilinde size olabildiğince fazla özgürlük ve esneklik sağlamak için elimizden gelenin en iyisini yaptık. yani hiçbir şeyde yapay bir sınır yok, sadece eklenti geliştirmeniz için hangi ASF parçalarının çok önemli olduğundan tam olarak emin değiliz (bunu bize bildirerek çözebilirsiniz ve bu olmadan bile ihtiyacınız olan işlevselliği her zaman yeniden uygulayabilirsiniz).
 
-* * *
+---
 
 ### API uyumluluğu
 
@@ -105,7 +105,7 @@ ASF'in bir tüketici uygulaması olduğunu ve koşulsuz olarak güvenebileceğin
 
 ASF'in herkese açık kısımlarını çalışır durumda ve istikrarlı tutmak için elimizden gelenin en iyisini yapacağız, ancak süreçte **[kullanımdan kaldırma](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)** politikamızı izleyerek yeterince iyi nedenler ortaya çıkarsa uyumluluğu bozmaktan korkmayacağız. Bu, ASF altyapısının bir parçası olarak size maruz kalan ve yukarıda açıklanan(örneğin `ArchiWebHandler`) ve ASF geliştirmelerinin bir parçası olarak iyileştirilebilen (ve dolayısıyla yeniden yazılan) dahili ASF yapıları açısından özellikle önemlidir gelecek sürümlerin bir parçası olarak. Değişiklik kayıtlarında sizi uygun şekilde bilgilendirmek için elimizden gelenin en iyisini yapacağız ve eski özellikler hakkında çalışma süresi boyunca uygun uyarıları dahil edeceğiz. Yeniden yazma uğruna her şeyi yeniden yazma niyetinde değiliz, bu nedenle bir sonraki küçük ASF sürümünün yalnızca daha yüksek bir sürüm numarasına sahip olduğu için eklentinizi tamamen yok etmeyeceğinden emin olabilirsiniz, ancak değişiklik kayıtlarına göz atıp her şeyin yolunda olup olmadığını kontrol etmek iyi bir fikirdir.
 
-* * *
+---
 
 ### Eklenti gereksinimleri
 
@@ -119,7 +119,7 @@ Genel olarak, yalnızca ASF'in içermediği veya yanlış/uyumsuz sürüme sahip
 
 Yukarıdaki ifade konusunda kafanız karıştıysa ve daha iyisini bilmiyorsanız, `ASF-generic.zip` paketine hangi `dll` kitaplıklarının dahil edildiğini kontrol edin ve eklentinize zip dosyasının içinde dahil olmayan kitaplıkları ekleyin. Bu en basit eklentiler için yalnızca `EklentiIsminiz.dll` olacaktır. Runtime sırasında bazı kitaplıklarla ilgili herhangi bir sorunla karşılaşırsanız, etkilenen kitaplıkları da dahil edin. Bunlarda başarısız olursa, her şeyi bir araya getirmeye karar verebilirsiniz.
 
-* * *
+---
 
 ### Yerel gereksinimler
 

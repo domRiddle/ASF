@@ -3,7 +3,6 @@
 ASF prend en charge diverses commandes pouvant être utilisées pour contrôler le comportement du processus et des instances de bot.
 
 Les commandes ci-dessous peuvent être envoyées au bot de plusieurs manières différentes :
-
 - Via la console ASF interactive
 - Via le chat Steam (privé/groupe)
 - Via notre interface **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
@@ -12,7 +11,7 @@ N'oubliez pas que l'interaction ASF nécessite que vous soyez éligible pour la 
 
 Toutes les commandes ci-dessous sont affectées par `CommandPrefix` **[propriété de configuration globale](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, qui est `!` par défaut. Cela signifie que pour exécuter par exemple `status`, vous devez écrire `!Status` (ou un ` préfixe de commande personnalisé` de votre choix que vous avez défini à la place). `CommandPrefix` n'est pas obligatoire lorsque vous utilisez la console ou l'IPC, et peut être omis.
 
-* * *
+---
 
 ### Console interactive
 
@@ -22,7 +21,7 @@ A partir de V4.0.0.9, ASF est compatible avec la console interactive, qui peut �
 
 La console interactive n'est pas disponible en mode [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) .
 
-* * *
+---
 
 ### Steam chat
 
@@ -36,7 +35,7 @@ Veuillez noter que l'envoi d'une commande au chat de groupe agit comme un relais
 
 *Et même dans ce cas, vous devriez plutôt utiliser le chat privé avec la syntaxe `[Bots]`.*
 
-* * *
+---
 
 ### IPC
 
@@ -44,7 +43,7 @@ La manière la plus avancée et la plus souple d’exécution de commandes, idé
 
 ![Capture d"écran](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
-* * *
+---
 
 ## Commandes
 
@@ -86,10 +85,10 @@ La manière la plus avancée et la plus souple d’exécution de commandes, idé
 | `pause~ [Bots]`                                                      | `PartageFamilial` | Suspend temporairement le module de gestion automatique de cartes de certaines instances de bot. Le farming sera automatiquement reprise au prochain événement en cours de lecture ou à la déconnexion du bot. Vous pouvez `reprendre</ 0> le farming pour le suspendre.</td>
 </tr>
 <tr>
-  <td><code>pause& [Bots] <Seconds>` | `Opérateur` | Passe temporairement en pause le module de gestion automatique des cartes des instances de bot pour une de ` secondes </ 0> indiquée. Après un délai, le module de farming des cartes est automatiquement repris.</td>
+  <td><code>pause& [Bots] <Seconds>` | `Opérateur` | Passe temporairement en pause le module de gestion automatique des cartes des instances de bot  pour une de ` secondes </ 0> indiquée. Après un délai, le module de farming des cartes est automatiquement repris.</td>
 </tr>
 <tr>
-  <td><code>play [Bots] <AppIDs,GameName>` | `Maître` | Bsculement vers le farming manuell - lancez `AppIDs` sur des instances de bot, éventuellement avec ` GameName </ 0> de façcon personnalisé. In order for this feature to work properly, your Steam account <strong>must</strong> own a valid license to all the <code>AppIDs` that you specify here, this includes F2P games as well. Utilisez `reset` ou `resume` pour retourner. |
+  <td><code>play [Bots] <AppIDs,GameName>` | `Maître` | Bsculement vers le farming manuell - lancez `AppIDs`  sur des instances de bot, éventuellement avec ` GameName </ 0> de façcon personnalisé. In order for this feature to work properly, your Steam account <strong x-id="1">must</strong> own a valid license to all the <code>AppIDs` that you specify here, this includes F2P games as well. Utilisez `reset` ou `resume` pour retourner. |
 | `privacy [Bots] <Settings>`                                    | `Maître`          | Remplace **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)** d’instances de bot données par des options correctement sélectionnées, expliquées **[ci-dessous](#privacy-settings)**.                                                                                                                                                 |
 | `redeem [Bots] <Keys>`                                         | `Opérateur`       | Réclame les clés cd ou les codes de portefeuille Steam dans les instances de bots données.                                                                                                                                                                                                                                                                |
 | `redeem^ [Bots] <Modes> <Keys>`                          | `Opérateur`       | Utilise des clés cd ou des codes de portefeuille Steam sur des instances de bots données, en utilisant les `modes` expliqué **[ci-dessous](#redeem-modes)**.                                                                                                                                                                                              |
@@ -105,10 +104,10 @@ La manière la plus avancée et la plus souple d’exécution de commandes, idé
 | `transfer% [Bots] <AppIDs> <TargetBot>`                  | `Maître`          | Sends all `TransferableTypes` Steam community items apart from given `AppIDs` from given bot instances to target bot instance. This is the opposite of `transfer@`.                                                                                                                                                                                       |
 | `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Maître`          | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot instance.                                                                                                                                                                                                                                                    |
 | `unpack [Bots]`                                                      | `Maître`          | Déballé tous les boosters packs stockés dans l'inventaire d'instances de bot données.                                                                                                                                                                                                                                                                     |
-| `update`                                                             | `Propriétaire`    | Vérifie les mises à jour ASF de GitHub (cette opération est effectuée automatiquement toutes les heures si `UpdatePeriod` ).                                                                                                                                                                                                                              |
+| `update`                                                             | `Propriétaire`    | Vérifie les mises à jour ASF de GitHub (cette opération est effectuée automatiquement toutes les  heures si `UpdatePeriod` ).                                                                                                                                                                                                                             |
 | `version`                                                            | `PartageFamilial` | Imprimer la version d'ASF.                                                                                                                                                                                                                                                                                                                                |
 
-* * *
+---
 
 ### Remarques
 
@@ -120,13 +119,13 @@ Toutes les commandes sont sensibles à la case, mais leurs arguments (tels que l
 
 Plural arguments, such as `[Bots]`, `<Keys>` or `<AppIDs>` mean that command supports multiple arguments of given type, separated by a comma. For example, `status [Bots]` can be used as `status MyBot,MyOtherBot,Primary`. Ainsi, la commande donnée sera exécutée sur ** tous les bots cibles </ 0> de la même manière que si vous envoyiez ` status </ 1> à chaque bot dans une fenêtre de discussion distincte. Veuillez noter qu'il n'y a pas d'espace après <code>, </ 0>.</p>
 
-<p>ASF utilise tous les caractères de ponctuation comme délimiteurs possibles pour une commande, tels que les caractères de ponctuation et de nouvelle ligne. Cela signifie que vous ne devez pas utiliser d'espace pour délimiter vos arguments, vous pouvez également utiliser n'importe quel autre caractère de ponctuation (tel que tabulation ou nouvelle ligne).</p>
+<p spaces-before="0">ASF utilise tous les caractères de ponctuation comme délimiteurs possibles pour une commande, tels que les caractères de ponctuation et de nouvelle ligne. Cela signifie que vous ne devez pas utiliser d'espace pour délimiter vos arguments, vous pouvez également utiliser n'importe quel autre caractère de ponctuation (tel que tabulation ou nouvelle ligne).</p>
 
-<p>ASF "joindra" des arguments supplémentaires hors de la plage au type pluriel du dernier argument de la gamme. This means that <code>redeem bot key1 key2 key3` for `redeem [Bots] <Keys>` will work exactly the same as `redeem bot key1,key2,key3`. En même temps que l’acceptation de newline en tant que délimiteur de commande, cela vous permet d’écrire `redeem bot`, puis de coller une liste de clés séparées par tout caractère séparateur acceptable (tel que newline) ou standard `,` délimiteur ASF. Keep in mind that this trick can be used only for command variant that uses the most amount of arguments (so specifying `[Bots]` is mandatory in this case).</p> 
+<p spaces-before="0">ASF "joindra" des arguments supplémentaires hors de la plage au type pluriel du dernier argument de la gamme. This means that <code>redeem bot key1 key2 key3` for `redeem [Bots] <Keys>` will work exactly the same as `redeem bot key1,key2,key3`. En même temps que l’acceptation de newline en tant que délimiteur de commande, cela vous permet d’écrire `redeem bot`, puis de coller une liste de clés séparées par tout caractère séparateur acceptable (tel que newline) ou standard `,` délimiteur ASF. Keep in mind that this trick can be used only for command variant that uses the most amount of arguments (so specifying `[Bots]` is mandatory in this case).</p>
 
 Comme vous l'avez lu plus haut, un caractère d'espacement est utilisé comme délimiteur pour une commande. Par conséquent, il ne peut pas être utilisé dans les arguments. Toutefois, comme indiqué ci-dessus, ASF peut également joindre des arguments hors de portée, ce qui signifie que vous pouvez réellement utiliser un caractère d'espacement dans un argument défini comme dernier pour une commande donnée. Par exemple, `nickname bob Great Bob` définit correctement le surnom de ` bob` à "Great Bob". De la même manière, vous pouvez vérifier les noms contenant des espaces dans `owns`.
 
-* * *
+---
 
 Certaines commandes sont également disponibles avec leurs alias, pour vous éviter de taper:
 
@@ -137,7 +136,7 @@ Certaines commandes sont également disponibles avec leurs alias, pour vous évi
 | `redeem`     | `r`   |
 | `redeem^`    | `r^`  |
 
-* * *
+---
 
 ### `[Bots]` argument
 
@@ -149,11 +148,11 @@ Tout d’abord, il y a le mot-clé `ASF` spécial qui sert pour « tous les bot
 
 In addition to range syntax above, `[Bots]` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. Vous pouvez activer le motif de regex en utilisant `r!<pattern>` comme nom de bot, où `r!` est un activateur ASF pour la correspondance de regex et `<pattern>` votre motif de regex. Un exemple de commande de bot basé sur regex serait ` status r! \ D {3} ` qui enverra la commande ` status ` aux bots dont le nom est composé de 3 chiffres ( par exemple ` 123 ` et ` 981 `). N’hésitez pas à jeter un oeil à la **[documentation](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** pour plus d’explications et plus d’exemples de modèles regex disponibles.
 
-* * *
+---
 
 ## ` Paramètres de confidentialité </ 0></h2>
 
-<p><code><Settings>`argument accepté **jusqu'à 7**différentes options, séparées comme d'habitude avec le séparateur ASF standard par virgule. Ce sont, dans l'ordre:</p> 
+<p spaces-before="0"><code><Settings>`argument accepté **jusqu'à 7**différentes options, séparées comme d'habitude avec le séparateur ASF standard par virgule. Ce sont, dans l'ordre:</p>
 
 | Argument | Nom            | Verrouillage |
 | -------- | -------------- | ------------ |
@@ -175,7 +174,7 @@ Tandis que les valeurs valides pour tous sont:
 | 2       | `AmisSeulement` |
 | 3       | `Publique`      |
 
-Vous pouvez utiliser un nom ne tenant pas compte de la casse ou une valeur numérique. Les arguments qui ont été omis seront par défaut définis sur ` Privé </ 0>. Il est important de noter la relation entre l'enfant et le parent des arguments spécifiés ci-dessus, car l'enfant ne peut jamais avoir plus de permission ouverte que ses parent. Par exemple, vous <strong> ne pouvez pas </strong> posséder des jeux <code> publics ` avec un profil ` privé `.
+Vous pouvez utiliser un nom ne tenant pas compte de la casse ou une valeur numérique. Les arguments qui ont été omis seront par défaut définis sur ` Privé </ 0>. Il est important de noter la relation entre l'enfant et le parent des arguments spécifiés ci-dessus, car l'enfant ne peut jamais avoir plus de permission ouverte que ses parent. Par exemple, vous <strong x-id="1"> ne pouvez pas </strong> posséder des jeux <code> publics ` avec un profil ` privé `.
 
 ### Exemple
 
@@ -203,7 +202,7 @@ Ce qui précède définira le profil comme public, les jeux appartenant à seule
 
 Rappelez-vous que l'enfant ne peut jamais avoir plus de permission ouverte que ses parent. Reportez-vous aux arguments pour les options disponibles.
 
-* * *
+---
 
 ## `addlicense` licenses
 
@@ -224,7 +223,7 @@ Complete command example:
 addlicense ASF app/292030,sub/47807
 ```
 
-* * *
+---
 
 ## `owns` games
 
@@ -245,13 +244,13 @@ Complete command example:
 owns ASF app/292030,name/Witcher
 ```
 
-* * *
+---
 
 ## Modes `redeem^`
 
-La commande `redeem^</ 0> vous permet d’affiner les modes qui seront utilisés pour un scénario d’échange unique. Cela fonctionne comme une substitution temporaire de <code> RedeemingPreferences </ 0> <strong><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config"> une propriété de configuration du bot </ 1>.</p>
+La commande `redeem^</ 0> vous permet d’affiner les modes qui seront utilisés pour un scénario d’échange unique. Cela fonctionne comme une substitution temporaire de <code> RedeemingPreferences </ 0> <strong x-id="1"><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config"> une propriété de configuration du bot </ 1>.</p>
 
-<p>L'argument <code><Modes>` accepte plusieurs valeurs de mode, séparées comme d'habitude par une virgule. Les valeurs de mode disponibles sont spécifiées ci-dessous:
+<p spaces-before="0">L'argument <code><Modes>` accepte plusieurs valeurs de mode, séparées comme d'habitude par une virgule. Les valeurs de mode disponibles sont spécifiées ci-dessous:
 
 | Valeur  | Nom                   | Description                                                                             |
 | ------- | --------------------- | --------------------------------------------------------------------------------------- |
@@ -272,19 +271,19 @@ Par exemple, nous aimerions échanger 3 clés sur n’importe quel de nos bots n
 
 Il est important de noter que le mode de récupération avancée va passer outre les `RedeemingPreferences` que vous avez **spécifiées dans la commande**. Par exemple, si vous avez activé `Distributing` dans vos `RedeemingPreferences`, il n'y aura pas de différence si vous utilisez le mode `FD` ou non, car le Distributing sera déja activé, du aux `RedeemingPreferences` que vous utilisez. C'est pourquoi chaque fois qu'un paramètre peut être forcé, il y a aussi la possibilité de forcer son arrêt.
 
-* * *
+---
 
 ## `encrypt` command
 
 `encrypt` command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` must be one of the encryption methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
-* * *
+---
 
 ## `hash` command
 
 `hash` command allows you to generate hashes of arbitrary strings using ASF's hashing methods. `<hashingMethod>` must be one of the hashing methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
-* * *
+---
 
 ## Commande `input`
 
@@ -297,7 +296,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 | Type                    | Description                                                                                |
 | ----------------------- | ------------------------------------------------------------------------------------------ |
 | Login                   | `SteamLogin` propriété de config bot, si absente de config.                                |
-| Mot de passe            | `SteamPassword` propriété de config bot, si absente de config.                             |
+| Password                | `SteamPassword` propriété de config bot, si absente de config.                             |
 | SteamGuard              | Code d'authentification envoyé sur votre courrier électronique si vous n'utilisez pas 2FA. |
 | SteamParentalCode       | `SteamParentalCode` propriété de config bot, si absente de config.                         |
 | TwoFactorAuthentication | Jeton 2FA généré à partir de votre mobile, si vous utilisez 2FA mais pas ASF 2FA.          |
@@ -310,10 +309,10 @@ Disons que nous avons un bot protégé par SteamGuard en mode non-2FA. We want t
 
 Pour ce faire, nous devons exécuter les commandes suivantes:
 
-` start MySteamGuardBot` -> Le bot tentera de se connecter, échouera car un code d'authentification est requis, puis s'arrêtera en raison d'une exécution en mode `headless`. Nous en avons besoin pour que le réseau Steam nous envoie le code d'autorisation sur notre adresse électronique. Si cela n'était pas nécessaire, nous ignorerions cette étape.
+`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. Nous en avons besoin pour que le réseau Steam nous envoie le code d'autorisation sur notre adresse électronique. Si cela n'était pas nécessaire, nous ignorerions cette étape.
 
-`input MySteamGuardBot SteamGuard ABCDE` -> Nous mettons `SteamGuard` entrée de `MySteamGuardBot` bot à `ABCDE`. Bien entendu, ` ABCDE </ 0> est dans ce cas le code d'autorisation que nous avons reçu par courrier électronique.</p>
+`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Bien entendu, ` ABCDE </ 0> est dans ce cas le code d'autorisation que nous avons reçu par courrier électronique.</p>
 
-<p><code>start MySteamGuardBot` -> Nous redémarrons notre bot (arrêté). Cette fois, il utilise automatiquement le code d'autorisation que nous avons défini dans la commande précédente, en se connectant correctement, puis en l'effaçant.
+<p spaces-before="0"><code>start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
 
 De la même manière, nous pouvons accéder à des bots protégés par 2FA (s'ils n'utilisent pas ASF 2FA), ainsi que définir d'autres propriétés requises lors de l'exécution.

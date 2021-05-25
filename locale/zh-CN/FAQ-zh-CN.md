@@ -4,20 +4,18 @@
 
 # 目录
 
-- [基本问题](#基本问题)
-- [与类似工具的对比](#与类似工具的对比)
-- [安全/隐私/VAC/封禁/订户协议](#安全隐私vac封禁订户协议)
-- [杂项](#杂项)
-- [异常情况](#异常情况)
+* [基本问题](#general)
+* [与类似工具的对比](#comparison-with-similar-tools)
+* [安全/隐私/VAC/封禁/订户协议](#security--privacy--vac--bans--tos)
+* [杂项](#misc)
+* [议题](#issues)
 
-* * *
+---
 
 ## 基本问题
 
 ### 什么是 ASF？
-
 ### 为什么程序提示该帐户已经无卡可挂？
-
 ### 为什么我的帐户受到限制？
 
 在尝试了解 ASF 是什么之前，您应该首先了解什么是 Steam 集换式卡牌，以及如何获取它们，这在官方的&#8203;**[常见问题](https://steamcommunity.com/tradingcards/faq)**&#8203;中已有很好的解释。
@@ -46,7 +44,7 @@ ASF 通过我们内置的自定义 Steam 客户端实现，使用您提供的登
 
 总结一下——ASF 是一个帮助您轻松获得卡牌掉落的程序。 它还提供了一些其他功能，但目前我们只关注核心的挂卡功能。
 
-* * *
+---
 
 ### 我必须输入我的帐户凭据吗？
 
@@ -54,25 +52,25 @@ ASF 通过我们内置的自定义 Steam 客户端实现，使用您提供的登
 
 请记住，ASF 工具仅供您私人使用，您的帐户凭据永远不会离开您的计算机。 您也不应该将这些信息与任何人共享，因为这违反 **[Steam 订户协议](https://store.steampowered.com/subscriber_agreement)**——这是一份非常重要但是没人关心的法律文件。 您的信息不会被发送到我们的服务器或者第三方，而是直接发给由 Valve 控制的 Steam 服务器。 无论您是否写入配置文件，我们都无法获得您的帐户凭据，也无法为您恢复它们。
 
-* * *
+---
 
 ### 我需要花多少时间等待卡牌掉落？
 
 **挂卡需要花多长时间，您就需要等多久**——这并非玩笑。 每款游戏的挂卡难度是由其开发商或发行商设定的，只有他们才能决定卡牌掉落的速度。 大多数游戏是每隔大约 30 分钟掉落 1 张卡牌，但也有些游戏需要您玩上几个小时才会掉落卡牌。 此外，对于您没有玩足够时长的游戏，您的帐户可能被限制无法获得卡牌掉落，如&#8203;**[性能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**&#8203;章节所述。 请不要试图猜测 ASF 挂某个游戏所需的时间——您无法决定，ASF 也无法决定这一点。 您无法加快挂卡的速度，也没有卡牌“卡住”无法掉落的漏洞——您和 ASF 都无法控制卡牌掉落的过程。 在最好的情况下，您可以每隔平均 30 分钟获得 1 张卡牌。 在最差的情况下，您可能在启动 ASF 后的 4 小时内都没有获得任何卡牌。 这些情况都是正常的，并且已经在&#8203;**[性能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**&#8203;章节中解释。
 
-* * *
+---
 
 ### 挂卡时间太长了，怎样加快速度？
 
 能够严重影响挂卡速度的唯一因素是为机器人实例选择的&#8203;**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**。 其他因素的影响都是微不足道的，无法加快挂卡速度，而一些操作，例如多次重启 ASF 进程，甚至会**使情况更糟糕**。 如果您真的想要充分利用挂卡过程的每一秒钟，ASF 也允许您细致调整一些与挂卡有关的核心变量，例如 `FarmingDelay`——这些选项在&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;中都已作出解释。 但如我所述，这些效果是微不足道的，是否为您的帐户选择正确的挂卡算法是唯一能够严重影响挂卡速度的关键因素，其他因素都只是锦上添花。 您不需要过于担心挂卡速度，只需要运行 ASF 让它做好自己的工作——我保证这是我能想到的最有效率的挂卡方式。 您越不在乎，就越满意其结果。
 
-* * *
+---
 
 ### 但是 ASF 告诉我挂卡只需要用 X 这么长时间！
 
 ASF 根据您可掉落的卡牌数和您选择的挂卡算法给您一个粗略的近似时间——这与挂卡实际花费的时间无关，通常实际需要花费更长的时间，因为 ASF 会假设情况是最理想的，忽略所有 Steam 网络异常、互联网断开连接、Steam 服务器宕机等问题。 这可以作为一个指标，作为您期望的、理想情况下的 ASF 挂卡时间，因为实际情况会有所不同，甚至差别会非常大。 如上所述，不要试图猜测给定游戏的挂卡时间，您无法决定，ASF 也无法决定。
 
-* * *
+---
 
 ### ASF 可以在我的 Android/智能手机上运行吗？
 
@@ -80,41 +78,41 @@ ASF 是一个 C# 程序，需要安装正常工作的 .NET Core 环境实现。 
 
 很有可能我们能在未来看到有针对 Android 本身的 .NET Core 出现。
 
-* * *
+---
 
 ### ASF 可以挂游戏内物品吗，例如 CS:GO 或者 Unturned 的？
 
 **不**，这违反了 **[Steam 订户协议](https://store.steampowered.com/subscriber_agreement)**，Valve 曾经对挂机获得 TF2 物品的行为实施大规模社区封禁，因而明确指出了这一点。 ASF 是一个 Steam 挂卡程序，而非游戏物品挂机工具——它没有任何挂游戏物品的能力，也不计划在未来添加这一功能，主要原因是这种行为违反 Steam 的使用条款。 请不要问这个问题——您能获得的最好结果就是其他用户的举报，而您会陷入更大的麻烦。 所有其他类型的挂机也是如此，例如在 CS:GO 的直播中挂机获取物品。 ASF 仅仅关注 Steam 集换式卡牌。
 
-* * *
+---
 
 ### 我可以选择挂哪些游戏吗？
 
 **是的**，有几种方式可以做到。 如果您想调整挂卡队列的默认顺序，可以调整 `FarmingOrders` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**。 如果您希望手动禁用一些游戏的自动挂卡，可以使用 `ib` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;管理挂卡黑名单。 如果挂所有游戏对您来说没问题，但是需要优先挂一部分，可以使用 `iq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;管理优先挂卡队列。 最后，如果只需要挂您指定的游戏，可以设定 `FarmPriorityQueueOnly` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**，并且将指定的游戏加入优先挂卡队列。
 
-除了管理上述的自动挂卡模块之外，您也可以使用 ASF 手动模式，即 `play` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，或者使用一些杂项设置，例如 `GamesPlayedWhileIdle` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**。 
+除了管理上述的自动挂卡模块之外，您也可以使用 ASF 手动模式，即 `play` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，或者使用一些杂项设置，例如 `GamesPlayedWhileIdle` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**。
 
-* * *
+---
 
 ### 我对挂卡不感兴趣，但我需要挂游戏时长，有办法做到吗？
 
 是的，ASF 有几种方式可以为您做到这一点。
 
-最佳方式是设置 **[`GamesPlayedWhileIdle`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#gamesplayedwhileidle)** 配置属性，ASF 就会在无卡可挂时挂您选择的 appID。 如果您希望即使仍有游戏未挂完卡，也始终挂这些游戏，那么您可以进一步设置 **[`FarmPriorityQueueOnly`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#farmpriorityqueueonly)** 属性，这样 ASF 就仅会为您明确指定的游戏挂卡，或者设置 **[`Paused`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#paused)** 属性，使挂卡模块完全暂停工作，直到您手动恢复。
+最佳方式是设置 **[`GamesPlayedWhileIdle`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#gamesplayedwhileidle)** 配置属性，ASF 就会在无卡可挂时挂您选择的 appID。 If you'd like to idle your games all the time, even if you do have card drops from other games, then you can combine it with **[`FarmPriorityQueueOnly`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#farmpriorityqueueonly)**, so ASF will idle only those games for card drops that you explicitly set, or **[`Paused`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#paused)**, which will cause cards farming module to be paused until you unpause it yourself.
 
-另外一种方式是使用 **[`play`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN#命令-1)** 命令，使 ASF 开始挂您选择的游戏。 然而，请注意 `play` 命令仅应该在您需要临时挂游戏的时候使用，因为它的状态不会长久保持，ASF 如果遇到从 Steam 断开连接等情况，就会恢复到它默认的状态。 因此，我们建议您使用 `GamesPlayedWhileIdle`，除非您确实只需要短时间运行所选游戏，然后恢复到正常的挂卡流程。
+Alternatively, you can make use of the **[`play`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#commands-1)** command, which will cause ASF to play your selected games. 然而，请注意 `play` 命令仅应该在您需要临时挂游戏的时候使用，因为它的状态不会长久保持，ASF 如果遇到从 Steam 断开连接等情况，就会恢复到它默认的状态。 因此，我们建议您使用 `GamesPlayedWhileIdle`，除非您确实只需要短时间运行所选游戏，然后恢复到正常的挂卡流程。
 
-* * *
+---
 
 ### 我是 Linux/macOS 用户，ASF 可以挂我的操作系统不支持的游戏吗？ 我可以在 32 位系统上挂 64 位游戏吗？
 
 是的，ASF 甚至不需要下载实际的游戏文件，因此无论游戏的系统或技术需求如何，它对您 Steam 帐户内的所有游戏许可都有效。 它甚至可以在您不处于指定区域的情况下运行区域限制（锁区）的游戏，但是我们无法保证这一点（我们上次尝试时仍然可以）。
 
-* * *
+---
 
 ## 与类似工具的对比
 
-* * *
+---
 
 ### ASF 类似于 Idle Master 吗？
 
@@ -122,31 +120,31 @@ ASF 是一个 C# 程序，需要安装正常工作的 .NET Core 环境实现。 
 
 这也是为何您不应该根据对 IM 的期望比较 ASF 与 IM。 您应该将 ASF 与 IM 视为各有独特功能的完全独立的程序。 您可以在二者中找到一些重叠的功能，但很少，因为 ASF 使用与 IM 完全不同的方法来实现目标。
 
-* * *
+---
 
 ### 我现在正在使用 Idle Master，并且它很好用，我有必要换成 ASF 吗？
 
-**是的**。 ASF 更可靠，包含许多内置功能，无论您以何种方式挂卡，这些功能都非常**关键**，而 IM 完全没有提供这些。
+**是的**。 ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
-ASF 的逻辑能够正确处理**尚未发布的游戏**——而 IM 会尝试挂尚未发布的有卡游戏。 当然，在游戏发行之前是无法挂卡的，所以您的挂卡进程会被卡住。 此时您只能将此游戏添加到黑名单并等待游戏发布，或者手动跳过这款游戏。 这两种解决方案都不完善，都需要您的干预——ASF 会自动（暂时）跳过尚未发布游戏的挂卡流程，然后在游戏发布之后恢复挂卡，完美地避免了上述的问题。
+ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. 当然，在游戏发行之前是无法挂卡的，所以您的挂卡进程会被卡住。 此时您只能将此游戏添加到黑名单并等待游戏发布，或者手动跳过这款游戏。 这两种解决方案都不完善，都需要您的干预——ASF 会自动（暂时）跳过尚未发布游戏的挂卡流程，然后在游戏发布之后恢复挂卡，完美地避免了上述的问题。
 
-ASF 的逻辑还能够正确处理**系列**视频。 Steam 上有许多视频也含有卡牌，但在徽章页面上标记了错误的 `appID`，例如 **[Double Fine Adventure](https://store.steampowered.com/app/402590)**——IM 将会以错误的 `appID` 挂卡，导致挂卡过程卡住，无法获得任何卡牌。 同样地，您需要将其列入黑名单或者手动跳过，仍然都需要您的干预。 而 ASF 会自动找到正确的、可以正常掉卡的 `appID`。
+ASF also has proper logic of **series** videos. There are many videos on Steam that have cards, yet are announced with wrong `appID` on the badges page, such as **[Double Fine Adventure](https://store.steampowered.com/app/402590)** - IM will falsely idle wrong `appID`, which will yield no drops and process being stuck. 同样地，您需要将其列入黑名单或者手动跳过，仍然都需要您的干预。 而 ASF 会自动找到正确的、可以正常掉卡的 `appID`。
 
-除此之外，ASF 在遇到网络问题或者 Steam 方面的问题时**更加稳定可靠**——ASF 在绝大多数时间都能够正常工作，只要您正确配置一次，就几乎不再需要您操心，而 IM 经常会发生各种错误，需要额外的修复工作，甚至完全不能用。 它还完全依赖于您的 Steam 客户端，这意味着如果您的 Steam 客户端遇到了问题，它也无法正常工作。 ASF 只要能够连接到 Steam 网络，就可以正常工作，并且完全不需要运行甚至安装 Steam 客户端。
+In addition to that, ASF is **much more stable and reliable** when it comes to network problems and Steam quirks - it works most of the time and doesn't require your attention at all once configured, while IM often breaks for many people, requires extra fixes or simply doesn't work regardless. 它还完全依赖于您的 Steam 客户端，这意味着如果您的 Steam 客户端遇到了问题，它也无法正常工作。 ASF 只要能够连接到 Steam 网络，就可以正常工作，并且完全不需要运行甚至安装 Steam 客户端。
 
-这是 3 点使用 ASF 的**重要**理由，因为它们直接影响到每个人的挂卡过程，谁也无法肯定“这与我无关”，因为 Steam 的维护和故障会影响到所有人。 在下文中，您可以了解到一些或重要或不重要的额外理由。 因此，一句话来说，**是的**，即使您不需要 ASF 比 IM 多的额外功能，也应该考虑使用 ASF。
+Those are 3 **very important** points why you should consider using ASF, as they directly affect everybody idling Steam cards and there is no way to say "this doesn't consider me", since Steam maintenances and quirks are happening to everybody. 在下文中，您可以了解到一些或重要或不重要的额外理由。 So shortly speaking, **yes**, you should use ASF even when you don't need any extra ASF feature that is available when compared to IM.
 
-除此之外，IM 项目已经正式停止，在将来会完全失效，因为现在已有更强大的解决方案（不仅仅有 ASF），没有人愿意继续修复 IM。 无法使用 IM 的用户已经有很多，这个数字只会上升而不会下降。 您应该始终避免使用过时的软件，不仅仅有 IM，也包括任何其他已被废弃的程序。 无人维护意味着没有人在乎它还是否有效，没有人验证，也**没有人对其功能负责**，这在安全性方面是一个至关重要的问题。 其中可能存在对 Steam 基础设施有害的致命错误——没有人修复，如果 Steam 进行另一波封禁，使用者就会受到影响，而完全不知道原因是什么，猜猜谁曾经经历过这样的事情？正是使用过时版本 ASF 的用户。
+除此之外，IM 项目已经正式停止，在将来会完全失效，因为现在已有更强大的解决方案（不仅仅有 ASF），没有人愿意继续修复 IM。 无法使用 IM 的用户已经有很多，这个数字只会上升而不会下降。 您应该始终避免使用过时的软件，不仅仅有 IM，也包括任何其他已被废弃的程序。 No active maintainer means that nobody cares whether it works or not, nobody verifies if it does and **nobody is responsible for its functionality**, which is a crucial matter in terms of security. 其中可能存在对 Steam 基础设施有害的致命错误——没有人修复，如果 Steam 进行另一波封禁，使用者就会受到影响，而完全不知道原因是什么，猜猜谁曾经经历过这样的事情？正是使用过时版本 ASF 的用户。
 
-* * *
+---
 
 ### ASF 提供了什么 Idle Master 没有的好玩功能？
 
 这要取决于您认为怎样才算是“好玩”。 如果您计划为多个帐户挂卡，则答案已经很明显了，因为 ASF 允许您用一套优秀的解决方案为所有帐户挂卡，避免浪费资源、遇到麻烦以及兼容性问题。 但如果您能问出这个问题，很可能您还没有这种特殊需求，所以我们来看看 ASF 能够为单帐户挂卡的用户带来什么其他好处。
 
-首先，如果您的目标仅仅是挂卡，**[上述](#我现在正在使用-idle-master并且它很好用我有必要换成-asf-吗)**&#8203;的内置挂卡核心功能通常已经可以满足需求。 但您已经知道这一点了，我们需要看看更有趣的功能：
+First and foremost, you have some built-in features mentioned **[above](#is-it-worth-it-to-use-asf-if-im-currently-using-idle-master-and-it-works-fine-for-me)** that are core for idling regardless of your end-goal, and very often that alone is already enough to consider using ASF. 但您已经知道这一点了，我们需要看看更有趣的功能：
 
-- **您可以离线挂卡**（设置 `OnlineStatus` 为 `Offline`）。 离线挂卡使您可以完全隐藏 Steam 的“游戏中”状态，在 Steam 显示您“在线”的同时，ASF 仍可以继续挂卡，您的朋友不会发现 ASF 正在代替您玩游戏。 这是一个超赞的功能，您可以保持 Steam 客户端为在线状态，不再有经常变化的游戏提醒来烦扰您的朋友，或者使您的朋友误认为您正在玩游戏。 如果您尊重您的朋友，仅凭这一点，就应该使用 ASF，但这仅仅是个开始。 值得注意的是，这个特性与您的 Steam 隐私设置无关——如果您自己运行游戏，仍然会向您的朋友展示正确的游戏状态，只有 ASF 部分是隐藏的，不会影响您的帐户。
+- **You can idle offline** (`OnlineStatus` of `Offline` feature). 离线挂卡使您可以完全隐藏 Steam 的“游戏中”状态，在 Steam 显示您“在线”的同时，ASF 仍可以继续挂卡，您的朋友不会发现 ASF 正在代替您玩游戏。 这是一个超赞的功能，您可以保持 Steam 客户端为在线状态，不再有经常变化的游戏提醒来烦扰您的朋友，或者使您的朋友误认为您正在玩游戏。 如果您尊重您的朋友，仅凭这一点，就应该使用 ASF，但这仅仅是个开始。 值得注意的是，这个特性与您的 Steam 隐私设置无关——如果您自己运行游戏，仍然会向您的朋友展示正确的游戏状态，只有 ASF 部分是隐藏的，不会影响您的帐户。
 
 - **您可以跳过仍可退款的游戏**（`SkipRefundableGames` 功能）。 ASF 的内部逻辑能够正确处理可退款的游戏，您可以设置 ASF 不自动开始挂仍可以退款的游戏。 这样您就可以自己检查从 Steam 商店购买的游戏是否值得您花的钱，而不是让 ASF 尽快挂完游戏的卡牌。 如果您玩了 2 小时以上，或者已经购买超过 2 周，那么 ASF 将继续挂此游戏，因为此时它不再可以无条件退款。 在此之前，您对此游戏有完全的控制权，如果您不喜欢，可以直接退款，整个过程都不需要您将该游戏加入挂卡黑名单，也不需要避免在此期间打开 ASF。
 
@@ -162,7 +160,7 @@ ASF 的逻辑还能够正确处理**系列**视频。 Steam 上有许多视频�
 
 虽然我们可以在这里列出所有 **[ASF Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-CN)** 上所述的每个功能，但是没有必要这样做。 作为 ASF 用户，您可以体验以上所有功能，其中每一个都可能使您再也离不开 ASF，实际上我们还提供了**很多**功能，您可以继续阅读 Wiki 的其他章节来逐渐了解。 啊，是的，为了保持答案的简洁，我们甚至还没有详细介绍 ASF 的 API，您可以通过它来编写自己的命令脚本或者进行炫酷的机器人管理工作。
 
-* * *
+---
 
 ### ASF 的速度比 Idle Master 快吗？
 
@@ -172,7 +170,7 @@ ASF 的逻辑还能够正确处理**系列**视频。 Steam 上有许多视频�
 
 ASF 不基于 Steam 客户端，而是使用自己的 Steam 客户端实现。 正因为如此，ASF 不需要生成任何进程，而是向 Steam 网络发送了一个真正的请求，表示我们已开始玩游戏。 这与 Steam 客户端发送的请求相同，但由于我们能够实际控制自己的 Steam 客户端，因此我们不需要生成新进程，也不需要在每次进程发生变动时模拟 Steam 客户端发送请求，因此上述的机制对我们毫无影响。 因此，我们永远不会使 Steam Web 发生 1 秒的中断，也就提高了挂卡速度。
 
-* * *
+---
 
 ### 但这种差距真的很明显吗？
 
@@ -180,25 +178,25 @@ ASF 不基于 Steam 客户端，而是使用自己的 Steam 客户端实现。 �
 
 但这仍然**是**差异，如果您的操作系统非常繁忙，在极端情况下，您可能注意到卡牌掉落**会加快**几秒甚至几分钟。 我不会仅仅因为 ASF 挂卡更快而选择它，因为 ASF 和 Idle Master 都受到 Steam Web 服务的影响，但是 ASF 与 Steam 服务的交互方式更高效，而 Idle Master 没有能力控制 Steam 客户端做什么（当然这是 Steam 客户端本身而非 Idle Master 的问题）。
 
-* * *
+---
 
 ### ASF 可以同时挂多个游戏吗？
 
 **是的**，基于选择的&#8203;**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**，ASF 知道自己应该在什么时候启用这一功能。 同时挂多款游戏时，卡牌掉落率几乎接近零，因此 ASF 只会在批量挂游戏时间到 `HoursUntilCardDrops` 时才会同时挂多款游戏，每次最多挂 `32` 款游戏。 这也是为何您只应该专注于 ASF 配置，让挂卡算法决定达成目标的最优方式——您认为正确的方法，在现实中不一定正确，同时挂多款游戏并不会加快您的卡牌掉落。
 
-* * *
+---
 
 ### ASF 可以快速切换游戏吗？
 
 **不**，ASF 既不支持，也不鼓励使用 **[Steam 漏洞](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN#steam-漏洞)**。
 
-* * *
+---
 
 ### ASF 可以自动为每个尚未加入卡牌的游戏挂 X 小时吗？
 
 **不**，Steam 卡牌系统的变更旨在对抗错误的统计与虚假玩家。 ASF 不会为这种现象贡献更多力量，将来也不会添加这样的功能。 如果您的游戏像平常一样能够掉落卡牌，ASF 仍然会尽快开始挂它们。
 
-* * *
+---
 
 ### 我可以在 ASF 挂卡时玩游戏吗？
 
@@ -206,17 +204,17 @@ ASF 不基于 Steam 客户端，而是使用自己的 Steam 客户端实现。 �
 
 请记住，同时运行多款游戏时，掉卡速率总会降到 0，因此 IM 在这一点上也没有明显的优势，但使用 ASF 不会干扰您运行其他游戏，这一点在 VAC 等方面至关重要。
 
-* * *
+---
 
 ## 安全/隐私/VAC/封禁/订户协议
 
-* * *
+---
 
 ### 我会因使用 ASF 受到 VAC 封禁吗？
 
 不，这是不可能的，因为 ASF（与 Idle Master 和 SAM 不同）不会以任何手段干预 Steam 客户端及其进程。 使用 ASF 不可能受到 VAC 封禁，即使您在运行 ASF 的同时进入安全服务器游玩也不会——因为 **ASF 甚至不需要您安装 Steam 客户端**也可以正常工作。 ASF 是目前唯一能够保证 VAC 安全的挂卡程序。
 
-* * *
+---
 
 ### ASF 会像&#8203;**[这里](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**&#8203;所提到的那样，导致我无法加入 VAC 安全服务器吗？
 
@@ -226,7 +224,7 @@ ASF 根本不需要您运行，甚至都不需要安装 Steam 客户端。 根�
 
 但是，请记住，Valve 仍可能在未来将 ASF 添加到黑名单中，但这样做没有意义，即使他们这样做，您仍然可以在 PC 上玩受 VAC 保护的游戏，同时在服务器上使用 ASF，所以我很确定他们非常清楚 ASF 没有 VAC 嫌疑，他们也不会无缘无故地将 ASF 列入黑名单而给我们带来麻烦。 尽管如此，在最糟糕的情况下，您将无法进行游戏，因为无论 Steam 是否屏蔽 ASF 程序，ASF 的 VAC 安全保证仍然有效（您仍然可以在另一台未安装 Steam 客户端的设备上运行 ASF）。 目前您没有必要这样做，我们都希望保持现状。
 
-* * *
+---
 
 ### 它安全吗？
 
@@ -236,14 +234,13 @@ ASF 根本不需要您运行，甚至都不需要安装 Steam 客户端。 根�
 
 但最终，是否信任应用程序的开发者始终是一个问题，因此您应该自己决定是否视 ASF 为安全，并可能需要通过上述的技术论证支持您的决定。 不要盲目信任我说的话——相信自己，因为这是唯一的办法。
 
-* * *
+---
 
 ### 我会因此受到封禁吗？
 
 要回答这个问题，我们首先应该仔细阅读 **[Steam 订户协议](https://store.steampowered.com/subscriber_agreement)**。 Steam 不禁止用户使用多个帐户，事实上，Steam **[允许](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)**&#8203;您为多个帐户使用同一个手机验证器。 但他们不允许与其他人共享帐户，而我们并没有这样做。
 
 ASF 真正需要关注的重点是：
-
 > You may not use Cheats, automation software (bots), mods, hacks, or any other unauthorized third-party software, to modify or automate any Subscription Marketplace process.（参考译文：您不得使用作弊软件、自动化软件、机器人、模组、破解或任何其他未经授权的第三方软件来修改或自动执行任何订购市场流程。）
 
 问题是，Subscription Marketplace（参考译文：订购市场）究竟是什么。 我们可以读到：
@@ -257,7 +254,6 @@ ASF 真正需要关注的重点是：
 因此，与每款 Steam 软件一样，ASF 未经 Valve 授权，如果 Valve 突然决定封禁使用 ASF 的用户，我无法保证您不会被中止服务。 考虑到目前已有超过 50 万个 Steam 帐户正在使用 ASF，这是极不可能的，但无论其概率多低，都仍有此可能。
 
 特别是因为：
-
 > In regard to all Subscriptions, Content and Services that are not authored by Valve, Valve does not screen such third-party content available on Steam or through other sources.（参考译文：对于不是由 Valve 创作的订阅、内容和服务，Valve 不会在 Steam 或其他来源上屏蔽此类第三方内容。） Valve assumes no responsibility or liability for such third party content.（参考译文：Valve 对此类第三方内容不承担任何责任。） Some third-party application software is capable of being used by businesses for business purposes - however, you may only acquire such software via Steam for private personal use.（参考译文：某些第三方应用软件能够被企业用于商业目的——但是，您通过 Steam 购买的此类软件仅供私人个人使用。）
 
 然而，如&#8203;**[此文章](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**&#8203;所述，Valve 明确知晓“Steam 挂机工具”的存在，因此，如果您问我，我很确定如果他们认为这种行为不妥，就早已采取措施来阻止，而不是指出这种行为会造成 VAC 的故障了。 这里的关键词是 **Steam** 挂机工具，例如 ASF，而不是**游戏**挂机工具。
@@ -268,7 +264,7 @@ ASF 真正需要关注的重点是：
 
 您使用此软件的风险由您自己承担。 您不可能因此受到封禁，但如果您被封禁了，原因只能是您自己。
 
-* * *
+---
 
 ### 曾经有人因此被封禁吗？
 
@@ -286,45 +282,45 @@ ASF 真正需要关注的重点是：
 
 这起事件同样难以分析，因为 Steam 客服的回应非常模糊，几乎没有提供任何细节。 根据我个人的想法，这名用户可能用 Steam 卡牌兑换了某种金钱（等级机器人？）或者以其他方式进行了 Steam 套现。 您也许不了解，但这种行为同样违反 **[Steam 订户协议](https://store.steampowered.com/subscriber_agreement)**。
 
-最后一次事件涉及一名拥有超过 120 个机器人的用户，因违反 **[Steam 在线行为准则](https://store.steampowered.com/online_conduct?l=schinese)**&#8203;而被封禁。
+最后一次事件涉及一名拥有超过 120 个机器人的用户，因违反 **[Steam 在线行为准则](https://store.steampowered.com/online_conduct?l=english)**&#8203;而被封禁。
 
 > Hello XXX, Thank you for contacting Steam Support.（译文：感谢您联系 Steam 客服。） This and other accounts were used for flooding our network infrastructure, which is a violation of Steam online conduct.（译文：此帐户和其他帐户被用于攻击我们的网络设备，违反了 Steam 在线行为准则。） The account has been permanently blocked and Steam Support can not provide additional support on this issue.（译文：此帐户已被永久封禁，Steam 客服无法在此问题上为您提供进一步帮助。）
 
 这起事件比较容易分析，因为这名用户提供了额外的细节。 显然这名用户在使用一个**过期已久的 ASF 版本**，其中有一个向 Steam 服务器发送过多请求的漏洞。 这个漏洞并非一开始就存在，但是 Steam 之后的一些变化导致了这个漏洞，此时 ASF 的新版本早已修复这个问题。 **只有在 GitHub 上发布的&#8203;[最新稳定版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest) ASF 才受我们支持**。 软件是由人类编写的，而人类往往会犯错误。 如果错误会影响所有人，就会被快速修复并作为补丁发布给所有用户。 显然，Valve 不会因为我犯的错误而突然封禁 50 万 ASF 用户。 但如果您故意放弃使用最新版本的 ASF，则您就将自己归类于极少数用户，因为**没有技术支持**，您将会**暴露于类似的问题下**，因为没有人会关注您的过期版本 ASF，没有人会为它修复漏洞，没有人可以保证您在启动程序时不会被封禁。 **请使用最新版本的软件**，不仅是 ASF，也包括其他所有应用程序。
 
-* * *
+---
 
-以上所有事件都有一个共同点——ASF 只是一个工具，如何利用它完全取决于**您自己**。 您不会直接因为使用 ASF 被封禁，但您的**使用方式**可能会导致封禁。 ASF 可以是一个单帐户的挂卡助手，也可以用于管理含有成千上万机器人的挂卡网络。 在任何情况下，我都不提供法律咨询，您应该一开始就决定好自己如何使用 ASF。 我没有隐瞒任何对您有帮助的信息，例如 ASF 导致用户被封禁的事件等，因为我没有理由隐瞒这些——您可以自由选择您想用这些信息做什么。 如果您问我有什么建议——那么请您了解一些常识、避免持有超过我们推荐数量的机器人、不要同时发送上百个交易、始终使用最新版 ASF，这样您就*应该*不会有任何问题。 出于**某种原因**，每起类似事件的当事人都选择无视我们的建议，并认为自己比我们更清楚他们能运行多少个机器人。 不管这是因为巧合还是有实际的原因，这都由您自己决定。 我不会提供任何法律建议，仅仅是将我的想法告诉您，您可能在其中找到有用的内容，或者完全无视，只根据上文所述的事实操作。
+以上所有事件都有一个共同点——ASF 只是一个工具，如何利用它完全取决于**您自己**。 您不会直接因为使用 ASF 被封禁，但您的**使用方式**可能会导致封禁。 ASF 可以是一个单帐户的挂卡助手，也可以用于管理含有成千上万机器人的挂卡网络。 在任何情况下，我都不提供法律咨询，您应该一开始就决定好自己如何使用 ASF。 我没有隐瞒任何对您有帮助的信息，例如 ASF 导致用户被封禁的事件等，因为我没有理由隐瞒这些——您可以自由选择您想用这些信息做什么。 如果您问我有什么建议——那么请您了解一些常识、避免持有超过我们推荐数量的机器人、不要同时发送上百个交易、始终使用最新版 ASF，这样您就_应该_不会有任何问题。 出于**某种原因**，每起类似事件的当事人都选择无视我们的建议，并认为自己比我们更清楚他们能运行多少个机器人。 不管这是因为巧合还是有实际的原因，这都由您自己决定。 我不会提供任何法律建议，仅仅是将我的想法告诉您，您可能在其中找到有用的内容，或者完全无视，只根据上文所述的事实操作。
 
-* * *
+---
 
 ### ASF 会收集哪些隐私信息？
 
 您可以在&#8203;**[统计](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN)**&#8203;章节详细了解。 如果您关心您的隐私，例如，您想知道为何使用 ASF 的帐户需要加入我们的 Steam 群组，就需要审查我们的隐私策略。 ASF 不会收集任何敏感信息，也不会将统计信息分享给第三方。
 
-* * *
+---
 
 ## 杂项
 
-* * *
+---
 
 ### 我正在用不受支持的操作系统，例如 32 位 Windows，我仍然可以使用最新版的 ASF 吗？
 
 是的，这个版本并非不受支持，只不过我们没有提供官方包。 您可以在&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解 Generic 包。 ASF 没有任何对于操作系统的强制依赖，您可以在任何含有 .NET Core 运行时环境的地方运行 ASF，其中就包括 32 位 Windows，即使我们没有提供针对 `win-x86` 平台的包。
 
-* * *
+---
 
 ### ASF 很赞！ 我可以捐助吗？
 
 是的，我们很高兴听到您喜欢我们的项目！ 您可以在&#8203;**[项目主页](https://github.com/JustArchiNET/ArchiSteamFarm)**&#8203;和每个&#8203;**[版本发布页](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下方找到各种捐赠渠道。 值得注意的是，除了常规的现金捐赠，我们也接受 Steam 物品，只要您愿意，您可以向我们捐赠游戏皮肤、钥匙或者您的一部分挂卡所得。 提前感谢您的慷慨！
 
-* * *
+---
 
 ### 我启用了 Steam 家庭监护 PIN 代码来保护我的帐户，我需要将它填写在什么地方吗？
 
 是的，您必须将它填入 `SteamParentalCode` 机器人配置属性。 这主要是因为 ASF 需要访问帐户内许多受保护的部分，如果没有解锁代码，ASF 就无法正常运行。
 
-* * *
+---
 
 ### 我希望 ASF 默认不挂任何游戏，只使用 ASF 的附加功能。 可以做到吗？
 
@@ -334,49 +330,49 @@ ASF 真正需要关注的重点是：
 
 通过暂停/禁用挂卡模块，您可以仅使用 ASF 的额外功能，例如 `GamesPlayedWhileIdle`。
 
-* * *
+---
 
 ### ASF 能最小化到托盘吗？
 
 ASF 是一个控制台应用程序，没有可以最小化的图形窗口，因为控制台窗口是由您的操作系统创建的。 但您可以使用任何第三方工具做到这一点，例如 Windows 的 **[RBTray](https://github.com/benbuck/rbtray)** 或者 Linux/OS X 的 **[screen](https://linux.die.net/man/1/screen)**。这些只是例子，还有许多具有类似功能的应用程序。
 
-* * *
+---
 
 ### 使用 ASF 能否保持获得补充包的资格？
 
 **是的**。 ASF 使用与官方 Steam 客户端相同的方式登录到 Steam 网络，因此它也有能力使 ASF 使用的帐户保持获得补充包的资格。 另外，保持这种资格甚至不需要登录到 Steam 社区，所以如果您愿意，您可以安全地设置 `OnlineStatus` 为 `Offline`。
 
-* * *
+---
 
 ### 有办法在外部与 ASF 通信吗？
 
 是的，有几种方式可以做到。 请阅读&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;章节了解详情。
 
-* * *
+---
 
 ### 我想要帮助翻译 ASF，需要做什么？
 
 感谢您愿意提供帮助！ 您可以在&#8203;**[本地化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-zh-CN)**&#8203;章节了解详情。
 
-* * *
+---
 
 ### 我在 ASF 中只设置了一个帐户，还能够通过 Steam 聊天发送命令吗？
 
 **是的**，**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN#备注)**&#8203;章节中详细介绍了这一点。 您可以使用 Steam 群组聊天，但 **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-ui)** 可能是个更简单的方法。
 
-* * *
+---
 
 ### ASF 已运行，但我没获得任何卡牌掉落！
 
 不同游戏的卡牌掉落速率有所区别，您可以阅读&#8203;**[性能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**&#8203;详细了解。 这需要花费一定时间，通常**每款游戏几小时**，您不应该期望运行程序几分钟就可以获得卡牌。 如果您看见 ASF 主动检查卡牌状态，并在一款游戏挂卡完成后切换到另一款游戏，则说明一切正常。 也有可能您为 `BotBehaviour` 属性设置了 `DismissInventoryNotifications` 选项，使您无法收到获得新物品的通知。 详见&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**。
 
-* * *
+---
 
 ### 如何让 ASF 完全断开我的帐户？
 
 在 Windows 上，您可以直接点击 [X] 关闭 ASF 进程。 如果您只想停止一个机器人，但是保持其他机器人运行，可以了解 `Enabled` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**，或者 `stop` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 如果您只想停止自动挂卡，但是保持帐户运行，可以使用 `Paused` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**&#8203;和 `pause` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。
 
-* * *
+---
 
 ### ASF 可以运行多少个机器人？
 
@@ -384,7 +380,7 @@ ASF 程序本身没有硬性限制机器人实例数量，所以只要您的机�
 
 ASF 团队建议您运行（包括**拥有**）**最多 10 个机器人**，如果您的机器人数量超过此数字，就需要自行承担风险，我们不建议也不支持这样做。 这项建议来自于 Valve 内部的指南，以及我们自己的建议。 您有权决定是否遵守此规则，即使您的操作会导致 Steam 帐户被停用，ASF 也不会阻止您，因为它只是一个工具。 因此，如果您忽略了我们的建议，ASF 将会向您显示警告，但您仍然可以进行任何操作，并且自行承担风险，我们不会对这些行为提供任何支持。
 
-* * *
+---
 
 ### 我可以同时运行多个 ASF 实例吗？
 
@@ -394,7 +390,7 @@ ASF 团队建议您运行（包括**拥有**）**最多 10 个机器人**，如�
 
 当然，仍有在同一个网络接口上运行多个 ASF 实例的合理场景，例如分别为您的朋友托管独立的 ASF 实例，以保证机器人之间，甚至 ASF 进程本身的隔离，然而，在这种情况下，您没有绕过任何 Steam 的限制，这是完全不同的目的。
 
-* * *
+---
 
 ### 激活游戏序列号时的状态是什么意思？
 
@@ -411,7 +407,7 @@ ASF 团队建议您运行（包括**拥有**）**最多 10 个机器人**，如�
 | DoesNotOwnRequiredApp   | 您缺少激活此序列号所需的其他 App——通常表示您缺少激活 DLC 所需的游戏本体。                                                     |
 | RateLimited             | 您在短时间内尝试激活的次数过多，您的帐户将被临时限制激活。 请等待一小时再尝试。                                                       |
 
-* * *
+---
 
 ### 你与任何挂卡服务有关联吗？
 
@@ -427,11 +423,11 @@ ASF 基于宽松的 Apache 2.0 许可证授权，允许其他开发者合法地�
 
 这是您的帐户与您的选择。 但不要说没人警告过您。 ASF 是一个遵守上述所有规则的程序，因为您没有与任何人分享您的帐户详细信息，您以个人用途使用此程序，但任何其他的“挂卡服务”都需要您提供帐户凭据，所以它们违反了上述规则（实际上是其中数条规则）。 就像之前的 **[Steam 订户协议](https://store.steampowered.com/subscriber_agreement)**&#8203;分析一样，我们不提供任何法律建议，您应该自己决定是否使用这些服务——我们的说法是，这种行为&#8203;**直接违反 [Steam 订户协议](https://store.steampowered.com/subscriber_agreement)**，如果 Valve 发现，您的 Steam 帐户就可能被停用。 如上文所述，**我们强烈建议不使用任何此类服务**。
 
-* * *
+---
 
-## 异常情况
+## 议题
 
-* * *
+---
 
 ### 我的一款游戏已经挂卡超过 10 小时了，但仍然一张卡牌都没掉落！
 
@@ -441,7 +437,7 @@ ASF 基于宽松的 Apache 2.0 许可证授权，允许其他开发者合法地�
 
 要从帐户内移除免费许可证，您需要访问 **[Steam 客服页面](https://help.steampowered.com/wizard/HelpWithGame)**，并在搜索框内输入受影响的游戏，这款游戏应该会出现在“产品”一栏中，点击此游戏。 或者，您也可以访问 `https://help.steampowered.com/wizard/HelpWithGame?appid=<appID>` 链接，但要把其中的 `<appID>` 替换为受影响游戏的实际 AppID。 然后，点击“我想从帐户中移除这款游戏”，再选择您之前找到的免费版本许可，即通常在名字中包含“Limited Free Promotional Package”（或类似内容）的那一个。 在移除免费许可之后，ASF 应该已经能够从受影响的游戏中正常获得卡牌，您需要在移除许可之后重新启动挂卡操作，确保 Steam 这次提供了正确的许可。
 
-* * *
+---
 
 ### ASF 无法检测到某游戏可以挂卡，但我知道这款游戏包含 Steam 卡牌！
 
@@ -451,15 +447,15 @@ ASF 基于宽松的 Apache 2.0 许可证授权，允许其他开发者合法地�
 
 第二个原因不是很明显，有时您的徽章页面确实说明该游戏可以掉落卡牌，但是 ASF 没有马上为它挂卡。 除非您遇到了其他漏洞，例如 ASF 无法检查徽章页面（如下所述），否则这只是一种缓存效果，即 ASF 访问的 Steam 徽章页面是过时的版本。 等缓存过期后，此问题很快就会自行解决。 我们也没有办法解决这个问题。
 
-当然，上述说明都假设您以默认的配置运行 ASF，因为您可以通过配置来调整 ASF 的挂卡行为，包括将游戏加入挂卡黑名单，或设置 `FarmPriorityQueueOnly` 与 `SkipRefundableGames` 等等。
+当然，上述说明都假设您以默认的配置运行 ASF，因为您可以通过配置来调整 ASF 的挂卡行为，包括将游戏加入挂卡黑名单，或设置 `FarmPriorityQueueOnly`  与 `SkipRefundableGames` 等等。
 
-* * *
+---
 
 ### 为什么通过 ASF 挂的游戏没有增加游戏时间？
 
 游戏时间会增加，但**并非实时**。 Steam 会以固定的时间间隔记录游戏时间，然后设定更新计划，但这甚至无法保证您在退出游戏时立即更新，更不用说在游戏中了。 如果有可能在挂卡时跳过游戏时间，您应该想到，我们早就会在 ASF 中实现这一点并作为默认设置了。 但事实是，我们没有这么做，并且实际上这是无法实现的——因为游戏时间没有实时更新并不意味着它没有被记录。
 
-* * *
+---
 
 ### 日志中的错误（Error）与警告（Warning）有什么区别？
 
@@ -471,7 +467,7 @@ ASF 的一般规则是，警告**不是**错误，因此您**不**需要报告�
 
 一言而蔽之——报告错误，而非警告。 但您仍然可以在我们的支持渠道询问有关警告的问题并获取帮助。
 
-* * *
+---
 
 ### ASF 无法启动，程序窗口立刻就退出了！
 
@@ -479,7 +475,7 @@ ASF 的一般规则是，警告**不是**错误，因此您**不**需要报告�
 
 然而，如果连 .NET Core 运行时环境都无法在您的机器上启动，就无法生成 `log.txt`。 如果发生这种情况，很可能您忘了安装我们在&#8203;**[安装指南](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#安装操作系统包)**&#8203;中提到的 .NET Core 依赖项。 其他的常见问题包括您启动了错误的操作系统版本，或者您缺少了本机 .NET Core 运行时环境依赖项。 如果控制台窗口关闭得太快，您就无法看到错误消息，您可以打开一个独立的控制台窗口，然后从中启动 ASF 二进制文件。 例如，在 Windows 上，打开 ASF 文件夹，按住 `Shift` 键，右键单击文件夹空白处，选择“*在此处打开命令窗口*”（或 *Powershell*），然后在控制台中输入 `.\ArchiSteamFarm.exe`，按回车键确认。 这样，您就可以获得 ASF 无法正常启动的原因说明。
 
-* * *
+---
 
 ### 在我玩游戏的时候，ASF 将我的 Steam 客户端踢掉线！ / *This account is logged on another PC*（这个帐户在另一台电脑登录）
 
@@ -493,7 +489,7 @@ ASF 的一般规则是，警告**不是**错误，因此您**不**需要报告�
 
 解决这个问题唯一正确的方法是在您玩游戏之前，通过 `pause` 命令手动暂停机器人，然后在退出之后通过 `resume` 命令恢复挂卡。 或者您也可以忽略此问题，选择以离线模式运行 Steam。
 
-* * *
+---
 
 ### `Disconnected from Steam!`（已从 Steam 断开连接）——我无法连接到 Steam 服务器。
 
@@ -505,19 +501,19 @@ ASF 将尽最大努力建立连接，不仅包括拉取最新的服务器列表�
 
 还有一种极为罕见的情况，即服务器缓存不正确，例如，将 ASF 的 `config` 文件夹移动到另一台位于其他国家的设备上，此时删除 `ASF.db` 文件即可在下一次启动时刷新 Steam 服务器列表。 通常情况下，您不需要这样做，因为该列表在首次启动以及建立连接时都会自动刷新——我们只是在此说明，您可以用这种方式强制清除 ASF 缓存的服务器列表。
 
-* * *
+---
 
 ### `无法获取徽章信息，将稍后再试 ！`
 
-通常情况下，这意味着您需要通过 Steam 家庭监护 PIN 码来访问帐户，但您忘了将其写在 ASF 配置中。您必须把正确的 PIN 码写在 `SteamParentalCode` 机器人配置属性中，否则 ASF 就无法访问大多数 Web 内容，因而无法正常工作。 您可以阅读&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;进一步了解 `SteamParentalCode`。
+Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. 您可以阅读&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;进一步了解 `SteamParentalCode`。
 
 其他原因包括暂时的 Steam 问题、网络问题等。 如果几个小时后，问题仍然没有恢复，并且您确认您的 ASF 配置是正确的，请向我们反馈。
 
-* * *
+---
 
 ### ASF 发生 `Request failed after 5 tries`（该请求在 5 次尝试后失败）错误！
 
-通常情况下，这意味着您需要通过 Steam 家庭监护 PIN 码来访问帐户，但您忘了将其写在 ASF 配置中。您必须把正确的 PIN 码写在 `SteamParentalCode` 机器人配置属性中，否则 ASF 就无法访问大多数 Web 内容，因而无法正常工作。 您可以阅读&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;进一步了解 `SteamParentalCode`。
+Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. 您可以阅读&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;进一步了解 `SteamParentalCode`。
 
 如果不是因为家庭监护 PIN，那么这是一个最常见的错误，您应该习惯这一点，它只是意味着 ASF 向 Steam 网络连续发送了 5 次请求，但没有得到有效的响应。 通常情况下，这意味着 Steam 宕机了、出现问题或者正在维护——ASF 能够发现这样的问题，您不应该为此担心，除非这种情况连续发生了几个小时，并且其他用户没有发生同样的问题。
 
@@ -540,13 +536,13 @@ InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
 
 在这样做之前，您首先要**确认该错误值得反馈**。 如果这个问题已经出现在本常见问题中，例如交易相关的问题，就不应该反馈。 如果这是一个仅发生一两次的临时问题，特别是您的网络不稳定或者 Steam 宕机的情况——也不值得反馈。 但如果您能够在 2 天内连续几次重现您的问题，重新启动 ASF 和计算机都无法解决问题，并且确定常见问题中没有相关内容，那么这就是值得一问的好问题。
 
-* * *
+---
 
 ### ASF 看起来卡住了，我如果不按下一个键，控制台就没有任何输出！
 
 很可能您正在使用 Windows，并且您的控制台启用了快速编辑模式。 请参考 **[StackOverflow 上的问题](https://stackoverflow.com/questions/30418886/how-and-why-does-quickedit-mode-in-command-prompt-freeze-applications)**，获得技术方面的解释。 您应该右键单击 ASF 控制台窗口，打开属性，然后取消勾选快速编辑模式的复选框。
 
-* * *
+---
 
 ### ASF 无法接受或者发送交易报价！
 
@@ -554,7 +550,7 @@ InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
 
 接下来，如果您没有使用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)** ，可能 ASF 实际上已经接受/发送了交易报价，但是您还需要通过电子邮件确认交易。 同样地，如果您使用经典 2FA，就需要在手机验证器中确认交易。 目前，交易确认是一项**强制**措施，所以如果您不想手动接受它们，就需要将您的验证器导入为 ASF 2FA。
 
-还需注意，您只能与好友或者公开交易链接的人交易。 如果您尝试使用 `loot` 等命令发起*机器人发给 Master 用户*的交易，就需要保证机器人在您的好友列表中，或者在机器人的配置中设定您的 `SteamTradeToken`，请保证此令牌是有效的，否则您将无法发送交易。
+还需注意，您只能与好友或者公开交易链接的人交易。 If you're trying to initiate *Bot -> Master* trade, such as `loot`, then you need to either have your bot on your friendlist, or your `SteamTradeToken` declared in Bot's config. Make sure that the token is valid - otherwise, you won't be able to send a trade.
 
 然后，请记住，新设备有 7 天的交易锁定，所以如果您刚刚将您的帐户添加到 ASF，就需要等待 7 天，之后一切都可以正常工作。 这项限制**同时**适用于接受**和**发送交易。 该限制并非一定会触发，有的人立刻就可以发送和接受交易。 但大多数人**会**受影响，遇到交易锁定，即使您可以通过同一台机器上的 Steam 客户端发送和接受交易。 耐心等待，您无法加速这个过程。 同样，如果您删除或更改各种 Steam 安全相关的设置，例如两步验证、Steam 令牌、密码、电子邮件地址等，很可能会遇到类似的交易锁定。 通常，您需要检查能否手动使用此帐户发送交易，如果可以，这很可能就是经典的 7 天新设备交易锁定。
 
@@ -564,7 +560,7 @@ InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
 
 无论如何，ASF 只能**尝试**向 Steam 发送一个接受/发送交易报价的正确请求。 无论 Steam 是否接受该请求，ASF 都无法控制，也无法神奇地让请求变正常。 这并非是该功能的漏洞，也没有进一步改进的可能，因为问题发生在 ASF 之外。 因此，不要请我们修复没有损坏的东西，也不要询问为什么 ASF 不能接受或发送交易——**我不知道，ASF 也不知道**。 您可以绕过它，或者如果您有更好的办法，请自己修复它。
 
-* * *
+---
 
 ### 为什我每次登录都需要输入两步验证/Steam 令牌？ / *Removed expired login key*（已删除过期的登录密钥！）
 
@@ -574,7 +570,7 @@ ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状
 
 作为一个旁注，您也可以将 `UseLoginKeys` 配置属性设置为 `false`，来禁用登录密钥功能，但这无法解决问题，仅仅能跳过登录密钥的报错。 ASF 已经了解此问题，如果它可以自己获取所有需要的登录凭据，就会尽量避免使用登录密钥，如果您可以提供所有登录细节，并且使用 ASF 2FA，就不需要手动调整 `UseLoginKeys` 属性。
 
-* * *
+---
 
 ### 我遇到错误：*无法登录到 Steam：`InvalidPassword` 或 `RateLimitExceeded`*
 
@@ -597,7 +593,7 @@ ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状
 
 最终，与每个 Steam 请求一样——ASF 只能使用您提供的凭据**尝试**登录。 请求是否成功已经超出了 ASF 的范围和逻辑——这并非 ASF 的漏洞，也没有任何问题可以修复。
 
-* * *
+---
 
 ### `System.IO.IOException: 发生了 I/O 错误。`
 
@@ -605,7 +601,7 @@ ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状
 
 如果您**期望**发生这种情况，即您**有意**使 ASF 在无输入环境下运行，那么您就应该正确设置 **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#headless)** 模式，明确地告诉 ASF 这一点。 这将会使 ASF 在任何情况下都不会要求用户进行输入，允许您在无输入环境中安全运行 ASF。
 
-* * *
+---
 
 ### `System.Net.Http.WinHttpException: 发生了安全错误`
 
@@ -617,19 +613,19 @@ ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状
 
 如果您确定机器上的日期是正确的，但错误仍在，那么您系统信任的 SSL 证书可能无效或已过期。 此时您应该确保您的机器可以建立安全连接，例如，您可以用任意浏览器或者 `curl` 等命令行工具访问 `https://github.com`。 如果您确认其他连接没有问题，可以在我们的 Steam 群组反馈。
 
-* * *
+---
 
 ### `System.Threading.Tasks.TaskCanceledException: A task was canceled`
 
 此警告意味着 Steam 没有在给定时间内对 ASF 的请求作出响应。 通常这是由 Steam 网络波动引起的，不会影响 ASF。 如果是其他情况，则该问题与“请求在 5 次尝试后失败”错误相同。 大多数情况下，报告此问题是无意义的，因为我们无法强制 Steam 对我们的请求作出响应。
 
-* * *
+---
 
 ### `The type initializer for 'System.Security.Cryptography.CngKeyLite' threw an exception`
 
 这个问题几乎只由 Windows 服务 `CNG Key Isolation` 被禁用/未运行导致，这个服务为 ASF 提供了核心的加密功能，如果此服务未运行，ASF 也无法运行。 要修复此问题，您可以运行 `services.msc`，确认 `CNG Key Isolation` 服务没有被禁用，并且正在运行。
 
-* * *
+---
 
 ### 我的反病毒软件认为 ASF 是恶意软件！ 发生了什么？
 

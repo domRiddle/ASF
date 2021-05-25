@@ -4,7 +4,7 @@ Produktaktivering i baggrunden er en specialindbygget ASF funktion som tillader 
 
 Produktaktivering i baggrunden er lavet til et enkelt bot-område, hvilket betyder at den ikke bruger `RedeemingPreferences`. Denne funktion kan bruges med (eller i stedet for) `reedem` **[kommando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, om nødvendigt.
 
-* * *
+---
 
 ## Importer
 
@@ -36,7 +36,7 @@ Uanset hvilket format du vælger at bruge vil ASF importere din `nøgle` fil, en
 
 Udover brugen af nøglefiler som nævnt ovenfor, kan ASF også bruge `GamesToRedeemInBackground` **[API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** som kan køres af alle IPC værktøjer, inklusiv vores ASF-ui. Brug af IPC kan være lettere da du selv kan analysere det nødvendige, som brugen af en brugerdefineret delimiter i stedet for at blive tvunget til at bruge tab-karakter eller endda at introducere din helt egen brugerdefinerede nøglestruktur.
 
-* * *
+---
 
 ## Kø
 
@@ -44,7 +44,7 @@ Når spil er succesfuldt importeret, er de tilføjet til køen. ASF går automat
 
 Hvis vores konto rammer `RateLimited` -status under processen, standses køen midlertidigt i en hel time for at vente på, at cooldown forsvinder. Bagefter fortsætter processen, hvor den var fra, indtil hele køen er tom.
 
-* * *
+---
 
 ## Eksempel
 
@@ -60,7 +60,7 @@ Efter nogen tid genereres `BotName.keys.used` og `BotName.keys.unused` filer. Di
 
 Det er også muligt at tilføje ekstra spil til importering imens der allerede er nogle spil i vores kø, ved at gentage de øvrige trin igen. ASF vil sandsynligvis også tilføje vores ekstra enheder til allerede udegående kø og ordne det på et tidspunkt.
 
-* * *
+---
 
 ## Bemærkninger
 

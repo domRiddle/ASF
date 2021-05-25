@@ -4,7 +4,7 @@ Arkaplan oyunları etkinleştiricisi, arka planda kullanılmak üzere verilen St
 
 Arkaplan oyunları kurtarıcısı, tek bir bot alanına sahip olacak şekilde yapılır, bu da `RedeemingPreferences`'dan yararlanmadığı anlamına gelir. Bu özellik, gerekirse, `redeem` **[komutu](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** ile birlikte (veya bunun yerine) kullanılabilir.
 
-* * *
+---
 
 ## İçe aktarma
 
@@ -36,7 +36,7 @@ Regardless which format you've decided to stick with, ASF will import your `keys
 
 ASF, yukarıda bahsi geçen anahtarların kullanılmasına ek olarak, herhangi bir IPC aracı tarafından yürütülebilir, `GamesToRedeemInBackground` **[ASF API uç noktasını](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** ASF-ui'da dahil etmek üzere. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
 
-* * *
+---
 
 ## Kuyruk
 
@@ -44,7 +44,7 @@ Oyunlar başarıyla içe aktarıldığında, sıraya eklenirler. Bot, Steam ağ�
 
 If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
 
-* * *
+---
 
 ## Örnek
 
@@ -60,7 +60,7 @@ After some time, `BotName.keys.used` and `BotName.keys.unused` files will be gen
 
 It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
 
-* * *
+---
 
 ## Remarks
 

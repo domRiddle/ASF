@@ -2,11 +2,11 @@
 
 這與**[低記憶體設置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**截然相反，如果你想進一步提高 ASF 性能（就CPU速度而言），可能會增加記憶體使用的潛在成本，請遵循這些提示。
 
-* * *
+---
 
 當涉及到常規優化時，ASF 始終以性能為先，因此在進一步提高性能方面，您可做的事情並不多，儘管您並非別無選擇。 但是，請記住，預設情況下不會啟用這些選項，這意味著它們不足以在大多數用法中保證它們的平衡，因此您應該自己決定是否可以接受啟用它們帶來的記憶體增加。
 
-* * *
+---
 
 ## 運行時優化（進階）
 
@@ -32,7 +32,7 @@ Server GC itself does not result in a very huge memory increase by just being ac
 
 However, if memory is not a problem for you (as GC still takes into account your available memory and tweaks itself), it's a much better idea to not change those properties at all, achieving superior performance in result.
 
-* * *
+---
 
 You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
@@ -50,7 +50,7 @@ $Env:COMPlus_gcServer=1
 .\ArchiSteamFarm.exe # For OS-specific build
 ```
 
-* * *
+---
 
 ## Recommended optimization
 

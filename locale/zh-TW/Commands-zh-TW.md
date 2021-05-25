@@ -3,7 +3,6 @@
 ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 
 您可以透過這些不同的方式發送指令：
-
 - 透過互動式 ASF 主控台
 - 透過 Steam 私人/群組聊天
 - 透過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)** 介面
@@ -12,7 +11,7 @@ ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 
 透過 Steam 聊天執行的指令都受 `CommandPrefix` **[全域設定檔屬性影響](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#commandprefix)**，該屬性的預設值為 `!`。 這意味著，當您要執行 `status` 指令時，實際應該發送 `!status`（或者使用您自訂的 `CommandPrefix`）。 當您使用主控台或 IPC 時可以省略 `CommandPrefix`，這項屬性不是強制性的。
 
-* * *
+---
 
 ### 互動式主控台
 
@@ -22,7 +21,7 @@ ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 
 互動式主控台在 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#headless) 模式下不可用。
 
-* * *
+---
 
 ### Steam 聊天
 
@@ -32,19 +31,19 @@ ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 
 類似的，您也可以使用指定的 Steam 群組聊天。 請注意，此選項需要您正確設定 `SteamMasterClanID` 屬性，使 BOT 同樣監聽（並加入）指定的群組交談。 不同於私人聊天，因為這種方法不需要專用的 BOT 帳戶，所以可以用於「和自己交談」。 您可以簡單的將 `SteamMasterClanID` 屬性設定為您新建立的群組，然後透過設定 BOT 的 `SteamOwnerID` 或 `SteamUserPermissions` 給您自己存取權限。 這樣，ASF BOT（即您自己的帳戶）將會加入這個群組和群組聊天室，並且開始監聽您發送的指令。 您可以加入同一個群組聊天室，以便向自己發送指令（因為在您向聊天室發送指令時，同樣在聊天室內的 ASF 執行個體將會收到指令，即使界面上顯示只有您自己在聊天室內）。
 
-請注意，傳送指令至群組聊天就像是一個中繼。 如果您向一個含有 3 個 BOT 的群組聊天發送 `redeem X` 指令，其效果跟分別向每個 BOT 私人聊天發送 `redeem X` 指令一樣。 在大多數情況下，**這不是您想要的效果**，您應該像之前與**單個 BOT 交談**時一樣，使用`特定 BOT` 名稱的指令形式。 ASF 支持群組聊天，是因為在多數情況下它是一種與您唯一的 BOT 通訊的有效方式，但如果您的群組中有多個 ASF BOT，就最好不要在這裡執行指令，除非您完全理解 ASF 的相關行為，並且您確實想要讓所有 BOT執行相同的指令。
+請注意，傳送指令至群組聊天就像是一個中繼。 如果您向一個含有 3 個 BOT 的群組聊天發送 `redeem X` 指令，其效果跟分別向每個 BOT 私人聊天發送 `redeem X` 指令一樣。 在大多數情況下，**這不是您想要的效果**，您應該像之前與**單個機器人交談**時一樣，使用`特定機器人`名稱的指令形式。 ASF 支持群組聊天，是因為在多數情況下它是一種與您唯一的 BOT 通訊的有效方式，但如果您的群組中有多個 ASF BOT，就最好不要在這裡執行指令，除非您完全理解 ASF 的相關行為，並且您確實想要讓所有 BOT執行相同的指令。
 
 *即使在這種情況下，您也應該使用 `[Bots]` 私人交談向 BOT 發送指令。*
 
-* * *
+---
 
 ### IPC
 
-這是最先進、靈活的執行指令方式，非常適合使用者互動（ASF-ui）或者第三方工具腳本（ASF API）。這種方式需要 ASF 執行在 `IPC` 模式下，並且用戶端需要透過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)** 介面來執行指令。
+這是最先進、靈活的執行指令方式，非常適合用戶集成（ASF-ui）或者第三方工具腳本（ASF API）。這種方式需要 ASF 運行在 `IPC` 模式下，並且客戶端需要通過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 介面來執行指令。
 
 ![截圖](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
-* * *
+---
 
 ## 指令
 
@@ -79,32 +78,32 @@ ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 | `mab [Bots]`                                                         | `Master`        | Lists apps blacklisted from automatic trading in **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)**.                       |
 | `mabadd [Bots] <AppIDs>`                                       | `Master`        | Adds given `appIDs` to apps blacklisted from automatic trading in **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)**.      |
 | `mabrm [Bots] <AppIDs>`                                        | `Master`        | Removes given `appIDs` from apps blacklisted from automatic trading in **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)**. |
-| `nickname [Bots] <Nickname>`                                   | `Master`        | 將指定 BOT 的 Steam 暱稱變更為自訂的`nickname`。                                                                                                                                      |
-| `owns [Bots] <Games>`                                          | `Operator`      | 檢查指定 BOT 是否已擁有指定 `games`，請參閱**[下文](#owns-games)**解釋。                                                                                                                     |
-| `password [Bots]`                                                    | `Master`        | 顯示指定 BOT 加密後的密碼（配合 `PasswordFormat` 使用）。                                                                                                                                 |
-| `pause [Bots]`                                                       | `Operator`      | 停止指定 BOT 的自動掛卡模塊。 ASF 在本次會話中將不會再嘗試對此帳戶進行掛卡，除非您手動 `resume` 或者重啟 ASF。                                                                                                      |
-| `pause~ [Bots]`                                                      | `FamilySharing` | 暫停指定 BOT 的自動掛卡模塊。 掛卡行程將會在下次遊戲事件被觸發時或 BOT 斷開連接時自動恢復。 您可以` resume` 以恢復掛卡。                                                                                                  |
-| `pause& [Bots] <Seconds>`                                  | `Operator`      | 暫停指定 BOT 的自動掛卡模塊 `seconds` 秒。 之後，掛卡將自動恢復。                                                                                                                                |
-| `play [Bots] <AppIDs,GameName>`                                | `Master`        | 切換至手動掛卡模式——使指定 BOT 執行特定的 `AppIDs`，並且可選自訂 `GameName` 為當前遊戲名稱。 若要使此功能正常工作，您的 Steam 帳戶**必須**擁有您指定的所有 `AppIDs` 的有效許可，包括免費遊玩遊戲。 使用 `reset` 或 `resume` 指令恢復。                   |
-| `privacy [Bots] <Settings>`                                    | `Master`        | 變更指定 BOT 的 **[Steam 隱私設定](https://steamcommunity.com/my/edit/settings)**，可用選項將於**[​下文](#privacy-settings)**詳述。                                                           |
+| `nickname [Bots] <Nickname>`                                   | `Master`        | 將指定機器人的 Steam `nickname`更改為自訂暱稱。                                                                                                                                         |
+| `owns [Bots] <Games>`                                          | `Operator`      | 檢查指定 BOT 是否已擁有指定  `games`，請參閱**[下文](#owns-games)**解釋。                                                                                                                    |
+| `password [Bots]`                                                    | `Master`        | 顯示指定機器人加密後的密碼（配合 `PasswordFormat` 使用）。                                                                                                                                   |
+| `pause [Bots]`                                                       | `Operator`      | 停止指定機器人的自動掛卡模塊。 ASF 在本次會話中將不會再嘗試對此帳戶進行掛卡，除非您手動 `resume` 或者重啟 ASF。                                                                                                        |
+| `pause~ [Bots]`                                                      | `FamilySharing` | 暫停指定機器人的自動掛卡模塊。 掛卡進程將會在下次遊戲事件被觸發時或機器人斷開連接時自動恢復。 您可以` resume` 以恢復掛卡。                                                                                                      |
+| `pause& [Bots] <Seconds>`                                  | `Operator`      | 暫停指定機器人的自動掛卡模塊`seconds` 秒。 之後，掛卡將自動恢復。                                                                                                                                   |
+| `play [Bots] <AppIDs,GameName>`                                | `Master`        | 切換至手動掛卡模式——使指定機器人運行特定的 `AppIDs`，並且可選自定義 `GameName` 為當前遊戲名稱。 若要使此功能正常工作，您的 Steam 帳戶**必須**擁有您指定的所有 `AppIDs` 的有效許可，包括免費遊玩遊戲。 使用 `reset` 或 `resume` 指令恢復。                    |
+| `privacy [Bots] <Settings>`                                    | `Master`        | 更改指定機器人的 **[Steam 隱私設置](https://steamcommunity.com/my/edit/settings)**，可用選項將於**[​下文](#privacy-settings)**詳述。                                                             |
 | `redeem [Bots] <Keys>`                                         | `Operator`      | 為指定 BOT 啟用給出的遊戲序列號或兌換給出的錢包儲值碼。                                                                                                                                           |
 | `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`      | 以將於**[​下文](#redeem-modes)**解釋的 `Modes` 模式為指定 BOT 啟用給出的遊戲序列號或兌換給出的錢包儲值碼。                                                                                                  |
 | `reset [Bots]`                                                       | `Master`        | 重設遊玩狀態為正常，使用 `play` 指令手動掛卡時使用此指令。                                                                                                                                        |
-| `restart`                                                            | `Owner`         | 重新啟動 ASF 行程。                                                                                                                                                             |
-| `resume [Bots]`                                                      | `FamilySharing` | 恢復指定 BOT 的自動掛卡行程。 參見 `pause` 和 `play`。                                                                                                                                   |
-| `start [Bots]`                                                       | `Master`        | 啟動指定 BOT。                                                                                                                                                                |
-| `stats`                                                              | `Owner`         | 顯示行程統計資訊，例如託管記憶體用量。                                                                                                                                                      |
-| `status [Bots]`                                                      | `FamilySharing` | 顯示指定 BOT 的狀態。                                                                                                                                                            |
-| `stop [Bots]`                                                        | `Master`        | 停止指定 BOT。                                                                                                                                                                |
+| `重新啟動`                                                               | `Owner`         | 重啟 ASF 進程。                                                                                                                                                               |
+| `resume [Bots]`                                                      | `FamilySharing` | 恢復指定機器人的自動掛卡進程。 參見 `pause` 和 `play`。                                                                                                                                     |
+| `start [Bots]`                                                       | `Master`        | 啟動指定機器人。                                                                                                                                                                 |
+| `stats`                                                              | `Owner`         | 顯示進程統計信息，例如託管記憶體用量。                                                                                                                                                      |
+| `status [Bots]`                                                      | `FamilySharing` | 顯示指定機器人的狀態。                                                                                                                                                              |
+| `stop [Bots]`                                                        | `Master`        | 停止指定機器人的進程。                                                                                                                                                              |
 | `transfer [Bots] <TargetBot>`                                  | `Master`        | 將指定 BOT 所有 `TransferableTypes` 社群物品交易至目標 BOT。                                                                                                                            |
 | `transfer@ [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 將所有符合 `AppIDs` 的 `TransferableTypes` 社群物品從指定 BOT 交易至目標 BOT。 這是跟 `transfer%` 相反的指令。                                                                                       |
 | `transfer% [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 將所有除了 `AppIDs` 以外的 `TransferableTypes` 社群物品從指定 BOT 交易至目標 BOT。 這是跟 `transfer@` 相反的指令。                                                                                     |
 | `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`        | 將指定BOT的 `ContextID` 庫存分類中符合特定 `AppID` 的物品交易至目標 BOT。                                                                                                                      |
-| `unpack [Bots]`                                                      | `Master`        | 拆開指定 BOT 物品庫中的所有補充包。                                                                                                                                                     |
+| `unpack [Bots]`                                                      | `Master`        | 拆開指定機器人庫存中的所有補充包。                                                                                                                                                        |
 | `update`                                                             | `Owner`         | 檢查 GitHub 上的 ASF 更新（每 `UpdatePeriod` 自動執行一次）。                                                                                                                            |
 | `version`                                                            | `FamilySharing` | 顯示 ASF 的版本號。                                                                                                                                                             |
 
-* * *
+---
 
 ### 註解
 
@@ -112,9 +111,9 @@ ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 
 `[Bots]` 參數在所有指令內都是可省略的。 當指定該參數時，指令會在指定的 BOT 上執行。 但省略時，指令會在當前接收指令的 BOT 上執行。 換句話說，向 BOT `B` 發送 `status A` 指令等於向 BOT `A` 發送 `status` 指令，在這種情況下 BOT `B` 只是作為一個代理 BOT。 這也可用於向不可用的 BOT 傳送指令，例如啟動已停止的 BOT，或者在（您用於執行指令的）主要帳戶上執行動作。
 
-指令的**許可權**定義了需要執行此指令所需的**最低**許可權，即 `SteamUserPermissions `中定義的 `EPermission`，例外情況是 `Owner` 指全域設定檔中定義的 `SteamOwnerID` 使用者（擁有最高許可權）。
+指令的**許可權**定義了需要執行此命令所需的**最低**許可權，即 `SteamUserPermissions `中定義的 `EPermission`，例外情況是 `Owner` 指全局配置文件中定義的 `SteamOwnerID` 用戶（擁有最高許可權）。
 
-複數參數，例如 `[Bots]`、`<Keys>`或`<AppIDs>`意味著該參數支援多個由逗號分隔的同類型值。 例如，`status [Bots]` 可以用為 `status MyBot,MyOtherBot,Primary`。 這樣，該指令會在**所有目標 BOT** 上執行，效果等同分別向所有 BOT 單獨發送 `status`指令。 需要注意的是「`,`」後面不能有空格。
+複數參數，例如 `[Bots]`、`<Keys>`或`<AppIDs>`意味著該參數支援多個由逗號分隔的同類型值。 例如，`status [Bots]` 可以用為 `status MyBot,MyOtherBot,Primary`。 這樣，該指令會在**所有目標機器人**上執行，效果等同分別向所有機器人單獨發送 `status`指令。 需要注意的是「`,`」後面不能有空格。
 
 ASF 使用所有空白字元作為指令的分隔符，例如空格和換行符。 這意味著您不僅可以使用空格來分隔參數，還可以使用任何其他空白字元（如製表符和換行符）。
 
@@ -122,7 +121,7 @@ ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語�
 
 如上所述，空白字元被用於分隔指令參數，所以參數內部無法再使用空白字元。 但同樣如上所述，ASF 可以連接超出範圍的參數，這意味著您可以在指令的最後一個參數中使用空白字元。 例如，`nickname bob Great Bob` 指令能夠正確地將 BOT `bob` 的暱稱變更為「Great Bob」。 與此類似，您也可以使用 `owns` 指令檢查含有空格的名稱。
 
-* * *
+---
 
 一些指令有較短的別名可用，便於輸入。
 
@@ -133,7 +132,7 @@ ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語�
 | `redeem`     | `r`  |
 | `redeem^`    | `r^` |
 
-* * *
+---
 
 ### `[Bots]` 參數
 
@@ -143,13 +142,13 @@ ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語�
 
 `[Bots]` 參數支援特殊的「範圍」語法，這可以讓您更容易地選擇特定範圍的 BOT。 `[Bots]` 參數支援特殊的「範圍」語法，這可以讓您更容易地選擇特定範圍的 BOT。 例如，假設您有 BOT `A, B, C, D, E, F`，如果您執行 `status B..E`，效果等同于執行 `status B,C,D,E`。 在使用此語法時，ASF 將會以字母排序以決定哪些 BOT 在指定範圍內。 `firstBot` 和`lastBot`必須是 ASF 能夠辨識的有效 BOT 名稱，否則範圍語法將不會生效。
 
-除了上述的範圍語法，`[Bots]` 參數還支援**[規則運算式](https://en.wikipedia.org/wiki/Regular_expression)**符合。 您可以使用 `r!<pattern>` 作為 BOT 名稱來激活規則運算式模式，其中 `r!` 是用於規則運算式符合的 ASF 啟動指令，而 `<pattern>` 是您的規則運算式。 一個使用規則運算式的例子為 `status r!\d{3}` 指令，它會向所有名稱為 3 個數字的 BOT（例如 `123` 和 `981`）發送` status` 指令。 您可以閱讀這份**[文件](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)**，進一步瞭解規則運算式的解釋和示例。
+除了上述的範圍語法，`[Bots]` 參數還支援**[規則運算式](https://en.wikipedia.org/wiki/Regular_expression)**符合。 您可以使用 `r!<pattern>` 作為 BOT 名稱來激活規則運算式模式，其中 `r!` 是用於規則運算式符合的 ASF 啟動指令，而 `<pattern>` 是您的規則運算式。 一個使用規則運算式的例子為 `status r!\d{3}` 指令，它會向所有名稱為 3 個數字的 BOT（例如 `123` 和 `981`）發送` status` 指令。 您可以閱讀這份**[​文檔](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)**，進一步瞭解正則運算式的解釋和示例。
 
-* * *
+---
 
 ## `privacy` 設定
 
-`<Settings>` 參數接受**最多 7 個**不同的選項，使用 ASF 標準的逗號分隔格式。 這些選項分別是：
+`<Settings>`參數擁有**多至 7 個**不同的選項，使用 ASF 標準的逗號分隔格式。 這些選項分別是：
 
 | 參數 | 名稱             | 從屬於        |
 | -- | -------------- | ---------- |
@@ -161,7 +160,7 @@ ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語�
 | 6  | InventoryGifts | Inventory  |
 | 7  | Comments       | Profile    |
 
-關於上述選項的說明，請訪問 **[Steam 隱私設定](https://steamcommunity.com/my/edit/settings)**。
+關於上述選項的說明，請訪問 **[Steam 隱私設置](https://steamcommunity.com/my/edit/settings)**。
 
 每個選項的有效值可以是：
 
@@ -171,11 +170,11 @@ ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語�
 | 2 | `FriendsOnly` |
 | 3 | `Public`      |
 
-您可以使用它們的名稱（不區分大小寫）或者數值。 未賦值的參數將會被設定為預設值 `Private`。 請謹記上述參數的從屬關係非常重要，因為子選項無法擁有比父選項更高的許可權。 例如，如果您將個人檔案設定為 `Private`，就**無法**再將遊戲資料設定為 `Public`。
+您可以使用它們的名稱（不區分大小寫）或者數值。 未賦值的參數將會被設定為預設值 `Private`。 請謹記上述參數的從屬關係非常重要，因為子選項無法擁有比父選項更高的許可權。 例如，如果您將個人資料設置為 `Private`，就**無法**再將遊戲詳情設置為 `Public`。
 
 ### 範例
 
-如果您希望將 BOT `Main` 的**所有**隱私設定都設為 `Private`，可以使用以下任一指令：
+如果您希望將機器人 `Main` 的**所有**隱私設置都設置為 `Private`，可以使用以下任一命令：
 
 ```text
 privacy Main 1
@@ -199,7 +198,7 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 請記住子選項的許可權無法比父選項更高。 有關可用選項，請參閱參數關係。
 
-* * *
+---
 
 ## `addlicense` licenses
 
@@ -220,7 +219,7 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 addlicense ASF app/292030,sub/47807
 ```
 
-* * *
+---
 
 ## `owns` games
 
@@ -234,15 +233,22 @@ addlicense ASF app/292030,sub/47807
 
 完整的指令範例：
 
+
+
 ```text
 owns ASF app/292030,name/Witcher
 ```
 
-* * *
+
+
+
+---
+
+
 
 ## `redeem^` 模式
 
-`redeem^` 指令允許您微調用於單個兌換場景的模式。 此指令會臨時覆蓋 `RedeemingPreferences` **[BOT 設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#BOT-設定檔)**。
+`redeem^` 指令允許您微調用於單個兌換場景的模式。 此指令會臨時覆蓋 `RedeemingPreferences`**[ 機器人配置屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**。
 
 `<Modes>` 參數接受多個模式值，通常用逗號分隔。 可用的模式值如下所示：
 
@@ -259,25 +265,38 @@ owns ASF app/292030,name/Witcher
 | SKMG | SkipKeepMissingGames  | 強制停用 `KeepMissingGames` 兌換偏好設定                   |
 | V    | Validate              | 檢查產品序號格式，自動跳過無效產品序號                              |
 
+
 例如，我們打算為尚未擁有遊戲的 BOT 兌換 3 個產品序號，但不包括 `primary` BOT。 為此我們需要執行指令：
 
 `redeem^ primary FF,SI key1,key2,key3`
 
-需要注意的是，進階兌換模式只會替換你**在指令中使用**的`RedeemingPreferences`選項。 例如，如果您在`RedeemingPreferences` 中啟用了 `Distributing`，那麼無論是否使用 `FD` 模式，都不會有任何區別，因為您已經在 `RedeemingPreferences` 中兌換了 Distributing。 這就是為什麼每個可強制啟用的模式也有一個可強制停用的選項，您可以決定自己是希望在啟用的情況下強制覆蓋，反之亦然。
+需要注意的是，進階激活模式只會替換你**在指令中使用**的`RedeemingPreferences`選項。 例如，如果您在`RedeemingPreferences` 中啟用了 `Distributing`，那麼無論是否使用 `FD` 模式，都不會有任何區別，因為您已經在 `RedeemingPreferences` 中兌換了 Distributing。 這就是為什麼每個可強制啟用的模式也有一個可強制停用的選項，您可以決定自己是希望在啟用的情況下強制覆蓋，反之亦然。
 
-* * *
+
+
+---
+
+
 
 ## `encrypt` command
 
 `encrypt` command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` must be one of the encryption methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
-* * *
+
+
+---
+
+
 
 ## `hash` command
 
 `hash` command allows you to generate hashes of arbitrary strings using ASF's hashing methods. `<hashingMethod>` must be one of the hashing methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
-* * *
+
+
+---
+
+
 
 ## `input` 指令
 
@@ -295,7 +314,10 @@ owns ASF app/292030,name/Witcher
 | SteamParentalCode       | `SteamParentalCode` 機器人配置屬性，在設定檔缺失這個值時使用。  |
 | TwoFactorAuthentication | 如果您使用的是2FA, 但未使用 ASF 2FA, 則從您的手機生成2FA 代碼 。 |
 
+
 `<Value>`是要為指定類型設置的值。 目前所有的值都是字元串。
+
+
 
 ### 範例
 
@@ -303,10 +325,10 @@ owns ASF app/292030,name/Witcher
 
 為此，我們需要執行以下指令：
 
-`start MySteamGuardBot` -> 機器人會嘗試登入，但缺少驗證碼會導致登入失敗，在`Headless` 模式下，機器人會停止運行。 我們做這一步的目的是讓 Steam 網路向我們發送驗證碼電子郵件——否則我們就可以跳過這一步了。
+`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. 我們做這一步的目的是讓 Steam 網路向我們發送驗證碼電子郵件——否則我們就可以跳過這一步了。
 
-`input MySteamGuardBot SteamGuard ABCDE` -> 我們將 `MySteamGuardBot` 機器人的 `SteamGuard` 輸入設置為 `ABCDE`。 當然, 在這種情況下, `ABCDE` 是我們從電子郵件中獲得的驗證代碼。
+`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. 當然, 在這種情況下, `ABCDE` 是我們從電子郵件中獲得的驗證代碼。
 
-`start MySteamGuardBot` ->我們重新啟動（已停止的）機器人，這一次會自動使用我們在上一步中設置的驗證碼，登入將會成功，並且之前的驗證碼輸入會被清除。
+`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
 
 同樣, 我們可以控制受2FA 保護的機器人 (如果它們不使用 ASF 2FA), 只需在運行時設置其他必需的屬性。

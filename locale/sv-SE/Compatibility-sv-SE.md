@@ -8,7 +8,7 @@ This also means that ASF has **no specific OS requirement**, because it requires
 
 However, regardless of where you run ASF, you must ensure that your target platform has **[.NET Core prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** installed. Those are low-level libraries required for proper runtime functionality and absolutely core for ASF to work in the first place. Very likely you can have some of them (or even all) already installed.
 
-* * *
+---
 
 ## Multiple instances
 
@@ -22,13 +22,13 @@ It's not required for running ASF instances to share the same `*LimiterDelay` pr
 
 ASF takes into account `WebProxy` setting when deciding about shared scope, which means that two ASF instances using different `WebProxy` configurations will not share their limiters with each other. This is implemented in order to allow `WebProxy` setups to operate without excessive delays, as expected from different network interfaces. This should be good enough for majority of use cases, however, if you have a specific custom setup in which you're e.g. routing requests yourself in a different way, you can specify network group yourself through `--network-group` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**, which will allow you to declare ASF group that will be synchronized with this instance. Keep in mind that custom network groups are used exclusively, which means that ASF will no longer use `WebProxy` for determining the right group, as you're in charge of grouping in this case.
 
-* * *
+---
 
 ## ASF packaging
 
 ASF comes in 2 main flavours - generic package and OS-specific. Functionality-wise both packages are exactly the same, they're both also capable of automatically updating themselves. The only difference between them is whether or not ASF **generic** package also comes with **OS-specific** runtime to power it.
 
-* * *
+---
 
 ### Generic
 
@@ -44,7 +44,7 @@ In general you should **avoid this package as much as possible**, as majority of
 
 As the time goes on with more platforms being supported by .NET Core and less compatibility between .NET Framework and .NET Core, `generic-netf` package will be entirely replaced with `generic` one in the future. Please refrain from using it if you can use any .NET Core package instead, as `generic-netf` is missing a lot of functionality and compatibility compared to .NET Core versions, and it'll be only less functional as the time goes on. We offer support for this package **only** on machines that can't use `generic` variant above (e.g. `linux-x86`), and only with up-to-date runtime (e.g. latest Mono).
 
-* * *
+---
 
 ### OS-specific
 
@@ -62,7 +62,7 @@ Of course, even if you don't have OS-specific package available for your OS-arch
 
 For a complete list of all supported platforms and OSes by .NET Core 5.0, visit **[release notes](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md)**.
 
-* * *
+---
 
 ## Runtime requirements
 

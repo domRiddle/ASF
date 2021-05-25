@@ -2,7 +2,7 @@
 
 À partir do ASF V4, o programa inclui suporte para plugins customizados que podem ser carregados durante a execução. Plugins permitem que você personalize o comportamento do ASF, adicionando comandos e lógicas de troca personalizados ou mesmo uma completa integração com serviços de terceiros e APIs.
 
-* * *
+---
 
 ## Para usuários
 
@@ -16,13 +16,13 @@ Você pode encontrar alguns plugins em destaque na seção **[terceiros](https:/
 
 **Por favor, note que alguns plugins podem ser mal intencionados**. Você deve sempre usar apenas plugins de desenvolvedores confiáveis. Os desenvolvedores do ASF não podem garantir os benefícios padrões do ASF (tal como a não presença de malwares ou ser livre de VAC ban) caso você decida usar qualquer plugin personalizado. Também não podemos oferecer suporte a configurações que utilizam esses plugins, já que você não estará mais rodando a versão original do código do ASF.
 
-* * *
+---
 
 ## Para desenvolvedores
 
 Plugins são bibliotecas padrão .NET que herdam a interface `IPlugin` em comum com o ASF. Você pode desenvolver plugins inteiramente independentes da linha principal do ASF e reutilizá-los nas suas versões atuais e futuras, contando que a API permaneça compatível. O sistema de plugins usado no ASF é baseado em `System.Composition`, conhecido anteriormente como **[Managed Extensibility Framework](https://docs.microsoft.com/dotnet/framework/mef)** que permite que o ASF descubra e carregue suas bibliotecas durante o tempo de execução.
 
-* * *
+---
 
 ### Como começar
 
@@ -83,23 +83,23 @@ dotnet publish -c "Release" -o "out"
 dotnet publish YourPluginName -c "Release" -o "out"
 ```
 
-Após isso seu plugin estará pronto. Como exatamente você quer distribuir e publicar seu plugin é por sua conta, mas recomendamos criar um arquivo zip com uma pasta apenas, chamada `YourNamespace.YourPluginName`, dentro da qual você colocará seu plugin compilado juntamente com suas **[dependências](#dependências -do-plugin)**. Dessa forma o usuário precisará apenas descompactar o arquivo zip dentro da pasta `plugins` e nada mais.
+Após isso seu plugin estará pronto. It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its **[dependencies](#plugin-dependencies)**. Dessa forma o usuário precisará apenas descompactar o arquivo zip dentro da pasta `plugins` e nada mais.
 
-Esse é o cenário mais básico, apenas para começar. Temos o projeto **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** que mostra interfaces e ações que você pode fazer dentro do seu próprio plugin, incluindo comentários úteis. Sinta-se livre para dar uma olhada se você quiser aprender com um código funcional, ou explore o namespace `ArquiSteamFarm.Plugins` por sua conta e consulte a documentação incluída para todas as opções disponíveis.
+Esse é o cenário mais básico, apenas para começar. We have **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Sinta-se livre para dar uma olhada se você quiser aprender com um código funcional, ou explore o namespace `ArquiSteamFarm.Plugins` por sua conta e consulte a documentação incluída para todas as opções disponíveis.
 
-Se você preferir aprender com projetos reais ao invés de plugins de exemplo, há o **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** desenvolvido por nós, o mesmo que vai junto com o ASF. Além disso há outros plugins desenvolvidos por outros, na nossa seção **[aplicativos de terceiros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-pt-BR#plugins-para-o-asf)**.
+If instead of example plugins you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. In addition to that, there are also plugins developed by other developers, in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
 
-* * *
+---
 
 ### Disponibilidade de API
 
 O ASF, além do que você tem acesso pela interface, expõe muito de suas APIs internas, as quais você pode usar para estender sua funcionalidade. Por exemplo, se você quiser enviar algum tipo de novo pedido para o Steam web você não precisa implementar tudo a partir do zero, tratando todos os problemas com os quais tivemos de lidar antes de você. Simplesmente use nosso `Bot.ArchiWebHandler` que já expõe muitos métodos `UrlWithSession()` para você usar, cuidando de todas as coisas de baixo nível como autenticação, atualização da sessão ou limitação de tráfego para você. Da mesma forma, para enviar pedidos web fora da plataforma Steam, você pode usar a classe padrão .NET `HttpClient`, mas é melhor usar `Bot.ArchiWebHandler.WebBrowser` que está disponível, o que mais uma vez lhe oferece uma ajuda, por exemplo, no que diz respeito a tentar novamente pedidos falhos.
 
-Temos uma política muito aberta em questão da disponibilidade da nossa API, então se você quiser usar algo já incluso no código do ASF basta **[abrir um chamado](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** e explicar nele o uso planejado da API interna do ASF. É muito provável que não tenhamos nada contra, desde que o seu uso preterido faça sentido. É simplesmente impossível abrirmos tudo o que alguém gostaria de usar, então abrimos o que mais faz sentido para nós e esperamos por pedidos caso haja necessidade de acesso a algo que não é `público` ainda. Isso inclui as sugestões a respeito nas novas interfaces `IPlugin` que podem fazer sentido de serem adicionadas para estender funcionalidades existentes.
+We have a very open policy in terms of our API availability, so if you'd like to make use of something that ASF code already includes, simply **[open an issue](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** and explain in it your planned use case of our ASF's internal API. É muito provável que não tenhamos nada contra, desde que o seu uso preterido faça sentido. É simplesmente impossível abrirmos tudo o que alguém gostaria de usar, então abrimos o que mais faz sentido para nós e esperamos por pedidos caso haja necessidade de acesso a algo que não é `público` ainda. Isso inclui as sugestões a respeito nas novas interfaces `IPlugin` que podem fazer sentido de serem adicionadas para estender funcionalidades existentes.
 
 Na verdade, a API interna do ASF é a única limitação real quanto ao que seu plugin pode fazer. Nada te impede de, por exemplo, incluir a biblioteca `Discord.Net` no seu aplicativo e criar uma ponte entre seu bot do Discord e os comandos do ASF, pois seu plugin também pode ter dependências próprias. As possibilidades são infinitas, e nós fizemos o possível para dar o máximo de liberdade e flexibilidade possível para seu plugin, então não há limites artificiais em nada, apenas não temos completamente certeza de quais partes do ASF são cruciais para o desenvolvimento do seu plugin (que você pode resolver ao nos informar, e mesmo sem isso você pode sempre reimplementar a parte que você necessita).
 
-* * *
+---
 
 ### Compatibilidade de API
 
@@ -107,7 +107,7 @@ Na verdade, a API interna do ASF é a única limitação real quanto ao que seu 
 
 Faremos o nosso melhor para manter partes públicas do ASF funcionais e estáveis, mas não teremos medo de quebrar a compatibilidade se surgirem boas razões suficientes, seguindo nossa política de **[depreciação](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-pt-BR)** nesse processo. Isto é especialmente importante no que diz respeito às estruturas internas da ASF que são expostas a você como parte da infra-estrutura do ASF, explicadas acima (por exemplo, `ArchiWebHandler`) que podem ser melhoradas (e, portanto, reescritas) como parte de aprimoramentos do ASF em versões futuras. Faremos o possível para informá-lo adequadamente nos logs de alterações e incluir avisos apropriados durante o tempo de execução sobre recursos obsoletos. Não temos intenção de reescrever tudo sem que haja uma necessidade realmente grande, então você pode ter certeza de que a próxima versão menor do ASF não vai simplesmente destruir seu plugin completamente apenas porque ela tem um número de versão maior, mas ficar de olho nos logs de atualização e verificar ocasionalmente se tudo está funcionando bem é uma boa ideia.
 
-* * *
+---
 
 ### Dependências de plugin
 
@@ -121,7 +121,7 @@ Se você sabe que a dependência que você precisa está inclusa no ASF, você p
 
 Se você tiver dúvidas em relação ao que foi dito acima e você não tem idéias melhores, verifique quais bibliotecas `dll` estão inclusas no pacote `ASF-generic.zip` e certifique-se que seu plugin inclua apenas as que não fazem parte desse pacote. Para a maioria dos plugins mais simples isso incluirá apenas `NomeDoSeuPlugin.dll`. Se você tiver algum problema durante o tempo de execução em relação a algumas bibliotecas, inclua também as bibliotecas afetadas. Se todo o resto falhar, você pode sempre decidir agrupar tudo.
 
-* * *
+---
 
 ### Dependências nativas
 

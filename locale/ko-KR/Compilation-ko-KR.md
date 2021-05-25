@@ -4,13 +4,13 @@
 
 ASF는 필요로 하는 도구를 모두 가지고만 있다면 현재 지원되는 어떠한 플랫폼에서도 컴파일 될 수 있습니다.
 
-* * *
+---
 
 ## .NET Core SDK
 
 ASF를 컴파일하려면 플랫폼과 상관없이 런타임뿐아니라 전체 .NET Core SDK가 필요합니다. **[.NET Core 설치 페이지(영문)](https://dotnet.microsoft.com/download)** 에서 설치 방법을 찾을 수 있습니다. 당신의 OS에 맞는 .NET Core SDK 버전을 설치해야 합니다. 성공적인 설치 후에 `dotnet` 명령이 작동하고 실행되어야 합니다. `dotnet --info` 로 작동 여부를 확인할 수 있습니다. 또한 .NET Core SDK가 ASF의 **[런타임 요구사항](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR#runtime-requirements)** 과 일치하는지 확인하시기 바랍니다.
 
-* * *
+---
 
 ## 컴파일
 
@@ -48,7 +48,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
 ```
 
-* * *
+---
 
 ## 개발
 
@@ -58,13 +58,13 @@ ASF 코드를 편집하고 싶다면, 아무 .NET Core 호환 IDE나 사용할 �
 
 물론 위의 모든 제안은 단지 권장사항일 뿐이고, 당신은 원하는 모든 것을 사용할 수 있지만, 결국 `dotnet build` 명령으로 귀결됩니다. We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, although it's not a free solution.
 
-* * *
+---
 
 ## 태그
 
 `main` branch is not guaranteed to be in a state that allows successful compilation or flawless ASF execution in the first place, since it's development branch just like stated in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. ASF를 소스에서 컴파일하거나 참조하려면 목적에 맞는 적절한 **[태그](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** 를 사용해야 합니다. 이는 최소한 성공적인 컴파일을 보장하고, 안정 릴리스로 표시된 빌드는 거의 흠없는 실행도 가능합니다. In order to check the current "health" of the tree, you can use our continuous integrations - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** or **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**.
 
-* * *
+---
 
 ## 공식 릴리스
 

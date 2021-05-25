@@ -2,7 +2,7 @@
 
 ASF incluye soporte para intercambios no interactivos (offline) de Steam. Tanto la recepción (aceptar/rechazar) como el envío intercambios está disponible inmediatamente y no requiere una configuración especial, pero obviamente se requiere una cuenta de Steam sin restricciones (aquella que ya ha gastado 5$ en la tienda). El módulo de intercambios no está disponible para cuentas limitadas.
 
-* * *
+---
 
 ## Lógica
 
@@ -18,7 +18,7 @@ Es bueno notar que `AcceptDonations` no requiere **[ASF 2FA](https://github.com/
 
 También puedes personalizar aún más las capacidades de intercambio de ASF modificando `TradingPreferences` según lo deseado. Una de las características principales de `TradingPreferences` es la opción `SteamTradeMatcher` que hará que ASF use su lógica integrada para aceptar intercambios que te ayuden a completar insignias faltantes, lo que es especialmente útil en cooperación con la lista pública de **[SteamTradeMatcher](https://www.steamtradematcher.com)**, pero también puede funcionar sin ella. Se describe con detalle abajo.
 
-* * *
+---
 
 ## `SteamTradeMatcher`
 
@@ -47,7 +47,7 @@ Independientemente de las `TradingPreferences` que hayas seleccionado, que un in
 
 Es altamente recomendable usar **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-es)** cuando habilitas esta opción, ya que esta función pierde todo su potencial si decides confirmar manualmente cada intercambio. `SteamTradeMatcher` funcionará correctamente incluso sin la capacidad de confirmar intercambios, pero puede generar un atraso en las confirmaciones si no las aceptas a tiempo.
 
-* * *
+---
 
 ### `MatchActively`
 

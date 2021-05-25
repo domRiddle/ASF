@@ -2,19 +2,22 @@
 
 Начиная с версии 3.0.3.2, ASF также доступен в формате **[контейнера docker](https://www.docker.com/what-container)**. Запуск ASF в контейнере docker обычно не имеет никаких преимуществ для обычных пользователей, он это может оказаться отличным способом использования ASF на серверах, позволяющий запускать ASF в среде, изолированной от других приложения. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
-* * *
+---
 
 ## Теги
 
 В ASF доступные 4 основных типа **[тегов](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
 
+
 ### `main`
 
 This tag always points to the ASF built from latest commit in `main` branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. Обычно вам стоит избегать использования этого тега, поскольку на этом уровне в программе наибольшая вероятность наличия ошибок, и эта сборка предназначена для разработчиков и продвинутых пользователей принимающих участие в разработке. The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken), just like in our AppVeyor build. Эта сборка отображает текущее состояние проекта ASF, и не гарантируется что она стабильна и протестирована, как и указано в описании цикла выпуска. Этот тег не следует использовать в среде реального применения.
 
+
 ### `released`
 
 По аналогии с тегом выше, этот тег всегда соответствует последней **[версии ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**, включая предварительные. Compared to `main` tag, this image is being updated each time a new GitHub tag is pushed. Предназначен для продвинутых пользователей, которые предпочитают самые свежие версии программного обеспечения, находящиеся на грани того, что можно считать стабильным. Мы рекомендуем это если вы по какой-то причине не хотите использовать тег `latest`. Пожалуйста, обратите внимание, что использование этого тега аналогично использованию **[предварительных версий](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ru-RU)**.
+
 
 ### `latest`
 
@@ -26,7 +29,7 @@ Due to the fact that the `latest` image comes with capability of auto-updates, i
 
 В сравнении с тегами выше, этот тег полностью зафиксирован, это означает что образ не будет обновляться после публикации. Это работает аналогично сборкам на GitHub, которые никогда не меняются после выпуска, что гарантирует стабильную и неизменную среду. Обычно вы можете захотеть использовать этот тег если вы хотите определённую версию ASF(более старую чем `latest`) и не хотите использовать никаких авто-обновлений (например, предоставляемых в теге `latest`).
 
-* * *
+---
 
 ## Какой тег лучше для меня?
 
@@ -34,7 +37,7 @@ Due to the fact that the `latest` image comes with capability of auto-updates, i
 
 We generally discourage trying `main` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. Нет никаких гарантий что это состояние будет правильно работать, но конечно же вы можете попробовать его использовать если интересуетесь разработкой ASF.
 
-* * *
+---
 
 ## Архитектуры
 
@@ -42,7 +45,7 @@ ASF docker image is currently built on `linux` platform with 3 architectures - `
 
 Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker run`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
 
-* * *
+---
 
 ## Использование
 
@@ -66,7 +69,7 @@ docker run -it --name asf --pull always --rm justarchi/archisteamfarm
 docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 ```
 
-* * *
+---
 
 ## Использование тома
 
@@ -100,7 +103,7 @@ docker exec -u root asf chown -hR 1000:1000 /app
 
 Это нужно сделать только один раз после создания вашего контейнера командой `docker run`, и только если вы решите запускать процесс ASF под своим пользователем. Также не забывайте заменить аргумент `1000:1000` в командах выше на `uid` и `gid` которые вы реально хотите использовать для запуска ASF.
 
-* * *
+---
 
 ## Синхронизация нескольких экземпляров
 
@@ -121,7 +124,7 @@ docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name a
 
 Привязка `/tmp/ASF` совершенно необязательна и даже не рекомендуется, за исключением случая когда вы точно хотите синхронизировать два или более контейнера ASF. Мы не рекомендуем привязку `/tmp/ASF` для использования одного контейнера, поскольку это не несёт совершенно никакой пользы если вы планируете запускать только один контейнер ASF, и может даже привести к проблемам, которых можно было избежать.
 
-* * *
+---
 
 ## Аргументы командной строки
 
@@ -135,7 +138,7 @@ docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --n
 
 Кроме случая, когда вы хотите передать ключ шифрования или иные продвинутые опции, обычно вам нет нужны указывать переменные среды, поскольку наши контейнеры docker уже сконфигурированы на запуск с разумными параметрами по умолчанию `--no-restart`, `--process-required` и `--process-required`, поэтому, как видите, `ASF_ARGS` в примере выше избыточен, и только `ASF_CRYPTKEY` имеет смысл.
 
-* * *
+---
 
 ## IPC
 
@@ -165,7 +168,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull alway
 
 Если вы всё настроили правильно, команда `docker run`, приведенная выше сделает возможной работу с интерфейсом **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ru-RU)** на вашей хост-машине, по стандартному адресу `localhost:1242`, который теперь корректно маршрутизируется на гостевую машину. Приятно отметить, что мы не маршрутизируем этот адрес дальше, поэтому соединение будет работать только с хост-машины docker, а значит останется безопасным. Разумеется, вы можете разрешить маршрутизацию и далее, если вы понимаете что делаете и предпринимаете соответствующие меры безопасности.
 
-* * *
+---
 
 ### Полный пример
 
@@ -189,7 +192,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app
 }
 ```
 
-* * *
+---
 
 ## Советы профессионалов
 

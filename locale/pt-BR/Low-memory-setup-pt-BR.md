@@ -2,7 +2,7 @@
 
 Isso é exatamente o oposto da **[configuração de alta performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-pt-BT)** e provavelmente você vai querer seguir essas dicas se você quer diminuir o uso de memória pelo ASF, ao custo de diminuir o desempenho.
 
-* * *
+---
 
 O ASF é extremamente leve em recursos, dependendo do uso até um VPS de 128MB com Linux é capaz de executá-lo, embora não seja recomendado usar uma configuração tão fraca que pode causar vários problemas. Mesmo sendo leve, o ASF pode pedir mais memória para o sistema operacional se ela for necessária para que o ASF opere com velocidade otimizada.
 
@@ -14,33 +14,32 @@ O ASF é muito bem otimizado e faz uso dos recursos disponíveis tanto quanto po
 
 Também é por esse motivo que a memória utilizada no processo do ASF varia de um computador para outro, já que o ASF fará o seu melhor para utilizar os recursos disponíveis **da melhor forma possível** e não de uma forma fixa como era feito na época do Windows XP. O quantidade atual (real) de memória que o ASF está usando pode ser verificado com o **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `status`, e geralmente gira em torno de 4 MB para alguns bots ou até 30 MB se você usa coisas como o **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR)** e outros recursos avançados. Tenha em mente que memória retornada pelo comando `stats` inclui a memória livre que ainda não foi recuperada pelo coletor de lixo. O resto é memória compartilhada pelo tempo de execução (cerca de 40~50 MB) e o espaço para execução (podem variar). Também é por esse motivo que o mesmo ASF pode usar tão pouca memória quanto 50 MB em um ambiente VPS, enquanto usa até 1 GB em seu desktop. O ASF está ativamente se adaptando ao seu ambiente e tentará encontrar o equilíbrio ideal para não pressionar o seu sistema operacional nem limitar seu desempenho quando você tem um monte de memória não utilizada que pode ser colocado em uso.
 
-* * *
+---
 
 Claro, existem muitas formas de apontar o ASF na direção certa em termos de quantidade de memória que pretende usar. No geral, se você não precisa disso, é melhor deixar o coletor de lixo trabalhar em paz e fazer o que ele achar melhor. Mas nem sempre isso é possível, por exemplo, se seu servidor Linux também está hospedando vários sites, bancos de dados MySQL e manipuladores PHP, então você realmente não pode permitir que o ASF diminua o uso de memória apenas quando você estiver perto de ficar sem ela, pois geralmente é tarde demais e leva a queda de desempenho. É normalmente nesse caso que você pode estar interessado em uma configuração mais detalhada e, portanto, em ler essa página.
 
 As sugestões abaixo estão divididas em algumas categorias, com dificuldade variada.
 
-* * *
+---
 
 ## Ajuste do ASF (fácil)
 
-As dicas abaixo **não afetam negativamente o desempenho** e podem ser aplicadas com segurança a todas as configurações.
+As dicas abaixo **não afetam negativamente o desempenho** e podem ser aplicados com segurança a todas as configurações.
 
 - Nunca execute mais de uma cópia do ASF. O ASF destina-se a lidar com um número ilimitado de bots de uma vez e a menos que você esteja vinculando cada cópia do ASF para diferentes interfaces/endereços de IP, você deve ter exatamente **um** processo do ASF, com vários bots (se necessário).
 - Utilize o `ShutdownOnFarmingFinished`. Um bot ativo ocupa mais recursos que um desativado. Não é um ganho significativo, já que o estado do bot ainda precisa ser mantido, mas você está salvando uma certa quantidade de recursos, especialmente de todos os recursos relacionados à rede, tais como soquetes TCP. Você precisa de apenas um bot ativo para manter o ASF em execução, e você sempre pode ativar outros bots se necessário.
 - Mantenha uma quantidade baixa de bots. Um bot sem o parâmetro `Enabled` toma menos recursos, já que o ASF não se preocupa em iniciá-lo. Também tenha em mente que o ASF tem que criar um bot para cada uma das suas configurações, portanto se você não precisa iniciar um bot com o comando `start` e quer salvar alguma memória extra, você pode renomear temporariamente `Bot.json` para, por exemplo, `Bot.json.bak`, para que o ASF não crie um bot inativo no processo. Desta forma você não será capaz de iniciá-lo pelo comando `start` sem renomeá-lo de volta, mas o ASF também não se preocupa em manter o estado deste bot na memória deixando espaço para outras coisas (é um ganho muito pequeno, em 99,9% casos você não deveria se preocupar com isso, só mantér seus bot com o parâmetro `Enabled` com o valor `false`).
-- Afine suas configurações. O arquivo de configuração global do ASF que tem muitas variáveis para ajustar, por exemplo, aumentando `LoginLimiterDelay` vai fazer com que o tempo entre o carregamento dos bots seja maior, o que permitirá que um bot já iniciado busque a página de insígnias nesse intervalo, ao contrário de carregá-los de uma vez que toma mais recursos, pois os bots fazem todo o trabalho (tal como analisar as insígnias) ao mesmo tempo. Quanto menos trabalho a ser feito ao mesmo tempo - menos memória é usada.
+- Fine-tune your configs. Especially global ASF config has many variables to adjust, for example by increasing `LoginLimiterDelay` you'll bring up your bots slower, which will allow already started instance to fetch badges in the meantime, as opposed to bringing up your bots faster, which will take more resources as more bots will do major work (such as parsing badges) at the same time. Quanto menos trabalho a ser feito ao mesmo tempo - menos memória é usada.
 
 Essas são algumas coisas que você deve ter em mente ao lidar com o uso de memória. No entanto, essas coisas não têm qualquer papel "crucial" no uso de memória, porque o uso de memória vem principalmente de coisas com as quais o ASF tem de lidar e não de estruturas internas, utilizadas para a coleta.
 
 As funções de recursos mais pesadas são:
-
 - Análise da página de insígnias
 - Análise do inventário
 
 O que significa que a memória terá os maiores picos quando o ASF fizer a leitura das páginas de insignias, e quando ele está lidando com seu inventário (por exemplo, enviando trocas ou trabalhando com o STM). Isso acontece porque a ASF tem de lidar com uma enorme quantidade de dados - o uso de memória pelo seu navegador quando acessa essas duas páginas não será menor que isso. Desculpe, mas é assim que funciona - diminuir o número de páginas de insígnias e manter um número baixo de itens no seu inventário com certeza pode ajudar.
 
-* * *
+---
 
 ## Ajuste do tempo de execução (avançado)
 
@@ -78,7 +77,7 @@ Essa é uma propriedade não documentada que funciona excepcionalmente bem, limi
 
 Isso oferece pouca melhoria, mas pode tornar o coletor de lixo ainda mais agressivo quando o sistema ficar com pouca memória, especialmente para o ASF que faz bastante uso de tarefas no pool de threads.
 
-* * *
+---
 
 Você pode habilitar ambas as propriedade de coletor de lixo definindo as variáveis `COMPlus_` apropriadas. Por exemplo, no linux (shell):
 
@@ -108,7 +107,7 @@ $Env:COMPlus_gcTrimCommitOnLowMemory=1
 
 `GCLatencyLevel` será especialmente útil, pois verificamos que o tempo de execução de fato otimiza o código para a memória e portanto diminui significativamente o uso de memória, mesmo com o coletor de lixo do servidor. Esse é uma das melhores dicas que você pode aplicar se você deseja diminuir significativamente o uso de memória pelo ASF sem degradar demais o desempenho com `OptimizationMode`.
 
-* * *
+---
 
 ## Ajuste do ASF (intermediário)
 
@@ -116,7 +115,7 @@ As dicas abaixo **envolvem séria diminuição de performance** e devem ser usad
 
 - Como um último recurso você pode ajustar o ASF para `MinMemoryUsage` (uso mínimo de memória) através do **[parâmetro de configuração global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-global)** `OptimizationMode`. Leia atentamente a sua finalidade, pois se trata de uma queda muito grande de desempenho e resulta em pouquíssimos benefícios de memória. Normalmente essa é **a última coisa que você quer fazer**, depois de ter feitos os **[ajustes do tempo de execução](#ajuste do-tempo-de-execução)** para garantir que você está sendo forçado a fazer isso. Unless absolutely critical for your setup, we discourage using `MinMemoryUsage`, even in memory-constrained environments.
 
-* * *
+---
 
 ## Otimização recomendada
 

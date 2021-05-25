@@ -4,7 +4,7 @@
 
 後台序號啟動器僅對單個機械人有效，這意味著它不會採用 `RedeemingPreferences` 的設置。 若有需要，此功能可以與（或代替） `redeem` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**一起使用。
 
-* * *
+---
 
 ## 導入
 
@@ -36,7 +36,7 @@ ZXCVB-ASDFG-QWERT
 
 除了使用上面提到的產品序號檔案外，ASF還開放了 `GamesToRedeemInBackground` **[ASF API 端點](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)**，它能以任何IPC 工具（包括我們的 ASF-ui）執行。 IPC 可提供更完善的功能，因為您可以使用您覺得合適的方式進行解析。例如使用自訂分隔符號，而非強制使用 Tab，甚至可以完全自訂序號格式。
 
-* * *
+---
 
 ## 佇列
 
@@ -44,7 +44,7 @@ ZXCVB-ASDFG-QWERT
 
 如果在兌換過程中帳戶觸發 `RateLimited` 狀態，佇列將會暫停一小時以等待冷卻時間結束。 之後，兌換程序將會從中斷的地方繼續，直到佇列完全清空。
 
-* * *
+---
 
 ## 範例
 
@@ -60,7 +60,7 @@ ZXCVB-ASDFG-QWERT
 
 您還可以通過重複上述所有步驟，在佇列中已有一些遊戲的情況下，添加額外的遊戲。 ASF 會正確地將我們的額外條目加入正在進行的佇列中並最終處理之。
 
-* * *
+---
 
 ## 備註
 

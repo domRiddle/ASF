@@ -4,7 +4,7 @@ ASF development is supported by 3 major things: donations, users feedback, and s
 
 ASF in default settings has `Statistics` global config property enabled. If you want to see new versions coming up, bugs being fixed, and new features getting implemented, you should consider keeping them on, so we can make use of that data in order to provide you with a better software (but not only). This is especially important because ASF is given to you **for free**, and this is the least you can do to say thanks - **tell us that you're using ASF**, as this is what our current statistics are mainly doing. ASF does not collect or make use of any data that could be considered private and/or used against you. We keep the usage of statistics to bare minimum, and every single information being collected requires from us to precisely state it here, together with practical explanation. This gives you full insight into what we collect, for what purpose, and how it's supposed to help. All of that info can be found further below.
 
-* * *
+---
 
 ## Güncel gizlilik politikası
 
@@ -31,13 +31,13 @@ We consider Steam group as a crucial part in regards to ASF community. This is o
 
 ASF will **not** collect any other non-listed-above data without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand our point of view.
 
-* * *
+---
 
 # Usage of data
 
 All values specified in second point are being used for our **Public ASF STM listing**, which is explained below. We do not use any other data for any other purpose.
 
-* * *
+---
 
 ## Public ASF STM listing
 
@@ -63,7 +63,7 @@ If you're looking for easy way to access our listing in programmatic way, we hav
 
 *The entire concept, together with website integration and ASF reporting is still in beta - it can be improved/changed over time - also removed if we feel like there is not enough interest for this feature.*
 
-* * *
+---
 
 ## Opting out
 

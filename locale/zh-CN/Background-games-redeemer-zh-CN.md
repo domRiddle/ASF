@@ -4,7 +4,7 @@ ASF 内置了一个特别的功能——后台游戏激活器，此功能可以�
 
 后台游戏激活器仅对单个机器人有效，也就是说它不会采用 `RedeemingPreferences` 的设置。 如有需要，这个功能可以和 `redeem` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;一起使用（或者代替它）。
 
-* * *
+---
 
 ## 导入
 
@@ -36,7 +36,7 @@ ZXCVB-ASDFG-QWERT
 
 除了上述游戏序列号文件外，ASF 也开放了可供任意 IPC 工具（包括我们的 ASF-ui）使用的 `GamesToRedeemInBackground` **[ASF API 端点](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-api)**。 使用 IPC 功能会更强大，因为可以使用您觉得合适的方式进行解析。例如使用自定义分隔符，而不是强制使用 Tab 分隔，甚至可以完全自定义序列号格式。
 
-* * *
+---
 
 ## 队列
 
@@ -44,9 +44,9 @@ ZXCVB-ASDFG-QWERT
 
 如果在激活过程中帐户遇到 `RateLimited` 状态，队列会暂停一小时以等待冷却时间结束。 然后，激活过程将会从中断的地方继续，直到队列为空。
 
-* * *
+---
 
-## 示例
+## 范例
 
 假设您有一个包含 100 个序列号的列表。 首先您应该在 ASF 的 `config` 文件夹下创建一个名为 `BotName.keys.new` 的文件。 我们加上 `.new` 后缀是为了防止 ASF 在创建文件的那一刻立即读取该文件（因为它是一个空白文件，尚未准备好导入）。
 
@@ -60,7 +60,7 @@ ZXCVB-ASDFG-QWERT
 
 同样也可以在队列已有游戏的时候导入别的游戏，只需要重复上述步骤就行了。 ASF 会正确地添加新条目到正在执行的队列中并最终处理它。
 
-* * *
+---
 
 ## 备注
 

@@ -6,9 +6,9 @@ ASF許可證是非常寬鬆的，它允許的範圍比標準GPL許可證更大�
 
 > 只要您在項目中遵循開發人員的要求作出相關聲明，便可將此軟件作任意用途。 此許可證包含來自代碼貢獻者的專利許可。
 
-Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` are often licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. 同樣的情況也適用于 ASF 使用的所有其他第三方工具，尤其是`tools`目錄中那些將其許可證列於代碼頂部的工具。
+Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` are often licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
 
-* * *
+-----
 
 ## 備註
 
@@ -19,14 +19,12 @@ Please note that various **[ASF components](https://github.com/JustArchiNET/Arch
 我們不允許您在自己的軟件中直接使用 ASF/ArchiSteamFarm 產品名稱，但我們允許在某些常識性場景中使用它：
 
 您**可以**：
-
 - 聲明您的軟件/服務**基於**ASF（或其代碼）
 - 命名您的軟件/服務為**ASF fork**
 - 聲明您的軟件/服務由 ASF 支援，如果您**並未**對原始程式碼進行任何更改
 - 將 ASF 用於各種參考目的，例如連結軟件/服務來源、我們的 Wiki，或*「用於描述工作所需的合理和習慣使用的來源」*
 
 You **cannot**:
-
 - 聲明您的軟件/服務**是**ASF
 - 命名您的軟件/服務為**ASF**
 - 聲明您的軟件/服務由 ASF 支援，如果您**更改了**原始程式碼

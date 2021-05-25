@@ -2,7 +2,7 @@
 
 Od ASF V3.1.2.2, pratićemo konstantnu politiku zastarenja da bi usavršili razvijanje i da bi napravili korišćenje više konzistentnim.
 
-* * *
+---
 
 ## Šta je zastarenje?
 
@@ -10,7 +10,7 @@ Zastarenje je proces dodavanja manjih ili većih promjena koji pravi prethodno k
 
 ASF se brzo mijenja i uvijek cilja da postane bolji. Ovo nažalost znači da ćemo možda promijeniti ili pomjeriti postojeće funkcionalnosti u drugi segmenat programa da bi koristio od novih mogućnosti, kompatabilnosti ili stabilnosti. Zahvaljujući tome ne moramo da se zadržavamo na zastarelim ili pogrešnim odlukama developovanja koje smo davno napravili. Uvijek pokušavamo da damo razumne zamjene koje su prikladne očekivanim već postojećim funkcionalnostima, zbog čega je zastarenje najčešće bezopasno i zahtijeva male popravke prethodnog korišćenja.
 
-* * *
+---
 
 ## Faze zastarenja
 
@@ -26,7 +26,7 @@ Tokom ove faze, ASF će prikazivati prikladne upozorenja da je zastarela funkcij
 
 Faza 2 je zakazana nakon faze 1 objašnjene iznad i dešava se dok se ne objavi u stabilnoj verziji. Ova faza dodaje kompletno uklanjanje zastarele mogućnosti, što zači da ASF neće pokušati da prepozna da li je koristite, ili da je koristi, pošto ona više ne postoji u trenutnom kodu. ASF neće više prikazivati upozorenja, pošto više ne prepoznaje šta pokušavate da uradite.
 
-* * *
+---
 
 ## Zaključak
 
@@ -34,7 +34,7 @@ Imaćete oko **mjesec dana** da napravite odgovarajući prelaz, što je više ne
 
 U najviše slučajeva, zanemarivanje opomena zastarenja neće napraviti ASF nefunkcionalnim, ali će ga vratiti nazad na opšta podešavanja (što možda neće odgovarati vašim ličnim potrebama i podešavanjima).
 
-* * *
+---
 
 ## Primjer
 

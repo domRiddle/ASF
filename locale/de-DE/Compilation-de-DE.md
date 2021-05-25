@@ -1,16 +1,16 @@
 # Kompilierung
 
-Kompilierung ist der Prozess zur Erstellung von ausführbaren Dateien. Dies ist ratsam, wenn Sie Ihre eigenen Änderungen zu ASF hinzufügen wollen, oder wenn Sie aus irgendeinem Grund den ausführbaren Dateien der offiziell bereitgestellten **[Versionen](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** nicht vertrauen. Wenn Sie ein einfacher Benutzer und kein Entwickler sind, möchten Sie höchstwahrscheinlich bereits vorkompilierte Binärdateien verwenden. Wenn Sie aber eigenen Dateien verwenden oder etwas Neues lernen möchten, lesen Sie bitte hier weiter.
+Kompilierung ist der Prozess zur Erstellung von ausführbaren Dateien. Dies ist ratsam, wenn Sie Ihre eigenen Änderungen zu ASF hinzufügen wollen, oder wenn Sie aus irgenIhrem Grund den ausführbaren Dateien der offiziell bereitgestellten **[Versionen](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** nicht vertrauen. Wenn Sie ein einfacher Benutzer und kein Entwickler sind, möchten Sie höchstwahrscheinlich bereits vorkompilierte Binärdateien verwenden. Wenn Sie aber eigenen Dateien verwenden oder etwas Neues lernen möchten, lesen Sie bitte hier weiter.
 
 ASF kann auf allen momentan unterstützten Plattformen kompiliert werden, solange Sie Zugriff auf die benötigten Programme haben.
 
-* * *
+---
 
 ## .NET Core SDK
 
 Unabhängig von der Plattform benötigen Sie die vollständige .NET Core SDK (nicht nur Runtime), um ASF zu kompilieren. Eine Installationsanleitung finden Sie auf der **[.NET Core Installationsseite](https://dotnet.microsoft.com/download)**. Es muss die passende .NET Core SDK-Version für Ihr Betriebssystem installiert sein. Nach erfolgreicher Installation sollte der Befehl `dotnet` funktionieren und betriebsbereit sein. Sie können mit `dotnet --info` überprüfen ob es funktioniert. Stellen Sie sicher, dass Ihr .NET Core SDK mit den ASF **[Runtime-Anforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#runtime-anforderungen)** übereinstimmt.
 
-* * *
+---
 
 ## Kompilierung
 
@@ -42,29 +42,29 @@ Im sehr seltenen Fall, dass Sie das `generic-netf`-Paket erstellen möchten, kö
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
-Falls Sie das .NET Framework oder sogar die .NET Core SDK nicht selbst installieren können (z.B. weil es auf `linux-x86` mit `mono` kompiliert wurde), können Sie `msbuild` direkt aufrufen. Sie müssen auch `ASFNetFramework` manuell angeben, da ASF standardmäßig `netf` build auf Nicht-Windows-Plattformen deaktiviert:
+Falls Sie das .NET Framework oder sogar die .NET Core SDK nicht selbst installieren können (z. B. weil es auf `linux-x86` mit `mono` kompiliert wurde), können Sie `msbuild` direkt aufrufen. Sie müssen auch `ASFNetFramework` manuell angeben, da ASF standardmäßig `netf` build auf Nicht-Windows-Plattformen deaktiviert:
 
 ```shell
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
 ```
 
-* * *
+---
 
 ## Entwicklung
 
 Wenn Sie ASF-Quelltext bearbeiten möchten, können Sie zu diesem Zweck jede .NET Core kompatible IDE verwenden, obwohl selbst das optional ist. Sie können auch mit einem Notepad arbeiten und mit dem oben beschriebenen `dotnet` Befehl kompilieren. Dennoch empfehlen wir für Windows ein **[aktuelles Visual Studio](https://visualstudio.microsoft.com/downloads)** (kostenlose Community-Version reicht vollkommen).
 
-Wenn Sie stattdessen den ASF-Quelltext unter Linux/OS X bearbeiten möchten, empfehlen wir eine **[aktuelle Visual Studio Code Version](https://code.visualstudio.com/download)**. Diese Version ist nicht so umfangreich wie das klassische Visual Studio, aber reicht vollkommen aus.
+Wenn du stattdessen den ASF-Quelltext unter Linux/OS X bearbeiten möchtest, empfehlen wir eine **[aktuelle Visual Studio Code Version](https://code.visualstudio.com/download)**. Diese Version ist nicht so umfangreich wie das klassische Visual Studio, aber reicht vollkommen aus.
 
 Natürlich sind alle obigen Vorschläge nur Empfehlungen, Sie können verwenden was immer Sie möchten. Am Ende wird sowieso immer `dotnet build` ausgeführt. Wir verwenden **[JetBrains Rider](https://www.jetbrains.com/rider)** für die ASF-Entwicklung, obwohl es keine freie Lösung ist.
 
-* * *
+---
 
 ## Tags
 
-Der `main` Zweig ist nicht unbedingt in einem Zustand, der eine erfolgreiche Kompilierung oder eine fehlerfreie ASF-Ausführung überhaupt erst ermöglicht, da es sich um einen Entwicklungszweig handelt, wie in unserem **[Veröffentlichungszyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-de-DE)** beschrieben. Für die Kompilierung oder Referenz von ASF aus dem Quelltext, die wird ein angemessenes **[Tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** benötigt, welches zumindest eine erfolgreiche kompilation, und problemlose Ausführung (falls das Build als stable release markiert wurde), zu garantieren. Um die "Gesundheit" Ihres aktuellen Builds im `UpdateChannel` zu überprüfen, können Sie unsere fortschreitenden Integrationen verwenden: GitHub, **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**.</p> 
+Der `main` Zweig ist nicht unbedingt in einem Zustand, der eine erfolgreiche Kompilierung oder eine fehlerfreie ASF-Ausführung überhaupt erst ermöglicht, da es sich um einen Entwicklungszweig handelt, wie in unserem **[Veröffentlichungszyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-de-DE)** beschrieben. Für die Kompilierung oder Referenz von ASF aus dem Quelltext, die wird ein angemessenes **[Tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** benötigt, welches zumindest eine erfolgreiche kompilation, und problemlose Ausführung (falls das Build als stable release markiert wurde), zu garantieren. In order to check the current "health" of the tree, you can use our continuous integrations - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** or **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**.
 
-* * *
+---
 
 ## Offizielle Veröffentlichungen
 

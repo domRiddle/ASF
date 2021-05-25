@@ -2,7 +2,7 @@
 
 ASF podržav Steam porodično dijeljenje od verzije 2.1.5.5+. Da bi ste razumjeli kako ASF radi sa njim, morate prvo pročitati kako **[Steam porodično dijeljenje](https://store.steampowered.com/promotion/familysharing)** radi, a to je dostupno na Steam prodavnici.
 
-* * *
+---
 
 ## ASF
 
@@ -14,7 +14,7 @@ U dodatku sa ovim iznad, ASF će pristupiti vašim **[podešavanjima dijeljenja]
 
 Povezivanje obje funkcionalnosti dozvoljava vašim prijateljima da `pause~` vaše farmanje kartica, pokrenu igricu, igraju koliko oće, pa kad završe proces će se automatski nastaviti u ASF. Naravno, slanje `pause~` nije potrebno ako ASF ne farma nešto trenutno, zato što vaši prijatelji mogu pokrenuti igricu odmah, i oni neće biti izbačeni iz igrice.
 
-* * *
+---
 
 ## Limitacije
 

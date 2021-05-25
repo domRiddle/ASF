@@ -1,10 +1,10 @@
 # Riscatto giochi in background
 
-Il riscatto giochi in background è una caratteristica speciale incorporata in ASF che ti permette di importare un dato numero di chiavi di Steam (insieme con i loro nomi) per essere riscattate in background. Questo è particolarmente utile se hai molte chiavi da riscattare e sei sicuro di raggiungere lo **[stato](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** `RateLimited` prima di aver terminato l'intero batch.
+Il riscatto giochi in background è una caratteristica speciale incorporata in ASF che ti permette di importare un dato numero di chiavi di Steam (insieme con i loro nomi) per essere riscattate in background. Questo è particolarmente utile se hai molte chiavi da riscattare e sei sicuro di raggiungere lo **[stato](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)**  `RateLimited`  prima di aver terminato l'intero batch.
 
 Il riscatto giochi in background è fatto per un singolo bot, questo significa che non utilizza `RedeemingPreferences`. Questa funzione può essere usata insieme a (o al posto di) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, se necessario.
 
-* * *
+---
 
 ## Importa
 
@@ -36,7 +36,7 @@ Indipendentemente da quale formato hai deciso di mantenere, ASF importerà il tu
 
 Oltre ad usare il file delle chiavi sopra menzionato, ASF espone anche **[l'endpoint API ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** `GamesToRedeemInBackground` che può essere eseguito da qualsiasi strumento IPC, inclusa la nostra ASF-ui. L'uso di IPC potrebbe essere più potente, come puoi fare tu stesso un'analisi appropriata, come usare un delimitatore personalizzato invece di essere forzato ad un carattere di scheda, o anche introdurre la tua struttura di chiavi personalizzate interamente tua.
 
-* * *
+---
 
 ## Coda
 
@@ -44,7 +44,7 @@ Una volta che i giochi sono importati con successo, sono aggiunti alla coda. ASF
 
 Se durante il processo il nostro profilo colpisce lo stato `RateLimited`, la coda è temporaneamente sospesa per un'ora intera per attendere che il tempo di ricarica scompaia. Successivamente, il processo continua da dove era rimasto, finché l'intera coda non è vuota.
 
-* * *
+---
 
 ## Esempio
 
@@ -60,7 +60,7 @@ Dopo un po' di tempo, i file `BotName.keys.used` e `BotName.keys.unused` saranno
 
 Puoi anche aggiungere giochi extra da importare mentre alcuni giochi sono già nella nostra coda, ripetendo tutti i passaggi sopra. ASF aggiungerà le nostre voci extra propriamente alla coda già in corso e lo affronterà alla fine.
 
-* * *
+---
 
 ## Note
 

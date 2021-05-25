@@ -2,7 +2,7 @@
 
 这篇文档与&#8203;**[高性能方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-zh-CN)**&#8203;完全相反，如果您愿意牺牲一些性能换取较小的内存用量，请阅读以下内容。
 
-* * *
+---
 
 ASF 在资源上是非常轻量级的，取决于您的使用情况，即使 128 MB 的 Linux VPS 也应该足以运行它，但我们并不建议使用这么差的设备，低配可能会导致各种问题。 在轻量的同时，如果 ASF 需要更多内存以保证运行速度，它并不吝啬于向操作系统申请这些内存。
 
@@ -14,13 +14,13 @@ ASF 中使用的&#8203;**[垃圾收集](https://en.wikipedia.org/wiki/Garbage_co
 
 这也是 ASF 进程的内存用量因设置而异的原因，因为 ASF 将**尽可能高效地**使用一切可使用的资源，而不是像在 Windows XP 时代那样使用固定的资源。 ASF 实际的内存用量可以通过 `stats` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;查看。如果您机器人的数量很少，通常它只会占用大约 4 MB 内存，但如果启用了 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 和其他额外功能，ASF 将会占用多达 30 MB 内存。 请注意，`stats` 命令返回的内存值包括 GC 尚未回收的空闲内存。 剩余的都是共享运行时内存（大约 40-50 MB）以及用于执行操作的空间（可变）。 这也是同样的 ASF 在低内存的 VPS 上只使用 50 MB，而在桌面端能够占用达 1 GB 的原因。 ASF 会主动适应您的环境，并努力寻找最佳的平衡，使其在您有大量可用内存时，既不给您的操作系统带来压力，也不会限制其自身的性能。
 
-* * *
+---
 
 当然，有很多方法可以帮助您在内存使用方面为 ASF 指向您期望的方向。 一般来说，如果您不需要这么做，最好让垃圾收集器按照它认为最好的方式工作。 但这并不总是可行的，例如，如果您的 Linux 服务器还托管了多个网站、MySQL 数据库和 PHP Worker，那么当您的内存濒临用尽时，ASF 的自我调整就无法满足您的需求，因为这种调整通常发生得太晚，并且性能很快就会下降。 此时您通常会对进一步的调整感兴趣，可以阅读本页来了解。
 
 下面这些建议被分为了不同的类别，其难度各不相同。
 
-* * *
+---
 
 ## ASF 设置（简单）
 
@@ -29,18 +29,17 @@ ASF 中使用的&#8203;**[垃圾收集](https://en.wikipedia.org/wiki/Garbage_co
 - 永远不要运行多个 ASF 实例。 ASF 可以同时处理无限个机器人，除非您需要将每个 ASF 实例绑定到不同的网络接口或 IP 地址，否则您只需要**一个**有多个机器人的 ASF 进程。
 - 善用 `ShutdownOnFarmingFinished`。 启用的机器人比未启用的消耗更多资源。 尽管效果不明显，因为仍然需要保留机器人的状态，但这仍然可以节约一些资源，尤其是 TCP 套接字等网络相关的资源。 要保持 ASF 实例的运行，只需要启用一个机器人，并且您可以随时在需要时激活其他机器人。
 - 不要有太多机器人。 未 `Enabled`（启用）的机器人实例消耗较少的资源，因为 ASF 不需要启动它。 还需要注意，ASF 会为每份配置文件创建一个机器人，因此如果您不需要 `start`（运行）指定的机器人，并且希望节省一些内存，您可以临时将 `Bot.json` 重命名为 `Bot.json.bak` 等，以防止 ASF 创建被禁用的机器人。 如果您不将其重命名为原名，就无法 `start`（运行）这个机器人，但 ASF 也不会在内存中为这个机器人保存状态，为其他数据留出空间（非常小的空间，在 99.9% 的情况下您不需要这么做，将机器人的 `Enabled` 设置为 `false` 已经足够）。
-- 妥善优化配置文件。特别是全局 ASF 配置中有很多变量可以调整，例如增加 `LoginLimiterDelay` 会减慢机器人启动的速度，留出时间给已启用的实例抓取徽章页面，如果减少这个值，就会让机器人尽快启动，当机器人很多时，它们就会同时进行解析徽章等消耗资源的任务。 同时进行的任务越少——使用的内存就越少。
+- Fine-tune your configs. Especially global ASF config has many variables to adjust, for example by increasing `LoginLimiterDelay` you'll bring up your bots slower, which will allow already started instance to fetch badges in the meantime, as opposed to bringing up your bots faster, which will take more resources as more bots will do major work (such as parsing badges) at the same time. 同时进行的任务越少——使用的内存就越少。
 
 这些都是您在处理内存占用问题时可以考虑的一些事情。 然而，这些事情不是影响内存的关键问题，因为内存占用主要来自于 ASF 必须处理的事情，而不是来自于挂卡机制的内部结构。
 
 最消耗资源的功能是：
-
 - 徽章页面解析
 - 库存解析
 
 这意味着，当 ASF 读取徽章页面以及处理库存时（例如发送交易报价或者进行 STM 相关的操作），内存用量将会最大。 这是因为此时 ASF 必须处理大量的数据——您直接用浏览器访问这两个页面消耗的内存也不会比 ASF 更低。 很抱歉，但这就是它的工作原理——减少您的徽章页面数，并且只在库存内保留少量物品，都会对此有帮助。
 
-* * *
+---
 
 ## 运行时环境调优（高级）
 
@@ -78,7 +77,7 @@ ASF 中使用的&#8203;**[垃圾收集](https://en.wikipedia.org/wiki/Garbage_co
 
 这个属性带来的改进很小，但是当系统内存不足时，它可能会使 GC 更加激进，特别是针对 ASF 这种大量利用线程池任务的程序。
 
-* * *
+---
 
 您可以通过 `COMPlus_` 环境变量启用所有 GC 选项。 例如，在 Linux 上（Shell）：
 
@@ -108,7 +107,7 @@ $Env:COMPlus_gcTrimCommitOnLowMemory=1
 
 其中 `GCLatencyLevel` 将非常有用，因为我们可以验证运行时环境确实为内存优化了代码，因此即使采用服务器 GC 也会显著降低平均内存使用量。 如果您希望显著降低 ASF 的内存用量，但不希望 `OptimizationMode` 造成严重的性能下降，那么这是您可以选择的最佳技巧之一。
 
-* * *
+---
 
 ## ASF 调优（中级）
 
@@ -116,7 +115,7 @@ $Env:COMPlus_gcTrimCommitOnLowMemory=1
 
 - 作为最后的手段，您可以通过修改 `OptimizationMode` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**&#8203;调整 `MinMemoryUsage`。 请仔细阅读这个选项的作用，因为它会严重损失性能并且几乎不会减少内存的消耗。 通常，只有在您按照&#8203;**[运行时环境调优](#运行时环境调优高级)**&#8203;作出的调整仍然不能满足需求的情况下，这才是**您应该最后尝试的方式**。 除非是不得已的情况，否则我们不建议使用 `MinMemoryUsage`，即使是在内存非常受限的环境也是如此。
 
-* * *
+---
 
 ## 建议的优化
 

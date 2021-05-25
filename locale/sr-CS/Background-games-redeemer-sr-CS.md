@@ -4,7 +4,7 @@ Pozadinsko unošenje ključeva je specijalna ASF mogućnost koja dozvoljava da u
 
 Pozadnisko unošenje je napravljeno je da se odnosi na jednog bota, što znači da ne koristi `RedeemingPreferences`. Ova mogućnost se može koristiti zajedno sa (ili umjesto) `redeem` **[komande](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, ako je potrebno.
 
-* * *
+---
 
 ## Unos
 
@@ -36,7 +36,7 @@ Bez obzira koji format izaberete, ASF će unijeti vaš `keys` fajl, ili tokom po
 
 U dodatku sa fajlom za ključeve iznad, ASF takođe posjeduje `GamesToRedeemInBackground` **[ASF API tačku](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** koja može biti korišćena u bilo kojoj IPC alatki, uključujući i ASF-ui. Korišćenje IPC-a može biti veoma korisno pošto možete da koristite vaš način odvajanja umjesto taba, ili da napravite neki vaš način za unošenje ključeva.
 
-* * *
+---
 
 ## Red
 
@@ -44,7 +44,7 @@ Kada su igrice uspješno upešene, biće dodate u red. ASF automatski ide kroz t
 
 If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
 
-* * *
+---
 
 ## Primjer
 
@@ -60,7 +60,7 @@ After some time, `BotName.keys.used` and `BotName.keys.unused` files will be gen
 
 It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
 
-* * *
+---
 
 ## Primedbe
 

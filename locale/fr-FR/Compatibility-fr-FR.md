@@ -2,13 +2,19 @@
 
 ASF est une application C# qui s'éxécute sur une plate-forme .NET Core de base. Cela signifie que ASF n’est pas compilé directement en **[code machine](https://en.wikipedia.org/wiki/Machine_code)** qui s’exécute sur votre CPU, mais en **[CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)** qui nécessite un runtime compatible CIL pour l’exécuter.
 
-Cette fonction présente des avantages gigantesques, CIL étant indépendant de la plate-forme, c'est pourquoi ASF peut s'exécuter en mode natif sur de nombreux systèmes d'exploitation disponibles, notamment Windows, Linux et OS X. Non seulement aucune émulation n'est nécessaire, mais également une prise en charge de toutes les plates-formes optimisations liées et liées au matériel, telles que les instructions CPU SSE. Grâce à cela, ASF peut atteindre des performances et une optimisation supérieures, tout en offrant une compatibilité et une fiabilité parfaite.
+Cette  fonction présente des avantages gigantesques, CIL étant indépendant de la plate-forme, c'est pourquoi ASF peut s'exécuter en mode natif sur de nombreux systèmes d'exploitation disponibles, notamment Windows, Linux et OS X. Non seulement aucune émulation n'est nécessaire, mais également une prise en charge de toutes les plates-formes optimisations liées et liées au matériel, telles que les instructions CPU SSE. Grâce à cela, ASF peut atteindre des performances et une optimisation supérieures, tout en offrant une compatibilité et une fiabilité parfaite.
 
-Cela signifie également qu'ASF n'a ** aucune exigence spécifique du système d'exploitation </ 0>, car il nécessite de travailler sur ** runtime </ 0> sur ce système d'exploitation et non sur le système d'exploitation lui-même. Tant que le moteur source exécute correctement le code ASF, peu importe que le système d'exploitation soit Windows, Linux, OS X, BSD, Sony Playstation 4, Nintendo Wii ou votre grille-pain - tant qu'il existe **.NET Core pour lui</ 0>, il existe **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** pour cela.</p> 
+Cela signifie également qu'ASF n'a ** aucune exigence spécifique du système d'exploitation </ 0>, car il nécessite de travailler sur ** runtime </ 0> sur ce système d'exploitation et non sur le système d'exploitation lui-même. Tant que le moteur source exécute correctement le code ASF, peu importe que le système d'exploitation soit Windows, Linux, OS X, BSD, Sony Playstation 4, Nintendo Wii ou votre grille-pain - tant qu'il existe **
+
+.NET Core pour lui</ 0>, il existe **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** pour cela.</p> 
 
 Toutefois, quel que soit le lieu où vous exécutez ASF, vous devez vous assurer que les **prérequis .NET Core </ 0> sont installés sur votre plate-forme cible. Ce sont des bibliothèques de bas niveau requises pour une fonctionnalité d’exécution correcte et absolument essentielles au bon fonctionnement d’ASF. Très probablement, vous pouvez en avoir certains (ou même tous) déjà installés.</p> 
 
-* * *
+
+
+---
+
+
 
 ## Multiple instances
 
@@ -22,19 +28,29 @@ It's not required for running ASF instances to share the same `*LimiterDelay` pr
 
 ASF takes into account `WebProxy` setting when deciding about shared scope, which means that two ASF instances using different `WebProxy` configurations will not share their limiters with each other. This is implemented in order to allow `WebProxy` setups to operate without excessive delays, as expected from different network interfaces. This should be good enough for majority of use cases, however, if you have a specific custom setup in which you're e.g. routing requests yourself in a different way, you can specify network group yourself through `--network-group` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**, which will allow you to declare ASF group that will be synchronized with this instance. Keep in mind that custom network groups are used exclusively, which means that ASF will no longer use `WebProxy` for determining the right group, as you're in charge of grouping in this case.
 
-* * *
+
+
+---
+
+
 
 ## ASF packaging
 
 ASF est disponible en 2 versions principales: package générique et système d'exploitation spécifique. En termes de fonctionnalité, les deux packages sont exactement les mêmes, ils sont également capables de se mettre à jour automatiquement. La seule différence entre eux est de savoir si le package ASF **generic** est également fourni avec un environnement d’exécution **spécifique au système d’exploitation**.
 
-* * *
+
+
+---
+
+
 
 ### Générique 
 
 Le paquet générique est une construction indépendante de la plate-forme qui n'inclut aucun code spécifique à la machine. Cette installation nécessite que vous ayez .NET Core Runtime déjà installé sur votre système d'exploitation **dans la version appropriée**. Nous savons tous à quel point il est difficile de maintenir les dépendances à jour. Ce package s'adresse donc principalement aux utilisateurs **qui utilisent déjà** .NET Core et qui ne souhaitent pas dupliquer leur environnement d'exécution uniquement pour ASF si ils peuvent utiliser ce qu'ils ont déjà installé. Le package générique vous permet également d’exécuter ASF **où que vous puissiez obtenir une implémentation fonctionnelle du runtime .NET Core**, qu’il existe ou non une version ASF spécifique à son système d’exploitation.
 
 Il n'est pas recommandé d'utiliser une version générique si vous êtes un utilisateur occasionnel ou même avancé qui ne souhaite que faire fonctionner ASF sans fouiller dans les détails techniques de .NET Core. En d'autres termes - si vous savez ce que c'est, vous pouvez l'utiliser, sinon il est préférable d'utiliser le paquet spécifique au système d'exploitation comme expliqué ci-dessous.
+
+
 
 #### .NET Framework package 
 
@@ -44,13 +60,17 @@ En général, **évitez autant que possible ce package**, car la plupart des sys
 
 Au fur et à mesure que le nombre de plates-formes supportées par .NET Core sera réduit et que la compatibilité entre .NET Framework et .NET Core sera moindre, le package `generic-netf` sera entièrement remplacé par `generic` à l'avenir. Veuillez vous abstenir de l'utiliser si vous pouvez utiliser un package .NET Core à la place, car `generic-netf` manque de nombreuses fonctionnalités et de la compatibilité par rapport aux versions .NET Core, et ce ne sera que moins fonctionnel. comme le temps passe. We offer support for this package **only** on machines that can't use `generic` variant above (e.g. `linux-x86`), and only with up-to-date runtime (e.g. latest Mono).
 
-* * *
+
+
+---
+
+
 
 ### OS-spécifique
 
 Le package spécifique au système d'exploitation, outre le code géré inclus dans le package générique, inclut également du code natif pour une plate-forme donnée. En d’autres termes, le package **spécifique au système d’exploitation inclut déjà un environnement .NET Core runtime approprié**, ce qui vous permet de passer complètement le désordre de l’installation et de lancer ASF directement. Comme vous pouvez le deviner, le paquet spécifique à un système d’exploitation est spécifique à chaque système d’exploitation. Par exemple, Windows requiert PE32 + pour `ArchiSteamFarm.exe` alors que Linux fonctionne avec Unix ELF</code> binaire pour `ArchiSteamFarm</0>. Comme vous le savez peut-être, ces deux types ne sont pas compatibles.</p>
 
-<p>ASF est actuellement disponible dans les variantes suivantes spécifiques au système d'exploitation:</p>
+<p spaces-before="0">ASF est actuellement disponible dans les variantes suivantes spécifiques au système d'exploitation:</p>
 
 <ul>
 <li><code>win-x64` fonctionne sur les systèmes d’exploitation Windows 64 bits. This includes Windows 7 (SP1+), 8.1, 10, Server 2012 R2, 2016, as well as future versions.</li> 
@@ -64,14 +84,18 @@ Bien entendu, même si aucun package spécifique à un système d'exploitation n
 
 Pour obtenir une liste complète de toutes les plates-formes et systèmes d'exploitation pris en charge par .NET Core 5.0, consultez la section **[Notes de publication](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md)**.
 
-* * *
+
+
+---
+
+
 
 ## Exigences Runtime
 
-Si vous utilisez un package spécifique au système d'exploitation, vous n'avez pas à vous soucier de la configuration requise, car ASF est toujours livré avec une exécution requise et à jour qui fonctionnera correctement tant que vous avez **[les prérequis .NET Core.](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** installé et à jour. En d'autres termes, **vous n'avez pas besoin d'installer .NET Core runtime ou SDK**, car les versions spécifiques à un système d'exploitation ne nécessitent que des dépendances de système d'exploitation natives (conditions préalables) et rien d'autre.
+Si vous utilisez un package spécifique au système d'exploitation, vous n'avez pas à vous soucier de la configuration requise, car ASF est toujours livré avec une exécution requise et à jour qui fonctionnera correctement tant que vous avez **[les prérequis  .NET Core.](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** installé et à jour. En d'autres termes, **vous n'avez pas besoin d'installer .NET Core runtime ou SDK**, car les versions spécifiques à un système d'exploitation ne nécessitent que des dépendances de système d'exploitation natives (conditions préalables) et rien d'autre.
 
 Toutefois, si vous essayez d'exécuter le package **générique** ASF, vous devez vous assurer que votre environnement d'exécution .NET Core prend en charge la plate-forme requise par ASF.
 
 ASF as a program is targeting **.NET 5.0** (`net5.0`) right now, but it may target newer platform in the future. `net5.0` is supported since 5.0.100 SDK (5.0.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. Des variantes génériques d'ASF pourraient refuser de se lancer si votre runtime est plus vieux que le minimum (cible) connu durant la compilation.
 
-En cas de doute, vérifiez ce que notre **[intégration continue utilise](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** pour compiler et déployer les versions ASF sur GitHub. Vous pouvez trouver la sortie `dotnet --info` au-dessus de chaque construction.
+En cas de doute, vérifiez  ce que notre **[intégration continue utilise](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** pour compiler et déployer les versions ASF sur GitHub. Vous pouvez trouver la sortie `dotnet --info` au-dessus de chaque construction.

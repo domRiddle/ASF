@@ -1,18 +1,17 @@
-# Befehle
+# Kommandos
 
 ASF unterstützt eine Vielzahl von Befehlen, mit denen das Verhalten der Prozess- und Bot-Instanzen gesteuert werden kann.
 
 Die folgenden Befehle können auf verschiedene Weise an den Bot gesendet werden:
-
 - Durch die interaktive ASF-Konsole
 - Durch den privaten Steam-Chat / Gruppen-Chat
 - Durch unsere **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** Schnittstelle
 
 Bedenken Sie, dass die ASF-Interaktion von Ihnen verlangt, dass Sie für den Befehl gemäß den ASF-Berechtigungen berechtigt sind. Weitere Informationen finden Sie in den Konfigurationseigenschaften `SteamUserPermissions` und `SteamOwnerID`.
 
-Befehle die über den Steam-Chat ausgeführt werden, sind von der **[globalen Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#commandprefix)** `CommandPrefix` betroffen, welche standardmäßig `!` ist. Das bedeutet, dass Sie beispielsweise für die Ausführung von dem Befehl `status` tatsächlich `!status` (oder einen benutzerdefinierten `CommandPrefix` deiner Wahl) verwenden müssen. `CommandPrefix` ist bei Verwendung von IPC oder der Konsole nicht zwingend erforderlich und kann weggelassen werden.
+Befehle die über den Steam-Chat ausgeführt werden, sind von der **[globalen Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#commandprefix)** `CommandPrefix` betroffen, welche standardmäßig `!` ist. Das bedeutet, dass Sie beispielsweise für die Ausführung von dem Befehl `status` tatsächlich `!status` (oder einen benutzerdefinierten `CommandPrefix` Ihrer Wahl) verwenden müssen. `CommandPrefix` ist bei Verwendung von IPC oder der Konsole nicht zwingend erforderlich und kann weggelassen werden.
 
-* * *
+---
 
 ### Interaktive Konsole
 
@@ -22,7 +21,7 @@ Beginnend mit V4.0.0.0.9 unterstützt ASF eine interaktive Konsole, die durch di
 
 Die interaktive Konsole ist nicht im [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#headless) Modus verfügbar.
 
-* * *
+---
 
 ### Steam-Chat
 
@@ -32,11 +31,11 @@ Sie können den Befehl zum angegebenen ASF-Bot auch über den Steam-Chat ausfüh
 
 In ähnlicher Weise können Sie auch den Gruppen-Chat einer bestimmten Steam-Gruppe verwenden. Beachten Sie hierbei, dass diese Option die korrekt eingestellte Eigenschaft `SteamMasterClanID` erfordert. In diesem Fall wird der Bot auch im Gruppen-Chat auf Befehle warten (und sich bei Bedarf diesem anschließen). Dies kann auch für "Selbstgespräche" genutzt werden, da diese Variante kein dediziertes Bot-Konto erfordert, im Gegensatz zum privaten Chat. Sie können einfach die `SteamMasterClanID`-Eigenschaft auf die neu erstellte Gruppe setzen und sich dann entweder über `SteamOwnerID` oder `SteamUserPermissions` Zugriff auf Ihren eigenen Bot gewähren. Auf diese Weise tritt der ASF-Bot (Sie) der Gruppe bei und chattet mit der ausgewählten Gruppe und hört auf die Befehle von Ihrem eigenen Konto. Sie können dem gleichen Gruppen-Chatroom beitreten, um sich selbst Befehle zu erteilen (Achtung: Wenn eine ASF-Instanz diesem Chatroom beigetreten ist wird diese ebenfalls sämtliche Befehle empfangen, die an diesen Chat gesendet werden, selbst wenn dieser anzeigt, dass nur dein Konto im Chat ist).
 
-Bitte bedenken Sie, dass das Senden eines Befehls an den Gruppen-Chat wie ein Relais funktioniert. Wenn Sie `redeem X` zu drei Ihrer Bots senden, die zusammen mit Ihnen im Gruppen-Chat sind, wird es das gleiche Ergebnis haben, wie wenn Sie `redeem X` an jeden einzelnen von ihnen privat senden würden. In den meisten Fällen ist dies **nicht das, was Sie möchten**. Stattdessen sollten Sie den Befehl `given bot` verwenden, der an **einen einzelnen Bot im privaten Fenster** gesendet wird. ASF unterstützt den Gruppen-Chat, da es in vielen Fällen eine nützliche Quelle für die Kommunikation mit einem einzigen Bot sein kann, aber Sie sollten fast nie einen Befehl im Gruppen-Chat ausführen, wenn dort zwei oder mehr ASF-Bots sitzen, es sei denn, Sie verstehen das hier beschriebene ASF-Verhalten vollständig und du wollen tatsächlich den gleichen Befehl an jeden einzelnen Bot weitergeben, der auf Sie hört.
+Bitte bedenken Sie, dass das Senden eines Befehls an den Gruppen-Chat wie ein Relais funktioniert. Wenn Sie `redeem X` zu drei Ihrer Bots senden, die zusammen mit Ihnen im Gruppen-Chat sind, wird es das gleiche Ergebnis haben, wie wenn Sie `redeem X` an jeden einzelnen von ihnen privat senden würden. In den meisten Fällen ist **dies nicht das, was du willst**, und stattdessen solltest du den Befehl `given bot` verwenden, der an **einen einzelnen Bot im privaten Fenster** gesendet wird. ASF unterstützt den Gruppen-Chat, da es in vielen Fällen eine nützliche Quelle für die Kommunikation mit einem einzigen Bot sein kann, aber Sie sollten fast nie einen Befehl im Gruppen-Chat ausführen, wenn dort zwei oder mehr ASF-Bots sitzen, es sei denn, Sie verstehen das hier beschriebene ASF-Verhalten vollständig und du wollen tatsächlich den gleichen Befehl an jeden einzelnen Bot weitergeben, der auf Sie hört.
 
 *Und selbst in diesem Fall sollten Sie stattdessen den privaten Chat mit dem Syntax `[Bots]` benutzen.*
 
-* * *
+---
 
 ### IPC
 
@@ -44,11 +43,11 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 
 ![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
-* * *
+---
 
-## Befehle
+## Kommandos
 
-| Befehl                                                               | Zugriff         | Beschreibung                                                                                                                                                                                                                                                                                                                                                                  |
+| Befehl                                                               | Zugang          | Beschreibung                                                                                                                                                                                                                                                                                                                                                                  |
 | -------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa [Bots]`                                                         | `Master`        | Generiert temporäre **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)**-Codes der angegebenen Bot-Instanzen.                                                                                                                                                                                                                       |
 | `2fano [Bots]`                                                       | `Master`        | Lehnt alle ausstehenden **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)**-Bestätigungen der angegebenen Bot-Instanzen ab.                                                                                                                                                                                                        |
@@ -64,7 +63,7 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 | `farm [Bots]`                                                        | `Master`        | Startet das Karten-Sammel-Modul für gegebene Bot-Instanzen neu.                                                                                                                                                                                                                                                                                                               |
 | `hash <hashingMethod> <stringToHash>`                    | `Owner`         | Erzeugt ein Hash der Zeichenkette mit der bereitgestellten kryptographischen Methode - ausführlicher erklärt weiter **[unten](#hash-Befehl)**.                                                                                                                                                                                                                                |
 | `help`                                                               | `FamilySharing` | Zeigt Hilfe an (Link zu dieser Seite).                                                                                                                                                                                                                                                                                                                                        |
-| `input [Bots] <Type> <Value>`                            | `Master`        | Setzt den gegebenen Eingabetyp auf den gegebenen Wert für gegebene Bot-Instanzen. Funktioniert nur im `Headless`-Modus, genauer erklärt **[unten](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE#input-befehl)**.                                                                                                                                         |
+| `input [Bots] <Type> <Value>`                            | `Master`        | Setzt den gegebenen Eingabetyp auf den gegebenen Wert für gegebene Bot-Instanzen. Funktioniert nur im `Headless`-Modus, genauer erklärt **[unten](#input-befehl)**.                                                                                                                                                                                                           |
 | `ib [Bots]`                                                          | `Master`        | Listet Anwendungen auf, die vom automatischen Sammeln von gegebenen Bot-Instanzen ausgeschlossen sind.                                                                                                                                                                                                                                                                        |
 | `ibadd [Bots] <AppIDs>`                                        | `Master`        | Fügt gegebene `appIDs` zur schwarzen Liste der gegebenen Bot-Instanzen hinzu, die vom automatischen Sammeln ausgeschlossen sind.                                                                                                                                                                                                                                              |
 | `ibrm [Bots] <AppIDs>`                                         | `Master`        | Entfernt gegebene `appIDs` von der schwarzen Liste der gegebenen Bot-Instanzen, die vom automatischen Sammeln ausgeschlossen sind.                                                                                                                                                                                                                                            |
@@ -75,7 +74,7 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 | `loot [Bots]`                                                        | `Master`        | Sendet alle `LootableTypes` Steam-Community-Gegenstände gegebener Bot-Instanzen an `Master` welcher in den `SteamUserPermissions` (mit niedrigster steamID, wenn mehr als eine) definiert ist.                                                                                                                                                                                |
 | `loot@ [Bots] <AppIDs>`                                        | `Master`        | Sendet alle `LootableTypes` Steam-Community-Gegenstände, die mit den angegebenen `AppIDs` der angegebenen Bot-Instanzen übereinstimmen, an `Master` welcher in den `SteamUserPermissions` (mit der niedrigsten SteamID, wenn mehr als eine) definiert ist. Dies ist das Gegenteil von `loot%`.                                                                                |
 | `loot% [Bots] <AppIDs>`                                        | `Master`        | Sendet alle `LootableTypes` Steam-Community-Gegenstände, abgesehen von den angegebenen `AppIDs` der bestimmten Bot-Instanzen, an dem vom Nutzer definiertem `Master` in den `SteamUserPermissions` (der mit der niedrigsten SteamID, wenn mehr als eine definiert ist). Dies ist das Gegenteil von `loot@`.                                                                   |
-| `loot^ [Bots] <AppID> <ContextID>`                       | `Master`        | Sendet alle Steam-Gegenstände von gegebenem `AppID` in `ContextID` der angegebenen Bot-Instanzen an `Master` welcher in den `SteamUserPermissions` (mit niedrigster SteamID wenn mehr als eine) definiert ist.                                                                                                                                                                |
+| `loot^ [Bots] <AppID> <ContextID>`                       | `Master`        | Sendet alle Steam-Gegenstände von gegebenem `AppID` in `ContextID` der gegebenen Bot-Instanzen an `Master` welcher in den `SteamUserPermissions` (mit niedrigster SteamID wenn mehr als eine) definiert ist.                                                                                                                                                                  |
 | `mab [Bots]`                                                         | `Master`        | Listet Apps auf, die vom automatischen Handel durch **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-de-DE#matchactively)** gesperrt sind.                                                                                                                                                                                                     |
 | `mabadd [Bots] <AppIDs>`                                       | `Master`        | Fügt gegebene `appIDs` zur Apps-Blacklist hinzu, die vom automatischen Handeln durch **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-de-De#matchactively)** gesperrt sind.                                                                                                                                                                    |
 | `mabrm [Bots] <AppIDs>`                                        | `Master`        | Entfernt die gegebenen `appIDs` von Apps, die vom automatischen Handeln durch **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-de-DE#matchactively)** gesperrt sind.                                                                                                                                                                           |
@@ -85,8 +84,8 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 | `pause [Bots]`                                                       | `Operator`      | Pausiert permanent das automatische Karten-Sammel-Modul der gegebenen Bot-Instanzen. ASF wird nicht versuchen, das aktuelle Konto in dieser Sitzung zu verwalten, es sei denn, Sie setzen `resume` manuell ein oder starten den Prozess neu.                                                                                                                                  |
 | `pause~ [Bots]`                                                      | `FamilySharing` | Pausiert vorübergehend das automatische Karten-Sammel-Modul der gegebenen Bot-Instanzen. Das Sammeln wird beim nächsten Wiedergabe-Ereignis oder beim Trennen der Bot-Verbindung automatisch wieder fortgesetzt. Sie können `resume` verwenden, um dies zu deaktivieren.                                                                                                      |
 | `pause& [Bots] <Seconds>`                                  | `Operator`      | Pausiert vorübergehend das automatische Karten-Sammel-Modul gegebener Bot-Instanzen für eine bestimmte Anzahl von `seconds`. Nach einer Verzögerung wird das Karten-Sammel-Modul automatisch wieder aktiviert.                                                                                                                                                                |
-| `play [Bots] <AppIDs,GameName>`                                | `Master`        | Wechselt zu manuellem Sammeln - startet gegebene `AppIDs` auf gegebenen Bot-Instanzen, optional auch mit benutzerdefiniertem `GameName`. Damit diese Funktion richtig funktioniert, **muss** das Steam-Konto eine gültige Lizenz für alle `AppIDs` besitzen, die Sie hier angeben, dies schließt auch F2P-Spiele ein. Benutzen Sie `reset` oder `resume` um zurück zu kehren. |
-| `privacy [Bots] <Settings>`                                    | `Master`        | Ändert die **[Steam Privatsphäre-Einstellungen](https://steamcommunity.com/my/edit/settings)** der gegebenen Bot-Instanzen, zu entsprechend ausgewählten Optionen (erklärt **[unten](#privacy-einstellungen)**).                                                                                                                                                              |
+| `play [Bots] <AppIDs,GameName>`                                | `Master`        | Wechselt zu manuellem Sammeln - startet gegebene `AppIDs` auf gegebenen Bot-Instanzen, optional auch mit benutzerdefiniertem `GameName`. Damit diese Funktion richtig funktioniert, **muss** dein Steam-Konto eine gültige Lizenz für alle `AppIDs` besitzen, die du hier angibst, dies schließt auch F2P-Spiele ein. Benutzen Sie `reset` oder `resume` um zurück zu kehren. |
+| `privacy [Bots] <Settings>`                                    | `Master`        | Ändert die **[Steam Privatsphäre-Einstellungen](https://steamcommunity.com/my/edit/settings)** der gegebenen Bot-Instanzen, zu entsprechend ausgewählten Optionen erklärt **[unten](#privacy-einstellungen)**.                                                                                                                                                                |
 | `redeem [Bots] <Keys>`                                         | `Operator`      | Löst die angegebenen Produktschlüssel oder Guthaben-Codes auf den angegebenen Bot-Instanzen ein.                                                                                                                                                                                                                                                                              |
 | `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`      | Löst gegebene `Produktschlüssel oder Guthaben-Codes` auf gegebenen Bot-Instanzen ein, indem er gegebene `Modi` verwendet, die **[unten](#redeem-modi)** erklärt werden.                                                                                                                                                                                                       |
 | `reset [Bots]`                                                       | `Master`        | Setzt den Spielstatus auf normal zurück, wird beim manuellen Farmen via `play` Befehl verwendet.                                                                                                                                                                                                                                                                              |
@@ -100,11 +99,11 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 | `transfer@ [Bots] <AppIDs> <TargetBot>`                  | `Master`        | Sendet alle `TransferableTypes` Steam-Community-Gegenstände, die mit den gegebenen `AppIDs` übereinstimmen, von gegebenen Bot-Instanzen an die Ziel-Bot-Instanz. Dies ist das Gegenteil von `transfer%`.                                                                                                                                                                      |
 | `transfer% [Bots] <AppIDs> <TargetBot>`                  | `Master`        | Sendet alle `TransferableTypes` Steam-Community-Gegenstände, abgesehen von den angegebenen `AppIDs` von bestimmten Bot-Instanzen zu der Ziel-Bot-Instanz. Dies ist das Gegenteil von `transfer@`.                                                                                                                                                                             |
 | `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`        | Sendet alle Steam-Gegenstände von gegebener `AppID` in `ContextID` der gegebenen Bot-Instanzen an die Ziel-Bot-Instanz.                                                                                                                                                                                                                                                       |
-| `unpack [Bots]`                                                      | `Master`        | Entpackt alle Booster Packs, die im Inventar der angegebenen Bot-Instanzen vorhanden sind.                                                                                                                                                                                                                                                                                    |
+| `unpack [Bots]`                                                      | `Master`        | Entpackt alle Booster Packs, die im Inventar der gegebenen Bot-Instanzen gespeichert sind.                                                                                                                                                                                                                                                                                    |
 | `update`                                                             | `Owner`         | Überprüft GitHub auf ASF-Aktualisierungen (dies geschieht automatisch alle `UpdatePeriod`).                                                                                                                                                                                                                                                                                   |
-| `version`                                                            | `FamilySharing` | Zeigt die ASF-Version an.                                                                                                                                                                                                                                                                                                                                                     |
+| `version`                                                            | `FamilySharing` | Gibt die ASF-Version an.                                                                                                                                                                                                                                                                                                                                                      |
 
-* * *
+---
 
 ### Anmerkungen
 
@@ -114,15 +113,15 @@ Das `[Bots]` Argument ist in allen Befehlen optional. Wenn verwendet, wird der B
 
 **Zugriff** eines Befehls definiert die **minimale** `EPermission` von `SteamUserPermissions`, die für die Verwendung des Befehls erforderlich ist - mit Ausnahme von `Owner` der als `SteamOwnerID` in der globalen Konfigurationsdatei (und damit höchste verfügbare Berechtigung) definiert ist.
 
-Mehrere Argumente, wie `[Bots]`, `<Keys>` oder `<AppIDs>` bedeuten, dass der Befehl mehrere, mit Komma getrennte, Argumente eines gegebenen Typs unterstützt. `status [Bots]` kann zum Beispiel als `status MyBot,MyOtherBot,Primär` verwendet werden. Dies führt dazu, dass der angegebene Befehl auf **alle Ziel-Bots** auf die gleiche Weise ausgeführt wird, wie wenn Sie `status` an jeden Bot in einem separaten Chat-Fenster senden würden. Bitte beachten Sie, dass nach `,` kein Leerzeichen steht.
+Mehrere Argumente, wie `[Bots]`, `<Keys>` oder `<AppIDs>` bedeuten, dass der Befehl mehrere, mit Komma getrennte, Argumente eines gegebenen Typs unterstützt. `status [Bots]` kann zum Beispiel als `status MyBot,MyOtherBot,Primär` verwendet werden. Dies führt dazu, dass der angegebene Befehl auf **alle Ziel-Bots** auf die gleiche Weise ausgeführt wird, wie wenn du `status` an jeden Bot in einem separaten Chat-Fenster senden würdest. Bitte beachten Sie, dass nach `,` kein Leerzeichen steht.
 
-ASF verwendet alle Whitespace-Zeichen als mögliche Trennzeichen für einen Befehl, wie Leerzeichen und Zeilenumbrüche. Das bedeutet, dass Sie zur Begrenzungen der Argumente keine Leerzeichen verwenden müssen. Sie können auch jedes andere Whitespace-Zeichen (z.B. Tabulator oder Zeilenumbruch) verwenden.
+ASF verwendet alle Whitespace-Zeichen als mögliche Trennzeichen für einen Befehl, wie Leerzeichen und Zeilenumbrüche. Das bedeutet, dass Sie zur Begrenzungen der Argumente keine Leerzeichen verwenden müssen. Sie können auch jedes andere Whitespace-Zeichen (z. B. Tabulator oder Zeilenumbruch) verwenden.
 
-ASF wird zusätzliche "Out-of-Range"-Argumente mit dem Plural-Typ des letzten "In-Range"-Arguments "verbinden". Dies bedeutet, dass `redeem bot key1 key2 key3` für `redeem [Bots] <Keys>` genauso funktionieren wird, wie `redeem bot key1,key2,key3`. Da ein Zeilenumbruch als Trennzeichen verwendet werden kann ermöglicht Ihnen dies, `redeem bot` zu schreiben und dann eine Liste von Produktschlüsseln einzufügen, die durch ein beliebiges zulässiges Trennzeichen (z.B. Zeilenumbruch) oder dem Standard `,` ASF-Trennzeichen getrennt sind. Bedenken Sie, dass dieser Trick nur für eine Befehlsvariante verwendet werden kann, die die meiste Anzahl von Argumenten verwendet (daher ist die Angabe von `[Bots]` in diesem Fall notwendig).
+ASF wird zusätzliche "Out-of-Range"-Argumente mit dem Plural-Typ des letzten "In-Range"-Arguments "verbinden". Dies bedeutet, dass `redeem bot key1 key2 key3` für `redeem [Bots] <Keys>` genauso funktionieren wird, wie `redeem bot key1,key2,key3`. Da ein Zeilenumbruch als Trennzeichen verwendet werden kann ermöglicht Ihnen dies, `redeem bot` zu schreiben und dann eine Liste von Produktschlüsseln einzufügen, die durch ein beliebiges zulässiges Trennzeichen (z. B. Zeilenumbruch) oder dem Standard `,` ASF-Trennzeichen getrennt sind. Bedenken Sie, dass dieser Trick nur für eine Befehlsvariante verwendet werden kann, die die meiste Anzahl von Argumenten verwendet (daher ist die Angabe von `[Bots]` in diesem Fall notwendig).
 
 Wie Sie oben gelesen haben, wird ein Leerzeichen als Trennzeichen für einen Befehl verwendet, daher kann es nicht in Argumenten verwendet werden. Allerdings kann ASF auch, wie oben erwähnt, "Out-of-Range"-Argumente verbinden, was bedeutet, dass Sie tatsächlich ein Leerzeichen in Argumenten verwenden könnten, das als letztes für den angegebenen Befehl definiert ist. Zum Beispiel, `nickname bob Great Bob` wird den Benutzernamen des Bots `bob` richtig auf "Great Bob" setzen. Auf die gleiche Weise können Sie Namen, die Leerzeichen enthalten, im Befehl `owns` überprüfen.
 
-* * *
+---
 
 Für einige Befehle sind auch Aliase verfügbar, um Zeit beim tippen zu sparen:
 
@@ -133,7 +132,7 @@ Für einige Befehle sind auch Aliase verfügbar, um Zeit beim tippen zu sparen:
 | `redeem`     | `r`   |
 | `redeem^`    | `r^`  |
 
-* * *
+---
 
 ### `[Bots]` Argument
 
@@ -143,9 +142,9 @@ Es gibt zunächst ein spezielles Schlüsselwort `ASF`, das als "alle Bots im Pro
 
 Das Argument `[Bots]` unterstützt eine speziellen "range"-Syntax, der es ermöglicht, einen Reihe von Bots einfacher auszuwählen. Der allgemeine Syntax für `[Bots]` ist in diesem Fall `ersterBot..letzterBot`. Wenn Sie zum Beispiel Bots mit den Namen `A, B, C, D, E, F` haben, können Sie `status B..E` ausführen, was in diesem Fall gleich `status B,C,D,E` ist. Bei Verwendung dieser Syntax verwendet ASF die alphabetische Sortierung, um festzustellen, welche Bots sich in dem von Ihnen angegebenen Bereich befinden. Sowohl `ersterBot` als auch `letzterBot` müssen gültige Bot-Namen sein, die von ASF erkannt werden, da sonst die Bereichs-Syntax vollständig übersprungen wird.
 
-Zusätzlich zum obigen range-syntax unterstützt das `[Bots]` Argument auch **[regex](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck)** Übereinstimmung. Du kannst Regex Muster aktivieren, indem du `r!<pattern>` als Bot-Namen verwendest, wobei `r!` der ASF-Aktivator für den Regex Abgleich ist, und `<pattern>` dein Regex-Muster ist. Ein Beispiel für einen regex-basierten Bot-Befehl wäre `status r!\d{3}`, der den Befehl `status` an Bots sendet, die einen aus 3 Ziffern bestehenden Namen haben (z.B. `123` und `981`). Zögere nicht einen Blick auf die **[Dokumentation](https://docs.microsoft.com/de-de/dotnet/standard/base-types/regular-expression-language-quick-reference)** zu werfen, um weitere Erklärungen und Beispiele für verfügbare Regex-Muster zu erhalten.
+Zusätzlich zum obigen range-syntax unterstützt das `[Bots]` Argument auch **[regex](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck)** Übereinstimmung. Sie können Regex Muster aktivieren, indem du `r!<pattern>` als Bot-Namen verwendest, wobei `r!` der ASF-Aktivator für den Regex Abgleich ist, und `<pattern>` dein Regex-Muster ist. Ein Beispiel für einen regex-basierten Bot-Befehl wäre `status r!\d{3}`, der den Befehl `status` an Bots sendet, die einen aus 3 Ziffern bestehenden Namen haben (z. B. `123` und `981`). Zögere nicht einen Blick auf die **[Dokumentation](https://docs.microsoft.com/de-de/dotnet/standard/base-types/regular-expression-language-quick-reference)** zu werfen, um weitere Erklärungen und Beispiele für verfügbare Regex-Muster zu erhalten.
 
-* * *
+---
 
 ## `privacy` Einstellungen
 
@@ -161,7 +160,7 @@ Zusätzlich zum obigen range-syntax unterstützt das `[Bots]` Argument auch **[r
 | 6        | InventoryGifts | Inventory  |
 | 7        | Comments       | Profile    |
 
-Für eine Beschreibung der oben genannten Felder besuchen Sie bitte die **[Steam Privatsphäre-Einstellungen](https://steamcommunity.com/my/edit/settings)**.
+Für eine Beschreibung der oben genannten Felder besuche bitte die **[Steam Privatsphäre-Einstellungen](https://steamcommunity.com/my/edit/settings)**.
 
 Für alle Argumente sind folgende Werte gültig:
 
@@ -171,11 +170,11 @@ Für alle Argumente sind folgende Werte gültig:
 | 2    | `FriendsOnly` |
 | 3    | `Public`      |
 
-Sie können entweder den case-insensitiven Namen oder den numerischen Wert verwenden. Argumente, die weggelassen wurden, werden standardmäßig auf `Private` gesetzt. Es ist wichtig, die Beziehung zwischen Untergruppe (Kind) und Hauptgruppe (Eltern) von oben genannten Argumenten zu beachten, da das Kind nie mehr Berechtigung haben kann als sein Elternteil. Zum Beispiel können Sie Spiele im Besitz **nicht** auf `Public` haben, während Ihr Profil auf `Private` steht.
+Sie können entweder den case-insensitiven Namen oder den numerischen Wert verwenden. Argumente, die weggelassen wurden, werden standardmäßig auf `Private` gesetzt. Es ist wichtig, die Beziehung zwischen Untergruppe (Kind) und Hauptgruppe (Eltern) von oben genannten Argumenten zu beachten, da das Kind nie mehr Berechtigung haben kann als sein Elternteil. Zum Beispiel kannst du Spiele im Besitz **nicht** auf `Public` haben, während dein Profil auf `Private` steht.
 
 ### Beispiel
 
-Wenn Sie **alle** Privatsphäre-Einstellungen des Bots namens `Main` auf `Private` setzen möchten, können Sie jede der folgenden Optionen verwenden:
+Wenn du **alle** Privatsphäre-Einstellungen deines Bots namens `Main` auf `Private` setzen möchtest, kannst du jede der folgenden Optionen verwenden:
 
 ```text
 privacy Main 1
@@ -199,7 +198,7 @@ Das oben genannte wird das Profil auf öffentlich setzen, eigene Spiele auf nur 
 
 Bedenken Sie, dass ein Kind nie mehr offene Berechtigungen haben kann als sein Elternteil. Schauen Sie sich hierzu die Argumentationsbeziehung für die verfügbaren Optionen an.
 
-* * *
+---
 
 ## `addlicense` Lizenzen
 
@@ -220,7 +219,7 @@ Beispiel für einen vollständigen Befehl:
 addlicense ASF app/292030,sub/47807
 ```
 
-* * *
+---
 
 ## `owns` Spiele
 
@@ -241,7 +240,7 @@ Beispiel für einen vollständigen Befehl:
 owns ASF app/292030,name/Witcher
 ```
 
-* * *
+---
 
 ## `redeem^` Modi
 
@@ -266,21 +265,21 @@ Zum Beispiel möchten wir drei Produktschlüssel auf einem unserer Bots einlöse
 
 `redeem^ primary FF,SI key1,key2,key3`
 
-Es ist wichtig zu beachten, dass fortgeschrittenes Einlösen nur die `RedeemingPreferences` überschreibt, die Sie **im Befehl haben angegeben haben**. Wenn Sie zum Beispiel `Distributing` in Ihren `RedeemingPreferences` aktiviert haben, dann macht es keinen Unterschied, ob der `FD` Modus genutzt wird oder nicht, weil die Verteilung trotzdem bereits aktiv ist, aufgrund der `RedeemingPreferences` die Sie verwenden. Deshalb hat jede zwangsweise aktivierte Überschreibung auch eine zwangsweise deaktivierte. Sie können selbst entscheiden, ob deaktivierte mit aktiviert zu überschrieben werden soll oder umgekehrt.
+Es ist wichtig zu beachten, dass fortgeschrittenes Einlösen nur die `RedeemingPreferences` überschreibt, die du **im Befehl angeben hast**. Wenn Sie zum Beispiel `Distributing` in Ihren `RedeemingPreferences` aktiviert haben, dann macht es keinen Unterschied, ob der `FD` Modus genutzt wird oder nicht, weil die Verteilung trotzdem bereits aktiv ist, aufgrund der `RedeemingPreferences` die Sie verwenden. Deshalb hat jede zwangsweise aktivierte Überschreibung auch eine zwangsweise deaktivierte. Sie können selbst entscheiden, ob deaktivierte mit aktiviert zu überschrieben werden soll oder umgekehrt.
 
-* * *
+---
 
 ## `encrypt` Befehl
 
 `encrypt` command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` muss eine der Verschlüsselungsmethoden sein, welche im Abschnitt **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE#Sicherheit)** angegeben und erklärt ist. Dieser Befehl ist nützlich, wenn Sie bereits im Voraus verschlüsselte Details erzeugen möchten, z. B. um zu vermeiden, dass Sie zuerst Ihr `PlainText`-Passwort in die Konfiguration eingiben und dann den Befehl `Passwort` verwenden. Wir empfehlen, diesen Befehl über sichere Kanäle zu verwenden (ASF-Konsole oder IPC-Schnittstelle, für die es auch einen dedizierten API-Endpunkt gibt), da sonst sensible Details von verschiedenen Dritten protokolliert werden könnten (z. B. Chat-Nachrichten, die von Steam-Servern protokolliert werden).
 
-* * *
+---
 
 ## `hash` Befehl
 
 `hash` command allows you to generate hashes of arbitrary strings using ASF's hashing methods. `<hashingMethod>` muss eine der Hashing-Methoden sein, welche im Abschnitt **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE)** angegeben und erklärt ist. Wir empfehlen, diesen Befehl über sichere Kanäle zu verwenden (ASF-Konsole oder IPC-Schnittstelle, für die es auch einen dedizierten API-Endpunkt gibt), da sonst sensible Details von verschiedenen Dritten protokolliert werden könnten (z. B. Chat-Nachrichten, die von Steam-Servern protokolliert werden).
 
-* * *
+---
 
 ## `input` Befehl
 
@@ -293,7 +292,7 @@ Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
 | Typ                             | Beschreibung                                                                                            |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Login                           | `SteamLogin` Bot-Konfigurationseigenschaft, falls diese in der Konfiguration fehlt.                     |
-| Passwort                        | `SteamPassword` Bot-Konfigurationseigenschaft, falls diese in der Konfiguration fehlt.                  |
+| Password                        | `SteamPassword` Bot-Konfigurationseigenschaft, falls diese in der Konfiguration fehlt.                  |
 | SteamGuard                      | Auth-Code, der an Ihre E-Mail gesendet wird, falls Sie 2FA nicht nutzen.                                |
 | SteamParentalCode               | ` SteamParentalCode ` Bot-Konfigurationseigenschaft, falls diese in der Konfiguration fehlt.            |
 | Two-factor Authentication (2FA) | 2FA-Code, der von Ihnem Handy generiert wurde, sofern Sie die Standard-2FA benutzt, aber nicht ASF-2FA. |
@@ -304,12 +303,12 @@ Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
 
 Nehmen wir an, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. We want to launch that bot with `Headless` set to `true`.
 
-Um das zu tun, müssen wir folgende Befehle ausführen:
+Um das zu tun müssen wir folgende Befehle ausführen:
 
-`start MeinSteamGuardBot` -> Der Bot wird versuchen zu starten, was allerdings fehlschlagen wird, weil ein Authentifizierungscode benötigt wird. Dann wird er sich selbst stoppen, weil ASF im `Headless`-Modus läuft. Wir brauchen dies, damit das Steam-Netzwerk uns den Authentisierungscode an unsere E-Mail sendet - wenn es keinen Bedarf dafür gibt, würden wir diesen Schritt komplett überspringen.
+`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. Wir brauchen dies, damit das Steam-Netzwerk uns den Authentisierungscode an unsere E-Mail sendet - wenn es keinen Bedarf dafür gibt, würden wir diesen Schritt komplett überspringen.
 
-`input MeinSteamGuardBot SteamGuard ABCDE` -> Wir setzen den `SteamGuard`-Input von `MeinSteamGuardBot` auf `ABCDE`. Natürlich sollte `ABCDE` der Code sein, den Sie in Ihrer E-Mail erhalten haben.
+`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Natürlich sollte `ABCDE` der Code sein, den Sie in Ihrer E-Mail erhalten haben.
 
-`start MeinSteamGuardBot` -> wir starten unseren (gestoppten) Bot wieder. Diesmal wird der Code benutzt, den wir im vorherigen Befehl gesetzt haben und der Bot loggt sich ein und löscht den Code aus seinem internen Speicher.
+`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
 
 Auf dem selben Weg können wir auf Bots, die durch Zwei-Faktor-Authentifizierung geschützt sind (und nicht die 2FA von ASF verwenden), zugreifen und andere Dinge während der Laufzeit tun.

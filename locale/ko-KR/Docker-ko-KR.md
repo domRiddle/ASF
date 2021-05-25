@@ -2,19 +2,22 @@
 
 ASF는 3.0.3.2 버전부터 **[도커 컨테이너](https://www.docker.com/what-container)** 로도 사용가능합니다. ASF를 도커 컨테이너로 실행하는 것은 일반적인 사용자에게는 보통 장점이 없습니다. 하지만 ASF가 다른 모든 앱으로부터 분리된 샌드박스 환경에서 실행을 보장해주는, 서버에서 ASF 사용시에는 훌륭한 방법일 수 있습니다. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
-* * *
+---
 
 ## 태그
 
 ASF는 4가지 주요 유형의 **[태그](https://hub.docker.com/r/justarchi/archisteamfarm/tags)** 상태를 갖습니다.
 
+
 ### `main`
 
 This tag always points to the ASF built from latest commit in `main` branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. 일반적으로 이 태그는 피해야 합니다. 이는 개발목적을 위해 개발자와 고급사용자용의 최고 수준으로 버그가 많은 소프트웨어입니다. The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken), just like in our AppVeyor build. 릴리스 주기에서 이야기한 것 처럼 이는 ASF 프로젝트의 현재 상태를 나타내기 위해 있는것이지, 안정적이거나 테스트완료되었음을 보장하는 것이 아닙니다. 이 태그는 제작 환경에서 사용해서는 안됩니다.
 
+
 ### `released`
 
 위와 매우 유사하지만, 이 태그는 사전 릴리스를 포함한 최신 **[릴리스](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** 버전을 항상 가리킵니다. Compared to `main` tag, this image is being updated each time a new GitHub tag is pushed. 안정적이면서도 새로운, 최첨단에 있기를 좋아하는 고급 사용자를 위한 것입니다. `latest`를 사용하고 싶지 않은 경우 추천합니다. 이 태그의 사용은 **[사전 릴리스](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)** 의 사용과 동일합니다.
+
 
 ### `latest`
 
@@ -26,7 +29,7 @@ Due to the fact that the `latest` image comes with capability of auto-updates, i
 
 위의 태그와 비교하자면, 이 태그는 완전히 동결되었습니다. 즉, 한번 릴리스되면 업데이트 되지 않습니다. 최초 릴리스 후 한번도 건드리지 않은 GitHub 릴리스와 유사하게 동작하고, 안정적이고 동결된 환경을 보장합니다. `latest`보다 오래된 특정한 ASF 릴리스를 사용하고 싶지만 예를들어 `latest` 태그에서 제공하는 것과 같은 모든 종류의 자동업데이트를 사용하고 싶지 않은 경우 이 태그를 사용합니다.
 
-* * *
+---
 
 ## 어떤 태그가 최선입니까?
 
@@ -34,7 +37,7 @@ Due to the fact that the `latest` image comes with capability of auto-updates, i
 
 We generally discourage trying `main` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. 그 상태는 어떤것도 정상작동을 보장하지 않지만, ASF 개발에 관심이 있다면 시도해보는 것도 좋습니다.
 
-* * *
+---
 
 ## 아키텍쳐
 
@@ -42,7 +45,7 @@ ASF docker image is currently built on `linux` platform with 3 architectures - `
 
 Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker run`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
 
-* * *
+---
 
 ## 사용법
 
@@ -66,7 +69,7 @@ docker run -it --name asf --pull always --rm justarchi/archisteamfarm
 docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 ```
 
-* * *
+---
 
 ## 볼륨 사용
 
@@ -100,7 +103,7 @@ docker exec -u root asf chown -hR 1000:1000 /app
 
 ASF 프로세스에 일반 사용자를 사용하기로 정한 경우에만, 컨테이너를 `docker run`으로 생성한 후 한번만 하면 됩니다. 위의 `1000:1000` 인자를 ASF가 실행될 실제 `uid`와 `gid`로 변경하는 것을 잊지 마십시오.
 
-* * *
+---
 
 ## Multiple instances synchronization
 
@@ -121,7 +124,7 @@ As you've probably guessed from example above, it's also possible to create two 
 
 Mounting `/tmp/ASF` is completely optional and actually not recommended, unless you explicitly want to synchronize two or more ASF containers. We do not recommend mounting `/tmp/ASF` for single-container usage, as it brings absolutely no benefits if you expect to run just one ASF container, and it might actually cause issues that could otherwise be avoided.
 
-* * *
+---
 
 ## 명령줄 인자
 
@@ -135,7 +138,7 @@ docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --n
 
 사용자지정 암호화 키나 다른 고급 옵션을 주고싶은 것이 아니라면 보통은 어떤 특별한 환경 변수를 포함하지 않습니다. 도커 컨테이너는 이미 기본값으로 `--no-restart` `--process-required` `--system-required`로 실행하도록 설정되어있습니다. 따라서 위의 `ASF_ARGS` 는 필요없고, `ASF_CRYPTKEY` 만이 적용됩니다.
 
-* * *
+---
 
 ## IPC
 
@@ -165,7 +168,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull alway
 
 모든 것을 정확하게 설정했다면 위의 `docker run` 명령어는 호스트 기기의 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)** 인터페이스가 게스트 기기로 리다이렉트된 표준 `localhost:1242` 라우트에서동작하도록 할 것입니다. 이 라우트를 더 많이 노출하지 않음을 알아 두십시오. 연결은 오직 도커 호스트안에서만 이루어지고 안전하게 유지됩니다. Of course, you can expose the route further if you know what you're doing and ensure appropriate security measures.
 
-* * *
+---
 
 ### 완전한 예제
 
@@ -189,7 +192,7 @@ This assumes that you'll use a single ASF container, with all ASF config files i
 }
 ```
 
-* * *
+---
 
 ## 프로 팁
 

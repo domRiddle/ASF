@@ -2,7 +2,7 @@
 
 ASF는 프로그램 실행에 영향을 미칠 수 있는 여러 명령줄 인자에 대한 지원을 포함합니다. 이것은 프로그램이 어떻게 동작해야하는지 특정하기위한 고급사용자가 이용할 수 있습니다. `ASF.json` 설정 파일의 기본 방식과 비교하면, 명령줄 인자는 `--path` 등 주요 초기설정, `--system-required` 등 플랫폼 특화 설정, `--cryptkey` 등 민감한 데이터에 사용합니다.
 
-* * *
+---
 
 ## 사용법
 
@@ -28,7 +28,7 @@ dotnet ArchiSteamFarm.dll --인자1 --인자2
 
 명령줄 인자는 `ArchiSteamFarm.cmd`나 `ArchiSteamFarm.sh` 같은 일반 도우미 스크립트에서도 지원합니다. 그외에 도우미 스크립트를 사용할때 **[도커](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-ko-KR#command-line-arguments)** 항목에 명시된 것 처럼 `ASF_ARGS` 환경변수를 사용할 수 있습니다.
 
-인자에 공백이 들어간다면 따옴표로 표시하는 것을 잊지마십시오. 아래 두개는 잘못되었습니다:
+인자에 공백이 들어간다면 따옴표로 표시하는 것을 잊지마십시오.  아래 두개는 잘못되었습니다:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
@@ -48,29 +48,29 @@ dotnet ArchiSteamFarm.dll --인자1 --인자2
 
 이 속성값의 특성때문에 `ASF_CRYPTKEY` 환경 변수를 선언하여 cryptkey를 설정하는 것도 가능합니다. 인자 처리 중 민감한 정보를 피하고 싶은 사람들에게 더 적절합니다.
 
-* * *
+---
 
 `--ignore-unsupported-environment` - will cause ASF to ignore detection of unsupported environment, which normally is signalized with an error and forced exit. As of now, unsupported environment is classifed as running .NET Framework build on platform that could be running .NET Core build instead. Since we support `generic-netf` builds only in very limited scenarios (with **[Mono](https://www.mono-project.com)**), using it for other cases (e.g. for launching on `win-x64` platform) is not supported. Visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** for more info.
 
-* * *
+---
 
 `--network-group <group>` or `--network-group=<group>` - will cause ASF to init its limiters with a custom network group of `<group>` value. This option affects running ASF in **[multiple instances](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** by signalizing that given instance is dependent only on instances sharing the same network group, and independent of the rest. Typically you want to use this property only if you're routing ASF requests through custom mechanism (e.g. different IP addresses) and you want to set networking groups yourself, without relying on ASF to do it automatically (which currently includes taking into account `WebProxy` only). Keep in mind that when using a custom network group, this is unique identifier within the local machine, and ASF will not take into account any other details, such as `WebProxy` value, allowing you to e.g. start two instances with different `WebProxy` values which are still dependent on each other.
 
 Due to the nature of this property, it's also possible to set the value by declaring `ASF_NETWORK_GROUP` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
-* * *
+---
 
 `--no-config-migrate` - by default ASF will automatically migrate your config files to latest syntax. Migration includes conversion of deprecated properties into latest ones, removing properties with default values (as they have no effect), as well as cleaning up the file in general (correcting indentation and likewise). This is almost always a good idea, but you might have a particular situation where you'd prefer ASF to never overwrite the config files automatically. For example, you might want to `chmod 400` your config files (read permission for the owner only) or put `chattr +i` over them, in result denying write access for everyone, e.g. as a security measure. Usually we recommend to keep the config migration enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
 
-* * *
+---
 
 `--no-config-watch` - by default ASF sets up a `FileSystemWatcher` over your `config` directory in order to listen for events related to file changes, so it can interactively adapt to them. For example, this includes stopping bots on config deletion, restarting bot on config being changed, or loading keys into **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** once you drop them into the `config` directory. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate. Usually we recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
 
-* * *
+---
 
-`--no-restart` - 이 스위치는 주로 **[도커](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-ko-KR)** 컨테이너에서 사용하며 `AutoRestart` 값을 `false`로 강제합니다. 특별한 필요가 없다면 환경설정에서 `AutoRestart` 항목을 직접 설정하여야 합니다. 이 스위치는 도커 스크립트가 자체 환경설정을 적용할때 일반 환경설정을 건드리지 않아도 되도록 합니다. 물론 ASF를 스크립트 내부에서 실행하고 있다면 이 스위치를 활용할 수 있습니다. (그렇지 않다면 일반 환경설정 항목이 낫습니다)
+`--no-restart` - 이 스위치는 주로 **[도커](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-ko-KR)** 컨테이너에서 사용하며 `AutoRestart` 값을 `false`로 강제합니다. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. 물론 ASF를 스크립트 내부에서 실행하고 있다면 이 스위치를 활용할 수 있습니다. (그렇지 않다면 일반 환경설정 항목이 낫습니다)
 
-* * *
+---
 
 `--path <path>` 혹은 `--path=<path>` - ASF는 설치시에 자체 디렉토리를 탐색합니다. 이 인자를 지정하면 ASF는 설치 후에 주어진 디렉토리를 탐색하고, 바이너리를 동일한 장소에 복제할 필요 없이 `config`, `plugins` 및 `www` 디렉토리와 `NLog.config`파일을 포함하는 다양한 어플리케이션 부분의 사용자 지정경로로 사용할 수 있습니다. 리눅스형태의 패키징에서 그런 것 처럼 바이너리와 실제 환경설정을 분리하고자 할때 특히 유용합니다. 이 방식으로 여러 다른 설치본을 하나의 (최신) 바이너리만으로 사용할 수 있습니다. 경로는 ASF 바이너리의 현재 위치에서 상대경로 또는 절대경로로 지정할 수 있습니다. Keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with config directory inside, see below example for explanation.
 
@@ -101,13 +101,13 @@ ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env v
 └── ...
 ```
 
-* * *
+---
 
 `--process-required` - 실행중인 봇이 없는 경우 ASF를 종료하는 기본 설정을 비활성합니다. 자동 종료 금지 설정은 대부분의 사용자가 활성화된 봇의 갯수와 상관없이 웹서비스가 돌아가기를 원하는 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)**와의 조합에서 특히 유용합니다. IPC 옵션을 사용중이거나 ASF를 직접 종료할때까지 계속 실행되기를 원하는 경우 알맞는 옵션입니다.
 
 IPC를 실행할 생각이 없다면 그다지 쓸모 없습니다. 필요할때마다 ASF를 시작하면 됩니다.(이와 반대로 ASF 웹서버는 당신이 보내는 명령을 위해 항상 대기하고 있습니다)
 
-* * *
+---
 
 `--system-required` - ASF가 전체 생애주기동안 시스템이 살아있어야 한다는 신호를 운영체제에 보내도록 합니다. 현재 이 스위치는 윈도 기기에서만 유효하며 프로세스가 실행되는 한 대기모드로 들어가는 것을 방지합니다. 밤에 PC나 랩탑에서 농사를 짓는 경우 특히 유용합니다. 농사를 짓는 동안 시스템은 계속 깨어있다가 ASF는 끝나면 평소처럼 꺼지고 시스템도 다시 대기모드로 들어가도록 하여 농사가 끝나면 전기를 즉시 절약합니다.
 

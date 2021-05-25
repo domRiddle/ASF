@@ -3,7 +3,6 @@
 ASF hỗ trợ nhiều loại lệnh khác nhau, được sử dụng để kiểm soát hoạt động của các quá trình và trường hợp bot.
 
 Các lệnh có thể được gửi đến bot thông qua nhiều cách khác nhau:
-
 - Thông qua bảng điều khiển ASF
 - Thông qua tin nhắn riêng/nhóm Steam
 - Thông qua giao diện **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
@@ -12,7 +11,7 @@ Hãy nhớ rằng tương tác ASF yêu cầu bạn phải đủ điều kiện 
 
 Các lệnh được thực thi thông qua trò chuyện trên Steam bị ảnh hưởng bởi `CommandPrefix`**[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, đó là `!` theo mặc định. Điều này có nghĩa là để thực thi, ví dụ: Lệnh `status`, bạn thực sự viết `!Status` (hoặc tùy chỉnh `CommandPrefix` mà bạn chọn thay thế). `CommandPrefix` không bắt buộc khi sử dụng bảng điều khiển hoặc IPC và có thể được bỏ qua.
 
-* * *
+---
 
 ### Bảng điều khiển
 
@@ -22,7 +21,7 @@ Bắt đầu từ phiển bản V4.0.0.9, ASF hỗ trợ giao diện bản đi�
 
 Bảng điều khiển không tương tác với chế độ [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless).
 
-* * *
+---
 
 ### Steam chat
 
@@ -36,7 +35,7 @@ Xin lưu ý rằng việc gửi lệnh đến trò chuyện nhóm hoạt động
 
 *And even in this case you should use private chat with `[Bots]` syntax instead.*
 
-* * *
+---
 
 ### IPC
 
@@ -44,7 +43,7 @@ Một phương pháp khác nâng cao và linh động hơn để thực thi lệ
 
 ![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
-* * *
+---
 
 ## Lệnh
 
@@ -104,7 +103,7 @@ Một phương pháp khác nâng cao và linh động hơn để thực thi lệ
 | `update`                                                             | `Owner`         | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                                                                                                                                                    |
 | `version`                                                            | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                                                                                                                                              |
 
-* * *
+---
 
 ### Notes
 
@@ -122,7 +121,7 @@ ASF will "join" extra out-of-range arguments to plural type of the last in-range
 
 As you've read above, a space character is being used as a delimiter for a command, therefore it can't be used in arguments. However, also as stated above, ASF can join out-of-range arguments, which means that you're actually able to use a space character in argument that is defined as a last one for given command. For example, `nickname bob Great Bob` will properly set nickname of `bob` bot to "Great Bob". In the similar way you can check names containing spaces in `owns` command.
 
-* * *
+---
 
 Some commands are also available with their aliases, to save you on typing:
 
@@ -133,7 +132,7 @@ Some commands are also available with their aliases, to save you on typing:
 | `redeem`     | `r`   |
 | `redeem^`    | `r^`  |
 
-* * *
+---
 
 ### `[Bots]` argument
 
@@ -145,7 +144,7 @@ First and foremost, there is a special `ASF` keyword which acts as "all bots in 
 
 In addition to range syntax above, `[Bots]` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. You can activate regex pattern by using `r!<pattern>` as a bot name, where `r!` is ASF activator for regex matching, and `<pattern>` is your regex pattern. An example of a regex-based bot command would be `status r!\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). Feel free to take a look at the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for further explanation and more examples of available regex patterns.
 
-* * *
+---
 
 ## `privacy` settings
 
@@ -199,7 +198,7 @@ The above will set profile to public, owned games to friends only, playtime to p
 
 Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
 
-* * *
+---
 
 ## `addlicense` licenses
 
@@ -220,7 +219,7 @@ Complete command example:
 addlicense ASF app/292030,sub/47807
 ```
 
-* * *
+---
 
 ## `owns` games
 
@@ -241,7 +240,7 @@ Complete command example:
 owns ASF app/292030,name/Witcher
 ```
 
-* * *
+---
 
 ## `redeem^` modes
 
@@ -268,19 +267,19 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 It's important to note that advanced redeem overrides only those `RedeemingPreferences` that you **specify in the command**. For example, if you've enabled `Distributing` in your `RedeemingPreferences` then there will be no difference whether you use `FD` mode or not, because distributing will be already active regardless, due to `RedeemingPreferences` that you use. This is why each forcibly enabled override also has a forcibly disabled one, you can decide yourself if you prefer to override disabled with enabled, or vice versa.
 
-* * *
+---
 
 ## `encrypt` command
 
 `encrypt` command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` must be one of the encryption methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
-* * *
+---
 
 ## `hash` command
 
 `hash` command allows you to generate hashes of arbitrary strings using ASF's hashing methods. `<hashingMethod>` must be one of the hashing methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
-* * *
+---
 
 ## `input` command
 
@@ -293,7 +292,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 | Type                    | Mô tả                                                                      |
 | ----------------------- | -------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
-| Mật khẩu                | `SteamPassword` bot config property, if missing from config.               |
+| Password                | `SteamPassword` bot config property, if missing from config.               |
 | SteamGuard              | Auth code sent on your e-mail if you're not using 2FA.                     |
 | SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |
 | TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |

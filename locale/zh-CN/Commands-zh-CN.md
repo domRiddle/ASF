@@ -3,7 +3,6 @@
 ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 您可以通过不同的方式发送命令：
-
 - 通过 ASF 交互式控制台
 - 通过 Steam 私人/群组聊天
 - 通过 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 接口
@@ -12,7 +11,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 通过 Steam 聊天发送的命令都受 `CommandPrefix` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#commandprefix)**&#8203;影响，该属性的默认值为 `!`。 这意味着，当您要执行 `status` 命令时，实际应该发送 `!status`（或者使用您自定义的 `CommandPrefix`）。 而通过控制台或 IPC 发送的命令则无需加上 `CommandPrefix`，可以省略。
 
-* * *
+---
 
 ### 交互式控制台
 
@@ -22,7 +21,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 交互式控制台在 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#headless) 模式下不可用。
 
-* * *
+---
 
 ### Steam 聊天
 
@@ -36,7 +35,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 *但即使是在这种情况下，您也应该采用私人聊天，并使用指定机器人名称的 `[Bots]` 语法。*
 
-* * *
+---
 
 ### IPC
 
@@ -44,11 +43,11 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 ![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
-* * *
+---
 
 ## 命令
 
-| 命令                                                                   | 权限              | 描述                                                                                                                                             |
+| 命令                                                                   | 访问              | 描述                                                                                                                                             |
 | -------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa [Bots]`                                                         | `Master`        | 为指定机器人生成临时的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;令牌。                    |
 | `2fano [Bots]`                                                       | `Master`        | 为指定机器人拒绝所有等待操作的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;交易确认。              |
@@ -86,7 +85,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `pause~ [Bots]`                                                      | `FamilySharing` | 临时暂停指定机器人的自动挂卡模块。 挂卡进程将会在下次游戏事件或者机器人断开连接时自动恢复。 您可以 `resume` 以恢复挂卡。                                                                             |
 | `pause& [Bots] <Seconds>`                                  | `Operator`      | 临时暂停指定机器人的自动挂卡模块 `Seconds` 秒。 之后，挂卡模块会自动恢复。                                                                                                    |
 | `play [Bots] <AppIDs,GameName>`                                | `Master`        | 切换到手动挂卡——使指定机器人运行给定的 `AppIDs`，并且可选自定义 `GameName` 为游戏名称。 若要此功能正常工作，您的 Steam 帐户**必须**拥有所有您指定的 `AppIDs` 的有效许可，包括免费游戏。 使用 `reset` 或 `resume` 命令恢复。 |
-| `privacy [Bots] <Settings>`                                    | `Master`        | 更改指定机器人实例的 **[Steam 隐私设置](https://steamcommunity.com/my/edit/settings)**，可用选项见&#8203;**[下文](#privacy-设置)**。                                    |
+| `privacy [Bots] <Settings>`                                    | `Master`        | 更改指定机器人的 **[Steam 隐私设置](https://steamcommunity.com/my/edit/settings)**，可用选项见&#8203;**[下文](#privacy-设置)**。                                      |
 | `redeem [Bots] <Keys>`                                         | `Operator`      | 为指定机器人激活给定的游戏序列号或钱包充值码。                                                                                                                        |
 | `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`      | 以 `Modes` 模式为指定机器人激活给定的游戏序列号或钱包充值码，模式详见下文的&#8203;**[解释](#redeem-模式)**。                                                                         |
 | `reset [Bots]`                                                       | `Master`        | 重置游戏状态为正常状态，用来配合 `play` 命令的手动挂卡模式使用。                                                                                                           |
@@ -104,7 +103,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `update`                                                             | `Owner`         | 检查 GitHub 上的 ASF 更新（每隔 `UpdatePeriod` 就会自动执行一次）。                                                                                               |
 | `version`                                                            | `FamilySharing` | 显示 ASF 的版本号。                                                                                                                                   |
 
-* * *
+---
 
 ### 备注
 
@@ -122,7 +121,7 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 如上所述，空白字符被用于分隔命令参数，所以参数内部无法再使用空白字符。 但同样如上所述，ASF 可以连接超出范围的参数，这意味着您可以在命令的最后一个参数中使用空白字符。 例如，`nickname bob Great Bob` 命令能够正确地将机器人 `bob` 的昵称更改为“Great Bob”。 类似地，您也可以使用 `owns` 命令检查含有空格的名称。
 
-* * *
+---
 
 一些命令有较短的别名可用，用来减少键入的次数：
 
@@ -133,7 +132,7 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 | `redeem`     | `r`  |
 | `redeem^`    | `r^` |
 
-* * *
+---
 
 ### `[Bots]` 参数
 
@@ -145,21 +144,21 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 除了上述的范围语法，`[Bots]` 参数还支持&#8203;**[正则表达式](https://en.wikipedia.org/wiki/Regular_expression)**&#8203;匹配。 您可以使用 `r!<pattern>` 作为机器人名称，其中 `r!` 告诉 ASF 使用正则表达式匹配，而 `<pattern>` 则是正则表达式。 一个使用正则表达式的例子为 `status r!\d{3}` 命令，它会向所有名称为 3 个数字的机器人（例如 `123` 和 `981`）发送 `status` 命令。 您可以阅读这份&#8203;**[文档](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)**，进一步了解正则表达式的解释和示例。
 
-* * *
+---
 
 ## `privacy` 设置
 
 `<Settings>` 参数接受**最多 7 个**不同的选项，像平常一样使用 ASF 标准的逗号分隔。 这些选项分别是：
 
-| 参数 | 名称                   | 从属于        |
-| -- | -------------------- | ---------- |
-| 1  | Profile（个人资料）        |            |
-| 2  | OwnedGames（游戏详情）     | Profile    |
-| 3  | Playtime（游戏时间）       | OwnedGames |
-| 4  | FriendsList（好友列表）    | Profile    |
-| 5  | Inventory（库存）        | Profile    |
-| 6  | InventoryGifts（库存礼物） | Inventory  |
-| 7  | Comments（留言）         | Profile    |
+| 参数 | 名称                   | 从属于           |
+| -- | -------------------- | ------------- |
+| 1  | Profile（个人资料）        |               |
+| 2  | OwnedGames（游戏详情）     | Profile       |
+| 3  | Playtime（游戏时间）       | OwnedGames    |
+| 4  | FriendsList（好友列表）    | Profile（个人资料） |
+| 5  | Inventory（库存）        | Profile（个人资料） |
+| 6  | InventoryGifts（库存礼物） | Inventory     |
+| 7  | Comments（留言）         | Profile（个人资料） |
 
 关于上述选项的说明，请访问 **[Steam 隐私设置](https://steamcommunity.com/my/edit/settings)**。
 
@@ -199,13 +198,13 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 请记住子选项的权限无法比父选项更高。 您可以参考上述选项的从属关系。
 
-* * *
+---
 
 ## `addlicense` 命令的 Licenses 参数
 
 `addlicense` 命令支持两种不同的许可类型，包括：
 
-| 类型    | 别名  | 示例           | 描述                        |
+| 类型    | 别名  | 范例           | 描述                        |
 | ----- | --- | ------------ | ------------------------- |
 | `app` | `a` | `app/292030` | 游戏的唯一 `appID`。            |
 | `sub` | `s` | `sub/47807`  | 包含一款或多款游戏的包，有唯一的 `subID`。 |
@@ -220,13 +219,13 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 addlicense ASF app/292030,sub/47807
 ```
 
-* * *
+---
 
 ## `owns` 命令的 Games 参数
 
 `owns` 命令支持几种不同的 `<games>` 参数类型，包括：
 
-| 类型      | 别名  | 示例               | 描述                                                                                                                                                                                                                        |
+| 类型      | 别名  | 范例               | 描述                                                                                                                                                                                                                        |
 | ------- | --- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `app`   | `a` | `app/292030`     | 游戏的唯一 `appID`。                                                                                                                                                                                                            |
 | `sub`   | `s` | `sub/47807`      | 包含一款或多款游戏的包，有唯一的 `subID`。                                                                                                                                                                                                 |
@@ -241,7 +240,7 @@ addlicense ASF app/292030,sub/47807
 owns ASF app/292030,name/Witcher
 ```
 
-* * *
+---
 
 ## `redeem^` 模式
 
@@ -268,19 +267,19 @@ owns ASF app/292030,name/Witcher
 
 需要注意的是，只有您**在命令中指定的**模式才会替换 `RedeemingPreferences` 中的选项。 例如，如果您在 `RedeemingPreferences` 中启用了 `Distributing`，那么无论您是否指定 `FD` 模式，Distributing 都会生效，因为您已经在 `RedeemingPreferences` 中启用了它。 这也是为何我们针对同一种模式有启用和禁用两种选项，您可以用强制启用代码来覆盖已禁用的模式，反之亦然。
 
-* * *
+---
 
 ## `encrypt` 命令
 
 `encrypt` 命令使您能够使用 ASF 的加密方式加密任意字符串。 加密方式 `<encryptionMethod>` 必须是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节所述方式之一。 此命令主要用于提前生成已加密的细节，例如，避免先以 `PlainText` 方式在配置文件内填写明文密码，再使用 `password` 命令对其加密的情况。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
 
-* * *
+---
 
 ## `hash` 命令
 
 `hash` 命令使您能够使用 ASF 的哈希方式生成任意字符串的哈希值。 哈希方式 `<hashingMethod>` 必须是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节所述方式之一。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
 
-* * *
+---
 
 ## `input` 命令
 
@@ -300,16 +299,16 @@ owns ASF app/292030,name/Witcher
 
 `<Value>` 是要为指定类型设置的值。 目前所有的值都是字符串。
 
-### 示例
+### 范例
 
 假设我们有一个机器人，未启用 2FA，仅由 Steam 电子邮件令牌保护。 我们希望在 `Headless` 为 `true` 的情况下启动这个机器人。
 
 为此，我们需要执行以下命令：
 
-`start MySteamGuardBot` -> 机器人会尝试登录，但因为缺少验证码而登录失败，然后因为 ASF 处于 `Headless` 模式，机器人会停止运行。 我们做这一步的目的是让 Steam 网络向我们发送验证码电子邮件——否则我们就可以跳过这一步了。
+`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. 我们做这一步的目的是让 Steam 网络向我们发送验证码电子邮件——否则我们就可以跳过这一步了。
 
-`input MySteamGuardBot SteamGuard ABCDE` -> 我们将 `MySteamGuardBot` 机器人的 `SteamGuard` 输入设置为 `ABCDE`。 当然，这里的 `ABCDE` 需要换成我们在电子邮件中找到的验证码。
+`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. 当然，这里的 `ABCDE` 需要换成我们在电子邮件中找到的验证码。
 
-`start MySteamGuardBot` -> 我们重新启动已停止的机器人，这一次会自动使用我们在上一步中设置的验证码，登录将会成功，并且之前的验证码输入会被清除。
+`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
 
 如果您的机器人启用了 2FA，但是没有导入 ASF 2FA，您可以用相同的方式操作这种机器人，只需要在运行时设置其他所需的属性即可。

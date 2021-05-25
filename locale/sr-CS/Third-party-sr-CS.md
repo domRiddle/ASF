@@ -4,7 +4,7 @@ Ova sekcija sadrži razne dodatke napravljenje od trećih strana koje su namijen
 
 Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog toga **mi ne garantujemi ni za jedan od njih**, posedno o pitanju bezbjednosti, sigurnosti ili Steam ToS poštovanja. Ova lista je održavana samo za potrebe upućivanja. Vi morate uvijek provjeriti da li su alatke trećih strana, koje želite da koristite, dovoljno vjerodostojene za vas, zato što ih koristite na vaš rizik.
 
-* * *
+---
 
 ## ASF dodaci
 
@@ -16,7 +16,7 @@ Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog 
 - **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, dodatak za ASF koji se automatski bavi procesom Steam pozivnica.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, dodatak za ASF koji omogućava korišćenje proxy-a u WebSocket konekcijama.
 
-* * *
+---
 
 ## Integracije
 
@@ -24,27 +24,27 @@ Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog 
 - **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, za one koji žele da šalju automatizovane zahtjeve za razmjenu našim botovima na **[ASF STM listi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** preko pretraživača, bez korišćenja `MatchActively` funkcije koje postoji u ASF-u.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, još jedan (minimalan) telegram bot napisan u python-u koji sadrži ASF integraciju.
 
-* * *
+---
 
 ## Biblioteke
 
 - **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python biblioteka za dalju integraciju sa ASF-ovim IPC interfejsom.
 
-* * *
+---
 
 ## Paketi
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, omogućava vam da lako instalirate ASF na arch linux-u.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, omogućava vam da lako instalirate ASF na arch linux-u.
 
-* * *
+---
 
 ## Alati
 
 - **[Keys extractor](https://ske.xpixv.com)**, omogućava vam da kopirate ključeve u različitim formama i da napravite `redeem` komande za ASF. Pogledajte **[GitHubrepo](https://github.com/PixvIO/SKE)** za više detalja.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, omogućava vam da mnogo lakše podesite više ASF konfiguracija.
 
-* * *
+---
 
 ## Želite da nađete više?
 

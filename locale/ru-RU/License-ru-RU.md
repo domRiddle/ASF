@@ -6,9 +6,9 @@
 
 > You can do what you like with the software, as long as you include the required notices (Вы можете делать что угодно с программным обеспечением, если вы прикладываете к нему необходимое уведомление). This permissive license contains a patent license from the contributors of the code (Эта либеральная лицензия содержит патентную лицензию от соавторов кода).
 
-Обратите внимание, что различные **[компоненты ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)**, указанные в разделе `PackageReference`, зачастую лицензируются с другими условиями, такими как **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. То же касается и всех проектов от третьих лиц, которые использует ASF, особенно всех утилит (`tools`) у которых есть свои собственные лицензии.
+Обратите внимание, что различные **[компоненты ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)**, указанные в разделе `PackageReference`, зачастую лицензируются с другими условиями, такими как **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
 
-* * *
+-----
 
 ## Примечания
 
@@ -19,14 +19,12 @@
 Мы не даём вам прямого разрешения на использование имени продукта ASF/ArchiSteamFarm в вашем программном обеспечении, но мы разрешаем его использовать в некоторых сценариях основанных на здравом смысле:
 
 Вы **можете**:
-
 - Утверждать что ваше программное обеспечение/служба **основывается на** ASF (или его исходном коде)
 - Описывать своё программное обеспечение/службу как **форк ASF**
 - Утверждать, что ваше программное обеспечение/служба работает при поддержке ASF, если вы **не** вносили изменений в исходный код
 - Использовать ASF с целью различных отсылок, как например указание ссылок на происхождения программного обеспечения/службы, на нашу wiki, или *"as required for reasonable and customary use in describing the origin of the Work"* (случаев разумного и обычного использования при описании происхождения Работы)
 
 Вы **не можете**:
-
 - Утверждать что ваше программное обеспечение/служба **это** ASF
 - Описывать своё программное обеспечение/службу как **ASF**
 - Утверждать, что ваше программное обеспечение/служба работает при поддержке ASF, если вы **вносили** изменения в исходный код

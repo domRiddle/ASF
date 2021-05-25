@@ -4,19 +4,19 @@
 
 如果您对目前的情况感兴趣，可以访问 **[ASF Crowdin 动态](https://crowdin.com/project/archisteamfarm/activity_stream)**。
 
-* * *
+---
 
 ## 范围
 
 我们的平台支持 ASF 主程序，以及我们一并提供的所有可翻译内容的本地化工作。 这包括 ASF-WebConfigGenerator（配置生成器）、ASF-ui 以及我们的 Wiki。 所有这些项目都可以通过方便的 Crowdin 接口进行翻译。
 
-* * *
+---
 
 ## 注册
 
 如果您愿意帮助 ASF，无论是翻译、审核或者批准翻译，请在我们的 **[Crowdin 项目主页](https://crowdin.com/project/archisteamfarm)**&#8203;注册。 注册过程非常容易并且完全免费！ 在登录之后，您可以选择要参与翻译的语言，然后选择一份 ASF 文本，并且帮助社区的其他人将 ASF 翻译成各种语言！
 
-* * *
+---
 
 ### 翻译
 
@@ -36,7 +36,7 @@
 
 这样的灵活性特别为译者设计，所以您可以稍微改写 ASF 的句子，使其更适合您的语言，并且将 ASF 提供的数字等信息安排在适合您的翻译的位置（而不是分别翻译各个部分）。 整体的翻译质量因此而得到提升。
 
-* * *
+---
 
 ### 复核
 
@@ -44,7 +44,7 @@
 
 **您的翻译文本无需得到批准也可以出现在 ASF 中**。 批准仅仅表示有受我们信任者审核了此内容，即选择最终的翻译版本。 无人审核的、由社区主导的翻译是完全可行的，这种情况下您只需为最佳翻译投票。 只要文本被翻译，就是好事！ 并且，如果您认为目前的翻译很差，您可以随时为更好的翻译投票，或者提交您自己的建议。
 
-* * *
+---
 
 ### 审校
 
@@ -54,7 +54,7 @@
 
 审校的通用规则：不要急躁、倾听他人、掌控项目、解决问题，确保自己做到更好而不是更差。
 
-* * *
+---
 
 ### 议题
 
@@ -63,13 +63,12 @@
 **如果您不需要技术/开发方面的说明或者管理员操作，请避免使用议题**。 您可以随意在文本下发表留言讨论翻译相关的内容，但议题仅应该在您需要进一步技术解释或者需要管理员提供帮助时使用，并且它通常会涉及一些甚至不会您所翻译的语言的人员，所以在撰写议题时请始终使用英语（使我们可以理解议题的含义）。
 
 目前有这 4 种议题受到支持：
+- 一般议题——所有不符合下述其他类型的议题。 通常，应**尽量避免**这种议题，如果遇到的问题不符合其他情况，很可能它并**不是**一个翻译议题。 但这一选项仍然为所有其他情况保留。
+- 当前翻译错误——这一议题**仅**应在当前翻译已被审校者批准的情况下使用，并且您确认它有错误，例如它有拼写错误或者您有一条更好的建议来改进它。 这种议题不能用于社区驱动（投票）的翻译，在这种情况下您应该联系翻译的提供者，让他更正翻译，或者如“审核”一节所述，直接为更好的翻译投票。 我们会删除对翻译的批准，并通知负责相应语言的审校者查看与验证您的评论。
+- 缺少上下文信息——如果您不确定您正在翻译 ASF 的哪一部分、文本的上下文是什么、它的作用是什么，那就应该使用这一议题。 这一类型仅应被用于 ASF 开发，表示您不确定应该如何翻译这条文本，需要技术支持。
+- 源文本错误——这一议题仅应用于您确定源文本（英语）有错误的情况。 尽管很罕见，但我本人也不是英语母语者，所以如果您对源文本有改进意见，可以随意使用它。 或者，因为这种情况与开发过程直接相关，您也可以使用我们的 **[GitHub Issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** 来讨论。
 
-* 一般议题——所有不符合下述其他类型的议题。 通常，应**尽量避免**这种议题，如果遇到的问题不符合其他情况，很可能它并**不是**一个翻译议题。 但这一选项仍然为所有其他情况保留。
-* 当前翻译错误——这一议题**仅**应在当前翻译已被审校者批准的情况下使用，并且您确认它有错误，例如它有拼写错误或者您有一条更好的建议来改进它。 这种议题不能用于社区驱动（投票）的翻译，在这种情况下您应该联系翻译的提供者，让他更正翻译，或者如“审核”一节所述，直接为更好的翻译投票。 我们会删除对翻译的批准，并通知负责相应语言的审校者查看与验证您的评论。
-* 缺少上下文信息——如果您不确定您正在翻译 ASF 的哪一部分、文本的上下文是什么、它的作用是什么，那就应该使用这一议题。 这一类型仅应被用于 ASF 开发，表示您不确定应该如何翻译这条文本，需要技术支持。
-* 源文本错误——这一议题仅应用于您确定源文本（英语）有错误的情况。 尽管很罕见，但我本人也不是英语母语者，所以如果您对源文本有改进意见，可以随意使用它。 或者，因为这种情况与开发过程直接相关，您也可以使用我们的 **[GitHub Issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** 来讨论。
-
-* * *
+---
 
 ### 翻译进度
 
@@ -81,7 +80,7 @@
 
 ASF 将会**尽快**应用这门语言，而不需要完整审核批准甚至 100% 翻译。 实际选择的文本通常是当时得票数最多的一个，除非有审校者选择了另一个（罕见）。 因而，您可以在下一个 ASF 版本中看到您的工作成果——我们的自动系统会每天将翻译从 Crowdin 合并回 ASF 仓库。
 
-* * *
+---
 
 ## 缺少语言
 
@@ -89,7 +88,7 @@ ASF 将会**尽快**应用这门语言，而不需要完整审核批准甚至 10
 
 要查看目前完整的 ASF 可翻译语言列表，**[点击这里](https://support.crowdin.com/api/language-codes)**。
 
-* * *
+---
 
 ## 复数形式
 
@@ -109,7 +108,7 @@ ASF 将会**尽快**应用这门语言，而不需要完整审核批准甚至 10
 
 定义您的语言中所有复数形式并非总是必要的。 如果有缺少，我们的本地化库将会使用这里最后定义的形式。 定义您的语言中所有复数形式的确很好，但有时剩余的复数形式可能与最后一个相同，在这种情况下没有必要重复它。 在上面的示例中，这种定义是必要的，因为波兰语中“其他”形式的“月”是“miesiąca”，而不是“很多”形式的“miesięcy”。
 
-* * *
+---
 
 ## Wiki
 
@@ -117,7 +116,7 @@ ASF 将会**尽快**应用这门语言，而不需要完整审核批准甚至 10
 
 Wiki 在这方面有些特别，因为它是在线帮助，您无需过于拘泥于原始的句子。 这意味着您希望尽可能自然地用您的语言来传达原始的含义和帮助——无需坚持使用源文本的句式、词汇或标点符号。 只要您仍然保持大致的方向，保留原始文本的帮助信息，您尽可以将整个句子重写为您的语言中更自然的表达方式。
 
-* * *
+---
 
 ### 全局链接
 
@@ -127,7 +126,7 @@ ASF 的几乎每个页面上都包含链接与右边栏以便于导航。 最赞
 
 例如，ASF 的 **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** 页面包含一条这样的文本：
 
-> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
+> 如果您是新用户，我们建议您从&#8203;**[安装指南](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN)**&#8203;开始阅读。
 
 这条文本的原始形式为：
 
@@ -137,42 +136,42 @@ If you're a new user, we recommend starting with **[setting up](https://github.c
 
 在 Crowdin 上，您需要做的第一件事情，是打开编辑器设置，并确保 HTML 标签被设置为“Show”（显示）。 如果您决定本地化 Wiki，那么这个选项非常重要。
 
-* * *
+---
 
 ![Crowdin](https://i.imgur.com/YqAxiZ4.png)
 
-* * *
+---
 
 现在，在翻译过程中，取决于格式，您将会在文本中看到下列形式的 ASF 链接：
 
 * 要与 HTML 标签一起翻译的文本（大部分是文本，句子的一部分是链接）
-* 单独翻译文本，而链接包含在 `Hidden texts` -> `Link addresses` 中（罕见，整个文本都是链接，在边栏中最常见——只有审校者可以翻译这部分）
+* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar - those require proofreader access to translate, sadly)
 
 上面的示例是第一种形式（因为其中只有“setting up”是链接），所以在 Crowdin 中会显示成：
 
-* * *
+---
 
 ![Crowdin 2](https://i.imgur.com/Li5RzS3.png)
 
-* * *
+---
 
 无论是哪种情况，首先您都应该复制源字符串并像往常一样翻译，但要保留完整的 HTML（如果有的话）。 这是一个将其翻译到波兰语的示例：
 
-* * *
+---
 
 ![Crowdin 3](https://i.imgur.com/NpKwfka.png)
 
-* * *
+---
 
 现在，如果这个链接是一个指向 Wiki 外部的普通链接（例如指向 ASF 的最新版本），您可以保持它不变。 您可以直接保存并前往下一条文本。
 
 然而，如果这个链接**确实**指向 Wiki 内部，如上所述，您可以将其指向新的（本地化的）位置。 您需要小心地将 `-locale` 语言代码添加到 `<a>` 标签的目标 URL 中，例如：
 
-* * *
+---
 
 ![Crowdin 4](https://i.imgur.com/TL8uwmb.png)
 
-* * *
+---
 
 您需要非常小心，并确保这个 URL 确实存在，因为如果您犯了错误，该链接将会失效。 如果没有问题，现在您就有了一条功能齐全的翻译，所有链接都指向翻译过的（在我们的例子中是 `Setting-up-pl-PL`）页面。
 
@@ -186,21 +185,21 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-如果是第二种情况，没有出现 HTML，您可以直接前往 `Hidden texts` -> `Link addresses` 部分。
+When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
 
-* * *
+---
 
 ![Crowdin 5](https://i.imgur.com/ZmgavCM.png)
 
-* * *
+---
 
 在这里，您可以直接将链接修改为新地址，完全不需要考虑 HTML：
 
-* * *
+---
 
 ![Crowdin 6](https://i.imgur.com/maG7kSm.png)
 
-* * *
+---
 
 ### 页内链接
 
@@ -210,41 +209,41 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 例如，您会在我们的 **[Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)** 章节中找到 `#introduction` 链接：
 
-* * *
+---
 
 ![Crowdin 7](https://i.imgur.com/EEHSPtK.png)
 
-* * *
+---
 
 因为我们将要把“Introduction”翻译成波兰语的“Wprowadzenie”，我们需要修正这个链接，否则在翻译之后，这个链接就会失效。
 
-* * *
+---
 
 ![Crowdin 8](https://i.imgur.com/JMJegO7.png)
 
-* * *
+---
 
 这样，我们的页内链接仍然可用，因为它现在指向了我们翻译后的新标题。 您可以采用完全相同的方式修正 HTML 标签中的链接。
 
-* * *
+---
 
 ### 代码块
 
 翻译包含 `<code>` 代码块的句子需要非常小心。 代码块表示不应被翻译的 ASF 代码或者术语。 例如：
 
-> This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` status before you're done with your entire batch.
+> This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit <code>RateLimited</code> status before you're done with your entire batch.
 
 如您所见，`RateLimited` 一词被包含在一个代码块中，表示一个 ASF 内部使用的状态代码，不应该被翻译。 同样地，您不应该翻译其他代码块，例如配置文件的属性名称（例如 `TradingPreferences`）、枚举成员（例如 `UpdateChannel` 中的 `Stable` 和 `Experimental`）等。
 
 然而，这仅仅意味着这些单词本身不能被翻译，您仍然可以在它们旁边添加合适的翻译，例如写在括号中。
 
-> Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
+> Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu <code>RateLimited</code> (zbyt częstej aktywacji) przed ukończeniem całej partii.
 
 如上所述，我们在 `RateLimited` 旁边添加了“zbyt częstej aktywacji”（意为激活次数过多），以更友好的方式翻译这个状态代码，但同时保留了用户可能在程序其他地方看到的代码本身。 针对类似的情况，您也可以用同样的方式翻译/解释。
 
 如果您认为代码块中有不合适的内容，或者一段普通文本应该被包含在代码块中，请在 Crowdin 上创建适当的&#8203;**[议题](#议题)**&#8203;告知我们。 这句话同时也是一个页内链接的实际例子。
 
-* * *
+---
 
 ## 名人堂
 

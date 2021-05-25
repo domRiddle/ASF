@@ -2,7 +2,7 @@
 
 ASF supports Steam Family Sharing since version 2.1.5.5+. In order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
 
-* * *
+---
 
 ## ASF
 
@@ -14,7 +14,7 @@ In addition to above, after logging in, ASF will access your **[games sharing se
 
 Connecting both functionalities described above allows your friends to `pause~` your cards farming process, start a game, play as long as they wish, then after they're done playing, cards farming process will be automatically resumed by ASF. Of course, issuing `pause~` is not needed if ASF is currently not farming anything actively, because your friends can launch the game right away, and logic described above ensures that they won't be kicked out of the session.
 
-* * *
+---
 
 ## Обмеження
 

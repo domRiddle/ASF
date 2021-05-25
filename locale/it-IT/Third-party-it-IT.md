@@ -4,7 +4,7 @@ Questa sezione include delle estensioni di terze parti scritte esclusivamente (o
 
 Sei pregato di notare che i seguenti programmi **non** sono mantenuti da sviluppatori di ASF e dunque **non diamo alcuna garanzia su nessuno di essi**, specialmente in termini di sicurezza o conformità ai Termini di Servizio di Steam. L'elenco è mantenuto solo a titolo di riferimento. Dovresti sempre assicurarti che ciò che le utilità di terze parti stanno per usare sia abbastanza legittimo per te, poiché li usi a tuo rischio.
 
-* * *
+---
 
 ## Plugins di ASF
 
@@ -16,7 +16,7 @@ Sei pregato di notare che i seguenti programmi **non** sono mantenuti da svilupp
 - **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, plugin di ASF per elaborare automaticamente gli inviti di Steam.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin di ASF che consente di configurare un proxy per le connessioni WebSocket.
 
-* * *
+---
 
 ## Integrazioni
 
@@ -24,27 +24,27 @@ Sei pregato di notare che i seguenti programmi **non** sono mantenuti da svilupp
 - **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, per coloro che vogliono inviare offerte di scambio automatizzate ai bot sul nostro **[listino di ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** tramite il browser web, senza usare la funzionalità `MatchActively` fornita da ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, un altro bot di telegram (minimale) con l'integrazione per ASF, scritto in python.
 
-* * *
+---
 
 ## Librerie
 
 - **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, libreria di python per un'ulteriore intregrazione con l'interfaccia IPC di ASF.
 
-* * *
+---
 
 ## Packaging
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, permette di installare facilmente ASF su Arch Linux.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, permette di installare facilmente ASF su Arch Linux.
 
-* * *
+---
 
 ## Strumenti
 
 - **[Estrattore di chiavi](https://ske.xpixv.com)**, permette di copiare-incollare le chiavi in vari formati e di creare comandi di `riscatto` per ASF. Controlla la **[repo di GitHub](https://github.com/PixvIO/SKE)** per maggiori dettagli.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, permette di gestire configurazioni multiple di ASF più facilmente.
 
-* * *
+---
 
 ## Vuoi saperne di più?
 

@@ -2,7 +2,7 @@
 
 O ASF inclui suporte para vários argumentos de linha de comando que podem afetar o tempo de execução do programa. Eles podem ser usados por usuários avançados para especificar como o programa deve ser executado. Comparando com o caminho usual do arquivo de configuração `ASF.json`, argumentos de linha de comando são usados para inicialização do núcleo (por exemplo, `--path`), configurações específicas de plataforma (por exemplo, `--system-required`) ou dados confidenciais (por exemplo, `--cryptkey`).
 
-* * *
+---
 
 ## Uso
 
@@ -48,29 +48,29 @@ No entanto, esses dois estão completamente corretos:
 
 Devido à natureza desta propriedade, também é possível definir a cryptkey declarando a variável de ambiente `ASF_CRYPTKEY`, que pode ser mais apropriada para pessoas que gostariam de evitar dados confidenciais nos argumentos do processo.
 
-* * *
+---
 
 `--ignore-unsupported-environment` - fará com que o ASF ignore a deteção de ambiente não suportado, o que normalmente é sinalizado como erro e força o fechamento do ASF. Agora o ambiente não suportado será classificado como estar rodando a compilação .NET Framework na plataforma que pode rodar tal compilação .NET Core. Já que nós suportamos compilações `generic-netf` apenas em cenários muito limitados (com **[Mono](https://www.mono-project.com)**), usá-lo em outros casos (como no `win-x64`, por exemplo) não é suportado. Acesse a seção **[compatibilidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)** para mais informações.
 
-* * *
+---
 
 `--network-group <group>` ou `--network-group=<group>` - fará com que o ASF inicie seus limitadores com um grupo personalizado adicional com o valor `<group>`. Esta opção afeta a execução do ASF em **[múltiplas instâncias](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR#m%C3%BAltiplas-inst%C3%A2ncias)**, sinalizando que determinada instância depende apenas do compartilhamento do mesmo grupo de rede, e não do resto. Normalmente você vai querer usar essa propriedade somente se você estiver roteando pedidos do ASF através de um mecanismo personalizado (por exemplo, endereços IP diferentes) e você deseja definir grupos de rede você mesmo, sem depender do ASF para fazer isso automaticamente (o que atualmente leva em conta apenas o `WebProxy`). Tenha em mente que ao usar um grupo de rede personalizada este identificador é exclusivo dentro da máquina local, e o ASF não levará em conta nenhum outro detalhe, como o valor do `WebProxy`, permitindo que você, por exemplo, inicie duas instâncias com diferentes valores de `WebProxy` que ainda são dependentes um do outro.
 
 Devido à natureza desta propriedade, também é possível definir o valor declarando a variável de ambiente `ASF_NETWORK_GROUP`, que pode ser mais apropriada para pessoas que gostariam de evitar dados confidenciais nos argumentos do processo.
 
-* * *
+---
 
 `--no-config-migrate` - by default ASF will automatically migrate your config files to latest syntax. Migration includes conversion of deprecated properties into latest ones, removing properties with default values (as they have no effect), as well as cleaning up the file in general (correcting indentation and likewise). This is almost always a good idea, but you might have a particular situation where you'd prefer ASF to never overwrite the config files automatically. For example, you might want to `chmod 400` your config files (read permission for the owner only) or put `chattr +i` over them, in result denying write access for everyone, e.g. as a security measure. Usually we recommend to keep the config migration enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
 
-* * *
+---
 
 `--no-config-watch` - por padrão o ASF seta um `FileSystemWatcher` sobre a pasta `config` para monitorar quaisquer alteração nos arquivos, podento então se adaptar e essas mudanças. Por exemplo, isso inclui parar os bots caso alguma configuração seja apagada, reiniciar o bot quando a configuração for alterada, ou carregar os códigos de produto para o **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** se você salvá-las na pasta `config`. Essa opção permite que você desative esse comportamento, fazendo com que o ASF ignore completamente todas as mudanças na pasta `config`, exigindo que você faça tais ações manualmente se considerar necessário. Recomendamos manter os eventos de configuração ativos, mas se você tem algum motivo para desativá-los, você pode usar esta configuração para esse fim.
 
-* * *
+---
 
-`--no-restart` - Esta opção é usada principalmente por nossos contêineres do **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-pt-BR)** e forçam o `AutoRestart` para `false`. A menos que você tenha uma necessidade específica, você deve configurar a propriedade `AutoRestart` diretamente no seu adquivo de configuração. Essa opção está aqui para que nosso código docker não precise mexer em sua configuração global para adaptá-la ao seu próprio ambiente. Claro, se você estiver executando o ASF dentro de um código, você também pode fazer uso desta opção (caso contrário é melhor usar a propriedade de configuração global).
+`--no-restart` - Esta opção é usada principalmente por nossos contêineres do **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-pt-BR)** e forçam o `AutoRestart` para `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Claro, se você estiver executando o ASF dentro de um código, você também pode fazer uso desta opção (caso contrário é melhor usar a propriedade de configuração global).
 
-* * *
+---
 
 `--path <path>` or `--path=<path>` - o ASF sempre navega até a sua própria pasta na inicialização. Ao especificar esse argumento, o ASF navegará até a pasta selecionada ao inicializar, o que permite que você use caminhos personalizados para várias partes do aplicativo (incluindo as pastas `config`, `plugins` e `www`, assim como o arquivo `NLog.config`) sem a necessidade de duplicar o executável no mesmo lugar. Isso pode ser especialmente útil se você quiser separar os arquivos executáveis dos arquivos de configuração, como nos pacotes do Linux; desta forma, você pode usar um arquivo executável (atualizado) com várias configurações diferentes. O caminho pode tanto ser relativo de acordo com o local atual do executável do ASF, ou absoluto. Tenha em mente que este comando aponta para uma nova "pasta principal do ASF", ou seja, a pasta que tem a mesma estrutura original do ASF, com a pasta config dentro.
 
@@ -101,13 +101,13 @@ ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # O mesmo que a
 └── ...
 ```
 
-* * *
+---
 
 `--process-required` - declarar este opção desabilitará o comportamento padrão do ASF de desligar quando nenhum bot estiver em execução. O fato dele não se desligar é especialmente útil em combinação com o **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR)**, onde a maioria dos usuários vai querer que os serviços web continuem sendo executados independente da quantidade de bots que estejam habilitados. Se você estiver usando a opção IPC ou precisa que o processo ASF seja executado o tempo todo até que você mesmo o feche, esta é a opção certa.
 
 Se você não pretende usar o IPC, esta opção será um tanto inútil já que você pode simplesmente iniciar o processo novamente quando necessário (ao contrário do servidor web do ASF, onde você precisa que ele esteja sempre preparado para receber comandos).
 
-* * *
+---
 
 `--system-required` - declarar esse opção fará com que o ASF tente sinalizar para o sistema operacional que o processo precisa que o sistema continue rodando o tempo todo. Atualmente essa opção tem efeito apenas no Windows e ele previne que seu sistema entre no modo de suspensão enquanto o processo está sendo executado. Isto pode ser especialmente útil quando você deixar seu PC ou notebook coletando durante a noite, pois o ASF será capaz de manter seu sistema ativo enquanto ele está em coleta, então quando o ASF terminar ele vai se desligar como de costume e permitir que seu sistema entre modo de suspensão novamente, economizando energia imediatamente após o termino da coleta.
 

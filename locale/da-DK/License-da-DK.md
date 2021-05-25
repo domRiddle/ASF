@@ -6,9 +6,9 @@ ASF license is very permissive and you're allowed to do much more than in standa
 
 > You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
 
-Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` are often licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, especially all `tools` that have their own licenses on top.
+Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` are often licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
 
-* * *
+-----
 
 ## Bemærkninger
 
@@ -19,14 +19,12 @@ If you're creating your own software/service based on ASF or part of its code, p
 We do not grant you direct permission to use ASF/ArchiSteamFarm product name in your own software, but we allow using it in some common-sense scenarios:
 
 You **can**:
-
 - Claim that your software/service **is based on** ASF (or its code)
 - Refer to your software/service as **ASF fork**
 - Claim that your software/service is powered by ASF, if you **didn't** do any changes to the source code
 - Use ASF for various reference purposes, such as linking software/service origin, our wiki, or *"as required for reasonable and customary use in describing the origin of the Work"*
 
 You **cannot**:
-
 - Claim that your software/service **is** ASF
 - Refer to your software/service as **ASF**
 - Claim that your software/service is powered by ASF, if you **did** any changes to the source code

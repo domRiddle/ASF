@@ -1,10 +1,10 @@
-# IPC
+# Процеси на вътрешна комуникация
 
 ASF includes its own unique IPC interface that can be used for further interaction with the process. IPC stands for **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** and in the most simple definition this is "ASF web interface" based on **[Kestrel HTTP server](https://github.com/aspnet/KestrelHttpServer)** that can be used for further integration with the process, both as a frontend for end-user (ASF-ui), and backend for third-party integrations (ASF API).
 
 IPC can be used for a lot of different things, depending on your needs and skills. For example, you can use it for fetching status of ASF and all bots, sending ASF commands, fetching and editing global/bot configs, adding new bots, deleting existing bots, submitting keys for **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** or accessing ASF's log file. All of those actions are exposed by our API, which means that you can code your own tools and scripts that will be able to communicate with ASF and influence it during runtime. In addition to that, selected actions (such as sending commands) are also implemented by our ASF-ui which allows you to easily access them through a friendly web interface.
 
-* * *
+---
 
 # Употреба
 
@@ -25,7 +25,7 @@ On the medium ground there is our **[Swagger documentation](#swagger-documentati
 
 On the highest level there is **[ASF-ui](#asf-ui)** which is based on our ASF API and provides user-friendly way to execute various ASF actions. This is our default IPC interface designed for end-users, and a perfect example of what you can build with ASF API. If you'd like, you can use your own custom web UI to use with ASF, by specifying `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** and using custom `www` directory located there.
 
-* * *
+---
 
 # ASF-ui
 
@@ -35,7 +35,7 @@ As stated above, ASF-ui is a community project that isn't maintained by core ASF
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-* * *
+---
 
 # ASF API
 
@@ -47,7 +47,7 @@ For complete documentation of available endpoints, descriptions, requests, respo
 
 ![ASF API](https://i.imgur.com/yggjf5v.png)
 
-* * *
+---
 
 ## Authentication
 
@@ -63,11 +63,11 @@ In general you should use HTTP request headers, by setting `Authentication` fiel
 
 Alternatively you can append `password` parameter to the end of the URL you're about to call, for example by calling `/Api/ASF?password=MyPassword` instead of `/Api/ASF` alone. This approach is good enough, but obviously it exposes password in the open, which is not necessarily always appropriate. In addition to that it's extra argument in the query string, which complicates the look of the URL and makes it feel like it's URL-specific, while password applies to entire ASF API communication.
 
-* * *
+---
 
 Both ways are supported and it's totally up to you which one you want to choose. We recommend to use HTTP headers everywhere where you can, as usage-wise it's more appropriate than query string. However, we support query string as well, mainly because of various limitations related to request headers. A good example includes lack of custom headers while initiating a websocket connection in javascript (even though it's completely valid according to the RFC). In this situation query string is the only way to authenticate.
 
-* * *
+---
 
 ## Swagger documentation
 
@@ -77,7 +77,7 @@ Apart from using our swagger documentation as a complete specification of ASF AP
 
 ![Swagger documentation](https://i.imgur.com/mLpd5e4.png)
 
-* * *
+---
 
 # Често Задавани Въпроси
 
@@ -177,7 +177,7 @@ Example Apache configuration can be found below. Please refer to **[apache docum
 
 Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. This way is recommended if you're not running any other web server and don't want to run one exclusively for ASF. Otherwise, it's much easier to achieve a satisfying setup by using a reverse proxy mechanism.
 
-* * *
+---
 
 ## Custom configuration
 

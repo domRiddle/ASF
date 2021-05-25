@@ -2,7 +2,7 @@
 
 ASF從V4開始支援可在運行時載入的自訂外掛程式。 外掛程式允許您通過添加自訂命令、自訂交易邏輯或與第三方工具和 API的整體集成自訂ASF行為。
 
-* * *
+---
 
 ## 致用戶书
 
@@ -16,13 +16,13 @@ ASF從位於ASF資料夾中的`plugins`目錄中載入外掛程式。 建議為�
 
 **Please note that ASF plugins could be malicious**. 您應該始終確保您使用的外掛程式來自您可以信任的開發人員。 如果您決定使用任何自訂外掛程式，ASF 開發人員將無法再保證您通常的 ASF 優勢（如絕無惡意軟件或避免VAC）。 我們也無法支援使用自訂外掛程式的設置，因為您不再運行原本的 ASF 代碼。
 
-* * *
+---
 
 ## 致開發人員
 
 外掛程式是標準的.NET庫，它繼承了ASF的通用` IPlugin `接口。 只要保持API兼容，您就可以開發完全獨立於主線ASF的外掛程式，並在當前和未來的ASF版本中重複利用它們。 Plugin system used in ASF is based on `System.Composition`, formerly known as **[Managed Extensibility Framework](https://docs.microsoft.com/dotnet/framework/mef)** which allows ASF to discover and load your libraries during runtime.
 
-* * *
+---
 
 ### 開始使用
 
@@ -82,13 +82,13 @@ dotnet publish -c "Release" -o "out"
 dotnet publish YourPluginName -c "Release" -o "out"
 ```
 
-之後，您的外掛程式已準備好部署。 如何分發和發布外掛程式由您決定，但我們建議創建一個zip，其中包含一個名為` YourNamespace.YourPluginName `的資料夾，您可以在其中將已編譯的外掛程式與其一起放入其中 ** [依賴項](#plugin-dependencies) **。 這樣，用戶只需將zip存檔解壓縮到` plugins `目錄中，而不需要任何其他操作。
+之後，您的外掛程式已準備好部署。 It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its **[dependencies](#plugin-dependencies)**. 這樣，用戶只需將zip存檔解壓縮到` plugins `目錄中，而不需要任何其他操作。
 
 This is only the most basic scenario to get you started. We have **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Feel free to take a look if you'd like to learn from a working code, or discover `ArchiSteamFarm.Plugins` namespace yourself and refer to the included documentation for all available options.
 
 If instead of example plugins you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. In addition to that, there are also plugins developed by other developers, in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
 
-* * *
+---
 
 ### API可用性
 
@@ -98,7 +98,7 @@ We have a very open policy in terms of our API availability, so if you'd like to
 
 In fact, internal ASF's API is the only real limitation in terms of what your plugin can do. Nothing is stopping you from e.g. including `Discord.Net` library in your application and creating a bridge between your Discord bot and ASF commands, since your plugin can also have dependencies on its own. The possibilities are endless, and we made our best to give you as much freedom and flexibility as possible within your plugin, so there are no artificial limits on anything, just us not being completely sure which ASF parts are crucial for your plugin development (which you can solve by letting us know, and even without that you can always reimplement the functionality that you need).
 
-* * *
+---
 
 ### API兼容性
 
@@ -106,7 +106,7 @@ It's important to emphasize that ASF is a consumer application and not a typical
 
 We'll do our best to keep public parts of ASF working and stable, but we'll not be afraid to break the compatibility if good enough reasons arise, following our **[deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)** policy in the process. This is especially important in regards to internal ASF structures that are exposed to you as part of ASF infrastructure, explained above (e.g. `ArchiWebHandler`) which could be improved (and therefore rewritten) as part of ASF enhancements in one of the future versions. We'll do our best to inform you appropriately in the changelogs, and include appropriate warnings during runtime about obsolete features. We do not intend to rewrite everything for the sake of rewriting it, so you can be fairly sure that the next minor ASF version won't just simply destroy your plugin entirely only because it has a higher version number, but keeping an eye on changelogs and occasional verification if everything works fine is a very good idea.
 
-* * *
+---
 
 ### 外掛程式依賴項
 
@@ -120,7 +120,7 @@ If you know that the dependency which you need is included in ASF, you can mark 
 
 If you're confused about above statement and you don't know better, check which `dll` libraries are included in `ASF-generic.zip` package and ensure that your plugin includes only those that are not part of it yet. This will be only `YourPluginName.dll` for the most simple plugins. If you get any issues during runtime in regards to some libraries, include those affected libraries as well. If all else fails, you can always decide to bundle everything.
 
-* * *
+---
 
 ### 本機依賴項
 

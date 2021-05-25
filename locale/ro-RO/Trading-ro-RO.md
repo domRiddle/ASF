@@ -2,7 +2,7 @@
 
 ASF include suport pentru tranzacții Steam non-interactive (offline). Atât primirea (acceptarea/declinul), cât și trimiterea de tranzacții sunt disponibile imediat și nu necesită configurație specială, dar evident necesita un cont Steam nelimitat (cel care a cheltuit deja 5$ în magazin). Modulul de tranzacționare nu este disponibil pentru conturile restricționate.
 
-* * *
+---
 
 ## Logica
 
@@ -18,7 +18,7 @@ It's nice to note that `AcceptDonations` doesn't require **[ASF 2FA](https://git
 
 You can also further customize ASF trading capabilities by modifying `TradingPreferences` accordingly. One of the main `TradingPreferences` features is `SteamTradeMatcher` option which will cause ASF to use built-in logic for accepting trades that help you complete missing badges, which is especially useful in cooperation with public listing of **[SteamTradeMatcher](https://www.steamtradematcher.com)**, but can also work without it. It's further described below.
 
-* * *
+---
 
 ## `SteamTradeMatcher`
 
@@ -47,7 +47,7 @@ Regardless of your chosen `TradingPreferences`, a trade being rejected by ASF do
 
 It's highly recommended to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** when you enable this option, as this function loses its whole potential if you decide to manually confirm every trade. `SteamTradeMatcher` will work properly even without ability to confirm trades, but it can generate backlog of confirmations if you're not accepting them in time.
 
-* * *
+---
 
 ### `MatchActively`
 

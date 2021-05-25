@@ -2,7 +2,7 @@
 
 ASF支援Steam非互動式（離線）交易。 您可以即刻收到（接受/拒絕）以及發送交易提案，並且不需要特殊配置，但顯然需要不受限制的 Steam 帳戶（已經在商店中花費了5$ 的帳戶）。 對於受限制的帳戶，交易模組不可用。
 
-* * *
+---
 
 ## 邏輯
 
@@ -18,7 +18,7 @@ ASF將拒絕任何來自交易模組黑名單中的用戶（對master無效）�
 
 您還可以通過修改相應的 `TradingPreferences` 來進一步自訂 ASF 交易功能。 其中一個主要的 `TradingPreferences` 功能是 `SteamTradeMatcher` 選項，這將允許 ASF 使用內置邏輯來接受交易，以幫助您収集合成徽章所需的卡片，這在與**[SteamTradeMatcher](https://www.steamtradematcher.com)**公開清單的配合使用中特別有用，但也可以單獨使用。 下面將進一步介紹此功能。
 
-* * *
+---
 
 ## `SteamTradeMatcher`
 
@@ -45,9 +45,15 @@ STM 的運行規則僅會匹配對我們有利的交易，這意味著將 STM �
 
 無論您選擇哪種 `TradingPreferences`，交易被 ASF 拒絕並不意味著您自己無法手動接受它。 如果您保留 `BotBehaviour` 的預設值（並未啟用 `RejectInvalidTrades`），ASF 將忽略這些交易，允許您自行決定。 同樣適用于一切 `MatchableTypes` 之外的物品交易，該模組僅幫助您自動化 STM 交易，而不會決定什麼是好的交易，什麼不是。 The only exception from this rule is when talking about users that you blacklisted from trading module using `bladd` command - trades from those users are immediately rejected regardless of `BotBehaviour` settings.
 
-強烈建議在啟用此選項時使用 **ASF 2FA</0 >, 因為如果您決定手動確認每個交易, 則此功能將失去其全部潛力。 `SteamTradeMatcher` will work properly even without ability to confirm trades, but it can generate backlog of confirmations if you're not accepting them in time.</p> 
+強烈建議在啟用此選項時使用 **
 
-* * *
+ASF 2FA</0 >, 因為如果您決定手動確認每個交易, 則此功能將失去其全部潛力。 `SteamTradeMatcher` will work properly even without ability to confirm trades, but it can generate backlog of confirmations if you're not accepting them in time.</p> 
+
+
+
+---
+
+
 
 ### `MatchActively`
 

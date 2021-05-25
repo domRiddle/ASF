@@ -4,13 +4,13 @@ La compilación es el proceso de crear un archivo ejecutable. Esto es lo que nec
 
 ASF puede ser compilado en cualquier plataforma soportada actualmente, siempre que tengas todas las herramientas para hacerlo.
 
-* * *
+---
 
 ## .NET Core SDK
 
 Independientemente de la plataforma, necesitas .NET Core SDK completo (no solo runtime) para compilar ASF. Las instrucciones de instalación se pueden encontrar en la **[página de instalación de .NET Core](https://dotnet.microsoft.com/download)**. Necesitas instalar la versión apropiada de .NET Core SDK para tu sistema operativo. Después de una instalación exitosa, el comando `dotnet` debería estar funcionando y operativo. Puedes verificar si funciona con `dotnet --info`. También asegúrate de que tu .NET Core SDK coincida con los **[requisitos de runtime](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#requisitos-de-runtime)** de ASF.
 
-* * *
+---
 
 ## Compilación
 
@@ -48,7 +48,7 @@ En caso de no poder instalar .NET Framework o incluso .NET Core SDK (por ejemplo
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
 ```
 
-* * *
+---
 
 ## Desarrollo
 
@@ -58,13 +58,13 @@ Si quieres trabajar con el código de ASF en Linux/OS X, recomendamos el **[Visu
 
 Claro que todas las sugerencias anteriores son solo recomendaciones, puedes usar lo que desees, todo se reduce al comando `dotnet build` de todas formas. Usamos **[JetBrains Rider](https://www.jetbrains.com/rider)** para el desarrollo de ASF, aunque no es una solución gratuita.
 
-* * *
+---
 
 ## Etiquetas
 
 La rama `main` no garantiza estar en un estado que permita una compilación exitosa o una ejecución de ASF sin fallas, ya que es una rama de desarrollo como indicamos en nuestro **[ciclo de lanzamiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-es-es)**. Si quieres compilar o referenciar ASF desde la fuente, entonces debes usar la **[etiqueta](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** apropiada para ese fin, lo que garantiza una compilación exitosa, y muy probablemente también una ejecución sin fallas (si la compilación fue marcada como versión estable). Para comprobar la "salud" actual del árbol, puedes usar nuestra integración continua - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** o **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**.
 
-* * *
+---
 
 ## Versiones oficiales
 

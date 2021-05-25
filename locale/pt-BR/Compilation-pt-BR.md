@@ -4,13 +4,13 @@ Compilação é o processo de criação de arquivo executável. É isso que voc�
 
 O ASF pode ser compilado em qualquer plataforma suportada atualmente, desde que você tenha todas as ferramentas necessárias.
 
-* * *
+---
 
 ## .NET Core SDK
 
 Independente da plataforma, você precisa do SDK completo do .NET Core (e não apenas o tempo de execução) em para compilar o ASF. Instruções de instalação podem ser encontradas na **[página de instalação do .NET Core](https://dotnet.microsoft.com/download)**. Você precisa instalar a versão apropriada do SDK do .NET Core para seu sistema operacional. Após a instalação bem sucedida, o comando `dotnet` deverá estar funcional e operante. Você pode verificar se ele funciona com `dotnet --info`. Certifique-se também de que o seu SDK do .NET Core corresponde aos **[requisitos de tempo de execução](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** do ASF.
 
-* * *
+---
 
 ## Compilação
 
@@ -48,23 +48,23 @@ No caso de você não conseguir instalar o .NET Framework ou mesmo o próprio SD
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
 ```
 
-* * *
+---
 
 ## Desenvolvimento
 
 Se você quise editar o código do ASF, você pode usar qualquer IDE compatível com o .NET Core, embora até mesmo isso seja opcional, uma vez que você pode editar em um bloco de notas e compilar com o comando `dotnet` descrito acima. Mesmo assim, para o Windows nós recomendamos **[o Visual Studio mais recente](https://visualstudio.microsoft.com/downloads)** (a versão comunidade é mais que o suficiente, e é gratuita).
 
-Caso você queira trabalhar com o código ASF no Linux/macOS, recomendamos o **[Visual Studio Code mais recente](https://code.visualstudio.com/download)**. Ele não é tão rico quanto o Visual Studio clássico, mas serve.
+Se, em vez disso, você quiser trabalhar com o código ASF no Linux/Mac OS X, recomendamos o **[Visual Studio Code mais recente](https://code.visualstudio.com/download)**. Ele não é tão rico quanto o Visual Studio clássico, mas serve.
 
 Claro que as opções acima são apenas recomendações, você pode usar qual quiser pois tudo se resume ao comando `dotnet build`. Nós usamos o **[Rider da Jetbrains](https://www.jetbrains.com/rider)** para o desenvolvimento do ASF, embora não seja uma solução gratuita.
 
-* * *
+---
 
 ## Marcadores
 
 Não é garantido que a ramificação `main` esteja em um estado que propicie uma compilação bem sucedida ou uma execução sem falhas do ASF, uma vez que é uma ramificação em desenvolvimento, confirme especificado em nosso **[ciclo de lançamentos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. Se você deseja compilar ou referenciar o ASF desde a fonte, então você deve usar a **[tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** apropriada para tal, o que garante ao menos uma compilação bem sucedida, e muito provavelmente uma execução sem erros (se a compilação foi marcada como versão estável). Para verificar a "saúde" atual da árvore, você pode usar nossas integrações contínuas - ** [GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** ou **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**.
 
-* * *
+---
 
 ## Versões oficiais
 

@@ -6,9 +6,9 @@ A licença do ASF é muito permissiva e você pode fazer muito mais do que o per
 
 > You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
 
-Note que vários dos **[componentes do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** incluídos com `PackageReference` podem ser licenciados sob diferentes condições, como **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. O mesmo se aplica a todos os projetos de terceiros usados pelo ASF, especialmente todas as `tools` (ferramentas) que têm suas próprias licenças.
+Note que vários dos **[componentes do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** incluídos com `PackageReference` podem ser licenciados sob diferentes condições, como **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
 
-* * *
+-----
 
 ## Observações
 
@@ -19,14 +19,12 @@ Caso esteja criando o seu próprio software/serviço com base no ASF ou em parte
 Não concedemos permissão direta para você usar o nome de produto do ASF/ArchiSteamFarm no seu próprio software, mas permitimos o uso em alguns cenários específicos:
 
 Você **pode**:
-
 - Afirmar que o seu software/serviço **é baseado no** ASF (ou seu código)
 - Referir-se ao seu software/serviço como uma **ramificação do ASF**
 - Afirmar que o seu software/serviço faz uso do ASF, caso **não** tenha feito nenhuma alteração no código-fonte
 - Usar o ASF para propósitos de referência diversos, tais como links para a origem do software/serviço, nossa wiki, ou, como descrito na licença, *"as required for reasonable and customary use in describing the origin of the Work"*
 
 Você **não pode**:
-
 - Afirmar que o seu software/serviço **é** o ASF
 - Referir-se ao seu software/serviço como **ASF**
 - Afirmar que o seu software/serviço faz uso do ASF, caso **tenha** feito alterações no código-fonte

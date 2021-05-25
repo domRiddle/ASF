@@ -4,7 +4,7 @@ ASF는 유일한 자체 IPC 인터페이스를 가지고 있으며, 이로 인�
 
 IPC는 우리의 필요와 능력에 따라 수많은 다른 것들로 사용될 수 있습니다. 예를 들어, ASF와 모든 봇의 상태를 가져오고, ASF에 명령어를 보내고, 일반/봇 환경설정을 가져와서 수정하고, 새로운 봇을 추가하고, 기존의 봇을 삭제하고, **[백그라운드 게임 등록기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-ko-KR)** 에 키를 보내고, ASF의 로그파일에 접근할 수 있습니다. 이 모든 작업은 API로 제공됩니다. 즉, 당신이 자신의 도구와 스크립트를 짜서 ASF 실행중에 ASF와 통신하고 영향을 미칠수 있다는 뜻입니다. 추가로, 명령어 전송같은 선택된 작업은 ASF-ui에 구현되어 있으며 친숙한 웹 인터페이스로 쉽게 접근할 수 있습니다.
 
-* * *
+---
 
 # 사용법
 
@@ -25,7 +25,7 @@ ASF의 IPC 인터페이스는 사용계획에 따라 세가지의 다른 접근�
 
 가장 높은 단계로 ASF API에 기반한 **[ASF-ui](#asf-ui)** 가 있으며, ASF 작업을 수행가능한 사용자 친화적인 방법을 제공합니다. 이것은 최종사용자를 위한 기본 IPC 인터페이스이며, ASF API로 만들수 있는 완벽한 예제입니다. 원한다면 `--path` **[명령줄 인자](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ko-KR#인자)** 를 지정하고, 그곳에 위치한 사용자 지정 `www` 디렉토리를 사용하여 자신만의 사용자 지정 웹 UI를 사용할 수도 있습니다.
 
-* * *
+---
 
 # ASF-ui
 
@@ -35,7 +35,7 @@ ASF-ui는 최종사용자에게 사용자 친화적인 그래픽 웹 인터페�
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-* * *
+---
 
 # ASF API
 
@@ -47,7 +47,7 @@ ASF API는 적절한 `/Api` 단말에 적절한 요청을 보내서 접근이 �
 
 ![ASF API](https://i.imgur.com/yggjf5v.png)
 
-* * *
+---
 
 ## 인증
 
@@ -63,11 +63,11 @@ ASF IPC 인터페이스는 기본적으로 `IPCPassword`가 `null`로 설정되�
 
 또는 `password` 매개변수를 호출하려는 URL의 마지막에 추가할 수도 있습니다. 예를 들어 `/Api/ASF` 대신에 `/Api/ASF?password=MyPassword`로 호출합니다. 이 접근방법도 충분히 좋지만 명백하게 암호를 열린 곳에 노출하므로 항상 적절하지는 않습니다. 게다가 쿼리문의 추가 인수이므로 URL이 복잡해보이고, 암호가 ASF API 통신 전체에 적용되는데도 마치 그 URL 전용인 것 같은 느낌을 줍니다.
 
-* * *
+---
 
 두 방법 모두 지원되며 어느 것을 사용할지는 당신의 선택입니다. 우리는 가능한 모든 곳에 HTTP 헤더를 사용할 것을 권장합니다. 예를 들었듯이 HTTP 헤더가 쿼리문보다 더 적합합니다. 하지만 헤더 요청과 관련된 다양한 제한이 있기 때문에 우리는 쿼리문도 지원을 합니다. RFC에 따르면 완전히 유효합니다만, 자바스크립트에서 웹소켓 연결 시작시 사용자 지정 헤더의 부재는 좋은 예시 입니다. 이 경우 쿼리문은 유일한 인증방법입니다.
 
-* * *
+---
 
 ## Swagger 문서
 
@@ -77,7 +77,7 @@ Swagger 문서를 ASF API의 완전한 사양으로 사용하는 것과 별개�
 
 ![Swagger 문서](https://i.imgur.com/mLpd5e4.png)
 
-* * *
+---
 
 # 자주 묻는 질문(FAQ)
 
@@ -151,7 +151,7 @@ server {
 }
 ```
 
-다음은 아파치 환경설정의 예시입니다. 더 자세한 설명이 필요하면 **[apache 문서(영문)](https://httpd.apache.org/docs)** 를 참고하십시오.
+다음은 아파치 환경설정의 예시입니다. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
 
 ```apache
 <IfModule mod_ssl.c>
@@ -173,11 +173,11 @@ server {
 
 ### HTTPS 프로토콜로 IPC 인터페이스에 접근할 수 있습니까?
 
-**예**. 두가지 방법으로 가능합니다. 추천하는 방법은 위에서 설명한 역방향 프록시를 사용하여 웹서버에 http로 평소처럼 접근한 뒤, 그 기기에서 ASF IPC 인터페이스에 접속하는 것입니다. 이 방법은 트래픽이 완전히 암호화되므로 이런 설치를 위해 IPC를 어떤 방식으로든 수정할 필요가 없습니다.
+**Yes**, you can achieve it through two different ways. 추천하는 방법은 위에서 설명한 역방향 프록시를 사용하여 웹서버에 http로 평소처럼 접근한 뒤, 그 기기에서 ASF IPC 인터페이스에 접속하는 것입니다. 이 방법은 트래픽이 완전히 암호화되므로 이런 설치를 위해 IPC를 어떤 방식으로든 수정할 필요가 없습니다.
 
-두번째 방법은 ASF IPC 인터페이스의 **[사용자 지정 환경설정](#사용자-지정-환경설정)** 에 명시하는 것으로, https 단말을 활성화 하고 Kestrel http 서버에 적절한 인증을 직접 제공하는 것입니다. 이 방법은 다른 웹서버를 실행하지 않고 있으며 오직 ASF를 위해서 웹서버를 추가로 실행하고 싶지 않은 경우 추천합니다. 그렇지 않으면 역방향 프록시 구조를 사용하는 것이 설치하는데 훨씬 쉬울 것입니다.
+Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. 이 방법은 다른 웹서버를 실행하지 않고 있으며 오직 ASF를 위해서 웹서버를 추가로 실행하고 싶지 않은 경우 추천합니다. 그렇지 않으면 역방향 프록시 구조를 사용하는 것이 설치하는데 훨씬 쉬울 것입니다.
 
-* * *
+---
 
 ## 사용자 지정 환경설정
 
@@ -224,11 +224,11 @@ IPC 인터페이스는 추가 환경설정 파일을 지원합니다.`IPC.config
 
 `Endpoints` - 이것은 단말의 집합입니다. 모든 단말은 `example-http4`와 같은 유일한 이름을 가지고 있어야 하며, `Url` 속성값은 `Protocol://Host:Port` 수신주소를 특정합니다. 기본적으로 ASF는 IPv4와 IPv6 http 주소를 수신하지만, 필요할지 몰라 사용할 수 있는 https 예시를 추가해 두었습니다. 필요한 단말 만을 선언해야 합니다. 당신이 수정하기 쉽도록 위에 4개의 예시를 들어놓았습니다.
 
-`Host`는 ASF의 http 서버가 모든 가능한 인터페이스를 할당하는 `*` 값을 포함한 다양한 값을 허용합니다. 원격 접속을 허용하려고 `Host` 값을 사용할 때 매우 주의하십시오. 그렇게 하면 ASF IPC 인터페이스는 다른 기기에서의 접근을 허용하고, 보안 위험이 될 수 있습니다. 이 경우 **최소한** `IPCPassword`, 그리고 방화벽의 사용을 강력하게 권장합니다.
+`Host`는 ASF의 http 서버가 모든 가능한 인터페이스를 할당하는 `*` 값을 포함한 다양한 값을 허용합니다. 원격 접속을 허용하려고 `Host` 값을 사용할 때 매우 주의하십시오. 그렇게 하면 ASF IPC 인터페이스는 다른 기기에서의 접근을 허용하고, 보안 위험이 될 수 있습니다. We strongly recommend to use `IPCPassword` (and preferably your own firewall too) **at a minimum** in this case.
 
 `KnownNetworks` - This variable specifies network addresses which we consider trustworthy. This property is crucial especially in combination with hosting a reverse-proxy to ASF on different machine than ASF itself - in this case, you should declare the machine's IP here, in order for ASF to respect its proxying headers and accept the requests. Specifying this variable is not required if you're not planning to use any sort of reverse-proxy with ASF, or if the reverse-proxy is located on the same machine as ASF (and therefore connecting to ASF's IPC using loopback address of `127.0.0.1`). Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack in case the trusted machine is compromised or wrongly configured.
 
-`PathBase` - IPC 인터페이스가 사용될 기본 경로입니다. 이 속성값은 선택사항입니다. 기본값은 `/`인데 대부분의 사용례에서 수정할 필요가 없습니다. 이 속성값을 변경하면 전체 IPC 인터페이스를 사용자 지정 접두사에서 호스팅하게 됩니다. 예를 들어 `http://localhost:1242` 가 아니라 `http://localhost:1242/MyPrefix` 가 됩니다. 사용자 지정 `PathBase` 는 특정한 URL만 프록시하기 원하는 역방향 프록시의 특정 설치와의 조합으로 사용할 수 있습니다. 예를 들어 전체 `mydomain.com` 도메인이 아닌`mydomain.com/ASF` 를 사용할 수 있습니다. 이 경우 보통 `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`로 매핑하도록 웹서버 규칙을 다시 작성해야 하지만, 대신 사용자 지정 `PathBase` 를 `/ASF`로 하면 `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`로 설치하는 것이 쉬워집니다.
+`PathBase` - IPC 인터페이스가 사용될 기본 경로입니다. 이 속성값은 선택사항입니다. 기본값은 `/`인데 대부분의 사용례에서 수정할 필요가 없습니다. 이 속성값을 변경하면 전체 IPC 인터페이스를 사용자 지정 접두사에서 호스팅하게 됩니다. 예를 들어 `http://localhost:1242` 가 아니라 `http://localhost:1242/MyPrefix` 가 됩니다. 사용자 지정 `PathBase` 는 특정한 URL만 프록시하기 원하는 역방향 프록시의 특정 설치와의 조합으로 사용할 수 있습니다. 예를 들어 전체 `mydomain.com` 도메인이 아닌`mydomain.com/ASF` 를 사용할 수 있습니다. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
 
 당신이 사용자 지정 기본 경로를 지정할 필요가 있다고 진심으로 믿지 않는 한, 기본값으로 두는 것이 최선입니다.
 

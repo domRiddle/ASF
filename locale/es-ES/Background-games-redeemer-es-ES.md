@@ -4,7 +4,7 @@ El activador de juegos en segundo plano es una función especial de ASF que perm
 
 El activador de juegos en segundo plano está hecho para usarse en un solo bot, lo que significa que no hace uso de `RedeemingPreferences`. Esta función puede usarse junto con (o en vez de) el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `redeem`, de ser necesario.
 
-* * *
+---
 
 ## Importar
 
@@ -34,9 +34,9 @@ Independientemente del formato que hayas decidido usar, ASF importará el archiv
 
 ### IPC
 
-Además de poder usar el archivo antes mencionado, ASF también posee el **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es#asf-api)** `GamesToRedeemInBackground` que se puede ejecutar desde cualquier herramienta IPC, incluyendo nuestro ASF-ui. Usar IPC puede ser más provechoso, ya que puedes usar una sintaxis apropiada, tal como usar un delimitador personalizado en lugar de estar forzado a usar un carácter de tabulación, o incluso introduciendo tu propia estructura de claves.
+Además de poder usar el archivo antes mencionado, ASF también posee `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** que se puede ejecutar desde cualquier herramienta IPC, incluyendo nuestro ASF-ui. Usar IPC puede ser más provechoso, ya que puedes usar una sintaxis apropiada, tal como usar un delimitador personalizado en lugar de estar forzado a usar un carácter de tabulación, o incluso introduciendo tu propia estructura de claves.
 
-* * *
+---
 
 ## Cola
 
@@ -44,7 +44,7 @@ Una vez que los juegos sean importados exitosamente, serán añadidos a la cola.
 
 Si durante el proceso la cuenta alcanza el estatus `RateLimited`, la cola será temporalmente suspendida por una hora para esperar que el límite de activación desaparezca. Posteriormente, el proceso continuará donde se quedó, hasta que toda la cola esté vacía.
 
-* * *
+---
 
 ## Ejemplo
 
@@ -60,7 +60,7 @@ Después de un rato, los archivos `BotName.keys.used` y `BotName.keys.unused` se
 
 También es posible añadir juegos adicionales para importar aun ya teniendo juegos en cola, repitiendo todos los pasos anteriores. ASF añadirá correctamente las entradas adicionales a una cola ya en curso y las analizará en su momento.
 
-* * *
+---
 
 ## Comentarios
 

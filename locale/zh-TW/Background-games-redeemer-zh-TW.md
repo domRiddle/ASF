@@ -4,7 +4,7 @@
 
 背景序號啟動器僅對單個 BOT 有效，也就是說它不會採用 `RedeemingPreferences` 的設定。 如有需要，這個功能可以和 `redeem` **[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**一起使用（或者代替它）。
 
-* * *
+---
 
 ## 匯入
 
@@ -36,7 +36,7 @@ ZXCVB-ASDFG-QWERT
 
 除了使用上述的遊戲序號文字檔外，ASF 也開放了可供任意 IPC 工具（包括我們的 ASF-ui）使用的 `GamesToRedeemInBackground` **[ASF API 端點](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#asf-api)**。 IPC 將可能提供更完善的功能，因為你可以使用你覺得合適的方式進行解析。例如使用自訂分隔符，而非強制使用 Tab，甚至可以完全自訂序號格式。
 
-* * *
+---
 
 ## 佇列
 
@@ -44,7 +44,7 @@ ZXCVB-ASDFG-QWERT
 
 如果在啟動過程中帳戶觸發 `RateLimited` 狀態，佇列將會暫停一小時以等待冷卻時間結束。 接著，啟動程序將會從中斷的地方繼續，直到佇列完全清空。
 
-* * *
+---
 
 ## 範例
 
@@ -60,7 +60,7 @@ ZXCVB-ASDFG-QWERT
 
 你也可以在佇列已有遊戲的情況下匯入更多遊戲，只需要重覆上述步驟就行了。 ASF 會正確地將其加入正在處理的佇列中並完成啟動程序。
 
-* * *
+---
 
 ## 備註
 

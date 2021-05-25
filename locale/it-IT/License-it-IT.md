@@ -6,9 +6,9 @@ La licenza di ASF è molto permissiva, ed hai l'autorizzazione di fare molto di 
 
 > Con il software puoi fare quello che più ti piace, purchè tu includa la seguente didascalia. Questa licenza permissiva contiene una licenza brevettuale rilasciata dai contributori del codice.
 
-Si prega di notare che diversi **[componenti di ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** inclusi nella `PackageReference` spesso possiedono una licenza diversa, come **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Lo stesso vale per tutti i progetti di terze-parti di cui ASF fa uso, specialmente tutti gli `strumenti` che possiedono le proprie licenze.
+Si prega di notare che diversi **[componenti di ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** inclusi nella `PackageReference` spesso possiedono una licenza diversa, come **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
 
-* * *
+-----
 
 ## Note
 
@@ -19,14 +19,12 @@ Se stai creando il tuo software/servizio basato su ASF o parte del suo codice, s
 Non ti concediamo il permesso diretto di usare il nome del prodotto ASF/ArchiSteamFarm nel tuo software, ma lo permettiamo in alcuni scenari di buon senso:
 
 **Puoi**:
-
 - Dichiarare che il tuo software/servizio **è basato** su ASF (o sul suo codice)
 - Riferire che il tuo software/servizio è un **fork di ASF**
 - Dichiarare che il tuo software/servizio è alimentato da ASF, se **non** hai applicato alcuna modifica al codice sorgente
 - Utilizzare ASF per vari motivi di riferimento, come fornire il link dell'origine del software/servizio, la nostra wiki, o *"come richiesto per un uso ragionevole e consueto nella descrizione dell'origine del lavoro"*
 
 **Non puoi**:
-
 - Dichiarare che il tuo software/servizio **è** ASF
 - Riferire il tuo software/servizio come **ASF**
 - Dichiarare che il tuo software/servizio è alimentato da ASF, se **hai** applicato delle modifiche al codice sorgente

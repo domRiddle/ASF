@@ -2,7 +2,7 @@
 
 A partire da ASF V3.1.2.2, seguiremo la politica di deprecazione consistente seguente per rendere molto più coerenti sia lo sviluppo che l'utilizzo.
 
-* * *
+---
 
 ## Cos'è la deprecazione?
 
@@ -10,7 +10,7 @@ La deprecazione è il processo di apportare modifiche di rottura più piccole o 
 
 ASF cambia rapidamente e colpisce sempre per diventare migliore. Questo purtroppo significa che potremmo modificare o spostare alcune funzionalità esistenti in un altro segmento del programma perché benefici da nuove funzionalità, per compatibilità o stabilità. Grazie a questo non dobbiamo attenerci a decisioni di sviluppo obsolete o semplicemente dolorosamente sbagliate fatte anni fa. Proviamo sempre a fornire sostituzioni ragionevoli adeguate all'uso previsto della funzionalità precedentemente disponibile, poiché la deprecazione è principalmente innocua e richiede piccole correzioni dall'uso precedente.
 
-* * *
+---
 
 ## Fasi di deprecazione
 
@@ -26,7 +26,7 @@ Durante questa fase, ASF produrrà avvisi appropriati quando la funzione depreca
 
 La fase 2 è pianificata dopo che si svolge la fase 1 spiegata sopra ed è rilasciata nella versione stabile. Questa fase introduce la rimozione completa dell'esistenza della funzionalità deprecata, a significare che ASF non riconoscerà nemmeno che stai tentando di usarne una, figuriamoci rispettarla, poiché semplicemente non esiste nel codice corrente. ASF non produrrà più alcun avviso, poiché non riconoscerà più cosa stai tentando di fare.
 
-* * *
+---
 
 ## Sommario
 
@@ -34,7 +34,7 @@ Hai più o meno un **mese intero** per fare il passaggio appropriato, che dovreb
 
 In gran parte dei casi, ignorare l'avviso di deprecazione non renderà inutilizzabile la funzionalità generale di ASF, ma farà tornare al comportamento predefinito (che potrebbe o meno corrispondere alle tue preferenze personali).
 
-* * *
+---
 
 ## Esempio
 

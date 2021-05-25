@@ -1,6 +1,6 @@
 # 相容性
 
-ASF 是一個在 .NET Core 平台上執行的 C# 應用程式。 這意味著 ASF 並非被編譯為可供 CPU 直接執行的​**[機器碼](https://en.wikipedia.org/wiki/Machine_code)**，而是被編譯為 **[CIL（通用中間語言）](https://en.wikipedia.org/wiki/Common_Intermediate_Language)**碼，一種需要相容的執行階段才能執行的語言。
+ASF 是一個在 .NET Core 平台上執行的 C# 應用程式。 這意味著 ASF 並非被編譯為可供 CPU 直接執行的​**[機器碼](https://en.wikipedia.org/wiki/Machine_code)**，而是被編譯為  **[CIL（通用中間語言）](https://en.wikipedia.org/wiki/Common_Intermediate_Language)**碼，一種需要相容的執行階段才能執行的語言。
 
 這種方法能夠帶來巨大的方便。由於 CIL 是跨平台的，這使得 ASF 能夠在許多作業系統上執行，特別是 Windows、Linux 和 OS X 這三個系統。ASF 不但無須透過模擬執行，同時所有對於系統及其相關硬體的最佳化也對其有效。 因此，ASF可以實現卓越的效能和最佳化，同時仍然提供完美的相容性和可靠性。
 
@@ -8,7 +8,7 @@ ASF 是一個在 .NET Core 平台上執行的 C# 應用程式。 這意味著 AS
 
 但是，無論您想要在哪個平台上執行 ASF，您必須確保該平台安裝了 **[.NET Core 必要條件](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。 這些都是確保執行階段功能正常的底層庫，也是確保 ASF 能夠第一時間工作的絕對核心。 很有可能你已經安裝了其中的一些（甚至全部）。
 
-* * *
+---
 
 ## Multiple instances
 
@@ -22,13 +22,13 @@ It's not required for running ASF instances to share the same `*LimiterDelay` pr
 
 ASF takes into account `WebProxy` setting when deciding about shared scope, which means that two ASF instances using different `WebProxy` configurations will not share their limiters with each other. This is implemented in order to allow `WebProxy` setups to operate without excessive delays, as expected from different network interfaces. This should be good enough for majority of use cases, however, if you have a specific custom setup in which you're e.g. routing requests yourself in a different way, you can specify network group yourself through `--network-group` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**, which will allow you to declare ASF group that will be synchronized with this instance. Keep in mind that custom network groups are used exclusively, which means that ASF will no longer use `WebProxy` for determining the right group, as you're in charge of grouping in this case.
 
-* * *
+---
 
 ## ASF 套件
 
 ASF 主要有兩種封裝方式——通用（Generic）套件和特定作業系統（OS-specific）套件。 從功能上來講，這兩種套件是完全一樣的，都能夠自動進行更新。 唯一的區別就是**通用（Generic）**套件中不包含能使 ASF 直接執行的**特定作業系統**執行階段。
 
-* * *
+---
 
 ### 通用（Generic）
 
@@ -44,7 +44,7 @@ ASF 主要有兩種封裝方式——通用（Generic）套件和特定作業系
 
 隨著時間的推移，.NET Core 會支援更多平台，而 .NET Framework 和 .NET Core 之間會更加不相容，`Generic-netf` 套件將會在未來完全被 `Generic`（通用）套件取代。 如果您可以使用任何 .NET Core 軟體套件，就不要使用 Framework 套件，因為 `Generic-netf` 與 .NET Core 版本相比缺少許多功能和相容性，並且隨著時間的推移，它的功能只會變少。 我們**僅**對無法使用`通用`套件的平台提供此版本的支援（例如 `linux-x86`），並且也僅支援基於最新版本的執行階段（例如最新版 Mono）。
 
-* * *
+---
 
 ### 特定作業系統（OS-specific）
 
@@ -62,7 +62,7 @@ ASF 目前可用於以下作業系統：
 
 您可以訪問​**[發行說明​](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md)**查看完整的 .NET Core 5.0 支持的平臺與作業系統列表。
 
-* * *
+---
 
 ## 執行階段必要條件
 

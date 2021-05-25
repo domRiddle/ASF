@@ -4,7 +4,7 @@
 
 Активатора на игри на заден фон е създаден да има само едно ползване на бот, което означава, че не ползва `RedeemingPreferences`. Тази функция може да бъде ползвана заедно (или вместо) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, ако е нужно.
 
-* * *
+---
 
 ## Внасяне
 
@@ -36,7 +36,7 @@ ZXCVB-ASDFG-QWERT
 
 In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
 
-* * *
+---
 
 ## Опашка
 
@@ -44,7 +44,7 @@ Once games are successfully imported, they're added to the queue. ASF automatica
 
 If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
 
-* * *
+---
 
 ## Пример
 
@@ -60,7 +60,7 @@ After some time, `BotName.keys.used` and `BotName.keys.unused` files will be gen
 
 It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
 
-* * *
+---
 
 ## Бележки
 

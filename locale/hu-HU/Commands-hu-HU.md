@@ -3,7 +3,6 @@
 Az ASF számos parancsot támogat, amivel a program és a botok viselkedését lehet befolyásolni.
 
 A parancsokat számos módon lehet elküldeni a bot számára:
-
 - Az interaktív ASF konzolon keresztül
 - Privát, vagy csoportos Steam chaten keresztül
 - Az **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interfészünkön keresztül
@@ -12,7 +11,7 @@ Tartsd észben, hogy az ASF interakciókhoz szükséges, hogy legyen megfelelő 
 
 A Steam chaten keresztül kiadott parancsokra befolyással van a `CommandPrefix` **[globális konfigurációs beállítás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**, ami alapértelmezetten a `!` karakter. Ez azt jelenti, hogy például a `status` parancs kiadásához azt kell beírnod, hogy `!status` (vagy a `CommandPrefix` által meghatározott karakter(eke)t). A `CommandPrefix` használata nem kötelező konzol, vagy IPC esetén, ki lehet hagyni.
 
-* * *
+---
 
 ### Interaktív konzol
 
@@ -22,7 +21,7 @@ A V4.0.0.9-es verziótól kezdődően az ASF támogatja az interakítv konzolt, 
 
 Az interaktív konzol nem elérhető a [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) módban.
 
-* * *
+---
 
 ### Steam chat
 
@@ -36,7 +35,7 @@ A csoportos chat számára kiadott parancsokat mindenki megkapja. Ha azt írtod 
 
 *And even in this case you should use private chat with `[Bots]` syntax instead.*
 
-* * *
+---
 
 ### IPC
 
@@ -44,7 +43,7 @@ A legfejlettebb és legrugalmasabb módja a parancsok kiadásának, tökéletes 
 
 ![Képernyőmentés](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
-* * *
+---
 
 ## Parancsok
 
@@ -104,7 +103,7 @@ A legfejlettebb és legrugalmasabb módja a parancsok kiadásának, tökéletes 
 | `update`                                                             | `Owner`         | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                                                                                                                                                    |
 | `version`                                                            | `FamilySharing` | Prints version of ASF.                                                                                                                                                                                                                                                                                                              |
 
-* * *
+---
 
 ### Megjegyzések
 
@@ -122,7 +121,7 @@ ASF will "join" extra out-of-range arguments to plural type of the last in-range
 
 As you've read above, a space character is being used as a delimiter for a command, therefore it can't be used in arguments. However, also as stated above, ASF can join out-of-range arguments, which means that you're actually able to use a space character in argument that is defined as a last one for given command. For example, `nickname bob Great Bob` will properly set nickname of `bob` bot to "Great Bob". In the similar way you can check names containing spaces in `owns` command.
 
-* * *
+---
 
 Néhány parancsot alternatív módon is meg lehet adni, így nem kell annyit gépelned:
 
@@ -133,7 +132,7 @@ Néhány parancsot alternatív módon is meg lehet adni, így nem kell annyit g�
 | `redeem`     | `r`                |
 | `redeem^`    | `r^`               |
 
-* * *
+---
 
 ### `[Bots]` argument
 
@@ -145,7 +144,7 @@ First and foremost, there is a special `ASF` keyword which acts as "all bots in 
 
 In addition to range syntax above, `[Bots]` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. You can activate regex pattern by using `r!<pattern>` as a bot name, where `r!` is ASF activator for regex matching, and `<pattern>` is your regex pattern. An example of a regex-based bot command would be `status r!\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). Feel free to take a look at the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for further explanation and more examples of available regex patterns.
 
-* * *
+---
 
 ## `privacy` beállítások
 
@@ -199,7 +198,7 @@ The above will set profile to public, owned games to friends only, playtime to p
 
 Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
 
-* * *
+---
 
 ## `addlicense` licenses
 
@@ -220,7 +219,7 @@ Complete command example:
 addlicense ASF app/292030,sub/47807
 ```
 
-* * *
+---
 
 ## `owns` games
 
@@ -241,7 +240,7 @@ Complete command example:
 owns ASF app/292030,name/Witcher
 ```
 
-* * *
+---
 
 ## `redeem^` módok
 
@@ -268,19 +267,19 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 It's important to note that advanced redeem overrides only those `RedeemingPreferences` that you **specify in the command**. For example, if you've enabled `Distributing` in your `RedeemingPreferences` then there will be no difference whether you use `FD` mode or not, because distributing will be already active regardless, due to `RedeemingPreferences` that you use. This is why each forcibly enabled override also has a forcibly disabled one, you can decide yourself if you prefer to override disabled with enabled, or vice versa.
 
-* * *
+---
 
 ## `encrypt` command
 
 `encrypt` command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` must be one of the encryption methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
-* * *
+---
 
 ## `hash` command
 
 `hash` command allows you to generate hashes of arbitrary strings using ASF's hashing methods. `<hashingMethod>` must be one of the hashing methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
-* * *
+---
 
 ## `input` parancs
 
@@ -293,7 +292,7 @@ A `<Type>` kis- és nagybetű érzékeny és meghatározza az input típust, ami
 | Típus                   | Leírás                                                                           |
 | ----------------------- | -------------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` bot konfigurációs beállítás, ha hiányozna a konfigurációból.        |
-| Jelszó                  | `SteamPassword` bot konfigurációs beállítás, ha hiányozna a konfigurációból.     |
+| Password                | `SteamPassword` bot konfigurációs beállítás, ha hiányozna a konfigurációból.     |
 | SteamGuard              | Engedélyező kód, amit az e-mail címedre küldenek, ha nem használsz 2FA-t.        |
 | SteamParentalCode       | `SteamParentalCode` bot konfigurációs beállítás, ha hiányozna a konfigurációból. |
 | TwoFactorAuthentication | 2FA token, amit a telefonod generált, ha használod a 2FA-t, de nem az ASF 2FA-t. |
@@ -306,10 +305,10 @@ Mondjuk, hogy van egy botunk, ami SteamGuarddal van védve, de nem 2FA módban. 
 
 Ehhez az alábbi parancsokat kell kiadnunk:
 
-`start AzÉnSteamGuardBotom` -> A bot be akar jelentkezni, de nem sikerül neki, mert szüksége van az engedélyező kódra, ezután leáll, mert `Headless` módban van. Erre azért van szükség, mert a Steam hálózat el fogja küldeni az engedélyező kódot az e-mailünkre - ha nem lenne erre szükség, akkor átugorhatnánk ezt a részt.
+`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. Erre azért van szükség, mert a Steam hálózat el fogja küldeni az engedélyező kódot az e-mailünkre - ha nem lenne erre szükség, akkor átugorhatnánk ezt a részt.
 
-`input AzÉnSteamGuardBotom ABCDE` -> Beállítjuk a `SteamGuard` inputját a `AzÉnSteamGuardBotom` botnak `ABCDE`-re. Természetesen az `ABCDE`-t helyettesítsd be azzal az engedélyező kóddal, amit az e-mailben kaptál.
+`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Természetesen az `ABCDE`-t helyettesítsd be azzal az engedélyező kóddal, amit az e-mailben kaptál.
 
-`start AzÉnSteamGuardBotom` -> Újra elindítjuk a (leállított) botunkat, de ezúttal az már automatikusan azt az engedélyező kódot fogja használni, amit az előbb beállítottunk, bejelentkezik, majd kitörli az értéket.
+`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
 
 Ehhez hasonlóan hozzáférhetünk a 2FA által védett botokhoz is (ha nem használják az ASF 2FA-t), valamint a többi szükséges beállítást is beállíthatjuk futásidőben.

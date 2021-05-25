@@ -4,7 +4,7 @@ O ativador de jogos em segundo plano é uma funcionalidade especial embutida no 
 
 O ativador de códigos em segundo plano foi feito para uso em apenas um bot, o que significa que ele não faz uso de `RedeemingPreferences`. Esse recurso pode ser usado junto com (ou no lugar do) **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `redeem`, caso necessário.
 
-* * *
+---
 
 ## Importar
 
@@ -36,7 +36,7 @@ Independente do formato com o qual você decidiu trabalhar, o ASF vai importar s
 
 Além de usar o arquivo keys mencionado acima, o ASF também exibe o **[API endpoint do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** `GamesToRedeemInBackground` que pode ser executado por qualquer ferramenta IPC, incluindo nossa ASF-ui. Usar o IPC pode ser mais vantajoso já que você pode fazer a análise por sua conta, podendo usar um delimitador personalizado ao invés de ser forçado a usar um caractere de tabulação ou mesmo introduzindo sua estrutura de códigos de produto totalmente personalizada.
 
-* * *
+---
 
 ## Fila
 
@@ -44,7 +44,7 @@ Assim que os jogos são importados com êxito, eles são adicionados à fila. O 
 
 Se durante o processo a conta atingir o estado `RateLimited`, a fila é suspensa temporariamente por uma hora inteira para esperar o fim do bloqueio. Depois disso, o processo continua de onde parou, até que a fila inteira esteja vazia.
 
-* * *
+---
 
 ## Exemplo
 
@@ -60,10 +60,10 @@ Depois de algum tempo serão gerados os arquivos `NomeDoBot.keys.used` e `NomeDo
 
 Também é possível adicionar jogos extras para serem importados, mesmo tendo alguns jogos já na fila, basta repetir todos os passos acima. O ASF vai adicionar corretamente nossas novas entradas na fila já em curso e tratá-las em tempo.
 
-* * *
+---
 
 ## Observações
 
-O resgate de códigos em segundo plano utiliza `OrderedDictionary`, o que significa que a ativação dos seus códigos de produto seguirão a ordem especificada no arquivo (ou as chamadas no API pelo IPC). Isto significa que você pode (e deve) fornecer uma lista onde cada código de produto só pode ter dependências diretas de outro código de produto listado anteriormente, e não depois. Isto significa que se você tem a DLC `D` que precisa do jogo `G` para ser ativada, então o código de produto para o jogo `G` **precisa** ser incluso antes do código de produto para a DLC `D`. Da mesma forma, se a DLC `D` depender de `A`, `B` e `C`, todos os 3 devem ser incluídos antes (em qualquer ordem, a não ser que eles tenham dependências entre si).
+O resgate de códigos em segundo plano utiliza `OrderedDictionary`, o que significa que a ativação dos seus códigos de produto seguirão a ordem especificada no arquivo (ou as chamadas no API pelo IPC). Isto significa que você pode (e deve) fornecer uma lista onde cada código de produto só pode ter dependências diretas de outro código de produto listado anteriormente, e não depois. Isto significa que se você tem a DLC `D` que requer o jogo `G` para ser ativada, então a cd-key para o jogo `G` **sempre** deve ser incluída antes da cd-key para a DLC `D`. Da mesma forma, se a DLC `D` depender de `A`, `B` e `C`, todos os 3 devem ser incluídos antes (em qualquer ordem, a não ser que eles tenham dependências entre si).
 
 Não seguir o esquema acima resultará em sua DLC não sendo ativada com o estado `DoesNotOwnRequiredApp`, mesmo que sua conta seja elegível para ativá-la depois que terminar a fila. Se você quiser evitar isso você deve se certificar que sua DLC sempre seja incluída depois do jogo base em sua fila.

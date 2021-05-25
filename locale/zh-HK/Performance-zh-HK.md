@@ -4,11 +4,11 @@ ASF的主要目標是盡可能有效地進行掛卡，它基于兩種類型的�
 
 在自動模式下，ASF 不允許您選擇應該掛卡的遊戲，也不允許您更改掛卡算法。 ** ASF 比您更理解它自己應該做什麼以及應該盡快做出哪些決定以加速掛卡**。 您的目標是正確設置配置屬性，因為ASF無法自己猜測所有的東西。
 
-* * *
+---
 
 早些時候，Steam 改變了掉卡算法。 從那時起，我們可以將Steam帳戶分為兩類：卡片掉落**受限**的帳戶，卡片掉落**不受限**的帳戶。 這兩種賬戶之間的唯一區別在於，卡片掉落受限的賬戶在玩給定遊戲至少` X `小時之前，無法獲得任何卡片， It seems that older accounts that never asked for refund have **unrestricted card drops**, while new accounts and those who did ask for refund have **restricted card drops**. 然而，這只是理論，不應作為一條定理。 That's why there is **no obvious answer**, and ASF relies on **you** telling it which case is appropriate for your account.
 
-* * *
+---
 
 ASF目前擁有兩種掛卡算法：
 
@@ -16,17 +16,17 @@ ASF目前擁有兩種掛卡算法：
 
 **Complex** is new algorithm that has been implemented to help restricted accounts to maximize their profits as well. ASF will firstly use standard **Simple** algorithm on all games that passed `HoursUntilCardDrops` hours of playtime, then, if no games with >= `HoursUntilCardDrops` hours are left, it will farm all games (up to `32` limit) with < `HoursUntilCardDrops` hours left simultaneously, until any of them hits `HoursUntilCardDrops` hours mark, then ASF will continue the loop from beginning (use **Simple** on that game, return to simultaneous on < `HoursUntilCardDrops` and so on). We can use multiple games farming in this case for bumping hours of the games we need to farm to appropriate value firstly. Keep in mind that during farming hours, ASF **does not** farm cards, therefore it also won't check for any card drops during that period (for reasons stated above).
 
-Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDrops` config property (which is set by **you**). If `HoursUntilCardDrops` is set to `0`, **Simple** algorithm will be used, otherwise, **Complex** algorithm will be used instead.
+Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDrops` config property (which is  set by **you**). If `HoursUntilCardDrops` is set to `0`, **Simple** algorithm will be used, otherwise, **Complex** algorithm will be used instead.
 
-* * *
+---
 
-### **對於哪種算法更適合您，沒有明顯的答案。**
+### **There is no obvious answer which algorithm is better for you**.
 
 This is one of the reasons why you do not choose cards farming algorithm, instead, you tell ASF if account has restricted drops or not. If account has non-restricted drops, **Simple** algorithm will **work better** on that account, as we won't be wasting time on bringing all games to `X` hours - cards drop ratio is close to 0% when farming multiple games. On the other hand, if your account has card drops restricted, **Complex** algorithm will be better for you, as there's no point in farming solo if game didn't reach `HoursUntilCardDrops` hours yet - so we'll farm **playtime** first, **then** cards in solo mode.
 
 Don't blindly set `HoursUntilCardDrops` only because somebody told you to - do tests, compare results, and based on data you get, decide which option should be better for you. If you put some minimal effort into that, you'll ensure that ASF is working with maximum possible efficiency for your account, which is probably what you want, considering that you're reading this wiki page right now. If there was a solution that works for everybody, you'd not be given a choice - ASF would decide itself.
 
-* * *
+---
 
 ### 了解您的帳戶是否受限的最佳方法是什麼？
 
@@ -44,7 +44,7 @@ It's important to note that in the past `HoursUntilCardDrops` was only `0` or `2
 
 And to make it even worse - I experienced cases when people switched from restricted to unrestricted state and vice versa - either because of Steam bug (oh yeah, we have many of those), or because of some logic adjustments by Valve. So even if you confirmed that your account is restricted (or not), do not believe that it'll stay like that - in order to switch from unrestricted to restricted it's enough to ask for a refund. If you feel like previously set value is no longer appropriate, you can always do a re-test and update it accordingly.
 
-* * *
+---
 
 By default, ASF assumes that `HoursUntilCardDrops` is `3`, as the negative effect of setting this to `3` when it should be less is smaller than done the other way. This is because of the fact that in the worst possible case we'll waste `3` hours of idling per `32` games, compared to wasting `3` hours of idling per every single game if `HoursUntilCardDrops` was set to `0` by default. However, you should still tune this variable to match your account for maximum efficiency, as this is only a blind guess based on potential drawbacks and majority of users (so we're trying to choose "lesser evil" by default).
 
@@ -52,7 +52,7 @@ At the moment two above algorithms are enough for all currently possible account
 
 It's nice to note that ASF also includes manual farming mode that can be activated by `play` command. You can read more about it in **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
 
-* * *
+---
 
 ## Steam 故障
 

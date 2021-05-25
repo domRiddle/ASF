@@ -4,7 +4,7 @@ L'activateur de jeux en arrière-plan est une fonction spéciale intégrée à A
 
 L'activateur de jeux en arrière-plan est conçu pour n'utiliser qu'une seule commande de bot, et donc n'utilise pas `RedeemingPreferences`. Cette fonction peut être utilisée en même temps que (ou à la place de) **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**`redeem`, si besoin est.
 
-* * *
+---
 
 ## Importation
 
@@ -36,7 +36,7 @@ Quel que soit le format que vous avez choisi, ASF importera votre fichier de `ke
 
 En plus d'utiliser le fichier de clés mentionné ci dessus, ASF expose égalementle`GamesToRedeemInBackground` **[API ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** pouvant être exécuté par n'importe quel outil IPC, y compris notre ASF-ui. L'utilisation d'IPC est plus efficace car vous pouvez effectuer une meilleure analyse par vous-même, par exemple en utilisant un délimiteur personnalisé au lieu d'utiliser forcément une tabulation.
 
-* * *
+---
 
 ## File d'attente
 
@@ -44,7 +44,7 @@ Une fois les jeux importés, ils sont ajoutés à la file d'attente. ASF parcour
 
 Si notre compte atteint le statut `RateLimited` durant le processus, la file d'attente est suspendue temporairement pendant une heure entière, jusqu'à la fin du délai d'attente. Une fois ce délai terminé, le processus continue jusqu'à la fin de la file d'attente.
 
-* * *
+---
 
 ## Exemple
 
@@ -60,7 +60,7 @@ Après un certain temps, les fichiers `BotName.keys.used` et `BotName.keys.unuse
 
 Il est également possible d'ajouter des jeux supplémentaires à importer tout en ayant certains jeux déjà dans notre file d'attente, en répétant toutes les étapes ci-dessus. ASF ajoutera correctement nos entrées supplémentaires à la file d'attente déjà en cours et en traitera éventuellement.
 
-* * *
+---
 
 ## Remarques
 

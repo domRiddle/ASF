@@ -8,7 +8,7 @@ Isto também significa que o ASF **não tem nenhum requisito específico quanto 
 
 No entanto, independente de onde você executar o ASF, você deve garantir que sua plataforma de destino tenha os requisitos para o **[.NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** instalados. Essas são bibliotecas de baixo nível necessárias para a funcionalidade adequada do tempo de execução e são primordiais para o funcionamento do ASF. É bem possível que você já tenha algumas delas (ou mesmo todas) já instaladas.
 
-* * *
+---
 
 ## Múltiplas instâncias
 
@@ -22,13 +22,13 @@ Não é necessário que instâncias do ASF compartilhem as mesmas propriedades `
 
 O ASF leva em conta a configuração `WebProxy` quando decide sobre o escopo compartilhado, o que significa que duas instâncias do ASF usando configurações `WebProxy` diferentes não compartilharão seus limitadores entre si. Isso foi implementado para permitir que as configurações de `WebProxy` operem sem atrasos excessivos, como esperado de diferentes interfaces de rede. Isso deve ser o suficiente para a maioria dos casos, no entanto, se você tiver uma configuração personalizada específica na qual você roteie os pedidos de forma diferente, por exemplo, você pode especificar manualmente o grup de rede atráves do **[argumento de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)** `--network-group`, o que vai permitir que você declare o grupo do ASF que será sincronizado com essa instância. Tenha em mente que grupos de rede personalizados são exclusividades, o que significa que o ASF não vai mais usar o `WebProxy` para determinar o grupo certo, já que você é responsável pelo agrupamento nesse caso.
 
-* * *
+---
 
 ## Empacotamento do ASF
 
 O ASF está disponível em 2 formas diferentes: pacote genérico e pacote específico para Sistema Operacional. Funcionalmente ambos os pacotes são exatamente o mesmo e ambos são capazes de se atualizarem automaticamente. A única diferença entre eles é se o pacote **genérico** do ASF acompanha ou não o tempo de execução **específico do Sistema Operacional** para rodar o mesmo.
 
-* * *
+---
 
 ### Genérico
 
@@ -44,9 +44,9 @@ Em geral, você deve **evitar este pacote o quanto for possível**, já que a ma
 
 Conforme o tempo passa, com mais plataformas sendo suportadas pelo .NET Core, e com compatibilidade entre o .NET Framework e o .NET Core diminuindo, o pacote `genérico-netf` será inteiramente substituído pelo `genérico`. Por favor, evite usá-lo se você pode usar qualquer pacote do .NET Core em seu lugar, já que exite um monte de funcionalidades e compatibilidades faltantes no pacote `genérico-netf` em comparação com as versões .NET Core, e ele será cada vez menos funcional com o passar do tempo. Oferecemos suporte para este pacote **apenas** em máquinas que não podem usar a variante `genérica` acima (por exemplo, o `linux-x86`) e somente com o tempo de execução atualizado (por exemplo, o Mono mais recente).
 
-* * *
+---
 
-### Sistema Operacional específico
+### SO específico
 
 O pacote para Sistema Operacional específico, além do código gerenciado incluso no pacote genérico, também inclui código nativo para dada plataforma. Em outras palavras, o pacote para Sistema Operacional específico **já inclui o tempo de execução .NET Core apropriado**, que permite que você ignore inteiramente a bagunça toda da instalação e abra o ASF diretamente. O pacote para Sistema Operacional específico, como você pode adivinhar pelo nome, é específico para cada sistema operacional e cada um requer sua própria versão; por exemplo, o Windows requer o binário PE32 + `ArchiSteamFarm.exe`, enquanto o Linux trabalha com o binário Unix ELF `ArchiSteamFarm`. Como você deve saber, esses dois tipos não são compatíveis um com o outro.
 
@@ -62,7 +62,7 @@ Claro, mesmo que não haja um pacote de Sistema Operacional específico para a s
 
 Para uma lista completa de todas as plataformas e Sistemas Operacionais suportados pelo .NET Core 5.0, acesse as **[notas de lançamento](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md)**.
 
-* * *
+---
 
 ## Requisitos do tempo de execução
 

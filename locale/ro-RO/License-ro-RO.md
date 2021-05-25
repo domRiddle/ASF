@@ -6,9 +6,9 @@ Licența ASF este foarte permisivă și vă este permis să faceți mult mai mul
 
 > Poți face ce îți place cu software-ul, cu condiția să incluzi notificările necesare. Această licență permisivă conține o licență de brevet de la contribuitorii codului.
 
-Vă rugăm să rețineți că diferite **[componente ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** incluse cu `PackageReference` sunt deseori licențiate în condiții diferite, ca **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Același lucru se aplică tuturor celorlalte proiecte terțe pe care ASF le utilizează, în special tuturor `uneltelor` care au propriile licențe.
+Vă rugăm să rețineți că diferite **[componente ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** incluse cu `PackageReference` sunt deseori licențiate în condiții diferite, ca **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
 
-* * *
+-----
 
 ## Observații
 
@@ -19,14 +19,12 @@ Dacă vă creați propriul software/serviciu bazat pe ASF sau o parte din codul 
 Nu vă acordăm permisiunea directă de a utiliza numele produsului ASF/ArchiSteamFarm în propriul dumneavoastră software, dar îl permitem în unele scenarii de bun simț:
 
 **Poți**:
-
 - Revendica faptul că software/serviciul tău **este bazat pe** ASF (sau codul său)
 - Referiți software/serviciul dumneavoastră ca **ASF fork**
 - Revendicați că software/serviciul este alimentat de ASF, dacă **nu ați** făcut nicio modificare codului sursă
 - Utilizați ASF pentru diferite scopuri de referință, cum ar fi asocierea originii software/serviciu, wiki-ul nostru, sau *"așa cum este necesar pentru utilizare rezonabilă și obișnuită în descrierea originii lucrării"*
 
 You **cannot**:
-
 - Revendica faptul că software/serviciul tău **este** ASF
 - Referiți software/serviciul dumneavoastră ca **ASF**
 - Revendicați că software/serviciul este alimentat de ASF, dacă **ați** făcut orice modificare a codului sursă

@@ -2,7 +2,7 @@
 
 Începând cu ASF V3.1.2.2, vom urma o politică consecventă de depreciere pentru a face atât dezvoltarea, cât și utilizarea mult mai consecvente.
 
-* * *
+---
 
 ## Ce este deprecierea?
 
@@ -10,7 +10,7 @@ Deprecierea este procesul de a aduce schimbări mai mici sau mai mari care fac c
 
 ASF se schimbă rapid și întotdeauna încearcă să devină mai bun. Din păcate, acest lucru înseamnă că putem schimba sau muta unele funcționalități existente într-un alt segment al programului pentru a beneficia de noi caracteristici, compatibilitate sau stabilitate. Datorită acestui lucru nu trebuie să rămânem cu decizii de dezvoltare învechite sau pur și simplu greșite pe care le-am luat cu ani în urmă. Încercăm întotdeauna să oferim un înlocuitor rezonabil care să corespundă utilizării așteptate a funcționalității disponibile anterior, Din acest motiv, deprecierea este în mare parte inofensivă și necesită mici reparații în raport cu utilizarea anterioară.
 
-* * *
+---
 
 ## Stadii de depreciere
 
@@ -26,7 +26,7 @@ Etapa 1 are loc odată ce funcția dată devine învechită, cu disponibilitatea
 
 Etapa 2 este programată după etapa 1 explicată mai sus şi se lansează într-o versiune stabilă. Această etapă introduce eliminarea completă a caracteristicilor învechite, ceea ce înseamnă că ASF nici măcar nu va recunoaște că încercați să folosiți o funcție învechită. ca să nu mai vorbim de respectare, pentru că pur şi simplu nu există în codul actual. ASF nu va mai tipări niciun avertisment, deoarece nu mai recunoaște ceea ce încercați să faceți.
 
-* * *
+---
 
 ## Rezumat
 
@@ -34,7 +34,7 @@ Ai mai mult sau mai puțin o **lună întreagă** pentru a face schimbarea, care
 
 În cele mai multe cazuri, ignorarea avertismentului de depreciere nu va face funcționalitatea generală a ASF inutilizabilă, dar mai degrabă revenirea la comportamentul implicit (care poate sau nu corespunde preferinţelor dumneavoastră personale).
 
-* * *
+---
 
 ## Exemplu
 

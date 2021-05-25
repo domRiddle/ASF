@@ -4,7 +4,7 @@
 
 Please note that below programs are **not** maintained by ASF developers and therefore **we give no guarantee about any of them**, especially in terms of security, safety or Steam ToS compliance. 이 목록은 참조용으로만 유지됩니다. You should always ensure that the third-party utility you're about to use is legit enough for you, as you're using all of them at your own risk.
 
-* * *
+---
 
 ## ASF 플러그인
 
@@ -16,7 +16,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 - **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, ASF가 Steam 초대를 자동으로 수행하는 플러그인입니다.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, ASF가 WebSocket 연결을 프록시화 하도록 하는 플러그인입니다.
 
-* * *
+---
 
 ## 통합
 
@@ -24,27 +24,27 @@ Please note that below programs are **not** maintained by ASF developers and the
 - **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, ASF 통합기능을 하는 python으로 작성된 또 다른 작은 텔레그램 봇입니다.
 
-* * *
+---
 
 ## 라이브러리
 
 - **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, ASF의 IPC 인터페이스와 더욱 통합되는 python 라이브러리입니다.
 
-* * *
+---
 
 ## 패키징
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, 아치 리눅스에서 ASF를 쉽게 설치할 수 있습니다.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, 아치 리눅스에서 ASF를 쉽게 설치할 수 있습니다.
 
-* * *
+---
 
 ## 도구
 
 - **[키 추출기](https://ske.xpixv.com)**, 키를 복사-붙여넣기해서 다양한 형식으로 만들 수 있으며 ASF의 `redeem` 명령을 만들 수 있습니다. 자세한 내용은 **[GitHub repo](https://github.com/PixvIO/SKE)** 를 확인하시기 바랍니다.
 - **[ASF 대량 환경설정 에디터](https://github.com/genesix-eu/ASF_MCE)**, 다량의 ASF 환경설정을 더 쉽게 관리할 수 있습니다.
 
-* * *
+---
 
 ## 더 찾아보고 싶은가요?
 

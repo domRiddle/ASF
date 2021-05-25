@@ -6,9 +6,9 @@ ASF 라이센스는 매우 관대하고 표준 GPL 라이센스보다 더 많은
 
 > 필요한 공지사항을 포함한다면 이 소프트웨어로 원하는 무엇이든 할 수 있습니다. 이 관대한 라이센스는 코드의 기여자로부터의 특허 라이센스도 포함합니다.
 
-`PackageReference`에 포함된 다양한 **[ASF 콤포넌트](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** 는 **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))** 같이 다른 조건하에 라이센스되기도 합니다. 이는 ASF가 활용하는 다른 모든 서드 파티 프로젝트들, 특히 제일 위에 자체 라이센스를 가지고 있는 `도구`에도 동일하게 적용됩니다.
+`PackageReference`에 포함된 다양한 **[ASF 콤포넌트](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** 는 **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))** 같이 다른 조건하에 라이센스되기도 합니다. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
 
-* * *
+-----
 
 ## 비고
 
@@ -19,14 +19,12 @@ ASF나 코드 일부를 기반으로 하여 자체 소프트웨어/서비스를 
 우리는 ASF/ArchiSteamFarm 제품명을 당신의 소프트웨어에서 사용하도록 직접 허락해주지는 않지만, 일부 상식적인 경우 허락하고 있습니다.
 
 **허용**:
-
 - 자신의 소프트웨어/서비스가 ASF 또는 코드 일부에 **기반하고 있다**고 명시
 - 자신의 소프트웨어/서비스를 **ASF fork**로 언급
 - 소스코드를 전혀 변형하지 **않은 ** 경우 자신의 소프트웨어/서비스가 ASF로 돌아감을 명시
 - ASF를 다양한 참조 용도로 사용. 예를 들어 소프트웨어/서비스의 기원을 링크하거나 *작업물의 기원을 묘사하기 위해 합리적이고 관습적으로 필요*한 경우.
 
 **금지**:
-
 - '자신의 소프트웨어/서비스가 ASF **이다**' 라고 명시
 - 자신의 소프트웨어/서비스를 **ASF**로 언급
 - 소스코드를 **변형한** 경우 자신의 소프트웨어/서비스가 ASF를 사용함을 명시

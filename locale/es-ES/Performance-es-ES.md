@@ -4,29 +4,29 @@ El objetivo principal de ASF es recolectar cromos tan eficazmente como sea posib
 
 En modo automático, ASF no te permite elegir los juegos que deben ser recolectados, tampoco te permite cambiar el algoritmo de recolección de cromos. **ASF sabe mejor que tú lo que debe hacer y qué decisiones debe tomar para recolectar lo más rápido posible**. Tu objetivo es establecer correctamente las propiedades de configuración, ya que ASF no puede adivinarlas por sí mismo, todo lo demás está cubierto.
 
-* * *
+---
 
 Hace algún tiempo Valve cambió el algoritmo para obtener cromos. A partir de entonces, podemos categorizar las cuentas de Steam en dos categorías: aquellas **con** obtención de cromos restringida, y aquellas **sin**. La única diferencia entre esos dos tipos es el hecho de que las cuentas con obtención de cromos restringida no pueden recibir ningún cromo de un determinado juego hasta que se haya jugado por al menos `X` horas. Parece que las cuentas más antiguas que nunca solicitaron un reembolso tienen la **obtención de cromos sin restringir**, mientras que las cuentas nuevas y aquellas que solicitaron un reembolso tienen la **obtención de cromos restringida**. Sin embargo, esto solo es una teoría, y no debe ser tomado como una regla. Por eso **no hay una respuesta obvia**, y ASF confía en **ti** para decirle qué caso es apropiado para tu cuenta.
 
-* * *
+---
 
 ASF actualmente incluye dos algoritmos de recolección:
 
 El algoritmo **Simple** funciona mejor para cuentas que tienen la obtención de cromos sin restricción. Es el algoritmo primario utilizado por ASF. El bot encuentra juegos para recolectar, y los recolecta uno por uno hasta que todos los cromos se hayan obtenido. Esto es porque la tasa de obtención de cromos cuando se recolecta más de un juego a la vez es casi cero y totalmente ineficaz.
 
-El algoritmo **Complejo** es uno nuevo que fue implementado para ayudar a las cuentas con restricción a maximizar sus beneficios. ASF primero usará el algoritmo **Simple** estándar en todos los juegos que superen las horas de tiempo jugado definido en `HoursUntilCardDrops`, luego, si no quedan juegos con >= `HoursUntilCardDrops` horas jugadas, recolectará simultáneamente todos los juegos (hasta un límite de `32`) con < `HoursUntilCardDrops` horas, hasta que cualquiera de ellos alcance la marca de `HoursUntilCardDrops` horas, entonces ASF continuará el ciclo desde el principio (usará el algoritmo **Simple** en ese juego, regresará a la recoleccion simultánea en los que tengan < `HoursUntilCardDrops` horas y así sucesivamente). Podemos usar la recolección de múltiples juegos en este caso para aumentar a un valor apropiado las horas de los juegos que necesitamos recolectar. Ten en cuenta que durante la recolección de horas, ASF **no** recolecta cromos, por lo que tampoco comprobará la obtención de cromos durante ese período (por las razones señaladas arriba).
+El algoritmo **Complejo** es uno nuevo que fue implementado para ayudar a las cuentas con restricción a maximizar sus beneficios. ASF primero usará el algoritmo **Simple** estándar en todos los juegos que superen las horas de tiempo jugado definido en `HoursUntilCardDrops`, luego, si no quedan juegos con >= `HoursUntilCardDrops` horas jugadas, recolectará simultáneamente todos los juegos (hasta un límite de `32`) con < `HoursUntilCardDrops` horas, hasta que cualquiera de ellos alcance la marca de `HoursUntilCardDrops` horas, entonces ASF continuará el ciclo desde el principio (usará el algoritmo **Simple** en ese juego, regresará a la recolección simultánea en los que tengan < `HoursUntilCardDrops` horas y así sucesivamente). Podemos usar la recolección de múltiples juegos en este caso para aumentar a un valor apropiado las horas de los juegos que necesitamos recolectar. Ten en cuenta que durante la recolección de horas, ASF **no** recolecta cromos, por lo que tampoco comprobará la obtención de cromos durante ese período (por las razones señaladas arriba).
 
 Actualmente, ASF elige el algoritmo de recolección de cromos basado exclusivamente en la propiedad de configuración `HoursUntilCardDrops` (que es establecida por **ti**). Si `HoursUntilCardDrops` se encuentra establecido en `0`, se utilizará el algoritmo **Simple**, de lo contrario, en su lugar se usará el algoritmo **Complejo**.
 
-* * *
+---
 
 ### **No hay una respuesta obvia sobre cuál algoritmo es mejor para ti**.
 
-Esta es una de las razones por la que no eliges el algoritmo de recolección de cromos, en cambio, le dices a ASF si la cuenta tiene la obtención de cromos restringida o no. Si la cuenta tiene la obtención de cromos sin restringir, el algoritmo **Simple** **funcionará mejor** en esa cuenta, ya que no desperdiciaremos tiempo en llevar todos los juegos a `X` horas - la tasa de obtención de cromos es cercana a 0% cuando se recolectan múltiples juegos. Por otra parte, si tu cuenta tiene restringida la obtención de cromos, el algoritmo **Complejo** será mejor para ti, ya que no tiene sentido recolectar en solitario si el juego aún no ha alcanzado `HoursUntilCardDrops` horas - por lo que primero acumularemos **tiempo de juego**, **luego** cromos en modo individual.
+Esta es una de las razones por la que no eliges el algoritmo de recolección de cromos, en cambio, le dices a ASF si la cuenta tiene la obtención de cromos restringida o no. Si la cuenta tiene la obtención de cromos sin restringir, el algoritmo **Simple** **funcionará mejor** en esa cuenta, ya que no desperdiciaremos tiempo en llevar todos los juegos a `X` horas - la tasa de obtención de cromos es cercana a 0% cuando se recolectan múltiples juegos. Por otra parte, si tu cuenta tiene restringida la obtención de cromos, el algoritmo **Complex** será mejor para ti, ya que no tiene sentido recolectar en solitario si el juego aún no ha alcanzado `HoursUntilCardDrops` horas - por lo que primero acumularemos **tiempo de juego**, y **luego** cromos en modo individual.
 
 No establezcas ciegamente `HoursUntilCardDrops` solo porque alguien te lo dijo - haz pruebas, compara resultados, y basado en los datos que obtengas, decide qué opción debe ser la mejor para ti. Si pones un esfuerzo mínimo en eso, te asegurarás de que ASF está trabajando con la máxima eficiencia posible para tu cuenta, que es probablemente lo que quieres, considerando que estás leyendo esta página de la wiki justo ahora. Si hubiera una solución que funcione para todos, no se daría esta opción - ASF decidiría por sí mismo.
 
-* * *
+---
 
 ### ¿Cuál es la mejor manera de averiguar si tu cuenta está restringida?
 
@@ -34,9 +34,9 @@ Asegúrate de que tienes algunos juegos para obtener cromos, de preferencia 5 o 
 
 ASF indica claramente cuando se ha obtenido un cromo para un juego determinado. Te interesa encontrar la obtención de cromos más rápida lograda por ASF. Por ejemplo, si tu cuenta no tiene restricción entonces la primera obtención de cromos debería producirse aproximadamente 30 minutos desde que iniciaste la recolección. Si notas **al menos un** juego que soltó un cromo en esos 30 minutos iniciales, este es un indicador de que tu cuenta **no** está restringida y debería usar `HoursUntilCardDrops` de `0`.
 
-Por otra parte, si observas que **cada** juego está tomando al menos `X` cantidad de horas antes de soltar su primer cromo, entonces este es un indicador del valor al que deberías establecer `HoursUntilCardDrops`. La mayoría (si no todos) de los usuarios restringidos requieren al menos `3` horas de juego para obtener cromos, y este también es el valor por defecto para el ajuste `HoursUntilCardDrops`.
+Por otra parte, si notas que **cada** juego está tomando al menos `X` cantidad de horas antes de soltar su primer cromo, entonces este es un indicador del valor al que deberías establecer `HoursUntilCardDrops`. La mayoría (si no todos) de los usuarios restringidos requieren al menos `3` horas de juego para obtener cromos, y este también es el valor por defecto para el ajuste `HoursUntilCardDrops`.
 
-Recuerda que los juegos pueden tener diferente tasa de obtención, esto es por lo que debes probar si tu teoría es correcta con **al menos** 3 juegos, de preferencia más de 5 para asegurarte de que no estás teniendo resultados falsos por una coincidencia. La obtención de un cromo de un juego en menos de una hora es una confirmación de que tu cuenta **no está** restringida y puede usar `HoursUntilCardDrops` de `0`, pero para confirmar que tu cuenta **está** restringida, necesitas al menos varios juegos que no suelten cromos hasta que alcances una marca fija.
+Recuerda que los juegos pueden tener diferente tasa de obtención, esto es por lo que debes probar si tu teoría es correcta con **al menos** 3 juegos, de preferencia más de 5 para asegurarte de que no estás teniendo resultados falsos por una coincidencia. La obtención de un cromo de un juego en menos de una hora es una confirmación de que tu cuenta **no está** restringida y puede usar `HoursUntilCardDrops` de `0`, pero para confirmar que tu cuenta **está** restringida, necesitas al menos varios juegos que no suelten cromos hasta que alcances una marca de tiempo fija.
 
 Es importante notar que en el pasado `HoursUntilCardDrops` era solamente `0` o `2`, y por eso ASF tenía una sola propiedad `CardDropsRestricted` que permitía cambiar entre esos valores. Con cambios recientes notamos no solo que ahora la mayoría de usuarios requiere `3` horas en lugar de las anteriores `2`, sino también que `HoursUntilCardDrops` ahora es dinámico y puede tener cualquier valor dependiendo de la cuenta.
 
@@ -44,7 +44,7 @@ Al final, claro está, la decisión es tuya.
 
 Y para hacerlo peor - he visto casos en los que personas cambiaban de estado restringido a no restringido y viceversa - ya sea por un bug de Steam (oh sí, tenemos muchos de esos), o por algunos ajustes a la lógica hechos por Valve. Así que incluso si confirmas que tu cuenta está restringida (o no), no creas que se mantendrá así - para cambiar de no restringido a restringido basta con solicitar un reembolso. Si sientes que el valor establecido anteriormente ya no es apropiado, siempre puedes hacer nuevas pruebas y actualizarlo en concordancia.
 
-* * *
+---
 
 Por defecto, ASF asume que `HoursUntilCardDrops` es `3`, ya que el efecto negativo de establecerlo a `3` cuando debería ser menor es más reducido que hacerlo al contrario. Esto se debe al hecho de que en el peor de los casos desperdiciaremos `3` horas de recolección por cada `32` juegos, comparado con desperdiciar `3` horas por cada juego si `HoursUntilCardDrops` se estableciera a `0` por defecto. Sin embargo, aún deberías ajustar esta variable para que coincida con tu cuenta para máxima eficiencia, ya que esta es una suposición a ciegas basada en posibles inconvenientes y la mayoría de los usuarios (así que intentamos elegir el "menor de los males" por defecto).
 
@@ -52,7 +52,7 @@ En este momento los dos algoritmos mencionados son suficientes para todos los es
 
 Es bueno notar que ASF también incluye un modo de recolección manual que puede activarse con el comando `play`. Puedes leer más al respecto en **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)**.
 
-* * *
+---
 
 ## Glitches de Steam
 

@@ -4,19 +4,19 @@ Essa seção inclui vários adicionais de terceiros escritos exclusivamente (ou 
 
 Por favor, saiba que os programas abaixo **não** são mantidos pelos desenvolvedores do ASF e **nós não nos responsabilizamos por nenhum deles**, especialmente em termos de segurança, confiança ou conformidade com os Termos de Serviço do Steam. Esta lista é mantida apenas para referência. Você deve se assegurar sempre que o programa de terceiro que você pretende usar é legítimo o suficiente para você, você estará usando-os por sua conta e risco.
 
-* * *
+---
 
 ## Plugins para o ASF
 
 - **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin que te permite gerenciar as conquistas Steam.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin que adiciona a funcionalidade de criar pacotes de cartas.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin para tirar a diferenciação que o ASF faz entre maiúsculas e minúsculas nos nomes dos bots.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin para o ASF reimplementar o resgate de códigos de produto sem a necessidade do uso de comando.
+- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin para o ASF reimplementar o resgate de keys sem a necessidade do uso de comando.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin que aceita automaticamente propostas de troca de determinado(s) tipo(s) de itens.
 - **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, plugin que permite que o ASF processe automaticamente convites Steam.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, pluguin que permite proxyficar as conexões de WebSocket.
 
-* * *
+---
 
 ## Integrações
 
@@ -24,27 +24,27 @@ Por favor, saiba que os programas abaixo **não** são mantidos pelos desenvolve
 - **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, para aqueles que querem enviar ofertas de troca automatizadas para bots em nossa **[listagem STM do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** através do navegador da web, sem usar o recurso `MatchActively` fornecido pelo ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, outro bot do telegram (versão mínima) escrito em python com integração com o ASF.
 
-* * *
+---
 
 ## Bibliotecas
 
 - **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, biblioteca python para uma maior integração com a interface IPC do ASF.
 
-* * *
+---
 
 ## Pacotes
 
 - **[Repositório no AUR #1](https://aur.archlinux.org/packages/asf)**, permite que você instale facilmente o ASF no Arch Linux.
 - **[Repositório no AUR #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, permite que você instale facilmente o ASF no Arch Linux.
 
-* * *
+---
 
 ## Ferramentas
 
 - **[Keys extractor](https://ske.xpixv.com)**, permite que você possa copiar e colar códigos de produto em diversos formatos diferentes e cria o comando `redeem` para o ASF. Visite o **[repositório do GitHub](https://github.com/PixvIO/SKE)** para mais detalhes.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, facilita o gerenciamente de várias configurações do ASF.
 
-* * *
+---
 
 ## Quer saber mais?
 

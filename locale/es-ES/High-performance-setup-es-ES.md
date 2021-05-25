@@ -1,18 +1,18 @@
 # Configuración de alto rendimiento
 
-Esto es exactamente lo contrario a la **[configuración de bajo uso de memoria](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-es-ES)** y normalmente quieres seguir estos consejos si deseas aumentar el rendimiento de ASF (en términos de velocidad de CPU), por el potencial costo de un mayor uso de memoria.
+Esto es exactamente lo contrario a la **[configuración de poca memoria](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-es-ES)** y normalmente quieres seguir estos consejos si deseas aumentar el rendimiento de ASF (en términos de velocidad de CPU), por el potencial costo de un mayor uso de memoria.
 
-* * *
+---
 
 ASF ya intenta preferir el rendimiento cuando se trata de un ajuste general equilibrado, por lo tanto no hay mucho que puedas hacer para aumentar su rendimiento, aunque tampoco estás completamente sin opciones. Sin embargo, ten en cuenta que esas opciones no están habilitadas por defecto, lo que significa que no son lo suficientemente buenas para considerarlas equilibradas para la mayoría de los usos, por lo tanto debes decidir si el aumento de memoria que ofrecen es aceptable para ti.
 
-* * *
+---
 
 ## Ajustes de runtime (avanzado)
 
 Los siguientes trucos **involucran un importante aumento de uso de memoria** y deben ser usados con precaución.
 
-.NET Core runtime te permite **[modificar el recolector de basura](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** de muchas formas, ajustando eficazmente el proceso de recolección de basura de acuerdo a tus necesidades.
+.NET Core runtime te permite **[modificar el recolector de basura](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** de muchas formas, afinando eficazmente el proceso de recolección de basura de acuerdo a tus necesidades.
 
 La forma recomendada de aplicar estas configuraciones es a través de las propiedades de entorno `COMPlus_`. Por supuesto, también podrías usar otros métodos, por ejemplo, `runtimeconfig.json`, pero algunas configuraciones son imposibles de establecer de esta manera, encima de eso ASF reemplazará tu `runtimeconfig.json` personalizado en la siguiente actualización, por lo tanto recomendamos propiedades de entorno que puedas establecer fácilmente antes de ejecutar el proceso.
 
@@ -32,7 +32,7 @@ El recolector de basura de servidor por sí mismo no da como resultado un aument
 
 Sin embargo, si la memoria no es un problema (ya que el recolector de basura toma en cuenta la memoria disponible y se ajusta automáticamente), es mucho mejor idea no cambiar esas propiedades, logrando un rendimiento superior como resultado.
 
-* * *
+---
 
 Puedes habilitar todas las propiedades del recolector de basura estableciendo las variables de entorno `COMPlus_` apropiadas. Por ejemplo, en Linux (shell):
 
@@ -50,7 +50,7 @@ $Env:COMPlus_gcServer=1
 .\ArchiSteamFarm.exe # Para compilación de sistema operativo específico
 ```
 
-* * *
+---
 
 ## Optimización recomendada
 

@@ -14,13 +14,13 @@ The exact description and comparison of them is available below.
 
 In order to generate encrypted password, e.g. for `SteamPassword` usage, you should execute `encrypt` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate encryption that you chose and your original plain-text password. Afterwards, put the encrypted string that you've got as `SteamPassword` bot config property, and finally change `PasswordFormat` to the one that matches your chosen encryption method.
 
-* * *
+---
 
 ### 明文
 
 This is the most simple and insecure way of storing a password, defined as `ECryptoMethod` of `0`. ASF expects the string to be a plain text - a password in its direct form. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
 
-* * *
+---
 
 ### AES
 
@@ -28,7 +28,7 @@ Considered secure by today standards, **[AES](https://en.wikipedia.org/wiki/Adva
 
 只要攻擊者不知道用於解密的ASF內置加密密鑰以及密碼，上述方法就可以保證安全性。 ASF allows you to specify key via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning anybody can reverse the ASF encryption and get decrypted password. It still requires some effort and is not that easy to do, but possible, that's why you should almost always use `AES` encryption with your own `--cryptkey` which is kept in secret. AES method used in ASF provides security that should be satisfying and it's a balance between simplicity of `PlainText` and complexity of `ProtectedDataForCurrentUser`, but it's highly recommended to use it with custom `--cryptkey`. If used properly, guarantees decent security for safe storage.
 
-* * *
+---
 
 ### ProtectedDataForCurrentUser
 
@@ -36,7 +36,7 @@ Currently the most secure way of encrypting the password that ASF offers, and mu
 
 **Please note that this option is available only for machines running Windows OS as of now.**
 
-* * *
+---
 
 ## 推薦
 
@@ -46,13 +46,13 @@ Currently the most secure way of encrypting the password that ASF offers, and mu
 
 In addition to encryption methods specified above, it's possible to also avoid specifying passwords entirely, for example as `SteamPassword` by using an empty string or `null` value. ASF will ask you for your password when it's required, and won't save it anywhere but keep in memory of currently running process, until you close it. While being the most secure method of dealing with passwords (they're not saved anywhere), it's also the most troublesome as you need to enter your password manually on each ASF run (when it's required). 如果這對您來說不是問題，那麼這是安全方面最好的選擇。
 
-* * *
+---
 
 ## 解密
 
 ASF不支持任何解密已加密密碼的方法，因為解密方法僅在內部用於訪問進程內的數據。 If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply repeat the procedure from beginning in the new environment.
 
-* * *
+---
 
 ## Hashing
 
@@ -68,13 +68,13 @@ The exact description and comparison of them is available below.
 
 In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
 
-* * *
+---
 
 ### 明文
 
 This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
 
-* * *
+---
 
 ### SCrypt
 
@@ -82,7 +82,7 @@ Considered secure by today standards, **[SCrypt](https://en.wikipedia.org/wiki/S
 
 ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure. If used properly, guarantees decent security for safe storage.
 
-* * *
+---
 
 ### Pbkdf2
 
@@ -90,7 +90,7 @@ Considered weak by today standards, **[Pbkdf2](https://en.wikipedia.org/wiki/PBK
 
 ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure.
 
-* * *
+---
 
 ## 推薦
 

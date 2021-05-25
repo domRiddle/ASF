@@ -4,7 +4,7 @@ ASF 包含自己獨特的 IPC 接口，可用於與流程進一步交互。 IPC�
 
 根據您的需求和技能，IPC 可用於諸多不同的事情。 例如，您可以使用它來獲取 ASF 和所有機械人的狀態，發送 ASF 命令，獲取和編輯全域/機械人配置，添加新機械人，刪除現有機械人，提交** <a href =“https：/ /github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer">BGR </a> **或訪問 ASF 的日誌檔案。 所有這些操作都由我們的 API 公開，這意味著您可以編輯自己的工具和腳本，以其與 ASF 通信並在運行時對其產生影響。 除此之外，我們的 ASF-ui 還實現了選定的操作（例如發送命令），您可以通過友好的 Web 界面輕鬆訪問它們。
 
-* * *
+---
 
 # 使用方法
 
@@ -25,7 +25,7 @@ ASF 的 IPC 接口提供了三種不同的訪問方式，具體取決於您的�
 
 在最高級別，** [ ASF-ui ](#asf-ui) **基於我們的 ASF API，並提供對用戶友好的方式來執行各種 ASF 操作。 這是我們為最終用戶設計的默認 IPC 接口，也是您使用 ASF API 構建的完美示例。 如果您願意，可以使用自訂 Web UI 與 ASF 一起使用，方法是指定 `--path ` **[命令列參數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**，並使用位於那裡的自定義` www `目錄。
 
-* * *
+---
 
 # ASF-ui
 
@@ -35,7 +35,7 @@ ASF-ui 是一個社區項目，旨在創建用戶友好的圖形 Web 界面。 �
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-* * *
+---
 
 # ASF API
 
@@ -47,7 +47,7 @@ ASF-ui 是一個社區項目，旨在創建用戶友好的圖形 Web 界面。 �
 
 ![ASF API](https://i.imgur.com/yggjf5v.png)
 
-* * *
+---
 
 ## 身份驗證
 
@@ -63,11 +63,11 @@ ASF IPC 接口不需要任何類型的身份驗證，因為預設情況下` IPCP
 
 Alternatively you can append `password` parameter to the end of the URL you're about to call, for example by calling `/Api/ASF?password=MyPassword` instead of `/Api/ASF` alone. This approach is good enough, but obviously it exposes password in the open, which is not necessarily always appropriate. In addition to that it's extra argument in the query string, which complicates the look of the URL and makes it feel like it's URL-specific, while password applies to entire ASF API communication.
 
-* * *
+---
 
 Both ways are supported and it's totally up to you which one you want to choose. We recommend to use HTTP headers everywhere where you can, as usage-wise it's more appropriate than query string. However, we support query string as well, mainly because of various limitations related to request headers. A good example includes lack of custom headers while initiating a websocket connection in javascript (even though it's completely valid according to the RFC). In this situation query string is the only way to authenticate.
 
-* * *
+---
 
 ## Swagger 文件編製
 
@@ -77,9 +77,9 @@ Apart from using our swagger documentation as a complete specification of ASF AP
 
 ![Swagger 文件編製](https://i.imgur.com/mLpd5e4.png)
 
-* * *
+---
 
-# 常見問題
+# 如何使用
 
 ### Is ASF's IPC interface secure and safe to use?
 
@@ -173,11 +173,11 @@ Example Apache configuration can be found below. Please refer to **[apache docum
 
 ### 我可以通過 HTTPS 協議訪問 IPC 接口嗎？
 
-**是的**，您可以通過兩種不同的方式實現它。 A recommended way would be to use a reverse proxy for that (described above) where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
+**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that (described above) where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
 
 Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. This way is recommended if you're not running any other web server and don't want to run one exclusively for ASF. Otherwise, it's much easier to achieve a satisfying setup by using a reverse proxy mechanism.
 
-* * *
+---
 
 ## 自訂配置
 

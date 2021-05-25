@@ -4,7 +4,7 @@ A háttérbeli játék beváltó egy speciális ASF funkció, amivel megadott St
 
 A háttérbeli játék beváltónak csak egyetlen bot hatásköre lehet, ez azt jelenti, hogy nem használhatja a `RedeemingPreferences`-t. Ezt a funkciót használhatod a `redeem` **[paranccsal](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** együtt (vagy ahelyett), ha szükséged lenne rá.
 
-* * *
+---
 
 ## Importálás
 
@@ -36,7 +36,7 @@ Bármelyik formátumot is használnád az ASF importálni fogja a `keys` fájlod
 
 A fentebb említett kulcs fájlok mellett az ASF biztosít egy `GamesToRedeemInBackground` nevű **[ASF API endpoint-ot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** is, amit egy IPC programmal lehet futtatni, ide értve a saját ASF-ui-unkat is. Az IPC használata akkor jöhet jól, ha te magad akarod elvégezni a kulcsok feldolgozását, mint például egyedi elválasztó karaktereket akarsz használni, mivel a tabulátorok neked nem megfelelőek, vagy akár teljesen más kulcs struktúrát akarsz használni.
 
-* * *
+---
 
 ## Várólista
 
@@ -44,7 +44,7 @@ Miután a játékok sikeresen importálva lettek, hozzá lesznek adva a várakoz
 
 Ha a folyamat során az account `RateLimited` státuszt kapna, a várakozólista egy teljesen órán keresztül szüneteltetve lesz, hogy megvárja, míg lejár a státusz. Ezután a processz ott fogja folytatni, ahol abbahagyta, egészen amíg a várakozólista üres nem lesz.
 
-* * *
+---
 
 ## Példa
 
@@ -60,7 +60,7 @@ Egy idő után két fájl lesz legenerálva: `BotNeve.keys.used` és `BotNeve.ke
 
 A fentebb írtakat arra is fel lehet használni, hogy újabb játékokat adj hozzá a listához, miközben néhány játék már a várólistában van. Az ASF hozzá fogja adni az újabb sorokat a már futó várólistához és egyszer majd azok is sorra fognak kerülni.
 
-* * *
+---
 
 ## Megjegyzések
 

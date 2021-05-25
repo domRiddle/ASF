@@ -2,7 +2,7 @@
 
 Our extended FAQ covers a bit less common questions and answers that you may have. For a more common matters, please visit our **[basic FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead.
 
-* * *
+---
 
 ### Ποιος δημιούργησε το ASF;
 
@@ -12,7 +12,7 @@ However, ASF is open-source project, and I can't express enough that I'm not beh
 
 Thank you all for helping in ASF development! You're awesome.
 
-* * *
+---
 
 ### Why was ASF created in the first place?
 
@@ -20,7 +20,7 @@ ASF was created with primary purpose of being fully automated Steam idling tool 
 
 It's nice to note that ASF was never made to compete with other idlers, especially **[Idle Master](https://www.steamidlemaster.com)**, because ASF was never designed to be a desktop/user app, and it still isn't today. If you analyze primary purpose of ASF described above, then you'll see how Idle master is **the exact opposite** of all of that. While you can most definitely find similar to ASF idlers today, nothing was good enough for me back then (and still isn't today), so I created my own idler, the way I wanted it. Over time users have migrated to ASF mainly due to robustness, stability and security, but also all the features that I've developed across all those years. Today, ASF is better than ever before.
 
-* * *
+---
 
 ### OK, where is the catch? What do you gain from sharing ASF?
 
@@ -28,7 +28,7 @@ There is no catch, I created ASF **for myself** and shared it with the rest of t
 
 I'm also using ASF as a perfect example of a modern C# project that always strikes for perfection and best practices, be it with technology, project management or the code itself. It's my definition of "things done right", so if by any chance you manage to learn something useful from my project, then that will make me only more happy.
 
-* * *
+---
 
 ### I've launched the program on April the 1st and the ASF language changed into something strange, what is going on?
 

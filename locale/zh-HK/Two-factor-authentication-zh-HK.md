@@ -4,13 +4,13 @@
 
 當前交易託管期最長達15天，雖說這對ASF來說無關緊要，但對想要實現完全自動化的用戶而言相當麻煩。 幸運的是，ASF提供了解決這個問題的方案，稱為ASF 2FA。
 
-* * *
+---
 
 # ASF 邏輯
 
 ASF擁有適當的邏輯並完全適用於受標準2FA保護的帳戶，無論您是否啟用ASF 2FA。 它會在需要時「例如在登錄期間」向您請求所需的詳細資訊。 如果您使用ASF 2FA，程式將能夠跳過這些請求並自動生成所需的代碼，從而省去您的麻煩並啟用額外的功能「如下所述」。
 
-* * *
+---
 
 # ASF 2FA
 
@@ -18,21 +18,20 @@ ASF 2FA is a built-in module responsible for providing 2FA features to ASF proce
 
 您可以執行`2fa`**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**以檢查機械人帳戶是否已啟用2FA。 Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
 
-* * *
+---
 
 ## 導入
 
 In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. 如果您還沒有任何驗證器，則需要先選擇其中一個並進行設置。 如果您不知道選擇哪一個，我們推薦 WinAuth，但只要您按照說明操作，上述任何一項都可以正常工作。
 
 以下所有指南都要求您已擁有在上述工具/應用程式中 **可運行的**身份驗證器。 如果導入無效資料，ASF 2FA將無法正常運行，因此在嘗試導入資料之前，請確保您的身份驗證器運行正常。 這包括測試和驗證以下身份驗證器功能能否正常運行：
-
 - 您可以生成代碼，且它們受Steam網絡承認
 - 您可以由流動身份驗證器獲取交易確認
 - 您可以接受這些交易確認，並且它們被Steam網絡正確地識別為確認/拒絕
 
 Ensure that your authenticator works by checking if above actions work - if they don't, then they won't work in ASF either, you'll only waste time and cause yourself additional trouble.
 
-* * *
+---
 
 ### Android手機
 
@@ -57,7 +56,7 @@ If you don't want to or don't need to go through WinAuth, then simply copy `file
 
 That's all, assuming that you've imported the correct file with valid secrets, everything should work properly, which you can verify by using `2fa` commands. If you made a mistake, you can always remove `Bot.db` and start over if needed.
 
-* * *
+---
 
 ### iOS
 
@@ -69,7 +68,7 @@ Head over to **[latest release](https://github.com/CaitSith2/ios-steamguard-extr
 
 *請記住，上面的工具是非官方的，您使用它需要自擔風險。 We do not offer technical support if it doesn't work properly - we got a few signals that it's exporting invalid 2FA credentials - verify that confirmations work in authenticator like WinAuth prior to importing that data to ASF!*
 
-* * *
+---
 
 ### Steam桌面驗證器
 
@@ -86,7 +85,7 @@ You should now rename `steamID.maFile` to `BotName.maFile` in ASF config directo
 
 從現在開始，您的ASF 2FA應該可以在此帳戶運行。
 
-* * *
+---
 
 ### WinAuth
 
@@ -103,7 +102,7 @@ Firstly create new empty `BotName.maFile` in ASF config directory, where `BotNam
 
 從現在開始，您的ASF 2FA應該可以在此帳戶運行。
 
-* * *
+---
 
 ## 完成
 
@@ -111,51 +110,51 @@ From this moment, all `2fa` commands will work as they'd be called on your class
 
 If you have authenticator on your phone, you can optionally remove SteamDesktopAuthenticator and/or WinAuth, as we won't need it anymore. However, I suggest to keep it just in case, not to mention that it's more handy than normal steam authenticator. Just keep in mind that ASF 2FA is **NOT** a general purpose authenticator and it should **never** be the only one you use, since it doesn't even include all data that authenticator should have. It's not possible to convert ASF 2FA back to original authenticator, therefore always make sure that you have general-purpose authenticator in other place, such as in WinAuth/SDA, or on your phone.
 
-* * *
+---
 
-## 常見問題
+## 如何使用
 
 ### ASF如何使用2FA模組？
 
 如果ASF 2FA可用，ASF將使用它自動確認由ASF發送/接受的交易。 它還可以根據需要自動生成2FA代碼，例如為了登錄。 除此之外，還可以執行` 2fa `命令以使用ASF 2FA。 That should be all for now, if I didn't forget about anything - basically ASF uses 2FA module on as-needed basis.
 
-* * *
+---
 
 ### 為何我需要2FA代碼？
 
 您需要2FA代碼才能訪問受2FA保護的帳戶，其中包括具有ASF 2FA的每個帳戶。 您應該在用於導入的身份驗證器中生成代碼，但您也可以通過聊天向給定機器人的發送` 2fa `命令生成臨時代碼。 您還可以使用`2fa <BotNames>`命令為給定的機械人實例生成臨時代碼。 這應該足以讓您訪問機械人帳戶，例如通過瀏覽器，但如上所述——您應該使用友好的身份驗證器（Android，iOS，SDA或WinAuth）。
 
-* * *
+---
 
 ### 在導入ASF 2FA後，我可以使用我原有的身份驗證器嗎？
 
 是的，您的原始驗證器仍然可用並可以與ASF 2FA一起使用。 這就是整個過程——我們將您的身份驗證器憑據導入ASF，因此ASF可以使用它們並代表您接受選定的確認。
 
-* * *
+---
 
 ### ASF流動身份驗證器在哪裏保存？
 
 ASF流動驗證器以及與給定帳戶相關的其他關鍵數據保存在配置目錄中的` BotName.db `檔案中。 如果您想移除ASF 2FA，請閱讀以下內容。
 
-* * *
+---
 
 ### 如何移除ASF 2FA？
 
 Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2FA you want to remove. This option will remove associated imported 2FA with ASF, but will NOT delink your authenticator. If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, iOS, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linking that authenticator, on the Steam website. It's not possible to unlink your authenticator through ASF, this is what general-purpose authenticator that you already have should be used for.
 
-* * *
+---
 
 ### 我將身份驗證器鏈接到SDA/WinAuth，然後導入到ASF。 我現在可以取消鏈接並在手機上再次鏈接嗎？
 
-**從未**。 ASF **導入**您的身份驗證器數據以便使用它。 如上所述，如果您使用身份驗證器，那麼您也會導致ASF 2FA停止運行，無論您是否首先將其移除。 如果您想在手機和ASF上使用身份驗證器（加上SDA/WinAuth中的身份驗證器），那麼您需要從手機中**導入**您的身份驗證器，而不是在SDA/WinAuth中創建新身份驗證器。 您只能擁有**一個**鏈接身份驗證器，這就是ASF **導入**該身份驗證器及其數據的原因，以便將其用作ASF 2FA——它與原本的身份驗證器**相同**，只是存在於兩個地方。 If you decide to delink your mobile authenticator credentials - regardless in which way, ASF 2FA will stop working, as previously copied mobile authenticator credentials will no longer be valid. 如上所述，要在手機上將ASF 2FA與身份驗證器一起使用，您必須將其從Android/iOS導入。
+**不行**。 ASF **導入**您的身份驗證器數據以便使用它。 如上所述，如果您使用身份驗證器，那麼您也會導致ASF 2FA停止運行，無論您是否首先將其移除。 如果您想在手機和ASF上使用身份驗證器（加上SDA/WinAuth中的身份驗證器），那麼您需要從手機中**導入**您的身份驗證器，而不是在SDA/WinAuth中創建新身份驗證器。 您只能擁有**一個**鏈接身份驗證器，這就是ASF **導入**該身份驗證器及其數據的原因，以便將其用作ASF 2FA——它與原本的身份驗證器**相同**，只是存在於兩個地方。 If you decide to delink your mobile authenticator credentials - regardless in which way, ASF 2FA will stop working, as previously copied mobile authenticator credentials will no longer be valid. 如上所述，要在手機上將ASF 2FA與身份驗證器一起使用，您必須將其從Android/iOS導入。
 
-* * *
+---
 
 ### 使用ASF 2FA比WinAuth/SDA/其他驗證器接受所有確認更好嗎？
 
 **是的**，有幾個原因。 First and most important one - using ASF 2FA **significantly** increases your security, as ASF 2FA module ensures that ASF will only accept automatically its own confirmations, so even if attacker does request a trade that is harmful, ASF 2FA will **not** accept such trade, as it was not generated by ASF. In addition to security part, using ASF 2FA also brings performance/optimization benefits, as ASF 2FA fetches and accepts confirmations immediately after they're generated, and only then, as opposed to inefficient polling for confirmations each X minutes done e.g. by SDA or WinAuth. In short, there is no reason to use third-party authenticator over ASF 2FA, if you plan on automating confirmations generated by ASF - that's exactly what ASF 2FA is for, and using it does not conflict with you confirming everything else in authenticator of your choice. We strongly recommend to use ASF 2FA for entire ASF activity - this is much more secure than any other solution.
 
-* * *
+---
 
 ## 進階
 

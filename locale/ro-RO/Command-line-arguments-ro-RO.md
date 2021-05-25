@@ -2,7 +2,7 @@
 
 ASF include suport pentru mai multe argumente de linie de comandă care pot afecta rularea programului. Acestea pot fi folosite de utilizatorii avansați pentru a specifica cum ar trebui să ruleze programul. În comparație cu modul implicit al fișierului de configurare `ASF.json`, argumentele din linie de comanda sunt folosite pentru inițializarea de bază (de ex. `--path`), setări specifice platformei (ex. `--system-required`) sau date sensibile (ex. `--cryptkey`).
 
-* * *
+---
 
 ## Utilizare
 
@@ -48,29 +48,29 @@ Cu toate acestea, următoarele sunt complet în regulă:
 
 Datorită naturii acestei proprietăți, este posibilă și setarea cheii de criptare prin declararea variabilei de mediu `ASF_CRYPTKEY`, care ar putea fi mai potrivită pentru persoanele care ar dori să evite detaliile sensibile în argumentele procesului.
 
-* * *
+---
 
 `--ignore-unsupported-environment` - va provoca ASF să ignore detectarea mediului nesuportat, care în mod normal este semnalizată cu o eroare și ieșire forțată. Deocamdată, mediul nesuportat este clasificat ca fiind o platforma .NET Framework care ar putea funcţiona .NET Core build în schimb. Deoarece suportam `generic-netf` doar în scenarii foarte limitate (cu **[Mono](https://www.mono-project.com)**), utilizarea acestuia pentru alte cazuri (de ex. pentru lansarea pe platforme `win-x64`) nu este acceptată. Vizitați **[compatibilitate](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** pentru mai multe informații.
 
-* * *
+---
 
 `--network-group <group>` sau `--network-group=<group>` - va determina ASF să își inițializeze limitele cu un grup de rețea personalizat de `<group>`. Această opțiune afectează rularea ASF în **[mai multe instanțe](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** prin semnalizarea că o anumită instanță este dependentă doar de instanțele care partajează același grup de rețea, independent de restul. De obicei vrei să folosești această proprietate doar dacă direcționezi cereri ASF prin mecanisme personalizate (de ex. adrese IP diferite) și doriți să setați dvs. grupuri de rețea; fără a se baza pe ASF pentru a face acest lucru automat (care include în prezent doar luarea în considerare a `WebProxy`). Rețineți că atunci când utilizați un grup de rețea personalizat, acesta este un identificator unic în cadrul mașinii locale, iar ASF nu va lua în considerare alte detalii, cum ar fi valoarea `WebProxy`, care permite de ex. pornirea a două instanțe cu valori `WebProxy` diferite, care sunt încă dependente una de cealaltă.
 
 Datorită naturii acestei proprietăți, este posibilă și setarea cheii de criptare prin declararea variabilei de mediu `ASF_NETWORK_GROUP`, care ar putea fi mai potrivită pentru persoanele care ar dori să evite detaliile sensibile în argumentele procesului.
 
-* * *
+---
 
 `--no-config-migrate` - by default ASF will automatically migrate your config files to latest syntax. Migration includes conversion of deprecated properties into latest ones, removing properties with default values (as they have no effect), as well as cleaning up the file in general (correcting indentation and likewise). This is almost always a good idea, but you might have a particular situation where you'd prefer ASF to never overwrite the config files automatically. For example, you might want to `chmod 400` your config files (read permission for the owner only) or put `chattr +i` over them, in result denying write access for everyone, e.g. as a security measure. Usually we recommend to keep the config migration enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
 
-* * *
+---
 
 `--no-config-watch` - by default ASF sets up a `FileSystemWatcher` over your `config` directory in order to listen for events related to file changes, so it can interactively adapt to them. For example, this includes stopping bots on config deletion, restarting bot on config being changed, or loading keys into **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** once you drop them into the `config` directory. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate. Usually we recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
 
-* * *
+---
 
-`--no-restart` - acest comutator este folosit în principal de containere **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** şi forţează `AutoRepornire` să fie `false`. Dacă nu ai o nevoie specială, în schimb ar trebui să configurezi proprietatea `AutoRestart` direct în configurația ta. Acest comutator este aici astfel încât scriptul nostru docker nu va trebui să atingă configurația globală pentru a-l adapta la mediul său propriu. Desigur, dacă rulați ASF într-un script, puteți folosi acest comutator (altfel sunteți mai bine cu proprietatea configurării globale).
+`--no-restart` - acest comutator este folosit în principal de containere **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** şi forţează `AutoRepornire` să fie `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Desigur, dacă rulați ASF într-un script, puteți folosi acest comutator (altfel sunteți mai bine cu proprietatea configurării globale).
 
-* * *
+---
 
 `--path <path>` sau `--path<path>` - ASF navigează întotdeauna spre propriul său director la pornire. Prin specificarea acestui argument, ASF va naviga la un anumit director după inițializare, care vă permite să utilizaţi calea personalizată pentru diferite componente ale aplicaţiei (inclusiv directoarele`config`, `plugins` și `www`, precum și fișierul `NLog.config`), fără a fi nevoie de duplicarea binarului în același loc. Poate fi folositor mai ales dacă doriţi să separaţi binarul de configurarea reală, aşa cum este făcut în ambalajul din Linux - în acest fel puteţi folosi un binar (actualizat) cu mai multe configurări diferite. Calea poate fi relativă în funcție de locul curent al sistemului binar ASF, sau absolut. Țineți cont că această comandă indică către noul "ASF home" - directorul care are aceeași structură ca ASF original, cu folderul de configurare înăuntru, vezi mai jos exemplul de explicație.
 
@@ -101,13 +101,13 @@ ASF_PATH=/opt/DirectorDorit dotnet /opt/ASF/ArchiSteamFarm.dll # La fel ca varia
 └── ...
 ```
 
-* * *
+---
 
 `--process-required` - declarând că acest comutator va dezactiva comportamentul ASF implicit la închidere atunci când niciun bot nu rulează. Comportamentul de închidere automată dezactivată este util în special în combinație cu **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** unde majoritatea utilizatorilor se așteaptă ca serviciul lor web să fie rulat, indiferent de numărul de boți care sunt activați. Dacă utilizați opțiunea IPC sau aveți nevoie de procesul ASF pentru a rula tot timpul până când îl închideți, aceasta este opţiunea corectă.
 
 Dacă nu intenționezi să gestionezi IPC, această opțiune va fi mai degrabă inutilă pentru tine, pentru că poți mai simplu să pornești procesul din nou când este necesar (spre deosebire de serverul web al ASF, unde ai nevoie de el tot timpul pentru a trimite comenzi).
 
-* * *
+---
 
 `--system-required` - declararea acestui întrerupător va determina ASF să încerce să semnalizeze sistemului de operare că procesul necesită ca sistemul să fie funcțional pe toată durata sa de viață. În prezent, acest comutator are efect numai pe mașinile Windows unde va interzice sistemului să intre în modul de suspendare atâta timp cât procesul rulează. Acest lucru poate fi dovedit deosebit de util în timpul nopții atunci când se farmează pe PC-ul sau laptopul tău, astfel ASF va fi capabil să îți țină sistemul treaz în timp ce farmează, odată ce ASF este terminat, se va închide ca de obicei, făcând ca sistemul tău să poată intra din nou în modul de somn, prin urmare permite economisirea de energie imediat după terminarea perioadei de ralanti.
 

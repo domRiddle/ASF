@@ -3,7 +3,6 @@
 ASF支援各種命令，這些命令可用於控制進程和機械人實例的行為。
 
 以下命令可以通過各種不同的方式發送到機械人：
-
 - 通過互動式 ASF 主控台
 - 通過 Steam 私人聊天/群組聊天
 - 通過我們的 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 介面
@@ -12,7 +11,7 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 
 所有通過 Steam 聊天發送的命令都受 `CommandPrefix`**[ 全域配置屬性​影響](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)**，該屬性的預設值為`!`。 這意味著，當您要執行 `status` 命令時，實際應該發送 `!status`（或者使用您自訂的 `CommandPrefix`）。 `CommandPrefix` 不是強制性的，當您使用主控台或 IPC 時可以省略。
 
-* * *
+---
 
 ### 互動式主控台
 
@@ -22,7 +21,7 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 
 互動式主控台在 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) 模式中不可用。
 
-* * *
+---
 
 ### Steam 聊天
 
@@ -36,7 +35,7 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 
 *And even in this case you should use private chat with `[Bots]` syntax instead.*
 
-* * *
+---
 
 ### IPC
 
@@ -44,7 +43,7 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 
 ![截圖](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
-* * *
+---
 
 ## 命令
 
@@ -104,7 +103,7 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 | `update`                                                             | `Owner`         | 檢查 GitHub 上的 ASF 更新（每 `UpdatePeriod` 自動執行一次）。                                                                                                                                                                                                                            |
 | `version`                                                            | `FamilySharing` | 列印當前 ASF 的版本號。                                                                                                                                                                                                                                                           |
 
-* * *
+---
 
 ### 備註
 
@@ -122,7 +121,7 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 
 如上所述，空白字元被用作命令的分隔符號，因此它不能在參數中使用。 但是，如上所述，ASF可以聯接超出範圍的參數, 這意味著您實際上能夠在參數中使用空白字元，該字元被定義為給定命令的最後一個字元。 例如，`nickname bob Great Bob` 將正確地將機械人 `bob` 的昵稱設置為「Great Bob」。 與此類似，您可以使用`owns` 命令檢查含有空格的名稱。
 
-* * *
+---
 
 一些命令有較短的別名可用，以便節省鍵入耗時。
 
@@ -133,7 +132,7 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 | `redeem`     | `r`  |
 | `redeem^`    | `r^` |
 
-* * *
+---
 
 ### `[Bots]` argument
 
@@ -145,7 +144,7 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 
 In addition to range syntax above, `[Bots]` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. 您可以使用 `r!<pattern>` 作為機械人名稱來激活正則運算式模式，其中 `r!` 是用於正則運算式匹配的ASF啟動命令，而 `<pattern>` 是您的正則運算式。 一個使用正則運算式的例子為 `status r!\d{3}` 命令，它會向所有名稱由 3 個數位組成的機械人（例如 `123` 和 `981`）發送` status` 命令。 您可以隨時閱讀這份**[​文檔](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)**，以進一步了解更多可用正則運算式的解釋和示例。
 
-* * *
+---
 
 ## `privacy` 設置
 
@@ -199,7 +198,7 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 請記住子選項的許可權無法高於父選項。 有關可用選項，請參閱參數關係。
 
-* * *
+---
 
 ## `addlicense` licenses
 
@@ -220,7 +219,7 @@ Complete command example:
 addlicense ASF app/292030,sub/47807
 ```
 
-* * *
+---
 
 ## `owns` games
 
@@ -241,7 +240,7 @@ Complete command example:
 owns ASF app/292030,name/Witcher
 ```
 
-* * *
+---
 
 ## `redeem^`模式
 
@@ -268,19 +267,19 @@ owns ASF app/292030,name/Witcher
 
 需要注意的是，進階激活模式只會覆蓋您**在命令中使用**的`RedeemingPreferences`選項。 舉例來說，如果您在 `RedeemingPreferences` 中啟用了 `Distributing`，則無論是否使用 `FD` 模式，都不會有任何區別，因為您已激活了`RedeemingPreferences`。 這就是為什麼每個可強制啟用的重寫也有一個可強制禁用的選項，若有需要，您可以決定在啟用的情況下強制覆蓋，反之亦然。
 
-* * *
+---
 
 ## `encrypt` command
 
 `encrypt` command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` must be one of the encryption methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
-* * *
+---
 
 ## `hash` command
 
 `hash` command allows you to generate hashes of arbitrary strings using ASF's hashing methods. `<hashingMethod>` must be one of the hashing methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
-* * *
+---
 
 ## `input` 命令
 
@@ -306,10 +305,10 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 為此，我們需要執行以下命令：
 
-`start MySteamGuardBot` ->機械人會嘗試登入，但缺少驗證碼會導致登入失敗，在`Headless` 模式下，機械人會停止運行。 我們需要這樣做的目的是使Steam網絡通過電子郵件向我們發送驗證代碼──如果不需要這樣做，我們將完全跳過這一步。
+`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. 我們需要這樣做的目的是使Steam網絡通過電子郵件向我們發送驗證代碼──如果不需要這樣做，我們將完全跳過這一步。
 
-`input MySteamGuardBot SteamGuard ABCDE` -> 我們將 `MySteamGuardBot` 機械人的 `SteamGuard` 輸入設置為 `ABCDE`。 當然，在這種情況下，`ABCDE`是我們在電子郵件中獲得的驗證代碼。
+`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. 當然，在這種情況下，`ABCDE`是我們在電子郵件中獲得的驗證代碼。
 
-`start MySteamGuardBot` ->我們重新啟動（已停止的）機械人，這一次會自動使用我們在上一步中設置的身份驗證代碼，正確登錄，然後清除它。
+`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
 
 同樣，我們可以訪問受2FA 保護的機械人 (如果它們不使用 ASF 2FA)，只需在運行時設置其他必需的屬性。

@@ -2,11 +2,11 @@
 
 Isto é exatamente o oposto da **[configuração de pouca memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** e provavelmente você vai querer seguir essas dicas se você quer aumentar a performance do ASF (em termos de velocidade da CPU), ao custo de aumentar o uso de memória.
 
-* * *
+---
 
 O ASF tenta preferir desempenho quando se trata equilíbrio, portanto não há muito que você possa fazer para aumentar sua performance, embora não estejamos totalmente sem opções. No entanto, tenha em mente que essas opções não são habilitadas por padrão, o que significa que elas não são boas o bastante para considerá-las equilibradas para a maioria das situações de uso, portanto você deve decidir por si mesmo se o aumento de memória que elas trazem valem a pena para você.
 
-* * *
+---
 
 ## Ajuste do tempo de execução (avançado)
 
@@ -32,7 +32,7 @@ A coleta de lixo de servidor em si não resulta em um aumento de memória muito 
 
 No entanto, se memória não é um problema para você (como o coletor de lixo leva em conta sua memória disponível e se auto-ajusta) é melhor não alterar essas opções, alcançando um desempenho superior como resultado.
 
-* * *
+---
 
 Você pode habilitar ambas as propriedade de coletor de lixo definindo as variáveis `COMPlus_` apropriadas. Por exemplo, no linux (shell):
 
@@ -50,7 +50,7 @@ $Env:COMPlus_gcServer=1
 .\ArchiSteamFarm.exe # Para compilação específica para SO
 ```
 
-* * *
+---
 
 ## Otimização recomendada
 

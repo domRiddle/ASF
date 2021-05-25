@@ -4,7 +4,7 @@ ASF incluye su propia interfaz IPC que puede usarse para mayor interacción con 
 
 La IPC puede ser usada para diferentes cosas, dependiendo de tus necesidades y habilidades. Por ejemplo, puedes usarlo para obtener el estatus de ASF y de todos los bots, enviar comandos de ASF, obtener y editar configuraciones globales/de bot, añadir nuevos bots, eliminar bots existentes, enviar claves para el **[activador de juegos en segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-es-es)** o acceder al archivo de registro de ASF. Todas esas acciones están expuestas por nuestra API, lo que significa que puedes codificar tus propias herramientas y scripts que sean capaces de comunicarse con ASF e influenciarlo durante el tiempo de ejecución. Además, algunas acciones selectas (como enviar comandos) también son implementadas por nuestro ASF-ui que te permite acceder a ellas fácilmente a través de una interfaz web amigable.
 
-* * *
+---
 
 # Uso
 
@@ -25,7 +25,7 @@ En el terreno medio está nuestra **[documentación Swagger](#swagger-documentat
 
 En el nivel más alto está **[ASF-ui](#asf-ui)** que se basa en nuestra ASF API y proporciona una forma amigable de ejecutar varias acciones en ASF. Esta es nuestra interfaz IPC predeterminada diseñada para los usuarios finales, y es un perfecto ejemplo de lo que puedes construir con la API de ASF. Si lo deseas, puedes usar tu propia interfaz web con ASF, especificando el **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-es#argumentos)** `--path` y usando el directorio personalizado `www` ubicado allí.
 
-* * *
+---
 
 # ASF-ui
 
@@ -35,7 +35,7 @@ Como se dijo antes, ASF-ui es un proyecto comunitario que no es mantenido por lo
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-* * *
+---
 
 # ASF API
 
@@ -47,7 +47,7 @@ Para una documentación completa de endpoints disponibles, descripciones, solici
 
 ![ASF API](https://i.imgur.com/yggjf5v.png)
 
-* * *
+---
 
 ## Autenticación
 
@@ -63,11 +63,11 @@ En general debes usar cabeceras de solicitud HTTP, estableciendo el campo `Authe
 
 Alternativamente puedes añadir el parámetro `password` al final de la URL que estás a punto de llamar, por ejemplo, llamando `/Api/ASF?password=MyPassword` en lugar de solamente `/Api/ASF`. Este enfoque es suficiente, pero obviamente expone la contraseña, lo que no siempre es apropiado. Además de eso está el argumento adicional en la cadena de consulta, lo que complica el aspecto de la URL y hace que parezca que es específico de la URL, mientras que la contraseña se aplica a toda la comunicación de la API de ASF.
 
-* * *
+---
 
 Ambas formas son soportadas y depende totalmente de ti cuál quieres elegir. Recomendamos usar cabeceras HTTP siempre que sea posible, ya que es más apropiado que la cadena de consulta. Sin embargo, también se soporta la cadena de consulta, principalmente por las varias limitaciones relacionadas con las cabeceras de solicitud. Un buen ejemplo incluye la falta de cabeceras personalizadas al iniciar una conexión websocket en javascript (aunque sea completamente válida de acuerdo al RFC). En esta situación una cadena de consulta es la única forma de autenticar.
 
-* * *
+---
 
 ## Documentación Swagger
 
@@ -77,7 +77,7 @@ Además de usar nuestra documentación Swagger como una especificación completa
 
 ![Documentación Swagger](https://i.imgur.com/mLpd5e4.png)
 
-* * *
+---
 
 # Preguntas frecuentes
 
@@ -152,7 +152,7 @@ server {
 }
 ```
 
-A continuación puedes encontrar un ejemplo de configuración Apache. Por favor, consulta la **[documentación apache](https://httpd.apache.org/docs)** si necesitas más detalles.
+A continuación puedes encontrar un ejemplo de configuración Apache. Por favor, consulta la **[documentación de apache](https://httpd.apache.org/docs)** si necesitas más detalles.
 
 ```apache
 <IfModule mod_ssl.c>
@@ -178,7 +178,7 @@ A continuación puedes encontrar un ejemplo de configuración Apache. Por favor,
 
 La segunda forma incluye especificar una **[configuración personalizada](#configuración-personalizada)** para la interfaz IPC de ASF donde puedas habilitar un endpoint https y proporcionar un certificado apropiado directamente a nuestro servidor Kestrel http. Esta forma se recomienda si no estás ejecutando ningún otro servidor web y no quieres ejecutar uno más exclusivamente para ASF. De otro modo, es mucho más fácil lograr una configuración satisfactoria usando un mecanismo de proxy inverso.
 
-* * *
+---
 
 ## Configuración personalizada
 

@@ -4,7 +4,7 @@ O ASF inclui sua própria interface IPC que pode ser usada para maior interaçã
 
 O IPC pode ser usado para muitas coisas diferentes, dependendo de suas necessidades e habilidades. Por exemplo, você pode usá-lo para ver o status do ASF e de todos os bots, enviar comandos ASF, buscar e editar a configuração global ou dos bots, adicionar novos bots, excluir bots existentes, adicionar keys para o **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-pt-BR)** ou acessar o arquivo de log do ASF. Todas essas ações são expostas pela nossa API, o que significa que você pode codificar suas próprias ferramentas e scripts que serão capazes de se comunicar com o ASF e influenciá-lo durante o tempo de execução. Além disso, ações selecionadas (como o envio de comandos) também são implementadas em nosso ASF-ui que permite que você tenha acesso fácil através de uma interface web amigável.
 
-* * *
+---
 
 # Uso
 
@@ -25,7 +25,7 @@ No nível médio há a nossa **[documentação Swagger](#documentação-Swagger)
 
 No nível mais alto há a **[ASF-ui](#asf-ui)** que é baseada no nosso API do ASF e fornece uma forma amigável de executar várias ações do ASF. Essa é nossa interface IPC padrão desenvolvida para usuários finais, e um exemplo perfeito do que você pode criar com a API do ASF. Se você quiser, você pode usar sua própria interface web com o ASF, especificando o caminho com o **[](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR#argumentos)** `--path` e utilizando a pasta `www` localizada lá.
 
-* * *
+---
 
 # ASF-ui
 
@@ -35,7 +35,7 @@ Como mencionado acima, a ASF-ui é um projeto da comunidade que não é mantido 
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-* * *
+---
 
 # ASF API
 
@@ -43,11 +43,17 @@ Nossa API do ASF é uma típica API web **[RESTful](https://en.wikipedia.org/wik
 
 Nossa API do ASF pode ser acessada enviando solicitações apropriadas para determinados `/Api` endpoints. Você pode usar esses API endpoints para criar seus próprios scripts auxiliares, ferramentas, interfaces gráficas e afins. Isso é exatamente o que a nossa ASF-ui faz, e qualquer outra ferramentas podem conseguir o mesmo. O API do ASF é oficialmente suportado e mantido pela equipe principal do ASF.
 
-Para uma documentação completa de endpoints disponíveis, descrições, solicitações, respostas, códigos de status http e tudo o mais em relação a ASF do API, consulte **documentação swagger</a>**.</p> 
+Para uma documentação completa de endpoints disponíveis, descrições, solicitações, respostas, códigos de status http e tudo o mais em relação a ASF do API, consulte
+
+**documentação swagger</a>**.</p> 
 
 ![API do ASF](https://i.imgur.com/yggjf5v.png)
 
-* * *
+
+
+---
+
+
 
 ## Autenticação
 
@@ -55,19 +61,29 @@ A interface ASF do IPC não requer qualquer tipo de autenticação por padrão, 
 
 A autenticação pode ser feita de duas formas diferentes.
 
+
+
 ### `Authentication` (autenticação) de cabeçalho
 
 Em geral, você deve usar cabeçalhos de solicitação HTTP, configurando o campo `Authentication` com sua senha como um valor. A maneira de fazer isso depende da ferramenta que você está usando para acessar a interface IPC do ASF, por exemplo, se você estiver usando `curl`, então você deve adicionar `-H 'Authentication: MyPassword'` como um parâmetro. Dessa forma a autenticação será passada nos cabeçalhos da solicitação, onde ele de fato deve ocorrer.
+
+
 
 ### Parâmetro `password` na string de consulta
 
 Como alternativa você pode acrescentar o parâmetro `password` ao final da URL você está prestes a chamar, por exemplo, chamando `/Api/ASF?password=MyPassword` em vez de apenas `/Api/ASF`. Essa abordagem é boa o suficiente, mas obviamente ele expõe sua senha, o que não é necessariamente adequado. Além disso, é um argumento extra na sequência de consulta, o que desorganiza a aparência da URL e da impressão que se aplica somente a essa URL, enquanto a senha se aplica a toda comunicação do API do ASF.
 
-* * *
+
+
+---
 
 Há suporte para ambas as formas e a escolha é totalmente sua em qual usar. Recomendamos usar cabeçalhos HTTP sempre que possível, já que esse tipo de uso é mais apropriado que uma string de consulta. No entanto, apoiamos a sequência de caracteres de consulta, principalmente por causa de várias limitações relacionadas com solicitações de cabeçalhos. Um bom exemplo inclui falta de cabeçalhos personalizados ao iniciar uma conexão de WebSockets em javascript (mesmo que seja completamente válido de acordo com a RFC). Nesta situação uma string de consulta é a única forma de autenticar.
 
-* * *
+
+
+---
+
+
 
 ## Documentação Swagger
 
@@ -77,9 +93,15 @@ Além de usar nossa documentação Swagger como uma especificação completa do 
 
 ![Documentação Swagger](https://i.imgur.com/mLpd5e4.png)
 
-* * *
+
+
+---
+
+
 
 # Perguntas frequentes (FAQ)
+
+
 
 ### A interface IPC do ASF é segura?
 
@@ -87,19 +109,27 @@ Por padrão o ASF escuta apenas nos endereços `localhost`, o que significa que 
 
 No entanto, se você decidir mudar os endereços padrão do `localhost`, então você deve configurar regras de firewall adequadas **por sua conta** para permitir apenas IPs autorizados a acessar a interface de IPC do ASF. Além disso, recomendamos configurar um `IPCPassword`, que vai adicionar uma camada extra de segurança. Você também pode querer rodar a interface IPC do ASF sob um proxy reverso nesse caso, que será melhor explicado abaixo.
 
+
+
 ### Posso acessar o API do ASF pelas minhas próprias ferramentas ou userscripts?
 
 Sim, é para isso que a API do ASF foi desenvolvida e você pode usar qualquer coisa capaz de enviar uma solicitação HTTP para acessá-lo. Userscripts locais seguem a lógica **[CORS](https://pt.wikipedia.org/wiki/Cross-origin_resource_sharing)**, e permitimos o acesso a eles de todas as origens (`*`), contanto que uma `IPCPassword` (senha IPC) seja definida, como uma medida de segurança extra. Isso permite que você execute várias solicitações autenticadas da API do ASF, sem permitir que scripts potencialmente mal-intencionados façam isso automaticamente (já que eles precisariam saber sua `IPCPassword` (senha) para fazer isso).
 
+
+
 ### Posso acessar o IPC do ASF remotamente, de outro computador por exemplo?
 
 Sim, recomendamos usar um proxy reverso para isso (explicado abaixo). Dessa forma você pode acessar seu servidor web como de costume, o qual então acessará o IPC do ASF no mesmo computador. Como alternativa, se você não quiser executar um proxy reverso, você pode usar uma **[configuração personalizada](#configuração-personalizada)** com uma URL personalizada. Por exemplo, se seu computador estiver em um VPN privado com o endereço `10.8.0.1`, então você pode configurar `http://10.8.0.1:1242` como URL de escuta na configuração do IPC, o que habilitaria o acesso IPC de dentro da sua VPN privada, mas não de outro lugar.
+
+
 
 ### Posso usar o IPC do ASF atrás de um proxy reverso como Apache ou Nginx?
 
 **Sim**, nosso IPC é totalmente compatível com tal configuração, então você também pode usá-lo com suas próprias ferramentas para maior segurança e compatibilidade, se quiser. Em geral, o servidor http Kestrel do ASF é muito seguro e não possui nenhum risco ao ser conectado diretamente à internet, mas colocá-lo atrás de um proxy reverso como Apache ou Nginx pode fornecer funcionalidades extras que não seria possível conseguir de outra forma, como garantir a interface do ASF com uma **[autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
 
 Segue abaixo um exemplo de configuração Nginx. Incluímos um bloco `server` completo, embora você esteja interessado principalmente nos blocos `location`. Consulte a **[documentação nginx](https://nginx.org/en/docs)** se você precisar de mais explicações.
+
+
 
 ```nginx
 server {
@@ -151,7 +181,10 @@ server {
 }
 ```
 
-Segue abaixo um exemplo de configuração Apache. Consulte a **[documentação apache](https://httpd.apache.org/docs)** se você precisar de mais explicações.
+
+Segue abaixo um exemplo de configuração Apache. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
+
+
 
 ```apache
 <IfModule mod_ssl.c>
@@ -171,13 +204,20 @@ Segue abaixo um exemplo de configuração Apache. Consulte a **[documentação a
 </IfModule>
 ```
 
+
+
+
 ### Posso acessar a interface IPC através do protocolo HTTPS?
 
-**Sim**, isso pode ser feito de duas formas. Uma maneira recomendada seria usar um proxy reverso (descrito acima) onde você pode acessar o seu servidor web através de https, como de costume, e conectar-se através dele com interface IPC do ASF no mesmo computador. Desta forma o seu tráfego será totalmente criptografado e você não precisa modificar o IPC para tal configuração.
+**Yes**, you can achieve it through two different ways. Uma maneira recomendada seria usar um proxy reverso (descrito acima) onde você pode acessar o seu servidor web através de https, como de costume, e conectar-se através dele com interface IPC do ASF no mesmo computador. Desta forma o seu tráfego será totalmente criptografado e você não precisa modificar o IPC para tal configuração.
 
-A segunda forma inclui especificar uma **[configuração personalizada](#configuração-personalizada)** para a interface IPC do ASF, onde você pode habilitar o endpoint https e fornecer um certificado apropriado diretamente para o nosso servidor http Kestrel. Este modo é recomendado se você não estiver executando nenhum outro servidor web e não quer executar um exclusivamente para o ASF. Caso contrário, é muito mais fácil efetuar uma configuração satisfatória por meio de um mecanismo de proxy reverso.
+Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. Este modo é recomendado se você não estiver executando nenhum outro servidor web e não quer executar um exclusivamente para o ASF. Caso contrário, é muito mais fácil efetuar uma configuração satisfatória por meio de um mecanismo de proxy reverso.
 
-* * *
+
+
+---
+
+
 
 ## Configuração personalizada
 
@@ -186,6 +226,8 @@ Nossa interface IPC oferece suporte a arquivo de configuração extra, ele deve 
 Quando disponível, este arquivo especifica configurações avançadas do servidor http Kestrel do ASF, juntamente com outros ajustes relacionados ao IPC. A menos que você tenha uma necessidade específica, não há nenhuma razão para você usar esse arquivo, já que o ASF já está usando padrões razoáveis.
 
 O arquivo de configuração baseia-se na seguinte estrutura JSON:
+
+
 
 ```json
 {
@@ -222,19 +264,24 @@ O arquivo de configuração baseia-se na seguinte estrutura JSON:
 }
 ```
 
+
 `Endpoints` - Esta é uma coleção de endpoints, cada endpoint tendo seu próprio nome exclusivo (como `exemplo-http4`) e a propriedade `Url` que especifica o endereço de escuta `Protocol://Host:Port`. Por padrão, o ASF ouve nos endereços http IPv4 e IPv6, mas nós adicionamos exemplos http para você usar caso necessário. Você deve declarar apenas os endpoints que você precisa, nós incluímos os 4 exemplos acima para que você possa editá-los.
 
-`Host` aceita uma variedade de valores, incluindo `*` que vincula o servidor http do ASF a todas as interfaces disponíveis. Seja extremamente cauteloso quando usar valores de `Host` que permitem acesso remoto. Fazer isso vai permitir o acesso a interface IPC do ASF de outros computadores, que pode causar um risco na segurança. Nós recomendamos fortemente usar **ao menos **`IPCPassword` (e de preferência seu firewall também) nesse caso.
+`Host` aceita uma variedade de valores, incluindo `*` que vincula o servidor http do ASF a todas as interfaces disponíveis. Seja extremamente cauteloso quando usar valores de `Host` que permitem acesso remoto. Fazer isso vai permitir o acesso a interface IPC do ASF de outros computadores, que pode causar um risco na segurança. We strongly recommend to use `IPCPassword` (and preferably your own firewall too) **at a minimum** in this case.
 
 `KnownNetworks` - Essa variável especifica endereços de internet que consideramos confiáveis. Esta propriedade é crucial especialmente combinado com a hospedagem de um proxy reverso para o ASF em um computador diferente do qual o ASF esteja rodando - neste caso, você deve declarar o IP da máquina aqui, para que o ASF respeite seus cabeçalhos de proxy e aceite as solicitações. Não é necessário especificar essa variável se você não planeja usar qualquer tipo de proxy reverso com o ASF, ou se o proxy reverso estiver localizado no mesmo computador que o ASF (e, portanto, se conectando ao IPC do ASF usando o endereço `127.0.0.1`). Tenha muito cuidado com as redes especificadas aqui, pois permite um potencial ataque de falsificação de IP caso a máquina confiável esteja comprometida ou incorretamente configurada.
 
-`PathBase` - Esse é o caminho padrão que será usado pela interface IPC. Essa propriedade é opcional, o padrão é `/` e deve haver a necessidade de modificação na maioria dos casos. Mudar essa propriedade fará com que a interface IPC seja hospedada em um prefixo personalizado, por exemplo `http://localhost:1242/MeuPrefixo` ao invés de apenas `http://localhost:1242`. Usar um `PathBase` personalizado pode ser desejável em combinação com uma configuração específica de proxy reverso, onde você quer que o proxy funcione apenas em uma URL específica, por exemplo `meudomínio.com/ASF` ao invés de todo o domínio `meudomínio.com`. Normalmente isso exigiria que você escrevesse uma regra de reescrita para seu servidor web que poderia mapear `meudomínio.com/ASF/Api/X` -> `localhost:1242/Api/X`, mas em vez disso você pode definir um `PathBase` personalizado como `/ASF` e obter uma configuração mais fácil como `meudomínio.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
+`PathBase` - Esse é o caminho padrão que será usado pela interface IPC. Essa propriedade é opcional, o padrão é `/` e deve haver a necessidade de modificação na maioria dos casos. Mudar essa propriedade fará com que a interface IPC seja hospedada em um prefixo personalizado, por exemplo `http://localhost:1242/MeuPrefixo` ao invés de apenas `http://localhost:1242`. Usar um `PathBase` personalizado pode ser desejável em combinação com uma configuração específica de proxy reverso, onde você quer que o proxy funcione apenas em uma URL específica, por exemplo `meudomínio.com/ASF` ao invés de todo o domínio `meudomínio.com`. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
 
 A menos que você realmente precise especificar um caminho base personalizado, é melhor deixá-lo padrão.
+
+
 
 ### Exemplo de configuração
 
 A configuração à seguir permite acesso remoto de todas as fontes, portanto você deve se certificar que leu e entendeu nosso aviso de segurança sobre isso, disponível acima.
+
+
 
 ```json
 {
@@ -247,5 +294,6 @@ A configuração à seguir permite acesso remoto de todas as fontes, portanto vo
     }
 }
 ```
+
 
 Se você não precisa de acesso de todas as fontes, mas, por exemplo, apenas da sua LAN, então é melhor usar algo como `192.168.0.0.0` ao invés de `*`. Adapte o endereço de rede adequadamente caso você use um diferente.

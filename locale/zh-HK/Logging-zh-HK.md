@@ -2,7 +2,7 @@
 
 ASF允許您自訂將在運行時使用的自定義日誌記錄模組。 您可以通過在應用程序的目錄中放入名為` NLog.config `的特殊檔案來完成此操作。 您可以在** [ NLog wiki ](https://github.com/NLog/NLog/wiki/Configuration-file) **上閱讀NLog的完整文檔，除此之外，您也可以在這裡找到一些有用的例子。
 
-* * *
+---
 
 ## 預設日誌
 
@@ -31,7 +31,7 @@ Using custom NLog config automatically disables default ASF config, your config 
 </nlog>
 ```
 
-* * *
+---
 
 ## ASF集成
 
@@ -45,15 +45,15 @@ ASF在` Trace `日誌級別上記錄額外信息，例如用戶/聊天消息。 
 
 通常，ASF會盡可能簡單方便地記錄您想要的消息，而不是強迫您通過第三方工具（如` grep `等）手動過濾它。 只需按照下面的說明正確配置NLog，您就可以使用自訂目標（如整個數據庫）指定非常複雜的日誌記錄規則。
 
-關於版本控制——在ASF發佈時，ASF嘗試始終附帶最新版本的NLog，可在** [ NuGet ](https://www.nuget.org/packages/NLog)**上找到 。 It's very often a version that is newer than latest stable, therefore it should not be a problem to use any feature you can find on NLog wiki in ASF, even features that are in very active development and WIP state - just make sure you're also using up-to-date ASF.
+Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. It's very often a version that is newer than latest stable, therefore it should not be a problem to use any feature you can find on NLog wiki in ASF, even features that are in very active development and WIP state - just make sure you're also using up-to-date ASF.
 
 作為ASF集成的一部分，ASF還包括對其他ASF NLog日誌記錄目標的支援，這將在下面解釋。
 
-* * *
+---
 
 ## 範例
 
-千里之行始於足下。 舉個簡單的例子，僅使用** [ ColoredConsole ](https://github.com/nlog/nlog/wiki/ColoredConsole-target) **目標。 我們的初始` NLog.config `將如下所示：
+千里之行始於足下。 We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. 我們的初始` NLog.config `將如下所示：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -146,19 +146,19 @@ Lastly, let's do something a bit more advanced and log all messages to file, but
 
 You can see how we used ASF integration above and easily distinguished source of the message based on `${logger}` property.
 
-* * *
+---
 
 ## 進階功能
 
 上面的簡單示例向您展示了自訂自己的ASF日誌記錄規則是多麼容易。 You can use NLog for various different things, including complex targets (such as keeping logs in `Database`), logs rotation (such as removing old `File` logs), using custom `Layout`s, declaring your own `<when>` logging filters and much more. I encourage you to read through entire **[NLog documentation](https://github.com/nlog/nlog/wiki/Configuration-file)** to learn about every option that is available to you, allowing you to fine-tune ASF logging module in the way you want. It's a really powerful tool and customizing ASF logging was never easier.
 
-* * *
+---
 
 ## 限制
 
 ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Therefore, if you want to keep logging for other targets even when ASF expects user input, you should define those targets with their own rules, as shown in examples above, instead of putting many targets in `writeTo` of the same rule (unless this is your wanted behaviour). Temporary disable of console targets is done in order to keep console clean when waiting for user input.
 
-* * *
+---
 
 ## Chat logging
 
@@ -208,7 +208,7 @@ The example above will generate `0-0-76561198069026042.txt` file when talking wi
 
 Of course this is just a working example with a few nice layout tricks showed in practical manner. You can further expand this idea to your own needs, such as extra filtering, custom order, personal layout, recording only received messages and so on.
 
-* * *
+---
 
 ## ASF targets
 
@@ -216,7 +216,7 @@ In addition to standard NLog logging targets (such as `ColoredConsole` and `File
 
 For maximum completeness, definition of ASF targets will follow NLog documentation convention.
 
-* * *
+---
 
 ### SteamTarget
 
@@ -224,10 +224,9 @@ As you can guess, this target uses Steam chat messages for logging ASF messages.
 
 Supported in all environments used by ASF.
 
-* * *
+---
 
 #### Configuration Syntax
-
 ```xml
 <targets>
   <target type="Steam"
@@ -241,31 +240,29 @@ Supported in all environments used by ASF.
 
 Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki/Configuration-file).
 
-* * *
+---
 
 #### Parameters
 
 ##### General Options
+_name_ - Name of the target.
 
-*name* - Name of the target.
-
-* * *
+---
 
 ##### 佈局選項
+_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${level:uppercase=true}|${logger}|${message}`
 
-*layout* - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${level:uppercase=true}|${logger}|${message}`
-
-* * *
+---
 
 ##### SteamTarget Options
 
-*chatGroupID* - ID of the group chat declared as 64-bit long unsigned integer. Not required. Defaults to `0` which will disable group chat functionality and use private chat instead. When enabled (set to non-zero value), `steamID` property below acts as `chatID` and specifies ID of the channel in this `chatGroupID` that the bot should send messages to.
+_chatGroupID_ - ID of the group chat declared as 64-bit long unsigned integer. Not required. Defaults to `0` which will disable group chat functionality and use private chat instead. When enabled (set to non-zero value), `steamID` property below acts as `chatID` and specifies ID of the channel in this `chatGroupID` that the bot should send messages to.
 
-*steamID* - SteamID declared as 64-bit long unsigned integer of target Steam user (like `SteamOwnerID`), or target `chatID` (when `chatGroupID` is set). Required. Defaults to `0` which disables logging target entirely.
+_steamID_ - SteamID declared as 64-bit long unsigned integer of target Steam user (like `SteamOwnerID`), or target `chatID` (when `chatGroupID` is set). Required. Defaults to `0` which disables logging target entirely.
 
-*botName* - Name of the bot (as it's recognized by ASF, case-sensitive) that will be sending messages to `steamID` declared above. Not required. Defaults to `null` which will automatically select **any** currently connected bot. It's recommended to set this value appropriately, as `SteamTarget` does not take into account many Steam limitations, such as the fact that you must have `steamID` of the target on your friendlist. This variable is defined as [layout](https://github.com/NLog/NLog/wiki/Layouts) type, therefore you can use special syntax in it, such as `${logger}` in order to use the bot that generated the message.
+_botName_ - Name of the bot (as it's recognized by ASF, case-sensitive) that will be sending messages to `steamID` declared above. Not required. Defaults to `null` which will automatically select **any** currently connected bot. It's recommended to set this value appropriately, as `SteamTarget` does not take into account many Steam limitations, such as the fact that you must have `steamID` of the target on your friendlist. This variable is defined as [layout](https://github.com/NLog/NLog/wiki/Layouts) type, therefore you can use special syntax in it, such as `${logger}` in order to use the bot that generated the message.
 
-* * *
+---
 
 #### SteamTarget Examples
 
@@ -290,13 +287,13 @@ When you launch ASF with `NLog.config` similar to above, `MyBot` will start mess
 
 Of course, `SteamTarget` has all typical functions that you could expect from generic `TargetWithLayout`, so you can use it in conjunction with e.g. custom layouts, names or advanced logging rules. The example above is only the most basic one.
 
-* * *
+---
 
 #### Screenshots
 
 ![截圖](https://i.imgur.com/5juKHMt.png)
 
-* * *
+---
 
 ### HistoryTarget
 
@@ -304,10 +301,9 @@ This target is used internally by ASF for providing fixed-size logging history i
 
 Supported in all environments used by ASF.
 
-* * *
+---
 
 #### Configuration Syntax
-
 ```xml
 <targets>
   <target type="History"
@@ -319,27 +315,25 @@ Supported in all environments used by ASF.
 
 Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki/Configuration-file).
 
-* * *
+---
 
 #### Parameters
 
 ##### General Options
+_name_ - Name of the target.
 
-*name* - Name of the target.
-
-* * *
+---
 
 ##### 佈局選項
+_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
-*layout* - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
-
-* * *
+---
 
 ##### 歷史目標選項
 
-*maxCount* - Maximum amount of stored logs for on-demand history. Not required. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
+_maxCount_ - Maximum amount of stored logs for on-demand history. Not required. Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
 
-* * *
+---
 
 ## 注意事項
 

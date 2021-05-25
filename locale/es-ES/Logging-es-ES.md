@@ -2,7 +2,7 @@
 
 ASF te permite configurar tu propio módulo de registro que será usado durante el tiempo de ejecución. Lo puedes hacer colocando un archivo especial llamado `NLog.config` en el directorio de la aplicación. Puedes leer toda la documentación de NLog en **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, donde también encontrarás algunos ejemplos útiles.
 
-* * *
+---
 
 ## Registro por defecto
 
@@ -17,21 +17,17 @@ Si quieres usar el registro por defecto de ASF sin modificaciones, no necesitas 
 <nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xsi:schemaLocation="NLog NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <target xsi:type="File" name="File" archiveFileName="${currentdir}/logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="${currentdir}/log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
-    <!-- Lo siguiente se activa cuando se inicia la interfaz IPC de ASF -->
-    <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
+    <target xsi:type="File" name="File" archiveFileName="${currentdir}/logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="${currentdir}/log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" /><!-- Lo siguiente se activa cuando se inicia la interfaz IPC de ASF --><!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
   </targets>
 
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
-    <logger name="*" minlevel="Debug" writeTo="File" />
-    <!-- Lo siguiente se activa cuando se inicia la interfaz IPC de ASF -->
-    <!-- <logger name="*" minlevel="Debug" writeTo="History" /> -->
+    <logger name="*" minlevel="Debug" writeTo="File" /><!-- Lo siguiente se activa cuando se inicia la interfaz IPC de ASF --><!-- <logger name="*" minlevel="Debug" writeTo="History" /> -->
   </rules>
 </nlog>
 ```
 
-* * *
+---
 
 ## Integración de ASF
 
@@ -49,7 +45,7 @@ En cuanto a la versión - ASF siempre intenta contar con la versión más actual
 
 Como parte de la integración, ASF también incluye soporte para objetivos de registro ASF NLog adicionales, lo que se explica abajo.
 
-* * *
+---
 
 ## Ejemplos
 
@@ -68,7 +64,7 @@ Empecemos con algo sencillo. Solo usaremos el objetivo **[ColoredConsole](https:
 </nlog>
 ```
 
-La explicación de la configuración de arriba es bastante sencilla - definimos un **objetivo de registro**, que es `ColoredConsole`, luego redirigimos **todos los loggers** (`*`) de nivel `Debug` o superior al objetivo `ColoredConsole` que definimos previamente. Eso es todo.
+La explicación de la configuración de arriba es bastante sencilla - definimos un **objetivo de registro**, que es `ColoredConsole`, luego redirigimos **todos los loggers** (`*`) de nivel `Debug` y superior al objetivo `ColoredConsole` que definimos previamente. Eso es todo.
 
 Si inicias ASF con el `NLog.config` de arriba, solo el objetivo `ColoredConsole` estará activo, y ASF no escribirá a `File`, independientemente de la configuración de NLog codificada dentro de ASF.
 
@@ -146,23 +142,23 @@ Finalmente, hagamos algo un poco más avanzado y vamos a registrar todos los men
 
 Puedes ver cómo usamos la integración de ASF y fácilmente distinguimos la fuente del mensaje con base en la propiedad `${logger}`.
 
-* * *
+---
 
 ## Uso avanzado
 
-Los ejemplos anteriores son bastante sencillos y hechos para mostrarte lo fácil que es definir tus propias reglas de registro que pueden ser usadas con ASF. Puedes usar NLog para diferentes cosas, incluyendo objetivos complejos (tal como mantener los registros en `Database`), rotación de registros (tal como eliminar registros `File` viejos), usar `Layout` personalizados, declarar tus propios filtros de registro `<when>` y mucho más. Te animo a leer toda la **[documentación NLog](https://github.com/nlog/nlog/wiki/Configuration-file)** para aprender sobre cada opción disponible, permitiéndote modificar el módulo de registro de ASF de la forma que quieras. Es una herramienta muy potente y personalizar el registro de ASF nunca fue tan fácil.
+Los ejemplos anteriores son bastante sencillos y hechos para mostrarte lo fácil que es definir tus propias reglas de registro que pueden ser usadas con ASF. Puedes usar NLog para diferentes cosas, incluyendo objetivos complejos (tal como mantener los registros en `Database`), rotación de registros (tal como eliminar registros `File` viejos), usar `Layout` personalizados, declarar tus propios filtros de registro `<when>` y mucho más. Te animo a leer toda la **[documentación de NLog](https://github.com/nlog/nlog/wiki/Configuration-file)** para aprender sobre cada opción disponible, permitiéndote modificar el módulo de registro de ASF de la forma que quieras. Es una herramienta muy potente y personalizar el registro de ASF nunca fue tan fácil.
 
-* * *
+---
 
 ## Limitaciones
 
 ASF desactivará temporalmente **todas** las reglas que incluyan los objetivos `ColoredConsole` o `Console` cuando esté esperando interacción del usuario. Por lo tanto, si quieres seguir registrando para otros objetivos incluso cuando ASF espera interacción del usuario, debes definir esos objetivos con sus propias reglas, como se mostró en los ejemplos anteriores, en lugar de poner muchos objetivos en `writeTo` de la misma regla (a menos que este sea el comportamiento deseado). La desactivación temporal de los objetivos de la consola se hace para mantenerla limpia cuando se está esperando interacción del usuario.
 
-* * *
+---
 
 ## Registro de chat
 
-ASF incluye soporte extendido para registro de chat no solo grabando todos los mensajes recibidos/enviados en el nivel de registro `Trace`, sino también exponiendo información adicional relacionada con ellos en **[propiedades de evento](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. Esto es porque de todos modos necesitamos manejar los mensajes de chat como comandos, así que no nos cuesta nada registrar esos eventos para hacer posible que añadas una lógica adicional (tal como hacer ASF tu archivo personal de conversaciones de Steam).
+ASF incluye soporte extendido para registro de chat no solo registrando todos los mensajes recibidos/enviados en el nivel de registro `Trace`, sino también exponiendo información adicional relacionada con ellos en las **[propiedades de evento](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. Esto es porque de todos modos necesitamos manejar los mensajes de chat como comandos, así que no nos cuesta nada registrar esos eventos para hacer posible que añadas una lógica adicional (tal como hacer ASF tu archivo personal de conversaciones de Steam).
 
 ### Propiedades de evento
 
@@ -208,7 +204,7 @@ El ejemplo anterior generará el archivo `0-0-76561198069026042.txt` al hablar c
 
 Claro que este solo es un ejemplo funcional con algunos trucos de layout mostrado de forma práctica. Puedes ampliar esta idea a tus propias necesidades, tal como filtrado extra, orden personalizado, un layout personal, grabar solo mensajes recibidos, etcétera.
 
-* * *
+---
 
 ## Objetivos de ASF
 
@@ -216,7 +212,7 @@ Además de los objetivos estándar de registro de NLog (tal como `ColoredConsole
 
 Para máxima consistencia, la definición de los objetivos de ASF seguirá la convención de la documentación de NLog.
 
-* * *
+---
 
 ### SteamTarget
 
@@ -224,10 +220,9 @@ Como puedes adivinar, este objetivo utiliza mensajes de chat de Steam para regis
 
 Soportado en todos los entornos utilizados por ASF.
 
-* * *
+---
 
 #### Sintaxis de configuración
-
 ```xml
 <targets>
   <target type="Steam"
@@ -241,31 +236,29 @@ Soportado en todos los entornos utilizados por ASF.
 
 Lee más sobre cómo usar el [archivo de configuración](https://github.com/NLog/NLog/wiki/Configuration-file).
 
-* * *
+---
 
 #### Parámetros
 
 ##### Opciones Generales
+_name_ - Nombre del objetivo.
 
-*name* - Nombre del objetivo.
-
-* * *
+---
 
 ##### Opciones de Layout
+_layout_ - Texto a ser renderizado. [Layout](https://github.com/NLog/NLog/wiki/Layouts) requerido. Por defecto: `${level:uppercase=true}|${logger}|${message}`
 
-*layout* - Texto a ser procesado. [Layout](https://github.com/NLog/NLog/wiki/Layouts) requerido. Por defecto: `${level:uppercase=true}|${logger}|${message}`
-
-* * *
+---
 
 ##### Opciones de SteamTarget
 
-*chatGroupID* - ID del chat de grupo declarado como entero largo sin firmar de 64 bits. No requerido. Por defecto en `0` lo que deshabilitará la funcionalidad de chat de grupo y en su lugar usará el chat privado. Cuando está habilitado (establecido en valor diferente a cero), la propiedad `steamID` actúa como `chatID` y especifica el ID del canal en este `chatGroupID` al que el bot debe enviar mensajes.
+_chatGroupID_ - ID del chat de grupo declarado como entero largo sin firmar de 64 bits. No requerido. Por defecto en `0` lo que deshabilitará la funcionalidad de chat de grupo y en su lugar usará el chat privado. Cuando está habilitado (establecido en valor diferente a cero), la propiedad `steamID` actúa como `chatID` y especifica el ID del canal en este `chatGroupID` al que el bot debe enviar mensajes.
 
-*steamID* - SteamID declarado como entero largo sin firmar de 64 bits del usuario de Steam objetivo (como `SteamOwnerID`), o `chatID` objetivo (cuando `chatGroupID` está definido). Requerido. Por defecto en `0` lo que deshabilita completamente el objetivo de registro.
+_steamID_ - SteamID declarado como entero largo sin firmar de 64 bits del usuario de Steam objetivo (como `SteamOwnerID`), u objetivo `chatID` (cuando `chatGroupID` está establecido). Requerido. Por defecto en `0` lo que deshabilita completamente el objetivo de registro.
 
-*botName* - Nombre del bot (como es reconocido por ASF, distingue mayúsculas) que enviará los mensajes al `steamID` declarado arriba. No requerido. Por defecto en `null` lo que seleccionará automáticamente **cualquier** bot conectado actualmente. Se recomienda establecer este valor adecuadamente, ya que `SteamTarget` no toma en cuenta muchas limitaciones de Steam, como el hecho de que debes tener el `steamID` del objetivo en tu lista de amigos. Esta variable se define como de tipo [layout](https://github.com/NLog/NLog/wiki/Layouts), por lo tanto puedes usar una sintaxis especial, tal como `${logger}` para usar el bot que generó el mensaje.
+_botName_ - Nombre del bot (como es reconocido por ASF, distingue mayúsculas) que enviará los mensajes al `steamID` declarado arriba. No requerido. Por defecto en `null` lo que seleccionará automáticamente **cualquier** bot conectado actualmente. Se recomienda establecer este valor adecuadamente, ya que `SteamTarget` no toma en cuenta muchas limitaciones de Steam, como el hecho de que debes tener el `steamID` del objetivo en tu lista de amigos. Esta variable se define como de tipo [layout](https://github.com/NLog/NLog/wiki/Layouts), por lo tanto puedes usar una sintaxis especial, tal como `${logger}` para usar el bot que generó el mensaje.
 
-* * *
+---
 
 #### Ejemplos de SteamTarget
 
@@ -284,30 +277,29 @@ Para escribir todos los mensajes del nivel `Debug` y superior, desde el bot llam
 </nlog>
 ```
 
-**Aviso:** Nuestro `SteamTarget` es un objetivo personalizado, así que debes asegurarte de que lo declaras como `type="Steam"`, NO `xsi:type="Steam"`, ya que xsi está reservado para objetivos oficiales soportados por NLog.
+**Aviso:** Nuestro `SteamTarget` es un objetivo personalizado, así que debes asegurarte de que lo declaras como `type="Steam"`, NO `xsi:type="Steam"`, ya que xsi está reservado objetivos oficiales soportados por NLog.
 
 Cuando ejecutes ASF con un `NLog.config` similar al anterior, `MyBot` comenzará a enviar mensajes al usuario de Steam `76561198006963719` con todos los mensajes de registro habituales de ASF. Ten en cuenta que `MyBot` debe estar conectado para enviar mensajes, por lo que todos los mensajes de ASF iniciales que ocurrieron antes de que nuestro bot pudiera conectarse a la red de Steam, no serán reenviados.
 
 Por supuesto, `SteamTarget` tiene todas las funciones típicas que podrías esperar de `TargetWithLayout` genérico, así que puedes usarlo junto con, por ejemplo, layouts personalizados, nombres o reglas de registro avanzadas. El ejemplo anterior solo es el más básico.
 
-* * *
+---
 
 #### Capturas de pantalla
 
 ![Captura de pantalla](https://i.imgur.com/5juKHMt.png)
 
-* * *
+---
 
 ### HistoryTarget
 
-Este objetivo es usado internamente por ASF para proporcionar un historial de registro de tamaño fijo en el endpoint `/Api/NLog` de **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es#asf-api)** que posteriormente puede ser usado por ASF-ui y otras herramientas. En general, debes definir este objetivo solo si ya estás usando una configuración personalizada de NLog para otras personalizaciones y también quieres que el registro se exponga en ASF API, por ejemplo, para ASF-ui. También puede ser declarado cuando quieres modificar el layout predeterminado o `maxCount` la cantidad máxima de mensajes guardados.
+Este objetivo es usado internamente por ASF para proporcionar un historial de registro de tamaño fijo en `/Api/NLog` endpoint of **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es#asf-api)** que posteriormente puede ser consumido por ASF-ui y otras herramientas. En general, debes definir este objetivo solo si ya estás usando una configuración personalizada de NLog para otras personalizaciones y también quieres que el registro se exponga en ASF API, por ejemplo, para ASF-ui. También puede ser declarado cuando quieres modificar el layout predeterminado o `maxCount` la cantidad máxima de mensajes guardados.
 
 Soportado en todos los entornos utilizados por ASF.
 
-* * *
+---
 
 #### Sintaxis de configuración
-
 ```xml
 <targets>
   <target type="History"
@@ -317,29 +309,27 @@ Soportado en todos los entornos utilizados por ASF.
 </targets>
 ```
 
-Lee más sobre cómo usar el [archivo de configuración](https://github.com/NLog/NLog/wiki/Configuration-file).
+Lee más sobre el uso del [Archivo de Configuración](https://github.com/NLog/NLog/wiki/Configuration-file).
 
-* * *
+---
 
 #### Parámetros
 
 ##### Opciones Generales
+_name_ - Nombre del objetivo.
 
-*name* - Nombre del objetivo.
-
-* * *
+---
 
 ##### Opciones de Layout
+_layout_ - Texto a ser renderizado. [Layout](https://github.com/NLog/NLog/wiki/Layouts) requerido. Por defecto: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
-*layout* - Texto a ser procesado. [Layout](https://github.com/NLog/NLog/wiki/Layouts) requerido. Por defecto: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
-
-* * *
+---
 
 ##### Opciones de HistoryTarget
 
-*maxCount* - Cantidad máxima de registros almacenados para historial bajo demanda. No requerido. Por defecto en `20` lo que es un buen balance para proporcionar el historial inicial, mientras se sigue teniendo en cuenta el uso de memoria que viene de los requisitos de almacenamiento. Debe ser mayor que `0`.
+_maxCount_ - Cantidad máxima de registros almacenados para historial bajo demanda. No requerido. Por defecto en `20` lo que es un buen balance para proporcionar el historial inicial, mientras se sigue teniendo en cuenta el uso de memoria que viene de los requisitos de almacenamiento. Debe ser mayor que `0`.
 
-* * *
+---
 
 ## Advertencias
 

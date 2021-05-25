@@ -2,7 +2,7 @@
 
 ASF 支援一些能夠影響程式運行時的命令列參數。 高級用戶可使用這些參數以定義程式運行方式。 與`ASF.json `配置文件的預設方式相比，命令列參數可用於核心初始化（例如`--path`）、平台特定設置（例如`--system-required`）或敏感性資料（例如`--cryptkey`）。
 
-* * *
+---
 
 ## 使用方法
 
@@ -48,29 +48,29 @@ Linux/OS X
 
 Due to the nature of this property, it's also possible to set cryptkey by declaring `ASF_CRYPTKEY` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
-* * *
+---
 
 `--ignore-unsupported-environment` - will cause ASF to ignore detection of unsupported environment, which normally is signalized with an error and forced exit. As of now, unsupported environment is classifed as running .NET Framework build on platform that could be running .NET Core build instead. Since we support `generic-netf` builds only in very limited scenarios (with **[Mono](https://www.mono-project.com)**), using it for other cases (e.g. for launching on `win-x64` platform) is not supported. Visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** for more info.
 
-* * *
+---
 
 `--network-group <group>` or `--network-group=<group>` - will cause ASF to init its limiters with a custom network group of `<group>` value. This option affects running ASF in **[multiple instances](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** by signalizing that given instance is dependent only on instances sharing the same network group, and independent of the rest. Typically you want to use this property only if you're routing ASF requests through custom mechanism (e.g. different IP addresses) and you want to set networking groups yourself, without relying on ASF to do it automatically (which currently includes taking into account `WebProxy` only). Keep in mind that when using a custom network group, this is unique identifier within the local machine, and ASF will not take into account any other details, such as `WebProxy` value, allowing you to e.g. start two instances with different `WebProxy` values which are still dependent on each other.
 
 Due to the nature of this property, it's also possible to set the value by declaring `ASF_NETWORK_GROUP` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
-* * *
+---
 
 `--no-config-migrate` - by default ASF will automatically migrate your config files to latest syntax. Migration includes conversion of deprecated properties into latest ones, removing properties with default values (as they have no effect), as well as cleaning up the file in general (correcting indentation and likewise). This is almost always a good idea, but you might have a particular situation where you'd prefer ASF to never overwrite the config files automatically. For example, you might want to `chmod 400` your config files (read permission for the owner only) or put `chattr +i` over them, in result denying write access for everyone, e.g. as a security measure. Usually we recommend to keep the config migration enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
 
-* * *
+---
 
 `--no-config-watch` - by default ASF sets up a `FileSystemWatcher` over your `config` directory in order to listen for events related to file changes, so it can interactively adapt to them. For example, this includes stopping bots on config deletion, restarting bot on config being changed, or loading keys into **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** once you drop them into the `config` directory. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate. Usually we recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
 
-* * *
+---
 
-`--no-restart`──此開關主要用於**[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**&#8203;容器並將 `AutoRestart` 強制設置為 `false`。 除非有特殊的需要，否則您應直接在配置中配置 `AutoRestart` 屬性。這個開關的作用是使 Docker 腳本不必修改您的全域配置即可適應環境。 當然，如果您在腳本中運行 ASF，也可以使用此開關（否則您最好使用全域配置屬性）。
+`--no-restart`──此開關主要用於**[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**&#8203;容器並將 `AutoRestart` 強制設置為 `false`。 Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. 當然，如果您在腳本中運行 ASF，也可以使用此開關（否則您最好使用全域配置屬性）。
 
-* * *
+---
 
 `--path <path>`或`--path=<path>`──ASF在啟動時始終會導航至自身所在的目錄。 By specifying this argument, ASF will navigate to given directory after initialization, which allows you to use custom path for various application parts (including `config`, `plugins` and `www` directories, as well as `NLog.config` file), without a need of duplicating binary in the same place. 如果您想將二進位檔案和實際配置檔案分開，這可能會非常有用，類似Linux 打包機制——這樣您就可以在多個設置中共用一個（最新的）二進位檔案。 此路徑既可以是基於當前 ASF 二進位檔案所在位置的相對路徑，也可以是絕對路徑。 Keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with config directory inside, see below example for explanation.
 
@@ -101,13 +101,13 @@ ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env v
 └── ...
 ```
 
-* * *
+---
 
 `--process-required`──預設情況下，ASF 將會在無機械人運行的情況下關閉，聲明此開關將禁用這一行為。 阻止自動關機功能在和**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**配合下特別有用，大多數用戶都希望他們的 Web 服務正常運行，無論啟用了多少個機械人。 如果您在使用 IPC 或者需要 ASF 進程持續運行直至手動關閉它，這就是正確的選項。
 
 如果您不打算運行 IPC，此選項對您來說將相當無用， 因為您可以在需要時再次啟動該過程 (而不是 ASF 的 web 伺服器，在那裏您需要它一直偵聽以發送命令)。
 
-* * *
+---
 
 `--system-required`──聲明此開關將導致 ASF 嘗試通知操作系統「此進程要求系統在其存留期內處於啟動狀態並正常運行」。 當前，此開關僅對 Windows 電腦有效，只要ASF進程正在運行，它就會阻止您的系統進入睡眠模式。 當您在夜間使用 PC 或者筆記本電腦掛卡時，這一功能是相當實用的，因為 ASF 能夠在掛卡時保持系統處於喚醒狀態，然後，一旦掛卡完成，ASF 就會像平常一樣自動關閉，允許您的系統再次進入睡眠模式，因此，一旦掛卡完成，即可立刻節省電力。
 

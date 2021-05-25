@@ -4,7 +4,7 @@ Productcode-activering op de achtergrond is een speciaal ingebouwde ASF-functie 
 
 Productcode-activering op de achtergrond is gemaakt zodat het werkt voor één bot. Dit houdt in dat het geen gebruik maakt van de `RedeemingPreferences`. Deze functie kan worden gebruikt samen met (of in plaats van) de `redeem` **[commando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, indien nodig.
 
-* * *
+---
 
 ## Importeren
 
@@ -36,7 +36,7 @@ Regardless which format you've decided to stick with, ASF will import your `keys
 
 In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
 
-* * *
+---
 
 ## Wachtrij
 
@@ -44,7 +44,7 @@ Zodra de spellen geïmporteerd zijn, zijn ze toegevoegd aan de wachtrij. ASF doo
 
 Als tijdens het proces het account de `RateLimited` status krijgt, wordt de wachtrij tijdelijk voor een uur onderbroken om de cooldown af te wachten. Daarna gaat het proces verder waar het gebleven is, totdat de wachtrij leeg is.
 
-* * *
+---
 
 ## Voorbeeld
 
@@ -60,7 +60,7 @@ After some time, `BotName.keys.used` and `BotName.keys.unused` files will be gen
 
 Het is ook mogelijk om extra spellen te importeren terwijl er al spellen in de wachtrij staan, door alle bovenstaande stappen te herhalen. ASF zal de extra vermeldingen op de juiste manier aan de lopende wachtrij toevoegen en ze afwerken.
 
-* * *
+---
 
 ## Opmerkingen
 

@@ -3,7 +3,6 @@
 ASF soporta una variedad de comandos, que pueden ser utilizados para controlar el comportamiento del proceso y las instancias de bot.
 
 Los comandos pueden ser enviados al bot de diferentes formas:
-
 - A través de la consola interactiva de ASF
 - A través de Steam por chat privado/grupal
 - A través de la interfaz **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es)**
@@ -12,7 +11,7 @@ Ten en cuenta que la interacción con ASF requiere que seas elegible para el com
 
 Los comandos ejecutados por medio del chat de Steam son afectados por la **[propiedad de configuración global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es#commandprefix)** `CommandPrefix`, que por defecto es `!`. Esto significa que para ejecutar, por ejemplo, el comando `status`, debes escribir `!status` (o en su caso, el `CommandPrefix` de tu elección que hayas establecido). `CommandPrefix` no es obligatorio cuando se usa la consola interactiva o IPC y puede ser omitido en esos casos.
 
-* * *
+---
 
 ### Consola interactiva
 
@@ -22,7 +21,7 @@ A partir de V4.0.0.9, ASF tiene soporte para una consola interactiva que puede s
 
 La consola interactiva no está disponible en el modo [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es#headless).
 
-* * *
+---
 
 ### Chat de Steam
 
@@ -36,7 +35,7 @@ Por favor, ten en cuenta que enviar un comando al chat de grupo funciona como un
 
 *E incluso en este caso deberías usar el chat privado con la sintaxis `[Bots]`.*
 
-* * *
+---
 
 ### IPC
 
@@ -44,7 +43,7 @@ La forma más avanzada y flexible de ejecutar comandos, perfecta para la interac
 
 ![Captura de pantalla](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
-* * *
+---
 
 ## Comandos
 
@@ -86,7 +85,7 @@ La forma más avanzada y flexible de ejecutar comandos, perfecta para la interac
 | `pause~ [Bots]`                                                      | `FamilySharing` | Pausa temporalmente el módulo de recolección automática de cromos de instancias de bot determinadas. La recolección se reanudará automáticamente en el siguiente evento de juego, o cuando se desconecte el bot. Puedes usar el comando `resume` para reanudar la recolección.                                                                                                                     |
 | `pause& [Bots] <Seconds>`                                  | `Operator`      | Pausa temporalmente el módulo de recolección automática de cromos de instancias de bot determinadas por la cantidad de `seconds` segundos especificada. Después de ese tiempo, el módulo de recolección de cromos se reanuda automáticamente.                                                                                                                                                      |
 | `play [Bots] <AppIDs,GameName>`                                | `Master`        | Cambia a recolección manual - ejecuta ciertas `AppIDs` en instancias de bot determinadas, opcionalmente también con un nombre de juego personalizado `GameName`. Para que esta característica funcione correctamente, tu cuenta de Steam **debe** poseer una licencia válida para todas las `AppIDs` que especifiques aquí, esto también incluye juegos F2P. Usa `reset` o `resume` para reanudar. |
-| `privacy [Bots] <Settings>`                                    | `Master`        | Cambia la **[configuración de privacidad de Steam](https://steamcommunity.com/my/edit/settings)** de instancias de bot determinadas, a las opciones seleccionadas que se explican **[debajo](#ajustes-privacy)**.                                                                                                                                                                                  |
+| `privacy [Bots] <Settings>`                                    | `Master`        | Cambia la **[configuración de privacidad de Steam](https://steamcommunity.com/my/edit/settings)** de instancias de bot determinadas, a las opciones seleccionadas, explicadas **[debajo](#ajustes-privacy)**.                                                                                                                                                                                      |
 | `redeem [Bots] <Keys>`                                         | `Operator`      | Activa ciertas claves de producto o códigos de la cartera en instancias de bot determinadas.                                                                                                                                                                                                                                                                                                       |
 | `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`      | Activa ciertas claves de producto o códigos de la cartera en instancias de bot determinadas, usando ciertos modos `modes` explicados **[debajo](#modos-redeem)**.                                                                                                                                                                                                                                  |
 | `reset [Bots]`                                                       | `Master`        | Restablece el estado de juego a normal, usado durante la recolección manual con el comando `play`.                                                                                                                                                                                                                                                                                                 |
@@ -104,7 +103,7 @@ La forma más avanzada y flexible de ejecutar comandos, perfecta para la interac
 | `update`                                                             | `Owner`         | Comprueba en GitHub si hay actualizaciones para ASF (esto se hace automáticamente cada `UpdatePeriod`).                                                                                                                                                                                                                                                                                            |
 | `version`                                                            | `FamilySharing` | Muestra la versión de ASF.                                                                                                                                                                                                                                                                                                                                                                         |
 
-* * *
+---
 
 ### Notas
 
@@ -122,7 +121,7 @@ ASF "unirá" argumentos adicionales fuera de rango a tipo plural del último arg
 
 Como leíste arriba, se usa un carácter de espacio como delimitador para un comando, por lo tanto no puede ser usado en los argumentos. Sin embargo, como se ha dicho anteriormente, ASF puede unir argumentos fuera de rango, esto significa que realmente puedes usar un carácter de espacio en el último argumento definido para un comando especificado. Por ejemplo, `nickname bob Great Bob` establecerá correctamente el nombre de perfil del bot `bob` a "Great Bob". De la misma manera puedes comprobar nombres que contengan espacios en el comando `owns`.
 
-* * *
+---
 
 Algunos comandos también están disponibles con sus alias, para ahorrarte la escritura:
 
@@ -133,7 +132,7 @@ Algunos comandos también están disponibles con sus alias, para ahorrarte la es
 | `redeem`     | `r`   |
 | `redeem^`    | `r^`  |
 
-* * *
+---
 
 ### Argumento `[Bots]`
 
@@ -145,7 +144,7 @@ El argumento `[Bots]` soporta una sintaxis especial de "rango", que te permite e
 
 Además de la sintaxis de rango, el argumento `[Bots]` también soporta la coincidencia de **[expresión regular](https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular)**. Puedes activar el patrón de expresión regular usando `r!<pattern>` como nombre de bot, donde `r!` es el activador de ASF para la coincidencia de expresión regular, y `<pattern>` es tu patrón de expresión regular. Un ejemplo de comando basado en expresión regular sería `status r!\d{3}` que enviará el comando `status` a los bots que tengan un nombre formado por 3 dígitos (por ejemplo `123` y `981`). No dudes en echar un vistazo a la **[documentación](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** para mayor información y más ejemplos de patrones de expresión regular disponibles.
 
-* * *
+---
 
 ## Ajustes `privacy`
 
@@ -199,7 +198,7 @@ Lo anterior establecerá el perfil a público, los juegos poseídos a solo amigo
 
 Recuerda que el hijo nunca puede tener permisos más abiertos que su padre. Consulta la relación de los argumentos para las opciones disponibles.
 
-* * *
+---
 
 ## `addlicense` añadir licencias
 
@@ -220,18 +219,18 @@ Ejemplo de comando completo:
 addlicense ASF app/292030,sub/47807
 ```
 
-* * *
+---
 
 ## `owns` juegos
 
 El comando `owns` soporta varios tipos de juegos diferentes para el argumento `<games>`, estos son:
 
-| Tipo    | Alias | Ejemplo          | Descripción                                                                                                                                                                                                                                                                                                        |
-| ------- | ----- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `app`   | `a`   | `app/292030`     | Juego determinado por su `appID` única.                                                                                                                                                                                                                                                                            |
-| `sub`   | `s`   | `sub/47807`      | Paquete que contiene uno o más juegos, determinado por su `subID` único.                                                                                                                                                                                                                                           |
-| `regex` | `r`   | `regex/^\d{4}:` | **[Expresión regular](https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular)** aplicada al nombre del juego, distingue mayúsculas y minúsculas. Ve la **[documentación](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** para sintaxis completa y más ejemplos. |
-| `name`  | `n`   | `name/Witcher`   | Parte del nombre del juego, distingue mayúsculas y minúsculas.                                                                                                                                                                                                                                                     |
+| Tipo    | Alias | Ejemplo          | Descripción                                                                                                                                                                                                                                                                               |
+| ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a`   | `app/292030`     | Juego determinado por su `appID` única.                                                                                                                                                                                                                                                   |
+| `sub`   | `s`   | `sub/47807`      | Paquete que contiene uno o más juegos, determinado por su `subID` único.                                                                                                                                                                                                                  |
+| `regex` | `r`   | `regex/^\d{4}:` | **[Regex](https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular)** aplicado al nombre del juego, distingue mayúsculas. Ve la **[documentación](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** para sintaxis completa y más ejemplos. |
+| `name`  | `n`   | `name/Witcher`   | Parte del nombre del juego, distingue mayúsculas y minúsculas.                                                                                                                                                                                                                            |
 
 Recomendamos definir explícitamente el tipo de cada entrada para evitar resultados ambiguos, pero para la retrocompatibilidad, si proporcionas un tipo no válido o lo omites por completo, ASF asumirá que estás solicitando `app` si ingresas un número, y `name` de lo contrario. También puedes consultar uno o más de los juegos al mismo tiempo, usando la coma `,` que es el el delimitador estándar de ASF.
 
@@ -241,11 +240,11 @@ Ejemplo de comando completo:
 owns ASF app/292030,name/Witcher
 ```
 
-* * *
+---
 
 ## Modos `redeem^`
 
-El comando `redeem^` te permite ajustar los modos que serán utilizados para un escenario de activación. Esto funciona como una anulación temporal de la **[propiedad de configuración del bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es#configuraci%C3%B3n-de-bot)** `RedeemingPreferences`.
+El comando `redeem^` te permite ajustar los modos que serán utilizados para un escenario de activación. Esto funciona como una anulación temporal de la **[propiedad de configuración del bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** `RedeemingPreferences`.
 
 El argumento `<Modes>` acepta múltiples valores de modo, separados como es usual por una coma. Los valores de modo disponibles se especifican a continuación:
 
@@ -266,21 +265,21 @@ Por ejemplo, si quisieramos activar 3 claves en cualquiera de nuestros bots que 
 
 `redeem^ primary FF,SI clave1,clave2,clave3`
 
-Es importante notar que la activación avanzada solo anula las `RedeemingPreferences` preferencias de activación que **especifiques en el comando**. Por ejemplo, si tienes habilitado `Distributing` en tus `RedeemingPreferences` entonces no habrá diferencia si usas o no el modo `FD`, porque la distribución ya estará activa, debido a las `RedeemingPreferences` que usas. Por eso cada anulación para habilitar a la fuerza también tiene una para deshabilitar a la fuerza, puedes decidir si prefieres anular deshabilitada con habilitada, o viceversa.
+Es importante notar que la activación avanzada solo anula las `RedeemingPreferences` que **especifiques en el comando**. Por ejemplo, si tienes habilitado `Distributing` en tus `RedeemingPreferences` entonces no habrá diferencia si usas o no el modo `FD`, porque la distribución ya estará activa, debido a las `RedeemingPreferences` que usas. Por eso cada anulación para habilitar a la fuerza también tiene una para deshabilitar a la fuerza, puedes decidir si prefieres anular deshabilitada con habilitada, o viceversa.
 
-* * *
+---
 
 ## Comando `encrypt`
 
 El comando `encrypt` te permite cifrar cadenas de caracteres usando los métodos de cifrado de ASF. `<encryptionMethod>` debe ser uno de los métodos de cifrado especificados y explicados en la sección **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-es)**. Este comando es útil en caso de que desees generar detalles cifrados de antemano, por ejemplo, para evitar introducir primero tu contraseña en `PlainText` en la configuración y después usar el comando `password`. Recomendamos usar este comando a través de canales seguros (consola de ASF o la interfaz IPC, que también tienen un API endpoint dedicado para ello), ya que de lo contrario los detalles confidenciales podrían ser registrados por terceros (tal como mensajes de chat registrados por los servidores de Steam).
 
-* * *
+---
 
 ## Comando `hash`
 
 El comando `hash` te permite generar hashes de cadenas arbitrarias usando los métodos de hash de ASF. `<hashingMethod>` debe ser uno de los métodos de hash especificados y explicados en la sección **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-es)**. Recomendamos usar este comando a través de canales seguros (consola de ASF o la interfaz IPC, que también tienen un API endpoint dedicado para ello), ya que de lo contrario los detalles confidenciales podrían ser registrados por terceros (tal como mensajes de chat registrados por los servidores de Steam).
 
-* * *
+---
 
 ## Comando `input`
 
@@ -306,10 +305,10 @@ Digamos que tenemos un bot protegido por SteamGuard en modo no-2FA. Queremos eje
 
 Para ello, necesitamos ejecutar los siguientes comandos:
 
-`start MySteamGuardBot` -> El bot intentará iniciar sesión, fallará debido a que se requiere el código de autenticación, luego se detendrá debido a que se ejecuta en modo `Headless`. Necesitamos esto para hacer que la red de Steam nos envíe un código de autenticación a nuestro correo electrónico - si no hubiera necesidad de eso, omitiríamos por completo este paso.
+`start MySteamGuardBot` -> El bot intentará iniciar sesión, fallará debido a que se requiere el código de autenticación, luego se detendrá debido a que se está ejecutando en modo `Headless`. Necesitamos esto para hacer que la red de Steam nos envíe un código de autenticación a nuestro correo electrónico - si no hubiera necesidad de eso, omitiríamos por completo este paso.
 
 `input MySteamGuardBot SteamGuard ABCDE` -> Establecemos la entrada `SteamGuard` del bot `MySteamGuardBot` a `ABCDE`. Por supuesto, `ABCDE` en este caso es el código de autenticación que recibimos en nuestro correo electrónico.
 
-`start MySteamGuardBot` -> Iniciamos nuevamente nuestro bot (detenido), esta vez automáticamente usa el código de autenticación que establecimos en el comando anterior, iniciando sesión correctamente, y luego lo borra.
+`start MySteamGuardBot` -> Iniciamos nuevamente nuestro bot (detenido), esta vez automáticamente usará el código de autenticación que establecimos en el comando anterior, iniciando sesión correctamente, y luego lo borra.
 
 De la misma manera podemos acceder a bots protegidos por 2FA (si no están usando ASF 2FA), así como establecer otras propiedades requeridas durante el tiempo de ejecución.

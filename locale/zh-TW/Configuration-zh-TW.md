@@ -2,19 +2,19 @@
 
 此頁面專門用於 ASF 設定。 提供關於 `config` 目錄的完整文件，允許您依照您的需求調整 ASF。
 
-- **[簡介](#introduction)**
-- **[網頁設定檔產生器](#web-based-configgenerator)**
-- **[ASF-ui configuration](#asf-ui-configuration)**
-- **[手動設定](#manual-configuration)**
-- **[全域設定檔](#global-config)**
-- **[BOT 設定檔](#bot-config)**
-- **[檔案結構](#file-structure)**
-- **[JSON 對應](#json-mapping)**
-- **[相容性對應](#compatibility-mapping)**
-- **[設定相容性](#configs-compatibility)**
-- **[自動重新載入](#auto-reload)**
+* **[簡介](#introduction)**
+* **[網頁設定檔產生器](#web-based-configgenerator)**
+* **[ASF-ui configuration](#asf-ui-configuration)**
+* **[手動設定](#manual-configuration)**
+* **[全域設定檔](#global-config)**
+* **[BOT 設定檔](#bot-config)**
+* **[檔案結構](#file-structure)**
+* **[JSON 對應](#json-mapping)**
+* **[相容性對應](#compatibility-mapping)**
+* **[設定相容性](#configs-compatibility)**
+* **[自動重新載入](#auto-reload)**
 
-* * *
+---
 
 ## 簡介
 
@@ -26,17 +26,17 @@ ASF 使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式儲存其設定�
 
 Configuration can be done in several ways. You can use our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which is a local app independent of ASF. You can use our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC frontend for configuration done directly in ASF. Lastly, you can always generate config files manually, as they follow fixed JSON structure specified below. We'll explain shortly the available options.
 
-* * *
+---
 
 ## 網頁設定檔產生器
 
-The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. 網頁設定檔產生器是100%基於用戶端的，這意味著您輸入的任何資訊都不會被上傳，而僅在本地進行處理。 這保證了安全性和可靠性，因為如果您願意下載所有相關檔案，並在您喜愛的瀏覽器中開啟其中的 `index.html`，它甚至可以​**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**​執行。
+The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. 網頁設定檔產生器是100%基於用戶端的，這意味著您輸入的任何資訊都不會被上傳，而僅在本地進行處理。 這保證了安全性和可靠性，因為如果您願意下載所有相關檔案，併在您喜愛的瀏覽器中打開其中的 `index.html`，它甚至可以​**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**​運行。
 
 網頁設定檔產生器已經在 Chrome 和 Firefox 上經過驗證可以正常執行，但它也應該可以在所有流行的支援 JavaScript 的瀏覽器中正常執行。
 
 它的用法非常簡單——切換到正確的標籤來選取要產生 `ASF` 設定檔還是 `BOT` 設定檔，確保所選設定檔的版本與您的 ASF 版本相符，然後輸入所有詳細資訊並點選「下載」按鈕。 將此檔案移動到 ASF 的 `config` 資料夾，如果需要的話，覆蓋掉已經存在的檔案。 如果要繼續設定，則重複以上操作，並參考本頁的其他部分以瞭解所有可設定的選項。
 
-* * *
+---
 
 ## ASF-ui configuration
 
@@ -46,13 +46,13 @@ In order to use ASF-ui, you must have our **[IPC](https://github.com/JustArchiNE
 
 After launching the program, simply navigate to ASF's **[IPC address](http://localhost:1242)**. If everything worked properly, you can change ASF configuration from there as well.
 
-* * *
+---
 
 ## 手動設定
 
 In general we strongly recommend using either our ConfigGenerator or ASF-ui, as it's much easier and ensures you won't make a mistake in the JSON structure, but if for some reason you don't want to, then you can also create proper configs manually. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using any of our frontends, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Even if it's a valid JSON, you also have to ensure that all the properties have the proper type, as required by ASF. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and our documentation below.
 
-* * *
+---
 
 ## 全域設定檔
 
@@ -92,7 +92,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
 }
 ```
 
-* * *
+---
 
 以下是對所有選項的解釋：
 
@@ -102,7 +102,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
 
 If that's the case, this property if specially for you and you can set it to `false`. However, keep in mind that in such case **you** are responsible for restarting the process. This is somehow important as ASF will only exit instead of spawning new process (e.g. after update), so if there is no logic added by you, it'll simply stop working until you start it again. ASF always exits with proper error code indicating success (zero) or non-success (non-zero), this way you're able to add proper logic in your script which should avoid auto-restarting ASF in case of failure, or at least make a local copy of `log.txt` for further analysis. Also keep in mind that `restart` command will always restart ASF regardless of how this property is set, as this property defines default behaviour, while `restart` command always restarts the process. Unless you have a reason to disable this feature, you should keep it enabled.
 
-* * *
+---
 
 ### `Blacklist（封鎖清單）`
 
@@ -112,19 +112,19 @@ ASF includes two blacklists by default - `GlobalBlacklist`, which is hardcoded i
 
 If you're looking for bot-based blacklist instead, take a look at `ib`, `ibadd` and `ibrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
 
-* * *
+---
 
 ### `CommandPrefix`
 
 `string` 類型，預設值為「`!`」。 This property specifies **case-sensitive** prefix used for ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. In other words, this is what you need to prepend to each ASF command in order to make ASF listen to you. It's possible to set this value to `null` or empty in order to make ASF use no command prefix, in which case you input commands with their plain identifiers. However, doing so will potentially decrease ASF's performance as ASF is optimized to not parse message further if it doesn't start with `CommandPrefix` - if you intentionally decide to not use it, ASF will be forced to read all messages and respond to them, even if they're not ASF commands. Therefore it's recommended to keep using some `CommandPrefix`, such as `/` if you don't like default value of `!`. For consistency, `CommandPrefix` affects the entire ASF process. Unless you have a reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `ConfirmationsLimiterDelay`
 
 `byte` 類型，預設值為「`10`」。 ASF will ensure that there will be at least `ConfirmationsLimiterDelay` seconds in between of two consecutive 2FA confirmations fetching requests to avoid triggering rate-limit - those are being used by **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** during e.g. `2faok` command, as well as on as-needed basis when performing various trading-related operations. Default value was set based on our tests and should not be lowered if you don't want to run into issues. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `ConnectionTimeout`
 
@@ -136,13 +136,13 @@ Another situation could be caused by very slow machine or internet connection th
 
 In short, default value should be decent for most cases, but you may want to increase it if needed. Still, going far above the default value doesn't make much sense either, since bigger timeouts won't magically fix inaccessible Steam servers. Unless you have a reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `CurrentCulture`
 
 `string` 類型，預設值為「`null`」。 By default ASF attempts to use your operating system language, and will prefer to use translated strings in that language if available. This is possible thanks to our community that tries to **[localize](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)** ASF in all most popular languages. If for some reason you don't want to use your OS native language, you can use this config property to pick any valid language you'd want to use instead. For a list of all available cultures, please visit **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)** and look for `Language tag`. It's nice to note that ASF accepts both specific cultures, such as `en-GB`, but also neutral ones, such as `en`. Specifying current culture will also affect other culture-specific behaviour, such as currency/date format and alike. Please note that you may need additional font/language packs for displaying language-specific characters properly, if you picked non-native culture that makes use of them. Typically you want to make use of this config property if you prefer ASF in English instead of your native language.
 
-* * *
+---
 
 ### `Debug（除錯）`
 
@@ -152,19 +152,19 @@ In short, default value should be decent for most cases, but you may want to inc
 
 > Redacting involves replacing sensitive details, for example with stars. You should refrain from removing sensitive lines entirely, as their pure existence could be relevant and should be preserved.
 
-* * *
+---
 
 ### `FarmingDelay`
 
 `byte` 類型，預設值為「`15`」。 In order for ASF to work, it will check currently farmed game every `FarmingDelay` minutes, if it perhaps dropped all cards already. Setting this property too low can result in excessive amount of steam requests being sent, while setting it too high can result in ASF still "farming" given title for up to `FarmingDelay` minutes after it's fully farmed. Default value should be excellent for most users, but if you have many bots running, you may consider increasing it to something like `30` minutes in order to limit steam requests being sent. It's nice to note that ASF uses event-based mechanism and checks game badge page on each Steam item dropped, so in general **we don't even need to check it in fixed time intervals**, but as we don't fully trust Steam network - we check game badge page anyway, if we didn't check it through card being dropped event in last `FarmingDelay` minutes (in case Steam network didn't inform us about item dropped or stuff like that). Assuming that Steam network is working properly, decreasing this value **will not improve farming efficiency in any way**, while **increasing network overhead significantly** - it's recommended only to increase it (if needed) from default of `15` minutes. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `GiftsLimiterDelay`
 
 `byte` 類型，預設值為「`1`」。 ASF will ensure that there will be at least `GiftsLimiterDelay` seconds in between of two consecutive gift/key/license handling (redeeming) requests to avoid triggering rate-limit. In addition to that it'll also be used as global limiter for game list requests, such as the one issued by `owns` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `Headless`
 
@@ -172,37 +172,37 @@ In short, default value should be decent for most cases, but you may want to inc
 
 If you're running ASF on the server, you probably want to use this option together with `--process-required` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**.
 
-* * *
+---
 
 ### `IdleFarmingPeriod`
 
 `byte` 類型，預設值為「`8`」。 When ASF has nothing to farm, it will periodically check every `IdleFarmingPeriod` hours if perhaps account got some new games to farm. This feature is not needed when talking about new games we're getting, as ASF is smart enough to automatically check badge pages in this case. `IdleFarmingPeriod` is mainly for situations such as old games we already have having trading cards added. In this case there is no event, so ASF has to periodically check badge pages if we want to have this covered. 值為 `0` 時停用這項功能。 Also check: `ShutdownOnFarmingFinished`.
 
-* * *
+---
 
 ### `InventoryLimiterDelay`
 
 `byte` 類型，預設值為「`3`」。 ASF will ensure that there will be at least `InventoryLimiterDelay` seconds in between of two consecutive inventory requests to avoid triggering rate-limit - those are being used for fetching Steam inventories, especially during your own commands such as `transfer`, as well as in features like `MatchActively`. Default value of `3` was set based on fetching inventories of over 100 consecutive bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and loot steam inventories much faster. Be warned though, as setting it too low **will** result in Steam temporarily banning your IP, and that will prevent you from fetching your inventory at all. You also may need to increase this value if you're running a lot of bots with a lot of inventory requests, although in this case you should probably try to limit number of those requests instead. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `IPC`
 
 `bool` 類型，預設值為「`false`」。 This property defines if ASF's **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** server should start together with the process. IPC allows for inter-process communication by booting a local HTTP server. If you're not going to make use of ASF's IPC server, then there is no reason for you to enable this option.
 
-* * *
+---
 
 ### `IPCPassword`
 
 `string` 類型，預設值為「`null`」。 This property defines mandatory password for every API call done via IPC and serves as an extra security measure. When set to non-empty value, all IPC requests will require extra `password` property set to the password specified here. Default value of `null` will skip a need of the password, making ASF respect all queries. In addition to that, enabling this option also enables built-in IPC anti-bruteforce mechanism which will temporarily ban given `IPAddress` after sending too many unauthorized requests in a very short time. Unless you have a reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `IPCPasswordFormat`
 
 `byte` 類型，預設值為「`0`」。 This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. Unless you know what you're doing, you should keep it with default value of `0`.
 
-* * *
+---
 
 ### `LoginLimiterDelay`
 
@@ -210,43 +210,43 @@ If you're running ASF on the server, you probably want to use this option togeth
 
 As a side note, this value is also used as load-balancing buffer in all ASF-scheduled actions, such as trades in `SendTradePeriod`. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `MaxFarmingTime`
 
 `byte` 類型，預設值為「`10`」。 As you should know, Steam is not always working properly, sometimes weird situations can happen such as steam not being recording our playtime, despite of in fact playing a game. ASF will allow farming a single game in solo mode for maximum of `MaxFarmingTime` hours, and consider it fully farmed after that period. This is required to not freeze farming process in case of weird situations happening, but also if for some reason Steam released a new badge that would stop ASF from progressing further (see: `Blacklist`). Default value of `10` hours should be enough for dropping all steam cards from one game. Setting this property too low can result in valid games being skipped (and yes, there are valid games taking even up to 9 hours to farm), while setting it too high can result in farming process being frozen. Please note that this property affects only a single game in a single farming session (so after going through entire queue ASF will return to that title), also it's not based on total playtime but internal ASF farming time, so ASF will also return to that title after a restart. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `MaxTradeHoldDuration`
 
 `byte` 類型，預設值為「`15`」。 This property defines maximum duration of trade hold in days that we're willing to accept - ASF will reject trades that are being held for more than `MaxTradeHoldDuration` days, as defined in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section. This option makes sense only for bots with `TradingPreferences` of `SteamTradeMatcher`, as it doesn't affect `Master`/`SteamOwnerID` trades, neither donations. Trade holds are annoying for everyone, and nobody really wants to deal with them. ASF is supposed to work on liberal rules and help everyone, regardless if on trade hold or not - that's why this option is set to `15` by default. However, if you'd instead prefer to reject all trades affected by trade holds, you can specify `0` here. Please consider the fact that cards with short lifespan are not affected by this option and automatically rejected for people with trade holds, as described in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section, so there is no need to globally reject everybody only because of that. Unless you have a reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `OptimizationMode`
 
 `byte` 類型，預設值為「`0`」。 This property defines optimization mode which ASF will prefer during runtime. Currently ASF supports two modes - `0` which is called `MaxPerformance`, and `1` which is called `MinMemoryUsage`. By default ASF prefers to run as many things in parallel (concurrently) as possible, which enhances performance by load-balancing work across all CPU cores, multiple CPU threads, multiple sockets and multiple threadpool tasks. For example, ASF will ask for your first badge page when checking for games to idle, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. This is what you should want **almost always**, as the overhead in most cases is minimal and benefits from asynchronous ASF code can be seen even on the oldest hardware with a single CPU core and heavily limited power. However, with many tasks being processed in parallel, ASF runtime is responsible for their maintenance, e.g. keeping sockets open, threads alive and tasks being processed, which can result in increased memory usage from time to time, and if you're extremely constrained by available memory, you may want to switch this property to `1` (`MinMemoryUsage`) in order to force ASF into using as little tasks as possible, and typically running possible-to-parallel asynchronous code in a synchronous manner. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `統計`
 
 `bool` 類型，預設值為「`true`」。 This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `SteamMessagePrefix`
 
 `string` 類型，預設值為「`"/me "`」。 This property defines a prefix that will be prepended to all Steam messages being sent by ASF. By default ASF uses `"/me "` prefix in order to distinguish bot messages more easily by showing them in different color on Steam chat. Another worthy mention is `"/pre "` prefix which achieves similar result, but uses different formatting. You can also set this property to empty string or `null` in order to disable using prefix entirely and output all ASF messages in a traditional way. It's nice to note that this property affects Steam messages only - responses returned through other channels (such as IPC) are not affected. Unless you want to customize standard ASF behaviour, it's a good idea to leave it at default.
 
-* * *
+---
 
 ### `SteamOwnerID`
 
 `ulong` 類型，預設值為「`0`」。 This property defines Steam ID in 64-bit form of ASF process owner, and is very similar to `Master` permission of given bot instance (but global instead). You almost always want to set this property to ID of your own main Steam account. `Master` permission includes full control over his bot instance, but global commands such as `exit`, `restart` or `update` are reserved for `SteamOwnerID` only. This is convenient, as you may want to run bots for your friends, while not allowing them to control ASF process, such as exiting it via `exit` command. Default value of `0` specifies that there is no owner of ASF process, which means that nobody will be able to issue global ASF commands. Keep in mind that **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** commands work with `SteamOwnerID`, so if you want to use them, then you must provide a valid value here.
 
-* * *
+---
 
 ### `SteamProtocols`
 
@@ -263,7 +263,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `UpdateChannel（更新頻道）`
 
@@ -271,7 +271,7 @@ By default ASF will use all available Steam protocols as a measure for fighting 
 
 **Unless you know what you're doing**, we **strongly** recommend to keep it at default.
 
-* * *
+---
 
 ### `UpdatePeriod`
 
@@ -281,7 +281,7 @@ Update process of ASF involves update of entire folder structure that ASF is usi
 
 Unless you have a **strong** reason to disable this feature, you should keep auto-updates enabled within reasonable `UpdatePeriod` **for your own good**. This is not only because we don't support anything but latest stable ASF release, but also because **we give our security guarantee only for latest version**. If you're using outdated ASF version then you're intentionally exposing yourself to all kind of issues, from small bugs, through broken functionality, ending with **[permanent Steam account suspensions](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#did-somebody-get-banned-for-it)**, so we **strongly recommend**, for your own good, to always ensure that your ASF version is up to date. Auto-updates allow us to react quickly to all kind of issues by disabling or patching problematic code before it can escalate - if you opt out of it, you lose all of our security guarantees and risk consequences from running code that could be potentially harmful, not only to Steam network, but also (by definition) to your own Steam account.
 
-* * *
+---
 
 ### `WebLimiterDelay`
 
@@ -293,7 +293,7 @@ In general, lowering `WebLimiterDelay` under default value is **strongly discour
 
 Unless you have a reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `WebProxy`
 
@@ -309,7 +309,7 @@ Right now ASF uses web proxy only for `http` and `https` requests, which **do no
 
 Unless you have a reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `WebProxyPassword`
 
@@ -317,7 +317,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 Unless you have a reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ### `WebProxyUsername`
 
@@ -325,7 +325,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 Unless you have a reason to edit this property, you should keep it at default.
 
-* * *
+---
 
 ## BOT 設定檔
 
@@ -371,7 +371,7 @@ The bot config has following structure:
 }
 ```
 
-* * *
+---
 
 以下是對所有選項的解釋：
 
@@ -381,7 +381,7 @@ The bot config has following structure:
 
 This option is recommended only for alt accounts, as it's very likely that you don't want to automatically redeem all gifts sent to your primary account. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
-* * *
+---
 
 ### `AutoSteamSaleEvent`
 
@@ -389,7 +389,7 @@ This option is recommended only for alt accounts, as it's very likely that you d
 
 Please note that due to constant Valve issues, changes and problems, **we give no guarantee whether this function will work properly**, therefore it's entirely possible that this option **will not work at all**. We do not accept **any** bug reports, neither support requests for this option. It's offered with absolutely no guarantees, you're using it at your own risk.
 
-* * *
+---
 
 ### `BotBehaviour`
 
@@ -425,7 +425,7 @@ Invalid group invite is an invite that doesn't come from `SteamMasterClanID` gro
 
 If you're unsure how to configure this option, it's best to leave it at default.
 
-* * *
+---
 
 ### `CompleteTypesToSend`
 
@@ -444,7 +444,7 @@ Due to additional overhead of using this option, it's recommended to use it only
 
 If you're unsure how to configure this option, it's best to leave it at default.
 
-* * *
+---
 
 ### `CustomGamePlayedWhileFarming（掛卡時顯示自訂遊戲名稱）`
 
@@ -452,19 +452,19 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 ASF provides a few special variables that you can optionally use in your text. `{0}` will be replaced by ASF with `AppID` of currently farmed game(s), while `{1}` will be replaced by ASF with `GameName` of currently farmed game(s).
 
-* * *
+---
 
 ### `CustomGamePlayedWhileIdle（閒置時顯示自訂遊戲名稱）`
 
 `string` 類型，預設值為「`null`」。 Similar to `CustomGamePlayedWhileFarming`, but for the situation when ASF has nothing to do (as account is fully farmed). Default value of `null` disables this feature.
 
-* * *
+---
 
 ### `Enabled（啟用）`
 
 `bool` 類型，預設值為「`false`」。 This property defines if bot is enabled. Enabled bot instance (`true`) will automatically start on ASF run, while disabled bot instance (`false`) will need to be started manually. By default every bot is disabled, so you probably want to switch this property to `true` for all of your bots that should be started automatically.
 
-* * *
+---
 
 ### `FarmingOrders`
 
@@ -495,25 +495,25 @@ Also notice the word "try" in all above descriptions - the actual ASF order is h
 
 There is also idling priority queue that is accessible through `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If it's used, actual idling order is sorted firstly by performance, then by idling queue, and finally by your `FarmingOrders`.
 
-* * *
+---
 
 ### `FarmPriorityQueueOnly`
 
 `bool` 類型，預設值為「`false`」。 This property defines if ASF should consider for automatic idling only apps that you added yourself to priority idling queue available with `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF idling. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to idle on your account. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
-* * *
+---
 
 ### `GamesPlayedWhileIdle`
 
 `ImmutableHashSet<uint>` 類型，預設值為空。 If ASF has nothing to farm it can play your specified steam games (`appIDs`) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appIDs` total, therefore you can put only as many games in this property.
 
-* * *
+---
 
 ### `HoursUntilCardDrops`
 
 `byte` 類型，預設值為「`3`」。 This property defines if account has card drops restricted, and if yes, for how many initial hours. Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least `HoursUntilCardDrops` hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is no obvious answer whether you should use one or another value, since it fully depends on your account. It seems that older accounts which never asked for refund have unrestricted card drops, so they should use a value of `0`, while new accounts and those who did ask for refund have restricted card drops with a value of `3`. This is however only theory, and should not be taken as a rule. The default value for this property was set based on "lesser evil" and majority of use cases.
 
-* * *
+---
 
 ### `LootableTypes`
 
@@ -541,7 +541,7 @@ Please note that regardless of the settings above, ASF will only ask for Steam (
 
 Default ASF setting is based on the most common usage of the bot, with looting only booster packs, and trading cards (including foils). The property defined here allows you to alter that behaviour in whatever way that satisfies you. Please keep in mind that all types not defined above will show as `Unknown` type, which is especially important when Valve releases some new Steam item, that will be marked as `Unknown` by ASF as well, until it's added here (in the future release). That's why in general it's not recommended to include `Unknown` type in your `LootableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `LootableTypes`, even if you expect to loot everything (else).
 
-* * *
+---
 
 ### `MatchableTypes`
 
@@ -571,7 +571,7 @@ Please note that **ASF is not a trading bot** and **will NOT care about the mark
 
 Unless you know what you're doing, you should keep it with default value of `5`.
 
-* * *
+---
 
 ### `OnlineStatus（線上狀態）`
 
@@ -579,8 +579,8 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 | 值 | 名稱                     |
 | - | ---------------------- |
-| 0 | 離線                     |
-| 1 | 線上                     |
+| 0 | Offline（離線）            |
+| 1 | Online（線上）             |
 | 2 | Busy（忙碌）               |
 | 3 | Away（離開）               |
 | 4 | Snooze（打盹）             |
@@ -598,19 +598,19 @@ However, there is one catch with `Invisible` mode - it doesn't go well with prim
 
 If you're unsure how to set up this property, it's recommended to use a value of `0` (`Offline`) for primary accounts, and default `1` (`Online`) otherwise.
 
-* * *
+---
 
 ### `PasswordFormat（密碼格式）`
 
 `byte` 類型，預設值為「`0`」。 This property defines the format of `SteamPassword` property, and currently supports - `0` for `PlainText`, `1` for `AES` and `2` for `ProtectedDataForCurrentUser`. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. In other words, when you change `PasswordFormat` then your `SteamPassword` should be **already** in that format, not just aiming to be. Unless you know what you're doing, you should keep it with default value of `0`.
 
-* * *
+---
 
 ### `Paused（暫停）`
 
 `bool` 類型，預設值為「`false`」。 This property defines initial state of `CardsFarmer` module. With default value of `false`, bot will automatically start farming when it's started, either because of `Enabled` or `start` command. Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
-* * *
+---
 
 ### `RedeemingPreferences`
 
@@ -640,7 +640,7 @@ The actual bots order for all of the redeeming scenarios is alphabetical, exclud
 
 Also keep in mind that you can't forward or distribute keys to bots that you do not have access to. This should be obvious, but ensure that you're at least `Operator` of all the bots you want to include in your redeeming process, for example with `status ASF` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
 
-* * *
+---
 
 ### `SendOnFarmingFinished`
 
@@ -648,7 +648,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. If you're not sure how to set this property, leave it with default value of `false`.
 
-* * *
+---
 
 ### `SendTradePeriod`
 
@@ -656,7 +656,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. If you're not sure how to set this property, leave it with default value of `0`.
 
-* * *
+---
 
 ### `ShutdownOnFarmingFinished`
 
@@ -664,25 +664,25 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 If you're not sure how to set this property, leave it with default value of `false`.
 
-* * *
+---
 
 ### `SkipRefundableGames`
 
 `bool` 類型，預設值為「`false`」。 This property defines if ASF is permitted to farm games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
-* * *
+---
 
 ### `SteamLogin`
 
 `string` 類型，預設值為「`null`」。 This property defines your steam login - the one you use for logging in to steam. In addition to defining steam login here, you may also keep default value of `null` if you want to enter your steam login on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
 
-* * *
+---
 
 ### `SteamMasterClanID`
 
 `ulong` 類型，預設值為「`0`」。 This property defines the steamID of the steam group that bot should automatically join, including its group chat. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/archiasf)**, then adding `/memberslistxml?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. In addition to trying to join given group at startup, the bot will also automatically accept group invites to this group, which makes it possible for you to invite your bot manually if your group has private membership. If you don't have any group dedicated for your bots, you should keep this property with default value of `0`.
 
-* * *
+---
 
 ### `SteamParentalCode`
 
@@ -690,13 +690,13 @@ If you're not sure how to set this property, leave it with default value of `fal
 
 In limited circumstances, ASF is also able to generate a valid Steam parental code itself, although that requires excessive amount of OS resources and additional time to complete, not to mention that it's not guaranteed to succeed, therefore we recommend to not rely on that feature and instead put valid `SteamParentalCode` in the config for ASF to use.
 
-* * *
+---
 
 ### `SteamPassword（Steam 密碼）`
 
 `string` 類型，預設值為「`null`」。 This property defines your steam password - the one you use for logging in to steam. In addition to defining steam password here, you may also keep default value of `null` if you want to enter your steam password on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
 
-* * *
+---
 
 ### `SteamTradeToken`
 
@@ -704,7 +704,7 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 
 In order to find your token, as logged in user with `Master` permission, navigate **[here](https://steamcommunity.com/my/tradeoffers/privacy)** and take a look at your trade URL. The token we're looking for is made out of 8 characters after `&token=` part in your trade URL. You should copy and put those 8 characters here, as `SteamTradeToken`. Do not include whole trading URL, neither `&token=` part, only the token itself (8 characters).
 
-* * *
+---
 
 ### `SteamUserPermissions`
 
@@ -723,7 +723,7 @@ We recommend to set exactly one user as `Master`, and any amount you wish as `Op
 
 It's nice to note that there is one more extra `Owner` permission, which is declared as `SteamOwnerID` global config property. You can't assign `Owner` permission to anybody here, as `SteamUserPermissions` property defines only permissions that are related to the bot instance, and not ASF as a process. For bot-related tasks, `SteamOwnerID` is treated the same as `Master`, so defining your `SteamOwnerID` here is not necessary.
 
-* * *
+---
 
 ### `TradingPreferences`
 
@@ -742,7 +742,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 For further explanation of ASF trading logic, and description of every available flag, please visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section.
 
-* * *
+---
 
 ### `TransferableTypes`
 
@@ -770,7 +770,7 @@ Please note that regardless of the settings above, ASF will only ask for Steam (
 
 Default ASF setting is based on the most common usage of the bot, with transfering only booster packs, and trading cards (including foils). The property defined here allows you to alter that behaviour in whatever way that satisfies you. Please keep in mind that all types not defined above will show as `Unknown` type, which is especially important when Valve releases some new Steam item, that will be marked as `Unknown` by ASF as well, until it's added here (in the future release). That's why in general it's not recommended to include `Unknown` type in your `TransferableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `TransferableTypes`, even if you expect to transfer everything.
 
-* * *
+---
 
 ### `UseLoginKeys`
 
@@ -780,7 +780,7 @@ Login keys are used by default for your convenience, so you don't need to input 
 
 However, some people could be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
 
-* * *
+---
 
 ### `UserInterfaceMode`
 
@@ -794,7 +794,7 @@ However, some people could be concerned even about this little detail, therefore
 
 If you're not sure how to set this property, leave it with default value of `0`.
 
-* * *
+---
 
 ## 檔案結構
 
@@ -838,7 +838,7 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 `BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
 
-* * *
+---
 
 ## JSON 對應
 
@@ -848,59 +848,59 @@ Every configuration property has its type. Type of the property defines values t
 
 Types used by ASF are native C# types, which are specified below:
 
-* * *
+---
 
 `bool` - Boolean type accepting only `true` and `false` values.
 
 Example: `"Enabled": true`
 
-* * *
+---
 
 `byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
 
 Example: `"ConnectionTimeout": 60`
 
-* * *
+---
 
 `ushort` - Unsigned short type, accepting only integers from `0` to `65535` (inclusive).
 
 Example: `"WebLimiterDelay": 300`
 
-* * *
+---
 
 `uint` - Unsigned integer type, accepting only integers from `0` to `4294967295` (inclusive).
 
-* * *
+---
 
 `ulong` - Unsigned long integer type, accepting only integers from `0` to `18446744073709551615` (inclusive).
 
 Example: `"SteamMasterClanID": 103582791440160998`
 
-* * *
+---
 
 `string` - String type, accepting any sequence of characters, including empty sequence `""` and `null`. Empty sequence and `null` value are treated the same by ASF, so it's up to your preference which one you want to use (we stick with `null`).
 
 Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
 
-* * *
+---
 
 `ImmutableList<valueType>` - Immutable collection (list) of values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`. ASF uses `List` to indicate that given property supports multiple values and that their order might be relevant.
 
 Example for `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
 
-* * *
+---
 
 `ImmutableHashSet<valueType>` - Immutable collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`. ASF uses `HashSet` to indicate that given property makes sense only for unique values and that their order doesn't matter, therefore it'll intentionally ignore any potential duplicates during parsing (if you happened to supply them anyway).
 
 Example for `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 
-* * *
+---
 
 `ImmutableDictionary<keyType, valueType>` - Immutable dictionary (map) that maps a unique key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs. Keep in mind that `keyType` is always quoted in this case, even if it's value type such as `ulong`. There is also a strict requirement of the key being unique across the map, this time enforced by JSON as well.
 
 Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 
-* * *
+---
 
 `flags` - Flags attribute combines several different properties into one final value by applying bitwise operations. This allows you to choose any possible combination of various different allowed values at the same time. The final value is constructed as a sum of values of all enabled options.
 
@@ -916,7 +916,6 @@ For example, given following values:
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 
 So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and `8` possible values overall:
-
 - `None -> 0`
 - `A -> 1`
 - `B -> 2`
@@ -928,24 +927,23 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 
 Example: `"SteamProtocols": 7`
 
-* * *
+---
 
 ## 相容性對應
 
 Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
 
-* * *
+---
 
 ## 設定相容性
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself (e.g. `WebLimiterDelay`).
 
-* * *
+---
 
 ## 自動重新載入
 
 Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
-
 - Create (and start, if needed) new bot instance, when you create its config
 - Stop (if needed) and remove old bot instance, when you delete its config
 - Stop (and start, if needed) any bot instance, when you edit its config

@@ -14,13 +14,13 @@ ASF 目前支持的加密方式定义为如下 `ECryptoMethod`：
 
 要生成加密过的密码，并在如 `SteamPassword` 等属性中使用，您可以执行 `encrypt` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，并带上您选择的适当加密方式与您的密码原文。 然后，将您获得的加密字符串填入 `SteamPassword` 机器人配置属性，并且对应修改 `PasswordFormat` 为符合加密方式的选项。
 
-* * *
+---
 
 ### PlainText
 
 这是最简单但也最不安全的密码存储方式，指定 `ECryptoMethod` 为 `0`。 此时 ASF 需要字符串为纯文本——即密码的原文形式。 它是最容易使用的，并且与所有部署方式 100% 兼容，因此它是存储私密数据的默认值，但完全不安全。
 
-* * *
+---
 
 ### AES
 
@@ -28,7 +28,7 @@ ASF 目前支持的加密方式定义为如下 `ECryptoMethod`：
 
 此方法保证了安全性，只要攻击者不知道用于加密和解密的 ASF 内置密钥。 ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**&#8203;指定自定义密钥增强 ASF 的安全性。 如果您决定省略它，ASF 将使用自己提供的密钥，这个密钥是**已知**的并已硬编码到应用程序中，这意味着任何人都可以撤消 ASF 的加密并获取解密后的密码。 虽然这种攻击仍然需要一定时间而且并不容易，但是这是可以做到的。所以您总应该同时使用 `AES` 加密并用 `--cryptkey` 指定自定义密钥。 ASF 使用的 AES 方法提供了相对令人满意的安全性，并且它在 `PlainText` 的简单和 `ProtectedDataForCurrentUser` 的复杂之间取得了平衡，但强烈建议您将它与自定义密钥 `--cryptkey` 一起使用。 如果使用得当，就能保证安全存储的适当安全性。
 
-* * *
+---
 
 ### ProtectedDataForCurrentUser
 
@@ -36,7 +36,7 @@ ASF 目前支持的加密方式定义为如下 `ECryptoMethod`：
 
 **请注意，此选项目前仅适用于运行 Windows 操作系统的计算机。**
 
-* * *
+---
 
 ## 建议
 
@@ -46,13 +46,13 @@ ASF 目前支持的加密方式定义为如下 `ECryptoMethod`：
 
 除了使用上述加密方式以外，您也可以完全不填写密码，例如，将 `SteamPassword` 设置为空字符串或者 `null` 值。 ASF 将会在需要时向您询问密码，并且不会将其保存在任何地方，仅仅临时存放在当前进程分配的内存中，一旦您关闭 ASF 就会消失。 随着这是处理密码的最安全的方法（密码没有被存储在任何地方），但也是最麻烦的，因为您需要在每次 ASF 运行时手动输入密码（如果需要）。 如果这对您来说不是问题，这就是您在安全方面的最佳选择。
 
-* * *
+---
 
 ## 解密
 
 ASF 不支持任何解密已加密密码的方法，因为解密方法仅在内部使用，用于访问进程内的数据。 如果您需要反转加密过程，例如，在使用 `ProtectedDataForCurrentUser` 加密的情况下，将 ASF 迁移到另一台机器，则在新环境中重新按上述流程操作即可。
 
-* * *
+---
 
 ## 哈希
 
@@ -68,13 +68,13 @@ ASF 目前支持的哈希方式定义为如下 `EHashingMethod`：
 
 要生成哈希值，并在如 `IPCPassword` 等属性中使用，您可以执行 `hash` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，并带上您选择的适当哈希方式与您的密码原文。 然后，将您获得的哈希字符串填入 `IPCPassword` 全局配置属性，并且对应修改 `IPCPasswordFormat` 为符合哈希方式的选项。
 
-* * *
+---
 
 ### PlainText
 
 这是最简单但也最不安全的密码哈希方式，指定 `EHashingMethod` 为 `0`。 ASF 会生成与原文相同的哈希值。 它是最容易使用的，并且与所有部署方式 100% 兼容，因此它是存储私密数据的默认值，但完全不安全。
 
-* * *
+---
 
 ### SCrypt
 
@@ -82,7 +82,7 @@ ASF 目前支持的哈希方式定义为如下 `EHashingMethod`：
 
 ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**&#8203;指定盐增强 ASF 的安全性。 如果您决定省略它，ASF 将使用自己提供的密钥，这个密钥是**已知**的并已硬编码到应用程序中，这意味着哈希过程会更不安全。 如果使用得当，就能保证安全存储的适当安全性。
 
-* * *
+---
 
 ### Pbkdf2
 
@@ -90,7 +90,7 @@ ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArch
 
 ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**&#8203;指定盐增强 ASF 的安全性。 如果您决定省略它，ASF 将使用自己提供的密钥，这个密钥是**已知**的并已硬编码到应用程序中，这意味着哈希过程会更不安全。
 
-* * *
+---
 
 ## 建议
 

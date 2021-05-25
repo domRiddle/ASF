@@ -4,19 +4,19 @@ ASF es apoyado por el servicio Crowdin, lo que permite a cualquiera ayudar a tra
 
 Si te interesa lo que está ocurriendo actualmente, puedes revisar la **[actividad de ASF en Crowdin](https://crowdin.com/project/archisteamfarm/activity_stream)**.
 
-* * *
+---
 
 ## Alcance
 
 Nuestra plataforma soporta la localización de nuestro programa principal ASF, así como el contenido localizable que ofrecemos junto con él. Esto incluye especialmente nuestro ASF-WebConfigGenerator, ASF-ui, así como nuestra wiki. Todo eso es posible traducirlo a través de la conveniente interfaz de Crowdin.
 
-* * *
+---
 
 ## Registrarse
 
 Si quieres ayudar con ASF, ya sea traduciendo, revisando o aprobando traducciones, por favor, regístrate en nuestra **[página de proyecto en Crowdin](https://crowdin.com/project/archisteamfarm)**. ¡El registro es fácil y totalmente gratuito! ¡Después de iniciar sesión puedes elegir los idiomas que te gustaría tener asignados, luego proceder a las cadenas de ASF y ayudar al resto de la comunidad con la traducción de ASF a los idiomas más populares!
 
-* * *
+---
 
 ### Traducción
 
@@ -36,7 +36,7 @@ O:
 
 La flexibilidad se proporciona especialmente para ti, para que puedas expresar en otras palabras una frase de ASF para que se adapte mejor a tu idioma y mover el número proporcionado por ASF u otra información a un lugar que se ajuste a tu traducción (en lugar de traducir cada parte de forma independiente). Esto mejora la calidad general de la traducción.
 
-* * *
+---
 
 ### Revisión
 
@@ -44,7 +44,7 @@ Si tu cadena ya fue traducida por alguien más, puedes votar por ella. Votar hac
 
 **No necesitas aprobación para ver tus cadenas traducidas en ASF**. La aprobación simplemente significa que alguien de confianza para nosotros ha revisado el contenido, o sea que - seleccionó la versión final de la traducción. Está totalmente bien tener traducciones apoyadas por la comunidad no aprobadas, donde tú votas por la mejor. ¡Mientras esté traducido, todo está bien! Y si crees que la traducción actual es mala, siempre puedes votar por la mejor, o sugerir una tú mismo.
 
-* * *
+---
 
 ### Proof-reading
 
@@ -54,7 +54,7 @@ Si tienes un historial de contribuciones en Crowdin o alguna otra plataforma/ser
 
 Las reglas generales aplican para el proof-reading - no te apresures, trabaja como administrador de proyecto, resuelve problemas, asegúrate de que estás haciendo las cosas mejor y no peor.
 
-* * *
+---
 
 ### Problemas
 
@@ -63,13 +63,12 @@ Si tienes un problema con una traducción en particular, por ejemplo, si no sabe
 **Por favor, evita usar la marca de problema si no necesitas una explicación técnica/de desarrollo o la acción del administrador**. Eres libre de usar los comentarios para discutir la traducción de una cadena dada, pero la marca de problema solo debe ser usada cuando necesitas una mayor explicación técnica o una corrección del administrador, y normalmente involucrará a alguien que no habla el idioma al que estás traduciendo, así que por favor, apégate al inglés cuando escribas un comentario de problema (para que podamos entender cuál es el problema).
 
 Actualmente hay 4 tipos de problemas soportados:
+- Pregunta general - para todo aquello que no encaje en ninguno de los siguientes problemas. En general, este tipo **debe ser evitado**, si tu problema no encaja, probablemente **no** es un problema de traducción. Sin embargo, esta opción está disponible para todos los demás casos.
+- La traducción actual es incorrecta - este debe ser usado **solo** si la traducción ya fue preaprobada por un proof-reader, y crees que es incorrecta, por ejemplo, si tiene un error tipográfico o tienes una sugerencia válida de cómo mejorarla. Este tipo nunca debe utilizarse en traducciones apoyadas por la comunidad (votación), ya que en este caso debes contactar con el usuario de dicha traducción y pedirle que la corrija, o simplemente vota por una traducción mejor, como se indica en la sección de revisión. Eliminaremos la aprobación de la traducción y notificaremos al proof-reader correspondiente a cargo del idioma para que tome en cuenta tu comentario y verifique de nuevo.
+- Falta de información contextual - este es el que debes usar si no estás seguro de qué parte de ASF estás traduciendo, cuál es el contexto de una cadena dada, o su propósito. Este tipo debe ser usado solo para el desarrollo de ASF, significa que necesitas asistencia técnica ya que no estás seguro de cómo debes traducir una determinada cadena.
+- Error en la cadena original - este solo debe ser usado si crees que la cadena original (inglés) es incorrecta. Muy raro, pero yo tampoco hablo inglés nativamente, así que siéntete libre de usarlo si tienes una idea general de cómo podría mejorar. Alternativamente, ya que esto se relaciona estrictamente con el desarrollo, puedes usar **[GitHub issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** para ese propósito, si lo deseas.
 
-* Pregunta general - para todo aquello que no encaje en ninguno de los siguientes problemas. En general, este tipo **debe ser evitado**, si tu problema no encaja, probablemente **no** es un problema de traducción. Sin embargo, esta opción está disponible para todos los demás casos.
-* La traducción actual es incorrecta - este debe ser usado **solo** si la traducción ya fue preaprobada por un proof-reader, y crees que es incorrecta, por ejemplo, si tiene un error tipográfico o tienes una sugerencia válida de cómo mejorarla. Este tipo nunca debe utilizarse en traducciones apoyadas por la comunidad (votación), ya que en este caso debes contactar con el usuario de dicha traducción y pedirle que la corrija, o simplemente vota por una traducción mejor, como se indica en la sección de revisión. Eliminaremos la aprobación de la traducción y notificaremos al proof-reader correspondiente a cargo del idioma para que tome en cuenta tu comentario y verifique de nuevo.
-* Falta de información contextual - este es el que debes usar si no estás seguro de qué parte de ASF estás traduciendo, cuál es el contexto de una cadena dada, o su propósito. Este tipo debe ser usado solo para el desarrollo de ASF, significa que necesitas asistencia técnica ya que no estás seguro de cómo debes traducir una determinada cadena.
-* Error en la cadena original - este solo debe ser usado si crees que la cadena original (inglés) es incorrecta. Muy raro, pero yo tampoco hablo inglés nativamente, así que siéntete libre de usarlo si tienes una idea general de cómo podría mejorar. Alternativamente, ya que esto se relaciona estrictamente con el desarrollo, puedes usar **[GitHub issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** para ese propósito, si lo deseas.
-
-* * *
+---
 
 ### Progreso de la traducción
 
@@ -81,7 +80,7 @@ Algunos idiomas seleccionados pueden tener proof-readers que validen las traducc
 
 ASF incluirá un idioma determinado **tan pronto como sea posible**, esto significa que no necesita estar aprobado o traducido al 100%. Las cadenas que serán usadas siempre son las más populares en términos de votos, a menos que el proofreader elegido decida lo contrario (rara vez). Por lo tanto, puedes ver tus esfuerzos incluidos en la próxima versión de ASF - nuestros sistemas de automatización aplican las traducciones de Crowdin al repositorio de ASF diariamente.
 
-* * *
+---
 
 ## Idiomas faltantes
 
@@ -89,7 +88,7 @@ Por defecto el proyecto de ASF tiene la traducción abierta solo para los 30 idi
 
 Para una lista completa de todos los idiomas disponibles a los que ASF puede ser traducido, haz **[clic aquí](https://support.crowdin.com/api/language-codes)**.
 
-* * *
+---
 
 ## Pluralización
 
@@ -109,7 +108,7 @@ De esta manera hemos definido las 4 formas del plural para el idioma polaco, y y
 
 No es obligatorio definir todas las formas de plural de tu idioma. Si falta alguna, nuestra biblioteca de localización usará en su lugar la última forma definida. Es buena idea definir todas las formas del plural usadas por tu idioma, pero en algunos casos las formas de plural restantes podrían ser iguales a la última, en cuyo caso no es necesario repetirlas. En nuestro ejemplo anterior era obligatorio, ya que en polaco la forma "other" para meses es "miesiąca", y no "miesięcy" como en "many".
 
-* * *
+---
 
 ## Wiki
 
@@ -117,7 +116,7 @@ Nuestra plataforma crowdin también te permite localizar la propia wiki. Esta es
 
 La wiki es un poco especial en este sentido, ya que es una ayuda en línea donde no necesitas apegarte demasiado a la frase original. Esto significa que quieres ser tan natural con tu idioma como sea posible, y ofrecer significado y ayuda originales - no necesariamente apegándote a la cadena original, a las palabras usadas y a la puntuación real. No tengas miedo de reescribir la cadena en algo mucho más natural para tu idioma, siempre que mantengas el sentido general y la ayuda incluida en la frase.
 
-* * *
+---
 
 ### Enlaces globales
 
@@ -127,7 +126,7 @@ ASF incluye enlaces en casi todas las páginas para una navegación más fácil,
 
 Por ejemplo, la **[página de inicio](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** de ASF incluye un texto como:
 
-> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
+> Si eres un usuario nuevo, recomendamos comenzar con la guía de **[instalación](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-es-es)**.
 
 Que originalmente está escrito como:
 
@@ -137,11 +136,11 @@ If you're a new user, we recommend starting with **[setting up](https://github.c
 
 En Crowdin, lo primero que debes hacer es ir a los ajustes de editor y asegurarte de que las etiquetas HTML estén configuradas en "Mostrar". Esto es muy importante si decides localizar la wiki.
 
-* * *
+---
 
 ![Crowdin](https://i.imgur.com/YqAxiZ4.png)
 
-* * *
+---
 
 Ahora, durante la traducción en Crowdin, dependiendo del formato, verás los enlaces de ASF en el texto ya sea como:
 
@@ -150,29 +149,29 @@ Ahora, durante la traducción en Crowdin, dependiendo del formato, verás los en
 
 En nuestro ejemplo anterior, es el primer caso (ya que solo "setting up" es un enlace), así que en Crowdin lo veremos como:
 
-* * *
+---
 
 ![Crowdin 2](https://i.imgur.com/Li5RzS3.png)
 
-* * *
+---
 
 Independientemente del caso, primero debes copiar la cadena original y traducirla como de costumbre, dejando intacto el HTML (si está presente). Este sería un ejemplo de traducción para el idioma polaco:
 
-* * *
+---
 
 ![Crowdin 3](https://i.imgur.com/NpKwfka.png)
 
-* * *
+---
 
 Ahora, si el enlace es uno genérico que dirige fuera de la wiki (por ejemplo, a la última versión de ASF), puedes dejarlo como está ya que no quieres editar eso. Puedes guardarlo y seguir adelante.
 
 Sin embargo, si el enlace **sí** dirige hacia la propia wiki, como el de arriba, puedes corregirlo para que dirija a una nueva ubicación (localizada). Esto se hace añadiendo cuidadosamente `-locale` a la URL destino en la etiqueta `<a>`, como a continuación:
 
-* * *
+---
 
 ![Crowdin 4](https://i.imgur.com/TL8uwmb.png)
 
-* * *
+---
 
 Ten mucho cuidado con esto, y asegúrate de que tu URL realmente existe, ya que si cometes un error, ese enlace dejará de funcionar. Si lo haces bien, ahora tendrás una traducción totalmente funcional con un enlace dirigiendo a una página traducida (en nuestro caso `Setting-up-pl-PL`).
 
@@ -188,19 +187,19 @@ Y finalmente al texto en la wiki:
 
 Cuando no hay HTML presente (segundo caso), es incluso más fácil ya que puedes simplemente ir a `Hidden texts` -> `Link addresses`.
 
-* * *
+---
 
 ![Crowdin 5](https://i.imgur.com/ZmgavCM.png)
 
-* * *
+---
 
 Desde ahí puedes corregir fácilmente el enlace para que dirija a una nueva ubicación, sin siquiera molestarte con HTML:
 
-* * *
+---
 
 ![Crowdin 6](https://i.imgur.com/maG7kSm.png)
 
-* * *
+---
 
 ### Enlaces locales
 
@@ -210,41 +209,41 @@ Esos son casos especiales, ya que esos enlaces están basados en los nombres de 
 
 Por ejemplo, puedes encontrar el enlace `#introduction` en nuestra sección de **[configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)**:
 
-* * *
+---
 
 ![Crowdin 7](https://i.imgur.com/EEHSPtK.png)
 
-* * *
+---
 
 Como vamos a traducir la palabra "Introduction" a "Wprowadzenie" para el idioma polaco, necesitaremos corregir este enlace ya que dejará de funcionar el momento en que hagamos esto.
 
-* * *
+---
 
 ![Crowdin 8](https://i.imgur.com/JMJegO7.png)
 
-* * *
+---
 
 De esta manera nuestro enlace local seguirá funcionando, ya que ahora dirigirá al nombre de la sección que estamos usando. Puedes corregir enlaces dentro de etiquetas HTML de la misma forma.
 
-* * *
+---
 
 ### Bloques de código
 
 Ten mucho cuidado cuando traduzcas frases que contengan los bloques `<code></code>`. Un bloque de código indica nombres o términos fijos del código de ASF que no deben ser traducidos. Por ejemplo:
 
-> Esto es especialmente útil si tienes una gran cantidad de claves para activar y es seguro que alcanzarás el estatus `RateLimited` antes de que termines con tu lote entero.
+> Esto es especialmente útil si tienes una gran cantidad de claves para activar y es seguro que alcanzarás el estatus <code>RateLimited</code> antes de que termines con tu lote entero.
 
 Como puedes ver, la palabra `RateLimited` está dentro de un bloque de código e indica un código de estado interno de ASF que no debe ser traducido. De la misma manera, no deberías traducir otros bloques de código, tal como nombres de propiedades de configuración (por ejemplo, `TradingPreferences`), miembros de enumeración (por ejemplo, las opciones `Stable` y `Experimental` de `UpdateChannel`) y demás.
 
 Sin embargo, solo porque esas palabras no deban traducirse, no significa que no puedas añadir la traducción adecuada junto a ellas, por ejemplo entre corchetes.
 
-> Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu `RateLimited` (zbyt częstej aktywacji) przed ukończeniem całej partii.
+> Ta funkcja jest wyjątkowo użyteczna w przypadku aktywacji dużej ilości kluczy i gwarancji napotkania statusu <code>RateLimited</code> (zbyt częstej aktywacji) przed ukończeniem całej partii.
 
 Como puedes ver arriba, hemos añadido "zbyt częstej aktywacji", literalmente "activación muy frecuente" junto a `RateLimited` para traducir ese estado de manera amigable, mientras al mismo tiempo mantenemos el significado original que los usuarios pueden ver durante el uso del programa. De la misma manera, puedes traducir/explicar otros casos similares de varias palabras y frases.
 
 Si crees que algo inapropiado está incluido en un bloque de código, o que hay un texto que no está en un bloque de código pero debería estarlo, siéntete libre de preguntar en nuestro Crowdin creando el reporte de **[problema](#problemas)** correspondiente. Esto también sirve como un ejemplo práctico de cómo usar un enlace local.
 
-* * *
+---
 
 ## Salón de la Fama
 

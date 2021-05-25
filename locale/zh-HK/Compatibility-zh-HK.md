@@ -8,7 +8,7 @@ ASF 是一個在.NET Core 平台上運行的 C# 應用程式。 這意味著 ASF
 
 但是，無論您想要在哪個平台上運行 ASF，您必須確保該平台安裝了**[.NET Core 的依賴項](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)**。 這些都是確保運行環境功能正常的底層庫，也是確保 ASF 能夠第一時間工作的絕對核心。 很有可能您已經安裝了其中的一些 (甚至全部)。
 
-* * *
+---
 
 ## Multiple instances
 
@@ -22,13 +22,13 @@ It's not required for running ASF instances to share the same `*LimiterDelay` pr
 
 ASF takes into account `WebProxy` setting when deciding about shared scope, which means that two ASF instances using different `WebProxy` configurations will not share their limiters with each other. This is implemented in order to allow `WebProxy` setups to operate without excessive delays, as expected from different network interfaces. This should be good enough for majority of use cases, however, if you have a specific custom setup in which you're e.g. routing requests yourself in a different way, you can specify network group yourself through `--network-group` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**, which will allow you to declare ASF group that will be synchronized with this instance. Keep in mind that custom network groups are used exclusively, which means that ASF will no longer use `WebProxy` for determining the right group, as you're in charge of grouping in this case.
 
-* * *
+---
 
 ## ASF 包
 
 ASF 有兩種主要的打包方式──Generic包以及 OS-specific 包（針對特定操作系統的包）。 從功能上來講，這兩種包是完全一樣的，都能夠自動進行更新。 唯一的區別就是 **Generic包**中不包含** OS-specific **包內附帶的能使 ASF 運行的環境。
 
-* * *
+---
 
 ### Generic
 
@@ -44,7 +44,7 @@ Generic 包獨立于平台，所以它不包含任何特定於電腦的代碼。
 
 隨著時間的推移，.NET Core 會支援更多平台，而 .NET Framework 和 .NET Core 之間會更加不兼容，`Generic-netf` 包將會在未來完全被 `Generic` 包取代。 如果您可以使用任何 .NET Core 套裝軟件，就不要使用套裝框架，因為 `Generic-netf` 與 .NET Core 版本相比缺少許多功能和兼容性，並且隨著時間的推移，它的功能只會變少。 We offer support for this package **only** on machines that can't use `generic` variant above (e.g. `linux-x86`), and only with up-to-date runtime (e.g. latest Mono).
 
-* * *
+---
 
 ### OS-specific
 
@@ -62,7 +62,7 @@ ASF當前可用於以下操作系統 ：
 
 您可以訪問​**[版本注釋​](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md)**查看.NET Core 5.0 支持的所有平台與操作系統清單。
 
-* * *
+---
 
 ## 運行時環境需求
 

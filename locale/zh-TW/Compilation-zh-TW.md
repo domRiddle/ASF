@@ -4,13 +4,13 @@
 
 只要您擁有所有需要的工具，即可以在任何當前支援的平台上編譯ASF。
 
-* * *
+---
 
 ## .NET Core SDK
 
 無論使用什麼平台，您都需要完整的 .NET Core SDK（不僅僅是執行階段）才能編譯 ASF。 您可以在 **[.NET Core 安裝頁面​](https://dotnet.microsoft.com/download)**找到安裝指南。 您需要為您的作業系統安裝相應的.NET Core SDK版本。 成功安裝後，`dotnet` 指令應可正常執行。 您可以執行 `dotnet --info` 指令以驗證。 同樣需要確認您的 .NET Core SDK 符合 ASF 的**[執行階段必要條件](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#執行階段必要條件)**。
 
-* * *
+---
 
 ## 編譯
 
@@ -48,7 +48,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
 ```
 
-* * *
+---
 
 ## 開發
 
@@ -58,13 +58,13 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 當然，以上的所有建議都僅僅是建議，您可以使用您想用的任何工具，最後您都要使用 `dotnet build` 指令進行構建。 We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, although it's not a free solution.
 
-* * *
+---
 
 ## 標籤
 
 `main` branch is not guaranteed to be in a state that allows successful compilation or flawless ASF execution in the first place, since it's development branch just like stated in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. 如果您希望從原始碼編譯或參照 ASF，就應該為此選擇適當的​**[標籤](https://github.com/JustArchiNET/ArchiSteamFarm/tags)**，這樣能夠保證編譯成功，甚至可以正常運行（如果您選擇穩定版）。 In order to check the current "health" of the tree, you can use our continuous integrations - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** or **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**.
 
-* * *
+---
 
 ## 官方發佈版本
 

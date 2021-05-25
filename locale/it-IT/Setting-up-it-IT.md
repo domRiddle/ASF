@@ -6,12 +6,11 @@ Se sei ancora qui vuol dire che hai già letto l'introduzione, il che è positiv
 
 Tuttavia ciò non significa che tu non possa usarlo sul tuo PC o che farlo funzionare sia più complicato del solito, per niente. ASF è un programma standalone che non necessita di installazione, subito pronto per essere utilizzato, ma che necessita d'essere configurato per poter essere di qualche uso. È infatti la sua configurazione che dirà ad ASF quello che deve fare una volta avviato. Se lo avvii senza averlo configurato, ASF semplicemente non farà nulla.
 
-* * *
+---
 
 ## Installazione per ogni OS
 
 Il linea generale, ecco cosa faremo nei prossimi minuti:
-
 - Installare i **[prerequisiti per .NET Core](#net-core-prerequisites)**.
 - Scaricare **[l'ultima versione di ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** specifica per il tuo sistema operativo.
 - Estrarre l'archivio in una nuova cartella (ed usare il comando `chmod +x ArchiSteamFarm` se sei su Linux/OS X).
@@ -20,7 +19,7 @@ Il linea generale, ecco cosa faremo nei prossimi minuti:
 
 Suona piuttosto semplice, vero? Allora iniziamo.
 
-* * *
+---
 
 ### Prerequisiti per .NET Core
 
@@ -31,12 +30,10 @@ Il primo passo consiste nell'assicurarsi che il proprio OS possa eseguire ASF co
 Tieni a mente che non hai bisogno di fare altro per le build specifiche per il vostro OS, come installare il .NET Core SDK, dacché i pacchetti specifici per ogni OS includono tutto ciò di cui si ha bisogno. Hai solo bisogno dei prerequisiti (o dipendenze) per .NET Core per far funzionare il runtime .NET Core incluso in ASF.
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
-
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
 - È fortemente consigliato assicurarsi gli aggiornamenti di Windows siano tutti installati. Gli aggiornamenti **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** e **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)** sono fondamentali, ma potrebbero esserne richiesti anche degli altri. Se mantieni il tuo Windows aggiornato, saranno già installati. Assicurati di soddisfare tali requisiti prima di installare il pacchetto Visual C++.
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
-
 Il nome del pacchetto varia in base alla distribuzione di Linux che stai usando, ma elencheremo quelli che sono i più comuni. Li puoi ottenere dal tuo gestore di pacchetti nativo in base all'OS che usi (come `apt` per Debian, o `yum` per CentOS).
 
 - `libc6` (`libc`)
@@ -50,10 +47,9 @@ Il nome del pacchetto varia in base alla distribuzione di Linux che stai usando,
 At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
-
 - Per il momento nessuno, tuttavia è necessario avere OS X con versione 10.13 o superiore
 
-* * *
+---
 
 ### Download
 
@@ -84,7 +80,7 @@ C:\ASF (where you put your own things)
          └── (...)
 ```
 
-* * *
+---
 
 ### Configurazione
 
@@ -106,12 +102,11 @@ Inizia dall'inserire il nome del tuo bot nel campo evidenziato in rosso. Può es
 
 Dopo aver deciso il nome del bot, clicca il bottone con il tick nella sezione `Enabled</0. Questo dichiara ad ASF se il bot deve essere avviato automaticamente dopo il lancio del programma.</p>
 
-<p>Ora puoi scegliere tra due cose:</p>
+<p spaces-before="0">Ora puoi scegliere tra due cose:</p>
 
 <ul>
-<li>Puoi inserire i tuoi dati nel campo <code>SteamLogin` e la tua password in `SteamPassword`</li> 
-
-- O puoi lasciarli vuoti</ul> 
+<li>Puoi inserire i tuoi dati nel campo <code>SteamLogin` e la tua password in `SteamPassword`</li>
+- O puoi lasciarli vuoti</ul>
 
 Facendo la prima cosa, autorizzi ASF ad utilizzare automaticamente le credenziali del tuo account durante il lancio del programma, evitando così di inserirle manualmente ogni volta che ASF ne ha bisogno. Puoi tuttavia decidere di ometterle: in questo caso non vengono salvate, perciò ASF non potrà iniziare automaticamente il suo lavoro senza il tuo aiuto e dovrai inserirli mentre il programma è in esecuzione.
 
@@ -131,7 +126,7 @@ La cartella `config` ora sarà simile a questa:
 
 Congratulazioni! Hai appena completato la configurazione fondamentale del bot ASF. La estenderemo a breve, ma per ora questo è tutto quello di cui hai bisogno.
 
-* * *
+---
 
 ### Eseguire ASF
 
@@ -153,7 +148,7 @@ Questo prova che ASF sta facendo un ottimo lavoro sul tuo account, ed ora puoi m
 
 Con questo si conclude la nostra guida fondamentale sull'impostare ASF. Ora puoi decidere se vuoi configurare ancora di più ASF, oppure lasciare che faccia il suo lavoro con le impostazioni predefinite. Ora ci occuperemo di altri dettagli base, per poi lasciarti l'intera wiki per scoprire cose nuove.
 
-* * *
+---
 
 ### Configurazione avanzata
 
@@ -166,7 +161,7 @@ ASF supporta la possibilità di far farmare più account alla volta, che è la s
 
 In altre parole, ritorna nuovamente alla configurazione ed esegui esattamente gli stessi passaggi per il tuo secondo o terzo account. Ricorda di usare nomi unici per tutti i tuoi bot.
 
-* * *
+---
 
 #### Modifica delle impostazioni
 
@@ -186,15 +181,15 @@ Una volta fatto questo, fai ripartire ASF e noterai che il programma mostra il t
 
 ![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
-Questo conferma che hai modificato con successo la configurazione. Allo stesso modo, puoi cambiare le proprietà generali di ASF, passando dalla scheda "bot" a "ASF", scaricando il file `ASF.json` e inserendolo nella cartella `config`.
+This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
 
 Editing your ASF configs can be done much easier by using our ASF-ui frontend, which will be explained further below.
 
-* * *
+---
 
 #### Utilizzo di ASF-ui
 
-ASF è un'applicazione via terminale che non include un'interfaccia grafica. Tuttavia, stiamo lavorando molto su essa, e può diventare uno strumento molto dignitoso e facile da usare per accedere alle varie funzioni di ASF.
+ASF è un'applicazione via terminale che non include un'interfaccia grafica. However, we're actively working on **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** frontend to our IPC interface, which can be a very decent and user-friendly way to access various ASF features.
 
 In order to use ASF-ui, you need to have `IPC` enabled, which is the default option starting with ASF V5.1.0.0. Once you launch ASF, you should be able to confirm that it properly started the IPC interface automatically:
 
@@ -206,20 +201,19 @@ You can access ASF's IPC interface under **[this](http://localhost:1242)** link,
 
 Please note that some features, such as sending commands, require a properly set `SteamOwnerID` global config property. Now that you have ASF-ui up and running, why not give it a try and set it from the frontend itself? You'll need to input unique Steam identificator in 64-bit form of your account. You can look it up in various different ways, for example through **[STEAMID I/O](https://steamid.io)** or **[SteamRep](https://steamrep.com)**. The number you're looking for should be similar to `76561198006963719`, which is my account's ID.
 
-* * *
+---
 
 ### Sommario
 
 You've successfully set up ASF to use your Steam accounts and you've already customized it to your liking a little. If you followed our entire guide, then you also managed to tweak ASF through our ASF-ui interface and found out that ASF actually has a GUI of some sort. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen actually do, and what ASF has to offer. If you've stumbled upon some issue or you have some generic question, read our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least a vast majority of questions that you may have. If you want to learn everything about ASF and how it can make your life easier, head over to the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**. If you found out our program to be useful for you and you're feeling generous, you can also consider donating to our project. In any case, have fun!
 
-* * *
+---
 
 ## Generic setup
 
 This setup is for advanced users that want to set up ASF to run in **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** variant. It's not recommended for people that can use **[OS-specific setup](#os-specific-setup)**.
 
 You want to use `generic` variant mainly in those situations (but of course you can use it regardless):
-
 - When you're using OS that we don't build OS-specific package for (such as 32-bit Windows)
 - When you already have .NET Core Runtime/SDK, or want to install and use one
 - When you want to minimize ASF structure size by handling runtime requirements yourself
@@ -230,7 +224,6 @@ However, keep in mind that you're in charge of .NET Core runtime in this case. T
 For `generic` package, you can follow entire OS-specific guide above, with two small changes. In addition to installing .NET Core prerequisites, you also want to install .NET Core SDK, and instead of having OS-specific `ArchiSteamFarm(.exe)` executable file, you now have a generic `ArchiSteamFarm.dll` binary only. Everything else is exactly the same.
 
 With extra steps:
-
 - Installare i **[prerequisiti per .NET Core](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.

@@ -6,12 +6,11 @@ Se você ainda está aqui significa que você suportou o texto acima, o que é b
 
 Isso não significa que você não possa usá-lo no seu computador ou que o uso é mais complicado que o normal, não é nada disso. O ASF é um programa autônomo que funciona imediatamente e não necessita de instalação, mas necessita de uma configuração para se tornar útil. É a configuração que vai dizer ao ASF o que ele deve fazer depois que você executá-lo. Se você o iniciar sem configurar antes ele simplesmente não fará nada.
 
-* * *
+---
 
 ## Instalador para sistemas operacionais específicos
 
 Em geral, é isso que vamos fazer nos próximos minutos:
-
 - Instalar o **[.NET Core](#net-core-prerequisites)**.
 - Baixar a **[última versão do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** na versão correta para o seu SO.
 - Extrair o arquivo em um novo local (e `chmod +x ArchiSteamFarm` se você usar Linux/macOS).
@@ -20,7 +19,7 @@ Em geral, é isso que vamos fazer nos próximos minutos:
 
 Parece simples o bastante, certo? Então, vamos ver.
 
-* * *
+---
 
 ### Pré-requisitos .NET Core
 
@@ -31,12 +30,10 @@ O primeiro passo é garantir que seu sistema operacional pode mesmo executar o A
 Você não precisa fazer mais nada para as versões para SOs específicos, especialmente instalar o .NET Core SDK ou mesmo o tempo de execução, já que o pacote específico para SO já inclui tudo. Você precisa apenas dos pré-requisitos (dependências) .NET Core para rodar o tempo de execução .NET Core incluído no ASF.
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
-
 - **<a href="[">Pacotes Redistribuíveis do Microsoft Visual C++ 2015 Update 3 RC](https://www.microsoft.com/pt-br/download/details.aspx?id=53587)** (x64 para Windows 64-bit, x86 para Windows 32-bit)
 - É altamente recomendado garantir que todas as atualizações do Windows estejam instaladas. Você precisa pelo menos das atualizações **[KB2533623](https://support.microsoft.com/pt-br/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** e **[KB2999226](https://support.microsoft.com/pt-br/help/2999226/update-for-universal-c-runtime-in-windows)**, mas outras atualizações podem ser necessárias. Todas elas já estarão instaladas se o seu Windows estiver atualizado. Certifique-se de que você atende a esses requisitos antes de instalar o pacote do Visual C++.
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
-
 Os nomes dos pacotes dependem da distribuição do Linux que você esteja usando, nós listamos as mais comuns. Você pode obter todas elas com o gerenciador de pacotes nativo do seu SO (como `apt` para Debian ou `yum` por CentOS).
 
 - `libc6` (`libc`)
@@ -50,14 +47,13 @@ Os nomes dos pacotes dependem da distribuição do Linux que você esteja usando
 Pelo menos a maioria deles já deve estar disponível nativamente no seu sistema. A instalação mínima do Debian estável requer apenas `libicu63`.
 
 #### **[macOS](https://docs.microsoft.com/dotnet/core/install/macos)**:
-
 - Nenhum por enquanto, mas você deve ter a versão mais recente do macOS instalada, pelo menos 10.13+
 
-* * *
+---
 
 ### Baixando
 
-Uma vez que já tenhamos todas as dependências, o próximo passo é baixar a **[última versão do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF está disponível em diversas variantes, mas você está interessado no pacote que corresponde ao seu sistema operacional e a arquitetura dele. Por exemplo, se você estiver usando o `Win`dows `64`-bit, então você vai baixar o pacote `ASF-win-x64`. Para obter mais informações sobre as variantes disponíveis, visite a seção</strong> **[compatibilidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR). O ASF é também capaz de rodar em SOs para os quais ele não tem um pacote específico, tal como o **Windows 32-bit**, vá até **[configuração genérica](#configuração-genérica)** para saber mais.</p> 
+Uma vez que já tenhamos todas as dependências, o próximo passo é baixar a **[última versão do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF está disponível em diversas variantes, mas você está interessado no pacote que corresponde ao seu sistema operacional e a arquitetura dele. Por exemplo, se você estiver usando o `Win`dows `64`-bit, então você vai baixar o pacote `ASF-win-x64`. Para obter mais informações sobre as variantes disponíveis, visite a seção</strong> **[compatibilidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR). O ASF é também capaz de rodar em SOs para os quais ele não tem um pacote específico, tal como o **Windows 32-bit**, vá até **[configuração genérica](#configuração-genérica)** para saber mais. </p>
 
 ![Arquivos](https://i.imgur.com/Ym2xPE5.png)
 
@@ -84,7 +80,7 @@ C:\ASF (onde você coloca suas coisas)
          └── (...)
 ```
 
-* * *
+---
 
 ### Configuração
 
@@ -107,7 +103,6 @@ Comece colocando o nome que você quer dar ao bot no campo marcado em vermelho. 
 Depois que você escolheu um nome, ative o botão `Enabled`, ele define se o ASF deve iniciar seu bot automaticamente quando ele (o programa) for aberto.
 
 Agora você pode decidir sobre duas coisas:
-
 - Você pode por seu login no campo `SteamLogin` e sua senha no campo `SteamPassword`
 - Ou pode deixá-los em branco
 
@@ -129,7 +124,7 @@ Sua pasta `config` ficará assim:
 
 Parabéns! Você acabou de terminar a configuração básica de um bot ASF. Nós vamos ampliar isso em breve, mas por enquanto isso é tudo o que você precisa saber.
 
-* * *
+---
 
 ### Executando o ASF
 
@@ -151,7 +146,7 @@ Isso prova que o ASF está fazendo seu trabalho na sua conta, então você pode 
 
 Isso conclui nosso guia de configuração básica. Agora você pode decidir se deseja configurar o ASF ainda mais ou deixá-lo fazer seu trabalho com as configurações padrão. Vamos cobrir mais alguns detalhes básicos e, em seguida, deixar toda a wiki para você descobrir.
 
-* * *
+---
 
 ### Configuração estendida
 
@@ -164,7 +159,7 @@ O ASF suporta a coleta automática em mais de uma conta por vez, o que é sua pr
 
 Em outras palavras, simplesmente volte a configuração e faça exatamente a mesma coisa, só que dessa vez para a segunda ou terceira conta. Lembre-se de usar nomes exclusivos para todos os teus bots.
 
-* * *
+---
 
 #### Alterando configurações
 
@@ -184,17 +179,17 @@ Assim que fizer isso e abrir o ASF novamente você vai perceber que o Steam agor
 
 ![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
-Isso confirma que você editou sua configuração com sucesso. Da mesma forma você pode editar as configurações globais do ASF, apenas mudando da aba "Bot" para a aba "ASF", baixando o arquivo de configuração `ASF.json` e o colocando na pasta `config`.
+This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
 
 A edição das configurações do ASF pode ser feita de uma forma muito fácil usando nosso front-end ASF-ui, que será explicado abaixo.
 
-* * *
+---
 
 #### Usando a ASF-ui
 
 O ASF é um aplicativo de console e não inclui uma interface gráfica de usuário (GUI). No entanto, estamos trabalhando ativamente em nossa interface IPC, o **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR#asf-ui)** que pode ser uma forma muito boa e amigável de acessar vários recursos do ASF.
 
-Para usar a ASF-ui, você precisa ter a opção `IPC` habilitada, que é a opção padrão à partid do ASF V5.1.0.0. Ao iniciar o ASF, você deve ser capaz de confirmar que ele iniciou corretamente a interface do IPC automaticamente:
+In order to use ASF-ui, you need to have `IPC` enabled, which is the default option starting with ASF V5.1.0.0. Once you launch ASF, you should be able to confirm that it properly started the IPC interface automatically:
 
 ![IPC](https://i.imgur.com/ZmkO8pk.png)
 
@@ -204,20 +199,19 @@ Você pode acessar a interface IPC do ASF por **[esse](http://localhost:1242)** 
 
 Note que algumas funcionalidades como o envio de comandos, requerem qeu a propriedade de configuração global `SteamOwnerID` esteja definida corretamente. Agora que você tem a ASF-ui rodando, por que não seguir e configurá-la pelo próprio front-end? Você precisa colocar o identificador Steam em formato 64-bits exclusivo da sua conta. Você pode encontrá-lo de várias formas, por exemplo, através do **[STEAMID I/O](https://steamid.io)** ou **[SteamRep](https://steamrep.com)**. O número que você está procurando deve ser semelhante a `76561198006963719`, que é o ID da minha conta.
 
-* * *
+---
 
 ### Resumo
 
 Você já configurou com sucesso o ASF para que ele use suas contas Steam e você já o customizou um pouco a seu gosto. Se você seguiu o guia inteiro, então você também conseguiu ajustar o ASF através da nossa interface ASF-ui e descobriu que o ASF, na verdade, tem um tipo de interface gráfica. Agora é uma boa hora para ler a seção completa de **[configuração](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)** para aprender sobre todos os outros parâmetros que você viu na guia de configuração avançada e ver o que o ASF pode oferecer. Se você de deparou com algum problema ou você tem alguma pergunta genérica, leia a seção de **[perguntas frequentes (FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-pt-BR)** que deve cobrir tudo, ou pelo pelo menos a grande maioria das perguntas que você possa ter. Se você quer aprender tudo sobre o ASF e como le pode tornar sua vida mais fácil, visite o resto da nossa **[wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR)**. Se você achou que nosso programa é útil para você e está se sentindo generoso, você pode também considerar fazer uma doação para o nosso projeto. De qualquer forma, divirta-se!
 
-* * *
+---
 
 ## Configuração genérica
 
 Esta configuração é para usuários avançados que desejam configurar a versão **[genérica](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** do ASF. Ela não é recomendada para pessoas que podem usar o **[instalador para sistemas operacionais específicos](#instalador-para-sistemas-operacionais-específicos)**.
 
 Você deve preferir usar a variante `generic` (genérica) nessas situações (mas é claro você pode usá-la independentemente disso):
-
 - Quando você estiver usando um sistema operacional para o qual não temos um pacote específico (como o Windows 32-bit, por exemplo)
 - Quando você já tem o .NET Core Runtime/SDK, ou deseja instalar e usar um
 - Quando você deseja minimizar o tamanho da estrutura do ASF lidando com requisitos de tempo de execução você mesmo
@@ -228,7 +222,6 @@ No entanto, tenha em mente que nesre caso você é responsável pelo tempo de ex
 Para o pacote `generic` você pode acompanhar o guia de instalação para sistemas operacionais inteiro acima, com duas pequenas alterações. Além de instalar os pré-requisitos .NET Core, você também vai precisar instalar o .NET Core SDK, e ao invés de ter o arquivo executável `ArchiSteamFarm(.exe)` específico para o seu sistema operacional, agora você tem um apenas um binário genérico `ArchiSteamFarm.dll`. Todo o resto permanece igual.
 
 Com etapas extras:
-
 - Instalar o **[.NET Core](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
 - Instalar o **[.NET Core SDK](https://www.microsoft.com/net/download)** (ou o tempo de execução mais recente) apropriado para seu sistema operacional. Você provavelmente vai desejar usar um instalador. Veja **[requisitos de tempo de execução](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** se você não tiver certeza de qual versão instalar.
 - Baixar a **[última versão do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** na versão `generic`.

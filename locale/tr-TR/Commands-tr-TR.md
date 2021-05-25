@@ -3,7 +3,6 @@
 ASF, bot örneklerinin ve sürecin davranışlarını kontrol etmek için kullanılabilecek çeşitli komutları destekler.
 
 Aşağıdaki komutlar çeşitli yollarla bota gönderilebilir:
-
 - Etkileşimli ASF konsolu aracılığıyla
 - Steam özel/grup sohbeti aracılığıyla
 - **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** arayüzümüz aracılığıyla
@@ -12,7 +11,7 @@ ASF etkileşimlerinin komutlar için uygun yetkiye sahip olmanızı gerektirdiğ
 
 Steam sohbeti aracılığıyla yürütülen komutlar, varsayılan olarak `!` olan `KomutÖneki` **[genel yapılandırma özelliğinden](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#commandprefix)** etkilenir. Bu demek oluyor ki örnek olarak `status` komutunu ele alırsak, `!status` yazmanız gerektiği anlamına geliyor(veya kendiniz için belirlediğiniz özel `KomutÖneki`ni kullanarak). `KomutÖneki` konsol veya IPC kullanılırken zorunlu değildir ve atlanabilir.
 
-* * *
+---
 
 ### Etkileşimli konsol
 
@@ -22,7 +21,7 @@ V4.0.0.9'dan itibaren ASF, [**`SteamOwnerID`**](https://github.com/JustArchiNET/
 
 Etkileşimli konsol [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) modunda kullanılabilir değildir.
 
-* * *
+---
 
 ### Steam sohbeti
 
@@ -36,7 +35,7 @@ Lütfen grup sohbetine bir komut göndermenin bütün botlara etki edeceğini un
 
 *Ve bu durumda bile, bunun yerine `[Bots]` sözdizimi ile özel sohbeti kullanmalısınız.*
 
-* * *
+---
 
 ### IPC
 
@@ -44,7 +43,7 @@ Komutları çalıştırmanın en gelişmiş ve esnek yolu, kullanıcı etkileşi
 
 ![Ekran Görüntüsü](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
-* * *
+---
 
 ## Komutlar
 
@@ -63,7 +62,7 @@ Komutları çalıştırmanın en gelişmiş ve esnek yolu, kullanıcı etkileşi
 | `exit`                                                               | `Owner`         | Tüm ASF işlemini durdurur.                                                                                                                                                                                                                                                                                                          |
 | `farm [Bots]`                                                        | `Master`        | Restarts cards farming module for given bot instances.                                                                                                                                                                                                                                                                              |
 | `hash <hashingMethod> <stringToHash>`                    | `Owner`         | Generated a hash of the string using provided cryptographic method - further explained **[below](#hash-command)**.                                                                                                                                                                                                                  |
-| `help`                                                               | `FamilySharing` | Yardım gösterir (bu sayfanın bağlantısı).                                                                                                                                                                                                                                                                                           |
+| `yardım`                                                             | `FamilySharing` | Yardım gösterir (bu sayfanın bağlantısı).                                                                                                                                                                                                                                                                                           |
 | `input [Bots] <Type> <Value>`                            | `Master`        | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.                                                                                                                                                                                        |
 | `ib [Bots]`                                                          | `Master`        | Lists apps blacklisted from automatic idling of given bot instances.                                                                                                                                                                                                                                                                |
 | `ibadd [Bots] <AppIDs>`                                        | `Master`        | Adds given `appIDs` to apps blacklisted from automatic idling of given bot instances.                                                                                                                                                                                                                                               |
@@ -104,7 +103,7 @@ Komutları çalıştırmanın en gelişmiş ve esnek yolu, kullanıcı etkileşi
 | `update`                                                             | `Owner`         | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                                                                                                                                                    |
 | `version`                                                            | `FamilySharing` | ASF sürümünü yazdırır.                                                                                                                                                                                                                                                                                                              |
 
-* * *
+---
 
 ### Notlar
 
@@ -122,7 +121,7 @@ ASF will "join" extra out-of-range arguments to plural type of the last in-range
 
 As you've read above, a space character is being used as a delimiter for a command, therefore it can't be used in arguments. However, also as stated above, ASF can join out-of-range arguments, which means that you're actually able to use a space character in argument that is defined as a last one for given command. For example, `nickname bob Great Bob` will properly set nickname of `bob` bot to "Great Bob". In the similar way you can check names containing spaces in `owns` command.
 
-* * *
+---
 
 Some commands are also available with their aliases, to save you on typing:
 
@@ -133,7 +132,7 @@ Some commands are also available with their aliases, to save you on typing:
 | `redeem`     | `r`   |
 | `redeem^`    | `r^`  |
 
-* * *
+---
 
 ### `[Bots]` argument
 
@@ -145,7 +144,7 @@ First and foremost, there is a special `ASF` keyword which acts as "all bots in 
 
 In addition to range syntax above, `[Bots]` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. You can activate regex pattern by using `r!<pattern>` as a bot name, where `r!` is ASF activator for regex matching, and `<pattern>` is your regex pattern. An example of a regex-based bot command would be `status r!\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). Feel free to take a look at the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for further explanation and more examples of available regex patterns.
 
-* * *
+---
 
 ## `Gizlilik` ayarları
 
@@ -199,7 +198,7 @@ The above will set profile to public, owned games to friends only, playtime to p
 
 Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
 
-* * *
+---
 
 ## `addlicense` licenses
 
@@ -220,7 +219,7 @@ Complete command example:
 addlicense ASF app/292030,sub/47807
 ```
 
-* * *
+---
 
 ## `owns` games
 
@@ -241,7 +240,7 @@ Complete command example:
 owns ASF app/292030,name/Witcher
 ```
 
-* * *
+---
 
 ## `redeem^` modes
 
@@ -268,19 +267,19 @@ For example, we'd like to redeem 3 keys on any of our bots that don't own games 
 
 It's important to note that advanced redeem overrides only those `RedeemingPreferences` that you **specify in the command**. For example, if you've enabled `Distributing` in your `RedeemingPreferences` then there will be no difference whether you use `FD` mode or not, because distributing will be already active regardless, due to `RedeemingPreferences` that you use. This is why each forcibly enabled override also has a forcibly disabled one, you can decide yourself if you prefer to override disabled with enabled, or vice versa.
 
-* * *
+---
 
 ## `encrypt` command
 
 `encrypt` command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` must be one of the encryption methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
-* * *
+---
 
 ## `hash` command
 
 `hash` command allows you to generate hashes of arbitrary strings using ASF's hashing methods. `<hashingMethod>` must be one of the hashing methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
-* * *
+---
 
 ## `Giriş` komutları
 

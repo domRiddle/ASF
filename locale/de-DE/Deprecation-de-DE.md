@@ -2,7 +2,7 @@
 
 Ab ASF V3.1.2.2.2 werden wir eine konsequente Verfallspolitik verfolgen, um sowohl die Entwicklung als auch die Nutzung wesentlich konsistenter zu gestalten.
 
-* * *
+---
 
 ## Was ist Verfall (engl. Deprecation)?
 
@@ -10,7 +10,7 @@ Verfall (engl. Deprecation) beschreibt den Prozess kleinere oder größere Ände
 
 ASF verändert sich schnell und strebt immer danach besser zu werden. Dies bedeutet leider, dass wir eventuell einige bestehende Funktionen ändern oder in ein anderes Teilstück des Programms verschieben müssen, damit es von neuen Funktionen, Kompatibilität oder Stabilität profitieren kann. Dank dessen müssen wir nicht an veralteten oder einfach schmerzhaft falschen Entscheidungen festhalten die wir vor Jahren getroffen haben. Wir versuchen immer einen vernünftigen Ersatz anzubieten, der der erwarteten Nutzung der zuvor verfügbaren Funktionalität entspricht, weshalb der Verfall (engl. Deprecation) meist harmlos ist und kleine Korrekturen für die vorherige Benutzung erfordert.
 
-* * *
+---
 
 ## Verfalls-Stufen
 
@@ -26,7 +26,7 @@ Während dieser Phase gibt ASF eine entsprechende Warnung aus, wenn die veraltet
 
 Stufe 2 ist geplant, nachdem die oben beschriebene Stufe 1 stattgefunden hat und wird in einer stabilen Version freigegeben. In diesem Abschnitt wird die vollständige Entfernung der veralteten Feature-Existenz eingeführt. Das bedeutet, dass ASF nicht einmal bestätigt, dass Sie veraltete Features verwenden, geschweige denn sie anerkennen, da sie im aktuellen Code einfach nicht existieren. ASF gibt keine Warnung mehr aus, da es nicht mehr erkennt was Sie versuchen zu tun.
 
-* * *
+---
 
 ## Zusammenfassung
 
@@ -34,7 +34,7 @@ Sie haben mehr oder weniger einen **ganzen Monat** um einen entsprechenden Wechs
 
 In den meisten Fällen wird die Missachtung der Verfallswarnung die allgemeine ASF-Funktionalität nicht beeinschränken, sondern auf das Standardverhalten zurückgreifen (das möglicherweise nicht mit Ihren persönlichen Präferenzen übereinstimmt).
 
-* * *
+---
 
 ## Beispiel
 

@@ -2,7 +2,7 @@
 
 從 ASF V3.1.2.2 開始，我們將遵循一致的棄用策略，以使開發和使用更加一致。
 
-* * *
+---
 
 ## 什麼是棄用？
 
@@ -10,7 +10,7 @@
 
 ASF 版本迭代迅速，總是追求卓越。 This sadly means that we may change or move some existing functionality into another segment of the program in order for it to benefit from new features, compatibility or stability. 正因如此，我們不需要堅持我們多年前做出的過時或錯誤的發展決定。 我們一直在努力提供合理的替換方案，以兼容以前可用的功能，這就是為什麼棄用大多是無害的，僅需要對以前的邏輯進行小的修復。
 
-* * *
+---
 
 ## 棄用階段
 
@@ -26,7 +26,7 @@ ASF 的棄用分為兩個階段，使過渡更容易並減少麻煩。
 
 第2階段安排在上面解釋的第1階段發生後，並在穩定的版本中發佈。 此階段將完全刪除之前不推薦使用的功能，這意味著 ASF 甚至不會承認您正在嘗試使用不推薦使用的功能，更不用說考慮它了，因為它根本不存在於當前代碼中。 ASF 將不再列印任何警告，因為它不再識別您嘗試執行的操作。
 
-* * *
+---
 
 ## 概要
 
@@ -34,7 +34,7 @@ ASF 的棄用分為兩個階段，使過渡更容易並減少麻煩。
 
 In most cases, disregarding deprecation warning will not render general ASF functionality unusable, but rather falling back to default behaviour (which may or may not match your personal preferences).
 
-* * *
+---
 
 ## 範例
 

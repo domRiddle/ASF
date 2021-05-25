@@ -6,12 +6,11 @@
 
 但这并不意味着您不能在自己的 PC 上运行它，或者这会比通常的使用方式更复杂。 ASF 是一个独立的程序，无需安装过程，开箱即用，但在它可用之前需要有一个配置的过程。 配置是指在运行 ASF 之前告诉它之后应该怎样做。 如果您没有配置就运行 ASF，它就会什么也不做。
 
-* * *
+---
 
 ## 安装操作系统包
 
 通常，我们只需要花费几分钟进行下列操作：
-
 - 安装 **[.NET Core 依赖项](#net-core-依赖)**。
 - 在 &#8203;**[ASF 发布页面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下载适合您操作系统的包。
 - 将下载的压缩包解压到新位置，如果您使用 Linux/macOS，还需要执行命令 `chmod +x ArchiSteamFarm`。
@@ -20,7 +19,7 @@
 
 看起来很简单吧？ 现在我们开始逐项进行。
 
-* * *
+---
 
 ### .NET Core 依赖
 
@@ -31,12 +30,10 @@
 请注意，您不需要为特定操作系统包进行其他准备工作，特别是安装 .NET Core SDK 或者运行时环境，因为操作系统包中已包含了它们。 您只需要安装 .NET Core 依赖项，使 ASF 自带的 .NET Core 运行时环境能够运行。
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**：
-
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/zh-cn/download/details.aspx?id=53587)**（64 位 Windows 为 x64，32 位 Windows 为 x86）。
 - 强烈建议您确保已安装所有 Windows 更新。 您至少需要 **[KB2533623](https://support.microsoft.com/zh-cn/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** 和 **[KB2999226](https://support.microsoft.com/zh-cn/help/2999226/update-for-universal-c-runtime-in-windows)**，但有可能还需要更多。 如果您的 Windows 已更新到最新，这些更新应该都已安装。 确保您在安装 Visual C++ 包之前满足这些要求。
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**：
-
 根据您所使用的 Linux 发行版的不同，包名可能有所区别，我们会列出最常见的包名。 您可以使用系统自带的包管理器（例如 Debian 的 `apt` 或 CentOS 的 `yum`）来安装这些包。
 
 - `libc6`（`libc`）
@@ -50,10 +47,9 @@
 其中的大多数项目应该已经安装在您的系统中了。 Debian 稳定版的最小化安装流程仅需要您再手动安装 `libicu63`。
 
 #### **[macOS](https://docs.microsoft.com/dotnet/core/install/macos)**：
-
 - 目前没有，但您应该安装最新版本的 macOS，至少应为 10.13+
 
-* * *
+---
 
 ### 下载
 
@@ -84,7 +80,7 @@ C:\ASF (放置您自己与 ASF 相关的东西)
          └── (...)
 ```
 
-* * *
+---
 
 ### 配置
 
@@ -107,7 +103,6 @@ C:\ASF (放置您自己与 ASF 相关的东西)
 在填好名称之后，启用 `Enabled` 开关，这个选项定义了您的机器人是否会在 ASF 程序启动之后自动运行。
 
 现在，您需要作出一个选择：
-
 - 您可以在 `SteamLogin` 文本框中填写帐户的用户名，并在 `SteamPassword` 文本框中填写密码
 - 或者将这两个值留空
 
@@ -129,7 +124,7 @@ ASF 需要您的帐户凭据，因为它包含自己的 Steam 客户端实现，
 
 恭喜您！ 您刚刚完成了最基本的 ASF 机器人配置。 我们会在之后对此进行扩展，但现在这就是您需要的一切。
 
-* * *
+---
 
 ### 运行 ASF
 
@@ -151,7 +146,7 @@ ASF 需要您的帐户凭据，因为它包含自己的 Steam 客户端实现，
 
 这就是我们最基本的安装指南。 现在您可以决定是进一步配置 ASF，还是让它以默认设置运行。 我们将会介绍另一些基本配置，但要了解完整的配置选项，您需要继续阅读 Wiki 的其他页面。
 
-* * *
+---
 
 ### 进一步配置
 
@@ -164,7 +159,7 @@ ASF 支持同时挂多个帐户，这也是它的主要功能之一。 您可以
 
 换句话说，要添加其他帐户，只需要配置部分从头开始，进行同样的操作。 并且不能忘记每个机器人的名称应该是唯一的。
 
-* * *
+---
 
 #### 更改设置
 
@@ -184,17 +179,17 @@ ASF 支持同时挂多个帐户，这也是它的主要功能之一。 您可以
 
 ![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
-这证明您已经成功更改了配置文件。您也可以用同样的方式更改全局 ASF 属性，只需要切换到“ASF”标签，下载生成的 `ASF.json` 配置文件，将其放到 `config` 文件夹内。
+This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
 
 通过我们的 ASF-ui 前端，编辑 ASF 配置文件会更容易，我们将随后解释。
 
-* * *
+---
 
 #### 使用 ASF-ui
 
 ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们正在积极开发 IPC 接口的前端 **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-ui)**，它是访问各种 ASF 功能的一种非常简便的、适合用户的方式。
 
-要使用 ASF-ui，您需要启用 `IPC`，自 V5.1.0.0 版本开始，ASF 已经默认启用。运行 ASF 后，您应该能看到表明 IPC 接口成功启动的确认消息：
+In order to use ASF-ui, you need to have `IPC` enabled, which is the default option starting with ASF V5.1.0.0. Once you launch ASF, you should be able to confirm that it properly started the IPC interface automatically:
 
 ![IPC](https://i.imgur.com/ZmkO8pk.png)
 
@@ -204,31 +199,29 @@ ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们
 
 请注意，一些功能，例如发送命令，需要您在全局配置属性中正确设置 `SteamOwnerID`。 既然您已经让 ASF-ui 成功运行了，何不试试在前端页面上自己设置一下呢？ 您需要输入您帐户的唯一 64 位 Steam ID。 您可以在各种途径获取它，例如 **[STEAMID I/O](https://steamid.io)** 或 **[SteamRep](https://steamrep.com)**。 您需要找的数字应该看起来和我自己的帐户 ID `76561198006963719` 相似。
 
-* * *
+---
 
 ### 总结
 
 您已经成功设置好了 ASF，让它管理您的 Steam 帐户，并且您也根据个人喜好对其进行了一定程度的定制。 如果您完整阅读了我们的指南，就应该已经成功通过 ASF-ui 接口调整 ASF 的设置，并且发现 ASF 实际上拥有某种 GUI 界面。 现在您可以阅读完整的&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;章节，了解您之前所见的不同选项究竟有何作用，以及 ASF 有哪些功能。 如果您遇到了问题，或者有任何疑问，可以阅读&#8203;**[常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN)**，其中涵盖了所有，或至少是绝大多数您想要问的问题。 如果您希望了解 ASF 的一切以及 ASF 如何为您提供帮助，请继续阅读我们的 **[Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-CN)**。 如果您认为我们的程序很有用，并且您愿意慷慨解囊，也可以考虑捐赠此项目。 无论如何，祝您愉快！
 
-* * *
+---
 
 ## 安装 Generic 包
 
 这一节是为想要使用 ASF **[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#generic)** 包的高级用户准备的。 如果您可以&#8203;**[安装操作系统包](#安装操作系统包)**，就不建议您安装 Generic 包。
 
 您可能会在以下几种情况选择使用 `generic` 包（当然，没有理由也可以）：
-
 - 我们没有为您所使用的操作系统（例如 32 位 Windows）提供操作系统包
 - 您已经安装了 .NET Core 运行时环境/SDK，或者打算安装
 - 您希望自行管理运行时需求来最小化 ASF 的结构
-- 您想要使用的自定义插件需要 `generic` 版本的 ASF 才能正常工作（因为缺少本机依赖项）
+- When you want to use a custom **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which requires a `generic` setup of ASF to run properly (due to missing native dependencies)
 
 但是，请注意，此时您需要负责安装管理 .NET Core 运行时环境。 这意味着，如果您的 .NET Core SDK（运行时环境）不可用、已过期或者已损坏，ASF 就无法工作。 这就是我们不建议普通用户安装此包的原因，因为现在您需要确保 .NET Core SDK（运行时环境）符合 ASF 的要求，能够用于运行 ASF，而不是使用**我们**验证过的 ASF 自带的 .NET Core 运行时环境。
 
 对于 `generic` 包，您需要参考上述的操作系统包的安装指南，但有两点小小的区别。 除了要安装 .NET Core 依赖项之外，您还需要安装 .NET Core SDK，并且 `ArchiSteamFarm.dll` 二进制文件将会取代操作系统特定的 `ArchiSteamFarm(.exe)` 可执行文件， 其他的步骤都是相同的。
 
 添加额外的步骤之后：
-
 - 安装 **[.NET Core 依赖项](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**。
 - 安装适合您操作系统的 **[.NET Core SDK](https://www.microsoft.com/net/download)**（或至少安装运行时环境）。 您可能需要使用一个安装器。 如果您不确定应该安装哪个版本，请参考&#8203;**[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**。
 - 在 **[ASF 发布页面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下载 `generic` 包。

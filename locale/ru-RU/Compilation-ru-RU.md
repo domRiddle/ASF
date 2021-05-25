@@ -4,13 +4,13 @@
 
 ASF может быть скомпилирован на любой поддерживаемой платформе, если у вас есть все необходимые для этого инструменты.
 
-* * *
+---
 
-## .NET Core SDK 
+## .NET Core SDK
 
 Независимо от платформы, для компиляции ASF необходим полный .NET Core SDK (а не только среда выполнения). Инструкции по установке можно найти на странице **[.NET Core](https://dotnet.microsoft.com/download)**. Вам необходимо установить подходящую версию .NET Core SDK для вашей ОС. После успешной установки, команда `dotnet` должна быть полностью работоспособна. Вы можете проверить, работает ли она, вызвав `dotnet --info`. Также убедитесь, что ваш .NET Core SDK соответствует **[требованиям к среде выполнения](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU#user-content-Требования-среды-выполнения)** ASF .
 
-* * *
+---
 
 ## Компиляция
 
@@ -48,7 +48,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
 ```
 
-* * *
+---
 
 ## Разработка
 
@@ -58,13 +58,13 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 Разумеется, всё предложенное выше это только наши рекоммендации, вы можете использовать что угодно, всё равно это в конце концов сводится к команде `dotnet build`. We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, although it's not a free solution.
 
-* * *
+---
 
 ## Теги
 
 `main` branch is not guaranteed to be in a state that allows successful compilation or flawless ASF execution in the first place, since it's development branch just like stated in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. Если вы хотите скомпилировать ASF из исходного кода, или сослаться на исходный код ASF в своём проекте, вам следует использовать для этого соответствующий **[тег](https://github.com/JustArchiNET/ArchiSteamFarm/tags)**, что гарантирует как минимум успешную компиляцию, и скорее всего - безошибочную работу (если эта сборка отмечена как стабильная). In order to check the current "health" of the tree, you can use our continuous integrations - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** or **[AppVeyor](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**.
 
-* * *
+---
 
 ## Официальные версии
 

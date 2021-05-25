@@ -2,19 +2,22 @@
 
 A partir da versão 3.0.3.2, o ASF também está disponível como um **[container docker](https://www.docker.com/what-container)**. Executar o ASF em um contêiner docker normalmente não tem vantagens para usuários casuais, mas pode ser uma excelente forma de usar o ASF em servidores, garantindo que a ASF esteja sendo executado em um ambiente restrito, separado de todos os outros aplicativos. Nossos pacotes docker estão disponíveis atualmente no **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** e no **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
-* * *
+---
 
 ## Marcadores
 
 O ASF está disponível 4 tipos **[marcadores](https://hub.docker.com/r/justarchi/archisteamfarm/tags)** principais:
 
+
 ### `main`
 
 Esse marcador aponta para a compilação do ASF no "commit" mais recente do ramo `main`, que funciona da mesma forma que a compilação experimental do AppVeyour descrita em nosso **[ciclo de lançamento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-pt-BR)**. Normalmente você deve evitar essa versão, já que ela contém o nível mais elevado de software com erros, dedicado para desenvolvedores e usuários avançados para fins de desenvolvimento. A imagem é atualizada a cada "commit" no ramo `main` do GitHub, portanto você pode esperar por muitas atualizações (e coisas falhando), assim como em nossa compilação AppVeyour. Esse marcador está aqui para anotarmos o estado atual do projeto ASF, que não tem necessariamente garantia de ser estável ou testado, como salientado no nosso ciclo de lançamento. Esse marcador não deve ser usado em nenhum ambiente de produção.
 
+
 ### `released`
 
 Muito semelhante ao anterior, esse marcador sempre aponta para a **[versão](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** mais recente do ASF, incluindo pré-lançamentos. Comparado ao marcador `main`, essa imagem é atualizada toda vez que um novo marcador é criado no GitHub. Dedicado a usuários avançados que gostam de viver no limite do que pode ser considerado estável e mais novo ao mesmo tempo. Esse é o marcador que recomendamos se você não quer usar o `latest`. Observe que usar esse marcador é igual a usar o **[pre-lançamentos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**.
+
 
 ### `latest`
 
@@ -26,7 +29,7 @@ Devido ao fato de que a imagem `latest` vem com a capacidade de atualização au
 
 Em comparação com os marcadores acima, esse marcador é completamente congelado, o que significa que a imagem não será atualizada uma vez que foi lançada. Ele funciona de forma semelhante as nossas versões do GitHub que nunca mais foram tocadas após o lançamento, o que te garante um ambiente estável e congelado. Normalmente você deverá usar esse marcador quando você quer usar uma versão específica do ASF (mais antiga que a `latest`) e você não quer usar nenhum tipo de atualização automática (por exemplo, as oferecidas no marcador `latest`).
 
-* * *
+---
 
 ## Qual o melhor marcador para mim?
 
@@ -34,15 +37,15 @@ Isso depende do que você procura. Para a maioria dos usuários o marcador `late
 
 Nós geralmente desencorajamos o uso de compilações `main`, assim como compilações automatizadas do AppVeyour; essas compilações estão aqui para marcarmos o estado atual do projeto ASF. Nada garante que tal versão vai funcionar corretamente, mas é claro, você é mais que bem vindo para fazer um teste se estiver interessado no desenvolvimento do ASF.
 
-* * *
+---
 
 ## Arquiteturas
 
-A imagem docker do ASF é compilada atualmente no `linux` com 3 arquiteturas: `x64`, `arm` e `arm64`. Você pode ler mais sobre elas em **[compatibilidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**.
+A imagem docker do ASF é compilada atualmente no `linux` com 3 arquiteturas: `x64`, `arm` e `arm64`. Você pode ler mais sobre elas em **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**.
 
 Desde a versão V5.0.2.2 do ASF, nossas tags tem usado um manifesto multi-plataforma, o que significa que o Docker instalado na sua máquina irá selecionar automaticamente a imagem adequada da sua plataforma ao puxar a imagem. Se por acaso você quiser baixar a imagem de alguma plataforma específica que não corresponde à que você está executando atualmente, você pode usar o switch `--platform` nos comandos docker apropriados, tal como `docker run`. Veja a documentação docker em **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** para mais informações.
 
-* * *
+---
 
 ## Uso
 
@@ -66,7 +69,7 @@ Se você olhar para o comando você vai notar que nós não declaramos nenhum ma
 docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 ```
 
-* * *
+---
 
 ## Usando um volume
 
@@ -100,7 +103,7 @@ docker exec -u root asf chown -hR 1000:1000 /app
 
 Isso só tem que ser feito uma vez depois que você criou seu contêiner com `docker run`, e somente se você decidiu usar um usuário personalizada para o processo do ASF. Também não se esqueça de alterar o argumento `1000:1000` em ambos os comandos acima para o `uid` e `gid` sob o qual você deseja executar o ASF.
 
-* * *
+---
 
 ## Sincronização de múltiplas instâncias
 
@@ -121,9 +124,9 @@ Como você provavelmente percebeu no exemplo acima, também é possível criar d
 
 Montar a pasta `/tmp/ASF` é completamente opcional e na verdade não é recomendado, a menos que você queira sincronizar explicitamente dois ou mais contêineres do ASF. Não recomendamos montar a pasta `/tmp/ASF` para uso de apenas um contêiner, já que isso não traz absolutamente nenhum benefício se você espera executar apenas um contêiner do ASF, e na verdade poderia causar problemas que, de outra forma, poderiam ser evitados.
 
-* * *
+---
 
-## Argumentos da linha de comando
+## Argumentos de linha de comando
 
 O ASF te permite passar **[argumentos de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)** no contêiner docker através de variáveis de ambiente. Você deve usar variáveis de ambiente específicas para os switches suportados, e `ASF_ARGS` para o resto. Isso pode ser feito com o switch `-e` adicionado ao `docker run`, por exemplo:
 
@@ -135,7 +138,7 @@ Esse comando passará seu argumento `--cryptkey` para o processo do ASF sendo ex
 
 A menos que você deseje fornecer chaves de criptografia personalizadas ou outras opções avançadas, geralmente você não precisa incluir qualquer variável de ambiente em especial, já que nosso contêiner docker já está configurado para ser executado com opções padrões esperadas de `--no-restart` `--process-required` `--system-required`, então, como você pode ver nossos `ASF_ARGS` são redundantes nesse caso, e apenas `ASF_CRYPTKEY` é relevante.
 
-* * *
+---
 
 ## IPC
 
@@ -165,7 +168,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull alway
 
 Se você definiu tudo corretamente, o comando `docker run` acima fará com que a interface **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR)** funcione em seu computador host, no caminho padrão `localhost:1242` que agora é redirecionada para seu computador convidado. Também é bom notar que nós não expomos esta rota além disso, então a conexão só pode ser feita dentro do host docker, e, portanto, o mantém seguro. Claro, você pode expor mais a rota e garantir medidas de segurança adequadas se você souber o que está fazendo.
 
-* * *
+---
 
 ### Exemplo completo
 
@@ -189,7 +192,7 @@ Isso pressupõe que você usará um único contêiner do ASF, com todos os arqui
 }
 ```
 
-* * *
+---
 
 ## Dicas profissionais
 
