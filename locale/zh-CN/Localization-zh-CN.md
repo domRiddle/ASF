@@ -64,7 +64,7 @@
 
 目前有这 4 种议题受到支持：
 - 一般议题——所有不符合下述其他类型的议题。 通常，应**尽量避免**这种议题，如果遇到的问题不符合其他情况，很可能它并**不是**一个翻译议题。 但这一选项仍然为所有其他情况保留。
-- 当前翻译错误——这一议题**仅**应在当前翻译已被审校者批准的情况下使用，并且您确认它有错误，例如它有拼写错误或者您有一条更好的建议来改进它。 这种议题不能用于社区驱动（投票）的翻译，在这种情况下您应该联系翻译的提供者，让他更正翻译，或者如“审核”一节所述，直接为更好的翻译投票。 我们会删除对翻译的批准，并通知负责相应语言的审校者查看与验证您的评论。
+- 当前翻译错误——这一议题**仅**应在当前翻译已被审校者批准的情况下使用，并且您确认它有错误，例如它有拼写错误或者您有一条更好的建议来改进它。 这种议题不能用于社区驱动（投票）的翻译，在这种情况下您应该联系翻译的提供者，让他更正翻译，或者如“复核”一节所述，直接为更好的翻译投票。 我们会删除对翻译的批准，并通知负责相应语言的审校者查看与验证您的评论。
 - 缺少上下文信息——如果您不确定您正在翻译 ASF 的哪一部分、文本的上下文是什么、它的作用是什么，那就应该使用这一议题。 这一类型仅应被用于 ASF 开发，表示您不确定应该如何翻译这条文本，需要技术支持。
 - 源文本错误——这一议题仅应用于您确定源文本（英语）有错误的情况。 尽管很罕见，但我本人也不是英语母语者，所以如果您对源文本有改进意见，可以随意使用它。 或者，因为这种情况与开发过程直接相关，您也可以使用我们的 **[GitHub Issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** 来讨论。
 
@@ -126,7 +126,7 @@ ASF 的几乎每个页面上都包含链接与右边栏以便于导航。 最赞
 
 例如，ASF 的 **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** 页面包含一条这样的文本：
 
-> 如果您是新用户，我们建议您从&#8203;**[安装指南](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN)**&#8203;开始阅读。
+> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 
 这条文本的原始形式为：
 
@@ -145,7 +145,7 @@ If you're a new user, we recommend starting with **[setting up](https://github.c
 现在，在翻译过程中，取决于格式，您将会在文本中看到下列形式的 ASF 链接：
 
 * 要与 HTML 标签一起翻译的文本（大部分是文本，句子的一部分是链接）
-* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar - those require proofreader access to translate, sadly)
+* 单独翻译文本，而链接包含在 `Hidden texts` -> `Link addresses` 中（罕见，整个文本都是链接，在边栏中最常见——只有审校者可以翻译这部分）
 
 上面的示例是第一种形式（因为其中只有“setting up”是链接），所以在 Crowdin 中会显示成：
 
@@ -185,7 +185,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
+如果是第二种情况，没有出现 HTML，您可以直接前往 `Hidden texts` -> `Link addresses` 部分。
 
 ---
 

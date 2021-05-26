@@ -17,16 +17,12 @@ ASF 允许您自定义运行时使用的日志模块。 您可以将名为 `NLog
 <nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xsi:schemaLocation="NLog NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <target xsi:type="File" name="File" archiveFileName="${currentdir}/logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="${currentdir}/log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
-    <!-- Below becomes active when ASF's IPC interface is started -->
-    <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
+    <target xsi:type="File" name="File" archiveFileName="${currentdir}/logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="${currentdir}/log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" /><!-- 以下目标仅在 ASF 的 IPC 接口启用时激活 --><!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
   </targets>
 
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
-    <logger name="*" minlevel="Debug" writeTo="File" />
-    <!-- Below becomes active when ASF's IPC interface is started -->
-    <!-- <logger name="*" minlevel="Debug" writeTo="History" /> -->
+    <logger name="*" minlevel="Debug" writeTo="File" /><!-- 以下目标仅在 ASF 的 IPC 接口启用时激活 --><!-- <logger name="*" minlevel="Debug" writeTo="History" /> -->
   </rules>
 </nlog>
 ```
@@ -45,7 +41,7 @@ ASF 也会记录额外的信息，例如 `Trace` 日志级别就包含用户的�
 
 一般情况下，ASF 会尽力为您提供方便，只记录您需要的消息，而不是让您通过 `grep` 等第三方工具来手动筛选。 只需要按照下文的说明正确配置 NLog，您就应该能够使用自定义目标（如整个数据库）指定非常复杂的日志规则。
 
-Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. 通常这个版本比最新稳定版还新，因此您应该能够使用所有 NLog 文档中的特性，即使是仍在开发中或者尚未完成的特性——只需要确保您的 ASF 是最新版。
+关于版本——ASF 始终尝试在发布时提供当时 **[NuGet](https://www.nuget.org/packages/NLog)** 上最新版本的 NLog。 通常这个版本比最新稳定版还新，因此您应该能够使用所有 NLog 文档中的特性，即使是仍在开发中或者尚未完成的特性——只需要确保您的 ASF 是最新版。
 
 作为 ASF 集成的一部分，ASF 也支持一些额外的 ASF NLog 日志目标，下文将对此进行说明。
 
@@ -53,7 +49,7 @@ Regarding versioning - ASF tries to always ship with most up-to-date version of 
 
 ## 示例
 
-让我们从简单的情况开始。 We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. 我们的初始 `NLog.config` 看起来像这样：
+让我们从简单的情况开始。 我们将仅使用 **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** 目标。 我们的初始 `NLog.config` 看起来像这样：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -68,11 +64,11 @@ Regarding versioning - ASF tries to always ship with most up-to-date version of 
 </nlog>
 ```
 
-The explanation of above config is rather simple - we define one **logging target**, which is `ColoredConsole`, then we redirect **all loggers** (`*`) of level `Debug` and higher to `ColoredConsole` target we defined earlier. 这就完成了。
+上述配置的解释相当简单——我们定义了一个**日志目标** `ColoredConsole`，然后将 `Debug` 及更高级别的**所有 Logger**（`*`）重定向到之前定义的 `ColoredConsole` 目标。 这就完成了。
 
 如果您以上述 `NLog.config` 启动 ASF，仅有 `ColoredConsole` 目标会启用，并且 ASF 将不会把日志写入文件（`File`），ASF 硬编码的 NLog 配置已经被忽略。
 
-假设我们不喜欢默认的日志格式 `${longdate}|${level:uppercase=true}|${logger}|${message}`，我们只打算保留消息内容。 We can do so by modifying **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
+假设我们不喜欢默认的日志格式 `${longdate}|${level:uppercase=true}|${logger}|${message}`，我们只打算保留消息内容。 可以修改目标的&#8203;**[布局](https://github.com/nlog/nlog/wiki/Layouts)**&#8203;做到这一点。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -89,7 +85,7 @@ The explanation of above config is rather simple - we define one **logging targe
 
 如果您现在启动 ASF，就会注意到日期、日志级别和 Logger 名称都已经消失了——只剩下 `Function() Message` 格式的消息内容。
 
-我们还可以修改配置文件，使日志记录到多个目标。 Let's log to `ColoredConsole` and **[File](https://github.com/nlog/nlog/wiki/File-target)** at the same time.
+我们还可以修改配置文件，使日志记录到多个目标。 现在我们将日志同时记录到 `ColoredConsole` 和 **[File](https://github.com/nlog/nlog/wiki/File-target)**。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -108,7 +104,7 @@ The explanation of above config is rather simple - we define one **logging targe
 
 现在，我们已经将一切都记录到 `ColoredConsole` 和 `File` 目标了。 您注意到您还可以指定自定义文件名 `fileName` 和其他额外选项了吗？
 
-最后，ASF 使用各种日志级别使您能够轻松理解发生的事情。 我们可以使用此信息修改日志的严重性。 Let's say that we want to log everything (`Trace`) to `File`, but only `Warning` and above **[log level](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** to the `ColoredConsole`. 我们可以修改 `rules` 来做到这一点：
+最后，ASF 使用各种日志级别使您能够轻松理解发生的事情。 我们可以使用此信息修改日志的严重性。 例如，我们希望将所有消息（`Trace`）记录到文件 `File`，但 `ColoredConsole` 只显示 `Warning` 及更高的&#8203;**[日志级别](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)**。 我们可以修改 `rules` 来做到这一点：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -150,19 +146,19 @@ The explanation of above config is rather simple - we define one **logging targe
 
 ## 高级用法
 
-上面的示例非常简单，仅仅向您展示了定义与 ASF 集成的自定义日志记录规则是多么容易。 您可以使用 NLog 来处理各种不同的事情，包括记录到复杂目标（例如将日志保存到数据库 `Database` 中）、日志轮替（例如移除过期的 `File` 日志）、使用自定义 `Layout` 布局、声明您自己的 `<when>` 日志过滤器等等。 I encourage you to read through entire **[NLog documentation](https://github.com/nlog/nlog/wiki/Configuration-file)** to learn about every option that is available to you, allowing you to fine-tune ASF logging module in the way you want. 这是一个非常强大的工具，自定义 ASF 日志从未如此简单。
+上面的示例非常简单，仅仅向您展示了定义与 ASF 集成的自定义日志记录规则是多么容易。 您可以使用 NLog 来处理各种不同的事情，包括记录到复杂目标（例如将日志保存到数据库 `Database` 中）、日志轮替（例如移除过期的 `File` 日志）、使用自定义 `Layout` 布局、声明您自己的 `<when>` 日志过滤器等等。 我建议您通读 **[NLog 文档](https://github.com/nlog/nlog/wiki/Configuration-file)**&#8203;全文，了解每一个可用的选项，使您能以所需的方式调整 ASF 日志模块。 这是一个非常强大的工具，自定义 ASF 日志从未如此简单。
 
 ---
 
 ## 限制
 
-ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. 因此，如果您希望在 ASF 等待用户输入时能够继续记录到其他目标，就应该为这些目标编写独立的规则，如上例所示，而不是将很多目标都写在同一个规则的 `writeTo` 中（除非这就是您需要的行为）。 临时禁用控制台目标是为了在等待用户输入时保持控制台的清洁。
+ASF 会在需要用户输入时暂时禁用包括 `ColoredConsole` 或 `Console` 目标的**所有**规则。 因此，如果您希望在 ASF 等待用户输入时能够继续记录到其他目标，就应该为这些目标编写独立的规则，如上例所示，而不是将很多目标都写在同一个规则的 `writeTo` 中（除非这就是您需要的行为）。 临时禁用控制台目标是为了在等待用户输入时保持控制台的清洁。
 
 ---
 
 ## 聊天日志
 
-ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. 因为我们无论如何都需要将聊天消息作为命令来处理，因此记录这些事件并不会增加任何成本，但您可以因此添加额外的逻辑（例如将 ASF 作为您的个人 Steam 聊天记录存档）。
+ASF 包括了对聊天记录的扩展支持，不仅在 `Trace` 日志级别中记录了所有收到/发出的消息，还在&#8203;**[事件属性](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**&#8203;中暴露了与它们相关的额外信息。 因为我们无论如何都需要将聊天消息作为命令来处理，因此记录这些事件并不会增加任何成本，但您可以因此添加额外的逻辑（例如将 ASF 作为您的个人 Steam 聊天记录存档）。
 
 ### 事件属性
 
@@ -176,7 +172,7 @@ ASF includes extended support for chat logging by not only recording all receive
 
 ### 范例
 
-这个示例基于上述的 `ColoredConsole` 基本示例。 Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
+这个示例基于上述的 `ColoredConsole` 基本示例。 在理解它之前，我强烈建议您先阅读&#8203;**[上文](#示例)**，了解 NLog 日志的基础。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -199,7 +195,7 @@ ASF includes extended support for chat logging by not only recording all receive
 
 我们以基本的 `ColoredConsole` 为例，并将在之后对其进行扩展。 首先，我们为每个群组频道和 Steam 用户准备了一个永久的聊天记录文件——这要得益于 ASF 向我们暴露的额外属性。 我们还决定采用一种自定义布局，只写入当前日期、消息内容、发送/接收信息和 Steam 用户本身。 最后，我们启用的聊天记录规则仅仅适用于 `Trace` 日志等级、`MainAccount` 机器人帐户、与聊天记录相关的函数（用于接收消息的 `OnIncoming*` 和用于发送消息的 `SendMessage*`）。
 
-The example above will generate `0-0-76561198069026042.txt` file when talking with **[ArchiBot](https://steamcommunity.com/profiles/76561198069026042)**:
+上述示例将会在与 **[ArchiBot](https://steamcommunity.com/profiles/76561198069026042)** 聊天时生成 `0-0-76561198069026042.txt` 文件：
 
 ```text
 2018-07-26 01:38:38 how are you doing? -> 76561198069026042

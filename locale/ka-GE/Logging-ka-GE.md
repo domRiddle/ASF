@@ -1,10 +1,10 @@
-# 로그
+# Logging
 
 ASF allows you to configure your own custom logging module that will be used during runtime. You can do so by putting special file named `NLog.config` in application’s directory. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
 
 ---
 
-## 기본 로그
+## Default logging
 
 By default, ASF is logging to `ColoredConsole` (standard output) and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
 
@@ -51,9 +51,9 @@ As part of ASF integration, ASF also includes support for additional ASF NLog lo
 
 ---
 
-## 예제
+## Examples
 
-쉬운 것부터 시작 해 봅시다. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
+Let's start from something easy. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -154,19 +154,19 @@ The examples above are rather simple and made to show you how easy it is to defi
 
 ---
 
-## 한계
+## Limitations
 
 ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Therefore, if you want to keep logging for other targets even when ASF expects user input, you should define those targets with their own rules, as shown in examples above, instead of putting many targets in `writeTo` of the same rule (unless this is your wanted behaviour). Temporary disable of console targets is done in order to keep console clean when waiting for user input.
 
 ---
 
-## 채팅 로그
+## Chat logging
 
 ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. This is because we need to handle chat messages as commands anyway, so it doesn't cost us anything to log those events in order to make it possible for you to add extra logic (such as making ASF your personal Steam chatting archive).
 
 ### Event properties
 
-| 이름          | 설명                                                                                                                                                                                                           |
+| Name        | Description                                                                                                                                                                                                  |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Echo        | `bool` type. This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.                                                                                               |
 | Message     | `string` type. This is the actual sent/received message.                                                                                                                                                     |
@@ -174,7 +174,7 @@ ASF includes extended support for chat logging by not only recording all receive
 | ChatID      | `ulong` type. This is the ID of the `ChatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                  |
 | SteamID     | `ulong` type. This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat). |
 
-### 예시
+### Example
 
 This example is based on our `ColoredConsole` basic example above. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
 
@@ -291,7 +291,7 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 #### Screenshots
 
-![스크린샷](https://i.imgur.com/5juKHMt.png)
+![Screenshot](https://i.imgur.com/5juKHMt.png)
 
 ---
 

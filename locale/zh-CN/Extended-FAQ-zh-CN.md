@@ -1,4 +1,4 @@
-# 扩展FAQ
+# 补充常见问题
 
 “补充常见问题”涵盖了一些您可能想了解的不太常见的问题以及它们的答案。 对于更常见的问题，请访问&#8203;**[基本常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-CN)**。
 

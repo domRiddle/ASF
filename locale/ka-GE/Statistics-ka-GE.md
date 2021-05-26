@@ -1,4 +1,4 @@
-# 통계
+# Statistics
 
 ASF development is supported by 3 major things: donations, users feedback, and statistics. Donations directly influence our willings to work on the project, users feedback is always nice to read (especially positive one), while statistics are providing us with the information how our software is used, and by how many people - this way we can know what to improve, what to fix, and what to focus on.
 
@@ -6,7 +6,7 @@ ASF in default settings has `Statistics` global config property enabled. If you 
 
 ---
 
-## 현재 개인 정보 보호 정책
+## Current privacy policy
 
 When `Statistics` are active, following things will happen:
 
@@ -33,7 +33,7 @@ ASF will **not** collect any other non-listed-above data without prior important
 
 ---
 
-# 데이터의 이용
+# Usage of data
 
 All values specified in second point are being used for our **Public ASF STM listing**, which is explained below. We do not use any other data for any other purpose.
 

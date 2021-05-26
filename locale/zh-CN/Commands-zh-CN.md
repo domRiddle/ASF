@@ -47,7 +47,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 ## 命令
 
-| 命令                                                                   | 访问              | 描述                                                                                                                                             |
+| 命令                                                                   | 权限              | 描述                                                                                                                                             |
 | -------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa [Bots]`                                                         | `Master`        | 为指定机器人生成临时的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;令牌。                    |
 | `2fano [Bots]`                                                       | `Master`        | 为指定机器人拒绝所有等待操作的&#8203;**[两步验证](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**&#8203;交易确认。              |
@@ -150,15 +150,15 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 `<Settings>` 参数接受**最多 7 个**不同的选项，像平常一样使用 ASF 标准的逗号分隔。 这些选项分别是：
 
-| 参数 | 名称                   | 从属于           |
-| -- | -------------------- | ------------- |
-| 1  | Profile（个人资料）        |               |
-| 2  | OwnedGames（游戏详情）     | Profile       |
-| 3  | Playtime（游戏时间）       | OwnedGames    |
-| 4  | FriendsList（好友列表）    | Profile（个人资料） |
-| 5  | Inventory（库存）        | Profile（个人资料） |
-| 6  | InventoryGifts（库存礼物） | Inventory     |
-| 7  | Comments（留言）         | Profile（个人资料） |
+| 参数 | 名称                   | 从属于        |
+| -- | -------------------- | ---------- |
+| 1  | Profile（个人资料）        |            |
+| 2  | OwnedGames（游戏详情）     | Profile    |
+| 3  | Playtime（游戏时间）       | OwnedGames |
+| 4  | FriendsList（好友列表）    | Profile    |
+| 5  | Inventory（库存）        | Profile    |
+| 6  | InventoryGifts（库存礼物） | Inventory  |
+| 7  | Comments（留言）         | Profile    |
 
 关于上述选项的说明，请访问 **[Steam 隐私设置](https://steamcommunity.com/my/edit/settings)**。
 
@@ -204,7 +204,7 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 `addlicense` 命令支持两种不同的许可类型，包括：
 
-| 类型    | 别名  | 范例           | 描述                        |
+| 类型    | 别名  | 示例           | 描述                        |
 | ----- | --- | ------------ | ------------------------- |
 | `app` | `a` | `app/292030` | 游戏的唯一 `appID`。            |
 | `sub` | `s` | `sub/47807`  | 包含一款或多款游戏的包，有唯一的 `subID`。 |
@@ -225,7 +225,7 @@ addlicense ASF app/292030,sub/47807
 
 `owns` 命令支持几种不同的 `<games>` 参数类型，包括：
 
-| 类型      | 别名  | 范例               | 描述                                                                                                                                                                                                                        |
+| 类型      | 别名  | 示例               | 描述                                                                                                                                                                                                                        |
 | ------- | --- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `app`   | `a` | `app/292030`     | 游戏的唯一 `appID`。                                                                                                                                                                                                            |
 | `sub`   | `s` | `sub/47807`      | 包含一款或多款游戏的包，有唯一的 `subID`。                                                                                                                                                                                                 |
@@ -299,16 +299,16 @@ owns ASF app/292030,name/Witcher
 
 `<Value>` 是要为指定类型设置的值。 目前所有的值都是字符串。
 
-### 范例
+### 示例
 
 假设我们有一个机器人，未启用 2FA，仅由 Steam 电子邮件令牌保护。 我们希望在 `Headless` 为 `true` 的情况下启动这个机器人。
 
 为此，我们需要执行以下命令：
 
-`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. 我们做这一步的目的是让 Steam 网络向我们发送验证码电子邮件——否则我们就可以跳过这一步了。
+`start MySteamGuardBot` -> 机器人会尝试登录，但因为缺少验证码而登录失败，然后因为 ASF 处于 `Headless` 模式，机器人会停止运行。 我们做这一步的目的是让 Steam 网络向我们发送验证码电子邮件——否则我们就可以跳过这一步了。
 
-`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. 当然，这里的 `ABCDE` 需要换成我们在电子邮件中找到的验证码。
+`input MySteamGuardBot SteamGuard ABCDE` -> 我们将 `MySteamGuardBot` 机器人的 `SteamGuard` 输入设置为 `ABCDE`。 当然，这里的 `ABCDE` 需要换成我们在电子邮件中找到的验证码。
 
-`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
+`start MySteamGuardBot` -> 我们重新启动已停止的机器人，这一次会自动使用我们在上一步中设置的验证码，登录将会成功，并且之前的验证码输入会被清除。
 
 如果您的机器人启用了 2FA，但是没有导入 ASF 2FA，您可以用相同的方式操作这种机器人，只需要在运行时设置其他所需的属性即可。

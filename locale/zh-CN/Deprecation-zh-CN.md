@@ -36,7 +36,7 @@ ASF 的弃用流程分为两个阶段，使这种转换更容易，更少遇到�
 
 ---
 
-## 范例
+## 示例
 
 我们将 V3.1.2.2 版本之前的 `--server` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**&#8203;迁移到了 `IPC` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**。
 

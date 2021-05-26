@@ -179,7 +179,7 @@ ASF 支持同时挂多个帐户，这也是它的主要功能之一。 您可以
 
 ![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
-This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
+这证明您已经成功更改了配置文件。 您也可以用同样的方式更改全局 ASF 属性，只需要切换到“ASF”标签，下载生成的 `ASF.json` 配置文件，将其放到 `config` 文件夹内。
 
 通过我们的 ASF-ui 前端，编辑 ASF 配置文件会更容易，我们将随后解释。
 
@@ -189,7 +189,7 @@ This confirms that you've successfully edited your config. In exactly the same w
 
 ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们正在积极开发 IPC 接口的前端 **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-ui)**，它是访问各种 ASF 功能的一种非常简便的、适合用户的方式。
 
-In order to use ASF-ui, you need to have `IPC` enabled, which is the default option starting with ASF V5.1.0.0. Once you launch ASF, you should be able to confirm that it properly started the IPC interface automatically:
+要使用 ASF-ui，您需要启用 `IPC`，自 V5.1.0.0 版本开始，ASF 已经默认启用。 运行 ASF 后，您应该能看到表明 IPC 接口成功启动的确认消息：
 
 ![IPC](https://i.imgur.com/ZmkO8pk.png)
 
@@ -215,7 +215,7 @@ In order to use ASF-ui, you need to have `IPC` enabled, which is the default opt
 - 我们没有为您所使用的操作系统（例如 32 位 Windows）提供操作系统包
 - 您已经安装了 .NET Core 运行时环境/SDK，或者打算安装
 - 您希望自行管理运行时需求来最小化 ASF 的结构
-- When you want to use a custom **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which requires a `generic` setup of ASF to run properly (due to missing native dependencies)
+- 您想要使用的自定义&#8203;**[插件](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-CN)**&#8203;需要 `generic` 版本的 ASF 才能正常工作（因为缺少本机依赖项）
 
 但是，请注意，此时您需要负责安装管理 .NET Core 运行时环境。 这意味着，如果您的 .NET Core SDK（运行时环境）不可用、已过期或者已损坏，ASF 就无法工作。 这就是我们不建议普通用户安装此包的原因，因为现在您需要确保 .NET Core SDK（运行时环境）符合 ASF 的要求，能够用于运行 ASF，而不是使用**我们**验证过的 ASF 自带的 .NET Core 运行时环境。
 

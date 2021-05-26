@@ -26,7 +26,7 @@ ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 建议您根据�
 
 ### 入门指南
 
-您的项目应该是一个标准 .NET 库，其目标指向对应 ASF 版本所使用框架的版本，如&#8203;**[编译](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**&#8203;章节所述。 我们建议您以 .NET Core 为目标，但 .NET Framework 框架插件也是可用的。
+您的项目应该是一个标准 .NET 库，其目标指向对应 ASF 版本所使用框架的版本，如&#8203;**[编译](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-zh-CN)**&#8203;章节所述。 我们建议您以 .NET Core 为目标，但 .NET Framework 框架插件也是可用的。
 
 您的项目必须引用 `ArchiSteamFarm` 主程序集，或者您下载的 ASF 中包含的预编译 `ArchiSteamFarm.dll` 库，或者项目源代码（例如您决定将 ASF 代码树添加为子模块的情况）。 这样，您就可以访问与检查 ASF 的结构、方法和属性，特别是您接下来需要继承的核心 `IPlugin` 接口。 该项目还必须至少引用 `System.Composition.AttributedModel`，使您能够将插件的 `IPlugin` 实现 `[Export]`（导出）给 ASF 使用。 此外，您可能还需要引用其他公共库，以便解析某些接口提供给您的数据结构，但除非您明确需要它们，否则现在这样就足够了。
 
@@ -79,11 +79,11 @@ dotnet publish -c "Release" -o "out"
 dotnet publish YourPluginName -c "Release" -o "out"
 ```
 
-然后，您的插件已经准备好进行部署。 It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its **[dependencies](#plugin-dependencies)**. 这样用户在安装时就只需要将 zip 压缩包解压到 `plugins` 目录而不需要其他操作。
+然后，您的插件已经准备好进行部署。 如何分发和发布插件完全取决于您自己，但我们建议创建一个 zip 压缩包，其中只有一个以插件命名空间和插件名 `YourNamespace.YourPluginName` 为名的的目录，目录内部放置已编译好的插件及其&#8203;**[依赖项](#插件依赖项)**。 这样用户在安装时就只需要将 zip 压缩包解压到 `plugins` 目录而不需要其他操作。
 
-这只是开发插件最基本的场景。 We have **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. 如果您希望从现有的代码中学习，可以随意查看该项目，或者自行探索 `ArchiSteamFarm.Plugins` 命名空间，并且参考包含所有可用选项的文档。
+这只是开发插件最基本的场景。 我们提供了 **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** 项目，向您展示您可以在自己的插件内实现的接口和操作的示例，还有实用的注释。 如果您希望从现有的代码中学习，可以随意查看该项目，或者自行探索 `ArchiSteamFarm.Plugins` 命名空间，并且参考包含所有可用选项的文档。
 
-If instead of example plugins you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. In addition to that, there are also plugins developed by other developers, in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
+如果您认为示例插件还不够，需要学习一些真实的项目，我们也开发了 **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** 插件，与 ASF 一同打包。 此外，还有一些由其他开发者编写的插件，我们已将其列在&#8203;**[第三方项目](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-zh-CN#asf-插件)**&#8203;章节。
 
 ---
 
@@ -91,7 +91,7 @@ If instead of example plugins you'd want to learn from real projects, there is *
 
 除了您有权在接口本身中访问的内容外，ASF 还向您公开了许多内部 API，您可以使用这些 API 来扩展功能。 例如，如果您想向 Steam Web 发送某种新请求，则无需从零开始实现一切，特别是无需自行处理我们已经处理过的问题。 只需要使用我们的 `Bot.ArchiWebHandler`，其中已经公开了许多 `UrlWithSession()` 方法供您使用，它们已经为您完成了一切底层工作，例如身份验证、会话刷新或者处理 Web 限制等。 同样，如果要向 Steam 平台以外发送 Web 请求，您可以使用标准的 .NET `HttpClient` 类，但更好的方法是使用我们提供的 `Bot.ArchiWebHandler.WebBrowser`，它已经帮您实现了很多细节，例如请求失败重试功能。
 
-We have a very open policy in terms of our API availability, so if you'd like to make use of something that ASF code already includes, simply **[open an issue](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** and explain in it your planned use case of our ASF's internal API. 只要您的使用场景有意义，我们就很可能不会反对。 我们不可能立刻公开一切可以利用的内容，所以我们只会公开目前对我们来说最有意义的部分，然后等待您的需求，如果您需要访问的内容尚未标记为 `public`（公开）。 这也包括所有关于新 `IPlugin` 接口的建议，只要它们能够合理地扩展现有功能。
+我们对于 API 可用性方面的政策非常开放，所以如果您需要利用 ASF 代码中已有的内容，请&#8203;**[开启一个 Issue](https://github.com/JustArchiNET/ArchiSteamFarm/issues)**，并在其中解释您需要使用的 ASF 内部 API 以及您计划使用的场景。 只要您的使用场景有意义，我们就很可能不会反对。 我们不可能立刻公开一切可以利用的内容，所以我们只会公开目前对我们来说最有意义的部分，然后等待您的需求，如果您需要访问的内容尚未标记为 `public`（公开）。 这也包括所有关于新 `IPlugin` 接口的建议，只要它们能够合理地扩展现有功能。
 
 实际上，ASF 内部 API 是插件功能的唯一限制。 没有什么能够阻止您，因为您的插件也可以有自己的依赖项，例如，您的应用可以引用 `Discord.Net` 库，在您的 Discord 机器人与 ASF 命令之间架起桥梁。 可能性是无穷无尽的，我们会尽力为您的插件提供最大的自由与灵活性，所以没有任何人为的限制，只是我们不能完全确定哪些 ASF 组件是插件开发所需的（您可以告知我们详情来解决这一点，并且您也总是可以自己重新实现所需的功能）。
 

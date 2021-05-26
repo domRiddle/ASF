@@ -54,7 +54,7 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 如果您想要编辑 ASF 代码，您可以使用任何兼容 .NET Core 的 IDE，但这也是可选的，因为您甚至可以用记事本编辑代码并用上述 `dotnet` 命令编译。 不过，对于 Windows 系统，我们推荐使用&#8203;**[最新版本的 Visual Studio](https://visualstudio.microsoft.com/downloads)**（免费的社区版即可）。
 
-如果您要在 Linux/OS X 上开发 ASF 代码，我们推荐使用&#8203;**[最新版的 Visual Studio Code](https://code.visualstudio.com/download)**。 它没有经典的 Visual Studio 那么丰富的功能，但是应该足够了。
+如果您要在 Linux/macOS 上开发 ASF 代码，我们推荐使用&#8203;**[最新版的 Visual Studio Code](https://code.visualstudio.com/download)**。 它没有经典的 Visual Studio 那么丰富的功能，但是应该足够了。
 
 当然，以上的所有建议都仅仅是建议，您可以使用您想用的任何工具，最后您都要使用 `dotnet build` 命令进行构建。 我们使用 **[JetBrains Rider](https://www.jetbrains.com/rider)** 进行 ASF 的开发，尽管这个解决方案并不是免费的。
 

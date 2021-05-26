@@ -4,7 +4,7 @@
 
 ---
 
-## 标签
+## 分支
 
 ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**。
 

@@ -29,7 +29,7 @@ ASF 中使用的&#8203;**[垃圾收集](https://en.wikipedia.org/wiki/Garbage_co
 - 永远不要运行多个 ASF 实例。 ASF 可以同时处理无限个机器人，除非您需要将每个 ASF 实例绑定到不同的网络接口或 IP 地址，否则您只需要**一个**有多个机器人的 ASF 进程。
 - 善用 `ShutdownOnFarmingFinished`。 启用的机器人比未启用的消耗更多资源。 尽管效果不明显，因为仍然需要保留机器人的状态，但这仍然可以节约一些资源，尤其是 TCP 套接字等网络相关的资源。 要保持 ASF 实例的运行，只需要启用一个机器人，并且您可以随时在需要时激活其他机器人。
 - 不要有太多机器人。 未 `Enabled`（启用）的机器人实例消耗较少的资源，因为 ASF 不需要启动它。 还需要注意，ASF 会为每份配置文件创建一个机器人，因此如果您不需要 `start`（运行）指定的机器人，并且希望节省一些内存，您可以临时将 `Bot.json` 重命名为 `Bot.json.bak` 等，以防止 ASF 创建被禁用的机器人。 如果您不将其重命名为原名，就无法 `start`（运行）这个机器人，但 ASF 也不会在内存中为这个机器人保存状态，为其他数据留出空间（非常小的空间，在 99.9% 的情况下您不需要这么做，将机器人的 `Enabled` 设置为 `false` 已经足够）。
-- Fine-tune your configs. Especially global ASF config has many variables to adjust, for example by increasing `LoginLimiterDelay` you'll bring up your bots slower, which will allow already started instance to fetch badges in the meantime, as opposed to bringing up your bots faster, which will take more resources as more bots will do major work (such as parsing badges) at the same time. 同时进行的任务越少——使用的内存就越少。
+- 妥善优化配置文件。 特别是全局 ASF 配置中有很多变量可以调整，例如增加 `LoginLimiterDelay` 会减慢机器人启动的速度，留出时间给已启用的实例抓取徽章页面，如果减少这个值，就会让机器人尽快启动，当机器人很多时，它们就会同时进行解析徽章等消耗资源的任务。 同时进行的任务越少——使用的内存就越少。
 
 这些都是您在处理内存占用问题时可以考虑的一些事情。 然而，这些事情不是影响内存的关键问题，因为内存占用主要来自于 ASF 必须处理的事情，而不是来自于挂卡机制的内部结构。
 
