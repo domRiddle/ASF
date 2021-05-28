@@ -1,8 +1,8 @@
 # Activador de juegos en segundo plano
 
-El activador de juegos en segundo plano es una función especial de ASF que permite importar una lista de claves de producto (junto con sus nombres) para ser activados en segundo plano. Esto es especialmente útil si tienes una gran cantidad de claves para activar y es seguro que alcanzarás el **[estatus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-es#cu%C3%A1l-es-el-significado-de-estatus-al-activar-una-clave)** `RateLimited` antes de que termines con tu lote entero.
+El activador de juegos en segundo plano es una función especial de ASF que permite importar una lista de claves de producto (junto con sus nombres) para ser activados en segundo plano. Esto es especialmente útil si tienes una gran cantidad de claves para activar y es seguro que alcanzarás el **[estatus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-es#cuál-es-el-significado-del-estatus-al-activar-una-clave)** `RateLimited` antes de que se termine de activar el lote de claves.
 
-El activador de juegos en segundo plano está hecho para usarse en un solo bot, lo que significa que no hace uso de `RedeemingPreferences`. Esta función puede usarse junto con (o en vez de) el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `redeem`, de ser necesario.
+El activador de juegos en segundo plano está hecho para usarse en un solo bot, lo que significa que no hace uso de `RedeemingPreferences`. Esta función puede usarse junto con (o en vez de) el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `redeem`, de ser necesario.
 
 ---
 
@@ -30,11 +30,11 @@ POIUY-KJHGD-QWERT
 ZXCVB-ASDFG-QWERT
 ```
 
-Independientemente del formato que hayas decidido usar, ASF importará el archivo `keys` con las claves, ya sea al iniciar el bot, o luego durante la ejecución. Después de analizar el archivo y eventualmente omitir las entradas inválidas, todos los juegos detectados serán añadidos a una cola en segundo plano, y el archivo `BotName.keys` será eliminado del directorio `config`.
+Independientemente del formato que hayas decidido usar, ASF importará el archivo `keys` con las claves, ya sea al iniciar el bot, o luego durante la ejecución. Después de analizar el archivo y posteriormente omitir las entradas inválidas, todos los juegos detectados serán añadidos a una cola en segundo plano, y el archivo `BotName.keys` será eliminado del directorio `config`.
 
 ### IPC
 
-Además de poder usar el archivo antes mencionado, ASF también posee `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** que se puede ejecutar desde cualquier herramienta IPC, incluyendo nuestro ASF-ui. Usar IPC puede ser más provechoso, ya que puedes usar una sintaxis apropiada, tal como usar un delimitador personalizado en lugar de estar forzado a usar un carácter de tabulación, o incluso introduciendo tu propia estructura de claves.
+Además de poder usar el archivo antes mencionado, ASF también posee la **[API endpoint de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES#asf-api)** `GamesToRedeemInBackground`  que se puede ejecutar desde cualquier herramienta IPC, incluyendo nuestro ASF-ui. Usar IPC puede ser más provechoso, ya que puedes usar una sintaxis apropiada, tal como usar un delimitador personalizado en lugar de estar forzado a usar un carácter de tabulación, o incluso introduciendo tu propia estructura de claves.
 
 ---
 
@@ -42,7 +42,7 @@ Además de poder usar el archivo antes mencionado, ASF también posee `GamesToRe
 
 Una vez que los juegos sean importados exitosamente, serán añadidos a la cola. ASF analizará automáticamente la cola en segundo plano mientras el bot esté conectado a la red de Steam y la cola no esté vacía. Cuando se intente activar una clave y no haya resultado en `RateLimited`, esta será removida de la cola, con el resultado de dicho intento escrito en un archivo en el directorio `config` - ya sea `BotName.keys.used` si la clave fue usada en el proceso (por ejemplo `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`) o `BotName.keys.unused` en caso contrario. ASF intencionalmente usa el nombre de juego que hayas proporcionado ya que la clave no garantiza que la red de Steam devuelva un nombre significativo - de esta forma puedes etiquetar tus claves con nombres personalizados si es necesario/deseado.
 
-Si durante el proceso la cuenta alcanza el estatus `RateLimited`, la cola será temporalmente suspendida por una hora para esperar que el límite de activación desaparezca. Posteriormente, el proceso continuará donde se quedó, hasta que toda la cola esté vacía.
+Si durante el proceso la cuenta alcanza el estatus `RateLimited`, la cola será temporalmente suspendida por una hora para esperar que el límite de intentos de activación desaparezca. Posteriormente, el proceso continuará donde se quedó, hasta que toda la cola esté vacía.
 
 ---
 
@@ -62,7 +62,7 @@ También es posible añadir juegos adicionales para importar aun ya teniendo jue
 
 ---
 
-## Comentarios
+## Observaciones
 
 El activador de claves en segundo plano usa `OrderedDictionary`, lo que significa que las claves conservarán el orden especificado en el archivo (o en la llamada IPC API). Esto significa que puedes (y debes) proporcionar una lista en la que una clave dada solo puede tener dependencia directa con claves listadas arriba de ella, pero no debajo. Por ejemplo, esto significa que si tienes el DLC `D` que requiere que primero se active el juego `G`, entonces la clave para el juego `G` **siempre** debe ser incluida antes de la clave para el DLC `D`. De la misma manera, si el DLC `D` depende de `A`, `B` y `C`, entonces los 3 deben ser incluidos antes (en cualquier orden, a menos que tengan dependencia entre ellos).
 
