@@ -26,19 +26,19 @@ ASF toma en cuenta la configuración de `WebProxy` al decidir sobre el ámbito c
 
 ## Paquetes de ASF
 
-ASF viene en 2 variantes principales - paquete genérico y de sistema operativo específico. En cuanto a funcionalidad ambos paquetes son exactamente iguales, ambos son capaces de actualizarse automáticamente. La única diferencia entre ellos es si el paquete **genérico** de ASF también viene con runtime **específico de SO** para impulsarlo.
+ASF viene en 2 variantes principales - paquete genérico y de sistema operativo específico. En cuanto a funcionalidad ambos paquetes son exactamente iguales, ambos son capaces de actualizarse automáticamente. La única diferencia entre ellos es si el paquete **genérico** de ASF también viene con runtime **de sistema operativo específico**.
 
 ---
 
 ### Genérico
 
-El paquete genérico es una compilación que no depende de plataformas y no incluye ningún código de máquina específico. Esta configuración requiere que tengas .NET Core runtime instalado en su sistema operativo **en su versión apropiada**. Todos sabemos lo problemático que es mantener las dependencias actualizadas, por lo tanto este paquete está aquí principalmente para las personas que **ya usan** .Net Core y no quiere duplicar su runtime solo por ASF si pueden hacer uso de lo que ya tienen instalado. El paquete genérico también te permite ejecutar ASF **en cualquier lugar donde puedas obtener una implementación funcional de .NET Core runtime**, independientemente de si existe o no una compilación de ASF específica para el sistema operativo.
+El paquete genérico es una compilación que no depende de plataformas y no incluye ningún código de máquina específico. Esta configuración requiere que tengas .NET Core runtime instalado en su sistema operativo **en su versión apropiada**. Todos sabemos lo problemático que es mantener las dependencias actualizadas, por lo tanto este paquete está disponible principalmente para las personas que **ya usan** .Net Core y no quieren duplicar su runtime solo por ASF si pueden hacer uso de lo que ya tienen instalado. El paquete genérico también te permite ejecutar ASF **en cualquier lugar donde puedas obtener una implementación funcional de .NET Core runtime**, independientemente de si existe o no una compilación de ASF específica para el sistema operativo.
 
 No se recomienda usar la variante genérica si eres un usuario casual o incluso avanzado que solo quiere hacer funcionar ASF y no entrar en detalles técnicos de .NET Core. En otras palabras - si sabes qué es esto, lo puedes usar, de lo contrario es mucho mejor usar un paquete de sistema operativo específico.
 
 #### Paquete .NET Framework
 
-Además del paquete genérico mencionado antes, también hay un paquete `generic-netf` construido en .NET Framework (no .NET Core). Este paquete es una variante legacy que proporciona compatibilidad faltante conocida de los tiempos de ASF V2, y puede ejecutarse, por ejemplo, con **[Mono](https://www.mono-project.com)**, mientras que el paquete `generic` de .NET Core no puede hacer eso al día de hoy.
+Además del paquete genérico mencionado antes, también hay un paquete `generic-netf` compilado en .NET Framework (y no en .NET Core). Este paquete es una versión heredada que proporciona la compatibilidad faltante de los tiempos de ASF V2, y puede ejecutarse, por ejemplo, con **[Mono](https://www.mono-project.com)**, mientras que el paquete `generic` de .NET Core no puede hacer eso al día de hoy.
 
 En general, deberías **evitar este paquete como sea posible**, ya que la mayoría de los sistemas operativos y configuraciones están perfectamente (y mucho mejor) soportados con el paquete `generic` mencionado antes. De hecho, este paquete tiene sentido usarlo solo en plataformas que no tienen .NET Core runtime funcional, pero que tienen una implementación Mono funcional. Algunos ejemplos de tales plataformas incluyen `linux-x86` (32-bit i386/i686 linux), así como `linux-armel` (tarjetas ARMv6 encontradas, por ejemplo, en Raspberry Pi 0 & 1), de las cuales ninguna tiene .NET Core runtime que funcione oficialmente al día de hoy.
 
