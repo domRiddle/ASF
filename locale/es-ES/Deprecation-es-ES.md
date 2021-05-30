@@ -6,7 +6,7 @@ A partir de ASF V3.1.2.2, seguiremos una política de obsolescencia consistente 
 
 ## ¿Qué es la obsolescencia?
 
-La obsolescencia es el proceso de hacer cambios pequeños o grandes que vuelven obsoletos las opciones, argumentos, funcionalidades o casos de uso previos. La obsolescencia normalmente significa que una cosa determinada fue reescrita en otra (similar) forma, y debes asegurarte de manera oportuna de cambiar a la nueva forma. En este caso, simplemente es mover una funcionalidad dada a un lugar más apropiado.
+La obsolescencia es el proceso de hacer cambios pequeños o grandes que vuelven obsoletos las opciones, argumentos, funcionalidades o casos de uso previos. La obsolescencia normalmente significa que una cosa determinada fue reescrita en otra forma (similar), y debes asegurarte de manera oportuna de cambiar a la nueva forma. En este caso, es simplemente mover una funcionalidad determinada a un lugar más apropiado.
 
 ASF cambia rápidamente y siempre busca mejorar. Esto lamentablemente significa que podemos cambiar o mover alguna funcionalidad existente a otro segmento del programa para que se beneficie de nuevas características, compatibilidad o estabilidad. Gracias a eso no necesitamos apegarnos a decisiones de desarrollo obsoletas o simplemente equivocadas que hayamos tomado hace años. Siempre intentamos proporcionar un reemplazo razonable que se ajuste al uso de funcionalidades previamente disponibles, por lo cual la obsolescencia es mayormente inofensiva y requiere pequeños arreglos a lo que se usaba con anterioridad.
 
@@ -18,7 +18,7 @@ ASF seguirá 2 etapas de obsolescencia, haciendo que la transición sea mucho m�
 
 ### Etapa 1
 
-La etapa 1 ocurre cuando una característica dada se vuelve obsoleta, con disponibilidad inmediata de otra solución (o ninguna si no hay planes para reintroducirla).
+La etapa 1 ocurre cuando una determinada característica se vuelve obsoleta, con disponibilidad inmediata de otra solución (o ninguna si no hay planes para reintroducirla).
 
 Durante esta etapa, ASF mostrará la advertencia respectiva cuando se use una función obsoleta. Mientras sea posible, ASF intentará imitar el comportamiento antiguo y seguirá siendo compatible con él. ASF seguirá estando en la etapa 1 en cuanto a esa funcionalidad al menos hasta la siguiente versión estable. Este es el momento en que, con la esperanza de no romper la compatibilidad, puedes hacer el cambio correspondiente en todas tus herramientas y patrones para satisfacer el nuevo comportamiento. Puedes confirmar que hiciste todos los cambios apropiados al ya no ver la advertencia de obsolescencia.
 
@@ -42,8 +42,8 @@ Previo a la V3.1.2.2 movimos el **[argumento de la línea de comandos](https://g
 
 ### Etapa 1
 
-La etapa 1 ocurrió en la versión V3.1.2.2 donde añadimos la advertencia correspondiente al uso de `--server`. El argumento `--server`, ahora obsoleto, era mapeado automáticamente a la propiedad de configuración global `IPC: true`, actuando exactamente igual que el antiguo `--server`. Esto permitió a todos hacer el cambio correspondiente antes de que ASF dejara de aceptar el argumento antiguo.
+La etapa 1 ocurrió en la versión V3.1.2.2 donde añadimos la advertencia correspondiente al uso de `--server`. El argumento `--server`, ahora obsoleto, era mapeado automáticamente a la propiedad de configuración global `IPC: true`, actuando exactamente igual que el antiguo `--server` por el momento. Esto permitió a todos hacer el cambio correspondiente antes de que ASF dejara de aceptar el argumento antiguo.
 
 ### Etapa 2
 
-La etapa 2 ocurrió en la versión V3.1.3.0, justo después de la versión estable V3.1.2.9. La etapa 2 hizo que ASF dejara de reconocer por completo el argumento `--server`, tratándolo como cualquier otro argumento no válido, que ya no tiene ningún efecto en el programa. Para las personas que aún no cambiaron su uso de `--server` a `IPC: true`, causó que la IPC dejara de funcionar completamente, porque ASF ya no hacía el mapeo apropiado.
+La etapa 2 ocurrió en la versión V3.1.3.0, justo después de la versión estable V3.1.2.9 con la etapa 1 explicada arriba. La etapa 2 hizo que ASF dejara de reconocer por completo el argumento `--server`, tratándolo como cualquier otro argumento no válido, que ya no tiene ningún efecto en el programa. Para las personas que aún no cambiaron su uso de `--server` a `IPC: true`, causó que la IPC dejara de funcionar completamente, porque ASF ya no hacía el mapeo apropiado.

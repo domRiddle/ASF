@@ -48,7 +48,7 @@ A medida que el tiempo pasa más plataformas son soportadas por .NET Core y hay 
 
 ### Sistema operativo específico
 
-El paquete de sistema operativo específico, aparte del código incluido en el paquete genérico, también incluye código nativo para una plataforma determinada. En otras palabras, el paquete de SO específico **ya incluye dentro el adecuado .NET Core runtime**, lo que permite omitir todo el desastre de la instalación y ejecutar ASF directamente. El paquete de sistema operativo específico, como puedes adivinar por el nombre, es específico del sistema operativo y cada uno requiere su propia versión - por ejemplo, Windows requiere el binario PE32+ `ArchiSteamFarm.exe` mientras que Linux funciona con el binario ELF `ArchiSteamFarm`. Como debes saber, esos dos tipos no son compatibles entre sí.
+El paquete de sistema operativo específico, aparte del código incluido en el paquete genérico, también incluye código nativo para una plataforma determinada. En otras palabras, el paquete de sistema operativo específico **ya incluye el adecuado .NET Core runtime**, lo que permite omitir todo el lío de la instalación y en su lugar ejecutar ASF directamente. El paquete de sistema operativo específico, como puedes adivinar por el nombre, es específico del sistema operativo y cada uno requiere su propia versión - por ejemplo, Windows requiere el binario PE32+ `ArchiSteamFarm.exe` mientras que Linux funciona con el binario ELF `ArchiSteamFarm`. Como debes saber, esos dos tipos no son compatibles entre sí.
 
 Actualmente ASF está disponible en las siguientes variantes de sistema operativo específico:
 
@@ -66,7 +66,7 @@ Para una lista completa de todas las plataformas y sistemas operativos soportado
 
 ## Requisitos de runtime
 
-Si estás usando un paquete de SO específico entonces no necesitas preocuparte por los requisitos de runtime, porque ASF siempre se publica con el runtime requerido y actualizado que funcionará correctamente siempre que tengas los **[prerrequisitos de .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** instalados y actualizados. En otras palabras, **no necesitas instalar .NET Core runtime o SDK**, ya que las compilaciones de SO específico solo requieren las dependencias nativas del SO (prerrequisitos) y nada más.
+Si estás usando un paquete de sistema operativo específico entonces no necesitas preocuparte por los requisitos de runtime, porque ASF siempre se publica con el runtime requerido y actualizado que funcionará correctamente siempre que tengas los **[prerrequisitos de .NET Core](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)** instalados y actualizados. En otras palabras, **no necesitas instalar .NET Core runtime o SDK**, ya que las compilaciones de sistema operativo específico solo requieren las dependencias nativas del sistema operativo (prerrequisitos) y nada más.
 
 Sin embargo, si estás intentando ejecutar un paquete **genérico** de ASF entonces debes asegurarte de que tu .NET Core runtime soporta la plataforma requerida por ASF.
 

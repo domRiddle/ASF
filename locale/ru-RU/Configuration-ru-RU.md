@@ -4,7 +4,7 @@
 
 * **[Введение](#introduction)**
 * **[Сетевой генератор конфигураций](#web-based-configgenerator)**
-* **[ASF-ui configuration](#asf-ui-configuration)**
+* **[Настройка ASF-ui](#asf-ui-configuration)**
 * **[Ручная настройка](#manual-configuration)**
 * **[Файл глобальной конфигурации](#global-config)**
 * **[Конфигурация бота](#bot-config)**
@@ -24,7 +24,7 @@
 
 ASF использует формат **[JSON](https://ru.wikipedia.org/wiki/JSON)** для сохранения настроек в файлах конфигурации. Это дружественный к пользователю, читаемый и довольно универсальный формат, в котором вы можете конфигурировать программу. Но не волнуйтесь, вам не обязательно знать JSON чтобы настроить ASF. Я упомянул это просто на случай если вы захотите массово создавать конфигурации ASF каким-нибудь скриптом.
 
-Configuration can be done in several ways. You can use our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which is a local app independent of ASF. You can use our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC frontend for configuration done directly in ASF. Lastly, you can always generate config files manually, as they follow fixed JSON structure specified below. We'll explain shortly the available options.
+Конфигурация может быть выполнена несколькими способами. Вы можете использовать наш **[Веб ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, который является локальным приложением независимо от ASF. Вы можете использовать наш **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC интерфейс для настройки непосредственно ASF. Наконец, вы всегда можете сгенерировать конфигурационные файлы вручную, так как они следуют за фиксированной структурой JSON, указанной ниже. В ближайшее время мы расскажем о доступных вариантах.
 
 ---
 
@@ -38,7 +38,7 @@ The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/
 
 ---
 
-## ASF-ui configuration
+## Настройка ASF-ui
 
 Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
 

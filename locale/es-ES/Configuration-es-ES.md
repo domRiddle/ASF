@@ -230,7 +230,7 @@ Tipo `byte` con valor predeterminado de `0`. Esta propiedad define el modo de op
 
 ---
 
-### `Estadísticas`
+### `Statistics`
 
 Tipo `bool` con valor predeterminado de `true`. Esta propiedad define si ASF debe tener las estadísticas habilitadas. Una explicación detallada de lo que esta opción hace exactamente está disponible en la sección de **[estadísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-es-ES)**. A menos que tengas una razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
@@ -660,7 +660,7 @@ Normalmente querrás usar **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteam
 
 ### `ShutdownOnFarmingFinished`
 
-Tipo `bool` con valor predeterminado de `false`. ASF "ocupa" una cuenta durante todo el tiempo que el proceso está activo. Cuando una cuenta dada termina de recolectar, ASF comprueba periódicamente (cada `IdleFarmingPeriod` horas), si en ese tipo se añadió algún juego nuevo con cromos, así puede continuar recolectando en esa cuenta sin necesidad de reiniciar el proceso. Esto es útil para la mayoría de las personas, ya que ASF puede continuar recolectando automáticamente cuando sea necesario. Sin embargo, puede que quieras detener el proceso cuando una cuenta dada termine de recolectar, puedes lograr eso estableciendo esta propiedad a `true`. Cuando está habilitado, ASF procederá a cerrar sesión cuando la cuenta esté totalmente recolectada, lo que significa que ya no será comprobada periódicamente ni será usada. Debes decidir si prefieres que ASF trabaje en una instancia de bot dada todo el tiempo, o si ASF debe detenerla cuando el proceso de recolección esté terminado. Cuando todas las cuentas se detienen y el proceso no se está ejecutando en **[modo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-es-ES)** `--process-required`, ASF también se cerrará, haciendo descansar tu máquina y permitiéndote programar otras acciones, tal como suspender o apagarse al momento de obtener el último cromo disponible.
+Tipo `bool` con valor predeterminado de `false`. ASF "ocupa" una cuenta durante todo el tiempo que el proceso está activo. Cuando una cuenta dada termina de recolectar, ASF comprueba periódicamente (cada `IdleFarmingPeriod` horas), si en ese tiempo se añadió algún juego nuevo con cromos, así puede continuar recolectando en esa cuenta sin necesidad de reiniciar el proceso. Esto es útil para la mayoría de las personas, ya que ASF puede continuar recolectando automáticamente cuando sea necesario. Sin embargo, puede que quieras detener el proceso cuando una cuenta dada termine de recolectar, puedes lograr eso estableciendo esta propiedad a `true`. Cuando está habilitado, ASF procederá a cerrar sesión cuando la cuenta esté totalmente recolectada, lo que significa que ya no será comprobada periódicamente ni será usada. Debes decidir si prefieres que ASF trabaje en una instancia de bot dada todo el tiempo, o si ASF debe detenerla cuando el proceso de recolección esté terminado. Cuando todas las cuentas se detienen y el proceso no se está ejecutando en **[modo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-es-ES)** `--process-required`, ASF también se cerrará, haciendo descansar tu máquina y permitiéndote programar otras acciones, tal como suspender o apagarse al momento de obtener el último cromo disponible.
 
 Si no estás seguro de cómo establecer esta propiedad, déjala con su valor predeterminado de `false`.
 
