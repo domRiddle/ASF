@@ -85,6 +85,7 @@ Command | Access | Description
 `pause~ [Bots]` | `FamilySharing` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `resume` farming to unpause it.
 `pause& [Bots] <Seconds>` | `Operator` | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically resumed.
 `play [Bots] <AppIDs,GameName>` | `Master` | Switches to manual farming - launches given `AppIDs` on given bot instances, optionally also with custom `GameName`. In order for this feature to work properly, your Steam account **must** own a valid license to all the `AppIDs` that you specify here, this includes F2P games as well. Use `reset` or `resume` for returning.
+`points [Bots]` | `Master` | Displays number of points in **[Steam store](https://store.steampowered.com/points/shop)**.
 `privacy [Bots] <Settings>` | `Master` | Changes **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)** of given bot instances, to appropriately selected options explained **[below](#privacy-settings)**.
 `redeem [Bots] <Keys>` | `Operator` | Redeems given cd-keys or wallet codes on given bot instances.
 `redeem^ [Bots] <Modes> <Keys>` | `Operator` | Redeems given cd-keys or wallet codes on given bot instances, using given `modes` explained **[below](#redeem-modes)**.
