@@ -8,7 +8,7 @@ IPC может использоваться для множества разли
 
 # Использование
 
-Вы можете активировать наш интерфейс IPC включив **[параметр глобальной конфигурации](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ru-RU#Файл-глобальной-конфигурации)** `IPC`. ASF сообщит о запуске IPC в своём журнале, который вы можете проверить чтобы узнать что IPC интерфейс удачно запущен:
+Unless you manually disabled IPC through `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's enabled by default. ASF сообщит о запуске IPC в своём журнале, который вы можете проверить чтобы узнать что IPC интерфейс удачно запущен:
 
 ```text
 INFO|ASF|Start() Запуск IPC сервера...

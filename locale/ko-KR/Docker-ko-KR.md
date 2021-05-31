@@ -142,7 +142,7 @@ docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --n
 
 ## IPC
 
-IPC를 사용하려면, 먼저 `IPC` **[일반 환경설정 속성값](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR#global-config)** 을 `true`로 변경해야 합니다. 그 외에도, `localhost`로 되어있는 기본 리스닝 주소도 **수정해야 합니다**. 도커는 외부 트래픽을 루프백 인터페이스로 라우팅할 수 없습니다. 모든 인터페이스를 리슨하는 설정값의 예시입니다. `http://*:1242`. 물론 로컬 LAN이나 VPN 네트워크 같은 더 제한적인 바인딩을 사용할 수도 있지만, 외부에서 라우팅 가능해야 합니다. `localhost`는 게스트 기기안에서만 라우팅하므로 이것이 불가능합니다.
+Assuming you didn't change the default value for `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's already enabled, but you have to modify default listening address of `localhost`, as docker can't route outside traffic to loopback interface. 모든 인터페이스를 리슨하는 설정값의 예시입니다. `http://*:1242`. 물론 로컬 LAN이나 VPN 네트워크 같은 더 제한적인 바인딩을 사용할 수도 있지만, 외부에서 라우팅 가능해야 합니다. `localhost`는 게스트 기기안에서만 라우팅하므로 이것이 불가능합니다.
 
 위와 같이 하려면, 아래와 같은 **[사용자 설정 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR#custom-configuration)**를 사용해야 합니다.
 

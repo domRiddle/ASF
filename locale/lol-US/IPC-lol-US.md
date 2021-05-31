@@ -8,7 +8,7 @@ IPC CAN BE USD 4 LOT OV DIFFERENT THINGS, DEPENDIN ON UR NEEDZ AN SKILLS. 4 EXAM
 
 # USAGE
 
-U CAN ENABLE R IPC INTERFACE BY ENABLIN `IPC` **[GLOBAL CONFIGURASHUN PROPERTY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#global-config)**. ASF WILL STATE IPC LAUNCH IN ITZ LOG, WHICH U CAN USE 4 VERIFYIN IF IPC INTERFACE HAS STARTD PROPERLY:
+Unless you manually disabled IPC through `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's enabled by default. ASF WILL STATE IPC LAUNCH IN ITZ LOG, WHICH U CAN USE 4 VERIFYIN IF IPC INTERFACE HAS STARTD PROPERLY:
 
 ```text
 INFO|ASF|Start() Starting IPC server...

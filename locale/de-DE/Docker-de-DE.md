@@ -142,7 +142,7 @@ Sofern Sie keinen benutzerdefinierten Verschlüsselungsschlüssel oder andere er
 
 ## IPC
 
-Für die Verwendung von IPC solltest du zunächst `IPC` **[globale Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#ipc)** auf `true` umschalten. Darüber hinaus **musst** du die Standard-Abhöradresse von `localhost` ändern, da Docker keinen externen Traffic an die Loopback-Schnittstelle umleiten kann. Ein Beispiel für eine Einstellung, die auf allen Schnittstellen lauscht, wäre `http://*:1242`. Natürlich können Sie auch restriktivere Bindungen verwenden, wie z. B. nur lokales LAN oder VPN-Netzwerk, aber es muss eine von außen zugängliche Route sein - `localhost` reicht nicht aus, da die Route vollständig innerhalb des Gastcomputers liegt.
+Assuming you didn't change the default value for `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's already enabled, but you have to modify default listening address of `localhost`, as docker can't route outside traffic to loopback interface. Ein Beispiel für eine Einstellung, die auf allen Schnittstellen lauscht, wäre `http://*:1242`. Natürlich können Sie auch restriktivere Bindungen verwenden, wie z. B. nur lokales LAN oder VPN-Netzwerk, aber es muss eine von außen zugängliche Route sein - `localhost` reicht nicht aus, da die Route vollständig innerhalb des Gastcomputers liegt.
 
 Um das oben Gesagte zu tun, solltest du eine **[benutzerspezifische IPC-Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#benutzerdefinierte-konfiguration)** verwenden, wie die untenstehende:
 

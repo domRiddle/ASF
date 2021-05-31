@@ -8,7 +8,7 @@ IPC 可以用来做很多不同的事情，这取决于您的需求和技能。 
 
 # 用法
 
-您可以编辑 `IPC` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**&#8203;启用 IPC 接口。 ASF 将在日志中提示 IPC 的启动，您可以借此检查 IPC 接口是否正确运行：
+**[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)** `IPC` 的默认值为 `true`，除非您手动禁用。 ASF 将在日志中提示 IPC 的启动，您可以借此检查 IPC 接口是否正确运行：
 
 ```text
 INFO|ASF|Start() 正在启动 IPC 服务……

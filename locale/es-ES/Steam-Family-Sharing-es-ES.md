@@ -12,7 +12,7 @@ ASF incluye la lógica apropiada para saber si la biblioteca está bloqueada por
 
 Además de lo anterior, después de iniciar sesión, ASF accederá a tu **[configuración del préstamo familiar](https://store.steampowered.com/account/managedevices)**, de donde extraerá hasta 5 `steamIDs` permitidos para usar tu biblioteca. A esos usuarios se les asignan permisos `FamilySharing` para usar **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)**, especialmente permitiéndoles usar el comando `pause~` en la cuenta bot que les está compartiendo juegos, lo que permite pausar el módulo de recolección automática de cromos para ejecutar un juego que puede ser compartido.
 
-Conectar las dos funcionalidades descritas arriba permite a tus amigos usar el comando `pause~` para pausar el proceso de recolección de cromos, iniciar un juego, jugar el tiempo que deseen, después que hayan terminado de jugar, el proceso de recolección de cromos será reanudado automáticamente por ASF. Por supuesto, enviar el comando `pause~` no es necesario si ASF no está recolectando nada, porque tus amigos pueden ejecutar el juego directamente, y la lógica descrita antes asegura que no serán expulsados de la sesión.
+Conectar las dos funcionalidades descritas arriba permite a tus amigos usar el comando `pause~` para pausar el proceso de recolección de cromos, iniciar un juego, jugar el tiempo que deseen, después de que hayan terminado de jugar, el proceso de recolección de cromos será reanudado automáticamente por ASF. Por supuesto, enviar el comando `pause~` no es necesario si ASF no está recolectando nada, porque tus amigos pueden ejecutar el juego directamente, y la lógica descrita antes asegura que no serán expulsados de la sesión.
 
 ---
 

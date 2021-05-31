@@ -8,7 +8,7 @@ IPC kann für viele verschiedene Dinge verwendet werden, je nach Ihren Fähigkei
 
 # Nutzung
 
-Sie können unsere IPC-Schnittstelle aktivieren, indem du `IPC` **[globale Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#ipc)** aktivierst. ASF gibt den IPC-Start in seinem Protokoll an, mit dem du überprüfen kannst, ob die IPC-Schnittstelle ordnungsgemäß gestartet wurde:
+Unless you manually disabled IPC through `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's enabled by default. ASF gibt den IPC-Start in seinem Protokoll an, mit dem du überprüfen kannst, ob die IPC-Schnittstelle ordnungsgemäß gestartet wurde:
 
 ```text
 INFO|ASF|Start() Starte IPC-Server...

@@ -142,7 +142,7 @@ docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --n
 
 ## IPC
 
-若要使用 IPC，首先您需要将 `IPC` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**&#8203;设置为 `true`。 此外，您**必须**修改默认的监听地址 `localhost`，因为 Docker 无法将外部流量路由至环回接口。 一个合适的例子是将其设置为 `http://*:1242`，监听所有网络接口。 当然，您也可以使用更严格的绑定，例如仅限本地局域网或者 VPN 网络，但它必须可被外部访问——`localhost` 就不能，因为此路由完全在客户机内部。
+如果您没有修改默认的 `IPC` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**，则 IPC 已启用，但您需要修改默认的监听地址 `localhost`，因为 Docker 无法将外部流量路由到环回接口。 一个合适的例子是将其设置为 `http://*:1242`，监听所有网络接口。 当然，您也可以使用更严格的绑定，例如仅限本地局域网或者 VPN 网络，但它必须可被外部访问——`localhost` 就不能，因为此路由完全在客户机内部。
 
 要做到这一点，您需要使用以下形式的&#8203;**[自定义 IPC 配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#自定义配置)**：
 

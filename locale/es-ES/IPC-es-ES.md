@@ -8,7 +8,7 @@ La IPC puede ser usada para diferentes cosas, dependiendo de tus necesidades y h
 
 # Uso
 
-Puedes activar nuestra interfaz IPC habilitando la **[propiedad de configuración global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es#configuraci%C3%B3n-global)** `IPC`. ASF declarará la ejecución de IPC en su registro, lo que puedes usar para verificar que la interfaz IPC inició correctamente:
+A menos que hayas deshabilitado manualmente la IPC a través de la **[propiedad de configuración global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#configuraci%C3%B3n-global)** `IPC`, esta ya se encuentra habilitada por defecto. ASF declarará la ejecución de IPC en su registro, lo que puedes usar para verificar que la interfaz IPC inició correctamente:
 
 ```text
 INFO|ASF|Start() Iniciando servidor IPC...
