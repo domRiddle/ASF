@@ -20,7 +20,7 @@ Puedes encontrar algunos plugins destacados en nuestra sección **[aplicaciones 
 
 ## Para desarrolladores
 
-Los plugins son bibliotecas .NET estándar que heredan la interfaz común `IPlugin` con ASF. Puedes desarrollar plugins de forma totalmente independiente de la línea principal de ASF y reutilizarlos en la versión actual y futuras de ASF, siempre que la API siga siendo compatible. El sistema de plugins usado en ASF se basa en `System.Composition`, anteriormente conocido como **[Managed Extensibility Framework](https://docs.microsoft.com/dotnet/framework/mef)** que permite a ASF descubrir y cargar tus bibliotecas durante el tiempo de ejecución.
+Los plugins son bibliotecas .NET estándar que heredan la interfaz común `IPlugin` con ASF. Puedes desarrollar plugins de forma totalmente independiente de la línea principal de ASF y reutilizarlos en la versión actual y futuras de ASF, siempre que la API siga siendo compatible. El sistema de plugins usado en ASF se basa en `System.Composition`, anteriormente conocido como **[Managed Extensibility Framework](https://docs.microsoft.com/es-es/dotnet/framework/mef/)** que permite a ASF descubrir y cargar tus bibliotecas durante el tiempo de ejecución.
 
 ---
 

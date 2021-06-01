@@ -8,7 +8,7 @@ ASF ya intenta preferir el rendimiento cuando se trata de un ajuste general equi
 
 ---
 
-## Ajustes de runtime (avanzado)
+## Ajuste de runtime (avanzado)
 
 Los siguientes trucos **involucran un importante aumento de uso de memoria** y deben ser usados con precaución.
 
@@ -18,7 +18,7 @@ La forma recomendada de aplicar estas configuraciones es a través de las propie
 
 Consulta la documentación para todas las propiedades que puedes utilizar, a continuación mencionaremos las más importantes (en nuestra opinión):
 
-### [`gcServer`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
+### [`gcServer`](https://docs.microsoft.com/es-es/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
 > Configura si la aplicación usa la recolección de basura de estación de trabajo o de servidor.
 
@@ -56,6 +56,6 @@ $Env:COMPlus_gcServer=1
 
 - Asegúrate de que estás usando el valor predeterminado de `OptimizationMode` que es `MaxPerformance`. Este es por mucho el ajuste más importante, ya que usar el valor `MinMemoryUsage` tiene efectos dramáticos en el rendimiento.
 - Habilita el recolector de basura de servidor. El recolector de basura de servidor se puede notar que está activo inmediatamente por un aumento significativo de la memoria en comparación con el recolector de basura de estación de trabajo.
-- Si no puedes permitirte ese incremento de memoria, considera ajustar **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-es-ES#gclatencylevel)** y/o **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-es-ES#gcheaphardlimitpercent)** para lograr lo "mejor de ambos mundos". Sin embargo, si tu memoria se lo puede permitir, entonces es mejor mantenerlo en predeterminado - el recolector de basura de servidor ya se ajusta a sí mismo durante el tiempo de ejecución y es lo suficientemente inteligente para usar menos memoria cuando tu sistema operativo realmente lo necesite.
+- Si no puedes permitirte ese incremento de memoria, considera ajustar **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-es-ES#gclatencylevel)** y/o **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-es-ES#gcheaphardlimitpercent)** para lograr lo "mejor de ambos mundos". Sin embargo, si tu memoria se lo puede permitir, entonces es mejor mantenerlo en predeterminado - el recolector de basura de servidor ya se ajusta a sí mismo durante el tiempo de ejecución y es lo suficientemente inteligente para usar menos memoria cuando tu sistema operativo realmente la necesite.
 
 Si habilitaste el recolector de basura de servidor y dejaste las otras propiedades de configuración en sus valores por defecto, entonces tienes un rendimiento superior de ASF que debería funcionar muy rápido incluso con cientos o miles de bots activos. La CPU ya no debería tener un cuello de botella, ya que ASF es capaz de usar todo el poder de la CPU cuando sea necesario, reduciendo el tiempo requerido al mínimo. El siguiente paso sería actualizar la CPU y RAM.

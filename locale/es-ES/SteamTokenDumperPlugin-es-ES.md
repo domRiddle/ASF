@@ -1,6 +1,6 @@
 # SteamTokenDumperPlugin
 
-`SteamTokenDumperPlugin` es un **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-es-es)** oficial para ASF, disponible a partir de ASF V4.2.2, desarrollado por nosotros, el cual te permite contribuir al proyecto **[SteamDB](https://steamdb.info)** compartiendo tokens de paquetes, tokens de apps y "depot keys" a los que tiene acceso tu cuenta de Steam. La información extendida de los datos recolectados y por qué SteamDB los necesita se puede encontrar en la página **[Token Dumper](https://steamdb.info/tokendumper)** de SteamDB. Los datos enviados no incluyen ninguna información potencialmente sensible, y no presenta riesgo de seguridad/privacidad, como se indica en la descripción previa.
+`SteamTokenDumperPlugin` es un **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-es-es)** oficial para ASF, disponible a partir de ASF V4.2.2, desarrollado por nosotros, el cual te permite contribuir al proyecto **[SteamDB](https://steamdb.info)** compartiendo tokens de paquetes, tokens de aplicaciones y claves de depósito a los que tiene acceso tu cuenta de Steam. La información extendida de los datos recolectados y por qué SteamDB los necesita se puede encontrar en la página **[Token Dumper](https://steamdb.info/tokendumper)** de SteamDB. Los datos enviados no incluyen ninguna información potencialmente sensible, y no presenta riesgo de seguridad/privacidad, como se indica en la descripción previa.
 
 ---
 
@@ -20,7 +20,7 @@ Al ejecutarse ASF, el plugin te hará saber si fue habilitado exitosamente a tra
 
 ## Detalles técnicos
 
-Después de habilitarlo, el plugin usará los bots que estés ejecutando en ASF para recolectar datos en forma de tokens de paquetes, tokens de aplicaciones y "depot keys" a los que tienen acceso tus bots. El módulo de recolección de datos incluye rutinas pasivas y activas que deben minimizar la sobrecarga adicional causada por la recolección de datos.
+Después de habilitarlo, el plugin usará los bots que estés ejecutando en ASF para recolectar datos en forma de tokens de paquetes, tokens de aplicaciones y claves de depósito a los que tienen acceso tus bots. El módulo de recolección de datos incluye rutinas pasivas y activas que deben minimizar la sobrecarga adicional causada por la recolección de datos.
 
 Para lograr el caso de uso previsto, además de la rutina de recolección de datos explicada anteriormente, la rutina de envío es inicializada como responsable de determinar qué datos necesitan ser enviados a SteamDB de forma periódica. Esta rutina se iniciará hasta `1` hora después de la ejecución de ASF, y se repetirá cada `24` horas. El plugin hará todo lo posible para minimizar la cantidad de datos que necesitan ser enviados, por lo que es posible que alguna información recolectada por el plugin sea marcada como no necesaria para enviar, y por lo tanto será omitida (por ejemplo, actualizaciones de la aplicación que no cambian el token de acceso).
 
@@ -32,7 +32,7 @@ El plugin utiliza una base de datos de caché persistente guardada en la ubicaci
 
 ASF incluye el `steamID` del colaborador en la solicitud, el cual se determina con el `SteamOwnerID` que estableces en ASF, o en caso de que no lo hayas hecho, el Steam ID del bot que tenga más licencias. El colaborador podría recibir algunos beneficios adicionales de SteamDB por la ayuda continua (por ejemplo, el rango de donador en el sitio web), pero eso es totalmente a discreción de SteamDB.
 
-En cualquier caso, el personal de SteamDB te agradece de antemano por tu ayuda. Los datos enviados permiten que SteamDB funcione, en particular para rastrear información de paquetes, aplicaciones y "depots", lo que ya no sería posible sin tu ayuda.
+En cualquier caso, el personal de SteamDB te agradece de antemano por tu ayuda. Los datos enviados permiten que SteamDB funcione, en particular para rastrear información de paquetes, aplicaciones y depósitos, lo que ya no sería posible sin tu ayuda.
 
 ---
 
