@@ -270,23 +270,29 @@ ASF не требует чтобы клиент Steam был запущен ил
 
 **Да**, нам известно как минимум о нескольких случаях в которых пользователи получили те или иные блокировки в Steam. Был ли ASF главной причиной - это совершенно другой вопрос, и мы скорее всего никогда об этом не узнаем.
 
-Одним из случаев был пользователь с 1000+ ботов получил блокировку в системе обмена (вместе со всеми ботами), вероятнее всего из-за злоупотребления командой `loot ASF` запущенной для всех ботов сразу, или аналогичным образом создав большое количество односторонних обменов за короткое время.
+First case involved a guy with over 1000+ bots getting trade banned (together with all bots), most likely due to excessive usage of `loot ASF` executed on all bots at once, or other suspicious one-side amount of trades in a very short time.
 
 > Hello XXX, Thank you for contacting Steam Support. It looks like this account was used to manage a network of bot accounts. Botting is a violation of the Steam Subscriber Agreement.
 
 Пожалуйста, пользуйтесь здравым смыслом, и не считайте что можно делать такие безумные вещи только потому, что ASF позволяет это сделать. Команда `loot ASF` на более чем тысяче ботов легко может быть расценена как **[DDoS](https://ru.wikipedia.org/wiki/DoS-%D0%B0%D1%82%D0%B0%D0%BA%D0%B0#%D0%A0%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D1%91%D0%BD%D0%BD%D0%B0%D1%8F_DoS-%D0%B0%D1%82%D0%B0%D0%BA%D0%B0)**-атака, и лично я не шокирован что кто-то был забанен за подобную вещь. Не забывайте про необходимый минимум здравого смысла и соблюдайте правила добросовестного использования в отношении сервисов Steam, и **скорее всего** у вас не будет проблем.
 
-Другой случай произошёл с пользователем с 170+ ботами, которые были забанены во время зимней распродажи Steam 2017 года.
+Second case involved a guy with 170+ bots getting banned during Steam's 2017 Winter Sale.
 
 > Your account was blocked for violation of the agreement of the subscriber Steam. Judging by the exchanges and other factors, this account was used to illegally collect collectible cards on Steam, as well as related and not only commercial activities. The account has been permanently blocked and Steam Support can not provide additional support on this issue.
 
 Этот случай тоже тяжело проанализировать, из-за расплывчатого ответа от поддержки Steam, в котором практически нет никаких подробностей. Лично я думаю, что пользователь скорее всего обменивал карточки Steam на какую-то форму денег (бот для поднятия уровня?) или иным способом пытался вывести средства из Steam. Это тоже является нарушением **[пользовательского соглашения Steam](https://store.steampowered.com/subscriber_agreement)**.
 
-Последним случаем был пользователь со 120+ ботами, который был забанен за нарушение **[правил поведения в Steam](https://store.steampowered.com/online_conduct?l=russian)**.
+Third case involved user with 120+ bots being banned for breach of **[Steam online conduct](https://store.steampowered.com/online_conduct?l=english)**.
 
 > Hello XXX, Thank you for contacting Steam Support. This and other accounts were used for flooding our network infrastructure, which is a violation of Steam online conduct. The account has been permanently blocked and Steam Support can not provide additional support on this issue.
 
 Этот случай проанализировать проще, из-за подробностей которые сообщил пользователь. Очевидно пользователь использовал **очень устаревшую версию ASF**, в которой присутствовала ошибка, из-за которой ASF отсылал чрезмерное количество запросов к серверам Steam. Эта ошибка не существовала исходно, она появилась из-за критических изменений в Steam, и была исправлена в будущих версиях ASF. **Мы поддерживаем только **[последнюю стабильную версию](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest) ASF**, выложенную на GitHub**. Программное обеспечение написано людьми, а люди могут совершать ошибки. Если ошибка возникает у всех - её быстро исправляют и выпускают исправленную версию для всех пользователей. Valve не станет внезапно банить пол-миллиона пользователей ASF из-за моей ошибки, по понятным причинам. Однако, если вы намеренно отказываетесь от использования последней версии ASF, вы по определению являетесь незначительным меньшинством пользователей, **подверженных подобным инцедентам**, из-за **отсутствия поддержки**, поскольку никто не следит за вашей устаревшей версией ASF, никто не исправляет в ней ошибки и никто не проверяет, не забанят ли вас просто за то, что вы её запустили. **Пожалуйста, пользуйтесь последними версиями программного обеспечения**, не только ASF, но и других приложений тоже.
+
+The most recent case happened around June of 2021, according to the user:
+
+> Using your program, I have been making booster packages with 28 accounts for 3 years and with 128 accounts for the last 6 months. I was online with maximum 15 accounts simultaneously to make booster packs and send them to the main account. Last month, I increased the number of online accounts simultaneously to 20, and 1 week after that, all of my accounts were banned. This email is not to blame you, on the contrary, I was always aware of the consequences. I wanted you to know what types of behavior result in a permanent ban.
+
+It's hard to say whether increase in concurrent accounts online was the direct reason for the ban, I wouldn't count on that, instead I believe that the number of accounts alone was the main culprit, increased concurrency of online accounts probably just drew attention to the user in question, as he clearly had far more bots than our recommendation.
 
 ---
 

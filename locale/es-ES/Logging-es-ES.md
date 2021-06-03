@@ -31,7 +31,7 @@ Si quieres usar el registro por defecto de ASF sin modificaciones, no necesitas 
 
 ## Integración de ASF
 
-ASF incluye algunos trucos de código que mejoran su integración NLog, permitiéndote captar mensaje específicos con más facilidad.
+ASF incluye algunos trucos de código que mejoran su integración con NLog, permitiéndote captar mensaje específicos con más facilidad.
 
 La variable `${logger}` específica de NLog siempre distinguirá el origen del mensaje - será `BotName` de uno de tus bots, o `ASF` si el mensaje viene directamente del proceso de ASF. Así puedes captar mensajes fácilmente considerando bots específicos, o el proceso de ASF (solo), en lugar de todos ellos, basado en el nombre del logger.
 
@@ -246,7 +246,7 @@ _name_ - Nombre del objetivo.
 ---
 
 ##### Opciones de Layout
-_layout_ - Texto a ser renderizado. [Layout](https://github.com/NLog/NLog/wiki/Layouts) requerido. Por defecto: `${level:uppercase=true}|${logger}|${message}`
+_layout_ - Texto a ser procesado. [Layout](https://github.com/NLog/NLog/wiki/Layouts) requerido. Por defecto: `${level:uppercase=true}|${logger}|${message}`
 
 ---
 
@@ -254,15 +254,15 @@ _layout_ - Texto a ser renderizado. [Layout](https://github.com/NLog/NLog/wiki/L
 
 _chatGroupID_ - ID del chat de grupo declarado como entero largo sin firmar de 64 bits. No requerido. Por defecto en `0` lo que deshabilitará la funcionalidad de chat de grupo y en su lugar usará el chat privado. Cuando está habilitado (establecido en valor diferente a cero), la propiedad `steamID` actúa como `chatID` y especifica el ID del canal en este `chatGroupID` al que el bot debe enviar mensajes.
 
-_steamID_ - SteamID declarado como entero largo sin firmar de 64 bits del usuario de Steam objetivo (como `SteamOwnerID`), u objetivo `chatID` (cuando `chatGroupID` está establecido). Requerido. Por defecto en `0` lo que deshabilita completamente el objetivo de registro.
+_steamID_ - SteamID declarado como entero largo sin firmar de 64 bits del usuario de Steam objetivo (como `SteamOwnerID`), o `chatID` objetivo (cuando `chatGroupID` está definido). Requerido. Por defecto en `0` lo que deshabilita completamente el objetivo de registro.
 
-_botName_ - Nombre del bot (como es reconocido por ASF, distingue mayúsculas) que enviará los mensajes al `steamID` declarado arriba. No requerido. Por defecto en `null` lo que seleccionará automáticamente **cualquier** bot conectado actualmente. Se recomienda establecer este valor adecuadamente, ya que `SteamTarget` no toma en cuenta muchas limitaciones de Steam, como el hecho de que debes tener el `steamID` del objetivo en tu lista de amigos. Esta variable se define como de tipo [layout](https://github.com/NLog/NLog/wiki/Layouts), por lo tanto puedes usar una sintaxis especial, tal como `${logger}` para usar el bot que generó el mensaje.
+_botName_ - Nombre del bot (como es reconocido por ASF, distingue mayúsculas y minúsculas) que enviará los mensajes al `steamID` declarado arriba. No requerido. Por defecto en `null` lo que seleccionará automáticamente **cualquier** bot conectado actualmente. Se recomienda establecer este valor adecuadamente, ya que `SteamTarget` no toma en cuenta muchas limitaciones de Steam, como el hecho de que debes tener el `steamID` del objetivo en tu lista de amigos. Esta variable se define como de tipo [layout](https://github.com/NLog/NLog/wiki/Layouts), por lo tanto puedes usar una sintaxis especial, tal como `${logger}` para usar el bot que generó el mensaje.
 
 ---
 
 #### Ejemplos de SteamTarget
 
-Para escribir todos los mensajes del nivel `Debug` y superior, desde el bot llamado `MyBot` a steamID de `76561198006963719`, debes usar un `NLog.config` similar al siguiente:
+Para escribir todos los mensajes del nivel `Debug` y superior, desde el bot llamado `MyBot` con steamID de `76561198006963719`, debes usar un `NLog.config` similar al siguiente:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -277,7 +277,7 @@ Para escribir todos los mensajes del nivel `Debug` y superior, desde el bot llam
 </nlog>
 ```
 
-**Aviso:** Nuestro `SteamTarget` es un objetivo personalizado, así que debes asegurarte de que lo declaras como `type="Steam"`, NO `xsi:type="Steam"`, ya que xsi está reservado objetivos oficiales soportados por NLog.
+**Aviso:** Nuestro `SteamTarget` es un objetivo personalizado, así que debes asegurarte de que lo declaras como `type="Steam"`, NO `xsi:type="Steam"`, ya que xsi está reservado para objetivos oficiales soportados por NLog.
 
 Cuando ejecutes ASF con un `NLog.config` similar al anterior, `MyBot` comenzará a enviar mensajes al usuario de Steam `76561198006963719` con todos los mensajes de registro habituales de ASF. Ten en cuenta que `MyBot` debe estar conectado para enviar mensajes, por lo que todos los mensajes de ASF iniciales que ocurrieron antes de que nuestro bot pudiera conectarse a la red de Steam, no serán reenviados.
 
@@ -293,7 +293,7 @@ Por supuesto, `SteamTarget` tiene todas las funciones típicas que podrías espe
 
 ### HistoryTarget
 
-Este objetivo es usado internamente por ASF para proporcionar un historial de registro de tamaño fijo en `/Api/NLog` endpoint of **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es#asf-api)** que posteriormente puede ser consumido por ASF-ui y otras herramientas. En general, debes definir este objetivo solo si ya estás usando una configuración personalizada de NLog para otras personalizaciones y también quieres que el registro se exponga en ASF API, por ejemplo, para ASF-ui. También puede ser declarado cuando quieres modificar el layout predeterminado o `maxCount` la cantidad máxima de mensajes guardados.
+Este objetivo es usado internamente por ASF para proporcionar un historial de registro de tamaño fijo en el endpoint `/Api/NLog` de **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es#asf-api)** que posteriormente puede ser usado por ASF-ui y otras herramientas. En general, debes definir este objetivo solo si ya estás usando una configuración personalizada de NLog para otras personalizaciones y también quieres que el registro se exponga en la API de ASF, por ejemplo, para ASF-ui. También puede ser declarado cuando quieres modificar el layout predeterminado o `maxCount` la cantidad máxima de mensajes guardados.
 
 Soportado en todos los entornos utilizados por ASF.
 
@@ -309,7 +309,7 @@ Soportado en todos los entornos utilizados por ASF.
 </targets>
 ```
 
-Lee más sobre el uso del [Archivo de Configuración](https://github.com/NLog/NLog/wiki/Configuration-file).
+Lee más sobre cómo usar el [archivo de configuración](https://github.com/NLog/NLog/wiki/Configuration-file).
 
 ---
 
@@ -321,7 +321,7 @@ _name_ - Nombre del objetivo.
 ---
 
 ##### Opciones de Layout
-_layout_ - Texto a ser renderizado. [Layout](https://github.com/NLog/NLog/wiki/Layouts) requerido. Por defecto: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+_layout_ - Texto a ser procesado. [Layout](https://github.com/NLog/NLog/wiki/Layouts) requerido. Por defecto: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 ---
 

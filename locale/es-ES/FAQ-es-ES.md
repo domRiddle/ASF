@@ -270,23 +270,29 @@ Usas este software bajo tu propio riesgo. Es muy improbable que puedas ser banea
 
 **Sí**, hemos tenido al menos unos incidentes hasta ahora que resultaron en algún tipo de suspensión por parte de Steam. Ya sea que el propio ASF haya sido la causa principal o no, eso es otra historia que probablemente nunca llegaremos a saber.
 
-Un caso fue el de un individuo con más de 1000 bots que recibió un bloqueo de intercambio (junto con todos los bots), muy probablemente debido al excesivo uso de `loot ASF` ejecutado en todos los bots al mismo tiempo, u otra cantidad sospechosa de intercambios en un corto periodo de tiempo.
+El primer caso involucra a individuo con más de 1000 bots que recibió un bloqueo de intercambio (junto con todos los bots), muy probablemente debido al excesivo uso de `loot ASF` ejecutado en todos los bots al mismo tiempo, u otra cantidad sospechosa de intercambios en un corto periodo de tiempo.
 
 > Hola XXX, Gracias por contactar con el Soporte de Steam. Parece que esta cuenta fue usada para administrar una red de bots. Usar bots es una violación al Acuerdo de Suscriptor a Steam.
 
 Por favor, usa algo de sentido común y no asumas que puedes hacer tales locuras solo porque ASF te permite hacerlo. Ejecutar el comando `loot ASF` en más de 1000 bots fácilmente puede ser considerado como un ataque **[DDoS](https://es.wikipedia.org/wiki/Ataque_de_denegaci%C3%B3n_de_servicio)**, y personalmente no me sorprende que alguien haya sido baneado por ello. Ten en cuenta el sentido común y un uso justo en lo que respecta al servicio de Steam, y **muy probablemente** estarás bien.
 
-Otro caso fue el de un sujeto con más de 170 bots que fue baneado durante las Rebajas de Invierno de Steam 2017.
+El segundo caso involucró a un sujeto con más de 170 bots que fue baneado durante las Rebajas de Invierno de Steam 2017.
 
 > Tu cuenta fue bloqueada por violar el Acuerdo de Suscriptor a Steam. Juzgando por los intercambios y otros factores, esta cuenta fue usada para recolectar cromos ilegalmente en Steam, así como para actividades relacionadas no solo comerciales. Esta cuenta ha sido bloqueada permanentemente y el Soporte de Steam no puede proporcionar soporte adicional con este problema.
 
 Este caso es, una vez más, muy difícil de analizar, por la respuesta vaga del soporte de Steam que apenas ofrece detalles. Basado en mi opinión personal, este usuario probablemente intercambió cromos de Steam por algún tipo de dinero (¿bot para subir de nivel?) o de alguna otra forma intentó retirar fondos de Steam. En caso de que no lo sepas, esto también es ilegal de acuerdo a los **[Términos de Servicio de Steam](https://store.steampowered.com/subscriber_agreement/spanish/)**.
 
-El último caso implica a un usuario con más de 120 bots que fue baneado por incumplimiento de las **[normas de conducta online de Steam](https://store.steampowered.com/online_conduct?l=spanish)**.
+El tercer caso implica a un usuario con más de 120 bots que fue baneado por incumplimiento de las **[normas de conducta online de Steam](https://store.steampowered.com/online_conduct?l=spanish)**.
 
 > Hola XXX, Gracias por contactar con el Soporte de Steam. Esta y otras cuentas fueron usadas para hacer flooding en nuestra infraestructura de red, lo cual es una violación de las normas de conducta online de Steam. Esta cuenta ha sido bloqueada permanentemente y el Soporte de Steam no puede proporcionar soporte adicional con este problema.
 
 Este caso es un poco más fácil de analizar por los detalles adicionales proporcionados por el usuario. Aparentemente el usuario estaba usando **una versión de ASF muy desactualizada** la cual incluía un bug causando que ASF envíe un número excesivo de solicitudes a los servidores de Steam. El bug no existía inicialmente pero fue activado debido a cambios importantes en Steam y fue corregido en futuras versiones. **ASF solo tiene soporte para la **[última versión estable](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** liberada en GitHub**. El software es escrito por humanos, y los humanos tienden a cometer errores. Si el error tiene un alcance global, es solucionado rápidamente y liberado a todos los usuarios como un bugfix. Valve no baneará repentinamente a medio millón de usuarios de ASF debido a un error mío, por obvias razones. Sin embargo, si intencionalmente te niegas a usar una versión actualizada de ASF, entonces por definición estás en una muy pequeña minoría de usuarios que están **expuestos a incidentes como estos** debido a **no tener soporte**, ya que nadie está vigilando tu versión desactualizada de ASF, nadie la está arreglando y nadie asegura que no serás baneado solo por ejecutarlo. **Por favor, usa software actualizado**, no solo ASF, sino también todas las demás aplicaciones.
+
+El caso más reciente ocurrió alrededor de junio de 2021, de acuerdo al usuario:
+
+> Uso tu programa, he estado creando packs de refuerzo con 28 cuentas durante 3 años y con 128 cuentas durante los últimos 6 meses. Estaba en línea con un máximo de 15 cuentas simultáneamente para crear packs de refuerzo y enviarlos a la cuenta principal. El mes pasado, aumenté el número de cuentas en línea simultáneamente a 20, y 1 semana después, todas mis cuentas fueron baneadas. Este correo no es para culparte, por el contrario, siempre estuve consciente de las consecuencias. Quería hacerte saber qué tipos de comportamiento resultan en un ban permanente.
+
+Es difícil decir si el aumento de las cuentas en línea simultáneamente fue la razón directa del ban, no contaría con eso, en cambio creo que el número de cuentas fue el culpable principal, un número mayor de cuentas en línea simultáneamente probablemente solo llamó atención hacia el usuario en cuestión, ya que tenía muchos más bots que los que recomendamos.
 
 ---
 
@@ -376,7 +382,7 @@ Simplemente cierra el proceso de ASF, por ejemplo, haciendo clic en [X] en Windo
 
 ### ¿Cuántos bots puedo ejecutar con ASF?
 
-ASF como programa no tiene un límite de instancias de bot, así que puedes ejecutar tantas como lo permita la memoria de tu máquina, sin embargo, estás limitado por la red de Steam y otros servicios de Steam. Actualmente puedes ejecutar hasta 100-200 bots con una sola IP y una sola instancia de ASF. Es posible ejecutar más bots con más IPs y más instancias de ASF, sorteando las limitaciones de IP. Ten en cuenta que si usas esa gran cantidad de bots, debes controlar sus números tú mismo, asegurándote de que todos están, de hecho, iniciando sesión y funcionando al mismo tiempo. ASF no fue optimizado para ese gran número de bots, y aplica la regla general de que **mientras más bots tengas, más problemas experimentarás**. También ten en cuenta que el límite mencionado antes en general depende de muchos factores internos, es más una aproximación que un límite estricto - es probable que puedas ejecutar más/menos bots que los especificados arriba.
+ASF como programa no tiene un limite de instancias de bot, así que puedes ejecutar tantas como lo permita la memoria de tu máquina, sin embargo, estás limitado por la red de Steam y otros servicios de Steam. Actualmente puedes ejecutar hasta 100-200 bots con una sola IP y una sola instancia de ASF. Es posible ejecutar más bots con más IPs y más instancias de ASF, sorteando las limitaciones de IP. Ten en cuenta que si usas esa gran cantidad de bots, debes controlar sus números tú mismo, asegurándote de que todos están, de hecho, iniciando sesión y funcionando al mismo tiempo. ASF no fue optimizado para ese gran número de bots, y aplica la regla general de que **mientras más bots tengas, más problemas experimentarás**. También ten en cuenta que el límite mencionado antes en general depende de muchos factores internos, es más una aproximación que un límite estricto - es probable que puedas ejecutar más/menos bots que los especificados arriba.
 
 El equipo de ASF sugiere ejecutar (y **poseer**) hasta **10 bots en total**, cualquier cosa arriba de eso no tiene soporte y lo haces bajo tu propio riesgo, en contra de nuestra sugerencia. Esta recomendación está basada en directrices internas de Valve, así como en nuestras propias sugerencias. Ya sea que cumplas con esta regla o no, es tu decisión, ASF como herramienta no irá contra tu voluntad, incluso si resulta en la suspensión de tus cuentas de Steam. Por lo tanto, ASF mostrará una advertencia si superas la cantidad recomendada, pero aún te permitirá ejecutar lo que quieras bajo tu propio riesgo y con falta de soporte.
 
@@ -441,7 +447,7 @@ Para remover la licencia gratuita de tu cuenta, visita la **[página de soporte 
 
 ### ASF no detecta `X` juego como disponible para recolectar, ¡pero sé que incluye cromos de Steam!
 
-Hay dos razones principales. La primera y más obvia es el hecho de que te estás refiriendo a la **tienda de Steam** donde cierto juego se anuncia con cromos. Esta es una suposición **errónea**, ya que eso simplemente indica que el juego **tiene** cromos, pero esta función no necesariamente está **habilitada** inmediatamente para ese juego. Puedes leer más al respecto en este **[anuncio oficial](https://steamcommunity.com/games/593110/announcements/detail/1954971077935370845)**.
+Hay dos razones principales. La primera y más obvia es el hecho de que te estás refiriendo a la **tienda de Steam** donde cierto juego se anuncia con cromos. Esta es una suposición **errónea**, ya que eso simplemente indica que el juego **tiene** cromos, pero esta función no necesariamente está **habilitada** de forma inmediata para ese juego. Puedes leer más al respecto en este **[anuncio oficial](https://steamcommunity.com/games/593110/announcements/detail/1954971077935370845)**.
 
 En resumen, el icono de cromos obtenibles en la tienda de Steam no significa nada, comprueba tu **[página de insignias](https://steamcommunity.com/my/badges)** para confirmar si un juego tiene cromos obtenibles o no - esto es lo que hace ASF. Si tu juego no aparece en la lista como un juego con cromos obtenibles, entonces este juego **no** es posible recolectarlo, independientemente de la razón.
 

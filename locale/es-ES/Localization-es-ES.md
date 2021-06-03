@@ -40,7 +40,7 @@ La flexibilidad se proporciona especialmente para ti, para que puedas expresar e
 
 ### Revisión
 
-Si tu cadena ya fue traducida por alguien más, puedes votar por ella. Votar hace posible elegir la mejor variante de la traducción, en lugar de apegarse a la sugerencia inicial - esto mejora aún más la calidad general de la traducción. Puedes votar por sugerencias ya disponibles, o sugerir tu propia traducción, que pasará por el mismo proceso. Al final, la cadena definitiva será elegida con base en la sugerencia con más votos, o como una elección del revisor seleccionado para ese idioma quien personalmente apruebe una traducción dada (también basado en tus votos).
+Si tu cadena ya fue traducida por alguien más, puedes votar por ella. Votar hace posible elegir la mejor variante de la traducción, en lugar de apegarse a la sugerencia inicial - esto mejora aún más la calidad general de la traducción. Puedes votar por sugerencias ya disponibles, o sugerir tu propia traducción, que pasará por el mismo proceso. Al final, la cadena definitiva será elegida con base en la sugerencia con más votos, o como una elección del proofreader seleccionado para ese idioma quien personalmente apruebe una traducción dada (también basado en tus votos).
 
 **No necesitas aprobación para ver tus cadenas traducidas en ASF**. La aprobación simplemente significa que alguien de confianza para nosotros ha revisado el contenido, o sea que - seleccionó la versión final de la traducción. Está totalmente bien tener traducciones apoyadas por la comunidad no aprobadas, donde tú votas por la mejor. ¡Mientras esté traducido, todo está bien! Y si crees que la traducción actual es mala, siempre puedes votar por la mejor, o sugerir una tú mismo.
 
@@ -50,9 +50,9 @@ Si tu cadena ya fue traducida por alguien más, puedes votar por ella. Votar hac
 
 Es buena idea tener una traducción consistente, incluso si esto puede tomar la libertad del proceso de revisión/votación de la comunidad explicado anteriormente. Esto se debe principalmente a que traducciones incorrectas que no necesariamente son malas pueden obtener tantos votos positivos que ya no es posible sugerir una traducción mejor, incluso si alguien la tiene.
 
-Si tienes un historial de contribuciones en Crowdin o alguna otra plataforma/servicio de localización que podamos verificar y asumir que es confiable, con gusto te daremos acceso de revisor (proof-reader) para el idioma al que estás contribuyendo, así serás capaz de aprobar una traducción dada y hacerla consistente. El proof-reading no es una tarea fácil, especialmente porque ASF puede ser muy "técnico" de vez en cuando y realmente difícil de traducir, pero entendemos que a menudo es necesario para una traducción perfecta. Por lo tanto, si puedes ayudar haciendo proof-reading de un lenguaje dado, **[háznoslo saber](https://crowdin.com/messages/create/13177432/240376)**, pero ten en cuenta que necesitarás respaldar tu solicitud con contribuciones de localización anteriores que podamos verificar (por ejemplo, trabajando con la localización de ASF en Crowdin, o con cualquier otro proyecto). También es posible que permitamos que usuarios más avanzados elijan el proof-reading inicial, si los conocemos personalmente y son capaces de cooperar con el resto de la comunidad para localizar mejor ASF en ese idioma.
+Si tienes un historial de contribuciones en Crowdin o alguna otra plataforma/servicio de localización que podamos verificar y asumir que es confiable, con gusto te daremos acceso de proofreader para el idioma al que estás contribuyendo, así serás capaz de aprobar una traducción dada y hacerla consistente. El proofreading no es una tarea fácil, especialmente porque ASF puede ser muy "técnico" de vez en cuando y realmente difícil de traducir, pero entendemos que a menudo es necesario para una traducción perfecta. Por lo tanto, si puedes ayudar haciendo proofreading de un lenguaje dado, **[háznoslo saber](https://crowdin.com/messages/create/13177432/240376)**, pero ten en cuenta que necesitarás respaldar tu solicitud con contribuciones de localización anteriores que podamos verificar (por ejemplo, trabajando con la localización de ASF en Crowdin, o con cualquier otro proyecto). También es posible que permitamos que usuarios más avanzados elijan el proofreading inicial, si los conocemos personalmente y son capaces de cooperar con el resto de la comunidad para localizar mejor ASF en ese idioma.
 
-Las reglas generales aplican para el proof-reading - no te apresures, trabaja como administrador de proyecto, resuelve problemas, asegúrate de que estás haciendo las cosas mejor y no peor.
+Las reglas generales aplican para el proofreading - no te apresures, trabaja como administrador de proyecto, resuelve problemas, asegúrate de que estás haciendo las cosas mejor y no peor.
 
 ---
 
@@ -60,11 +60,11 @@ Las reglas generales aplican para el proof-reading - no te apresures, trabaja co
 
 Si tienes un problema con una traducción en particular, por ejemplo, si no sabes cómo traducirla, la traducción aprobada es incorrecta, necesitas contexto más específico, y demás, por favor, publica un comentario en la cadena específica, y marca la casilla de problema [X].
 
-**Por favor, evita usar la marca de problema si no necesitas una explicación técnica/de desarrollo o la acción del administrador**. Eres libre de usar los comentarios para discutir la traducción de una cadena dada, pero la marca de problema solo debe ser usada cuando necesitas una mayor explicación técnica o una corrección del administrador, y normalmente involucrará a alguien que no habla el idioma al que estás traduciendo, así que por favor, apégate al inglés cuando escribas un comentario de problema (para que podamos entender cuál es el problema).
+**Por favor, evita usar la marca de problema si no necesitas una explicación técnica/de desarrollo o la acción del administrador**. Eres libre de usar los comentarios para discutir la traducción de una cadena determinada, pero la marca de problema solo debe ser usada cuando necesites una mayor explicación técnica o una corrección del administrador, y normalmente involucrará a alguien que no habla el idioma al que estás traduciendo, así que por favor, apégate al inglés cuando escribas un comentario de problema (para que podamos entender cuál es el problema).
 
 Actualmente hay 4 tipos de problemas soportados:
 - Pregunta general - para todo aquello que no encaje en ninguno de los siguientes problemas. En general, este tipo **debe ser evitado**, si tu problema no encaja, probablemente **no** es un problema de traducción. Sin embargo, esta opción está disponible para todos los demás casos.
-- La traducción actual es incorrecta - este debe ser usado **solo** si la traducción ya fue preaprobada por un proof-reader, y crees que es incorrecta, por ejemplo, si tiene un error tipográfico o tienes una sugerencia válida de cómo mejorarla. Este tipo nunca debe utilizarse en traducciones apoyadas por la comunidad (votación), ya que en este caso debes contactar con el usuario de dicha traducción y pedirle que la corrija, o simplemente vota por una traducción mejor, como se indica en la sección de revisión. Eliminaremos la aprobación de la traducción y notificaremos al proof-reader correspondiente a cargo del idioma para que tome en cuenta tu comentario y verifique de nuevo.
+- La traducción actual es incorrecta - este debe ser usado **solo** si la traducción ya fue preaprobada por un proofreader, y crees que es incorrecta, por ejemplo, si tiene un error tipográfico o tienes una sugerencia válida de cómo mejorarla. Este tipo nunca debe utilizarse en traducciones apoyadas por la comunidad (votación), ya que en este caso debes contactar con el usuario de dicha traducción y pedirle que la corrija, o simplemente vota por una traducción mejor, como se indica en la sección de revisión. Eliminaremos la aprobación de la traducción y notificaremos al proofreader correspondiente a cargo del idioma para que tome en cuenta tu comentario y verifique de nuevo.
 - Falta de información contextual - este es el que debes usar si no estás seguro de qué parte de ASF estás traduciendo, cuál es el contexto de una cadena dada, o su propósito. Este tipo debe ser usado solo para el desarrollo de ASF, significa que necesitas asistencia técnica ya que no estás seguro de cómo debes traducir una determinada cadena.
 - Error en la cadena original - este solo debe ser usado si crees que la cadena original (inglés) es incorrecta. Muy raro, pero yo tampoco hablo inglés nativamente, así que siéntete libre de usarlo si tienes una idea general de cómo podría mejorar. Alternativamente, ya que esto se relaciona estrictamente con el desarrollo, puedes usar **[GitHub issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** para ese propósito, si lo deseas.
 
@@ -72,11 +72,11 @@ Actualmente hay 4 tipos de problemas soportados:
 
 ### Progreso de la traducción
 
-Cada idioma tiene dos estados de completación - traducción, y proof-reading.
+Cada idioma tiene dos estados de completación - traducción, y proofreading.
 
 El idioma se considera **traducido** cuando su progreso de traducción alcanza el 100%. En este punto cada cadena localizable usada por ASF tiene un significado adecuado, lo cual es genial. Sin embargo, eso no significa que no haya lugar para mejorar - la votación de la comunidad está habilitada todo el tiempo y aún puedes sugerir una mejor traducción para las partes ya traducidas, así como votar por las existentes. Por favor, ten en cuenta que los idiomas traducidos por completo pueden caer por debajo del 100% cuando cambiamos las cadenas existentes o añadimos nuevas durante el desarrollo. Puedes configurar las notificaciones de Crowdin si quieres recibir un correo electrónico cuando esto suceda.
 
-Algunos idiomas seleccionados pueden tener proof-readers que validen las traducciones y aprueben las versiones finales. Este es el paso final después de la traducción y permite mejorar aún más la localización.
+Algunos idiomas seleccionados pueden tener proofreaders que validen las traducciones y aprueben las versiones finales. Este es el paso final después de la traducción y permite mejorar aún más la localización.
 
 ASF incluirá un idioma determinado **tan pronto como sea posible**, esto significa que no necesita estar aprobado o traducido al 100%. Las cadenas que serán usadas siempre son las más populares en términos de votos, a menos que el proofreader elegido decida lo contrario (rara vez). Por lo tanto, puedes ver tus esfuerzos incluidos en la próxima versión de ASF - nuestros sistemas de automatización aplican las traducciones de Crowdin al repositorio de ASF diariamente.
 
@@ -126,7 +126,7 @@ ASF incluye enlaces en casi todas las páginas para una navegación más fácil,
 
 Por ejemplo, la **[página de inicio](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** de ASF incluye un texto como:
 
-> Si eres un usuario nuevo, recomendamos comenzar con la guía de **[instalación](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-es-es)**.
+> If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide.
 
 Que originalmente está escrito como:
 
@@ -145,7 +145,7 @@ En Crowdin, lo primero que debes hacer es ir a los ajustes de editor y asegurart
 Ahora, durante la traducción en Crowdin, dependiendo del formato, verás los enlaces de ASF en el texto ya sea como:
 
 * Cadena para traducir junto con etiquetas HTML (la mayoría de las cadenas, donde solo una parte de la frase es un enlace)
-* Cadena para traducir, con un enlace incluido en `Hidden texts` -> `Link addresses` (raras, donde la cadena completa es un enlace, más común en la barra lateral - desafortunadamente, esas requieren acceso de proof-reader para traducirlas)
+* Cadena para traducir, con un enlace incluido en `Hidden texts` -> `Link addresses` (raras, donde la cadena completa es un enlace, más común en la barra lateral - desafortunadamente, esas requieren acceso de proofreader para traducirlas)
 
 En nuestro ejemplo anterior, es el primer caso (ya que solo "setting up" es un enlace), así que en Crowdin lo veremos como:
 
@@ -175,7 +175,7 @@ Sin embargo, si el enlace **sí** dirige hacia la propia wiki, como el de arriba
 
 Ten mucho cuidado con esto, y asegúrate de que tu URL realmente existe, ya que si cometes un error, ese enlace dejará de funcionar. Si lo haces bien, ahora tendrás una traducción totalmente funcional con un enlace dirigiendo a una página traducida (en nuestro caso `Setting-up-pl-PL`).
 
-Llevar a cabo los pasos anteriores traducirá correctamente nuestro HTML:
+Llevar a cabo los pasos anteriores traducirá correctamente nuestro HTML de nuevo a markdown:
 
 ```markdown
 Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
@@ -231,7 +231,7 @@ De esta manera nuestro enlace local seguirá funcionando, ya que ahora dirigirá
 
 Ten mucho cuidado cuando traduzcas frases que contengan los bloques `<code></code>`. Un bloque de código indica nombres o términos fijos del código de ASF que no deben ser traducidos. Por ejemplo:
 
-> Esto es especialmente útil si tienes una gran cantidad de claves para activar y es seguro que alcanzarás el estatus <code>RateLimited</code> antes de que termines con tu lote entero.
+> This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit <code>RateLimited</code> status before you're done with your entire batch.
 
 Como puedes ver, la palabra `RateLimited` está dentro de un bloque de código e indica un código de estado interno de ASF que no debe ser traducido. De la misma manera, no deberías traducir otros bloques de código, tal como nombres de propiedades de configuración (por ejemplo, `TradingPreferences`), miembros de enumeración (por ejemplo, las opciones `Stable` y `Experimental` de `UpdateChannel`) y demás.
 

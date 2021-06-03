@@ -276,17 +276,23 @@ ASF 真正需要关注的重点是：
 
 请您了解一些常识，不要因为 ASF 允许您做，就做这种疯狂的事情。 对超过 1000 个机器人发起 `loot ASF` 请求完全可以视为一次 **[DDoS](https://en.wikipedia.org/wiki/DDoS)** 攻击，就我个人而言，我并不惊讶有人因为这种事情被封禁。 请了解有关 Steam 服务的一些基本常识，只要您不滥用 Steam 服务，就**几乎不可能**遇到问题。
 
-另一起事件是一名拥有超过 170 个机器人的用户在 2017 年 Steam 冬季特卖期间被封禁。
+第二起事件是一名拥有超过 170 个机器人的用户在 2017 年 Steam 冬季特卖期间被封禁。
 
 > Your account was blocked for violation of the agreement of the subscriber Steam.（译文：您的帐户因为违反 Steam 订户协议而被封禁。） Judging by the exchanges and other factors, this account was used to illegally collect collectible cards on Steam, as well as related and not only commercial activities.（译文：从交易和其他因素来看，这个帐户被用来非法收集 Steam 集换式卡牌，以及相关的商业以外的活动。） The account has been permanently blocked and Steam Support can not provide additional support on this issue.（译文：此帐户已被永久封禁，Steam 客服无法在此问题上为您提供进一步帮助。）
 
 这起事件同样难以分析，因为 Steam 客服的回应非常模糊，几乎没有提供任何细节。 根据我个人的想法，这名用户可能用 Steam 卡牌兑换了某种金钱（等级机器人？）或者以其他方式进行了 Steam 套现。 您也许不了解，但这种行为同样违反 **[Steam 订户协议](https://store.steampowered.com/subscriber_agreement)**。
 
-最后一次事件涉及一名拥有超过 120 个机器人的用户，因违反 **[Steam 在线行为准则](https://store.steampowered.com/online_conduct?l=schinese)**&#8203;而被封禁。
+第三起事件涉及一名拥有超过 120 个机器人的用户，因违反 **[Steam 在线行为准则](https://store.steampowered.com/online_conduct?l=english)**&#8203;而被封禁。
 
 > Hello XXX, Thank you for contacting Steam Support.（译文：感谢您联系 Steam 客服。） This and other accounts were used for flooding our network infrastructure, which is a violation of Steam online conduct.（译文：此帐户和其他帐户被用于攻击我们的网络设备，违反了 Steam 在线行为准则。） The account has been permanently blocked and Steam Support can not provide additional support on this issue.（译文：此帐户已被永久封禁，Steam 客服无法在此问题上为您提供进一步帮助。）
 
 这起事件比较容易分析，因为这名用户提供了额外的细节。 显然这名用户在使用一个**过期已久的 ASF 版本**，其中有一个向 Steam 服务器发送过多请求的漏洞。 这个漏洞并非一开始就存在，但是 Steam 之后的一些变化导致了这个漏洞，此时 ASF 的新版本早已修复这个问题。 **只有在 GitHub 上发布的&#8203;[最新稳定版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest) ASF 才受我们支持**。 软件是由人类编写的，而人类往往会犯错误。 如果错误会影响所有人，就会被快速修复并作为补丁发布给所有用户。 显然，Valve 不会因为我犯的错误而突然封禁 50 万 ASF 用户。 但如果您故意放弃使用最新版本的 ASF，则您就将自己归类于极少数用户，因为**没有技术支持**，您将会**暴露于类似的问题下**，因为没有人会关注您的过期版本 ASF，没有人会为它修复漏洞，没有人可以保证您在启动程序时不会被封禁。 **请使用最新版本的软件**，不仅是 ASF，也包括其他所有应用程序。
+
+最近一起事件发生在 2021 年 6 月左右，据此用户称：
+
+> 我一直在使用你的程序，在过去 3 年里为 28 个帐户制作补充包，并且在最近 6 个月提高到 128 个帐户。 制作补充包时，我会让最多 15 个帐户同时在线，制作完成后再发送到主帐户上。 上个月，我将同时在线帐户数提升到 20，一周之后，我的所有帐户都已被封禁。 这封邮件并非责怪你，相反，我自始至终都清楚这种后果。 我希望你们能借此了解什么样的行为会导致永久封禁。
+
+我们很难下结论说提升同时在线帐户数是封禁的直接原因，至少我不这么认为，相反，我相信拥有大量帐户本身才是罪魁祸首，提升同时在线数可能仅仅导致这名用户违反规定的行为被人发现，显然他拥有的帐户数量远远超过我们的建议。
 
 ---
 
