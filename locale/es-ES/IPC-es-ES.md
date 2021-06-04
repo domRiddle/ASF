@@ -21,7 +21,7 @@ La interfaz IPC de ASF ofrece tres formas diferentes de acceder a ella, dependie
 
 En el nivel inferior está **[ASF API](#asf-api)** que es el núcleo de nuestra interfaz IPC y permite que todo lo demás opere. Esto es lo que debes usar en tus herramientas, utilidades y proyectos para comunicarte directamente con ASF.
 
-En el terreno medio está nuestra **[documentación Swagger](#swagger-documentation)** que actúa como un frontend para la API de ASF. Contiene documentación completa de la API de ASF y también te permite acceder a ella más fácilmente. Esto es lo que quieres revisar si planeas escribir una herramienta, utilidad u otro proyecto que deba comunicarse con ASF a través de su API.
+En el terreno medio está nuestra **[documentación Swagger](#documentación-swagger)** que actúa como un frontend para la API de ASF. Contiene documentación completa de la API de ASF y también te permite acceder a ella más fácilmente. Esto es lo que quieres revisar si planeas escribir una herramienta, utilidad u otro proyecto que deba comunicarse con ASF a través de su API.
 
 En el nivel más alto está **[ASF-ui](#asf-ui)** que se basa en nuestra ASF API y proporciona una forma amigable de ejecutar varias acciones en ASF. Esta es nuestra interfaz IPC predeterminada diseñada para los usuarios finales, y es un perfecto ejemplo de lo que puedes construir con la API de ASF. Si lo deseas, puedes usar tu propia interfaz web con ASF, especificando el **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-es#argumentos)** `--path` y usando el directorio personalizado `www` ubicado allí.
 
@@ -31,7 +31,7 @@ En el nivel más alto está **[ASF-ui](#asf-ui)** que se basa en nuestra ASF API
 
 ASF-ui es un proyecto de la comunidad que pretende crear una interfaz gráfica amigable para los usuarios finales. Para lograrlo, actúa como un frontend de nuestra **[ASF API](#asf-api)**, permitiéndote realizar varias acciones con facilidad. Esta es la interfaz por defecto con la que viene ASF.
 
-Como se dijo antes, ASF-ui es un proyecto comunitario que no es mantenido por los desarrolladores de ASF. Sigue su propio curso en el **[repositorio ASF-ui](https://github.com/JustArchiNET/ASF-ui)** el cual debe ser usado para todas las preguntas relacionadas, problemas, reporte de bugs y sugerencias.
+Como se dijo antes, ASF-ui es un proyecto comunitario que no es mantenido por los desarrolladores de ASF. Sigue su propio curso de desarrollo en el **[repositorio de ASF-ui](https://github.com/JustArchiNET/ASF-ui)** el cual debe ser usado para todas las preguntas relacionadas, problemas, reporte de bugs y sugerencias.
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
@@ -93,11 +93,11 @@ Sí, para eso fue diseñada la API de ASF y puedes usar cualquier cosa capaz de 
 
 ### ¿Puedo acceder remotamente a la IPC de ASF, por ejemplo, desde otra máquina?
 
-Sí, recomendamos usar un proxy inverso para eso (explicado a abajo). De esta manera puedes acceder a tu servidor web de forma usual, que luego accederá a la IPC de ASF en la misma máquina. Alternativamente, si no quieres ejecutar un proxy inverso, puedes usar una **[configuración personalizada](#configuración-personalizada)** con la URL apropiada para ello. Por ejemplo, si tu máquina está en una VPN privada con la dirección `10.8.0.1`, puedes establecer la URL `http://10.8.0.1:1242` en la configuración IPC, lo que permitiría el acceso IPC desde tu VPN privada, pero no desde cualquier otro lugar.
+Sí, recomendamos usar un proxy inverso para eso (explicado abajo). De esta manera puedes acceder a tu servidor web de forma usual, que luego accederá a la IPC de ASF en la misma máquina. Alternativamente, si no quieres ejecutar un proxy inverso, puedes usar una **[configuración personalizada](#configuración-personalizada)** con la URL apropiada para ello. Por ejemplo, si tu máquina está en una VPN privada con la dirección `10.8.0.1`, puedes establecer la URL `http://10.8.0.1:1242` en la configuración IPC, lo que permitiría el acceso IPC desde tu VPN privada, pero no desde cualquier otro lugar.
 
 ### ¿Puedo usar la IPC de ASF tras un proxy inverso como Apache o Nginx?
 
-**Sí**, nuestra IPC es totalmente compatible con tal configuración, por lo que eres libre de alojarlo frente a tus propias herramientas para seguridad y compatibilidad adicionales, si es lo que deseas. En general, el servidor http Kestrel de ASF es muy seguro y no presente ningún riesgo cuando se conecta directamente a internet, pero ponerlo tras un proxy inverso como Apache o Nginx podría proporcionar funcionalidad adicional que no se podría lograr de otra forma, como asegurar la interfaz de ASF con **[autenticación básica](https://es.wikipedia.org/wiki/Autenticación_de_acceso_básica)**.
+**Sí**, nuestra IPC es totalmente compatible con tal configuración, por lo que eres libre de alojarlo frente a tus propias herramientas para seguridad y compatibilidad adicionales, si es lo que deseas. En general, el servidor http Kestrel de ASF es muy seguro y no presenta ningún riesgo cuando se conecta directamente a internet, pero ponerlo tras un proxy inverso como Apache o Nginx podría proporcionar funcionalidad adicional que no se podría lograr de otra forma, como asegurar la interfaz de ASF con **[autenticación básica](https://es.wikipedia.org/wiki/Autenticación_de_acceso_básica)**.
 
 A continuación puedes encontrar un ejemplo de configuración Nginx. Incluimos el bloque `server` completo, aunque te interesan principalmente los bloques `location`. Por favor, consulta la **[documentación nginx](https://nginx.org/en/docs)** si necesitas más detalles.
 
@@ -223,7 +223,7 @@ El archivo de configuración se basa en la siguiente estructura JSON:
 }
 ```
 
-`Endpoints` - Esta es una colección de endpoints, con cada endpoint teniendo nombre único (como `ejemplo-http4`) y la propiedad `Url` que especifique la dirección de escucha `Protocol://Host:Port`. Por defecto, ASF escucha en la direcciones http IPv4 y IPv6, pero hemos añadido ejemplos https para que uses, si es necesario. Solo debes declarar aquellos endpoints que necesitas, hemos incluido 4 ejemplos arriba para que puedas editarlos más fácilmente.
+`Endpoints` - Esta es una colección de endpoints, con cada endpoint teniendo nombre único (como `ejemplo-http4`) y la propiedad `Url` que especifique la dirección de escucha `Protocol://Host:Port`. Por defecto, ASF escucha en las direcciones http IPv4 y IPv6, pero hemos añadido ejemplos https para que uses, si es necesario. Solo debes declarar aquellos endpoints que necesitas, hemos incluido 4 ejemplos arriba para que puedas editarlos más fácilmente.
 
 `Host` acepta una variedad de valores, incluyendo el valor `*` que vincula el servidor http de ASF a todas las interfaces disponibles. Ten extremo cuidado cuando uses valores `Host` que permitan el acceso remoto. Si lo haces se habilitará el acceso a la interfaz IPC de ASF desde otras máquinas, lo que puede suponer un riesgo de seguridad. Recomendamos fuertemente usar `IPCPassword` (y de preferencia también tu propio cortafuegos) **como mínimo** en este caso.
 

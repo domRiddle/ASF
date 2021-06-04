@@ -10,44 +10,44 @@
 
 ## 👨‍🏫 Base
 
-* **[🏡 Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
-* **[🔧 Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
-* **[💬 FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[⚙️ Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[🏡 Főoldal](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+* **[🔧 Beállítások](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+* **[💬 GYIK](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[⚙️ Beállítások](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(Ezzel kezd)**
 
 
-## 👨‍🎓️ Main
+## 👨‍🎓️ Főoldal
 
-* **[👥 Beváltó](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
-* **[📢 Commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
-* **[🛠️ Compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
-* **[⏱️ Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📊 Statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[👥 Játék beváltás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[📢 Parancsok](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[🛠️ Kompatibilitás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[⏱️ Teljesítmény](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
+* **[📊 Statisztikák](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
 * **[👪 Steam családi megosztása](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[🔄 Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+* **[🔄 Kereskedés](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 
-## 🧙 Advanced
+## 🧙 Haladó beállítások
 
 * **[⌨️ Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[🚧 Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
-* **[🐳 Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[🤔 Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[🚧 Hiba bejelentés](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[🐳 Tároló](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
+* **[🤔 Kifejtett GYIK](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[🚀 Nagy teljesítményű beállítások](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[🌐 Localization](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[📝 Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[💾 Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[🔌 Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
-* **[🔐 Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[🌐 Nyelvek](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[📝 Naplózás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[💾 Beállítások kevés memóriához](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[🔌 Pluginok](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[🔐 Biztonság](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
-* **[📦 Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[📦 Harmadik fél](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[📵 Kétlépcsős hitelesítés](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 
-## 👷 Developers
+## 👷 Fejlesztők
 
-* **[🏗️ Compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
+* **[🏗️ Összeállítás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
 * **[🤝 Hozzájáruló irányelveket](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
-* **[⚖️ License](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
-* **[🏭 Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
+* **[⚖️ Licensz](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
+* **[🏭 Kiadási ciklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
