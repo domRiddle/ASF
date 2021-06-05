@@ -72,7 +72,7 @@ ASF 采用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存储其配置�
     "Headless": false,
     "IdleFarmingPeriod": 8,
     "InventoryLimiterDelay": 3,
-    "IPC": false,
+    "IPC": true,
     "IPCPassword": null,
     "IPCPasswordFormat": 0,
     "LoginLimiterDelay": 10,
@@ -188,7 +188,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `IPC`
 
-这是一个默认值为 `false` 的 `bool` 类型属性。 这个属性定义了 ASF 的 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 服务器是否需要随进程一同启动。 IPC 通过启动一个本地 HTTP 服务器进行进程间通信。 如果您不需要 IPC 服务，则不需要启用此选项。
+这是一个默认值为 `true` 的 `bool` 类型属性。 这个属性定义了 ASF 的 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 服务器是否需要随进程一同启动。 IPC 功能通过启动一个本地的 HTTP 服务器来支持不同进程间通信，包括 **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-ui)**。 如果您不打算使用任何与 ASF 集成的第三方 IPC 程序，包括 ASF-ui，就可以安全地禁用此选项。 否则，就最好保持它默认的开启状态。
 
 ---
 

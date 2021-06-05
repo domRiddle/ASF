@@ -72,7 +72,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
     "Headless": false,
     "IdleFarmingPeriod": 8,
     "InventoryLimiterDelay": 3,
-    "IPC": false,
+    "IPC": true,
     "IPCPassword": null,
     "IPCPasswordFormat": 0,
     "LoginLimiterDelay": 10,
@@ -100,7 +100,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
 
 `bool` 타입으로 기본값은 `true`입니다. 이 속성값은 필요할때 ASF가 자동으로 재시작할지를 정의합니다. `UpdatePeriod` 혹은 `update` 명령으로 수행되는 ASF업데이트나, `ASF.json` 환경설정 변경, `restart` 명령 등 ASF가 재시작을 필요로 하는 몇가지 이벤트가 있습니다. 일반적으로, 재시작은 두 부분으로 이루어져 있습니다. 새로운 프로세스의 생성과 현재 프로세스의 종료입니다. Most users should be fine with it and keep this property with default value of `true`, however - if you're running ASF through your own script and/or with `dotnet`, you may want to have full control over starting the process, and avoid a situation such as having new (restarted) ASF process running somewhere silently in the background, and not in the foreground of the script, that exited together with old ASF process. 새 프로세스가 더이상 직계 차일드 프로세스가 아니라는 사실이 특히 중요합니다. 표준 콘솔 입력을 사용하지 못할수도 있습니다.
 
-이 경우 이 속성값을 `false`로 설정할 수 있습니다. However, keep in mind that in such case **you** are responsible for restarting the process. 업데이트 후 등 새 프로세스를 낳는 대신 종료만 하는 것은 꽤 중요합니다. 당신이 추가한 논리구조가 없다면 당신이 다시 시작하기 전까지 작동을 멈출것입니다. ASF는 항상 성공(0) 또는 성공아님(0이외의 값) 등의 적절한 오류 코드를 가지고 종료합니다. 이렇게 해서 실패하는 경우 ASF를 자동으로 재시작하는 것을 방지하는 적절한 논리구조를 추가할 수 있고, 적어도 향후의 분석을 위한 `log.txt`을 작성합니다. `restart` 명령은 이 속성값이 어떻게 설정되어있는지와 상관없이 항상 ASF를 재시작함을 명심하십시오. 이 속성값은 기본 행동을 정의하지만 `restart` 명령은 항상 프로세스를 재시작합니다. 이 속성값을 비활성화할 이유가 있지 않다면 활성화 상태로 유지해야 합니다.
+이 경우 이 속성값을 `false`로 설정할 수 있습니다. 하지만 이 경우 프로세스를 재시작하는 것은 **당신** 이라는 것을 명심하십시오. 업데이트 후 등 새 프로세스를 낳는 대신 종료만 하는 것은 꽤 중요합니다. 당신이 추가한 논리구조가 없다면 당신이 다시 시작하기 전까지 작동을 멈출것입니다. ASF는 항상 성공(0) 또는 성공아님(0이외의 값) 등의 적절한 오류 코드를 가지고 종료합니다. 이렇게 해서 실패하는 경우 ASF를 자동으로 재시작하는 것을 방지하는 적절한 논리구조를 추가할 수 있고, 적어도 향후의 분석을 위한 `log.txt`을 작성합니다. `restart` 명령은 이 속성값이 어떻게 설정되어있는지와 상관없이 항상 ASF를 재시작함을 명심하십시오. 이 속성값은 기본 행동을 정의하지만 `restart` 명령은 항상 프로세스를 재시작합니다. 이 속성값을 비활성화할 이유가 있지 않다면 활성화 상태로 유지해야 합니다.
 
 ---
 
@@ -188,7 +188,7 @@ If you're running ASF on the server, you probably want to use this option togeth
 
 ### `IPC`
 
-`bool` 타입으로 기본값은 `false`입니다. 이 속성값은 ASF 프로세스와 함께 시작되는 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)** 서버를 정의합니다. IPC는 로컬 HTTP 서버를 기동하여 프로세스간 통신(Inter-Process Communication)을 할수 있게 합니다. ASF의 IPC 서버를 사용하지 않을 것이라면 이 옵션을 활성화할 이유가 없습니다.
+`bool` 타입으로 기본값은 `true`입니다. 이 속성값은 ASF 프로세스와 함께 시작되는 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)** 서버를 정의합니다. IPC allows for inter-process communication, including usage of **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, by booting a local HTTP server. If you do not intend to use any third-party IPC integration with ASF, including our ASF-ui, you can safely disable this option. Otherwise, it's a good idea to keep it enabled (default option).
 
 ---
 

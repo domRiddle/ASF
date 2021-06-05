@@ -72,7 +72,7 @@ GLOBAL CONFIG IZ LOCATD IN `ASF.json` FILE AN HAS FOLLOWIN STRUCCHUR:
     "Headless": false,
     "IdleFarmingPeriod": 8,
     "InventoryLimiterDelay": 3,
-    "IPC": false,
+    "IPC": true,
     "IPCPassword": null,
     "IPCPasswordFormat": 0,
     "LoginLimiterDelay": 10,
@@ -188,7 +188,7 @@ IF URE RUNNIN ASF ON TEH SERVR, U PROBABLY WANTS 2 USE DIS OPSHUN TOGETHR WIF `-
 
 ### `IPC`
 
-`bool` TYPE WIF DEFAULT VALUE OV `false`. DIS PROPERTY DEFINEZ IF ASFS **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US)** SERVR SHUD START TOGETHR WIF TEH PROCES. IPC ALLOWS 4 INTR-PROCES COMMUNICASHUN BY BOOTIN LOCAL HTTP SERVR. IF URE NOT GOIN 2 MAK USE OV ASFS IPC SERVR, DEN THAR IZ NO REASON 4 U 2 ENABLE DIS OPSHUN.
+`bool` TYPE WIF DEFAULT VALUE OV `true`. DIS PROPERTY DEFINEZ IF ASFS **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US)** SERVR SHUD START TOGETHR WIF TEH PROCES. IPC allows for inter-process communication, including usage of **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, by booting a local HTTP server. If you do not intend to use any third-party IPC integration with ASF, including our ASF-ui, you can safely disable this option. Otherwise, it's a good idea to keep it enabled (default option).
 
 ---
 

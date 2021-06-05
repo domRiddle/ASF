@@ -72,7 +72,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
     "Headless": false,
     "IdleFarmingPeriod": 8,
     "InventoryLimiterDelay": 3,
-    "IPC": false,
+    "IPC": true,
     "IPCPassword": null,
     "IPCPasswordFormat": 0,
     "LoginLimiterDelay": 10,
@@ -100,7 +100,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
 
 預設值為 `true` 的 `bool` 類型。 此屬性定義是否允許 ASF 在需要時自行重啟。 有一些事件需要 ASF 自行重啟，例如 ASF 更新（通過 `UpdatePeriod` 或 `update` 命令完成），以及 `ASF.json` 配置的編輯、`restart` 命令等。 通常情況下，重啟包括兩個部分──創建新流程和完成當前流程。 但是，大多數使用者應該可以使用它並保留屬性預設值為 `true`──如果您正在通過自己的腳本運行 ASF，或者使用 `dotnet` 運行 ASF，則可能希望完全控制進程的啟動，並避免以下情況：使新的（重啟）ASF進程在後台靜默運行，而不是在腳本的前景中運行，這些進程與舊的ASF進程一起退出。 考慮到新的流程將不再是您原有流程的直接分支，這一點尤其重要，這將使您無法使用標準的主控台輸入。
 
-在此屬性僅為您服務的情況下，您可以將其設置為 `false`。 However, keep in mind that in such case **you** are responsible for restarting the process. 這在某種程度上很重要，因為ASF將僅退出，而非生成新的進程（例如更新後），因此，如果您沒有添加邏輯，它將停止工作，直到您再次啟動它。 ASF總是使用指示成功（零）或非成功（非零）的錯誤代碼退出，這樣您就可以在腳本中添加合適的邏輯，從而避免在出現故障時自動重啟ASF，或者至少製作 `log.txt` 的本機複本以獲得進一步的應用分析。 還要記住，無論此屬性設置的方式如何，`restart` 命令都將始終重啟 ASF，因為此屬性定義預設行為，而 `restart` 命令始終會重新啟動進程。 除非您有理由禁用此功能，否則應保持啟用它。
+在此屬性僅為您服務的情況下，您可以將其設置為 `false`。 但是，請記住，在這種情況下 **您** 負責重啟進程。 這在某種程度上很重要，因為ASF將僅退出，而非生成新的進程（例如更新後），因此，如果您沒有添加邏輯，它將停止工作，直到您再次啟動它。 ASF總是使用指示成功（零）或非成功（非零）的錯誤代碼退出，這樣您就可以在腳本中添加合適的邏輯，從而避免在出現故障時自動重啟ASF，或者至少製作 `log.txt` 的本機複本以獲得進一步的應用分析。 還要記住，無論此屬性設置的方式如何，`restart` 命令都將始終重啟 ASF，因為此屬性定義預設行為，而 `restart` 命令始終會重新啟動進程。 除非您有理由禁用此功能，否則應保持啟用它。
 
 ---
 
@@ -188,7 +188,7 @@ If you're looking for bot-based blacklist instead, take a look at `ib`, `ibadd` 
 
 ### `IPC`
 
-預設值為 `false` 的 `bool` 類型。 此屬性定義了ASF的**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**伺服器是否應與主進程一同啟動。 IPC通過啟動本地 HTTP 伺服器進行進程間通信。 如果您不打算使用ASF的IPC伺服器，則無需啟用此選項。
+預設值為 `true` 的 `bool` 類型。 此屬性定義了ASF的**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**伺服器是否應與主進程一同啟動。 IPC allows for inter-process communication, including usage of **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, by booting a local HTTP server. If you do not intend to use any third-party IPC integration with ASF, including our ASF-ui, you can safely disable this option. Otherwise, it's a good idea to keep it enabled (default option).
 
 ---
 

@@ -72,7 +72,7 @@ A configuração global esta localizada no arquivo `ASF.json` e tem a seguinte e
     "Headless": false,
     "IdleFarmingPeriod": 8,
     "InventoryLimiterDelay": 3,
-    "IPC": false,
+    "IPC": true,
     "IPCPassword": null,
     "IPCPasswordFormat": 0,
     "LoginLimiterDelay": 10,
@@ -100,7 +100,7 @@ Todas as opções são explicadas abaixo:
 
 Tipo `bool` com valor padrão `true`. Esta propriedade define se o ASF pode auto-reiniciar caso seja necessário. Existem alguns eventos que requerem a reinicialização do ASF, tal como a atualização (feita com o comando `UpdatePeriod` ou `update`), edições na configuração do `ASF.json`, e o comando `restart`. A reinicialização geralmente envolve duas partes: criar um novo processo e encerrar o atual. O valor padrão `true` deve ser bom para a maioria dos usuários, no entanto se você estiver executando o ASF através de seu próprio código e/ou com o `dotnet`, você pode querer ter controle total sobre o início do processo, e evitar a possibilidade de ter um novo processo (reiniciado) do ASF sendo executado em segundo plano em algum lugar e não no código em primeiro plano, que foi encerrado junto com o antigo processo do ASF. Isto é especialmente importante considerando o fato de que o novo processo deixaria de ser descendente direto do seu script, o que te impossibilitaria de usar as suas entradas de console para ele.
 
-Se for esse o caso, essa propriedade existe especialmente para você e você pode definí-la como `false`. However, keep in mind that in such case **you** are responsible for restarting the process. É importante citar isso pois o ASF vai apenas fechar ao invés de criar um novo processo (por exemplo, após uma atualização), então se você não adicionou uma lógica para esse caso, ele vai simplesmente parar de funcionar até que você o inicie novamente. O ASF sempre fecha com um código de erro apropriado indicando sucesso (zero) ou falha (diferente de zero), assim você pode adicionar a lógica correta em seu código, que deve evitar o reinício automático do ASF em caso de falha ou ao menos fazer uma cópia local do `log.txt` para análise posterior. Também tenha em mente que o comando `restart` sempre vai reiniciar o ASF, independente de como essa propriedade está configurada, pois ela define o comportamento padrão, enquanto o comando `restart ` sempre reinicia o processo. A menos que você tenha um motivo para desativar esse recurso, você deve mantê-lo ativado.
+Se for esse o caso, essa propriedade existe especialmente para você e você pode definí-la como `false`. Contudo, tenha em mente que, assim, **você** é o responsável por reiniciar o processo. É importante citar isso pois o ASF vai apenas fechar ao invés de criar um novo processo (por exemplo, após uma atualização), então se você não adicionou uma lógica para esse caso, ele vai simplesmente parar de funcionar até que você o inicie novamente. O ASF sempre fecha com um código de erro apropriado indicando sucesso (zero) ou falha (diferente de zero), assim você pode adicionar a lógica correta em seu código, que deve evitar o reinício automático do ASF em caso de falha ou ao menos fazer uma cópia local do `log.txt` para análise posterior. Também tenha em mente que o comando `restart` sempre vai reiniciar o ASF, independente de como essa propriedade está configurada, pois ela define o comportamento padrão, enquanto o comando `restart ` sempre reinicia o processo. A menos que você tenha um motivo para desativar esse recurso, você deve mantê-lo ativado.
 
 ---
 
@@ -188,7 +188,7 @@ Tipo `byte` com o valor padrão `3`. O ASF vai garantir que haverá um atraso em
 
 ### `IPC`
 
-Tipo `bool` com valor padrão `false`. Esta propriedade define se o servidor **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** do ASF deve iniciar juntamente com o processo. IPC permite a comunicação entre processos inicializando um servidor HTTP local. Se você não vai fazer uso do servidor IPC do ASF, então não há razão para habilitar esta opção.
+Tipo `bool` com valor padrão `true`. Esta propriedade define se o servidor **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** do ASF deve iniciar juntamente com o processo. IPC allows for inter-process communication, including usage of **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, by booting a local HTTP server. If you do not intend to use any third-party IPC integration with ASF, including our ASF-ui, you can safely disable this option. Otherwise, it's a good idea to keep it enabled (default option).
 
 ---
 
