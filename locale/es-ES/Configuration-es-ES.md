@@ -3,7 +3,7 @@
 Esta página está dedicada a la configuración de ASF. Sirve como documentación completa del directorio `config`, permitiéndote ajustar ASF a tus necesidades.
 
 * **[Introducción](#introducción)**
-* **[ConfigGenerator basado en la Web](#configgenerator-basado-en-la-web)**
+* **[ConfigGenerator basado en la web](#configgenerator-basado-en-la-web)**
 * **[Configuración ASF-ui](#configuración-asf-ui)**
 * **[Configuración manual](#configuración-manual)**
 * **[Configuración global](#configuración-global)**
@@ -943,12 +943,12 @@ Es de prioridad alta para ASF permanecer compatible con configuraciones antiguas
 
 ## Recarga automática
 
-Empezando en ASF V2.1.6.2+, el programa ahora puede detectar "al momento" la modificación de las configuraciones - gracias a eso ASF automáticamente:
-- Crea (e iniciar, si es necesario) una nueva instancia de bot, cuando creas su archivo de configuración
-- Detiene (si es necesario) y elimina una antigua instancia de bot, cuando eliminas su archivo de configuración
+A partir de ASF V2.1.6.2+, el programa es consciente de configuraciones siendo modificadas "al vuelo" - gracias a eso, ASF automáticamente:
+- Crea (e inicia, si es necesario) una nueva instancia de bot, cuando creas su archivo de configuración
+- Detiene (si es necesario) y elimina una instancia de bot antigua, cuando eliminas su archivo de configuración
 - Detiene (e inicia, si es necesario) cualquier instancia de bot, cuando editas su archivo de configuración
 - Reinicia (si es necesario) el bot con un nuevo nombre, cuando renombras su archivo de configuración
 
-Todo lo anterior es transparente y se hará automáticamente sin necesidad de reiniciar el programa, o detener otras (no afectadas) instancias de bot.
+Todo lo anterior es transparente y se hará automáticamente sin necesidad de reiniciar el programa, o detener otras instancias de bot (no afectadas).
 
-Además, ASF también se reiniciará a sí mismo (si `AutoRestart` lo permite) si modificas la configuración principal de ASF `ASF.json`. Del mismo modo, el programa se cerrará si lo eliminas o le cambias el nombre.
+Además, ASF también se reiniciará a sí mismo (si `AutoRestart` lo permite) si modificas el archivo de configuración principal de ASF `ASF.json`. Del mismo modo, el programa se cerrará si eliminas o renombras este archivo.
