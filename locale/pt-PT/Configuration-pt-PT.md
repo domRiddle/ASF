@@ -24,7 +24,7 @@ O bot é uma única conta Steam que participa do processo do ASF. Para funcionar
 
 O ASF usa o formato **[JSON](https://en.wikipedia.org/wiki/JSON)** para armazenar seus arquivos de configuração. É um formato amigável, legível e universal, no qual tu podes configurar o programa. Porém não te preocupes, não precisas saber JSON para configurar o ASF. Eu apenas mencionei isto para o caso de quereres criar configurações em massa do ASF com algum tipo de script.
 
-A configuração pode ser feita de várias maneiras. Podes usar nosso **[Gerador de configuração web](https://justarchinet.github.io/ASF-WebConfigGenerator)**, que é um aplicativo local independente do ASF. Podes usar nosso **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** frontend IPC para a configuração diretamente no ASF. Por último, podes sempre gerar arquivos de configuração manualmente, já que eles seguem uma estrutura JSON fixa especificada abaixo. Explicaremos em breve as opções disponíveis.
+A configuração pode ser feita de várias maneiras. Podes usar nosso **[Gerador de configuração web](https://justarchinet.github.io/ASF-WebConfigGenerator)**, que é um aplicativo local independente do ASF. Podes usar nosso **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR#asf-ui)** frontend IPC para a configuração diretamente no ASF. Por último, podes sempre gerar arquivos de configuração manualmente, já que eles seguem uma estrutura JSON fixa especificada abaixo. Explicaremos em breve as opções disponíveis.
 
 ---
 
@@ -40,9 +40,9 @@ O uso é muito simples - seleciona o que desejas gerar a configuração do `ASF`
 
 ## Configuração ASF-ui
 
-Nosso **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** interface IPC permite que configures o ASF também e é uma solução superior para reconfigurar o ASF após gerar as configurações iniciais devido ao fato de que ele pode editar as configurações no local, em vez do Gerador de Configuração baseado na Web que os gera estaticamente.
+Nosso **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR#asf-ui)** interface IPC permite que configures o ASF também e é uma solução superior para reconfigurar o ASF após gerar as configurações iniciais devido ao fato de que ele pode editar as configurações no local, em vez do Gerador de Configuração baseado na Web que os gera estaticamente.
 
-Para usar a ASF-ui, deves ter o nosso **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface habilitada por conta própria. `IPC` está habilitado por padrão, começando com ASF V5.1.0.0, então podes acessá-lo imediatamente, desde que não tenhas desabilitado o mesmo.
+Para usar a ASF-ui, deves ter o nosso **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR)** interface habilitada por conta própria. `IPC` está habilitado por padrão, começando com ASF V5.1.0.0, então podes acessá-lo imediatamente, desde que não tenhas desabilitado o mesmo.
 
 Após o lançamento do programa, simplesmente navegue para o **[endereço IPC](http://localhost:1242)** do ASF. Se tudo funcionou correctamente, tu também poderás alterar a configuração do ASF.
 
@@ -50,7 +50,7 @@ Após o lançamento do programa, simplesmente navegue para o **[endereço IPC](h
 
 ## Configuração manual
 
-Em geral, recomendamos fortemente o uso do nosso Gerador de Configuração ou da ASF-ui, como é muito mais fácil e garante que não cometerás um erro na estrutura JSON, mas se por algum motivo não quiseres, então tu também podes criar configurações adequadas manualmente. Verifica os exemplos JSON abaixo para um bom começo na estrutura correta, tu podes copiar o conteúdo em um arquivo e usá-lo como base para suas configurações. Uma vez que não estás a utilizar nenhum dos nossos frontend, certifique-se de que sua configuração é **[válida](https://jsonlint.com)**, já que o ASF não vai carregá-lo se ele não puder ser analisado. Mesmo se for um JSON válido, tu também precisas de garantir que todas as propriedades tenham o tipo adequado, conforme exigido pelo ASF. Para uma estrutura JSON adequada para todos os campos disponíveis, consulte a seção **[JSON mapeamento](#json-mapping)** e nossa documentação abaixo.
+Em geral, recomendamos fortemente o uso do nosso Gerador de Configuração ou da ASF-ui, como é muito mais fácil e garante que não cometerás um erro na estrutura JSON, mas se por algum motivo não quiseres, então tu também podes criar configurações adequadas manualmente. Verifica os exemplos JSON abaixo para um bom começo na estrutura correta, tu podes copiar o conteúdo em um arquivo e usá-lo como base para suas configurações. Uma vez que não estás a utilizar nenhum dos nossos frontend, certifique-se de que sua configuração é **[válida](https://jsonlint.com)**, já que o ASF não vai carregá-lo se ele não puder ser analisado. Mesmo se for um JSON válido, tu também precisas de garantir que todas as propriedades tenham o tipo adequado, conforme exigido pelo ASF. Para uma estrutura JSON adequada para todos os campos disponíveis, consulte a seção **[mapeamento JSON](#mapeamento-json)** e nossa documentação abaixo.
 
 ---
 
