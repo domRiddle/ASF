@@ -145,7 +145,7 @@ ON TEH CROWDIN, FURST TING U SHUD DO IZ GOIN 2 UR EDITOR SETTINGS AN ENSURIN DAT
 NAO, DURIN TRANZLATIN ON TEH CROWDIN, DEPENDIN ON FORMATTIN, ULL C ASF LINKZ IN DA TEXT EITHR AS:
 
 * STRIN 2 TRANZLATE TOGETHR WIF HTML TAGS (MAJORITY OV STRINGS, WER ONLY PART OV TEH SENTENCE IZ LINK)
-* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar - those require proofreader access to translate, sadly)
+* ALONE STRIN 2 TRANZLATE, WIF LINK INCLUDD IN `Hidden texts` -> `Link addresses` (RARE, WER ENTIRE STRIN IZ LINK, MOST COMMON IN SIDEBAR - DOSE REQUIRE PROOFREADR ACCES 2 TRANZLATE, SADLY)
 
 IN R EXAMPLE ABOOV, IZ TEH FURST CASE (SINCE ONLY "SETTIN UP" IZ LINK), SO IN CROWDIN WELL C IT AS:
 
@@ -185,7 +185,7 @@ AN FINALLY INTO WIKI TEXT:
 
 > JEŚLI JESTEŚ NOWYM UŻYTKOWNIKIEM, ZALECAMY ROZPOCZĘCIE OD KORZYSTANIA Z **[PRZEWODNIKA PO KONFIGURACJI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
+WHEN NO HTML IZ PRESENT (SECOND CASE), DIS AR TEH EVEN EASIR SINCE U CAN JUS GO 2 `Hidden texts` -> `Link addresses`.
 
 ---
 

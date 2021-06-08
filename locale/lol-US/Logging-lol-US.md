@@ -17,16 +17,12 @@ IF U WANTS 2 USE DEFAULT ASF LOGGIN WITHOUT ANY MODIFICASHUNS, U DOAN NED 2 DO A
 <nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xsi:schemaLocation="NLog NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
-    <target xsi:type="File" name="File" archiveFileName="${currentdir}/logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="${currentdir}/log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
-    <!-- Below becomes active when ASF's IPC interface is started -->
-    <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
+    <target xsi:type="File" name="File" archiveFileName="${currentdir}/logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="${currentdir}/log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" /><!-- BELOW BECOMEZ ACTIV WHEN ASFS IPC INTERFACE IZ STARTD --><!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
   </targets>
 
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
-    <logger name="*" minlevel="Debug" writeTo="File" />
-    <!-- Below becomes active when ASF's IPC interface is started -->
-    <!-- <logger name="*" minlevel="Debug" writeTo="History" /> -->
+    <logger name="*" minlevel="Debug" writeTo="File" /><!-- BELOW BECOMEZ ACTIV WHEN ASFS IPC INTERFACE IZ STARTD --><!-- <logger name="*" minlevel="Debug" writeTo="History" /> -->
   </rules>
 </nlog>
 ```
@@ -45,7 +41,7 @@ ASF LOGS EXTRA INFO, SUCH AS USR/CHAT MESAGEZ ON `Trace` LOGGIN LEVEL. DEFAULT A
 
 IN GENERAL, ASF TRIEZ 2 MAK IT AS EASY AN CONVENIENT 4 U AS POSIBLE, 2 LOG ONLY MESAGEZ U WANTS INSTEAD OV FORCIN U 2 MANUALLY FILTR IT THRU THIRD-PARTY TOOLS SUCH AS `grep` AN ALIKE. SIMPLY CONFIGURE NLOG PROPERLY AS WRITTEN BELOW, AN U SHUD BE ABLE 2 SPECIFY EVEN VRY COMPLEX LOGGIN RULEZ WIF CUSTOM TARGETS SUCH AS ENTIRE DATABASEZ.
 
-Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. IZ VRY OFTEN VERSHUN DAT IZ NEWR THAN LATEST STABLE, THEREFORE IT SHUD NOT BE PROBLEM 2 USE ANY FEACHUR U CAN FIND ON NLOG WIKI IN ASF, EVEN FEATUREZ DAT R IN VRY ACTIV DEVELOPMENT AN WIP STATE - JUS MAK SURE URE ALSO USIN UP-2-DATE ASF.
+REGARDIN VERSHUNIN - ASF TRIEZ 2 ALWAYS SHIP WIF MOST UP-2-DATE VERSHUN OV NLOG DAT IZ AVAILABLE ON **[NUGET](https://www.nuget.org/packages/NLog)** AT TEH TIEM OV ASF RELEASE. IZ VRY OFTEN VERSHUN DAT IZ NEWR THAN LATEST STABLE, THEREFORE IT SHUD NOT BE PROBLEM 2 USE ANY FEACHUR U CAN FIND ON NLOG WIKI IN ASF, EVEN FEATUREZ DAT R IN VRY ACTIV DEVELOPMENT AN WIP STATE - JUS MAK SURE URE ALSO USIN UP-2-DATE ASF.
 
 AS PART OV ASF INTEGRASHUN, ASF ALSO INCLUDEZ SUPPORT 4 ADDISHUNAL ASF NLOG LOGGIN TARGETS, WHICH WILL BE EXPLAIND BELOW.
 
@@ -53,7 +49,7 @@ AS PART OV ASF INTEGRASHUN, ASF ALSO INCLUDEZ SUPPORT 4 ADDISHUNAL ASF NLOG LOGG
 
 ## EXAMPLEZ
 
-LETS START FRUM SOMETHIN EASY. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. R INITIAL `NLog.config` WILL LOOK LIEK DIS:
+LETS START FRUM SOMETHIN EASY. WE WILL USE **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** TARGET ONLY. R INITIAL `NLog.config` WILL LOOK LIEK DIS:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -68,11 +64,11 @@ LETS START FRUM SOMETHIN EASY. We will use **[ColoredConsole](https://github.com
 </nlog>
 ```
 
-The explanation of above config is rather simple - we define one **logging target**, which is `ColoredConsole`, then we redirect **all loggers** (`*`) of level `Debug` and higher to `ColoredConsole` target we defined earlier. THAZ IT.
+TEH EXPLANASHUN OV ABOOV CONFIG IZ RATHR SIMPLE - WE DEFINE WAN **LOGGIN TARGET**, WHICH IZ `ColoredConsole`, DEN WE REDIRECT **ALL LOGGERS** (`*`) OV LEVEL `Debug` AN HIGHR 2 `ColoredConsole`TARGET WE DEFIND EARLIR. THAZ IT.
 
 IF U START ASF WIF ABOOV `NLog.config` NAO, ONLY `ColoredConsole` TARGET WILL BE ACTIV, AN ASF WONT RITE 2 `File`, REGARDLES OV HARDCODD ASF NLOG CONFIGURASHUN.
 
-NAO LETS SAY DAT WE DOAN LIEK DEFAULT FORMAT OV `${longdate}|${level:uppercase=true}|${logger}|${message}` AN WE WANTS 2 LOG MESAGE ONLY. We can do so by modifying **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
+NAO LETS SAY DAT WE DOAN LIEK DEFAULT FORMAT OV `${longdate}|${level:uppercase=true}|${logger}|${message}` AN WE WANTS 2 LOG MESAGE ONLY. WE CAN DO SO BY MODIFYIN **[LAYOUT](https://github.com/nlog/nlog/wiki/Layouts)** OV R TARGET.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -89,7 +85,7 @@ NAO LETS SAY DAT WE DOAN LIEK DEFAULT FORMAT OV `${longdate}|${level:uppercase=t
 
 IF U LAUNCH ASF NAO, ULL NOTICE DAT DATE, LEVEL AN LOGGR NAYM DISAPPEARD - LEAVIN U ONLY WIF ASF MESAGEZ IN FORMAT OV `Function() Message`.
 
-WE CAN ALSO MODIFY TEH CONFIG 2 LOG 2 MOAR THAN WAN TARGET. Let's log to `ColoredConsole` and **[File](https://github.com/nlog/nlog/wiki/File-target)** at the same time.
+WE CAN ALSO MODIFY TEH CONFIG 2 LOG 2 MOAR THAN WAN TARGET. LETS LOG 2 `ColoredConsole` AN **[FILE](https://github.com/nlog/nlog/wiki/File-target)** AT TEH SAME TIEM.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -108,7 +104,7 @@ WE CAN ALSO MODIFY TEH CONFIG 2 LOG 2 MOAR THAN WAN TARGET. Let's log to `Colore
 
 AN DUN, WELL NAO LOG EVRYTHIN 2 `ColoredConsole` AN `File`. DID U NOTICE DAT U CAN ALSO SPECIFY CUSTOM `fileName` AN EXTRA OPSHUNS?
 
-FINALLY, ASF USEZ VARIOUS LOG LEVELS, 2 MAK IT EASIR 4 U 2 UNDERSTAND WUT IZ GOIN ON. WE CAN USE DAT INFORMASHUN 4 MODIFYIN SEVERITY LOGGIN. Let's say that we want to log everything (`Trace`) to `File`, but only `Warning` and above **[log level](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** to the `ColoredConsole`. WE CAN ACHIEVE DAT BY MODIFYIN R `rules`:
+FINALLY, ASF USEZ VARIOUS LOG LEVELS, 2 MAK IT EASIR 4 U 2 UNDERSTAND WUT IZ GOIN ON. WE CAN USE DAT INFORMASHUN 4 MODIFYIN SEVERITY LOGGIN. LETS SAY DAT WE WANTS 2 LOG EVRYTHIN (`Trace`) 2 `File`, BUT ONLY `Warning` AN ABOOV **[LOG LEVEL](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** 2 TEH `ColoredConsole`. WE CAN ACHIEVE DAT BY MODIFYIN R `rules`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -150,19 +146,19 @@ U CAN C HOW WE USD ASF INTEGRASHUN ABOOV AN EASILY DISTINGUISHD SOURCE OV TEH ME
 
 ## ADVANCD USAGE
 
-TEH EXAMPLEZ ABOOV R RATHR SIMPLE AN MADE 2 SHOW U HOW EASY IT 2 DEFINE UR OWN LOGGIN RULEZ DAT CAN BE USD WIF ASF. U CAN USE NLOG 4 VARIOUS DIFFERENT THINGS, INCLUDIN COMPLEX TARGETS (SUCH AS KEEPIN LOGS IN `Database`), LOGS ROTASHUN (SUCH AS REMOVIN OLD `File` LOGS), USIN CUSTOM `Layout`S, DECLARIN UR OWN `<when>` LOGGIN FILTERS AN MUTCH MOAR. I encourage you to read through entire **[NLog documentation](https://github.com/nlog/nlog/wiki/Configuration-file)** to learn about every option that is available to you, allowing you to fine-tune ASF logging module in the way you want. IT BE RLY POWERFUL TOOL AN CUSTOMIZIN ASF LOGGIN WUZ NEVR EASIR.
+TEH EXAMPLEZ ABOOV R RATHR SIMPLE AN MADE 2 SHOW U HOW EASY IT 2 DEFINE UR OWN LOGGIN RULEZ DAT CAN BE USD WIF ASF. U CAN USE NLOG 4 VARIOUS DIFFERENT THINGS, INCLUDIN COMPLEX TARGETS (SUCH AS KEEPIN LOGS IN `Database`), LOGS ROTASHUN (SUCH AS REMOVIN OLD `File` LOGS), USIN CUSTOM `Layout`S, DECLARIN UR OWN `<when>` LOGGIN FILTERS AN MUTCH MOAR. I ENCOURAGE U 2 READ THRU ENTIRE **[NLOG DOCUMENTASHUN](https://github.com/nlog/nlog/wiki/Configuration-file)** 2 LERN BOUT EVRY OPSHUN DAT IZ AVAILABLE 2 U, ALLOWIN U 2 FINE-TUNE ASF LOGGIN MODULE IN DA WAI U WANTS. IT BE RLY POWERFUL TOOL AN CUSTOMIZIN ASF LOGGIN WUZ NEVR EASIR.
 
 ---
 
 ## LIMITASHUNS
 
-ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. THEREFORE, IF U WANTS 2 KEEP LOGGIN 4 OTHR TARGETS EVEN WHEN ASF EXPEX USR INPUT, U SHUD DEFINE DOSE TARGETS WIF THEIR OWN RULEZ, AS SHOWN IN EXAMPLEZ ABOOV, INSTEAD OV PUTTIN LOTZ DA TARGETS IN `writeTo` OV TEH SAME RULE (UNLES DIS AR TEH UR WANTD BEHAVIOUR). TEMPORARY DISABLE OV CONSOLE TARGETS IZ DUN IN ORDR 2 KEEP CONSOLE CLEAN WHEN WAITIN 4 USR INPUT.
+ASF WILL TEMPORARILY DISABLE **ALL** RULEZ DAT INCLUDE `ColoredConsole` OR `Console` TARGETS WHEN EXPECTIN USR INPUT. THEREFORE, IF U WANTS 2 KEEP LOGGIN 4 OTHR TARGETS EVEN WHEN ASF EXPEX USR INPUT, U SHUD DEFINE DOSE TARGETS WIF THEIR OWN RULEZ, AS SHOWN IN EXAMPLEZ ABOOV, INSTEAD OV PUTTIN LOTZ DA TARGETS IN `writeTo` OV TEH SAME RULE (UNLES DIS AR TEH UR WANTD BEHAVIOUR). TEMPORARY DISABLE OV CONSOLE TARGETS IZ DUN IN ORDR 2 KEEP CONSOLE CLEAN WHEN WAITIN 4 USR INPUT.
 
 ---
 
 ## CHAT LOGGIN
 
-ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. DIS AR TEH CUZ WE NED 2 HANDLE CHAT MESAGEZ AS COMMANDZ ANYWAY, SO IT DOESNT COST US ANYTHIN 2 LOG DOSE EVENTS IN ORDR 2 MAK IT POSIBLE 4 U 2 ADD EXTRA LOGIC (SUCH AS MAKIN ASF UR PERSONAL STEAM CHATTIN ARCHIV).
+ASF INCLUDEZ EXTENDD SUPPORT 4 CHAT LOGGIN BY NOT ONLY RECORDIN ALL RECEIVD/SENT MESAGEZ ON `Trace` LOGGIN LEVEL, BUT ALSO EXPOSIN EXTRA INFO RELATD 2 THEM IN **[EVENT PROPERTIEZ](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. DIS AR TEH CUZ WE NED 2 HANDLE CHAT MESAGEZ AS COMMANDZ ANYWAY, SO IT DOESNT COST US ANYTHIN 2 LOG DOSE EVENTS IN ORDR 2 MAK IT POSIBLE 4 U 2 ADD EXTRA LOGIC (SUCH AS MAKIN ASF UR PERSONAL STEAM CHATTIN ARCHIV).
 
 ### EVENT PROPERTIEZ
 
@@ -176,7 +172,7 @@ ASF includes extended support for chat logging by not only recording all receive
 
 ### EXAMPLE
 
-DIS EXAMPLE IZ BASD ON R `ColoredConsole` BASIC EXAMPLE ABOOV. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
+DIS EXAMPLE IZ BASD ON R `ColoredConsole` BASIC EXAMPLE ABOOV. BEFORE TRYIN 2 UNDERSTAND IT, I STRONGLY RECOMMEND 2 TAEK LOOK **[ABOOV](#examplez)** IN ORDR 2 LERN BOUT BASICS OV NLOG LOGGIN FIRSTLY.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -199,7 +195,7 @@ DIS EXAMPLE IZ BASD ON R `ColoredConsole` BASIC EXAMPLE ABOOV. Before trying to 
 
 WEVE STARTD FRUM R BASIC `ColoredConsole` EXAMPLE AN EXTENDD IT FURTHR. FURST AN FOREMOST, WEVE PREPARD PERMANENT CHAT LOG FILE PER EACH GROUP CHANNEL AN STEAM USR - DIS AR TEH POSIBLE THX 2 EXTRA PROPERTIEZ DAT ASF EXPOSEZ 2 US IN FANCY WAI. WEVE ALSO DECIDD 2 GO WIF CUSTOM LAYOUT DAT WRITEZ ONLY CURRENT DATE, TEH MESAGE, SENT/RECEIVD INFO AN STEAM USR ITSELF. LASTLY, WEVE ENABLD R CHAT LOGGIN RULE ONLY 4 `Trace` LEVEL, ONLY 4 R `MainAccount` BOT AN ONLY 4 FUNCSHUNS RELATD 2 CHAT LOGGIN (`OnIncoming*` WHICH IZ USD 4 RECEIVIN MESAGEZ AN ECHOS, AN `SendMessage*` 4 ASF MESAGEZ SENDIN).
 
-The example above will generate `0-0-76561198069026042.txt` file when talking with **[ArchiBot](https://steamcommunity.com/profiles/76561198069026042)**:
+TEH EXAMPLE ABOOV WILL GENERATE `0-0-76561198069026042.txt` FILE WHEN TALKIN WIF **[ArchiBot](https://steamcommunity.com/profiles/76561198069026042)**:
 
 ```text
 2018-07-26 01:38:38 how are you doing? -> 76561198069026042

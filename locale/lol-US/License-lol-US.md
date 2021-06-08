@@ -6,7 +6,7 @@ ASF LICENSE IZ VRY PERMISIV AN URE ALLOWD 2 DO MUTCH MOAR THAN IN STANDARD GPL L
 
 > U CAN DO WUT U LIEK WIF TEH SOFTWARE, AS LONG AS U INCLUDE TEH REQUIRD NOTICEZ. DIS PERMISIV LICENSE CONTAINS PATENT LICENSE FRUM TEH CONTRIBUTORS OV TEH CODE.
 
-PLZ NOWT DAT VARIOUS **[ASF COMPONENTS](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** INCLUDD WIF `PackageReference` R OFTEN LICENSD UNDR DIFFERENT CONDISHUNS, SUCH AS **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
+PLZ NOWT DAT VARIOUS **[ASF COMPONENTS](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** INCLUDD WIF `PackageReference` R OFTEN LICENSD UNDR DIFFERENT CONDISHUNS, SUCH AS **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. SAME TING APPLIEZ 2 ALL OTHR THIRD-PARTY PROJECTS DAT ASF MAKEZ USE OV, 4 EXAMPLE **[ASF-UI](https://github.com/JustArchiNET/ASF-ui)**.
 
 -----
 

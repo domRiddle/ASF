@@ -179,7 +179,7 @@ ONCE U DO DAT AN START ASF AGAIN, ULL NOTICE DAT ASF NAO DISPLAYS UR CUSTOM TEXT
 
 ![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
-This confirms that you've successfully edited your config. In exactly the same way you can change global ASF properties, by switching from bot tab to "ASF" tab, downloading generated `ASF.json` config file and putting it in your `config` directory.
+DIS CONFIRMS DAT UVE SUCCESFULLY EDITD UR CONFIG. IN EGSAKTLY TEH SAME WAI U CAN CHANGE GLOBAL ASF PROPERTIEZ, BY SWITCHIN FRUM BOT TAB 2 "ASF" TAB, DOWNLOADIN GENERATD `ASF.json` CONFIG FILE AN PUTTIN IT IN UR `config` DIRECTORY.
 
 EDITIN UR ASF CONFIGS CAN BE DUN MUTCH EASIR BY USIN R ASF-UI FRONTEND, WHICH WILL BE EXPLAIND FURTHR BELOW.
 
@@ -189,7 +189,7 @@ EDITIN UR ASF CONFIGS CAN BE DUN MUTCH EASIR BY USIN R ASF-UI FRONTEND, WHICH WI
 
 ASF IZ CONSOLE APP AN DOESNT INCLUDE GRAFICAL USR INTERFACE. HOWEVR, WERE ACTIVELY WERKIN ON **[ASF-UI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US#asf-ui)** FRONTEND 2 R IPC INTERFACE, WHICH CAN BE VRY DESENT AN USR-FRIENDLY WAI 2 ACCES VARIOUS ASF FEATUREZ.
 
-In order to use ASF-ui, you need to have `IPC` enabled, which is the default option starting with ASF V5.1.0.0. Once you launch ASF, you should be able to confirm that it properly started the IPC interface automatically:
+IN ORDR 2 USE ASF-UI, U NED 2 HAS `IPC` ENABLD, WHICH IZ TEH DEFAULT OPSHUN STARTIN WIF ASF V5.1.0.0. ONCE U LAUNCH ASF, U SHUD BE ABLE 2 CONFIRM DAT IT PROPERLY STARTD TEH IPC INTERFACE AUTOMATICALLY:
 
 ![IPC](https://i.imgur.com/ZmkO8pk.png)
 
