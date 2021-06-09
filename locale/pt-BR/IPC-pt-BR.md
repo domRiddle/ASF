@@ -6,7 +6,7 @@ O IPC pode ser usado para muitas coisas diferentes, dependendo de suas necessida
 
 ---
 
-# Uso
+# Usage
 
 Unless you manually disabled IPC through `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's enabled by default. O ASF indicará a execução do IPC em seu log que você pode usar para verificar se a interface IPC foi iniciada corretamente:
 

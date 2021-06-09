@@ -6,13 +6,13 @@ Funkcja aktywacji kluczy w tle została napisana żeby się wykonała w jednej p
 
 ---
 
-## Importuj
+## Import
 
 Proces importowania może odbyć się na dwa sposoby - poprzez plik, lub IPC.
 
 ### Plik
 
-ASF rozpozna w katalogu `config` plik o nazwie `BotName.keys`, gdzie `BotName` jest nazwą bot. Ten plik ma oczekuje i stałej struktury nazwa gry z cd-key, oddzielone od siebie znakiem tabulacji i kończy znakiem nowej linii, aby wskazać następnego wpisu. Jeśli wiele kart są używane, a następnie pierwszy wpis jest uważana za nazwę gry, ostatni wpis jest uważany za cd-key i wszystko pomiędzy nimi jest ignorowana. Na przykład:
+ASF rozpozna w katalogu `config` plik o nazwie `BotName.keys`, gdzie `BotName` jest nazwą bot. Ten plik ma oczekuje i stałej struktury nazwa gry z cd-key, oddzielone od siebie znakiem tabulacji i kończy znakiem nowej linii, aby wskazać następnego wpisu. Jeśli wiele kart są używane, a następnie pierwszy wpis jest uważana za nazwę gry, ostatni wpis jest uważany za cd-key i wszystko pomiędzy nimi jest ignorowana. For example:
 
 ```text
 POCZTOWY 2 ABCDE-EFGHJ-IJKLM
@@ -46,7 +46,7 @@ Bez względu na to, w jakim formacie zdecydowałeś się trzymać, ASF zaimportu
 
 <hr />
 
-<h2 spaces-before="0">Przykład</h2>
+<h2 spaces-before="0">Example</h2>
 
 <p spaces-before="0">Załóżmy, że masz listę 100 kluczy. Po pierwsze należy utworzyć nowy plik <code>BotName.keys.new` w katalogu `config` ASF. Możemy dołączane `nowe` rozszerzenie w celu niech ASF, wiem, że to nie powinien odebrać ten plik natychmiast w chwili, gdy jest tworzony (jak to jest nowy pusty plik, nie jest gotowy do importu, jeszcze).
 

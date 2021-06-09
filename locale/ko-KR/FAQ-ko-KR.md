@@ -1,4 +1,4 @@
-# 자주 묻는 질문(FAQ)
+# FAQ
 
 Our basic FAQ covers standard questions and answers that you may have. 덜 일반적인 문제에 대해서는 **[확장된 자주 묻는 질문(FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-ko-KR)** 을 이용하시기 바랍니다.
 
@@ -8,7 +8,7 @@ Our basic FAQ covers standard questions and answers that you may have. 덜 일�
 * [비슷한 도구와 비교](#comparison-with-similar-tools)
 * [보안 / 개인 정보 보호 / VAC / 차단 / 서비스 약관](#security--privacy--vac--bans--tos)
 * [기타](#misc)
-* [이슈](#issues)
+* [Issues](#issues)
 
 ---
 
@@ -110,7 +110,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 ---
 
-## 비슷한 도구와 비교
+## Comparison with similar tools
 
 ---
 
@@ -124,7 +124,7 @@ This is also why you shouldn't compare ASF to IM based on IM expectations. You s
 
 ### Is it worth it to use ASF, if I'm currently using Idle Master and it works fine for me?
 
-**예**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Of course, it's not possible to idle those games until release date, so your idling process will be stuck. This will require you to either add it to the blacklist, wait for release, or skip manually. Neither of those solutions is good, and all of them require your attention - ASF automatically skips idling of unreleased games (temporarily), and returns back to them later when they are, completely avoiding the problem and dealing with it efficiently.
 
@@ -200,13 +200,13 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ### ASF가 농사짓는 동안 게임을 플레이할 수 있나요?
 
-**아니오**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
+**No**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
 
 Keep in mind that cards drop rate when playing multiple games is close to 0 anyway, therefore there are no direct benefits from being able to do that with IM, while there are strong benefits of no interfering with other games launched with ASF, which is crucial e.g. VAC-wise.
 
 ---
 
-## 보안 / 개인 정보 보호 / VAC / 차단 / 서비스 약관
+## Security / Privacy / VAC / Bans / ToS
 
 ---
 
@@ -306,7 +306,7 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 ---
 
-## 기타
+## Misc
 
 ---
 
@@ -346,7 +346,7 @@ ASF is a console app, there is no window to be minimized, because window is crea
 
 ### Does using ASF preserve eligibility for receiving booster packs?
 
-**예**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
+**Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
 
 ---
 
@@ -402,7 +402,7 @@ Of course, there are still valid use cases for multiple ASF instances on the sam
 
 상태는 등록 시도의 결과를 알려줍니다. 많은 가능한 상태가 있습니다. 아래는 가장 일반적인 것들입니다.
 
-| 상태                      | 설명                                                                                                                                 |
+| 상태                      | Description                                                                                                                        |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | NoDetail                | 성공을 나타내는 "OK" 상태입니다. 키가 성공적으로 등록되었습니다.                                                                                             |
 | Timeout                 | 스팀 네크워크가 주어진 시간동안 응답을 하지 않았습니다. 키가 등록되었는지 아닌지 알 수 없습니다. 다시 시도하시기 바랍니다.                                                             |
@@ -417,7 +417,7 @@ Of course, there are still valid use cases for multiple ASF instances on the sam
 
 ### Are you affiliated with any cards farming/idling service?
 
-**아니오**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement)** that:
+**No**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement)** that:
 
 > You are responsible for the confidentiality of your login and password and for the security of your computer system. Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, or by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.
 
@@ -431,7 +431,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ---
 
-## 이슈
+## Issues
 
 ---
 
@@ -531,7 +531,7 @@ In addition to that, Steam includes various rate-limiting measures which will te
 
 There is no "golden rule" that works for everybody, because blocks are heavily influenced by third-party factors, that's why you have to experiment yourself and find a value that works for you. You can also ignore what I say and use something like `10000` which is guaranteed to work correctly, but then don't complain how your ASF reacts to everything in 10 seconds and how badge parsing takes 5 minutes. In addition to that, it's entirely possible that no limiter will do anything because you have so huge amount of bots that you're hitting **[hard limit](#how-many-bots-can-i-run-with-asf)** that was mentioned above. Yes, it's entirely possible that you'll be able to log in without issues into Steam network (client), but Steam web (website) will refuse to listen to you if you have 100 sessions established at once. ASF requires both Steam network and Steam web to be cooperative, it takes just one down to make you issues you won't recover from.
 
-If nothing helps and you have no clue what is broken, you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. 예를 들면 다음과 같습니다:
+If nothing helps and you have no clue what is broken, you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. For example:
 
 ```text
 InternalRequest() HEAD https://steamcommunity.com/my/edit/settings

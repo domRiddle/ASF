@@ -8,7 +8,7 @@ Our basic FAQ covers standard questions and answers that you may have. Pour une 
 * [Comparaison avec d’autres outils similaires](#comparison-with-similar-tools)
 * [Sécurité / Vie Privée / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
 * [Divers](#misc)
-* [Problèmes](#issues)
+* [Issues](#issues)
 
 ---
 
@@ -110,7 +110,7 @@ Oui, ASF ne se soucie même pas de télécharger des fichiers de jeu réels. Il 
 
 ---
 
-## Comparaison avec d’autres outils similaires
+## Comparison with similar tools
 
 ---
 
@@ -124,7 +124,7 @@ C'est aussi pourquoi vous ne devriez pas comparer ASS à IM en fonction des atte
 
 ### Est t-il nécessaire d’utiliser ASF, si j’utilise actuellement Idle Master et que cela fonctionne bien pour moi?
 
-**Oui**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Bien sûr, il n’est pas possible de mettre ces jeux au farming avant la date de sortie. Votre processus d farming sera donc bloqué. Cela nécessitera soit de l'ajouter à la liste noire, d'attendre sa publication ou de l'ignorer manuellement. Aucune de ces solutions n’est bonne et toutes requièrent votre attention. ASF évite automatiquement (temporairement) le farming de jeux inédits et y revient plus tard, évitant ainsi complètement le problème et y apportant une solution efficace.
 
@@ -200,13 +200,13 @@ Cependant, **il y a** une différence, et vous pouvez clairement remarquer que, 
 
 ### Puis-je jouer à un jeu pendant qu'ASF est en train de farmer ?
 
-**Non** Contrairement à IM, ASF inclut un client Steam indépendant et le réseau Steam ne permet à **qu'un client Steam à la fois ** de jouer à un jeu. Vous pouvez cependant déconnecter ASF à tout moment en démarrant une partie (et en cliquant sur "OK" lorsqu'on lui demande si le réseau Steam doit déconnecter un autre client). ASF attendra alors patiemment jusqu'à ce que vous ayez fini de jouer, puis reprendra le processus. Alternativement, vous pouvez toujours jouer en mode hors connexion à tout moment, si cela vous convient.
+**No**. Contrairement à IM, ASF inclut un client Steam indépendant et le réseau Steam ne permet à **qu'un client Steam à la fois ** de jouer à un jeu. Vous pouvez cependant déconnecter ASF à tout moment en démarrant une partie (et en cliquant sur "OK" lorsqu'on lui demande si le réseau Steam doit déconnecter un autre client). ASF attendra alors patiemment jusqu'à ce que vous ayez fini de jouer, puis reprendra le processus. Alternativement, vous pouvez toujours jouer en mode hors connexion à tout moment, si cela vous convient.
 
 N'oubliez pas que le taux d'obtention des cartes lorsque vous jouez à plusieurs jeux est proche de 0; il n'y a donc aucun avantage direct à ce que vous puissiez le faire avec IM, alors qu'il existe de solides avantages de ne pas interférer avec d'autres jeux lancés avec ASF, ce qui est crucial. par exemple VAC-sage.
 
 ---
 
-## Sécurité / Vie Privée / VAC / Bans / ToS
+## Security / Privacy / VAC / Bans / ToS
 
 ---
 
@@ -306,7 +306,7 @@ Vous trouverez des explications détaillées dans la section **[statistiques](ht
 
 ---
 
-## Divers
+## Misc
 
 ---
 
@@ -368,7 +368,7 @@ ASF est une application console, il n'y a pas de fenêtre à minimiser, car cell
 
 ### Est-ce que le fait d’utiliser ASF préserve l’éligibilité pour recevoir des boosters?
 
-**Oui**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
+**Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
 
 
 
@@ -476,7 +476,7 @@ Le statut indique comment la tentative d'activation a été effectué. Il existe
 
 ### Êtes-vous affilié à un service cards farming/idling service?
 
-**Non** ASF n'est affiliée à aucun service et toutes ces réclamations sont fausses. Votre compte Steam est votre propriété et vous pouvez l'utiliser de la manière que vous souhaitez, mais Valve a clairement indiqué dans **[ToS officiel](https://store.steampowered.com/subscriber_agreement)** que:
+**No**. ASF n'est affiliée à aucun service et toutes ces réclamations sont fausses. Votre compte Steam est votre propriété et vous pouvez l'utiliser de la manière que vous souhaitez, mais Valve a clairement indiqué dans **[ToS officiel](https://store.steampowered.com/subscriber_agreement)** que:
 
 
 
@@ -498,7 +498,7 @@ C'est votre compte et votre choix. Juste ne dites pas que personne ne vous a pr�
 
 
 
-## Problèmes
+## Issues
 
 
 
@@ -622,7 +622,7 @@ Other reasons include temporary Steam problem, network issue or likewise. Si le 
 
 ### ASF is failing with `Request failed after 5 tries` errors!
 
-Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Rendez-vous sur **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** pour en savoir plus sur le `SteamParentalCode`.
+Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalCode`.
 
 If parental PIN is not the reason, then this is a most common error, and you should get used to that, it simply means that ASF sent a request to Steam Network, and didn't get a valid response, 5 times in a row. Cela signifie généralement que Steam est en panne, ou en maintenance. ASF en est conscient et vous ne devez pas vous en inquiéter, à moins que cela ne se produise plusieurs heures à la fois et que les autres utilisateurs ne rencontrent pas de tels problèmes. 
 
@@ -634,7 +634,7 @@ In addition to that, Steam includes various rate-limiting measures which will te
 
 There is no "golden rule" that works for everybody, because blocks are heavily influenced by third-party factors, that's why you have to experiment yourself and find a value that works for you. You can also ignore what I say and use something like `10000` which is guaranteed to work correctly, but then don't complain how your ASF reacts to everything in 10 seconds and how badge parsing takes 5 minutes. In addition to that, it's entirely possible that no limiter will do anything because you have so huge amount of bots that you're hitting **[hard limit](#how-many-bots-can-i-run-with-asf)** that was mentioned above. Yes, it's entirely possible that you'll be able to log in without issues into Steam network (client), but Steam web (website) will refuse to listen to you if you have 100 sessions established at once. ASF requires both Steam network and Steam web to be cooperative, it takes just one down to make you issues you won't recover from.
 
-If nothing helps and you have no clue what is broken, you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. Par exemple :
+If nothing helps and you have no clue what is broken, you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. For example:
 
 
 

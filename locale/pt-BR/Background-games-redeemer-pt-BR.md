@@ -6,13 +6,13 @@ O ativador de códigos em segundo plano foi feito para uso em apenas um bot, o q
 
 ---
 
-## Importar
+## Import
 
 O processo de importação das keys pode ser feito de duas maneiras: ou com um arquivo ou usando o IPC.
 
 ### Arquivo
 
-O ASF reconhecerá em sua pasta `config`, um arquivo chamado `BotName.keys`, onde `BotName` é o nome do seu bot. Esse arquivo deve conter uma estrutura fixa com o nome do jogo e o código de produto separados por um caractere de tabulação e terminando com uma nova linha pra indicar a nova entrada. Se várias tabulações forem usadas, então a primeira entrada será considerada como o nome do jogo e a última será considerada código de produto, tudo o que estiver no meio será ignorado. Por exemplo:
+O ASF reconhecerá em sua pasta `config`, um arquivo chamado `BotName.keys`, onde `BotName` é o nome do seu bot. Esse arquivo deve conter uma estrutura fixa com o nome do jogo e o código de produto separados por um caractere de tabulação e terminando com uma nova linha pra indicar a nova entrada. Se várias tabulações forem usadas, então a primeira entrada será considerada como o nome do jogo e a última será considerada código de produto, tudo o que estiver no meio será ignorado. For example:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -46,7 +46,7 @@ Se durante o processo a conta atingir o estado `RateLimited`, a fila é suspensa
 
 ---
 
-## Exemplo
+## Example
 
 Vamos supor que você tem uma lista de 100 códigos de produtos. Em primeiro lugar, você deve criar um novo arquivo `BotName.keys.new` na pasta `config` do ASF. Nós adicionamos a extensão `.new` para que o ASF saiba que não deve pegar esse arquivo imediatamente quando ele for criado (como ele é arquivo vazio ele não está pronto para importação ainda).
 

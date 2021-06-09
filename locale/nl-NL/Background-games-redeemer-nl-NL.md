@@ -6,13 +6,13 @@ Productcode-activering op de achtergrond is gemaakt zodat het werkt voor één b
 
 ---
 
-## Importeren
+## Import
 
 Het importeren kan worden gedaan op twee manieren - door gebruik te maken van een bestand of via IPC.
 
 ### Bestand
 
-ASF is in staat in de `config` map een file met de naam `BotName.keys` te herkennen waarvan `BotNaam` de naam van je bot is. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Als meerdere tabs worden gebruikt, wordt de eerste invoer beschouwd als de naam van het spel en de laatste invoer als de productcode. Alles daar tussenin wordt genegeerd. Bijvoorbeeld:
+ASF is in staat in de `config` map een file met de naam `BotName.keys` te herkennen waarvan `BotNaam` de naam van je bot is. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Als meerdere tabs worden gebruikt, wordt de eerste invoer beschouwd als de naam van het spel en de laatste invoer als de productcode. Alles daar tussenin wordt genegeerd. For example:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -46,7 +46,7 @@ Als tijdens het proces het account de `RateLimited` status krijgt, wordt de wach
 
 ---
 
-## Voorbeeld
+## Example
 
 Stel je hebt een lijst met 100 codes. Eerst moet je een nieuw `BotNaam.keys.new` bestand maken in de ASF `config` map. We hebben een `.new` extensie toegevoegd om ASF te laten weten dat het dit bestand niet onmiddellijk moet lezen op het moment dat het gemaakt werd (aangezien het een nieuw leeg bestand is, wat nog niet gereed is om te importeren).
 

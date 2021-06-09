@@ -154,7 +154,7 @@ Les exemples ci-dessus sont plutôt simples et conçus pour vous montrer à quel
 
 ---
 
-## Restriction
+## Limitations
 
 ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Par conséquent, si vous souhaitez conserver la journalisation pour d'autres cibles même lorsque ASF attend une entrée de l'utilisateur, vous devez définir ces cibles avec leurs propres règles, comme indiqué dans les exemples ci-dessus, au lieu de mettre plusieurs cibles dans `writeTo` de la même règle (à moins qu'il ne s'agisse de votre comportement souhaité). La désactivation temporaire des cibles de la console est effectuée afin de garder la console propre pendant l'attente de la saisie de l'utilisateur.
 
@@ -166,7 +166,7 @@ ASF includes extended support for chat logging by not only recording all receive
 
 ### Propriétés
 
-| Nom         | Description                                                                                                                                                                                                                                                        |
+| Name        | Description                                                                                                                                                                                                                                                        |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Écho        | `bool` type. Ce paramètre est défini sur `true` lorsque nous envoyons un message au destinataire et sur `false` dans le cas contraire.                                                                                                                             |
 | Message     | `string` type. C'est le message actuellement envoyé/reçu.                                                                                                                                                                                                          |
@@ -174,7 +174,7 @@ ASF includes extended support for chat logging by not only recording all receive
 | ChatID      | `ulong` type. Il s’agit de l’ID du channel `ChatGroupID` pour les messages envoyés /reçus. La valeur sera `0` lorsque aucune discussion de groupe n'est utilisée pour transmettre ce message.                                                                      |
 | SteamID     | `ulong` type. Ceci est l'ID de l'utilisateur Steam pour les messages envoyés/reçus. Peut être `0` lorsque aucun utilisateur particulier n'est impliqué dans la transmission du message (par exemple, lorsque nous envoyons un message à une discussion de groupe). |
 
-### Exemple
+### Example
 
 Cet exemple est basé sur notre exemple de base `ColoredConsole` ci-dessus. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
 
@@ -292,7 +292,7 @@ Bien entendu, `SteamTarget` contient toutes les fonctions habituelles d’un gé
 
 #### Captures d'écran
 
-![Capture d"écran](https://i.imgur.com/5juKHMt.png)
+![Screenshot](https://i.imgur.com/5juKHMt.png)
 
 ---
 
@@ -320,19 +320,19 @@ En savoir plus sur l’utilisation du [fichier de configuration](https://github.
 
 #### Paramètres
 
-##### Options Générales
-_Nom_ - Nom de la cible.
+##### General Options
+_name_ - Name of the target.
 
 ---
 
-##### Options de mise en page
-_layout_ - Texte à restituer. [Mise en page](https://github.com/NLog/NLog/wiki/Layouts) Obligatoire. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+##### Layout Options
+_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 ---
 
 ##### Options HistoryTarget
 
-_maxCount_ - Nombre maximal de journaux stockés pour l'historique à la demande. Non requis. La valeur par défaut est `20`, ce qui constitue un bon équilibre pour fournir l'historique initial, tout en gardant à l'esprit l'utilisation de la mémoire qui  correspond aux exigences de stockage. Doit être supérieur à `0`.
+_maxCount_ - Nombre maximal de journaux stockés pour l'historique à la demande. Not required. La valeur par défaut est `20`, ce qui constitue un bon équilibre pour fournir l'historique initial, tout en gardant à l'esprit l'utilisation de la mémoire qui  correspond aux exigences de stockage. Doit être supérieur à `0`.
 
 ---
 

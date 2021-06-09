@@ -6,13 +6,13 @@ Pozadnisko unošenje je napravljeno je da se odnosi na jednog bota, što znači 
 
 ---
 
-## Unos
+## Import
 
 Unošenje se može obaviti na dva načina - pomoću fajla, ili IPC-a.
 
 ### Fajl
 
-ASF prepoznaje u svojem `config` direktorijumu fajl pod nazivod `ImeBota.keys` gdje je `ImeBota` ime vašeg bota. Ovaj fajl ima određenu i fiksnu strukturu sa imenom igrice i ključem, koji su odbojeni tabom i zavšavaju se u novoj liniji kojom tako prikazuju novi unos. Ako je više tabova korišćeno, prvi strana se smatra imenom igrice, druga se smatra ključem, a sve između je ignorisano. Na primjer:
+ASF prepoznaje u svojem `config` direktorijumu fajl pod nazivod `ImeBota.keys` gdje je `ImeBota` ime vašeg bota. Ovaj fajl ima određenu i fiksnu strukturu sa imenom igrice i ključem, koji su odbojeni tabom i zavšavaju se u novoj liniji kojom tako prikazuju novi unos. Ako je više tabova korišćeno, prvi strana se smatra imenom igrice, druga se smatra ključem, a sve između je ignorisano. For example:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -46,7 +46,7 @@ If during the process our account hits `RateLimited` status, the queue is tempor
 
 ---
 
-## Primjer
+## Example
 
 Pretpostavimo da imate listu sa 100 ključeva. Prvo što trebate uraditi je da napravite novi `ImeBota.keys.new` fajl u ASF-ov `config` direktorijumu. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
 

@@ -41,15 +41,15 @@ ASF очень хорошо оптимизирована, и максималь�
 
 ---
 
-## Расширенная настройка среды исполнения
+## Runtime tuning (advanced)
 
 Советы ниже **ведут к ухудшению производительности** и должны использоваться с осторожностью.
 
-Среда выполнения .NET Core позволяет вам **[настраивать сборщик мусора](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** несколькими способами, эффективно настраивая процесс сборки мусора в соответствии с вашими потребностями.
+.NET Core runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
 
-Рекомендуется применять эти настройки через переменные среды с префиксом `COMPlus_`. Разумеется, вы можете использовать и другие методы, например файл `runtimeconfig.json`, но некоторые настройки таким образом поменять не удастся, а кроме того ASF заменит ваш `runtimeconfig.json` на стандартный при следующем обновлении, поэтому мы рекомендуем переменные среды, которые вы легко можете установить перед запуском процесса.
+The recommended way of applying those settings is through `COMPlus_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
 
-Все доступные настройки вы найдёте в документации, а ниже мы расскажем о наиболее важных (по нашему мнению):
+Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
 
 ### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
@@ -79,7 +79,7 @@ This setting configures the memory treshold of your whole OS, which once passed,
 
 ---
 
-Вы можете активировать все настройки сборщика мусора установив соответствующие переменные среды с префиксом `COMPlus_`. Например, для Linux (shell):
+You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
 ```shell
 # Don't forget to tune those if you're planning to make use of them
@@ -92,7 +92,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # For OS-specific build
 ```
 
-Или для Windows (powershell):
+Or on Windows (powershell):
 
 ```powershell
 # Don't forget to tune those if you're planning to make use of them
@@ -117,7 +117,7 @@ $Env:COMPlus_gcTrimCommitOnLowMemory=1
 
 ---
 
-## Рекомендуемые оптимизации
+## Recommended optimization
 
 - Начните с простых советов по настройке ASF, возможно вы просто неправильно им пользуетесь, например запускаете несколько процессов для всех ботов, или держите их активными когда хватит только одного или двух с автозапуском.
 - Если этого недостаточно, активируйте все настройки, описанные выше, установив соответствующие переменные среды `COMPlus_`. `GCLatencyLevel` даёт особенно значительное улучшение при незначительном влиянии на производительность.

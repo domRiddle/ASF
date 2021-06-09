@@ -1,4 +1,4 @@
-# Najčešće postavljana pitanja (FAQ)
+# FAQ
 
 Naš osnovni FAQ obuhvata standardna pitanja i odgovore koje možete imati. Za rjeđa postavljena pitanja, posjetite **[prošireni FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
 
@@ -8,7 +8,7 @@ Naš osnovni FAQ obuhvata standardna pitanja i odgovore koje možete imati. Za r
 * [Upoređivanje sa sličnim alatkama](#comparison-with-similar-tools)
 * [Sigurnost / Privatnost / VAC / Banovi / ToS](#security--privacy--vac--bans--tos)
 * [Razno](#misc)
-* [Problemi](#issues)
+* [Issues](#issues)
 
 ---
 
@@ -110,7 +110,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 ---
 
-## Upoređivanje sa sličnim alatkama
+## Comparison with similar tools
 
 ---
 
@@ -200,13 +200,13 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ### Can I play a game while ASF is farming?
 
-**Ne**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
+**No**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
 
 Keep in mind that cards drop rate when playing multiple games is close to 0 anyway, therefore there are no direct benefits from being able to do that with IM, while there are strong benefits of no interfering with other games launched with ASF, which is crucial e.g. VAC-wise.
 
 ---
 
-## Sigurnost / Privatnost / VAC / Banovi / ToS
+## Security / Privacy / VAC / Bans / ToS
 
 ---
 
@@ -306,7 +306,7 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 ---
 
-## Razno
+## Misc
 
 ---
 
@@ -402,7 +402,7 @@ Of course, there are still valid use cases for multiple ASF instances on the sam
 
 Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
 
-| Status                  | Opis                                                                                                                                                                                                                           |
+| Status                  | Description                                                                                                                                                                                                                    |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | NoDetail                | "OK" status indicating success - the key was successfully redemeed.                                                                                                                                                            |
 | Timeout                 | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely was, but you can try again).                                                                                            |
@@ -417,7 +417,7 @@ Status indicates how given redeem attempt turned out. There are many different s
 
 ### Are you affiliated with any cards farming/idling service?
 
-**Ne**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement)** that:
+**No**. ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement)** that:
 
 > You are responsible for the confidentiality of your login and password and for the security of your computer system. Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, or by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.
 
@@ -431,7 +431,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ---
 
-## Problemi
+## Issues
 
 ---
 
@@ -531,7 +531,7 @@ In addition to that, Steam includes various rate-limiting measures which will te
 
 There is no "golden rule" that works for everybody, because blocks are heavily influenced by third-party factors, that's why you have to experiment yourself and find a value that works for you. You can also ignore what I say and use something like `10000` which is guaranteed to work correctly, but then don't complain how your ASF reacts to everything in 10 seconds and how badge parsing takes 5 minutes. In addition to that, it's entirely possible that no limiter will do anything because you have so huge amount of bots that you're hitting **[hard limit](#how-many-bots-can-i-run-with-asf)** that was mentioned above. Yes, it's entirely possible that you'll be able to log in without issues into Steam network (client), but Steam web (website) will refuse to listen to you if you have 100 sessions established at once. ASF requires both Steam network and Steam web to be cooperative, it takes just one down to make you issues you won't recover from.
 
-If nothing helps and you have no clue what is broken, you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. Na primjer:
+If nothing helps and you have no clue what is broken, you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. For example:
 
 ```text
 InternalRequest() HEAD https://steamcommunity.com/my/edit/settings

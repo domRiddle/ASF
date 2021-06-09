@@ -12,7 +12,7 @@ Esta página está dedicada a la configuración de ASF. Sirve como documentació
 * **[Mapeo JSON](#mapeo-json)**
 * **[Compatibilidad de mapeo](#compatibilidad-de-mapeo)**
 * **[Compatibilidad de configuraciones](#compatibilidad-de-configuraciones)**
-* **[Recarga automática](#autorrecarga)**
+* **[Recarga automática](#recarga-automática)**
 
 ---
 
@@ -206,7 +206,7 @@ Tipo `byte` con valor predeterminado de `0`. Esta propiedad define el formato de
 
 ### `LoginLimiterDelay`
 
-Tipo `byte`con valor predeterminado de `10`. ASF se asegurará de que haya por lo menos `LoginLimiterDelay` segundos entre dos intentos de conexión consecutivos para evitar que se active el límite de intentos. El valor predeterminado de `10` fue establecido con base en conectar más de 100 instancias de bot, y debería satisfacer a la mayoría de los usuarios (si no a todos). Sin embargo, tal vez quieras aumentar/disminuir, o incluso cambiarlo a `0` si tienes una cantidad pequeña de bots, así ASF ignorará el retraso y se conectará a Steam mucho más rápido. Se advierte, sin embargo, que establecerla muy bajo teniendo demasiados bots **resultará** en que Steam bloquee temporalmente tu IP, y eso impedirá que inicies sesión **por completo**, con el error `InvalidPassword/RateLimitExceeded` - y eso también incluye tu cliente de Steam, no solamente ASF. Igualmente, si estás ejecutando un número excesivo de bots, especialmente junto con otros clientes/herramientas de Steam usando la misma dirección IP, probablemente necesites aumentar este valor para distribuir los inicios de sesión entre períodos de tiempo más largos.
+Tipo `byte` con valor predeterminado de `10`. ASF se asegurará de que haya por lo menos `LoginLimiterDelay` segundos entre dos intentos de conexión consecutivos para evitar que se active el límite de intentos. El valor predeterminado de `10` fue establecido con base en conectar más de 100 instancias de bot, y debería satisfacer a la mayoría de los usuarios (si no a todos). Sin embargo, tal vez quieras aumentar/disminuir, o incluso cambiarlo a `0` si tienes una cantidad pequeña de bots, así ASF ignorará el retraso y se conectará a Steam mucho más rápido. Se advierte, sin embargo, que establecerla muy bajo teniendo demasiados bots **resultará** en que Steam bloquee temporalmente tu IP, y eso impedirá que inicies sesión **por completo**, con el error `InvalidPassword/RateLimitExceeded` - y eso también incluye tu cliente de Steam, no solamente ASF. Igualmente, si estás ejecutando un número excesivo de bots, especialmente junto con otros clientes/herramientas de Steam usando la misma dirección IP, probablemente necesites aumentar este valor para distribuir los inicios de sesión entre períodos de tiempo más largos.
 
 Como nota, este valor también es usado como un regulador del balance de carga en todas las acciones programadas de ASF, tal como intercambios en `SendTradePeriod`. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
@@ -214,7 +214,7 @@ Como nota, este valor también es usado como un regulador del balance de carga e
 
 ### `MaxFarmingTime`
 
-Tipo `byte`con valor predeterminado de `10`. Como debes saber, Steam no siempre funciona correctamente, algunas veces pueden suceder situaciones extrañas como que Steam no registre tu tiempo de juego, a pesar de en efecto estar jugando. ASF permitirá recolectar un solo juego en modo individual por un máximo de `MaxFarmingTime` horas, y lo considerará como completamente recolectado después de ese período. Esto es necesario para no congelar el proceso de recolección en caso de que suceda alguna situación extraña, pero también si por alguna razón Steam liberara una nueva insignia que impida que ASF siga funcionando (véase: `Blacklist`). El valor predeterminado de `10` horas debería ser suficiente para obtener todos los cromos de un juego. Establecer esta propiedad muy bajo puede resultar en que juegos válidos sean omitidos (y sí, hay juegos válidos que pueden tomar hasta 9 horas para recolectar), mientras que establecerlo muy alto puede resultar en que se congele el proceso de recolección. Ten en cuenta que esta propiedad solo afecta a un juego en una sesión de recolección (por lo que después de completar toda la lista ASF regresará a ese título), además no está basado en el tiempo de juego total sino en el tiempo interno de ASF, por lo que ASF también regresará a ese título después de un reinicio. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
+Tipo `byte` con valor predeterminado de `10`. Como debes saber, Steam no siempre funciona correctamente, algunas veces pueden suceder situaciones extrañas como que Steam no registre tu tiempo de juego, a pesar de en efecto estar jugando. ASF permitirá recolectar un solo juego en modo individual por un máximo de `MaxFarmingTime` horas, y lo considerará como completamente recolectado después de ese período. Esto es necesario para no congelar el proceso de recolección en caso de que suceda alguna situación extraña, pero también si por alguna razón Steam liberara una nueva insignia que impida que ASF siga funcionando (véase: `Blacklist`). El valor predeterminado de `10` horas debería ser suficiente para obtener todos los cromos de un juego. Establecer esta propiedad muy bajo puede resultar en que juegos válidos sean omitidos (y sí, hay juegos válidos que pueden tomar hasta 9 horas para recolectar), mientras que establecerlo muy alto puede resultar en que se congele el proceso de recolección. Ten en cuenta que esta propiedad solo afecta a un juego en una sesión de recolección (por lo que después de completar toda la lista ASF regresará a ese título), además no está basado en el tiempo de juego total sino en el tiempo interno de ASF, por lo que ASF también regresará a ese título después de un reinicio. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
 ---
 
@@ -558,7 +558,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `5`. Esta propiedad de
 | 6     | SteamGems             | Gemas de Steam usadas para fabricar packs de refuerzo, incluidos los sacos de gemas |
 | 7     | SaleItem              | Artículos especiales otorgados durante las ofertas de Steam                         |
 | 8     | Consumable            | Artículos consumibles especiales que desaparecen después de ser usados              |
-| 9     | ProfileModifier       | Artículos que pueden modificar la apariencia del perfil de Steam                    |
+| 9     | ProfileModifier       | Artículos especiales que pueden modificar la apariencia del perfil de Steam         |
 | 10    | Sticker               | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 11    | ChatEffect            | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |
@@ -759,7 +759,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5`. Esta propie
 | 6     | SteamGems             | Gemas de Steam usadas para fabricar packs de refuerzo, incluidos los sacos de gemas |
 | 7     | SaleItem              | Artículos especiales otorgados durante las ofertas de Steam                         |
 | 8     | Consumable            | Artículos consumibles especiales que desaparecen después de ser usados              |
-| 9     | ProfileModifier       | Artículos que pueden modificar la apariencia del perfil de Steam                    |
+| 9     | ProfileModifier       | Artículos especiales que pueden modificar la apariencia del perfil de Steam         |
 | 10    | Sticker               | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 11    | ChatEffect            | Artículos especiales que se pueden usar en el chat de Steam                         |
 | 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |

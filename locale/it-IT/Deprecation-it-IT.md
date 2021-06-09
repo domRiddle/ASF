@@ -28,7 +28,7 @@ La fase 2 è pianificata dopo che si svolge la fase 1 spiegata sopra ed è rilas
 
 ---
 
-## Sommario
+## Summary
 
 Hai più o meno un **mese intero** per fare il passaggio appropriato, che dovrebbe essere più che abbastanza anche se sei un utente casuale di ASF. Dopo quel periodo, ASF non garantisce più che le vecchie impostazioni avranno alcun effetto (fase 2), rendendo effettivamente non più funzionali certe funzionalità senza che tu lo noti. Se stai lanciando ASF dopo più di un mese di inattività, si consiglia di **[ricominciare da zero](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**, o di leggere tutti i changelog mancati e di aggiornare manualmente il tuo uso a quello corrente.
 
@@ -36,7 +36,7 @@ In gran parte dei casi, ignorare l'avviso di deprecazione non renderà inutilizz
 
 ---
 
-## Esempio
+## Example
 
 Abbiamo spostato l'**[argomento della riga di comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** `--server` della pre-V3.1.2 nella **[proprietà di configurazione globale](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** di `IPC`.
 

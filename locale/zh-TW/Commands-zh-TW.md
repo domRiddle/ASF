@@ -126,7 +126,7 @@ ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語�
 
 一些指令有較短的別名可用，便於輸入。
 
-| 指令           | 別名   |
+| Command      | 別名   |
 | ------------ | ---- |
 | `owns ASF`   | `oa` |
 | `status ASF` | `sa` |
@@ -205,10 +205,10 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 `addlicense` 指令支援兩種不同的授權類型：
 
-| 類型    | 別名  | 範例           | 描述                              |
-| ----- | --- | ------------ | ------------------------------- |
-| `app` | `a` | `app/292030` | 透過遊戲唯一的 `appID` 授權。             |
-| `sub` | `s` | `sub/47807`  | 透過遊戲套裝唯一的 `subID` 授權，包括一款以上的遊戲。 |
+| 類型    | Alias | Example      | Description                     |
+| ----- | ----- | ------------ | ------------------------------- |
+| `app` | `a`   | `app/292030` | 透過遊戲唯一的 `appID` 授權。             |
+| `sub` | `s`   | `sub/47807`  | 透過遊戲套裝唯一的 `subID` 授權，包括一款以上的遊戲。 |
 
 其中的區別很重要，因為 ASF 將對 app 類型使用 Steam 網路激活，對sub 類型使用 Steam 商店激活。 兩者互不相容，通常您將會對免費週末和永久免費遊玩遊戲使用 app 類型，而對其他遊戲使用 sub。
 
@@ -232,7 +232,7 @@ addlicense ASF app/292030,sub/47807
 
 我們建議您明確定義每一個項目的類型，以避免引起歧義的的結果，但為了向後相容性，在您提供了無效的類型或省略了類型的情況下，如果您填入了數字，ASF 將會假設您想要使用 `app` 類型，如果不是數字則視為 `name` 類型。 您也可以使用 ASF 標準的分隔符「`,`」來同時查詢多個遊戲。
 
-完整的指令範例：
+Complete command example:
 
 
 
@@ -253,18 +253,18 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` 參數接受多個模式值，通常用逗號分隔。 可用的模式值如下所示：
 
-| 值    | 名稱                    | 描述                                               |
-| ---- | --------------------- | ------------------------------------------------ |
-| FAWK | ForceAssumeWalletKey  | 強制啟用 `AssumeWalletKeyOnBadActivationCode` 兌換偏好設定 |
-| FD   | ForceDistributing     | 強制啟用 `Distributing` 兌換偏好設定                       |
-| FF   | ForceForwarding       | 強制啟用 `Forwarding` 兌換偏好設定                         |
-| FKMG | ForceKeepMissingGames | 強制啟用 `KeepMissingGames` 兌換偏好設定                   |
-| SAWK | SkipAssumeWalletKey   | 強制停用 `AssumeWalletKeyOnBadActivationCode` 兌換偏好設定 |
-| SD   | SkipDistributing      | 強制停用 `Distributing` 兌換偏好設定                       |
-| SF   | SkipForwarding        | 強制停用 `Forwarding` 兌換偏好設定                         |
-| SI   | SkipInitial           | 跳過初始 BOT 的產品序號兌換過程                               |
-| SKMG | SkipKeepMissingGames  | 強制停用 `KeepMissingGames` 兌換偏好設定                   |
-| V    | Validate              | 檢查產品序號格式，自動跳過無效產品序號                              |
+| Value | Name                  | Description                                      |
+| ----- | --------------------- | ------------------------------------------------ |
+| FAWK  | ForceAssumeWalletKey  | 強制啟用 `AssumeWalletKeyOnBadActivationCode` 兌換偏好設定 |
+| FD    | ForceDistributing     | 強制啟用 `Distributing` 兌換偏好設定                       |
+| FF    | ForceForwarding       | 強制啟用 `Forwarding` 兌換偏好設定                         |
+| FKMG  | ForceKeepMissingGames | 強制啟用 `KeepMissingGames` 兌換偏好設定                   |
+| SAWK  | SkipAssumeWalletKey   | 強制停用 `AssumeWalletKeyOnBadActivationCode` 兌換偏好設定 |
+| SD    | SkipDistributing      | 強制停用 `Distributing` 兌換偏好設定                       |
+| SF    | SkipForwarding        | 強制停用 `Forwarding` 兌換偏好設定                         |
+| SI    | SkipInitial           | 跳過初始 BOT 的產品序號兌換過程                               |
+| SKMG  | SkipKeepMissingGames  | 強制停用 `KeepMissingGames` 兌換偏好設定                   |
+| V     | Validate              | 檢查產品序號格式，自動跳過無效產品序號                              |
 
 
 例如，我們打算為尚未擁有遊戲的 BOT 兌換 3 個產品序號，但不包括 `primary` BOT。 為此我們需要執行指令：
@@ -307,7 +307,7 @@ owns ASF app/292030,name/Witcher
 
 `<Type>` 不區分大小寫, 並定義由ASF識別的輸入類型。 目前, ASF可識別以下類型:
 
-| 類型                      | 描述                                         |
+| Type                    | Description                                |
 | ----------------------- | ------------------------------------------ |
 | Login                   | `SteamLogin`機器人配置屬性，在設定檔缺失這個值時使用。          |
 | 密碼                      | `SteamPassword` 機器人配置屬性，在設定檔缺失這個值時使用。      |
@@ -320,7 +320,7 @@ owns ASF app/292030,name/Witcher
 
 
 
-### 範例
+### Example
 
 假設我們有一個未啟用2FA，僅由 SteamGuard保護的機器人。 We want to launch that bot with `Headless` set to `true`.
 

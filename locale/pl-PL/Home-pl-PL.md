@@ -6,7 +6,7 @@ Możesz zmienić język wiki, dodając `-język` do każdej oglądanej strony. F
 
 Wszystkie strony wiki dotyczą tylko **[najnowszej wersji ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**, chyba że jest napisane inaczej (np. "V2"). If you'd like to see a wiki page in given fixed point of time (for example for a bit older ASF release), use **[revisions](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/_history)** that are available on top of each page and pick a date that is appropriate for the date of your ASF release. Wszystkie strony są dostępne dla aktualnej i poprzedniej głównej wersji ASF.
 
-Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od **[przewodnika po konfiguracji](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-pl-PL)**. Wszystkie inne istotne strony wiki można znaleźć na pasku bocznym, po prawej stronie ekranu. We suggest to start from the top, although feel free to read anything that seems remotely interesting to you, there are no limits on ASF knowledge.
+If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide. Wszystkie inne istotne strony wiki można znaleźć na pasku bocznym, po prawej stronie ekranu. We suggest to start from the top, although feel free to read anything that seems remotely interesting to you, there are no limits on ASF knowledge.
 
 If you need further help, please check out our **[support channels](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**, which you can use for all the questions and technical difficulties.
 

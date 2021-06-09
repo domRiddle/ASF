@@ -6,13 +6,13 @@
 
 ---
 
-## Внасяне
+## Import
 
 Процесът на внедряване може да се извърши по два начина - или чрез ползването на файл, или чрез процеса на вътрешна комуникация.
 
 ### Файл
 
-ASF ще разпознае в своята `config` директория файл наречен `BotName.keys` където `BotName` е името на вашия бот. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. Например:
+ASF ще разпознае в своята `config` директория файл наречен `BotName.keys` където `BotName` е името на вашия бот. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. For example:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -32,7 +32,7 @@ ZXCVB-ASDFG-QWERT
 
 Независимо кой формат сте решили да ползвате, ASF ще внедри вашия `keys` файл или при стартиране на бота, или по време на работа. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
 
-### Процеси на вътрешна комуникация
+### IPC
 
 In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
 
@@ -46,7 +46,7 @@ If during the process our account hits `RateLimited` status, the queue is tempor
 
 ---
 
-## Пример
+## Example
 
 Да предположим, че имате списък със 100 ключа. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
 

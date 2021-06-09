@@ -45,13 +45,13 @@ Lo que significa que la memoria se elevará más cuando ASF está leyendo las p�
 
 Los siguientes trucos **involucran una reducción del rendimiento** y deben ser usados con precaución.
 
-.NET Core runtime te permite **[modificar el recolector de basura](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** de muchas formas, afinando eficazmente el proceso de recolección de basura de acuerdo a tus necesidades.
+.NET Core runtime te permite **[modificar el recolector de basura](https://docs.microsoft.com/es-es/dotnet/core/run-time-config/garbage-collector)** de muchas formas, ajustando eficazmente el proceso de recolección de basura de acuerdo a tus necesidades.
 
 La forma recomendada de aplicar estas configuraciones es a través de las propiedades de entorno `COMPlus_`. Por supuesto, también podrías usar otros métodos, por ejemplo, `runtimeconfig.json`, pero algunas configuraciones son imposibles de establecer de esta manera, encima de eso ASF reemplazará tu `runtimeconfig.json` personalizado en la siguiente actualización, por lo tanto recomendamos propiedades de entorno que puedas establecer fácilmente antes de ejecutar el proceso.
 
 Consulta la documentación para todas las propiedades que puedes utilizar, a continuación mencionaremos las más importantes (en nuestra opinión):
 
-### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
+### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/es-es/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
 > Especifica el uso del recolector de basura como un porcentaje de la memoria total.
 
@@ -59,7 +59,7 @@ El límite "duro" de memoria para el proceso de ASF, este parámetro ajusta el r
 
 Por otro lado, establecer este valor lo suficientemente alto es una forma perfecta de asegurar que ASF nunca usará más memoria de la que puedes permitirte realmente, dando a tu máquina un respiro incluso bajo una carga pesada, y permitiendo al programa hacer su trabajo de manera tan eficiente como sea posible.
 
-### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
+### [`GCHighMemPercent`](https://docs.microsoft.com/es-es/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 
 > Especifica la cantidad de memoria usada después de lo cual el recolector de basura se vuelve más agresivo.
 
@@ -71,7 +71,7 @@ Esta configuración ajusta el límite de memoria de todo tu sistema operativo, c
 
 Esta es una propiedad no documentada que resultó funcionar excepcionalmente bien para ASF, limitando los tamaños de generación del recolector de basura y en consecuencia hace que este los purgue más frecuente y agresivamente. El nivel de latencia predeterminado (equilibrado) es `1`, pero puedes usar `0`, lo que ajustará el uso de memoria.
 
-### [`gcTrimCommitOnLowMemory`](https://docs.microsoft.com/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
+### [`gcTrimCommitOnLowMemory`](https://docs.microsoft.com/es-es/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
 
 > Cuando se establece esta opción recortamos el espacio asignado de forma más agresiva para los segmentos de corta duración. Esto se utiliza para ejecutar muchas instancias de procesos de servidor donde es necesario mantener tan poca memoria asignada como sea posible.
 

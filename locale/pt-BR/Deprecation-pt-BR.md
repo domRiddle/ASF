@@ -28,7 +28,7 @@ A segunda etapa ocorre quando uma nova versão estável é lançada. Essa etapa 
 
 ---
 
-## Resumo
+## Summary
 
 Você tem mais ou menos **um mês inteiro** para fazer as mudanças necessárias, o que deve ser mais do que suficiente mesmo se você é um usuário casual do ASF. Após esse período, o ASF já não garante que as configurações antigas terão qualquer efeito (segunda etapa), fazendo com que certas funcionalidades parem de funcionar sem que você perceba. Se você ficar mais de um mês sem abrir o ASF, é aconselhável que você **[comece do zero](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pt-BR)** novamente, ou leia todos os registros de mudança que possa ter perdido e se adapte manualmente ao uso atual.
 
@@ -36,7 +36,7 @@ Na maioria dos casos, ignorar o aviso de depreciação não deixara a funcionali
 
 ---
 
-## Exemplo
+## Example
 
 Nós movemos o **[argumento de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)** `--server` das versões anteriores à V3.1.2.2 para o **[parâmetro de configuração global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#configurações-globais)** `IPC`.
 

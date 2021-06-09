@@ -6,7 +6,7 @@ ASF 包含自己獨特的 IPC 接口，可用於與流程進一步交互。 IPC�
 
 ---
 
-# 使用方法
+# Usage
 
 Unless you manually disabled IPC through `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's enabled by default. ASF 將在其日誌中聲明 IPC 啟動, 您可以使用該日誌驗證 IPC 介面是否已正常啟動：
 

@@ -112,7 +112,7 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 ---
 
-## Najčešće postavljana pitanja (FAQ)
+## FAQ
 
 ### Kako ASF koristi 2FA modul?
 

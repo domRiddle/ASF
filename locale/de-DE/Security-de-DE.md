@@ -4,11 +4,11 @@
 
 ASF unterstützt derzeit die folgenden Verschlüsselungsmethoden als Parameter für `ECryptoMethod`:
 
-| Wert | Name                        |
-| ---- | --------------------------- |
-| 0    | PlainText                   |
-| 1    | AES                         |
-| 2    | ProtectedDataForCurrentUser |
+| Value | Name                        |
+| ----- | --------------------------- |
+| 0     | PlainText                   |
+| 1     | AES                         |
+| 2     | ProtectedDataForCurrentUser |
 
 Die genaue Beschreibung und Unterschiede zwischen diesen sind nachfolgend verfügbar.
 
@@ -58,13 +58,13 @@ ASF unterstützt keine Möglichkeit, bereits verschlüsselte Passwörter zu ents
 
 ASF unterstützt derzeit die folgenden Hashmethoden als Parameter für `EHashingMethod`:
 
-| Wert | Name      |
-| ---- | --------- |
-| 0    | PlainText |
-| 1    | SCrypt    |
-| 2    | Pbkdf2    |
+| Value | Name      |
+| ----- | --------- |
+| 0     | PlainText |
+| 1     | SCrypt    |
+| 2     | Pbkdf2    |
 
-Die genaue Beschreibung und Unterschiede zwischen diesen sind nachfolgend verfügbar.
+The exact description and comparison of them is available below.
 
 In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
 
@@ -72,7 +72,7 @@ In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `h
 
 ### PlainText
 
-This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. Sie ist am einfachsten zu benutzen und zu 100% kompatibel mit allen Setups, daher ist sie eine Standardmethode zum Speichern von Geheimnissen, völlig unsicher für eine sichere Speicherung.
+This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
 
 ---
 
@@ -92,6 +92,6 @@ ASF allows you to specify salt for this method via `--cryptkey` **[command-line 
 
 ---
 
-## Empfehlung
+## Recommendation
 
 If you'd like to use a hashing method for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).

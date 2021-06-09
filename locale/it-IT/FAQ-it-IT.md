@@ -1,4 +1,4 @@
-# Domande frequenti
+# FAQ
 
 La nostra FAQ di base copre le domande standard e le risposte che potresti avere. Invece per questioni meno comuni, per favore visita il nosto **[FAQ esteso](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
 
@@ -8,7 +8,7 @@ La nostra FAQ di base copre le domande standard e le risposte che potresti avere
 * [Confronto con strumenti simili](#comparison-with-similar-tools)
 * [Sicurezza / Privacy / VAC / Ban / TdS](#security--privacy--vac--bans--tos)
 * [Varie](#misc)
-* [Problemi](#issues)
+* [Issues](#issues)
 
 ---
 
@@ -110,7 +110,7 @@ Sì, ASF non si preoccupa nemmeno di scaricare i file di gioco effettivi, quindi
 
 ---
 
-## Confronto con strumenti simili
+## Comparison with similar tools
 
 ---
 
@@ -124,7 +124,7 @@ Questo è anche il motivo per cui non dovresti comparare ASF a IM basandoti sull
 
 ### Vale la pena usare ASF, se correntemente uso Idle Master e funziona bene per me?
 
-**Sì**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Certo, non è possibile farmare tali giochi fino alla data di rilascio, quindi il tuo processo di farming si bloccherà. Questo ti richiederà di aggiungerli alla blacklist, attendere il rilascio o saltarli manualmente. Nessuna di queste soluzioni è buona, e tutte richiedono la tua attenzione; ASF salta automaticamente il farming di giochi non rilasciati (temporaneamente) e ci torna quando lo sono, evitando completamento il problema e affrontandolo efficientemente.
 
@@ -206,7 +206,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 ---
 
-## Sicurezza / Privacy / VAC / Ban / TdS
+## Security / Privacy / VAC / Bans / ToS
 
 ---
 
@@ -306,7 +306,7 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 ---
 
-## Varie
+## Misc
 
 ---
 
@@ -346,7 +346,7 @@ ASF is a console app, there is no window to be minimized, because window is crea
 
 ### Does using ASF preserve eligibility for receiving booster packs?
 
-**Sì**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
+**Yes**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
 
 ---
 
@@ -431,7 +431,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ---
 
-## Problemi
+## Issues
 
 ---
 
@@ -531,7 +531,7 @@ In addition to that, Steam includes various rate-limiting measures which will te
 
 There is no "golden rule" that works for everybody, because blocks are heavily influenced by third-party factors, that's why you have to experiment yourself and find a value that works for you. You can also ignore what I say and use something like `10000` which is guaranteed to work correctly, but then don't complain how your ASF reacts to everything in 10 seconds and how badge parsing takes 5 minutes. In addition to that, it's entirely possible that no limiter will do anything because you have so huge amount of bots that you're hitting **[hard limit](#how-many-bots-can-i-run-with-asf)** that was mentioned above. Yes, it's entirely possible that you'll be able to log in without issues into Steam network (client), but Steam web (website) will refuse to listen to you if you have 100 sessions established at once. ASF requires both Steam network and Steam web to be cooperative, it takes just one down to make you issues you won't recover from.
 
-If nothing helps and you have no clue what is broken, you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. Per esempio:
+If nothing helps and you have no clue what is broken, you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. For example:
 
 ```text
 InternalRequest() HEAD https://steamcommunity.com/my/edit/settings

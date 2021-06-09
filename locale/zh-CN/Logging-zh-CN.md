@@ -150,7 +150,7 @@ ASF 也会记录额外的信息，例如 `Trace` 日志级别就包含用户的�
 
 ---
 
-## 限制
+## Limitations
 
 ASF 会在需要用户输入时暂时禁用包括 `ColoredConsole` 或 `Console` 目标的**所有**规则。 因此，如果您希望在 ASF 等待用户输入时能够继续记录到其他目标，就应该为这些目标编写独立的规则，如上例所示，而不是将很多目标都写在同一个规则的 `writeTo` 中（除非这就是您需要的行为）。 临时禁用控制台目标是为了在等待用户输入时保持控制台的清洁。
 
@@ -162,7 +162,7 @@ ASF 包括了对聊天记录的扩展支持，不仅在 `Trace` 日志级别中�
 
 ### 事件属性
 
-| 名称          | 描述                                                                        |
+| Name        | Description                                                               |
 | ----------- | ------------------------------------------------------------------------- |
 | Echo        | `bool` 类型。 当消息是由我们发给接受者时为 `true`，否则为 `false`。                             |
 | Message     | `string` 类型。 发送/接收的实际消息内容。                                                |
@@ -170,7 +170,7 @@ ASF 包括了对聊天记录的扩展支持，不仅在 `Trace` 日志级别中�
 | ChatID      | `ulong` 类型。 发送/接收消息的频道 `ChatGroupID`。 如果该消息并非通过群组聊天发送则为 `0`。              |
 | SteamID     | `ulong` 类型。 发送/接收消息的 Steam 用户 ID。 当没有特定用户参与该消息的传输时（例如我们向群组聊天发消息），可以为 `0`。 |
 
-### 范例
+### Example
 
 这个示例基于上述的 `ColoredConsole` 基本示例。 在理解它之前，我强烈建议您先阅读&#8203;**[上文](#示例)**，了解 NLog 日志的基础。
 
@@ -315,19 +315,19 @@ _botName_——机器人的名称（供 ASF 识别，区分大小写），该机
 
 #### 参数
 
-##### 一般选项
-_name_——目标的名称。
+##### General Options
+_name_ - Name of the target.
 
 ---
 
-##### 布局选项
-_layout_——要呈现的文本。 要求为 [Layout](https://github.com/NLog/NLog/wiki/Layouts)。 默认值：`${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+##### Layout Options
+_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. 默认值：`${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 ---
 
 ##### HistoryTarget 选项
 
-_maxCount_——日志历史记录的最大存储量。 可选。 默认为 `20`，这是一个合适的初始历史记录条数，同时也考虑到了存储日志所需的内存用量。 必须大于 `0`。
+_maxCount_——日志历史记录的最大存储量。 Not required. 默认为 `20`，这是一个合适的初始历史记录条数，同时也考虑到了存储日志所需的内存用量。 必须大于 `0`。
 
 ---
 

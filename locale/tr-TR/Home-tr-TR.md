@@ -6,7 +6,7 @@ Ziyaret ettiğiniz Wiki sayfasının dilini değiştirmek için `-locale` komutu
 
 Aksi belirtilmedikçe (mesela "V2" gibi), bütün Wiki sayfaları daima **[en son ASF sürümü](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**ne atfedilmiştir. Belirli bir zamandaki bir Wiki sayfasını görmek isterseniz (örneğin biraz eski bir ASF sürümü için), her sayfanın üst kısmında bulunan **[düzeltmeler](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/_history)** kısmını kullanın ve görmek istediğiniz ASF sürümünüz için uygun bir tarih seçin. Mevcut sürüm için olan tüm sayfaları tuttuğumuz gibi, önceki büyük ASF sürümlerinikileri de tutuyoruz.
 
-Eğer yeni bir kullanıcıysanız, **[kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** rehberi ile başlamanızı tavsiye ederiz. Diğer tüm ilgili viki sayfalarını, ekranın sağ tarafında bulunan kenar çubuğumuzdan bulabilirsiniz. We suggest to start from the top, although feel free to read anything that seems remotely interesting to you, there are no limits on ASF knowledge.
+If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide. Diğer tüm ilgili viki sayfalarını, ekranın sağ tarafında bulunan kenar çubuğumuzdan bulabilirsiniz. We suggest to start from the top, although feel free to read anything that seems remotely interesting to you, there are no limits on ASF knowledge.
 
 If you need further help, please check out our **[support channels](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**, which you can use for all the questions and technical difficulties.
 

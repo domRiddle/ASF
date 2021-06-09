@@ -6,13 +6,13 @@ Activatorul de coduri în plan secundar este făcut să aibă un singur domeniu 
 
 ---
 
-## Importă
+## Import
 
 Procesul de import poate fi realizat prin două căi - fie prin utilizarea unui fișier sau a unui IPC.
 
 ### Fișier
 
-ASF va recunoaște în directorul său `config` un fișier numit `BotName.keys` unde `BotName` este numele botului tău. Acel fișier are o structură fixă compusă din numelui jocului şi cd-key, separate unul de celălalt de un caracter tab şi se termină cu o nouă linie pentru a indica următoarea intrare. Dacă sunt folosite mai multe caractere tab, prima intrare este considerată numele jocului, ultima intrare este considerată o cheie cd-key, și totul în intervalul este ignorat. De exemplu:
+ASF va recunoaște în directorul său `config` un fișier numit `BotName.keys` unde `BotName` este numele botului tău. Acel fișier are o structură fixă compusă din numelui jocului şi cd-key, separate unul de celălalt de un caracter tab şi se termină cu o nouă linie pentru a indica următoarea intrare. Dacă sunt folosite mai multe caractere tab, prima intrare este considerată numele jocului, ultima intrare este considerată o cheie cd-key, și totul în intervalul este ignorat. For example:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -46,7 +46,7 @@ Dacă în timpul procesului contul nostru lovește starea `RateLimited`, coada d
 
 ---
 
-## Exemplu
+## Example
 
 Să presupunem că ai o listă de 100 de chei. În primul rând ar trebui să creați un nou fișier `BotName.keys.new` în directorul ASF `config`. Am adăugat extensia `.new` pentru a anunța ASF că nu ar trebui să preia acest fișier imediat ce este creat (deoarece este un fișier nou gol, nu este gata pentru import încă).
 

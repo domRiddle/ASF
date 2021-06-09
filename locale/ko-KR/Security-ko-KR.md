@@ -4,11 +4,11 @@
 
 ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
 
-| 값 | 이름                          |
-| - | --------------------------- |
-| 0 | 평문(PlainText)               |
-| 1 | 고급 암호화 표준(AES)              |
-| 2 | ProtectedDataForCurrentUser |
+| Value | Name                        |
+| ----- | --------------------------- |
+| 0     | 평문(PlainText)               |
+| 1     | 고급 암호화 표준(AES)              |
+| 2     | ProtectedDataForCurrentUser |
 
 The exact description and comparison of them is available below.
 
@@ -58,11 +58,11 @@ ASF는 이미 암호화된 암호를 복호화하는 어떠한 방법도 지원�
 
 ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
 
-| 값 | 이름            |
-| - | ------------- |
-| 0 | 평문(PlainText) |
-| 1 | SCrypt        |
-| 2 | Pbkdf2        |
+| Value | Name      |
+| ----- | --------- |
+| 0     | PlainText |
+| 1     | SCrypt    |
+| 2     | Pbkdf2    |
 
 The exact description and comparison of them is available below.
 
@@ -70,7 +70,7 @@ In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `h
 
 ---
 
-### 평문(PlainText)
+### PlainText
 
 This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
 
@@ -92,6 +92,6 @@ ASF allows you to specify salt for this method via `--cryptkey` **[command-line 
 
 ---
 
-## 권장사항
+## Recommendation
 
 If you'd like to use a hashing method for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).

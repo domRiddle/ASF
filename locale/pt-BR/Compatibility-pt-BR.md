@@ -46,7 +46,7 @@ Conforme o tempo passa, com mais plataformas sendo suportadas pelo .NET Core, e 
 
 ---
 
-### SO específico
+### OS-specific
 
 O pacote para Sistema Operacional específico, além do código gerenciado incluso no pacote genérico, também inclui código nativo para dada plataforma. Em outras palavras, o pacote para Sistema Operacional específico **já inclui o tempo de execução .NET Core apropriado**, que permite que você ignore inteiramente a bagunça toda da instalação e abra o ASF diretamente. O pacote para Sistema Operacional específico, como você pode adivinhar pelo nome, é específico para cada sistema operacional e cada um requer sua própria versão; por exemplo, o Windows requer o binário PE32 + `ArchiSteamFarm.exe`, enquanto o Linux trabalha com o binário Unix ELF `ArchiSteamFarm`. Como você deve saber, esses dois tipos não são compatíveis um com o outro.
 

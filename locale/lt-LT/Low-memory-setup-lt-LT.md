@@ -79,7 +79,7 @@ This offers little improvement, but may make GC even more aggressive when system
 
 ---
 
-You can enable all GC properties by setting appropriate `COMPlus_` environment variables. Pavyzdžiui, tarp Linux (shell):
+You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
 ```shell
 # Don't forget to tune those if you're planning to make use of them
@@ -92,7 +92,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # For OS-specific build
 ```
 
-Arba tarp Windows (powershell):
+Or on Windows (powershell):
 
 ```powershell
 # Don't forget to tune those if you're planning to make use of them

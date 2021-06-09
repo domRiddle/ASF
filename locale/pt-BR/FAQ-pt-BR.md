@@ -1,4 +1,4 @@
-# Perguntas frequentes (FAQ)
+# FAQ
 
 A seção de perguntas frequentes cobre respostas a questões comuns que você pode ter. Para questões menos comuns, por favor visite a seção **[Perguntas frequentes adicionais](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
 
@@ -8,7 +8,7 @@ A seção de perguntas frequentes cobre respostas a questões comuns que você p
 * [Comparação com ferramentas similares](#comparison-with-similar-tools)
 * [Segurança / Privacidade / VAC / Banimentos / Termos de serviço](#security--privacy--vac--bans--tos)
 * [Diversos](#misc)
-* [Problemas](#issues)
+* [Issues](#issues)
 
 ---
 
@@ -110,7 +110,7 @@ Sim, o ASF não vai baixar nenhum arquivo de jogo, então ele funciona com todas
 
 ---
 
-## Comparação com ferramentas similares
+## Comparison with similar tools
 
 ---
 
@@ -124,7 +124,7 @@ Por esse motivo também você não deve comparar o ASF com o IM baseado no que �
 
 ### Vale a pena usar o ASF se eu estiver usando o Idle Master e ele funciona bem para mim?
 
-**Sim**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Claro, não há como rodar esses jogos até a data de lançamento, então seu processo de coleta ficará travado. Isso fará com que você tenha que adicioná-lo a blacklist, esperar pelo lançamento ou pular manualmente. Nenhuma dessas é uma boa solução e todos requerem sua atenção - o ASF pula (temporariamente) a coleta desses jogos e a retoma assim que forem lançados, evitando completamente problemas e lidando eficientemente com isso.
 
@@ -200,13 +200,13 @@ No entanto, **há** uma diferença, que pode ser notada, pois dependendo de como
 
 ### Posso jogar algum jogo enquanto o ASF estiver coletando?
 
-**Não**. Diferentemente do IM, o ASF tem um cliente independente do Steam embutido, e a rede Steam só permite **um cliente Steam por vez** jogando um jogo. No entanto você pode desconectar o ASF sempre que quiser apenas iniciando um jogo (e clicando em "OK" quando perguntado se a rede Steam deve desconectar o outro Cliente) - O ASF então vai esperar pacientemente até que você termine o jogo, e retomará o processo após isso. Como alternativa, você pode jogar no modo offline sempre que quiser, se isso for satisfatório para você.
+**No**. Diferentemente do IM, o ASF tem um cliente independente do Steam embutido, e a rede Steam só permite **um cliente Steam por vez** jogando um jogo. No entanto você pode desconectar o ASF sempre que quiser apenas iniciando um jogo (e clicando em "OK" quando perguntado se a rede Steam deve desconectar o outro Cliente) - O ASF então vai esperar pacientemente até que você termine o jogo, e retomará o processo após isso. Como alternativa, você pode jogar no modo offline sempre que quiser, se isso for satisfatório para você.
 
 Tenha em mente que a taxa de coleta de cartas quando se joga múltiplos jogos é próxima a 0, portanto não há benefícios diretos em existir essa possibilidade como no IM, enquanto há boas razões de não interferir com outros jogos em execução no ASF, o que pode ser importante, por exemplo, por causa do VAC.
 
 ---
 
-## Segurança / Privacidade / VAC / Banimentos / Termos de serviço
+## Security / Privacy / VAC / Bans / ToS
 
 ---
 
@@ -306,7 +306,7 @@ Você pode encontrar uma explicação detalhada do que exatamente essa opção f
 
 ---
 
-## Diversos
+## Misc
 
 ---
 
@@ -346,7 +346,7 @@ O ASF é um aplicativo de console, não há janela para ser minimizada pois as j
 
 ### Usar o ASF me mantém elegível para receber pacotes de cartas?
 
-**Sim**. O ASF usa o mesmo método para se conectar a rede Steam que o cliente oficial, então ele também preserva a habilidade de receber pacotes para as contas que estão sendo usadas no ASF. Além disso, preservar essa habilidade não requer nem entrar na comunidade Steam, então você pode setar a configuração `OnlineStatus` para `Offline` e se manter invisível sem medo.
+**Yes**. O ASF usa o mesmo método para se conectar a rede Steam que o cliente oficial, então ele também preserva a habilidade de receber pacotes para as contas que estão sendo usadas no ASF. Além disso, preservar essa habilidade não requer nem entrar na comunidade Steam, então você pode setar a configuração `OnlineStatus` para `Offline` e se manter invisível sem medo.
 
 ---
 
@@ -402,7 +402,7 @@ Claro, existem casos válidos de uso para várias instâncias do ASF na mesma in
 
 O estado indica como determinada tentativa de resgate acabou. Há muitos estados possíveis, os mais comuns incluem:
 
-| Estado                  | Descrição                                                                                                                                                                                               |
+| Estado                  | Description                                                                                                                                                                                             |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | NoDetail                | Estado "OK" que indica sucesso; a key foi resgatada com sucesso.                                                                                                                                        |
 | Timeout                 | A rede Steam não respondeu no tempo limite, não sabemos se a key foi resgatada ou não (provavelmente sim, mas você pode tentar de novo).                                                                |
@@ -417,7 +417,7 @@ O estado indica como determinada tentativa de resgate acabou. Há muitos estados
 
 ### Vocês são afiliados a algum serviço de coleta de cartas?
 
-**Não**. O ASF não é afiliado a nenhum serviço e qualquer afirmação acerca disso é falsa. A sua conta Steam é propriedade sua e você pode usar sua conta da maneira que quiser, mas a Valve diz claramente no **[Acordo de Assinatura do Steam](https://store.steampowered.com/subscriber_agreement)** que:
+**No**. O ASF não é afiliado a nenhum serviço e qualquer afirmação acerca disso é falsa. A sua conta Steam é propriedade sua e você pode usar sua conta da maneira que quiser, mas a Valve diz claramente no **[Acordo de Assinatura do Steam](https://store.steampowered.com/subscriber_agreement)** que:
 
 > Você é o responsável pela confidencialidade de seu nome de login e senha assim como pela segurança do seu sistema de computador. A Valve não é responsável pelo uso da sua senha e conta nem por todas as comunicações e atividades no Steam que resultem do uso do seu nome de usuário e senha por você, ou por qualquer pessoa a qual você tenha, de forma intencional ou não, divulgado o seu login e/ou senha em violação à disposição de confidencialidade.
 
@@ -431,7 +431,7 @@ Além disso, o **[Acordo de Assinatura do Steam](https://store.steampowered.com/
 
 ---
 
-## Problemas
+## Issues
 
 ---
 
@@ -519,7 +519,7 @@ Outras razões incluem: um problema temporário do Steam, um problema de rede ou
 
 ### O ASF está falhando com o erro: `Falha na solicitação após 5 tentativas`!
 
-Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Vá até **[configuração](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)** para saber mais sobre o `SteamParentalCode`.
+Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalCode`.
 
 Se PIN do modo família não for o motivo, então este é um erro mais comum e você deve se acostumar com isso, significa simplesmente que o ASF enviou uma solicitação para a rede Steam e não recebeu uma resposta válida 5 vezes seguidas. Normalmente, isso significa que a Steam caiu, está tendo algumas dificuldades ou está em manutenção; o ASF está ciente de tais problemas e você não deve se preocupar com eles, a menos que aconteçam constantemente e por mais que algumas horas, e que outros usuários não estejam tendo esses problemas.
 
@@ -531,7 +531,7 @@ Além disso, a rede Steam inclui várias medidas para limitar o envio de requisi
 
 Não há nenhuma "regra de ouro" que funcione para todo mundo, porque os bloqueios são fortemente influenciados por fatores de terceiros, é por isso que você tem que experimentar por conta e encontrar um valor que funcione para você. Você também pode ignorar o que eu disse e usar algo como `10000` e é certo que tudo funcionará, mas depois não reclame que seu ASF leva 10 segundos para reagir a tudo e que a análise da página de insígnias demora 5 minutos. Além disso, é inteiramente possível que nenhum limitador traga resultado se você tem uma quantidade tão grande de bots que você esteja atingindo o **[limite máximo](#quantos-bots-posso-rodar-com-o-asf)** que foi mencionado acima. Sim, é inteiramente possível que você consiga se conectar sem problemas na rede Steam (cliente), mas o Steam web (site da web) vai se recusar a ouvir se você tiver 100 sessões rodando ao mesmo tempo. O ASF necessita que tanto a rede Steam quanto o Steam web sejam cooperativos, basta que um caia para que você não consiga mais recuperar de um problema.
 
-Se nada ajudar e você não tiver idéia do que possa estar errado, você pode habilitar o modo `Debug` e ver no registro do ASF porque exatamente as solicitações estão falhando. Por exemplo:
+Se nada ajudar e você não tiver idéia do que possa estar errado, você pode habilitar o modo `Debug` e ver no registro do ASF porque exatamente as solicitações estão falhando. For example:
 
 ```text
 InternalRequest() HEAD https://steamcommunity.com/my/edit/settings

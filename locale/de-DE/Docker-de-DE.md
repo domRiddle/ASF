@@ -47,7 +47,7 @@ Seit ASF-Version V5.0.2.2 verwenden unsere Tags das Multi-Plattform-Manifest, wa
 
 ---
 
-## Nutzung
+## Usage
 
 Für eine vollständige Referenz solltest du die **[offizielle Docker-Dokumentation](https://docs.docker.com/engine/reference/commandline/docker)** verwenden. Wir werden in diesem Leitfaden nur die grundlegende Verwendung behandeln. Du bist herzlich dazu eingeladen, noch tiefer zu graben.
 
@@ -126,7 +126,7 @@ Das einbinden von `/tmp/ASF` ist komplett optional und aktuell nicht empfehlensw
 
 ---
 
-## Konsolen-Argumente
+## Command-line arguments
 
 ASF erlaubt es Ihnen **[Kommandozeilenargumente](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** in Docker-Containern durch Umgebungsvariablen zu geben. Sie sollten spezifische Umgebungsvariablen für die unterstützten Schalter benutzen und für den Rest `ASF_ARGS`. Dies kann mit dem Schalter `-e` erreicht werden, der zum `Docker Run`hinzugefügt wurde; zum Beispiel:
 

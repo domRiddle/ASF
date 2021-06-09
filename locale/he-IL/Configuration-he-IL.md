@@ -1,4 +1,4 @@
-# תצורה
+# Configuration
 
 This page is dedicated for ASF configuration. It serves as a complete documentation of `config` directory, allowing you to tune ASF to your needs.
 
@@ -230,7 +230,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 ---
 
-### `סטטיסטיקה`
+### `Statistics`
 
 `bool` type with default value of `true`. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Unless you have a reason to edit this property, you should keep it at default.
 
@@ -252,7 +252,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 `byte flags` type with default value of `7`. This property defines Steam protocols that ASF will use when connecting to Steam servers, which are defined as below:
 
-| Value | שם        | Description                                                                                      |
+| Value | Name      | Description                                                                                      |
 | ----- | --------- | ------------------------------------------------------------------------------------------------ |
 | 0     | None      | No protocol                                                                                      |
 | 1     | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
@@ -395,7 +395,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 `byte flags` type with default value of `0`. This property defines ASF bot-like behaviour during various events, and is defined as below:
 
-| Value | שם                            | Description                                                                                              |
+| Value | Name                          | Description                                                                                              |
 | ----- | ----------------------------- | -------------------------------------------------------------------------------------------------------- |
 | 0     | None                          | No special bot behaviour, the least invasive mode, default                                               |
 | 1     | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites                                    |
@@ -433,7 +433,7 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 As of today, the following item types are supported in this setting:
 
-| Value | שם              | Description                                                   |
+| Value | Name            | Description                                                   |
 | ----- | --------------- | ------------------------------------------------------------- |
 | 3     | FoilTradingCard | Foil variant of `TradingCard`                                 |
 | 5     | TradingCard     | Steam trading card, being used for crafting badges (non-foil) |
@@ -470,7 +470,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 `ImmutableList<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
 
-| Value | שם                        | Description                                                                      |
+| Value | Name                      | Description                                                                      |
 | ----- | ------------------------- | -------------------------------------------------------------------------------- |
 | 0     | Unordered                 | No sorting, slightly improving CPU performance                                   |
 | 1     | AppIDsAscending           | Try to farm games with lowest `appIDs` first                                     |
@@ -519,7 +519,7 @@ There is also idling priority queue that is accessible through `iq` **[commands]
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines ASF behaviour when looting - both manual, using a **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, as well as automatic one, through one or more configuration properties. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
 
-| Value | שם                    | Description                                                   |
+| Value | Name                  | Description                                                   |
 | ----- | --------------------- | ------------------------------------------------------------- |
 | 0     | Unknown               | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
@@ -547,7 +547,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 
 `ImmutableHashSet<byte>` type with default value of `5` Steam item types. This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
 
-| Value | שם                    | Description                                                   |
+| Value | Name                  | Description                                                   |
 | ----- | --------------------- | ------------------------------------------------------------- |
 | 0     | Unknown               | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
@@ -577,7 +577,7 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 `byte` type with default value of `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
 
-| Value | שם             |
+| Value | Name           |
 | ----- | -------------- |
 | 0     | Offline        |
 | 1     | Online         |
@@ -616,7 +616,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 `byte flags` type with default value of `0`. This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
 
-| Value | שם                                 | Description                                                                                                                     |
+| Value | Name                               | Description                                                                                                                     |
 | ----- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | 0     | None                               | No special redeeming preferences, default                                                                                       |
 | 1     | Forwarding                         | Forward keys unavailable to redeem to other bots                                                                                |
@@ -710,7 +710,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 `ImmutableDictionary<ulong, byte>` type with default value of being empty. This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
 
-| Value | שם            | Description                                                                                                                                                                                        |
+| Value | Name          | Description                                                                                                                                                                                        |
 | ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0     | None          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
 | 1     | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
@@ -729,7 +729,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 `byte flags` type with default value of `0`. This property defines ASF behaviour when in trading, and is defined as below:
 
-| Value | שם                  | Description                                                                                                                                                                                          |
+| Value | Name                | Description                                                                                                                                                                                          |
 | ----- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0     | None                | No special trading preferences, default                                                                                                                                                              |
 | 1     | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
@@ -748,7 +748,7 @@ For further explanation of ASF trading logic, and description of every available
 
 `ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines which Steam item types will be considered for transferring between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
 
-| Value | שם                    | Description                                                   |
+| Value | Name                  | Description                                                   |
 | ----- | --------------------- | ------------------------------------------------------------- |
 | 0     | Unknown               | Every type that doesn't fit in any of the below               |
 | 1     | BoosterPack           | Booster pack containing 3 random cards from a game            |
@@ -786,7 +786,7 @@ However, some people could be concerned even about this little detail, therefore
 
 `byte` type with default value of `0`. This property specifies user interface mode that the bot will be announced with after logging in to Steam network. Currently you can choose one of below modes:
 
-| Value | שם         |
+| Value | Name       |
 | ----- | ---------- |
 | `0`   | Default    |
 | `1`   | BigPicture |
@@ -906,7 +906,7 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Value | שם   |
+| Value | Name |
 | ----- | ---- |
 | 0     | None |
 | 1     | A    |

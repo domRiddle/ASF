@@ -6,7 +6,7 @@ Možete promijeniti jezik wiki-e ako promijenite `-locale` dio bilo koje posjeć
 
 Sve wiki stranice odnose se samo na **[poslednje ASF izdanje](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**, osim ako je napomenuto drugačije (npr. "V2"). Ako želite da vidite stariju stranicu (za neko starije ASF izdanje), upotrebite **[revizije](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/_history)**, koje su dostupne na vrhu svake stranice, i izaberite datum koji je približan vašem ASF izdanju. Mi čuvamo sve stranice za trenutno, kao i za sva veća prethodna ASF izdanja.
 
-Ako ste novi korisnik, predlažemo da počnete sa vodičom **[podešavanja](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**. Možete pronaći sve relevantne wiki stranice pored, na desnoj strani. Predlažemo da počnete s vrha, ali vi možete čitati sve što vam izgleda zanimljivo, ne postoje limit ASF znanja.
+If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide. Možete pronaći sve relevantne wiki stranice pored, na desnoj strani. Predlažemo da počnete s vrha, ali vi možete čitati sve što vam izgleda zanimljivo, ne postoje limit ASF znanja.
 
 Ako vam je potrebna dalja pomoć, posjetite naše **[kanale za pomoć](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**, koje možete koristiti za sva pitanja i tehničke poteškoće.
 

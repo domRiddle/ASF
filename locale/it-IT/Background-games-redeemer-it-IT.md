@@ -6,13 +6,13 @@ Il riscatto giochi in background è fatto per un singolo bot, questo significa c
 
 ---
 
-## Importa
+## Import
 
 L'importazione può essere effettuata in due modi: usando un file o con IPC.
 
 ### File
 
-ASF riconoscerà nella cartella `config` un file chiamato `BotName.keys` dove `BotName` è il nome del tuo bot. Questo file si aspetta una struttura ben precisa con il nome del gioco e la cd-key separati da un carattere tabulato e una nuova riga per indicare la prossima entrata. Se più tab vengono usati, allora la prima voce viene considerata il nome del gioco, l'ultima la cd-key e ciò che è nel mezzo viene ignorato. Per esempio:
+ASF riconoscerà nella cartella `config` un file chiamato `BotName.keys` dove `BotName` è il nome del tuo bot. Questo file si aspetta una struttura ben precisa con il nome del gioco e la cd-key separati da un carattere tabulato e una nuova riga per indicare la prossima entrata. Se più tab vengono usati, allora la prima voce viene considerata il nome del gioco, l'ultima la cd-key e ciò che è nel mezzo viene ignorato. For example:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -46,7 +46,7 @@ Se durante il processo il nostro profilo colpisce lo stato `RateLimited`, la cod
 
 ---
 
-## Esempio
+## Example
 
 Supponiamo tu abbia un elenco di 100 chiavi. Prima di tutto dovresti creare un nuovo file `BotName.keys.new` nella directory ASD `config`. Abbiamo aggiunto l'estensione `.new` per far sapere ad ASF che non dovrebbe raccogliere questo file immediatamente non appena è creato (essendo vuoto, non ancora pronto per l'importazione).
 

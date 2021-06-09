@@ -112,7 +112,7 @@ Wenn du einen Authentifikator auf Ihrem Handy hast, kannst du optional SteamDesk
 
 ---
 
-## FAQ (oft gestellte Fragen)
+## FAQ
 
 ### Wie nutzt ASF das 2FA-Modul?
 

@@ -6,13 +6,13 @@ Arkaplan oyunları kurtarıcısı, tek bir bot alanına sahip olacak şekilde ya
 
 ---
 
-## İçe aktarma
+## Import
 
 İçe aktarma işlemi iki yolla yapılabilir - bir dosya kullanarak veya IPC kullanarak.
 
 ### Dosya
 
-ASF, kendi `yapılandırma` dizininde `BotName.keys` adlı bir dosyayı, `BotName` botunuzun adı olduğunu görecektir. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Birden çok sekme kullanılıyorsa, o halde ilk giriş oyunun adı olarak kabul edilir, son giriş bir cd-key olarak kabul edilir ve aradaki her şey göz ardı edilir. Örneğin:
+ASF, kendi `yapılandırma` dizininde `BotName.keys` adlı bir dosyayı, `BotName` botunuzun adı olduğunu görecektir. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Birden çok sekme kullanılıyorsa, o halde ilk giriş oyunun adı olarak kabul edilir, son giriş bir cd-key olarak kabul edilir ve aradaki her şey göz ardı edilir. For example:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -46,7 +46,7 @@ If during the process our account hits `RateLimited` status, the queue is tempor
 
 ---
 
-## Örnek
+## Example
 
 Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
 

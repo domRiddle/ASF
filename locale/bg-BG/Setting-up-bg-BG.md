@@ -191,7 +191,7 @@ ASF is a console app and doesn't include a graphical user interface. However, we
 
 In order to use ASF-ui, you need to have `IPC` enabled, which is the default option starting with ASF V5.1.0.0. Once you launch ASF, you should be able to confirm that it properly started the IPC interface automatically:
 
-![Процеси на вътрешна комуникация](https://i.imgur.com/ZmkO8pk.png)
+![IPC](https://i.imgur.com/ZmkO8pk.png)
 
 You can access ASF's IPC interface under **[this](http://localhost:1242)** link, as long as ASF is running, from the same machine. You can use ASF-ui for various purposes, e.g. editing the config files in-place or sending **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Feel free to take a look around in order to find out all ASF-ui functionalities.
 

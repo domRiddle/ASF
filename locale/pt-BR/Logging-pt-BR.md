@@ -154,7 +154,7 @@ Os exemplos acima são um tanto simples e feitos para te mostrar como é fácil 
 
 ---
 
-## Limitações
+## Limitations
 
 ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Portanto, se você quiser manter o registro para outros alvos mesmo quando o ASF esperar por uma entrada do usuário, você deve definir esses alvos com suas próprias regras, como mostrado nos exemplos acima, ao invés de colocar vários alvos com `writeTo` e a mesma regra (a menos que esse seja o comportamento que você espera). A desativação temporária dos alvos do console é feita a fim de manter o console limpo quando estiver esperando por uma entrada do usuário.
 
@@ -166,7 +166,7 @@ ASF includes extended support for chat logging by not only recording all receive
 
 ### Propriedades de evento
 
-| Nome        | Descrição                                                                                                                                                                                                                                               |
+| Name        | Description                                                                                                                                                                                                                                             |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Echo        | Tipo `bool`. Definido como `true` quando a mensagem está sendo enviada de nós para o destinatário e `false` caso contrário.                                                                                                                             |
 | Message     | Tipo `string`. Esta é a mensagem enviada/recebida.                                                                                                                                                                                                      |
@@ -174,7 +174,7 @@ ASF includes extended support for chat logging by not only recording all receive
 | ChatID      | Tipo `ulong`. Este é o ID do canal do `ChatGroupID` para mensagens enviadas/recebidas. Será `0` quando não for usado nenhum chat de grupo para transmitir esta mensagem.                                                                                |
 | SteamID     | Tipo `ulong`. Este é o ID do usuário Steam para mensagens enviadas/recebidas. Pode ser `0` quando nenhum usuário em particular está envolvido na transmissão da mensagem (por exemplo, quando nós estamos enviando uma mensagem para um chat em grupo). |
 
-### Exemplo
+### Example
 
 Este exemplo é baseado em nosso exemplo básico de `ColoredConsole` acima. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
 
@@ -291,7 +291,7 @@ Claro, `SteamTarget` tem todas as funções típicas que você poderia esperar d
 
 #### Capturas de tela
 
-![Captura da tela](https://i.imgur.com/5juKHMt.png)
+![Screenshot](https://i.imgur.com/5juKHMt.png)
 
 ---
 
@@ -319,19 +319,19 @@ Leia mais sobre como usar o [arquivo de configuração](https://github.com/NLog/
 
 #### Parâmetros
 
-##### Opções gerais
-_name_ - Nome do alvo.
+##### General Options
+_name_ - Name of the target.
 
 ---
 
-##### Opções de Layout
-_layout_ - Texto a ser processado. [Layout](https://github.com/NLog/NLog/wiki/Layouts) requerido. Padrão: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+##### Layout Options
+_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Padrão: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 ---
 
 ##### Opções do HistoryTarget
 
-_maxCount_ - Montante máximo de registros armazenados pela histórico sob demanda. Opcional. O padrão é `20` que é um bom equilíbrio para fornecer um histórico inicial, enquanto leva em conta o uso de memória quanto a requisitos de armazenamento. Deve ser maior que `0`.
+_maxCount_ - Montante máximo de registros armazenados pela histórico sob demanda. Not required. O padrão é `20` que é um bom equilíbrio para fornecer um histórico inicial, enquanto leva em conta o uso de memória quanto a requisitos de armazenamento. Deve ser maior que `0`.
 
 ---
 

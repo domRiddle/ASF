@@ -4,7 +4,7 @@ ASF는 3.0.3.2 버전부터 **[도커 컨테이너](https://www.docker.com/what-
 
 ---
 
-## 태그
+## Tags
 
 ASF는 4가지 주요 유형의 **[태그](https://hub.docker.com/r/justarchi/archisteamfarm/tags)** 상태를 갖습니다.
 
@@ -47,7 +47,7 @@ Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which me
 
 ---
 
-## 사용법
+## Usage
 
 완전한 참조는 **[도커 공식 문서](https://docs.docker.com/engine/reference/commandline/docker)**를 참고하시고, 이 가이드에서는 간단한 사용법만 다룹니다. 더 깊이 공부하는 것도 좋습니다.
 
@@ -126,7 +126,7 @@ Mounting `/tmp/ASF` is completely optional and actually not recommended, unless 
 
 ---
 
-## 명령줄 인자
+## Command-line arguments
 
 ASF는 환경변수를 통해 **[명령줄 인자](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ko-KR)** 를 도커 컨테이너로 넘겨줄 수 있습니다. 지원하는 스위치를 위해서는 특별한 환경변수를, 그 외에는 `ASF_ARGS` 를 사용해야 합니다. `docker run` 에 `-e` 스위치를 붙이면 됩니다. 다음은 예시입니다.
 

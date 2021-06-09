@@ -154,7 +154,7 @@ Die obigen Beispiele sind ziemlich einfach und sollen Ihrenzeigen, wie einfach e
 
 ---
 
-## Einschränkungen
+## Limitations
 
 ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Wenn du also die Protokollierung für andere Ziele beibehalten möchtest, auch wenn ASF Benutzereingaben erwartet werden, solltest du diese Ziele mit ihren eigenen Regeln definieren, wie in den obigen Beispielen gezeigt, anstatt viele Ziele in `writeTo` der gleichen Regel zu setzen (es sei denn, dies ist dein gewünschtes Verhalten). Die vorübergehende Deaktivierung von Konsole-Zielen wird durchgeführt, um die Konsole sauber zu halten, wenn auf Benutzereingaben gewartet wird.
 
@@ -166,7 +166,7 @@ ASF includes extended support for chat logging by not only recording all receive
 
 ### Ereignis-Eigenschaften
 
-| Name        | Beschreibung                                                                                                                                                                                                                                  |
+| Name        | Description                                                                                                                                                                                                                                   |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Echo        | `bool` Typ. Dies wird auf `true` gesetzt, wenn die Nachricht von uns an den Empfänger gesendet wird, und andernfalls auf `false`.                                                                                                             |
 | Message     | `string` Typ. Dies ist die eigentliche gesendete/empfangene Nachricht.                                                                                                                                                                        |
@@ -174,7 +174,7 @@ ASF includes extended support for chat logging by not only recording all receive
 | ChatID      | `ulong` Typ. Dies ist die ID des `ChatGroupID` Kanals für gesendete/empfangene Nachrichten. Wird `0` sein, wenn kein Gruppen-Chat für die Übertragung dieser Nachricht verwendet wird.                                                        |
 | SteamID     | `ulong` Typ. Dies ist die ID des Steam-Benutzers für gesendete/empfangene Nachrichten. Kann `0` sein, wenn kein bestimmter Benutzer an der Nachrichtenübertragung beteiligt ist (z. B. wenn wir eine Nachricht an einen Gruppen-Chat senden). |
 
-### Beispiel
+### Example
 
 Dieses Beispiel basiert auf unserem `ColoredConsole` Basis-Beispiel oben. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
 
@@ -319,19 +319,19 @@ Lies mehr über die Verwendung der [Konfigurationsdatei](https://github.com/NLog
 
 #### Parameter
 
-##### Allgemeine Optionen
-_name_ - Name des Ziels.
+##### General Options
+_name_ - Name of the target.
 
 ---
 
-##### Layout Optionen
-_layout_ - Der zu rendernde Text. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Erforderlich. Standard: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+##### Layout Options
+_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Standard: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 ---
 
 ##### HistoryTarget Optionen
 
-_maxCount_ - Maximale Anzahl der gespeicherten Protokolle für die Abrufhistorie. Nicht erforderlich. Die Standardeinstellung ist `20`, was eine gute Balance für die Bereitstellung der Anfangshistorie ist, während die Speichernutzung, die sich aus den Speicheranforderungen ergibt, immer noch im Auge behalten wird. Muss größer als `0` sein.
+_maxCount_ - Maximale Anzahl der gespeicherten Protokolle für die Abrufhistorie. Not required. Die Standardeinstellung ist `20`, was eine gute Balance für die Bereitstellung der Anfangshistorie ist, während die Speichernutzung, die sich aus den Speicheranforderungen ergibt, immer noch im Auge behalten wird. Muss größer als `0` sein.
 
 ---
 

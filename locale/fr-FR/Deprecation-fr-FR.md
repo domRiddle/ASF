@@ -28,7 +28,7 @@ L'étape 2 est planifié après l'étape 1 expliquée ci-dessus et est publiée 
 
 ---
 
-## Résumé
+## Summary
 
 Vous avez plus ou moins un ** mois complet </ 0> pour pouvoir effectuer le basculement approprié, ce qui devrait être amplement suffisant même si vous êtes un utilisateur occasionnel de ASF. Après cette période, ASF ne garantit plus que les anciens paramètres n’auront aucun effet (étape 2), faisant en sorte que certaines fonctions cesseront de fonctionner sans que vous le remarquiez. Si vous lancez ASF après plus d'un mois d'inactivité, il est recommandé de **
 
@@ -42,7 +42,7 @@ In most cases, disregarding deprecation warning will not render general ASF func
 
 
 
-## Exemple
+## Example
 
 We moved pre-V3.1.2.2 `--server` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** into `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**.
 

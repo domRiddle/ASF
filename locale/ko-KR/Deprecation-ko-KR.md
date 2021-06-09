@@ -28,7 +28,7 @@ ASF는 사용 중단을 2단계로 하여 이전을 더욱 쉽게하고 문제�
 
 ---
 
-## 요약
+## Summary
 
 적절한 전환을 위해서는 약 **한 달** 정도가 있고, 일반적인 ASF 사용자라면 전환에 충분한 시간입니다. 그 기간이 지나면, ASF는 당신에게 알리지 않고 특정 기능을 작동 중단함으로써 더 이상 구 설정 값이 효과가 있을지를 보장하지 않습니다 (2단계). ASF를 실행 하지 않은지 한 달 이상이 지난 후에 ASF를 실행했다면 다시 **[처음부터 시작](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**하거나, 놓쳤던 모든 변경사항을 읽고 현재의 사용법을 수동으로 적용하는 것을 추천합니다.
 
@@ -36,7 +36,7 @@ ASF는 사용 중단을 2단계로 하여 이전을 더욱 쉽게하고 문제�
 
 ---
 
-## 예시
+## Example
 
 우리는 pre-V3.1.2.2 버전의 `--server` **[명령줄 인자](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** 를 `IPC` **[전역 설정](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**으로 옮겼습니다.
 

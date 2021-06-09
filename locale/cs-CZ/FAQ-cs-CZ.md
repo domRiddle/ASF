@@ -1,4 +1,4 @@
-# Často kladené otázky
+# FAQ
 
 Our basic FAQ covers standard questions and answers that you may have. Pro méně obvyklé dotazy navštivte **[rozšířené FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
 
@@ -8,7 +8,7 @@ Our basic FAQ covers standard questions and answers that you may have. Pro mén�
 * [Srovnání s podobnými nástroji](#comparison-with-similar-tools)
 * [Bezpečnost / Soukromí / VAC / Bany / Podmínky užití](#security--privacy--vac--bans--tos)
 * [Různé](#misc)
-* [Problémy](#issues)
+* [Issues](#issues)
 
 ---
 
@@ -110,7 +110,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 ---
 
-## Srovnání s podobnými nástroji
+## Comparison with similar tools
 
 ---
 
@@ -206,7 +206,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 ---
 
-## Bezpečnost / Soukromí / VAC / Bany / Podmínky užití
+## Security / Privacy / VAC / Bans / ToS
 
 ---
 
@@ -306,7 +306,7 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 ---
 
-## Různé
+## Misc
 
 ---
 
@@ -431,7 +431,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ---
 
-## Problémy
+## Issues
 
 ---
 

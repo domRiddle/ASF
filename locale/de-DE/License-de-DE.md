@@ -10,7 +10,7 @@ Bitte beachte, dass verschiedene **[ASF-Komponenten](https://github.com/JustArch
 
 -----
 
-## Anmerkungen
+## Remarks
 
 Wenn du Ihre eigene Software/Dienstleistung basierend auf ASF oder einem Teil davon erstellst, lies bitte Punkt 6 der Lizenz:
 

@@ -1,4 +1,4 @@
-# 常见问题
+# FAQ
 
 “常见问题”涵盖了一些常见问题以及它们的答案。 对于不太常见的问题，请访问我们的&#8203;**[补充常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-zh-CN)**。
 
@@ -110,7 +110,7 @@ ASF 是一个 C# 程序，需要安装正常工作的 .NET Core 环境实现。 
 
 ---
 
-## 与类似工具的对比
+## Comparison with similar tools
 
 ---
 
@@ -124,7 +124,7 @@ ASF 是一个 C# 程序，需要安装正常工作的 .NET Core 环境实现。 
 
 ### 我现在正在使用 Idle Master，并且它很好用，我有必要换成 ASF 吗？
 
-**是的**。 ASF 更可靠，包含许多内置功能，无论您以何种方式挂卡，这些功能都非常**关键**，而 IM 完全没有提供这些。
+**Yes**. ASF 更可靠，包含许多内置功能，无论您以何种方式挂卡，这些功能都非常**关键**，而 IM 完全没有提供这些。
 
 ASF 的逻辑能够正确处理**尚未发布的游戏**——而 IM 会尝试挂尚未发布的有卡游戏。 当然，在游戏发行之前是无法挂卡的，所以您的挂卡进程会被卡住。 此时您只能将此游戏添加到黑名单并等待游戏发布，或者手动跳过这款游戏。 这两种解决方案都不完善，都需要您的干预——ASF 会自动（暂时）跳过尚未发布游戏的挂卡流程，然后在游戏发布之后恢复挂卡，完美地避免了上述的问题。
 
@@ -200,13 +200,13 @@ ASF 不基于 Steam 客户端，而是使用自己的 Steam 客户端实现。 �
 
 ### 我可以在 ASF 挂卡时玩游戏吗？
 
-**不**。 ASF 与 IM 的不同之处是有独立的 Steam 客户端，而 Steam 网络一次只允许**一个 Steam 客户端**玩游戏。 但您可以随时启动游戏（如果 Steam 询问您是否要断开其他会话，选择“继续启动”），这会断开 ASF 的连接——ASF 将耐心等待您退出游戏，并在此之后继续挂卡。 或者，如果您愿意的话，可以随时在离线模式下玩游戏。
+**No**. ASF 与 IM 的不同之处是有独立的 Steam 客户端，而 Steam 网络一次只允许**一个 Steam 客户端**玩游戏。 但您可以随时启动游戏（如果 Steam 询问您是否要断开其他会话，选择“继续启动”），这会断开 ASF 的连接——ASF 将耐心等待您退出游戏，并在此之后继续挂卡。 或者，如果您愿意的话，可以随时在离线模式下玩游戏。
 
 请记住，同时运行多款游戏时，掉卡速率总会降到 0，因此 IM 在这一点上也没有明显的优势，但使用 ASF 不会干扰您运行其他游戏，这一点在 VAC 等方面至关重要。
 
 ---
 
-## 安全/隐私/VAC/封禁/订户协议
+## Security / Privacy / VAC / Bans / ToS
 
 ---
 
@@ -306,7 +306,7 @@ ASF 真正需要关注的重点是：
 
 ---
 
-## 杂项
+## Misc
 
 ---
 
@@ -346,7 +346,7 @@ ASF 是一个控制台应用程序，没有可以最小化的图形窗口，因�
 
 ### 使用 ASF 能否保持获得补充包的资格？
 
-**是的**。 ASF 使用与官方 Steam 客户端相同的方式登录到 Steam 网络，因此它也有能力使 ASF 使用的帐户保持获得补充包的资格。 另外，保持这种资格甚至不需要登录到 Steam 社区，所以如果您愿意，您可以安全地设置 `OnlineStatus` 为 `Offline`。
+**Yes**. ASF 使用与官方 Steam 客户端相同的方式登录到 Steam 网络，因此它也有能力使 ASF 使用的帐户保持获得补充包的资格。 另外，保持这种资格甚至不需要登录到 Steam 社区，所以如果您愿意，您可以安全地设置 `OnlineStatus` 为 `Offline`。
 
 ---
 
@@ -402,7 +402,7 @@ ASF 团队建议您运行（包括**拥有**）**最多 10 个机器人**，如�
 
 状态表示指定序列号的激活结果。 可能的状态有很多，其中最常见的有：
 
-| 状态                      | 描述                                                                                             |
+| 状态                      | Description                                                                                    |
 | ----------------------- | ---------------------------------------------------------------------------------------------- |
 | NoDetail                | “OK”状态，表示成功——序列号已被成功激活。                                                                        |
 | Timeout                 | Steam 网络没有在给定时间内响应，我们不知道序列号是否被激活（很可能已激活，但您可以重试一下）。                                             |
@@ -417,7 +417,7 @@ ASF 团队建议您运行（包括**拥有**）**最多 10 个机器人**，如�
 
 ### 你与任何挂卡服务有关联吗？
 
-**不**。 ASF 不属于任何服务，一切类似的声明都是虚假的。 您的 Steam 帐户是您的财产，您可以通过任何方式使用您的帐户，但 Valve 在&#8203;**[官方订户协议](https://store.steampowered.com/subscriber_agreement)**&#8203;中明确指出：
+**No**. ASF 不属于任何服务，一切类似的声明都是虚假的。 您的 Steam 帐户是您的财产，您可以通过任何方式使用您的帐户，但 Valve 在&#8203;**[官方订户协议](https://store.steampowered.com/subscriber_agreement)**&#8203;中明确指出：
 
 > You are responsible for the confidentiality of your login and password and for the security of your computer system.（参考译文：您有责任保护您的用户名和密码以及保证计算机系统的安全性。） Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, or by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.（参考译文：Valve 不负责您的密码和帐户的使用，也不对因您、您可能有意或因疏忽而泄露您的用户名和/或密码而导致的 Steam 上的任何通信和活动违反本保密条款负责。）
 
@@ -519,7 +519,7 @@ ASF 将尽最大努力建立连接，不仅包括拉取最新的服务器列表�
 
 ### ASF 发生 `Request failed after 5 tries`（该请求在 5 次尝试后失败）错误！
 
-通常情况下，这意味着您需要通过 Steam 家庭监护 PIN 码来访问帐户，但您忘了将其写在 ASF 配置中。 您必须把正确的 PIN 码写在 `SteamParentalCode` 机器人配置属性中，否则 ASF 就无法访问大多数 Web 内容，因而无法正常工作。 您可以阅读&#8203;**[配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;进一步了解 `SteamParentalCode`。
+Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalCode`.
 
 如果不是因为家庭监护 PIN，那么这是一个最常见的错误，您应该习惯这一点，它只是意味着 ASF 向 Steam 网络连续发送了 5 次请求，但没有得到有效的响应。 通常情况下，这意味着 Steam 宕机了、出现问题或者正在维护——ASF 能够发现这样的问题，您不应该为此担心，除非这种情况连续发生了几个小时，并且其他用户没有发生同样的问题。
 
@@ -531,7 +531,7 @@ ASF 将尽最大努力建立连接，不仅包括拉取最新的服务器列表�
 
 没有适合任何人的“金科玉律”，因为封禁受到多种第三方因素的影响，这也是为何您需要自己实验，找到适合您的值。 您也可以忽略这一点，使用类似 `10000` 等一定能正常工作的值，但请不要抱怨 ASF 无论做什么操作都要花 10 秒时间，仅仅解析徽章页面就要花费 5 分钟。 除此之外，以上限制可能没有发挥作用，因为如果您的机器人数量很多，还有可能触及上文所述的&#8203;**[硬性限制](#asf-可以运行多少个机器人)**。 没错，您完全有可能登录 Steam 网络（客户端）没有任何问题，但是 Steam Web（网站）会在您一次建立 100 个会话之后开始拒绝您的连接。 ASF 需要 Steam 网络和 Steam Web 共同运行，其中每一个出现问题都会导致您遇到问题。
 
-如果以上解释都不能解决问题，并且您仍然不知道哪里发生了故障，可以随时启用 `Debug` 模式，自己检查 ASF 的日志了解请求失败的具体原因。 例如：
+如果以上解释都不能解决问题，并且您仍然不知道哪里发生了故障，可以随时启用 `Debug` 模式，自己检查 ASF 的日志了解请求失败的具体原因。 For example:
 
 ```text
 InternalRequest() HEAD https://steamcommunity.com/my/edit/settings

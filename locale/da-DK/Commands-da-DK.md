@@ -126,7 +126,7 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Kommando     | Alias |
+| Command      | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |
@@ -205,7 +205,7 @@ Husk, at child aldrig kan have mere åben tilladelse end parent. Se forholdet ti
 
 `addlicense` kommandoen supporter to forskellige licens typer, disse er:
 
-| Type          | Alias | Eksempel     | Beskriveslse                                                        |
+| Type          | Alias | Example      | Description                                                         |
 | ------------- | ----- | ------------ | ------------------------------------------------------------------- |
 | `applikation` | `a`   | `app/292030` | Spillet er kendt via sit unikke `appID`.                            |
 | `sub`         | `s`   | `sub/47807`  | Pakken indholder et eller flere spil, kendt via sit unikke `subID`. |
@@ -226,7 +226,7 @@ addlicense ASF app/292030,sub/47807
 
 `owns` kommando understøtter flere forskellige spiltyper til `<games>` argument, der kan bruges, disse er:
 
-| Type          | Alias | Eksempel         | Beskriveslse                                                                                                                                                                                                                                                            |
+| Type          | Alias | Example          | Description                                                                                                                                                                                                                                                             |
 | ------------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `applikation` | `a`   | `app/292030`     | Spillet er kendt via sit unikke `appID`.                                                                                                                                                                                                                                |
 | `sub`         | `s`   | `sub/47807`      | Pakken indholder et eller flere spil, kendt via sit unikke `subID`.                                                                                                                                                                                                     |
@@ -235,7 +235,7 @@ addlicense ASF app/292030,sub/47807
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
-Komplet kommandoeksempel:
+Complete command example:
 
 ```text
 owns ASF app/292030,name/Witcher
@@ -249,7 +249,7 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Værdi | Navn                  | Beskriveslse                                                                    |
+| Value | Name                  | Description                                                                     |
 | ----- | --------------------- | ------------------------------------------------------------------------------- |
 | FAWK  | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
 | FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
@@ -290,7 +290,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Beskriveslse                                                               |
+| Type                    | Description                                                                |
 | ----------------------- | -------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
 | Password                | `SteamPassword` bot config property, if missing from config.               |
@@ -300,7 +300,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### Eksempel
+### Example
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to `true`.
 

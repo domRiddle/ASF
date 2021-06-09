@@ -4,7 +4,7 @@
 
 Atualmente o ASF suporta os seguintes métodos de criptografia como definição de `ECryptoMethod`:
 
-| Valor | Nome                             |
+| Value | Name                             |
 | ----- | -------------------------------- |
 | 0     | PlainText (Texto sem formatação) |
 | 1     | AES                              |
@@ -58,21 +58,21 @@ O ASF não suporta nenhuma forma de descriptografar senha já criptografadas, j�
 
 O ASF suporta atualmente os seguintes métodos de hashing como uma definição de `EHashingMethod`:
 
-| Valor | Nome                             |
-| ----- | -------------------------------- |
-| 0     | PlainText (Texto sem formatação) |
-| 1     | SCrypt                           |
-| 2     | Pbkdf2                           |
+| Value | Name      |
+| ----- | --------- |
+| 0     | PlainText |
+| 1     | SCrypt    |
+| 2     | Pbkdf2    |
 
-A descrição e comparação exatas estão disponíveis abaixo.
+The exact description and comparison of them is available below.
 
 Para gerar um hash, por exemplo, para uso de `IPCPassword` você deve executar `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** com o método de hash apropriado que você escolheu e sua senha de texto simples. Depois, coloque a string hash que você recebeu na propriedade de configuração `IPCPassword` e mude o campo `IPCPasswordFormat` para o valor que corresponda ao método de criptografia que você escolheu.
 
 ---
 
-### PlainText (Texto sem formatação)
+### PlainText
 
-É a forma mais simples e menos segura de fazer hash em uma senha, definido pelo valor `0` em `EHashingMethod`. O ASF gerará o hash correspondente à entrada original. É o método mais fácil de usar, e 100% compatível com todas as configurações, entretanto, sendo a maneira padrão de armazenar segredos, ela é totalmente insegura para um armazenamento seguro.
+É a forma mais simples e menos segura de fazer hash em uma senha, definido pelo valor `0` em `EHashingMethod`. O ASF gerará o hash correspondente à entrada original. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
 
 ---
 
@@ -80,7 +80,7 @@ Para gerar um hash, por exemplo, para uso de `IPCPassword` você deve executar `
 
 Considerado seguro pelos padrões de hoje, o método hash **[SCrypt](https://pt.wikipedia.org/wiki/Scrypt)** é definido pelo valor `1` em `EHashingMethod`. O ASF usará a implementação `SCrypt` com `8` blocos, `8192` iterações, comprimento hash de `32` e uma chave de criptografia como sal para geral um array de bytes. Os bytes resultantes serão então codificados como string de **[base64](https://pt.wikipedia.org/wiki/Base64)**.
 
-O ASF permite que você especifique o sal para esse método através da **[argumento de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)** `--cryptkey`,que você deve usar para máxima segurança. Se você decidir para omiti-lo, o ASF usará sua própria chave, que é **conhecida** e codificada no aplicativo, tornando o hash menos seguro. Se for bem utilizado, garante uma segurança decente para um armazenamento seguro.
+O ASF permite que você especifique o sal para esse método através da **[argumento de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)** `--cryptkey`,que você deve usar para máxima segurança. Se você decidir para omiti-lo, o ASF usará sua própria chave, que é **conhecida** e codificada no aplicativo, tornando o hash menos seguro. If used properly, guarantees decent security for safe storage.
 
 ---
 
@@ -92,6 +92,6 @@ O ASF permite que você especifique o sal para esse método através da **[argum
 
 ---
 
-## Recomendação
+## Recommendation
 
 Se você quiser usar um método de hashing para armazenar alguns segredos, como `IPCPassword`, recomendamos usar `SCrypt` com sal personalizado, já que fornece uma segurança decente contra tentativas de quebra pela força bruta. `Pbkdf2` é oferecido apenas por motivos de compatibilidade, principalmente porque já temos uma implementação ativa (e necessária) dele para outros casos de uso em toda a plataforma Steam (por exemplo o código do modo familia). Ele ainda é considerado seguro, mas fraco em comparação com outras alternativas (por exemplo, `SCrypt`).

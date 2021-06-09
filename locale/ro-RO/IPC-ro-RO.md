@@ -12,7 +12,7 @@ IPC poate fi folosit pentru o mulțime de lucruri diferite, în funcție de nevo
 
 
 
-# Utilizare
+# Usage
 
 Unless you manually disabled IPC through `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's enabled by default. ASF va afișa lansarea IPC în jurnalul său, pe care îl puteți utiliza pentru a verifica dacă interfața IPC a pornit corect:
 

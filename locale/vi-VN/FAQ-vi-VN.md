@@ -1,4 +1,4 @@
-# CÂU HỎI THƯỜNG GẶP
+# FAQ
 
 Our basic FAQ covers standard questions and answers that you may have. Đối với một vấn đề ít phổ biến hơn, vui lòng truy cập **[Câu hỏi thường gặp mở rộng](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** của chúng tôi.
 
@@ -8,7 +8,7 @@ Our basic FAQ covers standard questions and answers that you may have. Đối v�
 * [So sánh với các công cụ tương tự](#comparison-with-similar-tools)
 * [An ninh / Bảo mật / VAC / Ban / ToS](#security--privacy--vac--bans--tos)
 * [Linh tinh](#misc)
-* [Các vấn đề](#issues)
+* [Issues](#issues)
 
 ---
 
@@ -110,7 +110,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 ---
 
-## So sánh với các công cụ tương tự
+## Comparison with similar tools
 
 ---
 
@@ -206,7 +206,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 ---
 
-## An ninh / Bảo mật / VAC / Ban / ToS
+## Security / Privacy / VAC / Bans / ToS
 
 ---
 
@@ -306,7 +306,7 @@ You can find detailed explanation in **[statistics](https://github.com/JustArchi
 
 ---
 
-## Linh tinh
+## Misc
 
 ---
 
@@ -402,7 +402,7 @@ Of course, there are still valid use cases for multiple ASF instances on the sam
 
 Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
 
-| Status                  | Mô tả                                                                                                                                                                                                                          |
+| Status                  | Description                                                                                                                                                                                                                    |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | NoDetail                | "OK" status indicating success - the key was successfully redemeed.                                                                                                                                                            |
 | Timeout                 | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely was, but you can try again).                                                                                            |
@@ -431,7 +431,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ---
 
-## Các vấn đề
+## Issues
 
 ---
 

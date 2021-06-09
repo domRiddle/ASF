@@ -154,7 +154,7 @@ You can see how we used ASF integration above and easily distinguished source of
 
 ---
 
-## 限制
+## Limitations
 
 ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Therefore, if you want to keep logging for other targets even when ASF expects user input, you should define those targets with their own rules, as shown in examples above, instead of putting many targets in `writeTo` of the same rule (unless this is your wanted behaviour). Temporary disable of console targets is done in order to keep console clean when waiting for user input.
 
@@ -166,7 +166,7 @@ ASF includes extended support for chat logging by not only recording all receive
 
 ### Event properties
 
-| 名稱          | 描述                                                                                                                                                                                                           |
+| Name        | Description                                                                                                                                                                                                  |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Echo        | `bool` type. This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.                                                                                               |
 | Message     | `string` type. This is the actual sent/received message.                                                                                                                                                     |
@@ -174,7 +174,7 @@ ASF includes extended support for chat logging by not only recording all receive
 | ChatID      | `ulong` type. This is the ID of the `ChatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                  |
 | SteamID     | `ulong` type. This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat). |
 
-### 範例
+### Example
 
 This example is based on our `ColoredConsole` basic example above. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
 
@@ -291,7 +291,7 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 #### Screenshots
 
-![截圖](https://i.imgur.com/5juKHMt.png)
+![Screenshot](https://i.imgur.com/5juKHMt.png)
 
 ---
 
@@ -324,7 +324,7 @@ _name_ - Name of the target.
 
 ---
 
-##### 佈局選項
+##### Layout Options
 _layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 ---

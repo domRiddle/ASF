@@ -41,7 +41,7 @@ Das bedeutet, dass der Speicher am meisten ansteigt, wenn es sich bei ASF um das
 
 ---
 
-## Laufzeitoptimierung (Erweitert)
+## Runtime tuning (advanced)
 
 Die folgenden Tricks **führen auch zur Leistungs-Minderung** und sollten mit Vorsicht angewendet werden.
 
@@ -79,7 +79,7 @@ This offers little improvement, but may make GC even more aggressive when system
 
 ---
 
-You can enable all GC properties by setting appropriate `COMPlus_` environment variables. Zum Beispiel unter Linux (Shell):
+You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
 
 ```shell
 # Don't forget to tune those if you're planning to make use of them
@@ -92,7 +92,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # For OS-specific build
 ```
 
-Oder unter Windows (Powershell):
+Or on Windows (powershell):
 
 ```powershell
 # Don't forget to tune those if you're planning to make use of them
@@ -117,7 +117,7 @@ Die folgenden Tricks **führen zu einer ernsthaften Leistungsabnahme** und sollt
 
 ---
 
-## Empfohlene Optimierung
+## Recommended optimization
 
 - Beginne mit den einfachen ASF-Setup-Tricks, vielleicht benutzt du Ihren ASF einfach falsch, wie z. B. den Prozess für alle Ihre Bots mehrmals zu starten oder alle aktiv zu halten, wenn du nur ein oder zwei zum Autostart brauchst.
 - If it's still not enough, enable all configuration properties listed above by setting appropriate `COMPlus_` environment variables. Insbesondere `GCLatencyLevel` bietet signifikante Laufzeitverbesserungen bei geringen Leistungskosten.

@@ -6,13 +6,13 @@ Produktaktivering i baggrunden er lavet til et enkelt bot-område, hvilket betyd
 
 ---
 
-## Importer
+## Import
 
 Importering's processen kan gøres på to måder - enten ved brug af en fil eller via IPC.
 
 ### Fil
 
-ASF vil i dens `config`-mappe genkende en fil med navnet `BotName.keys` hvor `BotName` er din bots navn. Denne fil har forventet og fast struktur af navnet på spillet med cd-nøglen, adskilt et tab tegn og slutning med en ny linje for at angive starten på den næste indtastning. Hvis der bruges flere tab tegn, ses den første indtastning som spillets navn, sidste indtastning en cd-nøgle og alt imellem disse ignoreres. For eksempel:
+ASF vil i dens `config`-mappe genkende en fil med navnet `BotName.keys` hvor `BotName` er din bots navn. Denne fil har forventet og fast struktur af navnet på spillet med cd-nøglen, adskilt et tab tegn og slutning med en ny linje for at angive starten på den næste indtastning. Hvis der bruges flere tab tegn, ses den første indtastning som spillets navn, sidste indtastning en cd-nøgle og alt imellem disse ignoreres. For example:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -46,7 +46,7 @@ Hvis vores konto rammer `RateLimited` -status under processen, standses køen mi
 
 ---
 
-## Eksempel
+## Example
 
 Lad os antage, at du har en liste med 100 nøgler. Først skal du oprette en ny `BotName.keys.new` fil i ASF `config` biblioteket. Vi tilføjede udvidelsen `.new` for at lade ASF vide, at den ikke skulle hente denne fil med det samme, når den er oprettet (da den er en ny tom fil, ikke klar til import endnu).
 

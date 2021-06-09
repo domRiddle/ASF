@@ -47,7 +47,7 @@ ASF Docker 映像目前基于 `linux` 平台构建，支持 3 种架构——`x6
 
 ---
 
-## 用法
+## Usage
 
 请阅读 **[Docker 官方文档](https://docs.docker.com/engine/reference/commandline/docker)**&#8203;获得完整的说明，我们仅会在本指南中介绍基本用法，您可能还需要更深入的挖掘。
 
@@ -126,7 +126,7 @@ docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name a
 
 ---
 
-## 命令行参数
+## Command-line arguments
 
 ASF 允许您通过设定环境变量，来向 Docker 容器内传递&#8203;**[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**。 对于部分受支持的参数，您应该使用特定的环境变量，而 `ASF_ARGS` 适用于其他参数。 您可以向 `docker run` 命令添加 `-e` 参数，例如：
 

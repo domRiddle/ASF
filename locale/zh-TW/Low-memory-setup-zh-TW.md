@@ -41,7 +41,7 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 ---
 
-## 執行階段調整（進階）
+## Runtime tuning (advanced)
 
 Below tricks **involve performance degradation** and should be used with caution.
 
@@ -92,7 +92,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # For OS-specific build
 ```
 
-或在 Windows 上（PowerShell）：
+Or on Windows (powershell):
 
 ```powershell
 # Don't forget to tune those if you're planning to make use of them

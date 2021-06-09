@@ -10,7 +10,7 @@ Please note that various **[ASF components](https://github.com/JustArchiNET/Arch
 
 -----
 
-## 備註
+## Remarks
 
 如果您正基於 ASF 或其代碼的一部分創建自己的軟件服務，請查看許可證的第6點：
 

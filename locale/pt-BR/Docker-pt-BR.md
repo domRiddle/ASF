@@ -4,7 +4,7 @@ A partir da versão 3.0.3.2, o ASF também está disponível como um **[containe
 
 ---
 
-## Marcadores
+## Tags
 
 O ASF está disponível 4 tipos **[marcadores](https://hub.docker.com/r/justarchi/archisteamfarm/tags)** principais:
 
@@ -47,7 +47,7 @@ Desde a versão V5.0.2.2 do ASF, nossas tags tem usado um manifesto multi-plataf
 
 ---
 
-## Uso
+## Usage
 
 Para uma referência completa você deve usar a **[documentação docker oficial](https://docs.docker.com/engine/reference/commandline/docker)**, nós cobriremos apenas o uso básico nesse guia, você é mais que bem vindo a pesquisar mais a fundo.
 
@@ -126,7 +126,7 @@ Montar a pasta `/tmp/ASF` é completamente opcional e na verdade não é recomen
 
 ---
 
-## Argumentos de linha de comando
+## Command-line arguments
 
 O ASF te permite passar **[argumentos de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)** no contêiner docker através de variáveis de ambiente. Você deve usar variáveis de ambiente específicas para os switches suportados, e `ASF_ARGS` para o resto. Isso pode ser feito com o switch `-e` adicionado ao `docker run`, por exemplo:
 

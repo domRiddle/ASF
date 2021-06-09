@@ -6,7 +6,7 @@ ASF Wiki へようこそ。 Wiki は、よく寄せられる質問、考えら�
 
 すべてのwikiページは、（「V2」のように）特に明記されていない限り、常に&#8203;**[最新のASFリリース](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;のみに適用されます。 もし、ある時点での wiki ページを見たい場合（例えば、少し古い ASF リリースの場合）、各ページの上部にある **[revisions](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/_history)**（履歴）を使用して、ご利用のASFのリリース日に適した日付を選択してください。 すべてのページは、現在のものだけでなく、以前の主要なASFのバージョンも利用できるようにしています。
 
-初めての方は、 &#8203;**[初期設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-ja-JP)**&#8203;から始めることをお勧めします。 他の関連する Wiki ページは、画面右側のサイドバーにあります。 上から始めることをお勧めしますが、興味のあるものから読み進んで頂いても構いません。
+If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide. 他の関連する Wiki ページは、画面右側のサイドバーにあります。 上から始めることをお勧めしますが、興味のあるものから読み進んで頂いても構いません。
 
 さらにヘルプが必要な場合は、あらゆる質問や技術的な困難に対応できる&#8203;**[サポートチャンネル](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**&#8203;をチェックしてみてください。
 

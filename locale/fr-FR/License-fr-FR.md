@@ -10,7 +10,7 @@ Please note that various **[ASF components](https://github.com/JustArchiNET/Arch
 
 -----
 
-## Remarques
+## Remarks
 
 Si vous créez votre propre logiciel/service à partir de ASF ou une partie de son code, veuillez consulter le point 6 de la licence :
 

@@ -126,7 +126,7 @@ Como você leu acima, um caractere de espaço está sendo usado como um delimita
 
 Alguns comandos também estão disponíveis através de apelidos, para facilitar a digitação:
 
-| Comando      | Apelido |
+| Command      | Apelido |
 | ------------ | ------- |
 | `owns ASF`   | `oa`    |
 | `status ASF` | `sa`    |
@@ -205,10 +205,10 @@ Lembre-se que um argumento filho nunca pode ter permissão mais ampla que o seu 
 
 O comando `addlicense` suporte dois tipos diferentes de licenças:
 
-| Tipo  | Apelido | Exemplo      | Descrição                                                      |
-| ----- | ------- | ------------ | -------------------------------------------------------------- |
-| `app` | `a`     | `app/292030` | `appID` do jogo desejado.                                      |
-| `sub` | `s`     | `sub/47807`  | Pacote contendo um ou mais jogos, determinado por sua `subID`. |
+| Tipo  | Alias | Example      | Description                                                    |
+| ----- | ----- | ------------ | -------------------------------------------------------------- |
+| `app` | `a`   | `app/292030` | `appID` do jogo desejado.                                      |
+| `sub` | `s`   | `sub/47807`  | Pacote contendo um ou mais jogos, determinado por sua `subID`. |
 
 A diferenciação é importante pois o ASF vai usar a rede Steam para ativar apps, e a loja Steam para ativar pacotes. Esses dois tipos são incompatíveis, normalmente você usará apps para jogos que ficam gratuitos durante o fim de semana e/ou permanentemente, e pacotes de outra forma.
 
@@ -226,16 +226,16 @@ addlicense ASF app/292030,sub/47807
 
 O comando `owns` suporta diversos tipos de argumentos para definir os jogos em `<games>`, tais como:
 
-| Tipo    | Apelido | Exemplo          | Descrição                                                                                                                                                                                                                                                                                                                  |
-| ------- | ------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a`     | `app/292030`     | `appID` do jogo desejado.                                                                                                                                                                                                                                                                                                  |
-| `sub`   | `s`     | `sub/47807`      | Pacote contendo um ou mais jogos, determinado por sua `subID`.                                                                                                                                                                                                                                                             |
-| `regex` | `r`     | `regex/^\d{4}:` | **[Regex](https://pt.wikipedia.org/wiki/Express%C3%A3o_regular)** aplicada ao nome do jogo, diferenciando maíusculas de minúsculas. Veja essa **[documentação](https://docs.microsoft.com/pt-br/dotnet/standard/base-types/regular-expression-language-quick-reference)** para entender a sintaxe completa e ver exemplos. |
-| `name`  | `n`     | `name/Witcher`   | Parte do nome do jogo, sem diferenciação entre maiúsculas e minúsculas.                                                                                                                                                                                                                                                    |
+| Tipo    | Alias | Example          | Description                                                                                                                                                                                                                                                                                                                |
+| ------- | ----- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a`   | `app/292030`     | `appID` do jogo desejado.                                                                                                                                                                                                                                                                                                  |
+| `sub`   | `s`   | `sub/47807`      | Pacote contendo um ou mais jogos, determinado por sua `subID`.                                                                                                                                                                                                                                                             |
+| `regex` | `r`   | `regex/^\d{4}:` | **[Regex](https://pt.wikipedia.org/wiki/Express%C3%A3o_regular)** aplicada ao nome do jogo, diferenciando maíusculas de minúsculas. Veja essa **[documentação](https://docs.microsoft.com/pt-br/dotnet/standard/base-types/regular-expression-language-quick-reference)** para entender a sintaxe completa e ver exemplos. |
+| `name`  | `n`   | `name/Witcher`   | Parte do nome do jogo, sem diferenciação entre maiúsculas e minúsculas.                                                                                                                                                                                                                                                    |
 
 Recomendamos definir explicitamente o tipo de cada entrada para evitar resultados ambíguos, mas por conta da retrocompatibilidade, se você fornecer um tipo inválido ou omiti-lo completamente, o ASF irá supor que você solicitou o `app` caso sua entrada seja um número ou `name` caso contrário. Você também pode consultar um ou mais dos jogos ao mesmo tempo, usando o delimitador padrão do ASF `,`.
 
-Exemplo de comando completo:
+Complete command example:
 
 ```text
 owns ASF app/292030,name/Witcher
@@ -249,7 +249,7 @@ O comando `redeem^` permite que você ajuste os métodos que serão usados em um
 
 O argumento `<Modes>` aceita vários valores de métodos, como de costume separados por uma vírgula. Valores disponíveis de métodos são especificados abaixo:
 
-| Valor | Nome                  | Descrição                                                                                |
+| Value | Name                  | Description                                                                              |
 | ----- | --------------------- | ---------------------------------------------------------------------------------------- |
 | FAWK  | ForceAssumeWalletKey  | Força a ativação da preferência de resgate `AssumeWalletKeyOnBadActivationCode`          |
 | FD    | ForceDistributing     | Força a ativação da preferência de resgate `Distributing`                                |
@@ -290,7 +290,7 @@ A sintaxe geral é `input [Bots] <Type> <Value>`.
 
 `<Type>` diferencia maiúsculas de minúsculas e define o tipo de entrada reconhecida pelo ASF. Atualmente, o ASF reconhece os seguintes tipos:
 
-| Tipo                    | Descrição                                                                                    |
+| Type                    | Description                                                                                  |
 | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Login                   | Propriedade de configuração do bot `SteamLogin`, caso esteja faltando na config.             |
 | Password                | Propriedade de configuração do bot `SteamPassword`, caso esteja faltando na config.          |
@@ -300,7 +300,7 @@ A sintaxe geral é `input [Bots] <Type> <Value>`.
 
 `<Value>` é o valor definido para o tipo indicado. Atualmente, todos os valores são strings.
 
-### Exemplo
+### Example
 
 Digamos que temos um bot que é protegido pelo SteamGuard no modo não-2FA. Nós vamos querer iniciar esse bot com `Headless` definido como `true`.
 

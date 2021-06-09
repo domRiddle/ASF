@@ -6,7 +6,7 @@ Background games redeemer is made to have a single bot scope, which means that i
 
 ---
 
-## Tuonti
+## Import
 
 The import process can be done through two ways - either by using a file, or IPC.
 
@@ -46,7 +46,7 @@ If during the process our account hits `RateLimited` status, the queue is tempor
 
 ---
 
-## Esimerkki
+## Example
 
 Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
 

@@ -6,13 +6,13 @@ Pasyvusis žaidimų aktyvatorius yra skirtas naudoti vienam botui, todėl jis n�
 
 ---
 
-## Įkėlimas
+## Import
 
 Įkėlimo procesas galima dvejais būdais - IPC arba naudojantis failu.
 
 ### Failas
 
-ASF pats atpažins savo `konfiguracija` direktorijoje failą, pavadintą `BotName.keys` kur `RobotoVardas` jūsų boto pavadinimas. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Jei keli TAB yra panaudoti, tuomet pirmasis yra laikomas žaidimo pavadiniu, o paskutinis įvestu raktu ir viskas tarp jų yra ignoruojama. Pavyzdys:
+ASF pats atpažins savo `konfiguracija` direktorijoje failą, pavadintą `BotName.keys` kur `RobotoVardas` jūsų boto pavadinimas. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Jei keli TAB yra panaudoti, tuomet pirmasis yra laikomas žaidimo pavadiniu, o paskutinis įvestu raktu ir viskas tarp jų yra ignoruojama. For example:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -46,7 +46,7 @@ Jei proceso metu gaunamas `RateLimited` statusas, eilė yra laikinai sustabdoma 
 
 ---
 
-## Pavyzdys
+## Example
 
 Tarkime jūs turime 100 raktų sąrašą. Pirmiausiau reikėtų sukurti naują `BotName.keys.new` failą ASF `config` direktorijoje. Mes pridedame `.new` išplėtimą (BotName.keys --> BotName.keys.new), kad ASF suprastų jog šio failo nereikėtų skaityti iškarto, kai tik jis yra sukuriamas (nes tai yra naujas failas, neparengtas importuoti).
 

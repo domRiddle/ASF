@@ -112,7 +112,7 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 ---
 
-## 如何使用
+## FAQ
 
 ### ASF如何使用2FA模組？
 

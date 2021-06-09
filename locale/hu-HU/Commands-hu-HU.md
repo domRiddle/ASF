@@ -126,7 +126,7 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Néhány parancsot alternatív módon is meg lehet adni, így nem kell annyit gépelned:
 
-| Parancs      | Alternatív parancs |
+| Command      | Alternatív parancs |
 | ------------ | ------------------ |
 | `owns ASF`   | `oa`               |
 | `status ASF` | `sa`               |
@@ -205,10 +205,10 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `addlicense` command supports two different license types, those are:
 
-| Típus | Alternatív parancs | Példa        | Leírás                                                                  |
-| ----- | ------------------ | ------------ | ----------------------------------------------------------------------- |
-| `app` | `a`                | `app/292030` | Game determined by its unique `appID`.                                  |
-| `sub` | `s`                | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+| Típus | Alias | Example      | Description                                                             |
+| ----- | ----- | ------------ | ----------------------------------------------------------------------- |
+| `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
+| `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
 
 The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
 
@@ -226,12 +226,12 @@ addlicense ASF app/292030,sub/47807
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| Típus   | Alternatív parancs | Példa            | Leírás                                                                                                                                                                                                                                                                  |
-| ------- | ------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a`                | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
-| `sub`   | `s`                | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
-| `regex` | `r`                | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
-| `név`   | `n`                | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                              |
+| Típus   | Alias | Example          | Description                                                                                                                                                                                                                                                             |
+| ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
+| `sub`   | `s`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
+| `regex` | `r`   | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
+| `név`   | `n`   | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                              |
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
@@ -249,7 +249,7 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Érték | Név                   | Leírás                                                                          |
+| Value | Name                  | Description                                                                     |
 | ----- | --------------------- | ------------------------------------------------------------------------------- |
 | FAWK  | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
 | FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
@@ -290,7 +290,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 A `<Type>` kis- és nagybetű érzékeny és meghatározza az input típust, amit az ASF felismer. Jelenleg az ASF az alábbi típusokat ismeri:
 
-| Típus                   | Leírás                                                                           |
+| Type                    | Description                                                                      |
 | ----------------------- | -------------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` bot konfigurációs beállítás, ha hiányozna a konfigurációból.        |
 | Password                | `SteamPassword` bot konfigurációs beállítás, ha hiányozna a konfigurációból.     |
@@ -300,7 +300,7 @@ A `<Type>` kis- és nagybetű érzékeny és meghatározza az input típust, ami
 
 A `<Value>` a megadott típushoz lesz beállítva. Jelenleg minden érték string.
 
-### Példa
+### Example
 
 Mondjuk, hogy van egy botunk, ami SteamGuarddal van védve, de nem 2FA módban. We want to launch that bot with `Headless` set to `true`.
 

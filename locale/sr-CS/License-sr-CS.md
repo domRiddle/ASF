@@ -10,7 +10,7 @@ Molimo vas da zapazite da razne **[ASF komponente](https://github.com/JustArchiN
 
 -----
 
-## Primedbe
+## Remarks
 
 Ako kreirate vaš softver/uslugu baziranu na ASF-u ili dijelu njegovog koda, molimo vas da se osvrnete šestoj tački licence:
 

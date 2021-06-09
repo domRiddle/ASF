@@ -28,7 +28,7 @@ ASF 的棄用分為兩個階段，使過渡更容易並減少麻煩。
 
 ---
 
-## 概要
+## Summary
 
 您有至少**一個月** 來切換並適應，這對於一個普通的 ASF 用戶來說應足夠了。 在這段時間之後，ASF 不再保證舊設置將產生任何效果（第2階段），在您察覺不到的情況下使某些功能完全停止運行。 如果您在一個多月離線後啟動 ASF，建議您**[從頭來過](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**以啟動 ASF，或者再次閱讀您錯過的所有更改，並手動調整您的使用方式以適應當前的更改。
 
@@ -36,7 +36,7 @@ In most cases, disregarding deprecation warning will not render general ASF func
 
 ---
 
-## 範例
+## Example
 
 我們將V3.1.2.2之前的 `--server` **[命令列參數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**轉移到` IPC ` ** [全域配置屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config) **。
 

@@ -28,7 +28,7 @@ Faza 2 je zakazana nakon faze 1 objašnjene iznad i dešava se dok se ne objavi 
 
 ---
 
-## Zaključak
+## Summary
 
 Imaćete oko **mjesec dana** da napravite odgovarajući prelaz, što je više nego potrebno bilo da ste obični ASF korisnik ili niste. Nakon tog perioda, ASF više ne garantuje da će stara podešavanja imati ikakvog efekta (faza 2), što znači da će ta funkcija skroz prestati da radi bez vašeg zapažanja. Ako niste pokretali ASF duže od jednog mjeseca, predlažemo da **[počnete ponovo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**, ili pročitate listu promjena koju ste propusli i ručno podesite vaša podešavanja sa novim.
 
@@ -36,7 +36,7 @@ U najviše slučajeva, zanemarivanje opomena zastarenja neće napraviti ASF nefu
 
 ---
 
-## Primjer
+## Example
 
 Pomjerili smo pre-V3.1.2.2 `--server` **[komande](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** u `IPC` **[globalnu konfiguraciju](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**.
 

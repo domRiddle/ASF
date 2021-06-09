@@ -154,7 +154,7 @@ The explanation of above config is rather simple - we define one **logging targe
 
 ---
 
-## Ограничения
+## Limitations
 
 ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Поэтому если вы хотите, чтобы журналирование в другие цели велось даже когда ASF ожидает ввода от пользователя, вам нужно задать для этих целей собственные правила, как показано в примерах выше, вместо того чтобы добавлять несколько целей в атрибут `writeTo` одного правила (если конечно это не то, чего вы хотите). Временное отключение целей с консолью сделано с целью оставить консоль чистой при ожидании ввода от пользователя.
 
@@ -166,7 +166,7 @@ ASF includes extended support for chat logging by not only recording all receive
 
 ### Свойства события
 
-| Имя         | Описание                                                                                                                                                                                                                                                       |
+| Name        | Description                                                                                                                                                                                                                                                    |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Echo        | свойство типа `bool`. Имеет значение `true` когда сообщение отправляется от нас собеседники, и `false` в противном случае.                                                                                                                                     |
 | Message     | свойство типа `string`. Содержит само отправленное/полученное сообщение.                                                                                                                                                                                       |
@@ -174,7 +174,7 @@ ASF includes extended support for chat logging by not only recording all receive
 | ChatID      | свойство типа `ulong`. Содержит идентификатор канала в `ChatGroupID` в котором отправлено/получено сообщение. Будет равно `0` когда для передачи сообщения используется не групповой чат.                                                                      |
 | SteamID     | свойство типа `ulong`. Это идентификатор пользователя Steam в чате с которым отправлено/получено сообщение. Может быть равно `0` когда ни один пользователь не задействован в передаче сообщения (например когда это мы отправляем сообщение в групповой чат). |
 
-### Пример
+### Example
 
 Этот пример основан на нашем базовом примере с `ColoredConsole`, приведенном выше. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
 
@@ -291,7 +291,7 @@ _botName_ - Name of the bot (as it's recognized by ASF, case-sensitive) that wil
 
 #### Скриншоты
 
-![Скриншот](https://i.imgur.com/5juKHMt.png)
+![Screenshot](https://i.imgur.com/5juKHMt.png)
 
 ---
 
@@ -319,19 +319,19 @@ _botName_ - Name of the bot (as it's recognized by ASF, case-sensitive) that wil
 
 #### Параметры
 
-##### Общие параметры
-_name_ - Имя цели журналирования.
+##### General Options
+_name_ - Name of the target.
 
 ---
 
-##### Параметры схемы
-_layout_ - Схема вывода сообщений. Требуется [Layout](https://github.com/NLog/NLog/wiki/Layouts). По умолчанию: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+##### Layout Options
+_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. По умолчанию: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 ---
 
 ##### Параметры HistoryTarget
 
-_maxCount_ - Максимальное количество сохранённых сообщений для истории по запросу. Не обязательный параметр. Имеет по умолчанию значение `20`, что обеспечивает баланс между предоставлением истории и экономией памяти для хранения сообщений. Должно быть больше `0`.
+_maxCount_ - Максимальное количество сохранённых сообщений для истории по запросу. Not required. Имеет по умолчанию значение `20`, что обеспечивает баланс между предоставлением истории и экономией памяти для хранения сообщений. Должно быть больше `0`.
 
 ---
 

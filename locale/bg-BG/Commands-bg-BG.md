@@ -37,7 +37,7 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 
 ---
 
-### Процеси на вътрешна комуникация
+### IPC
 
 The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
 
@@ -79,30 +79,30 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `mabadd [Bots] <AppIDs>`                                       | `Master`            | Adds given `appIDs` to apps blacklisted from automatic trading in **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)**.                                                                                                                                                                 |
 | `mabrm [Bots] <AppIDs>`                                        | `Master`            | Removes given `appIDs` from apps blacklisted from automatic trading in **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)**.                                                                                                                                                            |
 | `nickname [Bots] <Nickname>`                                   | `Master`            | Changes Steam nickname of given bot instances to given `nickname`.                                                                                                                                                                                                                                                                  |
-| `owns [Bots] <Games>`                                          | `Оператор`          | Checks if given bot instances already own given `games`, explained **[below](#owns-games)**.                                                                                                                                                                                                                                        |
+| `owns [Bots] <Games>`                                          | `Operator`          | Checks if given bot instances already own given `games`, explained **[below](#owns-games)**.                                                                                                                                                                                                                                        |
 | `парола [Bots]`                                                      | `Master`            | Prints encrypted password of given bot instances (in use with `PasswordFormat`).                                                                                                                                                                                                                                                    |
-| `паузирай [Bots]`                                                    | `Оператор`          | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `resume` it, or restart the process.                                                                                                                                    |
-| `pause~ [Bots]`                                                      | `Семейно Споделяне` | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `resume` farming to unpause it.                                                                                                                               |
-| `pause& [Bots] <Seconds>`                                  | `Оператор`          | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically resumed.                                                                                                                                                                 |
+| `паузирай [Bots]`                                                    | `Operator`          | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `resume` it, or restart the process.                                                                                                                                    |
+| `pause~ [Bots]`                                                      | `FamilySharing`     | Temporarily pauses automatic cards farming module of given bot instances. Farming will be automatically resumed on the next playing event, or bot disconnect. You can `resume` farming to unpause it.                                                                                                                               |
+| `pause& [Bots] <Seconds>`                                  | `Operator`          | Temporarily pauses automatic cards farming module of given bot instances for given amount of `seconds`. After delay, cards farming module is automatically resumed.                                                                                                                                                                 |
 | `play [Bots] <AppIDs,GameName>`                                | `Master`            | Switches to manual farming - launches given `AppIDs` on given bot instances, optionally also with custom `GameName`. In order for this feature to work properly, your Steam account **must** own a valid license to all the `AppIDs` that you specify here, this includes F2P games as well. Use `reset` or `resume` for returning. |
 | `points [Bots]`                                                      | `Master`            | Displays number of points in **[Steam store](https://store.steampowered.com/points/shop)**.                                                                                                                                                                                                                                         |
 | `privacy [Bots] <Settings>`                                    | `Master`            | Changes **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)** of given bot instances, to appropriately selected options explained **[below](#privacy-settings)**.                                                                                                                                               |
-| `redeem [Bots] <Keys>`                                         | `Оператор`          | Redeems given cd-keys or wallet codes on given bot instances.                                                                                                                                                                                                                                                                       |
-| `redeem^ [Bots] <Modes> <Keys>`                          | `Оператор`          | Redeems given cd-keys or wallet codes on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                                                                                                                                                             |
+| `redeem [Bots] <Keys>`                                         | `Operator`          | Redeems given cd-keys or wallet codes on given bot instances.                                                                                                                                                                                                                                                                       |
+| `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`          | Redeems given cd-keys or wallet codes on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                                                                                                                                                             |
 | `reset [Bots]`                                                       | `Master`            | Resets the playing status back to normal, used during manual farming with `play` command.                                                                                                                                                                                                                                           |
-| `рестарт`                                                            | `Собственик`        | Restarts ASF process.                                                                                                                                                                                                                                                                                                               |
-| `продължи [Bots]`                                                    | `Семейно Споделяне` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                                                                                                                                                         |
+| `рестарт`                                                            | `Owner`             | Restarts ASF process.                                                                                                                                                                                                                                                                                                               |
+| `продължи [Bots]`                                                    | `FamilySharing`     | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                                                                                                                                                         |
 | `стартирай [Bots]`                                                   | `Master`            | Starts given bot instances.                                                                                                                                                                                                                                                                                                         |
-| `стaтистики`                                                         | `Собственик`        | Prints process statistics, such as managed memory usage.                                                                                                                                                                                                                                                                            |
-| `статус [Bots]`                                                      | `Семейно Споделяне` | Prints status of given bot instances.                                                                                                                                                                                                                                                                                               |
+| `стaтистики`                                                         | `Owner`             | Prints process statistics, such as managed memory usage.                                                                                                                                                                                                                                                                            |
+| `статус [Bots]`                                                      | `FamilySharing`     | Prints status of given bot instances.                                                                                                                                                                                                                                                                                               |
 | `спри [Bots]`                                                        | `Master`            | Stops given bot instances.                                                                                                                                                                                                                                                                                                          |
 | `трансфер [Bots] <TargetBot>`                                  | `Master`            | Sends all `TransferableTypes` Steam community items from given bot instances to target bot instance.                                                                                                                                                                                                                                |
 | `трансфер@ [Bots] <AppIDs> <TargetBot>`                  | `Master`            | Sends all `TransferableTypes` Steam community items matching given `AppIDs` from given bot instances to target bot instance. This is the opposite of `transfer%`.                                                                                                                                                                   |
 | `трансфер% [Bots] <AppIDs> <TargetBot>`                  | `Master`            | Sends all `TransferableTypes` Steam community items apart from given `AppIDs` from given bot instances to target bot instance. This is the opposite of `transfer@`.                                                                                                                                                                 |
 | `трансфер^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`            | Sends all Steam items from given `AppID` in `ContextID` of given bot instances to target bot instance.                                                                                                                                                                                                                              |
 | `unpack [Bots]`                                                      | `Master`            | Unpacks all booster packs stored in the inventory of given bot instances.                                                                                                                                                                                                                                                           |
-| `обновяване`                                                         | `Собственик`        | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                                                                                                                                                    |
-| `версия`                                                             | `Семейно Споделяне` | Prints version of ASF.                                                                                                                                                                                                                                                                                                              |
+| `обновяване`                                                         | `Owner`             | Checks GitHub for ASF updates (this is done automatically every `UpdatePeriod`).                                                                                                                                                                                                                                                    |
+| `версия`                                                             | `FamilySharing`     | Prints version of ASF.                                                                                                                                                                                                                                                                                                              |
 
 ---
 
@@ -126,7 +126,7 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Команда      | Alias |
+| Command      | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |
@@ -205,7 +205,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `addlicense` command supports two different license types, those are:
 
-| Type  | Alias | Пример       | Описание                                                                |
+| Type  | Alias | Example      | Description                                                             |
 | ----- | ----- | ------------ | ----------------------------------------------------------------------- |
 | `app` | `а`   | `app/292030` | Game determined by its unique `appID`.                                  |
 | `sub` | `с`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
@@ -226,7 +226,7 @@ addlicense ASF app/292030,sub/47807
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| Type    | Alias | Пример           | Описание                                                                                                                                                                                                                                                                |
+| Type    | Alias | Example          | Description                                                                                                                                                                                                                                                             |
 | ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `app`   | `а`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
 | `sub`   | `с`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
@@ -249,18 +249,18 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Стойност | Име                   | Описание                                                                        |
-| -------- | --------------------- | ------------------------------------------------------------------------------- |
-| FAWK     | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
-| FD       | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
-| FF       | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
-| FKMG     | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
-| SAWK     | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
-| SD       | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
-| SF       | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
-| SI       | SkipInitial           | Skips key redemption on initial bot                                             |
-| SKMG     | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
-| V        | Validate              | Validates keys for proper format and automatically skips invalid ones           |
+| Value | Name                  | Description                                                                     |
+| ----- | --------------------- | ------------------------------------------------------------------------------- |
+| FAWK  | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
+| FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
+| FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
+| FKMG  | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
+| SAWK  | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
+| SD    | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
+| SF    | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
+| SI    | SkipInitial           | Skips key redemption on initial bot                                             |
+| SKMG  | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
+| V     | Validate              | Validates keys for proper format and automatically skips invalid ones           |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
@@ -290,7 +290,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Описание                                                                   |
+| Type                    | Description                                                                |
 | ----------------------- | -------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
 | Парола                  | `SteamPassword` bot config property, if missing from config.               |
@@ -300,7 +300,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### Пример
+### Example
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to `true`.
 

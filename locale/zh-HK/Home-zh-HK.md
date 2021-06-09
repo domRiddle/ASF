@@ -8,7 +8,7 @@
 
 最新發佈的ASF版本</0 >。 如果您想在查閱基於特定時間點（例如先前的ASF版本）的 wiki 頁面，請參考**[revisions](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/_history)**，您可在每個頁面的頂部找到它，並選擇適合於您的ASF版本。 我們保留當前以及先前主要ASF版本的所有頁面。</p> 
 
-如果您是新用戶，我們建議您從**[設置指南](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**開始。 您可以在螢幕右邊的側邊欄上找到其他所有相關的wiki頁面。 我們建議從頭開始，雖然您可以隨意閱讀任何您感有趣的東西，但ASF的知識是無限的。
+If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide. 您可以在螢幕右邊的側邊欄上找到其他所有相關的wiki頁面。 我們建議從頭開始，雖然您可以隨意閱讀任何您感有趣的東西，但ASF的知識是無限的。
 
 If you need further help, please check out our **[support channels](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**, which you can use for all the questions and technical difficulties.
 

@@ -4,7 +4,7 @@
 
 ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
 
-| Érték | Név                         |
+| Value | Name                        |
 | ----- | --------------------------- |
 | 0     | PlainText                   |
 | 1     | AES                         |
@@ -58,7 +58,7 @@ ASF doesn't support any way of decrypting already encrypted passwords, as decryp
 
 ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
 
-| Érték | Név       |
+| Value | Name      |
 | ----- | --------- |
 | 0     | PlainText |
 | 1     | SCrypt    |

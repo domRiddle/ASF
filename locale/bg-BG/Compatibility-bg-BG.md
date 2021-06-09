@@ -46,7 +46,7 @@ As the time goes on with more platforms being supported by .NET Core and less co
 
 ---
 
-### Специфичен за оперативната система
+### OS-specific
 
 Специфичен за оперативната система, освен кода включен в общия пакет, включва също кода за съответната платформа. In other words, OS-specific package **already includes proper .NET Core runtime inside**, which allows you to entirely skip the whole installation mess and just launch ASF directly. OS-specific package, as you can guess from the name, is OS-specific and every OS requires its own version - for example Windows requires PE32+ `ArchiSteamFarm.exe` binary while Linux works with Unix ELF `ArchiSteamFarm` binary. As you may know, those two types are not compatible with each other.
 

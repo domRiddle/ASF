@@ -126,7 +126,7 @@ Wie Sie oben gelesen haben, wird ein Leerzeichen als Trennzeichen für einen Bef
 
 Für einige Befehle sind auch Aliase verfügbar, um Zeit beim tippen zu sparen:
 
-| Befehl       | Alias |
+| Command      | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |
@@ -205,7 +205,7 @@ Bedenken Sie, dass ein Kind nie mehr offene Berechtigungen haben kann als sein E
 
 `addlicense` Befehl unterstützt zwei verschiedene Lizenztypen, diese sind:
 
-| Typ   | Alias | Beispiel     | Beschreibung                                                                      |
+| Typ   | Alias | Example      | Description                                                                       |
 | ----- | ----- | ------------ | --------------------------------------------------------------------------------- |
 | `app` | `a`   | `app/292030` | Spiel bestimmt durch seine einzigartige `appID`.                                  |
 | `sub` | `s`   | `sub/47807`  | Paket mit einem oder mehreren Spielen, bestimmt durch seine einzigartige `subID`. |
@@ -226,7 +226,7 @@ addlicense ASF app/292030,sub/47807
 
 Der `owns` Befehl unterstützt verschiedene Spielarten die für das `<games>` Argument genutzt werden können, diese sind:
 
-| Typ     | Alias | Beispiel         | Beschreibung                                                                                                                                                                                                                                                                                                                         |
+| Typ     | Alias | Example          | Description                                                                                                                                                                                                                                                                                                                          |
 | ------- | ----- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `app`   | `a`   | `app/292030`     | Spiel bestimmt durch seine einzigartige `appID`.                                                                                                                                                                                                                                                                                     |
 | `sub`   | `s`   | `sub/47807`      | Paket mit einem oder mehreren Spielen, bestimmt durch seine einzigartige `subID`.                                                                                                                                                                                                                                                    |
@@ -235,7 +235,7 @@ Der `owns` Befehl unterstützt verschiedene Spielarten die für das `<games>` Ar
 
 Wir empfehlen, die Art jedes Eintrags explizit zu definieren, um zweideutige Ergebnisse zu vermeiden, aber für die Abwärtskompatibilität, wird ASF wenn Sie einen ungültigen Typ angeben oder ihn komplett weglassen davon ausgehen, dass Sie `app` verlangen, wenn Ihre Eingabe eine Nummer ist, und `name` falls nicht. Sie können auch eine oder mehrere Lizenzen gleichzeitig abfragen, indem Sie die Standard ASF-Trennzeichen (`,`) verwenden.
 
-Beispiel für einen vollständigen Befehl:
+Complete command example:
 
 ```text
 owns ASF app/292030,name/Witcher
@@ -249,18 +249,18 @@ Der Befehl `redeem^` ermöglicht es Ihnen, die Modi zu optimieren, die für ein 
 
 `<Modes>` Argument akzeptiert mehrere Modus-Werte, die, wie üblich, durch ein Komma getrennt werden. Die verfügbaren Modus-Werte sind im Folgenden aufgeführt:
 
-| Wert | Name                  | Beschreibung                                                                                                  |
-| ---- | --------------------- | ------------------------------------------------------------------------------------------------------------- |
-| FAWK | ForceAssumeWalletKey  | Erzwingt `AssumeWalletKeyOnBadActivationCode` Einlöseeinstellungen zu aktivieren                              |
-| FD   | ForceDistributing     | Erzwingt die Aktivierung der `Distributing` Einlöse-Präferenz                                                 |
-| FF   | ForceForwarding       | Erzwingt die Aktivierung der `Forwarding` Einlöse-Präferenz                                                   |
-| FKMG | ForceKeepMissingGames | Erzwingt die Aktivierung der `KeepMissingGames` Einlöse-Präferenz                                             |
-| SAWK | SkipAssumeWalletKey   | Erzwingt `AssumeWalletKeyOnBadActivationCode` Einlöseeinstellungen zu deaktivieren                            |
-| SD   | SkipDistributing      | Erzwingt die Deaktivierung der `Distributing` Einlöse-Präferenz                                               |
-| SF   | SkipForwarding        | Erzwingt die Deaktivierung der `Forwarding` Einlöse-Präferenz                                                 |
-| SI   | SkipInitial           | Überspringt die Produktschlüssel-Aktivierung beim ersten Bot                                                  |
-| SKMG | SkipKeepMissingGames  | Erzwingt die Deaktivierung der `KeepMissingGames` Einlöse-Präferenz                                           |
-| V    | Validate              | Überprüft die Produktschlüssel auf das richtige Format und überspringt automatisch ungültige Produktschlüssel |
+| Value | Name                  | Description                                                                                                   |
+| ----- | --------------------- | ------------------------------------------------------------------------------------------------------------- |
+| FAWK  | ForceAssumeWalletKey  | Erzwingt `AssumeWalletKeyOnBadActivationCode` Einlöseeinstellungen zu aktivieren                              |
+| FD    | ForceDistributing     | Erzwingt die Aktivierung der `Distributing` Einlöse-Präferenz                                                 |
+| FF    | ForceForwarding       | Erzwingt die Aktivierung der `Forwarding` Einlöse-Präferenz                                                   |
+| FKMG  | ForceKeepMissingGames | Erzwingt die Aktivierung der `KeepMissingGames` Einlöse-Präferenz                                             |
+| SAWK  | SkipAssumeWalletKey   | Erzwingt `AssumeWalletKeyOnBadActivationCode` Einlöseeinstellungen zu deaktivieren                            |
+| SD    | SkipDistributing      | Erzwingt die Deaktivierung der `Distributing` Einlöse-Präferenz                                               |
+| SF    | SkipForwarding        | Erzwingt die Deaktivierung der `Forwarding` Einlöse-Präferenz                                                 |
+| SI    | SkipInitial           | Überspringt die Produktschlüssel-Aktivierung beim ersten Bot                                                  |
+| SKMG  | SkipKeepMissingGames  | Erzwingt die Deaktivierung der `KeepMissingGames` Einlöse-Präferenz                                           |
+| V     | Validate              | Überprüft die Produktschlüssel auf das richtige Format und überspringt automatisch ungültige Produktschlüssel |
 
 Zum Beispiel möchten wir drei Produktschlüssel auf einem unserer Bots einlösen, der noch keine Spiele besitzt, aber nicht auf unserem `primary` Bot. Um das zu erreichen, können wir Folgendes nutzen:
 
@@ -290,7 +290,7 @@ Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
 
 `<Type>` ist Groß-/Kleinschreibung unabhängig und definiert einen von ASF unterstützten Eingabetyp. Derzeit unterstützt ASF folgende Typen:
 
-| Typ                             | Beschreibung                                                                                            |
+| Type                            | Description                                                                                             |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Login                           | `SteamLogin` Bot-Konfigurationseigenschaft, falls diese in der Konfiguration fehlt.                     |
 | Password                        | `SteamPassword` Bot-Konfigurationseigenschaft, falls diese in der Konfiguration fehlt.                  |
@@ -300,7 +300,7 @@ Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
 
 `<Value>` ist der Wert, der für einen angegebenen Typ gesetzt werden soll. Derzeit sind alle Werte Zeichenketten.
 
-### Beispiel
+### Example
 
 Nehmen wir an, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. We want to launch that bot with `Headless` set to `true`.
 

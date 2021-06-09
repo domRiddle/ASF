@@ -37,7 +37,7 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 
 ---
 
-### プロセス間通信
+### IPC
 
 The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
 
@@ -126,7 +126,7 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Some commands are also available with their aliases, to save you on typing:
 
-| コマンド         | 別名   |
+| Command      | 別名   |
 | ------------ | ---- |
 | `owns ASF`   | `oa` |
 | `status ASF` | `sa` |
@@ -205,10 +205,10 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `addlicense` command supports two different license types, those are:
 
-| Type  | 別名  | 例            | Description                                                             |
-| ----- | --- | ------------ | ----------------------------------------------------------------------- |
-| `app` | `a` | `app/292030` | Game determined by its unique `appID`.                                  |
-| `sub` | `s` | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+| Type  | Alias | Example      | Description                                                             |
+| ----- | ----- | ------------ | ----------------------------------------------------------------------- |
+| `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
+| `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
 
 The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
 
@@ -226,12 +226,12 @@ addlicense ASF app/292030,sub/47807
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| Type    | 別名  | 例                | Description                                                                                                                                                                                                                                                             |
-| ------- | --- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a` | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
-| `sub`   | `s` | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
-| `regex` | `r` | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
-| `名前`    | `n` | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                              |
+| Type    | Alias | Example          | Description                                                                                                                                                                                                                                                             |
+| ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
+| `sub`   | `s`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
+| `regex` | `r`   | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
+| `名前`    | `n`   | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                              |
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
@@ -249,18 +249,18 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| 値    | 名前                    | Description                                                                     |
-| ---- | --------------------- | ------------------------------------------------------------------------------- |
-| FAWK | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
-| FD   | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
-| FF   | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
-| FKMG | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
-| SAWK | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
-| SD   | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
-| SF   | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
-| SI   | SkipInitial           | Skips key redemption on initial bot                                             |
-| SKMG | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
-| V    | Validate              | Validates keys for proper format and automatically skips invalid ones           |
+| Value | Name                  | Description                                                                     |
+| ----- | --------------------- | ------------------------------------------------------------------------------- |
+| FAWK  | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
+| FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
+| FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
+| FKMG  | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
+| SAWK  | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
+| SD    | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
+| SF    | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
+| SI    | SkipInitial           | Skips key redemption on initial bot                                             |
+| SKMG  | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
+| V     | Validate              | Validates keys for proper format and automatically skips invalid ones           |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
@@ -300,7 +300,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### 例
+### Example
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to `true`.
 

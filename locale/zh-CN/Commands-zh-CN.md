@@ -126,7 +126,7 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 一些命令有较短的别名可用，用来减少键入的次数：
 
-| 命令           | 别名   |
+| Command      | 别名   |
 | ------------ | ---- |
 | `owns ASF`   | `oa` |
 | `status ASF` | `sa` |
@@ -205,10 +205,10 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 `addlicense` 命令支持两种不同的许可类型，包括：
 
-| 类型    | 别名  | 示例           | 描述                        |
-| ----- | --- | ------------ | ------------------------- |
-| `app` | `a` | `app/292030` | 游戏的唯一 `appID`。            |
-| `sub` | `s` | `sub/47807`  | 包含一款或多款游戏的包，有唯一的 `subID`。 |
+| 类型    | Alias | 示例           | Description               |
+| ----- | ----- | ------------ | ------------------------- |
+| `app` | `a`   | `app/292030` | 游戏的唯一 `appID`。            |
+| `sub` | `s`   | `sub/47807`  | 包含一款或多款游戏的包，有唯一的 `subID`。 |
 
 二者的区别很重要，因为 ASF 需要向 Steam 网络激活 App，向 Steam 商店激活 Sub。 二者互不兼容，通常您会为周末免费或永久免费游戏使用 App，为其他情况使用 Sub。
 
@@ -226,16 +226,16 @@ addlicense ASF app/292030,sub/47807
 
 `owns` 命令支持几种不同的 `<games>` 参数类型，包括：
 
-| 类型      | 别名  | 示例               | 描述                                                                                                                                                                                                                        |
-| ------- | --- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a` | `app/292030`     | 游戏的唯一 `appID`。                                                                                                                                                                                                            |
-| `sub`   | `s` | `sub/47807`      | 包含一款或多款游戏的包，有唯一的 `subID`。                                                                                                                                                                                                 |
-| `regex` | `r` | `regex/^\d{4}:` | 用于模式匹配游戏名称的&#8203;**[正则表达式](https://en.wikipedia.org/wiki/Regular_expression)**，区分大小写。 完整的语法与示例见&#8203;**[文档](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)**。 |
-| `name`  | `n` | `name/Witcher`   | 游戏名称的一部分，不区分大小写。                                                                                                                                                                                                          |
+| 类型      | Alias | 示例               | Description                                                                                                                                                                                                               |
+| ------- | ----- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a`   | `app/292030`     | 游戏的唯一 `appID`。                                                                                                                                                                                                            |
+| `sub`   | `s`   | `sub/47807`      | 包含一款或多款游戏的包，有唯一的 `subID`。                                                                                                                                                                                                 |
+| `regex` | `r`   | `regex/^\d{4}:` | 用于模式匹配游戏名称的&#8203;**[正则表达式](https://en.wikipedia.org/wiki/Regular_expression)**，区分大小写。 完整的语法与示例见&#8203;**[文档](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)**。 |
+| `name`  | `n`   | `name/Witcher`   | 游戏名称的一部分，不区分大小写。                                                                                                                                                                                                          |
 
 我们建议您明确指定每一项的类型，以避免模糊不清的结果，但为了与之前的行为兼容，如果您提供的类型无效或者完全没有提供类型，ASF 会将您输入的数字视为 `app` 类型，将其他内容视为 `name` 类型。 您也可以同时查询多款游戏，即使用标准的 ASF 逗号分隔符（`,`）。
 
-一个完整命令的示例：
+Complete command example:
 
 ```text
 owns ASF app/292030,name/Witcher
@@ -249,18 +249,18 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` 接受由逗号分隔的多个模式代码。 可用的模式代码有：
 
-| 值    | 名称                    | 描述                                               |
-| ---- | --------------------- | ------------------------------------------------ |
-| FAWK | ForceAssumeWalletKey  | 强制启用 `AssumeWalletKeyOnBadActivationCode` 激活偏好设置 |
-| FD   | ForceDistributing     | 强制启用 `Distributing` 激活偏好设置                       |
-| FF   | ForceForwarding       | 强制启用 `Forwarding` 激活偏好设置                         |
-| FKMG | ForceKeepMissingGames | 强制启用 `KeepMissingGames` 激活偏好设置                   |
-| SAWK | SkipAssumeWalletKey   | 强制禁用 `AssumeWalletKeyOnBadActivationCode` 激活偏好设置 |
-| SD   | SkipDistributing      | 强制禁用 `Distributing` 激活偏好设置                       |
-| SF   | SkipForwarding        | 强制禁用 `Forwarding` 激活偏好设置                         |
-| SI   | SkipInitial           | 跳过首个机器人的激活过程                                     |
-| SKMG | SkipKeepMissingGames  | 强制禁用 `KeepMissingGames` 激活偏好设置                   |
-| V    | Validate              | 检查序列号的格式，自动跳过其中无效的                               |
+| Value | Name                  | Description                                      |
+| ----- | --------------------- | ------------------------------------------------ |
+| FAWK  | ForceAssumeWalletKey  | 强制启用 `AssumeWalletKeyOnBadActivationCode` 激活偏好设置 |
+| FD    | ForceDistributing     | 强制启用 `Distributing` 激活偏好设置                       |
+| FF    | ForceForwarding       | 强制启用 `Forwarding` 激活偏好设置                         |
+| FKMG  | ForceKeepMissingGames | 强制启用 `KeepMissingGames` 激活偏好设置                   |
+| SAWK  | SkipAssumeWalletKey   | 强制禁用 `AssumeWalletKeyOnBadActivationCode` 激活偏好设置 |
+| SD    | SkipDistributing      | 强制禁用 `Distributing` 激活偏好设置                       |
+| SF    | SkipForwarding        | 强制禁用 `Forwarding` 激活偏好设置                         |
+| SI    | SkipInitial           | 跳过首个机器人的激活过程                                     |
+| SKMG  | SkipKeepMissingGames  | 强制禁用 `KeepMissingGames` 激活偏好设置                   |
+| V     | Validate              | 检查序列号的格式，自动跳过其中无效的                               |
 
 例如，我么打算为尚未拥有游戏的机器人激活 3 个序列号，但不包括 `primary` 机器人。 为此我们需要执行命令：
 
@@ -290,7 +290,7 @@ owns ASF app/292030,name/Witcher
 
 `<Type>` 不区分大小写，定义 ASF 接受的输入类型。 目前 ASF 支持以下类型：
 
-| 类型                      | 描述                                         |
+| Type                    | Description                                |
 | ----------------------- | ------------------------------------------ |
 | Login                   | `SteamLogin` 机器人配置属性，在配置文件缺少这个值时使用。        |
 | Password                | `SteamPassword` 机器人配置属性，在配置文件缺少这个值时使用。     |

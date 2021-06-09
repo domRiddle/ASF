@@ -6,7 +6,7 @@ Puteți schimba limba wiki adăugând șirul `-locale` la orice pagină vizitat�
 
 Toate paginile wiki se aplică întotdeauna la **[ultima versiune ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**, cu excepția cazului în care se specifică altfel (cum ar fi "V2"). Dacă doriţi să vedeţi o pagină wiki într-un punct fix de timp (de exemplu pentru o versiune mai veche de ASF), folosește **[revizii](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/_history)** care sunt disponibile în partea de sus a fiecărei pagini și alege o dată adecvată pentru data lansării ASF. Păstrăm toate paginile disponibile pentru versiunea anterioară majoră ASF.
 
-Dacă sunteți un utilizator nou, vă recomandăm să începeți cu **[ghidul de configurare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**. Puteți găsi toate celelalte pagini wiki relevante pe bara laterală, în partea dreaptă a ecranului. Îți sugerăm să pornești de la început, deși nu ezita să citești orice pare interesant pentru tine, nu există limite pentru cunoștințele ASF.
+If you're a new user, we recommend starting with **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** guide. Puteți găsi toate celelalte pagini wiki relevante pe bara laterală, în partea dreaptă a ecranului. Îți sugerăm să pornești de la început, deși nu ezita să citești orice pare interesant pentru tine, nu există limite pentru cunoștințele ASF.
 
 Dacă ai nevoie de ajutor suplimentar, te rugăm să consulți **[canalele noastre de asistență](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**, pe care le poți utiliza pentru toate întrebările și dificultățile tehnice.
 

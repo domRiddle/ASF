@@ -226,7 +226,7 @@ For `generic` package, you can follow entire OS-specific guide above, with two s
 - Установить **[.NET Core SDK](https://www.microsoft.com/net/download)** (или как минимум среду исполнения) подходящую для вашей ОС. Скорее всего вы захотите использовать установщик. Обратитесь к разделу "**[Требования среды исполнения](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU#Требования-среды-исполнения)**" если не уверены, какую версию вам надо установить.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.
 - Распаковать архив в новую папку (и выполнить `chmod +x ArchiSteamFarm.sh` если вы работаете под Linux/OS X).
-- **[Сконфигурировать ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ru-RU)**.
+- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - Запустить ASF либо с помощью предоставленного скрипта, либо вручную командой `dotnet /path/to/ArchiSteamFarm.dll` из вашей любимой оболочки командной строки.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in `generic` variant only. Вы можете воспользоваться ими если не хотите запускать команду `dotnet` вручную. Естественно, скрипты для запуск не будут работать если вы не установили .NET Core SDK и в вашем `PATH` нет пути к запускаемому файлу `dotnet`. Скрипты для запуска не обязательны к использованию, вы всегда можете вручную запустить команду `dotnet /path/to/ArchiSteamFarm.dll`.

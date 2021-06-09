@@ -126,7 +126,7 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 
 一些命令有較短的別名可用，以便節省鍵入耗時。
 
-| 命令           | 別名   |
+| Command      | 別名   |
 | ------------ | ---- |
 | `owns ASF`   | `oa` |
 | `status ASF` | `sa` |
@@ -205,10 +205,10 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 `addlicense` command supports two different license types, those are:
 
-| 類型    | 別名  | 範例           | 描述                                                                      |
-| ----- | --- | ------------ | ----------------------------------------------------------------------- |
-| `app` | `a` | `app/292030` | Game determined by its unique `appID`.                                  |
-| `sub` | `s` | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
+| 類型    | Alias | Example      | Description                                                             |
+| ----- | ----- | ------------ | ----------------------------------------------------------------------- |
+| `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
+| `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
 
 The distinction is important, as ASF will use Steam network activation for apps, and Steam store activation for packages. Those two are not compatible with each other, typically you'll use apps for free weekends and permanently F2P games, and packages otherwise.
 
@@ -226,12 +226,12 @@ addlicense ASF app/292030,sub/47807
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| 類型      | 別名  | 範例               | 描述                                                                                                                                                                                                                                                                      |
-| ------- | --- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a` | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
-| `sub`   | `s` | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
-| `regex` | `r` | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
-| `名稱`    | `n` | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                              |
+| 類型      | Alias | Example          | Description                                                                                                                                                                                                                                                             |
+| ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
+| `sub`   | `s`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
+| `regex` | `r`   | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
+| `名稱`    | `n`   | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                              |
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
@@ -249,18 +249,18 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` 參數接受多個模式值，通常用逗號分隔。 可用的模式值如下所示：
 
-| 值    | 名稱                    | 描述                                                                              |
-| ---- | --------------------- | ------------------------------------------------------------------------------- |
-| FAWK | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
-| FD   | ForceDistributing     | 強制啟用 `Distributing` 激活偏好設置                                                      |
-| FF   | ForceForwarding       | 強制啟用 `Forwarding` 激活偏好設置                                                        |
-| FKMG | ForceKeepMissingGames | 強制啟用 `KeepMissingGames`激活偏好設置                                                   |
-| SAWK | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
-| SD   | SkipDistributing      | 強制禁用 `Distributing` 激活偏好設置                                                      |
-| SF   | SkipForwarding        | 強制禁用 `Forwarding` 激活偏好設置                                                        |
-| SI   | SkipInitial           | 跳過初始機械人的金鑰兌換過程                                                                  |
-| SKMG | SkipKeepMissingGames  | 強制禁用 `KeepMissingGames` 激活偏好設置                                                  |
-| V    | Validate              | 檢查金鑰格式是否正確，並自動跳過無效金鑰                                                            |
+| Value | Name                  | Description                                                                     |
+| ----- | --------------------- | ------------------------------------------------------------------------------- |
+| FAWK  | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
+| FD    | ForceDistributing     | 強制啟用 `Distributing` 激活偏好設置                                                      |
+| FF    | ForceForwarding       | 強制啟用 `Forwarding` 激活偏好設置                                                        |
+| FKMG  | ForceKeepMissingGames | 強制啟用 `KeepMissingGames`激活偏好設置                                                   |
+| SAWK  | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
+| SD    | SkipDistributing      | 強制禁用 `Distributing` 激活偏好設置                                                      |
+| SF    | SkipForwarding        | 強制禁用 `Forwarding` 激活偏好設置                                                        |
+| SI    | SkipInitial           | 跳過初始機械人的金鑰兌換過程                                                                  |
+| SKMG  | SkipKeepMissingGames  | 強制禁用 `KeepMissingGames` 激活偏好設置                                                  |
+| V     | Validate              | 檢查金鑰格式是否正確，並自動跳過無效金鑰                                                            |
 
 例如，我們打算為尚未擁有遊戲的機械人兌換 3 個金鑰，但不包括 `primary` 機械人。 為此我們需要執行命令：
 
@@ -290,7 +290,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Type>` 不區分大小寫，並定義由ASF識別的輸入類型。 當前，ASF可識別以下類型：
 
-| 類型                      | 描述                                        |
+| Type                    | Description                               |
 | ----------------------- | ----------------------------------------- |
 | Login                   | `SteamLogin`機械人配置屬性，在設定檔缺失這個值時使用。         |
 | Password                | `SteamPassword` 機械人配置屬性，在設定檔缺失這個值時使用。     |
@@ -300,7 +300,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Value>` 是為給定類型設置的值。 當前，所有值都是字串。
 
-### 範例
+### Example
 
 假設我們有一個未啟用2FA，僅由 SteamGuard保護的機械人。 We want to launch that bot with `Headless` set to `true`.
 

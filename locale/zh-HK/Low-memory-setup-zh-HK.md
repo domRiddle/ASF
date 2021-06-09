@@ -41,7 +41,7 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 ---
 
-## 運行時優化（進階）
+## Runtime tuning (advanced)
 
 Below tricks **involve performance degradation** and should be used with caution.
 

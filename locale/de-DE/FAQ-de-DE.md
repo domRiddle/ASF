@@ -1,4 +1,4 @@
-# FAQ (oft gestellte Fragen)
+# FAQ
 
 Unser FAQ umfasst Standardfragen und Antworten, die Sie vielleicht haben. Für weniger häufig gestellte Fragen besuchen Sie bitte stattdessen unser **[erweitertes FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-de-DE)**.
 
@@ -8,7 +8,7 @@ Unser FAQ umfasst Standardfragen und Antworten, die Sie vielleicht haben. Für w
 * [Vergleich mit ähnlichen Programmen](#comparison-with-similar-tools)
 * [Sicherheit / Datenschutz / VAC / Sperren / Nutzungsbedingungen](#security--privacy--vac--bans--tos)
 * [Sonstiges](#misc)
-* [Probleme](#issues)
+* [Issues](#issues)
 
 ---
 
@@ -110,7 +110,7 @@ Ja, ASF kümmert sich nicht einmal um das Herunterladen aktueller Spieldateien, 
 
 ---
 
-## Vergleich mit ähnlichen Programmen
+## Comparison with similar tools
 
 ---
 
@@ -124,7 +124,7 @@ Aus diesem Grund sollten Sie ASF nicht mit IM vergleichen, basierend auf den Erw
 
 ### Lohnt es sich ASF zu verwenden, wenn ich gerade Idle Master verwende und es für mich gut funktioniert?
 
-**Ja**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
+**Yes**. ASF is much more reliable and includes many built-in functions that are **crucial** regardless of the way how you idle, that IM simply doesn't offer.
 
 ASF has proper logic for **unreleased games** - IM will attempt to idle games that have cards added already, even if they weren't released yet. Natürlich ist es nicht möglich, diese Spiele bis zum Veröffentlichungsdatum zu sammeln, sodass der Sammel-Prozess stecken bleibt. Dazu müssen Sie es entweder zur Blacklist hinzufügen, auf die Freigabe warten oder manuell überspringen. Keine dieser Lösungen ist gut, und alle erfordern Ihre Aufmerksamkeit. ASF überspringt (vorrübergehend) automatisch das Sammeln unveröffentlichter Spiele und kehrt später zu ihnen zurück, sobald sie es sind, um das Problem vollständig zu vermeiden und effizient damit umzugehen.
 
@@ -200,13 +200,13 @@ Jedoch **gibt es** einen Unterschied, und du kannst deutlich feststellen, dass, 
 
 ### Kann ich ein Spiel spielen während ASF am Sammeln ist?
 
-**Nein**. ASF hat im Gegensatz zu IM einen unabhängigen Steam-Client integriert, und das Steam-Netzwerk erlaubt es nur **einem Steam-Client auf einmal**, ein Spiel zu spielen. Sie können die ASF-Verbindung jedoch jederzeit trennen, indem Sie ein Spiel starten (und auf "OK" klicken, wenn Sie gefragt werden, ob das Steam-Netzwerk einen anderen Client trennen soll) - ASF wird dann geduldig warten, bis Sie fertig sind, um den Prozess danach fortsetzen. Alternativ können Sie immer noch (wann immer Sie wollen) im Offline-Modus spielen, wenn das für Sie befriedigend ist.
+**No**. ASF hat im Gegensatz zu IM einen unabhängigen Steam-Client integriert, und das Steam-Netzwerk erlaubt es nur **einem Steam-Client auf einmal**, ein Spiel zu spielen. Sie können die ASF-Verbindung jedoch jederzeit trennen, indem Sie ein Spiel starten (und auf "OK" klicken, wenn Sie gefragt werden, ob das Steam-Netzwerk einen anderen Client trennen soll) - ASF wird dann geduldig warten, bis Sie fertig sind, um den Prozess danach fortsetzen. Alternativ können Sie immer noch (wann immer Sie wollen) im Offline-Modus spielen, wenn das für Sie befriedigend ist.
 
 Beachten Sie, dass die Drop-Rate der Karten, wenn Sie mehrere Spiele spielen, ohnehin nahe bei 0 liegt, daher gibt es keine direkten Vorteile, wenn Sie das mit IM machen können, während es starke Vorteile gibt, wenn Sie sich nicht in andere Spiele einmischen, die mit ASF gestartet wurden, was z. B. für VAC entscheidend ist.
 
 ---
 
-## Sicherheit / Datenschutz / VAC / Sperren / Nutzungsbedingungen
+## Security / Privacy / VAC / Bans / ToS
 
 ---
 
@@ -306,7 +306,7 @@ Eine detaillierte Erklärung findest du im Abschnitt **[Statistiken](https://git
 
 ---
 
-## Sonstiges
+## Misc
 
 ---
 
@@ -346,7 +346,7 @@ ASF ist eine Konsolenanwendung, es gibt kein zu minimierendes Fenster, da das Fe
 
 ### Stellt die Verwendung von ASF die Berechtigung zum Erhalt von Booster Packs sicher?
 
-**Ja**. ASF verwendet die gleiche Methode wie der offizielle Client, um sich im Steam-Netzwerk anzumelden, daher enthält es auch die Möglichkeit, Booster Packs für die verwendeten Konten zu erhalten. Mehr noch: Um diese Fähigkeit zu bewahren, muss man sich nicht einmal in die Steam-Community einloggen. Damit können Sie, falls Sie es wünschen, den `OnlineStatus` `Offline` sicher verwenden.
+**Yes**. ASF verwendet die gleiche Methode wie der offizielle Client, um sich im Steam-Netzwerk anzumelden, daher enthält es auch die Möglichkeit, Booster Packs für die verwendeten Konten zu erhalten. Mehr noch: Um diese Fähigkeit zu bewahren, muss man sich nicht einmal in die Steam-Community einloggen. Damit können Sie, falls Sie es wünschen, den `OnlineStatus` `Offline` sicher verwenden.
 
 ---
 
@@ -402,7 +402,7 @@ Natürlich gibt es immer noch sinnvolle Anwendungsfälle für mehrere ASF-Instan
 
 Der Status zeigt an, wie sich der gegebene Einlösungsversuch ausgewirkt hat. Es gibt viele verschiedene Stati, darunter die gängigsten:
 
-| Status                  | Beschreibung                                                                                                                                                                                                                                                         |
+| Status                  | Description                                                                                                                                                                                                                                                          |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | NoDetail                | Der Status "OK" zeigt Erfolg an - der Produktschlüssel wurde erfolgreich eingelöst.                                                                                                                                                                                  |
 | Timeout                 | Das Steam-Netzwerk hat nicht in einer bestimmten Zeit reagiert, wir wissen nicht, ob der Produktschlüssel eingelöst wurde oder nicht (höchstwahrscheinlich wurde er das, aber Sie könen es noch einmal versuchen).                                                   |
@@ -417,7 +417,7 @@ Der Status zeigt an, wie sich der gegebene Einlösungsversuch ausgewirkt hat. Es
 
 ### Gehörst du zu einem Karten-Sammel-Dienst?
 
-**Nein**. ASF ist mit keinem Dienst verknüpft und alle diese Behauptungen sind falsch. Dein Steam-Konto ist dein Eigentum und du kannst dein Konto auf jede erdenkliche Weise nutzen, aber Valve hat es klar in den **[offiziellen Nutzungsbedingungen](https://store.steampowered.com/subscriber_agreement/german)** erklärt:
+**No**. ASF ist mit keinem Dienst verknüpft und alle diese Behauptungen sind falsch. Dein Steam-Konto ist dein Eigentum und du kannst dein Konto auf jede erdenkliche Weise nutzen, aber Valve hat es klar in den **[offiziellen Nutzungsbedingungen](https://store.steampowered.com/subscriber_agreement/german)** erklärt:
 
 > Sie sind für die Sicherheit Ihres Computersystems und die Geheimhaltung Ihrer Anmeldedaten und Ihres Kennworts verantwortlich. Valve ist in keiner Weise für die Verwendung Ihres Kennworts und die Nutzung Ihres Benutzerkontos sowie auch nicht für jegliche Kommunikation und Aktivität auf Steam verantwortlich, die durch die Verwendung Ihres Kennworts durch Sie oder durch jegliche andere Personen, denen Sie absichtlich oder unabsichtlich Ihr Kennwort mitgeteilt haben, zustande kommt.
 
@@ -431,7 +431,7 @@ Es ist dein Konto und deine Entscheidung. Sag nur nicht, dass dich niemand gewar
 
 ---
 
-## Probleme
+## Issues
 
 ---
 
@@ -519,7 +519,7 @@ Andere Gründe können temporäre Steam-Probleme, Netzwerkprobleme oder ähnlich
 
 ### ASF schlägt mit dem Fehler `Request failed after 5 tries` fehl!
 
-Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Schaue unter **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)** vorbei, um mehr über `SteamParentalCode` zu erfahren.
+Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalCode`.
 
 Wenn die Eltern-PIN nicht der Grund dafür ist, dann ist dies ein häufiger Fehler, und du solltest dich daran gewöhnen, bedeutet das einfach, dass ASF eine Anfrage an das Steam-Netzwerk gesendet hat und keine gültige Antwort erhalten hat, 5 mal in Folge. Normalerweise bedeutet es, dass Steam entweder außer Betrieb ist oder einige Schwierigkeiten oder Wartungsarbeiten hat - ASF ist sich solcher Probleme bewusst und du solltest dir keine Sorgen um sie machen, es sei denn, sie passieren ständig für mehr als mehrere Stunden, und andere Benutzer haben keine derartigen Probleme.
 
@@ -531,7 +531,7 @@ Darüber hinaus beinhaltet Steam verschiedene Maßnahmen zur Ratenbegrenzung, di
 
 Es gibt keine "goldene Regel", die für jeden funktioniert, denn Sperren werden stark von Faktoren Dritter beeinflusst, deshalb muss man selbst experimentieren und einen Wert finden, der für einen funktioniert. Du kannst das auch ignorieren und einen Wert wie `10000` verwenden, was garantiert korrekt funktioniert, aber dann beschwere dich nicht, dass dein ASF auf alles innerhalb von 10 Sekunden reagiert und wie das Parsen von Abzeichen 5 Minuten dauert. Darüber hinaus ist es durchaus möglich, dass kein Begrenzer etwas bewirkt, weil du so viele Bots hast, dass du die **[Obergrenze](#wie-viele-bots-kann-ich-mit-asf-verwenden)** ereicht hast, wie oben erwähnt. Es ist sogar möglich, dass Sie sich ohne Probleme ins Steam-Netzwerk (Client) anmelden können, aber Steam Web (Webseite) sich schlicht weigert Ihnen zuzuhören, sollten Sie mehr als 100 Sitzungen gleichzeitig etabliert haben. ASF verlangt, dass sowohl das Steam-Netzwerk als auch das Steam-Web kooperativ sind. Wenn nur eines von beiden nicht funktioniert kann es zu Problemen kommen von denen du dich nicht erholen wirst.
 
-Wenn nichts hilft und du keine Ahnung hast was kaputt ist, kannst du immer den `Debug`-Modus aktivieren und dir im ASF-Log selbst ansehen warum genau die Anfragen fehlschlagen. Zum Beispiel:
+Wenn nichts hilft und du keine Ahnung hast was kaputt ist, kannst du immer den `Debug`-Modus aktivieren und dir im ASF-Log selbst ansehen warum genau die Anfragen fehlschlagen. For example:
 
 ```text
 InternalRequest() HEAD https://steamcommunity.com/my/edit/settings

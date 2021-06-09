@@ -10,7 +10,7 @@ Vă rugăm să rețineți că diferite **[componente ASF](https://github.com/Jus
 
 -----
 
-## Observații
+## Remarks
 
 Dacă vă creați propriul software/serviciu bazat pe ASF sau o parte din codul său, vă rugăm să revizuiți punctul 6 al licenței:
 

@@ -4,7 +4,7 @@
 
 ---
 
-## Теги
+## Tags
 
 В ASF доступные 4 основных типа **[тегов](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
 
@@ -47,7 +47,7 @@ Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which me
 
 ---
 
-## Использование
+## Usage
 
 Полную справку вы можете найти в **[официальной документации docker](https://docs.docker.com/engine/reference/commandline/docker)**, а мы в этом руководстве рассмотрим только базовое использование, но вы можете узнать больше самостоятельно.
 
@@ -126,7 +126,7 @@ docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name a
 
 ---
 
-## Аргументы командной строки
+## Command-line arguments
 
 ASF позволяет передавать **[аргументы командной строки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU)** в контейнер docker используя переменные среды. Вам следует использовать выделенные переменные среды для поддерживаемых аргументов, и переменную `ASF_ARGS` для всего остального. Это достигается путём добавления к команде `docker run` параметра `-e`, например:
 

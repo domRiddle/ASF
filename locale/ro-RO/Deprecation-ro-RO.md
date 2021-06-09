@@ -28,7 +28,7 @@ Etapa 2 este programată după etapa 1 explicată mai sus şi se lansează într
 
 ---
 
-## Rezumat
+## Summary
 
 Ai mai mult sau mai puțin o **lună întreagă** pentru a face schimbarea, care ar trebui să fie mai mult decât suficient, chiar dacă sunteți un utilizator ocazional ASF. După această perioadă, ASF nu mai garantează că vechile setări vor avea vreun efect (etapa 2), ceea ce va duce ca anumite caracteristici să nu mai funcţioneze fără a le mai observa. Dacă lansați ASF după mai mult de o lună de inactivitate, vă este recomandat să **[începeți de la zero](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** din nou, sau să citiți toate modificările pe care le-ai ratat și să adaptați manual utilizarea la cea curentă.
 
@@ -36,7 +36,7 @@ Ai mai mult sau mai puțin o **lună întreagă** pentru a face schimbarea, care
 
 ---
 
-## Exemplu
+## Example
 
 Am mutat **[argumentul de linie de comanda](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** pre-V3.1.2.2 `--server` în **[proprietatea globală de configurare](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** `IPC`.
 
