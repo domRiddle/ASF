@@ -26,13 +26,13 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ---
 
-## Libraries
+## Kütüphaneler
 
 - **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
 
 ---
 
-## Packaging
+## Paketleme
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, allowing you to easily install ASF on arch linux.
