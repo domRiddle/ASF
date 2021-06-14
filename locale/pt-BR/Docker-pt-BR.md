@@ -4,7 +4,7 @@ A partir da versão 3.0.3.2, o ASF também está disponível como um **[containe
 
 ---
 
-## Tags
+## Marcadores
 
 O ASF está disponível 4 tipos **[marcadores](https://hub.docker.com/r/justarchi/archisteamfarm/tags)** principais:
 
@@ -47,7 +47,7 @@ Desde a versão V5.0.2.2 do ASF, nossas tags tem usado um manifesto multi-plataf
 
 ---
 
-## Usage
+## Uso
 
 Para uma referência completa você deve usar a **[documentação docker oficial](https://docs.docker.com/engine/reference/commandline/docker)**, nós cobriremos apenas o uso básico nesse guia, você é mais que bem vindo a pesquisar mais a fundo.
 
@@ -126,17 +126,17 @@ Montar a pasta `/tmp/ASF` é completamente opcional e na verdade não é recomen
 
 ---
 
-## Command-line arguments
+## Argumentos da linha de comando
 
 O ASF te permite passar **[argumentos de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)** no contêiner docker através de variáveis de ambiente. Você deve usar variáveis de ambiente específicas para os switches suportados, e `ASF_ARGS` para o resto. Isso pode ser feito com o switch `-e` adicionado ao `docker run`, por exemplo:
 
 ```shell
-docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf --pull always justarchi/archisteamfarm
+docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --name asf --pull always justarchi/archisteamfarm
 ```
 
 Esse comando passará seu argumento `--cryptkey` para o processo do ASF sendo executado dentro do contêiner docker, assim como outros argumentos. Claro, se você for um usuário avançado então você também pode mudar o `ENTRYPOINT` ou adicionar `CMD` e passar seus argumentos personalizados você mêsmo.
 
-A menos que você deseje fornecer chaves de criptografia personalizadas ou outras opções avançadas, geralmente você não precisa incluir qualquer variável de ambiente em especial, já que nosso contêiner docker já está configurado para ser executado com opções padrões esperadas de `--no-restart` `--process-required` `--system-required`, então, como você pode ver nossos `ASF_ARGS` são redundantes nesse caso, e apenas `ASF_CRYPTKEY` é relevante.
+Unless you want to provide custom encryption key or other advanced options, usually you don't need to include any special environment variables, as our docker containers are already configured to run with a sane expected default options of `--no-restart` `--process-required` `--system-required`, so those flags do not need to be specified explicitly in `ASF_ARGS`.
 
 ---
 
@@ -196,7 +196,7 @@ Isso pressupõe que você usará um único contêiner do ASF, com todos os arqui
 
 ## Dicas profissionais
 
-Quando você já tem o contêiner docker do ASF pronto, você não precisa usar o comando `docker run` toda vez. Você pode parar/iniciar o contêiner docker do ASF facilmente com `docker stop asf` e `docker start asf`. Tenha em mente que se você não estiver usando o marcador `latest` então você precisará usar os comandos `docker stop`, `docker rm` e `docker run` novamente para atualizar o ASF. Isso porque você deve recompilar seu contêiner à partir de uma imagem nova do ASF toda vez que você quiser usar a versão do ASF inclusa naquela imagem. Na tag `latest`, o ASF incluiu a capacidade de se atualizar automaticamente, então recompilar a imagem não é necessário para usar o ASF atualizado (mas ainda é uma boa ideia fazer isso de tempos em tempos para obter uma versão recente do tempo de execução .NET Core e do Sistema Operacional utilizados).
+Quando você já tem o contêiner docker do ASF pronto, você não precisa usar o comando `docker run` toda vez. Você pode parar/iniciar o contêiner docker do ASF facilmente com `docker stop asf` e `docker start asf`. Tenha em mente que se você não estiver usando o marcador `latest` então você precisará usar os comandos `docker stop`, `docker rm` e `docker run` novamente para atualizar o ASF. Isso porque você deve recompilar seu contêiner à partir de uma imagem nova do ASF toda vez que você quiser usar a versão do ASF inclusa naquela imagem. In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it's still a good idea to do it from time to time in order to use fresh .NET Core dependencies and the underlying OS).
 
 Como dito acima, em qualquer outro marcador que não seja o `latest`, o ASF não vai se atualizar automaticamente, o que significa que **você** é o responsável por usar uma verão atualizada do repositório `justarchi/archisteamfarm`. Isso traz muitas vantagens já que normalmente o aplicativo não precisa mudar seu código durante a operação, mas nós entendemos a conveniência de não precisar se preocupar com a versão do ASF em seu contêiner docker. Se você se importa com boas práticas e o uso correto do contêiner docker, sugerimos o marcador `released` ao invés de `latest`, mas se você não quer se preocupar com isso e só quer fazer o ASF tanto funcionar quanto se atualizar automaticamente, então `latest` serve.
 

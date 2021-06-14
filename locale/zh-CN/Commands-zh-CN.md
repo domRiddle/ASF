@@ -17,7 +17,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 自 V4.0.0.9 版本开始，只要您正确设置了 [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#steamownerid) 属性，就可以在 ASF 中启用交互式控制台。 随后，只需要按下 `c` 键就可以启用命令模式，此时您可以输入命令，并按回车键确认。
 
-![Screenshot](https://i.imgur.com/bH5Gtjq.png)
+![屏幕截图](https://i.imgur.com/bH5Gtjq.png)
 
 交互式控制台在 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#headless) 模式下不可用。
 
@@ -27,7 +27,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 您也可以通过 Steam 聊天对给定的 ASF 机器人执行命令。 显然，您无法直接与自己聊天，因此如果您希望为您的主帐户执行命令，就至少还需要另一个机器人帐户。
 
-![Screenshot](https://i.imgur.com/IvFRJ5S.png)
+![屏幕截图](https://i.imgur.com/IvFRJ5S.png)
 
 类似地，您也可以使用指定 Steam 群组的群组聊天。 请注意，此选项需要您正确设置 `SteamMasterClanID` 属性，使机器人同样监听（并加入）指定的群组聊天。 与私人聊天不同，因为这种方法不需要额外的帐户，所以可以用来“与自己交谈”。 您可以直接将 `SteamMasterClanID` 属性设置为您新创建的群组，然后通过 `SteamOwnerID` 属性或者机器人的 `SteamUserPermissions` 属性为您自己的帐户授予足够的权限。 这样，ASF 机器人（即您自己的帐户）将会加入这个群组和群组聊天室，并且开始监听您发送的命令。 您可以加入同一个群组聊天室，以便向自己发送命令（因为在您向聊天室发送命令时，同样在聊天室内的 ASF 实例将会收到命令，即使界面上显示只有您自己在聊天室内）。
 
@@ -41,7 +41,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 这是执行命令最先进、灵活的方式，非常适合用户集成（ASF-ui）或者第三方工具脚本（ASF API）。这种方式需要 ASF 运行在 `IPC` 模式下，并且客户端需要通过 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 接口来执行命令。
 
-![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
+![屏幕截图](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
 ---
 
@@ -126,7 +126,7 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 一些命令有较短的别名可用，用来减少键入的次数：
 
-| Command      | 别名   |
+| 命令           | 别名   |
 | ------------ | ---- |
 | `owns ASF`   | `oa` |
 | `status ASF` | `sa` |
@@ -205,10 +205,10 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 `addlicense` 命令支持两种不同的许可类型，包括：
 
-| 类型    | Alias | 示例           | Description               |
-| ----- | ----- | ------------ | ------------------------- |
-| `app` | `a`   | `app/292030` | 游戏的唯一 `appID`。            |
-| `sub` | `s`   | `sub/47807`  | 包含一款或多款游戏的包，有唯一的 `subID`。 |
+| 类型    | 别名  | 示例           | 描述                        |
+| ----- | --- | ------------ | ------------------------- |
+| `app` | `a` | `app/292030` | 游戏的唯一 `appID`。            |
+| `sub` | `s` | `sub/47807`  | 包含一款或多款游戏的包，有唯一的 `subID`。 |
 
 二者的区别很重要，因为 ASF 需要向 Steam 网络激活 App，向 Steam 商店激活 Sub。 二者互不兼容，通常您会为周末免费或永久免费游戏使用 App，为其他情况使用 Sub。
 
@@ -226,16 +226,16 @@ addlicense ASF app/292030,sub/47807
 
 `owns` 命令支持几种不同的 `<games>` 参数类型，包括：
 
-| 类型      | Alias | 示例               | Description                                                                                                                                                                                                               |
-| ------- | ----- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a`   | `app/292030`     | 游戏的唯一 `appID`。                                                                                                                                                                                                            |
-| `sub`   | `s`   | `sub/47807`      | 包含一款或多款游戏的包，有唯一的 `subID`。                                                                                                                                                                                                 |
-| `regex` | `r`   | `regex/^\d{4}:` | 用于模式匹配游戏名称的&#8203;**[正则表达式](https://en.wikipedia.org/wiki/Regular_expression)**，区分大小写。 完整的语法与示例见&#8203;**[文档](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)**。 |
-| `name`  | `n`   | `name/Witcher`   | 游戏名称的一部分，不区分大小写。                                                                                                                                                                                                          |
+| 类型      | 别名  | 示例               | 描述                                                                                                                                                                                                                        |
+| ------- | --- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a` | `app/292030`     | 游戏的唯一 `appID`。                                                                                                                                                                                                            |
+| `sub`   | `s` | `sub/47807`      | 包含一款或多款游戏的包，有唯一的 `subID`。                                                                                                                                                                                                 |
+| `regex` | `r` | `regex/^\d{4}:` | 用于模式匹配游戏名称的&#8203;**[正则表达式](https://en.wikipedia.org/wiki/Regular_expression)**，区分大小写。 完整的语法与示例见&#8203;**[文档](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)**。 |
+| `name`  | `n` | `name/Witcher`   | 游戏名称的一部分，不区分大小写。                                                                                                                                                                                                          |
 
 我们建议您明确指定每一项的类型，以避免模糊不清的结果，但为了与之前的行为兼容，如果您提供的类型无效或者完全没有提供类型，ASF 会将您输入的数字视为 `app` 类型，将其他内容视为 `name` 类型。 您也可以同时查询多款游戏，即使用标准的 ASF 逗号分隔符（`,`）。
 
-Complete command example:
+一个完整命令的示例：
 
 ```text
 owns ASF app/292030,name/Witcher
@@ -249,18 +249,18 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` 接受由逗号分隔的多个模式代码。 可用的模式代码有：
 
-| Value | Name                  | Description                                      |
-| ----- | --------------------- | ------------------------------------------------ |
-| FAWK  | ForceAssumeWalletKey  | 强制启用 `AssumeWalletKeyOnBadActivationCode` 激活偏好设置 |
-| FD    | ForceDistributing     | 强制启用 `Distributing` 激活偏好设置                       |
-| FF    | ForceForwarding       | 强制启用 `Forwarding` 激活偏好设置                         |
-| FKMG  | ForceKeepMissingGames | 强制启用 `KeepMissingGames` 激活偏好设置                   |
-| SAWK  | SkipAssumeWalletKey   | 强制禁用 `AssumeWalletKeyOnBadActivationCode` 激活偏好设置 |
-| SD    | SkipDistributing      | 强制禁用 `Distributing` 激活偏好设置                       |
-| SF    | SkipForwarding        | 强制禁用 `Forwarding` 激活偏好设置                         |
-| SI    | SkipInitial           | 跳过首个机器人的激活过程                                     |
-| SKMG  | SkipKeepMissingGames  | 强制禁用 `KeepMissingGames` 激活偏好设置                   |
-| V     | Validate              | 检查序列号的格式，自动跳过其中无效的                               |
+| 值    | 名称                    | 描述                                               |
+| ---- | --------------------- | ------------------------------------------------ |
+| FAWK | ForceAssumeWalletKey  | 强制启用 `AssumeWalletKeyOnBadActivationCode` 激活偏好设置 |
+| FD   | ForceDistributing     | 强制启用 `Distributing` 激活偏好设置                       |
+| FF   | ForceForwarding       | 强制启用 `Forwarding` 激活偏好设置                         |
+| FKMG | ForceKeepMissingGames | 强制启用 `KeepMissingGames` 激活偏好设置                   |
+| SAWK | SkipAssumeWalletKey   | 强制禁用 `AssumeWalletKeyOnBadActivationCode` 激活偏好设置 |
+| SD   | SkipDistributing      | 强制禁用 `Distributing` 激活偏好设置                       |
+| SF   | SkipForwarding        | 强制禁用 `Forwarding` 激活偏好设置                         |
+| SI   | SkipInitial           | 跳过首个机器人的激活过程                                     |
+| SKMG | SkipKeepMissingGames  | 强制禁用 `KeepMissingGames` 激活偏好设置                   |
+| V    | Validate              | 检查序列号的格式，自动跳过其中无效的                               |
 
 例如，我么打算为尚未拥有游戏的机器人激活 3 个序列号，但不包括 `primary` 机器人。 为此我们需要执行命令：
 
@@ -290,7 +290,7 @@ owns ASF app/292030,name/Witcher
 
 `<Type>` 不区分大小写，定义 ASF 接受的输入类型。 目前 ASF 支持以下类型：
 
-| Type                    | Description                                |
+| 类型                      | 描述                                         |
 | ----------------------- | ------------------------------------------ |
 | Login                   | `SteamLogin` 机器人配置属性，在配置文件缺少这个值时使用。        |
 | Password                | `SteamPassword` 机器人配置属性，在配置文件缺少这个值时使用。     |

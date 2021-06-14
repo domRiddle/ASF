@@ -46,7 +46,7 @@ Generic 包是一个与平台无关的版本，所以它不包含特定于计算
 
 ---
 
-### OS-specific
+### OS-specific（特定操作系统）
 
 除了 Generic 包中包含的托管代码之外，OS-specific 包还包括指定平台的本机代码。 换句话说，OS-specific 包**内部已经包含了可用的 .NET Core 运行时环境**，使您可以跳过麻烦的安装过程，直接启动 ASF。 OS-specific 包，顾名思义，是针对不同操作系统的，每种操作系统都需要其特定的版本——例如 Windows 需要 PE32+ `ArchiSteamFarm.exe` 二进制文件，而 Linux 则需要 Unix ELF `ArchiSteamFarm` 二进制文件。 您可能知道，这两种类型之间是完全不兼容的。
 

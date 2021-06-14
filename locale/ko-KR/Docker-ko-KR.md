@@ -4,7 +4,7 @@ ASF는 3.0.3.2 버전부터 **[도커 컨테이너](https://www.docker.com/what-
 
 ---
 
-## Tags
+## 태그
 
 ASF는 4가지 주요 유형의 **[태그](https://hub.docker.com/r/justarchi/archisteamfarm/tags)** 상태를 갖습니다.
 
@@ -47,7 +47,7 @@ Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which me
 
 ---
 
-## Usage
+## 사용법
 
 완전한 참조는 **[도커 공식 문서](https://docs.docker.com/engine/reference/commandline/docker)**를 참고하시고, 이 가이드에서는 간단한 사용법만 다룹니다. 더 깊이 공부하는 것도 좋습니다.
 
@@ -126,17 +126,17 @@ Mounting `/tmp/ASF` is completely optional and actually not recommended, unless 
 
 ---
 
-## Command-line arguments
+## 명령줄 인자
 
 ASF는 환경변수를 통해 **[명령줄 인자](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ko-KR)** 를 도커 컨테이너로 넘겨줄 수 있습니다. 지원하는 스위치를 위해서는 특별한 환경변수를, 그 외에는 `ASF_ARGS` 를 사용해야 합니다. `docker run` 에 `-e` 스위치를 붙이면 됩니다. 다음은 예시입니다.
 
 ```shell
-docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--process-required" --name asf --pull always justarchi/archisteamfarm
+docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --name asf --pull always justarchi/archisteamfarm
 ```
 
 이렇게 하면 `--cryptkey` 인자 뿐 아니라 다른 인자들도 도커 컨테이너 내부에서 실행되는 ASF 프로세스로 전달할 것입니다. Of course, if you're advanced user then you can also modify `ENTRYPOINT` or add `CMD` and pass your custom arguments yourself.
 
-사용자지정 암호화 키나 다른 고급 옵션을 주고싶은 것이 아니라면 보통은 어떤 특별한 환경 변수를 포함하지 않습니다. 도커 컨테이너는 이미 기본값으로 `--no-restart` `--process-required` `--system-required`로 실행하도록 설정되어있습니다. 따라서 위의 `ASF_ARGS` 는 필요없고, `ASF_CRYPTKEY` 만이 적용됩니다.
+Unless you want to provide custom encryption key or other advanced options, usually you don't need to include any special environment variables, as our docker containers are already configured to run with a sane expected default options of `--no-restart` `--process-required` `--system-required`, so those flags do not need to be specified explicitly in `ASF_ARGS`.
 
 ---
 
@@ -196,7 +196,7 @@ This assumes that you'll use a single ASF container, with all ASF config files i
 
 ## 프로 팁
 
-ASF 도커 컨테이너가 준비되어있다면 `docker run`를 매번 실행할 필요가 없습니다. `docker stop asf`와 `docker start asf`로 ASF 도커 컨테이너를 쉽게 멈추고 시작할 수 있습니다. Keep in mind that if you're not using `latest` tag then using up-to-date ASF will still require from you to `docker stop`, `docker rm` and `docker run` again. 이는 매 버전마다 새로운 ASF 도커 이미지로부터 다시 빌드해야 하기 때문입니다. `latest` 태그에서는 ASF가 스스로 자동 업데이트할 수 있으며, 최신 ASF를 사용하는데 이미지를 다시 빌드할 필요가 없습니다. 물론 새로운 .NET Core 런타임과 그 밑의 OS를 사용하기 위해 때때로 다시 빌드하는 것도 좋은 생각입니다.
+ASF 도커 컨테이너가 준비되어있다면 `docker run`를 매번 실행할 필요가 없습니다. `docker stop asf`와 `docker start asf`로 ASF 도커 컨테이너를 쉽게 멈추고 시작할 수 있습니다. Keep in mind that if you're not using `latest` tag then using up-to-date ASF will still require from you to `docker stop`, `docker rm` and `docker run` again. 이는 매 버전마다 새로운 ASF 도커 이미지로부터 다시 빌드해야 하기 때문입니다. In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it's still a good idea to do it from time to time in order to use fresh .NET Core dependencies and the underlying OS).
 
 위에서 암시하였듯이, `latest` 가 아닌 ASF 태그는 스스로 자동 업데이트하지 않습니다. 즉, **당신이** 최신의 `justarchi/archisteamfarm` 저장소를 사용할 주체입니다. 보통 앱이 실행중에는 코드를 건드려서는 안되기 때문에 많은 장점을 갖지만, 도커 컨테이너에 있는 ASF는 걱정할 필요가 없다는 편리함도 있습니다. 좋은 사례와 정확한 도커 사용례를 잘 살핀다면 우리가 추천하는 것은 `latest` 태그가 아닌 `released` 태그입니다. 하지만 그게 귀찮고 ASF가 동작도 잘하고 자동 업데이트도 하길 원하면 `latest` 태그가 그 답입니다.
 

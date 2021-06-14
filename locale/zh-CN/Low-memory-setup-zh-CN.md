@@ -41,17 +41,17 @@ ASF 中使用的&#8203;**[垃圾收集](https://en.wikipedia.org/wiki/Garbage_co
 
 ---
 
-## Runtime tuning (advanced)
+## 运行时环境调优（高级）
 
 以下技巧**会造成性能下降**，应谨慎使用。
 
-.NET Core runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
+.NET Core 运行时环境允许您以多种方式&#8203;**[调整垃圾回收](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/garbage-collector)**，根据需要高效地优化 GC 过程。
 
-The recommended way of applying those settings is through `COMPlus_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
+应用这些设置的推荐方式是设置 `COMPlus_` 环境变量。 当然，您也可以使用其他方法，例如 `runtimeconfig.json`，但这种方法无法调整某些选项，并且 ASF 还会在每次更新时替换掉您的自定义 `runtimeconfig.json`，因此我们推荐使用环境变量，这样您就可以在运行程序之前轻松设置。
 
-Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
+请阅读文档了解所有您能使用的属性，我们也会在此说明（在我们眼中）最重要的几个：
 
-### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
+### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
 > 以内存百分比形式指定 GC 堆空间使用量。
 
@@ -59,7 +59,7 @@ Refer to the documentation for all the properties that you can use, we'll mentio
 
 另一方面，如果您希望 ASF 不会使用超出您可接受范围的内存，让您的设备在高负载的情况下依然有喘息的空间，但仍然允许程序尽可能高效率地完成它的任务，就可以合理调高这个选项。
 
-### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
+### [`GCHighMemPercent`](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 
 > 指定在 GC 更积极后的内存使用量。
 
@@ -71,7 +71,7 @@ Refer to the documentation for all the properties that you can use, we'll mentio
 
 这个属性未公开，但实际上非常有效，它会限制 GC 代数的大小，使 GC 发生得更频繁。 默认的（平衡）延迟级别为 `1`，但您可以使用 `0`，这将会调整内存用量。
 
-### [`gcTrimCommitOnLowMemory`](https://docs.microsoft.com/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
+### [`gcTrimCommitOnLowMemory`](https://docs.microsoft.com/zh-cn/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
 
 > 设置此选项时，我们会更积极地为暂时段减少提交的空间。 这可用于运行多个服务器进程的实例，这些实例需要尽可能地保持较小的内存提交。
 
@@ -79,7 +79,7 @@ Refer to the documentation for all the properties that you can use, we'll mentio
 
 ---
 
-You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
+您可以通过 `COMPlus_` 环境变量启用所有 GC 选项。 例如，在 Linux 上（Shell）：
 
 ```shell
 # 如要使用此功能，不要忘记调整此数值
@@ -92,7 +92,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # 针对操作系统包
 ```
 
-Or on Windows (powershell):
+或者在 Windows 上（Powershell）：
 
 ```powershell
 # 如要使用此功能，不要忘记调整此数值
@@ -117,7 +117,7 @@ $Env:COMPlus_gcTrimCommitOnLowMemory=1
 
 ---
 
-## Recommended optimization
+## 建议的优化
 
 - 从简单的 ASF 配置开始，也许您只是以错误的方式使用了 ASF，例如为所有的机器人启动多个进程，或者在只需要自动启动一两个机器人的情况下启动了所有机器人。
 - 如果仍然不理想，通过设置合适的 `COMPlus_` 环境变量启用所有上述的配置属性。 特别是 `GCLatencyLevel` 能够在轻微影响性能的情况下显著减少内存用量。
