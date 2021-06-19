@@ -1,51 +1,51 @@
-# Üçüncü-Parti
+# Üçüncü Parti
 
-This section includes various third-party additions written exclusively (or mainly) for usage together with ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
+Bu bölüm, özel (veya esas) olarak ASF ile birlikte kullanım için yazılmış çeşitli üçüncü taraf eklentilerini içerir. ASF eklentilerini, basit web uygulamalarını, entegrasyon için gerekli dahili kütüphaneleri ve diğer platformlar için tam özellikli botları kapsar. Listeye eklemek istediğiniz bir şey varsa, Discord veya Steam grubumuzdan bize ulaşın.
 
-Please note that below programs are **not** maintained by ASF developers and therefore **we give no guarantee about any of them**, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only. You should always ensure that the third-party utility you're about to use is legit enough for you, as you're using all of them at your own risk.
+Lütfen aşağıdaki programların ASF geliştiricileri tarafından **sağlanmadığını** ve bu nedenle **hiçbiri hakkında garanti vermediğimizi** unutmayın, özellikle güvenlik, emniyet veya Steam Kullanım Şartları uyumluluğu açısından. Bu liste yalnızca referans amacıyla tutulur. Her zaman kullanmak üzere olduğunuz üçüncü parti eklentilerin sizin için yeterince yasal olduğundan emin olmalısınız, çünkü hepsi sizin sorumluluğunuzdadır.
 
 ---
 
 ## ASF eklentileri
 
-- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin for ASF adding functionality of creating booster packs.
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin for ASF to make bot names case-insensitive.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin for ASF to re-implement key redeeming without a command.
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin for ASF to automatically accept trade request for certain type(s) of items.
-- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, plugin for ASF to automatically process Steam invites.
-- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin for ASF allowing proxifying WebSocket connections.
+- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, Steam başarılarını yönetmenize izin veren ASF eklentisidir.
+- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, güçlendirici paketler oluşturma işlevini sağlayan ASF eklentisidir.
+- **[Case-Inresponsive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, bot adlarını büyük/küçük harfe duyarlı hale getiren ASF eklentisidir.
+- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, ürün kodunu komut girmeden uygulamanızı sağlayan ASF eklentisidir.
+- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, belirli tür(ler) için takas talebini otomatik olarak kabul etmesini sağlayan ASF eklentisidir.
+- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, Steam davetlerini otomatik olarak işleyen ASF eklentisidir.
+- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, WebSocket bağlantılarının proxy ile sağlanmasına izin veren ASF eklentisidir.
 
 ---
 
-## Integrations
+## Entegrasyonlar
 
-- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (minimal) telegram bot written in python featuring ASF integration.
+- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, ASF entegrasyonu için Python programlama dili ile yazılmış Telegram botudur.
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, ASF tarafından sağlanan ` MatchActively` özelliğini kullanmadan **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** listesindeki botlara web tarayıcısı üzerinden otomatik takas teklifleri göndermek isteyenler için hazırlanmış userscript.
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, ASF entegrasyonuna sahip, Python programlama dili ile yazılmış başka bir (asgari özelliğe sahip) Telegram botudur.
 
 ---
 
 ## Kütüphaneler
 
-- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
+- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, ASF'nin IPC arayüzüyle daha fazla entegrasyonunu sağlayan, Python programlama diliyle yazılmış kütüphane.
 
 ---
 
 ## Paketleme
 
-- **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
-- **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, allowing you to easily install ASF on arch linux.
+- **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, Arch Linux üzerinde ASF'yi kolayca yüklemenizi sağlar.
+- **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, Arch Linux üzerinde ASF'yi kolayca yüklemenizi sağlar.
 
 ---
 
 ## Araçlar
 
-- **[Keys extractor](https://ske.xpixv.com)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
-- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, which allows to manage multiple ASF configs more easily.
+- **[Keys extractor](https://ske.xpixv.com)**, anahtarları çeşitli biçimlerde kopyalayıp yapıştırmanızı sağlayan ve `ürün kodunu aktifleştir` komutunu oluşturan ASF aracı. Daha fazla bilgi için **[GitHub repo](https://github.com/PixvIO/SKE)**'sunu ziyaret edin.
+- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, birden çok ASF yapılandırmasını daha kolay yönetmenizi sağlayan ASF aracı.
 
 ---
 
-## Want to find more?
+## Daha Fazlasını Öğrenmek İster misiniz?
 
-We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** topic on GitHub for all projects that integrate with ASF.
+ASF ile entegre olan tüm projeler için GitHub'da **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** konusunu ziyaret etmenizi öneriyoruz.

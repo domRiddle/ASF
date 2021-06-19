@@ -6,13 +6,13 @@ Arkaplan oyunları kurtarıcısı, tek bir bot alanına sahip olacak şekilde ya
 
 ---
 
-## Import
+## İçe Aktarma
 
 İçe aktarma işlemi iki yolla yapılabilir - bir dosya kullanarak veya IPC kullanarak.
 
 ### Dosya
 
-ASF, kendi `yapılandırma` dizininde `BotName.keys` adlı bir dosyayı, `BotName` botunuzun adı olduğunu görecektir. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Birden çok sekme kullanılıyorsa, o halde ilk giriş oyunun adı olarak kabul edilir, son giriş bir cd-key olarak kabul edilir ve aradaki her şey göz ardı edilir. For example:
+ASF, kendi `yapılandırma` dizininde `BotName.keys` adlı bir dosyayı, `BotName` botunuzun adı olduğunu görecektir. Bu dosya, girişi belirtmek için birbirinden bir sekme (tab) karakteriyle ayrılmış şekilde oyun adı ve cd-key içeren, sonu yeni bir satırla (\n) biten satırlar içerir. Birden çok sekme kullanılıyorsa, o halde ilk giriş oyunun adı olarak kabul edilir, son giriş bir cd-key olarak kabul edilir ve aradaki her şey göz ardı edilir. Örneğin:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -21,7 +21,7 @@ A Week of Circus Terror POIUY-KJHGD-QWERT
 Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
 ```
 
-Alternatively, you're also able to use keys only format (still with a newline between each entry). Bu durumda ASF, doğru ismi doldurmak için Steam'in yanıtını(mümkünse) kullanacaktır. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+Alternatif olarak, yalnızca cd-key de kullanabilirsiniz (yine her giriş arasında yeni bir satırla). Bu durumda ASF, doğru ismi doldurmak için Steam'in yanıtını (mümkünse) kullanacaktır. Her türlü anahtar etiketleme için, Steam'de kullanılan paketlerin etkinleştirdikleri oyunların mantığını takip etmesi gerekmediğinden, geliştiricinin ne koyduğuna bağlı olarak, doğru oyunu görebilirsiniz. adlar, özel paket adları (örn. Humble Indie Bundle 18) veya tamamen yanlış ve potansiyel olarak kötü niyetli olanlar (örn. Half-Life 4).
 
 ```text
 ABCDE-EFGHJ-IJKLM
@@ -30,7 +30,7 @@ POIUY-KJHGD-QWERT
 ZXCVB-ASDFG-QWERT
 ```
 
-Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. Dosyanızın başarılı bir şekilde ayrıştırılmasından ve geçersiz girişlerin atlanmasından sonra, düzgün bir şekilde algılanan tüm oyunlar arka plan sırasına eklenecek ve `BotName.keys` dosyasının kendisi `yapılandırma` dizininden kaldırılacaktır.
+Hangi biçime bağlı kalmaya karar vermiş olursanız olun, ASF, bot başlangıcında veya daha sonra yürütme sırasında `keys` dosyanızı içe aktarır. Dosyanızın başarılı bir şekilde ayrıştırılmasından ve geçersiz girişlerin atlanmasından sonra, düzgün bir şekilde algılanan tüm oyunlar arka plan sırasına eklenecek ve `BotName.keys` dosyasının kendisi `yapılandırma` dizininden kaldırılacaktır.
 
 ### IPC
 
