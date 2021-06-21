@@ -46,15 +46,15 @@ If during the process our account hits `RateLimited` status, the queue is tempor
 
 ---
 
-## Example
+## Örnek
 
-Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
+100 anahtarlık bir listeniz olduğunu varsayalım. Öncelikle ASF `config` dizininde yeni bir `BotName.keys.new` dosyası oluşturmalısınız. ASF'ye bu dosyayı oluşturulduğu anda almaması gerektiğini bildirmek için `.new` uzantısını ekledik (çünkü yeni boş dosya olduğundan, içe aktarmaya henüz hazır değil).
 
-Now you can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
+Artık yeni dosyamızı açabilir ve 100 anahtarımızın kopyala-yapıştır listesini orada açabilir, gerekirse formatı düzeltebilirsiniz. Düzeltmelerden sonra `BotName.keys.new` dosyamız tam olarak 100 (veya son satırsonu ile birlikte 101) satıra sahip olacak ve her satır `OyunAdı\tcd-key\n` yapısına sahip olacak. Burada `\t` sekme karakteri ve `\n` yeni satırdır.
 
-You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
+ASF'nin dosyanın alınmaya hazır olduğunu bilmesini sağlamak için artık bu dosyayı `BotName.keys.new` yerine `BotName.keys` olarak yeniden adlandırmaya hazırsınız. Bunu yaptığınız anda, ASF dosyayı otomatik olarak içe aktarır (yeniden başlatmaya gerek kalmadan), tüm oyunlarımızın ayrıştırıldığını ve sıraya eklendiğini onayladıktan sonra sonra siler.
 
-Instead of using `BotName.keys` file, you could also use IPC API endpoint, or even combining both if you want to.
+`BotName.keys` dosyasını kullanmak yerine, IPC API uç noktasını da kullanabilir, hatta isterseniz ikisini birleştirebilirsiniz.
 
 After some time, `BotName.keys.used` and `BotName.keys.unused` files will be generated. Those files contain results of our redeeming process. For example, you could rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since previous bot didn't make use of those keys himself. Or you could simply copy-paste unused keys to some other file and keep it for later, your call. Keep in mind that as ASF goes through the queue, new entries will be added to our output `used` and `unused` files, therefore it's recommended to wait for the queue to be fully emptied before making use of them. If you absolutely must access those files before queue is fully emptied, you should firstly **move** output file you want to access to some other directory, **then** parse it. This is because ASF can append some new results while you're doing your thing, and that could potentially lead to loss of some keys if you read a file having e.g. 3 keys inside, then delete it, totally missing the fact that ASF added 4 other keys to your removed file in the meantime. If you want to access those files, ensure to move them away from ASF `config` directory before reading them, for example by rename.
 
