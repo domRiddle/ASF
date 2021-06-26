@@ -136,7 +136,7 @@ Posteriormente, asumiendo que instalaste todas las dependencias necesarias en el
 
 Si proporcionaste `SteamLogin` y `SteamPassword` para que utilice ASF, se te pedirá solamente tu código de SteamGuard (correo electrónico, 2FA o ninguno, dependiendo de los ajustes de tu cuenta de Steam). Si no lo hiciste, también se te pedirá tu nombre de usuario y contraseña.
 
-Ahora es buen momento para revisar nuestra sección **[política de privacidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-es-es#pol%C3%ADtica-de-privacidad-actual)** si te preocupa qué pasará a continuación, como se expresa por el mismo ASF.
+Ahora sería un buen momento para revisar nuestra sección **[política de privacidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-es-ES#pol%C3%ADtica-de-privacidad-actual)** si te preocupa lo que ASF está programado para hacer, como unirse a cierto grupo de Steam al iniciar.
 
 Después de la etapa de conexión, asumiendo que tus datos son correctos, iniciarás sesión con éxito, y ASF comenzará a recolectar cromos usando la configuración predeterminada:
 

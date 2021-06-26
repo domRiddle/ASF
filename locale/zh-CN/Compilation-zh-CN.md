@@ -6,15 +6,15 @@
 
 ---
 
-## .NET Core SDK
+## .NET SDK
 
-无论使用什么平台，您都需要完整的 .NET Core SDK（不仅仅是运行时环境）才能编译 ASF。 您可以在 **[.NET Core 安装页面](https://dotnet.microsoft.com/download)**&#8203;找到安装指南。 您需要安装适合您操作系统的 .NET Core SDK 版本。 安装成功后，`dotnet` 命令应该已经可以使用并且正常运行。 您可以执行 `dotnet --info` 命令进行验证。 同样需要确认您的 .NET Core SDK 匹配 ASF 的&#8203;**[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**。
+无论使用什么平台，您都需要完整的 .NET SDK（不仅仅是运行时环境）才能编译 ASF。 您可以在 **[.NET 下载页面](https://dotnet.microsoft.com/download)**&#8203;找到安装指南。 您需要安装适合您操作系统的 .NET SDK 版本。 安装成功后，`dotnet` 命令应该已经可以使用并且正常运行。 您可以执行 `dotnet --info` 命令进行验证。 同样需要确认您的 .NET SDK 匹配 ASF 的&#8203;**[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**。
 
 ---
 
 ## 编译
 
-假设您已安装适当版本的 .NET Core SDK，现在只需要前往 ASF 源代码目录（Clone 或者下载并解压的 ASF 仓库）并执行：
+假设您已安装适当版本的 .NET SDK，现在只需要前往 ASF 源代码目录（Clone 或者下载并解压的 ASF 仓库）并执行：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
@@ -26,7 +26,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
 
 ### OS-specific（特定操作系统）
 
-如果您需要，也可以生成特定操作系统的 .NET Core 包。 一般情况下，您不需要这样做，因为您刚刚编译了 `generic` 包，您可以使用已安装的用于编译的 .NET Core 运行时环境运行此包，但如果您确实需要操作系统包：
+如果您需要，也可以生成特定操作系统的 .NET 包。 一般情况下，您不需要这样做，因为您刚刚编译了 `generic` 包，您可以使用已安装的用于编译的 .NET 运行时环境运行此包，但如果您确实需要操作系统包：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "linux-x64"
@@ -36,13 +36,13 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "li
 
 ### .NET 框架
 
-在罕见的情况下，您可能需要构建 `generic-netf` 包，您可以将目标框架从 `net5.0` 更改为 `net48`。 请注意，您需要合适的 **[.NET 框架](https://dotnet.microsoft.com/download/visual-studio-sdks)**&#8203;开发者工具包和 .NET Core SDK 才能编译 `netf` 包，所以此命令仅适用于 Windows：
+在罕见的情况下，您可能需要构建 `generic-netf` 包，您可以将目标框架从 `net5.0` 更改为 `net48`。 请注意，您需要合适的 **[.NET 框架](https://dotnet.microsoft.com/download/visual-studio-sdks)**&#8203;开发者工具包和 .NET SDK 才能编译 `netf` 包，所以此命令仅适用于 Windows：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
-在无法安装 .NET 框架甚至 .NET Core SDK 本身的情况下（例如在 `linux-x86` 平台用 `mono` 构建），可以直接调用 `msbuild`。 您还需要手动指定 `ASFNetFramework`，因为 ASF 默认禁止在非 Windows 平台上构建 `netf`：
+在无法安装 .NET 框架甚至 .NET SDK 本身的情况下（例如在 `linux-x86` 平台用 `mono` 构建），可以直接调用 `msbuild`。 您还需要手动指定 `ASFNetFramework`，因为 ASF 默认禁止在非 Windows 平台上构建 `netf`：
 
 ```shell
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
@@ -52,7 +52,7 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ## 开发
 
-如果您想要编辑 ASF 代码，您可以使用任何兼容 .NET Core 的 IDE，但这也是可选的，因为您甚至可以用记事本编辑代码并用上述 `dotnet` 命令编译。 不过，对于 Windows 系统，我们推荐使用&#8203;**[最新版本的 Visual Studio](https://visualstudio.microsoft.com/downloads)**（免费的社区版即可）。
+如果您想要编辑 ASF 代码，您可以使用任何兼容 .NET 的 IDE，但这也是可选的，因为您甚至可以用记事本编辑代码并用上述 `dotnet` 命令编译。 不过，对于 Windows 系统，我们推荐使用&#8203;**[最新版本的 Visual Studio](https://visualstudio.microsoft.com/downloads)**（免费的社区版即可）。
 
 如果您要在 Linux/macOS 上开发 ASF 代码，我们推荐使用&#8203;**[最新版的 Visual Studio Code](https://code.visualstudio.com/download)**。 它没有经典的 Visual Studio 那么丰富的功能，但是应该足够了。
 
@@ -68,4 +68,4 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ## 官方发布版本
 
-官方 ASF 发布版本由 Windows 上的带有满足 ASF **[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**&#8203;的最新版 .NET Core SDK 的 **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** 编译。 经过测试后，所有的包都会作为 Release 被部署在 GitHub 上。 这也保证了透明度，因为 GitHub 总是为所有构建使用官方公共源，并且您可以检查 GitHub 的 Artifacts 与 GitHub Release 附件的 Checksum（校验和）。 除了私人的开发和调试过程外，ASF 开发人员不会自行编译或发布构建版本。
+官方 ASF 发布版本由 Windows 上的带有满足 ASF **[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**&#8203;的最新版 .NET SDK 的 **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** 编译。 经过测试后，所有的包都会作为 Release 被部署在 GitHub 上。 这也保证了透明度，因为 GitHub 总是为所有构建使用官方公共源，并且您可以检查 GitHub 的 Artifacts 与 GitHub Release 附件的 Checksum（校验和）。 除了私人的开发和调试过程外，ASF 开发人员不会自行编译或发布构建版本。

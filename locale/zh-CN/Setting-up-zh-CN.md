@@ -136,7 +136,7 @@ ASF 需要您的帐户凭据，因为它包含自己的 Steam 客户端实现，
 
 如果您之前已经填好了 `SteamLogin` 和 `SteamPassword`，ASF 就只会向您询问 Steam 令牌代码（电子邮件、手机验证器或者无令牌，取决于您的 Steam 设置）。 如果没有填写，ASF 就会向您询问 Steam 用户名和密码。
 
-如果担心如 ASF 所述的接下来会发生的事情，现在您可以审查我们的&#8203;**[隐私政策](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN#当前隐私政策)**。
+如果担心 ASF 接下来的行为，例如在启动时加入特定的 Steam 群组，现在您可以审查我们的&#8203;**[隐私政策](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN#当前隐私政策)**。
 
 假设填写的信息全部正确无误，您将会成功登录，ASF 将会以默认设置开始挂卡：
 

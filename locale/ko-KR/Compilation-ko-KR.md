@@ -6,15 +6,15 @@ ASF는 필요로 하는 도구를 모두 가지고만 있다면 현재 지원되
 
 ---
 
-## .NET Core SDK
+## .NET SDK
 
-ASF를 컴파일하려면 플랫폼과 상관없이 런타임뿐아니라 전체 .NET Core SDK가 필요합니다. **[.NET Core 설치 페이지(영문)](https://dotnet.microsoft.com/download)** 에서 설치 방법을 찾을 수 있습니다. 당신의 OS에 맞는 .NET Core SDK 버전을 설치해야 합니다. 성공적인 설치 후에 `dotnet` 명령이 작동하고 실행되어야 합니다. `dotnet --info` 로 작동 여부를 확인할 수 있습니다. 또한 .NET Core SDK가 ASF의 **[런타임 요구사항](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ko-KR#runtime-requirements)** 과 일치하는지 확인하시기 바랍니다.
+Regardless of platform, you need full .NET SDK (not just runtime) in order to compile ASF. Installation instructions can be found on **[.NET download page](https://dotnet.microsoft.com/download)**. You need to install appropriate .NET SDK version for your OS. 성공적인 설치 후에 `dotnet` 명령이 작동하고 실행되어야 합니다. `dotnet --info` 로 작동 여부를 확인할 수 있습니다. Also ensure that your .NET SDK matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
 
 ---
 
 ## 컴파일
 
-적절한 .NET Core SDK 버전이 실행되고 있다고 가정하고, ASF 리포에서 클론되었거나 다운받아 압축해제한 ASF 소스 디렉토리로 이동해서 다음을 실행합니다:
+Assuming you have .NET SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
@@ -26,7 +26,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
 
 ### OS 특화
 
-특정한 필요가 있다면 OS 특화 .NET Core 패키지를 생성할 수도 있습니다. 일반적으로 처음에 컴파일에 사용한 기 설치된 .NET Core 런타임으로 실행 가능한 `일반` 맛을 방금 컴파일 했기 때문에 그럴일은 없습니다만, 만일 필요하다면 다음과 같이 입력하십시오.
+You can also generate OS-specific .NET package if you have a specific need. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET runtime that you've used for the compilation in the first place, but just in case you want to:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "linux-x64"
@@ -36,13 +36,13 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "li
 
 ### .NET Framework
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net5.0` to `net48`. `netf` 변수를 컴파일하려면 .NET Core SDK 뿐 아니라 적절한 **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** 개발자 팩이 필요함을 명심하십시오. 따라서 아래의 내용은 오직 윈도우에서만 동작합니다:
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net5.0` to `net48`. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET SDK, so the below will work only on Windows:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
-.NET Framework나 심지어 .NET Core SDK도 설치할 수 없다면 `msbuild`를 직접 호출할 수 있습니다.(`linux-x86`에서 `mono`를 사용하여 빌드한 경우 등) You'll also need to specify `ASFNetFramework` manually, as ASF by default disables `netf` build on non-Windows platforms:
+In case of being unable to install .NET Framework or even .NET SDK itself (e.g. because of building on `linux-x86` with `mono`), you can call `msbuild` directly. You'll also need to specify `ASFNetFramework` manually, as ASF by default disables `netf` build on non-Windows platforms:
 
 ```shell
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
@@ -52,7 +52,7 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ## 개발
 
-ASF 코드를 편집하고 싶다면, 아무 .NET Core 호환 IDE나 사용할 수 있습니다. 옵션이긴 하지만 메모장으로 편집하고 위에서 설명한 `dotnet` 명령으로 컴파일 할 수도 있습니다. 하지만 윈도우의 경우 **[최신버전의 Visual Studio](https://visualstudio.microsoft.com/downloads)**를 권장합니다. (무료 커뮤니티 버전이면 충분합니다)
+If you'd like to edit ASF code, you can use any .NET compatible IDE for that purpose, although even that is optional, since you can as well edit with a notepad and compile with `dotnet` command described above. 하지만 윈도우의 경우 **[최신버전의 Visual Studio](https://visualstudio.microsoft.com/downloads)**를 권장합니다. (무료 커뮤니티 버전이면 충분합니다)
 
 리눅스나 OS X에서 ASF 코드 작업을 하고 싶다면 **[최신 버전의 Visual Studio Code](https://code.visualstudio.com/download)**를 추천합니다. 고전 Visual Studio만큼 풍족하진 않지만, 충분히 좋습니다.
 
@@ -68,4 +68,4 @@ ASF 코드를 편집하고 싶다면, 아무 .NET Core 호환 IDE나 사용할 �
 
 ## 공식 릴리스
 
-Official ASF releases are compiled by **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** on Windows, with latest .NET Core SDK that matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**. After passing tests, all packages are deployed as the release, also on GitHub. This also guarantees transparency, since GitHub always uses official public source for all builds, and you can compare checksums of GitHub artifacts with GitHub release assets. ASF 개발자는 개인 개발과정과 디버깅을 제외하고는 스스로 컴파일하거나 빌드를 게시하지 않습니다.
+Official ASF releases are compiled by **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** on Windows, with latest .NET SDK that matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**. After passing tests, all packages are deployed as the release, also on GitHub. This also guarantees transparency, since GitHub always uses official public source for all builds, and you can compare checksums of GitHub artifacts with GitHub release assets. ASF 개발자는 개인 개발과정과 디버깅을 제외하고는 스스로 컴파일하거나 빌드를 게시하지 않습니다.

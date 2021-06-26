@@ -136,7 +136,7 @@ Depois disso, supondo que você instalou todas as dependências listadas na prim
 
 Se você definiu o `SteamLogin` e o `SteamPassword` no arquivo de configuração, será solicitado apenas o seu token do SteamGuard (e-mail, 2FA ou nenhum, dependendo das configurações do Steam). Caso contrário o ASF também pedirá seu login e senha do Steam.
 
-Agora é uma boa hora para rever a nossa seção de **[política de privacidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** se você estiver preocupado com o que vai acontecer a seguir, como afirmado pelo ASF.
+Now would be a good time to review our **[privacy policy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** section if you're concerned about stuff ASF is programmed to do, like joining a certain Steam group on launch.
 
 Após a etapa de conexão, supondo que seus dados estejam corretos, você vai entrar com êxito no Steam e o ASF começará a coleta automática, usando as configurações padrão que você ainda não alterou:
 
@@ -226,7 +226,7 @@ Com etapas extras:
 - Instalar o **[.NET Core SDK](https://www.microsoft.com/net/download)** (ou o tempo de execução mais recente) apropriado para seu sistema operacional. Você provavelmente vai desejar usar um instalador. Veja **[requisitos de tempo de execução](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** se você não tiver certeza de qual versão instalar.
 - Baixar a **[última versão do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** na versão `generic`.
 - Extrair o arquivo em um novo local (e `chmod +x ArchiSteamFarm.sh` se você usar Lunux/macOS).
-- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
+- **[Configurar o ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)**.
 - Abra o ASF usando um script auxiliar ou executando `dotnet /path/to/ArchiSteamFarm.dll` manualmente pelo seu shell favorito.
 
 Scripts de ajuda (como `ArchiSteamFarm.cmd` para Windows e `ArchiSteamFarm.sh` para Linux/iOS) estão juntos com o `ArchiSteamFarm.dll` - eles são inclusos apenas na variante `generic`. Você pode usá-los se você não quer executar o comando `dotnet` manualmente. Obviamente os scripts de ajuda não vão funcionar se você não instalou o SDK do .NET Core e não tem o executável `dotnet` disponível em seu `PATH`. Os scripts de ajuda são inteiramente opcionais, você pode sempre usar o método manual `dotnet /path/to/ArchiSteamFarm.dll`.

@@ -136,7 +136,7 @@ Nakon toga, ako ste instalirali sve potrebno u prvom koraku, ASF bi trebao da se
 
 Ako ste ispunili `SteamLogin` i `SteamPassword` polje koje ASF koristi, tražiće vam se SteamGuard token (e-mail, 2FA ili ništa, u zavisnosti od vaših Steam podešavanja). Ako niste dali Steam kredencijale, onda će vam se ovdje tražiti isti.
 
-Ovo je dovro vrijeme da pregledate našu sekciju **[politiku privatnosti](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** ako ste zabrinuti oko šta se sada dešava sa njima, kao što je kazano od ASF-a.
+Now would be a good time to review our **[privacy policy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** section if you're concerned about stuff ASF is programmed to do, like joining a certain Steam group on launch.
 
 Nakon što je pošao proces prijave, ako su vaši kredencijali tačni, bićete uspješno prijavljeni, i ASF će početi da idluje koristeći opšta podešavanja ako ih niste promijenili:
 
@@ -226,7 +226,7 @@ Sa dodatnim koracima:
 - Instalirajte **[.NET Core SDK](https://www.microsoft.com/net/download)** (ili bar runtime) za vaš OS. Vjerovatno ćete željeti da koristite automatsku instalaciju. Pogledajte **[runtime zahtjeve](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** ako niste sigurni koju verziju da instalirate.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.
 - Ekstraktujte arhivu u novoj lokaciji (i `chmod +x ArchiSteamFarm.sh` ako ste na Linux-u/OS X-u),.
-- **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
+- **[Konfigurišete ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - Pokrenite ASF koristeći pomoćni skript ili ručnom ekekjucijom `dotnet /ruta/do/ArchiSteamFarm.dll` iz vaše omiljene ljuske.
 
 Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in `generic` variant only. Njih možete koristiti ako ne želite da ručno ekekjutujete `dotnet` komande. Pomoćni skriptovi naravno neće raditi ako niste instalirali .NET Core SDK i ako nemate `dotnet` dostupan u vašem `PATH`-u. Pomoćni skriptovi su skroz opcionalni, uvijek možete ručno koristiti `dotnet /ruta/do/ArchiSteamFarm.dll`.
