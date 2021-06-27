@@ -52,7 +52,7 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ## Desarrollo
 
-Si deseas  editar el código de ASF, para ello puedes usar cualquier IDE (entorno de desarrollo integrado) compatible con .NET, aunque incluso eso es opcional, ya que también puedes editarlo con un bloc de notas y compilarlo con el comando `dotnet` descrito arriba. Aún así, para Windows recomendamos el **[Visual Studio más reciente](https://visualstudio.microsoft.com/downloads)** (la versión gratuita de la comunidad es más que suficiente).
+Si deseas editar el código de ASF, para ello puedes usar cualquier IDE (entorno de desarrollo integrado) compatible con .NET, aunque incluso eso es opcional, ya que también puedes editarlo con un bloc de notas y compilarlo con el comando `dotnet` descrito arriba. Aún así, para Windows recomendamos el **[Visual Studio más reciente](https://visualstudio.microsoft.com/downloads)** (la versión gratuita de la comunidad es más que suficiente).
 
 Si quieres trabajar con el código de ASF en Linux/OS X, recomendamos el **[Visual Studio Code más reciente](https://code.visualstudio.com/download)**. No es tan rico como Visual Studio clásico, pero es bastante bueno.
 
