@@ -126,7 +126,7 @@ AS UVE READ ABOOV, SPACE CHARACTR IZ BEAN USD AS DELIMITR 4 COMMAND, THEREFORE I
 
 SUM COMMANDZ R ALSO AVAILABLE WIF THEIR ALIASEZ, 2 SAVE U ON TYPIN:
 
-| Command      | ALIAS |
+| COMMAND      | ALIAS |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |
@@ -205,7 +205,7 @@ REMEMBR DAT CHILD CAN NEVR HAS MOAR OPEN PERMISHUN THAN ITZ PARENT. REFR 2 ARGUM
 
 `addlicense` COMMAND SUPPORTS 2 DIFFERENT LICENSE TYPEZ, DOSE R:
 
-| TYPE  | Alias | Example      | Description                                                           |
+| TYPE  | ALIAS | EXAMPLE      | DESCRIPSHUN                                                           |
 | ----- | ----- | ------------ | --------------------------------------------------------------------- |
 | `app` | `a`   | `app/292030` | GAME DETERMIND BY ITZ UNIQUE `appID`.                                 |
 | `sub` | `s`   | `sub/47807`  | PACKAGE CONTAININ WAN OR MOAR GAMEZ, DETERMIND BY ITZ UNIQUE `subID`. |
@@ -226,7 +226,7 @@ addlicense ASF app/292030,sub/47807
 
 `owns` COMMAND SUPPORTS SEVERAL DIFFERENT GAME TYPEZ 4 `<games>` ARGUMENT DAT CAN BE USD, DOSE R:
 
-| TYPE    | Alias | Example          | Description                                                                                                                                                                                                                                                    |
+| TYPE    | ALIAS | EXAMPLE          | DESCRIPSHUN                                                                                                                                                                                                                                                    |
 | ------- | ----- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `app`   | `a`   | `app/292030`     | GAME DETERMIND BY ITZ UNIQUE `appID`.                                                                                                                                                                                                                          |
 | `sub`   | `s`   | `sub/47807`      | PACKAGE CONTAININ WAN OR MOAR GAMEZ, DETERMIND BY ITZ UNIQUE `subID`.                                                                                                                                                                                          |
@@ -235,7 +235,7 @@ addlicense ASF app/292030,sub/47807
 
 WE RECOMMEND 2 EXPLICITLY DEFINE TEH TYPE OV EACH ENTRY IN ORDR 2 AVOID AMBIGUOUS RESULTS, BUT 4 DA BAKWARDZ COMPATIBILITY, IF U SUPPLY INVALID TYPE OR OMIT IT ENTIRELY, ASF WILL ASSUME DAT U ASK 4 `app` IF UR INPUT IZ NUMBR, AN `name` OTHERWIZE. U CAN ALSO QUERY WAN OR MOAR OV TEH GAMEZ AT TEH SAME TIEM, USIN STANDARD ASF `,` DELIMITR.
 
-Complete command example:
+COMPLETE COMMAND EXAMPLE:
 
 ```text
 owns ASF app/292030,name/Witcher
@@ -249,7 +249,7 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` ARGUMENT ACCEPTS MULTIPLE MODE VALUEZ, SEPARATD AS USUAL BY COMMA. AVAILABLE MODE VALUEZ R SPECIFID BELOW:
 
-| Value | Name                  | Description                                                                  |
+| VALUE | NAYM                  | DESCRIPSHUN                                                                  |
 | ----- | --------------------- | ---------------------------------------------------------------------------- |
 | FAWK  | ForceAssumeWalletKey  | FORCEZ `AssumeWalletKeyOnBadActivationCode` REDEEMIN PREFERENCE 2 BE ENABLD  |
 | FD    | ForceDistributing     | FORCEZ `Distributing` REDEEMIN PREFERENCE 2 BE ENABLD                        |
@@ -290,7 +290,7 @@ GENERAL SYNTAX IZ `input [Bots] <Type> <Value>`.
 
 `<Type>` IZ CASE-INSENSITIV AN DEFINEZ INPUT TYPE RECOGNIZD BY ASF. CURRENTLY ASF RECOGNIZEZ FOLLOWIN TYPEZ:
 
-| Type                    | Description                                                         |
+| TYPE                    | DESCRIPSHUN                                                         |
 | ----------------------- | ------------------------------------------------------------------- |
 | Login                   | `SteamLogin` BOT CONFIG PROPERTY, IF MISIN FRUM CONFIG.             |
 | Password                | `SteamPassword` BOT CONFIG PROPERTY, IF MISIN FRUM CONFIG.          |
@@ -300,7 +300,7 @@ GENERAL SYNTAX IZ `input [Bots] <Type> <Value>`.
 
 `<Value>` IZ VALUE SET 4 GIVEN TYPE. CURRENTLY ALL VALUEZ R STRINGS.
 
-### Example
+### EXAMPLE
 
 LETS SAY DAT WE HAS BOT DAT IZ PROTECTD BY STEAMGUARD IN NON-2FA MODE. WE WANTS 2 LAUNCH DAT BOT WIF `Headless` SET 2 `true`.
 

@@ -136,7 +136,7 @@ AFTR DOIN SO, ASSUMIN U INSTALLD ALL REQUIRD DEPENDENCIEZ IN DA FURST STEP, ASF 
 
 IF U SUPPLID `SteamLogin` AN `SteamPassword` 4 ASF 2 USE, ULL BE ASKD 4 UR STEAMGUARD TOKEN ONLY (E-MAIL, 2FA OR NONE, DEPENDIN ON UR STEAM SETTINGS). IF U DIDNT, ULL ALSO BE ASKD 4 UR STEAM LOGIN AN PASWORD.
 
-Now would be a good time to review our **[privacy policy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** section if you're concerned about stuff ASF is programmed to do, like joining a certain Steam group on launch.
+NAO WUD BE GUD TIEM 2 REVIEW R **[PRIVACY POLICY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-lol-US#current-privacy-policy)** SECSHUN IF URE CONCERND BOUT STUFF ASF IZ PROGRAMMD 2 DO, LIEK JOININ CERTAIN STEAM GROUP ON LAUNCH.
 
 AFTR PASIN THRU INITIAL LOGIN GATE, ASSUMIN UR DETAILS R CORRECT, ULL SUCCESFULLY LOG IN, AN ASF WILL START IDLIN USIN DEFAULT SETTINGS DAT U DIDNT CHANGE AS OV NAO:
 

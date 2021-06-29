@@ -41,15 +41,15 @@ WHICH MEANZ DAT MEMS WILL SPIKE TEH MOST WHEN ASF IZ DEALIN WIF READIN BADGE PAG
 
 ---
 
-## Runtime tuning (advanced)
+## RUNTIME TUNIN (ADVANCD)
 
 BELOW TRICKZ **INVOLVE PERFORMANCE DEGRADASHUN** AN SHUD BE USD WIF CAUSHUN.
 
-.NET Core runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
+.NET CORE RUNTIME ALLOWS U 2 **[TWEAK GARBAGE COLLECTOR](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** IN LOT OV WAYS, EFFECTIVELY FINE-TUNIN TEH GC PROCES ACCORDIN 2 UR NEEDZ.
 
-The recommended way of applying those settings is through `COMPlus_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
+TEH RECOMMENDD WAI OV APPLYIN DOSE SETTINGS IZ THRU `COMPlus_` ENVIRONMENT PROPERTIEZ. OV COURSE, U CUD ALSO USE OTHR METHODZ, E.G. `runtimeconfig.json`, BUT SUM SETTINGS R IMPOSIBLE 2 BE SET DIS WAI, AN ON TOP OV DAT ASF WILL REPLACE UR CUSTOM `runtimeconfig.json` WIF ITZ OWN ON TEH NEXT UPDATE, THEREFORE WE RECOMMEND ENVIRONMENT PROPERTIEZ DAT U CAN SET EASILY PRIOR 2 LAUNCHIN TEH PROCES.
 
-Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
+REFR 2 TEH DOCUMENTASHUN 4 ALL TEH PROPERTIEZ DAT U CAN USE, WELL MENSHUN TEH MOST IMPORTANT ONEZ (IN R OPINION) BELOW:
 
 ### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
@@ -79,7 +79,7 @@ DIS OFFERS LIL IMPROOVEMENT, BUT CUD MAK GC EVEN MOAR AGGRESIV WHEN SISTEM WILL 
 
 ---
 
-You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
+U CAN ENABLE ALL GC PROPERTIEZ BY SETTIN APPROPRIATE `COMPlus_` ENVIRONMENT VARIABLEZ. 4 EXAMPLE, ON LINUX (SHELL):
 
 ```shell
 # DOAN FORGET 2 TUNE DOSE IF URE PLANNIN 2 MAK USE OV THEM
@@ -92,7 +92,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # For OS-specific build
 ```
 
-Or on Windows (powershell):
+OR ON WINDOWS (POWERSHELL):
 
 ```powershell
 # DOAN FORGET 2 TUNE DOSE IF URE PLANNIN 2 MAK USE OV THEM
@@ -117,7 +117,7 @@ BELOW TRICKZ **INVOLVE SERIOUS PERFORMANCE DEGRADASHUN** AN SHUD BE USD WIF CAUS
 
 ---
 
-## Recommended optimization
+## RECOMMENDD OPTIMIZASHUN
 
 - START FRUM SIMPLE ASF SETUP TRICKZ, PERHAPS URE JUS USIN UR ASF IN WRONG WAI SUCH AS STARTIN TEH PROCES SEVERAL TIEMS 4 ALL OV UR BOTS, OR KEEPIN ALL OV THEM ACTIV IF U NED JUS WAN OR 2 2 AUTOSTART.
 - IF IZ STILL NOT ENOUGH, ENABLE ALL CONFIGURASHUN PROPERTIEZ LISTD ABOOV BY SETTIN APPROPRIATE `COMPlus_` ENVIRONMENT VARIABLEZ. ESPECIALLY `GCLatencyLevel` OFFERS SIGNIFICANT RUNTIME IMPROOVEMENTS 4 LIL COST ON PERFORMANCE.

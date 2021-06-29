@@ -1,18 +1,18 @@
 # Ativador de jogos em segundo plano
 
-O ativador de jogos em segundo plano é uma funcionalidade especial embutida no ASF que permite que você importe uma lista de cd-keys do Steam (juntamente com seus nomes) para serem resgatadas em segundo plano. Ele é especialmente útil se você tem um monte de códigos de produtos para resgatar e é certo que você atingirá o **[estado](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-pt-BR#qual-o-significado-do-estado-quando-se-resgata-uma-key)** `RateLimited` antes de terminar.
+O ativador de jogos em segundo plano é uma funcionalidade especial embutida no ASF que permite que você importe uma lista de códigos do Steam (juntamente com seus nomes) para serem resgatadas em segundo plano. Ele é especialmente útil se você tem um monte de códigos de produtos para resgatar e é certo que você atingirá o **[estado](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-pt-BR#qual-o-significado-do-estado-quando-se-resgata-uma-key)** `RateLimited` antes de terminar.
 
 O ativador de códigos em segundo plano foi feito para uso em apenas um bot, o que significa que ele não faz uso de `RedeemingPreferences`. Esse recurso pode ser usado junto com (ou no lugar do) **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `redeem`, caso necessário.
 
 ---
 
-## Import
+## Importar
 
-O processo de importação das keys pode ser feito de duas maneiras: ou com um arquivo ou usando o IPC.
+O processo de importação dos códigos pode ser feito de duas maneiras: por meio de um arquivo ou usando o IPC.
 
 ### Arquivo
 
-O ASF reconhecerá em sua pasta `config`, um arquivo chamado `BotName.keys`, onde `BotName` é o nome do seu bot. Esse arquivo deve conter uma estrutura fixa com o nome do jogo e o código de produto separados por um caractere de tabulação e terminando com uma nova linha pra indicar a nova entrada. Se várias tabulações forem usadas, então a primeira entrada será considerada como o nome do jogo e a última será considerada código de produto, tudo o que estiver no meio será ignorado. For example:
+O ASF reconhecerá em sua pasta `config` um arquivo chamado `BotName.keys`, onde `BotName` é o nome do seu bot. Esse arquivo deve conter uma estrutura fixa com o nome do jogo e o código de produto separados por um caractere de tabulação e uma nova linha pra indicar a nova entrada. Se várias tabulações forem usadas, a primeira entrada será considerada como o nome do jogo e a última será considerada um código de produto, tudo o que estiver no meio será ignorado. Por exemplo:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM

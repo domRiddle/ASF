@@ -8,13 +8,13 @@ ASF CAN BE COMPILD ON ANY CURRENTLY SUPPORTD PLATFORM, AS LONG AS U HAS ALL NEED
 
 ## .NET SDK
 
-Regardless of platform, you need full .NET SDK (not just runtime) in order to compile ASF. Installation instructions can be found on **[.NET download page](https://dotnet.microsoft.com/download)**. You need to install appropriate .NET SDK version for your OS. AFTR SUCCESFUL INSTALLASHUN, `dotnet` COMMAND SHUD BE WERKIN AN OPERATIV. U CAN VERIFY IF IT WERKZ WIF `dotnet --info`. Also ensure that your .NET SDK matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
+REGARDLES OV PLATFORM, U NED FULL .NET SDK (NOT JUS RUNTIME) IN ORDR 2 COMPILE ASF. INSTALLASHUN INSTRUCSHUNS CAN BE FINDZ ON **[.NET DOWNLOAD PAEG](https://dotnet.microsoft.com/download)**. U NED 2 INSTALL APPROPRIATE .NET SDK VERSHUN 4 UR OS. AFTR SUCCESFUL INSTALLASHUN, `dotnet` COMMAND SHUD BE WERKIN AN OPERATIV. U CAN VERIFY IF IT WERKZ WIF `dotnet --info`. ALSO ENSURE DAT UR .NET SDK MATCHEZ ASF **[RUNTIME REQUIREMENTS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-us#runtime-requirements)**.
 
 ---
 
 ## COMPILASHUN
 
-Assuming you have .NET SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:
+ASSUMIN U HAS .NET SDK OPERATIV AN IN APPROPRIATE VERSHUN, SIMPLY NAVIGATE 2 SOURCE ASF DIRECTORY (CLOND OR DOWNLOADD AN UNPACKD ASF REPO) AN EXECUTE:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
@@ -26,7 +26,7 @@ IF COMPILASHUN ENDD SUCCESFULLY, U CAN FIND UR ASF IN `source` FLAVR IN `out/gen
 
 ### OS-SPECIFIC
 
-You can also generate OS-specific .NET package if you have a specific need. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET runtime that you've used for the compilation in the first place, but just in case you want to:
+U CAN ALSO GENERATE OS-SPECIFIC .NET PACKAGE IF U HAS SPECIFIC NED. IN GENERAL U SHOULDNT DO DAT CUZ UVE JUS COMPILD `generic` FLAVR DAT U CAN RUN WIF UR ALREADY-INSTALLD .NET RUNTIME DAT UVE USD 4 DA COMPILASHUN IN DA FURST PLACE, BUT JUS IN CASE U WANTS 2:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "linux-x64"
@@ -36,13 +36,13 @@ OV COURSE, REPLACE `linux-x64` WIF OS-ARCHITECCHUR DAT U WANTS 2 TARGET, SUCH AS
 
 ### .NET FRAMEWORK
 
-IN VRY RARE CASE WHEN UD WANTS 2 BUILD `generic-netf` PACKAGE, U CAN CHANGE TARGET FRAMEWORK FRUM `net5.0` 2 `net48`. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET SDK, so the below will work only on Windows:
+IN VRY RARE CASE WHEN UD WANTS 2 BUILD `generic-netf` PACKAGE, U CAN CHANGE TARGET FRAMEWORK FRUM `net5.0` 2 `net48`. KEEP IN MIND DAT ULL NED APPROPRIATE **[.NET FRAMEWORK](https://dotnet.microsoft.com/download/visual-studio-sdks)** DEVELOPR PACK 4 COMPILIN `netf` VARIANT, IN ADDISHUN 2 .NET SDK, SO TEH BELOW WILL WERK ONLY ON WINDOWS:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
-In case of being unable to install .NET Framework or even .NET SDK itself (e.g. because of building on `linux-x86` with `mono`), you can call `msbuild` directly. ULL ALSO NED 2 SPECIFY `ASFNetFramework` MANUALLY, AS ASF BY DEFAULT DISABLEZ `netf` BUILD ON NON-WINDOWS PLATFORMS:
+IN CASE OV BEAN UNABLE 2 INSTALL .NET FRAMEWORK OR EVEN .NET SDK ITSELF (E.G. CUZ OV BUILDIN ON `linux-x86` WIF `mono`), U CAN CALL `msbuild` DIRECTLY. ULL ALSO NED 2 SPECIFY `ASFNetFramework` MANUALLY, AS ASF BY DEFAULT DISABLEZ `netf` BUILD ON NON-WINDOWS PLATFORMS:
 
 ```shell
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
@@ -52,7 +52,7 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ## DEVELOPMENT
 
-If you'd like to edit ASF code, you can use any .NET compatible IDE for that purpose, although even that is optional, since you can as well edit with a notepad and compile with `dotnet` command described above. STILL, 4 WINDOWS WE RECOMMEND **[LATEST VISUAL STUDIO](https://visualstudio.microsoft.com/downloads)** (FREE COMMUNITY VERSHUN IZ MOAR THAN ENOUGH).
+IF UD LIEK 2 EDIT ASF CODE, U CAN USE ANY .NET COMPATIBLE IDE 4 DAT PURPOSE, ALTHOUGH EVEN DAT IZ OPSHUNAL, SINCE U CAN AS WELL EDIT WIF NOTEPAD AN COMPILE WIF `dotnet` COMMAND DESCRIBD ABOOV. STILL, 4 WINDOWS WE RECOMMEND **[LATEST VISUAL STUDIO](https://visualstudio.microsoft.com/downloads)** (FREE COMMUNITY VERSHUN IZ MOAR THAN ENOUGH).
 
 IF UD LIEK 2 WERK WIF ASF CODE ON LINUX/OS X INSTEAD, WE RECOMMEND **[LATEST VISUAL STUDIO CODE](https://code.visualstudio.com/download)**. IZ NOT AS RICH AS CLASIC VISUAL STUDIO, BUT IZ GUD ENOUGH.
 
@@ -68,4 +68,4 @@ OV COURSE ALL SUGGESHUNS ABOOV R ONLY RECOMMENDASHUNS, U CAN USE WHATEVR U WANTS
 
 ## OFFISHUL RELEASEZ
 
-Official ASF releases are compiled by **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** on Windows, with latest .NET SDK that matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**. AFTR PASIN TESTS, ALL PACKAGEZ R DEPLOYD AS TEH RELEASE, ALSO ON GITHUB. DIS ALSO GUARANTEEZ TRANZPARENCY, SINCE GITHUB ALWAYS USEZ OFFISHUL PUBLIC SOURCE 4 ALL BUILDZ, AN U CAN COMPARE CHECKSUMS OV GITHUB ARTIFACTS WIF GITHUB RELEASE ASSETS. ASF DEVELOPERS DO NOT COMPILE OR PUBLISH BUILDZ THEMSELVEZ, EXCEPT 4 PRIVATE DEVELOPMENT PROCES AN DEBUGGIN.
+OFFISHUL ASF RELEASEZ R COMPILD BY **[GITHUB](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** ON WINDOWS, WIF LATEST .NET SDK DAT MATCHEZ ASF **[RUNTIME REQUIREMENTS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US#runtime-requirements)**. AFTR PASIN TESTS, ALL PACKAGEZ R DEPLOYD AS TEH RELEASE, ALSO ON GITHUB. DIS ALSO GUARANTEEZ TRANZPARENCY, SINCE GITHUB ALWAYS USEZ OFFISHUL PUBLIC SOURCE 4 ALL BUILDZ, AN U CAN COMPARE CHECKSUMS OV GITHUB ARTIFACTS WIF GITHUB RELEASE ASSETS. ASF DEVELOPERS DO NOT COMPILE OR PUBLISH BUILDZ THEMSELVEZ, EXCEPT 4 PRIVATE DEVELOPMENT PROCES AN DEBUGGIN.

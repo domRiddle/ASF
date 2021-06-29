@@ -150,7 +150,7 @@ TEH EXAMPLEZ ABOOV R RATHR SIMPLE AN MADE 2 SHOW U HOW EASY IT 2 DEFINE UR OWN L
 
 ---
 
-## Limitations
+## LIMITASHUNS
 
 ASF WILL TEMPORARILY DISABLE **ALL** RULEZ DAT INCLUDE `ColoredConsole` OR `Console` TARGETS WHEN EXPECTIN USR INPUT. THEREFORE, IF U WANTS 2 KEEP LOGGIN 4 OTHR TARGETS EVEN WHEN ASF EXPEX USR INPUT, U SHUD DEFINE DOSE TARGETS WIF THEIR OWN RULEZ, AS SHOWN IN EXAMPLEZ ABOOV, INSTEAD OV PUTTIN LOTZ DA TARGETS IN `writeTo` OV TEH SAME RULE (UNLES DIS AR TEH UR WANTD BEHAVIOUR). TEMPORARY DISABLE OV CONSOLE TARGETS IZ DUN IN ORDR 2 KEEP CONSOLE CLEAN WHEN WAITIN 4 USR INPUT.
 
@@ -162,15 +162,15 @@ ASF INCLUDEZ EXTENDD SUPPORT 4 CHAT LOGGIN BY NOT ONLY RECORDIN ALL RECEIVD/SENT
 
 ### EVENT PROPERTIEZ
 
-| Name        | Description                                                                                                                                                                                  |
+| NAYM        | DESCRIPSHUN                                                                                                                                                                                  |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ECHO        | `bool` TYPE. DIS AR TEH SET 2 `true` WHEN MESAGE IZ BEAN SENT FRUM US 2 TEH RECIPIENT, AN `false` OTHERWIZE.                                                                                 |
-| MESAGE      | `string` TYPE. DIS AR TEH TEH AKSHUL SENT/RECEIVD MESAGE.                                                                                                                                    |
-| CHATGROUPID | `ulong` TYPE. DIS AR TEH TEH ID OV TEH GROUP CHAT 4 SENT/RECEIVD MESAGEZ. WILL BE `0` WHEN NO GROUP CHAT IZ USD 4 TRANZMITTIN DIS MESAGE.                                                    |
-| CHATID      | `ulong` TYPE. DIS AR TEH TEH ID OV TEH `ChatGroupID` CHANNEL 4 SENT/RECEIVD MESAGEZ. WILL BE `0` WHEN NO GROUP CHAT IZ USD 4 TRANZMITTIN DIS MESAGE.                                         |
-| STEAMID     | `ulong` TYPE. DIS AR TEH TEH ID OV TEH STEAM USR 4 SENT/RECEIVD MESAGEZ. CAN BE `0` WHEN NO PARTICULAR USR IZ INVOLVD IN DA MESAGE TRANZMISHUN (E.G. WHEN IZ US SENDIN MESAGE 2 GROUP CHAT). |
+| Echo        | `bool` TYPE. DIS AR TEH SET 2 `true` WHEN MESAGE IZ BEAN SENT FRUM US 2 TEH RECIPIENT, AN `false` OTHERWIZE.                                                                                 |
+| Message     | `string` TYPE. DIS AR TEH TEH AKSHUL SENT/RECEIVD MESAGE.                                                                                                                                    |
+| ChatGroupID | `ulong` TYPE. DIS AR TEH TEH ID OV TEH GROUP CHAT 4 SENT/RECEIVD MESAGEZ. WILL BE `0` WHEN NO GROUP CHAT IZ USD 4 TRANZMITTIN DIS MESAGE.                                                    |
+| ChatID      | `ulong` TYPE. DIS AR TEH TEH ID OV TEH `ChatGroupID` CHANNEL 4 SENT/RECEIVD MESAGEZ. WILL BE `0` WHEN NO GROUP CHAT IZ USD 4 TRANZMITTIN DIS MESAGE.                                         |
+| SteamID     | `ulong` TYPE. DIS AR TEH TEH ID OV TEH STEAM USR 4 SENT/RECEIVD MESAGEZ. CAN BE `0` WHEN NO PARTICULAR USR IZ INVOLVD IN DA MESAGE TRANZMISHUN (E.G. WHEN IZ US SENDIN MESAGE 2 GROUP CHAT). |
 
-### Example
+### EXAMPLE
 
 DIS EXAMPLE IZ BASD ON R `ColoredConsole` BASIC EXAMPLE ABOOV. BEFORE TRYIN 2 UNDERSTAND IT, I STRONGLY RECOMMEND 2 TAEK LOOK **[ABOOV](#examplez)** IN ORDR 2 LERN BOUT BASICS OV NLOG LOGGIN FIRSTLY.
 
@@ -315,19 +315,19 @@ READ MOAR BOUT USIN TEH [CONFIGURASHUN FILE](https://github.com/NLog/NLog/wiki/C
 
 #### PARAMETERS
 
-##### General Options
-_name_ - Name of the target.
+##### GENERAL OPSHUNS
+_name_ - NAYM OV TEH TARGET.
 
 ---
 
-##### Layout Options
-_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. DEFAULT: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+##### LAYOUT OPSHUNS
+_layout_ - TEXT 2 BE RENDERD. [LAYOUT](https://github.com/NLog/NLog/wiki/Layouts) REQUIRD. DEFAULT: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 ---
 
 ##### HISTORYTARGET OPSHUNS
 
-_maxCount_ - MAXIMUM AMOUNT OV STORD LOGS 4 ON-DEMAND HISTORY. Not required. DEFAULTS 2 `20` WHICH IZ GUD BALANCE 4 PROVIDIN INITIAL HISTORY, WHILE STILL KEEPIN IN MIND MEMS USAGE DAT COMEZ OUT OV STORAGE REQUIREMENTS. MUST BE GREATR THAN `0`.
+_maxCount_ - MAXIMUM AMOUNT OV STORD LOGS 4 ON-DEMAND HISTORY. NOT REQUIRD. DEFAULTS 2 `20` WHICH IZ GUD BALANCE 4 PROVIDIN INITIAL HISTORY, WHILE STILL KEEPIN IN MIND MEMS USAGE DAT COMEZ OUT OV STORAGE REQUIREMENTS. MUST BE GREATR THAN `0`.
 
 ---
 
