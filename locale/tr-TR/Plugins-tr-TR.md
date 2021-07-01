@@ -45,10 +45,11 @@ Eğer her şeyi doğru bir şekilde yaptıysanız, `csproj` dosyanız aşağıda
   <ItemGroup>
     <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
 
-    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
+    <!-- Eğer ASF'in kaynağına bağlı ise üsteki yerine bunu kullanın. <Reference> üsteki -->
     <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
+
 ```
 
 Kod açısından, eklenti sınıfınız `IPlugin` arayüzünden (açık veya dolaylı olarak `IASF` gibi daha özel bir arabirimden devralarak) ve `[Export (typeof (IPlugin))]`, runtime sırasında ASF tarafından tanınmak için. Bunu başaran en açık örnek şudur:
@@ -81,11 +82,11 @@ dotnet publish -c "Release" -o "out"
 dotnet publish YourPluginName -c "Release" -o "out"
 ```
 
-Daha sonra eklentiniz dağıtım için hazırdır. It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its **[dependencies](#plugin-dependencies)**. Bu şekilde kullanıcının zip arşivinizi `plugins` dizinine açması yeterli olacaktır.
+Daha sonra eklentiniz dağıtım için hazırdır. Eklentinizi tam olarak nasıl dağıtmak ve yayınlamak istediğiniz size kalmış, ancak `Calisma AlaniIsmi.EklentiIsminiz` adlı tek bir klasörle bir zip arşivi oluşturmanızı öneririz.**[Gereksinimler](#plugin-dependencies)**. Bu şekilde kullanıcının zip arşivinizi `plugins` dizinine açması yeterli olacaktır.
 
-Bu, başlamanıza yardımcı olacak en basit senaryodur. We have **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Çalışan bir koddan öğrenmek isterseniz göz atmaya çekinmeyin, veya `ArchiSteamFarm.Plugins` ad alanını kendiniz keşfedin ve mevcut tüm seçenekler için birlikte verilen belgelere bakın.
+Bu, başlamanıza yardımcı olacak en basit senaryodur. Yardımcı yorumlar da dahil olmak üzere kendi eklentiniz içinde yapabileceğiniz örnek arayüzleri ve eylemleri gösteren **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** projemiz var. Çalışan bir koddan öğrenmek isterseniz göz atmaya çekinmeyin, veya `ArchiSteamFarm.Plugins` ad alanını kendiniz keşfedin ve mevcut tüm seçenekler için birlikte verilen belgelere bakın.
 
-If instead of example plugins you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. In addition to that, there are also plugins developed by other developers, in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
+Örnek eklentiler yerine gerçek projelerden öğrenmek istiyorsanız, bizim tarafımızdan geliştirilen **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** eklentisi var, ASF ile birlikte paketlenmiş bir eklenti. Buna ek olarak, **[üçüncü-taraf](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** bölümümüzde diğer geliştiriciler tarafından geliştirilen eklentiler de var.
 
 ---
 
@@ -93,7 +94,7 @@ If instead of example plugins you'd want to learn from real projects, there is *
 
 ASF, arabirimlerde eriştiğiniz şeylerin yanı sıra, işlevselliği genişletmek için kullanabileceğiniz birçok dahili API'yi size sunar. Örneğin, Steam web'e bir tür yeni istek göndermek istiyorsanız, her şeyi en baştan uygulamanıza gerek yoktur, özellikle de sizden uğraşmak zorunda olduğumuz tüm sorunlarla. Sizin için kimlik doğrulama, oturum yenileme veya web sınırlama gibi daha düşük seviyeli şeyleri idare ederek, kullanmanız için halihazırda birçok `UrlWithSession()` yöntemini açığa çıkaran `Bot.ArchiWebHandler` kullanın. Benzer şekilde, Steam platformu dışında web istekleri göndermek için standart .NET `HttpClient` sınıfını kullanabilirsiniz, ancak sizin için mevcut olan `Bot.ArchiWebHandler.WebBrowser`'i kullanmak çok daha iyi bir fikirdir, bu da size bir kez daha yardımcı bir el sunar, örneğin gönderdiğiniz başarısız istekleri yeniden denemesi gibi.
 
-We have a very open policy in terms of our API availability, so if you'd like to make use of something that ASF code already includes, simply **[open an issue](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** and explain in it your planned use case of our ASF's internal API. Kullanım durumunuz mantıklı olduğu sürece, büyük olasılıkla buna karşı bir şeyimiz olmayacak. Birinin kullanmak istediği her şeyi açmamız imkansız, bu yüzden bizim için en mantıklı olanı açtık ve henüz `herkese açık olmayan` bir şeye erişmek istemeniz durumunda isteklerinizi bekliyoruz. Bu aynı zamanda, mevcut işlevselliği genişletmek için eklenmesi anlamlı olabilecek yeni `IPlugin` arabirimleriyle ilgili tüm önerileri de içerir.
+API kullanılabilirliğimiz açısından çok açık bir politikamız var, bu nedenle ASF kodunun zaten içerdiği bir şeyden yararlanmak istiyorsanız, **[bir sorun açın](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** ve planlanan kullanım durumunuzu açıklayın. ASF'in dahili API'si dahilinde. Kullanım durumunuz mantıklı olduğu sürece, büyük olasılıkla buna karşı bir şeyimiz olmayacak. Birinin kullanmak istediği her şeyi açmamız imkansız, bu yüzden bizim için en mantıklı olanı açtık ve henüz `herkese açık olmayan` bir şeye erişmek istemeniz durumunda isteklerinizi bekliyoruz. Bu aynı zamanda, mevcut işlevselliği genişletmek için eklenmesi anlamlı olabilecek yeni `IPlugin` arabirimleriyle ilgili tüm önerileri de içerir.
 
 Aslında, dahili ASF'in API'si, eklentinizin yapabilecekleri açısından tek gerçek sınırlamadır. Örnek olarak sizi hiçbir şey uygulamanıza `Discord.Net` kitaplığı dahil etmek ve Discord botunuz ile ASF komutları arasında bir köprü oluşturmaktan alı koyamaz, çünkü eklentinizin kendi başına gereksinimleri olabilir. İmkanlar sonsuzdur, ve eklentiniz dahilinde size olabildiğince fazla özgürlük ve esneklik sağlamak için elimizden gelenin en iyisini yaptık. yani hiçbir şeyde yapay bir sınır yok, sadece eklenti geliştirmeniz için hangi ASF parçalarının çok önemli olduğundan tam olarak emin değiliz (bunu bize bildirerek çözebilirsiniz ve bu olmadan bile ihtiyacınız olan işlevselliği her zaman yeniden uygulayabilirsiniz).
 
@@ -117,7 +118,7 @@ Genel olarak, yalnızca ASF'in içermediği veya yanlış/uyumsuz sürüme sahip
 
 İhtiyacınız olan gereksinimin ASF'e dahil edildiğini biliyorsanız, yukarıdaki `csproj` örneğinde gösterdiğimiz gibi `IncludeAssets = "compile"` ile işaretleyebilirsiniz. Bu, derleyiciye başvurulan kitaplığı yayınlamaktan kaçınmasını söyleyecektir, eğer ASF içerisinde o kitaplığı içeriyor ise. Aynı şekilde, ASF projesine çok benzer şekilde çalışan `ExcludeAssets = "all" Private = "false"` ile başvurduğumuza dikkat edin - derleyiciye herhangi bir ASF dosyası oluşturmaktan kaçınmasını sağlamak için(kullanıcının bunların hepsine sahip olduğu göz önünde bulundurularak). Bu yalnızca ASF projesine referans verirken geçerlidir, çünkü bir `dll` kitaplığına başvurursanız, eklentinizin bir parçası olarak ASF dosyaları üretmiyorsunuzdur.
 
-Yukarıdaki ifade konusunda kafanız karıştıysa ve daha iyisini bilmiyorsanız, `ASF-generic.zip` paketine hangi `dll` kitaplıklarının dahil edildiğini kontrol edin ve eklentinize zip dosyasının içinde dahil olmayan kitaplıkları ekleyin. Bu en basit eklentiler için yalnızca `EklentiIsminiz.dll` olacaktır. Runtime sırasında bazı kitaplıklarla ilgili herhangi bir sorunla karşılaşırsanız, etkilenen kitaplıkları da dahil edin. Bunlarda başarısız olursa, her şeyi bir araya getirmeye karar verebilirsiniz.
+Yukarıdaki ifade konusunda kafanız karıştıysa ve daha iyisini bilmiyorsanız, `ASF-generic.zip` paketine hangi `dll` kitaplıklarının dahil edildiğini kontrol edin ve eklentinize zip dosyasının içinde dahil olmayan kitaplıkları ekleyin. Bu en basit eklentiler için yalnızca `YourPluginName.dl` olacaktır. Runtime sırasında bazı kitaplıklarla ilgili herhangi bir sorunla karşılaşırsanız, etkilenen kitaplıkları da dahil edin. Bunlarda başarısız olursa, her şeyi bir araya getirmeye karar verebilirsiniz.
 
 ---
 

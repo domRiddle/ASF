@@ -46,7 +46,7 @@ Se durante o processo a conta atingir o estado `RateLimited`, a fila é suspensa
 
 ---
 
-## Example
+## Exemplo
 
 Vamos supor que você tem uma lista de 100 códigos de produtos. Em primeiro lugar, você deve criar um novo arquivo `BotName.keys.new` na pasta `config` do ASF. Nós adicionamos a extensão `.new` para que o ASF saiba que não deve pegar esse arquivo imediatamente quando ele for criado (como ele é arquivo vazio ele não está pronto para importação ainda).
 

@@ -43,7 +43,10 @@ ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 建议您根据�
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" /><!-- 如果要作为 ASF 代码树的一部分构建，使用此设置代替上面的 <Reference> 标签 --><!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
+    <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
+
+    <!-- 如果要作为 ASF 代码树的一部分构建，使用此设置代替上面的 <Reference> 标签 -->
+    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
 ```

@@ -43,7 +43,10 @@ IF U DID EVRYTHIN PROPERLY, UR `csproj` WILL BE SIMILAR 2 BELOW:
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" /><!-- IF BUILDIN AS PART OV ASF SOURCE TREE, USE DIS INSTEAD OV <Reference> ABOOV --><!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
+    <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
+
+    <!-- IF BUILDIN AS PART OV ASF SOURCE TREE, USE DIS INSTEAD OV <Reference> ABOOV -->
+    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
 ```
