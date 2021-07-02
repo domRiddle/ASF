@@ -36,6 +36,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, 讓您可以輕鬆地在Arch Linux上安裝ASF。
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, 讓您可以輕鬆地在Arch Linux上安裝ASF。
+- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, allowing you to easily install ASF on OS X.
 
 ---
 

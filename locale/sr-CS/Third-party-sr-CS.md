@@ -36,6 +36,7 @@ Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog 
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, omogućava vam da lako instalirate ASF na arch linux-u.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, omogućava vam da lako instalirate ASF na arch linux-u.
+- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, allowing you to easily install ASF on OS X.
 
 ---
 

@@ -36,6 +36,7 @@
 
 - **[репозиторий AUR #1](https://aur.archlinux.org/packages/asf)**, позволяющий легко установить ASF на Arch linux.
 - **[репозиторий AUR #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, позволяющий легко установить ASF на Arch linux.
+- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, allowing you to easily install ASF on OS X.
 
 ---
 
