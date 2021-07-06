@@ -2,7 +2,7 @@
 
 이 항목에는 독점적 혹은 주로 ASF와 함께 사용하도록 작성된 여러 서드 파티 애드온이 있습니다. 통합을 위한 내부 라이브러리와 간단한 웹 어플리케이션 같은 ASF 플러그인부터 다른 플랫폼을 위한 완전한 기능을 가진 봇 까지 범위가 넓습니다. 목록에 뭔가 추가하고 싶다면 Discord나 Steam그룹으로 알려주시기 바랍니다.
 
-Please note that below programs are **not** maintained by ASF developers and therefore **we give no guarantee about any of them**, especially in terms of security, safety or Steam ToS compliance. 이 목록은 참조용으로만 유지됩니다. You should always ensure that the third-party utility you're about to use is legit enough for you, as you're using all of them at your own risk.
+아래의 프로그램들은 ASF 개발자들이 유지보수하지 **않으므로** 보안, 안전, 스팀 서비스약관 준수 측면에서 **어떠한 것도 보장하지 않음**을 유의하시기 바랍니다. 이 목록은 참조용으로만 유지됩니다. 사용하려는 서드파티 유틸리티가 충분히 합법적인지 항상 확인하시고, 스스로의 책임하에 사용하십시오.
 
 ---
 
@@ -49,4 +49,4 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ## 더 찾아보고 싶은가요?
 
-We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** topic on GitHub for all projects that integrate with ASF.
+GitHub에서 **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** 토픽으로 ASF와 통합하는 모든 프로젝트를 찾아보기를 권합니다.
