@@ -89,7 +89,7 @@ Command | Access | Description
 `privacy [Bots] <Settings>` | `Master` | Changes **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)** of given bot instances, to appropriately selected options explained **[below](#privacy-settings)**.
 `redeem [Bots] <Keys>` | `Operator` | Redeems given cd-keys or wallet codes on given bot instances.
 `redeem^ [Bots] <Modes> <Keys>` | `Operator` | Redeems given cd-keys or wallet codes on given bot instances, using given `modes` explained **[below](#redeem-modes)**.
-`reset [Bots]` | `Master` | Resets the playing status back to normal, used during manual farming with `play` command.
+`reset [Bots]` | `Master` | Resets the playing status back to idle, used during manual farming with `play` command.
 `restart` | `Owner` | Restarts ASF process.
 `resume [Bots]` | `FamilySharing` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.
 `start [Bots]` | `Master` | Starts given bot instances.
