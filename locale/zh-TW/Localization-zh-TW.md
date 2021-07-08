@@ -24,15 +24,15 @@ If you'd like to help with ASF, either by translating, reviewing or approving tr
 
 例如，您可以翻譯一個字串為：
 
-> 我們有 {0} 個遊戲等待掛卡。
+> We have {0} games to farm.
 
 但根據您的語言，這個句子可能更通順：
 
-> 等待掛卡的遊戲數量為 {0}。
+> The number of games to farm is equal to {0}.
 
 或：
 
-> 還有 {0} 個遊戲等待掛卡。
+> {0} is the number of games to farm.
 
 The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). 這提高了整體的翻譯品質。
 

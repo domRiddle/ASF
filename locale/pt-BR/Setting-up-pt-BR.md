@@ -138,11 +138,11 @@ Se você definiu o `SteamLogin` e o `SteamPassword` no arquivo de configuração
 
 Now would be a good time to review our **[privacy policy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** section if you're concerned about stuff ASF is programmed to do, like joining a certain Steam group on launch.
 
-Após a etapa de conexão, supondo que seus dados estejam corretos, você vai entrar com êxito no Steam e o ASF começará a coleta automática, usando as configurações padrão que você ainda não alterou:
+After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start farming using default settings that you didn't change as of now:
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-Isso prova que o ASF está fazendo seu trabalho na sua conta, então você pode minimizá-lo e fazer outra coisa. Depois de decorrido algum tempo (dependendo do **[desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**) você verá as cartas aparecerem no seu inventário. É claro, para que isso aconteça você deve ter jogos válidos para coleta, eles são mostrados como "Jogo pode dar mais X cartas" na sua **[página de insígnias](https://steamcommunity.com/my/badges)**; se não houver nenhum jogo para coleta o ASF vai agir como se não houvesse nada a fazer, conforme mencionado em nossa seção de **[Perguntas Frequentes (FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-pt-BR#o-que-%C3%A9-o-asf)**.
+Isso prova que o ASF está fazendo seu trabalho na sua conta, então você pode minimizá-lo e fazer outra coisa. Depois de decorrido algum tempo (dependendo do **[desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**) você verá as cartas aparecerem no seu inventário. Of course, for that to happen you must have valid games to farm, showing as "you can get X more card drops from playing this game" on your **[badges page](https://steamcommunity.com/my/badges)** - if there are no games to farm, then ASF will state that there is nothing to do, as stated in our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)**.
 
 Isso conclui nosso guia de configuração básica. Agora você pode decidir se deseja configurar o ASF ainda mais ou deixá-lo fazer seu trabalho com as configurações padrão. Vamos cobrir mais alguns detalhes básicos e, em seguida, deixar toda a wiki para você descobrir.
 
@@ -150,9 +150,9 @@ Isso conclui nosso guia de configuração básica. Agora você pode decidir se d
 
 ### Configuração estendida
 
-#### Coletando de várias contas ao mesmo tempo
+#### Farming several accounts at once
 
-O ASF suporta a coleta automática em mais de uma conta por vez, o que é sua principal função. Você pode adicionar mais contas ao ASF gerando mais arquivos de configuração de bot, exatamente da mesma forma que o primeiro foi gerado a poucos minutos atrás. Você precisa garantir apenas duas coisas:
+ASF supports farming more than one account at a time, which is its primary function. Você pode adicionar mais contas ao ASF gerando mais arquivos de configuração de bot, exatamente da mesma forma que o primeiro foi gerado a poucos minutos atrás. Você precisa garantir apenas duas coisas:
 
 - Um nome exclusivo para cada bot, se o seu primeiro bot se chama "ContaPrincipal", você não pode ter outro com o mesmo nome.
 - Dados de login válidos, como `SteamLogin`, `SteamPassword,` e `SteamParentalCode` (se estiver usando o modo família do Steam)
@@ -163,9 +163,9 @@ Em outras palavras, simplesmente volte a configuração e faça exatamente a mes
 
 #### Alterando configurações
 
-Você pode alterar as configurações existentes exatamente da mesma forma: gerando um novo arquivo de configuração. Se você não fechou o nosso gerador de configuração web ainda, clique em "Alternar configurações avançadas" e veja o que há para descobrir. Para este tutorial, vamos alterar a configuração `CustomGamePlayedWhileFarming`, que permite que você defina um nome personalizado para ser exibido no Steam quando o ASF está coletando em vez de mostrar o jogo real.
+Você pode alterar as configurações existentes exatamente da mesma forma: gerando um novo arquivo de configuração. Se você não fechou o nosso gerador de configuração web ainda, clique em "Alternar configurações avançadas" e veja o que há para descobrir. For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is farming, instead of showing actual game.
 
-Então vamos lá, se você executar o ASF e iniciar a coleta, com as configurações padrão você vai ver que o Steam mostra "Em jogo":
+So let's do that, if you run ASF and start farming, in default settings you'll see that your Steam account is in-game now:
 
 ![Steam](https://i.imgur.com/1VCDrGC.png)
 

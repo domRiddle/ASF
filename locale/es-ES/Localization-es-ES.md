@@ -24,7 +24,7 @@ Si el idioma de tu elección todavía tiene algunas cadenas faltantes, puedes se
 
 Por ejemplo, podrías tener una cadena como:
 
-> We have {0} games to idle.
+> We have {0} games to farm.
 
 Pero según tu idioma, la siguiente frase podría tener más sentido:
 

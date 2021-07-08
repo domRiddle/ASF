@@ -142,7 +142,7 @@ Después de la etapa de conexión, asumiendo que tus datos son correctos, inicia
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-Esto prueba que ASF está haciendo su trabajo con éxito en tu cuenta, ahora puedes minimizar el programa y hacer algo más. Después del suficiente tiempo (dependiendo del **[rendimiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-es)**) verás que poco a poco recibes cromos de Steam. Por supuesto, para que eso suceda debes tener juegos válidos para recolectar, mostrado como "puedes obtener X cromos más jugando este juego" en tu **[página de insignias](https://steamcommunity.com/my/badges)** - si no hay juegos para recolectar, entonces ASF indicará que no hay nada que hacer, como se expresa en nuestras **[preguntas frecuentes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-es#qu%C3%A9-es-asf)**.
+Esto prueba que ASF está haciendo su trabajo con éxito en tu cuenta, ahora puedes minimizar el programa y hacer algo más. Después del suficiente tiempo (dependiendo del **[rendimiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-es)**) verás que poco a poco recibes cromos de Steam. Por supuesto, para que eso suceda debes tener juegos válidos para recolectar, mostrado como "puedes obtener X cromos más jugando este juego" en tu **[página de insignias](https://steamcommunity.com/my/badges)** - si no hay juegos para recolectar, entonces ASF indicará que no hay nada qué hacer, como se expresa en nuestras **[preguntas frecuentes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-es#qu%C3%A9-es-asf)**.
 
 Esto concluye nuestra guía de configuración básica. Ahora puedes decidir si quieres seguir configurando ASF, o dejarlo hacer su trabajo con la configuración predeterminada. Abarcaremos algunos detalles básicos más, y luego dejaremos toda la wiki para que descubras.
 
@@ -150,9 +150,9 @@ Esto concluye nuestra guía de configuración básica. Ahora puedes decidir si q
 
 ### Configuración extendida
 
-#### Recolectar varias cuentas a la vez
+#### Recolectar varias cuentas al mismo tiempo
 
-ASF soporta la recolección de más de una cuenta a la vez, la cual es su función principal. Puedes añadir más cuentas a ASF generando más archivos de configuración de bots, exactamente del mismo modo que generaste el primero hace algunos minutos. Solo debes de asegurarte de dos cosas:
+ASF soporta la recolección de más de una cuenta a la vez, lo cual es su función principal. Puedes añadir más cuentas a ASF generando más archivos de configuración de bots, exactamente del mismo modo que generaste el primero hace algunos minutos. Solo debes de asegurarte de dos cosas:
 
 - Usar un nombre de bot único, si ya nombraste tu primer bot como "MainAccount", no puedes tener otro con el mismo nombre.
 - Detalles de inicio de sesión válidos, tales como `SteamLogin`, `SteamPassword` y `SteamParentalCode` (si usas la configuración parental de Steam)

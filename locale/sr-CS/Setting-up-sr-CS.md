@@ -138,11 +138,11 @@ Ako ste ispunili `SteamLogin` i `SteamPassword` polje koje ASF koristi, tražić
 
 Now would be a good time to review our **[privacy policy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** section if you're concerned about stuff ASF is programmed to do, like joining a certain Steam group on launch.
 
-Nakon što je pošao proces prijave, ako su vaši kredencijali tačni, bićete uspješno prijavljeni, i ASF će početi da idluje koristeći opšta podešavanja ako ih niste promijenili:
+After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start farming using default settings that you didn't change as of now:
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-Ovo pokazuje da ASF uspješno radi svoj posao na vašem nalogu, pa ga možete umanjiti i raditi nešto drugo. Nakon određenog vremena (u zavisnosti od **[performansi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**), polako ćete dobijati Steam kartice. Naravno, da bi se to desilo morate imati validne igrice za idlovanje, koje kažu "možete dobiti još X kartica igrajući ovu igricu" na vašoj **[bedž stranici](https://steamcommunity.com/my/badges)** - ako nema igrica za idlovanje, onda ASF neće ništa raditi kao što je kazano u našem **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)**.
+Ovo pokazuje da ASF uspješno radi svoj posao na vašem nalogu, pa ga možete umanjiti i raditi nešto drugo. Nakon određenog vremena (u zavisnosti od **[performansi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**), polako ćete dobijati Steam kartice. Of course, for that to happen you must have valid games to farm, showing as "you can get X more card drops from playing this game" on your **[badges page](https://steamcommunity.com/my/badges)** - if there are no games to farm, then ASF will state that there is nothing to do, as stated in our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)**.
 
 Ovo je kraj našeg jednostavnog uputstva za podešavanje. Možete odlučiti da li želite da dalje konfigurišete ASF, ili da ga ostavite da radi pomoću opštih podešavanja. Proći ćemo kroz još nekoliko osnovnih stavki, a onda ćemo vam preputsiti da otkrijete ostatak wiki-e.
 
@@ -150,9 +150,9 @@ Ovo je kraj našeg jednostavnog uputstva za podešavanje. Možete odlučiti da l
 
 ### Šira konfiguracija
 
-#### Idlovanje nekoliko naloga odjednom
+#### Farming several accounts at once
 
-ASF ima mogućnost da idluje više od jednog naloga odjednom, što je njegova primarna funkcija. Možete dodati više od jednog naloga u ASF pomoću generisanja više od jedne bot konfiguracije, na isti način na koji ste generisali prvu konfiguraciju prije nekoliko minuta. Morate biti sigururni o ove dvije stvari:
+ASF supports farming more than one account at a time, which is its primary function. Možete dodati više od jednog naloga u ASF pomoću generisanja više od jedne bot konfiguracije, na isti način na koji ste generisali prvu konfiguraciju prije nekoliko minuta. Morate biti sigururni o ove dvije stvari:
 
 - Različita imena botova, ako je već ime prvog bota "GlavniNalog", ne možete napraviti drugog bota sa istim imenom.
 - Pravilni detalji vašeg naloga, `SteamLogin`,<0 `SteamPassword` i `SteamParentalCode` (ako koristite Steam roditeljska podešavanja).
@@ -163,9 +163,9 @@ Drugim riječima, jednostavno ponovo idite na konfiguraciju i uradite istu stvar
 
 #### Mijenjanje podešavanja
 
-Možete promijeniti postojeća podešavanja na isti način - konfigurišući novi config fajl. Ako još niste zatvorili web generator konfiguracije, pritisnite "prikaži napredna podešavanja" da bi ste vidjeli šta je tu za vas da otkrijete. U ovod vodiču ćemo promijeniti podešavanje `CustomGamePlayedWhileFarming`, što omogućava da podesite ime koje će biti prikazano kada ASF idluje, umjesto prikazivanja stvarnog imena igrice.
+Možete promijeniti postojeća podešavanja na isti način - konfigurišući novi config fajl. Ako još niste zatvorili web generator konfiguracije, pritisnite "prikaži napredna podešavanja" da bi ste vidjeli šta je tu za vas da otkrijete. For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is farming, instead of showing actual game.
 
-Pa uradimo to, ako pokrenete ASF i počnete idlovati, na vašem Steam nalogu ćete vidjeti da ste u igrici i ime igrice će biti prikazano ovako:
+So let's do that, if you run ASF and start farming, in default settings you'll see that your Steam account is in-game now:
 
 ![Steam](https://i.imgur.com/1VCDrGC.png)
 

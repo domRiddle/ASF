@@ -46,7 +46,7 @@ And to make it even worse - I experienced cases when people switched from restri
 
 ---
 
-By default, ASF assumes that `HoursUntilCardDrops` is `3`, as the negative effect of setting this to `3` when it should be less is smaller than done the other way. This is because of the fact that in the worst possible case we'll waste `3` hours of idling per `32` games, compared to wasting `3` hours of idling per every single game if `HoursUntilCardDrops` was set to `0` by default. However, you should still tune this variable to match your account for maximum efficiency, as this is only a blind guess based on potential drawbacks and majority of users (so we're trying to choose "lesser evil" by default).
+By default, ASF assumes that `HoursUntilCardDrops` is `3`, as the negative effect of setting this to `3` when it should be less is smaller than done the other way. This is because of the fact that in the worst possible case we'll waste `3` hours of farming per `32` games, compared to wasting `3` hours of farming per every single game if `HoursUntilCardDrops` was set to `0` by default. However, you should still tune this variable to match your account for maximum efficiency, as this is only a blind guess based on potential drawbacks and majority of users (so we're trying to choose "lesser evil" by default).
 
 At the moment two above algorithms are enough for all currently possible account scenarios, in order to farm as effectively as possible, therefore it's not planned to add any other ones.
 
@@ -58,7 +58,7 @@ It's nice to note that ASF also includes manual farming mode that can be activat
 
 Cards drop algorithm does not always work the way it should, and it's entirely possible for various Steam glitches to happen, such as cards being dropped on restricted accounts, cards being dropped on closing/switching the game, cards not dropping at all when game is being played, and likewise.
 
-This section is mainly for people that are wondering why ASF doesn't do **X**, such as rapidly switching games to idle cards faster.
+This section is mainly for people that are wondering why ASF doesn't do **X**, such as rapidly switching games to farm cards faster.
 
 What is a **Steam glitch** - a specific action triggering **undefined** behaviour, which is **not intended, undocumented, and considered as a logic flaw**. It's **unreliable by definition**, which means that it can't be reproduced reliably with clean testing environment, and therefore, coded without resorting to hacks that are supposed to guess when glitch is happening and how to fight with it / abuse it. Typically it's temporary until developers fix the logic flaw, although some misc glitches can go unnoticed for a very long period of time.
 
@@ -82,4 +82,4 @@ It doesn't matter whether you're able to trigger Steam glitch with other program
 
 ASF is **never** going to take advantage of Steam exploits, abuses, hacks or any other activity that we see as **illegal or unwanted** according to Steam ToS, Steam Online Conduct or any other trusted source that could indicate that ASF activity is unwanted by Steam network, as stated in **[contributing](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)** section.
 
-If you want at all cost to risk your Steam account for idling a few cent cards faster than usual, then sadly ASF will never offer something like this in automatic mode, although you still have `play` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** that can be used as a tool for doing whatever you want in terms of Steam network interaction. We do not recommend taking advantage of Steam glitches and exploiting them for your own gain - not only with ASF, but with any other tool as well. In the end however, it's your account, and your choice what you want to do with it - just keep in mind that we warned you.
+If you want at all cost to risk your Steam account for farming a few cent cards faster than usual, then sadly ASF will never offer something like this in automatic mode, although you still have `play` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** that can be used as a tool for doing whatever you want in terms of Steam network interaction. We do not recommend taking advantage of Steam glitches and exploiting them for your own gain - not only with ASF, but with any other tool as well. In the end however, it's your account, and your choice what you want to do with it - just keep in mind that we warned you.

@@ -24,15 +24,15 @@ If the language of your choice is still missing some strings, you can grab them 
 
 For example, you could have a string like:
 
-> We have {0} games to idle.
+> We have {0} games to farm.
 
 But based on your language, following sentence could make more sense:
 
-> The number of games to idle is equal to {0}.
+> The number of games to farm is equal to {0}.
 
 Or:
 
-> {0} is the number of games to idle.
+> {0} is the number of games to farm.
 
 The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.
 
@@ -110,7 +110,7 @@ It's not mandatory to define all plural forms used by your language. If missing,
 
 ---
 
-## Wiki
+## რესურსი
 
 Our crowdin platform also allows you to localize even the wiki itself. This is a very powerful tool, since it allows you to create a whole ASF documentation in your native language, effectively solving the very last issue when it comes to ASF localization. Together with translation of the program and all its parts, this makes localization complete.
 

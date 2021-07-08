@@ -89,9 +89,9 @@ Komutları çalıştırmanın en gelişmiş ve esnek yolu, kullanıcı etkileşi
 | `privacy [Bots] <Settings>`                                    | `Master`         | Changes **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)** of given bot instances, to appropriately selected options explained **[below](#privacy-settings)**.                                                                                                                                               |
 | `redeem [Bots] <Keys>`                                         | `Operatör`       | Redeems given cd-keys or wallet codes on given bot instances.                                                                                                                                                                                                                                                                       |
 | `redeem^ [Bots] <Modes> <Keys>`                          | `Operatör`       | Redeems given cd-keys or wallet codes on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                                                                                                                                                             |
-| `reset [Bots]`                                                       | `Master`         | Resets the playing status back to normal, used during manual farming with `play` command.                                                                                                                                                                                                                                           |
+| `reset [Bots]`                                                       | `Master`         | Resets the playing status back to original (previous) state, the command is used during manual farming with `play` command.                                                                                                                                                                                                         |
 | `restart`                                                            | `Sahip`          | ASF'i yeniden başlatır.                                                                                                                                                                                                                                                                                                             |
-| `resume [Bots]`                                                      | `Aile Paylaşımı` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                                                                                                                                                         |
+| `resume [Bots]`                                                      | `Aile Paylaşımı` | Resumes automatic farming of given bot instances.                                                                                                                                                                                                                                                                                   |
 | `start [Bots]`                                                       | `Master`         | Verilen bot örneklerini başlatır.                                                                                                                                                                                                                                                                                                   |
 | `stats`                                                              | `Sahip`          | Yönetilen bellek kullanımı gibi işlem istatistiklerini yazdırır.                                                                                                                                                                                                                                                                    |
 | `status [Bots]`                                                      | `Aile Paylaşımı` | Verilen bot örneklerinin durumunu yazdırır.                                                                                                                                                                                                                                                                                         |
@@ -126,7 +126,7 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Command      | Alias |
+| Komut        | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |
@@ -205,7 +205,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `addlicense` command supports two different license types, those are:
 
-| Tip   | Alias | Example      | Description                                                             |
+| Tip   | Alias | Örnek        | Açıklama                                                                |
 | ----- | ----- | ------------ | ----------------------------------------------------------------------- |
 | `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
 | `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
@@ -226,7 +226,7 @@ addlicense ASF app/292030,sub/47807
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| Tip     | Alias | Example          | Description                                                                                                                                                                                                                                                             |
+| Tip     | Alias | Örnek            | Açıklama                                                                                                                                                                                                                                                                |
 | ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `app`   | `a`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
 | `sub`   | `s`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
@@ -249,7 +249,7 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Name                  | Description                                                                     |
+| Değer | İsim                  | Açıklama                                                                        |
 | ----- | --------------------- | ------------------------------------------------------------------------------- |
 | FAWK  | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
 | FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
@@ -290,7 +290,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Tip                     | Açıklama                                                                   |
 | ----------------------- | -------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
 | Parola                  | `SteamPassword` bot config property, if missing from config.               |
@@ -300,7 +300,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### Example
+### Örnek
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to `true`.
 

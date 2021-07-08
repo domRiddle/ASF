@@ -16,9 +16,9 @@ ASF于2015年10月由 **[Archi](https://github.com/JustArchi)** 創造。 如果
 
 ### 創造ASF的初心？
 
-創造ASF的主要目的是為了在Linux上實現免依賴項（如Steam 客戶端）的全自動化掛卡工具。 時至今日，這仍然是ASF的主要目的和重點，因為我的ASF理念從未改變，我使用它的方式仍然和2015年完全一樣。 當然，自那時以來，確實發生了**很多** 的變化， 我很高興地看到ASF已經取得了巨大的進展，這要感謝它的用戶們，因為如果它僅由我使用，我可能甚至不會寫出當前一半的功能。
+ASF was created with primary purpose of being fully automated Steam farming tool for Linux, without a need of any external dependencies (such as Steam client). 時至今日，這仍然是ASF的主要目的和重點，因為我的ASF理念從未改變，我使用它的方式仍然和2015年完全一樣。 當然，自那時以來，確實發生了**很多** 的變化， 我很高興地看到ASF已經取得了巨大的進展，這要感謝它的用戶們，因為如果它僅由我使用，我可能甚至不會寫出當前一半的功能。
 
-很高興地宣告，ASF從未被視為其他掛卡工具（尤其是**[Idle Master](https://www.steamidlemaster.com)**的競品，因為時至今日，ASF從未被設計成為一個桌面/用戶應用程式。 如果您分析上述ASF的主要用途，您會發現Idle Master與此**截然相反**。 現在您肯定可以找到其他類似ASF的掛卡工具，但對於我來說，無論過去（還是現在）都沒有足以令我滿意的工具，因此我按照自己的設想創造了ASF。 Over time users have migrated to ASF mainly due to robustness, stability and security, but also all the features that I've developed across all those years. Today, ASF is better than ever before.
+It's nice to note that ASF was never made to compete with other, similar programs, especially **[Idle Master](https://www.steamidlemaster.com)**, because ASF was never designed to be a desktop/user app, and it still isn't today. 如果您分析上述ASF的主要用途，您會發現Idle Master與此**截然相反**。 While you can most definitely find similar to ASF programs today, nothing was good enough for me back then (and still isn't today), so I created my own software, the way I wanted it. Over time users have migrated to ASF mainly due to robustness, stability and security, but also all the features that I've developed across all those years. Today, ASF is better than ever before.
 
 ---
 

@@ -89,9 +89,9 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `privacy [Bots] <Settings>`                                    | `Master`        | Changes **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)** of given bot instances, to appropriately selected options explained **[below](#privacy-settings)**.                                                                                                                                                                           |
 | `redeem [Bots] <Keys>`                                         | `Operator`      | Redeems given cd-keys or wallet codes on given bot instances.                                                                                                                                                                                                                                                                                                   |
 | `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`      | Redeems given cd-keys or wallet codes on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                                                                                                                                                                                         |
-| `reset [Bots]`                                                       | `Master`        | Resets the playing status back to normal, used during manual farming with `play` command.                                                                                                                                                                                                                                                                       |
+| `reset [Bots]`                                                       | `Master`        | Resets the playing status back to original (previous) state, the command is used during manual farming with `play` command.                                                                                                                                                                                                                                     |
 | `restart`                                                            | `Owner`         | Uruchamia proces ASF.                                                                                                                                                                                                                                                                                                                                           |
-| `resume [Bots]`                                                      | `FamilySharing` | Wznawia automatyczne farmienie dla danych instancji botów. Zobacz również `pause`, `play`.                                                                                                                                                                                                                                                                      |
+| `resume [Bots]`                                                      | `FamilySharing` | Wznawia automatyczne farmienie dla danych instancji botów.                                                                                                                                                                                                                                                                                                      |
 | `start [Bots]`                                                       | `Master`        | Rozpoczyna się biorąc pod uwagę bot wystąpień.                                                                                                                                                                                                                                                                                                                  |
 | `stats`                                                              | `Owner`         | Wyświetla statystyki procesu, takie jak zużycie pamięci.                                                                                                                                                                                                                                                                                                        |
 | `status [Bots]`                                                      | `FamilySharing` | Stan grafiki podane bot wystąpień.                                                                                                                                                                                                                                                                                                                              |
@@ -126,7 +126,7 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Niektóre polecenia są również dostępne z ich aliasami, aby uprościć ich wpisywanie:
 
-| Command      | Alias |
+| Komenda      | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |
@@ -205,7 +205,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `addlicense` command supports two different license types, those are:
 
-| Typ   | Alias | Example      | Description                                                             |
+| Typ   | Alias | Przykład     | Opis                                                                    |
 | ----- | ----- | ------------ | ----------------------------------------------------------------------- |
 | `app` | `a`   | `app/292030` | Game determined by its unique `appID`.                                  |
 | `sub` | `s`   | `sub/47807`  | Package containing one or more games, determined by its unique `subID`. |
@@ -226,7 +226,7 @@ addlicense ASF app/292030,sub/47807
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| Typ     | Alias | Example          | Description                                                                                                                                                                                                                                                             |
+| Typ     | Alias | Przykład         | Opis                                                                                                                                                                                                                                                                    |
 | ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `app`   | `a`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
 | `sub`   | `s`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
@@ -235,7 +235,7 @@ addlicense ASF app/292030,sub/47807
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
-Complete command example:
+Kompletny przykład polecenia:
 
 ```text
 owns ASF app/292030,name/Witcher
@@ -249,18 +249,18 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Name                  | Description                                                                     |
-| ----- | --------------------- | ------------------------------------------------------------------------------- |
-| FAWK  | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
-| FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
-| FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
-| FKMG  | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
-| SAWK  | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
-| SD    | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
-| SF    | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
-| SI    | SkipInitial           | Skips key redemption on initial bot                                             |
-| SKMG  | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
-| V     | Validate              | Validates keys for proper format and automatically skips invalid ones           |
+| Wartość | Nazwa                 | Opis                                                                            |
+| ------- | --------------------- | ------------------------------------------------------------------------------- |
+| FAWK    | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
+| FD      | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
+| FF      | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
+| FKMG    | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
+| SAWK    | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
+| SD      | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
+| SF      | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
+| SI      | SkipInitial           | Skips key redemption on initial bot                                             |
+| SKMG    | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
+| V       | Validate              | Validates keys for proper format and automatically skips invalid ones           |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
@@ -290,7 +290,7 @@ Ogólna składnia to `input [Bots] <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Typ                     | Opis                                                                       |
 | ----------------------- | -------------------------------------------------------------------------- |
 | Login                   | `SteamLogin` bot config property, if missing from config.                  |
 | Hasło                   | `SteamPassword` bot config property, if missing from config.               |
@@ -300,7 +300,7 @@ Ogólna składnia to `input [Bots] <Type> <Value>`.
 
 `<Value>` is value set for given type. Currently all values are strings.
 
-### Example
+### Przykład
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to `true`.
 

@@ -24,15 +24,15 @@ ASF 由 Crowdin 服務提供支援，這使得每個人都可以幫助將 ASF �
 
 例如，您可以有一個這樣的字串：
 
-> 我們有 {0} 個遊戲等待掛卡。
+> We have {0} games to farm.
 
 但在你的語言習慣中，下面的句子可能更恰當：
 
-> 等待掛卡遊戲的數量為 {0}。
+> The number of games to farm is equal to {0}.
 
 或：
 
-> {0} 是等待掛卡的遊戲數。
+> {0} is the number of games to farm.
 
 The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). 這提高了整體翻譯品質。
 

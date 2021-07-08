@@ -89,9 +89,9 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `privacy [Bots] <Settings>`                                    | `Master`        | Changes **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)** of given bot instances, to appropriately selected options explained **[below](#privacy-settings)**.                                                                                                                                               |
 | `redeem [Bots] <Keys>`                                         | `Operator`      | Redeems given cd-keys or wallet codes on given bot instances.                                                                                                                                                                                                                                                                       |
 | `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`      | Redeems given cd-keys or wallet codes on given bot instances, using given `modes` explained **[below](#redeem-modes)**.                                                                                                                                                                                                             |
-| `reset [Bots]`                                                       | `Master`        | Resets the playing status back to normal, used during manual farming with `play` command.                                                                                                                                                                                                                                           |
+| `reset [Bots]`                                                       | `Master`        | Resets the playing status back to original (previous) state, the command is used during manual farming with `play` command.                                                                                                                                                                                                         |
 | `restartuj`                                                          | `Owner`         | Restarts ASF process.                                                                                                                                                                                                                                                                                                               |
-| `nastavi [Bots]`                                                     | `FamilySharing` | Resumes automatic farming of given bot instances. Also see `pause`, `play`.                                                                                                                                                                                                                                                         |
+| `nastavi [Bots]`                                                     | `FamilySharing` | Resumes automatic farming of given bot instances.                                                                                                                                                                                                                                                                                   |
 | `pokreni [Bots]`                                                     | `Master`        | Starts given bot instances.                                                                                                                                                                                                                                                                                                         |
 | `stats`                                                              | `Owner`         | Prints process statistics, such as managed memory usage.                                                                                                                                                                                                                                                                            |
 | `status [Bots]`                                                      | `FamilySharing` | Prints status of given bot instances.                                                                                                                                                                                                                                                                                               |
@@ -126,7 +126,7 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Command      | Alias |
+| Komanda      | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |
@@ -205,7 +205,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 `addlicense` command supports two different license types, those are:
 
-| Tip   | Alias | Example      | Description                                                                   |
+| Tip   | Alias | Primjer      | Opis                                                                          |
 | ----- | ----- | ------------ | ----------------------------------------------------------------------------- |
 | `app` | `a`   | `app/292030` | Igrica koja je određena svojim unikatnim `appID`.                             |
 | `sub` | `s`   | `sub/47807`  | Paket koji sadrži jednu ili više igrica, određen sa svojim unikatnim `subID`. |
@@ -226,7 +226,7 @@ addlicense ASF app/292030,sub/47807
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| Tip     | Alias | Example          | Description                                                                                                                                                                                                                                                                                                                   |
+| Tip     | Alias | Primjer          | Opis                                                                                                                                                                                                                                                                                                                          |
 | ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `app`   | `a`   | `app/292030`     | Igrica koja je određena svojim unikatnim `appID`.                                                                                                                                                                                                                                                                             |
 | `sub`   | `s`   | `sub/47807`      | Paket koji sadrži jednu ili više igrica, određen sa svojim unikatnim `subID`.                                                                                                                                                                                                                                                 |
@@ -235,7 +235,7 @@ addlicense ASF app/292030,sub/47807
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
-Complete command example:
+Kompletan primjer komande:
 
 ```text
 owns ASF app/292030,name/Witcher
@@ -249,18 +249,18 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Name                  | Description                                                                     |
-| ----- | --------------------- | ------------------------------------------------------------------------------- |
-| FAWK  | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
-| FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
-| FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
-| FKMG  | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
-| SAWK  | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
-| SD    | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
-| SF    | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
-| SI    | SkipInitial           | Skips key redemption on initial bot                                             |
-| SKMG  | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
-| V     | Validate              | Validates keys for proper format and automatically skips invalid ones           |
+| Vrijednost | Ime                   | Opis                                                                            |
+| ---------- | --------------------- | ------------------------------------------------------------------------------- |
+| FAWK       | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
+| FD         | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
+| FF         | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
+| FKMG       | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
+| SAWK       | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
+| SD         | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
+| SF         | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
+| SI         | SkipInitial           | Skips key redemption on initial bot                                             |
+| SKMG       | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
+| V          | Validate              | Validates keys for proper format and automatically skips invalid ones           |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 
@@ -290,7 +290,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Type>` is case-insensitive and defines input type recognized by ASF. Currently ASF recognizes following types:
 
-| Type                    | Description                                                                |
+| Tip                     | Opis                                                                       |
 | ----------------------- | -------------------------------------------------------------------------- |
 | Lozinka                 | `SteamLogin` bot config property, if missing from config.                  |
 | Password                | `SteamPassword` bot config property, if missing from config.               |
@@ -300,7 +300,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Value>` je vrijednost postavljena za dati tip. Trenutno su sve vrijednosti stringovi.
 
-### Example
+### Primjer
 
 Let's say that we have a bot that is protected by SteamGuard in non-2FA mode. We want to launch that bot with `Headless` set to `true`.
 

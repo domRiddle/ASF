@@ -46,7 +46,7 @@ E para deixar tudo ainda pior - eu presenciei casos onde as pessoas mudaram de r
 
 ---
 
-Por padrão, o ASF assume que `HoursUntilCardDrops` com o valor `3`, já que o efeito negativo de configurar para `3` quando deveria ser menos é menor do que o contrário. Isso pelo fato de que no pior caso possível nós perderemos `3` horas de coleta a cada `32` jogos, comparado a perder `3` horas de coleta em cada jogo se `HoursUntilCardDrops` fosse configurado para `0` por padrão. No entanto, você ainda deve configurar essa variável de acordo com a sua conta para obter a máxima eficiência, uma vez que o valor padrão é apenas uma hipótese baseado em potenciais inconvenientes e na maioria dos usuários (estamos tentando escolher o "mau menor" por padrão).
+Por padrão, o ASF assume que `HoursUntilCardDrops` com o valor `3`, já que o efeito negativo de configurar para `3` quando deveria ser menos é menor do que o contrário. This is because of the fact that in the worst possible case we'll waste `3` hours of farming per `32` games, compared to wasting `3` hours of farming per every single game if `HoursUntilCardDrops` was set to `0` by default. No entanto, você ainda deve configurar essa variável de acordo com a sua conta para obter a máxima eficiência, uma vez que o valor padrão é apenas uma hipótese baseado em potenciais inconvenientes e na maioria dos usuários (estamos tentando escolher o "mau menor" por padrão).
 
 No momento os dois algorítimos acima são suficientes para coletar automaticamente da forma mais efetiva em todos os cenários atuais possíveis, portanto não há planejamento de adicionar novos.
 
@@ -58,7 +58,7 @@ No momento os dois algorítimos acima são suficientes para coletar automaticame
 
 O algoritmo de coleta de cartas nem sempre funciona da maneira que deveria, e é inteiramente possível que várias falhas no Steam aconteçam, tais como cartas recebidas em contas restritas, cartas recebidas quando se fecha/muda o jogo, cartas não recebidas quando se joga um jogo, entre outros.
 
-Esta seção é principalmente para pessoas que estão se perguntando por que o ASF não faz **X**, como alternar rapidamente entre jogos para coletar cartas mais rápido.
+This section is mainly for people that are wondering why ASF doesn't do **X**, such as rapidly switching games to farm cards faster.
 
 O que é uma **falha no Steam**: uma ação específica que desencadeia um **comportamento indefinido**, que **não é intencional, não é documentado e é considerado uma falha de lógica**. Ele **não confiável por definição**, o que significa que ele não pode ser reproduzido confiantemente em um ambiente de teste limpo e, portanto, codificado sem recorrer a hacks que supõem adivinhar quando a falha está acontecendo e como lutar com/abusar dela. Normalmente essas falhas são temporárias até que os desenvolvedores as corrijam, embora algumas possam passar despercebidas por um longo período de tempo.
 
@@ -82,4 +82,4 @@ Não importa se você é capaz de provocar uma falha do Steam com outros program
 
 O ASF **nunca** vai tirar proveito de falhas no Steam, abusos, hacks ou qualquer outra atividade que nós vemos como **ilegais ou indesejáveis** de acordo com o Acordo de Assinatura do Steam, o Código de Conduta Online do Steam, ou qualquer outra fonte confiável que poderia indicar que a atividade do ASF é indesejada pela rede Steam, como descrito na seção **[contribuindo](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**.
 
-Se você quer a todo custo arriscar sua conta Steam pela coleta de algumas centenas de cartas mais rápido do que o habitual, então infelizmente o ASF nunca oferecerá algo assim no modo automático, embora você tenha o **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `play` que pode ser usado como uma ferramenta para fazer o que quiser em termos de interação com a rede Steam. Não recomendamos aproveitar falhas no Steam e explorá-las para seu ganho próprio - não só com o ASF, mas com qualquer outra ferramenta também. Pois no fim, a conta é sua e é você que escolhe o que quer fazer com ela - só tenha em mente que nós avisamos você.
+If you want at all cost to risk your Steam account for farming a few cent cards faster than usual, then sadly ASF will never offer something like this in automatic mode, although you still have `play` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** that can be used as a tool for doing whatever you want in terms of Steam network interaction. Não recomendamos aproveitar falhas no Steam e explorá-las para seu ganho próprio - não só com o ASF, mas com qualquer outra ferramenta também. Pois no fim, a conta é sua e é você que escolhe o que quer fazer com ela - só tenha em mente que nós avisamos você.

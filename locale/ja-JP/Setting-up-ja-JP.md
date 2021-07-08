@@ -138,11 +138,11 @@ ASF には Steam クライアントの独自の実装が含まれているため
 
 Now would be a good time to review our **[privacy policy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** section if you're concerned about stuff ASF is programmed to do, like joining a certain Steam group on launch.
 
-入力した情報がすべて正しかったら、ログインは成功し、ASF はデフォルトの設定を使用してアイドリングを開始します。
+After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start farming using default settings that you didn't change as of now:
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-つまり、ASF はあなたのアカウントを使って、正常に動作していることを意味します。プログラムを最小化にして他のことをしてもいいってわけね。 十分な時間（&#8203;**[パフォーマンス](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ja-JP)**&#8203;による）が経過すると、Steam トレーディングカードがドロップしてきます。 もちろん、そのためには、アイドリングに必要な有効なゲームが必要だ。&#8203;**[バッジ](https://steamcommunity.com/my/badges)**&#8203;ページから「残りカードドロップX枚」を確認することができます。もしアイドリング可能なゲームがない場合、ASF はなにもしません。詳しくは&#8203;**[よくある質問](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf-ja-JP)**&#8203;を参照して下さい。
+つまり、ASF はあなたのアカウントを使って、正常に動作していることを意味します。プログラムを最小化にして他のことをしてもいいってわけね。 十分な時間（&#8203;**[パフォーマンス](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ja-JP)**&#8203;による）が経過すると、Steam トレーディングカードがドロップしてきます。 Of course, for that to happen you must have valid games to farm, showing as "you can get X more card drops from playing this game" on your **[badges page](https://steamcommunity.com/my/badges)** - if there are no games to farm, then ASF will state that there is nothing to do, as stated in our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)**.
 
 基本的な初期設定はここまでだ。 ASF の設定をさらにいじるのもよし、デフォルト設定のままでも使えます。 ここからはより高度的な設定になりますが、ASF を完全にマスターしたいなら、Wiki のほかのページもご覧下さい（まだ訳していないけど）。
 
@@ -150,9 +150,9 @@ Now would be a good time to review our **[privacy policy](https://github.com/Jus
 
 ### Extended configuration
 
-#### Idling several accounts at once
+#### Farming several accounts at once
 
-ASF supports idling more than one account at a time, which is its primary function. You can add more accounts to ASF by generating more bot config files, in exactly the same way as you've generated your first one just a few minutes ago. You need to ensure only two things:
+ASF supports farming more than one account at a time, which is its primary function. You can add more accounts to ASF by generating more bot config files, in exactly the same way as you've generated your first one just a few minutes ago. You need to ensure only two things:
 
 - Unique bot name, if you already have your first bot named "MainAccount", you can't have another one with the same name.
 - Valid login details, such as `SteamLogin`, `SteamPassword` and `SteamParentalCode` (if using Steam parental settings)
@@ -163,9 +163,9 @@ In other words, simply jump to configuration again and do exactly the same, just
 
 #### Changing settings
 
-You change existing settings in exactly the same way - by generating a new config file. If you didn't close our web config generator yet, click on "toggle advanced settings" and see what is there for you to discover. For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is idling, instead of showing actual game.
+You change existing settings in exactly the same way - by generating a new config file. If you didn't close our web config generator yet, click on "toggle advanced settings" and see what is there for you to discover. For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is farming, instead of showing actual game.
 
-So let's do that, if you run ASF and start idling, in default settings you'll see that your Steam account is in-game now:
+So let's do that, if you run ASF and start farming, in default settings you'll see that your Steam account is in-game now:
 
 ![Steam](https://i.imgur.com/1VCDrGC.png)
 

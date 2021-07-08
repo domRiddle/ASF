@@ -89,9 +89,9 @@ ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 | `privacy [Bots] <Settings>`                                    | `Master`        | 更改指定機器人的 **[Steam 隱私設置](https://steamcommunity.com/my/edit/settings)**，可用選項將於**[​下文](#privacy-settings)**詳述。                                                             |
 | `redeem [Bots] <Keys>`                                         | `Operator`      | 為指定 BOT 啟用給出的遊戲序列號或兌換給出的錢包儲值碼。                                                                                                                                           |
 | `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`      | 以將於**[​下文](#redeem-modes)**解釋的 `Modes` 模式為指定 BOT 啟用給出的遊戲序列號或兌換給出的錢包儲值碼。                                                                                                  |
-| `reset [Bots]`                                                       | `Master`        | 重設遊玩狀態為正常，使用 `play` 指令手動掛卡時使用此指令。                                                                                                                                        |
+| `reset [Bots]`                                                       | `Master`        | Resets the playing status back to original (previous) state, the command is used during manual farming with `play` command.                                              |
 | `重新啟動`                                                               | `Owner`         | 重啟 ASF 進程。                                                                                                                                                               |
-| `resume [Bots]`                                                      | `FamilySharing` | 恢復指定機器人的自動掛卡進程。 參見 `pause` 和 `play`。                                                                                                                                     |
+| `resume [Bots]`                                                      | `FamilySharing` | 恢復指定機器人的自動掛卡進程。                                                                                                                                                          |
 | `start [Bots]`                                                       | `Master`        | 啟動指定機器人。                                                                                                                                                                 |
 | `stats`                                                              | `Owner`         | 顯示進程統計信息，例如託管記憶體用量。                                                                                                                                                      |
 | `status [Bots]`                                                      | `FamilySharing` | 顯示指定機器人的狀態。                                                                                                                                                              |
@@ -126,7 +126,7 @@ ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語�
 
 一些指令有較短的別名可用，便於輸入。
 
-| Command      | 別名   |
+| 指令           | 別名   |
 | ------------ | ---- |
 | `owns ASF`   | `oa` |
 | `status ASF` | `sa` |
@@ -205,10 +205,10 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 `addlicense` 指令支援兩種不同的授權類型：
 
-| 類型    | Alias | Example      | Description                     |
-| ----- | ----- | ------------ | ------------------------------- |
-| `app` | `a`   | `app/292030` | 透過遊戲唯一的 `appID` 授權。             |
-| `sub` | `s`   | `sub/47807`  | 透過遊戲套裝唯一的 `subID` 授權，包括一款以上的遊戲。 |
+| 類型    | 別名  | 範例           | 描述                              |
+| ----- | --- | ------------ | ------------------------------- |
+| `app` | `a` | `app/292030` | 透過遊戲唯一的 `appID` 授權。             |
+| `sub` | `s` | `sub/47807`  | 透過遊戲套裝唯一的 `subID` 授權，包括一款以上的遊戲。 |
 
 其中的區別很重要，因為 ASF 將對 app 類型使用 Steam 網路激活，對sub 類型使用 Steam 商店激活。 兩者互不相容，通常您將會對免費週末和永久免費遊玩遊戲使用 app 類型，而對其他遊戲使用 sub。
 
@@ -232,7 +232,7 @@ addlicense ASF app/292030,sub/47807
 
 我們建議您明確定義每一個項目的類型，以避免引起歧義的的結果，但為了向後相容性，在您提供了無效的類型或省略了類型的情況下，如果您填入了數字，ASF 將會假設您想要使用 `app` 類型，如果不是數字則視為 `name` 類型。 您也可以使用 ASF 標準的分隔符「`,`」來同時查詢多個遊戲。
 
-Complete command example:
+完整的指令範例：
 
 
 
@@ -253,18 +253,18 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` 參數接受多個模式值，通常用逗號分隔。 可用的模式值如下所示：
 
-| Value | Name                  | Description                                      |
-| ----- | --------------------- | ------------------------------------------------ |
-| FAWK  | ForceAssumeWalletKey  | 強制啟用 `AssumeWalletKeyOnBadActivationCode` 兌換偏好設定 |
-| FD    | ForceDistributing     | 強制啟用 `Distributing` 兌換偏好設定                       |
-| FF    | ForceForwarding       | 強制啟用 `Forwarding` 兌換偏好設定                         |
-| FKMG  | ForceKeepMissingGames | 強制啟用 `KeepMissingGames` 兌換偏好設定                   |
-| SAWK  | SkipAssumeWalletKey   | 強制停用 `AssumeWalletKeyOnBadActivationCode` 兌換偏好設定 |
-| SD    | SkipDistributing      | 強制停用 `Distributing` 兌換偏好設定                       |
-| SF    | SkipForwarding        | 強制停用 `Forwarding` 兌換偏好設定                         |
-| SI    | SkipInitial           | 跳過初始 BOT 的產品序號兌換過程                               |
-| SKMG  | SkipKeepMissingGames  | 強制停用 `KeepMissingGames` 兌換偏好設定                   |
-| V     | Validate              | 檢查產品序號格式，自動跳過無效產品序號                              |
+| 值    | 名稱                    | 描述                                               |
+| ---- | --------------------- | ------------------------------------------------ |
+| FAWK | ForceAssumeWalletKey  | 強制啟用 `AssumeWalletKeyOnBadActivationCode` 兌換偏好設定 |
+| FD   | ForceDistributing     | 強制啟用 `Distributing` 兌換偏好設定                       |
+| FF   | ForceForwarding       | 強制啟用 `Forwarding` 兌換偏好設定                         |
+| FKMG | ForceKeepMissingGames | 強制啟用 `KeepMissingGames` 兌換偏好設定                   |
+| SAWK | SkipAssumeWalletKey   | 強制停用 `AssumeWalletKeyOnBadActivationCode` 兌換偏好設定 |
+| SD   | SkipDistributing      | 強制停用 `Distributing` 兌換偏好設定                       |
+| SF   | SkipForwarding        | 強制停用 `Forwarding` 兌換偏好設定                         |
+| SI   | SkipInitial           | 跳過初始 BOT 的產品序號兌換過程                               |
+| SKMG | SkipKeepMissingGames  | 強制停用 `KeepMissingGames` 兌換偏好設定                   |
+| V    | Validate              | 檢查產品序號格式，自動跳過無效產品序號                              |
 
 
 例如，我們打算為尚未擁有遊戲的 BOT 兌換 3 個產品序號，但不包括 `primary` BOT。 為此我們需要執行指令：
@@ -307,7 +307,7 @@ owns ASF app/292030,name/Witcher
 
 `<Type>` 不區分大小寫, 並定義由ASF識別的輸入類型。 目前, ASF可識別以下類型:
 
-| Type                    | Description                                |
+| 類型                      | 描述                                         |
 | ----------------------- | ------------------------------------------ |
 | Login                   | `SteamLogin`機器人配置屬性，在設定檔缺失這個值時使用。          |
 | 密碼                      | `SteamPassword` 機器人配置屬性，在設定檔缺失這個值時使用。      |
@@ -320,7 +320,7 @@ owns ASF app/292030,name/Witcher
 
 
 
-### Example
+### 範例
 
 假設我們有一個未啟用2FA，僅由 SteamGuard保護的機器人。 We want to launch that bot with `Headless` set to `true`.
 

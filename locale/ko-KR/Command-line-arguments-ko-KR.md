@@ -78,7 +78,7 @@ Due to the nature of this property, it's also possible to set the value by decla
 
 If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[compatibility page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** on this manner.
 
-Examples:
+예제:
 
 ```shell
 dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
@@ -109,6 +109,6 @@ IPC를 실행할 생각이 없다면 그다지 쓸모 없습니다. 필요할때
 
 ---
 
-`--system-required` - ASF가 전체 생애주기동안 시스템이 살아있어야 한다는 신호를 운영체제에 보내도록 합니다. 현재 이 스위치는 윈도 기기에서만 유효하며 프로세스가 실행되는 한 대기모드로 들어가는 것을 방지합니다. 밤에 PC나 랩탑에서 농사를 짓는 경우 특히 유용합니다. 농사를 짓는 동안 시스템은 계속 깨어있다가 ASF는 끝나면 평소처럼 꺼지고 시스템도 다시 대기모드로 들어가도록 하여 농사가 끝나면 전기를 즉시 절약합니다.
+`--system-required` - ASF가 전체 생애주기동안 시스템이 살아있어야 한다는 신호를 운영체제에 보내도록 합니다. 현재 이 스위치는 윈도 기기에서만 유효하며 프로세스가 실행되는 한 대기모드로 들어가는 것을 방지합니다. This can be proven especially useful when farming on your PC or laptop during night, as ASF will be able to keep your system awake while it's farming, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once farming is finished.
 
 정확한 자동 종료를 위해 다른 ASF 설정도 필요함을 명심하십시오. 특히 `--process-required`를 피하고 모든 봇이 `ShutdownOnFarmingFinished` 설정을 따르는지를 확인하십시오. 물론 자동종료는 이 기능의 오직 한 가능성이고 필요조건은 아닙니다. 예를들어 이 옵션을 `--process-required`와 같이 사용한다면 ASF를 실행한 이후 시스템이 영원히 깨어있도록 할 수 있습니다.

@@ -24,15 +24,15 @@ If the language of your choice is still missing some strings, you can grab them 
 
 For example, you could have a string like:
 
-> We have {0} games to idle.
+> We have {0} games to farm.
 
 But based on your language, following sentence could make more sense:
 
-> The number of games to idle is equal to {0}.
+> The number of games to farm is equal to {0}.
 
 Veya:
 
-> {0} is the number of games to idle.
+> {0} is the number of games to farm.
 
 The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.
 

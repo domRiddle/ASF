@@ -39,19 +39,19 @@ S'il manque encore des chaînes dans la langue de votre choix, vous pouvez les r
 <p spaces-before="0">Vous pouvez, par exemple, utiliser la chaîne suivante : </p>
 
 <blockquote spaces-before="0">
-  <p spaces-before="0">We have {0} games to idle.</p>
+  <p spaces-before="0">We have {0} games to farm.</p>
 </blockquote>
 
 <p spaces-before="0">Mais en fonction de votre langue, la phrase suivante pourrait être plus logique:</p>
 
 <blockquote spaces-before="0">
-  <p spaces-before="0">The number of games to idle is equal to {0}.</p>
+  <p spaces-before="0">The number of games to farm is equal to {0}.</p>
 </blockquote>
 
 <p spaces-before="0">Or:</p>
 
 <blockquote spaces-before="0">
-  <p spaces-before="0">{0} is the number of games to idle.</p>
+  <p spaces-before="0">{0} is the number of games to farm.</p>
 </blockquote>
 
 <p spaces-before="0">The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.</p>

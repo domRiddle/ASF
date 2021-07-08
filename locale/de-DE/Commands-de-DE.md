@@ -89,9 +89,9 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 | `privacy [Bots] <Settings>`                                    | `Master`        | Ändert die **[Steam Privatsphäre-Einstellungen](https://steamcommunity.com/my/edit/settings)** der gegebenen Bot-Instanzen, zu entsprechend ausgewählten Optionen erklärt **[unten](#privacy-einstellungen)**.                                                                                                                                                                |
 | `redeem [Bots] <Keys>`                                         | `Operator`      | Löst die angegebenen Produktschlüssel oder Guthaben-Codes auf den angegebenen Bot-Instanzen ein.                                                                                                                                                                                                                                                                              |
 | `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`      | Löst gegebene `Produktschlüssel oder Guthaben-Codes` auf gegebenen Bot-Instanzen ein, indem er gegebene `Modi` verwendet, die **[unten](#redeem-modi)** erklärt werden.                                                                                                                                                                                                       |
-| `reset [Bots]`                                                       | `Master`        | Setzt den Spielstatus auf normal zurück, wird beim manuellen Farmen via `play` Befehl verwendet.                                                                                                                                                                                                                                                                              |
-| `restart`                                                            | `Owner`         | Startet den ASF-Prozess neu.                                                                                                                                                                                                                                                                                                                                                  |
-| `resume [Bots]`                                                      | `FamilySharing` | Setzt das automatische Sammeln der gegebenen Bot-Instanzen fort. Siehe auch `pause`, `play`.                                                                                                                                                                                                                                                                                  |
+| `reset [Bots]`                                                       | `Master`        | Resets the playing status back to original (previous) state, the command is used during manual farming with `play` command.                                                                                                                                                                                                                                                   |
+| `restart`                                                            | `Besitzer`      | Startet den ASF-Prozess neu.                                                                                                                                                                                                                                                                                                                                                  |
+| `resume [Bots]`                                                      | `FamilySharing` | Setzt das automatische Sammeln der gegebenen Bot-Instanzen fort.                                                                                                                                                                                                                                                                                                              |
 | `start [Bots]`                                                       | `Master`        | Startet gegebene Bot-Instanzen.                                                                                                                                                                                                                                                                                                                                               |
 | `stats`                                                              | `Owner`         | Gibt Prozessstatistiken an, wie z.B. die Nutzung des verwalteten Speichers.                                                                                                                                                                                                                                                                                                   |
 | `status [Bots]`                                                      | `FamilySharing` | Gibt den Status der gegebenen Bot-Instanzen an.                                                                                                                                                                                                                                                                                                                               |
@@ -126,7 +126,7 @@ Wie Sie oben gelesen haben, wird ein Leerzeichen als Trennzeichen für einen Bef
 
 Für einige Befehle sind auch Aliase verfügbar, um Zeit beim tippen zu sparen:
 
-| Command      | Alias |
+| Befehl       | Alias |
 | ------------ | ----- |
 | `owns ASF`   | `oa`  |
 | `status ASF` | `sa`  |
@@ -205,7 +205,7 @@ Bedenken Sie, dass ein Kind nie mehr offene Berechtigungen haben kann als sein E
 
 `addlicense` Befehl unterstützt zwei verschiedene Lizenztypen, diese sind:
 
-| Typ   | Alias | Example      | Description                                                                       |
+| Typ   | Alias | Beispiel     | Beschreibung                                                                      |
 | ----- | ----- | ------------ | --------------------------------------------------------------------------------- |
 | `app` | `a`   | `app/292030` | Spiel bestimmt durch seine einzigartige `appID`.                                  |
 | `sub` | `s`   | `sub/47807`  | Paket mit einem oder mehreren Spielen, bestimmt durch seine einzigartige `subID`. |
@@ -226,7 +226,7 @@ addlicense ASF app/292030,sub/47807
 
 Der `owns` Befehl unterstützt verschiedene Spielarten die für das `<games>` Argument genutzt werden können, diese sind:
 
-| Typ     | Alias | Example          | Description                                                                                                                                                                                                                                                                                                                          |
+| Typ     | Alias | Beispiel         | Beschreibung                                                                                                                                                                                                                                                                                                                         |
 | ------- | ----- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `app`   | `a`   | `app/292030`     | Spiel bestimmt durch seine einzigartige `appID`.                                                                                                                                                                                                                                                                                     |
 | `sub`   | `s`   | `sub/47807`      | Paket mit einem oder mehreren Spielen, bestimmt durch seine einzigartige `subID`.                                                                                                                                                                                                                                                    |
@@ -235,7 +235,7 @@ Der `owns` Befehl unterstützt verschiedene Spielarten die für das `<games>` Ar
 
 Wir empfehlen, die Art jedes Eintrags explizit zu definieren, um zweideutige Ergebnisse zu vermeiden, aber für die Abwärtskompatibilität, wird ASF wenn Sie einen ungültigen Typ angeben oder ihn komplett weglassen davon ausgehen, dass Sie `app` verlangen, wenn Ihre Eingabe eine Nummer ist, und `name` falls nicht. Sie können auch eine oder mehrere Lizenzen gleichzeitig abfragen, indem Sie die Standard ASF-Trennzeichen (`,`) verwenden.
 
-Complete command example:
+Beispiel für einen vollständigen Befehl:
 
 ```text
 owns ASF app/292030,name/Witcher
@@ -249,18 +249,18 @@ Der Befehl `redeem^` ermöglicht es Ihnen, die Modi zu optimieren, die für ein 
 
 `<Modes>` Argument akzeptiert mehrere Modus-Werte, die, wie üblich, durch ein Komma getrennt werden. Die verfügbaren Modus-Werte sind im Folgenden aufgeführt:
 
-| Value | Name                  | Description                                                                                                   |
-| ----- | --------------------- | ------------------------------------------------------------------------------------------------------------- |
-| FAWK  | ForceAssumeWalletKey  | Erzwingt `AssumeWalletKeyOnBadActivationCode` Einlöseeinstellungen zu aktivieren                              |
-| FD    | ForceDistributing     | Erzwingt die Aktivierung der `Distributing` Einlöse-Präferenz                                                 |
-| FF    | ForceForwarding       | Erzwingt die Aktivierung der `Forwarding` Einlöse-Präferenz                                                   |
-| FKMG  | ForceKeepMissingGames | Erzwingt die Aktivierung der `KeepMissingGames` Einlöse-Präferenz                                             |
-| SAWK  | SkipAssumeWalletKey   | Erzwingt `AssumeWalletKeyOnBadActivationCode` Einlöseeinstellungen zu deaktivieren                            |
-| SD    | SkipDistributing      | Erzwingt die Deaktivierung der `Distributing` Einlöse-Präferenz                                               |
-| SF    | SkipForwarding        | Erzwingt die Deaktivierung der `Forwarding` Einlöse-Präferenz                                                 |
-| SI    | SkipInitial           | Überspringt die Produktschlüssel-Aktivierung beim ersten Bot                                                  |
-| SKMG  | SkipKeepMissingGames  | Erzwingt die Deaktivierung der `KeepMissingGames` Einlöse-Präferenz                                           |
-| V     | Validate              | Überprüft die Produktschlüssel auf das richtige Format und überspringt automatisch ungültige Produktschlüssel |
+| Wert | Name                  | Beschreibung                                                                                                  |
+| ---- | --------------------- | ------------------------------------------------------------------------------------------------------------- |
+| FAWK | ForceAssumeWalletKey  | Erzwingt `AssumeWalletKeyOnBadActivationCode` Einlöseeinstellungen zu aktivieren                              |
+| FD   | ForceDistributing     | Erzwingt die Aktivierung der `Distributing` Einlöse-Präferenz                                                 |
+| FF   | ForceForwarding       | Erzwingt die Aktivierung der `Forwarding` Einlöse-Präferenz                                                   |
+| FKMG | ForceKeepMissingGames | Erzwingt die Aktivierung der `KeepMissingGames` Einlöse-Präferenz                                             |
+| SAWK | SkipAssumeWalletKey   | Erzwingt `AssumeWalletKeyOnBadActivationCode` Einlöseeinstellungen zu deaktivieren                            |
+| SD   | SkipDistributing      | Erzwingt die Deaktivierung der `Distributing` Einlöse-Präferenz                                               |
+| SF   | SkipForwarding        | Erzwingt die Deaktivierung der `Forwarding` Einlöse-Präferenz                                                 |
+| SI   | SkipInitial           | Überspringt die Produktschlüssel-Aktivierung beim ersten Bot                                                  |
+| SKMG | SkipKeepMissingGames  | Erzwingt die Deaktivierung der `KeepMissingGames` Einlöse-Präferenz                                           |
+| V    | Validate              | Überprüft die Produktschlüssel auf das richtige Format und überspringt automatisch ungültige Produktschlüssel |
 
 Zum Beispiel möchten wir drei Produktschlüssel auf einem unserer Bots einlösen, der noch keine Spiele besitzt, aber nicht auf unserem `primary` Bot. Um das zu erreichen, können wir Folgendes nutzen:
 
@@ -290,7 +290,7 @@ Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
 
 `<Type>` ist Groß-/Kleinschreibung unabhängig und definiert einen von ASF unterstützten Eingabetyp. Derzeit unterstützt ASF folgende Typen:
 
-| Type                            | Description                                                                                             |
+| Typ                             | Beschreibung                                                                                            |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Login                           | `SteamLogin` Bot-Konfigurationseigenschaft, falls diese in der Konfiguration fehlt.                     |
 | Password                        | `SteamPassword` Bot-Konfigurationseigenschaft, falls diese in der Konfiguration fehlt.                  |
@@ -300,7 +300,7 @@ Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
 
 `<Value>` ist der Wert, der für einen angegebenen Typ gesetzt werden soll. Derzeit sind alle Werte Zeichenketten.
 
-### Example
+### Beispiel
 
 Nehmen wir an, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. We want to launch that bot with `Headless` set to `true`.
 

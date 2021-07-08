@@ -493,13 +493,13 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 需要注意的是上表中所有描述都含有词汇“尝试”——ASF 实际采用的顺序非常受所选的&#8203;**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**&#8203;影响，并且 ASF 只会在不影响性能的情况下尝试进行排序。 例如，在使用 `Simple` 算法时，当前挂卡会话将会严格按照您设置的 `FarmingOrders` 排序（因为每款游戏的性能值都相同），而在使用 `Complex` 算法时，实际的挂卡顺序首先受游戏小时数影响，然后才按照 `FarmingOrders` 排序。 这会导致不同的结果，因为已有游戏时间的游戏将会优于其他游戏，因此 ASF 会首先挂游戏时长已满足 `HoursUntilCardDrops` 要求的游戏，然后才按照您设置的 `FarmingOrders` 顺序挂其他游戏。 同样地，ASF 在挂完了所有时长达标的游戏之后，会将剩余的游戏按照游戏小时数排序（因为这能够减少将游戏时长挂到 `HoursUntilCardDrops` 所需的时间）。 因此，这个配置属性仅仅是为 ASF 提供的一个**建议**，ASF 会在不降低挂卡性能的情况下尽量遵守（在二者有冲突时，ASF 会优先考虑性能而不是 `FarmingOrders`）。
 
-此外，您可以通过 `iq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;访问“优先挂卡队列”。 如果使用这个队列，则实际的挂卡顺序首先由性能决定，其次受优先挂卡队列影响，最后才是 ` FarmingOrders`。
+此外，您可以通过 `iq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;访问“优先挂卡队列”。 如果使用这个队列，则实际的挂卡顺序首先由性能决定，其次受优先挂卡队列影响，最后才是 `FarmingOrders`。
 
 ---
 
 ### `FarmPriorityQueueOnly`
 
-这是一个默认值为 `false` 的 `bool` 类型属性。 这个属性定义 ASF 是否应该仅自动挂您通过 `iq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;添加到优先挂卡队列内的应用。 在启用此选项时，ASF 将会跳过所有不在队列中的 `appIDs`，使您可以选择性地忽略 ASF 自动挂卡的游戏。 请记住，如果您没有向队列中添加任何游戏，ASF 就会表现为您的帐户中没有游戏可以挂卡。 如果您不确定是否要启用此功能，请保留默认值 `false`。
+这是一个默认值为 `false` 的 `bool` 类型属性。 这个属性定义 ASF 是否应该仅自动挂您通过 `iq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;添加到优先挂卡队列内的应用。 在启用此选项时，ASF 将会跳过所有不在队列中的 `appIDs`，使您可以选择性地忽略 ASF 自动挂卡的游戏。 请记住，如果您没有向队列中添加任何游戏，ASF 就会表现得像您的帐户中没有游戏可以挂卡。 如果您不确定是否要启用此功能，请保留默认值 `false`。
 
 ---
 

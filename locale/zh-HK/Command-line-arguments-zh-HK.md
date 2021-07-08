@@ -109,6 +109,6 @@ ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env v
 
 ---
 
-`--system-required`──聲明此開關將導致 ASF 嘗試通知操作系統「此進程要求系統在其存留期內處於啟動狀態並正常運行」。 當前，此開關僅對 Windows 電腦有效，只要ASF進程正在運行，它就會阻止您的系統進入睡眠模式。 當您在夜間使用 PC 或者筆記本電腦掛卡時，這一功能是相當實用的，因為 ASF 能夠在掛卡時保持系統處於喚醒狀態，然後，一旦掛卡完成，ASF 就會像平常一樣自動關閉，允許您的系統再次進入睡眠模式，因此，一旦掛卡完成，即可立刻節省電力。
+`--system-required`──聲明此開關將導致 ASF 嘗試通知操作系統「此進程要求系統在其存留期內處於啟動狀態並正常運行」。 當前，此開關僅對 Windows 電腦有效，只要ASF進程正在運行，它就會阻止您的系統進入睡眠模式。 This can be proven especially useful when farming on your PC or laptop during night, as ASF will be able to keep your system awake while it's farming, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once farming is finished.
 
 請注意，要让 ASF正確地自動關閉，您還需要其他設置──特別是避免 `--process-required`，且確保所有機械人都已啟用 `ShutdownOnFarmingFinished`。 當然，自動關機只是這個參數的用法之一，而非必需，因為您還可以將此參數配合 `--process-required` 使用，從而有效地使您的系統在 ASF 啟動之後無限運行下去。
