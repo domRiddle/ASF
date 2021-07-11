@@ -6,11 +6,11 @@ La licenza di ASF è molto permissiva, ed hai l'autorizzazione di fare molto di 
 
 > Con il software puoi fare quello che più ti piace, purchè tu includa la seguente didascalia. Questa licenza permissiva contiene una licenza brevettuale rilasciata dai contributori del codice.
 
-Si prega di notare che diversi **[componenti di ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** inclusi nella `PackageReference` spesso possiedono una licenza diversa, come **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
+By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
 
 -----
 
-## Remarks
+## Note
 
 Se stai creando il tuo software/servizio basato su ASF o parte del suo codice, si prega di rivedere il punto 6 della licenza:
 

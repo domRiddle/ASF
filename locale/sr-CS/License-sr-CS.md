@@ -6,11 +6,11 @@ ASF licenca je veoma blaga i vi imate dozvolu da radite mnogo više od toga što
 
 > možete koristiti ovaj softver kako želite, sve dok sadrži potrebne opaške. Ova blaga licenca sadrži patent licencu od saradnika ovog koda.
 
-Molimo vas da zapazite da razne **[ASF komponente](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** koje su sadržane sa `PackageReference` i često su licencirane pod drugim licencama, kao što je **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
+By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
 
 -----
 
-## Remarks
+## Primedbe
 
 Ako kreirate vaš softver/uslugu baziranu na ASF-u ili dijelu njegovog koda, molimo vas da se osvrnete šestoj tački licence:
 

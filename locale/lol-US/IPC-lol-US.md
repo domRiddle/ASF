@@ -111,21 +111,21 @@ server {
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
 
-        # ONLY IF U NED 2 OVERRIDE DEFAULT HOST
+        # Only if you need to override default host
 #       proxy_set_header Host 127.0.0.1;
 
-        # X-HEADERS SHUD BE SPECIFID IN DA SITUASHUN WER NGINX IZ ON TEH SAME MACHINE AS ASF
-        # THEYRE CRUSHUL 4 PROPR USAGE OV REVERSE-PROXY, ALLOWIN ASF 2 E.G. BAN TEH AKSHUL OFFENDERS INSTEAD OV UR NGINX SERVR
-        # SPECIFYIN THEM ALLOWS ASF 2 PROPERLY RESOLVE IP ADDRESEZ OV USERS MAKIN REQUESTS - MAKIN NGINX WERK AS REVERSE PROXY
-        # NOT SPECIFYIN THEM WILL CAUSE ASF 2 TREAT UR NGINX AS TEH CLIENT - NGINX WILL ACT AS TRADISHUNAL PROXY IN DIS CASE
-        # IF URE UNABLE 2 HOST NGINX SERVICE ON TEH SAME MACHINE AS ASF (E.G. DIFFERENT DOCKR CONTAINR), U MOST LIKELY WANTS 2 SET KNOWNNETWORKZ APPROPRIATELY IN ADDISHUN 2 DOSE
+        # X-headers should be specified in the situation where nginx is on the same machine as ASF
+        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
+        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
+        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
+        # If you're unable to host nginx service within local network of the ASF machine, you most likely want to set KnownNetworks appropriately in addition to those
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
 
-        # WE ADD DOSE 3 EXTRA OPSHUNS 4 WEBSOCKETS PROXYIN, C HTTPS://NGINX.ORG/EN/DOCS/HTTP/WEBSOCKET.HTML
+        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
         proxy_http_version 1.1;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Upgrade $http_upgrade;
@@ -134,14 +134,14 @@ server {
     location / {
         proxy_pass http://127.0.0.1:1242;
 
-        # ONLY IF U NED 2 OVERRIDE DEFAULT HOST
+        # Only if you need to override default host
 #       proxy_set_header Host 127.0.0.1;
 
-        # X-HEADERS SHUD BE SPECIFID IN DA SITUASHUN WER NGINX IZ ON TEH SAME MACHINE AS ASF
-        # THEYRE CRUSHUL 4 PROPR USAGE OV REVERSE-PROXY, ALLOWIN ASF 2 E.G. BAN TEH AKSHUL OFFENDERS INSTEAD OV UR NGINX SERVR
-        # SPECIFYIN THEM ALLOWS ASF 2 PROPERLY RESOLVE IP ADDRESEZ OV USERS MAKIN REQUESTS - MAKIN NGINX WERK AS REVERSE PROXY
-        # NOT SPECIFYIN THEM WILL CAUSE ASF 2 TREAT UR NGINX AS TEH CLIENT - NGINX WILL ACT AS TRADISHUNAL PROXY IN DIS CASE
-        # IF URE UNABLE 2 HOST NGINX SERVICE ON TEH SAME MACHINE AS ASF (E.G. DIFFERENT DOCKR CONTAINR), U MOST LIKELY WANTS 2 SET KNOWNNETWORKZ APPROPRIATELY IN ADDISHUN 2 DOSE
+        # X-headers should be specified in the situation where nginx is on the same machine as ASF
+        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
+        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
+        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
+        # If you're unable to host nginx service within local network of the ASF machine, you most likely want to set KnownNetworks appropriately in addition to those
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -226,7 +226,7 @@ TEH CONFIGURASHUN FILE IZ BASD ON FOLLOWIN JSON STRUCCHUR:
 
 `Host` ACCEPTS VARIETY OV VALUEZ, INCLUDIN `*` VALUE DAT BINDZ ASFS HTTP SERVR 2 ALL AVAILABLE INTERFACEZ. BE EXTREMELY CAREFUL WHEN U USE `Host` VALUEZ DAT ALLOW REMOTE ACCES. DOIN SO WILL ENABLE ACCES 2 ASFS IPC INTERFACE FRUM OTHR MACHINEZ, WHICH CUD POSE SECURITY RISK. WE STRONGLY RECOMMEND 2 USE `IPCPassword` (AN PREFERABLY UR OWN FIREWALL 2) **AT MINIMUM** IN DIS CASE.
 
-`KnownNetworks` - DIS VARIABLE SPECIFIEZ NETWORK ADDRESEZ WHICH WE CONSIDR TRUSTWORTHY. DIS PROPERTY IZ CRUSHUL ESPECIALLY IN COMBINASHUN WIF HOSTIN REVERSE-PROXY 2 ASF ON DIFFERENT MACHINE THAN ASF ITSELF - IN DIS CASE, U SHUD DECLARE TEH MACHINEZ IP HER, IN ORDR 4 ASF 2 RESPECT ITZ PROXYIN HEADERS AN ACCEPT TEH REQUESTS. SPECIFYIN DIS VARIABLE IZ NOT REQUIRD IF URE NOT PLANNIN 2 USE ANY SORT OV REVERSE-PROXY WIF ASF, OR IF TEH REVERSE-PROXY IZ LOCATD ON TEH SAME MACHINE AS ASF (AN THEREFORE CONNECTIN 2 ASFS IPC USIN LOOPBACK ADDRES OV `127.0.0.1`). BE EXTREMELY CAREFUL WIF TEH NETWORKZ U SPECIFY HER, AS IT ALLOWS POTENTIAL IP SPOOFIN ATTACK IN CASE TEH TRUSTD MACHINE IZ COMPROMISD OR WRONGLY CONFIGURD.
+`KnownNetworks` - DIS VARIABLE SPECIFIEZ NETWORK ADDRESEZ WHICH WE CONSIDR TRUSTWORTHY. By default, ASF is configured to trust **[private address space](https://datatracker.ietf.org/doc/html/rfc1918#section-3)**, which considers your LAN, VPNs and alike. This property is used in two ways. Firstly, if you omit `IPCPassword`, then we'll allow only machines from known networks to access ASF's API, and deny everybody else as a security measure. Secondly, this property is crucial in regards to reverse-proxies accessing ASF, as ASF will honor its headers only if the reverse-proxy server is from within known networks. Honoring the headers is crucial in regards to ASF's anti-bruteforce mechanism, as instead of banning the reverse-proxy in case of a problem, it'll ban the IP specified by the reverse-proxy as the source of the original message. Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured. If by any case you're connected to a private network that you do not trust, yet you still decided to enable access from them through `Endpoints` specified above, then you can override this property to something more restrictive such as `"KnownNetworks": []` in order to remove the default behaviour of trusting them.
 
 `PathBase` - DIS AR TEH BASE PATH DAT WILL BE USD BY IPC INTERFACE. DIS PROPERTY IZ OPSHUNAL, DEFAULTS 2 `/` AN SHOULDNT BE REQUIRD 2 MODIFY 4 MAJORITY OV USE CASEZ. BY CHANGIN DIS PROPERTY ULL HOST ENTIRE IPC INTERFACE ON CUSTOM PREFIX, 4 EXAMPLE `http://localhost:1242/MyPrefix` INSTEAD OV `http://localhost:1242` ALONE. USIN CUSTOM `PathBase` CUD BE WANTD IN COMBINASHUN WIF SPECIFIC SETUP OV REVERSE PROXY WER UD LIEK 2 PROXY SPECIFIC URL ONLY, 4 EXAMPLE `mydomain.com/ASF` INSTEAD OV ENTIRE `mydomain.com` DOMAIN. NORMALLY DAT WUD REQUIRE FRUM U 2 RITE REWRITE RULE 4 UR WEB SERVR DAT WUD MAP `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, BUT INSTEAD U CAN DEFINE CUSTOM `PathBase` OV `/ASF` AN ACHIEVE EASIR SETUP OV `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
 

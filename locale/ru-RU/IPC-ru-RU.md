@@ -6,7 +6,7 @@ IPC может использоваться для множества разли
 
 ---
 
-# Usage
+# Использование
 
 Unless you manually disabled IPC through `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's enabled by default. ASF сообщит о запуске IPC в своём журнале, который вы можете проверить чтобы узнать что IPC интерфейс удачно запущен:
 
@@ -118,7 +118,7 @@ server {
         # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
         # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
         # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service on the same machine as ASF (e.g. different docker container), you most likely want to set KnownNetworks appropriately in addition to those
+        # If you're unable to host nginx service within local network of the ASF machine, you most likely want to set KnownNetworks appropriately in addition to those
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -141,7 +141,7 @@ server {
         # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
         # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
         # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service on the same machine as ASF (e.g. different docker container), you most likely want to set KnownNetworks appropriately in addition to those
+        # If you're unable to host nginx service within local network of the ASF machine, you most likely want to set KnownNetworks appropriately in addition to those
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -151,7 +151,7 @@ server {
 }
 ```
 
-Пример конфигурации Apache вы можете найти ниже. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
+Пример конфигурации Apache вы можете найти ниже. Дальнейшую информацию вы можете найти в **[документации apache](https://httpd.apache.org/docs)**.
 
 ```apache
 <IfModule mod_ssl.c>
@@ -226,7 +226,7 @@ Second way includes specifying a **[custom config](#custom-configuration)** for 
 
 `Host` может принимать различные значение, включая значение `*` которое соединяет http сервер ASF со всеми доступными интерфейсами. Будьте предельно осторожны при использовании значений `Host`, позволяющих удалённый доступ. Это позволит доступ к интерфейсу IPC ASF с других машин, что может представлять собой угрозу безопасности. We strongly recommend to use `IPCPassword` (and preferably your own firewall too) **at a minimum** in this case.
 
-`KnownNetworks` - Эта переменная задаёт особые сетевые адреса, которые мы считаем доверенными. Этот параметр особенно важен в сочетании с размещением обратного прокси для ASF не на той же машине, что и само ASF - в этом случае вы должны указать IP этой машины здесь, чтобы ASF обрабатывал заголовки прокси и принимал запросы. Указание этой переменной не обязательно, если вы не планируете использовать какой-либо обратный прокси в сочетании с ASF, а также если обратный прокси размещён на той же машине, что и ASF (и поэтому соединяется с IPC ASF используя адрес `127.0.0.1`). Будьте предельно осторожны, указывая тут сети, поскольку это позволяет произвести атаку подмены IP адреса в случае, если доверенная машина скомпрометирована или неправильно настроена.
+`KnownNetworks` - Эта переменная задаёт особые сетевые адреса, которые мы считаем доверенными. By default, ASF is configured to trust **[private address space](https://datatracker.ietf.org/doc/html/rfc1918#section-3)**, which considers your LAN, VPNs and alike. This property is used in two ways. Firstly, if you omit `IPCPassword`, then we'll allow only machines from known networks to access ASF's API, and deny everybody else as a security measure. Secondly, this property is crucial in regards to reverse-proxies accessing ASF, as ASF will honor its headers only if the reverse-proxy server is from within known networks. Honoring the headers is crucial in regards to ASF's anti-bruteforce mechanism, as instead of banning the reverse-proxy in case of a problem, it'll ban the IP specified by the reverse-proxy as the source of the original message. Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured. If by any case you're connected to a private network that you do not trust, yet you still decided to enable access from them through `Endpoints` specified above, then you can override this property to something more restrictive such as `"KnownNetworks": []` in order to remove the default behaviour of trusting them.
 
 `PathBase` - Это базовый путь, который будет использоваться интерфейсом IPC. Этот параметр необязательный, по умолчанию имеет значение `/` и для большинства случаев его изменение не требуется. Изменив этот параметр вы разместите весь интерфейс IPC по заданному префиксу, например по адресу `http://localhost:1242/MyPrefix` вместо `http://localhost:1242`. Использование пользовательского `PathBase` может быть желательным в комбинации с обратным прокси, если вы хотите проксировать только отдельный URL, например `mydomain.com/ASF` вместо всего домена `mydomain.com` целиком. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
 

@@ -6,11 +6,11 @@ ASF許可證是非常寬鬆的，它允許的範圍比標準GPL許可證更大�
 
 > 只要您在項目中遵循開發人員的要求作出相關聲明，便可將此軟件作任意用途。 此許可證包含來自代碼貢獻者的專利許可。
 
-Please note that various **[ASF components](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** included with `PackageReference` are often licensed under different conditions, such as **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
+By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
 
 -----
 
-## Remarks
+## 備註
 
 如果您正基於 ASF 或其代碼的一部分創建自己的軟件服務，請查看許可證的第6點：
 

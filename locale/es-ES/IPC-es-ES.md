@@ -111,21 +111,21 @@ server {
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
 
-        # Solo si necesitas reemplazar el host predeterminado
+        # Only if you need to override default host
 #       proxy_set_header Host 127.0.0.1;
 
-        # Los X-headers deben ser especificados en la situación donde nginx está en la misma máquina que ASF
-        # Son cruciales para el uso correcto de un proxy inverso, permitiendo a ASF, por ejemplo, bloquear a los atacantes y no tu servidor ngnix
-        # Especificarlos permite a ASF resolver correctamente las direcciones IP de los usuarios haciendo solicitudes - haciendo que nginx funcione como un proxy inverso
-        # No especificarlos causará que ASF trate tu ngnix como un cliente - ngnix actuará como un proxy tradicional en este caso
-        # Si no puedes alojar el servicio ngnix en la misma máquina que ASF (por ejemplo, diferente contenedor docker), probablemente quieras establecer KnownNetworks correctamente además de estos
+        # X-headers should be specified in the situation where nginx is on the same machine as ASF
+        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
+        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
+        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
+        # If you're unable to host nginx service within local network of the ASF machine, you most likely want to set KnownNetworks appropriately in addition to those
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
 
-        # Añadimos estas 3 opciones adicionales para proxy de websockets, véase https://nginx.org/en/docs/http/websocket.html
+        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
         proxy_http_version 1.1;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Upgrade $http_upgrade;
@@ -134,15 +134,14 @@ server {
     location / {
         proxy_pass http://127.0.0.1:1242;
 
-        # Solo si necesitas reemplazar el host predeterminado
+        # Only if you need to override default host
 #       proxy_set_header Host 127.0.0.1;
 
         # X-headers should be specified in the situation where nginx is on the same machine as ASF
-        # Los X-headers deben ser especificados en la situación donde nginx está en la misma máquina que ASF
-        # Son cruciales para el uso correcto de un proxy inverso, permitiendo a ASF, por ejemplo, bloquear a los atacantes y no tu servidor ngnix
-        # Especificarlos permite a ASF resolver correctamente las direcciones IP de los usuarios haciendo solicitudes - haciendo que nginx funcione como un proxy inverso
-        # No especificarlos causará que ASF trate tu ngnix como un cliente - ngnix actuará como un proxy tradicional en este caso
-        # Si no puedes alojar el servicio ngnix en la misma máquina que ASF (por ejemplo, diferente contenedor docker), probablemente quieras establecer KnownNetworks correctamente además de estos
+        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
+        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
+        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
+        # If you're unable to host nginx service within local network of the ASF machine, you most likely want to set KnownNetworks appropriately in addition to those
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -227,7 +226,7 @@ El archivo de configuración se basa en la siguiente estructura JSON:
 
 `Host` acepta una variedad de valores, incluyendo el valor `*` que vincula el servidor http de ASF a todas las interfaces disponibles. Ten extremo cuidado cuando uses valores `Host` que permitan el acceso remoto. Si lo haces se habilitará el acceso a la interfaz IPC de ASF desde otras máquinas, lo que puede suponer un riesgo de seguridad. Recomendamos fuertemente usar `IPCPassword` (y de preferencia también tu propio cortafuegos) **como mínimo** en este caso.
 
-`KnownNetworks` - Esta variable especifica direcciones de red que consideramos fiables. Esta propiedad es especialmente importante en combinación con el alojamiento de un proxy inverso hacia ASF en una máquina diferente a la del mismo ASF - en este caso, aquí debes declarar la IP de la máquina, para que ASF respete las cabeceras proxy y acepte las solicitudes. No es necesario especificar esta variable si no planeas usar ningún tipo de proxy inverso con ASF, o si el proxy inverso se encuentra en la misma máquina que ASF (y por lo tanto conectándose a la IPC de ASF usando la dirección `127.0.0.1`). Ten mucho cuidado con las redes que especificas aquí, ya que puede permitir un posible ataque de suplantación de IP (spoofing) en caso de que la máquina de confianza esté comprometida o mal configurada.
+`KnownNetworks` - Esta variable especifica direcciones de red que consideramos fiables. By default, ASF is configured to trust **[private address space](https://datatracker.ietf.org/doc/html/rfc1918#section-3)**, which considers your LAN, VPNs and alike. This property is used in two ways. Firstly, if you omit `IPCPassword`, then we'll allow only machines from known networks to access ASF's API, and deny everybody else as a security measure. Secondly, this property is crucial in regards to reverse-proxies accessing ASF, as ASF will honor its headers only if the reverse-proxy server is from within known networks. Honoring the headers is crucial in regards to ASF's anti-bruteforce mechanism, as instead of banning the reverse-proxy in case of a problem, it'll ban the IP specified by the reverse-proxy as the source of the original message. Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured. If by any case you're connected to a private network that you do not trust, yet you still decided to enable access from them through `Endpoints` specified above, then you can override this property to something more restrictive such as `"KnownNetworks": []` in order to remove the default behaviour of trusting them.
 
 `PathBase` - Esta es la ruta base que será utilizada por la interfaz IPC. Esta propiedad es opcional, por defecto en `/` y no debería ser necesario modificarla para la mayoría de los casos. Al cambiar esta propiedad alojarás toda la interfaz IPC en un prefijo personalizado, por ejemplo, `http://localhost:1242/MyPrefix` en lugar de solo `http://localhost:1242`. Usar un `PathBase` personalizado puede ser deseable en combinación con la configuración específica de un proxy inverso donde quieres hacer proxy solo a una URL específica, por ejemplo, `midominio.com/ASF` en lugar de todo el dominio `midominio.com`. Normalmente eso requeriría que escribas una regla de reescritura para tu servidor web que mapee `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, pero en su lugar puedes definir un `PathBase` personalizado de `/ASF` y lograr más fácilmente la configuración de `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
 

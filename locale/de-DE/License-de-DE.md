@@ -6,11 +6,11 @@ Die ASF-Lizenz ist sehr freizügig und du darfst viel mehr tun als in der Standa
 
 > Sie können mit der Software tun was du willst, solange du die erforderlichen Hinweise beifügst. Diese freizügige Lizenz enthält eine Patent-Lizenz von den Mitwirkenden des Quellcodes.
 
-Bitte beachte, dass verschiedene **[ASF-Komponenten](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)**, die in `PackageReference` enthalten sind, oft unter verschiedenen Bedingungen lizenziert werden, z. B. **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
+By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
 
 -----
 
-## Remarks
+## Anmerkungen
 
 Wenn du Ihre eigene Software/Dienstleistung basierend auf ASF oder einem Teil davon erstellst, lies bitte Punkt 6 der Lizenz:
 

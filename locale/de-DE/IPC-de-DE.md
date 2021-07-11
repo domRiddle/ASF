@@ -6,7 +6,7 @@ IPC kann für viele verschiedene Dinge verwendet werden, je nach Ihren Fähigkei
 
 ---
 
-# Usage
+# Nutzung
 
 Unless you manually disabled IPC through `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's enabled by default. ASF gibt den IPC-Start in seinem Protokoll an, mit dem du überprüfen kannst, ob die IPC-Schnittstelle ordnungsgemäß gestartet wurde:
 
@@ -118,7 +118,7 @@ server {
         # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
         # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
         # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service on the same machine as ASF (e.g. different docker container), you most likely want to set KnownNetworks appropriately in addition to those
+        # If you're unable to host nginx service within local network of the ASF machine, you most likely want to set KnownNetworks appropriately in addition to those
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -141,7 +141,7 @@ server {
         # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
         # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
         # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service on the same machine as ASF (e.g. different docker container), you most likely want to set KnownNetworks appropriately in addition to those
+        # If you're unable to host nginx service within local network of the ASF machine, you most likely want to set KnownNetworks appropriately in addition to those
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -151,7 +151,7 @@ server {
 }
 ```
 
-Im Folgenden finden Sie ein Beispiel für die Apache Konfiguration. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
+Im Folgenden finden Sie ein Beispiel für die Apache Konfiguration. Bitte wenden Sie sich an die **[Apache Dokumentation](https://httpd.apache.org/docs)** sollten Sie weitere Erklärungen benötigen.
 
 ```apache
 <IfModule mod_ssl.c>
@@ -226,7 +226,7 @@ Die Konfigurationsdatei basiert auf folgender JSON-Struktur:
 
 `Host` akzeptiert eine Vielzahl von Werten, einschließlich dem Wert `*`, der den http-Server von ASF an alle verfügbaren Schnittstellen bindet. Achten Sie sehr genau darauf, wenn Sie `Host` Werte verwenden, da diese den Fernzugriff erlauben. Dadurch wird der Zugriff auf die IPC-Schnittstelle von ASF von anderen Maschinen aus ermöglicht, was ein Sicherheitsrisiko darstellen kann. We strongly recommend to use `IPCPassword` (and preferably your own firewall too) **at a minimum** in this case.
 
-`KnownNetworks` - Diese Variable gibt Netzwerkadressen an, die wir für vertrauenswürdig halten. Diese Eigenschaft ist besonders in Verbindung mit dem Hosting eines Rückwärts-Proxys zu ASF auf anderen Maschinen als ASF selbst entscheidend. In diesem Fall, Sie sollten hier die IP der Maschine angeben, damit ASF seine Proxying-Header respektiert und die Anfragen akzeptiert. Die Angabe dieser Variable ist nicht erforderlich, wenn Sie keine Art von Reverse-Proxy mit ASF verwenden wollen oder wenn sich der Reverse-Proxy auf dem gleichen Rechner befindet wie ASF (und sich daher mit einer Loopback-Adresse von `127. 0.0.1` an das ASF-IPC anschließt). Seien Sie sehr vorsichtig mit den Netzwerken, die Sie hier angeben, da es einen potentiellen IP-Spoofing-Angriff ermöglicht, falls die vertrauenswürdige Maschine kompromittiert oder falsch konfiguriert ist.
+`KnownNetworks` - Diese Variable gibt Netzwerkadressen an, die wir für vertrauenswürdig halten. By default, ASF is configured to trust **[private address space](https://datatracker.ietf.org/doc/html/rfc1918#section-3)**, which considers your LAN, VPNs and alike. This property is used in two ways. Firstly, if you omit `IPCPassword`, then we'll allow only machines from known networks to access ASF's API, and deny everybody else as a security measure. Secondly, this property is crucial in regards to reverse-proxies accessing ASF, as ASF will honor its headers only if the reverse-proxy server is from within known networks. Honoring the headers is crucial in regards to ASF's anti-bruteforce mechanism, as instead of banning the reverse-proxy in case of a problem, it'll ban the IP specified by the reverse-proxy as the source of the original message. Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured. If by any case you're connected to a private network that you do not trust, yet you still decided to enable access from them through `Endpoints` specified above, then you can override this property to something more restrictive such as `"KnownNetworks": []` in order to remove the default behaviour of trusting them.
 
 `PathBase` - Dies ist der Basispfad der von der IPC-Schnittstelle verwendet wird. Diese Eigenschaft ist optional, voreingestellt auf `/` und sollte für die meisten Anwendungsfälle nicht geändert werden müssen. Wenn Sie diese Eigenschaft ändern, wird die gesamte IPC-Schnittstelle auf einem benutzerdefinierten Präfix gehostet, zum Beispiel `http://localhost:1242/MeinPrefix` anstelle von `http://localhost:1242` allein. Die Verwendung von einem benutzerdefinierten `PathBase` könnte in Kombination mit der spezifischen Einrichtung eines Reverse-Proxy erwünscht sein, bei dem Sie eine bestimmte URL proxyen möchten, z. B. `meinedomain.com/ASF` statt der gesamten `meinedomain.com` Domain. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
 

@@ -111,21 +111,21 @@ server {
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
 
-        # 只需在您需要覆盖默认 Host 时启用
+        # Only if you need to override default host
 #       proxy_set_header Host 127.0.0.1;
 
-        # 如果 Nginx 与 ASF 在同一台机器上，则应该设置 X- 前缀的 HTTP 头
-        # 这对正确配置反向代理至关重要，使 ASF 能够封禁真正的攻击者而非您的 Nginx 服务器
-        # 指定这些头后，ASF 能正确解析发送请求用户的 IP 地址 - 使 Nginx 真正成为反向代理
-        # 如果不这样设置，ASF 会认为您的 Nginx 是客户端 - 此时 Nginx 只是一个普通的代理程序
-        # 如果您无法在同一台机器上同时运行 Nginx 与 ASF（如在不同 Docker 容器中），则应该额外设置正确的 KnownNetworks
+        # X-headers should be specified in the situation where nginx is on the same machine as ASF
+        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
+        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
+        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
+        # If you're unable to host nginx service within local network of the ASF machine, you most likely want to set KnownNetworks appropriately in addition to those
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
 
-        # 我们添加了这 3 个额外的选项用于 WebSockets 代理，详见 https://nginx.org/en/docs/http/websocket.html
+        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
         proxy_http_version 1.1;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Upgrade $http_upgrade;
@@ -134,14 +134,14 @@ server {
     location / {
         proxy_pass http://127.0.0.1:1242;
 
-        # 只需在您需要覆盖默认 Host 时启用
+        # Only if you need to override default host
 #       proxy_set_header Host 127.0.0.1;
 
-        # 如果 Nginx 与 ASF 在同一台机器上，则应该设置 X- 前缀的 HTTP 头
-        # 这对正确配置反向代理至关重要，使 ASF 能够封禁真正的攻击者而非您的 Nginx 服务器
-        # 指定这些头后，ASF 能正确解析发送请求用户的 IP 地址 - 使 Nginx 真正成为反向代理
-        # 如果不这样设置，ASF 会认为您的 Nginx 是客户端 - 此时 Nginx 只是一个普通的代理程序
-        # 如果您无法在同一台机器上同时运行 Nginx 与 ASF（如在不同 Docker 容器中），则应该额外设置正确的 KnownNetworks
+        # X-headers should be specified in the situation where nginx is on the same machine as ASF
+        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
+        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
+        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
+        # If you're unable to host nginx service within local network of the ASF machine, you most likely want to set KnownNetworks appropriately in addition to those
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -226,7 +226,7 @@ server {
 
 `Host` 接受各种合适的值，包括 `*` 值表示将 ASF HTTP 服务端绑定到所有可用的网络接口 在使用允许远程访问的 `Host` 值时要格外小心。 这样做将会允许其他机器访问 ASF 的 IPC 接口，这可能会带来安全风险。 在这种情况下，我们强烈建议您**至少**设置 `IPCPassword`（并且启用防火墙）。
 
-`KnownNetworks`——此变量指定我们信任的网段。 这个属性非常重要，特别是在另一台机器的反向代理后部署 ASF 的时候——此时，您应该在这里声明对端机器的 IP 地址，使 ASF 信任它的 HTTP 代理头及其请求。 如果您不打算在反向代理后部署 ASF，或者反向代理与 ASF 在同一台机器上（即通过本地环回地址 `127.0.0.1` 与 ASF 的 IPC 通信），就不需要指定这个属性。 您需要对这里指定的网段极为小心，因为一旦可信机器被破坏，或该属性配置错误，就可能导致潜在的 IP 欺骗攻击。
+`KnownNetworks`——此变量指定我们信任的网段。 By default, ASF is configured to trust **[private address space](https://datatracker.ietf.org/doc/html/rfc1918#section-3)**, which considers your LAN, VPNs and alike. This property is used in two ways. Firstly, if you omit `IPCPassword`, then we'll allow only machines from known networks to access ASF's API, and deny everybody else as a security measure. Secondly, this property is crucial in regards to reverse-proxies accessing ASF, as ASF will honor its headers only if the reverse-proxy server is from within known networks. Honoring the headers is crucial in regards to ASF's anti-bruteforce mechanism, as instead of banning the reverse-proxy in case of a problem, it'll ban the IP specified by the reverse-proxy as the source of the original message. Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured. If by any case you're connected to a private network that you do not trust, yet you still decided to enable access from them through `Endpoints` specified above, then you can override this property to something more restrictive such as `"KnownNetworks": []` in order to remove the default behaviour of trusting them.
 
 `PathBase`——这是 IPC 接口使用的根路径。 这个属性是可选的，默认是 `/`，并且在大多数情况下没有必要修改。 通过修改这个属性，您可以为整个 IPC 接口设置自定义前缀，例如以 `http://localhost:1242/MyPrefix` 代替 `http://localhost:1242`。 如果您希望仅代理特定的 URL，使用自定义 `PathBase` 还需要结合特定的反向代理设置，例如代理 `mydomain.com/ASF` 而不是整个 `mydomain.com` 域名。 原本，您需要为您的 Web 服务器编写一个重写规则，将 `mydomain.com/ASF/Api/X` 映射到 `localhost:1242/Api/X`，但通过设置 `PathBase` 为 `/ASF`，您可以更简单地实现从 `mydomain.com/ASF/Api/X` 到 `localhost:1242/ASF/Api/X` 的映射。
 

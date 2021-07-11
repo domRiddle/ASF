@@ -6,11 +6,11 @@ ASF 라이센스는 매우 관대하고 표준 GPL 라이센스보다 더 많은
 
 > 필요한 공지사항을 포함한다면 이 소프트웨어로 원하는 무엇이든 할 수 있습니다. 이 관대한 라이센스는 코드의 기여자로부터의 특허 라이센스도 포함합니다.
 
-`PackageReference`에 포함된 다양한 **[ASF 콤포넌트](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** 는 **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))** 같이 다른 조건하에 라이센스되기도 합니다. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
+By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
 
 -----
 
-## Remarks
+## 비고
 
 ASF나 코드 일부를 기반으로 하여 자체 소프트웨어/서비스를 만드는 경우 라이센스의 6호를 검토하십시오.
 

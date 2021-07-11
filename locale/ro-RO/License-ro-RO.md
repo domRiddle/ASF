@@ -6,11 +6,11 @@ Licența ASF este foarte permisivă și vă este permis să faceți mult mai mul
 
 > Poți face ce îți place cu software-ul, cu condiția să incluzi notificările necesare. Această licență permisivă conține o licență de brevet de la contribuitorii codului.
 
-Vă rugăm să rețineți că diferite **[componente ASF](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/ArchiSteamFarm/ArchiSteamFarm.csproj)** incluse cu `PackageReference` sunt deseori licențiate în condiții diferite, ca **[LGPL](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3))**. Same thing applies to all other third-party projects that ASF makes use of, for example **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**.
+By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
 
 -----
 
-## Remarks
+## Observații
 
 Dacă vă creați propriul software/serviciu bazat pe ASF sau o parte din codul său, vă rugăm să revizuiți punctul 6 al licenței:
 
