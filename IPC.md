@@ -240,13 +240,6 @@ Example Apache configuration can be found below. Please refer to **[apache docum
 		ProxyPass "/Api/NLog" "ws://127.0.0.1:1242/Api/NLog"
 
 		ProxyPass "/" "http://127.0.0.1:1242/"
-
-		# X-headers should always be specified when proxying requests to ASF
-		# They're crucial for proper identification of original IP, allowing ASF to e.g. ban the actual offenders instead of your Apache server
-		# Specifying them allows ASF to properly resolve IP addresses of users making requests - making Apache work as a reverse proxy
-		# Not specifying them will cause ASF to treat your Apache as the client - Apache will act as a traditional proxy in this case
-		# If you're unable to host Apache service on the same machine as ASF, you most likely want to set KnownNetworks appropriately in addition to those
-		RemoteIPHeader X-Forwarded-For
 	</VirtualHost>
 </IfModule>
 ```
