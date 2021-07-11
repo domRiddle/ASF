@@ -104,7 +104,7 @@ Unless you truly need to specify a custom base path, it's best to leave it at de
 
 ## Example config
 
-The following config will allow remote access from all sources, therefore you should ensure that you read and understood our security notice about that, available above.
+The following config will allow remote access from all sources, therefore you should **ensure that you read and understood our security notice about that**, available above.
 
 ```json
 {
