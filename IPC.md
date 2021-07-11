@@ -79,13 +79,86 @@ Apart from using our swagger documentation as a complete specification of ASF AP
 
 ---
 
+## Custom configuration
+
+Our IPC interface supports extra config file, `IPC.config` that should be put in standard ASF's `config` directory.
+
+When available, this file specifies advanced configuration of ASF's Kestrel http server, together with other IPC-related tuning. Unless you have a particular need, there is no reason for you to use this file, as ASF is already using sensible defaults in this case.
+
+The configuration file is based on following JSON structure:
+
+```json
+{
+	"Kestrel": {
+		"Endpoints": {
+			"example-http4": {
+				"Url": "http://127.0.0.1:1242"
+			},
+			"example-http6": {
+				"Url": "http://[::1]:1242"
+			},
+			"example-https4": {
+				"Url": "https://127.0.0.1:1242",
+				"Certificate": {
+					"Path": "/path/to/certificate.pfx",
+					"Password": "passwordToPfxFileAbove"
+				}
+			},
+			"example-https6": {
+				"Url": "https://[::1]:1242",
+				"Certificate": {
+					"Path": "/path/to/certificate.pfx",
+					"Password": "passwordToPfxFileAbove"
+				}
+			}
+		},
+		"KnownNetworks": [
+			"10.0.0.0/8",
+			"172.16.0.0/12",
+			"192.168.0.0/16"
+		],
+		"PathBase": "/"
+	}
+}
+```
+
+`Endpoints` - This is a collection of endpoints, each endpoint having its own unique name (like `example-http4`) and `Url` property that specifies `Protocol://Host:Port` listening address. By default, ASF listens on IPv4 and IPv6 http addresses, but we've added https examples for you to use, if needed. You should declare only those endpoints that you need, we've included 4 example ones above so you can edit them easier.
+
+`Host` accepts a variety of values, including `*` value that binds ASF's http server to all available interfaces. Be extremely careful when you use `Host` values that allow remote access. Doing so will enable access to ASF's IPC interface from other machines, which may pose a security risk. We strongly recommend to use `IPCPassword` (and preferably your own firewall too) **at a minimum** in this case.
+
+`KnownNetworks` - This variable specifies network addresses which we consider trustworthy. By default, ASF is configured to trust loopback interface (`localhost`, same machine) **only**. This property is used in two ways. Firstly, if you omit `IPCPassword`, then we'll allow only machines from known networks to access ASF's API, and deny everybody else as a security measure. Secondly, this property is crucial in regards to reverse-proxies accessing ASF, as ASF will honor its headers only if the reverse-proxy server is from within known networks. Honoring the headers is crucial in regards to ASF's anti-bruteforce mechanism, as instead of banning the reverse-proxy in case of a problem, it'll ban the IP specified by the reverse-proxy as the source of the original message. Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured.
+
+`PathBase` - This is base path that will be used by IPC interface. This property is optional, defaults to `/` and shouldn't be required to modify for majority of use cases. By changing this property you'll host entire IPC interface on a custom prefix, for example `http://localhost:1242/MyPrefix` instead of `http://localhost:1242` alone. Using custom `PathBase` may be wanted in combination with specific setup of a reverse proxy where you'd like to proxy a specific URL only, for example `mydomain.com/ASF` instead of entire `mydomain.com` domain. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
+
+Unless you truly need to specify a custom base path, it's best to leave it at default.
+
+### Example config
+
+The following config will allow remote access from all sources, therefore you should ensure that you read and understood our security notice about that, available above.
+
+```json
+{
+	"Kestrel": {
+		"Endpoints": {
+			"HTTP": {
+				"Url": "http://*:1242"
+			}
+		}
+	}
+}
+```
+
+If you do not require access from all sources, but for example your LAN only, then it's much better idea to use something like `192.168.0.*` instead of `*`. Adapt the network address appropriately if you use a different one.
+
+---
+
 # FAQ
 
 ### Is ASF's IPC interface secure and safe to use?
 
 ASF by default listens only on `localhost` addresses, which means that accessing ASF IPC from any other machine but your own **is impossible**. Unless you modify default endpoints, attacker would need a direct access to your own machine in order to access ASF's IPC, therefore it's as secure as it can be and there is no possibility of anybody else accessing it, even from your own LAN.
 
-However, if you decide to change default `localhost` bind addresses to something else, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF's IPC interface. In addition to doing that, we strongly recommend to set up `IPCPassword`, that will add another layer of extra security. You may also want to run ASF's IPC interface behind a reverse proxy in this case, which is further explained below.
+However, if you decide to change default `localhost` bind addresses to something else, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF's IPC interface. In addition to doing that, you will need to set up `IPCPassword`, as ASF will refuse to let other machines access ASF API without one, which adds another layer of extra security. You may also want to run ASF's IPC interface behind a reverse proxy in this case, which is further explained below.
 
 ### Can I access ASF API through my own tools or userscripts?
 
@@ -93,7 +166,7 @@ Yes, this is what ASF API was designed for and you can use anything capable of s
 
 ### Can I access ASF's IPC remotely, e.g. from another machine?
 
-Yes, we recommend to use a reverse proxy for that (explained below). This way you can access your web server in typical way, which will then access ASF's IPC on the same machine. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that. For example, if your machine is in a private VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
+Yes, we recommend to use a reverse proxy for that. This way you can access your web server in typical way, which will then access ASF's IPC on the same machine. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that. For example, if your machine is in a VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
 
 ### Can I use ASF's IPC behind a reverse proxy such as Apache or Nginx?
 
@@ -173,79 +246,12 @@ Example Apache configuration can be found below. Please refer to **[apache docum
 
 ### Can I access IPC interface through HTTPS protocol?
 
-**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that (described above) where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
+**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
 
 Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. This way is recommended if you're not running any other web server and don't want to run one exclusively for ASF. Otherwise, it's much easier to achieve a satisfying setup by using a reverse proxy mechanism.
 
 ---
 
-## Custom configuration
+### Why am I getting `403 Forbidden` error when not using `IPCPassword`?
 
-Our IPC interface supports extra config file, `IPC.config` that should be put in standard ASF's `config` directory.
-
-When available, this file specifies advanced configuration of ASF's Kestrel http server, together with other IPC-related tuning. Unless you have a particular need, there is no reason for you to use this file, as ASF is already using sensible defaults in this case.
-
-The configuration file is based on following JSON structure:
-
-```json
-{
-	"Kestrel": {
-		"Endpoints": {
-			"example-http4": {
-				"Url": "http://127.0.0.1:1242"
-			},
-			"example-http6": {
-				"Url": "http://[::1]:1242"
-			},
-			"example-https4": {
-				"Url": "https://127.0.0.1:1242",
-				"Certificate": {
-					"Path": "/path/to/certificate.pfx",
-					"Password": "passwordToPfxFileAbove"
-				}
-			},
-			"example-https6": {
-				"Url": "https://[::1]:1242",
-				"Certificate": {
-					"Path": "/path/to/certificate.pfx",
-					"Password": "passwordToPfxFileAbove"
-				}
-			}
-		},
-		"KnownNetworks": [
-			"10.0.0.0/8",
-			"172.16.0.0/12",
-			"192.168.0.0/16"
-		],
-		"PathBase": "/"
-	}
-}
-```
-
-`Endpoints` - This is a collection of endpoints, each endpoint having its own unique name (like `example-http4`) and `Url` property that specifies `Protocol://Host:Port` listening address. By default, ASF listens on IPv4 and IPv6 http addresses, but we've added https examples for you to use, if needed. You should declare only those endpoints that you need, we've included 4 example ones above so you can edit them easier.
-
-`Host` accepts a variety of values, including `*` value that binds ASF's http server to all available interfaces. Be extremely careful when you use `Host` values that allow remote access. Doing so will enable access to ASF's IPC interface from other machines, which may pose a security risk. We strongly recommend to use `IPCPassword` (and preferably your own firewall too) **at a minimum** in this case.
-
-`KnownNetworks` - This variable specifies network addresses which we consider trustworthy. By default, ASF is configured to trust loopback interface (`localhost`, same machine) **only**. This property is used in two ways. Firstly, if you omit `IPCPassword`, then we'll allow only machines from known networks to access ASF's API, and deny everybody else as a security measure. Secondly, this property is crucial in regards to reverse-proxies accessing ASF, as ASF will honor its headers only if the reverse-proxy server is from within known networks. Honoring the headers is crucial in regards to ASF's anti-bruteforce mechanism, as instead of banning the reverse-proxy in case of a problem, it'll ban the IP specified by the reverse-proxy as the source of the original message. Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured.
-
-`PathBase` - This is base path that will be used by IPC interface. This property is optional, defaults to `/` and shouldn't be required to modify for majority of use cases. By changing this property you'll host entire IPC interface on a custom prefix, for example `http://localhost:1242/MyPrefix` instead of `http://localhost:1242` alone. Using custom `PathBase` may be wanted in combination with specific setup of a reverse proxy where you'd like to proxy a specific URL only, for example `mydomain.com/ASF` instead of entire `mydomain.com` domain. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
-
-Unless you truly need to specify a custom base path, it's best to leave it at default.
-
-### Example config
-
-The following config will allow remote access from all sources, therefore you should ensure that you read and understood our security notice about that, available above.
-
-```json
-{
-	"Kestrel": {
-		"Endpoints": {
-			"HTTP": {
-				"Url": "http://*:1242"
-			}
-		}
-	}
-}
-```
-
-If you do not require access from all sources, but for example your LAN only, then it's much better idea to use something like `192.168.0.*` instead of `*`. Adapt the network address appropriately if you use a different one.
+Starting with ASF V5.1.2.1, we've added additional security measure that, by default, allows only loopback interface (`localhost`, your own machine) to access ASF API without `IPCPassword` set in the config. This is because using `IPCPassword` should be a **minimum** security measure that everybody who decides to expose ASF interface further. You're still able to override this decision by specifying the network subnet which you trust to reach ASF without `IPCPassword` specified, by setting it in `KnownNetworks` property in custom config. However, unless you **really** know what you're doing and fully understand the risks, you should instead use `IPCPassword` as everybody from within the same network will be able to access ASF API unconditionally.
