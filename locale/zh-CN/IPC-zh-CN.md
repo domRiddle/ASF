@@ -49,137 +49,7 @@ ASF-ui 是一个社区项目，主要为最终用户提供了一个用户友好�
 
 ---
 
-## 身份认证
-
-默认情况下，ASF IPC 接口不需要任何形式的身份验证，因为 `IPCPassword` 被设置为 `null`。 然而，如果 `IPCPassword` 被设置为任意非空值，每个向 ASF API 发送的请求都需要包含匹配 `IPCPassword` 的密码。 如果您省略验证信息或者输入错误的密码，您将会收到 `401 - Unauthorized` 错误。 如果连续发送验证失败的请求，最终您将会被临时封禁，并收到 `403 - Forbidden` 错误。
-
-您可以通过两种方案之一进行身份验证。
-
-### `Authentication` 请求头
-
-通常您应该使用 HTTP 请求头方法，将 `Authentication` 头的值设置为您的密码。 具体的方法取决于您访问 ASF IPC 接口的具体工具，例如，假如您使用 `curl`，就应该添加 `-H 'Authentication: MyPassword'` 命令行参数。 在这种方法中，验证信息被放在请求头部中传送，这也正是这类信息应该在的地方。
-
-### `password` 请求参数
-
-此外，您也可以在调用 URL 的末尾添加 `password` 参数，例如调用 `/Api/ASF?password=MyPassword` 取代 `/Api/ASF`。 这种方法也不错，但显然这会在公开的情况下直接暴露密码，在一些情况下并不合适。 此外，这种方法向请求字符串中添加了额外的参数，使 URL 更复杂，而且看起来像是针对特定 URL 的参数，但实际上密码对整个 ASF API 都适用。
-
----
-
-这两种方法都受到支持，您可以选择要使用哪一种。 我们建议在任何可能的情况下使用 HTTP 头，从使用的角度来说，它比请求字符串更合适。 但是，我们也支持请求字符串方法，主要的原因是请求头的各种限制。 一个例子是在 Javascript 中启动 WebSocket 时缺少自定义头部支持（尽管这是符合 RFC 标准的操作）。 在这种情况下，请求字符串是进行身份验证的唯一方法。
-
----
-
-## Swagger 文档
-
-我们的 IPC 接口，除了 ASF API 和 ASF-ui，还包括 Swagger 文档，您可以访问 `/swagger` **[URL](http://localhost:1242/swagger)** 来查看。 Swagger 文档的角色是我们的 API 实现与使用 API 的工具之间的一个中间人。 它在 **[OpenAPI](https://swagger.io/resources/open-api)** 部分包含了所有 API 端点的完整文档与功能说明，您可以在此为其他项目轻松编写与测试 ASF API。
-
-除了查阅 Swagger 文档获取 ASF API 的完整格式以外，您还可以将其作为一种执行各种 API 端点的友好方式，尤其是那些尚未由 ASF-ui 实现的端点。 由于 Swagger 文档是由 ASF 代码自动生成的，因此文档会始终与您所使用的 ASF 版本提供的 API 端点保持一致。
-
-![Swagger 文档](https://i.imgur.com/mLpd5e4.png)
-
----
-
-# 常见问题
-
-### ASF 的 IPC 接口安全吗？
-
-ASF 默认只会监听 `localhost` 地址，这意味着从本机以外的设备访 ASF IPC 是**不可能的**。 除非您修改了默认的端点，否则攻击者必须能够直接访问您的计算机才能访问 ASF IPC，因此这是足够安全的，其他人无法访问 IPC，即使两者在同一局域网。
-
-然而，如果您决定修改默认的 `localhost` 监听地址，那么您就应该**自行**设置合适的防火墙规则，使其只允许可信的 IP 访问 ASF IPC 接口。 此外，我们也强烈建议您设置 `IPCPassword` 以增加另一层安全保护。 您可能还需要将 ASF IPC 部署在一个反向代理背后，我们将会在下文详细说明。
-
-### 我可以在我的工具或者用户脚本中访问 ASF API 吗？
-
-是的，这就是 ASF API 被设计的目的，您可以通过任何能发送 HTTP 请求的工具来使用它。 本地用户脚本遵循 **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** 逻辑，并且只要启用 `IPCPassword` 作为额外安全措施，我们就允许其中来自任意来源（`*`）的请求。 这允许您执行各种经过验证的 ASF API 请求，而不允许潜在的恶意脚本自动执行此操作（因为它们不知道您设置的 `IPCPassword`）。
-
-### 我可以远程访问 ASF 的 IPC 吗，例如从另一台电脑访问？
-
-是的，我们建议您为此设置反向代理（见下文）。 通过反向代理，您访问的是 Web 服务器，然后借此作为跳板访问服务器上的 ASF IPC。 或者，如果您不打算运行反向代理，您可以将&#8203;**[自定义配置](#自定义配置)**&#8203;中的 URL 修改为合适的地址。 例如，如果您的设备处于一个私有 VPN 网络中，地址为 `10.8.0.1`，您就可以在 IPC 配置中设置监听地址为 `http://10.8.0.1:1242`，这将会且仅会在您的这个私有 VPN 网络中启用 IPC。
-
-### 我可以将 ASF 的 IPC 部署在 Apache 或者 Nginx 的反向代理后吗？
-
-**是的**，我们的 IPC 与这种部署方式完全兼容，所以如果您愿意，您也可以在自己的工具前面部署反向代理以增强一层安全性与兼容性。 一般来说，ASF 的 Kestrel HTTP 服务端非常安全，即使直接暴露于互联网也没有什么风险，但将其部署在 Apache 或 Nginx 反向代理后面会提供一些其他方式无法实现的功能，例如添加 **[Basic Auth](https://en.wikipedia.org/wiki/Basic_access_authentication)** 支持以保护 ASF 接口。
-
-下面是一份 Nginx 示例配置文件。 我们在其中包含了完整的 `server` 块，但您可能更关注其中的 `location`。 如果您需要进一步的说明，请参考 **[Nginx 文档](https://nginx.org/en/docs)**。
-
-```nginx
-server {
-    listen *:443 ssl;
-    server_name asf.mydomain.com;
-    ssl_certificate /path/to/your/certificate.crt;
-    ssl_certificate_key /path/to/your/certificate.key;
-
-    location ~* /Api/NLog {
-        proxy_pass http://127.0.0.1:1242;
-
-        # Only if you need to override default host
-#       proxy_set_header Host 127.0.0.1;
-
-        # X-headers should be specified in the situation where nginx is on the same machine as ASF
-        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
-        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
-        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service within local network of the ASF machine, you most likely want to set KnownNetworks appropriately in addition to those
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Host $host:$server_port;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Server $host;
-        proxy_set_header X-Real-IP $remote_addr;
-
-        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
-        proxy_http_version 1.1;
-        proxy_set_header Connection "Upgrade";
-        proxy_set_header Upgrade $http_upgrade;
-    }
-
-    location / {
-        proxy_pass http://127.0.0.1:1242;
-
-        # Only if you need to override default host
-#       proxy_set_header Host 127.0.0.1;
-
-        # X-headers should be specified in the situation where nginx is on the same machine as ASF
-        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
-        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
-        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service within local network of the ASF machine, you most likely want to set KnownNetworks appropriately in addition to those
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Host $host:$server_port;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Server $host;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
-}
-```
-
-下面是一份 Apache 示例配置文件。 如果您需要进一步的说明，请参考 **[Apache 文档](https://httpd.apache.org/docs)**。
-
-```apache
-<IfModule mod_ssl.c>
-    <VirtualHost *:443>
-        ServerName asf.mydomain.com
-
-        SSLEngine On
-        SSLCertificateFile /path/to/your/fullchain.pem
-        SSLCertificateKeyFile /path/to/your/privkey.pem
-
-        # TODO: Apache 不支持大小写不敏感的匹配，因此我们在此写入了两种最常见的情况
-        ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
-        ProxyPass "/Api/NLog" "ws://127.0.0.1:1242/Api/NLog"
-
-        ProxyPass "/" "http://127.0.0.1:1242/"
-    </VirtualHost>
-</IfModule>
-```
-
-### 我可以通过 HTTPS 协议访问 IPC 吗？
-
-**是的**，有两种方法来实现。 推荐的方法是使用反向代理（如上所述），您可以像平常一样通过 HTTPS 访问您的 Web 服务器，并且通过它来访问在同一台机器上的 ASF IPC 接口。 这样，您的流量将完全加密，并且您不需要修改 IPC 的设置。
-
-另一种方法是为 ASF IPC 指定&#8203;**[自定义配置](#自定义配置)**，直接为我们使用的 Kestrel HTTP 服务器启用 HTTPS 端点，并且提供合适的 SSL 证书。 如果您没有运行任何其他 Web 服务器，并且也不打算单独为了 ASF 运行，我们更推荐这种方式。 否则，通过反向代理机制来达成目标要容易得多。
-
----
-
-## 自定义配置
+# 自定义配置
 
 我们的 IPC 接口支持额外的配置文件 `IPC.config`，这个文件应该被放在 ASF 的 `config` 文件夹中。
 
@@ -226,15 +96,15 @@ server {
 
 `Host` 接受各种合适的值，包括 `*` 值表示将 ASF HTTP 服务端绑定到所有可用的网络接口 在使用允许远程访问的 `Host` 值时要格外小心。 这样做将会允许其他机器访问 ASF 的 IPC 接口，这可能会带来安全风险。 在这种情况下，我们强烈建议您**至少**设置 `IPCPassword`（并且启用防火墙）。
 
-`KnownNetworks`——此变量指定我们信任的网段。 By default, ASF is configured to trust **[private address space](https://datatracker.ietf.org/doc/html/rfc1918#section-3)**, which considers your LAN, VPNs and alike. This property is used in two ways. Firstly, if you omit `IPCPassword`, then we'll allow only machines from known networks to access ASF's API, and deny everybody else as a security measure. Secondly, this property is crucial in regards to reverse-proxies accessing ASF, as ASF will honor its headers only if the reverse-proxy server is from within known networks. Honoring the headers is crucial in regards to ASF's anti-bruteforce mechanism, as instead of banning the reverse-proxy in case of a problem, it'll ban the IP specified by the reverse-proxy as the source of the original message. Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured. If by any case you're connected to a private network that you do not trust, yet you still decided to enable access from them through `Endpoints` specified above, then you can override this property to something more restrictive such as `"KnownNetworks": []` in order to remove the default behaviour of trusting them.
+`KnownNetworks`——此变量指定我们信任的网段。 默认情况下，ASF 被配置为**仅仅**信任环回接口（`localhost`，或者叫本机）。 此属性有两种用途。 第一，如果您省略 `IPCPassword`，则我们仅允许来自已知网段的机器访问 ASF 的 API，拒绝其他所有人，以此作为一种安全措施。 第二，这一属性对于反向代理访问 ASF 的场景非常关键，因为只有当反向代理服务器来自已知网络时，ASF 才会接受其头部信息。 在 ASF 的反暴力破解机制中，接受头部信息是非常重要的一环，这样在出现问题的情况下，它就不会直接封禁反向代理，而只会封禁反向代理指定的请求源 IP。 您需要对这里指定的网段极为小心，因为一旦可信机器被破坏，或该属性配置错误，就可能导致潜在的 IP 欺骗攻击或未授权访问。
 
 `PathBase`——这是 IPC 接口使用的根路径。 这个属性是可选的，默认是 `/`，并且在大多数情况下没有必要修改。 通过修改这个属性，您可以为整个 IPC 接口设置自定义前缀，例如以 `http://localhost:1242/MyPrefix` 代替 `http://localhost:1242`。 如果您希望仅代理特定的 URL，使用自定义 `PathBase` 还需要结合特定的反向代理设置，例如代理 `mydomain.com/ASF` 而不是整个 `mydomain.com` 域名。 原本，您需要为您的 Web 服务器编写一个重写规则，将 `mydomain.com/ASF/Api/X` 映射到 `localhost:1242/Api/X`，但通过设置 `PathBase` 为 `/ASF`，您可以更简单地实现从 `mydomain.com/ASF/Api/X` 到 `localhost:1242/ASF/Api/X` 的映射。
 
 除非您确实需要指定自定义根路径，否则最好将其保留为默认值。
 
-### 示例配置
+## 示例配置
 
-以下配置允许任何来源的远程访问，因此您应该确认您已阅读并理解上文的安全警告。
+以下配置允许任何来源的远程访问，因此您应该**确认您已阅读并理解上文的安全警告**。
 
 ```json
 {
@@ -249,3 +119,139 @@ server {
 ```
 
 如果您不需要允许所有来源的访问，例如仅允许局域网，那么设置为类似 `192.168.0.*` 而非 `*` 可能会更好。 您应该根据您的实际网络设置来调整这里的网络地址。
+
+---
+
+# 身份认证
+
+默认情况下，ASF IPC 接口不需要任何形式的身份验证，因为 `IPCPassword` 被设置为 `null`。 然而，如果 `IPCPassword` 被设置为任意非空值，每个向 ASF API 发送的请求都需要包含匹配 `IPCPassword` 的密码。 如果您省略验证信息或者输入错误的密码，您将会收到 `401 - Unauthorized` 错误。 如果连续发送验证失败的请求，最终您将会被临时封禁，并收到 `403 - Forbidden` 错误。
+
+您可以通过两种方案之一进行身份验证。
+
+## `Authentication` 请求头
+
+通常您应该使用 HTTP 请求头方法，将 `Authentication` 头的值设置为您的密码。 具体的方法取决于您访问 ASF IPC 接口的具体工具，例如，假如您使用 `curl`，就应该添加 `-H 'Authentication: MyPassword'` 命令行参数。 在这种方法中，验证信息被放在请求头部中传送，这也正是这类信息应该在的地方。
+
+## `password` 请求参数
+
+此外，您也可以在调用 URL 的末尾添加 `password` 参数，例如调用 `/Api/ASF?password=MyPassword` 取代 `/Api/ASF`。 这种方法也不错，但显然这会在公开的情况下直接暴露密码，在一些情况下并不合适。 此外，这种方法向请求字符串中添加了额外的参数，使 URL 更复杂，而且看起来像是针对特定 URL 的参数，但实际上密码对整个 ASF API 都适用。
+
+---
+
+这两种方法都受到支持，您可以选择要使用哪一种。 我们建议在任何可能的情况下使用 HTTP 头，从使用的角度来说，它比请求字符串更合适。 但是，我们也支持请求字符串方法，主要的原因是请求头的各种限制。 一个例子是在 Javascript 中启动 WebSocket 时缺少自定义头部支持（尽管这是符合 RFC 标准的操作）。 在这种情况下，请求字符串是进行身份验证的唯一方法。
+
+---
+
+# Swagger 文档
+
+我们的 IPC 接口，除了 ASF API 和 ASF-ui，还包括 Swagger 文档，您可以访问 `/swagger` **[URL](http://localhost:1242/swagger)** 来查看。 Swagger 文档的角色是我们的 API 实现与使用 API 的工具之间的一个中间人。 它在 **[OpenAPI](https://swagger.io/resources/open-api)** 部分包含了所有 API 端点的完整文档与功能说明，您可以在此为其他项目轻松编写与测试 ASF API。
+
+除了查阅 Swagger 文档获取 ASF API 的完整格式以外，您还可以将其作为一种执行各种 API 端点的友好方式，尤其是那些尚未由 ASF-ui 实现的端点。 由于 Swagger 文档是由 ASF 代码自动生成的，因此文档会始终与您所使用的 ASF 版本提供的 API 端点保持一致。
+
+![Swagger 文档](https://i.imgur.com/mLpd5e4.png)
+
+---
+
+# 常见问题
+
+### ASF 的 IPC 接口安全吗？
+
+ASF 默认只会监听 `localhost` 地址，这意味着从本机以外的设备访 ASF IPC 是**不可能的**。 除非您修改了默认的端点，否则攻击者必须能够直接访问您的计算机才能访问 ASF IPC，因此这是足够安全的，其他人无法访问 IPC，即使两者在同一局域网。
+
+然而，如果您决定修改默认的 `localhost` 监听地址，那么您就应该**自行**设置合适的防火墙规则，使其只允许可信的 IP 访问 ASF IPC 接口。 此外，您还需要设置 `IPCPassword`，因为如果不设置，ASF 就会拒绝其他机器访问 ASF API，作为一层额外的安全保护。 您可能还需要将 ASF IPC 部署在一个反向代理背后，我们将会在下文详细说明。
+
+### 我可以在我的工具或者用户脚本中访问 ASF API 吗？
+
+是的，这就是 ASF API 被设计的目的，您可以通过任何能发送 HTTP 请求的工具来使用它。 本地用户脚本遵循 **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** 逻辑，并且只要启用 `IPCPassword` 作为额外安全措施，我们就允许其中来自任意来源（`*`）的请求。 这允许您执行各种经过验证的 ASF API 请求，而不允许潜在的恶意脚本自动执行此操作（因为它们不知道您设置的 `IPCPassword`）。
+
+### 我可以远程访问 ASF 的 IPC 吗，例如从另一台电脑访问？
+
+是的，我们建议您为此设置反向代理。 通过反向代理，您访问的是 Web 服务器，然后借此作为跳板访问服务器上的 ASF IPC。 或者，如果您不打算运行反向代理，您可以将&#8203;**[自定义配置](#自定义配置)**&#8203;中的 URL 修改为合适的地址。 例如，如果您的设备处于一个 VPN 网络中，地址为 `10.8.0.1`，您就可以在 IPC 配置中设置监听地址为 `http://10.8.0.1:1242`，这将会且仅会在您的这个私有 VPN 网络中启用 IPC。
+
+### 我可以将 ASF 的 IPC 部署在 Apache 或者 Nginx 的反向代理后吗？
+
+**是的**，我们的 IPC 与这种部署方式完全兼容，所以如果您愿意，您也可以在自己的工具前面部署反向代理以增强一层安全性与兼容性。 一般来说，ASF 的 Kestrel HTTP 服务端非常安全，即使直接暴露于互联网也没有什么风险，但将其部署在 Apache 或 Nginx 反向代理后面会提供一些其他方式无法实现的功能，例如添加 **[Basic Auth](https://en.wikipedia.org/wiki/Basic_access_authentication)** 支持以保护 ASF 接口。
+
+下面是一份 Nginx 示例配置文件。 我们在其中包含了完整的 `server` 块，但您可能更关注其中的 `location`。 如果您需要进一步的说明，请参考 **[Nginx 文档](https://nginx.org/en/docs)**。
+
+```nginx
+server {
+    listen *:443 ssl;
+    server_name asf.mydomain.com;
+    ssl_certificate /path/to/your/certificate.crt;
+    ssl_certificate_key /path/to/your/certificate.key;
+
+    location ~* /Api/NLog {
+        proxy_pass http://127.0.0.1:1242;
+
+        # 只需在您需要覆盖默认 Host 时启用
+#       proxy_set_header Host 127.0.0.1;
+
+        # 代理 ASF 请求时，应该始终指定 X- 前缀的 HTTP 头
+        # 这对正确鉴别源 IP 至关重要，使 ASF 能够封禁真正的攻击者而非您的 Nginx 服务器
+        # 指定这些头后，ASF 能正确解析发送请求用户的 IP 地址 - 使 Nginx 真正成为反向代理
+        # 如果不这样设置，ASF 会认为您的 Nginx 是客户端 - 此时 Nginx 只是一个普通的代理程序
+        # 如果您无法在同一台机器上同时运行 Nginx 与 ASF，则应该额外设置正确的 KnownNetworks
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $host:$server_port;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+
+        # 我们添加了这 3 个额外的选项用于 WebSockets 代理，详见 https://nginx.org/en/docs/http/websocket.html
+        proxy_http_version 1.1;
+        proxy_set_header Connection "Upgrade";
+        proxy_set_header Upgrade $http_upgrade;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:1242;
+
+        # 只需在您需要覆盖默认 Host 时启用
+#       proxy_set_header Host 127.0.0.1;
+
+        # 代理 ASF 请求时，应该始终指定 X- 前缀的 HTTP 头
+        # 这对正确鉴别源 IP 至关重要，使 ASF 能够封禁真正的攻击者而非您的 Nginx 服务器
+        # 指定这些头后，ASF 能正确解析发送请求用户的 IP 地址 - 使 Nginx 真正成为反向代理
+        # 如果不这样设置，ASF 会认为您的 Nginx 是客户端 - 此时 Nginx 只是一个普通的代理程序
+        # 如果您无法在同一台机器上同时运行 Nginx 与 ASF，则应该额外设置正确的 KnownNetworks
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $host:$server_port;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
+
+下面是一份 Apache 示例配置文件。 如果您需要进一步的说明，请参考 **[Apache 文档](https://httpd.apache.org/docs)**。
+
+```apache
+<IfModule mod_ssl.c>
+    <VirtualHost *:443>
+        ServerName asf.mydomain.com
+
+        SSLEngine On
+        SSLCertificateFile /path/to/your/fullchain.pem
+        SSLCertificateKeyFile /path/to/your/privkey.pem
+
+        # TODO: Apache 不支持大小写不敏感的匹配，因此我们在此写入了两种最常见的情况
+        ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
+        ProxyPass "/Api/NLog" "ws://127.0.0.1:1242/Api/NLog"
+
+        ProxyPass "/" "http://127.0.0.1:1242/"
+    </VirtualHost>
+</IfModule>
+```
+
+### 我可以通过 HTTPS 协议访问 IPC 吗？
+
+**是的**，有两种方法来实现。 推荐的方法是使用反向代理，您可以像平常一样通过 HTTPS 访问您的 Web 服务器，并且通过它来访问在同一台机器上的 ASF IPC 接口。 这样，您的流量将完全加密，并且您不需要修改 IPC 的设置。
+
+另一种方法是为 ASF IPC 指定&#8203;**[自定义配置](#自定义配置)**，直接为我们使用的 Kestrel HTTP 服务器启用 HTTPS 端点，并且提供合适的 SSL 证书。 如果您没有运行任何其他 Web 服务器，并且也不打算单独为了 ASF 运行，我们更推荐这种方式。 否则，通过反向代理机制来达成目标要容易得多。
+
+---
+
+### 为什么我如果不使用 `IPCPassword`，就会出现 `403 Forbidden` 错误？
+
+从 ASF V5.1.2.1 版本开始，我们添加了额外的安全措施，默认只允许环回接口（`localhost`，即本机）在不设置 `IPCPassword` 的情况下访问 ASF API。 这是因为，如果任何人决定进一步暴露 ASF 接口，那么设置 `IPCPassword` 就是一项必须的**最低**限度安全措施。 您仍然可以强行禁用这项措施，只需要修改自定义配置文件中的 `KnownNetworks` 属性，指定在不设置 `IPCPassword` 的情况下，ASF 需要信任哪些网段。 但是，除非您**的确**需要这样做，并且完全了解其风险，否则就应该转而使用 `IPCPassword`，因为设置 `KnownNetworks` 将允许网段内的任何人无条件地访问 ASF API。

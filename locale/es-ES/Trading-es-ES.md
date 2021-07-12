@@ -35,9 +35,9 @@ Es agradable notar que ASF también soporta pagos en exceso - la lógica funcion
 
 Las primeras 4 condiciones de rechazo deberían ser obvias para todos. La última incluye una lógica para cromos duplicados que comprueba el estado actual de nuestro inventario y decide cuál es el estatus del intercambio.
 
-- Un intercambio es **bueno** si nuestro progreso para completar el set avanza. Ejemplo: A A (antes) <-> A B (después)
-- Un intercambio es **neutral** si nuestro progreso para completar el set se mantiene intacto. Ejemplo: A B (antes) <-> A C (después)
-- Un intercambio es **malo** si nuestro progreso para completar el set retrocede. Ejemplo: A C (antes) <-> A A (después)
+- Un intercambio es **bueno** si nuestro progreso para completar el set avanza. Ejemplo: A A (antes) -> A B (después)
+- Un intercambio es **neutral** si nuestro progreso para completar el set se mantiene intacto. Ejemplo: A B (antes) -> A C (después)
+- Un intercambio es **malo** si nuestro progreso para completar el set retrocede. Ejemplo: A C (antes) -> A A (después)
 
 STM solo opera con intercambios buenos, lo que significa que un usuario utilizando STM para emparejar duplicados siempre debería sugerirnos intercambios buenos. Sin embargo, ASF es liberal, y también acepta intercambios neutrales, porque en esos intercambios realmente no estamos perdiendo nada, así que no hay ninguna razón para rechazarlos. Esto es especialmente útil para tus amigos, ya que pueden cambiar tus cromos adicionales sin usar STM en absoluto, siempre y cuando no pierdas el progreso del set.
 

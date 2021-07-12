@@ -35,9 +35,9 @@ ASF'nin fazla ödemeyi de desteklediğini belirtmek güzel - yukarıdaki tüm ko
 
 İlk 4 red beyanı herkes için anlaşılır olmalı. Sonuncusu, envanterinizin mevcut durumunu kontrol eden ve ticaretin durumunun ne olduğuna karar veren gerçek kopyalar mantığını içerir.
 
-- Belirlenen tamamlama yönünde ilerlememiz varsa, ticaret **iyidir**. Örnek: A A (başta) <-> A B (sonda)
-- Set tamamlama yolundaki ilerlemeniz değişmeden kalırsa, ticaret **nötr** olur. Örnek: A B (başta) <-> A C (sonda)
-- Set tamamlama yönünde ilerlemeniz azalırsa, ticaret **kötü** olur. Örnek: A C (başta) <-> A A (sonda)
+- Belirlenen tamamlama yönünde ilerlememiz varsa, ticaret **iyidir**. Example: A A (before) -> A B (after)
+- Set tamamlama yolundaki ilerlemeniz değişmeden kalırsa, ticaret **nötr** olur. Example: A B (before) -> A C (after)
+- Set tamamlama yönünde ilerlemeniz azalırsa, ticaret **kötü** olur. Example: A C (before) -> A A (after)
 
 STM yalnızca iyi takaslarda çalışır, bu da kopyaların eşleştirmesi için STM kullanan kullanıcının bizim için her zaman yalnızca iyi takaslar önermesi gerektiği anlamına gelir. Ancak, ASF liberaldir ve aynı zamanda nötr takasları da kabul eder, çünkü bu takaslarda aslında hiçbir şey kaybetmiyoruz, dolayısıyla onları reddetmek için geçerli bir sebep yok. Bu, özellikle arkadaşlarınız için yararlıdır, çünkü herhangi bir ilerleme kaydetmediğiniz sürece, STM kullanmadan fazla kartlarınızı takaslayabilirler.
 

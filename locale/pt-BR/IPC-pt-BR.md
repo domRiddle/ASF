@@ -55,171 +55,7 @@ Para uma documentação completa de endpoints disponíveis, descrições, solici
 
 
 
-## Autenticação
-
-A interface ASF do IPC não requer qualquer tipo de autenticação por padrão, já que `IPCPassword` é definido como `null`. No entanto, se `IPCPassword` for definido com qualquer valor não-vazio, todas as chamadas à API do ASF vão requerer a senha correspondente definida em `IPCPassword`. Se você omitir a autenticação ou entrar com uma senha errada, você terá o erro `401 - Unauthorized` erro. Se você continuar enviando solicitações sem autenticação, eventualmente você será temporariamente bloqueado com o erro `403 - Forbidden`.
-
-A autenticação pode ser feita de duas formas diferentes.
-
-
-
-### `Authentication` (autenticação) de cabeçalho
-
-Em geral, você deve usar cabeçalhos de solicitação HTTP, configurando o campo `Authentication` com sua senha como um valor. A maneira de fazer isso depende da ferramenta que você está usando para acessar a interface IPC do ASF, por exemplo, se você estiver usando `curl`, então você deve adicionar `-H 'Authentication: MyPassword'` como um parâmetro. Dessa forma a autenticação será passada nos cabeçalhos da solicitação, onde ele de fato deve ocorrer.
-
-
-
-### Parâmetro `password` na string de consulta
-
-Como alternativa você pode acrescentar o parâmetro `password` ao final da URL você está prestes a chamar, por exemplo, chamando `/Api/ASF?password=MyPassword` em vez de apenas `/Api/ASF`. Essa abordagem é boa o suficiente, mas obviamente ele expõe sua senha, o que não é necessariamente adequado. Além disso, é um argumento extra na sequência de consulta, o que desorganiza a aparência da URL e da impressão que se aplica somente a essa URL, enquanto a senha se aplica a toda comunicação do API do ASF.
-
-
-
----
-
-Há suporte para ambas as formas e a escolha é totalmente sua em qual usar. Recomendamos usar cabeçalhos HTTP sempre que possível, já que esse tipo de uso é mais apropriado que uma string de consulta. No entanto, apoiamos a sequência de caracteres de consulta, principalmente por causa de várias limitações relacionadas com solicitações de cabeçalhos. Um bom exemplo inclui falta de cabeçalhos personalizados ao iniciar uma conexão de WebSockets em javascript (mesmo que seja completamente válido de acordo com a RFC). Nesta situação uma string de consulta é a única forma de autenticar.
-
-
-
----
-
-
-
-## Documentação Swagger
-
-Nossa interface IPC, da API do ASF e do ASF-ui também inclui documentação Swagger, que está disponível em `/swagger` **[URL](http://localhost:1242/swagger)**. A documentação Swagger serve como um intermediário entre a nossa implementação de API e outras ferramentas que a usam (por exemplo, ASF-ui). Ele fornece uma documentação completa e disponibilidade de todos os API endpoints nas especificações do **[OpenAPI](https://swagger.io/resources/open-api)** que pode ser facilmente usada por outros projetos, permitindo que você escreva e teste a API do ASF com facilidade.
-
-Além de usar nossa documentação Swagger como uma especificação completa do API do ASF, você pode também usá-lo como uma maneira amigável de executar vários API endpoints, principalmente aqueles que não são implementados pelo ASF-ui. Como nossa documentação Swagger é gerada automaticamente a partir código ASF, você tem a garantia de que a documentação estará sempre atualizada com os endpoints de API inclusos na sua versão do ASF.
-
-![Documentação Swagger](https://i.imgur.com/mLpd5e4.png)
-
-
-
----
-
-
-
-# Perguntas frequentes (FAQ)
-
-
-
-### A interface IPC do ASF é segura?
-
-Por padrão o ASF escuta apenas nos endereços `localhost`, o que significa que acessar o IPC do ASF de qualquer outro computador **é impossível**. A menos que você modifique os endpoints padrão, um invasor precisaria de um acesso direto ao seu computador acessar o IPC do ASF, portanto ele é tão seguro quanto possível e não há possibilidade de outra pessoa acessá-lo, até mesmo de sua própria rede doméstica.
-
-No entanto, se você decidir mudar os endereços padrão do `localhost`, então você deve configurar regras de firewall adequadas **por sua conta** para permitir apenas IPs autorizados a acessar a interface de IPC do ASF. Além disso, recomendamos configurar um `IPCPassword`, que vai adicionar uma camada extra de segurança. Você também pode querer rodar a interface IPC do ASF sob um proxy reverso nesse caso, que será melhor explicado abaixo.
-
-
-
-### Posso acessar o API do ASF pelas minhas próprias ferramentas ou userscripts?
-
-Sim, é para isso que a API do ASF foi desenvolvida e você pode usar qualquer coisa capaz de enviar uma solicitação HTTP para acessá-lo. Userscripts locais seguem a lógica **[CORS](https://pt.wikipedia.org/wiki/Cross-origin_resource_sharing)**, e permitimos o acesso a eles de todas as origens (`*`), contanto que uma `IPCPassword` (senha IPC) seja definida, como uma medida de segurança extra. Isso permite que você execute várias solicitações autenticadas da API do ASF, sem permitir que scripts potencialmente mal-intencionados façam isso automaticamente (já que eles precisariam saber sua `IPCPassword` (senha) para fazer isso).
-
-
-
-### Posso acessar o IPC do ASF remotamente, de outro computador por exemplo?
-
-Sim, recomendamos usar um proxy reverso para isso (explicado abaixo). Dessa forma você pode acessar seu servidor web como de costume, o qual então acessará o IPC do ASF no mesmo computador. Como alternativa, se você não quiser executar um proxy reverso, você pode usar uma **[configuração personalizada](#configuração-personalizada)** com uma URL personalizada. Por exemplo, se seu computador estiver em um VPN privado com o endereço `10.8.0.1`, então você pode configurar `http://10.8.0.1:1242` como URL de escuta na configuração do IPC, o que habilitaria o acesso IPC de dentro da sua VPN privada, mas não de outro lugar.
-
-
-
-### Posso usar o IPC do ASF atrás de um proxy reverso como Apache ou Nginx?
-
-**Sim**, nosso IPC é totalmente compatível com tal configuração, então você também pode usá-lo com suas próprias ferramentas para maior segurança e compatibilidade, se quiser. Em geral, o servidor http Kestrel do ASF é muito seguro e não possui nenhum risco ao ser conectado diretamente à internet, mas colocá-lo atrás de um proxy reverso como Apache ou Nginx pode fornecer funcionalidades extras que não seria possível conseguir de outra forma, como garantir a interface do ASF com uma **[autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
-
-Segue abaixo um exemplo de configuração Nginx. Incluímos um bloco `server` completo, embora você esteja interessado principalmente nos blocos `location`. Consulte a **[documentação nginx](https://nginx.org/en/docs)** se você precisar de mais explicações.
-
-
-
-```nginx
-server {
-    listen *:443 ssl;
-    server_name asf.mydomain.com;
-    ssl_certificate /path/to/your/certificate.crt;
-    ssl_certificate_key /path/to/your/certificate.key;
-
-    location ~* /Api/NLog {
-        proxy_pass http://127.0.0.1:1242;
-
-        # Only if you need to override default host
-#       proxy_set_header Host 127.0.0.1;
-
-        # X-headers should be specified in the situation where nginx is on the same machine as ASF
-        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
-        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
-        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service within local network of the ASF machine, you most likely want to set KnownNetworks appropriately in addition to those
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Host $host:$server_port;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Server $host;
-        proxy_set_header X-Real-IP $remote_addr;
-
-        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
-        proxy_http_version 1.1;
-        proxy_set_header Connection "Upgrade";
-        proxy_set_header Upgrade $http_upgrade;
-    }
-
-    location / {
-        proxy_pass http://127.0.0.1:1242;
-
-        # Only if you need to override default host
-#       proxy_set_header Host 127.0.0.1;
-
-        # X-headers should be specified in the situation where nginx is on the same machine as ASF
-        # They're crucial for proper usage of reverse-proxy, allowing ASF to e.g. ban the actual offenders instead of your nginx server
-        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
-        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service within local network of the ASF machine, you most likely want to set KnownNetworks appropriately in addition to those
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Host $host:$server_port;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Forwarded-Server $host;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
-}
-```
-
-
-Segue abaixo um exemplo de configuração Apache. Consulte a **[documentação apache](https://httpd.apache.org/docs)** se você precisar de mais explicações.
-
-
-
-```apache
-<IfModule mod_ssl.c>
-    <VirtualHost *:443>
-        ServerName asf.mydomain.com
-
-        SSLEngine On
-        SSLCertificateFile /path/to/your/fullchain.pem
-        SSLCertificateKeyFile /path/to/your/privkey.pem
-
-        # TODO: O Apache não consegue diferenciar maiúsculas de minúsculas corretamente, portanto codificamos os casos mais comuns de uso
-        ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
-        ProxyPass "/Api/NLog" "ws://127.0.0.1:1242/Api/NLog"
-
-        ProxyPass "/" "http://127.0.0.1:1242/"
-    </VirtualHost>
-</IfModule>
-```
-
-
-
-
-### Posso acessar a interface IPC através do protocolo HTTPS?
-
-**Yes**, you can achieve it through two different ways. Uma maneira recomendada seria usar um proxy reverso (descrito acima) onde você pode acessar o seu servidor web através de https, como de costume, e conectar-se através dele com interface IPC do ASF no mesmo computador. Desta forma o seu tráfego será totalmente criptografado e você não precisa modificar o IPC para tal configuração.
-
-Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. Este modo é recomendado se você não estiver executando nenhum outro servidor web e não quer executar um exclusivamente para o ASF. Caso contrário, é muito mais fácil efetuar uma configuração satisfatória por meio de um mecanismo de proxy reverso.
-
-
-
----
-
-
-
-## Configuração personalizada
+# Configuração personalizada
 
 Nossa interface IPC oferece suporte a arquivo de configuração extra, ele deve ser colocado na pasta `config` com o nome `IPC.config`.
 
@@ -267,9 +103,9 @@ O arquivo de configuração baseia-se na seguinte estrutura JSON:
 
 `Endpoints` - Esta é uma coleção de endpoints, cada endpoint tendo seu próprio nome exclusivo (como `exemplo-http4`) e a propriedade `Url` que especifica o endereço de escuta `Protocol://Host:Port`. Por padrão, o ASF ouve nos endereços http IPv4 e IPv6, mas nós adicionamos exemplos http para você usar caso necessário. Você deve declarar apenas os endpoints que você precisa, nós incluímos os 4 exemplos acima para que você possa editá-los.
 
-`Host` aceita uma variedade de valores, incluindo `*` que vincula o servidor http do ASF a todas as interfaces disponíveis. Seja extremamente cauteloso quando usar valores de `Host` que permitem acesso remoto. Fazer isso vai permitir o acesso a interface IPC do ASF de outros computadores, que pode causar um risco na segurança. We strongly recommend to use `IPCPassword` (and preferably your own firewall too) **at a minimum** in this case.
+`Host` aceita uma variedade de valores, incluindo `*` que liga o servidor http do ASF a todas as interfaces disponíveis. Seja extremamente cauteloso quando usar valores de `Host` que permitem acesso remoto. Fazer isso vai permitir o acesso a interface IPC do ASF de outros computadores, que pode causar um risco na segurança. Nós recomendamos fortemente usar **ao menos **`IPCPassword` (e de preferência seu firewall também) nesse caso.
 
-`KnownNetworks` - Essa variável especifica endereços de internet que consideramos confiáveis. By default, ASF is configured to trust **[private address space](https://datatracker.ietf.org/doc/html/rfc1918#section-3)**, which considers your LAN, VPNs and alike. This property is used in two ways. Firstly, if you omit `IPCPassword`, then we'll allow only machines from known networks to access ASF's API, and deny everybody else as a security measure. Secondly, this property is crucial in regards to reverse-proxies accessing ASF, as ASF will honor its headers only if the reverse-proxy server is from within known networks. Honoring the headers is crucial in regards to ASF's anti-bruteforce mechanism, as instead of banning the reverse-proxy in case of a problem, it'll ban the IP specified by the reverse-proxy as the source of the original message. Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured. If by any case you're connected to a private network that you do not trust, yet you still decided to enable access from them through `Endpoints` specified above, then you can override this property to something more restrictive such as `"KnownNetworks": []` in order to remove the default behaviour of trusting them.
+`KnownNetworks` - Essa variável especifica endereços de internet que consideramos confiáveis. By default, ASF is configured to trust loopback interface (`localhost`, same machine) **only**. This property is used in two ways. Firstly, if you omit `IPCPassword`, then we'll allow only machines from known networks to access ASF's API, and deny everybody else as a security measure. Secondly, this property is crucial in regards to reverse-proxies accessing ASF, as ASF will honor its headers only if the reverse-proxy server is from within known networks. Honoring the headers is crucial in regards to ASF's anti-bruteforce mechanism, as instead of banning the reverse-proxy in case of a problem, it'll ban the IP specified by the reverse-proxy as the source of the original message. Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured.
 
 `PathBase` - Esse é o caminho padrão que será usado pela interface IPC. Essa propriedade é opcional, o padrão é `/` e deve haver a necessidade de modificação na maioria dos casos. Mudar essa propriedade fará com que a interface IPC seja hospedada em um prefixo personalizado, por exemplo `http://localhost:1242/MeuPrefixo` ao invés de apenas `http://localhost:1242`. Usar um `PathBase` personalizado pode ser desejável em combinação com uma configuração específica de proxy reverso, onde você quer que o proxy funcione apenas em uma URL específica, por exemplo `meudomínio.com/ASF` ao invés de todo o domínio `meudomínio.com`. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
 
@@ -277,9 +113,9 @@ A menos que você realmente precise especificar um caminho base personalizado, �
 
 
 
-### Exemplo de configuração
+## Exemplo de configuração
 
-A configuração à seguir permite acesso remoto de todas as fontes, portanto você deve se certificar que leu e entendeu nosso aviso de segurança sobre isso, disponível acima.
+The following config will allow remote access from all sources, therefore you should **ensure that you read and understood our security notice about that**, available above.
 
 
 
@@ -297,3 +133,177 @@ A configuração à seguir permite acesso remoto de todas as fontes, portanto vo
 
 
 Se você não precisa de acesso de todas as fontes, mas, por exemplo, apenas da sua LAN, então é melhor usar algo como `192.168.0.0.0` ao invés de `*`. Adapte o endereço de rede adequadamente caso você use um diferente.
+
+
+
+---
+
+
+
+# Autenticação
+
+A interface ASF do IPC não requer qualquer tipo de autenticação por padrão, já que `IPCPassword` é definido como `null`. No entanto, se `IPCPassword` for definido com qualquer valor não-vazio, todas as chamadas à API do ASF vão requerer a senha correspondente definida em `IPCPassword`. Se você omitir a autenticação ou entrar com uma senha errada, você terá o erro `401 - Unauthorized` erro. Se você continuar enviando solicitações sem autenticação, eventualmente você será temporariamente bloqueado com o erro `403 - Forbidden`.
+
+A autenticação pode ser feita de duas formas diferentes.
+
+
+
+## `Authentication` (autenticação) de cabeçalho
+
+Em geral, você deve usar cabeçalhos de solicitação HTTP, configurando o campo `Authentication` com sua senha como um valor. A maneira de fazer isso depende da ferramenta que você está usando para acessar a interface IPC do ASF, por exemplo, se você estiver usando `curl`, então você deve adicionar `-H 'Authentication: MyPassword'` como um parâmetro. Dessa forma a autenticação será passada nos cabeçalhos da solicitação, onde ele de fato deve ocorrer.
+
+
+
+## Parâmetro `password` na string de consulta
+
+Como alternativa você pode acrescentar o parâmetro `password` ao final da URL você está prestes a chamar, por exemplo, chamando `/Api/ASF?password=MyPassword` em vez de apenas `/Api/ASF`. Essa abordagem é boa o suficiente, mas obviamente ele expõe sua senha, o que não é necessariamente adequado. Além disso, é um argumento extra na sequência de consulta, o que desorganiza a aparência da URL e da impressão que se aplica somente a essa URL, enquanto a senha se aplica a toda comunicação do API do ASF.
+
+
+
+---
+
+Há suporte para ambas as formas e a escolha é totalmente sua em qual usar. Recomendamos usar cabeçalhos HTTP sempre que possível, já que esse tipo de uso é mais apropriado que uma string de consulta. No entanto, apoiamos a sequência de caracteres de consulta, principalmente por causa de várias limitações relacionadas com solicitações de cabeçalhos. Um bom exemplo inclui falta de cabeçalhos personalizados ao iniciar uma conexão de WebSockets em javascript (mesmo que seja completamente válido de acordo com a RFC). Nesta situação uma string de consulta é a única forma de autenticar.
+
+
+
+---
+
+
+
+# Documentação Swagger
+
+Nossa interface IPC, da API do ASF e do ASF-ui também inclui documentação Swagger, que está disponível em `/swagger` **[URL](http://localhost:1242/swagger)**. A documentação Swagger serve como um intermediário entre a nossa implementação de API e outras ferramentas que a usam (por exemplo, ASF-ui). Ele fornece uma documentação completa e disponibilidade de todos os API endpoints nas especificações do **[OpenAPI](https://swagger.io/resources/open-api)** que pode ser facilmente usada por outros projetos, permitindo que você escreva e teste a API do ASF com facilidade.
+
+Além de usar nossa documentação Swagger como uma especificação completa do API do ASF, você pode também usá-lo como uma maneira amigável de executar vários API endpoints, principalmente aqueles que não são implementados pelo ASF-ui. Como nossa documentação Swagger é gerada automaticamente a partir código ASF, você tem a garantia de que a documentação estará sempre atualizada com os endpoints de API inclusos na sua versão do ASF.
+
+![Documentação Swagger](https://i.imgur.com/mLpd5e4.png)
+
+
+
+---
+
+
+
+# Perguntas frequentes (FAQ)
+
+
+
+### A interface IPC do ASF é segura?
+
+Por padrão o ASF escuta apenas nos endereços `localhost`, o que significa que acessar o IPC do ASF de qualquer outro computador **é impossível**. A menos que você modifique os endpoints padrão, um invasor precisaria de um acesso direto ao seu computador acessar o IPC do ASF, portanto ele é tão seguro quanto possível e não há possibilidade de outra pessoa acessá-lo, até mesmo de sua própria rede doméstica.
+
+No entanto, se você decidir mudar os endereços padrão do `localhost`, então você deve configurar regras de firewall adequadas **por sua conta** para permitir apenas IPs autorizados a acessar a interface de IPC do ASF. In addition to doing that, you will need to set up `IPCPassword`, as ASF will refuse to let other machines access ASF API without one, which adds another layer of extra security. Você também pode querer rodar a interface IPC do ASF sob um proxy reverso nesse caso, que será melhor explicado abaixo.
+
+
+
+### Posso acessar o API do ASF pelas minhas próprias ferramentas ou userscripts?
+
+Sim, é para isso que a API do ASF foi desenvolvida e você pode usar qualquer coisa capaz de enviar uma solicitação HTTP para acessá-lo. Userscripts locais seguem a lógica **[CORS](https://pt.wikipedia.org/wiki/Cross-origin_resource_sharing)**, e permitimos o acesso a eles de todas as origens (`*`), contanto que uma `IPCPassword` (senha IPC) seja definida, como uma medida de segurança extra. Isso permite que você execute várias solicitações autenticadas da API do ASF, sem permitir que scripts potencialmente mal-intencionados façam isso automaticamente (já que eles precisariam saber sua `IPCPassword` (senha) para fazer isso).
+
+
+
+### Posso acessar o IPC do ASF remotamente, de outro computador por exemplo?
+
+Yes, we recommend to use a reverse proxy for that. Dessa forma você pode acessar seu servidor web como de costume, o qual então acessará o IPC do ASF no mesmo computador. Como alternativa, se você não quiser executar um proxy reverso, você pode usar uma **[configuração personalizada](#configuração-personalizada)** com uma URL personalizada. For example, if your machine is in a VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
+
+
+
+### Posso usar o IPC do ASF atrás de um proxy reverso como Apache ou Nginx?
+
+**Sim**, nosso IPC é totalmente compatível com tal configuração, então você também pode usá-lo com suas próprias ferramentas para maior segurança e compatibilidade, se quiser. Em geral, o servidor http Kestrel do ASF é muito seguro e não possui nenhum risco ao ser conectado diretamente à internet, mas colocá-lo atrás de um proxy reverso como Apache ou Nginx pode fornecer funcionalidades extras que não seria possível conseguir de outra forma, como garantir a interface do ASF com uma **[autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
+
+Segue abaixo um exemplo de configuração Nginx. Incluímos um bloco `server` completo, embora você esteja interessado principalmente nos blocos `location`. Consulte a **[documentação nginx](https://nginx.org/en/docs)** se você precisar de mais explicações.
+
+
+
+```nginx
+server {
+    listen *:443 ssl;
+    server_name asf.mydomain.com;
+    ssl_certificate /path/to/your/certificate.crt;
+    ssl_certificate_key /path/to/your/certificate.key;
+
+    location ~* /Api/NLog {
+        proxy_pass http://127.0.0.1:1242;
+
+        # Only if you need to override default host
+#       proxy_set_header Host 127.0.0.1;
+
+        # X-headers should always be specified when proxying requests to ASF
+        # They're crucial for proper identification of original IP, allowing ASF to e.g. ban the actual offenders instead of your nginx server
+        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
+        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
+        # If you're unable to host nginx service on the same machine as ASF, you most likely want to set KnownNetworks appropriately in addition to those
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $host:$server_port;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+
+        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
+        proxy_http_version 1.1;
+        proxy_set_header Connection "Upgrade";
+        proxy_set_header Upgrade $http_upgrade;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:1242;
+
+        # Only if you need to override default host
+#       proxy_set_header Host 127.0.0.1;
+
+        # X-headers should always be specified when proxying requests to ASF
+        # They're crucial for proper identification of original IP, allowing ASF to e.g. ban the actual offenders instead of your nginx server
+        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
+        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
+        # If you're unable to host nginx service on the same machine as ASF, you most likely want to set KnownNetworks appropriately in addition to those
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Host $host:$server_port;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
+
+
+Segue abaixo um exemplo de configuração Apache. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
+
+
+
+```apache
+<IfModule mod_ssl.c>
+    <VirtualHost *:443>
+        ServerName asf.mydomain.com
+
+        SSLEngine On
+        SSLCertificateFile /path/to/your/fullchain.pem
+        SSLCertificateKeyFile /path/to/your/privkey.pem
+
+        # TODO: O Apache não consegue diferenciar maiúsculas de minúsculas corretamente, portanto codificamos os casos mais comuns de uso
+        ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
+        ProxyPass "/Api/NLog" "ws://127.0.0.1:1242/Api/NLog"
+
+        ProxyPass "/" "http://127.0.0.1:1242/"
+    </VirtualHost>
+</IfModule>
+```
+
+
+
+
+### Posso acessar a interface IPC através do protocolo HTTPS?
+
+**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. Desta forma o seu tráfego será totalmente criptografado e você não precisa modificar o IPC para tal configuração.
+
+Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. Este modo é recomendado se você não estiver executando nenhum outro servidor web e não quer executar um exclusivamente para o ASF. Caso contrário, é muito mais fácil efetuar uma configuração satisfatória por meio de um mecanismo de proxy reverso.
+
+
+
+---
+
+
+
+### Why am I getting `403 Forbidden` error when not using `IPCPassword`?
+
+Starting with ASF V5.1.2.1, we've added additional security measure that, by default, allows only loopback interface (`localhost`, your own machine) to access ASF API without `IPCPassword` set in the config. This is because using `IPCPassword` should be a **minimum** security measure set by everybody who decides to expose ASF interface further. You're still able to override this decision by specifying the networks which you trust to reach ASF without `IPCPassword` specified, you can set those in `KnownNetworks` property in custom config. However, unless you **really** know what you're doing and fully understand the risks, you should instead use `IPCPassword` as declaring `KnownNetworks` will allow everybody from that network to access ASF API unconditionally.

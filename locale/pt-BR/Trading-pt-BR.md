@@ -35,9 +35,9 @@ Quando o `SteamTradeMatcher` estiver ativo, o ASF usará um algorítimo um tanto
 
 Os 4 primeiros atributos devem ser óbvios para todos. A última inclui uma lógica para cartas duplicadas que analisa o estado atual do nosso inventário e decide qual é o status da troca.
 
-- A troca é **boa** se aumentar nosso progresso em busca de completar o set. Exemplo: A A (antes) <-> A B (depois)
-- A troca é **neutra** se nosso progresso em busca de completar o set continuar o mesmo. Exemplo: A B (antes) <-> A C (depois)
-- A troca é **ruim** se diminuir nosso progresso em busca de completar o set. Exemplo: A C (antes) <-> A A (depois)
+- A troca é **boa** se aumentar nosso progresso em busca de completar o set. Example: A A (before) -> A B (after)
+- A troca é **neutra** se nosso progresso em busca de completar o set continuar o mesmo. Example: A B (before) -> A C (after)
+- A troca é **ruim** se diminuir nosso progresso em busca de completar o set. Example: A C (before) -> A A (after)
 
 O STM só opera em trocas boas, o que significa que o usuário que estiver usando o STM para juntar cartas duplicadas deve sempre nos sugerir apenas trocas boas. No entanto, o ASF é liberal, e também aceita trocas neutras, já que nessas trocas não perdemos nada, então não há nenhuma razão para rejeitá-las. Isso é especialmente útil para os seus amigos, uma vez que eles podem trocar suas cartas extras sem usar o STM, contanto que você não esteja perdendo o progresso para completar a insígnia.
 

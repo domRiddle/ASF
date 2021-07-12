@@ -35,9 +35,9 @@ Es ist nett zu erwähnen, dass ASF auch Überzahlungen unterstützt - die Logik 
 
 Die ersten 4 Ablehnungsprädikate sollten für jeden offensichtlich sein. Das letzte beinhaltet die Logik der tatsächlichen Duplikate, die den aktuellen Zustand unseres Inventars überprüft und entscheidet was der Status des Handelsangebotes ist.
 
-- Das Handelsangebot ist **gut**, wenn unser Fortschritt in Richtung Fertigstellung voranschreitet. Beispiel: A A (vorher) <-> A B (nachher)
-- Das Handelsangebot ist **neutral**, wenn unser Fortschritt bei der Fertigstellung intakt bleibt. Beispiel: A B (vorher) <-> A C (nachher)
-- Das Handelsangebot ist **schlecht**, wenn unser Fortschritt in Richtung Fertigstellung zurückgeht. Beispiel: A C (vorher) <-> A A (nachher)
+- Das Handelsangebot ist **gut**, wenn unser Fortschritt in Richtung Fertigstellung voranschreitet. Example: A A (before) -> A B (after)
+- Das Handelsangebot ist **neutral**, wenn unser Fortschritt bei der Fertigstellung intakt bleibt. Example: A B (before) -> A C (after)
+- Das Handelsangebot ist **schlecht**, wenn unser Fortschritt in Richtung Fertigstellung zurückgeht. Example: A C (before) -> A A (after)
 
 STM arbeitet nur mit guten Handelsangeboten, was bedeutet, dass Benutzer die STM für den Duplikatabgleich verwenden uns immer nur gute Handelsangebote vorschlagen sollten. ASF ist jedoch liberal und akzeptiert auch neutrale Handelsangebote, denn in diesen Handelsangeboten verlieren wir nicht wirklich etwas, sodass es keinen wirklichen Grund gibt dies abzulehnen. Dies ist besonders nützlich für Ihre Freunde, da sie Ihre überschüssigen Karten ohne STM tauschen können solange du keinen Set-Fortschritt verlierst.
 

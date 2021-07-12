@@ -39,9 +39,9 @@ Lorsque ` SteamTradeMatcher </ 0> est actif, ASF utilisera un algorithme assez c
 <p spaces-before="0">Les 4 premiers motifs de rejet devraient être évidents pour tout le monde. Le dernier comprend la logique des  doubles qui vérifie l’état actuel de nos stocks et décide de l’état du commerce.</p>
 
 <ul>
-<li>Le commerce est <strong x-id="1"> bon </ 0> si nos progrès vers l’achèvement fixé progressent. Example: A A (before) <-> A B (après)</li>
-<li>Le commerce est <strong x-id="1"> bon </ 0> si nos progrès vers l’achèvement fixé progressent. Example: A B (before) <->  A C (après)</li>
-<li>Le commerce est <strong x-id="1"> mauvais </ 0> si nos progrès vers l’achèvement des objectifs fixés diminuent. Example: A C (before) <->  A A(après)</li>
+<li>Le commerce est <strong x-id="1"> bon </ 0> si nos progrès vers l’achèvement fixé progressent. Example: A A (before) -&#062; A B (after)</li>
+<li>Le commerce est <strong x-id="1"> bon </ 0> si nos progrès vers l’achèvement fixé progressent. Example: A B (before) -&#062; A C (after)</li>
+<li>Le commerce est <strong x-id="1"> mauvais </ 0> si nos progrès vers l’achèvement des objectifs fixés diminuent. Example: A C (before) -&#062; A A (after)</li>
 </ul>
 
 <p spaces-before="0">STM ne fonctionne que sur des offres correct, ce qui signifie que l'utilisateur qui utilise STM pour les doubles devrait toujours suggérer que des offres correct nous. Cependant, ASF est  indulgent et accepte également les transactions neutres, car dans ces transactions, nous ne perdons rien, il n’y a donc aucune raison de les refuser. Ceci est particulièrement utile pour vos amis, car ils peuvent échanger vos cartes en trop sans utiliser la technologie STM, tant que vous ne perdez pas la progression définie.</p>
