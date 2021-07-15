@@ -142,7 +142,7 @@ Unless you want to provide custom encryption key or other advanced options, usua
 
 ## IPC
 
-Assuming you didn't change the default value for `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's already enabled, but you have to modify default listening address of `localhost`, as docker can't route outside traffic to loopback interface. 모든 인터페이스를 리슨하는 설정값의 예시입니다. `http://*:1242`. 물론 로컬 LAN이나 VPN 네트워크 같은 더 제한적인 바인딩을 사용할 수도 있지만, 외부에서 라우팅 가능해야 합니다. `localhost`는 게스트 기기안에서만 라우팅하므로 이것이 불가능합니다.
+Assuming you didn't change the default value for `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's already enabled. However, you must do two additional things for IPC to work in Docker container. Firstly, you must use `IPCPassword` or modify default `KnownNetworks` in custom `IPC.config` to allow you to connect from the outside without using one. Unless you really know what you're doing, just use `IPCPassword`. Secondly, you have to modify default listening address of `localhost`, as docker can't route outside traffic to loopback interface. 모든 인터페이스를 리슨하는 설정값의 예시입니다. `http://*:1242`. 물론 로컬 LAN이나 VPN 네트워크 같은 더 제한적인 바인딩을 사용할 수도 있지만, 외부에서 라우팅 가능해야 합니다. `localhost`는 게스트 기기안에서만 라우팅하므로 이것이 불가능합니다.
 
 위와 같이 하려면, 아래와 같은 **[사용자 설정 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR#custom-configuration)**를 사용해야 합니다.
 
