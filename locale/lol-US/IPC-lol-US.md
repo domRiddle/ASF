@@ -96,7 +96,7 @@ TEH CONFIGURASHUN FILE IZ BASD ON FOLLOWIN JSON STRUCCHUR:
 
 `Host` ACCEPTS VARIETY OV VALUEZ, INCLUDIN `*` VALUE DAT BINDZ ASFS HTTP SERVR 2 ALL AVAILABLE INTERFACEZ. BE EXTREMELY CAREFUL WHEN U USE `Host` VALUEZ DAT ALLOW REMOTE ACCES. DOIN SO WILL ENABLE ACCES 2 ASFS IPC INTERFACE FRUM OTHR MACHINEZ, WHICH CUD POSE SECURITY RISK. WE STRONGLY RECOMMEND 2 USE `IPCPassword` (AN PREFERABLY UR OWN FIREWALL 2) **AT MINIMUM** IN DIS CASE.
 
-`KnownNetworks` - DIS VARIABLE SPECIFIEZ NETWORK ADDRESEZ WHICH WE CONSIDR TRUSTWORTHY. By default, ASF is configured to trust loopback interface (`localhost`, same machine) **only**. This property is used in two ways. Firstly, if you omit `IPCPassword`, then we'll allow only machines from known networks to access ASF's API, and deny everybody else as a security measure. Secondly, this property is crucial in regards to reverse-proxies accessing ASF, as ASF will honor its headers only if the reverse-proxy server is from within known networks. Honoring the headers is crucial in regards to ASF's anti-bruteforce mechanism, as instead of banning the reverse-proxy in case of a problem, it'll ban the IP specified by the reverse-proxy as the source of the original message. Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured.
+`KnownNetworks` - DIS VARIABLE SPECIFIEZ NETWORK ADDRESEZ WHICH WE CONSIDR TRUSTWORTHY. BY DEFAULT, ASF IZ CONFIGURD 2 TRUST LOOPBACK INTERFACE (`localhost`, SAME MACHINE) **ONLY**. DIS PROPERTY IZ USD IN 2 WAYS. FIRSTLY, IF U OMIT `IPCPassword`, DEN WELL ALLOW ONLY MACHINEZ FRUM KNOWN NETWORKZ 2 ACCES ASFS API, AN DENY EVRYBODY ELSE AS SECURITY MEASURE. SECONDLY, DIS PROPERTY IZ CRUSHUL IN REGARDZ 2 REVERSE-PROXIEZ ACCESIN ASF, AS ASF WILL HONOR ITZ HEADERS ONLY IF TEH REVERSE-PROXY SERVR IZ FRUM WITHIN KNOWN NETWORKZ. HONORIN TEH HEADERS IZ CRUSHUL IN REGARDZ 2 ASFS ANTI-BRUTEFORCE MECHANISM, AS INSTEAD OV BANNIN TEH REVERSE-PROXY IN CASE OV PROBLEM, ITLL BAN TEH IP SPECIFID BY TEH REVERSE-PROXY AS TEH SOURCE OV TEH ORIGINAL MESAGE. BE EXTREMELY CAREFUL WIF TEH NETWORKZ U SPECIFY HER, AS IT ALLOWS POTENTIAL IP SPOOFIN ATTACK AN UNAUTHORIZD ACCES IN CASE TEH TRUSTD MACHINE IZ COMPROMISD OR WRONGLY CONFIGURD.
 
 `PathBase` - DIS AR TEH BASE PATH DAT WILL BE USD BY IPC INTERFACE. DIS PROPERTY IZ OPSHUNAL, DEFAULTS 2 `/` AN SHOULDNT BE REQUIRD 2 MODIFY 4 MAJORITY OV USE CASEZ. BY CHANGIN DIS PROPERTY ULL HOST ENTIRE IPC INTERFACE ON CUSTOM PREFIX, 4 EXAMPLE `http://localhost:1242/MyPrefix` INSTEAD OV `http://localhost:1242` ALONE. USIN CUSTOM `PathBase` CUD BE WANTD IN COMBINASHUN WIF SPECIFIC SETUP OV REVERSE PROXY WER UD LIEK 2 PROXY SPECIFIC URL ONLY, 4 EXAMPLE `mydomain.com/ASF` INSTEAD OV ENTIRE `mydomain.com` DOMAIN. NORMALLY DAT WUD REQUIRE FRUM U 2 RITE REWRITE RULE 4 UR WEB SERVR DAT WUD MAP `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, BUT INSTEAD U CAN DEFINE CUSTOM `PathBase` OV `/ASF` AN ACHIEVE EASIR SETUP OV `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
 
@@ -104,7 +104,7 @@ UNLES U TRULY NED 2 SPECIFY CUSTOM BASE PATH, IZ BEST 2 LEEF IT AT DEFAULT.
 
 ## EXAMPLE CONFIG
 
-The following config will allow remote access from all sources, therefore you should **ensure that you read and understood our security notice about that**, available above.
+TEH FOLLOWIN CONFIG WILL ALLOW REMOTE ACCES FRUM ALL SOURCEZ, THEREFORE U SHUD **ENSURE DAT U READ AN UNDERSTOOD R SECURITY NOTICE BOUT DAT**, AVAILABLE ABOOV.
 
 ```json
 {
@@ -158,7 +158,7 @@ APART FRUM USIN R SWAGGR DOCUMENTASHUN AS COMPLETE SPECIFICASHUN OV ASF API, U C
 
 ASF BY DEFAULT LISTENS ONLY ON `localhost` ADDRESEZ, WHICH MEANZ DAT ACCESIN ASF IPC FRUM ANY OTHR MACHINE BUT UR OWN **IZ IMPOSIBLE**. UNLES U MODIFY DEFAULT ENDPOINTS, ATTACKR WUD NED DIRECT ACCES 2 UR OWN MACHINE IN ORDR 2 ACCES ASFS IPC, THEREFORE IZ AS SECURE AS IT CAN BE AN THAR IZ NO POSIBILITY OV ANYBODY ELSE ACCESIN IT, EVEN FRUM UR OWN LAN.
 
-HOWEVR, IF U DECIDE 2 CHANGE DEFAULT `localhost` BIND ADDRESEZ 2 SOMETHIN ELSE, DEN URE SUPPOSD 2 SET PROPR FIREWALL RULEZ **YOURSELF** IN ORDR 2 ALLOW ONLY AUTHORIZD IPS 2 ACCES ASFS IPC INTERFACE. In addition to doing that, you will need to set up `IPCPassword`, as ASF will refuse to let other machines access ASF API without one, which adds another layer of extra security. U CUD ALSO WANTS 2 RUN ASFS IPC INTERFACE BEHIND REVERSE PROXY IN DIS CASE, WHICH IZ FURTHR EXPLAIND BELOW.
+HOWEVR, IF U DECIDE 2 CHANGE DEFAULT `localhost` BIND ADDRESEZ 2 SOMETHIN ELSE, DEN URE SUPPOSD 2 SET PROPR FIREWALL RULEZ **YOURSELF** IN ORDR 2 ALLOW ONLY AUTHORIZD IPS 2 ACCES ASFS IPC INTERFACE. IN ADDISHUN 2 DOIN DAT, U WILL NED 2 SET UP `IPCPassword`, AS ASF WILL REFUSE 2 LET OTHR MACHINEZ ACCES ASF API WITHOUT WAN, WHICH ADDZ ANOTHR LAYR OV EXTRA SECURITY. U CUD ALSO WANTS 2 RUN ASFS IPC INTERFACE BEHIND REVERSE PROXY IN DIS CASE, WHICH IZ FURTHR EXPLAIND BELOW.
 
 ### I CAN ACCES ASF API THRU MAH OWN TOOLS OR USERSCRIPTS?
 
@@ -166,7 +166,7 @@ YEZ, DIS AR TEH WUT ASF API WUZ DESIGND 4 AN U CAN USE ANYTHIN CAPABLE OV SENDIN
 
 ### I CAN ACCES ASFS IPC REMOTELY, E.G. FRUM ANOTHR MACHINE?
 
-Yes, we recommend to use a reverse proxy for that. DIS WAI U CAN ACCES UR WEB SERVR IN TYPICAL WAI, WHICH WILL DEN ACCES ASFS IPC ON TEH SAME MACHINE. ALTERNATIVELY, IF U DOAN WANTS 2 RUN WIF REVERSE PROXY, U CAN USE **[CUSTOM CONFIGURASHUN](#custom-configurashun)** WIF APPROPRIATE URL 4 DAT. For example, if your machine is in a VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
+YEZ, WE RECOMMEND 2 USE REVERSE PROXY 4 DAT. DIS WAI U CAN ACCES UR WEB SERVR IN TYPICAL WAI, WHICH WILL DEN ACCES ASFS IPC ON TEH SAME MACHINE. ALTERNATIVELY, IF U DOAN WANTS 2 RUN WIF REVERSE PROXY, U CAN USE **[CUSTOM CONFIGURASHUN](#custom-configurashun)** WIF APPROPRIATE URL 4 DAT. 4 EXAMPLE, IF UR MACHINE IZ IN VPN WIF `10.8.0.1` ADDRES, DEN U CAN SET `http://10.8.0.1:1242` LISTENIN URL IN IPC CONFIG, WHICH WUD ENABLE IPC ACCES FRUM WITHIN UR PRIVATE VPN, BUT NOT FRUM ANYWHERE ELSE.
 
 ### I CAN USE ASFS IPC BEHIND REVERSE PROXY SUCH AS APACHE OR NGINX?
 
@@ -184,21 +184,21 @@ server {
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
 
-        # Only if you need to override default host
+        # ONLY IF U NED 2 OVERRIDE DEFAULT HOST
 #       proxy_set_header Host 127.0.0.1;
 
-        # X-headers should always be specified when proxying requests to ASF
-        # They're crucial for proper identification of original IP, allowing ASF to e.g. ban the actual offenders instead of your nginx server
-        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
-        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service on the same machine as ASF, you most likely want to set KnownNetworks appropriately in addition to those
+        # X-HEADERS SHUD ALWAYS BE SPECIFID WHEN PROXYIN REQUESTS 2 ASF
+        # THEYRE CRUSHUL 4 PROPR IDENTIFICASHUN OV ORIGINAL IP, ALLOWIN ASF 2 E.G. BAN TEH AKSHUL OFFENDERS INSTEAD OV UR NGINX SERVR
+        # SPECIFYIN THEM ALLOWS ASF 2 PROPERLY RESOLVE IP ADDRESEZ OV USERS MAKIN REQUESTS - MAKIN NGINX WERK AS REVERSE PROXY
+        # NOT SPECIFYIN THEM WILL CAUSE ASF 2 TREAT UR NGINX AS TEH CLIENT - NGINX WILL ACT AS TRADISHUNAL PROXY IN DIS CASE
+        # IF URE UNABLE 2 HOST NGINX SERVICE ON TEH SAME MACHINE AS ASF, U MOST LIKELY WANTS 2 SET KNOWNNETWORKZ APPROPRIATELY IN ADDISHUN 2 DOSE
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
 
-        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
+        # WE ADD DOSE 3 EXTRA OPSHUNS 4 WEBSOCKETS PROXYIN, C https://nginx.org/en/docs/http/websocket.html
         proxy_http_version 1.1;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Upgrade $http_upgrade;
@@ -207,14 +207,14 @@ server {
     location / {
         proxy_pass http://127.0.0.1:1242;
 
-        # Only if you need to override default host
+        # ONLY IF U NED 2 OVERRIDE DEFAULT HOST
 #       proxy_set_header Host 127.0.0.1;
 
-        # X-headers should always be specified when proxying requests to ASF
-        # They're crucial for proper identification of original IP, allowing ASF to e.g. ban the actual offenders instead of your nginx server
-        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
-        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service on the same machine as ASF, you most likely want to set KnownNetworks appropriately in addition to those
+        # X-HEADERS SHUD ALWAYS BE SPECIFID WHEN PROXYIN REQUESTS 2 ASF
+        # THEYRE CRUSHUL 4 PROPR IDENTIFICASHUN OV ORIGINAL IP, ALLOWIN ASF 2 E.G. BAN TEH AKSHUL OFFENDERS INSTEAD OV UR NGINX SERVR
+        # SPECIFYIN THEM ALLOWS ASF 2 PROPERLY RESOLVE IP ADDRESEZ OV USERS MAKIN REQUESTS - MAKIN NGINX WERK AS REVERSE PROXY
+        # NOT SPECIFYIN THEM WILL CAUSE ASF 2 TREAT UR NGINX AS TEH CLIENT - NGINX WILL ACT AS TRADISHUNAL PROXY IN DIS CASE
+        # IF URE UNABLE 2 HOST NGINX SERVICE ON TEH SAME MACHINE AS ASF, U MOST LIKELY WANTS 2 SET KNOWNNETWORKZ APPROPRIATELY IN ADDISHUN 2 DOSE
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -246,12 +246,12 @@ EXAMPLE APACHE CONFIGURASHUN CAN BE FINDZ BELOW. PLZ REFR 2 **[APACHE DOCUMENTAS
 
 ### I CAN ACCES IPC INTERFACE THRU HTTPS PROTOCOL?
 
-**YEZ**, U CAN ACHIEVE IT THRU 2 DIFFERENT WAYS. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. DIS WAI UR TRAFFIC IZ FULLY ENCRYPTD AN U DOAN NED 2 MODIFY IPC IN ANY WAI 2 SUPPORT SUCH SETUP.
+**YEZ**, U CAN ACHIEVE IT THRU 2 DIFFERENT WAYS. A RECOMMENDD WAI WUD BE 2 USE REVERSE PROXY 4 DAT, WER U CAN ACCES UR WEB SERVR THRU HTTPS LIEK USUAL, AN CONNECT THRU IT WIF ASFS IPC INTERFACE ON TEH SAME MACHINE. DIS WAI UR TRAFFIC IZ FULLY ENCRYPTD AN U DOAN NED 2 MODIFY IPC IN ANY WAI 2 SUPPORT SUCH SETUP.
 
 SECOND WAI INCLUDEZ SPECIFYIN **[CUSTOM CONFIG](#custom-configurashun)** 4 ASFS IPC INTERFACE WER U CAN ENABLE HTTPS ENDPOINT AN PROVIDE APPROPRIATE CERTIFICATE DIRECTLY 2 R KESTREL HTTP SERVR. DIS WAI IZ RECOMMENDD IF URE NOT RUNNIN ANY OTHR WEB SERVR AN DOAN WANTS 2 RUN WAN EXCLUSIVELY 4 ASF. OTHERWIZE, IZ MUTCH EASIR 2 ACHIEVE SATISFYIN SETUP BY USIN REVERSE PROXY MECHANISM.
 
 ---
 
-### Why am I getting `403 Forbidden` error when not using `IPCPassword`?
+### Y IZ I GETTIN `403 Forbidden` ERROR WHEN NOT USIN `IPCPassword`?
 
-Starting with ASF V5.1.2.1, we've added additional security measure that, by default, allows only loopback interface (`localhost`, your own machine) to access ASF API without `IPCPassword` set in the config. This is because using `IPCPassword` should be a **minimum** security measure set by everybody who decides to expose ASF interface further. You're still able to override this decision by specifying the networks which you trust to reach ASF without `IPCPassword` specified, you can set those in `KnownNetworks` property in custom config. However, unless you **really** know what you're doing and fully understand the risks, you should instead use `IPCPassword` as declaring `KnownNetworks` will allow everybody from that network to access ASF API unconditionally.
+STARTIN WIF ASF V5.1.2.1, WEVE ADDD ADDISHUNAL SECURITY MEASURE DAT, BY DEFAULT, ALLOWS ONLY LOOPBACK INTERFACE (`localhost`, UR OWN MACHINE) 2 ACCES ASF API WITHOUT `IPCPassword` SET IN DA CONFIG. DIS AR TEH CUZ USIN `IPCPassword` SHUD BE **MINIMUM** SECURITY MEASURE SET BY EVRYBODY HOO DECIDEZ 2 EXPOSE ASF INTERFACE FURTHR. URE STILL ABLE 2 OVERRIDE DIS DECISHUN BY SPECIFYIN TEH NETWORKZ WHICH U TRUST 2 REACH ASF WITHOUT <`IPCPassword` SPECIFID, U CAN SET DOSE IN `KnownNetworks` PROPERTY IN CUSTOM CONFIG. HOWEVR, UNLES U **RLY** KNOE WUT URE DOIN AN FULLY UNDERSTAND TEH RISKZ, U SHUD INSTEAD USE `IPCPassword` AS DECLARIN `KnownNetworks` WILL ALLOW EVRYBODY FRUM DAT NETWORK 2 ACCES ASF API UNCONDISHUNALLY.

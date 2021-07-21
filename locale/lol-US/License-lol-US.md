@@ -6,7 +6,7 @@ ASF LICENSE IZ VRY PERMISIV AN URE ALLOWD 2 DO MUTCH MOAR THAN IN STANDARD GPL L
 
 > U CAN DO WUT U LIEK WIF TEH SOFTWARE, AS LONG AS U INCLUDE TEH REQUIRD NOTICEZ. DIS PERMISIV LICENSE CONTAINS PATENT LICENSE FRUM TEH CONTRIBUTORS OV TEH CODE.
 
-By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
+BY STATIN DAT ASF IZ LICENSD UNDR **[APACHE LICENSE 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, WE REFR 2 TEH MAIN PROJECT **ONLY**, INCLUDIN ITZ SOURCE CODE, WITHOUT MAKIN ANY STATEMENTS BOUT OTHR PROJECTS DAT ASF MAKEZ USE OV (ESPECIALLY LIBRARIEZ, TOOLS, FRAMEWORKZ AN FRONTENDZ, SUCH AS **[ASF-UI](https://github.com/JustArchiNET/ASF-ui)**), WHICH R TYPICALLY LICENSD UNDR DIFFERENT TERMS.
 
 -----
 
