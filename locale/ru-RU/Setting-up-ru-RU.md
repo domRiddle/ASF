@@ -150,7 +150,7 @@ After passing through initial login gate, assuming your details are correct, you
 
 ### Расширенное конфигурирование
 
-#### Farming several accounts at once
+#### Фарм на нескольких аккаунтах одновременно
 
 ASF supports farming more than one account at a time, which is its primary function. Вы можете добавлять новые аккаунты к ASF создавая новые файлы конфигурации ботов, точно так же как вы создали для первого бота несколько минут назад. Вам нужно следить только за двумя вещами:
 
@@ -203,7 +203,7 @@ Please note that some features, such as sending commands, require a properly set
 
 ### Резюме
 
-Вы успешно установили и настроили ASF для ваших аккаунтов Steam, и даже немного поменяли настройки на свой вкус. If you followed our entire guide, then you also managed to tweak ASF through our ASF-ui interface and found out that ASF actually has a GUI of some sort. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen actually do, and what ASF has to offer. If you've stumbled upon some issue or you have some generic question, read our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least a vast majority of questions that you may have. Если хотите узнать всё об ASF и о том, как оно может облегчить вам жизнь, прочтите оставшиеся разделы **[нашей wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU)**. If you found out our program to be useful for you and you're feeling generous, you can also consider donating to our project. In any case, have fun!
+Вы успешно установили и настроили ASF для ваших аккаунтов Steam, и даже немного поменяли настройки на свой вкус. If you followed our entire guide, then you also managed to tweak ASF through our ASF-ui interface and found out that ASF actually has a GUI of some sort. Now is a good time to read our entire **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** section in order to learn what all those different settings you've seen actually do, and what ASF has to offer. If you've stumbled upon some issue or you have some generic question, read our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead which should cover all, or at least a vast majority of questions that you may have. Если хотите узнать всё об ASF и о том, как оно может облегчить вам жизнь, прочтите оставшиеся разделы **[нашей wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU)**. If you found out our program to be useful for you and you're feeling generous, you can also consider donating to our project. В любом случае, веселись!
 
 ---
 

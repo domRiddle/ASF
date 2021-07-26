@@ -23,14 +23,14 @@
 * **[🛠️ Khả năng tương thích](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[⏱️ Hiệu năng](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📊 Thống kê](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
-* **[👪 Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[👪 Chia sẻ gia đình Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[🔄 Trao đổi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 
 ## 🧙 Nâng cao
 
 * **[⌨️ Lệnh khởi chạy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[🚧 Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[🚧 Khấu hao](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[🐳 Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[🤔 Câu hỏi thường gặp Mở rộng](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[🚀 Thiết lập hiệu suất cao](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**

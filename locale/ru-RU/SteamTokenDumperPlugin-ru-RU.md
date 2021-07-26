@@ -86,7 +86,7 @@ The advanced config has the following structure located within `ASF.json`:
 
 ---
 
-## Further explanation
+## Дальнейшее объяснение
 
 At the root level, every Steam account owns a set of packages (licenses, subscriptions), which are classified by their `packageID` (also known as `subID`). Every package may contain several apps classified by their `appID`. Every app may then include several depots classified by their `depotID`.
 
