@@ -37,14 +37,14 @@ As part of our releases on GitHub, we utilize very similar verification process 
 Firstly, you should use `SHA512SUMS` file in order to verify that `SHA-512` checksum of the selected `zip` files matches the one we calculated ourselves. On Linux, you can use `sha512sum` utility for that purpose.
 
 
-```sh
+```shell
 $ sha512sum -c --ignore-missing SHA512SUMS
 ASF-linux-x64.zip: OK
 ```
 
 This way we ensured that whatever was written to `SHA512SUMS` matches the resulting files and they weren't tampered with. However, that's doesn't prove yet that `SHA512SUMS` file you checked against really comes from us. For that, we'll use `SHA512SUMS.sign` file, which holds digital PGP signature proving the authenticity of `SHA512SUMS`. On Linux, you can use `gpg` utility for that purpose.
 
-```sh
+```shell
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
 gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
 gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
@@ -53,7 +53,7 @@ gpg: Can't check signature: No public key
 
 As you can see, the file indeed holds a valid signature, but of unknown origin. You'll need to import ArchiBot's **[public key](https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc)** that we sign the `SHA-512` sums with for full validation.
 
-```sh
+```shell
 $ wget -q https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc
 $ gpg --import ArchiBot_public.asc
 gpg: /home/archi/.gnupg/trustdb.gpg: trustdb created
@@ -65,7 +65,7 @@ gpg:               imported: 1
 
 Finally, you can verify the `SHA512SUMS` file again:
 
-```sh
+```shell
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
 gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
 gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
@@ -81,7 +81,7 @@ You could be wondering where the last warning comes from. You've successfully im
 
 Firstly, **[generate private key for yourself](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Generating_an_OpenPGP_Key)**, if you don't have one yet. We'll use `--quick-gen-key` as an example.
 
-```sh
+```shell
 $ gpg --batch --passphrase '' --quick-gen-key "$(whoami)"
 gpg: /home/archi/.gnupg/trustdb.gpg: trustdb created
 gpg: key E4E763905FAD148B marked as ultimately trusted
@@ -91,7 +91,7 @@ gpg: revocation certificate stored as '/home/archi/.gnupg/openpgp-revocs.d/8E5D6
 
 Now you can sign our key with yours in order to trust it:
 
-```sh
+```shell
 $ gpg --sign-key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 
 pub  ed25519/A3D181DF2D554CCF
@@ -110,15 +110,15 @@ pub  ed25519/A3D181DF2D554CCF
      ArchiBot <ArchiBot@JustArchi.net>
 
 Are you sure that you want to sign this key with your
-key "root" (E4E763905FAD148B)
+key "archi" (E4E763905FAD148B)
 
 Really sign? (y/N) y
 ```
 
 And done, after trusting our key, `gpg` should no longer display the warning when verifying:
 
-```sh
-root@archi:/tmp/sign# gpg --verify SHA512SUMS.sign SHA512SUMS
+```shell
+$ gpg --verify SHA512SUMS.sign SHA512SUMS
 gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
 gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [full]
