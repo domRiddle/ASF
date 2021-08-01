@@ -79,20 +79,14 @@ This has verified that the `SHA512SUMS.sign` holds a valid signature of our `224
 
 You could be wondering where the last warning comes from. You've successfully imported our key, but didn't decide to trust it just yet. Normally this includes verifying through different channel (e.g. phone call, SMS) that the key is valid, then signing the key with your own to trust it. For this example, we'll assume that you have enough of confidence as it is.
 
-Firstly, **[generate private key for yourself](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Generating_an_OpenPGP_Key)**, if you don't have one just yet. We'll use `--quick-gen-key` as a quick example.
+Now, there are several ways you can trust the key. We'll edit the `trust` level of the key we've just imported, as that doesn't require anything else, such as generating your own private key.
 
 ```shell
-$ gpg --batch --passphrase '' --quick-gen-key "$(whoami)"
-gpg: /home/archi/.gnupg/trustdb.gpg: trustdb created
-gpg: key E4E763905FAD148B marked as ultimately trusted
-gpg: directory '/home/archi/.gnupg/openpgp-revocs.d' created
-gpg: revocation certificate stored as '/home/archi/.gnupg/openpgp-revocs.d/8E5D685F423A584569686675E4E763905FAD148B.rev'
-```
+$ gpg --edit-key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
+gpg (GnuPG) 2.2.27; Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
 
-Now you can sign our key with yours in order to trust it:
-
-```shell
-$ gpg --sign-key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 
 pub  ed25519/A3D181DF2D554CCF
      created: 2021-05-22  expires: never       usage: SC
@@ -101,18 +95,36 @@ sub  cv25519/E527A892E05B2F38
      created: 2021-05-22  expires: never       usage: E
 [ unknown] (1). ArchiBot <ArchiBot@JustArchi.net>
 
-
+gpg> trust
 pub  ed25519/A3D181DF2D554CCF
      created: 2021-05-22  expires: never       usage: SC
      trust: unknown       validity: unknown
- Primary key fingerprint: 224D A6DB 47A3 935B DCC3  BE17 A3D1 81DF 2D55 4CCF
+sub  cv25519/E527A892E05B2F38
+     created: 2021-05-22  expires: never       usage: E
+[ unknown] (1). ArchiBot <ArchiBot@JustArchi.net>
 
-     ArchiBot <ArchiBot@JustArchi.net>
+Please decide how far you trust this user to correctly verify other users' keys
+(by looking at passports, checking fingerprints from different sources, etc.)
 
-Are you sure that you want to sign this key with your
-key "archi" (E4E763905FAD148B)
+  1 = I don't know or won't say
+  2 = I do NOT trust
+  3 = I trust marginally
+  4 = I trust fully
+  5 = I trust ultimately
+  m = back to the main menu
 
-Really sign? (y/N) y
+Your decision? 3
+
+pub  ed25519/A3D181DF2D554CCF
+     created: 2021-05-22  expires: never       usage: SC
+     trust: marginal      validity: unknown
+sub  cv25519/E527A892E05B2F38
+     created: 2021-05-22  expires: never       usage: E
+[ unknown] (1). ArchiBot <ArchiBot@JustArchi.net>
+Please note that the shown key validity is not necessarily correct
+unless you restart the program.
+
+gpg> quit
 ```
 
 And done, after trusting our key, `gpg` should no longer display the warning when verifying:
