@@ -6,13 +6,13 @@ A háttérbeli játék beváltónak csak egyetlen bot hatásköre lehet, ez azt 
 
 ---
 
-## Import
+## Importálás
 
 Az importálási folyamatot kétféleképpen lehet véghez vinni: fájllal, vagy IPC-vel.
 
 ### Fájl
 
-Az ASF magától fel fogja ismerni a `config` könyvtárában a `BotNeve.keys` nevű fájlt, ahol `BotNeve` a botod neve. Attól a fájltól elvárjuk, hogy fix struktúrája legyen, vagyis soronként megtalálható benne a játék neve és a cd kulcs egymástól egy tabulátorral elválasztva, valamint minden sorban csak egy játék lehet. Ha egy sorban több tabulátor is van, akkor akkor az első tabulátor előtti szavak lesznek a játék neve, az utolsó pedig a cd kulcs, minden más ignorálva lesz. For example:
+Az ASF magától fel fogja ismerni a `config` könyvtárában a `BotNeve.keys` nevű fájlt, ahol `BotNeve` a botod neve. Attól a fájltól elvárjuk, hogy fix struktúrája legyen, vagyis soronként megtalálható benne a játék neve és a cd kulcs egymástól egy tabulátorral elválasztva, valamint minden sorban csak egy játék lehet. Ha egy sorban több tabulátor is van, akkor akkor az első tabulátor előtti szavak lesznek a játék neve, az utolsó pedig a cd kulcs, minden más ignorálva lesz. Például:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -46,7 +46,7 @@ Ha a folyamat során az account `RateLimited` státuszt kapna, a várakozólista
 
 ---
 
-## Example
+## Példa
 
 Tegyük fel, hogy van egy listád 100 kulccsal. Először is létre kell hoznod egy új `BotNeve.keys.new` fájlt az ASF `config` könyvtárában. Azért tesszük a `.new` kiterjesztést a végére, hogy az ASF tudja, hogy nem kell ezt a fájlt azonnal feldolgoznia, amint létrejött (mivel egy újonnan létrehozott fájl üres lesz, tehát nincs mit rajta feldolgozni).
 

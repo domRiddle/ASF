@@ -8,7 +8,7 @@
 
 ***
 
-## 👨‍🏫 Base
+## 👨‍🏫 Bázis
 
 * **[🏡 Főoldal](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[🔧 Beállítások](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
@@ -29,7 +29,7 @@
 
 ## 🧙 Haladó beállítások
 
-* **[⌨️ Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[⌨️ Parancssori argumentumok](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[🚧 Hiba bejelentés](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[🐳 Tároló](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[🤔 Kifejtett GYIK](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
