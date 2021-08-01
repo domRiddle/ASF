@@ -66,7 +66,7 @@ gpg:               imported: 1
 Finally, you can verify the `SHA512SUMS` file again:
 
 ```sh
-root@archi:/tmp/sign# gpg --verify SHA512SUMS.sign SHA512SUMS
+$ gpg --verify SHA512SUMS.sign SHA512SUMS
 gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
 gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [unknown]
