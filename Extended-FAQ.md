@@ -30,6 +30,120 @@ I'm also using ASF as a perfect example of a modern C# project that always strik
 
 ---
 
+### How do I verify that the downloaded files are genuine?
+
+As part of our releases on GitHub, we utilize very similar verification process as the one used by **[Debian](https://www.debian.org/CD/verify)**. In every official release starting with ASF V5.1.3.3, in addition to `zip` files you can find `SHA512SUMS` and `SHA512SUMS.sign` files. Download them for verification purposes.
+
+Firstly, you should use `SHA512SUMS` file in order to verify that `SHA-512` checksum of the selected `zip` files matches the one we calculated ourselves. On Linux, you can use `sha512sum` utility for that purpose.
+
+
+```sh
+$ sha512sum -c --ignore-missing SHA512SUMS
+ASF-linux-x64.zip: OK
+```
+
+This way we ensured that whatever was written to SHA512SUMS matches the resulting files and they weren't tampered with. However, that's doesn't prove yet that `SHA512SUMS` file you checked against really comes from us. For that, we'll use `SHA512SUMS.sign` file, which holds digital PGP signature proving the authenticity of `SHA512SUMS`. On Linux, you can use `gpg` utility for that purpose.
+
+```sh
+$ gpg --verify SHA512SUMS.sign SHA512SUMS
+gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
+gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
+gpg: Can't check signature: No public key
+```
+
+As you can see, the file indeed holds a valid signature, but of unknown origin. You'll need to import ArchiBot's **[public key](https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc)** that we sign the `SHA-512` sums with for full validation. For additional reference, the public key is:
+
+```
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mDMEYKkJ0BYJKwYBBAHaRw8BAQdAe2gs4UJHzxDF/++hm1VkUhzlGLNIy7tP0xEa
+17PaMc60IUFyY2hpQm90IDxBcmNoaUJvdEBKdXN0QXJjaGkubmV0PoiQBBMWCAA4
+FiEEIk2m20ejk1vcw74Xo9GB3y1VTM8FAmCpCdACGwMFCwkIBwIGFQoJCAsCBBYC
+AwECHgECF4AACgkQo9GB3y1VTM9U9AEA9v0iMKSYlbtUHUQj2QxFhy+oFca+3Uju
+OU3WpZHG1PIA/0Egc6cLi1okVSpnu9gHzsDaeL6rWXXNiQ2JH7PTJZ4FuDgEYKkJ
+0BIKKwYBBAGXVQEFAQEHQJlen4Aigq9Qe79fXxQrlmxVGFlAdxYcALw+6knTt+1P
+AwEIB4h4BBgWCAAgFiEEIk2m20ejk1vcw74Xo9GB3y1VTM8FAmCpCdACGwwACgkQ
+o9GB3y1VTM8C1QD/d9oEr14HyjSedcyAcw2Jh5Ohhcw/iPDWttIcipSHPVQBAO62
+KNSLKfw3GgoJjHwl8lAHfpnMjSKfuCSRu71xmv0G
+=IGqs
+-----END PGP PUBLIC KEY BLOCK-----
+```
+
+```sh
+$ wget -q https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc
+$ gpg --import ArchiBot_public.asc
+gpg: /home/archi/.gnupg/trustdb.gpg: trustdb created
+gpg: key A3D181DF2D554CCF: public key "ArchiBot <ArchiBot@JustArchi.net>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+
+```
+
+Finally, you can verify the `SHA512SUMS` file again:
+
+```sh
+root@archi:/tmp/sign# gpg --verify SHA512SUMS.sign SHA512SUMS
+gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
+gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
+gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 224D A6DB 47A3 935B DCC3  BE17 A3D1 81DF 2D55 4CCF
+```
+
+This has verified that the `SHA512SUMS.sign` holds a valid signature of our `224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF` key for `SHA512SUMS` file that you've verified against.
+
+You could be wondering where the last warning comes from. You've successfully imported our key, but didn't decide to trust it just yet. Normally this includes verifying through different channel (usually phone, sms) that the key is valid, then signing the key with your own to trust it. For this example, we'll assume that you have enough confidence as it is.
+
+Firstly, **[generate private key for yourself](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Generating_an_OpenPGP_Key)**, if you don't have one yet. We'll use `--quick-gen-key` as an example.
+
+```sh
+$ gpg --batch --passphrase '' --quick-gen-key "$(whoami)"
+gpg: /home/archi/.gnupg/trustdb.gpg: trustdb created
+gpg: key E4E763905FAD148B marked as ultimately trusted
+gpg: directory '/home/archi/.gnupg/openpgp-revocs.d' created
+gpg: revocation certificate stored as '/home/archi/.gnupg/openpgp-revocs.d/8E5D685F423A584569686675E4E763905FAD148B.rev'
+```
+
+Now you can sign our key with yours in order to trust it:
+
+```sh
+$ gpg --sign-key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
+
+pub  ed25519/A3D181DF2D554CCF
+     created: 2021-05-22  expires: never       usage: SC
+     trust: unknown       validity: unknown
+sub  cv25519/E527A892E05B2F38
+     created: 2021-05-22  expires: never       usage: E
+[ unknown] (1). ArchiBot <ArchiBot@JustArchi.net>
+
+
+pub  ed25519/A3D181DF2D554CCF
+     created: 2021-05-22  expires: never       usage: SC
+     trust: unknown       validity: unknown
+ Primary key fingerprint: 224D A6DB 47A3 935B DCC3  BE17 A3D1 81DF 2D55 4CCF
+
+     ArchiBot <ArchiBot@JustArchi.net>
+
+Are you sure that you want to sign this key with your
+key "root" (E4E763905FAD148B)
+
+Really sign? (y/N) y
+```
+
+And done, after trusting our key, `gpg` should no longer display the warning when verifying:
+
+```sh
+root@archi:/tmp/sign# gpg --verify SHA512SUMS.sign SHA512SUMS
+gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
+gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
+gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [full]
+```
+
+Congratulatons, you've verified that nobody has tampered with the release you've downloaded! 👍
+
+---
+
 ### I've launched the program on April the 1st and the ASF language changed into something strange, what is going on?
 
 CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! If you didn't set custom `CurrentCulture` option, then ASF launched on April the 1st will actually use **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** language instead of your system language. If by any chance you'd like to disable that behaviour, you can simply set `CurrentCulture` to the locale that you'd like to use instead. It's also nice to note that you can enable our easter egg unconditionally, by setting your `CurrentCulture` to `qps-Ploc` value.
