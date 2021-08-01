@@ -37,14 +37,14 @@ As part of our releases on GitHub, we utilize very similar verification process 
 Firstly, you should use `SHA512SUMS` file in order to verify that `SHA-512` checksum of the selected `zip` files matches the one we calculated ourselves. On Linux, you can use `sha512sum` utility for that purpose.
 
 
-```
+```shell
 $ sha512sum -c --ignore-missing SHA512SUMS
 ASF-linux-x64.zip: OK
 ```
 
 This way we ensured that whatever was written to `SHA512SUMS` matches the resulting files and they weren't tampered with. However, that's doesn't prove yet that `SHA512SUMS` file you checked against really comes from us. For that, we'll use `SHA512SUMS.sign` file, which holds digital PGP signature proving the authenticity of `SHA512SUMS`. On Linux, you can use `gpg` utility for that purpose.
 
-```
+```shell
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
 gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
 gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
@@ -53,7 +53,7 @@ gpg: Can't check signature: No public key
 
 As you can see, the file indeed holds a valid signature, but of unknown origin. You'll need to import ArchiBot's **[public key](https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc)** that we sign the `SHA-512` sums with for full validation.
 
-```
+```shell
 $ wget -q https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc
 $ gpg --import ArchiBot_public.asc
 gpg: /home/archi/.gnupg/trustdb.gpg: trustdb created
@@ -65,7 +65,7 @@ gpg:               imported: 1
 
 Finally, you can verify the `SHA512SUMS` file again:
 
-```
+```shell
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
 gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
 gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
@@ -81,7 +81,7 @@ You could be wondering where the last warning comes from. You've successfully im
 
 Now, there are several ways you can trust the key. We'll edit the `trust` level of the key we've just imported, as that doesn't require anything else, such as generating your own private key.
 
-```
+```shell
 $ gpg --edit-key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg (GnuPG) 2.2.27; Copyright (C) 2021 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
@@ -129,7 +129,7 @@ gpg> quit
 
 And done, after trusting our key, `gpg` should no longer display the warning when verifying:
 
-```
+```shell
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
 gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
 gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
