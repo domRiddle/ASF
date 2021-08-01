@@ -51,23 +51,7 @@ gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg: Can't check signature: No public key
 ```
 
-As you can see, the file indeed holds a valid signature, but of unknown origin. You'll need to import ArchiBot's **[public key](https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc)** that we sign the `SHA-512` sums with for full validation. For additional reference, the public key is:
-
-```
------BEGIN PGP PUBLIC KEY BLOCK-----
-
-mDMEYKkJ0BYJKwYBBAHaRw8BAQdAe2gs4UJHzxDF/++hm1VkUhzlGLNIy7tP0xEa
-17PaMc60IUFyY2hpQm90IDxBcmNoaUJvdEBKdXN0QXJjaGkubmV0PoiQBBMWCAA4
-FiEEIk2m20ejk1vcw74Xo9GB3y1VTM8FAmCpCdACGwMFCwkIBwIGFQoJCAsCBBYC
-AwECHgECF4AACgkQo9GB3y1VTM9U9AEA9v0iMKSYlbtUHUQj2QxFhy+oFca+3Uju
-OU3WpZHG1PIA/0Egc6cLi1okVSpnu9gHzsDaeL6rWXXNiQ2JH7PTJZ4FuDgEYKkJ
-0BIKKwYBBAGXVQEFAQEHQJlen4Aigq9Qe79fXxQrlmxVGFlAdxYcALw+6knTt+1P
-AwEIB4h4BBgWCAAgFiEEIk2m20ejk1vcw74Xo9GB3y1VTM8FAmCpCdACGwwACgkQ
-o9GB3y1VTM8C1QD/d9oEr14HyjSedcyAcw2Jh5Ohhcw/iPDWttIcipSHPVQBAO62
-KNSLKfw3GgoJjHwl8lAHfpnMjSKfuCSRu71xmv0G
-=IGqs
------END PGP PUBLIC KEY BLOCK-----
-```
+As you can see, the file indeed holds a valid signature, but of unknown origin. You'll need to import ArchiBot's **[public key](https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc)** that we sign the `SHA-512` sums with for full validation.
 
 ```sh
 $ wget -q https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc
