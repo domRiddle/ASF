@@ -124,6 +124,8 @@ gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [full]
 ```
 
+Notice the `[unknown]` trust indicator changing into `[full]` once you signed our key with yours.
+
 Congratulatons, you've verified that nobody has tampered with the release you've downloaded! 👍
 
 ---
