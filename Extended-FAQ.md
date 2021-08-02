@@ -42,7 +42,7 @@ $ sha512sum -c --ignore-missing SHA512SUMS
 ASF-linux-x64.zip: OK
 ```
 
-This way we ensured that whatever was written to `SHA512SUMS` matches the resulting files and they weren't tampered with. However, that's doesn't prove yet that `SHA512SUMS` file you checked against really comes from us. For that, we'll use `SHA512SUMS.sign` file, which holds digital PGP signature proving the authenticity of `SHA512SUMS`. On Linux, you can use `gpg` utility for that purpose.
+This way we ensured that whatever was written to `SHA512SUMS` matches the resulting files and they weren't tampered with. However, it doesn't prove yet that `SHA512SUMS` file you checked against really comes from us. For that, we'll use `SHA512SUMS.sign` file, which holds digital PGP signature proving the authenticity of `SHA512SUMS`. On Linux, you can use `gpg` utility for that purpose.
 
 ```
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
