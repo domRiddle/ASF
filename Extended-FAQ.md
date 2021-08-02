@@ -55,7 +55,7 @@ f605e573cc5e044dd6fadbc44f6643829d11360a2c6e4915b0c0b8f5227bc2a257568a014d3a2c06
 eee87dd072d0c63ca13e374ae55fec76ae0ab9aab95deb403945a8d35b9bb5be34362eb64c3b75c27cbc6f4df3a17a5ef3e0169a7038b6bb284288b39e7dec65  ASF-osx-x64.zip
 7152fdaf715147fee5c4f675e62b9c34c2787f93bca7fd4f9e6e12a59b75e6e1caba7b3641f24248a58eefa5ed3fdbb79d89572061118e09ea8161c17b7923e1  ASF-win-x64.zip
 
-PS > Get-FileHash -Path ASF-linux-x64.zip -Algorithm SHA512
+PS > Get-FileHash -Algorithm SHA512 -Path ASF-linux-x64.zip
 
 Algorithm       Hash                                                                   Path
 ---------       ----                                                                   ----
