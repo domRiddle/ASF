@@ -62,7 +62,7 @@ Algorithm       Hash                                                            
 SHA512          F605E573CC5E044DD6FADBC44F6643829D11360A2C6E4915B0C0B8F5227BC2A2575... ASF-linux-x64.zip
 ```
 
-This way we ensured that whatever was written to `SHA512SUMS` matches the resulting files and they weren't tampered with. However, it doesn't prove yet that `SHA512SUMS` file you checked against really comes from us. For that, we'll use `SHA512SUMS.sign` file, which holds digital PGP signature proving the authenticity of `SHA512SUMS`. On Linux, you can use `gpg` utility for that purpose. On Windows, you can use **[Gpg4win](https://www.gpg4win.org)**.
+This way we ensured that whatever was written to `SHA512SUMS` matches the resulting files and they weren't tampered with. However, it doesn't prove yet that `SHA512SUMS` file you checked against really comes from us. For that, we'll use `SHA512SUMS.sign` file, which holds digital PGP signature proving the authenticity of `SHA512SUMS`. On Linux, you can use `gpg` utility for that purpose. On Windows, you can use **[Gpg4win](https://www.gpg4win.org)** (change `gpg` command into `gpg.exe`).
 
 ```
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
