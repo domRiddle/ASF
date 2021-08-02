@@ -126,7 +126,7 @@ gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [full]
 
 Notice the `[unknown]` trust indicator changing into `[full]` once you signed our key with yours.
 
-Congratulatons, you've verified that nobody has tampered with the release you've downloaded! 👍
+Congratulations, you've verified that nobody has tampered with the release you've downloaded! 👍
 
 ---
 
