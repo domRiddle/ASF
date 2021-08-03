@@ -13,7 +13,7 @@
 通常，我们只需要花费几分钟进行下列操作：
 - 安装 **[.NET Core 依赖项](#net-core-依赖)**。
 - 在 &#8203;**[ASF 发布页面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下载适合您操作系统的包。
-- 将下载的压缩包解压到新位置，如果您使用 Linux/macOS，还需要执行命令 `chmod +x ArchiSteamFarm`。
+- 将压缩包解压到一个新文件夹。
 - **[配置 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**。
 - 运行并开始使用 ASF。
 
@@ -59,8 +59,6 @@
 
 下载之后，首先将 zip 文件解压到一个文件夹中。 我们建议使用 **[7-zip](https://www.7-zip.org)**，但 Linux/macOS 提供的 `unzip` 等标准工具也应该没有任何问题。
 
-如果您正在使用 Linux/macOS，不要忘记在解压得到的文件夹中执行 `chmod +x ArchiSteamFarm` 命令，因为 zip 压缩包无法提供权限信息。 您只需要在解压之后执行一次。
-
 您应该将 ASF 解压到一个**独立的文件夹**中，而不是已有文件的文件夹——ASF 会在自动更新时删除文件夹中任何过时或无关的文件，您在 ASF 文件夹中存放的其他文件可能会因此丢失。 如果您需要一些与 ASF 相关的额外脚本或文件，请将它们放到上层文件夹。
 
 这是一个文件夹结构的示例：
@@ -94,7 +92,7 @@ C:\ASF (放置您自己与 ASF 相关的东西)
 
 打开这个页面后，切换到“机器人”标签。 您应该会看到类似下图的界面：
 
-![机器人标签](https://i.imgur.com/aF3k8Rg.png)
+![Bot tab](https://i.imgur.com/aF3k8Rg.png)
 
 如果您刚刚下载的 ASF 版本早于配置文件生成器的默认版本，只需要在下拉菜单中选择您的 ASF 版本。 发生这种情况的原因是，配置文件生成器会支持尚未成为稳定版本的预览版 ASF。 您下载的最新稳定版 ASF 已经过验证，可以正常工作。
 
@@ -114,13 +112,13 @@ ASF 需要您的帐户凭据，因为它包含自己的 Steam 客户端实现，
 
 在上述操作都完成后，您的网页页面看起来会类似于下图：
 
-![机器人标签 2](https://i.imgur.com/yf54Ouc.png)
+![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
 
 现在您可以点击“下载”按钮，配置文件生成器将会根据您输入的名称生成新的 `json` 文件。 将该文件保存到 `config` 文件夹，该文件夹位于您在上一步中解压 zip 文件得到的文件夹中。
 
 您的 `config` 文件夹现在看起来类似：
 
-![文件夹结构 2](https://i.imgur.com/crWdjcp.png)
+![Structure 2](https://i.imgur.com/crWdjcp.png)
 
 恭喜您！ 您刚刚完成了最基本的 ASF 机器人配置。 我们会在之后对此进行扩展，但现在这就是您需要的一切。
 
@@ -171,7 +169,7 @@ ASF 支持同时挂多个帐户，这也是它的主要功能之一。 您可以
 
 我们可以改变它。 在配置文件生成器中启用高级设置，找到 `CustomGamePlayedWhileFarming`。 找到之后，在这里填写您想要显示的文本，例如“Idling cards”（挂卡中）。
 
-![机器人标签 3](https://i.imgur.com/gHqdEqb.png)
+![Bot tab 3](https://i.imgur.com/gHqdEqb.png)
 
 现在，像之前一样下载新的配置文件，然后**覆盖**旧的配置文件。 当然，您也可以先删除旧配置文件，再将新配置文件放到原来的地方。
 
@@ -225,7 +223,7 @@ ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们
 - 安装 **[.NET Core 依赖项](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**。
 - 安装适合您操作系统的 **[.NET Core SDK](https://www.microsoft.com/net/download)**（或至少安装运行时环境）。 您可能需要使用一个安装器。 如果您不确定应该安装哪个版本，请参考&#8203;**[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**。
 - 在 **[ASF 发布页面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下载 `generic` 包。
-- 将下载的压缩包解压到新位置，如果您使用 Linux/macOS，还需要执行命令 `chmod +x ArchiSteamFarm.sh`。
+- 将压缩包解压到一个新文件夹。
 - **[配置 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**。
 - 使用助手脚本或者在 shell 中执行 `dotnet /path/to/ArchiSteamFarm.dll` 启动 ASF。
 

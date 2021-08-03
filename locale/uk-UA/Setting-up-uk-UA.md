@@ -13,7 +13,7 @@
 Взагалі, ось що нам з вами треба зробити за наступні кілька хвилин:
 - Встановити **[передумови для .NET Core](#net-core-prerequisites)**.
 - Скачати **[останній випуск ASf](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** у варіанті відповідному конкретній ОС.
-- Розпакувати архів до нового місця (та зробити `chmod +x ArchiSteamFarm` якщо ви під Linux/OS X).
+- Extract the archive into new location.
 - **[Сконфігурувати ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - Запустити ASF та подивитися на її магію.
 
@@ -58,8 +58,6 @@ At least a majority of those should be already natively available on your system
 ![Файли](https://i.imgur.com/Ym2xPE5.png)
 
 Після завантаження, почніть з того щоб розпакувати файл zip до окремої папки. Ми радимо користуватися **[7-zip](https://www.7-zip.org)**, але усі стандартні утиліти на зразок `unzip` зі складу Linux/OS X мають також працювати без проблем.
-
-Якщо ви користуєтесь Linux/OS X, не забудьте виконати у розпакованій директорії команду `chmod +x ArchiSteamFarm`, бо дозволи не встановлюються автоматично у zip-файлі. Це треба зробити лише один раз після початкового розпакування.
 
 Радимо розпакувати ASF до **його власної директорії**, а не до якоїсь вже існуючої директорії яка має у собі щось інше - функція автоматичного оновлення ASF видаліть усі старі та непов'язані з ASF файли під час оновлення, що може призвести до втрати будь чого, що ви поклали до директорії ASF. Якщо ви маєте якісь додаткові скрипти чи інші файли, які бажаєте використовувати разом з ASF, покладіть їх на одну папку вище.
 
@@ -225,7 +223,7 @@ For `generic` package, you can follow entire OS-specific guide above, with two s
 - Встановити **[передумови для .NET Core](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
 - Встановити **[.NET Core SDK](https://www.microsoft.com/net/download)** (чи принаймні runtime), відповідний до вашої ОС. Найвірогідніше ви схочете скористуватися інсталятором. Зверніться до розділу "**[Вимоги середовища виконання](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-uk-UA#Вимоги-середовища-виконання<)**", якщо не впевнені яку версію вам потрібно встановити.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.
-- Розпакувати архів до нового місця (та зробити `chmod +x ArchiSteamFarm.sh` якщо ви під Linux/OS X).
+- Extract the archive into new location.
 - **[Сконфігурувати ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - Запустити ASF або за використавши допоміжний скрипт, або виконавши команду `dotnet /path/to/ArchiSteamFarm.dll` вручну з вашої улюбленої консолі.
 

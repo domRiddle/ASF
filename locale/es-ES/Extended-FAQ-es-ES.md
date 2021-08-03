@@ -30,6 +30,125 @@ También estoy usando ASF como un perfecto ejemplo de un moderno proyecto C# que
 
 ---
 
+### ¿Cómo puedo verificar que los archivos descargados son auténticos?
+
+Como parte de nuestras versiones en GitHub, usamos un proceso de verificación muy similar al usado por **[Debian](https://www.debian.org/CD/verify)**. En cada versión oficial a partir de ASF V5.1.3.3, además de los archivos `zip` también puedes encontrar los archivos `SHA512SUMS` y `SHA512SUMS.sign` Descárgalos para fines de verificación.
+
+Primero, debes usar el archivo `SHA512SUMS` para verificar que la suma de verificación `SHA-512` de los archivos `zip` seleccionados coincide con la que nosotros calculamos. En Linux, puedes usar la utilidad `sha512sum` para ese fin.
+
+
+```
+$ sha512sum -c --ignore-missing SHA512SUMS
+ASF-linux-x64.zip: OK
+```
+
+En Windows, podemos hacer eso desde powershell, aunque tienes que verificar manualmente con `SHA512SUMS`:
+
+```
+PS > Get-Content SHA512SUMS
+b8d54f7b82823650632cbaf323b5619e264b24c98f815d5b6ccb4095f51708221717e1b07542f3676a28853571f7b634c7071eadd9c3eb1dc902f64dee66a241  ASF-generic-netf.zip
+07e0b4e6a73d6c62b6b516588148e9787dba66ec221ab07e14ab43f43172ae85da858eefb5b66c06b5f7320b34f6c6b96435de6df3aaf437239a6a48faad61ae  ASF-generic.zip
+de1c105252efc65d428edd7d1fb696bfaae719fd79d75c5c21fd2d56d0a7e5c62e45d818d75fad0c06f9b17cfb392b3d13a2af58b8c9f83fe1db98e325b4e4f1  ASF-linux-arm.zip
+d97276a68db32cab8b33c1552141fcf057d913b36de7db1c0b393be888a9528b88f0f958153924d8434a518715a5de7500e0bde846a7ea54e26ee3724c119b6f  ASF-linux-arm64.zip
+f605e573cc5e044dd6fadbc44f6643829d11360a2c6e4915b0c0b8f5227bc2a257568a014d3a2c0612fa73907641d0cea455138d2e5a97186a0b417abad45ed9  ASF-linux-x64.zip
+eee87dd072d0c63ca13e374ae55fec76ae0ab9aab95deb403945a8d35b9bb5be34362eb64c3b75c27cbc6f4df3a17a5ef3e0169a7038b6bb284288b39e7dec65  ASF-osx-x64.zip
+7152fdaf715147fee5c4f675e62b9c34c2787f93bca7fd4f9e6e12a59b75e6e1caba7b3641f24248a58eefa5ed3fdbb79d89572061118e09ea8161c17b7923e1  ASF-win-x64.zip
+
+PS > Get-FileHash -Algorithm SHA512 -Path ASF-linux-x64.zip
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA512          F605E573CC5E044DD6FADBC44F6643829D11360A2C6E4915B0C0B8F5227BC2A2575... ASF-linux-x64.zip
+```
+
+De esta manera nos aseguramos de que cualquier cosa que haya sido escrita en `SHA512SUMS` coincide con los archivos resultantes y de que no fueron manipulados. Sin embargo, esto aún no prueba que el archivo `SHA512SUMS` que comprobaste realmente proviene de nosotros. Para eso, usaremos el archivo `SHA512SUMS.sign`, que contiene la firma digital PGP que prueba la autenticidad de `SHA512SUMS`. Para ello podemos usar la utilidad `gpg`, tanto en **[Linux](https://gnupg.org/download/index.html)** como en **[Windows](https://gpg4win.org)** (en Windows cambia el comando `gpg` por `gpg.exe`).
+
+```
+$ gpg --verify SHA512SUMS.sign SHA512SUMS
+gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
+gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
+gpg: Can't check signature: No public key
+```
+
+Como puedes ver, el archivo contiene una firma válida, pero de origen desconocido. Necesitarás importar la **[clave pública](https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc)** de ArchiBot con la que firmamos las sumas `SHA-512` para una validación completa.
+
+```
+$ curl https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc -o ArchiBot_public.asc
+$ gpg --import ArchiBot_public.asc
+gpg: /home/archi/.gnupg/trustdb.gpg: trustdb created
+gpg: key A3D181DF2D554CCF: public key "ArchiBot <ArchiBot@JustArchi.net>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+
+```
+
+Finalmente, puedes verificar de nuevo el archivo `SHA512SUMS`:
+
+```
+$ gpg --verify SHA512SUMS.sign SHA512SUMS
+gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
+gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
+gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 224D A6DB 47A3 935B DCC3  BE17 A3D1 81DF 2D55 4CCF
+```
+
+Esto ha verificado que `SHA512SUMS.sign` contiene una firma válida de nuestra clave `224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF` para el archivo `SHA512SUMS` con el que lo has verificado.
+
+Te estarás preguntando de dónde proviene la última advertencia. Has importado exitosamente nuestra clave, pero aún no has decidido confiar en ella. Aunque esto no es obligatorio, también podemos cubrirlo. Normalmente esto incluye verificar a través de diferentes canales (por ejemplo, llamada telefónica, mensaje SMS) que la clave es válida, luego firmar la clave con la tuya propia para confiar en ella. Para este ejemplo, puedes considerar esta entrada de la wiki como el mencionado (muy débil) diferente canal, ya que la clave original proviene del **[perfil de ArchiBot](https://github.com/JustArchi-ArchiBot)**. En cualquier caso, asumiremos que confías en la clave tal como está.
+
+Primero, **[genera tu propia clave privada](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Generating_an_OpenPGP_Key)**, si aún no tienes una. Usaremos `--quick-gen-key` como ejemplo rápido.
+
+```
+$ gpg --batch --passphrase '' --quick-gen-key "$(whoami)"
+gpg: /home/archi/.gnupg/trustdb.gpg: trustdb created
+gpg: key E4E763905FAD148B marked as ultimately trusted
+gpg: directory '/home/archi/.gnupg/openpgp-revocs.d' created
+gpg: revocation certificate stored as '/home/archi/.gnupg/openpgp-revocs.d/8E5D685F423A584569686675E4E763905FAD148B.rev'
+```
+
+Ahora puedes firmar nuestra clave con la tuya para confiar en ella:
+
+```
+$ gpg --sign-key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
+
+pub  ed25519/A3D181DF2D554CCF
+     created: 2021-05-22  expires: never       usage: SC
+     trust: unknown       validity: unknown
+sub  cv25519/E527A892E05B2F38
+     created: 2021-05-22  expires: never       usage: E
+[ unknown] (1). ArchiBot <ArchiBot@JustArchi.net>
+
+
+pub  ed25519/A3D181DF2D554CCF
+     created: 2021-05-22  expires: never       usage: SC
+     trust: unknown       validity: unknown
+ Primary key fingerprint: 224D A6DB 47A3 935B DCC3  BE17 A3D1 81DF 2D55 4CCF
+
+     ArchiBot <ArchiBot@JustArchi.net>
+
+Are you sure that you want to sign this key with your
+key "archi" (E4E763905FAD148B)
+
+Really sign? (y/N) y
+```
+
+Y listo, después de confiar en nuestra clave, `gpg` ya no debería mostrar la advertencia al hacer la verificación:
+
+```
+$ gpg --verify SHA512SUMS.sign SHA512SUMS
+gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
+gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
+gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [full]
+```
+
+Observa que el indicador de confianza `[unknown]` cambia a `[full]` una vez que has firmado nuestra clave con la tuya.
+
+¡Felicidades, has verificado que la versión que descargaste no ha sido manipulada! 👍
+
+---
+
 ### Ejecuté el programa el 1º de abril y el idioma de ASF se cambió a algo extraño, ¿qué está pasando?
 
-¡FELISIDADS X DSQBRIR NUESTR UEBO D PASKUA DL DIA D LOZ INOZENTS! Si no estableciste la opción `CurrentCulture`, entonces ASF ejecutado el 1º de abril utilizará el idioma **[LOLcat](https://es.wikipedia.org/wiki/Lolcat)** en vez del idioma de tu sistema. Si deseas desactivar ese comportamiento, puedes establecer `CurrentCulture` al idioma que te gustaría usar. También puedes activar nuestro huevo de pascua incondicionalmente, estableciendo `CurrentCulture` al valor `qps-Ploc`.
+¡FELISIDADS X DSQBRIR NUESTR UEBO D PASKUA DL DIA D LOZ INOZENTS! Si no estableciste la opción `CurrentCulture`, entonces al ejecutar ASF el 1º de abril este utilizará el idioma **[LOLcat](https://es.wikipedia.org/wiki/Lolcat)** en lugar del idioma de tu sistema. Si deseas desactivar ese comportamiento, puedes establecer `CurrentCulture` al idioma que te gustaría usar. También puedes activar nuestro huevo de pascua incondicionalmente, estableciendo `CurrentCulture` al valor `qps-Ploc`.

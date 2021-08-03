@@ -13,7 +13,7 @@
 一般的には、次のようにします。
 - **[.NET Core の前提条件](#net-core-prerequisites)**&#8203;をインストールします。
 - **[最新の ASF リリース](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;を適切な OS 固有バリアントでダウンロードします。
-- アーカイブファイルを展開します(Linux/OS X の場合は `chmod +x ArchiSteamFarm` を)。
+- Extract the archive into new location.
 - **[ASF を設定します](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ja-JP)**
 - ASF を起動し、奇跡の瞬間を目に焼き付けなさい。
 
@@ -58,8 +58,6 @@ At least a majority of those should be already natively available on your system
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
 ダウンロードしたら、まずは zip ファイルをお好きなフォルダに解凍して下さい。 We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/OS X should work without problems as well.
-
-Linux/OS X を使っている場合は、解凍したフォルダで`chmod +x ArchiSteamFarm`を忘れずにやってください。 権限変更は解凍のあとに一回だけ必要です。
 
 ASF を&#8203;**ほかに何も入っていないディレクトリ**&#8203;に解凍することをお勧めします。ASF の自動更新機能はアップグレード時に古いファイルや関係のないファイルをすべて削除するようになっているので、ASF ディレクトリにある関係のないファイルが削除される可能性があります。 ASFで使用するほかのスクリプトやファイルは、親ディレクトリに入れてください。
 
@@ -225,7 +223,7 @@ With extra steps:
 - **[.NET Core の前提条件](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**&#8203;をインストールします。
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.
-- Extract the archive into new location (and `chmod +x ArchiSteamFarm.sh` if you're on Linux/OS X).
+- Extract the archive into new location.
 - **[ASF を設定します](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ja-JP)**
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 

@@ -13,7 +13,7 @@
 일반적으로 다음 몇분동안 할 일의 목록입니다:
 - **[.NET Core 필수 구성 요소](#net-core-prerequisites)** 설치
 - 특정 OS에 맞는 **[최신 버전 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** 다운로드
-- 압축파일을 새 위치에 풀기(리눅스/OS X라면 `chmod +x ArchiSteamFarm` 실행)
+- Extract the archive into new location.
 - **[ASF 환경설정](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR)**
 - ASF를 실행하고 마법을 경험하세요
 
@@ -58,8 +58,6 @@ At least a majority of those should be already natively available on your system
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
 다운로드 후에 zip 파일의 압축을 폴더에 푸는 것부터 시작하십시오. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/OS X should work without problems as well.
-
-If you're using Linux/OS X, don't forget to `chmod +x ArchiSteamFarm` in the extracted folder, since permissions are not automatically set in the zip file. 최초 압축해제시 한번만 하면 됩니다.
 
 ASF를 기존에 다른 무언가로 쓰고있던 디렉토리가 아닌 **새 디렉토리**에 압축을 푸는 것을 권장합니다. ASF의 자동업데이트 기능은 업그레이드할때 모든 오래되고 관련이 없는 파일들을 삭제합니다. 만약 ASF디렉토리에 관련이 없는 뭔가가 있다면 없어질 것입니다. ASF와 함께 사용하고 싶은 추가 스크립트나 파일이 있다면 한단계 상위 폴더에 넣으십시오.
 
@@ -225,7 +223,7 @@ With extra steps:
 - **[.NET Core 필수 구성 요소](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)** 설치
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.
-- 압축파일을 새 위치에 풀기(리눅스/OS X라면 `chmod +x ArchiSteamFarm.sh` 실행)
+- Extract the archive into new location.
 - **[ASF 환경설정](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR)**
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 

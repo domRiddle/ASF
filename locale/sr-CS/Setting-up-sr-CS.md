@@ -13,7 +13,7 @@ Ovo ipak ne znači da ga ne možete koristiti na vašem PC-u ili na nečem više
 Opšte kazano, ovo ćete raditi u nekoliko sledećih minuta:
 - Instalirati **[.NET Core prerequisites](#net-core-prerequisites)**.
 - Preuzmite **[poslednje ASF izdanje](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** u odgovarajućoj OS-specifičnoj varijanti.
-- ekstraktujte arhivu u novoj lokaciji (i `chmod +x ArchiSteamFarm` ako ste na Linux-u/OS X-u),
+- Extract the archive into new location.
 - **[Konfigurišete ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - pokrenite ASF i vidite magiju.
 
@@ -58,8 +58,6 @@ Sada kada imate sve zahtjeve ispunjene, sledeći korak je da preuzmete **[posled
 ![Sredstva](https://i.imgur.com/Ym2xPE5.png)
 
 Nakon preuzimanja, ekstraktujte zip fajl u novom folderu. Mi predlažemo koršćenje **[7-zip](https://www.7-zip.org)**, ali svi standardni programi kao `unzip` na Linux/OS X-u će takođe raditi bez problema.
-
-Ako koristite Linux/OS X, ne zaboravite da date privilegije pokretanja pomoću `chmod +x ArchiSteamFarm` u folderu gdje je program ekstraktovan, pošto privilegije nije moguće podesiti u zip fajlu. Ovo je potrebno samo jednom uraditi prije prvog pokretanja.
 
 ASF je potrebno ekstraktovati u **svom novom direktorijumu** a ne u nekom postojećem direktorijumu koji koristite za nešto drugo - ASF će izbrisati sve fajlove koje ne prepoznaje ili mu nisu više potrebni nakon ažuriranja, što može dovesti do brisanja vaših fajlova ako ih smjestite u istom ASF folderu. Ako imate neki script ili fajl koji želite da koristite sa ASF-om, stavite ih u folder iznad.
 
@@ -225,7 +223,7 @@ Sa dodatnim koracima:
 - Instalirajte **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
 - Instalirajte **[.NET Core SDK](https://www.microsoft.com/net/download)** (ili bar runtime) za vaš OS. Vjerovatno ćete željeti da koristite automatsku instalaciju. Pogledajte **[runtime zahtjeve](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** ako niste sigurni koju verziju da instalirate.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.
-- Ekstraktujte arhivu u novoj lokaciji (i `chmod +x ArchiSteamFarm.sh` ako ste na Linux-u/OS X-u),.
+- Extract the archive into new location.
 - **[Konfigurišete ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - Pokrenite ASF koristeći pomoćni skript ili ručnom ekekjucijom `dotnet /ruta/do/ArchiSteamFarm.dll` iz vaše omiljene ljuske.
 
