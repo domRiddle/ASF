@@ -26,7 +26,7 @@ ASF 目前支持的加密方式定义为如下 `ECryptoMethod`：
 
 按照当今的标准，**[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** 可以被视为安全的加密方式，指定 `ECryptoMethod` 为 `1` 即可启用这种方式。 ASF 需要相应字符串是一个由 AES 加密的字节数组转换成的 **[Base64 编码](https://en.wikipedia.org/wiki/Base64)**&#8203;的字符序列，此数据需要其包含的&#8203;**[初始向量](https://en.wikipedia.org/wiki/Initialization_vector)**&#8203;和 ASF 内置加密密钥来解密。
 
-此方法保证了安全性，只要攻击者不知道用于加密和解密的 ASF 内置密钥。 ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**&#8203;指定自定义密钥增强 ASF 的安全性。 如果您决定省略它，ASF 将使用自己提供的密钥，这个密钥是**已知**的并已硬编码到应用程序中，这意味着任何人都可以撤消 ASF 的加密并获取解密后的密码。 虽然这种攻击仍然需要一定时间而且并不容易，但是这是可以做到的。所以您总应该同时使用 `AES` 加密并用 `--cryptkey` 指定自定义密钥。 ASF 使用的 AES 方法提供了相对令人满意的安全性，并且它在 `PlainText` 的简单和 `ProtectedDataForCurrentUser` 的复杂之间取得了平衡，但强烈建议您将它与自定义密钥 `--cryptkey` 一起使用。 如果使用得当，就能保证安全存储的适当安全性。
+此方法保证了安全性，只要攻击者不知道用于加密和解密的 ASF 密钥。 ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**&#8203;指定自定义密钥增强 ASF 的安全性。 如果您决定省略它，ASF 将使用自己提供的密钥，这个密钥是**已知**的并已硬编码到应用程序中，这意味着任何人都可以撤消 ASF 的加密并获取解密后的密码。 虽然这种攻击仍然需要一定时间而且并不容易，但是这是可以做到的。所以您总应该同时使用 `AES` 加密并用 `--cryptkey` 指定自定义密钥。 ASF 使用的 AES 方法提供了相对令人满意的安全性，并且它在 `PlainText` 的简单和 `ProtectedDataForCurrentUser` 的复杂之间取得了平衡，但强烈建议您将它与自定义密钥 `--cryptkey` 一起使用。 如果使用得当，就能保证安全存储的适当安全性。
 
 ---
 

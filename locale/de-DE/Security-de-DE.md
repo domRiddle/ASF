@@ -4,11 +4,11 @@
 
 ASF unterstützt derzeit die folgenden Verschlüsselungsmethoden als Parameter für `ECryptoMethod`:
 
-| Value | Name                        |
-| ----- | --------------------------- |
-| 0     | PlainText                   |
-| 1     | AES                         |
-| 2     | ProtectedDataForCurrentUser |
+| Wert | Name                        |
+| ---- | --------------------------- |
+| 0    | PlainText                   |
+| 1    | AES                         |
+| 2    | ProtectedDataForCurrentUser |
 
 Die genaue Beschreibung und Unterschiede zwischen diesen sind nachfolgend verfügbar.
 
@@ -26,7 +26,7 @@ Dies ist die einfachste und zugleich unsicherste Methode das Passwort zu speiche
 
 Considered secure by today standards, **[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** way of storing the password is defined as `ECryptoMethod` of `1`. ASF expects the string to be a **[base64-encoded](https://en.wikipedia.org/wiki/Base64)** sequence of characters resulting in AES-encrypted byte array after translation, which then should be decrypted using included **[initialization vector](https://en.wikipedia.org/wiki/Initialization_vector)** and ASF encryption key.
 
-Die obige Methode garantiert Sicherheit, solange der Angreifer den eingebauten ASF-Verschlüsselungsschlüssel nicht kennt, der sowohl zur Entschlüsselung als auch zur Verschlüsselung von Passwörtern verwendet wird. ASF erlaubt es dir, den Schlüssel mit dem **[Befehlszeilenargument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-de-DE)** `--cryptkey` anzugeben, den du für maximale Sicherheit verwenden solltest. Wenn du dich dazu entscheidest es wegzulassen, verwendet ASF seinen eigenen Schlüssel, der **bekannt** und fest in der Anwendung programmiert ist, was bedeutet, dass jeder die ASF-Verschlüsselung umkehren und ein entschlüsseltes Passwort erhalten kann. Es erfordert immer noch etwas Aufwand und ist nicht so einfach zu bewerkstelligen, aber möglich, deshalb solltest du fast immer `AES` Verschlüsselung mit Ihrem eigenen `--cryptkey` verwenden, den du geheim halten solltest. Die in ASF verwendete AES-Methode bietet eine zufriedenstellende Sicherheit und es ist ein Kompromiss zwischen der Einfachheit von `PlainText` und der Komplexität von `ProtectedDataForCurrentUser`, aber es wird dringend empfohlen, sie mit benutzerdefinierten `--cryptkey` zu verwenden. If used properly, guarantees decent security for safe storage.
+The method above guarantees security as long as attacker doesn't know ASF encryption key which is being used for decryption as well as encryption of passwords. ASF erlaubt es dir, den Schlüssel mit dem **[Befehlszeilenargument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-de-DE)** `--cryptkey` anzugeben, den du für maximale Sicherheit verwenden solltest. Wenn du dich dazu entscheidest es wegzulassen, verwendet ASF seinen eigenen Schlüssel, der **bekannt** und fest in der Anwendung programmiert ist, was bedeutet, dass jeder die ASF-Verschlüsselung umkehren und ein entschlüsseltes Passwort erhalten kann. Es erfordert immer noch etwas Aufwand und ist nicht so einfach zu bewerkstelligen, aber möglich, deshalb solltest du fast immer `AES` Verschlüsselung mit Ihrem eigenen `--cryptkey` verwenden, den du geheim halten solltest. Die in ASF verwendete AES-Methode bietet eine zufriedenstellende Sicherheit und es ist ein Kompromiss zwischen der Einfachheit von `PlainText` und der Komplexität von `ProtectedDataForCurrentUser`, aber es wird dringend empfohlen, sie mit benutzerdefinierten `--cryptkey` zu verwenden. If used properly, guarantees decent security for safe storage.
 
 ---
 
@@ -58,13 +58,13 @@ ASF unterstützt keine Möglichkeit, bereits verschlüsselte Passwörter zu ents
 
 ASF unterstützt derzeit die folgenden Hashmethoden als Parameter für `EHashingMethod`:
 
-| Value | Name      |
-| ----- | --------- |
-| 0     | PlainText |
-| 1     | SCrypt    |
-| 2     | Pbkdf2    |
+| Wert | Name      |
+| ---- | --------- |
+| 0    | PlainText |
+| 1    | SCrypt    |
+| 2    | Pbkdf2    |
 
-The exact description and comparison of them is available below.
+Die genaue Beschreibung und Unterschiede zwischen diesen sind nachfolgend verfügbar.
 
 In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
 
@@ -72,7 +72,7 @@ In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `h
 
 ### PlainText
 
-This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. Sie ist am einfachsten zu benutzen und zu 100% kompatibel mit allen Setups, daher ist sie eine Standardmethode zum Speichern von Geheimnissen, völlig unsicher für eine sichere Speicherung.
 
 ---
 
@@ -92,6 +92,6 @@ ASF allows you to specify salt for this method via `--cryptkey` **[command-line 
 
 ---
 
-## Recommendation
+## Empfehlung
 
 If you'd like to use a hashing method for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).

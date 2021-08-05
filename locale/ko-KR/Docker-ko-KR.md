@@ -23,7 +23,7 @@ This tag always points to the ASF built from latest commit in `main` branch, whi
 
 This tag in comparison with others, is the only one that includes ASF auto-updates feature and points to the latest **[stable](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** ASF version. The objective of this tag is to provide a sane default Docker container that is capable of running self-updating, OS-specific build of ASF. 이 때문에 가능한만큼 자주 업데이트 될 필요가 없습니다. 포함된 ASF 버전은 필요하다면 스스로 업데이트될 수 있습니다. 물론 `UpdatePeriod`는 안전하게 꺼도 됩니다(`0`으로 설정). 이 경우 `A.B.C.D` 릴리스를 사용해야 할 것입니다. 마찬가지로, 그대신 자동으로 업데이트 되는 `released` 태그를 만들기 위해 기본 `UpdateChannel`을 변경할 수도 있습니다.
 
-Due to the fact that the `latest` image comes with capability of auto-updates, it includes bare OS with OS-specific ASF version, contrary to all other tags that include OS with .NET Core runtime and `generic` ASF version. This is because newer (updated) ASF version might also require newer runtime than the one the image could possibly be built with, which would otherwise require image to be re-built from scratch, nullifying the planned use-case.
+Due to the fact that the `latest` image comes with capability of auto-updates, it includes bare OS with OS-specific `linux` ASF version, contrary to all other tags that include OS with .NET Core runtime and `generic` ASF version. This is because newer (updated) ASF version might also require newer runtime than the one the image could possibly be built with, which would otherwise require image to be re-built from scratch, nullifying the planned use-case.
 
 ### `A.B.C.D`
 
@@ -33,7 +33,7 @@ Due to the fact that the `latest` image comes with capability of auto-updates, i
 
 ## 어떤 태그가 최선입니까?
 
-찾고 있는 것에 따라 다릅니다. 대부분의 사용자에게 `latest` 태그가 최선입니다. 이는 서비스로 되어있는 특별한 도커 컨테이너에 담겨있을 뿐 데스크탑 ASF가 제공하는 것을 정확하게 동일하게 제공합니다. 해당 릴리스에 ASF 버전이 묶여있는 대신 이미지를 꽤 자주 다시 빌드하는 사람은 `released` 태그를 사용하십시오. 당신의 명확한 의도 없이 어떤것도 바뀌지 않는 특정한 동결 버전을 사용하길 원한다면 `A.B.C.D` 릴리스가 당신이 항상 돌아갈 수 있는 고정된 ASF 마일스톤이 될 것입니다.
+찾고 있는 것에 따라 다릅니다. 대부분의 사용자에게 `latest` 태그가 최선입니다. 이는 서비스로 되어있는 특별한 도커 컨테이너에 담겨있을 뿐 데스크탑 ASF가 제공하는 것을 정확하게 동일하게 제공합니다. People that are rebuilding their images quite often and would instead prefer full control with ASF version tied to given release are welcome to use `released` tag. 당신의 명확한 의도 없이 어떤것도 바뀌지 않는 특정한 동결 버전을 사용하길 원한다면 `A.B.C.D` 릴리스가 당신이 항상 돌아갈 수 있는 고정된 ASF 마일스톤이 될 것입니다.
 
 We generally discourage trying `main` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. 그 상태는 어떤것도 정상작동을 보장하지 않지만, ASF 개발에 관심이 있다면 시도해보는 것도 좋습니다.
 

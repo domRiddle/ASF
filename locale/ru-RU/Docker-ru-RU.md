@@ -23,7 +23,7 @@ This tag always points to the ASF built from latest commit in `main` branch, whi
 
 This tag in comparison with others, is the only one that includes ASF auto-updates feature and points to the latest **[stable](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** ASF version. Цель этого тега - предоставить разумный контейнер Docker по умолчанию, способный запускать само-обновляемую сборку ASF под конкретную ОС. Поэтому этот образ не должен обновляться как можно чаще, поскольку используемая версия ASF способна при необходимости обновиться самостоятельно. Разумеется, `UpdatePeriod` можно спокойно выключить (поставить равным `0`), но в этом случае вам наверное лучше использовать фиксированный билд `A.B.C.D`. Аналогично, вы можете изменить значение по умолчанию в `UpdateChannel` чтобы сделать авто-обновляемым тег `released`.
 
-Due to the fact that the `latest` image comes with capability of auto-updates, it includes bare OS with OS-specific ASF version, contrary to all other tags that include OS with .NET Core runtime and `generic` ASF version. Это связано с тем, что более новая (обновленная) версия ASF может потребовать более новую среду выполнения, чем та, с которой собран образ, что в противном случае потребовало бы пересборку заново, сводя на нет планируемый вариант использования.
+Due to the fact that the `latest` image comes with capability of auto-updates, it includes bare OS with OS-specific `linux` ASF version, contrary to all other tags that include OS with .NET Core runtime and `generic` ASF version. Это связано с тем, что более новая (обновленная) версия ASF может потребовать более новую среду выполнения, чем та, с которой собран образ, что в противном случае потребовало бы пересборку заново, сводя на нет планируемый вариант использования.
 
 ### `A.B.C.D`
 
@@ -33,7 +33,7 @@ Due to the fact that the `latest` image comes with capability of auto-updates, i
 
 ## Какой тег лучше для меня?
 
-Это зависит от того, что вам нужно. Для большинства пользователей наилучшим будет тег `latest`, поскольку он предоставляет в точности то же, что и ASF для домашних ПК, но в особом контейнере Docker в качестве услуги. Люди, которые пересобирают свои образы достаточно часто и хотели бы использовать версию ASF, привязанную к заданной сборке могут использовать тег `released`. Если же вы вместо этого хотите конкретную и фиксированную версию ASF, которая никогда не изменится без вашего явного желания, то для вас доступны сборки `A.B.C.D` на различных этапах развития, к которым вы всегда можете вернуться.
+Это зависит от того, что вам нужно. Для большинства пользователей наилучшим будет тег `latest`, поскольку он предоставляет в точности то же, что и ASF для домашних ПК, но в особом контейнере Docker в качестве услуги. People that are rebuilding their images quite often and would instead prefer full control with ASF version tied to given release are welcome to use `released` tag. Если же вы вместо этого хотите конкретную и фиксированную версию ASF, которая никогда не изменится без вашего явного желания, то для вас доступны сборки `A.B.C.D` на различных этапах развития, к которым вы всегда можете вернуться.
 
 We generally discourage trying `main` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. Нет никаких гарантий что это состояние будет правильно работать, но конечно же вы можете попробовать его использовать если интересуетесь разработкой ASF.
 

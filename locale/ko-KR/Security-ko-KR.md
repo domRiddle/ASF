@@ -4,11 +4,11 @@
 
 ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
 
-| Value | Name                        |
-| ----- | --------------------------- |
-| 0     | 평문(PlainText)               |
-| 1     | 고급 암호화 표준(AES)              |
-| 2     | ProtectedDataForCurrentUser |
+| 값 | 이름                          |
+| - | --------------------------- |
+| 0 | 평문(PlainText)               |
+| 1 | 고급 암호화 표준(AES)              |
+| 2 | ProtectedDataForCurrentUser |
 
 The exact description and comparison of them is available below.
 
@@ -26,7 +26,7 @@ This is the most simple and insecure way of storing a password, defined as `ECry
 
 Considered secure by today standards, **[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** way of storing the password is defined as `ECryptoMethod` of `1`. ASF expects the string to be a **[base64-encoded](https://en.wikipedia.org/wiki/Base64)** sequence of characters resulting in AES-encrypted byte array after translation, which then should be decrypted using included **[initialization vector](https://en.wikipedia.org/wiki/Initialization_vector)** and ASF encryption key.
 
-위의 방식은 공격자가 암호의 복호화와 암호화에 사용되는 내장된 ASF 암호화 키를 알지 못하는 한 보안을 보장합니다. ASF는 `--cryptkey` **[명령줄 인자](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-ko-KR)** 를 통해 최대한의 보안을 위해서 특정 키의 사용을 허락합니다. 이를 생략하기로 했다면 ASF는 **알려져있고** 어플리케이션에 하드코딩된 자체 키를 사용할 것입니다. 이는 누구나 ASF 암호화를 뒤집어서 복호화된 암호를 얻을 수 있다는 뜻힙니다. 여전히 약간 노력이 필요하고 하기 쉽지는 않지만, 가능한 일입니다. 이것이 `AES` 암호화는 비밀리에 보관하고 있는 자신만의 `--cryptkey`를 사용해야 하는 이유입니다. ASF에서 사용하는 AES 방법은 만족스러운 보안성을 제공하고 평문(`PlainText`)의 단순함과 `ProtectedDataForCurrentUser`의 복잡성 간의 균형점입니다. 하지만 사용자의 `--cryptkey`와 함께 사용하는 것을 강력하게 권장합니다. If used properly, guarantees decent security for safe storage.
+The method above guarantees security as long as attacker doesn't know ASF encryption key which is being used for decryption as well as encryption of passwords. ASF는 `--cryptkey` **[명령줄 인자](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-ko-KR)** 를 통해 최대한의 보안을 위해서 특정 키의 사용을 허락합니다. 이를 생략하기로 했다면 ASF는 **알려져있고** 어플리케이션에 하드코딩된 자체 키를 사용할 것입니다. 이는 누구나 ASF 암호화를 뒤집어서 복호화된 암호를 얻을 수 있다는 뜻힙니다. 여전히 약간 노력이 필요하고 하기 쉽지는 않지만, 가능한 일입니다. 이것이 `AES` 암호화는 비밀리에 보관하고 있는 자신만의 `--cryptkey`를 사용해야 하는 이유입니다. ASF에서 사용하는 AES 방법은 만족스러운 보안성을 제공하고 평문(`PlainText`)의 단순함과 `ProtectedDataForCurrentUser`의 복잡성 간의 균형점입니다. 하지만 사용자의 `--cryptkey`와 함께 사용하는 것을 강력하게 권장합니다. If used properly, guarantees decent security for safe storage.
 
 ---
 
@@ -58,11 +58,11 @@ ASF는 이미 암호화된 암호를 복호화하는 어떠한 방법도 지원�
 
 ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
 
-| Value | Name      |
-| ----- | --------- |
-| 0     | PlainText |
-| 1     | SCrypt    |
-| 2     | Pbkdf2    |
+| 값 | 이름            |
+| - | ------------- |
+| 0 | 평문(PlainText) |
+| 1 | SCrypt        |
+| 2 | Pbkdf2        |
 
 The exact description and comparison of them is available below.
 
@@ -70,7 +70,7 @@ In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `h
 
 ---
 
-### PlainText
+### 평문(PlainText)
 
 This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
 
@@ -92,6 +92,6 @@ ASF allows you to specify salt for this method via `--cryptkey` **[command-line 
 
 ---
 
-## Recommendation
+## 권장사항
 
 If you'd like to use a hashing method for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).

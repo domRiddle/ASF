@@ -4,11 +4,11 @@
 
 ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
 
-| Value | Name                        |
-| ----- | --------------------------- |
-| 0     | PlainText（純文字）              |
-| 1     | AES（進階加密標準）                 |
-| 2     | ProtectedDataForCurrentUser |
+| 值 | 名稱                          |
+| - | --------------------------- |
+| 0 | PlainText（純文字）              |
+| 1 | AES（進階加密標準）                 |
+| 2 | ProtectedDataForCurrentUser |
 
 The exact description and comparison of them is available below.
 
@@ -26,7 +26,7 @@ This is the most simple and insecure way of storing a password, defined as `ECry
 
 Considered secure by today standards, **[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** way of storing the password is defined as `ECryptoMethod` of `1`. ASF expects the string to be a **[base64-encoded](https://en.wikipedia.org/wiki/Base64)** sequence of characters resulting in AES-encrypted byte array after translation, which then should be decrypted using included **[initialization vector](https://en.wikipedia.org/wiki/Initialization_vector)** and ASF encryption key.
 
-The method above guarantees security as long as attacker doesn't know built-in ASF encryption key which is being used for decryption as well as encryption of passwords. ASF allows you to specify key via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning anybody can reverse the ASF encryption and get decrypted password. It still requires some effort and is not that easy to do, but possible, that's why you should almost always use `AES` encryption with your own `--cryptkey` which is kept in secret. AES method used in ASF provides security that should be satisfying and it's a balance between simplicity of `PlainText` and complexity of `ProtectedDataForCurrentUser`, but it's highly recommended to use it with custom `--cryptkey`. If used properly, guarantees decent security for safe storage.
+The method above guarantees security as long as attacker doesn't know ASF encryption key which is being used for decryption as well as encryption of passwords. ASF allows you to specify key via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning anybody can reverse the ASF encryption and get decrypted password. It still requires some effort and is not that easy to do, but possible, that's why you should almost always use `AES` encryption with your own `--cryptkey` which is kept in secret. AES method used in ASF provides security that should be satisfying and it's a balance between simplicity of `PlainText` and complexity of `ProtectedDataForCurrentUser`, but it's highly recommended to use it with custom `--cryptkey`. If used properly, guarantees decent security for safe storage.
 
 ---
 
@@ -58,11 +58,11 @@ ASF doesn't support any way of decrypting already encrypted passwords, as decryp
 
 ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
 
-| Value | Name      |
-| ----- | --------- |
-| 0     | PlainText |
-| 1     | SCrypt    |
-| 2     | Pbkdf2    |
+| 值 | 名稱             |
+| - | -------------- |
+| 0 | PlainText（純文字） |
+| 1 | SCrypt         |
+| 2 | Pbkdf2         |
 
 The exact description and comparison of them is available below.
 
@@ -70,7 +70,7 @@ In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `h
 
 ---
 
-### PlainText
+### PlainText（純文字）
 
 This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
 
@@ -92,6 +92,6 @@ ASF allows you to specify salt for this method via `--cryptkey` **[command-line 
 
 ---
 
-## Recommendation
+## 建議
 
 If you'd like to use a hashing method for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).

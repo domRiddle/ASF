@@ -4,11 +4,11 @@
 
 ASF acceptă în prezent următoarele metode de criptare ca definiție a `ECryptoMethod`:
 
-| Value | Name                        |
-| ----- | --------------------------- |
-| 0     | PlainText                   |
-| 1     | AES                         |
-| 2     | ProtectedDataForCurrentUser |
+| Valoare | Nume                        |
+| ------- | --------------------------- |
+| 0       | PlainText                   |
+| 1       | AES                         |
+| 2       | ProtectedDataForCurrentUser |
 
 Descrierea exactă și compararea acestora sunt disponibile mai jos.
 
@@ -26,7 +26,7 @@ Acesta este cel mai simplu și nesigur mod de a stoca o parolă, definită ca `E
 
 Considerat securizat de standardele de azi, modul **[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** de stocare a parolei este definit ca `ECryptoMethod` de `1`. ASF se așteaptă ca șirul să fie **[codat base64-](https://en.wikipedia.org/wiki/Base64)** secvență de caractere rezultând în array byte criptat AES după traducere, care apoi trebuie decriptate folosind **[vectorul de inițializare](https://en.wikipedia.org/wiki/Initialization_vector)** și cheia de criptare ASF.
 
-The method above guarantees security as long as attacker doesn't know built-in ASF encryption key which is being used for decryption as well as encryption of passwords. ASF allows you to specify key via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning anybody can reverse the ASF encryption and get decrypted password. It still requires some effort and is not that easy to do, but possible, that's why you should almost always use `AES` encryption with your own `--cryptkey` which is kept in secret. AES method used in ASF provides security that should be satisfying and it's a balance between simplicity of `PlainText` and complexity of `ProtectedDataForCurrentUser`, but it's highly recommended to use it with custom `--cryptkey`. If used properly, guarantees decent security for safe storage.
+The method above guarantees security as long as attacker doesn't know ASF encryption key which is being used for decryption as well as encryption of passwords. ASF allows you to specify key via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning anybody can reverse the ASF encryption and get decrypted password. It still requires some effort and is not that easy to do, but possible, that's why you should almost always use `AES` encryption with your own `--cryptkey` which is kept in secret. AES method used in ASF provides security that should be satisfying and it's a balance between simplicity of `PlainText` and complexity of `ProtectedDataForCurrentUser`, but it's highly recommended to use it with custom `--cryptkey`. If used properly, guarantees decent security for safe storage.
 
 ---
 
@@ -58,13 +58,13 @@ ASF doesn't support any way of decrypting already encrypted passwords, as decryp
 
 ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
 
-| Value | Name      |
-| ----- | --------- |
-| 0     | PlainText |
-| 1     | SCrypt    |
-| 2     | Pbkdf2    |
+| Valoare | Nume      |
+| ------- | --------- |
+| 0       | PlainText |
+| 1       | SCrypt    |
+| 2       | Pbkdf2    |
 
-The exact description and comparison of them is available below.
+Descrierea exactă și compararea acestora sunt disponibile mai jos.
 
 In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
 
@@ -72,7 +72,7 @@ In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `h
 
 ### PlainText
 
-This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. Este cel mai ușor de utilizat, 100% compatibil cu toate configurațiile, deci este un mod implicit de a stoca secrete, complet nesigur pentru stocare în siguranță.
 
 ---
 
