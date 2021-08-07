@@ -14,7 +14,7 @@
 
 # ASF 2단계 인증(2FA)
 
-ASF 2단계 인증은 토큰 생성, 확인사항 수락과 같은 ASF 프로세스에 2단계 인증 기능을 제공하는 역할을 하는 내장 모듈입니다. It duplicates your existing authenticator, so that you can use your current authenticator and ASF 2FA at the same time.
+ASF 2단계 인증은 토큰 생성, 확인사항 수락과 같은 ASF 프로세스에 2단계 인증 기능을 제공하는 역할을 하는 내장 모듈입니다. 이는 이미 존재하는 인증기를 복제하여, 기존의 인증기와 ASF 2단계 인증을 모두 사용할 수 있게 합니다.
 
 `2fa` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 를 실행하여 봇 계정이 이미 ASF 2단계 인증을 사용중인지 확인할 수 있습니다. 당신의 인증기를 ASF 2단계 인증으로 이미 불러오지 않았다면 `2fa` 명령어는 작동하지 않을 것입니다. 즉, 당신의 계정은 ASF 2단계 인증을 사용하고 있지 않고, 이 모듈의 동작을 필요로 하는 ASF의 고급기능을 사용할 수 없다는 뜻입니다.
 
@@ -167,4 +167,4 @@ ASF 모바일 인증기는 해당 계정에 관련된 중요한 다른 데이터
 }
 ```
 
-표준 인증기 데이터는 더 많은 항목이 있지만, ASF의 가져오기 단계에서 모두 무시되므로 필요하지 않습니다. 그렇다고 삭제할 필요는 없습니다. ASF는 위에서 설명한 2개의 필수 항목만 필요로 하고, 그외 추가 항목은 무시할 것입니다.. Of course, you need to replace `STRING` placeholder in the example above with valid values for your account.
+표준 인증기 데이터는 더 많은 항목이 있지만, ASF의 가져오기 단계에서 모두 무시되므로 필요하지 않습니다. 그렇다고 삭제할 필요는 없습니다. ASF는 위에서 설명한 2개의 필수 항목만 필요로 하고, 그 외 추가 항목은(있다면) 무시할 것입니다. Of course, you need to replace `STRING` placeholder in the example above with valid values for your account.
