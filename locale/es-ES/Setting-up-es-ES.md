@@ -114,7 +114,7 @@ Después de la decisión y los detalles opcionales, ahora tu página web se ver�
 
 ![Pestaña de bot 2](https://i.imgur.com/yf54Ouc.png)
 
-Ahora puedes presionar el botón "Descargar" y nuestro generador de configuración web creará un nuevo archivo `json` basado en el nombre que hayas elegido. Guarda ese archivo en el directorio `config` que se encuentra en la carpeta donde extrajiste el archivo zip en el paso anterior.
+Ahora puedes presionar el botón "Descargar" y nuestro generador de configuración web creará un nuevo archivo `json` con el nombre que hayas elegido. Guarda ese archivo en el directorio `config` que se encuentra en la carpeta donde extrajiste el archivo zip en el paso anterior.
 
 Tu directorio `config` ahora se verá así:
 
@@ -132,7 +132,7 @@ Posteriormente, asumiendo que instalaste todas las dependencias necesarias en el
 
 ![ASF](https://i.imgur.com/u5hrSFz.png)
 
-Si proporcionaste `SteamLogin` y `SteamPassword` para que utilice ASF, se te pedirá solamente tu código de Steam Guard (e-mail, 2FA o ninguno, dependiendo de tu configuración en Steam). Si no lo hiciste, también se te pedirá tu nombre de usuario y contraseña.
+Si proporcionaste `SteamLogin` y `SteamPassword` para que utilice ASF, se te pedirá solamente tu código de SteamGuard (correo electrónico, 2FA o ninguno, dependiendo de los ajustes de tu cuenta de Steam). Si no lo hiciste, también se te pedirá tu nombre de usuario y contraseña.
 
 Ahora sería un buen momento para revisar nuestra sección **[política de privacidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-es-ES#pol%C3%ADtica-de-privacidad-actual)** si te preocupa lo que ASF está programado para hacer, como unirse a cierto grupo de Steam al iniciar.
 
@@ -155,13 +155,13 @@ ASF soporta la recolección de más de una cuenta a la vez, lo cual es su funci�
 - Usar un nombre de bot único, si ya nombraste tu primer bot como "MainAccount", no puedes tener otro con el mismo nombre.
 - Detalles de inicio de sesión válidos, tales como `SteamLogin`, `SteamPassword` y `SteamParentalCode` (si usas la configuración parental de Steam)
 
-En otras palabras, simplemente ve a configuración de nuevo y haz exactamente los mismo, solo que para tu segunda o tercera cuenta. Recuerda usar nombres únicos para todos tus bots.
+En otras palabras, simplemente ve a configuración de nuevo y haz exactamente lo mismo, solo que para tu segunda o tercera cuenta. Recuerda usar nombres únicos para todos tus bots.
 
 ---
 
 #### Cambiar la configuración
 
-Puedes cambiar ajustes existentes de la misma forma - generando un nuevo archivo de configuración. Si aún no has cerrado nuestro generador de configuración web, haz clic en "toggle advanced settings" y ve lo que hay ahí para descubrir. Para este tutorial cambiaremos el ajuste `CustomGamePlayedWhileFarming`, que te permite establecer que se muestre un nombre personalizado cuando ASF está recolectando, en lugar de mostrar el nombre real del juego.
+Puedes cambiar ajustes existentes de la misma forma - generando un nuevo archivo de configuración. Si aún no has cerrado nuestro generador de configuración web, haz clic en "Mostrar configuración avanzada" y ve lo que hay ahí para descubrir. Para este tutorial cambiaremos el ajuste `CustomGamePlayedWhileFarming`, que te permite establecer que se muestre un nombre personalizado cuando ASF está recolectando, en lugar de mostrar el nombre real del juego.
 
 Empecemos, si ejecutas ASF y empieza a recolectar, en ajustes predeterminados verás que tu cuenta de Steam está jugando:
 
@@ -209,7 +209,7 @@ Has configurado ASF con éxito para usar tus cuentas de Steam y ya lo has person
 
 Esta configuración es para usuarios avanzados que quieren establecer ASF para ejecutarlo en su variante **[genérica](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#gen%C3%A9rico)**. No se recomienda para personas que pueden usar la **[configuración de sistema operativo específico](#configuración-de-sistema-operativo-específico)**.
 
-Querrás usar la variante `generic` principalmente en esas situaciones (pero puedes usarla de todos modos):
+Querrás usar la variante `generic` principalmente en estas situaciones (pero puedes usarla independientemente de eso):
 - Cuando usas un sistema operativo para el cual no compilamos un paquete de sistema operativo específico (tal como Windows de 32-bits)
 - Cuando ya tienes .NET Core Runtime/SDK, o quieres instalar y usar uno
 - Cuando quieres minimizar el tamaño de la estructura de ASF manejando los requerimientos de runtime por ti mismo
@@ -217,7 +217,7 @@ Querrás usar la variante `generic` principalmente en esas situaciones (pero pue
 
 Sin embargo, ten en cuenta que tú eres responsable del .NET Core runtime en este caso. Esto significa que si tu .NET Core SDK (runtime) no está disponible, está desactualizado o roto, ASF no funcionará. Es por eso que no recomendamos esta configuración para usuarios casuales, ya que ahora necesitas asegurarte de que tu .NET Core SDK (runtime) coincida con los requerimientos de ASF y puede ejecutarlo, en contraposición a que **nosotros** nos aseguremos de que nuestro .NET Core runtime en conjunto con ASF puede hacerlo.
 
-Para el paquete `generic`, puedes seguir la guía de sistema operativo específico vista anteriormente, con dos pequeños cambios. Además de instalar los prerrequisitos de .NET Core, también querrás instalar .NET Core SDK, y en lugar de tener un archivo ejecutable `ArchiSteamFarm(.exe)` para SO específico, ahora tienes un binario genérico `ArchiSteamFarm.dll` solamente. Todo lo demás es exactamente igual.
+Para el paquete `generic`, puedes seguir la guía de sistema operativo específico vista anteriormente, con dos pequeños cambios. Además de instalar los prerrequisitos de .NET Core, también querrás instalar .NET Core SDK, y en lugar de tener un archivo ejecutable `ArchiSteamFarm(.exe)` para sistema operativo específico, ahora solamente tienes un binario genérico `ArchiSteamFarm.dll` . Todo lo demás es exactamente igual.
 
 Con pasos extra:
 - Instalar los **[prerrequisitos de .NET Core](https://docs.microsoft.com/es-es/dotnet/core/install/windows?tabs=netcore31)**.
