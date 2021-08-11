@@ -11,7 +11,7 @@ ASF está disponible a través de 4 tipos principales de **[etiquetas](https://h
 
 ### `main`
 
-Esta etiqueta siempre apunta al ASF compilado a partir del último commit en la rama `main`, que funciona igual que la compilación AppVeyor experimental descrita en nuestro **[ciclo de lanzamiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-es-es)**. Normalmente debes evitar esta etiqueta, ya que es el nivel más alto de software con bugs dedicado a desarrolladores y usuarios avanzados para fines de desarrollo. La imagen se actualiza con cada commit en la rama `main` de GitHub, por lo tanto puedes esperar actualizaciones muy frecuentes (y cosas con fallos), como en nuestra compilación AppVeyor. Esta etiqueta está aquí para que marquemos el estado actual del proyecto ASF, que no necesariamente se garantiza que sea estable o probado, tal como se indica en nuestro ciclo de lanzamiento. Esta etiqueta no debe ser usada en ningún entorno de producción.
+Esta etiqueta siempre apunta al ASF compilado a partir del último commit en la rama `main`, que funciona igual que tomar el último artefacto directamente de nuestro canal de **[integración continua](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)**. Normalmente debes evitar esta etiqueta, ya que es el nivel más alto de software con bugs dedicado a desarrolladores y usuarios avanzados para fines de desarrollo. La imagen se actualiza con cada commit en la rama `main` de GitHub, por lo tanto puedes esperar actualizaciones muy frecuentes (y cosas con fallos). Esta etiqueta está aquí para que marquemos el estado actual del proyecto ASF, que no necesariamente se garantiza que sea estable o probado, tal como se indica en nuestro ciclo de lanzamiento. Esta etiqueta no debe ser usada en ningún entorno de producción.
 
 
 ### `released`
@@ -35,7 +35,7 @@ En comparación con las etiquetas anteriores, esta etiqueta está completamente 
 
 Eso depende de lo que busques. Para la mayoría de los usuarios, la etiqueta `latest` debería ser la mejor ya que ofrece exactamente lo que hace ASF de escritorio, solo que en un contenedor Docker especial como servicio. Las personas que recompilan sus imágenes con frecuencia y en su lugar preferirían tener control total con la versión de ASF ligada a un lanzamiento determinado son bienvenidas a usar la etiqueta `released`. Si en cambio quieres usar alguna versión congelada de ASF que nunca cambiará sin tu clara intención, las versiones `A.B.C.D` están disponibles como marcas fijas a las que siempre puedes regresar.
 
-Generalmente no recomendamos probar las compilaciones `main`, al igual que las compilaciones automatizadas de AppVeyor - esta compilación está para marcar el estado actual del proyecto ASF. Nada garantiza que dicho estado funcione correctamente, pero eres más que bienvenido a probarlas si estás interesado en el desarrollo de ASF.
+Generalmente no recomendamos probar las compilaciones `main`, ya que estas son para marcar el estado actual del proyecto de ASF. Nada garantiza que dicho estado funcione correctamente, pero eres más que bienvenido a probarlas si estás interesado en el desarrollo de ASF.
 
 ---
 

@@ -46,7 +46,7 @@ Im Laufe der Zeit werden mehr Plattformen von .NET Core unterstützt und die Kom
 
 ---
 
-### OS-specific
+### Betriebssystemspezifisch
 
 Das betriebssystemspezifische Paket beinhaltet neben dem verwalteten Code, der im generischen Paket enthalten ist, auch nativen Code für die jeweilige Plattform. Mit anderen Worten, das betriebssystemspezifische Paket **beinhaltet bereits die richtige .NET Core Runtime**, was es dir ermöglicht, den gesamten Installationsprozess komplett zu überspringen und ASF einfach direkt zu starten. Das betriebssystemspezifische Paket, wie man dem Namen entnehmen kann, ist betriebssystemspezifisch und jedes Betriebssystem benötigt eine eigene Version - zum Beispiel Windows benötigt PE32+ `ArchiSteamFarm.exe` Binärdatei während Linux mit Unix ELF `ArchiSteamFarm` Binärdatei arbeitet. Diese beiden Typen sind nicht miteinander kompatibel.
 
@@ -72,4 +72,4 @@ Wenn du jedoch versuchst, das **generische** ASF-Paket auszuführen, dann musst 
 
 ASF als Programm ist derzeit auf **.NET Core 5.0** (`.NET 5.0`) ausgerichtet, könnte aber in Zukunft eine neuere Plattform erfordern. `net5.0` wird seit 5.0.100 SDK (5.0.0 Runtime) unterstützt, wobei ASF darauf konfiguriert ist, ** die letzte Runtime zum Zeitpunkt der Kompilierung** zu verwenden. Also sollten Sie sicherstellen, dass Ihnen**[die neueste SDK](https://dotnet.microsoft.com/download)** (oder zumindest die Runtime) für Ihre Maschine zur Verfügung steht. Die generische ASF-Variante kann den Start verweigern, wenn die installierte Runtime älter ist als die minimale (Ziel-) Runtime, die während der Kompilierung bekannt ist.
 
-Im Zweifelsfall solltest du überprüfen, was unsere **[kontinuierliche Integration](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)** für die Kompilierung und Bereitstellung von ASF-Versionen auf GitHub verwendet. Dort finden Sie die `dotnet --info` Ausgabe oben in jedem Build.
+If in doubt, check what our **[continuous integration uses](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** for compiling and deploying ASF releases on GitHub. You can find `dotnet --info` output in every build as part of .NET verification step.

@@ -46,7 +46,7 @@ ASF 主要有兩種封裝方式——通用（Generic）套件和特定作業系
 
 ---
 
-### OS-specific
+### 特定作業系統（OS-specific）
 
 除了通用（Generic）套件中包含的託管程式碼之外，特定作業系統套件還包括指定平台的本地程式碼。 換句話說，特定作業系統套件內部**已經包含了可用的 .NET Core 執行階段**，使您可以跳過麻煩的安裝過程，直接啟動 ASF。 特定作業系統套件，顧名思義，是針對不同作業系統的，每種作業系統都需要其特定的版本——例如 Windows 需要 PE32+ `ArchiSteamFarm.exe`二進位檔案，而 Linux 則需要 Unix ELF `ArchiSteamFarm`二進位檔案。 您可能已經知道，這兩種類型之間是完全不相容的。
 
@@ -72,4 +72,4 @@ ASF 目前可用於以下作業系統：
 
 ASF as a program is targeting **.NET 5.0** (`net5.0`) right now, but it may target newer platform in the future. `net5.0` is supported since 5.0.100 SDK (5.0.0 runtime), although ASF is configured to target **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. 如果您的執行階段版本低於編譯時已知的最低（目標）版本，通用 ASF 套件將會拒絕啟動。
 
-如有疑問，您可以訪問我們用於編譯並在 GitHub 上部署新版本的 **[CI](https://ci.appveyor.com/project/JustArchi/ArchiSteamFarm)**。 您可以在每個構建的頂端找到 `dotnet --info` 的輸出。
+If in doubt, check what our **[continuous integration uses](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** for compiling and deploying ASF releases on GitHub. You can find `dotnet --info` output in every build as part of .NET verification step.

@@ -11,7 +11,7 @@
 
 ### `main`
 
-This tag always points to the ASF built from latest commit in `main` branch, which works the same as experimental AppVeyor build described in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. Обычно вам стоит избегать использования этого тега, поскольку на этом уровне в программе наибольшая вероятность наличия ошибок, и эта сборка предназначена для разработчиков и продвинутых пользователей принимающих участие в разработке. The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken), just like in our AppVeyor build. Эта сборка отображает текущее состояние проекта ASF, и не гарантируется что она стабильна и протестирована, как и указано в описании цикла выпуска. Этот тег не следует использовать в среде реального применения.
+This tag always points to the ASF built from latest commit in `main` branch, which works the same as grabbing latest artifact directly from our **[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** pipeline. Обычно вам стоит избегать использования этого тега, поскольку на этом уровне в программе наибольшая вероятность наличия ошибок, и эта сборка предназначена для разработчиков и продвинутых пользователей принимающих участие в разработке. The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken). Эта сборка отображает текущее состояние проекта ASF, и не гарантируется что она стабильна и протестирована, как и указано в описании цикла выпуска. Этот тег не следует использовать в среде реального применения.
 
 
 ### `released`
@@ -35,7 +35,7 @@ Due to the fact that the `latest` image comes with capability of auto-updates, i
 
 Это зависит от того, что вам нужно. Для большинства пользователей наилучшим будет тег `latest`, поскольку он предоставляет в точности то же, что и ASF для домашних ПК, но в особом контейнере Docker в качестве услуги. People that are rebuilding their images quite often and would instead prefer full control with ASF version tied to given release are welcome to use `released` tag. Если же вы вместо этого хотите конкретную и фиксированную версию ASF, которая никогда не изменится без вашего явного желания, то для вас доступны сборки `A.B.C.D` на различных этапах развития, к которым вы всегда можете вернуться.
 
-We generally discourage trying `main` builds, just like automated AppVeyor builds - this build is here for us to mark current state of ASF project. Нет никаких гарантий что это состояние будет правильно работать, но конечно же вы можете попробовать его использовать если интересуетесь разработкой ASF.
+We generally discourage trying `main` builds, as those are here for us to mark current state of ASF project. Нет никаких гарантий что это состояние будет правильно работать, но конечно же вы можете попробовать его использовать если интересуетесь разработкой ASF.
 
 ---
 

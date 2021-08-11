@@ -11,7 +11,7 @@ ASF ist durch 4 Haupttypen von **[Tags](https://hub.docker.com/r/justarchi/archi
 
 ### `main`
 
-Dieses Tag zeigt immer auf den ASF-Build, der aus dem neuesten Commit im `main`-Zweig erstellt wurde, der genauso funktioniert wie der experimentelle AppVeyor-Build, der in unserem **[Veröffentlichungszyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/release cycle-de-DE)** beschrieben ist. Normalerweise sollten Sie dieses Tag vermeiden, da es die höchste Stufe von fehlerhafter Software ist, die für Entwickler und fortgeschrittene Benutzer zu Entwicklungszwecken bestimmt ist. Das Image wird mit jedem Commit im `main`-GitHub-Zweig aktualisiert, daher kann man sehr oft mit Updates (und Problemen) rechnen, genau wie in unserem AppVeyor Build. Es liegt an uns, den aktuellen Stand des ASF-Projekts zu markieren, der nicht unbedingt garantiert stabil oder getestet ist, wie in unserem Veröffentlichungszyklus dargelegt. Dieses Tag sollte nicht in einer Produktionsumgebung verwendet werden.
+This tag always points to the ASF built from latest commit in `main` branch, which works the same as grabbing latest artifact directly from our **[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** pipeline. Normalerweise sollten Sie dieses Tag vermeiden, da es die höchste Stufe von fehlerhafter Software ist, die für Entwickler und fortgeschrittene Benutzer zu Entwicklungszwecken bestimmt ist. The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken). Es liegt an uns, den aktuellen Stand des ASF-Projekts zu markieren, der nicht unbedingt garantiert stabil oder getestet ist, wie in unserem Veröffentlichungszyklus dargelegt. Dieses Tag sollte nicht in einer Produktionsumgebung verwendet werden.
 
 
 ### `released`
@@ -35,7 +35,7 @@ Im Vergleich zu den oben genannten Tags ist dieser Tag vollständig eingefroren,
 
 Das hängt davon ab, wonach Sie suchen. Für die Mehrheit der Benutzer sollte das `latest` Tag das beste sein, da es genau das bietet, was Desktop-ASF bietet, nur in einem speziellen Docker-Container als Dienst. People that are rebuilding their images quite often and would instead prefer full control with ASF version tied to given release are welcome to use `released` tag. Wenn Sie stattdessen eine bestimmte eingefrorene ASF-Version verwenden möchten, die sich ohne Ihre eindeutige Absicht nie ändern wird, stehen Ihnen `A.B.C.D`-Versionen als feste ASF-Meilensteine zur Verfügung, auf die Sie immer zurückgreifen können.
 
-Wir raten generell davon ab, `main` Builds auszuprobieren, genau wie automatisierte AppVeyor Builds; diese Builds sind für uns da, um den aktuellen Stand des ASF-Projekts zu bestimmen. Nichts garantiert, dass ein solcher Zustand ordnungsgemäß funktioniert, aber natürlich kannst Sie ihn gerne ausprobieren, wenn Sie an der ASF-Entwicklung interessiert sind.
+We generally discourage trying `main` builds, as those are here for us to mark current state of ASF project. Nichts garantiert, dass ein solcher Zustand ordnungsgemäß funktioniert, aber natürlich kannst Sie ihn gerne ausprobieren, wenn Sie an der ASF-Entwicklung interessiert sind.
 
 ---
 
