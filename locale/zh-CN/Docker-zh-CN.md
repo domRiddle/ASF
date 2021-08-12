@@ -11,7 +11,7 @@ ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archi
 
 ### `main`
 
-This tag always points to the ASF built from latest commit in `main` branch, which works the same as grabbing latest artifact directly from our **[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** pipeline. 一般而言，您应该避免使用该分支，因为它是用于开发目的，为开发人员和高级用户准备的，有最高的漏洞风险。 The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken). 该分支记录了 ASF 项目的当前状态，但该状态不一定稳定或者经过测试，就像我们在发布周期中描述的那样。 这个分支不应该在任何的生产环境中使用。
+这个分支始终指向 GitHub 中 `main` 分支最新提交构建的 ASF，其工作方式等同于直接从 **[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** Pipeline 拉取最新 Artifact。 一般而言，您应该避免使用该分支，因为它是用于开发目的，为开发人员和高级用户准备的，有最高的漏洞风险。 该映像会在每次提交到 GitHub `main` 分支后更新，因此您会发现它的更新十分频繁（并且经常出错）。 该分支记录了 ASF 项目的当前状态，但该状态不一定稳定或者经过测试，就像我们在发布周期中描述的那样。 这个分支不应该在任何的生产环境中使用。
 
 
 ### `released`
@@ -35,7 +35,7 @@ This tag always points to the ASF built from latest commit in `main` branch, whi
 
 这取决于您的目标。 对于大多数用户来说，`latest` 分支是最好的，因为它的行为与在桌面上运行 ASF 是相同的，区别仅仅在于它以服务形式运行在 Docker 容器内。 经常重建映像以及更喜欢自己控制 ASF 版本的用户可能会更喜欢 `released` 分支。 如果您希望使用某个特定版本的 ASF，可以选择 `A.B.C.D` 分支，如果没有您主动操作，这个分支就不会有任何变化，您可以将其视为一个固定的里程碑，随时可以返回到与之前完全相同的状态。
 
-We generally discourage trying `main` builds, as those are here for us to mark current state of ASF project. 我们无法保证这种状态能够正常工作，但如果您对 ASF 的开发感兴趣，可以尝试一下。
+我们通常不建议使用 `main` 构建，这个构建仅仅是用来标记 ASF 项目当前状态的。 我们无法保证这种状态能够正常工作，但如果您对 ASF 的开发感兴趣，可以尝试一下。
 
 ---
 

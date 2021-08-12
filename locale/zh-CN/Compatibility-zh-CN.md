@@ -72,4 +72,4 @@ ASF 目前提供以下几种 OS-specific 包：
 
 ASF 目前指向的构建目标是 **.NET 5.0**（`net5.0`），但在未来可能会指向更高版本。 `net5.0` 自 5.0.100 SDK（5.0.0 运行时环境）以来就受到支持，但 ASF 以**编译时最新版本的运行时环境**为构建目标，所以您应该确保您的机器上有&#8203;**[最新版 SDK](https://dotnet.microsoft.com/download)**（或至少有运行时环境）。 如果您的运行时环境版本低于编译时的已知最低目标版本，Generic ASF 包将会拒绝启动。
 
-如有疑问，您可以访问我们用于编译并在 GitHub 上部署新版本的 **[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)**。 You can find `dotnet --info` output in every build as part of .NET verification step.
+如有疑问，您可以访问我们用于编译并在 GitHub 上部署新版本的 **[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)**。 您可以在每个构建中看到 `dotnet --info` 的输出，用于验证 .NET。
