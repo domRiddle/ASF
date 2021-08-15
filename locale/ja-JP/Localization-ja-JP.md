@@ -126,7 +126,7 @@ ASF includes links on almost every page for easier navigation, as well as sideba
 
 For example, ASF **[home page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** includes a text such as:
 
-> 初めての方は、 &#8203;**[初期設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-ja-JP)**&#8203;から始めることをお勧めします。
+> 初めての方は、**[初期設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** から始めることをお勧めします。
 
 Which is originally written as:
 
