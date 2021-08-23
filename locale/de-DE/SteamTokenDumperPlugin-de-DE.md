@@ -1,6 +1,6 @@
 # SteamTokenDumperPlugin
 
-`SteamTokenDumperPlugin` ist seit ASF V4.2.2.2 ein offizielles ASF-**[Plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**, welches von uns entwickelt wird. Dies erlaubt es dir, zum Projekt **[SteamDB](https://steamdb.info)** beizutragen, indem du Paket- und App-Tokens sowie Depot-Schlüssel, auf die dein Steam Konto Zugriff hat, teilst. Informationen zu den gesammelten Daten und warum SteamDB diese benötigt, findest du auf der **[Token Dumper](https://steamdb.info/tokendumper)** Website von SteamDB. Die übermittelten Daten enthalten demnach keine potentiell sensiblen Informationen und bergen kein Sicherheits-/Datenschutzrisiko.
+`SteamTokenDumperPlugin` ist seit ASF V4.2.2.2 ein offizielles ASF-**[Plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-de-DE)**, welches von uns entwickelt wird. Dies erlaubt es dir, zum Projekt **[SteamDB](https://steamdb.info)** beizutragen, indem du Paket- und App-Tokens sowie Depot-Schlüssel, auf die dein Steam Konto Zugriff hat, teilst. Informationen zu den gesammelten Daten und warum SteamDB diese benötigt, findest du auf der **[Token Dumper](https://steamdb.info/tokendumper)** Website von SteamDB. Die übermittelten Daten enthalten demnach keine potentiell sensiblen Informationen und bergen kein Sicherheits-/Datenschutzrisiko.
 
 ---
 

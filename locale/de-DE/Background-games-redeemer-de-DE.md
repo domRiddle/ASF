@@ -34,7 +34,7 @@ Egal für welches Format Sie sich entschieden, ASF importiert Ihre `keys`-Datei 
 
 ### IPC
 
-Zusätzlich zur Verwendung der oben genannten Produktschlüsseldateien stellt ASF den `GamesToRedeemInBackground` **[ASF API-Endpunkt](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-api)** bereit, welcher von jedem IPC-Programm, einschließlich unserem ASF-ui, verwendet werden kann. Die Verwendung von IPC könnte mächtiger sein, da Sie selbst eine geeignete Syntaxanalyse durchführen könnten. Zum Beispiel können Sie ein benutzerdefiniertes Trennzeichen verwenden, um nicht an das Tabulatorzeichen gebunden zu sein oder Sie könnten sogar komplett individuelle Produktschlüssel-Strukturen benutzen.
+Zusätzlich zur Verwendung der oben genannten Produktschlüsseldateien stellt ASF den `GamesToRedeemInBackground` **[ASF-API-Endpunkt](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-api)** bereit, welcher von jedem IPC-Programm, einschließlich unserem ASF-ui, verwendet werden kann. Die Verwendung von IPC könnte mächtiger sein, da Sie selbst eine geeignete Syntaxanalyse durchführen könnten. Zum Beispiel können Sie ein benutzerdefiniertes Trennzeichen verwenden, um nicht an das Tabulatorzeichen gebunden zu sein oder Sie könnten sogar komplett individuelle Produktschlüssel-Strukturen benutzen.
 
 ---
 

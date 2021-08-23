@@ -12,7 +12,7 @@ ASF unterstützt derzeit die folgenden Verschlüsselungsmethoden als Parameter f
 
 Die genaue Beschreibung und Unterschiede zwischen diesen sind nachfolgend verfügbar.
 
-Um ein verschlüsseltes Password zu generieren, z. B. um es mit `SteamPassword` zu verwenden, müssen Sie den `encrypt` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** mit der gewünschten Verschlüsselungsmethode und Ihrem ursprünglichen klartext Passwort ausführen. Danach setzen Sie die verschlüsselte Zeichenfolge, die Sie als `SteamPassword` Bot-Konfigurationseigenschaft haben, und ändern Sie schließlich `PasswordFormat` auf diejenige, die Ihrer gewählten Verschlüsselungsmethode entspricht.
+Um ein verschlüsseltes Password zu generieren, z. B. um es mit `SteamPassword` zu verwenden, müssen Sie den `encrypt` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** mit der gewünschten Verschlüsselungsmethode und Ihrem ursprünglichen klartext Passwort ausführen. Danach setzen Sie die verschlüsselte Zeichenfolge, die Sie als `SteamPassword` Bot-Konfigurationseigenschaft haben, und ändern Sie schließlich `PasswordFormat` auf diejenige, die Ihrer gewählten Verschlüsselungsmethode entspricht.
 
 ---
 

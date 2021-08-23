@@ -19,7 +19,7 @@ ASF's http-Server hört nun auf den ausgewählten Endpunkten. Falls du keine ben
 
 Die IPC-Schnittstelle von ASF bietet je nach der von Ihrengeplanten Nutzung drei verschiedene Möglichkeiten, darauf zuzugreifen.
 
-Auf der untersten Ebene gibt es **[ASF API](#asf-api)**, das ist der Kern unserer IPC-Schnittstelle und ermöglicht den Betrieb aller anderen. Dies ist es, was du in Ihren eigenen Programmen, Dienstprogrammen und Projekten verwenden solltest, um direkt mit ASF zu kommunizieren.
+Auf der untersten Ebene gibt es **[ASF-API](#asf-api)**, das ist der Kern unserer IPC-Schnittstelle und ermöglicht den Betrieb aller anderen. Dies ist es, was du in Ihren eigenen Programmen, Dienstprogrammen und Projekten verwenden solltest, um direkt mit ASF zu kommunizieren.
 
 Auf der mittleren Ebene befindet sich unsere **[Swagger-Dokumentation](#swagger-dokumentation)**, die als Frontend für die ASF-API dient. Es bietet eine vollständige Dokumentation der ASF-API und ermöglicht einen einfacheren Zugriff darauf. Dies ist es, was du nutzen solltest, wenn du vorhast ein Programm, ein Dienstprogramm oder andere Projekte zu schreiben, die über die API mit ASF kommunizieren sollen.
 
@@ -29,7 +29,7 @@ Auf der obersten Ebene gibt es **[ASF-ui](#asf-ui)**, das auf unserer ASF-API ba
 
 # ASF-ui
 
-ASF-ui ist ein Gemeinschaftsprojekt, das darauf abzielt, eine benutzerfreundliche grafische Weboberfläche für Endbenutzer zu erstellen. Um dies zu erreichen, fungiert es als Frontend für unsere **[ASF API](#asf-api)**, so dass du verschiedene Aktionen mit Leichtigkeit durchführen kannst. Dies ist die Standardoberfläche mit der ASF ausgeliefert wird.
+ASF-ui ist ein Gemeinschaftsprojekt, das darauf abzielt, eine benutzerfreundliche grafische Weboberfläche für Endbenutzer zu erstellen. Um dies zu erreichen, fungiert es als Frontend für unsere **[ASF-API](#asf-api)**, so dass du verschiedene Aktionen mit Leichtigkeit durchführen kannst. Dies ist die Standardoberfläche mit der ASF ausgeliefert wird.
 
 Wie bereits erwähnt, ist ASF-ui ein Community-Projekt, das nicht von kern ASF-Entwicklern betreut wird. Es folgt seinem eigenen Fluss in der **[ASF-ui Repository](https://github.com/JustArchiNET/ASF-ui)**, welches für alle damit verbundenen Fragen, Probleme, Fehlerberichte und Vorschläge verwendet werden sollte.
 
@@ -37,7 +37,7 @@ Wie bereits erwähnt, ist ASF-ui ein Community-Projekt, das nicht von kern ASF-E
 
 ---
 
-# ASF API
+# ASF-API
 
 Unsere ASF-API ist eine typische **[RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)** Web-API, die auf JSON als primärem Datenformat basiert. Wir tun unser Bestes, um die Antwort genau zu beschreiben, indem wir sowohl HTTP-Statuscodes (wo zutreffend) als auch eine Antwort verwenden, die du selbst analysieren kannst, um zu wissen, ob die Anfrage erfolgreich war und wenn nicht, warum.
 
@@ -45,7 +45,7 @@ Auf unsere ASF-API kann zugegriffen werden, indem entsprechende Anfragen an ents
 
 Für eine vollständige Dokumentation der verfügbaren Endpunkte, Beschreibungen, Anfragen, Antworten, http-Statuscodes und alles andere was die ASF-API berücksichtigt, ließ bitte unsere **[swagger-Dokumentation](#swagger-dokumentation)**.
 
-![ASF API](https://i.imgur.com/yggjf5v.png)
+![ASF-API](https://i.imgur.com/yggjf5v.png)
 
 ---
 
@@ -144,7 +144,7 @@ Beide Wege werden unterstützt und es liegt ganz bei dir, welche du wählen möc
 
 # Swagger Dokumentation
 
-Unsere IPC-Schnittstelle, zusätzlich zu ASF API und ASF-ui, beinhaltet auch die Swagger-Dokumentation, welche unter der `/swagger` **[URL](http://localhost:1242/swagger) ** verfügbar ist. Die Swagger-Dokumentation dient als Mittelsmann zwischen unserer API-Implementierung und anderen Programmen, die sie verwenden (z. B. ASF-ui). Es bietet eine vollständige Dokumentation und Verfügbarkeit aller API-Endpunkte in der Spezifikation **[OpenAPI](https://swagger.io/resources/open-api)**, die von anderen Projekten problemlos genutzt werden kann, so dass du ASF-API mit Leichtigkeit schreiben und testen kannst.
+Unsere IPC-Schnittstelle, zusätzlich zu ASF-API und ASF-ui, beinhaltet auch die Swagger-Dokumentation, welche unter der `/swagger` **[URL](http://localhost:1242/swagger) ** verfügbar ist. Die Swagger-Dokumentation dient als Mittelsmann zwischen unserer API-Implementierung und anderen Programmen, die sie verwenden (z. B. ASF-ui). Es bietet eine vollständige Dokumentation und Verfügbarkeit aller API-Endpunkte in der Spezifikation **[OpenAPI](https://swagger.io/resources/open-api)**, die von anderen Projekten problemlos genutzt werden kann, so dass du ASF-API mit Leichtigkeit schreiben und testen kannst.
 
 Neben der Verwendung unserer Swagger-Dokumentation als komplette Spezifikation der ASF-API kannst du sie auch als benutzerfreundliche Möglichkeit verwenden, verschiedene API-Endpunkte auszuführen, vor allem solche die nicht von ASF-ui implementiert werden. Da unsere Swagger-Dokumentation automatisch aus ASF-Quelltext generiert wird, hast du die Garantie, dass die Dokumentation immer auf dem neuesten Stand der API-Endpunkte ist die Ihre Version von ASF enthält.
 

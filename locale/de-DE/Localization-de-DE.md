@@ -207,7 +207,7 @@ Im gesamten Wiki findest du auch lokale Links die auf einen bestimmten Abschnitt
 
 Dies sind nun Sonderfälle, da diese Links auf den Namen der Abschnitte des aktuellen Dokuments basieren. Während wir für URLs die allgemeine Konvention haben der URL die `-locale` hinzuzufügen (dies funktioniert überall), werden Abschnittsnamen von Ihrenund anderen Leuten übersetzt, also musst du sicherstellen, dass sie auf den richtigen Ort zeigen.
 
-Beispielsweise findest du den Link `#introduction` in unserem Abschnitt **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#introduction)**:
+Beispielsweise findest du den Link `#introduction` in unserem Abschnitt **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#introduction)**:
 
 ---
 

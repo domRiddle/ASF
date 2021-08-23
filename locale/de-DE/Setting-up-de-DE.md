@@ -185,7 +185,7 @@ Editing your ASF configs can be done much easier by using our ASF-ui frontend, w
 
 #### Verwendung von ASF-ui
 
-ASF ist eine Konsolenanwendung und beinhaltet keine grafische Benutzeroberfläche. Wir arbeiten jedoch aktiv an unserem IPC-Schnittstellen Frontend **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, was eine sehr gute und benutzerfreundliche Möglichkeit sein kann, auf verschiedene ASF-Funktionen zuzugreifen.
+ASF ist eine Konsolenanwendung und beinhaltet keine grafische Benutzeroberfläche. Wir arbeiten jedoch aktiv an unserem IPC-Schnittstellen Frontend **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-ui)**, was eine sehr gute und benutzerfreundliche Möglichkeit sein kann, auf verschiedene ASF-Funktionen zuzugreifen.
 
 In order to use ASF-ui, you need to have `IPC` enabled, which is the default option starting with ASF V5.1.0.0. Once you launch ASF, you should be able to confirm that it properly started the IPC interface automatically:
 
@@ -207,7 +207,7 @@ Du hast ASF bereits erfolgreich so eingestellt, dass es deine Steam-Konten nutzt
 
 ## Generisches Setup
 
-Dieses Setup ist für fortgeschrittene Benutzer, die ASF so einrichten möchten, dass es in der Variante **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** läuft. Es wird nicht für Personen empfohlen, die das **[betriebssystemspezifische Setup](#betriebssystemspezifisches-setup)** verwenden können.
+Dieses Setup richtet sich an fortgeschrittene Benutzer, die ASF so einrichten möchten, dass es in der Variante **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#generic)** ausgeführt wird. Es wird nicht für Personen empfohlen, die das **[betriebssystemspezifische Setup](#betriebssystemspezifisches-setup)** verwenden können.
 
 You want to use `generic` variant mainly in those situations (but of course you can use it regardless):
 - Wenn du ein Betriebssystem verwendest, für das wir kein betriebssystemspezifisches Paket erstellen (z. B. 32-Bit Windows)
@@ -221,7 +221,7 @@ For `generic` package, you can follow entire OS-specific guide above, with two s
 
 Mit zusätzlichen Schritten:
 - **[.NET Core Prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)** installieren.
-- Installiere **[.NET Core SDK](https://www.microsoft.com/net/download)** (oder zumindest die Runtime), die für dein Betriebssystem geeignet ist. Du möchtest höchstwahrscheinlich ein Installationsprogramm verwenden. Ließ die **[Runtime-Anforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**, wenn du nicht sicher bist, welche Version du installieren sollst.
+- Installiere **[.NET Core SDK](https://www.microsoft.com/net/download)** (oder zumindest die Runtime), die für dein Betriebssystem geeignet ist. Du möchtest höchstwahrscheinlich ein Installationsprogramm verwenden. Lesen Sie die **[Runtime-Anforderungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#runtime-requirements)**, wenn Sie sich nicht sicher sind, welche Version installiert werden muss.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.
 - Extract the archive into new location.
 - **[ASF konfigurieren](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**.
