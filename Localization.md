@@ -247,7 +247,7 @@ If you believe that something inappropriate is included in a code block, or that
 
 ## Hall of fame
 
-We'd like to show our eternal gratitude to people that have spent a significant amount of their time and willings to make ASF localization better. Those contributors have translated at least over **20 thousand words in total**, around a half of the whole project. Their effort is incredible, and you can enjoy complete translations, including the wiki, mostly thanks to them.
+We'd like to show our eternal gratitude to people that have spent a significant amount of their time and willings to make ASF localization better. Their effort is incredible, and you can enjoy complete translations, including the wiki, mostly thanks to them.
 
 Contributor | Languages
 --- | ---
