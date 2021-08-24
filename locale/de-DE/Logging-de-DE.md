@@ -164,7 +164,7 @@ ASF will temporarily disable **all** rules that include `ColoredConsole` or `Con
 
 ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. Dies liegt daran, dass wir Chat-Nachrichten ohnehin als Befehle behandeln müssen, sodass es uns nichts kostet, diese Ereignisse zu protokollieren, um es Ihnen zu ermöglichen, zusätzliche Logik hinzuzufügen (z. B. ASF zu einem persönlichen Steam-Chat-Archiv zu machen).
 
-### Ereignis-Eigenschaften
+### Ereigniseigenschaften
 
 | Name        | Description                                                                                                                                                                                                                                   |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -176,7 +176,7 @@ ASF includes extended support for chat logging by not only recording all receive
 
 ### Example
 
-Dieses Beispiel basiert auf unserem `ColoredConsole` Basis-Beispiel oben. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
+Dieses Beispiel basiert auf unserem `ColoredConsole` Basisbeispiel oben. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -226,7 +226,7 @@ Wird in allen von ASF verwendeten Umgebungen unterstützt.
 
 ---
 
-#### Konfigurations-Syntax
+#### Konfigurationssyntax
 ```xml
 <targets>
   <target type="Steam"
@@ -303,7 +303,7 @@ Wird in allen von ASF verwendeten Umgebungen unterstützt.
 
 ---
 
-#### Konfigurations-Syntax
+#### Konfigurationssyntax
 ```xml
 <targets>
   <target type="History"

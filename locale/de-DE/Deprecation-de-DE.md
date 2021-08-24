@@ -12,7 +12,7 @@ ASF verändert sich schnell und strebt immer danach besser zu werden. Dies bedeu
 
 ---
 
-## Verfalls-Stufen
+## Verfallsstufen
 
 ASF wird zwei Phasen des Verfalls (engl. Deprecation) folgen, die den Übergang viel einfacher und weniger lästig machen.
 
@@ -20,7 +20,7 @@ ASF wird zwei Phasen des Verfalls (engl. Deprecation) folgen, die den Übergang 
 
 Stufe 1 tritt ein, wenn ein bestimmtes Feature veraltet ist, mit sofortiger Verfügbarkeit einer anderen Lösung (oder keiner, wenn es keine Pläne zur Wiedereinführung gibt).
 
-Während dieser Phase gibt ASF eine entsprechende Warnung aus, wenn die veraltete Funktion verwendet wird. Solange es möglich ist, wird ASF versuchen das alte Verhalten nachzuahmen und damit kompatibel zu bleiben. ASF wird in Bezug auf diese Funktionalität mindestens bis zur nächsten stabilen Version in Stufe 1 bleiben. Dies ist der Moment, in dem Sie, hoffentlich ohne die Kompatibilität zu beeinträchtigen, in all Ihren Programmen und Strukturen den richtigen Wechsel vornehmen können, um dem neuen Verhalten zu genügen. Sie können bestätigen, dass Sie alle entsprechenden Änderungen vorgenommen haben, indem Sie die Verfalls-Warnung nicht mehr angezeigt bekommen.
+Während dieser Phase gibt ASF eine entsprechende Warnung aus, wenn die veraltete Funktion verwendet wird. Solange es möglich ist, wird ASF versuchen das alte Verhalten nachzuahmen und damit kompatibel zu bleiben. ASF wird in Bezug auf diese Funktionalität mindestens bis zur nächsten stabilen Version in Stufe 1 bleiben. Dies ist der Moment, in dem Sie, hoffentlich ohne die Kompatibilität zu beeinträchtigen, in all Ihren Programmen und Strukturen den richtigen Wechsel vornehmen können, um dem neuen Verhalten zu genügen. Sie können bestätigen, dass Sie alle entsprechenden Änderungen vorgenommen haben, indem Sie die Verfallswarnung nicht mehr angezeigt bekommen.
 
 ### Stufe 2
 

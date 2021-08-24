@@ -1,6 +1,6 @@
 # Speichereffizientes Setup
 
-Dies ist genau das Gegenteil von **[Hochleistungs-Setup](https://github. com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-de-DE)** und normalerweise möchten Sie diesen Tipps folgen, wenn Sie den Speicherverbrauch von ASF verringern wollen, um die Gesamtbelastung zu senken.
+Dies ist genau das Gegenteil von **[Hochleistungssetup](https://github. com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-de-DE)** und normalerweise möchten Sie diesen Tipps folgen, wenn Sie den Speicherverbrauch von ASF verringern wollen, um die Gesamtbelastung zu senken.
 
 ---
 
@@ -22,7 +22,7 @@ Die folgenden Vorschläge sind in einige Kategorien unterteilt, mit unterschiedl
 
 ---
 
-## ASF Setup (Einfach)
+## ASF-Setup (Einfach)
 
 Die folgenden Tricks **beeinträchtigen die Leistung nicht negativ** und können sicher auf allen Setups angewendet werden.
 
@@ -43,7 +43,7 @@ Das bedeutet, dass der Speicher am meisten ansteigt, wenn es sich bei ASF um das
 
 ## Runtime tuning (advanced)
 
-Die folgenden Tricks **führen auch zur Leistungs-Minderung** und sollten mit Vorsicht angewendet werden.
+Die folgenden Tricks **führen auch zur Leistungsminderung** und sollten mit Vorsicht angewendet werden.
 
 .NET Core runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
 

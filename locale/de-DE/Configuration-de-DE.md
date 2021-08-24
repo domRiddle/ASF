@@ -10,8 +10,8 @@ Diese Seite widmet sich der Konfiguration von ASF. Es dient als eine lückenlose
 * **[Bot-Konfiguration](#bot-config)**
 * **[Datei-Struktur](#file-structure)**
 * **[JSON-Strukturierung](#json-mapping)**
-* **[Kompatibilitäts-Strukturierung](#compatibility-mapping)**
-* **[Konfigurations-Kompatibilität](#configs-compatibility)**
+* **[Kompatibilitätsstrukturierung](#compatibility-mapping)**
+* **[Konfigurationskompatibilität](#configs-compatibility)**
 * **[Automatisches Nachladen](#auto-reload)**
 
 ---
@@ -275,7 +275,7 @@ Standardmäßig verwendet ASF alle verfügbaren Steam-Protokolle als Maßnahme f
 
 ### `UpdatePeriod`
 
-`byte` Typ mit einem Standardwert von `24`. Diese Eigenschaft legt fest, wie oft ASF nach automatischen Aktualisierungen suchen soll. Aktualisierungen sind nicht nur für den Erhalt neuer Funktionen und kritischer Sicherheits-Patches entscheidend, sondern auch für den Erhalt von Fehlerbehebungen, Leistungssteigerungen, Stabilitätsverbesserungen und mehr. Wenn ein Wert größer als `0` eingestellt ist, lädt ASF sich automatisch herunter, ersetzt und startet sich neu (wenn `AutoRestart` es erlaubt), sobald eine neue Aktualisierung verfügbar ist. Um dies zu erreichen, wird ASF alle `UpdatePeriod` Stunden überprüfen, ob eine neue Aktualisierung in unserem GitHub Repository verfügbar ist. Ein Wert von `0` deaktiviert automatische Aktualisierungen, ermöglicht es aber dennoch, den Befehl `update` manuell auszuführen. Sie könnten auch daran interessiert sein, den entsprechenden `UpdateChannel` einzustellen, dem `UpdatePeriod` folgen sollte.
+`byte` Typ mit einem Standardwert von `24`. Diese Eigenschaft legt fest, wie oft ASF nach automatischen Aktualisierungen suchen soll. Aktualisierungen sind nicht nur für den Erhalt neuer Funktionen und kritischer Sicherheitspatches entscheidend, sondern auch für den Erhalt von Fehlerbehebungen, Leistungssteigerungen, Stabilitätsverbesserungen und mehr. Wenn ein Wert größer als `0` eingestellt ist, lädt ASF sich automatisch herunter, ersetzt und startet sich neu (wenn `AutoRestart` es erlaubt), sobald eine neue Aktualisierung verfügbar ist. Um dies zu erreichen, wird ASF alle `UpdatePeriod` Stunden überprüfen, ob eine neue Aktualisierung in unserem GitHub Repository verfügbar ist. Ein Wert von `0` deaktiviert automatische Aktualisierungen, ermöglicht es aber dennoch, den Befehl `update` manuell auszuführen. Sie könnten auch daran interessiert sein, den entsprechenden `UpdateChannel` einzustellen, dem `UpdatePeriod` folgen sollte.
 
 Der Aktualisierungsprozess von ASF beinhaltet die Aktualisierung der gesamten Ordnerstruktur, die ASF verwendet, mit Aunsnahme der eigenen Konfigurationen oder Datenbanken im Verzeichnis `config` - das bedeutet, dass alle zusätzlichen Dateien, die nicht mit ASF in seinem Verzeichnis zusammenhängen, während des Aktualisierungsvorgangs verloren gehen können. Der Standardwert von `24` ist ein gutes Verhältnis zwischen unnötigen Prüfungen und ASF, das aktuell genug ist.
 
@@ -517,7 +517,7 @@ Es gibt auch eine priorisierte Sammel-Warteschlange, die über die `iq` **[Befeh
 
 ### `LootableTypes`
 
-`ImmutableHashSet<byte>` Typ mit Standardwert von `1, 3, 5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert das ASF-Verhalten beim Plündern - sowohl manuell, durch Verwendung eines **[Befehls](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**, als auch automatisch über eine oder mehrere Konfigurationseigenschaften. ASF wird sicherstellen, dass nur Gegenstände von `LootableTypes` in ein Handelsangebot aufgenommen werden, daher können Sie mit dieser Eigenschaft wählen, was Sie in einem Handelsangebot erhalten möchten, das an Sie gesendet wird.
+`ImmutableHashSet<byte>` Typ mit Standardwert von `1, 3, 5` Steam-Gegenstandstypen. Diese Eigenschaft definiert das ASF-Verhalten beim Plündern - sowohl manuell, durch Verwendung eines **[Befehls](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**, als auch automatisch über eine oder mehrere Konfigurationseigenschaften. ASF wird sicherstellen, dass nur Gegenstände von `LootableTypes` in ein Handelsangebot aufgenommen werden, daher können Sie mit dieser Eigenschaft wählen, was Sie in einem Handelsangebot erhalten möchten, das an Sie gesendet wird.
 
 | Wert | Name                  | Beschreibung                                                                                  |
 | ---- | --------------------- | --------------------------------------------------------------------------------------------- |
@@ -545,7 +545,7 @@ Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bo
 
 ### `MatchableTypes`
 
-`ImmutableHashSet<byte>` Typ mit Standardwert von `5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert, welche Steam Gegenstands-Arten angepasst werden dürfen, wenn die Option `SteamTradeMatcher` in `TradingPreferences` aktiviert ist. Die Arten sind wie folgt definiert:
+`ImmutableHashSet<byte>` Typ mit Standardwert von `5` Steam-Gegenstandstypen. Diese Eigenschaft definiert, welche Steam Gegenstandsarten angepasst werden dürfen, wenn die Option `SteamTradeMatcher` in `TradingPreferences` aktiviert ist. Die Arten sind wie folgt definiert:
 
 | Wert | Name                  | Beschreibung                                                                                           |
 | ---- | --------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -567,7 +567,7 @@ Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bo
 
 Natürlich beinhalten die Typen, die Sie für diese Eigenschaft verwenden sollten, typischerweise nur `2`, `3`, `4` und `5`, da nur diese Typen von STM unterstützt werden. ASF beinhaltet die passende Logik, um die Seltenheit der Gegenstände zu ermitteln, daher ist es auch sicher, Emoticons oder Hintergründe zu vergleichen, da ASF nur die Gegenstände aus dem gleichen Spiel und Typ, die auch die gleiche Seltenheit aufweisen, als fair erachten wird.
 
-Bitte bedenke, dass **ASF kein Handels-Bot** ist und **sich NICHT um den Marktpreis schert.**. Wenn du Gegenstände der gleichen Seltenheit aus dem gleichen Set nicht als preislich gleichwertig betrachtest, dann ist diese Option NICHT für dich. Bitte überlege zweimal, ob du diese Erklärung verstehst und damit einverstanden bist, bevor du dich entscheidest, diese Einstellung zu ändern.
+Bitte bedenke, dass **ASF kein Handelsbot** ist und **sich NICHT um den Marktpreis schert.**. Wenn du Gegenstände der gleichen Seltenheit aus dem gleichen Set nicht als preislich gleichwertig betrachtest, dann ist diese Option NICHT für dich. Bitte überlege zweimal, ob du diese Erklärung verstehst und damit einverstanden bist, bevor du dich entscheidest, diese Einstellung zu ändern.
 
 Wenn du nicht weißt, was du tust, solltest du es bei dem Standardwert `5` belassen.
 
@@ -700,7 +700,7 @@ Unter bestimmten Umständen kann ASF auch selbst einen gültigen Steam-Elterncod
 
 ### `SteamTradeToken`
 
-`string` Typ mit einem Standardwert von `null`. Wenn du deinen Bot auf deiner Freundesliste hast, dann kann der Bot dir sofort ein Handelsangebot schicken, ohne sich um den Handels-Code zu kümmern, deshalb kannst du diese Eigenschaft auf dem Standardwert von `null` belassen. Wenn du dich jedoch dazu entscheidest, deinen Bot NICHT auf deiner Freundesliste zu haben, dann musst du einen Handels-Code dessen Benutzers generieren und eintragen an den dieser Bot Handelsangebote senden möchte. Mit anderen Worten, diese Eigenschaft sollte mit dem Handels-Code des Kontos gefüllt werden, das mit `Master` Berechtigung in `SteamUserPermissions` von **dieser** Bot-Instanz definiert ist.
+`string` Typ mit einem Standardwert von `null`. Wenn du deinen Bot auf deiner Freundesliste hast, dann kann der Bot dir sofort ein Handelsangebot schicken, ohne sich um den Handelscode zu kümmern, deshalb kannst du diese Eigenschaft auf dem Standardwert von `null` belassen. Wenn du dich jedoch dazu entscheidest, deinen Bot NICHT auf deiner Freundesliste zu haben, dann musst du einen Handelscode dessen Benutzers generieren und eintragen an den dieser Bot Handelsangebote senden möchte. Mit anderen Worten, diese Eigenschaft sollte mit dem Handelscode des Kontos gefüllt werden, das mit `Master` Berechtigung in `SteamUserPermissions` von **dieser** Bot-Instanz definiert ist.
 
 Um deinen Code zu finden, navigiere als angemeldeter Benutzer mit der Berechtigung `Master` **[hier](https://steamcommunity.com/my/tradeoffers/privacy)** und schau dir deine Handels URL an. Der Code, nach dem wir suchen, besteht aus 8 Zeichen nach `&token=` Teil in deiner Handels-URL. Du solltest diese 8 Zeichen kopieren und hier einfügen, als `SteamTradeToken`. Füge nicht die gesamte Handels URL ein, auch nicht den `&token=` Teil, nur den Code selbst (8 Zeichen).
 
@@ -746,7 +746,7 @@ Für weitere Erläuterungen zur ASF-Handelslogik und zur Beschreibung jedes verf
 
 ### `TransferableTypes`
 
-`ImmutableHashSet<byte>` Typ mit Standardwert von `1, 3, 5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert, welche Steam-Gegenstands-Typen für die Übertragung zwischen Bots während `transfer` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** berücksichtigt werden. ASF wird sicherstellen, dass nur Gegenstände von `TransferableTypes` in ein Handelsangebot aufgenommen werden, daher kannst du mit dieser Eigenschaft wählen, was du in einem Handelsangebot erhalten möchtest, das an einen deiner Bots gesendet wird.
+`ImmutableHashSet<byte>` Typ mit Standardwert von `1, 3, 5` Steam-Gegenstandstypen. Diese Eigenschaft definiert, welche Steam-Gegenstandstypen für die Übertragung zwischen Bots während `transfer` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** berücksichtigt werden. ASF wird sicherstellen, dass nur Gegenstände von `TransferableTypes` in ein Handelsangebot aufgenommen werden, daher kannst du mit dieser Eigenschaft wählen, was du in einem Handelsangebot erhalten möchtest, das an einen deiner Bots gesendet wird.
 
 | Wert | Name                  | Beschreibung                                                                                           |
 | ---- | --------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -935,7 +935,7 @@ Due to JavaScript limitations of being unable to properly serialize simple `ulon
 
 ---
 
-## Konfigurations-Kompatibilität
+## Konfigurationskompatibilität
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Wenn also eine neue Konfigurationseigenschaft in einer neuen Version von ASF eingeführt wird, bleiben all deine Konfigurationen **kompatibel** mit der neuen Version, und ASF wird diese neue Konfigurationseigenschaft so behandeln, wie sie mit ihrem **Standardwert** definiert wäre. Du kannst jederzeit Konfigurationseigenschaften nach deinen Wünschen hinzufügen, entfernen oder bearbeiten. Wir empfehlen, definierte Konfigurationseigenschaften nur auf die zu ändernden Eigenschaften zu beschränken, da du auf diese Weise automatisch Standardwerte für alle anderen vererbst, nicht nur deine Konfiguration sauber hältst, sondern auch die Kompatibilität erhöhst, falls wir beschließen, einen Standardwert für Eigenschaften zu ändern, die du nicht explizit selbst festlegen möchtest (z.B. `WebLimiterDelay`).
 

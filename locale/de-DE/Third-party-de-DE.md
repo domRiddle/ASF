@@ -6,9 +6,9 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 ---
 
-## ASF Plugins
+## ASF-Plugins
 
-- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, Plugin für ASF, mit dem du Steam-Erfolge verwalten kannst.
+- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, Plugin für ASF, mit dem du Steam-Erfolge verwalten kannst.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, Plugin für ASF, das die Funktionalität der Erstellung von Booster-Paketen bereitstellt.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, Plugin für ASF, um Botnamen case-insensitiv zu machen.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, Plugin für ASF welches die befehllose Produktschlüssel-Aktivierung zu re-implementieren.
@@ -21,7 +21,7 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 ## Integrationen
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, ein in Python geschriebener Telegramm-Bot zur ASF-Integration.
-- **[ASF STM Skript](https://greasyfork.org/en/scripts/404754-asf-stm)**, für diejenigen, die automatisierte Handelsangebote an Bots in unsere **[ASF STM Liste](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-de-DE#public-asf-stm-listing)** über Webbrowser versenden möchten, ohne die `MatchActively` Funktion von ASF zu verwenden.
+- **[ASF-STM Skript](https://greasyfork.org/en/scripts/404754-asf-stm)**, für diejenigen, die automatisierte Handelsangebote an Bots in unsere **[ASF-STM Liste](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-de-DE#public-asf-stm-listing)** über Webbrowser versenden möchten, ohne die `MatchActively` Funktion von ASF zu verwenden.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, ein weiterer (minimaler) in Python geschriebener Telegramm-Bot zur ASF-Integration.
 
 ---

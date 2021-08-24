@@ -6,7 +6,7 @@ ASF unterstützt mehrere Befehlszeilenargumente, die die Programm-Runtime beeinf
 
 ## Nutzung
 
-Die Nutzung ist abhängig vom verwendeten Betriebssystem und der ASF Variante.
+Die Nutzung ist abhängig vom verwendeten Betriebssystem und der ASF-Variante.
 
 Generisch:
 
@@ -64,7 +64,7 @@ Aufgrund der Natur dieser Eigenschaft ist es auch möglich, den Wert zu setzen, 
 
 ---
 
-`--no-config-watch` - legt ASF Standardmäßig einen `FileSystemWatcher` für Ihre `Konfiguration` fest, um auf Ereignisse im Zusammenhang mit Änderungen der Datei zu hören, sodass diese sich interaktiv anpasst. Dies beinhaltet beispielsweise das Stoppen von Bots beim Löschen der Konfiguration, den Neustart des Bots bei der Änderung der Konfiguration, oder laden von Schlüsseln in **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-de-DE#)** sobald Sie sie in das `Verzeichnis` eingegeben werden. Diese Option erlaubt es Ihnen, solch ein Verhalten zu deaktivieren, sodass ASF alle Änderungen im `config`-Verzeichnis ignoriert, wodurch alle Aktionen manuell ausgeführt werden müssen, sofern sie erforderlich sind. Wir empfehlen die Konfigurationsereignisse aktiviert zu lassen, außer Sie haben einen guten Grund diese für ASF zu deaktivieren.
+`--no-config-watch` - legt ASF standardmäßig einen `FileSystemWatcher` für Ihre `Konfiguration` fest, um auf Ereignisse im Zusammenhang mit Änderungen der Datei zu hören, sodass diese sich interaktiv anpasst. Dies beinhaltet beispielsweise das Stoppen von Bots beim Löschen der Konfiguration, den Neustart des Bots bei der Änderung der Konfiguration, oder laden von Schlüsseln in **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-de-DE#)** sobald Sie sie in das `Verzeichnis` eingegeben werden. Diese Option erlaubt es Ihnen, solch ein Verhalten zu deaktivieren, sodass ASF alle Änderungen im `config`-Verzeichnis ignoriert, wodurch alle Aktionen manuell ausgeführt werden müssen, sofern sie erforderlich sind. Wir empfehlen die Konfigurationsereignisse aktiviert zu lassen, außer Sie haben einen guten Grund diese für ASF zu deaktivieren.
 
 ---
 
@@ -72,7 +72,7 @@ Aufgrund der Natur dieser Eigenschaft ist es auch möglich, den Wert zu setzen, 
 
 ---
 
-`--path <path>` oder `--path=<path>` - ASF wechselt beim Start immer in sein eigenes Verzeichnis. Wird dieser Parameter angegeben so wird ASF nach der Initialisierung zu dem gegebenem Programmverzeichnis navigieren, dies macht es Ihnen möglich andere Verzeichnisse wie z.B. `config`, `plugins` oder `www` (sowie auch die `NLog.config` Datei) für unterschiedliche Teile der Applikation zu nutzen. Das Kopieren der Binärdateien an diese Stellen ist dadurch nicht mehr nötig. Es kann besonders nützlich sein, wenn Sie die Binärdatei von der eigentlichen Konfiguration trennen möchten, wie es in einer Linux-ähnlichen Verpackung geschieht - so können Sie eine (aktuelle) Binärdatei mit mehreren verschiedenen Konfigurationen verwenden. Der Pfad kann entweder relativ zum aktuellen Ort der ASF-Binärdatei oder absolut sein. Bedenke auch, dass dieser Befehl auf einen neuen "ASF Homeordner" zeigt - ein Verzeichnis, welches die gleiche Struktur wie der ursprüngliche ASF Ordner hat, mit einem Verzeichnis config darin, siehe unteres Beispiel für eine Erklärung.
+`--path <path>` oder `--path=<path>` - ASF wechselt beim Start immer in sein eigenes Verzeichnis. Wird dieser Parameter angegeben so wird ASF nach der Initialisierung zu dem gegebenem Programmverzeichnis navigieren, dies macht es Ihnen möglich andere Verzeichnisse wie z.B. `config`, `plugins` oder `www` (sowie auch die `NLog.config` Datei) für unterschiedliche Teile der Applikation zu nutzen. Das Kopieren der Binärdateien an diese Stellen ist dadurch nicht mehr nötig. Es kann besonders nützlich sein, wenn Sie die Binärdatei von der eigentlichen Konfiguration trennen möchten, wie es in einer Linux-ähnlichen Verpackung geschieht - so können Sie eine (aktuelle) Binärdatei mit mehreren verschiedenen Konfigurationen verwenden. Der Pfad kann entweder relativ zum aktuellen Ort der ASF-Binärdatei oder absolut sein. Bedenke auch, dass dieser Befehl auf einen neuen "ASF-Homeordner" zeigt - ein Verzeichnis, welches die gleiche Struktur wie der ursprüngliche ASF-Ordner hat, mit einem Verzeichnis config darin, siehe unteres Beispiel für eine Erklärung.
 
 Aufgrund der Natur dieser Eigenschaft ist es auch möglich, den erwarteten Pfad zu setzen, indem man die Umgebungsvariable `ASF_PATH` deklariert, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
 
