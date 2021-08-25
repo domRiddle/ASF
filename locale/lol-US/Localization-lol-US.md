@@ -247,13 +247,14 @@ IF U BLEEV DAT SOMETHIN INAPPROPRIATE IZ INCLUDD IN CODE BLOCK, OR DAT THAR IZ T
 
 ## HALL OV FAME
 
-WED LIEK 2 SHOW R ETERNAL GRATITUDE 2 PEEPS DAT HAS SPENT SIGNIFICANT AMOUNT OV THEIR TIEM AN WILLINGS 2 MAK ASF LOCALIZASHUN BETTR. DOSE CONTRIBUTORS HAS TRANZLATD AT LEAST OVAR **20 THOUSAND WERDZ IN TOTAL**, AROUND HALF OV TEH WHOLE PROJECT. THEIR EFFORT IZ INCREDIBLE, AN U CAN ENJOY COMPLETE TRANZLASHUNS, INCLUDIN TEH WIKI, MOSTLY THX 2 THEM.
+WED LIEK 2 SHOW R ETERNAL GRATITUDE 2 PEEPS DAT HAS SPENT SIGNIFICANT AMOUNT OV THEIR TIEM AN WILLINGS 2 MAK ASF LOCALIZASHUN BETTR. THEIR EFFORT IZ INCREDIBLE, AN U CAN ENJOY COMPLETE TRANZLASHUNS, INCLUDIN TEH WIKI, MOSTLY THX 2 THEM.
 
 | CONTRIBUTOR                                                | LANGUAGEZ         |
 | ---------------------------------------------------------- | ----------------- |
 | **[ASTAROTH](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, SPANISH   |
 | **[DEAD_SAM](https://crowdin.com/profile/Dead_Sam)**       | PORTUGUEES (BR)   |
 | **[DELUXGHOST](https://crowdin.com/profile/deluxghost)**   | CHINEES (CN)      |
+| **[LittleFreak](https://crowdin.com/profile/littlefreak)** | GERMAN            |
 | **[RYZHEHVOST](https://crowdin.com/profile/Ryzhehvost)**   | RUSIAN, UKRAINIAN |
 | **[MRBURRBURR](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, GERMAN    |
 | **[XINXINGCHEN](https://crowdin.com/profile/XinxingChen)** | CHINEES (HK)      |

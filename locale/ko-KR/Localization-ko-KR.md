@@ -247,13 +247,14 @@ When no HTML is present (second case), this is even easier since you can just go
 
 ## 명예의 전당
 
-더 나은 ASF 현지화를 위해 자신의 소중한 시간을 할애해준 사람들에게 영원한 감사를 전하고 싶습니다. 이 기여자들은 적어도 **총 2만 단어** 이상을 번역했습니다. 이는 전체 프로젝트의 절반정도입니다. 그들의 노력은 믿을 수 없는 것이고, 당신은 그들 덕에 위키를 포함한 완벽한 번역을 즐길 수 있습니다.
+더 나은 ASF 현지화를 위해 자신의 소중한 시간을 할애해준 사람들에게 영원한 감사를 전하고 싶습니다. 그들의 노력은 믿을 수 없는 것이고, 당신은 그들 덕에 위키를 포함한 완벽한 번역을 즐길 수 있습니다.
 
 | 기여자                                                        | 언어              |
 | ---------------------------------------------------------- | --------------- |
 | **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Spanish |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | 포르투칼어(BR)       |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | 중국어(CN)         |
+| **[LittleFreak](https://crowdin.com/profile/littlefreak)** | 독일어             |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | 러시아어와 우크라이나어    |
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, German  |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 중국어(HK)         |

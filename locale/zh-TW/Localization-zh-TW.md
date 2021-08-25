@@ -247,13 +247,14 @@ If you believe that something inappropriate is included in a code block, or that
 
 ## 名人堂
 
-We'd like to show our eternal gratitude to people that have spent a significant amount of their time and willings to make ASF localization better. Those contributors have translated at least over **20 thousand words in total**, around a half of the whole project. Their effort is incredible, and you can enjoy complete translations, including the wiki, mostly thanks to them.
+We'd like to show our eternal gratitude to people that have spent a significant amount of their time and willings to make ASF localization better. Their effort is incredible, and you can enjoy complete translations, including the wiki, mostly thanks to them.
 
 | 貢獻者                                                        | 語言              |
 | ---------------------------------------------------------- | --------------- |
 | **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Spanish |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | 葡萄牙語（巴西）        |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | 中文（中國）          |
+| **[LittleFreak](https://crowdin.com/profile/littlefreak)** | 德文              |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | 俄文、烏克蘭文         |
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, German  |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 中文（香港）          |

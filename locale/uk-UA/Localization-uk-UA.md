@@ -247,13 +247,14 @@ When no HTML is present (second case), this is even easier since you can just go
 
 ## Зала слави
 
-Ми хочемо висловити нашу нескінченну подяку людям, які витратили значний обсяг свого часу намагаючись зробити локалізацію ASF краще. Ці співробітники переклали кожен понад **20 тисяч слів загалом**, приблизно половину усього проекту. Їхні зусилля неймовірні, і ви можете насолоджуватися повним перекладом, включно з wiki, переважно завдяки їм.
+Ми хочемо висловити нашу нескінченну подяку людям, які витратили значний обсяг свого часу намагаючись зробити локалізацію ASF краще. Їхні зусилля неймовірні, і ви можете насолоджуватися повним перекладом, включно з wiki, переважно завдяки їм.
 
 | Співробітник                                               | Мови                    |
 | ---------------------------------------------------------- | ----------------------- |
 | **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Spanish         |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Португальська (BR)      |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Китайська (CN)          |
+| **[LittleFreak](https://crowdin.com/profile/littlefreak)** | Німецька                |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Українська та російська |
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, German          |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Китайська (HK)          |

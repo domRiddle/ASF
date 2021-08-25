@@ -247,13 +247,14 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 ## 名人堂
 
-我们向花费大量时间与精力参与 ASF 本地化工作的人致以衷心的感谢。 这些参与者至少翻译了**两万单词**，几乎是整个项目的一半。 他们的努力是惊人的，您能够获得完整的本地化体验，包括此 Wiki，主要归功于这些人。
+我们向花费大量时间与精力参与 ASF 本地化工作的人致以衷心的感谢。 他们的努力是惊人的，您能够获得完整的本地化体验，包括此 Wiki，主要归功于这些人。
 
 | 贡献者                                                        | 语言          |
 | ---------------------------------------------------------- | ----------- |
 | **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT、西班牙语 |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | 葡萄牙语（巴西）    |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | 汉语（中国大陆）    |
+| **[LittleFreak](https://crowdin.com/profile/littlefreak)** | 德语          |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | 俄语、乌克兰语     |
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT、德语   |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 汉语（中国香港）    |

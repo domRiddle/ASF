@@ -247,13 +247,14 @@ Si crees que algo inapropiado está incluido en un bloque de código, o que hay 
 
 ## Salón de la Fama
 
-Nos gustaría mostrar nuestra eterna gratitud a las personas que han dedicado una cantidad significativa de su tiempo y voluntad para mejorar la localización de ASF. Estos colaboradores han traducido al menos **20 mil palabras en total**, alrededor de la mitad de todo el proyecto. Su esfuerzo es increíble, y puedes disfrutar de traducciones completas, incluyendo la wiki, principalmente gracias a ellos.
+Nos gustaría mostrar nuestra eterna gratitud a las personas que han dedicado una cantidad significativa de su tiempo y voluntad para mejorar la localización de ASF. Su esfuerzo es increíble, y puedes disfrutar de traducciones completas, incluyendo la wiki, principalmente gracias a ellos.
 
 | Colaborador                                                | Idiomas         |
 | ---------------------------------------------------------- | --------------- |
 | **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Español |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portugués (BR)  |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chino (CN)      |
+| **[LittleFreak](https://crowdin.com/profile/littlefreak)** | Alemán          |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Ruso, Ucraniano |
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, Alemán  |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chino (HK)      |

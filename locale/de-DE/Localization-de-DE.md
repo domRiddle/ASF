@@ -131,7 +131,7 @@ Zum Beispiel enthält die **[Startseite](https://github.com/JustArchiNET/ArchiSt
 Der eigentlich so geschrieben wird:
 
 ```markdown
-Wenn du ein neuer Benutzer bist, empfehlen wir Ihrenmit dem Leitfaden zur **[Installation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-de-DE)** anzufangen.
+Wenn Sie ein neuer Benutzer sind, empfehlen wir Ihnen mit dem Leitfaden zur **[Installation](https://github.com/JustArchi/ArchiSteamFarm/wiki/Setting-up-de-DE)** anzufangen.
 ```
 
 Auf Crowdin solltest du zuerst zu Ihren Editor-Einstellungen gehen und sicherstellen, dass HTML-Tags für dich auf "Show" gesetzt sind. Dies ist sehr wichtig, wenn du dich dazu entscheidest das Wiki zu übersetzen.
@@ -247,13 +247,14 @@ Wenn du glaubst, dass etwas Unangemessenes in einem Codeblock enthalten ist oder
 
 ## Ruhmeshalle
 
-Wir möchten unseren ewigen Dank denjenigen Menschen zeigen, die sehr viel ihrer Zeit und Bereitschaft gegeben haben um die ASF Übersetzung zu verbessern. Diese Mitwirkenden haben mindestens über **20 tausend Wörter** übersetzt, das entspricht ungefähr der Hälfte des gesamten Projektes. Ihr Aufwand ist unglaublich, und Sie können sich an kompletten Übersetzungen erfreuen, einschließlich des Wikis, hauptsächlich dank ihnen.
+Wir möchten unseren ewigen Dank denjenigen Menschen zeigen, die sehr viel ihrer Zeit und Bereitschaft gegeben haben um die ASF Übersetzung zu verbessern. Ihr Aufwand ist unglaublich, und Sie können sich an kompletten Übersetzungen erfreuen, einschließlich des Wikis, hauptsächlich dank ihnen.
 
 | Mitwirkender                                               | Sprachen             |
 | ---------------------------------------------------------- | -------------------- |
 | **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Spanisch     |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portugiesisch (BR)   |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinesisch (CN)      |
+| **[LittleFreak](https://crowdin.com/profile/littlefreak)** | Deutsch              |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russisch, Ukrainisch |
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, Deutsch      |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinesisch (HK)      |
