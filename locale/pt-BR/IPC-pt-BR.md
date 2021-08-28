@@ -33,6 +33,8 @@ A ASF-ui é um projeto da comunidade que busca criar uma interface gráfica web 
 
 Como mencionado acima, a ASF-ui é um projeto da comunidade que não é mantido pelos principais desenvolvedores do ASF. Ela segue seu próprio fluxo de desenvolvimento no **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)** que deve ser usado para todas as questões relacionadas a ela, tais como problemas, relatórios de bugs e sugestões.
 
+You can use ASF-ui for general management of ASF process. It allows for example to manage bots, modify settings, send commands, and achieve selected other functionality normally available through ASF.
+
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
 ---
@@ -47,7 +49,7 @@ Para uma documentação completa de endpoints disponíveis, descrições, solici
 
 **documentação swagger</a>**.</p> 
 
-![API do ASF](https://i.imgur.com/yggjf5v.png)
+![ASF API](https://i.imgur.com/yggjf5v.png)
 
 
 
@@ -142,7 +144,7 @@ Se você não precisa de acesso de todas as fontes, mas, por exemplo, apenas da 
 
 # Autenticação
 
-A interface ASF do IPC não requer qualquer tipo de autenticação por padrão, já que `IPCPassword` é definido como `null`. No entanto, se `IPCPassword` for definido com qualquer valor não-vazio, todas as chamadas à API do ASF vão requerer a senha correspondente definida em `IPCPassword`. Se você omitir a autenticação ou entrar com uma senha errada, você terá o erro `401 - Unauthorized` erro. Se você continuar enviando solicitações sem autenticação, eventualmente você será temporariamente bloqueado com o erro `403 - Forbidden`.
+A interface ASF do IPC não requer qualquer tipo de autenticação por padrão, já que `IPCPassword` é definido como `null`. No entanto, se `IPCPassword` for definido com qualquer valor não-vazio, todas as chamadas à API do ASF vão requerer a senha correspondente definida em `IPCPassword`. Se você omitir a autenticação ou entrar com uma senha errada, você terá o erro `401 - Unauthorized` erro. After 5 failed authentication attempts (wrong password), you'll get temporarily blocked with `403 - Forbidden` error.
 
 A autenticação pode ser feita de duas formas diferentes.
 
@@ -267,7 +269,7 @@ server {
 ```
 
 
-Segue abaixo um exemplo de configuração Apache. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
+Segue abaixo um exemplo de configuração Apache. Consulte a **[documentação apache](https://httpd.apache.org/docs)** se você precisar de mais explicações.
 
 
 
@@ -294,9 +296,9 @@ Segue abaixo um exemplo de configuração Apache. Please refer to **[apache docu
 
 ### Posso acessar a interface IPC através do protocolo HTTPS?
 
-**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. Desta forma o seu tráfego será totalmente criptografado e você não precisa modificar o IPC para tal configuração.
+**Sim**, isso pode ser feito de duas formas. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. Desta forma o seu tráfego será totalmente criptografado e você não precisa modificar o IPC para tal configuração.
 
-Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. Este modo é recomendado se você não estiver executando nenhum outro servidor web e não quer executar um exclusivamente para o ASF. Caso contrário, é muito mais fácil efetuar uma configuração satisfatória por meio de um mecanismo de proxy reverso.
+A segunda forma inclui especificar uma **[configuração personalizada](#configuração-personalizada)** para a interface IPC do ASF, onde você pode habilitar o endpoint https e fornecer um certificado apropriado diretamente para o nosso servidor http Kestrel. Este modo é recomendado se você não estiver executando nenhum outro servidor web e não quer executar um exclusivamente para o ASF. Caso contrário, é muito mais fácil efetuar uma configuração satisfatória por meio de um mecanismo de proxy reverso.
 
 
 

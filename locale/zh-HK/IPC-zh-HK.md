@@ -33,6 +33,8 @@ ASF-ui 是一個社區項目，旨在創建用戶友好的圖形 Web 界面。 �
 
 如上所述，ASF-ui 是一個社區項目，不由 ASF 核心開發人員維護。 它的所有相關問題、錯誤，漏洞報告和建議應遵循自己的流程** [ ASF-ui repo ](https://github.com/JustArchiNET/ASF-ui) **。
 
+You can use ASF-ui for general management of ASF process. It allows for example to manage bots, modify settings, send commands, and achieve selected other functionality normally available through ASF.
+
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
 ---
@@ -124,7 +126,7 @@ If you do not require access from all sources, but for example your LAN only, th
 
 # 身份驗證
 
-ASF IPC 接口不需要任何類型的身份驗證，因為預設情況下` IPCPassword `為` null `。 但是，如果通過設置為任何非空值來啟用` IPCPassword `，則每次調用 ASF 的 API 都需要與` IPCPassword `匹配的密碼。 如果省略身份驗證或輸入錯誤的密碼，您將收到`401 - Unauthorized`錯誤。 如果您繼續發送未經身份驗證的請求，最終您將暫時被`403 - Forbidden` 錯誤封禁。
+ASF IPC 接口不需要任何類型的身份驗證，因為預設情況下` IPCPassword `為` null `。 但是，如果通過設置為任何非空值來啟用` IPCPassword `，則每次調用 ASF 的 API 都需要與` IPCPassword `匹配的密碼。 如果省略身份驗證或輸入錯誤的密碼，您將收到`401 - Unauthorized`錯誤。 After 5 failed authentication attempts (wrong password), you'll get temporarily blocked with `403 - Forbidden` error.
 
 身份驗證可以通過兩種不同的方式完成。
 
@@ -246,7 +248,7 @@ Example Apache configuration can be found below. Please refer to **[apache docum
 
 ### 我可以通過 HTTPS 協議訪問 IPC 接口嗎？
 
-**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
+**是的**，您可以通過兩種不同的方式實現它。 A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
 
 Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. This way is recommended if you're not running any other web server and don't want to run one exclusively for ASF. Otherwise, it's much easier to achieve a satisfying setup by using a reverse proxy mechanism.
 

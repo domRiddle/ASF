@@ -33,6 +33,8 @@ ASF-ui는 최종사용자에게 사용자 친화적인 그래픽 웹 인터페�
 
 위에서 설명했듯이 ASF-ui는 ASF 핵심 개발자들이 유지관리하지 않는 커뮤니티 프로젝트입니다. **[ASF-ui 리포](https://github.com/JustArchiNET/ASF-ui)** 에 있는 자체 흐름을 따라가며, 이곳에서 모든 관련된 질문, 이슈, 버그 보고 및 제안이 이루어집니다.
 
+You can use ASF-ui for general management of ASF process. It allows for example to manage bots, modify settings, send commands, and achieve selected other functionality normally available through ASF.
+
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
 ---
@@ -124,7 +126,7 @@ The following config will allow remote access from all sources, therefore you sh
 
 # 인증
 
-ASF IPC 인터페이스는 기본적으로 `IPCPassword`가 `null`로 설정되어 있으므로 어떠한 종류의 인증도 요구하지 않습니다. 하지만 `IPCPassword`가 빈 값이 아닌것으로 설정되어 활성화되면, 모든 ASF API 호출은 `IPCPassword`에 맞는 암호를 요구할 것입니다. 인증을 생략하거나 잘못된 암호를 입력하면 `401 - Unauthorized` 오류가 발생합니다. 인증 없이 요청을 계속 보내면 결국 `403 - Forbidden` 오류와 함께 당신은 일시적으로 차단됩니다.
+ASF IPC 인터페이스는 기본적으로 `IPCPassword`가 `null`로 설정되어 있으므로 어떠한 종류의 인증도 요구하지 않습니다. 하지만 `IPCPassword`가 빈 값이 아닌것으로 설정되어 활성화되면, 모든 ASF API 호출은 `IPCPassword`에 맞는 암호를 요구할 것입니다. 인증을 생략하거나 잘못된 암호를 입력하면 `401 - Unauthorized` 오류가 발생합니다. After 5 failed authentication attempts (wrong password), you'll get temporarily blocked with `403 - Forbidden` error.
 
 인증은 두가지 다른 방법으로 가능합니다.
 
@@ -224,7 +226,7 @@ server {
 }
 ```
 
-다음은 아파치 환경설정의 예시입니다. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
+다음은 아파치 환경설정의 예시입니다. 더 자세한 설명이 필요하면 **[apache 문서(영문)](https://httpd.apache.org/docs)** 를 참고하십시오.
 
 ```apache
 <IfModule mod_ssl.c>
@@ -246,9 +248,9 @@ server {
 
 ### HTTPS 프로토콜로 IPC 인터페이스에 접근할 수 있습니까?
 
-**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. 이 방법은 트래픽이 완전히 암호화되므로 이런 설치를 위해 IPC를 어떤 방식으로든 수정할 필요가 없습니다.
+**예**. 두가지 방법으로 가능합니다. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. 이 방법은 트래픽이 완전히 암호화되므로 이런 설치를 위해 IPC를 어떤 방식으로든 수정할 필요가 없습니다.
 
-Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. 이 방법은 다른 웹서버를 실행하지 않고 있으며 오직 ASF를 위해서 웹서버를 추가로 실행하고 싶지 않은 경우 추천합니다. 그렇지 않으면 역방향 프록시 구조를 사용하는 것이 설치하는데 훨씬 쉬울 것입니다.
+두번째 방법은 ASF IPC 인터페이스의 **[사용자 지정 환경설정](#사용자-지정-환경설정)** 에 명시하는 것으로, https 단말을 활성화 하고 Kestrel http 서버에 적절한 인증을 직접 제공하는 것입니다. 이 방법은 다른 웹서버를 실행하지 않고 있으며 오직 ASF를 위해서 웹서버를 추가로 실행하고 싶지 않은 경우 추천합니다. 그렇지 않으면 역방향 프록시 구조를 사용하는 것이 설치하는데 훨씬 쉬울 것입니다.
 
 ---
 

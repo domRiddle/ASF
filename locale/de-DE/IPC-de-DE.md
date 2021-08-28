@@ -33,6 +33,8 @@ ASF-ui ist ein Gemeinschaftsprojekt, das darauf abzielt, eine benutzerfreundlich
 
 Wie bereits erwähnt, ist ASF-ui ein Community-Projekt, das nicht von kern ASF-Entwicklern betreut wird. Es folgt seinem eigenen Fluss in der **[ASF-ui Repository](https://github.com/JustArchiNET/ASF-ui)**, welches für alle damit verbundenen Fragen, Probleme, Fehlerberichte und Vorschläge verwendet werden sollte.
 
+You can use ASF-ui for general management of ASF process. It allows for example to manage bots, modify settings, send commands, and achieve selected other functionality normally available through ASF.
+
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
 ---
@@ -124,7 +126,7 @@ Wenn du nicht von allen Quellen Zugriff benötigst, aber zum Beispiel nur von de
 
 # Authentifizierung
 
-Die ASF IPC-Schnittstelle erfordert standardmäßig keine Art von Authentifizierung, da `IPCPassword` auf `null` gesetzt ist. Wenn jedoch `IPCPassword` durch das Setzen eines beliebigen nicht leeren Wertes aktiviert wird, erfordert jeder Aufruf der ASF-API das Passwort, das mit dem eingestellten `IPCPassword` übereinstimmt. Wenn du die Authentifizierung weglässt oder ein falsches Passwort eingibst, bekommst du einen `401 - Unauthorized` Fehler. Wenn du weiterhin Anfragen ohne Authentifizierung sendest, wirst du schließlich vorübergehend mit dem Fehler `403 - Forbidden` gesperrt.
+Die ASF IPC-Schnittstelle erfordert standardmäßig keine Art von Authentifizierung, da `IPCPassword` auf `null` gesetzt ist. Wenn jedoch `IPCPassword` durch das Setzen eines beliebigen nicht leeren Wertes aktiviert wird, erfordert jeder Aufruf der ASF-API das Passwort, das mit dem eingestellten `IPCPassword` übereinstimmt. Wenn du die Authentifizierung weglässt oder ein falsches Passwort eingibst, bekommst du einen `401 - Unauthorized` Fehler. After 5 failed authentication attempts (wrong password), you'll get temporarily blocked with `403 - Forbidden` error.
 
 Die Authentifizierung kann auf zwei verschiedene Arten erfolgen.
 
@@ -224,7 +226,7 @@ server {
 }
 ```
 
-Im Folgenden finden Sie ein Beispiel für die Apache Konfiguration. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
+Im Folgenden finden Sie ein Beispiel für die Apache Konfiguration. Bitte wenden Sie sich an die **[Apache Dokumentation](https://httpd.apache.org/docs)** sollten Sie weitere Erklärungen benötigen.
 
 ```apache
 <IfModule mod_ssl.c>
@@ -246,9 +248,9 @@ Im Folgenden finden Sie ein Beispiel für die Apache Konfiguration. Please refer
 
 ### Kann ich über das HTTPS-Protokoll auf die IPC-Schnittstelle zugreifen?
 
-**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. Auf diese Weise ist dein Datenverkehr vollständig verschlüsselt und du musst IPC in keiner Weise ändern um ein solches Setup zu unterstützen.
+**Ja**, du kannst es auf zwei verschiedene Arten erreichen. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. Auf diese Weise ist dein Datenverkehr vollständig verschlüsselt und du musst IPC in keiner Weise ändern um ein solches Setup zu unterstützen.
 
-Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. Dieser Weg wird empfohlen, wenn du keinen anderen Webserver betreibst und keinen ausschließlich für ASF betreiben möchtest. Andernfalls ist es viel einfacher ein befriedigendes Setup zu erreichen, indem man einen Reverse-Proxy-Mechanismus verwendet.
+Die zweite Möglichkeit besteht darin eine **[benutzerdefinierte Konfiguration](#custom-configuration)** für die IPC-Schnittstelle von ASF zu spezifizieren, wo du https-Endpunkt aktivieren und das entsprechende Zertifikat direkt an unseren Kestrel http-Server senden kannst. Dieser Weg wird empfohlen, wenn du keinen anderen Webserver betreibst und keinen ausschließlich für ASF betreiben möchtest. Andernfalls ist es viel einfacher ein befriedigendes Setup zu erreichen, indem man einen Reverse-Proxy-Mechanismus verwendet.
 
 ---
 
