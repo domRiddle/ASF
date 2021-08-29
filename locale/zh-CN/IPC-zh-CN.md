@@ -33,7 +33,7 @@ ASF-ui 是一个社区项目，主要为最终用户提供了一个用户友好�
 
 如上所述，ASF-ui 是一个社区项目，并非由 ASF 核心开发者维护。 它遵循自己的开发流程，所有相关的问题、讨论、漏洞报告和建议都应该发表于 **[ASF-ui 仓库](https://github.com/JustArchiNET/ASF-ui)**。
 
-You can use ASF-ui for general management of ASF process. It allows for example to manage bots, modify settings, send commands, and achieve selected other functionality normally available through ASF.
+您可以使用 ASF-ui 对 ASF 进行常规管理。 例如管理机器人、修改设置、发送命令，以及 ASF 提供的各种其他功能。
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
@@ -126,7 +126,7 @@ You can use ASF-ui for general management of ASF process. It allows for example 
 
 # 身份认证
 
-默认情况下，ASF IPC 接口不需要任何形式的身份验证，因为 `IPCPassword` 被设置为 `null`。 然而，如果 `IPCPassword` 被设置为任意非空值，每个向 ASF API 发送的请求都需要包含匹配 `IPCPassword` 的密码。 如果您省略验证信息或者输入错误的密码，您将会收到 `401 - Unauthorized` 错误。 After 5 failed authentication attempts (wrong password), you'll get temporarily blocked with `403 - Forbidden` error.
+默认情况下，ASF IPC 接口不需要任何形式的身份验证，因为 `IPCPassword` 被设置为 `null`。 然而，如果 `IPCPassword` 被设置为任意非空值，每个向 ASF API 发送的请求都需要包含匹配 `IPCPassword` 的密码。 如果您省略验证信息或者输入错误的密码，您将会收到 `401 - Unauthorized` 错误。 在认证失败（密码错误）5 次后，您将会被临时封禁，并收到 `403 - Forbidden` 错误。
 
 您可以通过两种方案之一进行身份验证。
 
