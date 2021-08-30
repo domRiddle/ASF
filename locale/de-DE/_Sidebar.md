@@ -13,7 +13,7 @@
 * **[🏡 Startseite](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE)**
 * **[🔧 Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**
 * **[💬 Häufig gestellte Fragen (FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-de-DE)**
-* **[⚙️ Installation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(hier starten)**
+* **[⚙️ Installation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE)** **(hier starten)**
 
 
 ## 👨‍🎓️ Wichtigstes
@@ -37,7 +37,7 @@
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)**
 * **[🌐 Übersetzung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-de-DE)**
 * **[📝 Protokollierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-de-DE)**
-* **[💾 speichereffizientes Setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE)**
+* **[💾 Speichereffizientes Setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE)**
 * **[🔌 Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-de-DE)**
 * **[🔐 Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE)**
 * **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin-de-DE)**

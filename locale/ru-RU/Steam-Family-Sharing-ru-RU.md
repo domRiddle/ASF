@@ -1,6 +1,6 @@
 # Steam Family Sharing
 
-ASF поддерживает Steam Family Sharing начиная с версии 2.1.5.5+. In order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
+ASF поддерживает Steam Family Sharing начиная с версии 2.1.5.5+. Чтобы понять, как ASF работает с этим, вы должны сначала прочитать, как работает **[Steam Family Sharing](https://store.steampowered.com/promotion/familysharing)**, который используется в магазине Steam.
 
 ---
 

@@ -6,7 +6,7 @@
 
 > You can do what you like with the software, as long as you include the required notices (Вы можете делать что угодно с программным обеспечением, если вы прикладываете к нему необходимое уведомление). This permissive license contains a patent license from the contributors of the code (Эта либеральная лицензия содержит патентную лицензию от соавторов кода).
 
-By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
+Заявляя, что ASF лицензируется на условиях **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, мы ссылаемся на **только** основной проект, включая его исходный код, не делая никаких заявлений о других проектах, которые ASF использует. (особенно библиотеки, инструменты, фреймворки и внешние интерфейсы, такие как **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), которые обычно лицензируются на других условиях.
 
 -----
 

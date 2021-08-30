@@ -32,7 +32,7 @@ También estoy usando ASF como un perfecto ejemplo de un moderno proyecto C# que
 
 ### ¿Cómo puedo verificar que los archivos descargados son auténticos?
 
-Como parte de nuestras versiones en GitHub, usamos un proceso de verificación muy similar al usado por **[Debian](https://www.debian.org/CD/verify)**. En cada versión oficial a partir de ASF V5.1.3.3, además de los archivos `zip` también puedes encontrar los archivos `SHA512SUMS` y `SHA512SUMS.sign` Descárgalos para fines de verificación.
+Como parte de nuestras versiones en GitHub, usamos un proceso de verificación muy similar al usado por **[Debian](https://www.debian.org/CD/verify)**. En cada versión oficial a partir de ASF V5.1.3.3, además de los archivos `zip` también puedes encontrar los archivos `SHA512SUMS` y `SHA512SUMS.sign` Descárgalos para fines de verificación junto con los archivos `zip` de tu elección.
 
 Primero, debes usar el archivo `SHA512SUMS` para verificar que la suma de verificación `SHA-512` de los archivos `zip` seleccionados coincide con la que nosotros calculamos. En Linux, puedes usar la utilidad `sha512sum` para ese fin.
 
