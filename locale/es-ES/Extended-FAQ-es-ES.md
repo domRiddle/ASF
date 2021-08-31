@@ -145,6 +145,6 @@ Observa que el indicador de confianza `[unknown]` cambia a `[full]` una vez que 
 
 ---
 
-### Ejecuté el programa el 1º de abril y el idioma de ASF se cambió a algo extraño, ¿qué está pasando?
+### Es el 1º de abril y el idioma de ASF se cambió a algo extraño, ¿qué está pasando?
 
-¡FELISIDADS X DSQBRIR NUESTR UEBO D PASKUA DL DIA D LOZ INOZENTS! Si no estableciste la opción `CurrentCulture`, entonces al ejecutar ASF el 1º de abril este utilizará el idioma **[LOLcat](https://es.wikipedia.org/wiki/Lolcat)** en lugar del idioma de tu sistema. Si deseas desactivar ese comportamiento, puedes establecer `CurrentCulture` al idioma que te gustaría usar. También puedes activar nuestro huevo de pascua incondicionalmente, estableciendo `CurrentCulture` al valor `qps-Ploc`.
+¡FELISIDADS X DSQBRIR NUESTR UEBO D PASKUA DL DIA D LOZ INOZENTS! Si no estableciste la opción `CurrentCulture`, entonces el 1º de abril ASF utilizará el idioma **[LOLcat](https://es.wikipedia.org/wiki/Lolcat)** en lugar del idioma de tu sistema. Si deseas desactivar ese comportamiento, puedes establecer `CurrentCulture` al idioma que te gustaría usar. También puedes activar nuestro huevo de pascua incondicionalmente, estableciendo `CurrentCulture` al valor `qps-Ploc`.

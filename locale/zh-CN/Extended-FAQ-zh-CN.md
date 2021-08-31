@@ -145,6 +145,6 @@ gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [full]
 
 ---
 
-### 我在 4 月 1 日启动了这个程序，ASF 的语言变得很奇怪，发生了什么？
+### 4 月 1 日到了，ASF 的语言变得很奇怪，发生了什么？
 
-喵！我们藏起来的愚人节彩蛋被你发现了喵！ 如果您没有设置自定义的 `CurrentCulture`，那么 ASF 在 4 月 1 日运行时将会使用 **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** 语言而不是系统语言。 如果您的确希望禁用此行为，您可以直接将 `CurrentCulture` 改为您要使用的语言。 实际上，您还可以强制启用这个彩蛋，只需要将 `CurrentCulture` 设置为 `qps-Ploc`。
+喵！我们藏起来的愚人节彩蛋被你发现了喵！ 如果您没有设置自定义的 `CurrentCulture`，那么 ASF 在 4 月 1 日时将会使用 **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** 语言而不是系统语言。 如果您的确希望禁用此行为，您可以直接将 `CurrentCulture` 改为您要使用的语言。 实际上，您还可以强制启用这个彩蛋，只需要将 `CurrentCulture` 设置为 `qps-Ploc`。

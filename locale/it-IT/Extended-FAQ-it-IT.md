@@ -145,6 +145,6 @@ Congratulations, you've verified that nobody has tampered with the release you'v
 
 ---
 
-### Ho lanciato il programma il 1 di Aprile e la lingua di ASF è cambiata in qualcosa di strano, che succede?
+### It's April the 1st and the ASF language changed into something strange, what is going on?
 
-CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! Se non hai impostato l'opzione personalizzata `CurrentCulture`, allora ASF lanciato il primo d'Aprile userà in realtà la lingua **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** invece della tua lingua di sistema. Se per qualche motivo vorresti disabilitare questo comportamento, puoi semplicemente impostare `CurrentCulture` al locale che vorresti piuttosto usare. Bello da notare anche che puoi abilitare incondizionatamente il nostro easter egg, impostando il tuo valore `CurrentCulture` a `qps-Ploc`.
+CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! If you didn't set custom `CurrentCulture` option, then ASF on April the 1st will actually use **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** language instead of your system language. Se per qualche motivo vorresti disabilitare questo comportamento, puoi semplicemente impostare `CurrentCulture` al locale che vorresti piuttosto usare. Bello da notare anche che puoi abilitare incondizionatamente il nostro easter egg, impostando il tuo valore `CurrentCulture` a `qps-Ploc`.

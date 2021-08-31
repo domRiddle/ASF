@@ -145,6 +145,6 @@ Congratulations, you've verified that nobody has tampered with the release you'v
 
 ---
 
-### Ich habe das Programm am 1. April gestartet und die ASF-Sprache wechselte in etwas seltsames, was ist hier los?
+### It's April the 1st and the ASF language changed into something strange, what is going on?
 
-CONGRATULASHUNS ZUR ENTDECKUNG UNSERES APRILSCHERZES! Sofern Sie `CurrentCulture` nicht definiert haben, verwendet ASF nach dem Start am 1. April die Lokalisation **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** anstatt der Systemsprache. Wenn Sie dieses Verhalten deaktivieren möchten, können Sie einfach `CurrentCulture` auf die Lokalisation setzen, das Sie stattdessen verwenden möchten. Schön ist auch, dass Sie unseren Aprilscherz bedingungslos aktivieren können, indem Sie Ihren `CurrentCulture`-Wert auf `qps-Ploc` setzen.
+CONGRATULASHUNS ZUR ENTDECKUNG UNSERES APRILSCHERZES! If you didn't set custom `CurrentCulture` option, then ASF on April the 1st will actually use **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** language instead of your system language. Wenn Sie dieses Verhalten deaktivieren möchten, können Sie einfach `CurrentCulture` auf die Lokalisation setzen, das Sie stattdessen verwenden möchten. Schön ist auch, dass Sie unseren Aprilscherz bedingungslos aktivieren können, indem Sie Ihren `CurrentCulture`-Wert auf `qps-Ploc` setzen.

@@ -145,6 +145,6 @@ Congratulations, you've verified that nobody has tampered with the release you'v
 
 ---
 
-### I HAS LAUNCHD TEH PROGRAM ON APRIL TEH 1ST AN TEH ASF LANGUAGE CHANGD INTO SOMETHIN STRANGE, WUT IZ GOIN ON?
+### It's April the 1st and the ASF language changed into something strange, what is going on?
 
-CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! IF U DIDNT SET CUSTOM `CurrentCulture` OPSHUN, DEN ASF LAUNCHD ON APRIL TEH 1ST WILL AKSHULLY USE **[LOLCAT](https://en.wikipedia.org/wiki/Lolcat)** LANGUAGE INSTEAD OV UR SISTEM LANGUAGE. IF BY ANY CHANCE UD LIEK 2 DISABLE DAT BEHAVIOUR, U CAN SIMPLY SET `CurrentCulture` 2 TEH LOCALE DAT UD LIEK 2 USE INSTEAD. IZ ALSO NICE 2 NOWT DAT U CAN ENABLE R EASTR EGG UNCONDISHUNALLY, BY SETTIN UR `CurrentCulture` 2 `qps-Ploc` VALUE.
+CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! If you didn't set custom `CurrentCulture` option, then ASF on April the 1st will actually use **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** language instead of your system language. IF BY ANY CHANCE UD LIEK 2 DISABLE DAT BEHAVIOUR, U CAN SIMPLY SET `CurrentCulture` 2 TEH LOCALE DAT UD LIEK 2 USE INSTEAD. IZ ALSO NICE 2 NOWT DAT U CAN ENABLE R EASTR EGG UNCONDISHUNALLY, BY SETTIN UR `CurrentCulture` 2 `qps-Ploc` VALUE.
