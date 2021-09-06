@@ -1,8 +1,8 @@
 # Kurulum
 
-Buraya ilk kez geldiyseniz, hoş geldiniz! Projemizle ilgilenen başka bir yolcuyu görmekten çok mutluyuz, bununla birlikte büyük bir güçle büyük sorumluluk alındığını aklınızda bulundurun - ASF Steam ile ilgili birçok farklı şey yapabilir, ancak siz sadece **nasıl kullanılacağını öğrenecek kadar dikkatli olun **. Burada yer alan dik bir öğrenme eğrisi var ve sizden bu konuda wiki okumanızı bekliyoruz; bu, her şeyin nasıl işlediğini ayrıntılı olarak açıklar.
+Buraya ilk kez geldiyseniz, hoş geldiniz! Projemizle ilgilenen başka bir yolcuyu görmekten çok mutluyuz, bununla birlikte büyük bir güçle büyük sorumluluk alındığını aklınızda bulundurun - ASF Steam birçok farklı şey yapabilir, ancak siz sadece **nasıl kullanılacağını öğrenme konusunda dikkatli olun **. Burada yer alan dik bir öğrenme eğrisi var ve sizden bu konuda wiki'yi okumanızı bekliyoruz; bu, her şeyin nasıl işlediğini ayrıntılı olarak açıklar.
 
-Eğer hala buradaysanız, yukarıdaki yazımıza katlandığınız anlamına gelir, bu güzeldir. Eğer onu atlatmazsan, o zaman yakında **[kötü bir zaman](https://www.youtube.com/watch?v=WJgt6m6njVw)** geçireceksin... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to, at least out of the box. ASF'nin esas olarak sunucularda çalıştırılması gerekiyordu, bu yüzden bir masaüstü uygulaması değil, bir hizmet (daemon) görevi görüyordu.
+Eğer hala buradaysanız, yukarıdaki yazımıza katlandığınız anlamına gelir, bu güzel. Eğer onu atladıysan, o zaman yakında **[kötü bir zaman](https://www.youtube.com/watch?v=WJgt6m6njVw)** geçireceksin... Her neyse, ASF bir konsol uygulamasıdır, yani programın kendisinde genel olarak alıştığınız dost bir GUI (Grafiksel Kullanıcı Arayüzü) yoktur. ASF'nin esas olarak sunucularda çalıştırılması gerekiyordu, bu yüzden bir masaüstü uygulaması değil, bir hizmet (daemon) görevi görüyordu.
 
 Ancak bu, PC'nizde kullanamayacağınız veya kullanmanın normalden daha karmaşık olduğu anlamına gelmez, öyle bir şey değil. ASF, kurulum gerektirmeyen ve tıklandığı anda çalışan, ancak kullanışlı hale gelmeden önce yapılandırma gerektiren bağımsız bir programdır. Yapılandırma, ASF'ı başlattıktan sonra yapılması gerekenleri söylüyor. Yapılandırma olmadan başlatırsanız, ASF hiçbir şey yapmaz, durum bu.
 
@@ -13,7 +13,7 @@ Ancak bu, PC'nizde kullanamayacağınız veya kullanmanın normalden daha karma�
 Genel olarak, işte önümüzdeki birkaç dakika içinde yapacağımız şey:
 - **[.NET Core ön koşullarını](#net-core-prerequisites)** yükleyin.
 - İşletim Sistemi'ne uygun değişkene göre **[en son ASF sürümünü](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** indirin.
-- Extract the archive into new location.
+- Arşivi yeni bir lokasyon içerisine çıkartın.
 - **[ASF'yi yapılandırın](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - ASF'yi başlatın ve büyüyü görün.
 
@@ -21,56 +21,56 @@ Yeterince basit görünüyor, değil mi? Öyleyse hadi başlayalım.
 
 ---
 
-### .NET Core prerequisites
+### .NET Core gereksinimleri
 
-First step is ensuring that your OS can even launch ASF properly. ASF is written in C#, based on .NET Core and may require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. This is our reference material that should be used, but for the sake of simplicity we've also detailed all needed packages below, so you don't need to read the full document.
+İlk adım, işletim sisteminizin ASF'yi düzgün şekilde başlatabilmesini sağlamaktır. ASF, .NET Core'a dayalı olarak C# programlama dili ile yazılmıştır ve henüz platformunuzda bulunmayan yerel kitaplıklar gerektirebilir. Windows, Linux veya OS X kullanmanıza bağlı olarak farklı gereksinimleriniz olacaktır, ancak bunların tümü **[.NET Core gereksinimleri](https://docs.microsoft.com/dotnet/core/install)** dökümantasyonunda listelenmiştir. Bu, kullanılması gereken referans materyalimizdir, ancak basitlik adına, gerekli tüm paketleri aşağıda ayrıntılı olarak açıkladık, bu nedenle belgenin tamamını okumanıza gerek yok.
 
-It's perfectly normal that some (or even all) dependencies already exist on your system due to being installed by third-party software that you're using. Still, you should ensure that it's truly the case by running appropriate installer for your OS - without those dependencies ASF won't launch at all.
+Kullanmakta olduğunuz üçüncü taraf yazılımlar tarafından yüklendiği için bazı (hatta tüm) bağımlılıkların sisteminizde zaten mevcut olması tamamen normaldir. Yine de, işletim sisteminiz için uygun yükleyiciyi çalıştırarak durumun gerçekten böyle olduğundan emin olmalısınız - bu bağımlılıklar olmadan ASF hiç başlamaz.
 
-Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET Core SDK or even runtime, since OS-specific package includes all of that already. You need only .NET Core prerequisites (dependencies) to run .NET Core runtime included in ASF.
+İşletim sistemine özgü derlemeler için, özellikle .NET Core SDK'yı veya hatta runtime yüklemekten başka bir şey yapmanız gerekmediğini unutmayın, çünkü işletim sistemine özel paket bunların hepsini zaten içerir. ASF'de bulunan .NET Core runtime'ı çalıştırmak için yalnızca .NET Core gereksinimlerine ihtiyacınız vardır.
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
-- **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 for 64-bit Windows, x86 for 32-bit Windows)
-- It's highly recommended to ensure that all Windows updates are already installed. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** and **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. All of them are already installed if your Windows is up-to-date. Ensure that you meet those requirements prior to installing Visual C++ package.
+- **[Microsoft Visual C++ 2015 Redistributable Güncellemesi](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (64-bit Windows için x64, 32-bit Windows x32)
+- Tüm Windows güncellemelerinin zaten yüklü olduğundan emin olmanız şiddetle önerilir. En azından **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** ve **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**'ya ihtiyacınız var, ancak daha fazla güncelleme gerekebilir. Windows'unuz güncelse, hepsi zaten yüklenmiştir. Visual C++ paketini yüklemeden önce bu gereksinimleri karşıladığınızdan emin olun.
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
-Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
+Paket adları, kullandığınız Linux dağıtımına bağlıdır, en yaygın olanları listeledik. Hepsini işletim sisteminiz için yerel paket yöneticisi ile edinebilirsiniz (Debian için `apt` veya CentOS için `yum` gibi).
 
 - `libc6` (`libc`)
 - `libgcc1` (`libgcc`)
-- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
+- `libicu` (`icu-libs`, dağıtımınız için en son sürüm, örneğin `libicu67`)
 - `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
-- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, `1.1.X` or `1.0.X`)
-- `libstdc++6` (`libstdc++`, in version `5.0` or higher)
+- `libssl1.1` (`libssl`, `openssl-libs`, dağıtımınız için en son sürüm, örneğin `1.1.X` or `1.0.X`)
+- `libstdc++6` (`libstdc++`, `5.0` veya daha yüksek bir versiyon)
 - `zlib1g` (`zlib`)
 
-At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
+Bunların en azından çoğunluğu sisteminizde yerel olarak mevcut olmalıdır. Debian'ın kararlı minimum kurulumu yalnızca `libicu63` gerektiriyor.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
-- None for now, but you should have latest version of OS X installed, at least 10.13+
+- Şimdilik yok, ancak OS X'in en son sürümüne sahip olmalısınız, en az 10.13+
 
 ---
 
-### İndiriliyor
+### İndirme
 
-Since we have all required dependencies already, the next step is downloading **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF is available in many variants, but you're interested in package that matches your operating system and architecture. For example, if you're using `64`-bit `Win`dows, then you want `ASF-win-x64` package. For more information about available variants, visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section. ASF is also able to run on OSes that we're not building OS-specific package for, such as **32-bit Windows**, head over to **[generic setup](#generic-setup)** for that.
+Gerekli tüm bağımlılıklara zaten sahip olduğumuzdan, bir sonraki adım **[ASF'nin son sürümü](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**'nü indirme işlemidir. ASF'nin birçok çeşidi mevcuttur, ancak işletim sisteminize ve mimarinize uygun paketle ilgileniyorsunuz. Örneğin, `64`-bit `Win`dows kullanıyorsanız, `ASF-win-x64` paketini istiyorsunuz. Mevcut varyantlar hakkında daha fazla bilgi için, **[Erişilebilirlik](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** adresini ziyaret edin. ASF ayrıca **32-bit Windows** gibi işletim sistemine özel paket oluşturmadığımız işletim sistemlerinde de çalışabilir, <strong x-id= Bunun için "1">[genel kurulum](#generic-setup)</strong> kısmına ilerleyin.
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-After download, start from extracting the zip file into its own folder. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/OS X should work without problems as well.
+İndirdikten sonra, zip dosyasını kendi klasörüne çıkarmaya başlayın. **[7-zip](https://www.7-zip.org)** kullanmanızı öneririz, ancak `unzip` gibi tüm standart yardımcı programlar Linux/OS X'te de sorunsuz çalışmalıdır.
 
-Be advised to unpack ASF to **its own directory** and not to any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which may lead to you losing anything unrelated you put in ASF directory. If you have any extra scripts or files that you want to use with ASF, put them in one folder above.
+ASF'yi başka bir şey için kullanmakta olduğunuz mevcut herhangi bir dizine değil, **kendi dizinine** açmanız tavsiye edilir - ASF'nin otomatik güncelleme özelliği tüm eski ve alakasız dosyaları siler yükseltme yaparken, ASF dizinine koyduğunuz ilgisiz herhangi bir şeyi kaybetmenize neden olabilir. ASF ile kullanmak istediğiniz fazladan komut dosyalarınız veya dosyalarınız varsa, bunları yukarıdaki bir klasöre koyun.
 
-An example structure would look like this:
+Örnek bir yapı şöyle görünecektir:
 
 ```text
-C:\ASF (where you put your own things)
-    ├── ASF shortcut.lnk (optional)
-    ├── Config shortcut.lnk (optional)
-    ├── Commands.txt (optional)
-    ├── MyExtraScript.bat (optional)
-    ├── (...) (any other files of your choice, optional)
-    └── Core (dedicated to ASF only, where you extract the archive)
+C:\ASF (kendi dosyalarınızı koyduğunuz yer)
+    ├── ASF Kısayolu.lnk (isteğe bağlı)
+    ├── Ayar Kısayolu.lnk (isteğe bağlı)
+    ├── Komutlar.txt (isteğe bağlı)
+    ├── BenimEkstraKomutDosyam.bat (isteğe bağlı)
+    ├── (...) (isteğinize bağlı herhangi bir dosya)
+    └── Core (yalnızca ASF'ye ayrılmış, arşivi çıkardığınız yer)
          ├── ArchiSteamFarm(.exe)
          ├── config
          ├── logs
