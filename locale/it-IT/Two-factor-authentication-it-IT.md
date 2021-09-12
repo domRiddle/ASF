@@ -1,20 +1,20 @@
 # Autenticazione due fattori
 
-A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
+Un po' di tempo fa Valve ha introdotto un sistema noto come "Escrow" che richiede un autenticatore extra per varie attività relative all'account. Puoi saperne di più **[qui](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** e **[qui](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. È fondamentale capire il sistema 2FA in primo luogo, prima di cercare di capire la logica dietro ASF 2FA.
 
-Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, ASF includes a solution to that problem, called ASF 2FA.
+Ora come puoi vedere tutti gli scambi sono in attesa per un massimo di 15 giorni, che non è un problema importante quando si tratta del nostro ASF, ma può ancora essere fastidioso, soprattutto per chi vuole la piena automazione. Fortunatamente, ASF include una soluzione a quel problema, chiamato ASF 2FA.
 
 ---
 
-# ASF logic
+# Logica ASF
 
-Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're needed (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+Indipendentemente dal fatto che si utilizzi ASF 2FA spiegato qui sotto o meno, ASF include una logica corretta ed è pienamente consapevole degli account protetti dallo standard 2FA. Ti chiederà i dettagli richiesti quando sono necessari (come durante il login). Se si utilizza ASF 2FA, il programma sarà in grado di saltare tali richieste e generare automaticamente i token richiesti, salvandoti dai problemi e abilitando funzionalità extra (descritte di seguito).
 
 ---
 
 # ASF 2FA
 
-ASF 2FA is a built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. It duplicates your existing authenticator, so that you can use your current authenticator and ASF 2FA at the same time.
+ASF 2FA è un modulo integrato responsabile di fornire funzionalità 2FA al processo ASF, come generare token e accettare conferme. It duplicates your existing authenticator, so that you can use your current authenticator and ASF 2FA at the same time.
 
 You can verify whether your bot account is using ASF 2FA already by executing `2fa` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
 
