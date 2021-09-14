@@ -8,12 +8,21 @@ PLZ NOWT DAT BELOW PROGRAMS R **NOT** MAINTAIND BY ASF DEVELOPERS AN THEREFORE *
 
 ## ASF PLUGINS
 
-- **[ASF ACHIEVEMENT MANAGR](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, PLUGIN 4 ASF DAT ALLOWS U 2 MANAGE STEAM ACHIEVEMENTS.
+### RYZHEHVOST
+
+- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
 - **[BOOSTERCREATOR](https://github.com/Ryzhehvost/BoosterCreator)**, PLUGIN 4 ASF ADDIN FUNCSHUNALITY OV CREATIN BOOSTR PACKZ.
 - **[CASE-INSENSITIV-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, PLUGIN 4 ASF 2 MAK BOT NAMEZ CASE-INSENSITIV.
 - **[COMMANDLES-REDEEM](https://github.com/Ryzhehvost/Commandless-Redeem)**, PLUGIN 4 ASF 2 RE-IMPLEMENT KEY REDEEMIN WITHOUT COMMAND.
 - **[ITEMDISPENSR](https://github.com/Ryzhehvost/ItemDispenser)**, PLUGIN 4 ASF 2 AUTOMATICALLY ACCEPT TRADE REQUEST 4 CERTAIN TYPE(S) OV ITEMS.
-- **[STEAMINVITEHELPR-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, PLUGIN 4 ASF 2 AUTOMATICALLY PROCES STEAM INVITEZ.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
+
+### Vital7
+
+- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
+- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
+- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
+- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
 - **[STEAMKITPROXYINJECSHUN](https://github.com/Vital7/SteamKitProxyInjection)**, PLUGIN 4 ASF ALLOWIN PROXIFYIN WEBSOCKET CONNECSHUNS.
 
 ---

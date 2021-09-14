@@ -8,12 +8,21 @@ Sei pregato di notare che i seguenti programmi **non** sono mantenuti da svilupp
 
 ## Plugins di ASF
 
-- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin per ASF che permette di gestire gli obiettivi di Steam.
+### Ryzhehvost
+
+- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin di ASF che aggiunge la possibilità di creare booster packs.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin di ASF per rendere i nomi dei bot non case-sensitive.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin di ASF che re-implementa il riscatto delle chiavi senza l'utilizzo di un comando.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin di ASF che accetta automaticamente le richieste di scambio per alcuni tipi di oggetti.
-- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, plugin di ASF per elaborare automaticamente gli inviti di Steam.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
+
+### Vital7
+
+- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
+- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
+- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
+- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin di ASF che consente di configurare un proxy per le connessioni WebSocket.
 
 ---

@@ -8,12 +8,21 @@
 
 ## Плагины для ASF
 
-- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, плагин для ASF, дающий возможность управлять достижениями Steam.
+### Ryzhehvost
+
+- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, плагин для ASF, добавляющий функционал создания наборов карточек из самоцветов.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, плагин для ASF, который делает имена ботов регистронезависимыми.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, плагин, возвращающий в ASF возможность активации ключей без команды.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, плагин для ASF, позволяющий автоматически принимать предложения обмена, в которых у него запрашивают предметы заданного(ых) типа(ов).
-- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, плагин для ASF для автоматической обработки приглашений в друзья Steam.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
+
+### Vital7
+
+- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
+- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
+- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
+- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, плагин для ASF, позволяющий направить соединения по WebSocket через прокси.
 
 ---

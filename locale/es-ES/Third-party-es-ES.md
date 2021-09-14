@@ -8,12 +8,21 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 
 ## Plugins de ASF
 
-- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin para ASF que permite administrar los logros de Steam.
+### Ryzhehvost
+
+- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin para ASF que permite gestionar los logros de Steam.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin para ASF que añade la funcionalidad de crear packs de refuerzo.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin para ASF para hacer que los nombres de los bots no distingan mayúsculas y minúsculas.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin para ASF para reimplementar la activación de claves sin un comando.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin de ASF para aceptar automáticamente solicitudes de intercambio para ciertos tipos de artículos.
-- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, plugin de ASF para procesar automáticamente invitaciones de Steam.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin para ASF que proporciona un comando `transfer` avanzado para transferir artículos de Steam.
+
+### Vital7
+
+- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin de ASF para aceptar automáticamente todas las solicitudes de amistad.
+- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin para ASF que implementa un comando para eliminar licencias de Steam para las instancias de bot seleccionadas.
+- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin para ASF que implementa un comando para obtener directamente de Steam la dirección de correo electrónico de las instancias de bot especificadas.
+- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin para ASF que implementa un comando para restablecer la clave API de las instancias de bot seleccionadas.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin para ASF que permite usar proxy con conexiones WebSocket.
 
 ---
@@ -22,7 +31,7 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot de telegram escrito en python con integración ASF.
 - **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, para aquellos que quieran enviar ofertas de intercambio automatizadas a los bots en nuestro **[listado ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-es-es#lista-p%C3%BAblica-asf-stm)** a través del navegador web, sin usar la función `MatchActively` provista por ASF.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, otro (mínimo) bot de telegram escrito en python con integración de ASF.
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, otro bot de telegram escrito en python con integración ASF.
 
 ---
 

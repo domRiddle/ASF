@@ -8,12 +8,21 @@ Lütfen aşağıdaki programların ASF geliştiricileri tarafından **sağlanmad
 
 ## ASF eklentileri
 
-- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, Steam başarılarını yönetmenize izin veren ASF eklentisidir.
+### Ryzhehvost
+
+- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, güçlendirici paketler oluşturma işlevini sağlayan ASF eklentisidir.
 - **[Case-Inresponsive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, bot adlarını büyük/küçük harfe duyarlı hale getiren ASF eklentisidir.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, ürün kodunu komut girmeden uygulamanızı sağlayan ASF eklentisidir.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, belirli tür(ler) için takas talebini otomatik olarak kabul etmesini sağlayan ASF eklentisidir.
-- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, Steam davetlerini otomatik olarak işleyen ASF eklentisidir.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
+
+### Vital7
+
+- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
+- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
+- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
+- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, WebSocket bağlantılarının proxy ile sağlanmasına izin veren ASF eklentisidir.
 
 ---

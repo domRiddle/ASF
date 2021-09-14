@@ -8,12 +8,21 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 ## ASF-Plugins
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, Plugin für ASF, mit dem du Steam-Erfolge verwalten kannst.
+### Ryzhehvost
+
+- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, Plugin für ASF, das die Funktionalität der Erstellung von Booster-Paketen bereitstellt.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, Plugin für ASF, um Botnamen case-insensitiv zu machen.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, Plugin für ASF welches die befehllose Produktschlüssel-Aktivierung zu re-implementieren.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, Plugin, damit ASF automatisch Handelsanfragen für bestimmte Artikeltyp(en) akzeptiert.
-- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, Plugin für ASF, um Steam Einladungen automatisch zu verarbeiten.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
+
+### Vital7
+
+- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
+- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
+- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
+- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, Plugin für ASF erlaubt das Proxifieren von WebSocket-Verbindungen.
 
 ---

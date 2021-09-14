@@ -8,12 +8,21 @@ Por favor, saiba que os programas abaixo **não** são mantidos pelos desenvolve
 
 ## Plugins para o ASF
 
-- **[ASF Achievement Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin que te permite gerenciar as conquistas Steam.
+### Ryzhehvost
+
+- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin que adiciona a funcionalidade de criar pacotes de cartas.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin para tirar a diferenciação que o ASF faz entre maiúsculas e minúsculas nos nomes dos bots.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin para o ASF reimplementar o resgate de keys sem a necessidade do uso de comando.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin que aceita automaticamente propostas de troca de determinado(s) tipo(s) de itens.
-- **[SteamInviteHelper-ASF](https://github.com/1461748123/SteamInviteHelper-ASF)**, plugin que permite que o ASF processe automaticamente convites Steam.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
+
+### Vital7
+
+- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
+- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
+- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
+- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, pluguin que permite proxyficar as conexões de WebSocket.
 
 ---
