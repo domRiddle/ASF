@@ -14,7 +14,7 @@ Indipendentemente dal fatto che si utilizzi ASF 2FA spiegato qui sotto o meno, A
 
 # ASF 2FA
 
-ASF 2FA è un modulo integrato responsabile di fornire funzionalità 2FA al processo ASF, come generare token e accettare conferme. It duplicates your existing authenticator, so that you can use your current authenticator and ASF 2FA at the same time.
+ASF 2FA è un modulo integrato responsabile di fornire funzionalità 2FA al processo ASF, come generare token e accettare conferme. Duplica l'autenticatore esistente, in modo da poter utilizzare contemporaneamente l'autenticatore corrente e ASF 2FA.
 
 You can verify whether your bot account is using ASF 2FA already by executing `2fa` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
 
