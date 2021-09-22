@@ -50,7 +50,7 @@ Due to the nature of this property, it's also possible to set cryptkey by declar
 
 ---
 
-`--ignore-unsupported-environment` - will cause ASF to ignore detection of unsupported environment, which normally is signalized with an error and forced exit. As of now, unsupported environment is classifed as running .NET Framework build on platform that could be running .NET Core build instead. Since we support `generic-netf` builds only in very limited scenarios (with **[Mono](https://www.mono-project.com)**), using it for other cases (e.g. for launching on `win-x64` platform) is not supported. Visit **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** for more info.
+`--ignore-unsupported-environment` - will cause ASF to ignore detection of unsupported environment, which normally is signalized with an error and forced exit. As of now, unsupported environment is classifed as running .NET Framework build on platform that could be running .NET Core build instead. Since we support `generic-netf` builds only in very limited scenarios (with **[Mono](https://www.mono-project.com)**), using it for other cases (e.g. for launching on `win-x64` platform) is not supported. Επισκεφθείτε **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** για περισσότερες πληροφορίες.
 
 ---
 
@@ -60,7 +60,7 @@ Due to the nature of this property, it's also possible to set the value by decla
 
 ---
 
-`--no-config-migrate` - by default ASF will automatically migrate your config files to latest syntax. Migration includes conversion of deprecated properties into latest ones, removing properties with default values (as they have no effect), as well as cleaning up the file in general (correcting indentation and likewise). This is almost always a good idea, but you might have a particular situation where you'd prefer ASF to never overwrite the config files automatically. For example, you might want to `chmod 400` your config files (read permission for the owner only) or put `chattr +i` over them, in result denying write access for everyone, e.g. as a security measure. Usually we recommend to keep the config migration enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-config-migrate` - by default ASF will automatically migrate your config files to latest syntax. Migration includes conversion of deprecated properties into latest ones, removing properties with default values (as they have no effect), as well as cleaning up the file in general (correcting indentation and likewise). This is almost always a good idea, but you might have a particular situation where you'd prefer ASF to never overwrite the config files automatically. For example, you might want to `chmod 400` your config files (read permission for the owner only) or put `chattr +i` over them, in result denying write access for everyone, e.g. as a security measure. Συνήθως σας συνιστούμε να διατηρήσετε ενεργοποιημένη την επιλογή config migration, αλλά αν έχετε ένα συγκεκριμένο λόγο για να το απενεργοποιήσετε και προτιμάτε να σταματήσει το ASF αυτή την ενέργεια, μπορείτε να χρησιμοποιήσετε αυτόν τον διακόπτη για την επίτευξη αυτού του σκοπού.
 
 ---
 

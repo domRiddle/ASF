@@ -8,13 +8,13 @@ ASF already tries to prefer performance when it comes to general balanced tuning
 
 ---
 
-## Runtime tuning (advanced)
+## Ρύθμιση χρόνου εκτέλεσης (προηγμένη)
 
-Below tricks **involve serious memory increase** and should be used with caution.
+Τα ακόλουθα κόλπα **αφορούν σοβαρή αύξηση της μνήμης** και θα πρέπει να χρησιμοποιείται με προσοχή.
 
-.NET Core runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
+.NET Core runtime σας επιτρέπει να **[προσαρμόσετε το garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** με πολλούς τρόπους, αποτελεσματικά βελτιστοποιώντας τη διαδικασία GC σύμφωνα με τις ανάγκες σας.
 
-The recommended way of applying those settings is through `COMPlus_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
+Ο συνιστώμενος τρόπος εφαρμογής αυτών των ρυθμίσεων είναι μέσω `COMPlus_` των ιδιοτήτων περιβάλλοντος. Φυσικά, θα μπορούσατε επίσης να χρησιμοποιήσετε άλλες μεθόδους, π.χ. `runtimeconfig.json`, αλλά μερικές ρυθμίσεις είναι αδύνατο να οριστούν με αυτόν τον τρόπο, και επιπλέον το ASF θα αντικαταστήσει το προσαρμοσμένο `runtimeconfig.json` με το δικό του στην επόμενη ενημέρωση, επομένως σας συνιστούμε ιδιότητες περιβάλλοντος που μπορείτε να ρυθμίσετε εύκολα πριν από την έναρξη της διαδικασίας.
 
 Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
 
@@ -34,15 +34,15 @@ However, if memory is not a problem for you (as GC still takes into account your
 
 ---
 
-You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
+You can enable all GC properties by setting appropriate `COMPlus_` environment variables. Για παράδειγμα, στα Linux (shell):
 
 ```shell
 export COMPlus_gcServer=1
 
-./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm # για OS-specific
 ```
 
-Or on Windows (powershell):
+Ή στα Windows (powershell):
 
 ```powershell
 $Env:COMPlus_gcServer=1
@@ -52,7 +52,7 @@ $Env:COMPlus_gcServer=1
 
 ---
 
-## Recommended optimization
+## Προτεινόμενη βελτιστοποίηση
 
 - Ensure that you're using default value of `OptimizationMode` which is `MaxPerformance`. This is by far the most important setting, as using `MinMemoryUsage` value has dramatic effects on performance.
 - Enable server GC. Server GC can be immediately seen as being active by significant memory increase compared to workstation GC.

@@ -1,12 +1,12 @@
 # SteamTokenDumperPlugin
 
-`SteamTokenDumperPlugin` is official ASF **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** available since ASF V4.2.2.2, developed by us, which allows you to contribute to **[SteamDB](https://steamdb.info)** project by sharing package tokens, app tokens and depot keys that your Steam account has access to. The extended info on collected data and why SteamDB needs it can be found on SteamDB's **[Token Dumper](https://steamdb.info/tokendumper)** page. The submitted data doesn't include any potentially-sensitive information, and posseses no security/privacy risk, as stated in above description.
+Το `SteamTokenDumperPlugin` είναι επίσημο **[πρόσθετο](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** του ASF, διαθέσιμο από την έκδοση V4.2.2., που αναπτύχθηκε από εμάς, το οποίο σας επιτρέπει να συνεισφέρετε στο project **[SteamDB](https://steamdb.info)** με την κοινή χρήση διακριτικών πακέτων, κουπόνια εφαρμογής και κλειδιά αποδέσμευσης στα οποία έχει πρόσβαση ο λογαριασμός σας στο Steam. Οι εκτεταμένες πληροφορίες σχετικά με τα συλλεγμένα δεδομένα και γιατί το SteamDB το χρειάζεται μπορεί να βρεθεί στη σελίδα **[Token Dumper](https://steamdb.info/tokendumper)**. Τα υποβληθέντα δεδομένα δεν περιλαμβάνουν καμία πιθανών ευαίσθητη πληροφορία και δεν έχουν κίνδυνο ασφάλειας/απορρήτου, όπως αναφέρεται παραπάνω στην περιγραφή.
 
 ---
 
-## Enabling the plugin
+## Ενεργοποίηση της πρόσθετης λειτουργίας
 
-ASF comes with `SteamTokenDumperPlugin` bundled together with the release, but the plugin itself is disabled by default. You can enable the plugin by setting `SteamTokenDumperPluginEnabled` ASF global config property to `true`, in JSON syntax:
+Το ASF έρχεται με το `SteamTokenDumperPlugin` μαζί με την έκδοση, αλλά το ίδιο το plugin είναι απενεργοποιημένο από προεπιλογή. Μπορείτε να ενεργοποιήσετε το πρόσθετο ορίζοντας to `SteamTokenDumperPluginEnabled` στις ιδιότητες global config του ASF σe `true`, με σύνταξη JSON:
 
 ```json
 {
@@ -14,13 +14,13 @@ ASF comes with `SteamTokenDumperPlugin` bundled together with the release, but t
 }
 ```
 
-On the launch of the ASF program, the plugin will let you know whether it was enabled successfully through standard ASF logging mechanism. You can also enable the plugin through our web-based config generator.
+Κατά την έναρξη του προγράμματος ASF, το πρόσθετο θα σας ενημερώσει αν είναι ενεργοποιημένο με επιτυχία μέσω του τυπικού μηχανισμού καταγραφής ASF. Μπορείτε επίσης να ενεργοποιήσετε το plugin μέσω web-based ρυθμίσεων μας.
 
 ---
 
-## Technical details
+## Τεχνικές λεπτομέρειες
 
-Upon enabling, the plugin will use the bots that you're running in ASF for data gathering in form of package tokens, app tokens and depot keys that your bots have access to. Data gathering module includes passive and active routines that are supposed to minimize the additional overhead caused by collecting data.
+Αφού το ενεργοποιήσετε, το πρόσθετο θα χρησιμοποιήσει τα bots που τρέχετε στο ASF για τη συλλογή δεδομένων με τη μορφή tokens πακέτων, διακριτικά εφαρμογών και κλειδιά αποθηκών στα οποία έχουν πρόσβαση τα bots σας. Η μονάδα συλλογής δεδομένων περιλαμβάνει παθητικές και ενεργές ρουτίνες που υποτίθεται ότι ελαχιστοποιούν την πρόσθετο φόρτο εργασίας που προκαλείται από τη συλλογή δεδομένων.
 
 In order to fulfill the planned use case, in addition to data gathering routine explained above, submission routine is initialized as being responsible for determining what data needs to be submitted to SteamDB on periodic basis. This routine will fire in up to `1` hour since your ASF start, and will repeat itself every `24` hours. The plugin will do its best to minimize the amount of data that needs to be sent, therefore it's possible that some data which the plugin will collect will be determined as useless to submit, and therefore skipped (for example app update which doesn't change the access token).
 
