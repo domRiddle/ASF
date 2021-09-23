@@ -10,7 +10,7 @@
 
 ### Ryzhehvost
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
+- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, плагин для ASF, дающий возможность управлять достижениями Steam.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, плагин для ASF, добавляющий функционал создания наборов карточек из самоцветов.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, плагин для ASF, который делает имена ботов регистронезависимыми.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, плагин, возвращающий в ASF возможность активации ключей без команды.
