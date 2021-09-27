@@ -109,6 +109,10 @@ Ha nem akarsz IPC-t futtatni, akkor ez az opció elég felesleges, mivel egyszer
 
 ---
 
+`--service` - this switch is mainly used by our `systemd` service and forces `Headless` of `true`. Unless you have a particular need, you should instead configure `Headless` property directly in your config. This switch is here so our `systemd` service won't need to touch your global config in order to adapt it to its own environment. Of course, if you have a similar need then you may also make use of this switch (otherwise you're better with global config property).
+
+---
+
 `--system-required` - ha beállítod ezt a kapcsolót, akkor az ASF jelezni fog az operációs rendszer számára, hogy a szüksége van arra, hogy az fusson a teljes élettartama alatt. Jelenleg ennek a kapcsolónak csak windowsos gépeken van értelme, mivel ott meg lehet tiltani, hogy a rendszer alvó módba menjen, amíg a processz futna. This can be proven especially useful when farming on your PC or laptop during night, as ASF will be able to keep your system awake while it's farming, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once farming is finished.
 
 Tartsd észben, hogy ahhoz, hogy az ASF rendesen le tudjon állni más beállításokra is szükséged lesz: kerüld a `--process-required` használatát, valamint bizonyosodj meg róla, hogy a botjaidban be van állítva a `ShutdownOnFarmingFinished`. Természetesen az automatikus leállást csupán lehetővé teszi ez a funkció, de nem teszi kötelezővé, mivel például a `--process-required` argumentummal együtt is használható, így a rendszered gyakorlatilag sosem fog leállni, miután az ASF-t elindítottad.

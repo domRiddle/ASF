@@ -109,6 +109,10 @@ IF U DO NOT INTEND 2 RUN IPC, DIS OPSHUN WILL BE RATHR USELES 4 U, AS U CAN JUS 
 
 ---
 
+`--service` - this switch is mainly used by our `systemd` service and forces `Headless` of `true`. Unless you have a particular need, you should instead configure `Headless` property directly in your config. This switch is here so our `systemd` service won't need to touch your global config in order to adapt it to its own environment. Of course, if you have a similar need then you may also make use of this switch (otherwise you're better with global config property).
+
+---
+
 `--system-required` - DECLARIN DIS SWITCH WILL CAUSE ASF 2 TRY SIGNALIZIN TEH OS DAT TEH PROCES REQUIREZ SISTEM 2 BE UP AN RUNNIN 4 ITZ ENTIRE LIFETIME. CURRENTLY DIS SWITCH HAS EFFECT ONLY ON WINDOWS MACHINEZ WER ITLL FORBID UR SISTEM FRUM GOIN INTO SLEEP MODE AS LONG AS TEH PROCES IZ RUNNIN. DIS CAN BE PROVEN ESPECIALLY USEFUL WHEN FARMIN ON UR PC OR LAPTOP DURIN NITE, AS ASF WILL BE ABLE 2 KEEP UR SISTEM AWAEK WHILE IZ FARMIN, DEN, ONCE ASF IZ DUN, ITLL SHUTDOWN ITSELF LIEK USUAL, MAKIN UR SISTEM ALLOWD 2 ENTR INTO SLEEP MODE AGAIN, THEREFORE SAVIN POWR IMMEDIATELY ONCE FARMIN IZ FINISHD.
 
 KEEP IN MIND DAT 4 PROPR AUTO-SHUTDOWN OV ASF U NED OTHR SETTINGS - ESPECIALLY AVOIDIN `--process-required` AN ENSURIN DAT ALL UR BOTS R FOLLOWIN `ShutdownOnFarmingFinished`. OV COURSE, AUTO-SHUTDOWN IZ ONLY POSIBILITY 4 DIS FEACHUR, NOT REQUIREMENT, SINCE U CAN ALSO USE DIS FLAG TOGETHR WIF E.G. `--process-required`, EFFECTIVELY MAKIN UR SISTEM AWAEK INFINITELY AFTR STARTIN ASF.

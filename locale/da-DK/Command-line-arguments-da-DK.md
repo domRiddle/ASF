@@ -109,6 +109,10 @@ Hvis du ikke har hensigt at køre IPC, vil denne indstilling være temmelig ubru
 
 ---
 
+`--service` - this switch is mainly used by our `systemd` service and forces `Headless` of `true`. Unless you have a particular need, you should instead configure `Headless` property directly in your config. This switch is here so our `systemd` service won't need to touch your global config in order to adapt it to its own environment. Of course, if you have a similar need then you may also make use of this switch (otherwise you're better with global config property).
+
+---
+
 `--system-required` - Hvis du erklærer denne switch, vil ASF forsøge at signalere operativsystemet om, at processen kræver, at systemet er i gang i hele sin levetid. I øjeblikket har denne switch kun effekt på Windows-maskiner, hvor det vil forbyde dit system at gå i dvaletilstand, så længe processen kører. This can be proven especially useful when farming on your PC or laptop during night, as ASF will be able to keep your system awake while it's farming, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once farming is finished.
 
 Husk, at for korrekt auto-shutdown af ASF har du brug for andre indstillinger - især undgå `--process-required` og sikre, at alle dine bots følger `ShutdownOnFarmingFinished`. Of course, auto-shutdown is only a possibility for this feature, not a requirement, since you can also use this flag together with e.g. `--process-required`, effectively making your system awake infinitely after starting ASF.

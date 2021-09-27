@@ -109,6 +109,10 @@ Si no pretendes usar IPC, esta opción será inútil para ti, ya que puedes sola
 
 ---
 
+`--service` - this switch is mainly used by our `systemd` service and forces `Headless` of `true`. Unless you have a particular need, you should instead configure `Headless` property directly in your config. This switch is here so our `systemd` service won't need to touch your global config in order to adapt it to its own environment. Of course, if you have a similar need then you may also make use of this switch (otherwise you're better with global config property).
+
+---
+
 `--system-required` - declarar esto causará que ASF intente indicar al sistema operativo que el proceso requiere que el sistema esté activo y ejecutándose durante todo su tiempo de vida. Actualmente esto solo tiene efecto máquinas con Windows donde este impedirá que tu sistema entre en modo de suspensión mientras el proceso se esté ejecutando. Esto puede ser especialmente útil cuando estás recolectando cromos en tu PC o laptop durante la noche, ya que ASF podrá mantener tu sistema activo mientras está recolectando, luego, una vez que ASF termine, se cerrará como de costumbre, permitiendo a tu sistema entrar en modo de suspensión nuevamente, y por lo tanto ahorrando energía inmediatamente una vez que la recolección haya terminado.
 
-Ten cuenta que para un adecuado cierre automático de ASF necesitas otros ajustes - especialmente evitar `--process-required` y asegurarte de que todos tus bots tienen habilitada la propiedad `ShutdownOnFarmingFinished`. Por supuesto, el cierre automático solo es una posibilidad para esta característica, no un requisito, ya que también puedes usar esta opción junto con, por ejemplo `--process-required`, haciendo que tu sistema se mantenga activo infinitamente después de iniciar ASF.
+Ten cuenta que para un adecuado cierre automático de ASF necesitas otros ajustes - especialmente evitar `--process-required` y asegurarte que todos tus bots tengan `ShutdownOnFarmingFinished`. Por supuesto, el autocierre solo es una posibilidad para esta función, no un requisito, ya que también puedes usar esta bandera junto con, por ejemplo `--process-required`, haciendo que tu sistema se mantenga despierto infinitamente después de iniciar ASF.

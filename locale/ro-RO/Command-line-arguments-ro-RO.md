@@ -109,6 +109,10 @@ Dacă nu intenționezi să gestionezi IPC, această opțiune va fi mai degrabă 
 
 ---
 
+`--service` - this switch is mainly used by our `systemd` service and forces `Headless` of `true`. Unless you have a particular need, you should instead configure `Headless` property directly in your config. This switch is here so our `systemd` service won't need to touch your global config in order to adapt it to its own environment. Of course, if you have a similar need then you may also make use of this switch (otherwise you're better with global config property).
+
+---
+
 `--system-required` - declararea acestui întrerupător va determina ASF să încerce să semnalizeze sistemului de operare că procesul necesită ca sistemul să fie funcțional pe toată durata sa de viață. În prezent, acest comutator are efect numai pe mașinile Windows unde va interzice sistemului să intre în modul de suspendare atâta timp cât procesul rulează. This can be proven especially useful when farming on your PC or laptop during night, as ASF will be able to keep your system awake while it's farming, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once farming is finished.
 
 Rețineți că pentru închiderea automată corectă a ASF aveți nevoie de alte setări - în special evitând `--process-required` și asigurându-vă că toți roboții vor urma `ShutdownOnFarmingFinished`. Bineînțeles, închiderea automată este doar o posibilitate pentru această caracteristică, nu o cerință, deoarece se poate folosi și acest steag împreună cu `--process-required`, făcând ca sistemul să rămână pornit la infinit după pornirea ASF.
