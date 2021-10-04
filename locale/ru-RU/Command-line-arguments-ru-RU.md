@@ -109,7 +109,7 @@ ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Как и п�
 
 ---
 
-`--service` - this switch is mainly used by our `systemd` service and forces `Headless` of `true`. Unless you have a particular need, you should instead configure `Headless` property directly in your config. This switch is here so our `systemd` service won't need to touch your global config in order to adapt it to its own environment. Of course, if you have a similar need then you may also make use of this switch (otherwise you're better with global config property).
+` --service ` - этот переключатель в основном используется нашей службой ` systemd ` и устанавливает для ` Headless ` значение ` true `. Если у вас нет особой необходимости в этой команде, вам следует вместо этого настроить свойство `Headless` прямо в вашей конфигурации. Этот переключатель находится здесь, поэтому нашей службе ` systemd ` не нужно будет трогать вашу глобальную конфигурацию, чтобы адаптировать ее к своей собственной среде. Конечно, если у вас есть потребность в этой команде, вы также можете использовать этот переключатель (в противном случае вам лучше использовать глобальное свойство конфигурации).
 
 ---
 

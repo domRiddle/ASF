@@ -15,14 +15,14 @@
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, плагин для ASF, который делает имена ботов регистронезависимыми.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, плагин, возвращающий в ASF возможность активации ключей без команды.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, плагин для ASF, позволяющий автоматически принимать предложения обмена, в которых у него запрашивают предметы заданного(ых) типа(ов).
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
+- ** [ Selective-Loot-and-Transfer-Plugin ](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin) **, плагин для ASF, предоставляющий расширение команды ` transfer ` для передачи предметов Steam.
 
 ### Vital7
 
-- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
-- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
-- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
-- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
+- ** [ FriendAccepter ](https://github.com/Vital7/FriendAccepter) **, плагин для ASF, позволяющий автоматически принимать все приглашения в друзья.
+- ** [ GameRemover ](https://github.com/Vital7/GameRemover) **, плагин для ASF, реализующий команду удаления лицензий Steam для выбранных экземпляры ботов.
+- ** [ GetEmail ](https://github.com/Vital7/GetEmail) **, плагин для ASF, реализующий команду получения адреса электронной почты заданных экземпляров ботов прямо из Steam.
+- ** [ ResetAPIKey ](https://github.com/Vital7/ResetAPIKey) **, плагин для ASF, реализующий команду сброса ключа API для выбранных экземпляров ботов.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, плагин для ASF, позволяющий направить соединения по WebSocket через прокси.
 
 ---

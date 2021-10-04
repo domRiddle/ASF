@@ -19,7 +19,7 @@
 ## 👨‍🎓 Главная
 
 * **[👥 Фоновая активация ключей](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
-* **[📢 Комманды](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[📢 Команды](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Совместимость](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[⏱️ Производительность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📊 Статистика](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
