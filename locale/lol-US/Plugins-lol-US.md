@@ -26,7 +26,9 @@ PLUGINS R STANDARD .NET LIBRARIEZ DAT INHERIT COMMON `IPlugin` INTERFACE WIF ASF
 
 ### GETTIN STARTD
 
-UR PROJECT SHUD BE STANDARD .NET LIBRARY TARGETTIN APPROPRIATE FRAMEWORK OV UR TARGET ASF VERSHUN, AS SPECIFID IN DA **[COMPILASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-lol-US)**. WE RECOMMEND U 2 TARGET .NET CORE, BUT .NET FRAMEWORK PLUGINS R ALSO AVAILABLE.
+We've prepared **[ASF-PluginTemplate](https://github.com/JustArchiNET/ASF-PluginTemplate)** for you, which you can use as a base for your plugin project. Using the template is not a requirement (as you can do everything from scratch), but we heavily recommend to pick it up as it can drastically kickstart your development and cut on time required to get all things right. Simply check out the **[README](https://github.com/JustArchiNET/ASF-PluginTemplate/blob/main/README.md)** of the template and it'll guide you further. Regardless, we'll cover the basics below in case you wanted to start from scratch, or get to understand better the concepts used in the plugin template.
+
+Your project should be a standard .NET library targetting appropriate framework of your target ASF version, as specified in the **[compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**. WE RECOMMEND U 2 TARGET .NET CORE, BUT .NET FRAMEWORK PLUGINS R ALSO AVAILABLE.
 
 TEH PROJECT MUST REFERENCE MAIN `ArchiSteamFarm` ASSEMBLY, EITHR ITZ PREBUILT `ArchiSteamFarm.dll` LIBRARY DAT UVE DOWNLOADD AS PART OV TEH RELEASE, OR TEH SOURCE PROJECT (E.G. IF U DECIDD 2 ADD ASF TREE AS SUBMODULE). DIS WILL ALLOW U 2 ACCES AN DISCOVR ASF STRUCTUREZ, METHODZ AN PROPERTIEZ, ESPECIALLY CORE `IPlugin` INTERFACE WHICH ULL NED 2 INHERIT FRUM IN DA NEXT STEP. TEH PROJECT MUST ALSO REFERENCE `System.Composition.AttributedModel` AT TEH MINIMUM, WHICH ALLOWS U 2 `[Export]` UR `IPlugin` 4 ASF 2 USE. IN ADDISHUN 2 DAT, U CUD WANTS/NED 2 REFERENCE OTHR COMMON LIBRARIEZ IN ORDR 2 INTERPRET TEH DATA STRUCTUREZ DAT R GIVEN 2 U IN SUM INTERFACEZ, BUT UNLES U NED THEM EXPLICITLY, DAT WILL BE ENOUGH 4 NAO.
 
