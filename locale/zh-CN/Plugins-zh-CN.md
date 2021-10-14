@@ -26,7 +26,7 @@ ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 建议您根据�
 
 ### 入门指南
 
-We've prepared **[ASF-PluginTemplate](https://github.com/JustArchiNET/ASF-PluginTemplate)** for you, which you can use as a base for your plugin project. Using the template is not a requirement (as you can do everything from scratch), but we heavily recommend to pick it up as it can drastically kickstart your development and cut on time required to get all things right. Simply check out the **[README](https://github.com/JustArchiNET/ASF-PluginTemplate/blob/main/README.md)** of the template and it'll guide you further. Regardless, we'll cover the basics below in case you wanted to start from scratch, or get to understand better the concepts used in the plugin template.
+我们为您准备了 **[ASF 插件模板](https://github.com/JustArchiNET/ASF-PluginTemplate)**，您可以以此作为插件项目的基础。 使用模板并不是强制性的（因为您可以完全从零开始），但我们强烈建议您使用，因为它能够大大加速您的开发，节约各种配置的时间。 阅读模板的 **[README](https://github.com/JustArchiNET/ASF-PluginTemplate/blob/main/README.md)** 进一步了解详情。 无论如何，如果您打算从零开始或者希望更好地理解插件模板中的概念，我们接下来也会介绍相关基础。
 
 您的项目应该是一个标准 .NET 库，其目标指向对应 ASF 版本所使用框架的版本，如&#8203;**[编译](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-zh-CN)**&#8203;章节所述。 我们建议您以 .NET Core 为目标，但 .NET Framework 框架插件也是可用的。
 
