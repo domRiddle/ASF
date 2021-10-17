@@ -4,6 +4,37 @@ This section covers subjects related to managing the ASF process in optimal way.
 
 ---
 
+## `systemd` service for Linux
+
+todo
+
+---
+
+## Never run ASF as administrator!
+
+ASF includes its own validation whether the process is being run as administrator (`root`) or not. Running as root is **not** required for any kind of operation done by the ASF process assuming properly configured environment it's operating in, and therefore should be regarded as a bad practice. This means that on Windows, ASF should never be executed with "run as administrator" setting, and on Unix ASF should have a dedicated user account for itself, or re-use your own in case of a desktop system.
+
+For further elaboration on *why* we discourage running ASF as root, refer to **[superuser](https://superuser.com/questions/218379/why-is-it-bad-to-run-as-root)** and other resources. If you're still not convinced, ask yourself what would happen to your machine if ASF process executed `rm -rf --no-preserve-root /` command right after its launch.
+
+### I run as `root` because ASF can't write to files
+
+This means that you have wrongly configured permissions of the files ASF is trying to access. You should login as `root` account (either with `su` or `sudo -i`) and then **correct** the permissions by issuing `chown -hR 1000:1000 /path/to/ASF` command, substituting `1000:1000` with `UID` and `GID` that you'll run ASF under, and `/path/to/ASF` accordingly. If by any chance you're using custom `--path` telling ASF user to use the different directory, you should execute the same command again for that path as well.
+
+After doing that, you should no longer get any kind of issue related to ASF not being able to write over its own files, as you've just changed the owner of everything ASF is interested in to the user the ASF process will actually run under.
+
+### I run as `root` because I don't know how to do it otherwise
+
+```sh
+su # or sudo -i
+adduser asf
+chown -hR asf:asf /path/to/ASF
+su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
+```
+
+That would be doing it manually, it's much easier to use our `systemd` service explained above.
+
+---
+
 ## Multiple instances
 
 ASF is compatible with running multiple instances of the process on the same machine. The instances can be completely standalone or derived from the same binary location (in which case, you want to run them with different `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**).
