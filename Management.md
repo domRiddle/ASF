@@ -55,6 +55,22 @@ If by any chance you'd like to stop the process, simply execute `systemctl stop 
 
 Please note that, as there is no standard input enabled for our `systemd` service, you won't be able to input your details through the console in usual way. Running through `systemd` is equivalent to specifying **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** setting and comes with all its implications. Fortunately for you, it's very easy to manage your ASF through **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, which we recommend in case you need to supply additional details during login or otherwise manage your ASF process further.
 
+### Environment variables
+
+It's possible to supply additional environment variables to our `systemd` service, which you'll be interested in doing in case you want to for example use a custom `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments**, therefore specifying `ASF_CRYPTKEY` environment variables.
+
+In order to provide custom environment variables, create `/etc/asf` folder (in case it doesn't exist), `mkdir -p /etc/asf`, then write to a `/etc/asf/<user>` file, where `<user>` is the user you're running the service under (`asf` in our example above, so `/etc/asf/asf`).
+
+The file should contain all environment variables that you'd like to provide to the process.
+
+```
+# Declare only those that you actually need
+ASF_CRYPTKEY="my_super_important_secret_cryptkey"
+ASF_NETWORK_GROUP="my_network_group"
+
+# And any other ones you're interested in
+```
+
 ---
 
 ## Never run ASF as administrator!
