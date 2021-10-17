@@ -6,7 +6,51 @@ This section covers subjects related to managing the ASF process in optimal way.
 
 ## `systemd` service for Linux
 
-todo
+In `generic` and `linux-` variants, ASF comes with `ArchiSteamFarm@.service` file, which is a configuration file of the service for `systemd`. If you'd like to run ASF as a service, for example in order to launch it automatically after startup of your machine, then a proper `systemd` service is arguably the easiest way to do it, once you learn the basics.
+
+Firstly, create the account for the user you want to run ASF under, assuming it doesn't exist yet. We'll use `asf` user for this example, if you decided to use a different one, you'll need to substitute `asf` user in all of our examples below with your selected one.
+
+```sh
+su # or sudo -i
+adduser asf
+```
+
+Next, unpack ASF to `/home/asf/ArchiSteamFarm` folder. The folder structure is important for our service unit, it should be `ArchiSteamFarm` folder in your `$HOME`, so `/home/<user>`. If you did everything correctly, there will be `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` file existing.
+
+We'll do all below actions as `root`, so get to its shell with `su` or `sudo -i`.
+
+Firstly it's a good idea to ensure that our folder still belongs to our `asf` user, `chown -hR asf:asf /home/asf/ArchiSteamFarm` executed once will do it.
+
+Next, `cd /etc/systemd/system` and execute `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`, this will create a symbolic link to our service declaration and register it in `systemd`.
+
+Afterwards, ensure that `systemd` recognizes our service:
+
+```sh
+systemctl status ArchiSteamFarm@asf
+
+○ ArchiSteamFarm@asf.service - ArchiSteamFarm Service (on asf)
+     Loaded: loaded (/etc/systemd/system/ArchiSteamFarm@.service; disabled; vendor preset: enabled)
+     Active: inactive (dead)
+       Docs: https://github.com/JustArchiNET/ArchiSteamFarm/wiki
+```
+
+Pay special attention to the user we declare after `@`, it's `asf` in our case. Our systemd service unit expects from you to declare which user the ASF process will run under, and it influences the exact place of the binary `/home/<user>/ArchiSteamFarm`, as well as the actual user systemd will spawn the process as.
+
+If systemd returned output similar to above, everything is in order, and we're almost done. Now all that is left is actually starting our service as our chosen user: `systemctl start ArchiSteamFarm@asf`. Wait a second or two, and you can check the status again:
+
+```
+systemctl status ArchiSteamFarm@asf
+
+● ArchiSteamFarm@asf.service - ArchiSteamFarm Service (on asf)
+     Loaded: loaded (/etc/systemd/system/ArchiSteamFarm@.service; disabled; vendor preset: enabled)
+     Active: active (running) since (...)
+```
+
+If `systemd` states `active (running)`, it means everything went well, and you can verify that ASF process should be up and running, for example with `tail -f -n 100 /var/log/syslog`, as ASF by default also reports its console output to syslog. If you're satisfied with the setup you have right now, you can tell `systemd` to automatically start your service during boot, by executing `systemctl enable ArchiSteamFarm@asf` command. That's all.
+
+If by any chance you'd like to stop the process, simply execute `systemctl stop ArchiSteamFarm@asf`. Likewise, if you want to disable ASF from being started automatically on boot, `systemctl disable ArchiSteamFarm@asf` will do that for you, it's very simple.
+
+Please note that, as there is no standard input enabled for our `systemd` service, you won't be able to input your details through the console in usual way. Running through `systemd` is equivalent to specifying **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** setting and comes with all its implications. Fortunately for you, it's very easy to manage your ASF through **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, which we recommend in case you need to supply additional details or otherwise manage your ASF process further.
 
 ---
 
