@@ -25,7 +25,7 @@ Next, `cd /etc/systemd/system` and execute `ln -s /home/asf/ArchiSteamFarm/Archi
 
 Afterwards, ensure that `systemd` recognizes our service:
 
-```sh
+```
 systemctl status ArchiSteamFarm@asf
 
 ○ ArchiSteamFarm@asf.service - ArchiSteamFarm Service (on asf)
