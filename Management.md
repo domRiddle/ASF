@@ -34,7 +34,7 @@ systemctl status ArchiSteamFarm@asf
        Docs: https://github.com/JustArchiNET/ArchiSteamFarm/wiki
 ```
 
-Pay special attention to the user we declare after `@`, it's `asf` in our case. Our systemd service unit expects from you to declare which user the ASF process will run under, and it influences the exact place of the binary `/home/<user>/ArchiSteamFarm`, as well as the actual user systemd will spawn the process as.
+Pay special attention to the user we declare after `@`, it's `asf` in our case. Our systemd service unit expects from you to declare the user, as it influences the exact place of the binary `/home/<user>/ArchiSteamFarm`, as well as the actual user systemd will spawn the process as.
 
 If systemd returned output similar to above, everything is in order, and we're almost done. Now all that is left is actually starting our service as our chosen user: `systemctl start ArchiSteamFarm@asf`. Wait a second or two, and you can check the status again:
 
