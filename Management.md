@@ -1,6 +1,6 @@
 # Management
 
-This section covers subjects related to managing the ASF process in an optimal way. While not strictly mandatory for usage, it includes bunch of tips, tricks and good practices that we'd like to share, especially for system administrators, people packaging the ASF for usage in third-party repositories, as well as advanced users and alike.
+This section covers subjects related to managing the ASF process in optimal way. While not strictly mandatory for usage, it includes bunch of tips, tricks and good practices that we'd like to share, especially for system administrators, people packaging the ASF for usage in third-party repositories, as well as advanced users and alike.
 
 ---
 
