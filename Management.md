@@ -44,6 +44,9 @@ systemctl status ArchiSteamFarm@asf
 ● ArchiSteamFarm@asf.service - ArchiSteamFarm Service (on asf)
      Loaded: loaded (/etc/systemd/system/ArchiSteamFarm@.service; disabled; vendor preset: enabled)
      Active: active (running) since (...)
+       Docs: https://github.com/JustArchiNET/ArchiSteamFarm/wiki
+   Main PID: (...)
+(...)
 ```
 
 If `systemd` states `active (running)`, it means everything went well, and you can verify that ASF process should be up and running, for example with `tail -f -n 100 /var/log/syslog`, as ASF by default also reports its console output to syslog. If you're satisfied with the setup you have right now, you can tell `systemd` to automatically start your service during boot, by executing `systemctl enable ArchiSteamFarm@asf` command. That's all.
