@@ -61,7 +61,7 @@ It's possible to supply additional environment variables to our `systemd` servic
 
 In order to provide custom environment variables, create `/etc/asf` folder (in case it doesn't exist), `mkdir -p /etc/asf`, then write to a `/etc/asf/<user>` file, where `<user>` is the user you're running the service under (`asf` in our example above, so `/etc/asf/asf`).
 
-The file should contain all environment variables that you'd like to provide to the process.
+The file should contain all environment variables that you'd like to provide to the process:
 
 ```sh
 # Declare only those that you actually need
