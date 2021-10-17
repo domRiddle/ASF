@@ -19,7 +19,7 @@ Next, unpack ASF to `/home/asf/ArchiSteamFarm` folder. The folder structure is i
 
 We'll do all below actions as `root`, so get to its shell with `su` or `sudo -i`.
 
-Firstly it's a good idea to ensure that our folder still belongs to our `asf` user, `chown -hR asf:asf /home/asf/ArchiSteamFarm` executed once will do it.
+Firstly it's a good idea to ensure that our folder still belongs to our `asf` user, `chown -hR asf:asf /home/asf/ArchiSteamFarm` executed once will do it. The permission could be wrong e.g. if you've downloaded and/or unpacked the zip file as `root`.
 
 Next, `cd /etc/systemd/system` and execute `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`, this will create a symbolic link to our service declaration and register it in `systemd`.
 
