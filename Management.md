@@ -78,7 +78,7 @@ chown -hR asf:asf /path/to/ASF
 su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
 ```
 
-That would be doing it manually, it's much easier to use our `systemd` service explained above.
+That would be doing it manually, it's much easier to use our **[`systemd` service](#systemd-service-for-linux)** explained above.
 
 ---
 
