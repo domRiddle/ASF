@@ -63,7 +63,7 @@ ASF includes its own validation whether the process is being run as administrato
 
 For further elaboration on *why* we discourage running ASF as root, refer to **[superuser](https://superuser.com/questions/218379/why-is-it-bad-to-run-as-root)** and other resources. If you're still not convinced, ask yourself what would happen to your machine if ASF process executed `rm -rf --no-preserve-root /` command right after its launch.
 
-### I run as `root` because ASF can't write to files
+### I run as `root` because ASF can't write to its files
 
 This means that you have wrongly configured permissions of the files ASF is trying to access. You should login as `root` account (either with `su` or `sudo -i`) and then **correct** the permissions by issuing `chown -hR 1000:1000 /path/to/ASF` command, substituting `1000:1000` with `UID` and `GID` that you'll run ASF under, and `/path/to/ASF` accordingly. If by any chance you're using custom `--path` telling ASF user to use the different directory, you should execute the same command again for that path as well.
 
