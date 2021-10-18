@@ -50,7 +50,7 @@ Aufgrund der Natur dieser Eigenschaft ist es auch möglich, einen cryptkey zu se
 
 ---
 
-`--ignore-unsupported-environment` - wird ASF die Erkennung von nicht unterstützten Umgebungen ignorieren, die normalerweise mit einem Fehler signalisiert und das Beenden erzwingt. Bislang gilt eine Umgebung dann als inkompatibel, wenn ein nicht unterstütztes .NET Framework auf einer Plattform verwendet wird, welche stattdessen .NET Core Build ausführen könnte. Da wir `generic-netf` nur in sehr begrenzten Szenarien unterstützen (mit **[Mono](https://www.mono-project.com)**), wird die Verwendung in anderen Fällen (z. B. für den Start auf `win-x64` Plattform) nicht unterstützt. Mehr Informationen erhalten Sie unter **[Kompatibelität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)**.
+`--ignore-unsupported-environment` - will cause ASF to ignore problems related to running in unsupported environment, which normally is signalized with an error and a forced exit. Unsupported environment includes for example running .NET Framework build on platform that could be running .NET Core build instead, or running ASF process as administrator (root), which causes a security risk for the host machine for absolutely no reason. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. As of today, **all** of the unsupported environment scenarios can be corrected, such as running `generic` build instead of `generic-netf`, or creating a dedicated user account for ASF instead of running it as root. We strongly recommend to fix the outstanding problems instead of declaring this argument.
 
 ---
 

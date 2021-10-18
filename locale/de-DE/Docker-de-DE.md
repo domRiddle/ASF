@@ -87,21 +87,21 @@ Natürlich ist dies nur ein konkreter Weg, um das zu erreichen, was wir wollen, 
 
 ### Zugriffsrechte für Volumes
 
-ASF wird standardmäßig mit dem Standard `root` Benutzer innerhalb eines Containers ausgeführt. Dies ist sicherheitstechnisch kein Problem, da wir uns bereits im Docker-Container befinden, aber es wirkt sich auf das freigegebene Volume aus, da neu generierte Dateien normalerweise `root` gehören, was bei der Verwendung eines freigegebenen Volumes möglicherweise nicht gewünscht ist.
+ASF container by default is initialized with default `root` user, which allows it to handle the internal permissions stuff and then eventually switch to `asf` (UID `1000`) user for the remaining part of the main process. While this should be satisfying for the vast majority of users, it does affect the shared volume as newly-generated files will be normally owned by `asf` user, which may not be desired situation if you'd like some other user for your shared volume.
 
-Docker erlaubt es dir, `--user` **[Flag](https://docs.docker.com/engine/reference/run/#user)** an `docker run` Befehl zu übergeben, der den Standardbenutzer definiert, unter dem ASF laufen wird. Sie können Ihre `uid` und `gid` zum Beispiel mit dem Befehl `id` überprüfen und ihn dann an den Rest des Befehls übergeben. Zum Beispiel, wenn Ihr Ziel-Benutzer die `uid` und `gid` von 1000 hat:
-
-```shell
-docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
-```
-
-Bedenken Sie, dass das von ASF verwendete Verzeichnis `/app` standardmäßig immer noch im Besitz von `root` ist. Wenn Sie ASF mit einem benutzerdefinierten Benutzer ausführen, hat der ASF-Prozess keinen Schreibzugriff auf seine eigenen Dateien. Dieser Zugriff ist für den Betrieb nicht zwingend erforderlich, aber er ist z. B. für die Funktion Automatische-Aktualisierung entscheidend. Um dies zu beheben, genügt es, den Besitzer aller ASF-Dateien von Standard `root` auf Ihren neuen benutzerdefinierten Benutzer zu ändern.
+Docker erlaubt es dir, `--user` **[Flag](https://docs.docker.com/engine/reference/run/#user)** an `docker run` Befehl zu übergeben, der den Standardbenutzer definiert, unter dem ASF laufen wird. Sie können Ihre `uid` und `gid` zum Beispiel mit dem Befehl `id` überprüfen und ihn dann an den Rest des Befehls übergeben. Zum Beispiel, wenn dein Ziel-Benutzer die `uid` und `gid` von 1001 hat:
 
 ```shell
-docker exec -u root asf chown -hR 1000:1000 /app
+docker run -it -u 1001:1001 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Dies muss nur einmal durchgeführt werden, nachdem Sie einen Container mit `docker run` erstellt haben, und nur dann, wenn Sie sich dazu entschieden haben, einen benutzerdefinierten Benutzer für den ASF-Prozess zu verwenden. Vergessen Sie bitte auch nicht, das Argument `1000:1000` in beiden obigen Befehlen auf die `uid` und `gid` zu ändern, unter dem Sie ASF ausführen möchten.
+Remember that by default `/app` directory used by ASF is still owned by `asf`. Wenn Sie ASF mit einem benutzerdefinierten Benutzer ausführen, hat der ASF-Prozess keinen Schreibzugriff auf seine eigenen Dateien. Dieser Zugriff ist für den Betrieb nicht zwingend erforderlich, aber er ist z. B. für die Funktion Automatische-Aktualisierung entscheidend. In order to fix this, it's enough to change ownership of all ASF files from default `asf` to your new custom user.
+
+```shell
+docker exec -u root asf chown -hR 1001:1001 /app
+```
+
+Dies muss nur einmal durchgeführt werden, nachdem Sie einen Container mit `docker run` erstellt haben, und nur dann, wenn Sie sich dazu entschieden haben, einen benutzerdefinierten Benutzer für den ASF-Prozess zu verwenden. Vergiss auch nicht, das Argument `1001:1001` in beiden obigen Befehlen auf die `uid` und `gid` zu ändern, unter dem du ASF ausführen möchtest.
 
 ---
 

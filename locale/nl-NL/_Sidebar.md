@@ -21,6 +21,7 @@
 * **[👥 Productcode-activering op de achtergrond](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📊 Statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
 * **[👪 Steam-gezinsbibliotheek](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**

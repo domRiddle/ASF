@@ -10,20 +10,6 @@ No entanto, independente de onde você executar o ASF, você deve garantir que s
 
 ---
 
-## Múltiplas instâncias
-
-O ASF permite a execução de múltiplas instâncias do processo no mesmo computador. Essas instâncias podem ser totalmente individuais ou derivadas do mesmo executável (nesse caso você deve rodá-las com o **[argumento de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** `--path` diferente para cada uma).
-
-Quando estiver executando várias instâncias do mesmo executável certifique-se que você desativou as atualizações automáticas em todas as configurações, pois não existe nenhuma sincronização entre eles no que tange as atualizações automáticas. Se você quiser continuar com as atualizações automáticas habilitadas nós recomendamos rodar instâncias individuais, mas você ainda pode fazer as atualizações funcionarem, contanto que você possa garantir que todas as outras instâncias do ASF sejam fechadas.
-
-O ASF fará o seu melhor para manter uma quantidade mínima de comunicação entre Sistema Operacional e multi-processos com outras instâncias do ASF. Isso inclui verificar sua pasta de configuração ao invés da pasta de outras instâncias, além de compartilhar limitadores de núcleo de processo configurados com a **[propriedade de configuração global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-global)** `*LimiterDelay` garantindo que rodar várias instâncias do ASF não cause a possibilidade de ter problemas com limite de tráfego. No que diz respeito a aspectos técnicos, todas as plataformas usam nosso mecanismo dedicado de bloqueios baseado em arquivos personalizados do ASF criados em uma pasta temporária em `C:\Users\<SeuUsuário>\AppData\Local\Temp\ASF` no Windows e `/tmp/ASF` no Unix.
-
-Não é necessário que instâncias do ASF compartilhem as mesmas propriedades `*LimiterDelay`, elas podem usar valores diferentes já que cada ASF adicionará seu próprio atraso configurado para o tempo de liberação após adquirir o bloqueio. Se a configuração `*LimiterDelay` estiver definida como `0`, a instância do ASF vai pular a espera pelo bloqueio de determinado recurso que for compartilhado com outras instâncias (isso poderia manter um bloqueio compartilhado uns com os outros). Quando definido como outro valor, o ASF irá sincronizar corretamente com outras instâncias e esperar pela sua vez e liberar o bloqueio após o atraso configurado, permitindo que outras instâncias continuem.
-
-O ASF leva em conta a configuração `WebProxy` quando decide sobre o escopo compartilhado, o que significa que duas instâncias do ASF usando configurações `WebProxy` diferentes não compartilharão seus limitadores entre si. Isso foi implementado para permitir que as configurações de `WebProxy` operem sem atrasos excessivos, como esperado de diferentes interfaces de rede. Isso deve ser o suficiente para a maioria dos casos, no entanto, se você tiver uma configuração personalizada específica na qual você roteie os pedidos de forma diferente, por exemplo, você pode especificar manualmente o grup de rede atráves do **[argumento de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)** `--network-group`, o que vai permitir que você declare o grupo do ASF que será sincronizado com essa instância. Tenha em mente que grupos de rede personalizados são exclusividades, o que significa que o ASF não vai mais usar o `WebProxy` para determinar o grupo certo, já que você é responsável pelo agrupamento nesse caso.
-
----
-
 ## Empacotamento do ASF
 
 O ASF está disponível em 2 formas diferentes: pacote genérico e pacote específico para Sistema Operacional. Funcionalmente ambos os pacotes são exatamente o mesmo e ambos são capazes de se atualizarem automaticamente. A única diferença entre eles é se o pacote **genérico** do ASF acompanha ou não o tempo de execução **específico do Sistema Operacional** para rodar o mesmo.

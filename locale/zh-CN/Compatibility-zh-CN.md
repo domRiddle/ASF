@@ -10,20 +10,6 @@ ASF 是一个用 C# 语言编写并运行在 .NET Core 平台上的应用程序�
 
 ---
 
-## 多实例
-
-ASF 兼容在同一台机器上运行多个进程实例。 实例可以是完全独立的，或是派生于同一个二进制文件（如果您需要它们在不同路径下运行，可以使用 `--path` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**）。
-
-请注意，在通常情况下，当使用同一份二进制文件运行不同实例时应该在所有实例的配置文件内禁用自动更新，因为它们之间不会同步与自动更新有关的信息。 如果您仍希望启用自动更新，我们建议您使用独立的实例，但只要您能确保所有其他 ASF 实例已关闭，自动更新就仍然可以正常工作。
-
-ASF 会尽全力减少操作系统层面的与其他 ASF 实例的跨进程通信。 这包括 ASF 会读取其他实例的配置文件目录，并且共享由 `*LimiterDelay` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**&#8203;配置的进程级限制，确保运行多个 ASF 实例不会导致频率限制问题。 在技术方面，所有平台都使用我们专门的 ASF 自定义机制，在临时目录内创建基于文件的锁，Windows 上的临时目录为 `C:\Users\<您的用户名>\AppData\Local\Temp\ASF`，在 Unix 上则是 `/tmp/ASF`。
-
-运行多个 ASF 实例不需要它们共享相同的 `*LimiterDelay` 属性，它们可以设置不同的值，因为每个 ASF 都会在获得锁之后将自己配置的延迟添加到释放时间。 如果配置的 `*LimiterDelay` 设置为 `0`，ASF 实例将完全跳过等待其他实例释放资源的锁（它们之间可能仍然会维护一个共享锁）。 当设置为其他任何值时，ASF 将会与其他实例同步此值，并等待自己获得锁，然后会在预先配置的延迟时间之后释放锁，使其他实例继续工作。
-
-ASF 在决定共享范围时会考虑到 `WebProxy` 设置，即使用不同 `WebProxy` 的 ASF 实例之间不会采用同一个限制。 实现此功能是为了让 `WebProxy` 设置不会导致过大的操作延迟，符合使用不同网络接口的预期。 对于大多数情况，这应该足够了，然而，如果您的方案使用自定义的机制，例如使用其他方式手动路由请求，您可以通过 `--network-group` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**&#8203;指定网络组，使您指定 ASF 需要与同一个组内的实例同步。 请注意，设置自定义网络组选项后，ASF 就不再根据 `WebProxy` 判断所需的组，因为此时由您自己管理分组。
-
----
-
 ## ASF 打包
 
 ASF 有两种主要的打包方式——Generic 包以及 OS-specific 包（操作系统包）。 从功能上来讲，这两种包是完全一样的，都能够自动进行更新。 唯一的区别就是 **Generic** 包中不包含 **OS-specific** 包内所具有的能使 ASF 运行的环境。

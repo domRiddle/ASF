@@ -87,21 +87,21 @@ docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always ju
 
 ### Разрешения для тома
 
-ASF по умолчанию запускается под пользователем `root` внутри контейнера. С точки зрения безопасности это не проблема, поскольку мы уже находимся внутри контейнера Docker, но это влияет на общий том, поскольку созданные в нём файлы будут обычно иметь в качестве владельца `root`, что может быть нежелательным при использовании общего тома.
+ASF container by default is initialized with default `root` user, which allows it to handle the internal permissions stuff and then eventually switch to `asf` (UID `1000`) user for the remaining part of the main process. While this should be satisfying for the vast majority of users, it does affect the shared volume as newly-generated files will be normally owned by `asf` user, which may not be desired situation if you'd like some other user for your shared volume.
 
-Docker позволяет вам указать **[флаг](https://docs.docker.com/engine/reference/run/#user)** ` --user` команде `docker run`, что задаст пользователя по умолчанию, под которым будет запускаться ASF. Вы можете посмотреть ваши `uid` и `gid` например с помощью команды `id`, и затем передать их в команде. Например, если нужный вам пользователь имеет `uid` и `gid` равные 1000:
-
-```shell
-docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
-```
-
-Не забывайте что по умолчанию папка `/app`, используемая ASF, всё равно принадлежит `root`. Если вы запустите ASF от произвольного пользователя, то ваш процесс ASF не будет иметь прав на запись в свои собственные файлы. Этот доступ не является обязательным для работы, но он необходим например для автоматического обновления. Чтобы это исправить достаточно сменить владельца всех файлов ASF со значения по умолчанию `root` на нужного вам пользователя.
+Docker позволяет вам указать **[флаг](https://docs.docker.com/engine/reference/run/#user)** ` --user` команде `docker run`, что задаст пользователя по умолчанию, под которым будет запускаться ASF. Вы можете посмотреть ваши `uid` и `gid` например с помощью команды `id`, и затем передать их в команде. Например, если нужный вам пользователь имеет `uid` и `gid` равные 1001:
 
 ```shell
-docker exec -u root asf chown -hR 1000:1000 /app
+docker run -it -u 1001:1001 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Это нужно сделать только один раз после создания вашего контейнера командой `docker run`, и только если вы решите запускать процесс ASF под своим пользователем. Также не забывайте заменить аргумент `1000:1000` в командах выше на `uid` и `gid` которые вы реально хотите использовать для запуска ASF.
+Remember that by default `/app` directory used by ASF is still owned by `asf`. Если вы запустите ASF от произвольного пользователя, то ваш процесс ASF не будет иметь прав на запись в свои собственные файлы. Этот доступ не является обязательным для работы, но он необходим например для автоматического обновления. In order to fix this, it's enough to change ownership of all ASF files from default `asf` to your new custom user.
+
+```shell
+docker exec -u root asf chown -hR 1001:1001 /app
+```
+
+Это нужно сделать только один раз после создания вашего контейнера командой `docker run`, и только если вы решите запускать процесс ASF под своим пользователем. Также не забывайте заменить аргумент `1001:1001` в командах выше на `uid` и `gid` которые вы реально хотите использовать для запуска ASF.
 
 ---
 

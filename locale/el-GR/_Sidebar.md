@@ -21,6 +21,7 @@
 * **[👥 Εξαργύρωση παιχνιδιών παρασκηνίου](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📊 Statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
 * **[👪 Κοινή χρήση Steam με την οικογένεια](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**

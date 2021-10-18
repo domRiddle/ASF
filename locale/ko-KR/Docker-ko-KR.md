@@ -87,21 +87,21 @@ docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always ju
 
 ### 볼륨 권한
 
-ASF는 기본적으로 컨테이너 내부에서 기본값인 `root` 사용자로 실행됩니다. 우리는 이미 도커 컨테이너 안에 있으므로 보안측면에서 문제가 되지는 않습니다. 하지만 새로 생성된 공유 볼륨은 보통 `root`의 소유가 되고 이는 공유 볼륨을 사용할 때 원하는 상황은 아닙니다.
+ASF container by default is initialized with default `root` user, which allows it to handle the internal permissions stuff and then eventually switch to `asf` (UID `1000`) user for the remaining part of the main process. While this should be satisfying for the vast majority of users, it does affect the shared volume as newly-generated files will be normally owned by `asf` user, which may not be desired situation if you'd like some other user for your shared volume.
 
-도커는 `docker run` 명령어에 `--user` **[플래그](https://docs.docker.com/engine/reference/run/#user)** 를 전달하여 ASF를 실행할 기본 사용자를 정의할 수 있습니다. 예를 들어 `id` 명령어를 통해 `uid`와 `gid`를 확인하고 이를 명령어의 일부로 줄 수 있습니다. 예를 들어, 해당 사용자의 `uid`와 `gid`가 1000 인 경우,
-
-```shell
-docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
-```
-
-기본적으로 ASF가 사용하는 `/app` 디렉토리는 여전히 `root`의 소유임을 명심하십시오. ASF를 다른 사용자로 실행하면 ASF 프로세스는 파일에 쓰기 권한을 갖지 못합니다. 쓰기 권한은 작업에 필수적인 것은 아니지만 자동 업데이트 기능 등에서는 치명적입니다. 이를 수정하기 위해서는 모든 ASF 파일을 기본 `root`에서 새 사용자로 소유권을 변경하는 것만으로 충분합니다.
+도커는 `docker run` 명령어에 `--user` **[플래그](https://docs.docker.com/engine/reference/run/#user)** 를 전달하여 ASF를 실행할 기본 사용자를 정의할 수 있습니다. 예를 들어 `id` 명령어를 통해 `uid`와 `gid`를 확인하고 이를 명령어의 일부로 줄 수 있습니다. 예를 들어, 해당 사용자의 `uid`와 `gid`가 1001 인 경우,
 
 ```shell
-docker exec -u root asf chown -hR 1000:1000 /app
+docker run -it -u 1001:1001 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-ASF 프로세스에 일반 사용자를 사용하기로 정한 경우에만, 컨테이너를 `docker run`으로 생성한 후 한번만 하면 됩니다. 위의 `1000:1000` 인자를 ASF가 실행될 실제 `uid`와 `gid`로 변경하는 것을 잊지 마십시오.
+Remember that by default `/app` directory used by ASF is still owned by `asf`. ASF를 다른 사용자로 실행하면 ASF 프로세스는 파일에 쓰기 권한을 갖지 못합니다. 쓰기 권한은 작업에 필수적인 것은 아니지만 자동 업데이트 기능 등에서는 치명적입니다. In order to fix this, it's enough to change ownership of all ASF files from default `asf` to your new custom user.
+
+```shell
+docker exec -u root asf chown -hR 1001:1001 /app
+```
+
+ASF 프로세스에 일반 사용자를 사용하기로 정한 경우에만, 컨테이너를 `docker run`으로 생성한 후 한번만 하면 됩니다. 위의 `1001:1001` 인자를 ASF가 실행될 실제 `uid`와 `gid`로 변경하는 것을 잊지 마십시오.
 
 ---
 

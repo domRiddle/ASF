@@ -50,7 +50,7 @@ Datorită naturii acestei proprietăți, este posibilă și setarea cheii de cri
 
 ---
 
-`--ignore-unsupported-environment` - va provoca ASF să ignore detectarea mediului nesuportat, care în mod normal este semnalizată cu o eroare și ieșire forțată. Deocamdată, mediul nesuportat este clasificat ca fiind o platforma .NET Framework care ar putea funcţiona .NET Core build în schimb. Deoarece suportam `generic-netf` doar în scenarii foarte limitate (cu **[Mono](https://www.mono-project.com)**), utilizarea acestuia pentru alte cazuri (de ex. pentru lansarea pe platforme `win-x64`) nu este acceptată. Vizitați **[compatibilitate](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** pentru mai multe informații.
+`--ignore-unsupported-environment` - will cause ASF to ignore problems related to running in unsupported environment, which normally is signalized with an error and a forced exit. Unsupported environment includes for example running .NET Framework build on platform that could be running .NET Core build instead, or running ASF process as administrator (root), which causes a security risk for the host machine for absolutely no reason. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. As of today, **all** of the unsupported environment scenarios can be corrected, such as running `generic` build instead of `generic-netf`, or creating a dedicated user account for ASF instead of running it as root. We strongly recommend to fix the outstanding problems instead of declaring this argument.
 
 ---
 

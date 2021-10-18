@@ -87,21 +87,21 @@ Of course, this is just one specific way to achieve what we want, nothing is sto
 
 ### Volume 權限
 
-預設情況下，ASF在容器內使用` root `用戶運行。 This is not a problem security-wise, since we're already inside Docker container, but it does affect the shared volume as newly-generated files will be normally owned by `root`, which may not be desired situation when using a shared volume.
+ASF container by default is initialized with default `root` user, which allows it to handle the internal permissions stuff and then eventually switch to `asf` (UID `1000`) user for the remaining part of the main process. While this should be satisfying for the vast majority of users, it does affect the shared volume as newly-generated files will be normally owned by `asf` user, which may not be desired situation if you'd like some other user for your shared volume.
 
-Docker allows you to pass `--user` **[flag](https://docs.docker.com/engine/reference/run/#user)** to `docker run` command which will define default user that ASF will run under. You can check your `uid` and `gid` for example with `id` command, then pass it to the rest of the command. 例如，如果目標用戶的` uid `和` gid `為1000：
-
-```shell
-docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
-```
-
-請記住，預設情況下，ASF使用的` / app `目錄仍歸` root `所有。 如果您在自訂用戶下運行ASF，則ASF進程將無權對其自己的檔案進行寫訪問。 這種存取權限對於操作不是強制性的，但它是至關重要的，例如用於自動更新功能。 為了解決這個問題，只需將所有ASF文件的所有權從默認的` root `更改為新的自訂用戶即可。
+Docker allows you to pass `--user` **[flag](https://docs.docker.com/engine/reference/run/#user)** to `docker run` command which will define default user that ASF will run under. You can check your `uid` and `gid` for example with `id` command, then pass it to the rest of the command. 例如，如果目標用戶的` uid `和` gid `為1001：
 
 ```shell
-docker exec -u root asf chown -hR 1000:1000 /app
+docker run -it -u 1001:1001 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-This has to be done only once after you created your container with `docker run`, and only if you decided to use custom user for ASF process. Also don't forget to change `1000:1000` argument in both commands above to the `uid` and `gid` you actually want to run ASF under.
+Remember that by default `/app` directory used by ASF is still owned by `asf`. 如果您在自訂用戶下運行ASF，則ASF進程將無權對其自己的檔案進行寫訪問。 這種存取權限對於操作不是強制性的，但它是至關重要的，例如用於自動更新功能。 In order to fix this, it's enough to change ownership of all ASF files from default `asf` to your new custom user.
+
+```shell
+docker exec -u root asf chown -hR 1001:1001 /app
+```
+
+This has to be done only once after you created your container with `docker run`, and only if you decided to use custom user for ASF process. Also don't forget to change `1001:1001` argument in both commands above to the `uid` and `gid` you actually want to run ASF under.
 
 ---
 

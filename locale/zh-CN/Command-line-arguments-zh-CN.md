@@ -50,7 +50,7 @@ Linux/macOS：
 
 ---
 
-`--ignore-unsupported-environment`——使 ASF 忽略对不支持环境的检查，这些环境在正常情况下会导致报错并强制退出。 目前，不支持的环境指的是，在应该使用 .NET Core 版本的平台上运行 .NET 框架版本。 因为我们仅在非常有限的场景下（使用 **[Mono](https://www.mono-project.com)**）支持 `generic-netf` 版本，其他的使用场景（例如在 `win-x64` 平台上运行）是不受支持的。 访问&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;获得更多信息。
+`--ignore-unsupported-environment`——使 ASF 忽略在不支持环境下运行的各种问题，这些环境在正常情况下会导致报错并强制退出。 不支持的环境包括，在应该使用 .NET Core 版本的平台上运行 .NET 框架版本，或者以管理员（root）身份运行 ASF 进程，这不仅毫无意义，还会使运行 ASF 的设备陷入安全风险。 此选项将允许 ASF 尝试在这些情况下运行，请注意我们并不支持这些操作，完全是您自己决定强制 ASF 这样运行，因而**风险由您自己承担**。 目前，**所有**在不受支持环境运行的情况都可以被改正，例如运行 `generic`版本而非 `generic-netf` 版本，以及为 ASF 设置专门的用户帐户而不使用 root 来运行。 我们强烈建议从根本上解决问题，而不是使用这参数。
 
 ---
 

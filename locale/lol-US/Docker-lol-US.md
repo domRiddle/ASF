@@ -87,21 +87,21 @@ OV COURSE, DIS AR TEH JUS WAN SPECIFIC WAI 2 ACHIEVE WUT WE WANTS, NOTHIN IZ STO
 
 ### VOLUME PERMISHUNS
 
-ASF IZ BY DEFAULT RUN WIF DEFAULT `root` USR INNA CONTAINR. DIS AR TEH NOT PROBLEM SECURITY-WIZE, SINCE WERE ALREADY INSIDE DOCKR CONTAINR, BUT IT DOEZ AFFECT TEH SHARD VOLUME AS NEWLY-GENERATD FILEZ WILL BE NORMALLY OWND BY `root`, WHICH CUD NOT BE DESIRD SITUASHUN WHEN USIN SHARD VOLUME.
+ASF container by default is initialized with default `root` user, which allows it to handle the internal permissions stuff and then eventually switch to `asf` (UID `1000`) user for the remaining part of the main process. While this should be satisfying for the vast majority of users, it does affect the shared volume as newly-generated files will be normally owned by `asf` user, which may not be desired situation if you'd like some other user for your shared volume.
 
-DOCKR ALLOWS U 2 PAS `--user` **[FLAG](https://docs.docker.com/engine/reference/run/#user)** 2 `docker run` COMMAND WHICH WILL DEFINE DEFAULT USR DAT ASF WILL RUN UNDR. U CAN CHECK UR `uid` AN `gid` 4 EXAMPLE WIF `id` COMMAND, DEN PAS IT 2 TEH REST OV TEH COMMAND. 4 EXAMPLE, IF UR TARGET USR HAS `uid` AN `gid` OV 1000:
-
-```shell
-docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
-```
-
-REMEMBR DAT BY DEFAULT `/app` DIRECTORY USD BY ASF IZ STILL OWND BY `root`. IF U RUN ASF UNDR CUSTOM USR, DEN UR ASF PROCES WONT HAS RITE ACCES 2 ITZ OWN FILEZ. DIS ACCES IZ NOT MANDATORY 4 OPERASHUN, BUT IT CRUSHUL E.G. 4 AUTO-UPDATEZ FEACHUR. IN ORDR 2 FIX DIS, IZ ENOUGH 2 CHANGE OWNERSHIP OV ALL ASF FILEZ FRUM DEFAULT `root` 2 UR NEW CUSTOM USR.
+DOCKR ALLOWS U 2 PAS `--user` **[FLAG](https://docs.docker.com/engine/reference/run/#user)** 2 `docker run` COMMAND WHICH WILL DEFINE DEFAULT USR DAT ASF WILL RUN UNDR. U CAN CHECK UR `uid` AN `gid` 4 EXAMPLE WIF `id` COMMAND, DEN PAS IT 2 TEH REST OV TEH COMMAND. 4 EXAMPLE, IF UR TARGET USR HAS `uid` AN `gid` OV 1001:
 
 ```shell
-docker exec -u root asf chown -hR 1000:1000 /app
+docker run -it -u 1001:1001 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-DIS HAS 2 BE DUN ONLY ONCE AFTR U CREATD UR CONTAINR WIF `docker run`, AN ONLY IF U DECIDD 2 USE CUSTOM USR 4 ASF PROCES. ALSO DOAN FORGET 2 CHANGE `1000:1000` ARGUMENT IN BOTH COMMANDZ ABOOV 2 TEH `uid` AN `gid` U AKSHULLY WANTS 2 RUN ASF UNDR.
+Remember that by default `/app` directory used by ASF is still owned by `asf`. IF U RUN ASF UNDR CUSTOM USR, DEN UR ASF PROCES WONT HAS RITE ACCES 2 ITZ OWN FILEZ. DIS ACCES IZ NOT MANDATORY 4 OPERASHUN, BUT IT CRUSHUL E.G. 4 AUTO-UPDATEZ FEACHUR. In order to fix this, it's enough to change ownership of all ASF files from default `asf` to your new custom user.
+
+```shell
+docker exec -u root asf chown -hR 1001:1001 /app
+```
+
+DIS HAS 2 BE DUN ONLY ONCE AFTR U CREATD UR CONTAINR WIF `docker run`, AN ONLY IF U DECIDD 2 USE CUSTOM USR 4 ASF PROCES. ALSO DOAN FORGET 2 CHANGE `1001:1001` ARGUMENT IN BOTH COMMANDZ ABOOV 2 TEH `uid` AN `gid` U AKSHULLY WANTS 2 RUN ASF UNDR.
 
 ---
 

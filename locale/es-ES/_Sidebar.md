@@ -21,10 +21,11 @@
 * **[👥 Activador de juegos en segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-es-ES)**
 * **[📢 Comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)**
 * **[🛠️ Compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-ES)**
-* **[⏱️ Rendimiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-ES)**
-* **[📊 Estadísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-es-ES)**
-* **[👪 Préstamo familiar de Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing-es-ES)**
-* **[🔄 Intercambios](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-es-ES)**
+* **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
+* **[⏱️ Rendimiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
+* **[📊 Estadísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[👪 Préstamo familiar de Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[🔄 Intercambios](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 
 ## 🧙 Avanzado

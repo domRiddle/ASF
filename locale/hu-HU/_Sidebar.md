@@ -21,6 +21,7 @@
 * **[👥 Játék beváltás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Parancsok](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Kompatibilitás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Teljesítmény](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📊 Statisztikák](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
 * **[👪 Steam családi megosztása](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**

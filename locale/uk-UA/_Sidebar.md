@@ -21,10 +21,11 @@
 * **[👥 Активація ігор у фоновому режимі](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-uk-UA)**
 * **[📢 Команди](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-uk-UA)**
 * **[🛠️ Сумісність](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-uk-UA)**
-* **[⏱️ Продуктивність](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-uk-UA)**
-* **[📊 Статистика](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-uk-UA)**
-* **[👪 Спільний доступ до бібліотеки Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing-uk-UA)**
-* **[🔄 Обміни](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-uk-UA)**
+* **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
+* **[⏱️ Продуктивність](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
+* **[📊 Статистика](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[👪 Спільний доступ до бібліотеки Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[🔄 Обміни](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 
 ## 🧙 Поглиблене

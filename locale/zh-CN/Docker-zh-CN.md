@@ -87,21 +87,21 @@ docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always ju
 
 ### 卷权限
 
-默认情况下，ASF 会以容器内默认的 `root` 用户运行。 这并非有安全方面的问题，因为我们已经在 Docker 容器内了，但这会影响共享数据卷，使其中新文件的所有者为 `root`，这可能不是您使用数据卷时所期望的情况。
+ASF container by default is initialized with default `root` user, which allows it to handle the internal permissions stuff and then eventually switch to `asf` (UID `1000`) user for the remaining part of the main process. While this should be satisfying for the vast majority of users, it does affect the shared volume as newly-generated files will be normally owned by `asf` user, which may not be desired situation if you'd like some other user for your shared volume.
 
-Docker 允许您向 `docker run` 命令传递 `--user` **[参数](https://docs.docker.com/engine/reference/run/#user)**，定义运行 ASF 的默认用户。 您可以通过 `id` 命令等查询您的 `uid` 和 `gid`，然后将其放到命令参数中传递。 例如，假设您的目标用户的 `uid` 和 `gid` 都为 1000：
-
-```shell
-docker run -it -u 1000:1000 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
-```
-
-请记住，在默认情况下，ASF 使用的 `/app` 目录仍然为 `root` 用户所有。 如果您在自定义用户下运行 ASF，则 ASF 进程将没有权限向自己的文件写入内容。 该权限不是必需的，但对于某些功能来说很重要，例如自动更新功能。 为了解决这个问题，只需要将所有 ASF 文件的所有者从默认的 `root` 更改为您设定的新用户。
+Docker 允许您向 `docker run` 命令传递 `--user` **[参数](https://docs.docker.com/engine/reference/run/#user)**，定义运行 ASF 的默认用户。 您可以通过 `id` 命令等查询您的 `uid` 和 `gid`，然后将其放到命令参数中传递。 例如，假设您的目标用户的 `uid` 和 `gid` 都为 1001：
 
 ```shell
-docker exec -u root asf chown -hR 1000:1000 /app
+docker run -it -u 1001:1001 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-在通过 `docker run` 命令创建 Docker 容器之后，您只需要执行一次该命令，并且只有您需要自定义执行 ASF 进程的用户时才需要。 也不要忘记将上述命令中的 `1000:1000` 更改为实际用户的 `uid` 和 `gid`。
+Remember that by default `/app` directory used by ASF is still owned by `asf`. 如果您在自定义用户下运行 ASF，则 ASF 进程将没有权限向自己的文件写入内容。 该权限不是必需的，但对于某些功能来说很重要，例如自动更新功能。 In order to fix this, it's enough to change ownership of all ASF files from default `asf` to your new custom user.
+
+```shell
+docker exec -u root asf chown -hR 1001:1001 /app
+```
+
+在通过 `docker run` 命令创建 Docker 容器之后，您只需要执行一次该命令，并且只有您需要自定义执行 ASF 进程的用户时才需要。 也不要忘记将上述命令中的 `1001:1001` 更改为实际用户的 `uid` 和 `gid`。
 
 ---
 
