@@ -87,7 +87,7 @@ Por supuesto, esta solo es una forma específica de lograr lo que queremos, nada
 
 ### Permisos del volumen
 
-ASF container by default is initialized with default `root` user, which allows it to handle the internal permissions stuff and then eventually switch to `asf` (UID `1000`) user for the remaining part of the main process. While this should be satisfying for the vast majority of users, it does affect the shared volume as newly-generated files will be normally owned by `asf` user, which may not be desired situation if you'd like some other user for your shared volume.
+El contenedor de ASF por defecto se inicia con el usuario `root` predeterminado,  lo que permite manejar los permisos internos y eventualmente cambiar al usuario `asf` (UID `1000`) para la parte restante del proceso principal. Aunque esto debería ser satisfactorio para la gran mayoría de usuarios, afecta al volumen compartido ya que los archivos recién generados normalmente serán propiedad del usuario `asf`, lo que puede no ser la situación deseada si quieres tener otro usuario para tu volumen compartido.
 
 Docker te permite pasar la **[bandera](https://docs.docker.com/engine/reference/run/#user)** `--user` al comando `docker run` lo que definirá el usuario predeterminado bajo el que se ejecutará ASF. Puedes comprobar tu `uid` y `gid` por ejemplo con el comando `id`, luego pasarlo al resto del comando. Por ejemplo, si tu usuario objetivo tiene `uid` y `gid` de 1001:
 
@@ -95,13 +95,13 @@ Docker te permite pasar la **[bandera](https://docs.docker.com/engine/reference/
 docker run -it -u 1001:1001 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Remember that by default `/app` directory used by ASF is still owned by `asf`. Si ejecutas ASF con un usuario personalizado, entonces tu proceso de ASF no tendrá acceso de escritura a sus propios archivos. Este acceso no es obligatorio para la operación, pero es crucial, por ejemplo, para la función de actualizaciones automáticas. In order to fix this, it's enough to change ownership of all ASF files from default `asf` to your new custom user.
+Recuerda que por defecto el directorio `/app` usado por ASF sigue siendo propiedad de `asf`. Si ejecutas ASF con un usuario personalizado, entonces tu proceso de ASF no tendrá acceso de escritura a sus propios archivos. Este acceso no es obligatorio para la operación, pero es crucial, por ejemplo, para la función de actualizaciones automáticas. Para arreglar esto, basta con cambiar la propiedad de todos los archivos de ASF del predeterminado `asf` a tu nuevo usuario personalizado.
 
 ```shell
 docker exec -u root asf chown -hR 1001:1001 /app
 ```
 
-Esto solo tiene que hacerse una vez después de crear tu contenedor con `docker run`, y solo si decidiste usar un usuario personalizado para el proceso de ASF. Tampoco olvides cambiar el argumento `1001:1001` en los dos comandos al `uid` y `gid` bajo los que en realidad quieres ejecutar ASF.
+Esto solo tiene que hacerse una vez después de crear tu contenedor con `docker run`, y solo si decidiste usar un usuario personalizado para el proceso de ASF. Tampoco olvides cambiar el argumento `1001:1001` en los dos comandos al `uid` y `gid` con los que en realidad quieres ejecutar ASF.
 
 ---
 

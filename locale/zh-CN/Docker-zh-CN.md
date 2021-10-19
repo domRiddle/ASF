@@ -87,7 +87,7 @@ docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always ju
 
 ### 卷权限
 
-ASF container by default is initialized with default `root` user, which allows it to handle the internal permissions stuff and then eventually switch to `asf` (UID `1000`) user for the remaining part of the main process. While this should be satisfying for the vast majority of users, it does affect the shared volume as newly-generated files will be normally owned by `asf` user, which may not be desired situation if you'd like some other user for your shared volume.
+ASF 容器默认以 `root` 用户初始化，这样容器就可以在内部处理权限问题，之后再切换到 `asf` 用户（UID 为 `1000`）处理主进程的其他工作。 尽管这样应该足以满足绝大多数用户的需求，但的确会影响共享卷，因为新创建文件的所有者将会是 `asf` 用户，如果您希望共享卷属于其他用户，这种情况就不适合了。
 
 Docker 允许您向 `docker run` 命令传递 `--user` **[参数](https://docs.docker.com/engine/reference/run/#user)**，定义运行 ASF 的默认用户。 您可以通过 `id` 命令等查询您的 `uid` 和 `gid`，然后将其放到命令参数中传递。 例如，假设您的目标用户的 `uid` 和 `gid` 都为 1001：
 
@@ -95,7 +95,7 @@ Docker 允许您向 `docker run` 命令传递 `--user` **[参数](https://docs.d
 docker run -it -u 1001:1001 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Remember that by default `/app` directory used by ASF is still owned by `asf`. 如果您在自定义用户下运行 ASF，则 ASF 进程将没有权限向自己的文件写入内容。 该权限不是必需的，但对于某些功能来说很重要，例如自动更新功能。 In order to fix this, it's enough to change ownership of all ASF files from default `asf` to your new custom user.
+请记住，在默认情况下，ASF 使用的 `/app` 目录仍然为 `asf` 用户所有。 如果您在自定义用户下运行 ASF，则 ASF 进程将没有权限向自己的文件写入内容。 该权限不是必需的，但对于某些功能来说很重要，例如自动更新功能。 为了解决这个问题，只需要将所有 ASF 文件的所有者从默认的 `asf` 更改为您设定的新用户。
 
 ```shell
 docker exec -u root asf chown -hR 1001:1001 /app

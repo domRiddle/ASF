@@ -1,29 +1,29 @@
-# Management
+# 管理
 
-This section covers subjects related to managing the ASF process in optimal way. While not strictly mandatory for usage, it includes bunch of tips, tricks and good practices that we'd like to share, especially for system administrators, people packaging the ASF for usage in third-party repositories, as well as advanced users and alike.
+本章节涵盖的主题是以最佳方式管理 ASF 进程。 尽管不是强制性的，这里还是包括了我们想要分享的提示、技巧和最佳实践，本章节主要面向系统管理员、第三方源的 ASF 打包者以及高级用户等。
 
 ---
 
-## `systemd` service for Linux
+## Linux 的 `systemd` 服务
 
-In `generic` and `linux` variants, ASF comes with `ArchiSteamFarm@.service` file, which is a configuration file of the service for **[`systemd`](https://systemd.io)**. If you'd like to run ASF as a service, for example in order to launch it automatically after startup of your machine, then a proper `systemd` service is arguably the best way to do it, therefore we highly recommend it instead of managing it on your own through `nohup`, `screen` or alike.
+在 `generic` 和 `linux` 两种包中，ASF 自带 `ArchiSteamFarm@.service` 文件，这是一份 **[`systemd`](https://systemd.io)** 的服务配置文件。 如果您要以服务形式运行 ASF，例如为了在系统启动时自动运行，那么正确的 `systemd` 服务就是最合适的实现方式，因此我们强烈推荐使用服务而不是通过 `nohup`、`screen` 等方式手动管理。
 
-Firstly, create the account for the user you want to run ASF under, assuming it doesn't exist yet. We'll use `asf` user for this example, if you decided to use a different one, you'll need to substitute `asf` user in all of our examples below with your selected one. Our service does not allow you to run ASF as `root`, since it's considered a **[bad practice](#never-run-asf-as-administrator)**.
+首先，创建用来运行 ASF 的用户，假设它还不存在。 我们在此以 `asf` 用户为例，如果您决定用另一个用户，就需要在下面所有示例中把 `asf` 替换为您选择的用户名。 我们的服务不允许 ASF 以 `root` 用户运行，因为这被认为是&#8203;**[错误实践](#不要以管理员身份运行-ASF)**。
 
 ```sh
-su # or sudo -i
+su # 或者 sudo -i
 adduser asf
 ```
 
-Next, unpack ASF to `/home/asf/ArchiSteamFarm` folder. The folder structure is important for our service unit, it should be `ArchiSteamFarm` folder in your `$HOME`, so `/home/<user>`. If you did everything correctly, there will be `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` file existing.
+接下来，解压 ASF 到 `/home/asf/ArchiSteamFarm` 目录。 目录结构对于我们的服务单元非常重要，它应该是您 `$HOME` 目录，也就是 `/home/<user>` 下的 `ArchiSteamFarm` 目录。 如果您的操作完全正确，则现在应该存在 `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` 文件。
 
-We'll do all below actions as `root`, so get to its shell with `su` or `sudo -i`.
+我们接下来会用 `root` 用户操作，所以首先要通过 `su` 或 `sudo -i` 命令获取 Shell。
 
-Firstly it's a good idea to ensure that our folder still belongs to our `asf` user, `chown -hR asf:asf /home/asf/ArchiSteamFarm` executed once will do it. The permissions could be wrong e.g. if you've downloaded and/or unpacked the zip file as `root`.
+我们最好先确认一下我们的目录仍然属于 `asf` 用户，也就是执行一次 `chown -hR asf:asf /home/asf/ArchiSteamFarm` 命令。 因为如果您是以 `root` 用户下载或解压 zip 文件，权限可能是错误的。
 
-Next, `cd /etc/systemd/system` and execute `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`, this will create a symbolic link to our service declaration and register it in `systemd`.
+接下来，`cd /etc/systemd/system` 并执行 `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`，这会为服务定义文件创建一个符号链接，并将它注册给 `systemd`。
 
-Afterwards, ensure that `systemd` recognizes our service:
+然后，确保 `systemd` 能够识别我们的服务：
 
 ```
 systemctl status ArchiSteamFarm@asf
@@ -34,9 +34,9 @@ systemctl status ArchiSteamFarm@asf
        Docs: https://github.com/JustArchiNET/ArchiSteamFarm/wiki
 ```
 
-Pay special attention to the user we declare after `@`, it's `asf` in our case. Our systemd service unit expects from you to declare the user, as it influences the exact place of the binary `/home/<user>/ArchiSteamFarm`, as well as the actual user systemd will spawn the process as.
+请特别注意我们在 `@` 后面声明的用户，在我们的示例中是 `asf`。 我们的 systemd 服务单元期望您声明用户，因为这会影响 `/home/<user>/ArchiSteamFarm` 二进制文件的实际位置，以及 systemd 用于生成进程的实际用户。
 
-If systemd returned output similar to above, everything is in order, and we're almost done. Now all that is left is actually starting our service as our chosen user: `systemctl start ArchiSteamFarm@asf`. Wait a second or two, and you can check the status again:
+如果 systemd 返回的输出与上面的情况类似，那么一切正常，我们马上就完成了。 现在剩下的操作就是以我们选择的用户实际启动服务：`systemctl start ArchiSteamFarm@asf`。 等待一两秒钟，您就可以再次检查状态：
 
 ```
 systemctl status ArchiSteamFarm@asf
@@ -49,52 +49,52 @@ systemctl status ArchiSteamFarm@asf
 (...)
 ```
 
-If `systemd` states `active (running)`, it means everything went well, and you can verify that ASF process should be up and running, for example with `tail -f -n 100 /var/log/syslog`, as ASF by default also reports its console output to syslog. If you're satisfied with the setup you have right now, you can tell `systemd` to automatically start your service during boot, by executing `systemctl enable ArchiSteamFarm@asf` command. That's all.
+如果 `systemd` 的状态是 `active (running)`，意味着一切正常，并且您可以通过执行命令 `tail -f -n 100 /var/log/syslog` 等方式来验证 ASF 已经启动并运行，因为 ASF 默认会将控制台输出报告到 syslog。 如果您满意现在的设置，就可以执行 `systemctl enable ArchiSteamFarm@asf` 命令，告诉 `systemd` 在系统启动时自动启动服务。 一切完成。
 
-If by any chance you'd like to stop the process, simply execute `systemctl stop ArchiSteamFarm@asf`. Likewise, if you want to disable ASF from being started automatically on boot, `systemctl disable ArchiSteamFarm@asf` will do that for you, it's very simple.
+如果您想停止进程，只需要执行 `systemctl stop ArchiSteamFarm@asf`。 类似地，如果您想要禁止 ASF 在系统启动时运行，就执行 `systemctl disable ArchiSteamFarm@asf`，非常简单。
 
-Please note that, as there is no standard input enabled for our `systemd` service, you won't be able to input your details through the console in usual way. Running through `systemd` is equivalent to specifying **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** setting and comes with all its implications. Fortunately for you, it's very easy to manage your ASF through **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, which we recommend in case you need to supply additional details during login or otherwise manage your ASF process further.
+请注意，由于我们的 `systemd` 服务没有启用标准输入，您无法以常规方式通过控制台输入信息。 通过 `systemd` 运行与指定 **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#headless)** 设置运行是等效的。 如果您需要在登录时输入详细信息，或者需要更好地管理 ASF 进程，我们推荐您使用 **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-ui)**，可以方便地管理您的 ASF。
 
-### Environment variables
+### 环境变量
 
-It's possible to supply additional environment variables to our `systemd` service, which you'll be interested in doing in case you want to for example use a custom `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**, therefore specifying `ASF_CRYPTKEY` environment variable.
+`systemd` 服务允许提供额外的环境变量，例如您希望使用自定义的 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN#参数)**，就需要指定 `ASF_CRYPTKEY` 环境变量。
 
-In order to provide custom environment variables, create `/etc/asf` folder (in case it doesn't exist), `mkdir -p /etc/asf`, then write to a `/etc/asf/<user>` file, where `<user>` is the user you're running the service under (`asf` in our example above, so `/etc/asf/asf`).
+要提供自定义环境变量，需要创建 `/etc/asf` 目录（如果还不存在），`mkdir -p /etc/asf`，然后写入 `/etc/asf/<user>` 文件，其中 `<user>` 是运行服务的用户（在本例中是 `asf`，即写入 `/etc/asf/asf`）。
 
-The file should contain all environment variables that you'd like to provide to the process:
+此文件应该包含所有您要提供给进程的环境变量：
 
 ```sh
-# Declare only those that you actually need
+# 仅声明您实际需要的变量
 ASF_CRYPTKEY="my_super_important_secret_cryptkey"
 ASF_NETWORK_GROUP="my_network_group"
 
-# And any other ones you're interested in
+# 以及任何其他您要使用的变量
 ```
 
 ---
 
-## Never run ASF as administrator!
+## 不要以管理员身份运行 ASF！
 
-ASF includes its own validation whether the process is being run as administrator (`root`) or not. Running as root is **not** required for any kind of operation done by the ASF process, assuming properly configured environment it's operating in, and therefore should be regarded as a **bad practice**. This means that on Windows, ASF should never be executed with "run as administrator" setting, and on Unix ASF should have a dedicated user account for itself, or re-use your own in case of a desktop system.
+ASF 有自己的逻辑，验证自身是否以管理员用户（`root`）运行。 只要环境配置正确，ASF 进程的任何操作都**不**需要 root 权限，因此以 root 用户运行算是一种**错误实践**。 这意味着在 Windows 上，ASF 永远不应该“以管理员身份运行”，而在 Unix 上，ASF 应该以专门的用户帐户运行，或者在桌面环境下使用您自己的帐户。
 
-For further elaboration on *why* we discourage running ASF as root, refer to **[superuser](https://superuser.com/questions/218379/why-is-it-bad-to-run-as-root)** and other resources. If you're still not convinced, ask yourself what would happen to your machine if ASF process executed `rm -rf --no-preserve-root /` command right after its launch.
+若要进一步了解我们*为什么*不鼓励以 root 权限运行 ASF，请阅读 **[SuperUser](https://superuser.com/questions/218379/why-is-it-bad-to-run-as-root)** 或其他资料。 如果您仍然不相信，请想象一下，如果 ASF 在启动后自动执行 `rm -rf --no-preserve-root /` 命令会发生什么。
 
-### I run as `root` because ASF can't write to its files
+### 我用 `root` 运行是因为 ASF 无法写入自己的文件
 
-This means that you have wrongly configured permissions of the files ASF is trying to access. You should login as `root` account (either with `su` or `sudo -i`) and then **correct** the permissions by issuing `chown -hR asf:asf /path/to/ASF` command, substituting `asf:asf` with the user that you'll run ASF under, and `/path/to/ASF` accordingly. If by any chance you're using custom `--path` telling ASF user to use the different directory, you should execute the same command again for that path as well.
+这意味着您为 ASF 需要访问的文件配置了错误的权限。 您应该以 `root` 帐户登录（通过 `su` 或 `sudo -i` 命令），然后执行 `chown -hR asf:asf /path/to/ASF` 命令来**修正**权限，您需要将命令中的 `asf:asf` 替换为实际运行 ASF 的用户，并且将 `/path/to/ASF` 替换为 ASF 的实际路径。 如果您正在使用自定义的 `--path` 参数让 ASF 用户使用不同的目录，您还应该为这个路径再执行一次上述命令。
 
-After doing that, you should no longer get any kind of issue related to ASF not being able to write over its own files, as you've just changed the owner of everything ASF is interested in to the user the ASF process will actually run under.
+这样做之后，您应该不会再遇到任何类似“ASF 无法写入自己的文件”的问题，因为您刚刚将 ASF 所需文件的所有者修改为实际运行 ASF 的用户。
 
-### I run as `root` because I don't know how to do it otherwise
+### 我用 `root` 运行是因为我不知道应该怎样做
 
 ```sh
-su # or sudo -i
+su # 或者 sudo -i
 adduser asf
 chown -hR asf:asf /path/to/ASF
 su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
 ```
 
-That would be doing it manually, it's much easier to use our **[`systemd` service](#systemd-service-for-linux)** explained above.
+这些步骤会手动启动 ASF，但使用我们上述的 **[`systemd` 服务](#linux-的-systemd-服务)**&#8203;会更容易。
 
 ---
 

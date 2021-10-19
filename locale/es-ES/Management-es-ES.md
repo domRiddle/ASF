@@ -1,29 +1,29 @@
-# Management
+# Gestión
 
-This section covers subjects related to managing the ASF process in optimal way. While not strictly mandatory for usage, it includes bunch of tips, tricks and good practices that we'd like to share, especially for system administrators, people packaging the ASF for usage in third-party repositories, as well as advanced users and alike.
+Esta sección cubre temas relacionados con la gestión del proceso de ASF de forma óptima. Aunque no es estrictamente obligatorio para su uso, incluye varios consejos, trucos y buenas prácticas que nos gustaría compartir, especialmente para administradores de sistema, personas que empaquetan ASF para su uso en repositorios de terceros, así como para usuarios avanzados y demás.
 
 ---
 
-## `systemd` service for Linux
+## Servicio `systemd` para Linux
 
-In `generic` and `linux` variants, ASF comes with `ArchiSteamFarm@.service` file, which is a configuration file of the service for **[`systemd`](https://systemd.io)**. If you'd like to run ASF as a service, for example in order to launch it automatically after startup of your machine, then a proper `systemd` service is arguably the best way to do it, therefore we highly recommend it instead of managing it on your own through `nohup`, `screen` or alike.
+En las variantes `generic` y `linux`, ASF viene con el archivo `ArchiSteamFarm@.service`, que es un archivo de configuración del servicio para **[`systemd`](https://systemd.io)**. Si deseas ejecutar ASF como un servicio, por ejemplo, para ejecutarlo automáticamente después de iniciar tu máquina, entonces un adecuado servicio `systemd` es posiblemente la mejor forma de hacerlo, por lo tanto lo recomendamos en lugar de gestionarlo por ti mismo a través de `nohup`, `screen` y demás.
 
-Firstly, create the account for the user you want to run ASF under, assuming it doesn't exist yet. We'll use `asf` user for this example, if you decided to use a different one, you'll need to substitute `asf` user in all of our examples below with your selected one. Our service does not allow you to run ASF as `root`, since it's considered a **[bad practice](#never-run-asf-as-administrator)**.
+Primero, crea la cuenta para el usuario con el que quieres ejecutar ASF, suponiendo que aún no existe. Usaremos el usuario `asf` para este ejemplo, si decidiste usar uno diferente, necesitarás cambiar el usuario `asf` en todos nuestros ejemplos con el que hayas seleccionado. Nuestro servicio no te permite ejecutar ASF como `root`, ya que es considerado una **[mala práctica](#nunca-ejecutes-asf-como-administrador)**.
 
 ```sh
 su # or sudo -i
 adduser asf
 ```
 
-Next, unpack ASF to `/home/asf/ArchiSteamFarm` folder. The folder structure is important for our service unit, it should be `ArchiSteamFarm` folder in your `$HOME`, so `/home/<user>`. If you did everything correctly, there will be `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` file existing.
+A continuación, descomprime ASF en la carpeta `/home/asf/ArchiSteamFarm`. La estructura de carpetas es importante para nuestra unidad de servicio, debería ser la carpeta `ArchiSteamFarm` en `$HOME`, por lo tanto `/home/<user>`.  Si hiciste todo correctamente, habrá un archivo `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service`.
 
-We'll do all below actions as `root`, so get to its shell with `su` or `sudo -i`.
+Haremos todas las siguientes acciones como `root`, por lo que debes llegar al shell con el comando `su` o `sudo -i`.
 
-Firstly it's a good idea to ensure that our folder still belongs to our `asf` user, `chown -hR asf:asf /home/asf/ArchiSteamFarm` executed once will do it. The permissions could be wrong e.g. if you've downloaded and/or unpacked the zip file as `root`.
+En primer lugar, es buena idea asegurarse de que nuestra carpeta todavía pertenece a nuestro usuario `asf`, ejecutar `chown -hR asf:asf /home/asf/ArchiSteamFarm` una vez será suficiente. Los permisos podrían ser incorrectos, por ejemplo, si has descargado y/o descomprimido el archivo zip como usuario `root`.
 
-Next, `cd /etc/systemd/system` and execute `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`, this will create a symbolic link to our service declaration and register it in `systemd`.
+A continuación, `cd /etc/systemd/system` y ejecuta `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`, esto creará un enlace simbólico a nuestra declaración de servicio y lo registrará en `systemd`.
 
-Afterwards, ensure that `systemd` recognizes our service:
+Después, asegúrate de que `systemd` reconoce nuestro servicio:
 
 ```
 systemctl status ArchiSteamFarm@asf
@@ -34,9 +34,9 @@ systemctl status ArchiSteamFarm@asf
        Docs: https://github.com/JustArchiNET/ArchiSteamFarm/wiki
 ```
 
-Pay special attention to the user we declare after `@`, it's `asf` in our case. Our systemd service unit expects from you to declare the user, as it influences the exact place of the binary `/home/<user>/ArchiSteamFarm`, as well as the actual user systemd will spawn the process as.
+Presta especial atención al usuario que declaramos después de `@`, es `asf` en nuestro caso. Nuestra unidad de servicio systemd espera que declares el usuario, ya que influye el lugar exacto del binario `/home/<user>/ArchiSteamFarm`, así como el usuario real con el cual systemd generará el proceso.
 
-If systemd returned output similar to above, everything is in order, and we're almost done. Now all that is left is actually starting our service as our chosen user: `systemctl start ArchiSteamFarm@asf`. Wait a second or two, and you can check the status again:
+Si systemd devolvió una salida similar a la de arriba, todo está en orden, y ya casi hemos terminado. Ahora todo lo que falta es iniciar nuestro servicio como nuestro usuario elegido: `systemctl start ArchiSteamFarm@asf`. Espera uno o dos segundos, y puedes comprobar el estatus de nuevo:
 
 ```
 systemctl status ArchiSteamFarm@asf
@@ -49,43 +49,43 @@ systemctl status ArchiSteamFarm@asf
 (...)
 ```
 
-If `systemd` states `active (running)`, it means everything went well, and you can verify that ASF process should be up and running, for example with `tail -f -n 100 /var/log/syslog`, as ASF by default also reports its console output to syslog. If you're satisfied with the setup you have right now, you can tell `systemd` to automatically start your service during boot, by executing `systemctl enable ArchiSteamFarm@asf` command. That's all.
+Si `systemd` indica `active (running)`, significa que todo ha salido bien, y puedes verificar que el proceso de ASF debería estar activo y ejecutándose, por ejemplo con `tail -f -n 100 /var/log/syslog`, ya que ASF por defecto también reporta su salida de consola a syslog. Si estás satisfecho con la configuración que tienes actualmente, puedes indicarle a `systemd` que inicie automáticamente tu servicio durante el arranque, ejecutando el comando `systemctl enable ArchiSteamFarm@asf`. Eso es todo.
 
-If by any chance you'd like to stop the process, simply execute `systemctl stop ArchiSteamFarm@asf`. Likewise, if you want to disable ASF from being started automatically on boot, `systemctl disable ArchiSteamFarm@asf` will do that for you, it's very simple.
+Si por alguna razón quieres detener el proceso, simplemente ejecuta `systemctl stop ArchiSteamFarm@asf`. Del mismo modo, si quieres deshabilitar que ASF se inicie automáticamente durante el arranque,  `systemctl disable ArchiSteamFarm@asf` funcionará para ti, es muy simple.
 
-Please note that, as there is no standard input enabled for our `systemd` service, you won't be able to input your details through the console in usual way. Running through `systemd` is equivalent to specifying **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** setting and comes with all its implications. Fortunately for you, it's very easy to manage your ASF through **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, which we recommend in case you need to supply additional details during login or otherwise manage your ASF process further.
+Ten en cuenta que como no hay una entrada estándar habilitada para nuestro servicio `systemd`, no serás capaz de ingresar tus datos a través de la consola de forma habitual. Ejecutar a través de `systemd` es equivalente a especificar el ajuste **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#headless)** y conlleva todas sus implicaciones. Afortunadamente para ti, es muy fácil administrar ASF a través de **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES#asf-ui)**, lo que recomendamos en caso de que necesites proporcionar detalles adicionales durante el inicio de sesión o administrar el proceso de ASF.
 
-### Environment variables
+### Variables de entorno
 
-It's possible to supply additional environment variables to our `systemd` service, which you'll be interested in doing in case you want to for example use a custom `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**, therefore specifying `ASF_CRYPTKEY` environment variable.
+Es posible proporcionar variables de entorno adicionales a nuestro servicio `systemd`, lo que te interesa en caso de que quieras usar un **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-ES#argumentos)** `--cryptkey` personalizado, y por lo tanto especificar la variable de entorno `ASF_CRYPTKEY`.
 
-In order to provide custom environment variables, create `/etc/asf` folder (in case it doesn't exist), `mkdir -p /etc/asf`, then write to a `/etc/asf/<user>` file, where `<user>` is the user you're running the service under (`asf` in our example above, so `/etc/asf/asf`).
+Para proporcionar variables de entorno personalizadas, crea la carpeta `/etc/asf` (en caso de que no exista), `mkdir -p /etc/asf`, luego escribe a un archivo `/etc/asf/<user>`, donde `<user>` es el usuario con el que estás ejecutando el servicio (`asf` en nuestro ejemplo de arriba, por lo tanto `/etc/asf/asf`).
 
-The file should contain all environment variables that you'd like to provide to the process:
+El archivo debería contener todas las variables de entorno que quieras proporcionar al proceso:
 
 ```sh
-# Declare only those that you actually need
-ASF_CRYPTKEY="my_super_important_secret_cryptkey"
-ASF_NETWORK_GROUP="my_network_group"
+# Declara solo aquellos que realmente necesitas
+ASF_CRYPTKEY="mi_cryptkey_secreta_super_importante"
+ASF_NETWORK_GROUP="mi_grupo_de_red"
 
-# And any other ones you're interested in
+# Y cualquier otro que te interese
 ```
 
 ---
 
-## Never run ASF as administrator!
+## ¡Nunca ejecutes ASF como administrador!
 
-ASF includes its own validation whether the process is being run as administrator (`root`) or not. Running as root is **not** required for any kind of operation done by the ASF process, assuming properly configured environment it's operating in, and therefore should be regarded as a **bad practice**. This means that on Windows, ASF should never be executed with "run as administrator" setting, and on Unix ASF should have a dedicated user account for itself, or re-use your own in case of a desktop system.
+ASF incluye su propia validación ya sea que el proceso se ejecuto como administrador (`root`) o no. Ejecutar como root **no** se requiere para ningún tipo de operación realizada por el proceso de ASF, suponiendo que el entorno en el que opera esté correctamente configurado, y por lo tanto debería ser considerado como una **mala práctica**. Esto significa que en Windows, ASF nunca debe ser ejecutado con la configuración "ejecutar como administrador", y en Unix ASF debería tener una cuenta de usuario dedicada, o reutilizar la tuya en caso de un sistema de escritorio.
 
-For further elaboration on *why* we discourage running ASF as root, refer to **[superuser](https://superuser.com/questions/218379/why-is-it-bad-to-run-as-root)** and other resources. If you're still not convinced, ask yourself what would happen to your machine if ASF process executed `rm -rf --no-preserve-root /` command right after its launch.
+Para más información sobre *por qué* no recomendamos ejecutar ASF como root, revisa **[superuser](https://superuser.com/questions/218379/why-is-it-bad-to-run-as-root)** y otros recursos. Si todavía no estás convencido, pregúntate qué le pasaría a tu máquina si el proceso de ASF ejecutara el comando `rm -rf --no-preserve-root /` justo después de ejecutarse.
 
-### I run as `root` because ASF can't write to its files
+### Ejecuto como `root` porque ASF no puede escribir a sus archivos
 
-This means that you have wrongly configured permissions of the files ASF is trying to access. You should login as `root` account (either with `su` or `sudo -i`) and then **correct** the permissions by issuing `chown -hR asf:asf /path/to/ASF` command, substituting `asf:asf` with the user that you'll run ASF under, and `/path/to/ASF` accordingly. If by any chance you're using custom `--path` telling ASF user to use the different directory, you should execute the same command again for that path as well.
+Esto significa que configuraste incorrectamente los permisos de los archivos a los que ASF está intentando acceder. Deberías iniciar sesión como cuenta `root` (ya sea con `su` o `sudo -i`) y luego **corregir** los permisos enviando el comando `chown -hR asf:asf /path/to/ASF`, sustituyendo `asf:asf` con el usuario con el que ejecutarás ASF, y reemplazar `/path/to/ASF` con la ruta real de ASF. Si por alguna razón estás usando un `--path` personalizado indicando al usuario de ASF que utilice un directorio diferente, deberías ejecutar el mismo comando también para esa ruta.
 
-After doing that, you should no longer get any kind of issue related to ASF not being able to write over its own files, as you've just changed the owner of everything ASF is interested in to the user the ASF process will actually run under.
+Después de eso, ya no deberías tener ningún tipo de problema relacionado con que ASF no pueda escribir a sus propios archivos, ya que has cambiado el propietario de todo en lo que ASF está interesado al usuario con el cual el proceso de ASF se ejecutará realmente.
 
-### I run as `root` because I don't know how to do it otherwise
+### Ejecuto como `root` porque no sé cómo hacerlo de otro modo
 
 ```sh
 su # or sudo -i
@@ -94,7 +94,7 @@ chown -hR asf:asf /path/to/ASF
 su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
 ```
 
-That would be doing it manually, it's much easier to use our **[`systemd` service](#systemd-service-for-linux)** explained above.
+Eso sería hacerlo manualmente, es mucho más fácil usar nuestro **servicio [`systemd`](#servicio-systemd-para-linux)** explicado anteriormente.
 
 ---
 
