@@ -251,12 +251,12 @@ WED LIEK 2 SHOW R ETERNAL GRATITUDE 2 PEEPS DAT HAS SPENT SIGNIFICANT AMOUNT OV 
 
 | CONTRIBUTOR                                                | LANGUAGEZ         |
 | ---------------------------------------------------------- | ----------------- |
-| **[ASTAROTH](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, SPANISH   |
-| **[DEAD_SAM](https://crowdin.com/profile/Dead_Sam)**       | PORTUGUEES (BR)   |
-| **[DELUXGHOST](https://crowdin.com/profile/deluxghost)**   | CHINEES (CN)      |
+| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, SPANISH   |
+| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | PORTUGUEES (BR)   |
+| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | CHINEES (CN)      |
 | **[LittleFreak](https://crowdin.com/profile/littlefreak)** | GERMAN            |
-| **[RYZHEHVOST](https://crowdin.com/profile/Ryzhehvost)**   | RUSIAN, UKRAINIAN |
-| **[MRBURRBURR](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, GERMAN    |
-| **[XINXINGCHEN](https://crowdin.com/profile/XinxingChen)** | CHINEES (HK)      |
+| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | RUSIAN, UKRAINIAN |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, GERMAN    |
+| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | CHINEES (HK)      |
 
 THANK U ALL 4 IMPROOVIN R ASF LOCALIZASHUN QUALITY!

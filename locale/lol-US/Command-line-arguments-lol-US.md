@@ -50,7 +50,7 @@ DUE 2 TEH NACHUR OV DIS PROPERTY, IZ ALSO POSIBLE 2 SET CRYPTKEY BY DECLARIN `AS
 
 ---
 
-`--ignore-unsupported-environment` - will cause ASF to ignore problems related to running in unsupported environment, which normally is signalized with an error and a forced exit. Unsupported environment includes for example running .NET Framework build on platform that could be running .NET Core build instead, or running ASF process as administrator (root), which causes a security risk for the host machine for absolutely no reason. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. As of today, **all** of the unsupported environment scenarios can be corrected, such as running `generic` build instead of `generic-netf`, or creating a dedicated user account for ASF instead of running it as root. We strongly recommend to fix the outstanding problems instead of declaring this argument.
+`--ignore-unsupported-environment` - WILL CAUSE ASF 2 IGNORE PROBLEMS RELATD 2 RUNNIN IN UNSUPPORTD ENVIRONMENT, WHICH NORMALLY IZ SIGNALIZD WIF AN ERROR AN FORCD EXIT. UNSUPPORTD ENVIRONMENT INCLUDEZ 4 EXAMPLE RUNNIN .NET FRAMEWORK BUILD ON PLATFORM DAT CUD BE RUNNIN .NET CORE BUILD INSTEAD, OR RUNNIN ASF PROCES AS ADMINISTRATOR (ROOT), WHICH CAUSEZ SECURITY RISK 4 DA HOST MACHINE 4 ABSOLUTELY NO REASON. WHILE DIS FLAG WILL ALLOW ASF 2 ATTEMPT RUNNIN IN SUCH SCENARIOS, BE ADVISD DAT WE DO NOT SUPPORT DOSE OFFICIALLY AN URE FORCIN ASF 2 DO IT ENTIRELY **AT UR OWN RISK**. AS OV TODAI, **ALL** OV TEH UNSUPPORTD ENVIRONMENT SCENARIOS CAN BE CORRECTD, SUCH AS RUNNIN `generic` BUILD INSTEAD OV `generic-netf`, OR CREATIN DEDICATD USR AKOWNT 4 ASF INSTEAD OV RUNNIN IT AS ROOT. WE STRONGLY RECOMMEND 2 FIX TEH OUTSTANDIN PROBLEMS INSTEAD OV DECLARIN DIS ARGUMENT.
 
 ---
 
@@ -109,7 +109,7 @@ IF U DO NOT INTEND 2 RUN IPC, DIS OPSHUN WILL BE RATHR USELES 4 U, AS U CAN JUS 
 
 ---
 
-`--service` - this switch is mainly used by our `systemd` service and forces `Headless` of `true`. Unless you have a particular need, you should instead configure `Headless` property directly in your config. This switch is here so our `systemd` service won't need to touch your global config in order to adapt it to its own environment. Of course, if you have a similar need then you may also make use of this switch (otherwise you're better with global config property).
+`--service` - DIS SWITCH IZ MAINLY USD BY R `systemd` SERVICE AN FORCEZ `Headless` OV `true`. UNLES U HAS PARTICULAR NED, U SHUD INSTEAD CONFIGURE `Headless` PROPERTY DIRECTLY IN UR CONFIG. DIS SWITCH IZ HER SO R `systemd` SERVICE WONT NED 2 TOUCH UR GLOBAL CONFIG IN ORDR 2 ADAPT IT 2 ITZ OWN ENVIRONMENT. OV COURSE, IF U HAS SIMILAR NED DEN U CUD ALSO MAK USE OV DIS SWITCH (OTHERWIZE URE BETTR WIF GLOBAL CONFIG PROPERTY).
 
 ---
 

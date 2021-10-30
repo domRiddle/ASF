@@ -8,7 +8,7 @@ R EXTENDD FAQ COVERS BIT LES COMMON QUESHUNS AN ANZWERS DAT U CUD HAS. 4 MOAR CO
 
 ASF WUZ CREATD BY **[ARCHI](https://github.com/JustArchi)** IN OCTOBR 2015. IN CASE U WUZ WONDERIN, IM **[STEAM USR](https://steamcommunity.com/profiles/76561198006963719)** JUS LIEK U. APART FRUM PLAYIN GAMEZ, I ALSO LUV 2 PUT MAH SKILLS AN DETERMINASHUN 2 USE, WHICH U CAN EXPLORE RITE NAO. THAR IZ NO HOOJ COMPANY INVOLVD HER, NO TEAM OV DEVELOPERS AN NO $1M OV BUDGET 2 COVR ALL OV DAT - JUS ME, FIXIN THINGS DAT R NOT BROKD.
 
-HOWEVR, ASF IZ OPEN-SOURCE PROJECT, AN I CANT EXPRES ENOUGH DAT IM NOT BEHIND EVRYTHIN DAT U CAN C HER. WE HAS FEW **[OTHR](https://github.com/JustArchiNET?q=ASF-)** ASF PROJECTS DAT R BEAN DEVELOPD ALMOST EXCLUSIVELY BY OTHR DEVELOPERS. EVEN CORE ASF PROJECT HAS LOT OV **[CONTRIBUTORS](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)** DAT HELPD ME 2 MAK ALL OV DIS HAPPEN. On top of that, there are several third-party services supporting ASF development, especially **[GitHub](https://github.com)**, **[JetBrains](https://www.jetbrains.com)** and **[Crowdin](https://crowdin.com)**. U ALSO CANT FORGET BOUT ALL TEH AWSUM LIBRARIEZ AN TOOLS DAT MADE ASF HAPPEN, SUCH AS **[RIDR](https://www.jetbrains.com/rider)** DAT WE USE AS IDE (WE LUV **[RESHARPR](https://www.jetbrains.com/resharper)** ADDISHUNS) AN ESPECIALLY **[STEAMKIT2](https://github.com/SteamRE/SteamKit)** WITHOUT WHICH ASF WUD NOT EXIST IN DA FURST PLACE. ASF ALSO WOULDNT BE WER IT TODAI WITHOUT MAH **[SPONSORS](https://github.com/sponsors/JustArchi)**, **[PATRONS](https://www.patreon.com/JustArchi)** AN VARIOUS DONATORS, SUPPORTIN ME IN EVRYTHIN DAT IM DOIN HER.
+HOWEVR, ASF IZ OPEN-SOURCE PROJECT, AN I CANT EXPRES ENOUGH DAT IM NOT BEHIND EVRYTHIN DAT U CAN C HER. WE HAS FEW **[OTHR](https://github.com/JustArchiNET?q=ASF-)** ASF PROJECTS DAT R BEAN DEVELOPD ALMOST EXCLUSIVELY BY OTHR DEVELOPERS. EVEN CORE ASF PROJECT HAS LOT OV **[CONTRIBUTORS](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)** DAT HELPD ME 2 MAK ALL OV DIS HAPPEN. ON TOP OV DAT, THAR R SEVERAL THIRD-PARTY SERVICEZ SUPPORTIN ASF DEVELOPMENT, ESPECIALLY **[GITHUB](https://github.com)**, **[JETBRAINS](https://www.jetbrains.com)** AN **[CROWDIN](https://crowdin.com)**. U ALSO CANT FORGET BOUT ALL TEH AWSUM LIBRARIEZ AN TOOLS DAT MADE ASF HAPPEN, SUCH AS **[RIDR](https://www.jetbrains.com/rider)** DAT WE USE AS IDE (WE LUV **[RESHARPR](https://www.jetbrains.com/resharper)** ADDISHUNS) AN ESPECIALLY **[STEAMKIT2](https://github.com/SteamRE/SteamKit)** WITHOUT WHICH ASF WUD NOT EXIST IN DA FURST PLACE. ASF ALSO WOULDNT BE WER IT TODAI WITHOUT MAH **[SPONSORS](https://github.com/sponsors/JustArchi)**, **[PATRONS](https://www.patreon.com/JustArchi)** AN VARIOUS DONATORS, SUPPORTIN ME IN EVRYTHIN DAT IM DOIN HER.
 
 THANK U ALL 4 HELPIN IN ASF DEVELOPMENT! URE AWSUM.
 
@@ -30,11 +30,11 @@ IM ALSO USIN ASF AS PERFIK EXAMPLE OV MODERN C# PROJECT DAT ALWAYS STRIKEZ 4 PER
 
 ---
 
-### How do I verify that the downloaded files are genuine?
+### HOW DO I VERIFY DAT TEH DOWNLOADD FILEZ R GENUINE?
 
-As part of our releases on GitHub, we utilize a very similar verification process as the one used by **[Debian](https://www.debian.org/CD/verify)**. In every official release starting with ASF V5.1.3.3, in addition to `zip` files you can find `SHA512SUMS` and `SHA512SUMS.sign` files. Download them for verification purposes together with the `zip` files of your choice.
+AS PART OV R RELEASEZ ON GITHUB, WE UTILIZE VRY SIMILAR VERIFICASHUN PROCES AS TEH WAN USD BY **[DEBIAN](https://www.debian.org/CD/verify)**. IN EVRY OFFISHUL RELEASE STARTIN WIF ASF V5.1.3.3, IN ADDISHUN 2 `zip` FILEZ U CAN FIND `SHA512SUMS` AN `SHA512SUMS.sign` FILEZ. DOWNLOAD THEM 4 VERIFICASHUN PURPOSEZ TOGETHR WIF TEH `zip` FILEZ OV UR CHOICE.
 
-Firstly, you should use `SHA512SUMS` file in order to verify that `SHA-512` checksum of the selected `zip` files matches the one we calculated ourselves. On Linux, you can use `sha512sum` utility for that purpose.
+FIRSTLY, U SHUD USE `SHA512SUMS` FILE IN ORDR 2 VERIFY DAT `SHA-512` CHECKSUM OV TEH SELECTD `zip` FILEZ MATCHEZ TEH WAN WE CALCULATD OURSELVEZ. ON LINUX, U CAN USE `sha512sum` UTILITY 4 DAT PURPOSE.
 
 
 ```
@@ -42,7 +42,7 @@ $ sha512sum -c --ignore-missing SHA512SUMS
 ASF-linux-x64.zip: OK
 ```
 
-On Windows, we can do that from powershell, although you have to manually verify with `SHA512SUMS`:
+ON WINDOWS, WE CAN DO DAT FRUM POWERSHELL, ALTHOUGH U HAS 2 MANUALLY VERIFY WIF `SHA512SUMS`:
 
 ```
 PS > Get-Content SHA512SUMS | Select-String -Pattern ASF-linux-x64.zip
@@ -57,7 +57,7 @@ Algorithm       Hash                                                            
 SHA512          F605E573CC5E044DD6FADBC44F6643829D11360A2C6E4915B0C0B8F5227BC2A2575... ASF-linux-x64.zip
 ```
 
-This way we ensured that whatever was written to `SHA512SUMS` matches the resulting files and they weren't tampered with. However, it doesn't prove yet that `SHA512SUMS` file you checked against really comes from us. For that, we'll use `SHA512SUMS.sign` file, which holds digital PGP signature proving the authenticity of `SHA512SUMS`. We can use `gpg` utility for that purpose, both on **[Linux](https://gnupg.org/download/index.html)** and **[Windows](https://gpg4win.org)** (change `gpg` command into `gpg.exe` on Windows).
+DIS WAI WE ENSURD DAT WHATEVR WUZ WRITTEN 2 `SHA512SUMS` MATCHEZ TEH RESULTIN FILEZ AN THEY WUZ NOT TAMPERD WIF. HOWEVR, IT DOESNT PROOV YET DAT `SHA512SUMS` FILE U CHECKD AGAINST RLY COMEZ FRUM US. 4 DAT, WELL USE `SHA512SUMS.sign` FILE, WHICH HOLDZ DIGITAL PGP SIGNACHUR PROVIN TEH AUTHENTICITY OV `SHA512SUMS`. WE CAN USE `gpg` UTILITY 4 DAT PURPOSE, BOTH ON **[LINUX](https://gnupg.org/download/index.html)** AN **[WINDOWS](https://gpg4win.org)** (CHANGE `gpg` COMMAND INTO `gpg.exe` ON WINDOWS).
 
 ```
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
@@ -66,7 +66,7 @@ gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg: Can't check signature: No public key
 ```
 
-As you can see, the file indeed holds a valid signature, but of unknown origin. You'll need to import ArchiBot's **[public key](https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc)** that we sign the `SHA-512` sums with for full validation.
+AS U CAN C, TEH FILE INDED HOLDZ VALID SIGNACHUR, BUT OV UNKNOWN ORIGIN. ULL NED 2 IMPORT ARCHIBOTS **[PUBLIC KEY](https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc)** DAT WE SIGN TEH `SHA-512` SUMS WIF 4 FULL VALIDASHUN.
 
 ```
 $ curl https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc -o ArchiBot_public.asc
@@ -78,7 +78,7 @@ gpg:               imported: 1
 
 ```
 
-Finally, you can verify the `SHA512SUMS` file again:
+FINALLY, U CAN VERIFY TEH `SHA512SUMS` FILE AGAIN:
 
 ```
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
@@ -90,11 +90,11 @@ gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 224D A6DB 47A3 935B DCC3  BE17 A3D1 81DF 2D55 4CCF
 ```
 
-This has verified that the `SHA512SUMS.sign` holds a valid signature of our `224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF` key for `SHA512SUMS` file that you've verified against.
+DIS HAS VERIFID DAT TEH `SHA512SUMS.sign` HOLDZ VALID SIGNACHUR OV R `224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF` KEY 4 `SHA512SUMS` FILE DAT UVE VERIFID AGAINST.
 
-You could be wondering where the last warning comes from. You've successfully imported our key, but didn't decide to trust it just yet. While this is not mandatory, we can cover it as well. Normally this includes verifying through different channel (e.g. phone call, SMS) that the key is valid, then signing the key with your own to trust it. For this example, you can consider this wiki entry as such (very weak) different channel, since the original key comes from **[ArchiBot's profile](https://github.com/JustArchi-ArchiBot)**. In any case we'll assume that you have enough of confidence as it is.
+U CUD BE WONDERIN WER TEH LAST WARNIN COMEZ FRUM. UVE SUCCESFULLY IMPORTD R KEY, BUT DIDNT DECIDE 2 TRUST IT JUS YET. WHILE DIS AR TEH NOT MANDATORY, WE CAN COVR IT AS WELL. NORMALLY DIS INCLUDEZ VERIFYIN THRU DIFFERENT CHANNEL (E.G. FONE CALL, SMS) DAT TEH KEY IZ VALID, DEN SIGNIN TEH KEY WIF UR OWN 2 TRUST IT. 4 DIS EXAMPLE, U CAN CONSIDR DIS WIKI ENTRY AS SUCH (VRY WEAK) DIFFERENT CHANNEL, SINCE TEH ORIGINAL KEY COMEZ FRUM **[ARCHIBOTS PROFILE](https://github.com/JustArchi-ArchiBot)**. IN ANY CASE WELL ASSUME DAT U HAS ENOUGH OV CONFIDENCE AS IT IZ.
 
-Firstly, **[generate private key for yourself](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Generating_an_OpenPGP_Key)**, if you don't have one just yet. We'll use `--quick-gen-key` as a quick example.
+FIRSTLY, **[GENERATE PRIVATE KEY 4 YOURSELF](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Generating_an_OpenPGP_Key)**, IF U DOAN HAS WAN JUS YET. WELL USE `--quick-gen-key` AS QUICK EXAMPLE.
 
 ```
 $ gpg --batch --passphrase '' --quick-gen-key "$(whoami)"
@@ -104,7 +104,7 @@ gpg: directory '/home/archi/.gnupg/openpgp-revocs.d' created
 gpg: revocation certificate stored as '/home/archi/.gnupg/openpgp-revocs.d/8E5D685F423A584569686675E4E763905FAD148B.rev'
 ```
 
-Now you can sign our key with yours in order to trust it:
+NAO U CAN SIGN R KEY WIF YOURS IN ORDR 2 TRUST IT:
 
 ```
 $ gpg --sign-key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
@@ -130,7 +130,7 @@ key "archi" (E4E763905FAD148B)
 Really sign? (y/N) y
 ```
 
-And done, after trusting our key, `gpg` should no longer display the warning when verifying:
+AN DUN, AFTR TRUSTIN R KEY, `gpg` SHUD NO LONGR DISPLAY TEH WARNIN WHEN VERIFYIN:
 
 ```
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
@@ -139,12 +139,12 @@ gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [full]
 ```
 
-Notice the `[unknown]` trust indicator changing into `[full]` once you signed our key with yours.
+NOTICE TEH `[unknown]` TRUST INDICATOR CHANGIN INTO `[full]` ONCE U SIGND R KEY WIF YOURS.
 
-Congratulations, you've verified that nobody has tampered with the release you've downloaded! 👍
+CONGRATULASHUNS, UVE VERIFID DAT NOBODY HAS TAMPERD WIF TEH RELEASE UVE DOWNLOADD! 👍
 
 ---
 
-### It's April the 1st and the ASF language changed into something strange, what is going on?
+### IZ APRIL TEH 1ST AN TEH ASF LANGUAGE CHANGD INTO SOMETHIN STRANGE, WUT IZ GOIN ON?
 
-CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! If you didn't set custom `CurrentCulture` option, then ASF on April the 1st will actually use **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** language instead of your system language. IF BY ANY CHANCE UD LIEK 2 DISABLE DAT BEHAVIOUR, U CAN SIMPLY SET `CurrentCulture` 2 TEH LOCALE DAT UD LIEK 2 USE INSTEAD. IZ ALSO NICE 2 NOWT DAT U CAN ENABLE R EASTR EGG UNCONDISHUNALLY, BY SETTIN UR `CurrentCulture` 2 `qps-Ploc` VALUE.
+CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! IF U DIDNT SET CUSTOM `CurrentCulture` OPSHUN, DEN ASF ON APRIL TEH 1ST WILL AKSHULLY USE **[LOLCAT](https://en.wikipedia.org/wiki/Lolcat)** LANGUAGE INSTEAD OV UR SISTEM LANGUAGE. IF BY ANY CHANCE UD LIEK 2 DISABLE DAT BEHAVIOUR, U CAN SIMPLY SET `CurrentCulture` 2 TEH LOCALE DAT UD LIEK 2 USE INSTEAD. IZ ALSO NICE 2 NOWT DAT U CAN ENABLE R EASTR EGG UNCONDISHUNALLY, BY SETTIN UR `CurrentCulture` 2 `qps-Ploc` VALUE.

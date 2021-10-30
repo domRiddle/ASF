@@ -21,11 +21,11 @@
 * **[👥 BAKGROUND GAMEZ REDEEMR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-lol-US)**
 * **[📢 COMMANDZ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)**
 * **[🛠️ COMPATIBILITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US)**
-* **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
-* **[⏱️ PERFORMANCE](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📊 STATISTICS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
-* **[👪 STEAM PPLZ SHARIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[🔄 TRADIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+* **[📋 MANAGEMENT](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-lol-US)**
+* **[⏱️ PERFORMANCE](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-lol-US)**
+* **[📊 STATISTICS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-lol-US)**
+* **[👪 STEAM PPLZ SHARIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing-lol-US)**
+* **[🔄 TRADIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-lol-US)**
 
 
 ## 🧙 ADVANCD

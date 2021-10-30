@@ -10,20 +10,20 @@ PLZ NOWT DAT BELOW PROGRAMS R **NOT** MAINTAIND BY ASF DEVELOPERS AN THEREFORE *
 
 ### RYZHEHVOST
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
-- **[BOOSTERCREATOR](https://github.com/Ryzhehvost/BoosterCreator)**, PLUGIN 4 ASF ADDIN FUNCSHUNALITY OV CREATIN BOOSTR PACKZ.
-- **[CASE-INSENSITIV-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, PLUGIN 4 ASF 2 MAK BOT NAMEZ CASE-INSENSITIV.
-- **[COMMANDLES-REDEEM](https://github.com/Ryzhehvost/Commandless-Redeem)**, PLUGIN 4 ASF 2 RE-IMPLEMENT KEY REDEEMIN WITHOUT COMMAND.
-- **[ITEMDISPENSR](https://github.com/Ryzhehvost/ItemDispenser)**, PLUGIN 4 ASF 2 AUTOMATICALLY ACCEPT TRADE REQUEST 4 CERTAIN TYPE(S) OV ITEMS.
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
+- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, PLUGIN 4 ASF DAT ALLOWS U 2 MANAGE STEAM ACHIEVEMENTS.
+- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, PLUGIN 4 ASF ADDIN FUNCSHUNALITY OV CREATIN BOOSTR PACKZ.
+- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, PLUGIN 4 ASF 2 MAK BOT NAMEZ CASE-INSENSITIV.
+- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, PLUGIN 4 ASF 2 RE-IMPLEMENT KEY REDEEMIN WITHOUT COMMAND.
+- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, PLUGIN 4 ASF 2 AUTOMATICALLY ACCEPT TRADE REQUEST 4 CERTAIN TYPE(S) OV ITEMS.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, PLUGIN 4 ASF PROVIDIN ADVANCD `transfer` COMMAND 4 TRANZFERRIN STEAM ITEMS.
 
 ### Vital7
 
-- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
-- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
-- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
-- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
-- **[STEAMKITPROXYINJECSHUN](https://github.com/Vital7/SteamKitProxyInjection)**, PLUGIN 4 ASF ALLOWIN PROXIFYIN WEBSOCKET CONNECSHUNS.
+- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, PLUGIN 4 ASF 2 AUTOMATICALLY ACCEPT ALL FREND INVITEZ.
+- **[GameRemover](https://github.com/Vital7/GameRemover)**, PLUGIN 4 ASF IMPLEMENTIN COMMAND 2 REMOOV STEAM LICENSEZ 4 SELECTD BOT INSTANCEZ.
+- **[GetEmail](https://github.com/Vital7/GetEmail)**, PLUGIN 4 ASF IMPLEMENTIN COMMAND 2 FETCH E-MAIL ADDRES OV GIVEN BOT INSTANCEZ DIRECTLY FRUM STEAM.
+- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, PLUGIN 4 ASF IMPLEMENTIN COMMAND 2 RESET API KEY 4 SELECTD BOT INSTANCEZ.
+- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, PLUGIN 4 ASF ALLOWIN PROXIFYIN WEBSOCKET CONNECSHUNS.
 
 ---
 

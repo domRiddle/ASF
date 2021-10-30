@@ -13,7 +13,7 @@ DIS HOWEVR DOESNT MEEN DAT U CANT USE IT ON UR PC OR USIN IT IN SUM WAI MOAR COM
 IN GENERAL, HER IZ WUT WELL DO IN DA NEXT FEW MINUTEZ:
 - INSTALL **[.NET CORE PREREQUIZIETS](#net-core-prerequiziets)**.
 - DOWNLOAD **[LATEST ASF RELEASE](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** IN APPROPRIATE OS-SPECIFIC VARIANT.
-- Extract the archive into new location.
+- EXTRACT TEH ARCHIV INTO NEW LOCASHUN.
 - **[CONFIGURE ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US)**.
 - LAUNCH ASF AN C TEH MAGIC.
 
@@ -223,7 +223,7 @@ WIF EXTRA STEPS:
 - INSTALL **[.NET CORE PREREQUIZIETS](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
 - INSTALL **[.NET CORE SDK](https://www.microsoft.com/net/download)** (OR AT LEAST RUNTIME) APPROPRIATE 4 UR OS. U MOST LIKELY WANTS 2 USE AN INSTALLR. REFR 2 **[RUNTIME REQUIREMENTS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US#runtime-requirements)** IF URE NOT SURE WHICH VERSHUN 2 INSTALL.
 - DOWNLOAD **[LATEST ASF RELEASE](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** IN `generic` VARIANT.
-- Extract the archive into new location.
+- EXTRACT TEH ARCHIV INTO NEW LOCASHUN.
 - **[CONFIGURE ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US)**.
 - LAUNCH ASF BY EITHR USIN HELPR SCRIPT OR EXECUTIN `dotnet /path/to/ArchiSteamFarm.dll` MANUALLY FRUM UR FAVOURITE SHELL.
 

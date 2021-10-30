@@ -58,4 +58,4 @@ HOWEVR, IF URE TRYIN 2 RUN **GENERIC** ASF PACKAGE DEN U MUST ENSURE DAT UR .NET
 
 ASF AS PROGRAM IZ TARGETIN **.NET 5.0** (`net5.0`) RITE NAO, BUT IT CUD TARGET NEWR PLATFORM IN DA FUCHUR. `net5.0` IZ SUPPORTD SINCE 5.0.100 SDK (5.0.0 RUNTIME), ALTHOUGH ASF IZ CONFIGURD 2 TARGET **LATEST RUNTIME AT TEH MOMENT OV COMPILASHUN**, SO U SHUD ENSURE DAT U HAS **[LATEST SDK](https://dotnet.microsoft.com/download)** (OR AT LEAST RUNTIME) AVAILABLE 4 UR MACHINE. GENERIC ASF VARIANT CUD REFUSE 2 LAUNCH IF UR RUNTIME IZ OLDR THAN TEH MINIMUM (TARGET) WAN KNOWN DURIN COMPILASHUN.
 
-If in doubt, check what our **[continuous integration uses](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** for compiling and deploying ASF releases on GitHub. You can find `dotnet --info` output in every build as part of .NET verification step.
+IF IN DOUBT, CHECK WUT R **[CONTINUOUS INTEGRASHUN USEZ](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** 4 COMPILIN AN DEPLOYIN ASF RELEASEZ ON GITHUB. U CAN FIND `dotnet --info` OUTPUT IN EVRY BUILD AS PART OV .NET VERIFICASHUN STEP.
