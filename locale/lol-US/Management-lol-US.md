@@ -8,7 +8,7 @@ DIS SECSHUN COVERS SUBJECTS RELATD 2 MANAGIN TEH ASF PROCES IN OPTIMAL WAI. WHIL
 
 IN `generic` AN `linux` VARIANTS, ASF COMEZ WIF `ArchiSteamFarm@.service` FILE, WHICH IZ CONFIGURASHUN FILE OV TEH SERVICE 4 **[`systemd`](https://systemd.io)**. IF UD LIEK 2 RUN ASF AS SERVICE, 4 EXAMPLE IN ORDR 2 LAUNCH IT AUTOMATICALLY AFTR STARTUP OV UR MACHINE, DEN PROPR `systemd` SERVICE IZ ARGUABLY TEH BEST WAI 2 DO IT, THEREFORE WE HIGHLY RECOMMEND IT INSTEAD OV MANAGIN IT ON UR OWN THRU `nohup`, `screen` OR ALIKE.
 
-FIRSTLY, CREATE TEH AKOWNT 4 DA USR U WANTS 2 RUN ASF UNDR, ASSUMIN IT DOESNT EXIST YET. WELL USE `asf` USR 4 DIS EXAMPLE, IF U DECIDD 2 USE DIFFERENT WAN, ULL NED 2 SUBSTITUTE `asf` USR IN ALL OV R EXAMPLEZ BELOW WIF UR SELECTD WAN. Our service does not allow you to run ASF as `root`, since it's considered a **[bad practice](#never-run-asf-as-administrator)**.
+FIRSTLY, CREATE TEH AKOWNT 4 DA USR U WANTS 2 RUN ASF UNDR, ASSUMIN IT DOESNT EXIST YET. WELL USE `asf` USR 4 DIS EXAMPLE, IF U DECIDD 2 USE DIFFERENT WAN, ULL NED 2 SUBSTITUTE `asf` USR IN ALL OV R EXAMPLEZ BELOW WIF UR SELECTD WAN. R SERVICE DOEZ NOT ALLOW U 2 RUN ASF AS `root`, SINCE IZ CONSIDERD **[BAD PRACTICE](#nevr-run-asf-as-administrator)**.
 
 ```sh
 su # or sudo -i
@@ -94,7 +94,7 @@ chown -hR asf:asf /path/to/ASF
 su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
 ```
 
-That would be doing it manually, it's much easier to use our **[`systemd` service](#systemd-service-for-linux)** explained above.
+DAT WUD BE DOIN IT MANUALLY, IZ MUTCH EASIR 2 USE R **[`systemd` SERVICE](#systemd-service-4-linux)** EXPLAIND ABOOV.
 
 ---
 
