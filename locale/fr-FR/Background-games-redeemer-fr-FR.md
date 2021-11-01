@@ -12,7 +12,7 @@ Le processus d'importation peut être effectué de deux façons - par fichier, o
 
 ### Fichier
 
-ASF peut reconnaître dans son répertoire `config` un fichier nommé `BotName.keys`, où `BotName` est le nom de votre bot. Le formatage de ce fichier est important, et consiste du nom du jeu suivi de la clé Cd, séparés par une tabulation et se terminant par un retour à la ligne. Si plusieurs onglets sont utilisés, la première entrée est considérée comme étant le nom du jeu, la dernière entrée est considérée comme étant une clé cd, et tout ce qui est entre les deux est ignoré. For example:
+ASF peut reconnaître dans son répertoire `config` un fichier nommé `BotName.keys`, où `BotName` est le nom de votre bot. Le formatage de ce fichier est important, et consiste du nom du jeu suivi de la clé Cd, séparés par une tabulation et se terminant par un retour à la ligne. Si plusieurs onglets sont utilisés, la première entrée est considérée comme étant le nom du jeu, la dernière entrée est considérée comme étant une clé cd, et tout ce qui est entre les deux est ignoré. Par exemple :
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -46,7 +46,7 @@ Si notre compte atteint le statut `RateLimited` durant le processus, la file d'a
 
 ---
 
-## Example
+## Exemple
 
 Considérons que vous avez une liste de 100 clés. Tout d'abord, vous devez créer un fichier `BotName.keys.new` dans le répertoire `config` d'ASF. Nous ajoutons l'extension `.new` pour qu'ASF sache qu'il ne doit pas récupérer ce fichier dès sa création (car c'est un fichier vide, pas encore prêt à l'importation).
 
