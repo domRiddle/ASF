@@ -1,6 +1,6 @@
 # FAQ (Questions fréquemment posées)
 
-Our basic FAQ covers standard questions and answers that you may have. Pour une matière moins fréquentes, veuillez consulter notre **[FAQ avancée](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** au lieu de cela.
+La FAQ basique couvre les questions classiques et y répond. Pour une question plus spécifique, veuillez consulter notre **[FAQ avancée](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** au lieu de celle ci.
 
 # Tables des matières
 
@@ -14,11 +14,11 @@ Our basic FAQ covers standard questions and answers that you may have. Pour une 
 
 ## Général
 
-### What is ASF?
-### Why does the program claim that there is nothing to farm on my account?
-### Why is my account limited?
+### Qu'est-ce qu'ASF ?
+### Pourquoi le programme affirme t-il qu'il n'y a rien à récolter sur mon compte?
+### Pourquoi mon compte est-il bloqué ?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+Avant d'essayer de comprendre ce qu'est ASF, vous devez vous assurer de bien comprendre ce que sont les cartes Steam et comment les obtenir, ce qui est décrit dans la FAQ officielle **[ici](https://steamcommunity.com/tradingcards/faq)**.
 
 En bref, les cartes Steam sont des objets de collection auxquels vous êtes admissible lorsque vous possédez un jeu en particulier. Vous pouvez les utiliser pour confectionner des badges, vendre sur le marché Steam ou à toute autre chose de votre choix.
 

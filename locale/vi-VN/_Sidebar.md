@@ -21,7 +21,7 @@
 * **[👥 Công cụ kích hoạt game trong nền](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Lệnh](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Khả năng tương thích](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
-* **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
+* **[📋 Quản lý](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Hiệu năng](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📊 Thống kê](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
 * **[👪 Chia sẻ gia đình Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**

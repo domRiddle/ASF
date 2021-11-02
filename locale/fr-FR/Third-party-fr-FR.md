@@ -1,6 +1,6 @@
 # Services tiers
 
-This section includes various third-party additions written exclusively (or mainly) for usage together with ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. Si vous souhaitez ajouter un élément à la liste, faites-nous le savoir sur le discord ou sur notre groupe Steam.
+Cette section comprend divers ajouts de tierces-parties écrits exclusivement (ou principalement) pour une utilisation avec ASF. Ils vont des plugins ASF, en passant par des applications Web simples et des bibliothèques internes pour l’intégration, jusqu'à des bots complets pour d’autres plates-formes. Si vous souhaitez ajouter un élément à la liste, faites-nous le savoir sur le discord ou sur notre groupe Steam.
 
 Please note that below programs are **not** maintained by ASF developers and therefore **we give no guarantee about any of them**, especially in terms of security, safety or Steam ToS compliance. Cette liste est est à titre de référence uniquement. You should always ensure that the third-party utility you're about to use is legit enough for you, as you're using all of them at your own risk.
 
