@@ -1,37 +1,37 @@
 # IPC
 
-ASF includes its own unique IPC interface that can be used for further interaction with the process. IPC stands for **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** and in the most simple definition this is "ASF web interface" based on **[Kestrel HTTP server](https://github.com/aspnet/KestrelHttpServer)** that can be used for further integration with the process, both as a frontend for end-user (ASF-ui), and backend for third-party integrations (ASF API).
+ASF có bao gồm giao diện IPC độc nhất của riêng nó và có thể được sử dụng để tương tác thêm với quá trình. IPC viết tắt cho **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** (giao tiếp giữa các quá trình), và trong định nghĩa đơn giản nhất thì đây là "giao diện web ASF" được dựa trên **[máy chủ HTTP Kestrel](https://github.com/aspnet/KestrelHttpServer)**, có thể được sử dụng để tích hợp thêm với quá trình, trong cả việc làm giao diện frontend cho người dùng (ASF-ui) và phụ trợ backend cho tích hợp bên thứ ba (ASF API).
 
-IPC can be used for a lot of different things, depending on your needs and skills. For example, you can use it for fetching status of ASF and all bots, sending ASF commands, fetching and editing global/bot configs, adding new bots, deleting existing bots, submitting keys for **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** or accessing ASF's log file. All of those actions are exposed by our API, which means that you can code your own tools and scripts that will be able to communicate with ASF and influence it during runtime. In addition to that, selected actions (such as sending commands) are also implemented by our ASF-ui which allows you to easily access them through a friendly web interface.
+IPC có thể được sử dụng cho rất nhiều việc khác nhau, tùy thuộc vào nhu cầu và kỹ năng của bạn. Ví dụ, bạn có thể sử dụng nó để tìm nạp trạng thái của ASF và tất cả các bot, gửi lệnh ASF, tìm nạp và chỉnh sửa cấu hình toàn bộ/bot, thêm bot mới, xóa bot hiện có, gửi khóa cho **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** hoặc truy cập tệp nhật ký của ASF. Tất cả các hành động đó đều được hiển thị bởi API của chúng tôi, có nghĩa là bạn có thể tự code các công cụ và tập lệnh của riêng mình để có thể giao tiếp với ASF và tác động đến nó trong thời gian chạy. Ngoài ra, các hành động đã chọn (chẳng hạn như gửi lệnh) cũng được thực hiện bởi ASF-ui của chúng tôi, cho phép bạn dễ dàng truy cập chúng thông qua giao diện web thân thiện.
 
 ---
 
-# Usage
+# Mức sử dụng
 
-Unless you manually disabled IPC through `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's enabled by default. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
+Trừ khi bạn tắt IPC bằng cách thủ công thông qua **[thuộc tính cấu hình chung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** `IPC`, nó được bật theo mặc định. ASF sẽ nêu rõ việc khởi chạy IPC trong nhật ký của nó, là cái mà bạn có thể sử dụng để xác minh xem giao diện IPC đã khởi động đúng cách hay chưa:
 
 ```text
 INFO|ASF|Start() Starting IPC server...
 INFO|ASF|Start() IPC server ready!
 ```
 
-ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, from the same machine as the one running ASF process.
+Máy chủ http của ASF hiện đang lắng nghe trên các điểm cuối đã chọn. Nếu bạn không cung cấp tệp cấu hình tùy chỉnh cho IPC, các điểm cuối đó sẽ là **[127.0.0.1](http://127.0.0.1:1242)** dựa trên IPv4 và **[[::1]](http://[::1]:1242)** dựa trên IPv6 theo cổng `1242` mặc định. Bạn có thể truy cập giao diện IPC của chúng tôi bằng các liên kết trên, từ chính máy đang chạy quy trình ASF.
 
-ASF's IPC interface exposes three different ways to access it, depending on your planned usage.
+Giao diện IPC của ASF có ba cách khác nhau để truy cập nó, tùy thuộc vào kế hoạch sử dụng của bạn.
 
-On the lowest level there is **[ASF API](#asf-api)** that is the core of our IPC interface and allows everything else to operate. This is what you want to use in your own tools, utilities and projects in order to communicate with ASF directly.
+Ở cấp thấp nhất có **[ASF API](#asf-api)** là cốt lõi của giao diện IPC của chúng tôi và cho phép mọi thứ khác hoạt động. Đây là những gì bạn muốn sử dụng trong các công cụ, tiện ích và dự án của riêng bạn để giao tiếp trực tiếp với ASF.
 
-On the medium ground there is our **[Swagger documentation](#swagger-documentation)** which acts as a frontend to ASF API. It features a complete documentation of ASF API and also allows you to access it more easily. This is what you want to check if you're planning on writing a tool, utility or other projects that are supposed to communicate with ASF through its API.
+Ở cấp bậc trung gian có **[tài liệu Swagger](#swagger-documentation)** của chúng tôi, hoạt động như một giao diện người dùng frontend cho ASF API. Nó chứa một tài liệu đầy đủ về ASF API và cũng cho phép bạn truy cập nó dễ dàng hơn. Đây là những gì bạn muốn kiểm tra nếu bạn đang lên kế hoạch viết một công cụ, tiện ích hoặc các dự án khác được cho là giao tiếp với ASF thông qua API của nó.
 
-On the highest level there is **[ASF-ui](#asf-ui)** which is based on our ASF API and provides user-friendly way to execute various ASF actions. This is our default IPC interface designed for end-users, and a perfect example of what you can build with ASF API. If you'd like, you can use your own custom web UI to use with ASF, by specifying `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** and using custom `www` directory located there.
+Ở cấp độ cao nhất có **[ASF-ui](#asf-ui)** dựa trên ASF API của chúng tôi và cung cấp cho người dùng một cách thân thiện hơn để thực thi các hành động ASF. Đây là giao diện IPC mặc định của chúng tôi được thiết kế cho người dùng cuối, và là một ví dụ hoàn hảo về những gì bạn có thể xây dựng nên với ASF API. Nếu muốn, bạn có thể sử dụng giao diện web tùy chỉnh của riêng mình để sử dụng với ASF, bằng cách chỉ định **[đối số dòng lệnh ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** `--path` và sử dụng địa chỉ `www` tùy chỉnh ở đó.
 
 ---
 
 # ASF-ui
 
-ASF-ui is a community project that aims to create user-friendly graphical web interface for end-users. In order to achieve that, it acts as a frontend to our **[ASF API](#asf-api)**, allowing you to do various actions with ease. This is the default UI that ASF comes with.
+ASF-ui là một dự án cộng đồng nhằm mục đích tạo ra một giao diện web đồ họa thân thiện với người dùng. Để đạt được điều đó, nó hoạt động như một giao diện người dùng cho **[ASF API](#asf-api)** của chúng tôi, cho phép bạn thực hiện nhiều hành động một cách dễ dàng. Đây là giao diện người dùng mặc định mà ASF đi kèm.
 
-As stated above, ASF-ui is a community project that isn't maintained by core ASF developers. It follows its own flow in **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** which should be used for all related questions, issues, bug reports and suggestions.
+Như đã nêu ở trên, ASF-ui là một dự án cộng đồng không được duy trì bởi các nhà phát triển gốc của ASF. Nó tuân theo quy trình riêng của nó trong **[kho ASF-ui](https://github.com/JustArchiNET/ASF-ui)**, nơi dành cho tất cả các câu hỏi, vấn đề, báo cáo lỗi và đề xuất liên quan.
 
 You can use ASF-ui for general management of ASF process. It allows for example to manage bots, modify settings, send commands, and achieve selected other functionality normally available through ASF.
 
@@ -51,7 +51,7 @@ For complete documentation of available endpoints, descriptions, requests, respo
 
 ---
 
-# Custom configuration
+# Cấu hình tuỳ chỉnh
 
 Our IPC interface supports extra config file, `IPC.config` that should be put in standard ASF's `config` directory.
 
@@ -104,7 +104,7 @@ The configuration file is based on following JSON structure:
 
 Unless you truly need to specify a custom base path, it's best to leave it at default.
 
-## Example config
+## Cấu hình ví dụ
 
 The following config will allow remote access from all sources, therefore you should **ensure that you read and understood our security notice about that**, available above.
 
@@ -124,7 +124,7 @@ If you do not require access from all sources, but for example your LAN only, th
 
 ---
 
-# Authentication
+# Xác thực
 
 ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF's API requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. After 5 failed authentication attempts (wrong password), you'll get temporarily blocked with `403 - Forbidden` error.
 
@@ -144,17 +144,17 @@ Both ways are supported and it's totally up to you which one you want to choose.
 
 ---
 
-# Swagger documentation
+# Tài liệu Swagger
 
 Our IPC interface, in additon to ASF API and ASF-ui also includes swagger documentation, which is available under `/swagger` **[URL](http://localhost:1242/swagger)**. Swagger documentation serves as a middle-man between our API implementation and other tools using it (e.g. ASF-ui). It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed by other projects, allowing you to write and test ASF API with ease.
 
 Apart from using our swagger documentation as a complete specification of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger documentation is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the API endpoints that your version of ASF includes.
 
-![Swagger documentation](https://i.imgur.com/mLpd5e4.png)
+![Tài liệu Swagger](https://i.imgur.com/mLpd5e4.png)
 
 ---
 
-# CÂU HỎI THƯỜNG GẶP
+# Câu hỏi thường gặp
 
 ### Is ASF's IPC interface secure and safe to use?
 
