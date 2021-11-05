@@ -30,7 +30,7 @@ I'm also using ASF as a perfect example of a modern C# project that always strik
 
 ---
 
-### Right after launching ASF I've lost all my accounts/items/friends/...!
+### Right after launching ASF I've lost all my accounts/items/friends/(...)!
 
 Statistically speaking, regardless how sad it is, it's guaranteed that shortly after launching ASF there will be at least one guy who will die in a car accident. The difference is that nobody sane will blame ASF for causing it, but for some reason there are people who will accuse ASF of the same just because it happened to their Steam accounts instead. Of course we can understand the reasoning for that, after all ASF operates within Steam platform, so naturally people will accuse ASF of everything that happened to their Steam-related property regardless of lack of any evidence that the software they ran is even remotely connected with that whatsoever.
 
