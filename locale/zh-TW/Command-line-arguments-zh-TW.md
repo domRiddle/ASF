@@ -20,7 +20,7 @@ Windows：
 .\ArchiSteamFarm.exe --參數 --另一個參數
 ```
 
-Linux/OS X
+Linux/OS X:
 
 ```shell
 ./ArchiSteamFarm --參數 --另一個參數

@@ -20,7 +20,7 @@ Windows:
 .\ArchiSteamFarm.exe --argument --altArgument
 ```
 
-Linux/OS X
+Linux/OS X:
 
 ```shell
 ./ArchiSteamFarm --argument --altArgument

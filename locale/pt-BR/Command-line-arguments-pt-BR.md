@@ -20,7 +20,7 @@ Windows:
 .\ArchiSteamFarm.exe --argumento --segundoArgumento
 ```
 
-Linux/macOS
+Linux/macOS:
 
 ```shell
 ./ArchiSteamFarm --argumento --segundoArgumento

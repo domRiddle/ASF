@@ -20,7 +20,7 @@ dotnet ArchiSteamFarm.dll --argument --otherOne
 .\ArchiSteamFarm.exe --argument --otherOne
 ```
 
-Линукс/ОС Х
+Линукс/ОС Х:
 
 ```shell
 ./ArchiSteamFarm --argument --otherOne

@@ -4,7 +4,7 @@ ASF includes support for several command-line arguments that can affect the prog
 
 ---
 
-## Usage
+## Mức sử dụng
 
 Usage depends on your OS and ASF flavour.
 
@@ -20,7 +20,7 @@ Windows:
 .\ArchiSteamFarm.exe --argument --otherOne
 ```
 
-Linux/OS X
+Linux/OS X:
 
 ```shell
 ./ArchiSteamFarm --argument --otherOne
