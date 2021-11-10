@@ -301,7 +301,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 This property is defined as uri string:
 
-> A URI string is composed of a scheme (http or https), a host, and an optional port. An example of a complete uri string is `"http://contoso.com:8080"`.
+> A URI string is composed of a scheme (supported: http/https/socks4/socks5), a host, and an optional port. An example of a complete uri string is `"http://contoso.com:8080"`.
 
 If your proxy requires user authentication, you will also need to set up `WebProxyUsername` and/or `WebProxyPassword`. If there is no such need, setting up this property alone is sufficient.
 
