@@ -10,7 +10,7 @@ ASF already tries to prefer performance when it comes to general balanced tuning
 
 ## Runtime tuning (advanced)
 
-Below tricks **involve serious memory increase** and should be used with caution.
+Below tricks **involve serious memory and startup time increase** and should therefore be used with caution.
 
 .NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
 
