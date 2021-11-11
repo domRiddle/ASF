@@ -49,7 +49,7 @@ Enabled by default. Disabling this in combination with enabling `DOTNET_TieredPG
 > Configures whether the JIT compiler uses quick JIT on methods that contain loops.
 > Enabling quick JIT for loops may improve startup performance. However, long-running loops can get stuck in less-optimized code for long periods.
 
-Enabled by default. Similar to above, you can disable this along with enabling of `DOTNET_TieredPGO` to force JIT into analyzing methods with loops more carefully.
+Enabled by default. Similar to above, you can disable this along with enabling `DOTNET_TieredPGO` to force JIT into analyzing methods with loops more carefully.
 
 ---
 
