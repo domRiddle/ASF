@@ -44,12 +44,12 @@ Disabled by default. In a nutshell, this will cause JIT to spend more time analy
 
 Enabled by default. Disabling this in combination with enabling `DOTNET_TieredPGO` allows you to extend tiered profile-guided optimization to the whole .NET platform, and not just ASF code.
 
-### **[`DOTNET_TC_QuickJit`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
+### **[`DOTNET_TC_QuickJitForLoops`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
 
-> Configures whether the JIT compiler uses quick JIT. For methods that don't contain loops and for which pre-compiled code is not available, quick JIT compiles them more quickly but without optimizations.
-> Enabling quick JIT decreases startup time but can produce code with degraded performance characteristics. For example, the code may use more stack space, allocate more memory, and run slower.
+> Configures whether the JIT compiler uses quick JIT on methods that contain loops.
+> Enabling quick JIT for loops may improve startup performance. However, long-running loops can get stuck in less-optimized code for long periods.
 
-Enabled by default. Similar to above, you can disable this along with enabling `DOTNET_TieredPGO` to force JIT into generating more optimized code in exchange of additional startup overhead.
+Disabled by default. While the description doesn't make it obvious, enabling this will allow methods with loops to go through additional compilation tier, which will allow `DOTNET_TieredPGO` to do a better job by analyzing its usage data.
 
 ---
 
@@ -60,7 +60,7 @@ export COMPlus_gcServer=1
 
 export DOTNET_TieredPGO=1
 export DOTNET_ReadyToRun=0
-export DOTNET_TC_QuickJit=0
+export DOTNET_TC_QuickJitForLoops=1
 
 ./ArchiSteamFarm # For OS-specific build
 ```
@@ -72,7 +72,7 @@ $Env:COMPlus_gcServer=1
 
 $Env:DOTNET_TieredPGO=1
 $Env:DOTNET_ReadyToRun=0
-$Env:DOTNET_TC_QuickJit=0
+$Env:DOTNET_TC_QuickJitForLoops=1
 
 .\ArchiSteamFarm.exe # For OS-specific build
 ```
