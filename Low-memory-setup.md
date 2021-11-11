@@ -81,8 +81,8 @@ You can enable selected properties by setting appropriate environment variables.
 
 ```shell
 # Don't forget to tune those if you're planning to make use of them
-export DOTNET_GCHeapHardLimitPercent=4B # 75% as hex
-export DOTNET_GCHighMemPercent=50 # 80% as hex
+export DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
+export DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
 export DOTNET_GCLatencyLevel=0
 export DOTNET_gcTrimCommitOnLowMemory=1
