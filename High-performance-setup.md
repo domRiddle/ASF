@@ -36,7 +36,7 @@ However, if memory is not a problem for you (as GC still takes into account your
 
 > This setting enables dynamic or tiered profile-guided optimization (PGO) in .NET 6 and later versions.
 
-In a nutshell, this will cause JIT to spend more time analyzing ASF's code and its patterns in order to generate superior code optimized for your typical usage.
+Disabled by default. In a nutshell, this will cause JIT to spend more time analyzing ASF's code and its patterns in order to generate superior code optimized for your typical usage.
 
 ### **[`DOTNET_ReadyToRun`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#readytorun)**
 
@@ -49,7 +49,7 @@ Enabled by default. Disabling this in combination with enabling `DOTNET_TieredPG
 > Configures whether the JIT compiler uses quick JIT on methods that contain loops.
 > Enabling quick JIT for loops may improve startup performance. However, long-running loops can get stuck in less-optimized code for long periods.
 
-Similar to above, you can disable this along with enabling of `DOTNET_TieredPGO` to force JIT into analyzing methods with loops more carefully.
+Enabled by default. Similar to above, you can disable this along with enabling of `DOTNET_TieredPGO` to force JIT into analyzing methods with loops more carefully.
 
 ---
 
