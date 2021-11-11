@@ -94,8 +94,8 @@ Or on Windows (powershell):
 
 ```powershell
 # Don't forget to tune those if you're planning to make use of them
-$Env:DOTNET_GCHeapHardLimitPercent=4B # 75% as hex
-$Env:DOTNET_GCHighMemPercent=50 # 80% as hex
+$Env:DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
+$Env:DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
 $Env:DOTNET_GCLatencyLevel=0
 $Env:DOTNET_gcTrimCommitOnLowMemory=1
