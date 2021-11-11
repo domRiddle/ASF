@@ -14,7 +14,7 @@ Below tricks **involve serious memory increase** and should be used with caution
 
 .NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
 
-The recommended way of applying those settings is through `COMPlus_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
+The recommended way of applying those settings is through `DOTNET_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
 
 Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
 
@@ -56,7 +56,7 @@ Disabled by default. While the description doesn't make it obvious, enabling thi
 You can enable selected properties by setting appropriate environment variables. For example, on Linux (shell):
 
 ```shell
-export COMPlus_gcServer=1
+export DOTNET_gcServer=1
 
 export DOTNET_TieredPGO=1
 export DOTNET_ReadyToRun=0
@@ -68,8 +68,7 @@ export DOTNET_TC_QuickJitForLoops=1
 Or on Windows (powershell):
 
 ```powershell
-$Env:COMPlus_gcServer=1
-
+$Env:DOTNET_gcServer=1
 $Env:DOTNET_TieredPGO=1
 $Env:DOTNET_ReadyToRun=0
 $Env:DOTNET_TC_QuickJitForLoops=1
