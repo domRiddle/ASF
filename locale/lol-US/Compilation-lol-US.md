@@ -17,7 +17,7 @@ REGARDLES OV PLATFORM, U NED FULL .NET SDK (NOT JUS RUNTIME) IN ORDR 2 COMPILE A
 ASSUMIN U HAS .NET SDK OPERATIV AN IN APPROPRIATE VERSHUN, SIMPLY NAVIGATE 2 SOURCE ASF DIRECTORY (CLOND OR DOWNLOADD AN UNPACKD ASF REPO) AN EXECUTE:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
+dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic"
 ```
 
 IF URE USIN LINUX/OS X, U CAN INSTEAD USE `cc.sh` SCRIPT WHICH WILL DO TEH SAME, IN BIT MOAR COMPLEX MANNR.
@@ -29,14 +29,14 @@ IF COMPILASHUN ENDD SUCCESFULLY, U CAN FIND UR ASF IN `source` FLAVR IN `out/gen
 U CAN ALSO GENERATE OS-SPECIFIC .NET PACKAGE IF U HAS SPECIFIC NED. IN GENERAL U SHOULDNT DO DAT CUZ UVE JUS COMPILD `generic` FLAVR DAT U CAN RUN WIF UR ALREADY-INSTALLD .NET RUNTIME DAT UVE USD 4 DA COMPILASHUN IN DA FURST PLACE, BUT JUS IN CASE U WANTS 2:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 OV COURSE, REPLACE `linux-x64` WIF OS-ARCHITECCHUR DAT U WANTS 2 TARGET, SUCH AS `win-x64`. DIS BUILD WILL ALSO HAS UPDATEZ DISABLD.
 
 ### .NET FRAMEWORK
 
-IN VRY RARE CASE WHEN UD WANTS 2 BUILD `generic-netf` PACKAGE, U CAN CHANGE TARGET FRAMEWORK FRUM `net5.0` 2 `net48`. KEEP IN MIND DAT ULL NED APPROPRIATE **[.NET FRAMEWORK](https://dotnet.microsoft.com/download/visual-studio-sdks)** DEVELOPR PACK 4 COMPILIN `netf` VARIANT, IN ADDISHUN 2 .NET SDK, SO TEH BELOW WILL WERK ONLY ON WINDOWS:
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net6.0` to `net48`. KEEP IN MIND DAT ULL NED APPROPRIATE **[.NET FRAMEWORK](https://dotnet.microsoft.com/download/visual-studio-sdks)** DEVELOPR PACK 4 COMPILIN `netf` VARIANT, IN ADDISHUN 2 .NET SDK, SO TEH BELOW WILL WERK ONLY ON WINDOWS:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"

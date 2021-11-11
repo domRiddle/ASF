@@ -47,7 +47,7 @@
 At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
-- На даний час додаткових передумов немає, але у вас має бути встановлена остання версія OS X, якнайменше 10.13+
+- На даний час додаткових передумов немає, але у вас має бути встановлена остання версія OS X, якнайменше 10.14+
 
 ---
 

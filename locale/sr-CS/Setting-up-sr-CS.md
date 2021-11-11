@@ -47,7 +47,7 @@ Imena paketa zavise od Linux distribucije koju koristite, mi smo naveli najčeš
 Većina, ako ne i sve, bi trebalo da su već instalirane na vašem sistemi. Minimalna instalacija Debian stable zahtijeva samo `libicu63` od svih ovih.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
-- Ništa za sada, ali trebate imati poslednju verziju OS X instaliranu, najmanje 10.13+
+- Ništa za sada, ali trebate imati poslednju verziju OS X instaliranu, najmanje 10.14+
 
 ---
 

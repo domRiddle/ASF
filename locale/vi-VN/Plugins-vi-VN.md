@@ -37,11 +37,11 @@ If you did everything properly, your `csproj` will be similar to below:
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="5.0.1" />
+    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>

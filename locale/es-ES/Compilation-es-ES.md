@@ -17,7 +17,7 @@ Independientemente de la plataforma, necesitas .NET SDK completo (no solo runtim
 Suponiendo que tienes .NET SDK operativo y en la versión apropiada, simplemente navega al directorio fuente de ASF (repositorio de ASF clonado o descargado y desempaquetado) y ejecuta:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
+dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic"
 ```
 
 Si usas Linux/OS X, en su lugar puedes usar el script `cc.sh` que hará lo mismo, de forma un poco más compleja.
@@ -29,14 +29,14 @@ Si la compilación terminó con éxito, podrás encontrar ASF en su variante `so
 Si tienes una necesidad específica también puedes generar un paquete .NET específico para un sistema operativo. En general no deberías hacer eso porque acabas de compilar la variante `generic` que puedes ejecutar con el ya instalado .NET runtime que usaste para la compilación en primer lugar, pero en caso de que lo quieras hacer:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 Por supuesto, reemplaza `linux-x64` con la arquitectura del sistema operativo que tienes por objetivo, tal como `win-x64`. Esta compilación también tendrá las actualizaciones deshabilitadas.
 
 ### .NET Framework
 
-En el raro caso de que quieras compilar un paquete `generic-netf`, puedes cambiar el framework objetivo de `net5.0` a `net48`. Ten en cuenta que necesitarás el paquete de desarrollador **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** adecuado para compilar la variante `netf`, además de .NET SDK, así que lo siguiente solo funcionará en Windows:
+En el raro caso de que quieras compilar un paquete `generic-netf`, puedes cambiar el framework objetivo de `net6.0` a `net48`. Ten en cuenta que necesitarás el paquete de desarrollador **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** adecuado para compilar la variante `netf`, además de .NET SDK, así que lo siguiente solo funcionará en Windows:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"

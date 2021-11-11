@@ -37,11 +37,11 @@ The project must reference main `ArchiSteamFarm` assembly, either its prebuilt `
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="5.0.1" />
+    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -84,7 +84,7 @@ dotnet publish -c "Release" -o "out"
 dotnet publish YourPluginName -c "Release" -o "out"
 ```
 
-之後，您的外掛程式已準備好部署。 It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its **[dependencies](#plugin-dependencies)**. 這樣，用戶只需將zip存檔解壓縮到` plugins `目錄中，而不需要任何其他操作。
+之後，您的外掛程式已準備好部署。 如何分發和發布外掛程式由您決定，但我們建議創建一個zip，其中包含一個名為` YourNamespace.YourPluginName `的資料夾，您可以在其中將已編譯的外掛程式與其一起放入其中 ** [依賴項](#plugin-dependencies) **。 這樣，用戶只需將zip存檔解壓縮到` plugins `目錄中，而不需要任何其他操作。
 
 This is only the most basic scenario to get you started. We have **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Feel free to take a look if you'd like to learn from a working code, or discover `ArchiSteamFarm.Plugins` namespace yourself and refer to the included documentation for all available options.
 

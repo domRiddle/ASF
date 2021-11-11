@@ -47,7 +47,7 @@ ASF が依存するソフトが、他のソフトによってすでに一部ま�
 At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**
-- ユーザーは何もせずとも、アップルが用意してくれている。ただし、OS X の最新バージョン、少なくとも 10.13 以上が必要です。
+- ユーザーは何もせずとも、アップルが用意してくれている。ただし、OS X の最新バージョン、少なくとも 10.14 以上が必要です。
 
 ---
 

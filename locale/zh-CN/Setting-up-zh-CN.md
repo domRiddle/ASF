@@ -47,7 +47,7 @@
 其中的大多数项目应该已经安装在您的系统中了。 Debian 稳定版的最小化安装流程仅需要您再手动安装 `libicu63`。
 
 #### **[macOS](https://docs.microsoft.com/dotnet/core/install/macos)**：
-- 目前没有，但您应该安装最新版本的 macOS，至少应为 10.13+
+- 目前没有，但您应该安装最新版本的 macOS，至少应为 10.14+
 
 ---
 

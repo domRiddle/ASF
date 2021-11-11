@@ -47,7 +47,7 @@ Numele pachetelor depind de distributia Linux pe care o folositi, am listat cele
 Cel puţin majoritatea acestora ar trebui să fie deja disponibile pe sistemul dumneavoastră. Instalarea minimă a Debian stabil, necesită doar `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
-- Nu există momentan, dar ar trebui să instalați cea mai recentă versiune de OS X, cel puțin 10.13+
+- Nu există momentan, dar ar trebui să instalați cea mai recentă versiune de OS X, cel puțin 10.14+
 
 ---
 

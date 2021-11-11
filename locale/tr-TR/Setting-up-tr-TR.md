@@ -47,7 +47,7 @@ Paket adları, kullandığınız Linux dağıtımına bağlıdır, en yaygın ol
 Bunların en azından çoğunluğu sisteminizde yerel olarak mevcut olmalıdır. Debian'ın kararlı minimum kurulumu yalnızca `libicu63` gerektiriyor.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
-- Şimdilik yok, ancak OS X'in en son sürümüne sahip olmalısınız, en az 10.13+
+- Şimdilik yok, ancak OS X'in en son sürümüne sahip olmalısınız, en az 10.14+
 
 ---
 
@@ -223,7 +223,7 @@ With extra steps:
 - **[.NET Core ön koşullarını](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)** yükleyin.
 - Install **[.NET Core SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.
-- Extract the archive into new location.
+- Arşivi yeni bir lokasyon içerisine çıkartın.
 - **[ASF'yi yapılandırın](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 

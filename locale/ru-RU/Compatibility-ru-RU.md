@@ -46,7 +46,7 @@ ASF на данный момент доступно для следующих в
 
 Разумеется, даже если под ваше сочетание ОС и архитектуры отсутствует готовый пакет, вы вы всегда можете самостоятельно установить подходящую среду выполнения .NET Core и запустить универсальный пакет ASF (`generic`), это и есть основная причина почему он существует. Универсальный пакет ASF платформо-независим и будет работать на любой платформе, на которой есть работоспособная среда выполнения .NET Core. Важно отметить - ASF требуется среда выполнения .NET Core, а не конкретная ОС или архитектура. Например, если вы пользуетесь 32-разрядной версией Windows, то несмотря на то что нет отдельной версии ASF `win-x86`, вы всё равно можете установить .NET Core SDK версии `win-x86` и без проблем запустить универсальный ASF. Мы просто не можем создать пакеты под все сочетания ОС-архитектура которые могут использоваться, поэтому приходится чем-то ограничиться. x86 не попадает в это ограничение, поскольку это устаревшая архитектура как минимум с 2004 года.
 
-Для просмотра полного списка поддерживаемых .NET Core 5.0 платформ и ОС, посетите раздел "**[release notes](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0-supported-os.md)**" в репозитории .NET Core.
+For a complete list of all supported platforms and OSes by .NET 6.0, visit **[release notes](https://github.com/dotnet/core/blob/main/release-notes/6.0/supported-os.md)**.
 
 ---
 
@@ -56,6 +56,6 @@ ASF на данный момент доступно для следующих в
 
 Однако, если вы пытаетесь запустить **универсальный (generic)** пакет ASF - вам следует убедиться, что среда .NET Core поддерживает необходимую ASF платформу.
 
-ASF в данный момент основано на **.NET 5.0** (`net5.0`), но в будущем может потребоваться более новая платформа. `netc5.0` поддерживается начиная с версии 5.0.100 SDK (среда выполнения 5.0.0), но ASF настроен на использование **самой последней среды выполнения на момент компиляции** в качестве целевой, поэтому вам необходимо убедиться, что на вашей машине установлена **[последняя версия SDK](https://dotnet.microsoft.com/download)** (или как минимум среды выполнения), доступная для вашей платформы. Универсальная версия ASF может не запуститься, если ваша среда выполнения более старая, чем минимальная (целевая) используемая в процессе компиляции.
+ASF as a program is targeting **.NET 6.0** (`net6.0`) right now, but it may target newer platform in the future. `net6.0` is supported since 6.0.100 SDK (6.0.0 runtime), although ASF is configured to prefer **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. Generic ASF variant may refuse to launch if your runtime is older than the specified minimum supported one during compilation.
 
 Если сомневаетесь - проверьте что использует наша **[система непрерывной интеграции](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** для компиляции и развертывания сборок ASF на GitHub. Вы можете найти вывод `dotnet --info` в каждой сборке как часть этапа проверки .NET.

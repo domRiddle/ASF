@@ -47,7 +47,7 @@ Los nombres de los paquetes dependen de la distribución de Linux que estés usa
 Al menos la mayoría de estas deberían estar disponibles nativamente en tu sistema. La instalación mínima	 de Debian estable requiere solamente `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/es-es/dotnet/core/install/macos)**:
-- Ninguno por ahora, pero debes tener instalada la última versión de OS X, al menos 10.13+
+- Ninguno por ahora, pero debes tener instalada la última versión de OS X, al menos 10.14+
 
 ---
 

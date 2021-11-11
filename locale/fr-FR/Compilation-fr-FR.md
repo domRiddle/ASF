@@ -22,7 +22,7 @@ Regardless of platform, you need full .NET SDK (not just runtime) in order to co
 
 <p spaces-before="0">Assuming you have .NET SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:</p>
 
-<pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
+<pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic"
 `</pre> 
 
 Si vous utilisez Linux / OS X, vous pouvez utiliser le script ` cc.sh </ 0> qui fera de même, de manière un peu plus complexe.</p>
@@ -38,7 +38,7 @@ You can also generate OS-specific .NET package if you have a specific need. In g
 
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 
@@ -48,7 +48,7 @@ Bien sûr, remplacez ` linux-x64 ` par l'architecture du système d'exploitation
 
 ### .NET Framework 
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net5.0` to `net48`. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET SDK, so the below will work only on Windows:
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net6.0` to `net48`. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET SDK, so the below will work only on Windows:
 
 
 

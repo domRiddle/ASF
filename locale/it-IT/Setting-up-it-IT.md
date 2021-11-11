@@ -47,7 +47,7 @@ Il nome del pacchetto varia in base alla distribuzione di Linux che stai usando,
 At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
-- Per il momento nessuno, tuttavia è necessario avere OS X con versione 10.13 o superiore
+- Per il momento nessuno, tuttavia è necessario avere OS X con versione 10.14 o superiore
 
 ---
 

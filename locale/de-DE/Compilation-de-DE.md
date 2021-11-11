@@ -17,7 +17,7 @@ Regardless of platform, you need full .NET SDK (not just runtime) in order to co
 Assuming you have .NET SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/generic"
+dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic"
 ```
 
 Für Linux/OS X als Zielplattform können Sie stattdessen das Skript `cc.sh` verwenden, was dasselbe in etwas komplexerer Weise tut.
@@ -29,14 +29,14 @@ Wenn die Kompilierung erfolgreich beendet wurde, finden Sie Ihr ASF in der `sour
 You can also generate OS-specific .NET package if you have a specific need. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET runtime that you've used for the compilation in the first place, but just in case you want to:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net5.0" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 Natürlich sollten Sie `linux-x64` durch eine Betriebssystemarchitektur ersetzen die Sie anpeilen möchten, wie beispielsweise `win-x64`. Auch in diesem Build werden Aktualisierungen deaktiviert sein.
 
 ### .NET Framework
 
-Im sehr seltenen Fall, dass Sie das `generic-netf`-Paket erstellen möchten, können Sie das Zielframework von `net5.0` auf `net48` ändern. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET SDK, so the below will work only on Windows:
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net6.0` to `net48`. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET SDK, so the below will work only on Windows:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
