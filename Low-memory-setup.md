@@ -51,7 +51,7 @@ The recommended way of applying those settings is through `DOTNET_` environment 
 
 ### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
-> Specifies the GC heap usage as a percentage of the total memory.
+> Specifies the allowable GC heap usage as a percentage of the total physical memory.
 
 The "hard" memory limit for ASF process, this setting tunes GC to use only a subset of total memory and not all of it. It may become especially useful in various server-like situations where you can dedicate a fixed percentage of your server's memory for ASF, but never more than that. Be advised that limiting memory for ASF to use will not magically make all of those required memory allocations go away, therefore setting this value too low might result in running into out of memory scenarios, where ASF process will be forced to terminate.
 
