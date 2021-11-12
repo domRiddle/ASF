@@ -302,7 +302,7 @@ Sauf si vous avez une raison de modifier cette fonction, vous devez la conserver
 
 Cette propriété est définie comme une chaîne uri :
 
-> A URI string is composed of a scheme (http or https), a host, and an optional port. An example of a complete uri string is `"http://contoso.com:8080"`.
+> A URI string is composed of a scheme (supported: http/https/socks4/socks4a/socks5), a host, and an optional port. An example of a complete uri string is `"http://contoso.com:8080"`.
 
 If your proxy requires user authentication, you will also need to set up `WebProxyUsername` and/or `WebProxyPassword`. If there is no such need, setting up this property alone is sufficient.
 

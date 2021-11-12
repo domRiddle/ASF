@@ -41,15 +41,15 @@ O que significa que a memória terá os maiores picos quando o ASF fizer a leitu
 
 ---
 
-## Runtime tuning (advanced)
+## Ajuste do tempo de execução (avançado)
 
 As dicas abaixo **envolvem diminuição de performance** e devem ser usados com cautela.
 
-.NET Core runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
+.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
 
-The recommended way of applying those settings is through `COMPlus_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
+A forma recomendada de aplicar essas configurações é através das propriedades de ambiente `COMPlus_`. Claro, você também pode usar outros métodos, p. ex.: `runtimeconfig.json`, mas é impossível definir algumas configurações desta maneira e, além disso, o ASF substituirá o seu arquivo personalizado `runtimeconfig.json` pelo arquivo próprio do ASF, portanto recomendamos propriedades de ambiente que você possa definir facilmente antes de iniciar o processo.
 
-Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
+Consulte a documentação para todas as propriedades que você pode usar, mencionaremos as mais importantes (na nossa opinião) abaixo:
 
 ### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
@@ -79,7 +79,7 @@ Isso oferece pouca melhoria, mas pode tornar o coletor de lixo ainda mais agress
 
 ---
 
-You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
+Você pode habilitar ambas as propriedade de coletor de lixo definindo as variáveis `COMPlus_` apropriadas. Por exemplo, no linux (shell):
 
 ```shell
 # Não se esqueça de ajustar esses parâmetros caso vá usá-los
@@ -92,7 +92,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # Para OSes específicas
 ```
 
-Or on Windows (powershell):
+Ou no Windows (powershell):
 
 ```powershell
 # Não se esqueça de ajustar esses parâmetros caso vá usá-los
@@ -117,7 +117,7 @@ As dicas abaixo **envolvem séria diminuição de performance** e devem ser usad
 
 ---
 
-## Recommended optimization
+## Otimização recomendada
 
 - Comece com as dicas simples de configuração do ASF, talvez você só esteja usando o ASF de forma errada, como iniciando o processo várias vezes para todos os bots, ou mantendo todos ativos quando você precisa iniciar automaticamente apenas um ou dois.
 - Se ainda não for o suficiente, habilite todas as propriedades de configuração listados acima definindo as variáveis de ambiente apropriadas em `COMPlus_`. Especialmente `GCLatencyLevel`, que oferece melhorias significativas de tempo de execução com pouca queda de desempenho.

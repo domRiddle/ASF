@@ -41,13 +41,13 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 ---
 
-## Runtime tuning (advanced)
+## Ρύθμιση χρόνου εκτέλεσης (προηγμένη)
 
 Below tricks **involve performance degradation** and should be used with caution.
 
-.NET Core runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
+.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
 
-The recommended way of applying those settings is through `COMPlus_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
+Ο συνιστώμενος τρόπος εφαρμογής αυτών των ρυθμίσεων είναι μέσω `COMPlus_` των ιδιοτήτων περιβάλλοντος. Φυσικά, θα μπορούσατε επίσης να χρησιμοποιήσετε άλλες μεθόδους, π.χ. `runtimeconfig.json`, αλλά μερικές ρυθμίσεις είναι αδύνατο να οριστούν με αυτόν τον τρόπο, και επιπλέον το ASF θα αντικαταστήσει το προσαρμοσμένο `runtimeconfig.json` με το δικό του στην επόμενη ενημέρωση, επομένως σας συνιστούμε ιδιότητες περιβάλλοντος που μπορείτε να ρυθμίσετε εύκολα πριν από την έναρξη της διαδικασίας.
 
 Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
 
@@ -79,7 +79,7 @@ This offers little improvement, but may make GC even more aggressive when system
 
 ---
 
-You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
+You can enable all GC properties by setting appropriate `COMPlus_` environment variables. Για παράδειγμα, στα Linux (shell):
 
 ```shell
 # Don't forget to tune those if you're planning to make use of them
@@ -92,7 +92,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # For OS-specific build
 ```
 
-Or on Windows (powershell):
+Ή στα Windows (powershell):
 
 ```powershell
 # Don't forget to tune those if you're planning to make use of them
@@ -117,7 +117,7 @@ Below tricks **involve serious performance degradation** and should be used with
 
 ---
 
-## Recommended optimization
+## Προτεινόμενη βελτιστοποίηση
 
 - Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
 - If it's still not enough, enable all configuration properties listed above by setting appropriate `COMPlus_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.

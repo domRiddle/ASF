@@ -74,9 +74,9 @@ ASF 根据您可掉落的卡牌数和您选择的挂卡算法给您一个粗略�
 
 ### ASF 可以在我的 Android/智能手机上运行吗？
 
-ASF 是一个 C# 程序，需要安装正常工作的 .NET Core 环境实现。 目前没有针对 Android 的本机 .NET Core 构建，但是有针对 ARM 架构 Linux 的可用构建，所以您完全可以使用 **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** 等方式在手机上安装 Linux，然后通过 chroot 在 Linux 上运行 ASF。
+ASF 是一个 C# 程序，需要安装正常工作的 .NET 环境实现。 自 .NET 6.0 开始，Android 已成为受支持的平台，然而，目前仍有问题阻止 ASF 在 Android 上运行，也就是&#8203;**[缺少可用的 ASP.NET 运行时环境](https://github.com/dotnet/aspnetcore/issues/35077)**。 即使目前无法原生支持，目前仍然有针对 ARM 架构 GNU/Linux 的可用构建，所以您完全可以使用 **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** 等方式在手机上安装 Linux，然后通过 chroot 在 Linux 上运行 ASF。
 
-很有可能我们能在未来看到有针对 Android 本身的 .NET Core 出现。
+当所有 ASF 的需求都满足时，我们将会考虑发布官方的 Android 构建。
 
 ---
 
@@ -116,7 +116,7 @@ ASF 是一个 C# 程序，需要安装正常工作的 .NET Core 环境实现。 
 
 ### ASF 类似于 Idle Master 吗？
 
-二者之间的唯一相似之处就是它们的目标，即挂机 Steam 游戏以获取掉落的卡牌。 任何其他方面，包括实际的挂机方法、使用的算法、程序的结构、功能、兼容性以及源代码本身都完全不同，二者之间毫无共同之处，甚至连程序的核心也是如此（IM 运行于 .NET 框架，而 ASF 运行于 .NET Core）。 ASF 是为了解决 IM 的问题而编写的，这些问题无法通过简单地给 IM 代码打补丁来解决——这也是为何 ASF 完全从零开始，没有使用一行 IM 的代码，也没有借鉴它的程序逻辑，因为 IM 的代码与逻辑在一开始就存在缺陷。 IM 和 ASF 就好像 Windows 与 Linux——两者都是可以安装在您的 PC 上的操作系统，但除了这一目标之外，二者之间几乎毫无相似之处。
+二者之间的唯一相似之处就是它们的目标，即挂机 Steam 游戏以获取掉落的卡牌。 任何其他方面，包括实际的挂机方法、使用的算法、程序的结构、功能、兼容性以及源代码本身都完全不同，二者之间毫无共同之处，甚至连程序的核心也是如此——IM 运行于 .NET 框架，而 ASF 运行于 .NET（Core）。 ASF 是为了解决 IM 的问题而编写的，这些问题无法通过简单地给 IM 代码打补丁来解决——这也是为何 ASF 完全从零开始，没有使用一行 IM 的代码，也没有借鉴它的程序逻辑，因为 IM 的代码与逻辑在一开始就存在缺陷。 IM 和 ASF 就好像 Windows 与 Linux——两者都是可以安装在您的 PC 上的操作系统，但除了这一目标之外，二者之间几乎毫无相似之处。
 
 这也是为何您不应该根据对 IM 的期望比较 ASF 与 IM。 您应该将 ASF 与 IM 视为各有独特功能的完全独立的程序。 您可以在二者中找到一些重叠的功能，但很少，因为 ASF 使用与 IM 完全不同的方法来实现目标。
 
@@ -312,7 +312,7 @@ ASF 真正需要关注的重点是：
 
 ### 我正在用不受支持的操作系统，例如 32 位 Windows，我仍然可以使用最新版的 ASF 吗？
 
-是的，这个版本并非不受支持，只不过我们没有提供官方包。 您可以在&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解 Generic 包。 ASF 没有任何对于操作系统的强制依赖，您可以在任何含有 .NET Core 运行时环境的地方运行 ASF，其中就包括 32 位 Windows，即使我们没有提供针对 `win-x86` 平台的包。
+是的，这个版本并非不受支持，只不过我们没有提供官方包。 您可以在&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解 Generic 包。 ASF 没有任何对于操作系统的强制依赖，您可以在任何含有 .NET 运行时环境的地方运行 ASF，其中就包括 32 位 Windows，即使我们没有提供针对 `win-x86` 平台的包。
 
 ---
 
@@ -479,7 +479,7 @@ ASF 的一般规则是，警告**不是**错误，因此您**不**需要报告�
 
 在正常条件下，任何 ASF 的崩溃或退出都会在程序目录内生成一份 `log.txt` 供您查看，这可能会对排查错误有帮助。 此外，一些较早的日志会被归档在 `logs` 文件夹下，因为每次运行时，ASF 都会生成新的 `log.txt` 覆盖原来的日志文件。
 
-然而，如果连 .NET Core 运行时环境都无法在您的机器上启动，就无法生成 `log.txt`。 如果发生这种情况，很可能您忘了安装我们在&#8203;**[安装指南](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#安装操作系统包)**&#8203;中提到的 .NET Core 依赖项。 其他的常见问题包括您启动了错误的操作系统版本，或者您缺少了本机 .NET Core 运行时环境依赖项。 如果控制台窗口关闭得太快，您就无法看到错误消息，您可以打开一个独立的控制台窗口，然后从中启动 ASF 二进制文件。 例如，在 Windows 上，打开 ASF 文件夹，按住 `Shift` 键，右键单击文件夹空白处，选择“*在此处打开命令窗口*”（或 *Powershell*），然后在控制台中输入 `.\ArchiSteamFarm.exe`，按回车键确认。 这样，您就可以获得 ASF 无法正常启动的原因说明。
+然而，如果连 .NET 运行时环境都无法在您的机器上启动，就无法生成 `log.txt`。 如果发生这种情况，很可能您忘了安装我们在&#8203;**[安装指南](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#安装操作系统包)**&#8203;中提到的 .NET 依赖项。 其他的常见问题包括您启动了错误的操作系统版本，或者您缺少了本机 .NET 运行时环境依赖项。 如果控制台窗口关闭得太快，您就无法看到错误消息，您可以打开一个独立的控制台窗口，然后从中启动 ASF 二进制文件。 例如，在 Windows 上，打开 ASF 文件夹，按住 `Shift` 键，右键单击文件夹空白处，选择“*在此处打开命令窗口*”（或 *Powershell*），然后在控制台中输入 `.\ArchiSteamFarm.exe`，按回车键确认。 这样，您就可以获得 ASF 无法正常启动的原因说明。
 
 ---
 

@@ -301,7 +301,7 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
 
 此屬性定義為 URI 字串：
 
-> URI 字串由方案（HTTP 或 HTTPS），主機和可選埠組成。 完整 URI 字串的一個示例是 `"HTTP://contoso.com:8080"`。
+> A URI string is composed of a scheme (supported: http/https/socks4/socks4a/socks5), a host, and an optional port. 完整 URI 字串的一個示例是 `"HTTP://contoso.com:8080"`。
 
 如果您的代理需要用戶身份驗證，則還需要設置` WebProxyUsername `和/或` WebProxyPassword `。 如果無此需求，僅設置此屬性就足夠了。
 

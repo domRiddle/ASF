@@ -12,7 +12,7 @@ ASF ya intenta preferir el rendimiento cuando se trata de un ajuste general equi
 
 Los siguientes trucos **involucran un importante aumento de uso de memoria** y deben ser usados con precaución.
 
-.NET Core runtime te permite **[modificar el recolector de basura](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** de muchas formas, afinando eficazmente el proceso de recolección de basura de acuerdo a tus necesidades.
+.NET runtime te permite **[modificar el recolector de basura](https://docs.microsoft.com/es-es/dotnet/core/run-time-config/garbage-collector)** de muchas formas, ajustando eficazmente el proceso de recolección de basura de acuerdo a tus necesidades.
 
 La forma recomendada de aplicar estas configuraciones es a través de las propiedades de entorno `COMPlus_`. Por supuesto, también podrías usar otros métodos, por ejemplo, `runtimeconfig.json`, pero algunas configuraciones son imposibles de establecer de esta manera, encima de eso ASF reemplazará tu `runtimeconfig.json` personalizado en la siguiente actualización, por lo tanto recomendamos propiedades de entorno que puedas establecer fácilmente antes de ejecutar el proceso.
 

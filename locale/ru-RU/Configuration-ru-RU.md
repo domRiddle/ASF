@@ -301,7 +301,7 @@ ASF использует формат **[JSON](https://ru.wikipedia.org/wiki/JSO
 
 Этот параметр задаётся как строка uri:
 
-> Строка URI состоит из схемы (http или https), имени хоста, и необязательного порта. Пример полной строки uri: `"http://contoso.com:8080"`.
+> A URI string is composed of a scheme (supported: http/https/socks4/socks4a/socks5), a host, and an optional port. Пример полной строки uri: `"http://contoso.com:8080"`.
 
 Если ваш прокси требует авторизации, возможно вам также понадобиться настроить `WebProxyUsername` и/или `WebProxyPassword`. Если такой необходимости нет, будет достаточно только этого параметра.
 

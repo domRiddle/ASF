@@ -41,11 +41,11 @@ Das bedeutet, dass der Speicher am meisten ansteigt, wenn es sich bei ASF um das
 
 ---
 
-## Runtime tuning (advanced)
+## Laufzeitoptimierung (Erweitert)
 
 Die folgenden Tricks **führen auch zur Leistungsminderung** und sollten mit Vorsicht angewendet werden.
 
-.NET Core runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
+.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
 
 The recommended way of applying those settings is through `COMPlus_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
 
@@ -79,7 +79,7 @@ This offers little improvement, but may make GC even more aggressive when system
 
 ---
 
-You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
+You can enable all GC properties by setting appropriate `COMPlus_` environment variables. Zum Beispiel unter Linux (Shell):
 
 ```shell
 # Don't forget to tune those if you're planning to make use of them
@@ -92,7 +92,7 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # For OS-specific build
 ```
 
-Or on Windows (powershell):
+Oder unter Windows (Powershell):
 
 ```powershell
 # Don't forget to tune those if you're planning to make use of them
@@ -117,7 +117,7 @@ Die folgenden Tricks **führen zu einer ernsthaften Leistungsabnahme** und sollt
 
 ---
 
-## Recommended optimization
+## Empfohlene Optimierung
 
 - Beginne mit den einfachen ASF-Setup-Tricks, vielleicht benutzt du Ihren ASF einfach falsch, wie z. B. den Prozess für alle Ihre Bots mehrmals zu starten oder alle aktiv zu halten, wenn du nur ein oder zwei zum Autostart brauchst.
 - If it's still not enough, enable all configuration properties listed above by setting appropriate `COMPlus_` environment variables. Insbesondere `GCLatencyLevel` bietet signifikante Laufzeitverbesserungen bei geringen Leistungskosten.

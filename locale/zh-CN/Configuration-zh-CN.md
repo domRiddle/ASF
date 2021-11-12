@@ -301,7 +301,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 此属性定义为一个 URI 字符串：
 
-> URI 字符串由协议（http 或 https）、主机和可省略的端口组成。 一个完整 URI 字符串的示例是 `"http://contoso.com:8080"`。
+> URI 字符串由协议（支持 http/https/socks4/socks4a/socks5）、主机和可省略的端口组成。 一个完整 URI 字符串的示例是 `"http://contoso.com:8080"`。
 
 如果您的代理服务器需要身份验证，您还需要设置 `WebProxyUsername` 和/或 `WebProxyPassword` 属性。 如果不需要验证，就只需要设置此属性。
 

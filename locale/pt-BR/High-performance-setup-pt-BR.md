@@ -12,7 +12,7 @@ O ASF tenta preferir desempenho quando se trata equilíbrio, portanto não há m
 
 Os truques abaixo **envolve um grande aumento do uso de memória** e devem ser usados com cautela.
 
-O tempo de execução.NET Core permite que você **[ajuste o coletor de lixo](https://docs.microsoft.com/pt-br/dotnet/core/run-time-config/garbage-collector)** de muitas maneiras, aperfeiçõando efetivamente o processo de coleta de lixo de acordo com suas necessidades.
+.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
 
 A forma recomendada de aplicar essas configurações é através das propriedades de ambiente `COMPlus_`. Claro, você também pode usar outros métodos, p. ex.: `runtimeconfig.json`, mas é impossível definir algumas configurações desta maneira e, além disso, o ASF substituirá o seu arquivo personalizado `runtimeconfig.json` pelo arquivo próprio do ASF, portanto recomendamos propriedades de ambiente que você possa definir facilmente antes de iniciar o processo.
 

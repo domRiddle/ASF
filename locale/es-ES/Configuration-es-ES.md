@@ -301,7 +301,7 @@ Tipo `string` con valor predeterminado de `null`. Esta propiedad define una dire
 
 Esta propiedad está definida como una cadena uri:
 
-> Una cadena URI se compone de un esquema (http o https), un host, y un puerto opcional. Un ejemplo de una cadena uri completa es `"http://contoso.com:8080"`.
+> Un cadena URI se compone de un esquema (soportado: http/https/socks4/socks4a/socks5), un host y un puerto opcional. Un ejemplo de una cadena uri completa es `"http://contoso.com:8080"`.
 
 Si tu proxy requiere autenticación de usuario, también necesitarás configurar `WebProxyUsername` y/o `WebProxyPassword`. Si no hay tal necesidad, configurar solo esta propiedad es suficiente.
 

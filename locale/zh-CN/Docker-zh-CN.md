@@ -23,7 +23,7 @@ ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archi
 
 与其他分支相比，仅有此分支包括 ASF 的自动更新功能，通常会指向最新的&#8203;**[稳定](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;版本。 此分支的目标是提供一个默认的 Docker 容器，支持 ASF 操作系统包的自动更新功能。 因此，此映像不需要频繁更新，因为其中的 ASF 会在需要时自动更新。 当然，`UpdatePeriod` 可以被安全禁用（设置为 `0`），但在这种情况下，您可能更应该选择冻结版本的 `A.B.C.D` 分支。 同样，您可以修改默认的 `UpdateChannel`，使其像 `released` 分支一样更新。
 
-由于 `latest` 映像具有自动更新的能力，它包含了基本的操作系统和 `linux` 版本的 ASF，而其他所有分支包含的是操作系统、.NET Core 运行时环境以及 `Generic` 版本的 ASF。 这是因为新版本的 ASF 可能需要比映像内置版本更新的运行时环境，使映像必须彻底重新构建，这与此分支的预期使用场景不符。
+由于 `latest` 映像具有自动更新的能力，它包含了基本的操作系统和 `linux` 版本的 ASF，而其他所有分支包含的是操作系统、.NET 运行时环境以及 `Generic` 版本的 ASF。 这是因为新版本的 ASF 可能需要比映像内置版本更新的运行时环境，使映像必须彻底重新构建，这与此分支的预期使用场景不符。
 
 ### `A.B.C.D`
 
@@ -196,7 +196,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app
 
 ## 高级技巧
 
-在安装好 ASF Docker 容器之后，您不再需要每次使用 `docker run` 命令。 您可以通过 `docker stop asf` 和 `docker start asf` 命令方便地停止/启动 ASF 容器。 请记住，如果您使用的不是 `latest` 分支，则您仍然需要执行 `docker stop`、`docker rm` 和 `docker run` 这一系列命令来使用新版 ASF。 这是因为每次要使用映像内包含的版本时，您必须从新的 ASF Docker 映像重建容器。 在 `latest` 分支中，ASF 已经能够自动更新自己，所以您不需要重建映像就可以保证 ASF 为最新（但为了使用最新的 .NET Core 依赖项和底层操作系统，有时仍然需要重建映像）。
+在安装好 ASF Docker 容器之后，您不再需要每次使用 `docker run` 命令。 您可以通过 `docker stop asf` 和 `docker start asf` 命令方便地停止/启动 ASF 容器。 请记住，如果您使用的不是 `latest` 分支，则您仍然需要执行 `docker stop`、`docker rm` 和 `docker run` 这一系列命令来使用新版 ASF。 这是因为每次要使用映像内包含的版本时，您必须从新的 ASF Docker 映像重建容器。 在 `latest` 分支中，ASF 已经能够自动更新自己，所以您不需要重建映像就可以保证 ASF 为最新（但为了使用最新的 .NET 依赖项和底层操作系统，有时仍然需要重建映像）。
 
 正如上文所述，非 `latest` 分支中的 ASF 不会自动更新，这意味着**您**必须为使用最新 `justarchi/archisteamfarm` 仓库负责。 这种方式有很多优势，因为通常应用程序不应该在运行时修改自己的代码，但我们也理解无需关心容器内 ASF 版本的便利。 如果您关心最佳实践并且希望正确使用 Docker，我们更建议使用 `released` 而非 `latest` 分支，但如果您不在意这些，只想让 ASF 正常工作并且自动更新，则 `latest` 分支足矣。
 

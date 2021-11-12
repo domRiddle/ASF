@@ -12,7 +12,7 @@ ASF already tries to prefer performance when it comes to general balanced tuning
 
 Τα ακόλουθα κόλπα **αφορούν σοβαρή αύξηση της μνήμης** και θα πρέπει να χρησιμοποιείται με προσοχή.
 
-.NET Core runtime σας επιτρέπει να **[προσαρμόσετε το garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** με πολλούς τρόπους, αποτελεσματικά βελτιστοποιώντας τη διαδικασία GC σύμφωνα με τις ανάγκες σας.
+.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
 
 Ο συνιστώμενος τρόπος εφαρμογής αυτών των ρυθμίσεων είναι μέσω `COMPlus_` των ιδιοτήτων περιβάλλοντος. Φυσικά, θα μπορούσατε επίσης να χρησιμοποιήσετε άλλες μεθόδους, π.χ. `runtimeconfig.json`, αλλά μερικές ρυθμίσεις είναι αδύνατο να οριστούν με αυτόν τον τρόπο, και επιπλέον το ASF θα αντικαταστήσει το προσαρμοσμένο `runtimeconfig.json` με το δικό του στην επόμενη ενημέρωση, επομένως σας συνιστούμε ιδιότητες περιβάλλοντος που μπορείτε να ρυθμίσετε εύκολα πριν από την έναρξη της διαδικασίας.
 

@@ -301,7 +301,7 @@ Wenn du keinen Grund hast, diese Eigenschaft zu bearbeiten, solltest du sie auf 
 
 Diese Eigenschaft ist als uri-Zeichenfolge definiert:
 
-> Eine URI-Zeichenkette besteht aus einem Schema (http oder https), einem Host und einem optionalen Port. Ein Beispiel für eine komplette uri-Zeichenkette wäre `"http://contoso.com:8080"`.
+> A URI string is composed of a scheme (supported: http/https/socks4/socks4a/socks5), a host, and an optional port. Ein Beispiel für eine komplette uri-Zeichenkette wäre `"http://contoso.com:8080"`.
 
 Wenn ein Proxy eine Benutzer-Authentifizierung erfordert, musst auch `WebProxyUsername` und/oder `WebProxyPassword` eingerichtet sein. Wenn es keinen solchen Bedarf gibt, genügt die Einrichtung dieser Eigenschaft allein.
 

@@ -301,7 +301,7 @@ In general, lowering `WebLimiterDelay` under default value is **strongly discour
 
 이 속성값은 아래와 같은 uri 문자열로 정의됩니다.
 
-> URI 문자열은 스킴(http나 https), 호스트, 그리고 포트(선택사항)로 구성됩니다. 다음은 완전한 uri 문자열의 예시입니다. `"http://contoso.com:8080"`.
+> A URI string is composed of a scheme (supported: http/https/socks4/socks4a/socks5), a host, and an optional port. 다음은 완전한 uri 문자열의 예시입니다. `"http://contoso.com:8080"`.
 
 프록시가 인증을 필요로 하면, `WebProxyUsername`과 `WebProxyPassword`를 설정해야 합니다. 그럴 필요가 없다면 이 속성값을 설정하는 것만으로 충분합니다.
 

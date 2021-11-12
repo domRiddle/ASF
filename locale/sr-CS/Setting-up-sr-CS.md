@@ -11,7 +11,7 @@ Ovo ipak ne znači da ga ne možete koristiti na vašem PC-u ili na nečem više
 ## OS-specifično postavljanje
 
 Opšte kazano, ovo ćete raditi u nekoliko sledećih minuta:
-- Instalirati **[.NET Core prerequisites](#net-core-prerequisites)**.
+- Install **[.NET prerequisites](#net-prerequisites)**.
 - Preuzmite **[poslednje ASF izdanje](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** u odgovarajućoj OS-specifičnoj varijanti.
 - Extract the archive into new location.
 - **[Konfigurišete ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
@@ -21,13 +21,13 @@ Zvuči jednostavno, zar ne? Pa počnimo.
 
 ---
 
-### .NET Core prerequisites
+### .NET prerequisites
 
-Prvo morate biti sigurni da ASF može biti pokrenut na vašem OS-u. ASF je napisan u C#, baziran na .NET Core i možda će zahtijevati dodatne nativne biblioteke koje još nisu prisutne na vašoj platformi. Razlika postoji u tome da li koristite Windows, Linux ili OS X, i zbog toga će imati različite zahtjeve, ali u svakom slučaju, svi su navedeni u **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install)** dokumentu kojeg trebate pratiti. Ovo je naš materijal za podsjećanje koji treba biti korišćen, ali zbog jednostavnosti mi smo naveli sve pakete ispod, pa ne morate čitati čitav dokument.
+Prvo morate biti sigurni da ASF može biti pokrenut na vašem OS-u. ASF is written in C#, based on .NET platform and may require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. Ovo je naš materijal za podsjećanje koji treba biti korišćen, ali zbog jednostavnosti mi smo naveli sve pakete ispod, pa ne morate čitati čitav dokument.
 
 Normalno je da neki (ili svi) zahtjevi već postoje na vašem sistemu zbog toga što ih je neki treći softver, koji već koristite, instalirao. Ipak, budite sigurni da stvarno imate potrebne zahtjeve na vašem OS-u - bez tih zahtjeva ASF se uopšte neće pokrenuti.
 
-Zapamtite da, osim ovog, ne morate ništa drugo raditi na vašem OS-u, posebno ne instalirati .NET Core SDK ili runtime, jer OS paket već sadrži to sve. Potrebni su vam samo .NET Core prerequisites (zahtjevi) da bi pokrenuli .NET Core runtime koje je u ASF-u.
+Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET SDK or even runtime, since OS-specific package includes all of that already. You need only .NET prerequisites (dependencies) to run .NET runtime included in ASF.
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
 - **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 za 64-bit Windows, x86 za 32-bit Windows)
@@ -211,20 +211,20 @@ Ova podešavanja su za napredne korisnike koji žele da podese ASF za pokretanje
 
 You want to use `generic` variant mainly in those situations (but of course you can use it regardless):
 - Kada koristite OS za koji nema OS-specifičan paket (kao što je 32-bitni Windows)
-- Kada već imate .NET Core Runtime/SDK, ili želite da ga instalirate i koristite
+- When you already have .NET Runtime/SDK, or want to install and use one
 - Kada želite da smanjite veličinu ASF strukture tako što ćete podesite runtime zahtjeve ručno
 - When you want to use a custom **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which requires a `generic` setup of ASF to run properly (due to missing native dependencies)
 
-Ipak, zapamtite da ćete u tom slučaju vi biti odgovorni za .NET Core runtime. Ovo znači da ako je .NET Core SDK (runtime) nedostupan, zastareo ili pokvaren, ASF neće raditi. Zbog ovog ne preporučujemo ovaj metod za obične korisnike, pošto morate biti sigurni da se vaš .NET Core SDK (runtime) poklapa sa ASF zahtjevima i da može da pokrene ASF, dok u normalnoj verziji **mi** provjeravamo da li .NET Core runtime koji je upakovan u ASF može da ga pokrene.
+However, keep in mind that you're in charge of .NET runtime in this case. This means that if your .NET SDK (runtime) is unavailable, outdated or broken, ASF won't work. This is why we don't recommend this setup for casual users, since you now need to ensure that your .NET SDK (runtime) matches ASF requirements and can run ASF, as opposed to **us** ensuring that our .NET runtime bundled with ASF can do so.
 
-For `generic` package, you can follow entire OS-specific guide above, with two small changes. U dodatku sa instaliranjem .NET Core prerequisites, isto trebate da instalirate .NET Core SDK, i umjesto što imate OS-specifični `ArchiSteamFarm(.exe)` eksekjucioni fajl, sada ćete imati opšti `ArchiSteamFarm.dll` binarni fajl. Sve ostalo je isto.
+For `generic` package, you can follow entire OS-specific guide above, with two small changes. In addition to installing .NET prerequisites, you also want to install .NET SDK, and instead of having OS-specific `ArchiSteamFarm(.exe)` executable file, you now have a generic `ArchiSteamFarm.dll` binary only. Sve ostalo je isto.
 
 Sa dodatnim koracima:
-- Instalirajte **[.NET Core prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
-- Instalirajte **[.NET Core SDK](https://www.microsoft.com/net/download)** (ili bar runtime) za vaš OS. Vjerovatno ćete željeti da koristite automatsku instalaciju. Pogledajte **[runtime zahtjeve](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** ako niste sigurni koju verziju da instalirate.
+- Install **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
+- Install **[.NET SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. Vjerovatno ćete željeti da koristite automatsku instalaciju. Pogledajte **[runtime zahtjeve](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** ako niste sigurni koju verziju da instalirate.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.
 - Extract the archive into new location.
 - **[Konfigurišete ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - Pokrenite ASF koristeći pomoćni skript ili ručnom ekekjucijom `dotnet /ruta/do/ArchiSteamFarm.dll` iz vaše omiljene ljuske.
 
-Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in `generic` variant only. Njih možete koristiti ako ne želite da ručno ekekjutujete `dotnet` komande. Pomoćni skriptovi naravno neće raditi ako niste instalirali .NET Core SDK i ako nemate `dotnet` dostupan u vašem `PATH`-u. Pomoćni skriptovi su skroz opcionalni, uvijek možete ručno koristiti `dotnet /ruta/do/ArchiSteamFarm.dll`.
+Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in `generic` variant only. Njih možete koristiti ako ne želite da ručno ekekjutujete `dotnet` komande. Obviously helper scripts won't work if you didn't install .NET SDK and you don't have `dotnet` executable available in your `PATH`. Pomoćni skriptovi su skroz opcionalni, uvijek možete ručno koristiti `dotnet /ruta/do/ArchiSteamFarm.dll`.

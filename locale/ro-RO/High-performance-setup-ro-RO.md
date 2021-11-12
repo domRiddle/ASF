@@ -12,7 +12,7 @@ ASF încearcă deja să prefere performanța în ceea ce privește reglarea gene
 
 Trucurile de mai jos **implică o creștere gravă a memoriei** și trebuie folosite cu precauție.
 
-.NET Core runtime vă permite **[să modificati colectorul de gunoi](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in multe feluri, prin ajustarea eficientă a procesului GC în funcție de nevoile dumneavoastră.
+.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
 
 Modul recomandat de aplicare al acestor setări este prin modificarea proprietății de mediu `COMPlus_`. Bineînțeles, ați putea folosi și alte metode, de ex. `runtimeconfig.json`, dar unele setări sunt imposibil de stabilit în acest fel, și pe deasupra ASF va înlocui fișierul personalizat `runtimeconfig.json` cu cel propriu la următoarea actualizare, de aceea recomandăm proprietățile de mediu pe care le puteți seta cu ușurință înainte de a lansa procesul.
 

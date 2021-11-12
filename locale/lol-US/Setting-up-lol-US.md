@@ -11,7 +11,7 @@ DIS HOWEVR DOESNT MEEN DAT U CANT USE IT ON UR PC OR USIN IT IN SUM WAI MOAR COM
 ## OS-SPECIFIC SETUP
 
 IN GENERAL, HER IZ WUT WELL DO IN DA NEXT FEW MINUTEZ:
-- INSTALL **[.NET CORE PREREQUIZIETS](#net-core-prerequiziets)**.
+- Install **[.NET prerequisites](#net-prerequisites)**.
 - DOWNLOAD **[LATEST ASF RELEASE](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** IN APPROPRIATE OS-SPECIFIC VARIANT.
 - EXTRACT TEH ARCHIV INTO NEW LOCASHUN.
 - **[CONFIGURE ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US)**.
@@ -21,13 +21,13 @@ SOUNDZ SIMPLE ENOUGH, RITE? SO LETS GIT THRU IT.
 
 ---
 
-### .NET CORE PREREQUIZIETS
+### .NET prerequisites
 
-FURST STEP IZ ENSURIN DAT UR OS CAN EVEN LAUNCH ASF PROPERLY. ASF IZ WRITTEN IN C#, BASD ON .NET CORE AN CUD REQUIRE NATIV LIBRARIEZ DAT R NOT AVAILABLE ON UR PLATFORM YET. DEPENDIN ON WHETHR U USE WINDOWS, LINUX OR OS X, U WILL HAS DIFFERENT REQUIREMENTS, ALTHOUGH ALL OV THEM R LISTD IN **[.NET CORE PREREQUIZIETS](https://docs.microsoft.com/dotnet/core/install)** DOCUMENT DAT U SHUD FOLLOW. DIS AR TEH R REFERENCE MATERIAL DAT SHUD BE USD, BUT 4 DA SAEK OV SIMPLICITY WEVE ALSO DETAILD ALL NEEDD PACKAGEZ BELOW, SO U DOAN NED 2 READ TEH FULL DOCUMENT.
+FURST STEP IZ ENSURIN DAT UR OS CAN EVEN LAUNCH ASF PROPERLY. ASF is written in C#, based on .NET platform and may require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. DIS AR TEH R REFERENCE MATERIAL DAT SHUD BE USD, BUT 4 DA SAEK OV SIMPLICITY WEVE ALSO DETAILD ALL NEEDD PACKAGEZ BELOW, SO U DOAN NED 2 READ TEH FULL DOCUMENT.
 
 IZ PERFECTLY NORMAL DAT SUM (OR EVEN ALL) DEPENDENCIEZ ALREADY EXIST ON UR SISTEM DUE 2 BEAN INSTALLD BY THIRD-PARTY SOFTWARE DAT URE USIN. STILL, U SHUD ENSURE DAT IZ TRULY TEH CASE BY RUNNIN APPROPRIATE INSTALLR 4 UR OS - WITHOUT DOSE DEPENDENCIEZ ASF WONT LAUNCH AT ALL.
 
-KEEP IN MIND DAT U DOAN NED 2 DO ANYTHIN ELSE 4 OS-SPECIFIC BUILDZ, ESPECIALLY INSTALLIN .NET CORE SDK OR EVEN RUNTIME, SINCE OS-SPECIFIC PACKAGE INCLUDEZ ALL OV DAT ALREADY. U NED ONLY .NET CORE PREREQUIZIETS (DEPENDENCIEZ) 2 RUN .NET CORE RUNTIME INCLUDD IN ASF.
+Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET SDK or even runtime, since OS-specific package includes all of that already. You need only .NET prerequisites (dependencies) to run .NET runtime included in ASF.
 
 #### **[WINDOWS](https://docs.microsoft.com/dotnet/core/install/windows)**:
 - **[MICROSOFT VISUAL C++ 2015 REDISTRIBUTABLE UPDATE](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (X64 4 64-BIT WINDOWS, X86 4 32-BIT WINDOWS)
@@ -211,20 +211,20 @@ DIS SETUP IZ 4 ADVANCD USERS DAT WANTS 2 SET UP ASF 2 RUN IN **[GENERIC](https:/
 
 U WANTS 2 USE `generic` VARIANT MAINLY IN DOSE SITUASHUNS (BUT OV COURSE U CAN USE IT REGARDLES):
 - WHEN URE USIN OS DAT WE DOAN BUILD OS-SPECIFIC PACKAGE 4 (SUCH AS 32-BIT WINDOWS)
-- WHEN U ALREADY HAS .NET CORE RUNTIME/SDK, OR WANTS 2 INSTALL AN USE WAN
+- When you already have .NET Runtime/SDK, or want to install and use one
 - WHEN U WANTS 2 MINIMIZE ASF STRUCCHUR SIZE BY HANDLIN RUNTIME REQUIREMENTS YOURSELF
 - WHEN U WANTS 2 USE CUSTOM **[PLUGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-lol-US)** WHICH REQUIREZ `generic` SETUP OV ASF 2 RUN PROPERLY (DUE 2 MISIN NATIV DEPENDENCIEZ)
 
-HOWEVR, KEEP IN MIND DAT URE IN CHARGE OV .NET CORE RUNTIME IN DIS CASE. DIS MEANZ DAT IF UR .NET CORE SDK (RUNTIME) IZ UNAVAILABLE, OUTDATD OR BROKD, ASF WONT WERK. DIS AR TEH Y WE DOAN RECOMMEND DIS SETUP 4 CASUAL USERS, SINCE U NAO NED 2 ENSURE DAT UR .NET CORE SDK (RUNTIME) MATCHEZ ASF REQUIREMENTS AN CAN RUN ASF, AS OPPOSD 2 **US** ENSURIN DAT R .NET CORE RUNTIME BUNDLD WIF ASF CAN DO SO.
+However, keep in mind that you're in charge of .NET runtime in this case. This means that if your .NET SDK (runtime) is unavailable, outdated or broken, ASF won't work. This is why we don't recommend this setup for casual users, since you now need to ensure that your .NET SDK (runtime) matches ASF requirements and can run ASF, as opposed to **us** ensuring that our .NET runtime bundled with ASF can do so.
 
-4 `generic` PACKAGE, U CAN FOLLOW ENTIRE OS-SPECIFIC GUIDE ABOOV, WIF 2 SMALL CHANGEZ. IN ADDISHUN 2 INSTALLIN .NET CORE PREREQUIZIETS, U ALSO WANTS 2 INSTALL .NET CORE SDK, AN INSTEAD OV HAVIN OS-SPECIFIC `ArchiSteamFarm(.exe)` EXECUTABLE FILE, U NAO HAS GENERIC `ArchiSteamFarm.dll` BINARY ONLY. EVRYTHIN ELSE IZ EGSAKTLY TEH SAME.
+4 `generic` PACKAGE, U CAN FOLLOW ENTIRE OS-SPECIFIC GUIDE ABOOV, WIF 2 SMALL CHANGEZ. In addition to installing .NET prerequisites, you also want to install .NET SDK, and instead of having OS-specific `ArchiSteamFarm(.exe)` executable file, you now have a generic `ArchiSteamFarm.dll` binary only. EVRYTHIN ELSE IZ EGSAKTLY TEH SAME.
 
 WIF EXTRA STEPS:
-- INSTALL **[.NET CORE PREREQUIZIETS](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
-- INSTALL **[.NET CORE SDK](https://www.microsoft.com/net/download)** (OR AT LEAST RUNTIME) APPROPRIATE 4 UR OS. U MOST LIKELY WANTS 2 USE AN INSTALLR. REFR 2 **[RUNTIME REQUIREMENTS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US#runtime-requirements)** IF URE NOT SURE WHICH VERSHUN 2 INSTALL.
+- Install **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
+- Install **[.NET SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. U MOST LIKELY WANTS 2 USE AN INSTALLR. REFR 2 **[RUNTIME REQUIREMENTS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US#runtime-requirements)** IF URE NOT SURE WHICH VERSHUN 2 INSTALL.
 - DOWNLOAD **[LATEST ASF RELEASE](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** IN `generic` VARIANT.
 - EXTRACT TEH ARCHIV INTO NEW LOCASHUN.
 - **[CONFIGURE ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US)**.
 - LAUNCH ASF BY EITHR USIN HELPR SCRIPT OR EXECUTIN `dotnet /path/to/ArchiSteamFarm.dll` MANUALLY FRUM UR FAVOURITE SHELL.
 
-HELPR SCRIPTS (SUCH AS `ArchiSteamFarm.cmd` 4 WINDOWS AN `ArchiSteamFarm.sh` 4 LINUX/OS X) R LOCATD NEXT 2 `ArchiSteamFarm.dll` BINARY - DOSE R INCLUDD IN `generic` VARIANT ONLY. U CAN USE THEM IF U DOAN WANTS 2 EXECUTE `dotnet` COMMAND MANUALLY. OBVIOUSLY HELPR SCRIPTS WONT WERK IF U DIDNT INSTALL .NET CORE SDK AN U DOAN HAS `dotnet` EXECUTABLE AVAILABLE IN UR `PATH`. HELPR SCRIPTS R ENTIRELY OPSHUNAL 2 USE, U CAN ALWAYS `dotnet /path/to/ArchiSteamFarm.dll` MANUALLY.
+HELPR SCRIPTS (SUCH AS `ArchiSteamFarm.cmd` 4 WINDOWS AN `ArchiSteamFarm.sh` 4 LINUX/OS X) R LOCATD NEXT 2 `ArchiSteamFarm.dll` BINARY - DOSE R INCLUDD IN `generic` VARIANT ONLY. U CAN USE THEM IF U DOAN WANTS 2 EXECUTE `dotnet` COMMAND MANUALLY. Obviously helper scripts won't work if you didn't install .NET SDK and you don't have `dotnet` executable available in your `PATH`. HELPR SCRIPTS R ENTIRELY OPSHUNAL 2 USE, U CAN ALWAYS `dotnet /path/to/ArchiSteamFarm.dll` MANUALLY.

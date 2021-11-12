@@ -74,9 +74,9 @@ ASF gibt Ihnen eine grobe Schätzung basierend auf der Anzahl der Karten, die Si
 
 ### Kann ASF auf meinem Android/Smartphone funktionieren?
 
-ASF ist ein C#-Programm, das eine funktionierende Implementierung von .NET Core erfordert. Derzeit gibt es keinen nativen .NET Core Build für Android selbst, aber es gibt ordentliche und funktionierende Builds für Linux auf ARM-Architektur, sodass es durchaus möglich ist, so etwas wie **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** für die Installation von Linux zu verwenden, dann ASF in einem solchen Linux Chroot wie gewohnt zu verwenden.
+ASF is a C# program that requires working implementation of .NET. Android became a valid platform starting with .NET 6.0, however, there is currently a major blocker in making ASF happen on Android due to **[lack of ASP.NET runtime available on it](https://github.com/dotnet/aspnetcore/issues/35077)**. Even though there isn't a native option available, there are proper and working builds for GNU/Linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
 
-Es ist sehr wahrscheinlich, dass wir in Zukunft mit einem funktionierenden .NET Core für Android rechnen können.
+When/If all ASF requirements are satisfied, we'll consider releasing official Android build.
 
 ---
 
@@ -116,7 +116,7 @@ Ja, ASF kümmert sich nicht einmal um das Herunterladen aktueller Spieldateien, 
 
 ### Ist ASF ähnlich wie Idle Master?
 
-The only similarity is the general purpose of both programs, which is farming Steam games in order to receive card drops. Everything else, including the actual farming method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation (IM is running on .NET Framework, ASF on .NET Core). ASF wurde geschaffen, um IM-Probleme zu lösen, die mit einer einfachen Programmcode-Editierung nicht zu lösen waren - deshalb wurde ASF von Grund auf neu geschrieben, ohne eine einzige Programmzeile oder gar eine allgemeine Idee des IM zu verwenden, weil dieser Code und diese Ideen von Anfang an völlig fehlerhaft waren. IM und ASF sind wie Windows und Linux - beide sind Betriebssysteme und beide können auf Ihrem PC installiert werden, aber sie haben fast nichts miteinander zu tun, abgesehen davon, dass sie einem ähnlichen Zweck dienen.
+The only similarity is the general purpose of both programs, which is farming Steam games in order to receive card drops. Everything else, including the actual farming method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation - IM is running on .NET Framework, ASF on .NET (Core). ASF wurde geschaffen, um IM-Probleme zu lösen, die mit einer einfachen Programmcode-Editierung nicht zu lösen waren - deshalb wurde ASF von Grund auf neu geschrieben, ohne eine einzige Programmzeile oder gar eine allgemeine Idee des IM zu verwenden, weil dieser Code und diese Ideen von Anfang an völlig fehlerhaft waren. IM und ASF sind wie Windows und Linux - beide sind Betriebssysteme und beide können auf Ihrem PC installiert werden, aber sie haben fast nichts miteinander zu tun, abgesehen davon, dass sie einem ähnlichen Zweck dienen.
 
 Aus diesem Grund sollten Sie ASF nicht mit IM vergleichen, basierend auf den Erwartungen an IM. Sie sollten ASF und IM als völlig unabhängige Programme mit eigenen exklusiven Funktionalitäten betrachten. Einige von ihnen überschneiden sich tatsächlich und man kann in beiden ein bestimmtes Feature finden, aber sehr selten, da ASF seinen Zweck mit einem völlig anderen Ansatz als IM erfüllt.
 
@@ -312,7 +312,7 @@ Eine detaillierte Erklärung findest du im Abschnitt **[Statistiken](https://git
 
 ### Ich verwende ein nicht unterstütztes Betriebssystem z. B. 32-Bit-Windows, kann ich trotzdem die neueste ASF-Version verwenden?
 
-Ja, und diese Version wird auch unterstützt, nur nicht offiziell erstellt. Schaue dir hierfür die generische Varianten im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)** an. ASF hat keine ausgeprägte Abhängigkeit vom Betriebssystem und es kann überall dort funktionieren, wo du eine funktionierende .NET Core Runtime, die auch 32-Bit Windows enthält, zum Laufen bekommen kannst, auch wenn es kein OS-spezifisches Paket für `win-x86` von uns gibt.
+Ja, und diese Version wird auch unterstützt, nur nicht offiziell erstellt. Schaue dir hierfür die generische Varianten im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)** an. ASF doesn't have any strong dependency upon the OS, and it can work anywhere where you can get a working .NET runtime, which includes 32-bit Windows, even if there is no `win-x86` OS-specific package from us.
 
 ---
 
@@ -479,7 +479,7 @@ In einem Satz: Fehler melden und Warnungen nicht melden. Du kannst nach wie vor 
 
 Unter normalen Bedingungen erzeugt jeder ASF-Crash oder -Ausgang eine `log.txt` im Verzeichnis des Programms, die Sie sich ansehen können, um die Ursache dafür zu finden. Zusätzlich werden einige kürzliche Logdateien auch im `Logs`-Verzeichnis archiviert, da die Haupt-`log.txt`-Datei wird mit jedem ASF-Lauf überschrieben.
 
-Wenn jedoch selbst die.NET Core Runtime nicht in der Lage ist, auf Ihrer Maschine zu booten, dann wird `log.txt` nicht erstellt. Wenn Ihnen das passiert, haben Sie höchstwahrscheinlich vergessen, die Voraussetzungen für die Installation von.NET Core zu erfüllen, wie in der Anleitung **[Einrichtung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE#os-specific-setup)** beschrieben. Andere häufige Probleme können der Versuch sein, eine falsche ASF-Variante für dein Betriebssystem zu starten, oder auf andere Weise fehlende native .NET Core Laufzeitabhängigkeiten. Wenn sich das Konsolenfenster zu früh schließt, als dass du die Nachricht lesen könntest, dann öffne die unabhängige Konsole und starte von dort aus die ASF-Binärdatei. Öffnen Sie beispielsweise unter Windows das ASF-Verzeichnis, halten Sie `Shift` gedrückt, klicken Sie mit der rechten Maustaste in den Ordner und wählen Sie *"Befehlsfenster hier öffnen"* (oder *Powershell*), geben Sie dann in die Konsole `.\ArchiSteamFarm.exe` ein und bestätigen Sie mit Enter. Auf diese Weise erhältst du eine genaue Meldung, warum ASF nicht richtig startet.
+However, if even .NET runtime isn't able to boot on your machine, then `log.txt` will not be generated. If that happens to you then you most likely forgot to install .NET prerequisites, as stated in **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)** guide. Other common problems include trying to launch wrong ASF variant for your OS, or in other way missing native .NET runtime dependencies. Wenn sich das Konsolenfenster zu früh schließt, als dass du die Nachricht lesen könntest, dann öffne die unabhängige Konsole und starte von dort aus die ASF-Binärdatei. Öffnen Sie beispielsweise unter Windows das ASF-Verzeichnis, halten Sie `Shift` gedrückt, klicken Sie mit der rechten Maustaste in den Ordner und wählen Sie *"Befehlsfenster hier öffnen"* (oder *Powershell*), geben Sie dann in die Konsole `.\ArchiSteamFarm.exe` ein und bestätigen Sie mit Enter. Auf diese Weise erhältst du eine genaue Meldung, warum ASF nicht richtig startet.
 
 ---
 
