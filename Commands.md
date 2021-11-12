@@ -63,7 +63,7 @@ Command | Access | Description
 `fbrm [Bots] <AppIDs>` | `Master` | Removes given `appIDs` from apps blacklisted from automatic farming of given bot instances.
 `fq [Bots]` | `Master` | Lists priority farming queue of given bot instances.
 `fqadd [Bots] <AppIDs>` | `Master` | Adds given `appIDs` to priority farming queue of given bot instances.
-`fqrm [Bots] <AppIDs>` | `Master` | Removes given `appIDs` from farming farming queue of given bot instances.
+`fqrm [Bots] <AppIDs>` | `Master` | Removes given `appIDs` from farming queue of given bot instances.
 `hash <hashingMethod> <stringToHash>` | `Owner` | Generated a hash of the string using provided cryptographic method - further explained **[below](#hash-command)**.
 `help` | `FamilySharing` | Shows help (link to this page).
 `input [Bots] <Type> <Value>` | `Master` | Sets given input type to given value for given bot instances, works only in `Headless` mode - further explained **[below](#input-command)**.
