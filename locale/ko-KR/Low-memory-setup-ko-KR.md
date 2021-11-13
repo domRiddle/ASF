@@ -45,15 +45,13 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 Below tricks **involve performance degradation** and should be used with caution.
 
+The recommended way of applying those settings is through `DOTNET_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
+
 .NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
-
-The recommended way of applying those settings is through `COMPlus_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
-
-Refer to the documentation for all the properties that you can use, we'll mention the most important ones (in our opinion) below:
 
 ### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
-> Specifies the GC heap usage as a percentage of the total memory.
+> Specifies the allowable GC heap usage as a percentage of the total physical memory.
 
 The "hard" memory limit for ASF process, this setting tunes GC to use only a subset of total memory and not all of it. It may become especially useful in various server-like situations where you can dedicate a fixed percentage of your server's memory for ASF, but never more than that. Be advised that limiting memory for ASF to use will not magically make all of those required memory allocations go away, therefore setting this value too low might result in running into out of memory scenarios, where ASF process will be forced to terminate.
 
@@ -65,7 +63,7 @@ On the other hand, setting this value high enough is a perfect way to ensure tha
 
 This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
 
-### `GCLatencyLevel`
+### **[`GCLatencyLevel`](https://github.com/dotnet/runtime/blob/4b90e803262cb5a045205d946d800f9b55f88571/src/coreclr/gc/gcpriv.h#L375-L398)**
 
 > Specifies the GC latency level that you want to optimize for.
 
@@ -79,15 +77,15 @@ This offers little improvement, but may make GC even more aggressive when system
 
 ---
 
-You can enable all GC properties by setting appropriate `COMPlus_` environment variables. For example, on Linux (shell):
+You can enable selected properties by setting appropriate environment variables. For example, on Linux (shell):
 
 ```shell
 # Don't forget to tune those if you're planning to make use of them
-export COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
-export COMPlus_GCHighMemPercent=50 # 80% as hex
+export DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
+export DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
-export COMPlus_GCLatencyLevel=0
-export COMPlus_gcTrimCommitOnLowMemory=1
+export DOTNET_GCLatencyLevel=0
+export DOTNET_gcTrimCommitOnLowMemory=1
 
 ./ArchiSteamFarm # For OS-specific build
 ```
@@ -96,11 +94,11 @@ Or on Windows (powershell):
 
 ```powershell
 # Don't forget to tune those if you're planning to make use of them
-$Env:COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
-$Env:COMPlus_GCHighMemPercent=50 # 80% as hex
+$Env:DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
+$Env:DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
-$Env:COMPlus_GCLatencyLevel=0
-$Env:COMPlus_gcTrimCommitOnLowMemory=1
+$Env:DOTNET_GCLatencyLevel=0
+$Env:DOTNET_gcTrimCommitOnLowMemory=1
 
 .\ArchiSteamFarm.exe # For OS-specific build
 ```
@@ -120,7 +118,7 @@ Below tricks **involve serious performance degradation** and should be used with
 ## 추천 최적화
 
 - Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
-- If it's still not enough, enable all configuration properties listed above by setting appropriate `COMPlus_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.
+- If it's still not enough, enable all configuration properties listed above by setting appropriate `DOTNET_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.
 - If even that didn't help, as a last resort enable `MinMemoryUsage` `OptimizationMode`. This forces ASF to execute almost everything in synchronous matter, making it work much slower but also not relying on thread pool to balance things out when it comes to parallel execution.
 
 It's physically impossible to decrease memory even further, your ASF is already heavily degraded in terms of performance and you depleted all your possibilities, both code-wise and runtime-wise. Consider adding some extra memory for ASF to use, even 128 MB would make a great difference.

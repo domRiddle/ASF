@@ -45,15 +45,13 @@ ASF 中使用的&#8203;**[垃圾收集](https://en.wikipedia.org/wiki/Garbage_co
 
 以下技巧**会造成性能下降**，应谨慎使用。
 
+应用这些设置的推荐方式是设置 `DOTNET_` 环境变量。 当然，您也可以使用其他方法，例如 `runtimeconfig.json`，但这种方法无法调整某些选项，并且 ASF 还会在每次更新时替换掉您的自定义 `runtimeconfig.json`，因此我们推荐使用环境变量，这样您就可以在运行程序之前轻松设置。
+
 .NET 运行时环境允许您以多种方式&#8203;**[调整垃圾回收](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/garbage-collector)**，根据需要高效地优化 GC 过程。
-
-应用这些设置的推荐方式是设置 `COMPlus_` 环境变量。 当然，您也可以使用其他方法，例如 `runtimeconfig.json`，但这种方法无法调整某些选项，并且 ASF 还会在每次更新时替换掉您的自定义 `runtimeconfig.json`，因此我们推荐使用环境变量，这样您就可以在运行程序之前轻松设置。
-
-请阅读文档了解所有您能使用的属性，我们也会在此说明（在我们眼中）最重要的几个：
 
 ### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
-> 以内存百分比形式指定 GC 堆空间使用量。
+> 以内存百分比形式指定允许 GC 堆空间使用物理内存总量。
 
 对 ASF 进程设置的硬性内存限制，此选项会调整 GC 仅使用一部分而不是全部内存。 这在各种服务器环境下可能非常有用，您可以为服务器上的 ASF 分配固定大小的内存，使 ASF 无法占用更多。 需要注意的是，限制 ASF 的可用内存不会神奇地减少它实际需要的内存，因此，如果将此选项设置得过低，就可能导致内存用尽，进而强制中止 ASF 进程。
 
@@ -65,7 +63,7 @@ ASF 中使用的&#8203;**[垃圾收集](https://en.wikipedia.org/wiki/Garbage_co
 
 此选项设置您整个操作系统可供使用的内存上限，设置后，GC 将会更加积极，更频繁地运行 GC 进程，借此向操作系统释放更多空闲内存，以尝试帮助操作系统降低内存负载。 推荐将此属性设置为您认为将会严重影响操作系统性能的最大内存占用（百分比形式）。 默认值为 90%，通常您会希望保持其在 80-97% 范围内，因为过低的值会造成不必要的激进 GC 并降低性能，而过高的值可能会导致操作系统负担过重，应该让 ASF 释放一些内存以缓解。
 
-### `GCLatencyLevel`
+### **[`GCLatencyLevel`](https://github.com/dotnet/runtime/blob/4b90e803262cb5a045205d946d800f9b55f88571/src/coreclr/gc/gcpriv.h#L375-L398)**
 
 > 指定您要优化的 GC 延迟级别。
 
@@ -79,15 +77,15 @@ ASF 中使用的&#8203;**[垃圾收集](https://en.wikipedia.org/wiki/Garbage_co
 
 ---
 
-您可以通过 `COMPlus_` 环境变量启用所有 GC 选项。 例如，在 Linux 上（Shell）：
+您可以通过环境变量启用指定的 GC 选项。 例如，在 Linux 上（Shell）：
 
 ```shell
 # 如要使用此功能，不要忘记调整此数值
-export COMPlus_GCHeapHardLimitPercent=4B # 16 进制表示的 75%
-export COMPlus_GCHighMemPercent=50 # 16 进制表示的 80%
+export DOTNET_GCHeapHardLimitPercent=0x4B # 75% 的十六进制表示
+export DOTNET_GCHighMemPercent=0x50 # 80% 的十六进制表示
 
-export COMPlus_GCLatencyLevel=0
-export COMPlus_gcTrimCommitOnLowMemory=1
+export DOTNET_GCLatencyLevel=0
+export DOTNET_gcTrimCommitOnLowMemory=1
 
 ./ArchiSteamFarm # 针对操作系统包
 ```
@@ -96,11 +94,11 @@ export COMPlus_gcTrimCommitOnLowMemory=1
 
 ```powershell
 # 如要使用此功能，不要忘记调整此数值
-$Env:COMPlus_GCHeapHardLimitPercent=4B # 16 进制表示的 75%
-$Env:COMPlus_GCHighMemPercent=50 # 16 进制表示的 80%
+$Env:DOTNET_GCHeapHardLimitPercent=0x4B # 75% 的十六进制表示
+$Env:DOTNET_GCHighMemPercent=0x50 # 80% 的十六进制表示
 
-$Env:COMPlus_GCLatencyLevel=0
-$Env:COMPlus_gcTrimCommitOnLowMemory=1
+$Env:DOTNET_GCLatencyLevel=0
+$Env:DOTNET_gcTrimCommitOnLowMemory=1
 
 .\ArchiSteamFarm.exe # 针对操作系统包
 ```
@@ -120,7 +118,7 @@ $Env:COMPlus_gcTrimCommitOnLowMemory=1
 ## 建议的优化
 
 - 从简单的 ASF 配置开始，也许您只是以错误的方式使用了 ASF，例如为所有的机器人启动多个进程，或者在只需要自动启动一两个机器人的情况下启动了所有机器人。
-- 如果仍然不理想，通过设置合适的 `COMPlus_` 环境变量启用所有上述的配置属性。 特别是 `GCLatencyLevel` 能够在轻微影响性能的情况下显著减少内存用量。
+- 如果仍然不理想，通过设置合适的 `DOTNET_` 环境变量启用所有上述的配置属性。 特别是 `GCLatencyLevel` 能够在轻微影响性能的情况下显著减少内存用量。
 - 如果这样仍然没有效果，作为最后的手段，您可以启用 `OptimizationMode` 的 `MinMemoryUsage` 选项。 这会强制 ASF 同步执行几乎所有操作，使其运行速度明显变慢，但在并行执行时也不再依赖于线程池来平衡。
 
 进一步减少内存用量是不可能的，此时您的 ASF 的性能已经严重降低，并且已经耗尽了代码方面与运行时方面所有的可能性。 您应该考虑为 ASF 增加一些内存设备，即使只增加 128 MB 也有明显的差别。

@@ -110,7 +110,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
 
 ASF는 기본적으로 두개의 블랙리스트를 가지고 있습니다. `GlobalBlacklist`는 ASF 코드 내부에 하드코딩되어 수정이 불가능하고, 일반적인 `Blacklist`는 여기에 정의됩니다. `GlobalBlacklist`는 ASF 버전과 함께 업데이트되고 보통 릴리스 시점의 모든 "나쁜" appID를 포함합니다. 따라서 당신이 최신의 ASF를 사용하고 있다면 자신만의 `Blacklist`를 여기에 정의하여 유지관리할 필요는 없습니다. 이 속성값의 주 목적은 ASF 릴리스 시점에 알려지지 않은 새로운 농사짓지 말아야 할 appID를 당신이 관리할 수 있게하는 것입니다. 하드코딩된 `GlobalBlacklist`는 가능한한 빨리 업데이트 되므로 당신이 최신의 ASF를 사용하고 있다면 자신만의 `Blacklist`를 업데이트할 필요는 없습니다. 하지만`Blacklist`가 없다면 Valve가 새로운 할인 배지를 내놓으면 당신은 ASF가 동작하게 하기 위하여 업데이트를 강요받게 됩니다. 우리는 당신에게 최신의 ASF를 사용하라고 강요하고 싶지 않습니다. 따라서 당신이 어떤 이유로 새 ASF 릴리스에 하드코딩된 `GlobalBlacklist`로 업데이트를 원하지 않거나 할 수 없을때, 혹은 예전의 ASF를 계속 쓰고싶을 때 여기 이 속성값으로 ASF를 고칠 수 있게 합니다. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-If you're looking for bot-based blacklist instead, take a look at `ib`, `ibadd` and `ibrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` and `fbrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
 
 ---
 
@@ -493,13 +493,13 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 위의 설명에 있는 "시도"라는 단어에 유의하십시오. 실제 ASF의 순서는 선택한 **[카드 농사 알고리즘](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR)**에 심하게 영향을 받고 정렬방식은 동일한 성능측면을 고려한 경우에만 영향을 줍니다. For example, in `Simple` algorithm, selected `FarmingOrders` should be entirely respected in current farming session (as every game has the same performance value), while in `Complex` algorithm actual order is affected by hours first, and then sorted according to chosen `FarmingOrders`. This will lead to different results, as games with existing playtime will have a priority over others, so effectively ASF will prefer games that already passed required `HoursUntilCardDrops` firstly, and only then sorting those games further by your chosen `FarmingOrders`. Likewise, once ASF runs out of already-bumped games, it'll sort remaining queue by hours first (as that will decrease time required for bumping any of remaining titles to `HoursUntilCardDrops`). Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer farming performance over `FarmingOrders`).
 
-There is also idling priority queue that is accessible through `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If it's used, actual farming order is sorted firstly by performance, then by idling queue, and finally by your `FarmingOrders`.
+There is also idling priority queue that is accessible through `fq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If it's used, actual farming order is sorted firstly by performance, then by idling queue, and finally by your `FarmingOrders`.
 
 ---
 
 ### `FarmPriorityQueueOnly`
 
-`bool` 타입으로 기본값은 `false`입니다. This property defines if ASF should consider for automatic farming only apps that you added yourself to priority idling queue available with `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF farming. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to farm on your account. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
+`bool` 타입으로 기본값은 `false`입니다. This property defines if ASF should consider for automatic farming only apps that you added yourself to priority idling queue available with `fq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF farming. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to farm on your account. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
 
 ---
 
@@ -646,7 +646,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 `bool` 타입으로 기본값은 `false`입니다. ASF가 해당 계정의 농사를 끝내면 이 시점까지 농사지은 모든 것을 포함시킨 Steam 거래를 `주인(Master)` 권한을 가진 사용자에게 자동으로 보낼 수 있습니다. 이는 직접 거래하기 귀찮다면 매우 편리합니다. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. 이 옵션이 켜져있다면 농사 후 `루팅`을 시작하는 것과 함께, ASF는 거래로 생기는 새로운 항목의 알림도 `루팅`을 시작합니다. 이것은 다른 사람이 우리 계정에 보낸 항목을 "전달"하는데 매우 유용합니다.
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `false`로 두십시오.
+시간이 들어도 수동으로 확인하길 원한다면 필수사항은 아니지만, 보통 이 기능과 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 을 함께 사용하길 원합니다. 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `false`로 두십시오.
 
 ---
 
@@ -654,13 +654,13 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 `byte` 타입으로 기본값은 `0`입니다. 이 속성값은 `SendOnFarmingFinished` 속성값과 매우 유사하게 동작하지만 차이가 하나 있습니다. 농사가 끝나면 거래를 보내는 대신 농사가 얼마나 남았는지와 상관없이 매 `SendTradePeriod` 시간마다 거래를 보냅니다. 부계정의 농사가 끝날때까지 기다리는 대신 평소에 `루팅` 하고 싶은 경우 유용합니다. 기본값인 `0`은 이 기능을 비활성화합니다. 예를 들어 봇이 매일 거래를 보내길 원한다면 여기에 `24`를 넣으십시오.
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `0`으로 두십시오.
+시간이 들어도 수동으로 확인하길 원한다면 필수사항은 아니지만, 보통 이 기능과 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 을 함께 사용하길 원합니다. 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `0`으로 두십시오.
 
 ---
 
 ### `ShutdownOnFarmingFinished`
 
-`bool` 타입으로 기본값은 `false`입니다. ASF는 활성화된 모든 시간동안 계정을 "점유하고" 있습니다. 해당 계정의 농사가 끝났다면, ASF는 주기적으로 매 `IdleFarmingPeriod` 시간마다 Steam 카드가 있는 새로운 게임이 그 사이에 추가되었는지를 확인하여 프로세스를 재시작할 필요없이 농사를 계속할 수 있도록 합니다. 이는 대부분의 사람들에게 유용한데, ASF는 필요하면 자동으로 농사를 이어서할 수 있기 때문입니다. 하지만 해당 계정이 완전히 농사가 끝난 다음에 프로세스를 실제로 멈추고 싶다면, 이 속성값을 `true`로 설정함으로써 그렇게 할 수 있습니다. 활성화되면 ASF는 계정의 농사가 완전히 끝나면 로그오프하여 더이상 주기적으로 체크하거나 점유하지 않게 합니다. ASF가 모든 시간을 봇 인스턴스에 사용하도록 하거나, 혹은 농사 프로세스가 끝나면 멈추게 할지를 스스로 정해야 합니다. When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well, putting your machine at rest and allowing you to schedule other actions, such as sleep or shutdown at the same moment of last card dropping.
+`bool` 타입으로 기본값은 `false`입니다. ASF는 활성화된 모든 시간동안 계정을 "점유하고" 있습니다. 해당 계정의 농사가 끝났다면, ASF는 주기적으로 매 `IdleFarmingPeriod` 시간마다 Steam 카드가 있는 새로운 게임이 그 사이에 추가되었는지를 확인하여 프로세스를 재시작할 필요없이 농사를 계속할 수 있도록 합니다. 이는 대부분의 사람들에게 유용한데, ASF는 필요하면 자동으로 농사를 이어서할 수 있기 때문입니다. 하지만 해당 계정이 완전히 농사가 끝난 다음에 프로세스를 실제로 멈추고 싶다면, 이 속성값을 `true`로 설정함으로써 그렇게 할 수 있습니다. 활성화되면 ASF는 계정의 농사가 완전히 끝나면 로그오프하여 더이상 주기적으로 체크하거나 점유하지 않게 합니다. ASF가 모든 시간을 봇 인스턴스에 사용하도록 하거나, 혹은 농사 프로세스가 끝나면 멈추게 할지를 스스로 정해야 합니다. 모든 계정이 멈추고 프로세스가 `--process-required` **[모드](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-ko-KR)** 에서 실행중이 아니면, ASF 또한 종료되고 기기도 쉴 수 있게 되며, 마지막 카드 획득 순간에 대기모드나 종료 등 다른 작업을 할 수 있도록 합니다.
 
 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `false`로 두십시오.
 
@@ -668,7 +668,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `SkipRefundableGames`
 
-`bool` 타입으로 기본값은 `false`입니다. This property defines if ASF is permitted to farm games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
+`bool` 타입으로 기본값은 `false`입니다. This property defines if ASF is permitted to farm games that are still refundable. 환불 가능한 게임은 **[Steam 환불](https://store.steampowered.com/steam_refunds)** 페이지에 게시된 것 처럼 Steam 상점에서 구매한지 2주 이내이고 2시간을 넘지않게 플레이한 게임입니다. By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
 
 ---
 

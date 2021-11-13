@@ -110,7 +110,7 @@ Si tel est le cas, cette fonction est spécialement conçue pour vous et vous po
 
 ASF inclut deux listes noires par défaut - `GlobalBlacklist`, qui est codé en dur dans le code de ASF et pas possible de l'éditer et une `liste noire` normal, qui est défini ici. `GlobalBlacklist` est mis à jour avec la version de ASF et comprend généralement tous les « mauvais » AppID au moment de sa sortie, si vous utilisez ASF à jour vous n’avez pas besoin de maintenir votre propre `liste noire` défini ici. Le but principal de cette propriété est de vous permettre de mettre en liste noire de nouveaux identificateurs d’application non connus au moment de la publication d'une nouvelle version ASF, qui ne doivent pas être mis en farming. Codé en dur `GlobalBlacklist` est mis à jour aussi vite que possible, donc vous n’êtes pas tenu de mettre à jour votre propre `liste noire` si vous utilisez la dernière version de l’ASF, mais sans `liste noire` vous seraient obligés de mettre à jour ASF afin de « continuer à fonctionner » lorsque Steam libère des nouveaux badges - je ne veux pas vous forcer à utiliser le dernier code ASF, par conséquent, cette propriété est ici pour vous permettent de « fixer » ASF vous-même si pour une raison quelconque vous ne voulez pas ou ne pouvez pas, mettre à jour à nouveau en `GlobalBlacklist` dur dans la nouvelle version de ASF , mais vous voulez garder votre ancienne version d’ASF. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-If you're looking for bot-based blacklist instead, take a look at `ib`, `ibadd` and `ibrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` and `fbrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
 
 ---
 
@@ -494,13 +494,13 @@ Since this property is an array, it allows you to use several different settings
 
 Also notice the word "try" in all above descriptions - the actual ASF order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. For example, in `Simple` algorithm, selected `FarmingOrders` should be entirely respected in current farming session (as every game has the same performance value), while in `Complex` algorithm actual order is affected by hours first, and then sorted according to chosen `FarmingOrders`. This will lead to different results, as games with existing playtime will have a priority over others, so effectively ASF will prefer games that already passed required `HoursUntilCardDrops` firstly, and only then sorting those games further by your chosen `FarmingOrders`. Likewise, once ASF runs out of already-bumped games, it'll sort remaining queue by hours first (as that will decrease time required for bumping any of remaining titles to `HoursUntilCardDrops`). Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer farming performance over `FarmingOrders`).
 
-There is also idling priority queue that is accessible through `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If it's used, actual farming order is sorted firstly by performance, then by idling queue, and finally by your `FarmingOrders`.
+There is also idling priority queue that is accessible through `fq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If it's used, actual farming order is sorted firstly by performance, then by idling queue, and finally by your `FarmingOrders`.
 
 ---
 
 ### `FarmPriorityQueueOnly`
 
-`bool` avec la valeur par défaut `false`. This property defines if ASF should consider for automatic farming only apps that you added yourself to priority idling queue available with `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF farming. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to farm on your account. Si vous ne savez pas si cette fonctionnalité doit être activée ou non, conservez-la avec la valeur par défaut `false`.
+`bool` avec la valeur par défaut `false`. This property defines if ASF should consider for automatic farming only apps that you added yourself to priority idling queue available with `fq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF farming. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to farm on your account. Si vous ne savez pas si cette fonctionnalité doit être activée ou non, conservez-la avec la valeur par défaut `false`.
 
 ---
 
@@ -653,7 +653,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `SendTradePeriod`
 
-`byte` type with default value of `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
+`byte` avec la valeur par défaut `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
 
 Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. Si vous n'êtes pas sur du réglage de cette propriété, laissez-la à la valeur par défaut de `0`.
 

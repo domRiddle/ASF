@@ -88,7 +88,7 @@ ASF 是一个 C# 程序，需要安装正常工作的 .NET 环境实现。 自 .
 
 ### 我可以选择挂哪些游戏吗？
 
-**是的**，有几种方式可以做到。 如果您想调整挂卡队列的默认顺序，可以调整 `FarmingOrders` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**。 如果您希望手动禁用一些游戏的自动挂卡，可以使用 `ib` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;管理挂卡黑名单。 如果挂所有游戏对您来说没问题，但是需要优先挂一部分，可以使用 `iq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;管理优先挂卡队列。 最后，如果只需要挂您指定的游戏，可以设定 `FarmPriorityQueueOnly` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**，并且将指定的游戏加入优先挂卡队列。
+**是的**，有几种方式可以做到。 如果您想调整挂卡队列的默认顺序，可以调整 `FarmingOrders` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**。 如果您希望手动禁用一些游戏的自动挂卡，可以使用 `fb` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;管理挂卡黑名单。 如果挂所有游戏对您来说没问题，但是需要优先挂一部分，可以使用 `fq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;管理优先挂卡队列。 最后，如果只需要挂您指定的游戏，可以设定 `FarmPriorityQueueOnly` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**，并且将指定的游戏加入优先挂卡队列。
 
 除了管理上述的自动挂卡模块之外，您也可以使用 ASF 手动模式，即 `play` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，或者使用一些杂项设置，例如 `GamesPlayedWhileIdle` **[机器人配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#机器人配置)**。
 
@@ -439,7 +439,7 @@ ASF 基于宽松的 Apache 2.0 许可证授权，允许其他开发者合法地�
 
 此问题的原因可能是 Steam 的一个已知问题，即您拥有同一款游戏的两份许可，其中一份许可含有卡牌掉落限制。 通常这是因为您在 Steam 上领取了限时免费的游戏，同时又为同一款游戏激活了没有限制的序列号（例如来自付费捆绑包）。 如果出现这种情况，Steam 会在徽章页面上显示此游戏仍然有卡牌未掉落，但由于您的帐户拥有免费版本许可，无论您玩多久，都不会有卡牌掉落。 因为这不是 ASF 而是 Steam 的问题，我们无法在 ASF 一方绕过此问题，您必须自己解决。
 
-有两种方式解决此问题。 第一种，您可以在 ASF 内使用 `ibadd` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;或者 `Blacklist` **[配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;将此游戏加入黑名单。 这将阻止 ASF 为此游戏挂卡，但这种方法治标不治本，并未能真正解决阻止您从此游戏中获得卡牌的根本问题。 第二种，您可以使用 Steam 客服的自助服务工具移除帐户内的免费许可，仅保留能够掉落卡牌的完整版许可。 要做到这一点，首先您需要访问&#8203;**[查看许可和产品序列号激活](https://store.steampowered.com/account/licenses)**&#8203;页面，然后分别找到受影响游戏的免费与付费许可。 通常这非常简单——两者的名字相似，但免费版本的名字会包含“Limited Free Promotional Package”（限时免费促销包）或者类似“Promo”的单词，并且“获取方式”一列应显示为“免费赠送”。 但有时也会比较麻烦，例如免费许可也许在捆绑包中或者名称不同。 如果您找到了如上所述的两份许可——那么问题的根源就确实在此，您可以安全地移除免费许可，并且仍然保留游戏。
+有两种方式解决此问题。 第一种，您可以在 ASF 内使用 `fbadd` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;或者 `Blacklist` **[配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN)**&#8203;将此游戏加入黑名单。 这将阻止 ASF 为此游戏挂卡，但这种方法治标不治本，并未能真正解决阻止您从此游戏中获得卡牌的根本问题。 第二种，您可以使用 Steam 客服的自助服务工具移除帐户内的免费许可，仅保留能够掉落卡牌的完整版许可。 要做到这一点，首先您需要访问&#8203;**[查看许可和产品序列号激活](https://store.steampowered.com/account/licenses)**&#8203;页面，然后分别找到受影响游戏的免费与付费许可。 通常这非常简单——两者的名字相似，但免费版本的名字会包含“Limited Free Promotional Package”（限时免费促销包）或者类似“Promo”的单词，并且“获取方式”一列应显示为“免费赠送”。 但有时也会比较麻烦，例如免费许可也许在捆绑包中或者名称不同。 如果您找到了如上所述的两份许可——那么问题的根源就确实在此，您可以安全地移除免费许可，并且仍然保留游戏。
 
 要从帐户内移除免费许可证，您需要访问 **[Steam 客服页面](https://help.steampowered.com/wizard/HelpWithGame)**，并在搜索框内输入受影响的游戏，这款游戏应该会出现在“产品”一栏中，点击此游戏。 或者，您也可以访问 `https://help.steampowered.com/wizard/HelpWithGame?appid=<appID>` 链接，但要把其中的 `<appID>` 替换为受影响游戏的实际 AppID。 然后，点击“我想从帐户中移除这款游戏”，再选择您之前找到的免费版本许可，即通常在名字中包含“Limited Free Promotional Package”（或类似内容）的那一个。 在移除免费许可之后，ASF 应该已经能够从受影响的游戏中正常获得卡牌，您需要在移除许可之后重新启动挂卡操作，确保 Steam 这次提供了正确的许可。
 

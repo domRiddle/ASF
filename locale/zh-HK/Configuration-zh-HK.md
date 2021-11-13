@@ -110,7 +110,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
 
 預設情況下，ASF包括兩個黑名單──硬編碼到ASF代碼中、無法編輯的`GlobalBlacklist`，以及可自訂的`Blacklist`，它們的概念將在此定義。 `GlobalBlacklist` 與ASF版本一起更新，通常包括發佈時的所有「壞」appIDs，因此，如果您使用的是最新的ASF，則無需維護此處的自訂`Blacklist`。 此屬性的主要目的是允許您將在ASF發佈時未知的新appIDs設置為黑名單，不予掛卡。 我們會盡可能快地更新硬編碼的 `GlobalBlacklist`，因此，如果您使用的是最新的 ASF 版本，則不需要更新自己的 `Blacklist`。 但如果沒有 `Blacklist`， 您將被要求更新ASF，以便在Valve發佈新徽章的情況下「繼續運行」。我不想強迫您使用最新的 ASF 代碼，此屬性是為了讓您手動「修復」ASF。如果您出於某種原因不想，或不能更新您的ASF版本，您可以更新硬編碼 `GlobalBlacklist`以保持你的舊 ASF 運行。 Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-If you're looking for bot-based blacklist instead, take a look at `ib`, `ibadd` and `ibrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` and `fbrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
 
 ---
 
@@ -493,13 +493,13 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 另請注意以上所有描述中的“嘗試”一詞——實際的ASF順序受所選** [掛卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**的影響，並且排序將僅影響ASF認為性能相同的結果。 例如，在` Simple `算法中，在當前的掛卡會話中應該完全遵循所選的` FarmingOrders `（因為每個遊戲具有相同的性能值），而在` Complex `算法中，實際順序首先受遊戲時間影響，然後根據所選` FarmingOrders `進行排序。 這將導致不同的結果，因為具有遊戲時間的遊戲將優先於其他遊戲，因此ASF將首先優先選擇遊戲時間滿足所需的` HoursUntilCardDrops `的遊戲，然後僅通過您選擇的 `FarmingOrders`進一步對這些遊戲進行排序。 同樣，一旦ASF完成對置頂遊戲的掛卡，它將首先按遊戲時間對剩餘隊列排序（因為這將減少將任何剩餘遊戲掛卡以達` HoursUntilCardDrops `所需的時間）。 Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer farming performance over `FarmingOrders`).
 
-還有可通過` iq ` ** [命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**訪問的空閒優先級隊列。 If it's used, actual farming order is sorted firstly by performance, then by idling queue, and finally by your `FarmingOrders`.
+There is also idling priority queue that is accessible through `fq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If it's used, actual farming order is sorted firstly by performance, then by idling queue, and finally by your `FarmingOrders`.
 
 ---
 
 ### `FarmPriorityQueueOnly`
 
-預設值為 `false` 的 `bool` 類型。 This property defines if ASF should consider for automatic farming only apps that you added yourself to priority idling queue available with `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF farming. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to farm on your account. 如果您不確定是否要啟用此功能，請將其保留為預設值 `false`。
+預設值為 `false` 的 `bool` 類型。 This property defines if ASF should consider for automatic farming only apps that you added yourself to priority idling queue available with `fq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF farming. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to farm on your account. 如果您不確定是否要啟用此功能，請將其保留為預設值 `false`。
 
 ---
 
@@ -638,7 +638,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 所有兌換方案的實際順序是按機械人名稱字母順序排列的，不包括不可用的機械人 （未連接，停止或類似情況）。 請記住，每個IP和每個帳戶在一小時内存在兌換次數的限制，並且每次以` OK `結尾的兌換嘗試都會導致失敗。 ASF將盡最大努力減少` AlreadyPurchased `失敗的次數，例如通過嘗試避免將密鑰轉發給已經擁有該特定遊戲的另一個機械人，但由於Steam處理許可證的方式，它並不總能保證工作。 使用兌換標誌（例如` Forwarding `或` Distributing `）將始終增加您觸發` RateLimited `的可能性。
 
-還要記住，您不能將金鑰轉發或分發給您無權訪問的機械人。 This should be obvious, but ensure that you're at least `Operator` of all the bots you want to include in your redeeming process, for example with `status ASF` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+還要記住，您不能將金鑰轉發或分發給您無權訪問的機械人。 這應該是顯而易見的，但請確保您至少要對兌換過程中包含所有的機器人擁有` Operator `訪問權限，例如可以執行` status ASF ` ** <a href =“https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands”>命令</a> **。
 
 ---
 
@@ -646,7 +646,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 預設值為 `false` 的 `bool` 類型。 當 ASF 完成對給定帳戶的掛卡之後，它可以自動向擁有` Master `權限的用戶發送至今為止的掛卡所得，如果您不想自己發起交易提案，這將帶來便利。 此選項與` loot `命令的作用相同，因此請謹記，首先您需要有效的` SteamTradeToken `， 並使用實際有資格進行交易的帳戶，且只有` Master `權限集的用戶才能執行。 此選項處於活動狀態時，ASF除了在完成掛卡後執行` loot `之外，還（ 總是）會在收到每個新物品通知（不掛卡時）或完成每次交易之後執行` loot `。 這對於將從別處收到的物品「轉發」到我們的帳戶特別有用。
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
+通常情況下，您需要將此功能與 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**配合使用，但如果您打算手動確認，則 ASF 2FA並非必需。 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
 
 ---
 
@@ -654,13 +654,13 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 這是一個預設值為`0` 的 `byte flags` 類型。 這個屬性與` SendOnFarmingFinished `屬性非常相似，只有一個區別——當掛卡完成時，我們也可以每隔` SendTradePeriod `小時發送一次交易提案，而考慮我們有多少尚未完成掛卡的遊戲。 如果您想隨時從您的小號處 `拾取` 掛卡所得，而不必等待它完成掛卡，這將會很有幫助。 預設值 `0` 將禁用此功能，如果您想讓您的機器人向您發送交易，例如每天，您應該將此值設置為` 24 `。
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 如果您不確定該如何設置此屬性，請將其保留為預設值`0`。
+通常情況下，您需要將此功能與 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**配合使用，但如果您打算手動確認，則 ASF 2FA並非必需。 如果您不確定該如何設置此屬性，請將其保留為預設值`0`。
 
 ---
 
 ### `ShutdownOnFarmingFinished`
 
-預設值為 `false` 的 `bool` 類型。 ASF 會在整個進程中「佔用」處於活動狀態的帳戶。 當給定帳戶完成掛卡之後，ASF 會定期（每個` IdleFarmingPeriod `小時）檢查帳戶狀態，如果在此期間新增了一些帶有 Steam 卡的新遊戲，那麼它可以在無需重啓的情況下恢復該帳戶的掛卡進程。 這對大多數人都很有用，因為 ASF 可以在需要時自動復原掛卡。 但是，您可能實際上希望在給定帳戶完全結束掛卡後停止該過程，您可以通過將此屬性設置為 `true` 來實現。 啟用後，ASF 將在帳戶完全結束掛卡後登出，這意味著 ASF 不會對此帳戶進行定期檢查或佔用。 您應該自己決定是否更喜歡ASF在整個時間內使用給定的機械人實例，或者ASF是否應該在掛卡過程完成時停止它。 When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well, putting your machine at rest and allowing you to schedule other actions, such as sleep or shutdown at the same moment of last card dropping.
+預設值為 `false` 的 `bool` 類型。 ASF 會在整個進程中「佔用」處於活動狀態的帳戶。 當給定帳戶完成掛卡之後，ASF 會定期（每個` IdleFarmingPeriod `小時）檢查帳戶狀態，如果在此期間新增了一些帶有 Steam 卡的新遊戲，那麼它可以在無需重啓的情況下恢復該帳戶的掛卡進程。 這對大多數人都很有用，因為 ASF 可以在需要時自動復原掛卡。 但是，您可能實際上希望在給定帳戶完全結束掛卡後停止該過程，您可以通過將此屬性設置為 `true` 來實現。 啟用後，ASF 將在帳戶完全結束掛卡後登出，這意味著 ASF 不會對此帳戶進行定期檢查或佔用。 您應該自己決定是否更喜歡ASF在整個時間內使用給定的機械人實例，或者ASF是否應該在掛卡過程完成時停止它。 當所有帳戶都停止並且進程未在 `--process-required` **[模式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**下運行時，ASF 也將關閉，讓您的機器處於休眠狀態，並允許您安排其他操作，例如在獲得最後一張掉落卡片之後進入睡眠或關機狀態。
 
 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
 
@@ -668,7 +668,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `SkipRefundableGames`
 
-預設值為 `false` 的 `bool` 類型。 This property defines if ASF is permitted to farm games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. 如果您不確定是否要啟用此功能，請將其保留為預設值 `false`。
+預設值為 `false` 的 `bool` 類型。 This property defines if ASF is permitted to farm games that are still refundable. 所謂可退款的遊戲，是你在過去2周內通過 Steam 商店購買但遊戲時間不超過2小時的遊戲，如 **[Steam 退款](https://store.steampowered.com/steam_refunds)**頁面所述。 By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. 如果您不確定是否要啟用此功能，請將其保留為預設值 `false`。
 
 ---
 

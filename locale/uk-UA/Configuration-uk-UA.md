@@ -110,7 +110,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
 
 ASF за замовчуванням має два чорні списки - `GlobalBlacklist`, який жорстко запрограмовано у коді ASF, і який неможливо змінити, та звичайний `Blacklist`, який тут описано. `GlobalBlacklist` оновлюється разом з новою версією ASF, і зазвичай вже має усі "погані" appID, відомі на час випуску, тому, якщо ви користуєтесь останньою версією ASF вам немає потреби підтримувати власний `Blacklist`, який тут описано. Основною метою цього параметру є надати можливість додавати до чорного списку нові, невідомі на час випуску ASF appID, які не треба фармити. Записаний у коді `GlobalBlacklist` оновлюється якнайшвидше, тому вам немає потреби оновлювати власний `Blacklist`, якщо ви користуєтесь останньою версією ASF, але без наявності `Blacklist` ви були б змушені оновлювати ASF щоб він міг працювати, кожен раз коли Valve випускає новий значок розпродажу - а я не хочу змушувати вас користуватися лише останньою версією ASF, тому цей параметр дає вам можливість "відремонтувати" ASF самостійно, якщо через якісь підстави ви не хочете, чи не можете, оновитися до нового `GlobalBlacklist` у випуску ASF, але хочете щоб ваша стара версія ASF продовжувала працювати. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
-If you're looking for bot-based blacklist instead, take a look at `ib`, `ibadd` and `ibrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` and `fbrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
 
 ---
 
@@ -493,13 +493,13 @@ Since this property is an array, it allows you to use several different settings
 
 Also notice the word "try" in all above descriptions - the actual ASF order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. For example, in `Simple` algorithm, selected `FarmingOrders` should be entirely respected in current farming session (as every game has the same performance value), while in `Complex` algorithm actual order is affected by hours first, and then sorted according to chosen `FarmingOrders`. This will lead to different results, as games with existing playtime will have a priority over others, so effectively ASF will prefer games that already passed required `HoursUntilCardDrops` firstly, and only then sorting those games further by your chosen `FarmingOrders`. Likewise, once ASF runs out of already-bumped games, it'll sort remaining queue by hours first (as that will decrease time required for bumping any of remaining titles to `HoursUntilCardDrops`). Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer farming performance over `FarmingOrders`).
 
-There is also idling priority queue that is accessible through `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If it's used, actual farming order is sorted firstly by performance, then by idling queue, and finally by your `FarmingOrders`.
+There is also idling priority queue that is accessible through `fq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If it's used, actual farming order is sorted firstly by performance, then by idling queue, and finally by your `FarmingOrders`.
 
 ---
 
 ### `FarmPriorityQueueOnly`
 
-параметр типу `bool` зі значенням за замовчуванням `false`. This property defines if ASF should consider for automatic farming only apps that you added yourself to priority idling queue available with `iq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF farming. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to farm on your account. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+параметр типу `bool` зі значенням за замовчуванням `false`. This property defines if ASF should consider for automatic farming only apps that you added yourself to priority idling queue available with `fq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF farming. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to farm on your account. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
 
 ---
 
@@ -652,7 +652,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `SendTradePeriod`
 
-`byte` type with default value of `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
+параметр типу `byte` зі значенням за замовчуванням `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
 
 Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. If you're not sure how to set this property, leave it with default value of `0`.
 

@@ -45,15 +45,13 @@ Lo que significa que la memoria se elevará más cuando ASF está leyendo las p�
 
 Los siguientes trucos **involucran una reducción del rendimiento** y deben ser usados con precaución.
 
+La forma recomendada de aplicar estas configuraciones es a través de las propiedades de entorno `DOTNET_`. Por supuesto, también podrías usar otros métodos, por ejemplo, `runtimeconfig.json`, pero algunas configuraciones son imposibles de establecer de esta manera, encima de eso ASF reemplazará tu `runtimeconfig.json` personalizado en la siguiente actualización, por lo tanto recomendamos propiedades de entorno que puedas establecer fácilmente antes de ejecutar el proceso.
+
 .NET runtime te permite **[modificar el recolector de basura](https://docs.microsoft.com/es-es/dotnet/core/run-time-config/garbage-collector)** de muchas formas, ajustando eficazmente el proceso de recolección de basura de acuerdo a tus necesidades.
-
-La forma recomendada de aplicar estas configuraciones es a través de las propiedades de entorno `COMPlus_`. Por supuesto, también podrías usar otros métodos, por ejemplo, `runtimeconfig.json`, pero algunas configuraciones son imposibles de establecer de esta manera, encima de eso ASF reemplazará tu `runtimeconfig.json` personalizado en la siguiente actualización, por lo tanto recomendamos propiedades de entorno que puedas establecer fácilmente antes de ejecutar el proceso.
-
-Consulta la documentación para todas las propiedades que puedes utilizar, a continuación mencionaremos las más importantes (en nuestra opinión):
 
 ### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/es-es/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
-> Especifica el uso del recolector de basura como un porcentaje de la memoria total.
+> Especifica el uso de montículo (heap) permitido del recolector de basura como un porcentaje de la memoria física total.
 
 El límite "duro" de memoria para el proceso de ASF, este parámetro ajusta el recolector de basura para usar solamente un subconjunto de la memoria total y no toda. Puede resultar especialmente útil en situaciones de servidor donde puedes dedicar un porcentaje fijo de la memoria de tu servidor para ASF, pero nunca más que eso. Ten en cuenta que limitar la memoria de ASF no hará que todas las asignaciones de memoria necesarias desaparezcan mágicamente, por lo tanto establecer este valor demasiado bajo podría resultar en situaciones de falta de memoria, donde el proceso de ASF se verá forzado a finalizar.
 
@@ -65,7 +63,7 @@ Por otro lado, establecer este valor lo suficientemente alto es una forma perfec
 
 Esta configuración ajusta el límite de memoria de todo tu sistema operativo, causando que el recolector de basura se vuelva más agresivo e intente ayudar al sistema operativo a reducir la carga de memoria al ejecutar un proceso de recolección de basura más intensivo y como resultado libera más memoria de vuelta al sistema operativo. Es una buena idea establecer esta propiedad a la cantidad máxima de memoria (como porcentaje) que consideres "crítica" para el rendimiento de tu sistema operativo. Por defecto es 90%, y normalmente quieres mantenerlo en un rango de 80-97%, ya que un valor demasiado bajo ocasionará una agresión innecesaria del recolector de basura y la degradación del rendimiento sin motivo alguno, mientras que un valor muy alto causará una carga innecesaria a tu sistema operativo, considerando que ASF podría liberar parte de su memoria para ayudar.
 
-### `GCLatencyLevel`
+### **[`GCLatencyLevel`](https://github.com/dotnet/runtime/blob/4b90e803262cb5a045205d946d800f9b55f88571/src/coreclr/gc/gcpriv.h#L375-L398)**
 
 > Especifica el nivel de latencia del recolector de basura para el que deseas optimizar.
 
@@ -79,15 +77,15 @@ Esto ofrece pocos beneficios, pero puede hacer que el recolector de basura sea m
 
 ---
 
-Puedes habilitar todas las propiedades del recolector de basura estableciendo las variables de entorno `COMPlus_` apropiadas. Por ejemplo, en Linux (shell):
+Puedes habilitar las propiedades seleccionadas configurando las variables de entorno apropiadas. Por ejemplo, en Linux (shell):
 
 ```shell
 # No olvides ajustar estas configuraciones si planeas usarlas
-export COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
-export COMPlus_GCHighMemPercent=50 # 80% as hex
+export DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
+export DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
-export COMPlus_GCLatencyLevel=0
-export COMPlus_gcTrimCommitOnLowMemory=1
+export DOTNET_GCLatencyLevel=0
+export DOTNET_gcTrimCommitOnLowMemory=1
 
 ./ArchiSteamFarm # For OS-specific build
 ```
@@ -96,11 +94,11 @@ O en Windows (powershell):
 
 ```powershell
 # No olvides ajustar estas configuraciones si planeas usarlas
-$Env:COMPlus_GCHeapHardLimitPercent=4B # 75% as hex
-$Env:COMPlus_GCHighMemPercent=50 # 80% as hex
+$Env:DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
+$Env:DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
-$Env:COMPlus_GCLatencyLevel=0
-$Env:COMPlus_gcTrimCommitOnLowMemory=1
+$Env:DOTNET_GCLatencyLevel=0
+$Env:DOTNET_gcTrimCommitOnLowMemory=1
 
 .\ArchiSteamFarm.exe # For OS-specific build
 ```
@@ -120,7 +118,7 @@ Los siguientes trucos **involucran una reducción importante del rendimiento** y
 ## Optimización recomendada
 
 - Empieza con los trucos de configuración simples, tal vez solo estás usando ASF de una manera equivocada, tal como iniciar el proceso varias veces para todos tus bots, o mantenerlos todos activos cuando solo necesitas que se inicien automáticamente uno o dos.
-- Si aún no es suficiente, habilita todas las propiedades de configuración mencionadas arriba estableciendo las variables de entorno `COMPlus_` apropiadas. Especialmente `GCLatencyLevel`, que ofrece significativas mejoras en el tiempo de ejecución por poco costo en rendimiento.
+- Si aún no es suficiente, habilita todas las propiedades de configuración mencionadas arriba estableciendo las variables de entorno `DOTNET_` apropiadas. Especialmente `GCLatencyLevel`, que ofrece significativas mejoras en el tiempo de ejecución por poco costo en rendimiento.
 - Si tampoco eso ayudó, como último recurso habilita `MinMemoryUsage` en `OptimizationMode`. Esto obliga a ASF a ejecutar casi todo de forma sincrónica, haciéndolo funcionar mucho más lento pero también lo hace no depender del grupo de subprocesos para equilibrar las cosas cuando se trata de la ejecución en paralelo.
 
 Es físicamente imposible reducir aún más la memoria, ASF ya está muy degradado en términos de rendimiento y ya agotaste todas las posibilidades, tanto en términos de código como en tiempo de ejecución. Considera añadir algo de memoria adicional para que use ASF, incluso 128 MB harían una gran diferencia.

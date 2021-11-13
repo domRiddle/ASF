@@ -10,13 +10,11 @@
 
 ## 运行时环境调优（高级）
 
-以下技巧**会造成严重的内存消耗**，应谨慎使用。
+以下技巧**会造成严重的内存消耗以及启动时间增长**，因此应该谨慎使用。
+
+应用这些设置的推荐方式是设置 `DOTNET_` 环境变量。 当然，您也可以使用其他方法，例如 `runtimeconfig.json`，但这种方法无法调整某些选项，并且 ASF 还会在每次更新时替换掉您的自定义 `runtimeconfig.json`，因此我们推荐使用环境变量，这样您就可以在运行程序之前轻松设置。
 
 .NET 运行时环境允许您以多种方式&#8203;**[调整垃圾回收](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/garbage-collector)**，根据需要高效地优化 GC 过程。
-
-应用这些设置的推荐方式是设置 `COMPlus_` 环境变量。 当然，您也可以使用其他方法，例如 `runtimeconfig.json`，但这种方法无法调整某些选项，并且 ASF 还会在每次更新时替换掉您的自定义 `runtimeconfig.json`，因此我们推荐使用环境变量，这样您就可以在运行程序之前轻松设置。
-
-请阅读文档了解所有您能使用的属性，我们也会在此说明（在我们眼中）最重要的几个：
 
 ### [`gcServer`](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
@@ -32,12 +30,34 @@ ASF 默认使用工作站 GC。 这主要是因为其在内存消耗和性能之
 
 但是，如果内存对您来说不是问题（因为 GC 仍会根据您的可用内存自行调整），那么最好完全不更改这些属性，从而达到最佳性能。
 
+### **[`DOTNET_TieredPGO`](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/compilation#profile-guided-optimization)**
+
+> 此选项在 .NET 6 及更高版本中启用动态或分层的按配置优化（PGO）。
+
+默认禁用。 简而言之，这会导致 JIT 花费更多时间分析 ASF 的代码及其模式，以便为您的典型使用方式生成深度优化的代码。 如果您想了解更多此选项的信息，请访问 **[performance improvements in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**。
+
+### **[`DOTNET_ReadyToRun`](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/compilation#readytorun)**
+
+> 配置 .NET Core 运行时是否要为具有可用 ReadyToRun 数据的映像使用预编译代码。 如果禁用此选项，会强制运行时对框架代码进行 JIT 编译。
+
+默认启用。 如果禁用此选项同时启用 `DOTNET_TieredPGO`，您可以将分层按配置优化应用到整个 .NET 平台，而不仅仅是 ASF 的代码。
+
+### **[`DOTNET_TC_QuickJitForLoops`](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
+
+> 配置 JIT 编译器是否对包含循环的方法使用快速 JIT。 启用适用于循环的快速 JIT 可以提高启动性能。 不过，在优化程度较低的代码中，长时间运行的循环可能会停滞较长时间。
+
+默认禁用。 虽然描述不是很明显，但启用此选项将允许包含循环的方法经过额外的编译层，使 `DOTNET_TieredPGO` 能够通过分析使用数据做得更好。
+
 ---
 
-您可以通过 `COMPlus_` 环境变量启用所有 GC 选项。 例如，在 Linux 上（Shell）：
+您可以通过设置环境变量启用指定的属性。 例如，在 Linux 上（Shell）：
 
 ```shell
-export COMPlus_gcServer=1
+export DOTNET_gcServer=1
+
+export DOTNET_TieredPGO=1
+export DOTNET_ReadyToRun=0
+export DOTNET_TC_QuickJitForLoops=1
 
 ./ArchiSteamFarm # 针对操作系统包
 ```
@@ -45,7 +65,10 @@ export COMPlus_gcServer=1
 或者在 Windows 上（Powershell）：
 
 ```powershell
-$Env:COMPlus_gcServer=1
+$Env:DOTNET_gcServer=1
+$Env:DOTNET_TieredPGO=1
+$Env:DOTNET_ReadyToRun=0
+$Env:DOTNET_TC_QuickJitForLoops=1
 
 .\ArchiSteamFarm.exe # 针对操作系统包
 ```
@@ -55,7 +78,8 @@ $Env:COMPlus_gcServer=1
 ## 建议的优化
 
 - 确保您的 `OptimizationMode` 属性设置为默认值 `MaxPerformance`。 这是最重要的设置，因为使用 `MinMemoryUsage` 值会对性能产生巨大影响。
-- 启用服务器 GC。 与工作站 GC 相比，您可以通过瞬间增加的显著内存消耗确认服务器 GC 被启用。
-- 如果您无法负担如此高的内存开销，可以考虑调整 **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN#gclatencylevel)** 和/或 **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN#gcheaphardlimitpercent)** 以求两全。 但是，如果您可以负担得起这样的内存消耗，那么最好将其保持默认状态——服务器 GC 在运行时已经进行了自我优化，并且在您的操作系统真正需要时使用更少的内存。
+- 启用服务器 GC。 与工作站 GC 相比，您可以通过瞬间增加的显著内存消耗确认服务器 GC 被启用。 这将为您机器上的每个 CPU 线程生成一个 GC 线程，以在最高速度下同时执行 GC 操作。
+- 如果您无法负担服务器 GC 带来的内存开销，可以考虑调整 **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN#gclatencylevel)** 和/或 **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN#gcheaphardlimitpercent)** 以求两全。 但是，如果您可以负担得起这样的内存消耗，那么最好将其保持默认状态——服务器 GC 在运行时已经进行了自我优化，并且在您的操作系统真正需要时使用更少的内存。
+- 您还可以考虑通过进一步调整上述 `DOTNET_` 属性，增加启动时间来提高优化。
 
-如果您已启用服务器 GC 并保留其他各个属性的默认设置，那么即使您启用成百上千个机器人，ASF 仍会有出色的性能。 CPU 不会再成为瓶颈，因为 ASF 能够在需要时发挥您的 CPU 的全部能力，从而缩短操作所需时间。 若要进一步优化就只能升级 CPU 和内存了。
+如果您按照上述建议调整配置，那么即使启用成百上千个机器人，ASF 仍会有出色的性能。 CPU 不会再成为瓶颈，因为 ASF 能够在需要时发挥您的 CPU 的全部能力，从而缩短操作所需时间。 若要进一步优化就只能升级 CPU 和内存了。

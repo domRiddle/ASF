@@ -8,7 +8,7 @@ ASF 支持 Steam 非交互式（离线）的交易。 收取（接受/拒绝）�
 
 ASF 将始终接受来自机器人 `Master`（或更高权限）帐户的交易，无论交易物品是什么。 这样可以很方便地拾取由机器人实例挂到的卡片，也可以轻松管理机器人库存内存储的物品——包括其他游戏（例如 CS:GO）的物品。
 
-ASF 将会驳回来自于交易模块黑名单中的用户的交易报价，无论交易物品是什么。 黑名单被存放在标准的 `BotName.db` 数据库，可以通过 `bl`、`bladd` 和 `blrm` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;管理。 这应该可以代替 Steam 提供的标准用户屏蔽——谨慎使用。
+ASF 将会驳回来自于交易模块黑名单中的用户的交易报价，无论交易物品是什么。 黑名单被存放在标准的 `BotName.db` 数据库，可以通过 `tb`、`tbadd` 和 `tbrm` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;管理。 这应该可以代替 Steam 提供的标准用户屏蔽——谨慎使用。
 
 ASF 将会接受机器人之间发送的 `loot`（拾取）交易，除非 `TradingPreferences` 中设置了 `DontAcceptBotTrades`。 简单来说，将 `TradingPreferences` 设置为 `None` 会使 ASF 自动接受来自机器人 `Master` 用户（上文所述）的交易，和来自同一 ASF 进程的其他机器人的赠送交易。 如果您想禁用来自其他机器人的赠送交易，就应该在 `TradingPreferences` 中设置 `DontAcceptBotTrades`。
 
@@ -43,7 +43,7 @@ STM 仅会处理有利的交易，这意味着使用 STM 进行重复卡牌匹�
 
 默认情况下，ASF 会驳回不利的交易——对于普通用户来说，这正是我们想要的。 然而，您可以在 `TradingPreferences` 中启用 `MatchEverything`，使 ASF 接受所有重复物品交易，即使是**不利的**。 只有您想要在您的帐户下运行 1:1 交易机器人时，此功能才有用，因为您了解 **ASF 将不再帮助您完成徽章收集进度，并且您可能会因为 N 张相同的卡牌失去进度**。 除非您有意运行一个**永远**不打算收集完整徽章的交易机器人，否则您应该禁用此功能。
 
-无论您的 `TradingPreferences` 如何设置，ASF 驳回交易不意味着您不能自己接受它。 如果您保留了 `BotBehaviour` 的默认值，不含 `RejectInvalidTrades`，ASF 仅会忽略这些交易——使您可以自行决定是否接受交易。 同样的情况适用于 `MatchableTypes` 以外的物品——这个模块仅仅用于自动化 STM 交易，而不是代替您判断交易的优劣。 此规则的唯一例外是通过 `bladd` 命令添加进交易黑名单的用户——无论您的 `BotBehaviour` 如何设置，来自这些用户的交易都会被立即驳回。
+无论您的 `TradingPreferences` 如何设置，ASF 驳回交易不意味着您不能自己接受它。 如果您保留了 `BotBehaviour` 的默认值，不含 `RejectInvalidTrades`，ASF 仅会忽略这些交易——使您可以自行决定是否接受交易。 同样的情况适用于 `MatchableTypes` 以外的物品——这个模块仅仅用于自动化 STM 交易，而不是代替您判断交易的优劣。 此规则的唯一例外是通过 `tbadd` 命令添加进交易黑名单的用户——无论您的 `BotBehaviour` 如何设置，来自这些用户的交易都会被立即驳回。
 
 启用此选项时，强烈建议您使用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**，因为如果您还需要手动确认每次交易，这一功能也就失去了它的潜力。 即使没有确认交易的能力，`SteamTradeMatcher` 也可以正常工作，但是如果您没有及时手动确认，就会留下积压的确认请求。
 
@@ -70,4 +70,4 @@ ASF 会尽力减少由此选项带来的请求和压力，同时将匹配的效�
 
 当前版本的算法使 ASF 优先匹配有 `Any` 标记的机器人，特别是物品所属游戏数更多的机器人。 在耗尽 `Any` 机器人后，ASF 会按照相同的游戏数规则开始匹配平衡机器人，由于拥有过多物品的机器人更有可能出现库存问题，这些机器人会被进一步降低优先级。 无论如何，ASF 将尝试匹配每个可用的机器人至少一次，以确保我们不会错过可能的物品套组进度。
 
-`MatchActively` 支持交易黑名单，您可以通过 `bladd` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;向其中添加机器人的帐户，您的机器人将不会尝试与黑名单中的机器人主动匹配。 这告诉 ASF 永远不匹配这些机器人，即使这些机器人有我们可能需要的卡牌。
+`MatchActively` 支持交易黑名单，您可以通过 `tbadd` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;向其中添加机器人的帐户，您的机器人将不会尝试与黑名单中的机器人主动匹配。 这告诉 ASF 永远不匹配这些机器人，即使这些机器人有我们可能需要的卡牌。
