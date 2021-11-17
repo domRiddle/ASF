@@ -91,7 +91,7 @@ ASF 有自己的逻辑，验证自身是否以管理员用户（`root`）运行�
 su # 或者 sudo -i
 adduser asf
 chown -hR asf:asf /path/to/ASF
-su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
+su asf -c /path/to/ASF/ArchiSteamFarm # 或者 sudo -u asf /path/to/ASF/ArchiSteamFarm
 ```
 
 这些步骤会手动启动 ASF，但使用我们上述的 **[`systemd` 服务](#linux-的-systemd-服务)**&#8203;会更容易。
