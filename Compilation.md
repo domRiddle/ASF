@@ -62,11 +62,11 @@ From ASF's source tree location, so as above, execute the following commands:
 npm ci --no-progress --prefix ASF-ui
 npm run-script deploy --no-progress --prefix ASF-ui
 
-rm -rf "out/www" # Ensure that our build output is clean of the old files
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out" # Or accordingly to what you need as per above
+rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
+dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # Or accordingly to what you need as per above
 ```
 
-You should now be able to find the ASF-ui files in your `out/www` folder. ASF will be able to serve those files to your browser.
+You should now be able to find the ASF-ui files in your `out/generic/www` folder. ASF will be able to serve those files to your browser.
 
 Alternatively, you can simply build ASF-ui, whether manually or with the help of our repo, then copy the build output over to `${OUT}/www` folder manually, where `${OUT}` is the output folder of ASF that you've specified with `-o` parameter.
 
