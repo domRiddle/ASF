@@ -126,7 +126,7 @@ Vaš `config` direktorijum bi trebao da izgleda slično ovom:
 
 ### Pokretanje ASF-a
 
-Sada ste spremni da pokrenete program prvi put. Jednostavno dvokliknite `ArchiSteamFarm` fajl u ASF direktorijumu.
+Sada ste spremni da pokrenete program prvi put. Jednostavno dvokliknite `ArchiSteamFarm` fajl u ASF direktorijumu. You can also start it from the console.
 
 Nakon toga, ako ste instalirali sve potrebno u prvom koraku, ASF bi trebao da se uspješno pokrene, zapamtite da će vaš prvi bot (ako niste zaboravili da stavite napravljenu konfiguraciju u `config` direktorijumu), pokušati da se prijavi:
 

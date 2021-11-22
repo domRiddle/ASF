@@ -128,7 +128,7 @@ Congratulazioni! Hai appena completato la configurazione fondamentale del bot AS
 
 ### Eseguire ASF
 
-Ora sei pronto per avviare il programma per la prima volta. Simply double-click `ArchiSteamFarm` binary in ASF directory.
+Ora sei pronto per avviare il programma per la prima volta. Simply double-click `ArchiSteamFarm` binary in ASF directory. You can also start it from the console.
 
 Dopo aver fatto tutto ciò, se hai installato tutte le dipendenze richieste nella prima parte, ASF si avvierà correttamente, noterà il tuo bot (se non hai dimenticato di inserire la configurazione generata nella cartella `config`), e proverà ad accedere:
 

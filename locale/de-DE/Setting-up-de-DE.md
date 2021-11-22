@@ -126,7 +126,7 @@ Glückwunsch! Du hast gerade die sehr einfache ASF-Bot-Konfiguration abgeschloss
 
 ### Ausführen von ASF
 
-Du bist nun bereit, das Programm zum ersten Mal zu starten. Führen Sie einfach einen Doppelklick auf die `ArchiSteamFarm` Binärdatei im ASF-Verzeichnis aus.
+Du bist nun bereit, das Programm zum ersten Mal zu starten. Führen Sie einfach einen Doppelklick auf die `ArchiSteamFarm` Binärdatei im ASF-Verzeichnis aus. You can also start it from the console.
 
 Nach diesem Schritt, vorausgesetzt, du hast alle erforderlichen Abhängigkeiten im ersten Schritt installiert, sollte ASF richtig starten, deinen ersten Bot bemerken (wenn du nicht vergessen hast, die generierte Konfiguration in das Verzeichnis `config` zu legen) und versuchen, dich anzumelden:
 

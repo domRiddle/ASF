@@ -126,7 +126,7 @@ Your `config` directory will now look like this:
 
 ### 運行 ASF
 
-您現在已準備好首次啟動該程序。 Simply double-click `ArchiSteamFarm` binary in ASF directory.
+您現在已準備好首次啟動該程序。 Simply double-click `ArchiSteamFarm` binary in ASF directory. You can also start it from the console.
 
 After doing so, assuming you installed all required dependencies in the first step, ASF should launch properly, notice your first bot (if you didn't forget to put generated config in `config` directory), and attempt to log in:
 
