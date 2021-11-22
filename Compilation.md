@@ -57,6 +57,8 @@ ASF-ui is part of ASF's source tree as a **[git submodule](https://git-scm.com/b
 In addition to the `cc.sh` script, we also attach the simplified build instructions below, refer to **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** for additional documentation. From ASF's source tree location, so as above, execute the following commands:
 
 ```shell
+rm -rf "ASF-ui/dist" # ASF-ui doesn't clean itself after old build
+
 npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
