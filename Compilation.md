@@ -57,8 +57,8 @@ ASF-ui is part of ASF's source tree as a **[git submodule](https://git-scm.com/b
 In addition to the `cc.sh` script, we also attach the simplified build instructions below, refer to **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** for additional documentation. From ASF's source tree location, so as above, execute the following commands:
 
 ```shell
-npm ci --no-progress --prefix ASF-ui
-npm run-script deploy --no-progress --prefix ASF-ui
+npm ci --prefix ASF-ui
+npm run-script deploy --prefix ASF-ui
 
 rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
 dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # Or accordingly to what you need as per above
