@@ -42,13 +42,13 @@ Currently the most secure way of encrypting the password that ASF offers, and mu
 
 ### `EnvironmentVariable`
 
-Memory-based storage. ASF will read the password out of the environment variable with given name specified in the password field (e.g. `SteamPassword`). For example, setting `SteamPassword` to `ASF_PASSWORD_MYACCOUNT` and `PasswordFormat` to `3` will cause ASF to evaluate `${ASF_PASSWORD_MYACCOUNT}` environment variable and use whatever is assigned to it as the account password.
+Memory-based storage. ASF will read the password from the environment variable with given name specified in the password field (e.g. `SteamPassword`). For example, setting `SteamPassword` to `ASF_PASSWORD_MYACCOUNT` and `PasswordFormat` to `3` will cause ASF to evaluate `${ASF_PASSWORD_MYACCOUNT}` environment variable and use whatever is assigned to it as the account password.
 
 ---
 
 ### `File`
 
-File-based storage outside of the ASF config directory. ASF will read the password out of the file path specified in the password field (e.g. `SteamPassword`). The specified path can be either relative to ASF's location (the folder where the `config` directory is included, or the one specified by `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**), or absolute. This method can be used for example with **[Docker secrets](https://docs.docker.com/engine/swarm/secrets)**, which create such files for usage, but can also be used outside of Docker if you create appropriate file yourself. Gentle reminder to ensure that file containing the password is not readable by unathorized users. For example, setting `SteamPassword` to `/etc/secrets/MyAccount.pass` and `PasswordFormat` to `4` will cause ASF to read `/etc/secrets/MyAccount.pass` and use whatever is written to that file as the account password.
+File-based storage (possibly outside of the ASF config directory). ASF will read the password from the file path specified in the password field (e.g. `SteamPassword`). The specified path can be either relative to ASF's location (the folder where the `config` directory is included, or the one specified by `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**), or absolute. This method can be used for example with **[Docker secrets](https://docs.docker.com/engine/swarm/secrets)**, which create such files for usage, but can also be used outside of Docker if you create appropriate file yourself. Gentle reminder to ensure that file containing the password is not readable by unathorized users. For example, setting `SteamPassword` to `/etc/secrets/MyAccount.pass` and `PasswordFormat` to `4` will cause ASF to read `/etc/secrets/MyAccount.pass` and use whatever is written to that file as the account password.
 
 ---
 
