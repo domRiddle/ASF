@@ -10,19 +10,19 @@ Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog 
 
 ### Ryzhehvost
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
+- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin za SF koji vam omogućava da upravljate vašim Steam dostignućima.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, dodatak za ASF koji dodaje funkcionalnost za pravljenje booster pakova.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, dodatak za ASF koji ne mari da li su imena ASF botova velika ili mala.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, dodatak za ASF za re-implementaciju dodavanja ključeva bez komande.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, dodatak za ASF koji automatski prihvata zahtjeve za razmjenu za određene tipove item-a.
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin za ASF koji obezbeđuje napredni `prenos` komandi za transferovanja Steam itema.
 
 ### Vital7
 
-- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
-- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
-- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
-- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
+- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin za ASF koji automatski prihvata sve zahteve za prijateljstvo.
+- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin za ASF koji implementira komandu za uklanjanje Steam licenci za izabrane botove.
+- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin za ASF koji implementira komandu za pribavljanje e-mail adrese datih instanci bota direktno sa Steama.
+- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin za ASF koji implementira komandu za uklanjanje API ključeva za izabrane botove.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, dodatak za ASF koji omogućava korišćenje proxy-a u WebSocket konekcijama.
 
 ---
@@ -45,7 +45,7 @@ Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog 
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, omogućava vam da lako instalirate ASF na arch linux-u.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, omogućava vam da lako instalirate ASF na arch linux-u.
-- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, allowing you to easily install ASF on OS X.
+- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, omogućava vam da lako instalirate ASF na OS X.
 
 ---
 

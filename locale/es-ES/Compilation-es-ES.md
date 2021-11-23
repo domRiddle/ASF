@@ -48,6 +48,28 @@ En caso de no poder instalar .NET Framework o incluso .NET SDK (por ejemplo, por
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
 ```
 
+### ASF-ui
+
+Aunque los pasos anteriores son todo lo necesario para tener una compilación de ASF completamente funcional, *también* podría interesarte compilar **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES#asf-ui)**, nuestra interfaz web gráfica. Desde el lado de ASF, todo lo que necesitas hacer es poner una compilación de ASF-ui en la ubicación estándar `ASF-ui/dist`, luego compilar ASF con ella (de nuevo, si es necesario).
+
+ASF-ui es parte del árbol fuente de ASF como un **[submódulo git](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**, asegúrate de que has clonado el repositorio con `git clone --recursive`, ya que de lo contrario no tendrás los archivos necesarios. También necesitarás un NPM funcional, **[Node.js](https://nodejs.org)** viene con él. Si estás usando Linux/OS X, recomendamos nuestro script `cc.sh`, que automáticamente cubrirá la compilación y envío de ASF-ui (si es posible, es decir, si cumples con los requisitos que acabamos de mencionar).
+
+Además del script `cc.sh`, abajo también adjuntamos las instrucciones de compilación simplificada, consulta **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** para documentación adicional. Desde la ubicación del árbol fuente de ASF, así como arriba, ejecuta los siguientes comandos:
+
+```shell
+rm -rf "ASF-ui/dist" # ASF-ui no limpia sus archivos después de la vieja compilación
+
+npm ci --prefix ASF-ui
+npm run-script deploy --prefix ASF-ui
+
+rm -rf "out/generic/www" # Asegúrate de que nuestra compilación está limpia de los archivos antiguos
+dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # O de acuerdo a lo que necesites según lo mencionado antes
+```
+
+Ahora deberías ser capaz de encontrar los archivos de ASF-ui en tu carpeta `out/generic/www`. ASF podrá enviar esos archivos a tu navegador.
+
+Alternatively, you can simply build ASF-ui, whether manually or with the help of our repo, then copy the build output over to `${OUT}/www` folder manually, where `${OUT}` is the output folder of ASF that you've specified with `-o` parameter. This is exactly what ASF is doing as part of the build process, it copies `ASF-ui/dist` (if exists) over to `${OUT}/www`, nothing fancy.
+
 ---
 
 ## Desarrollo

@@ -18,40 +18,40 @@ Kada su `Statistics` aktivirane, ove stvari će se desiti:
 
 Mi smatramo da je steam grupa važan dio ASF zajednice. Ovo je naš glavni način komunikacije koji koristimo za sve što je važno za ASF, posebno radi redovnog informisanja sa napretkom, potencijalnim problemima, ponekim upozorenjem i svi ostalim stvarima kojima korisnim treba da ima pristup. Mi nemamo nikakav benefit od održavanja ove grupe, to je mjesto posvećeno ASF korisnicima i mi smatramo vam dijelom te zajednice. Pošto članstvo u ovoj grupi ne identifiše vas kao ASF korisnika, mi ne smatramo da je ovo problem vaše privatnosti.
 
-2. If your account is **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**, has **[public inventory](https://steamcommunity.com/my/edit/settings)** with at least 100 `MatchableTypes` items in it and you intentionally enabled `SteamTradeMatcher` in your `TradingPreferences`, then ASF will periodically communicate with our **[server](https://asf.justarchi.net)** in order to fulfill the enabled functionality. Ti podaci sastoje se od unikatnog ASF ID-a (generisanog od strane ASF-a), i sledećih srodnih informacija:
+2. Ako vaš nalog nije **[ograničen](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, koristi **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)**, poseduje **[javni inventar](https://steamcommunity.com/my/edit/settings)** sa minimum 100 `MatchableTypes` stvari i ako ste omogućili `SteamTradeMatcher` u vašim `TradingPreferences`, onda će ASF periodično komunicirati sa našim **[serverom](https://asf.justarchi.net)** da bi ostvario tu funkcionalnost. Ti podaci sastoje se od unikatnog ASF ID-a (generisanog od strane ASF-a), i sledećih srodnih informacija:
 
-* Your Steam identificator (in 64-bit form, for generating links, public info)
-* Your nickname (for display purposes, public info)
-* Your avatar (hash, for display purposes, public info)
-* Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
+* Vaš Steam identifikator (u 64-bitnoj formi, za generisanje linkova, javne informacije)
+* Vaš nadimak (za svrhu prikazivanja, javne informacije)
+* Vaš avatar (heš, za svrhu prikazivanja, javne informacije)
+* Vaš **[token za razmenu](https://steamcommunity.com/my/tradeoffers/privacy)** (da bi ljudi van vaše liste prijatelja mogli da vrše razmenu sa vama)
 * Vašeg `MatchableTypes` (za svrhe prikazivanja i pronalaženja)
 * Vrijednost `MatchEverything` iz vaših `TradingPreferences` (za svrhe prikazivanja i pronalaženja)
 * Ukupan broj `MatchableTypes` Steam iteam u vašem inventaru (za svrhe prikazivanja i pronalaženja)
 * Ukupan broj različitih igrica kojima gornji `MatchableTypes` Steam itemi pripadaju (za svrhe prikazivanja i pronalaženja)
 
-ASF will **not** collect any other non-listed-above data without prior important notice in the changelog, and a very good practical reason in the first place. Mi ne smatramo da je nešto od ovog iznad ozbiljna stvar, i to kažemo da bi vi znali šta tačno ASF radi pored onoga što sve vi sami podesili, da bi ljudi bolje razumjeli naš pogled na to.
+ASF **neće** prikupljati bilo koji podatak koji nije naveden iznad pre nego što to ne navede u važnim obaveštenjima u listi promena, i bez praktičnog razloga. Mi ne smatramo da je nešto od ovog iznad ozbiljna stvar, i to kažemo da bi vi znali šta tačno ASF radi pored onoga što sve vi sami podesili, da bi ljudi bolje razumjeli naš pogled na to.
 
 ---
 
 # Korišćenje podataka
 
-All values specified in second point are being used for our **Public ASF STM listing**, which is explained below. Ne koristimo te podatke za bilo koju drugu svrhu.
+Sve vrednosti u drugoj tački se koriste za vašu **Javnu ASF STM listu**, koja je objašnjena ispod. Ne koristimo te podatke za bilo koju drugu svrhu.
 
 ---
 
 ## Javna lista ASF STM botova
 
-Our public ASF STM listing is located on **[our website](https://asf.justarchi.net/STM)** and used as a public service for both ASF users that make use of `MatchActively`, as well as ASF and non-ASF users for manual matching.
+Naša javna ASF STM lista se nalazi na **[našem websajtu](https://asf.justarchi.net/STM)** i ima svrhu javne upotrebe za ASF korisnike koji koriste funkciju `MatchActively`, kao i ASF i ne-ASF korisnika radi ručnog poklapanja.
 
 ### Kako to tačno radi
 
 ASF šalje podatke jednom kada se prijavi, a to sadrži sva podešavanja koja javna lista može da iskoristi. Onda, svakih 10 minuta ASF šalje jedan, veoma mali zahtjev koji obavještava server da je bot još aktivan i radi. Ako zbog nekog razloga taj zahtjev ne stige, npr. ako image probleme sa mrežom, onda će ASF ponavljati taj zahtjev svakog minuta, sve dok on ne stigne.
 
-Ovo nam omogućava da imamo informacije o tome koga možemo spojiti, kao i da li su još aktivni. Thanks to that, our website can show all ASF 2FA+STM accounts that were active in **last 15 minutes**.
+Ovo nam omogućava da imamo informacije o tome koga možemo spojiti, kao i da li su još aktivni. Zahvaljujući tome, naš websajt može da prikaže sve ASF 2FA+STM naloge koji su aktivni u **zadnjih 15 minuta**.
 
 Nalozi su sortirani u zavisnosti od njihovog inventara (u nizlaznom redu) - `MatchEverything` botovi sa `Any` banerom koji prihvataju 1:1 razmjene, onda `MatchableTypes` unikatne igrice, i na kraju `MatchableTypes` itemi.
 
-Please note that you will **not** be displayed on the website if you do not meet all of the requirements. ASF neće u tom slučaju ni pokušavati da komunicira sa našim serverom, pa je druga tačka skroz preskočena ako niste namjerno omogućili `SteamTradeMatcher` radi pomoći oko razmjene duplikata. Takođe, javna lista je kompatabilna samo sa poslednjom stabilnom verzijom ASF-a i ne prikazuje neažurirane botove, posebno ako ne posjeduju glavne funkcionalnosti koje mogu biti u novijim verzijama.
+Zapamtite da **nećete** biti prikazani na websajtu ako ne ispunjavate sve zahteve. ASF neće u tom slučaju ni pokušavati da komunicira sa našim serverom, pa je druga tačka skroz preskočena ako niste namjerno omogućili `SteamTradeMatcher` radi pomoći oko razmjene duplikata. Takođe, javna lista je kompatabilna samo sa poslednjom stabilnom verzijom ASF-a i ne prikazuje neažurirane botove, posebno ako ne posjeduju glavne funkcionalnosti koje mogu biti u novijim verzijama.
 
 ### API
 

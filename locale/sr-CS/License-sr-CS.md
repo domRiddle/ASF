@@ -1,4 +1,4 @@
-# Licence
+# Licenca
 
 Osim ako je kazano drugačije, ASF je licenciran pod **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)** licencom. Za brzi pregled onog čega možete da koristite, posjetite **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
 
@@ -6,7 +6,7 @@ ASF licenca je veoma blaga i vi imate dozvolu da radite mnogo više od toga što
 
 > možete koristiti ovaj softver kako želite, sve dok sadrži potrebne opaške. Ova blaga licenca sadrži patent licencu od saradnika ovog koda.
 
-By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
+Navodeći da je ASF licenciran pod **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, pozivamo se **samo** na glavni projekat, uključujući njegov izvorni kod, bez davanja bilo kakvih izjava o drugim projektima koje ASF koristi (posebno biblioteke, alatke, okvire i frontendove, kao što je **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), koji se obično licenciraju pod različitim uslovima.
 
 -----
 
@@ -24,7 +24,7 @@ Mi vam ne dozvoljavamo da koristite ime produkta ASF/ArchiSteamFarm u vašem sof
 - da tvrdite da je vaš softver/usluga podržan od ASF-a, ako **niste** promijenili izvorni kod,
 - da koristite ASF za razne refrencijske upotrebe, kao što je povezivanje porijekla softvera/usluge, naše wiki-e, ili *"za ono što je razumno i uobičajeno za opisivanje porijekla Djelatnosti"*.
 
-You **cannot**:
+**Ne možete**:
 - reći da **je** vaš softver/usluga ASF,
 - odnositi se prema vašem softveru/usluzi kao da je **ASF**,
 - tvrdite da je vaš softver/usluga podržan od ASF-a, ako **ste** promijenili izvorni kod,
