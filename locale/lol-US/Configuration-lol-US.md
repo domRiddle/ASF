@@ -602,7 +602,7 @@ IF URE UNSURE HOW 2 SET UP DIS PROPERTY, IZ RECOMMENDD 2 USE VALUE OV `0` (`Offl
 
 ### `PasswordFormat`
 
-`byte` TYPE WIF DEFAULT VALUE OV `0`. DIS PROPERTY DEFINEZ TEH FORMAT OV `SteamPassword` PROPERTY, AN CURRENTLY SUPPORTS - `0` 4 `PlainText`, `1` 4 `AES` AN `2` 4 `ProtectedDataForCurrentUser`. PLZ REFR 2 **[SECURITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-lol-US)** SECSHUN IF U WANTS 2 LERN MOAR, AS ULL NED 2 ENSURE DAT `SteamPassword` PROPERTY INDED INCLUDEZ PASWORD IN MATCHIN `PasswordFormat`. IN OTHR WERDZ, WHEN U CHANGE `PasswordFormat` DEN UR `SteamPassword` SHUD BE **ALREADY** IN DAT FORMAT, NOT JUS AIMIN 2 BE. UNLES U KNOE WUT URE DOIN, U SHUD KEEP IT WIF DEFAULT VALUE OV `0`.
+`byte` type with default value of `0` (`PlainText`). This property defines the format of `SteamPassword` property, and currently supports values specified in the **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. You should follow the instructions specified there, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. IN OTHR WERDZ, WHEN U CHANGE `PasswordFormat` DEN UR `SteamPassword` SHUD BE **ALREADY** IN DAT FORMAT, NOT JUS AIMIN 2 BE. UNLES U KNOE WUT URE DOIN, U SHUD KEEP IT WIF DEFAULT VALUE OV `0`.
 
 ---
 

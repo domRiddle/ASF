@@ -602,7 +602,7 @@ There is also idling priority queue that is accessible through `fq` **[commands]
 
 ### `PasswordFormat`
 
-Параметр типа `byte` со значением по-умолчанию `0`. Этот параметр задаёт формат хранения параметра `SteamPassword`, и на сегодняшний день поддерживает следующие значения: `​0​` для `PlainText`, `1` для `AES` и `2` для `ProtectedDataForCurrentUser`. Пожалуйста, прочтите раздел "**[Безопасность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ru-RU)**" если хотите узнать больше, поскольку вам потребуется убедиться, что параметр `SteamPassword` действительно содержит пароль в формате, соответствующем `PasswordFormat`. Другими словами, когда вы меняете `PasswordFormat` ваш `SteamPassword` должен **уже** быть в этом формате, а не только планироваться как таковой. Вам следует оставить этому параметру значение по-умолчанию `​0​`, кроме тех случаев когда вы хорошо знаете, что делаете.
+`byte` type with default value of `0` (`PlainText`). This property defines the format of `SteamPassword` property, and currently supports values specified in the **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. You should follow the instructions specified there, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. Другими словами, когда вы меняете `PasswordFormat` ваш `SteamPassword` должен **уже** быть в этом формате, а не только планироваться как таковой. Вам следует оставить этому параметру значение по-умолчанию `​0​`, кроме тех случаев когда вы хорошо знаете, что делаете.
 
 ---
 

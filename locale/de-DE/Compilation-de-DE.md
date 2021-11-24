@@ -91,3 +91,5 @@ Der `main` Zweig ist nicht unbedingt in einem Zustand, der eine erfolgreiche Kom
 ## Offizielle Veröffentlichungen
 
 Official ASF releases are compiled by **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** on Windows, with latest .NET SDK that matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**. Nach dem Bestehen von Tests werden alle Pakete auf GitHub als Release bereitgestellt. Dies garantiert auch Transparenz, da GitHub immer offizielle öffentliche Quellen für alle Builds verwendet und Sie können die Prüfsummen der GitHub Artefakte mit GitHub Release-Assets abgleichen. Die ASF-Entwickler kompilieren oder veröffentlichen selbst keine Builds, außer für den privaten Entwicklungsprozess und Debugging.
+
+Starting from ASF V5.2.0.5, in addition to the above, ASF maintainers manually validate and publish build checksums on independent from GitHub, remote server, as additional security measure. This step is mandatory for existing ASFs to consider the release as a valid candidate for auto-update functionality.

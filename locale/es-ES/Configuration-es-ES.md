@@ -602,7 +602,7 @@ Si no estás seguro de cómo configurar esta propiedad, se recomienda usar un va
 
 ### `PasswordFormat`
 
-Tipo `byte` con valor predeterminado de `0`. Esta propiedad define el formato de la propiedad `SteamPassword`, y actualmente soporta - `0` para `PlainText`, `1` para `AES` y `2` para `ProtectedDataForCurrentUser`. Por favor, consulta la sección de **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-ES)** si deseas aprender más, ya que necesitarás asegurarte de que la propiedad `SteamPassword` incluye una contraseña que coincida con `PasswordFormat`. En otras palabras, cuando cambias `PasswordFormat` tu `SteamPassword` **ya** debería estar en ese formato, no solo apuntando a estarlo. A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de `0`.
+Tipo `byte` con valor predeterminado de `0` (`PlainText`). Esta propiedad define el formato de la propiedad `SteamPassword`, y actualmente soporta los valores especificados en la sección de **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-ES). Deberías seguir las instrucciones especificadas allí, ya que necesitarás asegurarte de que la propiedad `SteamPassword` incluya la contraseña en el `PasswordFormat` correspondiente. En otras palabras, cuando cambias `PasswordFormat` tu `SteamPassword` **ya** debería estar en ese formato, no solo apuntando a estarlo. A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de `0`.</p>
 
 ---
 

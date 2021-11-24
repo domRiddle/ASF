@@ -9,20 +9,22 @@ Atualmente o ASF suporta os seguintes métodos de criptografia como definição 
 | 0     | PlainText (Texto sem formatação) |
 | 1     | AES                              |
 | 2     | ProtectedDataForCurrentUser      |
+| 3     | EnvironmentVariable              |
+| 4     | Arquivo                          |
 
 A descrição e comparação exatas estão disponíveis abaixo.
 
-Para gerar uma senha criptografada, por exemplo, para usar como `SteamPassword` você deve executar o **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `encrypt` com o método de criptografia que você escolheu e sua senha original em texto simples. Depois, coloque a string criptografada que você recebeu na propriedade de configuração `SteamPassword` do bot, e mude o campo `PasswordFormat` para o valor que corresponda ao método de criptografia que você escolheu.
+Para gerar uma senha criptografada, por exemplo, para usar como `SteamPassword` você deve executar o **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `encrypt` com o método de criptografia que você escolheu e sua senha original em texto simples. Depois, coloque a string criptografada que você recebeu na propriedade de configuração `SteamPassword` do bot, e mude o campo `PasswordFormat` para o valor que corresponda ao método de criptografia que você escolheu. Some formats do not require `encrypt` command, for example `EnvironmentVariable` or `File`, just put appropriate path for them.
 
 ---
 
-### PlainText (Texto sem formatação)
+### `PlainText (Texto sem formatação)`
 
 É a forma mais simples e menos segura de salvar uma senha, definido com o valor `0` em `ECryptoMethod`. O ASF vai esperar que a string seja um texto sem formatação - uma senha na sua forma crua. É o método mais fácil de usar, e 100% compatível com todas as configurações, entretanto, sendo a maneira padrão de armazenar segredos, ela é totalmente insegura para um armazenamento seguro.
 
 ---
 
-### AES
+### `AES`
 
 Considerado seguro pelos padrões de hoje, a forma de armazenamento **[AES](https://pt.wikipedia.org/wiki/Advanced_Encryption_Standard)** é definida como `1` em `ECryptoMethod`. O ASF vai esperar que a string seja uma sequencia de caracteres **[base64-encoded](https://en.wikipedia.org/wiki/Base64)** resultando em um "array byte" criptografado em modelo AES após a tradução, que deve ser posteriormente descriptografado usando o **[vetor de inicialização](https://pt.wikipedia.org/wiki/Vetor_de_inicializa%C3%A7%C3%A3o)** incluso e a chave de descriptografia do ASF.
 
@@ -30,11 +32,23 @@ The method above guarantees security as long as attacker doesn't know ASF encryp
 
 ---
 
-### ProtectedDataForCurrentUser
+### `ProtectedDataForCurrentUser`
 
 Atualmente a maneira mais segura que o ASF oferece para armazenar a senha, muito mais segura que o `AES`, é definido com o valor `2` em `ECryptoMethod`. A maior vantagem deste método é ao mesmo tempo a maior desvantagem - ao invés de usar uma chave de criptografia (como no `AES`), os dados são criptografados usando credenciais de login do usuário conectado no momento, o que significa que **só** é possível descriptografar os dados na máquina em que eles foram criptografados e, além disso, **somente** pelo usuário que emitiu a criptografia. Isso garante que mesmo que você envie seu arquivo `Bot.json` com o `SteamPassword` criptografado dessa forma para outra pessoa, ele não será capaz de descriptografar a senha sem acessar o seu PC. Esta é uma medida de segurança excelente, mas ao mesmo tempo tem a grande desvantagem de ser menos compatível, já que a senha criptografada usando este método será incompatível com qualquer outro usuário, bem como outro computador - incluindo o **seu** se você decidir, por exemplo, reinstalar seu sistema operacional. Ainda assim, é um dos melhores métodos de armazenamento de senhas, e se você está preocupado com a segurança do `PlainText`e não quer colocar senha toda vez que iniciar o programa, então essa é sua melhor aposta, desde que você não precise acessar suas configurações de outro computador que não seja o seu.
 
 **Por favor, note que no momento esta opção está disponível apenas para computadores que executam o Windows.**
+
+---
+
+### `EnvironmentVariable`
+
+Memory-based storage. ASF will read the password from the environment variable with given name specified in the password field (e.g. `SteamPassword`). For example, setting `SteamPassword` to `ASF_PASSWORD_MYACCOUNT` and `PasswordFormat` to `3` will cause ASF to evaluate `${ASF_PASSWORD_MYACCOUNT}` environment variable and use whatever is assigned to it as the account password.
+
+---
+
+### `Arquivo`
+
+File-based storage (possibly outside of the ASF config directory). ASF will read the password from the file path specified in the password field (e.g. `SteamPassword`). The specified path can be either relative to ASF's "home" location (the folder where the `config` directory is included, or the one specified by `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**), or absolute. This method can be used for example with **[Docker secrets](https://docs.docker.com/engine/swarm/secrets)**, which create such files for usage, but can also be used outside of Docker if you create appropriate file yourself. Gentle reminder to ensure that file containing the password is not readable by unauthorized users. For example, setting `SteamPassword` to `/etc/secrets/MyAccount.pass` and `PasswordFormat` to `4` will cause ASF to read `/etc/secrets/MyAccount.pass` and use whatever is written to that file as the account password.
 
 ---
 
@@ -43,6 +57,8 @@ Atualmente a maneira mais segura que o ASF oferece para armazenar a senha, muito
 Se compatibilidade não é um problema para você, e você se sente tranquilo com a forma que o método `ProtectedDataForCurrentUser` funciona, é esse o método **recomendado** para salvar suas senhas no ASF, já que ele fornece a melhor segurança. O método `AES` é uma boa escolha para as pessoas que querem usar suas configurações em mais de um computador, enquanto `PlainText` é a forma mais simples de salvar a senha, se você não se importar que qualquer um pode pegá-la no arquivo JSON.
 
 Tenha em mente que todos esses 3 métodos são considerados **inseguros** se um atacante tiver acesso ao seu PC. O ASF deve ser apto a descriptografar sua senha, e se ele é capaz de fazer isso em seu computador, então qualquer outro programa que rode no mesmo computador também será capaz. `ProtectedDataForCurrentUser` é a variante mais segura já que **mesmo outro usuário usando o mesmo PC não será capaz de descriptografá-lo**, mas ainda é possível descriptografar os dados se alguém for capas de roubar suas credenciais de login e informações do seu computador, juntamente com o arquivo de configuração do ASF.
+
+For advanced setups, you can utilize `EnvironmentVariable` and `File`. They have limited usability, the `EnvironmentVariable` will be a good idea if you'd prefer to obtain password through some kind of custom solution and store it in memory exclusively, while `File` is good for example with **[Docker secrets](https://docs.docker.com/engine/swarm/secrets)**. Both of them are unencrypted however, so you basically move the risk from ASF config file to whatever you pick from those two.
 
 Além dos métodos de criptografia especificados acima, também é possível evitar especificar senhas completamente, por exemplo, usando um valor `nulo` ou uma string vazia em `SteamPassword`. O ASF vai pedir sua senha Steam quando for necessário, e não a salvará em lugar algum, mas a manterá na memória do processo executado no momento, até que você o feche. Enquanto sendo o método mais seguro de lidar com senhas (já que não são salvas em nenhum lugar), é também o mais problemático já que você tem que entrar com sua senha manualmente cada vez que abrir o ASF (quando for necessário). Se isso não for um problema para você, então é sua melhor aposta em termos de segurança.
 
@@ -70,13 +86,13 @@ Para gerar um hash, por exemplo, para uso de `IPCPassword` você deve executar `
 
 ---
 
-### PlainText (Texto sem formatação)
+### `PlainText (Texto sem formatação)`
 
 É a forma mais simples e menos segura de fazer hash em uma senha, definido pelo valor `0` em `EHashingMethod`. O ASF gerará o hash correspondente à entrada original. É o método mais fácil de usar, e 100% compatível com todas as configurações, entretanto, sendo a maneira padrão de armazenar segredos, ela é totalmente insegura para um armazenamento seguro.
 
 ---
 
-### SCrypt
+### `SCrypt`
 
 Considerado seguro pelos padrões de hoje, o método hash **[SCrypt](https://pt.wikipedia.org/wiki/Scrypt)** é definido pelo valor `1` em `EHashingMethod`. O ASF usará a implementação `SCrypt` com `8` blocos, `8192` iterações, comprimento hash de `32` e uma chave de criptografia como sal para geral um array de bytes. Os bytes resultantes serão então codificados como string de **[base64](https://pt.wikipedia.org/wiki/Base64)**.
 
@@ -84,7 +100,7 @@ O ASF permite que você especifique o sal para esse método através da **[argum
 
 ---
 
-### Pbkdf2
+### `Pbkdf2`
 
 Considerado fraco para os padrões atuais, o método hash **[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** é definido pelo valor `2` em `EHashingMethod`. O ASF usará a implementação `Pbkdf2` com `10000` iterações, comprimento de hash de `32` e uma chave de criptografia como sal, com `SHA-256` como um algoritmo hmac para gerar o array de bytes. Os bytes resultantes serão então codificados como string de **[base64](https://pt.wikipedia.org/wiki/Base64)**.
 

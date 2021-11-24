@@ -68,7 +68,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # O de a
 
 Ahora deberías ser capaz de encontrar los archivos de ASF-ui en tu carpeta `out/generic/www`. ASF podrá enviar esos archivos a tu navegador.
 
-Alternatively, you can simply build ASF-ui, whether manually or with the help of our repo, then copy the build output over to `${OUT}/www` folder manually, where `${OUT}` is the output folder of ASF that you've specified with `-o` parameter. This is exactly what ASF is doing as part of the build process, it copies `ASF-ui/dist` (if exists) over to `${OUT}/www`, nothing fancy.
+Alternativamente, puedes compilar solamente ASF-ui, ya sea manualmente o con la ayuda de nuestro repositorio, luego copia manualmente la compilación a la carpeta `${OUT}/www`, donde `${OUT}` es la carpeta de salida de ASF que especificaste con el parámetro `-o`. Esto es exactamente lo que ASF está haciendo como parte del proceso de compilación, copia `ASF-ui/dist` (si existe) a `${OUT}/www`, nada extraño.
 
 ---
 
@@ -91,3 +91,5 @@ La rama `main` no garantiza estar en un estado que permita una compilación exit
 ## Versiones oficiales
 
 Las versiones oficiales de ASF son compiladas por **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** en Windows, con el último .NET SDK que coincida con los **[requisitos de runtime](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#requisitos-de-runtime)** de ASF. Después de pasar las pruebas, todos los paquetes son distribuidos como la versión, también en GitHub. Esto también garantiza transparencia, ya que GitHub siempre usa una fuente pública oficial para todas las compilaciones, y puedes comparar las sumas de verificación (checksums) de los artefactos de GitHub con los recursos de publicación de GitHub. Los desarrolladores de ASF no compilan ni publican versiones por cuenta propia, excepto para el proceso de desarrollo privado y depuración.
+
+A partir de ASF V5.2.0.5, además de lo anterior, los mantenedores validan manualmente y publican sumas de verificación de compilación independientes de GitHub, el servidor remoto, como medida de seguridad adicional. Este paso es obligatorio para que los ASF existentes consideren la versión como un candidato válido para la funcionalidad de actualización automática.

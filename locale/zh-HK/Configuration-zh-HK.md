@@ -602,7 +602,7 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 
 ### `PasswordFormat`
 
-這是一個預設值為`0` 的 `byte flags` 類型。 此屬性定義` SteamPassword `屬性的格式，`0`，`PlainText`，`1`用於` AES `；` 2 `用於` ProtectedDataForCurrentUser `。 如果您想了解更多，請參閱** [安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security) **部分，因為您需要確保` SteamPassword `屬性中確實設置了匹配` PasswordFormat `的密碼。 換句話說，當您更改` PasswordFormat `后，您的` SteamPassword `格式**已經變更**。 除非你知道自己在做什麼，否則你應該保留預設值` 0 `。
+`byte` type with default value of `0` (`PlainText`). This property defines the format of `SteamPassword` property, and currently supports values specified in the **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. You should follow the instructions specified there, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. 換句話說，當您更改` PasswordFormat `后，您的` SteamPassword `格式**已經變更**。 除非你知道自己在做什麼，否則你應該保留預設值` 0 `。
 
 ---
 

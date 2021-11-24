@@ -602,7 +602,7 @@ However, there is one catch with `Invisible` mode - it doesn't go well with prim
 
 ### `PasswordFormat`
 
-`byte` 타입으로 기본값은 `0`입니다. 이 속성값은 `SteamPassword` 속성값의 형식을 정의합니다. 현재 지원하는 값은 다음과 같습니다. `0`은 `평문(PlainText)`을, `1`은 `AES`를, `2`는 `ProtectedDataForCurrentUser`를 의미합니다. 더 자세한 내용은 **[보안](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ko-KR)** 항목을 참고하십시오. `SteamPassword` 속성값은 실제로 `PasswordFormat`에 맞는 암호를 포함해야 합니다. 즉, `PasswordFormat`을 변경하면 `SteamPassword`는 그 후에 변경하는 것이 아니고 **이미** 그 형식으로 바뀌어있어야 합니다. 무슨 일을 하고 있는지 알지 못한다면 기본값인 `0`을 유지하십시오.
+`byte` type with default value of `0` (`PlainText`). This property defines the format of `SteamPassword` property, and currently supports values specified in the **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. You should follow the instructions specified there, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. 즉, `PasswordFormat`을 변경하면 `SteamPassword`는 그 후에 변경하는 것이 아니고 **이미** 그 형식으로 바뀌어있어야 합니다. 무슨 일을 하고 있는지 알지 못한다면 기본값인 `0`을 유지하십시오.
 
 ---
 

@@ -77,7 +77,6 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `mabrm [Bots] <AppIDs>`                                        | `Master`        | 将给定的 `AppIDs` 从 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN#matchactively)** 自动交易 App 黑名单中移除。        |
 | `nickname [Bots] <Nickname>`                                   | `Master`        | 将指定机器人的昵称更改为 `Nickname`。                                                                                                                       |
 | `owns [Bots] <Games>`                                          | `Operator`      | 检查指定机器人是否已拥有 `Games`，该参数解释详见&#8203;**[下文](#owns-命令的-games-参数)**。                                                                               |
-| `password [Bots]`                                                    | `Master`        | 显示指定机器人加密后的密码（配合 `PasswordFormat` 使用）。                                                                                                         |
 | `pause [Bots]`                                                       | `Operator`      | 永久暂停指定机器人的自动挂卡模块。 ASF 在本次会话中将不会再尝试对此帐户进行挂卡，除非您手动 `resume` 或者重启 ASF。                                                                            |
 | `pause~ [Bots]`                                                      | `FamilySharing` | 临时暂停指定机器人的自动挂卡模块。 挂卡进程将会在下次游戏事件或者机器人断开连接时自动恢复。 您可以 `resume` 以恢复挂卡。                                                                             |
 | `pause& [Bots] <Seconds>`                                  | `Operator`      | 临时暂停指定机器人的自动挂卡模块 `Seconds` 秒。 之后，挂卡模块会自动恢复。                                                                                                    |
@@ -272,7 +271,7 @@ owns ASF app/292030,name/Witcher
 
 ## `encrypt` 命令
 
-`encrypt` 命令使您能够使用 ASF 的加密方式加密任意字符串。 加密方式 `<encryptionMethod>` 必须是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节所述方式之一。 此命令主要用于提前生成已加密的细节，例如，避免先以 `PlainText` 方式在配置文件内填写明文密码，再使用 `password` 命令对其加密的情况。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
+`encrypt` 命令使您能够使用 ASF 的加密方式加密任意字符串。 加密方式 `<encryptionMethod>` 必须是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节所述方式之一。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
 
 ---
 

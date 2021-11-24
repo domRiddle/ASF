@@ -50,25 +50,25 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ### ASF-ui
 
-While the above steps are everything that is required to have a fully working build of ASF, you may *also* be interested in building **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, our graphical web interface. From ASF side, all you need to do is dropping ASF-ui build output in standard `ASF-ui/dist` location, then building ASF with it (again, if needed).
+上文是构建可用 ASF 的所有必须步骤，您可能*也*有兴趣了解如何构建我们的图形化 Web 界面 **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-ui)**。 从 ASF 的角度看，您只需要将 ASF 的构建输出放入标准的 `ASF-ui/dist` 路径，然后（如果需要），带上它构建 ASF。
 
-ASF-ui is part of ASF's source tree as a **[git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**, ensure that you've cloned the repo with `git clone --recursive`, as otherwise you'll not have the required files. You'll also need a working NPM, **[Node.js](https://nodejs.org)** comes with it. If you're using Linux/OS X, we recommend our `cc.sh` script, which will automatically cover building and shipping ASF-ui (if possible, that is, if you're meeting the requirements we've just mentioned).
+ASF-ui 以 **[Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)** 形式作为 ASF 源码树的一部分，您需要确保在克隆仓库时使用 `git clone --recursive`，否则您会缺少必须的文件。 您还必须拥有可用的 NPM，**[Node.js](https://nodejs.org)** 默认已经包含它了。 如果您使用的是 Linux/macOS，我们建议您使用 `cc.sh` 脚本，如果可能（也就是说如果您已经满足上述的所有要求），它将自动处理 ASF-ui 的构建和装载。
 
-In addition to the `cc.sh` script, we also attach the simplified build instructions below, refer to **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** for additional documentation. From ASF's source tree location, so as above, execute the following commands:
+除了 `cc.sh` 脚本，我们也在下文附上了简要的构建说明，您可以查阅 **[ASF-ui 仓库](https://github.com/JustArchiNET/ASF-ui)**&#8203;获得更详细的文档。 同上，在 ASF 源码树根目录下，执行下列命令：
 
 ```shell
-rm -rf "ASF-ui/dist" # ASF-ui doesn't clean itself after old build
+rm -rf "ASF-ui/dist" # ASF-ui 不会自动清理旧版构建
 
 npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
-rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # Or accordingly to what you need as per the above
+rm -rf "out/generic/www" # 确保我们的构建输出不包含旧文件
+dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # 或者根据上文选择您需要的命令
 ```
 
-You should now be able to find the ASF-ui files in your `out/generic/www` folder. ASF will be able to serve those files to your browser.
+您现在应该可以在 `out/generic/www` 目录下看到 ASF-ui 的文件了。 ASF 将能够向浏览器展示这些文件。
 
-Alternatively, you can simply build ASF-ui, whether manually or with the help of our repo, then copy the build output over to `${OUT}/www` folder manually, where `${OUT}` is the output folder of ASF that you've specified with `-o` parameter. This is exactly what ASF is doing as part of the build process, it copies `ASF-ui/dist` (if exists) over to `${OUT}/www`, nothing fancy.
+或者，您可以直接构建 ASF-ui，无论是手动还是通过我们仓库的帮助来实现，然后手动复制构建输出到 `${OUT}/www` 目录，其中 `${OUT}` 是您通过 `-o` 参数指定的 ASF 输出目录。 这正是 ASF 在构建过程中做的事，如果 `ASF-ui/dist` 存在，它就将其复制到 `${OUT}/www`，没有任何花式操作。
 
 ---
 
@@ -91,3 +91,5 @@ Alternatively, you can simply build ASF-ui, whether manually or with the help of
 ## 官方发布版本
 
 官方 ASF 发布版本由 Windows 上的带有满足 ASF **[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**&#8203;的最新版 .NET SDK 的 **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** 编译。 经过测试后，所有的包都会作为 Release 被部署在 GitHub 上。 这也保证了透明度，因为 GitHub 总是为所有构建使用官方公共源，并且您可以检查 GitHub 的 Artifacts 与 GitHub Release 附件的 Checksum（校验和）。 除了私人的开发和调试过程外，ASF 开发人员不会自行编译或发布构建版本。
+
+Starting from ASF V5.2.0.5, in addition to the above, ASF maintainers manually validate and publish build checksums on independent from GitHub, remote server, as additional security measure. This step is mandatory for existing ASFs to consider the release as a valid candidate for auto-update functionality.

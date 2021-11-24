@@ -77,7 +77,6 @@ ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 | `mabrm [Bots] <AppIDs>`                                        | `Master`        | Removes given `appIDs` from apps blacklisted from automatic trading in **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)**. |
 | `nickname [Bots] <Nickname>`                                   | `Master`        | 將指定機器人的 Steam `nickname`更改為自訂暱稱。                                                                                                                                         |
 | `owns [Bots] <Games>`                                          | `Operator`      | 檢查指定 BOT 是否已擁有指定  `games`，請參閱**[下文](#owns-games)**解釋。                                                                                                                    |
-| `password [Bots]`                                                    | `Master`        | 顯示指定機器人加密後的密碼（配合 `PasswordFormat` 使用）。                                                                                                                                   |
 | `pause [Bots]`                                                       | `Operator`      | 停止指定機器人的自動掛卡模塊。 ASF 在本次會話中將不會再嘗試對此帳戶進行掛卡，除非您手動 `resume` 或者重啟 ASF。                                                                                                        |
 | `pause~ [Bots]`                                                      | `FamilySharing` | 暫停指定機器人的自動掛卡模塊。 掛卡進程將會在下次遊戲事件被觸發時或機器人斷開連接時自動恢復。 您可以` resume` 以恢復掛卡。                                                                                                      |
 | `pause& [Bots] <Seconds>`                                  | `Operator`      | 暫停指定機器人的自動掛卡模塊`seconds` 秒。 之後，掛卡將自動恢復。                                                                                                                                   |
@@ -281,7 +280,7 @@ owns ASF app/292030,name/Witcher
 
 ## `encrypt` command
 
-`encrypt` command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` must be one of the encryption methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. This command is useful in case you'd want to generate encrypted details in advance, e.g. in order to avoid putting your `PlainText` password in the config first and then using `password` command. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
+`encrypt` command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` must be one of the encryption methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
 
 
 

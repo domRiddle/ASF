@@ -91,3 +91,5 @@ Alternatively, you can simply build ASF-ui, whether manually or with the help of
 ## Официальные версии
 
 Официальные выпуски ASF скомпилированы **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** для Windows с последним .NET SDK, который соответствует **[требованиям среды выполнения](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU#user-content-Требования-среды-исполнения)** ASF. После успешного прохождения тестов, все пакеты загружаются в виде готового выпуска, также на GitHub. Это гарантирует прозрачность, поскольку GitHub всегда использует официальный публичный исходный код для всех сборок, и вы можете сравнить контрольные суммы артефактов GitHub с файлами выпуска на GitHub. Разработчики ASF не компилируют и не публикуют сборки самостоятельно, за исключением индивидуального процесса разработки и отладки.
+
+Starting from ASF V5.2.0.5, in addition to the above, ASF maintainers manually validate and publish build checksums on independent from GitHub, remote server, as additional security measure. This step is mandatory for existing ASFs to consider the release as a valid candidate for auto-update functionality.

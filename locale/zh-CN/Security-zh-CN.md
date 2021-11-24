@@ -9,20 +9,22 @@ ASF 目前支持的加密方式定义为如下 `ECryptoMethod`：
 | 0     | PlainText                   |
 | 1     | AES                         |
 | 2     | ProtectedDataForCurrentUser |
+| 3     | EnvironmentVariable         |
+| 4     | 文件                          |
 
 下文会详细解释与比较这些方式。
 
-要生成加密过的密码，并在如 `SteamPassword` 等属性中使用，您可以执行 `encrypt` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，并带上您选择的适当加密方式与您的密码原文。 然后，将您获得的加密字符串填入 `SteamPassword` 机器人配置属性，并且对应修改 `PasswordFormat` 为符合加密方式的选项。
+要生成加密过的密码，并在如 `SteamPassword` 等属性中使用，您可以执行 `encrypt` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，并带上您选择的适当加密方式与您的密码原文。 然后，将您获得的加密字符串填入 `SteamPassword` 机器人配置属性，并且对应修改 `PasswordFormat` 为符合加密方式的选项。 Some formats do not require `encrypt` command, for example `EnvironmentVariable` or `File`, just put appropriate path for them.
 
 ---
 
-### PlainText
+### `PlainText`
 
 这是最简单但也最不安全的密码存储方式，指定 `ECryptoMethod` 为 `0`。 此时 ASF 需要字符串为纯文本——即密码的原文形式。 它是最容易使用的，并且与所有部署方式 100% 兼容，因此它是存储私密数据的默认值，但完全不安全。
 
 ---
 
-### AES
+### `AES`
 
 按照当今的标准，**[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** 可以被视为安全的加密方式，指定 `ECryptoMethod` 为 `1` 即可启用这种方式。 ASF 需要相应字符串是一个由 AES 加密的字节数组转换成的 **[Base64 编码](https://en.wikipedia.org/wiki/Base64)**&#8203;的字符序列，此数据需要其包含的&#8203;**[初始向量](https://en.wikipedia.org/wiki/Initialization_vector)**&#8203;和 ASF 内置加密密钥来解密。
 
@@ -30,11 +32,23 @@ ASF 目前支持的加密方式定义为如下 `ECryptoMethod`：
 
 ---
 
-### ProtectedDataForCurrentUser
+### `ProtectedDataForCurrentUser`
 
 这是目前 ASF 加密密码最安全的方式，比上述 `AES` 加密安全得多，您需要将 ` ECryptoMethod` 指定为 `2`。 这种方法的主要优点同时也是它主要的缺点——它并不使用加密密钥（像 `AES` 那样），数据会使用当前计算机登录的用户凭据加密，这意味着数据**仅**能在这台机器上进行解密，事实上，**仅仅**触发加密的计算机用户才能解密。 如果您的 `Bot.json` 文件中的 `SteamPassword` 属性使用此方式加密，就可以保证即使您将整个文件发送给其他人，对方也无法在不直接接触您的计算机的情况下获得密码。 这是非常优秀的安全措施，但也有兼容性差的缺点，因为使用此方法加密的密码将不能兼容其他任何用户和计算机——假设您需要重新安装操作系统，这其中甚至包括**您自己的**计算机。 不过，这仍然是存储密码的最佳方法之一，如果您担心 `PlainText` 的安全性，也不想每次输入密码，那么只要您不会在其他机器上使用您的配置文件，这就是您最好的选择。
 
 **请注意，此选项目前仅适用于运行 Windows 操作系统的计算机。**
+
+---
+
+### `EnvironmentVariable`
+
+Memory-based storage. ASF will read the password from the environment variable with given name specified in the password field (e.g. `SteamPassword`). For example, setting `SteamPassword` to `ASF_PASSWORD_MYACCOUNT` and `PasswordFormat` to `3` will cause ASF to evaluate `${ASF_PASSWORD_MYACCOUNT}` environment variable and use whatever is assigned to it as the account password.
+
+---
+
+### `文件`
+
+File-based storage (possibly outside of the ASF config directory). ASF will read the password from the file path specified in the password field (e.g. `SteamPassword`). The specified path can be either relative to ASF's "home" location (the folder where the `config` directory is included, or the one specified by `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**), or absolute. This method can be used for example with **[Docker secrets](https://docs.docker.com/engine/swarm/secrets)**, which create such files for usage, but can also be used outside of Docker if you create appropriate file yourself. Gentle reminder to ensure that file containing the password is not readable by unauthorized users. For example, setting `SteamPassword` to `/etc/secrets/MyAccount.pass` and `PasswordFormat` to `4` will cause ASF to read `/etc/secrets/MyAccount.pass` and use whatever is written to that file as the account password.
 
 ---
 
@@ -43,6 +57,8 @@ ASF 目前支持的加密方式定义为如下 `ECryptoMethod`：
 如果兼容性对您来说不是问题，并且您可以接受 `ProtectedDataForCurrentUser` 方式，我们**推荐**您以这种方式存储密码，因为它有着最好的安全性。 对于还需要在其他计算机上使用配置文件的用户来说，`AES` 方法也是一个不错的选择。而 `PlainText` 是存储密码最简单的方法，只要您不介意其他人可能会查看您的 JSON 配置文件。
 
 请注意，如果入侵者能够访问您的计算机，上述 3 种方法都**不安全**。 ASF 必须能够解密已加密的密码，如果在您的计算机上运行的某个程序能够做到这一点，那么在同一计算机上运行的其他程序也能做到这一点。 `ProtectedDataForCurrentUser` 是其中最安全的方法，**即使使用同一台计算机的其他用户也无法解密**，但如果有人窃取了您的登录凭据、计算机信息和 ASF 配置文件，他仍然有可能解密出您的密码。
+
+For advanced setups, you can utilize `EnvironmentVariable` and `File`. They have limited usability, the `EnvironmentVariable` will be a good idea if you'd prefer to obtain password through some kind of custom solution and store it in memory exclusively, while `File` is good for example with **[Docker secrets](https://docs.docker.com/engine/swarm/secrets)**. Both of them are unencrypted however, so you basically move the risk from ASF config file to whatever you pick from those two.
 
 除了使用上述加密方式以外，您也可以完全不填写密码，例如，将 `SteamPassword` 设置为空字符串或者 `null` 值。 ASF 将会在需要时向您询问密码，并且不会将其保存在任何地方，仅仅临时存放在当前进程分配的内存中，一旦您关闭 ASF 就会消失。 随着这是处理密码的最安全的方法（密码没有被存储在任何地方），但也是最麻烦的，因为您需要在每次 ASF 运行时手动输入密码（如果需要）。 如果这对您来说不是问题，这就是您在安全方面的最佳选择。
 
@@ -70,13 +86,13 @@ ASF 目前支持的哈希方式定义为如下 `EHashingMethod`：
 
 ---
 
-### PlainText
+### `PlainText`
 
 这是最简单但也最不安全的密码哈希方式，指定 `EHashingMethod` 为 `0`。 ASF 会生成与原文相同的哈希值。 它是最容易使用的，并且与所有部署方式 100% 兼容，因此它是存储私密数据的默认值，但完全不安全。
 
 ---
 
-### SCrypt
+### `SCrypt`
 
 按照当今的标准，**[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** 可以被视为安全的哈希方式，指定 `EHashingMethod` 为 `1` 即可使用这种方式。 ASF 的 `SCrypt` 实现采用 `8` 个块、`8192` 次迭代、`32` 位哈希长度，并使用加密密钥作为盐以生成字节数组。 其结果字节将会以 **[Base64](https://en.wikipedia.org/wiki/Base64)** 编码为字符串。
 
@@ -84,7 +100,7 @@ ASF 允许您通过 `--cryptkey` **[命令行参数](https://github.com/JustArch
 
 ---
 
-### Pbkdf2
+### `Pbkdf2`
 
 按照当今的标准，**[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** 是一种安全性较弱的哈希方式，指定 `EHashingMethod` 为 `2` 即可使用这种方式。 ASF 的 `Pbkdf2` 实现采用 `10000` 次迭代、`32` 位哈希长度，并使用加密密钥作为盐，`SHA-256` 作为 HMAC 算法以生成字节数组。 其结果字节将会以 **[Base64](https://en.wikipedia.org/wiki/Base64)** 编码为字符串。
 

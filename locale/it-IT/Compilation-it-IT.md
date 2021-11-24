@@ -91,3 +91,5 @@ Il ramo `main` non è garantito in uno stato che consenta una compilazione di su
 ## Versioni ufficiali
 
 Official ASF releases are compiled by **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** on Windows, with latest .NET SDK that matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**. Dopo aver superato i testi, tutti i pacchetti sono distribuiti come versione, anche su GitHub. Questo garantisce anche la trasparenza, dato che GitHub usa sempre sorgenti pubbliche ufficiali per tutte le build e poiché puoi comparare le somme di controllo degli artefatti di GitHub con le risorse di rilascio di GitHub. Gli sviluppatori di ASF non compilano o pubblicano loro stessi le build, eccetto per il processo di sviluppo privato e il debug.
+
+Starting from ASF V5.2.0.5, in addition to the above, ASF maintainers manually validate and publish build checksums on independent from GitHub, remote server, as additional security measure. This step is mandatory for existing ASFs to consider the release as a valid candidate for auto-update functionality.

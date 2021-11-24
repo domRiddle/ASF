@@ -91,3 +91,5 @@ OV COURSE ALL SUGGESHUNS ABOOV R ONLY RECOMMENDASHUNS, U CAN USE WHATEVR U WANTS
 ## OFFISHUL RELEASEZ
 
 OFFISHUL ASF RELEASEZ R COMPILD BY **[GITHUB](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** ON WINDOWS, WIF LATEST .NET SDK DAT MATCHEZ ASF **[RUNTIME REQUIREMENTS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US#runtime-requirements)**. AFTR PASIN TESTS, ALL PACKAGEZ R DEPLOYD AS TEH RELEASE, ALSO ON GITHUB. DIS ALSO GUARANTEEZ TRANZPARENCY, SINCE GITHUB ALWAYS USEZ OFFISHUL PUBLIC SOURCE 4 ALL BUILDZ, AN U CAN COMPARE CHECKSUMS OV GITHUB ARTIFACTS WIF GITHUB RELEASE ASSETS. ASF DEVELOPERS DO NOT COMPILE OR PUBLISH BUILDZ THEMSELVEZ, EXCEPT 4 PRIVATE DEVELOPMENT PROCES AN DEBUGGIN.
+
+Starting from ASF V5.2.0.5, in addition to the above, ASF maintainers manually validate and publish build checksums on independent from GitHub, remote server, as additional security measure. This step is mandatory for existing ASFs to consider the release as a valid candidate for auto-update functionality.
