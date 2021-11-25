@@ -602,7 +602,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ### `PasswordFormat`
 
-`byte` type with default value of `0` (`PlainText`). This property defines the format of `SteamPassword` property, and currently supports values specified in the **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. You should follow the instructions specified there, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. 换句话说，在您更改 `PasswordFormat` 时，必须确保您的 `SteamPassword` **已经**是您所选择的格式。 除非您明确了解自己在做什么，否则请将其保留为默认值 `0`。
+这是一个默认值为 `0`（`PlainText`）的 `byte` 类型属性。 该属性定义了 `SteamPassword` 的格式，目前支持的选项值详见&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节。 您应该跟随那里的步骤，因为您需要确保 `SteamPassword` 属性的确按照 `PasswordFormat` 指定的格式存储了密码。 换句话说，在您更改 `PasswordFormat` 时，必须确保您的 `SteamPassword` **已经**是您所选择的格式。 除非您明确了解自己在做什么，否则请将其保留为默认值 `0`。
 
 ---
 

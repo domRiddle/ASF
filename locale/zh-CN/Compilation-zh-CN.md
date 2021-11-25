@@ -92,4 +92,4 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # 或者
 
 官方 ASF 发布版本由 Windows 上的带有满足 ASF **[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**&#8203;的最新版 .NET SDK 的 **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** 编译。 经过测试后，所有的包都会作为 Release 被部署在 GitHub 上。 这也保证了透明度，因为 GitHub 总是为所有构建使用官方公共源，并且您可以检查 GitHub 的 Artifacts 与 GitHub Release 附件的 Checksum（校验和）。 除了私人的开发和调试过程外，ASF 开发人员不会自行编译或发布构建版本。
 
-Starting from ASF V5.2.0.5, in addition to the above, ASF maintainers manually validate and publish build checksums on independent from GitHub, remote server, as additional security measure. This step is mandatory for existing ASFs to consider the release as a valid candidate for auto-update functionality.
+从 ASF V5.2.0.5 开始，除此之外，ASF 维护者还会在独立于 GitHub 的远程服务器手动验证并发布构建校验和，作为一项额外安全措施。 这个步骤是强制性的，ASF 在自动更新时必须检查通过才认为对应发布版本是有效的。

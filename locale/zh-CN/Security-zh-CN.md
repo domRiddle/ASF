@@ -10,11 +10,11 @@ ASF 目前支持的加密方式定义为如下 `ECryptoMethod`：
 | 1     | AES                         |
 | 2     | ProtectedDataForCurrentUser |
 | 3     | EnvironmentVariable         |
-| 4     | 文件                          |
+| 4     | File                        |
 
 下文会详细解释与比较这些方式。
 
-要生成加密过的密码，并在如 `SteamPassword` 等属性中使用，您可以执行 `encrypt` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，并带上您选择的适当加密方式与您的密码原文。 然后，将您获得的加密字符串填入 `SteamPassword` 机器人配置属性，并且对应修改 `PasswordFormat` 为符合加密方式的选项。 Some formats do not require `encrypt` command, for example `EnvironmentVariable` or `File`, just put appropriate path for them.
+要生成加密过的密码，并在如 `SteamPassword` 等属性中使用，您可以执行 `encrypt` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，并带上您选择的适当加密方式与您的密码原文。 然后，将您获得的加密字符串填入 `SteamPassword` 机器人配置属性，并且对应修改 `PasswordFormat` 为符合加密方式的选项。 一些格式不需要 `encrypt` 命令，例如 `EnvironmentVariable` 或 `File`，而只需要设置合适的路径。
 
 ---
 
@@ -42,13 +42,13 @@ ASF 目前支持的加密方式定义为如下 `ECryptoMethod`：
 
 ### `EnvironmentVariable`
 
-Memory-based storage. ASF will read the password from the environment variable with given name specified in the password field (e.g. `SteamPassword`). For example, setting `SteamPassword` to `ASF_PASSWORD_MYACCOUNT` and `PasswordFormat` to `3` will cause ASF to evaluate `${ASF_PASSWORD_MYACCOUNT}` environment variable and use whatever is assigned to it as the account password.
+基于内存的存储。 ASF 会从环境变量中读取密码，环境变量的名字需要在密码字段（例如 `SteamPassword`）中指定。 例如，将 `SteamPassword` 设置为 `ASF_PASSWORD_MYACCOUNT`，并将 `PasswordFormat` 设置为 `3`，ASF 就会读取环境变量 `${ASF_PASSWORD_MYACCOUNT}` 的内容作为帐户密码。
 
 ---
 
-### `文件`
+### `File`
 
-File-based storage (possibly outside of the ASF config directory). ASF will read the password from the file path specified in the password field (e.g. `SteamPassword`). The specified path can be either relative to ASF's "home" location (the folder where the `config` directory is included, or the one specified by `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**), or absolute. This method can be used for example with **[Docker secrets](https://docs.docker.com/engine/swarm/secrets)**, which create such files for usage, but can also be used outside of Docker if you create appropriate file yourself. Gentle reminder to ensure that file containing the password is not readable by unauthorized users. For example, setting `SteamPassword` to `/etc/secrets/MyAccount.pass` and `PasswordFormat` to `4` will cause ASF to read `/etc/secrets/MyAccount.pass` and use whatever is written to that file as the account password.
+基于文件的存储（可以在 ASF 配置文件夹之外）。 ASF 会从文件中读取密码，文件的路径需要在密码字段（例如 `SteamPassword`）中指定。 指定的路径既可以是相对于 ASF 根目录（也就是含有 `config` 文件夹的目录，或者您通过 `--path` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN#参数)**&#8203;指定的目录），也可以是绝对路径。 此方法可以配合 **[Docker secret](https://docs.docker.com/engine/swarm/secrets)** 使用，它会自动创建对应的文件，但如果您自己创建所需的文件，也可以在 Docker 外使用。 温馨提示，请确保包含密码的文件不会被未授权用户读取到。 例如，将 `SteamPassword` 设置为 `/etc/secrets/MyAccount.pass`，并将 `PasswordFormat` 设置为 `4`，ASF 就会读取 `/etc/secrets/MyAccount.pass` 文件，并将其内容作为帐户密码。
 
 ---
 
@@ -58,7 +58,7 @@ File-based storage (possibly outside of the ASF config directory). ASF will read
 
 请注意，如果入侵者能够访问您的计算机，上述 3 种方法都**不安全**。 ASF 必须能够解密已加密的密码，如果在您的计算机上运行的某个程序能够做到这一点，那么在同一计算机上运行的其他程序也能做到这一点。 `ProtectedDataForCurrentUser` 是其中最安全的方法，**即使使用同一台计算机的其他用户也无法解密**，但如果有人窃取了您的登录凭据、计算机信息和 ASF 配置文件，他仍然有可能解密出您的密码。
 
-For advanced setups, you can utilize `EnvironmentVariable` and `File`. They have limited usability, the `EnvironmentVariable` will be a good idea if you'd prefer to obtain password through some kind of custom solution and store it in memory exclusively, while `File` is good for example with **[Docker secrets](https://docs.docker.com/engine/swarm/secrets)**. Both of them are unencrypted however, so you basically move the risk from ASF config file to whatever you pick from those two.
+对于复杂的安装方式，您可以利用 `EnvironmentVariable` 和 `File`。 它们的用途有限，如果您希望通过某种自定义方法获取密码并将其存储在内存中，则使用 `EnvironmentVariable` 较好，而使用 **[Docker secret](https://docs.docker.com/engine/swarm/secrets)** 的情况则更适合使用 `File`。 但两者都没有加密，所以基本上是将风险从 ASF 配置文件转移到了您选择的另一个存储位置。
 
 除了使用上述加密方式以外，您也可以完全不填写密码，例如，将 `SteamPassword` 设置为空字符串或者 `null` 值。 ASF 将会在需要时向您询问密码，并且不会将其保存在任何地方，仅仅临时存放在当前进程分配的内存中，一旦您关闭 ASF 就会消失。 随着这是处理密码的最安全的方法（密码没有被存储在任何地方），但也是最麻烦的，因为您需要在每次 ASF 运行时手动输入密码（如果需要）。 如果这对您来说不是问题，这就是您在安全方面的最佳选择。
 
