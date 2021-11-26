@@ -42,13 +42,15 @@ Actualmente es la forma más segura que ofrece ASF para cifrar la contraseña, y
 
 ### `EnvironmentVariable`
 
-Almacenamiento basado en la memoria. ASF leerá la contraseña de la variable de entorno con el nombre especificado en el campo de contraseña (por ejemplo, `SteamPassword`). Por ejemplo, establecer `SteamPassword` a `ASF_PASSWORD_MYACCOUNT` y `PasswordFormat` a `3` causará que ASF evalúe la variable de entorno `${ASF_PASSWORD_MYACCOUNT}` y usará como contraseña de la cuenta lo que esté asignado a dicha variable.
+Almacenamiento basado en la memoria definido como `ECryptoMethod` de `3`. ASF leerá la contraseña de la variable de entorno con el nombre especificado en el campo de contraseña (por ejemplo, `SteamPassword`). Por ejemplo, establecer `SteamPassword` a `ASF_PASSWORD_MYACCOUNT` y `PasswordFormat` a `3` causará que ASF evalúe la variable de entorno `${ASF_PASSWORD_MYACCOUNT}` y usará como contraseña de la cuenta lo que esté asignado a dicha variable.
 
 ---
 
 ### `File`
 
-Almacenamiento basado en archivos (posiblemente fuera de la carpeta de configuración de ASF). ASF leerá la contraseña de la ruta del archivo especificada en el campo de contraseña (por ejemplo, `SteamPassword`). La ruta especificada puede ser relativa a la ubicación de "inicio" de ASF (la carpeta donde se encuentra el directorio `config`, o la especificada por el **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-ES#argumentos)** `--path`), o absoluta. Este método se puede usar por ejemplo con los **[secretos de Docker](https://docs.docker.com/engine/swarm/secrets)**, que generan dichos archivos para su uso, pero también puede usarse fuera de Docker si creas el archivo apropiado. Recuerda asegurarte de que el archivo que contenga la contraseña no sea legible por usuarios no autorizados. Por ejemplo, establecer `SteamPassword` a `/etc/secrets/MyAccount.pass` y `PasswordFormat` a `4` causará que ASF lea `/etc/secrets/MyAccount.pass` y use como contraseña de la cuenta lo que esté escrito en ese archivo.
+Almacenamiento basado en archivos (posiblemente fuera del directorio de configuración de ASF) definido como `ECryptoMethod` de `4`. ASF leerá la contraseña de la ruta del archivo especificada en el campo de contraseña (por ejemplo, `SteamPassword`). La ruta especificada puede ser absoluta, o relativa a la ubicación de "inicio" de ASF (la carpeta donde se encuentra el directorio `config`, tomando en cuenta el **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-ES#argumentos)** `--path`). Este método se puede usar por ejemplo con los **[secretos de Docker](https://docs.docker.com/engine/swarm/secrets)**, que generan dichos archivos para su uso, pero también puede usarse fuera de Docker si creas el archivo apropiado. Por ejemplo, establecer `SteamPassword` a `/etc/secrets/MyAccount.pass` y `PasswordFormat` a `4` causará que ASF lea `/etc/secrets/MyAccount.pass` y use como contraseña de la cuenta lo que esté escrito en ese archivo.
+
+Recuerda asegurarte de que el archivo que contenga la contraseña no sea legible por usuarios no autorizados, ya que eso arruina todo el propósito de usar este método.
 
 ---
 
