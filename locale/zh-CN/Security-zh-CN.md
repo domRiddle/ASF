@@ -42,15 +42,15 @@ ASF 目前支持的加密方式定义为如下 `ECryptoMethod`：
 
 ### `EnvironmentVariable`
 
-Memory-based storage defined as `ECryptoMethod` of `3`. ASF 会从环境变量中读取密码，环境变量的名字需要在密码字段（例如 `SteamPassword`）中指定。 例如，将 `SteamPassword` 设置为 `ASF_PASSWORD_MYACCOUNT`，并将 `PasswordFormat` 设置为 `3`，ASF 就会读取环境变量 `${ASF_PASSWORD_MYACCOUNT}` 的内容作为帐户密码。
+基于内存的存储，`ECryptoMethod` 定义为 `3`。 ASF 会从环境变量中读取密码，环境变量的名字需要在密码字段（例如 `SteamPassword`）中指定。 例如，将 `SteamPassword` 设置为 `ASF_PASSWORD_MYACCOUNT`，并将 `PasswordFormat` 设置为 `3`，ASF 就会读取环境变量 `${ASF_PASSWORD_MYACCOUNT}` 的内容作为帐户密码。
 
 ---
 
 ### `File`
 
-File-based storage (possibly outside of the ASF config directory) defined as `ECryptoMethod` of `4`. ASF 会从文件中读取密码，文件的路径需要在密码字段（例如 `SteamPassword`）中指定。 The specified path can be either absolute, or relative to ASF's "home" location (the folder where the `config` directory is included, taking into account `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**). 此方法可以配合 **[Docker secret](https://docs.docker.com/engine/swarm/secrets)** 使用，它会自动创建对应的文件，但如果您自己创建所需的文件，也可以在 Docker 外使用。 例如，将 `SteamPassword` 设置为 `/etc/secrets/MyAccount.pass`，并将 `PasswordFormat` 设置为 `4`，ASF 就会读取 `/etc/secrets/MyAccount.pass` 文件，并将其内容作为帐户密码。
+基于文件的存储（可以在 ASF 配置文件夹之外），`ECryptoMethod` 定义为 `4`。 ASF 会从文件中读取密码，文件的路径需要在密码字段（例如 `SteamPassword`）中指定。 指定的路径既可以是绝对路径，也可以相对于 ASF 根目录（也就是含有 `config` 文件夹的目录，同时遵循您设置的 `--path` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN#参数)**）。 此方法可以配合 **[Docker secret](https://docs.docker.com/engine/swarm/secrets)** 使用，它会自动创建对应的文件，但如果您自己创建所需的文件，也可以在 Docker 外使用。 例如，将 `SteamPassword` 设置为 `/etc/secrets/MyAccount.pass`，并将 `PasswordFormat` 设置为 `4`，ASF 就会读取 `/etc/secrets/MyAccount.pass` 文件，并将其内容作为帐户密码。
 
-Remember to ensure that file containing the password is not readable by unauthorized users, as that defeats the whole purpose of using this method.
+注意，请确保包含密码的文件不会被未授权用户读取到，因为这样就完全破坏了使用这种方法的目的。
 
 ---
 
