@@ -10,22 +10,22 @@
 
 ## 👨‍🏫 Base
 
-* **[🏡 Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
-* **[🔧 Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
-* **[💬 FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[⚙️ Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[🏡 Sākums](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+* **[🔧 Iestatījumi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+* **[💬 BUJ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[⚙️ Iestatīšana](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(sākt šeit)**
 
 
 ## 👨‍🎓️ Main
 
 * **[👥 Spēļu iegūšana fonā](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
-* **[📢 Commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
-* **[🛠️ Compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[📢 Komandas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[🛠️ Savienojamība](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
-* **[⏱️ Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📊 Statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[⏱️ Veiktspēja](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
+* **[📊 Statistika](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
 * **[👪 Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[🔄 Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+* **[🔄 Darījumi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 
 ## 🧙 Advanced
@@ -40,7 +40,7 @@
 * **[📝 Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[🔌 Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
-* **[🔐 Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[🔐 Drošība](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[📦 Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[📵 Divu faktoru autentifikācija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
@@ -50,5 +50,5 @@
 
 * **[🏗️ Compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
 * **[🤝 Ieguldījumu vadlīnijas](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
-* **[⚖️ License](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
+* **[⚖️ Licence](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[🏭 Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

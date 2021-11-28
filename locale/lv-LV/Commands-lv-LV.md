@@ -152,13 +152,13 @@ In addition to range syntax above, `[Bots]` argument also supports **[regex](htt
 
 | Arguments | Nosaukums      | Child of   |
 | --------- | -------------- | ---------- |
-| 1         | Profils        |            |
-| 2         | OwnedGames     | Profils    |
+| 1         | Profile        |            |
+| 2         | OwnedGames     | Profile    |
 | 3         | Playtime       | OwnedGames |
-| 4         | FriendsList    | Profils    |
-| 5         | Inventory      | Profils    |
+| 4         | FriendsList    | Profile    |
+| 5         | Inventory      | Profile    |
 | 6         | InventoryGifts | Inventory  |
-| 7         | Komentāri      | Profils    |
+| 7         | Comments       | Profile    |
 
 For description of above fields, please visit **[Steam privacy settings](https://steamcommunity.com/my/edit/settings)**.
 
@@ -188,7 +188,7 @@ privacy Main 3,3,3,3,3,3,3
 privacy Main Public,Public,Public,Public,Public,Public,Public
 ```
 
-This way you can also set independent options however you like:
+Šādi jūs arī varat pielietot neatkarīgas opcijas kā vien vēlaties:
 
 ```text
 privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
@@ -202,7 +202,7 @@ Remember that child can never have more open permission than its parent. Refer t
 
 ## `addlicense` licences
 
-`addlicense` command supports two different license types, those are:
+`addlicense` komanda atbalsta divus dažādus licences tipus, tie ir:
 
 | Tips  | Saīsinājums | Piemērs      | Apraksts                                                                |
 | ----- | ----------- | ------------ | ----------------------------------------------------------------------- |
