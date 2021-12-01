@@ -96,6 +96,10 @@ su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFa
 
 Eso sería hacerlo manualmente, es mucho más fácil usar nuestro **servicio [`systemd`](#servicio-systemd-para-linux)** explicado anteriormente.
 
+### Yo sé más y todavía quiero ejecutar como `root`
+
+Puedes proporcionar el **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-ES#argumentos)** `--ignore-unsupported-environment` y ASF te permitirá hacerlo. Solo no te sorprendas si un día debido a un error en el programa hace estallar todo tu sistema operativo con una pérdida total de datos - has sido avisado.
+
 ---
 
 ## Múltiples instancias

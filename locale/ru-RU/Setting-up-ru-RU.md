@@ -11,7 +11,7 @@
 ## Установка для конкретных ОС
 
 В общем случае, вот что нам придётся сделать в следующие несколько минут:
-- Install **[.NET prerequisites](#net-prerequisites)**.
+- Установить **[предусловия для .NET](#net-prerequisites)**.
 - Скачать **[последнюю версию ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** в варианте для конкретной ОС.
 - Распаковать архив в новое место.
 - **[Сконфигурировать ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ru-RU)**.

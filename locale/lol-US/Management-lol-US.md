@@ -96,6 +96,10 @@ su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFa
 
 DAT WUD BE DOIN IT MANUALLY, IZ MUTCH EASIR 2 USE R **[`systemd` SERVICE](#systemd-service-4-linux)** EXPLAIND ABOOV.
 
+### I know better and I still want to run as `root`
+
+You can, supply `--ignore-unsupported-environment` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** and ASF will allow you to do so. Just don't be shocked if one day due to a bug in the program it'll blow up your whole OS with complete data loss - you've been warned.
+
 ---
 
 ## MULTIPLE INSTANCEZ

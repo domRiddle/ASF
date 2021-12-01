@@ -96,6 +96,10 @@ su asf -c /path/to/ASF/ArchiSteamFarm # 或者 sudo -u asf /path/to/ASF/ArchiSte
 
 这些步骤会手动启动 ASF，但使用我们上述的 **[`systemd` 服务](#linux-的-systemd-服务)**&#8203;会更容易。
 
+### 我比你们更明白，我仍然想要以 `root` 用户运行
+
+可以，只需要提供 `--ignore-unsupported-environment` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN#参数)**，ASF 就会允许您这样做。 但是，如果有一天本程序的漏洞导致您的整个操作系统崩溃掉，并且丢失所有数据——不要说我们没有警告过您。
+
 ---
 
 ## 多实例
