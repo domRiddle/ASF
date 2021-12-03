@@ -13,7 +13,7 @@
 * **[🏡 Главная](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU)**
 * **[🔧 Конфигурация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ru-RU)**
 * **[💬 ЧАВО](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-ru-RU)**
-* **[⚙️ Настройка](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(начать здесь)**
+* **[⚙️ Настройка](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-ru-RU)** **(начать здесь)**
 
 
 ## 👨‍🎓 Главная
