@@ -30,7 +30,7 @@ IZ PERFECTLY NORMAL DAT SUM (OR EVEN ALL) DEPENDENCIEZ ALREADY EXIST ON UR SISTE
 Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET SDK or even runtime, since OS-specific package includes all of that already. You need only .NET prerequisites (dependencies) to run .NET runtime included in ASF.
 
 #### **[WINDOWS](https://docs.microsoft.com/dotnet/core/install/windows)**:
-- **[MICROSOFT VISUAL C++ 2015 REDISTRIBUTABLE UPDATE](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (X64 4 64-BIT WINDOWS, X86 4 32-BIT WINDOWS)
+- **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)** for 64-bit Windows, **[x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)** for 32-bit Windows)
 - IZ HIGHLY RECOMMENDD 2 ENSURE DAT ALL WINDOWS UPDATEZ R ALREADY INSTALLD. AT TEH VRY LEAST U NED **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** AN **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, BUT MOAR UPDATEZ CUD BE NEEDD. ALL OV THEM R ALREADY INSTALLD IF UR WINDOWS IZ UP-2-DATE. ENSURE DAT U MEET DOSE REQUIREMENTS PRIOR 2 INSTALLIN VISUAL C++ PACKAGE.
 
 #### **[LINUX](https://docs.microsoft.com/dotnet/core/install/linux)**:

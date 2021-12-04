@@ -30,7 +30,7 @@
 Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET SDK or even runtime, since OS-specific package includes all of that already. You need only .NET prerequisites (dependencies) to run .NET runtime included in ASF.
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
-- **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/ru-ru/download/details.aspx?id=53587)** (x64 для 64-битного Windows, x86 для 32-битного Windows)
+- **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)** for 64-bit Windows, **[x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)** for 32-bit Windows)
 - Настоятельно рекомендуется убедиться, что у вас уже установлены все обновления Windows. Как минимум вам потребуются **[KB2533623](https://support.microsoft.com/ru-ru/help/2533623/)** и **[KB2999226](https://support.microsoft.com/ru-ru/help/2999226/)**, но могут понадобиться и другие обновления. Все они уже должны быть установлены если ваша Windows полностью обновлена. Убедитесть что вы выполнили эти требования до того как устанавливать пакет Visual C++.
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
@@ -220,7 +220,7 @@ However, keep in mind that you're in charge of .NET runtime in this case. This m
 Для` универсального пакета`, вы можете следовать всему руководству по установке под конкретную ОС, приведенному выше, с двумя небольшими отличиями. In addition to installing .NET prerequisites, you also want to install .NET SDK, and instead of having OS-specific `ArchiSteamFarm(.exe)` executable file, you now have a generic `ArchiSteamFarm.dll` binary only. Всё остальное практически точно так же.
 
 Вместе с дополнительными шагами, вы должны:
-- Install **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
+- Установить **[предусловия для .NET](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
 - Install **[.NET SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. Скорее всего вы захотите использовать установщик. Обратитесь к разделу "**[Требования среды исполнения](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU#user-content-Требования-среды-исполнения)**" если не уверены, какую версию вам надо установить.
 - Скачать **[последнюю версию ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** в `универсальном (generic)` варианте.
 - Распаковать архив в новое место.

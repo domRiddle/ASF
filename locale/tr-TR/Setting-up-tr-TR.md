@@ -30,7 +30,7 @@ Kullanmakta olduğunuz üçüncü taraf yazılımlar tarafından yüklendiği i�
 Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET SDK or even runtime, since OS-specific package includes all of that already. You need only .NET prerequisites (dependencies) to run .NET runtime included in ASF.
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
-- **[Microsoft Visual C++ 2015 Redistributable Güncellemesi](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (64-bit Windows için x64, 32-bit Windows x32)
+- **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)** for 64-bit Windows, **[x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)** for 32-bit Windows)
 - Tüm Windows güncellemelerinin zaten yüklü olduğundan emin olmanız şiddetle önerilir. En azından **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** ve **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**'ya ihtiyacınız var, ancak daha fazla güncelleme gerekebilir. Windows'unuz güncelse, hepsi zaten yüklenmiştir. Visual C++ paketini yüklemeden önce bu gereksinimleri karşıladığınızdan emin olun.
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:

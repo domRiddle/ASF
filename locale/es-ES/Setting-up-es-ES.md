@@ -30,7 +30,7 @@ Es perfectamente normal que algunas (o incluso todas) las dependencias ya exista
 Ten en cuenta que no necesitas hacer nada más para la compilación de sistema operativo específico, especialmente instalar .NET SDK o incluso runtime, puesto que el paquete de sistema operativo específico ya incluye todo eso. Solo necesitas los prerrequisitos de .NET (dependencias) para ejecutar .NET runtime incluido en ASF.
 
 #### **[Windows](https://docs.microsoft.com/es-es/dotnet/core/install/windows)**:
-- **[Microsoft Visual C++ 2015 Redistributable Update](https://www.microsoft.com/es-ES/download/details.aspx?id=53587)** (x64 para Windows de 64 bits, x86 para Windows de 32 bits)
+- **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/es-es/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)** para Windows de 64 bits, **[x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)** para Windows de 32 bits)
 - Es altamente recomendado que te asegures de que todas las actualizaciones de Windows ya estén instaladas. Por lo menos necesitas **[KB2533623](https://support.microsoft.com/es-es/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** y **[KB2999226](https://support.microsoft.com/es-es/help/2999226/update-for-universal-c-runtime-in-windows)**, pero podrían necesitarse más actualizaciones. Todas ellas ya están instaladas si tu Windows está actualizado. Asegúrate de cumplir esos requisitos antes de instalar el paquete Visual C++.
 
 #### **[Linux](https://docs.microsoft.com/es-es/dotnet/core/install/linux)**:

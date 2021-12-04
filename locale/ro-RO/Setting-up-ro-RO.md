@@ -30,7 +30,7 @@ Este perfect normal ca unele (sau chiar toate) dependențe să existe deja în s
 Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET SDK or even runtime, since OS-specific package includes all of that already. You need only .NET prerequisites (dependencies) to run .NET runtime included in ASF.
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
-- **[Actualizare Redistribuabilă Microsoft C++ 2015](https://www.microsoft.com/en-us/download/details.aspx?id=53587)** (x64 pentru versiunea Windows 64-biți, x86 pentru versiunea Windows 32-biți)
+- **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)** for 64-bit Windows, **[x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)** for 32-bit Windows)
 - Este foarte recomandat să te asiguri că toate actualizările Windows sunt deja instalate. Ai nevoie cel puţin de **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** şi **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, dar poate fi nevoie de mai multe actualizări. Toate sunt deja instalate dacă Windows este actualizat. Asigurați-vă că îndepliniți aceste cerințe înainte de a instala pachetul Visual C++.
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
