@@ -30,8 +30,10 @@ O primeiro passo é garantir que seu sistema operacional pode mesmo executar o A
 Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET SDK or even runtime, since OS-specific package includes all of that already. You need only .NET prerequisites (dependencies) to run .NET runtime included in ASF.
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
-- **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)** for 64-bit Windows, **[x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)** for 32-bit Windows)
-- É altamente recomendado garantir que todas as atualizações do Windows estejam instaladas. Você precisa pelo menos das atualizações **[KB2533623](https://support.microsoft.com/pt-br/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** e **[KB2999226](https://support.microsoft.com/pt-br/help/2999226/update-for-universal-c-runtime-in-windows)**, mas outras atualizações podem ser necessárias. Todas elas já estarão instaladas se o seu Windows estiver atualizado. Certifique-se de que você atende a esses requisitos antes de instalar o pacote do Visual C++.
+- **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)** for 64-bit Windows, **[x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)** for 32-bit Windows)
+- É altamente recomendado garantir que todas as atualizações do Windows estejam instaladas. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**, **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. Todas elas já estarão instaladas se o seu Windows estiver atualizado. Certifique-se de que você atende a esses requisitos antes de instalar o pacote do Visual C++.
+- If you're using Windows 7, you'll also need **[KB3063858](https://www.microsoft.com/download/details.aspx?id=47442)** and you might need to put **[`api-ms-win-core-winrt-l1-1-0.dll`](https://www.dll-files.com/api-ms-win-core-winrt-l1-1-0.dll.html)** in your `C:\Windows\System32` location if not having all updates installed.
+
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
 Os nomes dos pacotes dependem da distribuição do Linux que você esteja usando, nós listamos as mais comuns. Você pode obter todas elas com o gerenciador de pacotes nativo do seu SO (como `apt` para Debian ou `yum` por CentOS).
@@ -47,7 +49,7 @@ Os nomes dos pacotes dependem da distribuição do Linux que você esteja usando
 Pelo menos a maioria deles já deve estar disponível nativamente no seu sistema. A instalação mínima do Debian estável requer apenas `libicu63`.
 
 #### **[macOS](https://docs.microsoft.com/dotnet/core/install/macos)**:
-- Nenhum por enquanto, mas você deve ter a versão mais recente do OS X instalada, pelo menos 10.14+
+- Nenhum por enquanto, mas você deve ter a versão mais recente do OS X instalada, pelo menos 10.15+
 
 ---
 

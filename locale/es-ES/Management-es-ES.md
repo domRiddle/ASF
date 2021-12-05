@@ -98,7 +98,7 @@ Eso sería hacerlo manualmente, es mucho más fácil usar nuestro **servicio [`s
 
 ### Yo sé más y todavía quiero ejecutar como `root`
 
-Puedes proporcionar el **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-ES#argumentos)** `--ignore-unsupported-environment` y ASF te permitirá hacerlo. Solo no te sorprendas si un día debido a un error en el programa hace estallar todo tu sistema operativo con una pérdida total de datos - has sido avisado.
+As of V5.2.0.10, ASF no longer stops you from doing so, only displays a warning with a short notice. Solo no te sorprendas si un día debido a un error en el programa hace estallar todo tu sistema operativo con una pérdida total de datos - has sido avisado.
 
 ---
 

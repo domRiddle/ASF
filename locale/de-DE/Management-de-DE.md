@@ -98,7 +98,7 @@ That would be doing it manually, it's much easier to use our **[`systemd` servic
 
 ### I know better and I still want to run as `root`
 
-You can, supply `--ignore-unsupported-environment` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** and ASF will allow you to do so. Just don't be shocked if one day due to a bug in the program it'll blow up your whole OS with complete data loss - you've been warned.
+As of V5.2.0.10, ASF no longer stops you from doing so, only displays a warning with a short notice. Just don't be shocked if one day due to a bug in the program it'll blow up your whole OS with complete data loss - you've been warned.
 
 ---
 

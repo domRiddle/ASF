@@ -50,7 +50,7 @@ DUE 2 TEH NACHUR OV DIS PROPERTY, IZ ALSO POSIBLE 2 SET CRYPTKEY BY DECLARIN `AS
 
 ---
 
-`--ignore-unsupported-environment` - WILL CAUSE ASF 2 IGNORE PROBLEMS RELATD 2 RUNNIN IN UNSUPPORTD ENVIRONMENT, WHICH NORMALLY IZ SIGNALIZD WIF AN ERROR AN FORCD EXIT. Unsupported environment includes for example running .NET Framework build on platform that could be running .NET (Core) build instead, or running ASF process as administrator (root), which causes a security risk for the host machine for absolutely no reason. WHILE DIS FLAG WILL ALLOW ASF 2 ATTEMPT RUNNIN IN SUCH SCENARIOS, BE ADVISD DAT WE DO NOT SUPPORT DOSE OFFICIALLY AN URE FORCIN ASF 2 DO IT ENTIRELY **AT UR OWN RISK**. AS OV TODAI, **ALL** OV TEH UNSUPPORTD ENVIRONMENT SCENARIOS CAN BE CORRECTD, SUCH AS RUNNIN `generic` BUILD INSTEAD OV `generic-netf`, OR CREATIN DEDICATD USR AKOWNT 4 ASF INSTEAD OV RUNNIN IT AS ROOT. WE STRONGLY RECOMMEND 2 FIX TEH OUTSTANDIN PROBLEMS INSTEAD OV DECLARIN DIS ARGUMENT.
+`--ignore-unsupported-environment` - WILL CAUSE ASF 2 IGNORE PROBLEMS RELATD 2 RUNNIN IN UNSUPPORTD ENVIRONMENT, WHICH NORMALLY IZ SIGNALIZD WIF AN ERROR AN FORCD EXIT. Unsupported environment includes for example running .NET Framework build on platform that could be running .NET (Core) build instead. WHILE DIS FLAG WILL ALLOW ASF 2 ATTEMPT RUNNIN IN SUCH SCENARIOS, BE ADVISD DAT WE DO NOT SUPPORT DOSE OFFICIALLY AN URE FORCIN ASF 2 DO IT ENTIRELY **AT UR OWN RISK**. As of today, **all** of the unsupported environment scenarios can be corrected, such as running `generic` build instead of `generic-netf`. WE STRONGLY RECOMMEND 2 FIX TEH OUTSTANDIN PROBLEMS INSTEAD OV DECLARIN DIS ARGUMENT.
 
 ---
 

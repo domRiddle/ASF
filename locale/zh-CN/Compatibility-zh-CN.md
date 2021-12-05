@@ -38,12 +38,12 @@ Generic 包是一个与平台无关的版本，所以它不包含特定于计算
 
 ASF 目前提供以下几种 OS-specific 包：
 
-- `win-x64`，支持 64 位 Windows 操作系统。 包括 Windows 7（SP1+）、10、11、Server 2012+ 以及未来的版本。
+- `win-x64`，支持 64 位 Windows 操作系统。 This includes Windows 7 SP1+, 8.1, 10, 11, Server 2012+ as well as future versions. Windows 7 requires **[additional fixes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#windows)** and its support is very limited, you may have issues running ASF in that environment. We strongly recommend an update soon, as future versions of ASF are likely to stop working altogether with it, not to mention that the OS reached its end of life back in 2020.
 - `linux-arm`，支持 32 位基于 ARM（ARMv7+）的 GNU/Linux 操作系统。 包括所有支持当前和未来版本 GNU/Linux 操作系统（例如 Raspberry Pi OS）的平台，例如 Raspberry Pi 2（或更新版本）。 此包**不**支持更早的 ARM 架构，例如 Raspberry Pi 0 & 1 使用的 ARMv6，也不支持未实现所需 GNU/Linux 环境的操作系统（例如 Android）。
 - `linux-arm64`，支持 64 位基于 ARM（ARMv8+）的 GNU/Linux 操作系统。 包括所有支持当前和未来版本 AArch64 GNU/Linux 操作系统（例如 Debian）的平台，例如 Raspberry Pi 3（或更新版本）。 此包**不**支持 32 位操作系统（例如 Raspberry Pi OS），因为它们缺少所需的 64 位库，也不支持未实现所需 GNU/Linux 环境的操作系统（例如 Android）。
 - `linux-x64` 支持 64 位 GNU/Linux 操作系统。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu、OpenSUSE/SLES 等很多操作系统以及它们的衍生版的当前和未来版本。
 - `osx-arm64` 支持 64 位 ARM 架构（Apple silicon）的 macOS。 包括 11 及更新版本。
-- `osx-x64` 支持 64 位 macOS 操作系统。 包括 10.14 及更新版本。
+- `osx-x64` 支持 64 位 macOS 操作系统。 包括 10.15 及更新版本。
 
 当然，即使没有适合您操作系统及架构的 OS-specific 包，您也可以手动安装适当的 .NET 运行时环境并运行 Generic ASF 包，这也是这个包存在的主要原因。 Generic ASF 包与平台无关，可在任何具有可用 .NET 运行时环境的平台上运行。 需要注意——ASF 需要的是 .NET 运行时环境，而不是特定的操作系统或架构。 例如，如果您使用的是 32 位 Windows，但 ASF 没有 `win-x86` 版本，您仍然可以安装 `win-x86` 版本的 .NET SDK，然后运行 Generic 版本的 ASF。 我们无法为所有操作系统和架构组合都生成一份可执行文件，所以我们为此画下一道分隔线。 x86 就是这条线之一，因为这种架构自 2004 年开始就过时了。
 

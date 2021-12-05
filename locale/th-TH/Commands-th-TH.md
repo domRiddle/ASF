@@ -47,7 +47,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 ## คำสั่ง
 
-| Command                                                              | การเข้าถึง      | Description                                                                                                                                                                                                                                                                                                                         |
+| คำสั่ง                                                               | การเข้าถึง      | คำอธิบาย                                                                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa [Bots]`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                                                                                                                                                         |
 | `2fano [Bots]`                                                       | `Master`        | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.                                                                                                                                                                                  |
@@ -164,11 +164,11 @@ For description of above fields, please visit **[Steam privacy settings](https:/
 
 While valid values for all of them are:
 
-| Value | ชื่อ          |
-| ----- | ------------- |
-| 1     | `Private`     |
-| 2     | `FriendsOnly` |
-| 3     | `Public`      |
+| ค่า | ชื่อ          |
+| --- | ------------- |
+| 1   | `Private`     |
+| 2   | `FriendsOnly` |
+| 3   | `Public`      |
 
 You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
 
@@ -225,12 +225,12 @@ addlicense ASF app/292030,sub/47807
 
 `owns` command supports several different game types for `<games>` argument that can be used, those are:
 
-| Type    | Alias | Example          | Description                                                                                                                                                                                                                                                             |
-| ------- | ----- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app`   | `a`   | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
-| `sub`   | `s`   | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
-| `regex` | `r`   | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
-| `ชื่อ`  | `n`   | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                              |
+| ประเภท  | ย่อ | ตัวอย่าง         | คำอธิบาย                                                                                                                                                                                                                                                                |
+| ------- | --- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app`   | `a` | `app/292030`     | Game determined by its unique `appID`.                                                                                                                                                                                                                                  |
+| `sub`   | `s` | `sub/47807`      | Package containing one or more games, determined by its unique `subID`.                                                                                                                                                                                                 |
+| `regex` | `r` | `regex/^\d{4}:` | **[Regex](https://en.wikipedia.org/wiki/Regular_expression)** applying to the game's name, case-sensitive. See the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for complete syntax and more examples. |
+| `ชื่อ`  | `n` | `name/Witcher`   | Part of the game's name, case-insensitive.                                                                                                                                                                                                                              |
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
@@ -242,7 +242,7 @@ owns ASF app/292030,name/Witcher
 
 ---
 
-## `redeem^` modes
+## โหมด `redeem^`
 
 `redeem^` command allows you to fine-tune modes that will be used for one single redeem scenario. This works as temporary override of `RedeemingPreferences` **[bot config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**.
 
