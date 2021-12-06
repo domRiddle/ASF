@@ -31,8 +31,8 @@
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**：
 - **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)**（64 位 Windows 为 **[x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)**，32 位 Windows 为 **[x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)**）。
-- 强烈建议您确保已安装所有 Windows 更新。 At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**, **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. 如果您的 Windows 已更新到最新，这些更新应该都已安装。 确保您在安装 Visual C++ 包之前满足这些要求。
-- If you're using Windows 7, you'll also need **[KB3063858](https://www.microsoft.com/download/details.aspx?id=47442)** and you might need to put **[`api-ms-win-core-winrt-l1-1-0.dll`](https://www.dll-files.com/api-ms-win-core-winrt-l1-1-0.dll.html)** in your `C:\Windows\System32` location if not having all updates installed.
+- 强烈建议您确保已安装所有 Windows 更新。 您至少需要 **[KB2533623](https://support.microsoft.com/zh-cn/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** 和 **[KB2999226](https://support.microsoft.com/zh-cn/help/2999226/update-for-universal-c-runtime-in-windows)**，但有可能还需要更多。 如果您的 Windows 已更新到最新，这些更新应该都已安装。 确保您在安装 Visual C++ 包之前满足这些要求。
+- 如果您正在使用 Windows 7，您还需要安装 **[KB3063858](https://www.microsoft.com/download/details.aspx?id=47442)**，并且如果您没有安装所有的更新，就可能还需要把 **[`api-ms-win-core-winrt-l1-1-0.dll`](https://www.dll-files.com/api-ms-win-core-winrt-l1-1-0.dll.html)** 放到 `C:\Windows\System32` 路径下。
 
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**：

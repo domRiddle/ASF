@@ -10,10 +10,10 @@
 
 ## 👨‍🏫 Base
 
-* **[🏡 Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
-* **[🔧 Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+* **[🏡 Domovská stránka](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+* **[🔧 Konfigurácia](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[💬 FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[⚙️ Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[⚙️ Nastavenie ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)****(start here)**
 
 
 ## 👨‍🎓️ Main

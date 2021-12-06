@@ -45,7 +45,7 @@ Cependant, ces deux la sont complètement valides:
 
 `--cryptkey <key>` ou `--cryptkey=<key>` - démarrera ASF avec une clé cryptographique personnalisée de la valeur `<key>`. Cette option affecte la **
 
- sécurité </ 0> et obligera ASF à utiliser votre clé `<key>` fournie à la place de la clé par défaut codée dans l'exécutable. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.</p> 
+ sécurité </ 0> et obligera ASF à utiliser votre clé `<key>` fournie à la place de la clé par défaut codée dans l'exécutable. Puisque cette propriété affecte la clé de chiffrement par défaut (pour le chiffrement) ainsi que son salt (pour le hachage), Gardez à l'esprit que tout ce qui est chiffré/haché avec cette clé nécessitera qu'elle soit transmise à chaque exécution d'ASF.</p> 
 
 En raison de la nature de cette propriété, il est également possible de définir la clé de chiffrement en déclarant la variable d'environnement `ASF_CRYPTKEY`, qui peut être plus appropriée pour les personnes qui voudraient éviter de divulguer des informations privées dans les arguments du processus.
 
@@ -53,7 +53,7 @@ En raison de la nature de cette propriété, il est également possible de défi
 
 ---
 
-`--ignore-unsupported-environment` - will cause ASF to ignore problems related to running in unsupported environment, which normally is signalized with an error and a forced exit. Unsupported environment includes for example running .NET Framework build on platform that could be running .NET (Core) build instead. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. As of today, **all** of the unsupported environment scenarios can be corrected, such as running `generic` build instead of `generic-netf`. We strongly recommend to fix the outstanding problems instead of declaring this argument.
+`--ignore-unsupported-environment` - fera ignorer à ASF les problèmes liés à l'exécution dans un environnement non pris en charge, ce qui est normalement signalisé avec une erreur et une sortie forcée. L'environnement non pris en charge inclut par exemple l'exécution de la compilation .NET Framework sur une plate-forme qui pourrait exécuter la compilation .NET (Core) à la place. Même si ce flag laissera ASF s'exécuter dans de tels scénarios, soyez avertis; Nous ne prenons pas en charge ces éléments officiellement et vous forcez ASF à le faire entièrement **à vos risques et périls**. Aujourd'hui, **tous** les scénarios d'environnement non pris en charge peuvent être corrigés, par exemple, exécuter la version `générique` au lieu de `generic-netf`. Nous recommandons fortement de résoudre les problèmes précédents plutôt que d'utiliser cet argument.
 
 
 
@@ -79,7 +79,7 @@ Due to the nature of this property, it's also possible to set the value by decla
 
 ---
 
-`--no-restart` - cette fonctionnalité est principalement utilisé par nos **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** ` et force  <code>AutoRestart` de <0> false</ 0>. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Bien sûr, si vous exécutez ASF dans un script, vous pouvez également utiliser cette fonctionnalité (sinon, la configuration globale est préférable).
+`--no-restart` - cette fonctionnalité est principalement utilisé par nos **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** ` et force  <code>AutoRestart` de <0> false</ 0>. À moins que vous n'ayez un besoin particulier, il vaut mieux configurer la propriété `AutoRestart` directement dans votre configuration. Ce commutateur est là pour que notre script docker n'ait pas besoin de toucher à votre configuration globale pour l'adapter à son propre environnement. Bien sûr, si vous exécutez ASF dans un script, vous pouvez également utiliser cette fonctionnalité (sinon, la configuration globale est préférable).
 
 
 
@@ -96,9 +96,9 @@ Exemples:
 
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # Relative path works as well
-ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Same as env variable
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/DossierVoulu # Chemin absolu
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../DossierVoulu # Les chemins relatifs fonctionnent aussi
+ASF_PATH=/opt/DossierVoulu dotnet /opt/ASF/ArchiSteamFarm.dll # Pareil qu'avec les variables environnementales
 ```
 
 

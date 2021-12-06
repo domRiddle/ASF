@@ -98,7 +98,7 @@ su asf -c /path/to/ASF/ArchiSteamFarm # 或者 sudo -u asf /path/to/ASF/ArchiSte
 
 ### 我比你们更明白，我仍然想要以 `root` 用户运行
 
-As of V5.2.0.10, ASF no longer stops you from doing so, only displays a warning with a short notice. 但是，如果有一天本程序的漏洞导致您的整个操作系统崩溃掉，并且丢失所有数据——不要说我们没有警告过您。
+自 V5.2.0.10 版本开始，ASF 不再阻止您这样做，而是仅仅显示一条简短的警告。 但是，如果有一天本程序的漏洞导致您的整个操作系统崩溃掉，并且丢失所有数据——不要说我们没有警告过您。
 
 ---
 

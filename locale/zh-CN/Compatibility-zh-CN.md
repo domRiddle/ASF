@@ -38,7 +38,7 @@ Generic 包是一个与平台无关的版本，所以它不包含特定于计算
 
 ASF 目前提供以下几种 OS-specific 包：
 
-- `win-x64`，支持 64 位 Windows 操作系统。 This includes Windows 7 SP1+, 8.1, 10, 11, Server 2012+ as well as future versions. Windows 7 requires **[additional fixes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#windows)** and its support is very limited, you may have issues running ASF in that environment. We strongly recommend an update soon, as future versions of ASF are likely to stop working altogether with it, not to mention that the OS reached its end of life back in 2020.
+- `win-x64`，支持 64 位 Windows 操作系统。 包括 Windows 7 SP1+、8.1、10、11、Server 2012+ 以及未来的版本。 Windows 7 需要&#8203;**[额外的修复](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#windows)**，并且支持非常有限，您在此环境下运行 ASF 可能会遇到问题。      我们强烈建议您尽快更新，因为将来版本的 ASF 可能会完全不能在此系统运行，更不用说这个操作系统已经在 2020 年寿终正寝。
 - `linux-arm`，支持 32 位基于 ARM（ARMv7+）的 GNU/Linux 操作系统。 包括所有支持当前和未来版本 GNU/Linux 操作系统（例如 Raspberry Pi OS）的平台，例如 Raspberry Pi 2（或更新版本）。 此包**不**支持更早的 ARM 架构，例如 Raspberry Pi 0 & 1 使用的 ARMv6，也不支持未实现所需 GNU/Linux 环境的操作系统（例如 Android）。
 - `linux-arm64`，支持 64 位基于 ARM（ARMv8+）的 GNU/Linux 操作系统。 包括所有支持当前和未来版本 AArch64 GNU/Linux 操作系统（例如 Debian）的平台，例如 Raspberry Pi 3（或更新版本）。 此包**不**支持 32 位操作系统（例如 Raspberry Pi OS），因为它们缺少所需的 64 位库，也不支持未实现所需 GNU/Linux 环境的操作系统（例如 Android）。
 - `linux-x64` 支持 64 位 GNU/Linux 操作系统。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu、OpenSUSE/SLES 等很多操作系统以及它们的衍生版的当前和未来版本。
