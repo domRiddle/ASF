@@ -62,17 +62,17 @@ using System.Threading.Tasks;
 using ArchiSteamFarm;
 using ArchiSteamFarm.Plugins;
 
-namespace YourNamespace.YourPluginName {
-	[Export(typeof(IPlugin))]
-	public sealed class YourPluginName : IPlugin {
-		public string Name => nameof(YourPluginName);
-		public Version Version => typeof(YourPluginName).Assembly.GetName().Version;
+namespace YourNamespace.YourPluginName;
 
-		public Task OnLoaded() {
-			ASF.ArchiLogger.LogGenericInfo("Meow");
+[Export(typeof(IPlugin))]
+public sealed class YourPluginName : IPlugin {
+	public string Name => nameof(YourPluginName);
+	public Version Version => typeof(YourPluginName).Assembly.GetName().Version;
 
-			return Task.CompletedTask;
-		}
+	public Task OnLoaded() {
+		ASF.ArchiLogger.LogGenericInfo("Meow");
+
+		return Task.CompletedTask;
 	}
 }
 ```
