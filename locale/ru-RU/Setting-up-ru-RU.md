@@ -223,7 +223,7 @@ However, keep in mind that you're in charge of .NET runtime in this case. This m
 
 Вместе с дополнительными шагами, вы должны:
 - Установить **[предусловия для .NET](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
-- Install **[.NET SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. Скорее всего вы захотите использовать установщик. Обратитесь к разделу "**[Требования среды исполнения](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU#user-content-Требования-среды-исполнения)**" если не уверены, какую версию вам надо установить.
+- Install **[.NET SDK](https://www.microsoft.com/net/download)** (or at least ASP.NET Core runtime) appropriate for your OS. Скорее всего вы захотите использовать установщик. Обратитесь к разделу "**[Требования среды исполнения](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU#user-content-Требования-среды-исполнения)**" если не уверены, какую версию вам надо установить.
 - Скачать **[последнюю версию ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** в `универсальном (generic)` варианте.
 - Распаковать архив в новое место.
 - **[Сконфигурировать ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ru-RU)**.

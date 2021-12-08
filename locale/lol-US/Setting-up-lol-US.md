@@ -223,7 +223,7 @@ However, keep in mind that you're in charge of .NET runtime in this case. This m
 
 WIF EXTRA STEPS:
 - Install **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
-- Install **[.NET SDK](https://www.microsoft.com/net/download)** (or at least runtime) appropriate for your OS. U MOST LIKELY WANTS 2 USE AN INSTALLR. REFR 2 **[RUNTIME REQUIREMENTS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US#runtime-requirements)** IF URE NOT SURE WHICH VERSHUN 2 INSTALL.
+- Install **[.NET SDK](https://www.microsoft.com/net/download)** (or at least ASP.NET Core runtime) appropriate for your OS. U MOST LIKELY WANTS 2 USE AN INSTALLR. REFR 2 **[RUNTIME REQUIREMENTS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US#runtime-requirements)** IF URE NOT SURE WHICH VERSHUN 2 INSTALL.
 - DOWNLOAD **[LATEST ASF RELEASE](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** IN `generic` VARIANT.
 - EXTRACT TEH ARCHIV INTO NEW LOCASHUN.
 - **[CONFIGURE ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US)**.
