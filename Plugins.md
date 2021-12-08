@@ -58,6 +58,7 @@ From the code side, your plugin class must inherit from `IPlugin` interface (eit
 ```csharp
 using System;
 using System.Composition;
+using System.Threading.Tasks;
 using ArchiSteamFarm;
 using ArchiSteamFarm.Plugins;
 
@@ -67,8 +68,10 @@ namespace YourNamespace.YourPluginName {
 		public string Name => nameof(YourPluginName);
 		public Version Version => typeof(YourPluginName).Assembly.GetName().Version;
 
-		public void OnLoaded() {
+		public Task OnLoaded() {
 			ASF.ArchiLogger.LogGenericInfo("Meow");
+
+			return Task.CompletedTask;
 		}
 	}
 }
