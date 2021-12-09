@@ -58,18 +58,21 @@ Kod açısından, eklenti sınıfınız `IPlugin` arayüzünden (açık veya dol
 ```csharp
 using System;
 using System.Composition;
+using System.Threading.Tasks;
 using ArchiSteamFarm;
 using ArchiSteamFarm.Plugins;
 
-namespace CalismaAlaniIsmi.EklentiIsminiz {
-    [Export(typeof(IPlugin))]
-    public sealed class EklentiIsminiz : IPlugin {
-        public string Name => nameof(EklentiIsminiz);
-        public Version Version => typeof(EklentiIsminiz).Assembly.GetName().Version;
+namespace YourNamespace.YourPluginName;
 
-        public void OnLoaded() {
-            ASF.ArchiLogger.LogGenericInfo("Meow");
-        }
+[Export(typeof(IPlugin))]
+public sealed class YourPluginName : IPlugin {
+    public string Name => nameof(YourPluginName);
+    public Version Version => typeof(YourPluginName).Assembly.GetName().Version;
+
+    public Task OnLoaded() {
+        ASF.ArchiLogger.LogGenericInfo("Meow");
+
+        return Task.CompletedTask;
     }
 }
 ```

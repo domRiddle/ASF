@@ -58,18 +58,21 @@ Von der Quellcode-Seite muss Ihre Plugin-Klasse von der Schnittstelle `IPlugin` 
 ```csharp
 using System;
 using System.Composition;
+using System.Threading.Tasks;
 using ArchiSteamFarm;
 using ArchiSteamFarm.Plugins;
 
-namespace DeinNamespace.DeinPluginName {
-    [Export(typeof(IPlugin))]
-    public sealed class DeinPluginName : IPlugin {
-        public string Name => nameof(DeinPluginName);
-        public Version Version => typeof(DeinPluginName).Assembly.GetName().Version;
+namespace YourNamespace.YourPluginName;
 
-        public void OnLoaded() {
-            ASF.ArchiLogger.LogGenericInfo("Miau");
-        }
+[Export(typeof(IPlugin))]
+public sealed class YourPluginName : IPlugin {
+    public string Name => nameof(YourPluginName);
+    public Version Version => typeof(YourPluginName).Assembly.GetName().Version;
+
+    public Task OnLoaded() {
+        ASF.ArchiLogger.LogGenericInfo("Meow");
+
+        return Task.CompletedTask;
     }
 }
 ```

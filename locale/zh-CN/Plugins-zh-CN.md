@@ -58,18 +58,21 @@ ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 建议您根据�
 ```csharp
 using System;
 using System.Composition;
+using System.Threading.Tasks;
 using ArchiSteamFarm;
 using ArchiSteamFarm.Plugins;
 
-namespace YourNamespace.YourPluginName {
-    [Export(typeof(IPlugin))]
-    public sealed class YourPluginName : IPlugin {
-        public string Name => nameof(YourPluginName);
-        public Version Version => typeof(YourPluginName).Assembly.GetName().Version;
+namespace YourNamespace.YourPluginName;
 
-        public void OnLoaded() {
-            ASF.ArchiLogger.LogGenericInfo("Meow");
-        }
+[Export(typeof(IPlugin))]
+public sealed class YourPluginName : IPlugin {
+    public string Name => nameof(YourPluginName);
+    public Version Version => typeof(YourPluginName).Assembly.GetName().Version;
+
+    public Task OnLoaded() {
+        ASF.ArchiLogger.LogGenericInfo("Meow");
+
+        return Task.CompletedTask;
     }
 }
 ```
