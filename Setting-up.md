@@ -38,6 +38,7 @@ Keep in mind that you don't need to do anything else for OS-specific builds, esp
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
 Package names depend on the Linux distribution that you're using, we've listed the most common ones. You can obtain all of them with native package manager for your OS (such as `apt` for Debian or `yum` for CentOS).
 
+- `ca-certificates`
 - `libc6` (`libc`)
 - `libgcc1` (`libgcc`)
 - `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
