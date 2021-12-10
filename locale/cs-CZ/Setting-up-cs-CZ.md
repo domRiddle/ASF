@@ -1,8 +1,8 @@
 # Setting up
 
-If you arrived here for the first time, welcome! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - ASF is capable of doing a lot of different Steam-related things, but only as long as you **care enough to learn how to use it**. There is a steep learning curve involved here, and we expect from you to read the wiki in this regard, which explains in detail how everything operates.
+Pokud jste tu poprvé, vítejte! We're very happy to see yet another traveler that is interested in our project, although bear in mind that with great power comes great responsibility - ASF is capable of doing a lot of different Steam-related things, but only as long as you **care enough to learn how to use it**. There is a steep learning curve involved here, and we expect from you to read the wiki in this regard, which explains in detail how everything operates.
 
-If you're still here then it means that you endured our text above, which is nice. Unless you skipped over it, then you're going to have a **[bad time](https://www.youtube.com/watch?v=WJgt6m6njVw)** soon enough... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to, at least out of the box. ASF was mainly supposed to be run on servers, so it acts as a service (daemon) and not a desktop app.
+If you're still here then it means that you endured our text above, which is nice. Unless you skipped over it, then you're going to have a **[bad time](https://www.youtube.com/watch?v=WJgt6m6njVw)** soon enough... Anyway, ASF is a console app, which means that the program itself doesn't have a friendly GUI that you're in general used to, at least out of the box. ASF bylo koncipováno hlavně pro běh na serverech, takže se chová jako služba (démon) a ne jako desktopová aplikace.
 
 This however doesn't mean that you can't use it on your PC or using it is in some way more complicated than usual, nothing like that. ASF is a standalone program that doesn't need installation, and works out of the box right away, but requires configuration prior to becoming useful. Configuration is telling ASF what it should in fact do after you launch it. If you launch it without configuration, then ASF won't do anything, simple.
 
@@ -31,8 +31,8 @@ Keep in mind that you don't need to do anything else for OS-specific builds, esp
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
 - **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)** for 64-bit Windows, **[x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)** for 32-bit Windows)
-- It's highly recommended to ensure that all Windows updates are already installed. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**, **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. All of them are already installed if your Windows is up-to-date. Ensure that you meet those requirements prior to installing Visual C++ package.
-- If you're using Windows 7, you'll also need **[KB3063858](https://www.microsoft.com/download/details.aspx?id=47442)** and you might need to put **[`api-ms-win-core-winrt-l1-1-0.dll`](https://www.dll-files.com/api-ms-win-core-winrt-l1-1-0.dll.html)** in your `C:\Windows\System32` location if not having all updates installed.
+- It's highly recommended to ensure that all Windows updates are already installed. Minimálně potřebujete **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** a **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, můžou být však potřeba další aktualizace. All of them are already installed if your Windows is up-to-date. Ensure that you meet those requirements prior to installing Visual C++ package.
+- Pokud používáte Windows 7, budete také potřebovat **[KB3063858](https://www.microsoft.com/download/details.aspx?id=47442)** a také možná budete muset uložit soubor **[`api-ms-win-core-winrt-l1-1-0.dll`](https://www.dll-files.com/api-ms-win-core-winrt-l1-1-0.dll.html)** do složky `C:\Windows\System32`, pokud nemáte všechny aktualizace.
 
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
@@ -40,10 +40,10 @@ Package names depend on the Linux distribution that you're using, we've listed t
 
 - `libc6` (`libc`)
 - `libgcc1` (`libgcc`)
-- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
+- `libicu` (`icu-libs`, nejnovější verze pro vaši distribuci, například `libicu67`)
 - `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
-- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, `1.1.X` or `1.0.X`)
-- `libstdc++6` (`libstdc++`, in version `5.0` or higher)
+- `libssl1.1` (`libssl`, `openssl-libs`, nejnovější verze pro vaši distribuci, `1.1.X` nebo `1.0.X`)
+- `libstdc++6` (`libstdc++`, ve verzi `5.0` nebo vyšší)
 - `zlib1g` (`zlib`)
 
 At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu63`.
@@ -223,7 +223,7 @@ For `generic` package, you can follow entire OS-specific guide above, with two s
 
 With extra steps:
 - Install **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
-- Install **[.NET SDK](https://www.microsoft.com/net/download)** (or at least ASP.NET Core runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
+- Nainstalujte **[.NET SDK](https://www.microsoft.com/net/download)** (nebo alespoň ASP.NET Core runtime) podle vašeho OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.
 - Extract the archive into new location.
 - **[Configure ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
