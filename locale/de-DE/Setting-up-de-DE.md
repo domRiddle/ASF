@@ -32,21 +32,21 @@ Keep in mind that you don't need to do anything else for OS-specific builds, esp
 #### **[Windows](https://docs.microsoft.com/de-de/dotnet/core/install/windows)**:
 - **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)** for 64-bit Windows, **[x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)** for 32-bit Windows)
 - Es wird dringend empfohlen sicherzustellen, dass alle Windows-Updates bereits installiert sind. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**, **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. Wenn dein Windows aktuell ist, sind diese bereits alle installiert. Versichere dich, dass du diese Voraussetzungen erfüllst, bevor du das Visual C++ Paket installierst.
-- If you're using Windows 7, you'll also need **[KB3063858](https://www.microsoft.com/download/details.aspx?id=47442)** and you might need to put **[`api-ms-win-core-winrt-l1-1-0.dll`](https://www.dll-files.com/api-ms-win-core-winrt-l1-1-0.dll.html)** in your `C:\Windows\System32` location if not having all updates installed.
-
+- If you're using Windows 7, you'll be forced to run **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)** variant as your OS is no longer supported by OS-specific package. We strongly recommend an update soon, as future versions of ASF are likely to stop working altogether with it, not to mention that the OS reached its end of life back in 2020.
 
 #### **[Linux](https://docs.microsoft.com/de-de/dotnet/core/install/linux)**:
 Paketnamen hängen von der Linux-Distribution, die du verwendest, ab. Wir listen nur die Gebräuchlichsten auf. Sie können alle über den nativen Paketmanager für dein Betriebssystem (wie zum Beispiel `apt` unter Debian oder `yum` unter CentOS) installieren.
 
+- `ca-certificates` (standard trusted SSL certificates to make HTTPS connections)
 - `libc6` (`libc`)
 - `libgcc1` (`libgcc`)
 - `libicu` (`icu-libs`, die neueste Version für Ihre Distribution, zum Beispiel `libicu67`)
 - `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
-- `libssl1.1` (`libssl`, `openssl-libs`, die neueste Version für Ihre Distribution, `1.1.X` or `1.0.X`)
+- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, at least `1.1.X` as `1.0.X` may no longer work)
 - `libstdc++6` (`libstdc++`, Version `5.0` oder höher)
 - `zlib1g` (`zlib`)
 
-Zumindest ein Großteil davon sollte bereits nativ auf Ihrem System verfügbar sein. Die minimale Installation von Debian Stable erforderte nur `libicu63`.
+Zumindest ein Großteil davon sollte bereits nativ auf Ihrem System verfügbar sein. The minimal installation of Debian stable required only `libicu67`.
 
 #### **[OS X](https://docs.microsoft.com/de-de/dotnet/core/install/macos)**:
 - Keine vorerst, aber du solltest die neueste Version von OS X installiert haben, mindestens 10.15+.

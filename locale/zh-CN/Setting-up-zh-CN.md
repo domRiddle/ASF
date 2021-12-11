@@ -32,21 +32,21 @@
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**：
 - **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)**（64 位 Windows 为 **[x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)**，32 位 Windows 为 **[x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)**）。
 - 强烈建议您确保已安装所有 Windows 更新。 您至少需要 **[KB2533623](https://support.microsoft.com/zh-cn/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** 和 **[KB2999226](https://support.microsoft.com/zh-cn/help/2999226/update-for-universal-c-runtime-in-windows)**，但有可能还需要更多。 如果您的 Windows 已更新到最新，这些更新应该都已安装。 确保您在安装 Visual C++ 包之前满足这些要求。
-- 如果您正在使用 Windows 7，您还需要安装 **[KB3063858](https://www.microsoft.com/download/details.aspx?id=47442)**，并且如果您没有安装所有的更新，就可能还需要把 **[`api-ms-win-core-winrt-l1-1-0.dll`](https://www.dll-files.com/api-ms-win-core-winrt-l1-1-0.dll.html)** 放到 `C:\Windows\System32` 路径下。
-
+- 如果您正在使用 Windows 7，就必须使用 **[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#安装-generic-包)** 版本包，因为操作系统包不再支持您的操作系统。 我们强烈建议您尽快更新，因为将来版本的 ASF 可能会完全不能在此系统运行，更不用说这个操作系统已经在 2020 年寿终正寝。
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**：
 根据您所使用的 Linux 发行版的不同，包名可能有所区别，我们会列出最常见的包名。 您可以使用系统自带的包管理器（例如 Debian 的 `apt` 或 CentOS 的 `yum`）来安装这些包。
 
+- `ca-certificates`（标准可信 SSL 证书，用于 HTTPS 连接）
 - `libc6`（`libc`）
 - `libgcc1`（`libgcc`）
 - `libicu`（`icu-libs`，您的发行版上的最新版，例如 `libicu67`）
 - `libgssapi-krb5-2`（`libkrb5-3`、`krb5-libs`）
-- `libssl1.1`（`libssl`、`openssl-libs`，您的发行版上的最新 `1.1.X` 或 `1.0.X` 版本）
+- `libssl1.1`（`libssl`、`openssl-libs`，或您的发行版上的最新版本，并且至少应为 `1.1.X`，因为 `1.0.X` 版本可能无法工作）
 - `libstdc++6`（`libstdc++`，`5.0` 或更高版本）
 - `zlib1g`（`zlib`）
 
-其中的大多数项目应该已经安装在您的系统中了。 Debian 稳定版的最小化安装流程仅需要您再手动安装 `libicu63`。
+其中的大多数项目应该已经安装在您的系统中了。 Debian 稳定版的最小化安装流程仅需要您再手动安装 `libicu67`。
 
 #### **[macOS](https://docs.microsoft.com/dotnet/core/install/macos)**：
 - 目前没有，但您应该安装最新版本的 macOS，至少应为 10.15+

@@ -32,21 +32,21 @@ Keep in mind that you don't need to do anything else for OS-specific builds, esp
 #### **[WINDOWS](https://docs.microsoft.com/dotnet/core/install/windows)**:
 - **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)** for 64-bit Windows, **[x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)** for 32-bit Windows)
 - IZ HIGHLY RECOMMENDD 2 ENSURE DAT ALL WINDOWS UPDATEZ R ALREADY INSTALLD. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**, **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. ALL OV THEM R ALREADY INSTALLD IF UR WINDOWS IZ UP-2-DATE. ENSURE DAT U MEET DOSE REQUIREMENTS PRIOR 2 INSTALLIN VISUAL C++ PACKAGE.
-- If you're using Windows 7, you'll also need **[KB3063858](https://www.microsoft.com/download/details.aspx?id=47442)** and you might need to put **[`api-ms-win-core-winrt-l1-1-0.dll`](https://www.dll-files.com/api-ms-win-core-winrt-l1-1-0.dll.html)** in your `C:\Windows\System32` location if not having all updates installed.
-
+- If you're using Windows 7, you'll be forced to run **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)** variant as your OS is no longer supported by OS-specific package. We strongly recommend an update soon, as future versions of ASF are likely to stop working altogether with it, not to mention that the OS reached its end of life back in 2020.
 
 #### **[LINUX](https://docs.microsoft.com/dotnet/core/install/linux)**:
 PACKAGE NAMEZ DEPEND ON TEH LINUX DISTRIBUSHUN DAT URE USIN, WEVE LISTD TEH MOST COMMON ONEZ. U CAN OBTAIN ALL OV THEM WIF NATIV PACKAGE MANAGR 4 UR OS (SUCH AS `apt` 4 DEBIAN OR `yum` 4 SENTOS).
 
+- `ca-certificates` (standard trusted SSL certificates to make HTTPS connections)
 - `libc6` (`libc`)
 - `libgcc1` (`libgcc`)
 - `libicu` (`icu-libs`, LATEST VERSHUN 4 UR DISTRIBUSHUN, 4 EXAMPLE `libicu67`)
 - `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
-- `libssl1.1` (`libssl`, `openssl-libs`, LATEST VERSHUN 4 UR DISTRIBUSHUN, `1.1.X` OR `1.0.X`)
+- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, at least `1.1.X` as `1.0.X` may no longer work)
 - `libstdc++6` (`libstdc++`, IN VERSHUN `5.0` OR HIGHR)
 - `zlib1g` (`zlib`)
 
-AT LEAST MAJORITY OV DOSE SHUD BE ALREADY NATIVELY AVAILABLE ON UR SISTEM. TEH MINIMAL INSTALLASHUN OV DEBIAN STABLE REQUIRD ONLY `libicu63`.
+AT LEAST MAJORITY OV DOSE SHUD BE ALREADY NATIVELY AVAILABLE ON UR SISTEM. The minimal installation of Debian stable required only `libicu67`.
 
 #### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
 - NONE 4 NAO, BUT U SHUD HAS LATEST VERSHUN OV OS X INSTALLD, AT LEAST 10.15+
