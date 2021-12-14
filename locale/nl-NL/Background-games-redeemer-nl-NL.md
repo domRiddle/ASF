@@ -6,13 +6,13 @@ Productcode-activering op de achtergrond is gemaakt zodat het werkt voor één b
 
 ---
 
-## Import
+## Importeren
 
 Het importeren kan worden gedaan op twee manieren - door gebruik te maken van een bestand of via IPC.
 
 ### Bestand
 
-ASF is in staat in de `config` map een file met de naam `BotName.keys` te herkennen waarvan `BotNaam` de naam van je bot is. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Als meerdere tabs worden gebruikt, wordt de eerste invoer beschouwd als de naam van het spel en de laatste invoer als de productcode. Alles daar tussenin wordt genegeerd. For example:
+ASF is in staat in de `config` map een file met de naam `BotName.keys` te herkennen waarvan `BotNaam` de naam van je bot is. Het bestand heeft een verwachte en gefixeerde structuur van de naam van de game met de cd-key, ze worden gescheiden van elkaar met een tab-karakter en eindigen met een nieuwe lijn om zo de volgende aan te duiden. Als meerdere tabs worden gebruikt, wordt de eerste invoer beschouwd als de naam van het spel en de laatste invoer als de productcode. Alles daar tussenin wordt genegeerd. Bijvoorbeeld:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -21,7 +21,7 @@ A Week of Circus Terror POIUY-KJHGD-QWERT
 Terraria    DitWordtGenegeerd  DitWordtOokGenegeerd    ZXCVB-ASDFG-QWERT
 ```
 
-Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+Als alternatief kun je ook sleutels alleen gebruiken (nog steeds met een nieuwe lijn tussen elke invoer). ASF zal in dit geval Steam's response gebruiken (indien mogelijk) om de juiste naam in te vullen. Voor elke vorm van het taggen van sleutels raden we aan dat je de sleutels zelf benoemt, want pakketten die worden ingewisseld op Steam hoeven niet de logica van spellen te volgen die ze aan het activeren zijn, dus afhankelijk van wat de ontwikkelaar ingesteld, kun je de juiste spelnamen, aangepaste pakketnamen zien (bv. Humble Indie Bundel 18) of volledig verkeerd en mogelijk zelfs gevaarlijk (bv. Half-Life 4).
 
 ```text
 ABCDE-EFGHJ-IJKLM
@@ -30,11 +30,11 @@ POIUY-KJHGD-QWERT
 ZXCVB-ASDFG-QWERT
 ```
 
-Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. Na het succesvol verwerken van je bestand en eventuele weglating van ongeldige vermeldingen, worden alle correct gedetecteerde spellen toegevoegd aan de achtergrondwachtrij en wordt het `BotNaam.keys` bestand verwijderd uit de `config` map.
+Ongeacht welk formaat je kiest om aan te houden, ASF zal je `sleutels` bestand importeren, bij het opstarten van bot of later tijdens de uitvoering. Na het succesvol verwerken van je bestand en eventuele weglating van ongeldige vermeldingen, worden alle correct gedetecteerde spellen toegevoegd aan de achtergrondwachtrij en wordt het `BotNaam.keys` bestand verwijderd uit de `config` map.
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+Naast het gebruik van het hierboven besproken bestand, biedt ASF ook een `GamesToRedeemInBackground` **[API-eindpunt](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** die kan worden uitgevoerd door een IPC-tool, inclusief onze IPC GUI. Het gebruik van IPC kan krachtiger zijn, omdat u de juiste verwerking zelf kunt doen zoals het gebruik van een aangepast scheidingsteken in plaats van te worden gedwongen tot een tab-karakter, of zelfs het introduceren van een geheel eigen aangepaste sleutelstructuur.
 
 ---
 
@@ -46,7 +46,7 @@ Als tijdens het proces het account de `RateLimited` status krijgt, wordt de wach
 
 ---
 
-## Example
+## Voorbeeld
 
 Stel je hebt een lijst met 100 codes. Eerst moet je een nieuw `BotNaam.keys.new` bestand maken in de ASF `config` map. We hebben een `.new` extensie toegevoegd om ASF te laten weten dat het dit bestand niet onmiddellijk moet lezen op het moment dat het gemaakt werd (aangezien het een nieuw leeg bestand is, wat nog niet gereed is om te importeren).
 
@@ -56,7 +56,7 @@ Je bent nu klaar om dit bestand te hernoemen van `BotNaam.keys.new` naar `BotNaa
 
 In plaats van het `BotName.keys` bestand te gebruiken, kun je ook het IPC API-eindpunt gebruiken of zelfs beide combineren als je dat wilt.
 
-After some time, `BotName.keys.used` and `BotName.keys.unused` files will be generated. Deze bestanden bevatten de resultaten van het activeringsproces. Je kunt bijvoorbeeld `BotNaam.keys.unused` naar een `BotNaam2.keys` bestand hernoemen om de ongebruikte productcodes te gebruiken voor een andere bot, aangezien de vorige bot de codes niet heeft gebruikt. Of je kunt de ongebruikte codes naar een ander bestand kopiëren en ze bewaren voor later gebruik. Hou er rekening mee dat ASF tijdens het afwerken van de wachtrij nieuwe vermeldingen toevoegt aan de `used` en `unused` bestanden. Daardoor is het aanbevolen om te wachten totdat de wachtrij volledig is geleegd voordat je deze bestanden gebruikt. Als je deze bestanden toch wilt openen voordat de wachtrij volledig is geleegd, moet je eerst het uitvoerbestand dat je wilt openen **verplaatsen** naar een andere map **en dan** laten verwerken. De reden daarvoor is dat ASF nieuwe resultaten kan toevoegen terwijl je het bestand opent, wat mogelijk kan leiden tot verlies van productcodes. Als je bijvoorbeeld een bestand opent met 3 codes en het vervolgens verwijdert, negeer je het feit dat ASF ondertussen nog eens 4 andere codes toegevoegd kan hebben aan dat bestand. Als je toegang wilt tot deze bestanden, zorg er dan voor dat je ze uit de ASF `config` map verwijdert voordat je ze opent, bijvoorbeeld door ze te hernoemen.
+Na enige tijd worden de bestanden `BotNaam.keys.used` en `BotNaam.keys.unused` aangemaakt. Deze bestanden bevatten de resultaten van het activeringsproces. Je kunt bijvoorbeeld `BotNaam.keys.unused` naar een `BotNaam2.keys` bestand hernoemen om de ongebruikte productcodes te gebruiken voor een andere bot, aangezien de vorige bot de codes niet heeft gebruikt. Of je kunt de ongebruikte codes naar een ander bestand kopiëren en ze bewaren voor later gebruik. Hou er rekening mee dat ASF tijdens het afwerken van de wachtrij nieuwe vermeldingen toevoegt aan de `used` en `unused` bestanden. Daardoor is het aanbevolen om te wachten totdat de wachtrij volledig is geleegd voordat je deze bestanden gebruikt. Als je deze bestanden toch wilt openen voordat de wachtrij volledig is geleegd, moet je eerst het uitvoerbestand dat je wilt openen **verplaatsen** naar een andere map **en dan** laten verwerken. De reden daarvoor is dat ASF nieuwe resultaten kan toevoegen terwijl je het bestand opent, wat mogelijk kan leiden tot verlies van productcodes. Als je bijvoorbeeld een bestand opent met 3 codes en het vervolgens verwijdert, negeer je het feit dat ASF ondertussen nog eens 4 andere codes toegevoegd kan hebben aan dat bestand. Als je toegang wilt tot deze bestanden, zorg er dan voor dat je ze uit de ASF `config` map verwijdert voordat je ze opent, bijvoorbeeld door ze te hernoemen.
 
 Het is ook mogelijk om extra spellen te importeren terwijl er al spellen in de wachtrij staan, door alle bovenstaande stappen te herhalen. ASF zal de extra vermeldingen op de juiste manier aan de lopende wachtrij toevoegen en ze afwerken.
 
