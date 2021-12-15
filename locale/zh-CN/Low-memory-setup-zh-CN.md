@@ -27,7 +27,7 @@ ASF 中使用的&#8203;**[垃圾收集](https://en.wikipedia.org/wiki/Garbage_co
 以下技巧**不会对性能造成负面影响**，可以在所有情况下安全选用。
 
 - 永远不要运行多个 ASF 实例。 ASF 可以同时处理无限个机器人，除非您需要将每个 ASF 实例绑定到不同的网络接口或 IP 地址，否则您只需要**一个**有多个机器人的 ASF 进程。
-- 善用 `ShutdownOnFarmingFinished`。 启用的机器人比未启用的消耗更多资源。 尽管效果不明显，因为仍然需要保留机器人的状态，但这仍然可以节约一些资源，尤其是 TCP 套接字等网络相关的资源。 要保持 ASF 实例的运行，只需要启用一个机器人，并且您可以随时在需要时激活其他机器人。
+- 善用 `ShutdownOnFarmingFinished`。 启用的机器人比未启用的消耗更多资源。 尽管效果不明显，因为仍然需要保留机器人的状态，但这仍然可以节约一些资源，尤其是 TCP 套接字等网络相关的资源。 如果需要，您随时可以启用其他机器人。
 - 不要有太多机器人。 未 `Enabled`（启用）的机器人实例消耗较少的资源，因为 ASF 不需要启动它。 还需要注意，ASF 会为每份配置文件创建一个机器人，因此如果您不需要 `start`（运行）指定的机器人，并且希望节省一些内存，您可以临时将 `Bot.json` 重命名为 `Bot.json.bak` 等，以防止 ASF 创建被禁用的机器人。 如果您不将其重命名为原名，就无法 `start`（运行）这个机器人，但 ASF 也不会在内存中为这个机器人保存状态，为其他数据留出空间（非常小的空间，在 99.9% 的情况下您不需要这么做，将机器人的 `Enabled` 设置为 `false` 已经足够）。
 - 妥善优化配置文件。 特别是全局 ASF 配置中有很多变量可以调整，例如增加 `LoginLimiterDelay` 会减慢机器人启动的速度，留出时间给已启用的实例抓取徽章页面，如果减少这个值，就会让机器人尽快启动，当机器人很多时，它们就会同时进行解析徽章等消耗资源的任务。 同时进行的任务越少——使用的内存就越少。
 
@@ -47,7 +47,7 @@ ASF 中使用的&#8203;**[垃圾收集](https://en.wikipedia.org/wiki/Garbage_co
 
 应用这些设置的推荐方式是设置 `DOTNET_` 环境变量。 当然，您也可以使用其他方法，例如 `runtimeconfig.json`，但这种方法无法调整某些选项，并且 ASF 还会在每次更新时替换掉您的自定义 `runtimeconfig.json`，因此我们推荐使用环境变量，这样您就可以在运行程序之前轻松设置。
 
-.NET 运行时环境允许您以多种方式&#8203;**[调整垃圾回收](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/garbage-collector)**，根据需要高效地优化 GC 过程。
+.NET 运行时环境允许您以多种方式&#8203;**[调整垃圾回收](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/garbage-collector)**，根据需要高效地优化 GC 过程。 我们在下文记录了一些在我们看来非常重要的属性。
 
 ### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 

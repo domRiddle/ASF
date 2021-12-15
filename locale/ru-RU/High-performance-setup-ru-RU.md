@@ -12,9 +12,9 @@ ASF и так пытается предпочитать производител
 
 Below tricks **involve serious memory and startup time increase** and should therefore be used with caution.
 
-The recommended way of applying those settings is through `DOTNET_` environment properties. Разумеется, вы можете использовать и другие методы, например файл `runtimeconfig.json`, но некоторые настройки таким образом поменять не удастся, а кроме того ASF заменит ваш `runtimeconfig.json` на стандартный при следующем обновлении, поэтому мы рекомендуем переменные среды, которые вы легко можете установить перед запуском процесса.
+Рекомендуется применять эти настройки через переменные среды с префиксом `DOTNET_`. Разумеется, вы можете использовать и другие методы, например файл `runtimeconfig.json`, но некоторые настройки таким образом поменять не удастся, а кроме того ASF заменит ваш `runtimeconfig.json` на стандартный при следующем обновлении, поэтому мы рекомендуем переменные среды, которые вы легко можете установить перед запуском процесса.
 
-.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
+Среда выполнения .NET позволяет вам **[настраивать сборщик мусора](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** несколькими способами, эффективно настраивая процесс сборки мусора в соответствии с вашими потребностями. We've documented below properties that are especially important in our opinion.
 
 ### [`gcServer`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
@@ -50,7 +50,7 @@ Disabled by default. While the description doesn't make it obvious, enabling thi
 
 ---
 
-You can enable selected properties by setting appropriate environment variables. Например, для Linux (shell):
+Вы можете включить выбранные настройки, установив соответствующие переменные среды. Например, для Linux (shell):
 
 ```shell
 export DOTNET_gcServer=1
@@ -81,6 +81,6 @@ $Env:DOTNET_TC_QuickJitForLoops=1
 - Убедитесь что используете значение по умолчанию в параметре `OptimizationMode`, равное `MaxPerformance`. На данный момент это самая важная настройка, поскольку использование значения `MinMemoryUsage` имеет драматический эффект на производительность.
 - Включите серверный сборщик мусора. Вы сразу заметите что серверный сборщик мусора активен по значительному увеличению потребляемой памяти в сравнении со сборщиком мусора для рабочих станций. This will spawn a GC thread for every CPU thread your machine has in order to perform GC operations in parallel with maximum speed.
 - If you can't afford memory increase due to server GC, consider tweaking **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** and/or **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gcheaphardlimitpercent)** to achieve "the best of both worlds". Однако, если память позволяет, лучше оставить этот параметр по умолчанию - серверный сборщик мусора подстраивает себя во время работы и достаточно умён чтобы использовать меньше памяти когда вашей ОС это действительно необходимо.
-- You can also consider increased optimization for longer startup time with additional tweaking through `DOTNET_` properties explained above.
+- You can also consider increased optimization for longer startup time with additional tweaking through other `DOTNET_` properties explained above.
 
 Applying recommendations above allows you to have superior ASF performance that should be blazing fast even with hundreds or thousands of enabled bots. ЦПУ больше не будет узким местом, поскольку ASF сможет использовать при необходимости всю доступную производительность ЦПУ, снижая требуемое время до необходимого минимума. Следующим шагом будет апгрейд процессора и памяти.

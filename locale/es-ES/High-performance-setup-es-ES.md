@@ -14,7 +14,7 @@ Los siguientes trucos **involucran un importante aumento de memoria y tiempo de 
 
 La forma recomendada de aplicar estas configuraciones es a través de las propiedades de entorno `DOTNET_`. Por supuesto, también podrías usar otros métodos, por ejemplo, `runtimeconfig.json`, pero algunas configuraciones son imposibles de establecer de esta manera, encima de eso ASF reemplazará tu `runtimeconfig.json` personalizado en la siguiente actualización, por lo tanto recomendamos propiedades de entorno que puedas establecer fácilmente antes de ejecutar el proceso.
 
-.NET runtime te permite **[modificar el recolector de basura](https://docs.microsoft.com/es-es/dotnet/core/run-time-config/garbage-collector)** de muchas formas, ajustando eficazmente el proceso de recolección de basura de acuerdo a tus necesidades.
+.NET runtime te permite **[modificar el recolector de basura](https://docs.microsoft.com/es-es/dotnet/core/run-time-config/garbage-collector)** de muchas formas, ajustando eficazmente el proceso de recolección de basura de acuerdo a tus necesidades. A continuación documentamos las propiedades que son especialmente importantes en nuestra opinión.
 
 ### [`gcServer`](https://docs.microsoft.com/es-es/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
@@ -30,19 +30,19 @@ El recolector de basura de servidor por sí mismo no da como resultado un aument
 
 Sin embargo, si la memoria no es un problema (ya que el recolector de basura toma en cuenta la memoria disponible y se ajusta automáticamente), es mucho mejor idea no cambiar esas propiedades, logrando un rendimiento superior como resultado.
 
-### **[`DOTNET_TieredPGO`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#profile-guided-optimization)**
+### **[`DOTNET_TieredPGO`](https://docs.microsoft.com/es-es/dotnet/core/run-time-config/compilation#profile-guided-optimization)**
 
 > Este ajuste habilita la optimización guiada por perfil (PGO) dinámica o escalonada en .NET 6 y versiones posteriores.
 
 Deshabilitado por defecto. En resumen, esto causará que la compilación en tiempo de ejecución pase más tiempo analizando el código de ASF y sus patrones para generar un código superior optimizado para tu uso típico. Si deseas aprender más acerca de este ajuste, visita **[mejoras de rendimiento en .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**.
 
-### **[`DOTNET_ReadyToRun`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#readytorun)**
+### **[`DOTNET_ReadyToRun`](https://docs.microsoft.com/es-es/dotnet/core/run-time-config/compilation#readytorun)**
 
 > Configura si .NET Core runtime usa código precompilado para imágenes con datos ReadyToRun disponibles. Deshabilitar esta opción fuerza que runtime compile en tiempo de ejecución código framework.
 
 Habilitado por defecto. Deshabilitar esto en combinación con habilitar `DOTNET_TieredPGO` te permite extender la optimización guiada por perfil escalonada a toda la plataforma .NET, y no solo al código de ASF.
 
-### **[`DOTNET_TC_QuickJitForLoops`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
+### **[`DOTNET_TC_QuickJitForLoops`](https://docs.microsoft.com/es-es/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
 
 > Configura si el compilador en tiempo de ejecución usa compilación en tiempo de ejecución rápida en métodos que contienen bucles. Habilitar la compilación en tiempo de ejecución rápida puede mejorar el rendimiento de arranque. Sin embargo, los bucles de larga duración pueden quedar atascados en código menos optimizado durante períodos largos.
 
@@ -81,6 +81,6 @@ $Env:DOTNET_TC_QuickJitForLoops=1
 - Asegúrate de que estás usando el valor predeterminado de `OptimizationMode` que es `MaxPerformance`. Este es por mucho el ajuste más importante, ya que usar el valor `MinMemoryUsage` tiene efectos dramáticos en el rendimiento.
 - Habilita el recolector de basura de servidor. El recolector de basura de servidor se puede notar que está activo inmediatamente por un aumento significativo de la memoria en comparación con el recolector de basura de estación de trabajo. Esto generará un subproceso de recolección de basura por cada subproceso de CPU que tenga tu máquina para realizar operaciones de recolección de basura simultáneamente con la máxima velocidad.
 - Si no puedes permitirte un incremento de memoria debido a la recolección de basura del servidor, considera ajustar **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-es-ES#gclatencylevel)** y/o **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-es-ES#gcheaphardlimitpercent)** para lograr lo "mejor de ambos mundos". Sin embargo, si tu memoria se lo puede permitir, entonces es mejor mantenerlo en predeterminado - el recolector de basura de servidor ya se ajusta a sí mismo durante el tiempo de ejecución y es lo suficientemente inteligente para usar menos memoria cuando tu sistema operativo realmente la necesite.
-- También puedes considerar un aumento de la optimización para un tiempo de arranque más prolongado con ajustes adicionales a través de las propiedades `DOTNET_` explicadas arriba.
+- También puedes considerar un aumento de la optimización para un tiempo de arranque más prolongado con ajustes adicionales a través de otras propiedades `DOTNET_` explicadas arriba.
 
 Aplicar las recomendaciones anteriores te permite tener un rendimiento superior de ASF que debería ser rápido incluso con cientos o miles de bots habilitados. La CPU ya no debería tener un cuello de botella, ya que ASF es capaz de usar todo el poder de la CPU cuando sea necesario, reduciendo el tiempo requerido al mínimo. El siguiente paso sería actualizar la CPU y RAM.

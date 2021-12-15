@@ -14,7 +14,7 @@ Below tricks **involve serious memory and startup time increase** and should the
 
 The recommended way of applying those settings is through `DOTNET_` environment properties. OV COURSE, U CUD ALSO USE OTHR METHODZ, E.G. `runtimeconfig.json`, BUT SUM SETTINGS R IMPOSIBLE 2 BE SET DIS WAI, AN ON TOP OV DAT ASF WILL REPLACE UR CUSTOM `runtimeconfig.json` WIF ITZ OWN ON TEH NEXT UPDATE, THEREFORE WE RECOMMEND ENVIRONMENT PROPERTIEZ DAT U CAN SET EASILY PRIOR 2 LAUNCHIN TEH PROCES.
 
-.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
+.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs. We've documented below properties that are especially important in our opinion.
 
 ### [`gcServer`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
@@ -81,6 +81,6 @@ $Env:DOTNET_TC_QuickJitForLoops=1
 - ENSURE DAT URE USIN DEFAULT VALUE OV `OptimizationMode` WHICH IZ `MaxPerformance`. DIS AR TEH BY FAR TEH MOST IMPORTANT SETTIN, AS USIN `MinMemoryUsage` VALUE HAS DRAMATIC EFFECTS ON PERFORMANCE.
 - ENABLE SERVR GC. SERVR GC CAN BE IMMEDIATELY SEEN AS BEAN ACTIV BY SIGNIFICANT MEMS INCREASE COMPARD 2 WERKSTASHUN GC. This will spawn a GC thread for every CPU thread your machine has in order to perform GC operations in parallel with maximum speed.
 - If you can't afford memory increase due to server GC, consider tweaking **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** and/or **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gcheaphardlimitpercent)** to achieve "the best of both worlds". HOWEVR, IF UR MEMS CAN AFFORD IT, DEN IZ BETTR 2 KEEP IT AT DEFAULT - SERVR GC ALREADY TWEAKZ ITSELF DURIN RUNTIME AN IZ SMART ENOUGH 2 USE LES MEMS WHEN UR OS WILL TRULY NED IT.
-- You can also consider increased optimization for longer startup time with additional tweaking through `DOTNET_` properties explained above.
+- You can also consider increased optimization for longer startup time with additional tweaking through other `DOTNET_` properties explained above.
 
 Applying recommendations above allows you to have superior ASF performance that should be blazing fast even with hundreds or thousands of enabled bots. CPU SHUD NOT BE BOTTLENECK NOMORE, AS ASF IZ ABLE 2 USE UR ENTIRE CPU POWR WHEN NEEDD, CUTTIN REQUIRD TIEM 2 BARE MINIMUM. TEH NEXT STEP WUD BE CPU AN RAM UPGRADEZ.

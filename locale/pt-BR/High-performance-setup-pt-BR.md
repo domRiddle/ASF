@@ -14,7 +14,7 @@ Below tricks **involve serious memory and startup time increase** and should the
 
 The recommended way of applying those settings is through `DOTNET_` environment properties. Claro, você também pode usar outros métodos, p. ex.: `runtimeconfig.json`, mas é impossível definir algumas configurações desta maneira e, além disso, o ASF substituirá o seu arquivo personalizado `runtimeconfig.json` pelo arquivo próprio do ASF, portanto recomendamos propriedades de ambiente que você possa definir facilmente antes de iniciar o processo.
 
-.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs.
+.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs. We've documented below properties that are especially important in our opinion.
 
 ### [`gcServer`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
@@ -81,6 +81,6 @@ $Env:DOTNET_TC_QuickJitForLoops=1
 - Certifique-se de estar usando o valor padrão em `OptimizationMode` (modo de otimização) que é `MaxPerformance` (máximo desempenho). Esse é de longe a configuração mais importante uma vez que usar o valor `MinMemoryUsage` (uso mínimo de memória) traz sérios efeitos ao desempenho.
 - Habilitar coletor de lixo no servidor. A ativação da coleta de lixo do servidor pode ser percebida imediatamente por um aumento significativo de memória em comparação com o coletor de lixo de estação de trabalho. This will spawn a GC thread for every CPU thread your machine has in order to perform GC operations in parallel with maximum speed.
 - If you can't afford memory increase due to server GC, consider tweaking **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** and/or **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gcheaphardlimitpercent)** to achieve "the best of both worlds". No entanto, se sua memória não aguenta é melhor manter tudo nos valores padrão; o coletor de lixo de servidor se auto-ajusta durante o tempo de execução e é inteligente o bastante para usar menos memória quando seu sistema operacional necessita dela.
-- You can also consider increased optimization for longer startup time with additional tweaking through `DOTNET_` properties explained above.
+- You can also consider increased optimization for longer startup time with additional tweaking through other `DOTNET_` properties explained above.
 
 Applying recommendations above allows you to have superior ASF performance that should be blazing fast even with hundreds or thousands of enabled bots. O CPU não deverá mais ser um gargalo, já que o ASF pode usar todo o desempenho do seu CPU caso necessário, reduzindo o tempo necessário ao mínimo possível. O próximo passo seria um upgrade em sua CPU e memória RAM.

@@ -14,7 +14,7 @@
 
 应用这些设置的推荐方式是设置 `DOTNET_` 环境变量。 当然，您也可以使用其他方法，例如 `runtimeconfig.json`，但这种方法无法调整某些选项，并且 ASF 还会在每次更新时替换掉您的自定义 `runtimeconfig.json`，因此我们推荐使用环境变量，这样您就可以在运行程序之前轻松设置。
 
-.NET 运行时环境允许您以多种方式&#8203;**[调整垃圾回收](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/garbage-collector)**，根据需要高效地优化 GC 过程。
+.NET 运行时环境允许您以多种方式&#8203;**[调整垃圾回收](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/garbage-collector)**，根据需要高效地优化 GC 过程。 我们在下文记录了一些在我们看来非常重要的属性。
 
 ### [`gcServer`](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
@@ -81,6 +81,6 @@ $Env:DOTNET_TC_QuickJitForLoops=1
 - 确保您的 `OptimizationMode` 属性设置为默认值 `MaxPerformance`。 这是最重要的设置，因为使用 `MinMemoryUsage` 值会对性能产生巨大影响。
 - 启用服务器 GC。 与工作站 GC 相比，您可以通过瞬间增加的显著内存消耗确认服务器 GC 被启用。 这将为您机器上的每个 CPU 线程生成一个 GC 线程，以在最高速度下同时执行 GC 操作。
 - 如果您无法负担服务器 GC 带来的内存开销，可以考虑调整 **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN#gclatencylevel)** 和/或 **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN#gcheaphardlimitpercent)** 以求两全。 但是，如果您可以负担得起这样的内存消耗，那么最好将其保持默认状态——服务器 GC 在运行时已经进行了自我优化，并且在您的操作系统真正需要时使用更少的内存。
-- 您还可以考虑通过进一步调整上述 `DOTNET_` 属性，增加启动时间来提高优化。
+- 您还可以考虑通过进一步调整上文所述的其他 `DOTNET_` 属性，增加启动时间来提高优化。
 
 如果您按照上述建议调整配置，那么即使启用成百上千个机器人，ASF 仍会有出色的性能。 CPU 不会再成为瓶颈，因为 ASF 能够在需要时发挥您的 CPU 的全部能力，从而缩短操作所需时间。 若要进一步优化就只能升级 CPU 和内存了。
