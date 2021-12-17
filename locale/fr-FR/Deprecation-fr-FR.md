@@ -1,14 +1,14 @@
-# Désapprobation
+# Dépréciation
 
 Depuis ASF V3.1.2.2, nous suivons une politique de désapprobation cohérente afin de rendre le développement et l’utilisation beaucoup plus cohérents.
 
 ---
 
-## Qu'est ce qu'une désapprobation ?
+## Qu'est ce la dépréciation ?
 
 La désapprobation est un processus consistant à effectuer des modifications majeures plus ou moins importantes rendant obsolètes les options, arguments, fonctionnalités ou fonctions précédemment utilisés. Une désapprobation signifie généralement que quelque chose a été simplement réécrit d'une autre manière, et vous devez vous assurer que vous y passerez dans les meilleurs délais. Dans ce cas, il s'agit simplement de déplacer une fonctionnalité  vers un emplacement plus approprié.
 
-ASF change rapidement et cherche toujours à devenir meilleur. This sadly means that we may change or move some existing functionality into another segment of the program in order for it to benefit from new features, compatibility or stability. Grâce à cela, nous n’avons pas besoin de nous en tenir aux décisions de développement obsolètes ou tout simplement douloureusement erronées que nous avons prises il y a des années. Nous essayons toujours de fournir un remplacement raisonnable qui corresponde à l'utilisation attendue des fonctionnalités précédemment disponibles. C'est pourquoi la désapprobation est généralement sans danger et nécessite de petites corrections par rapport à l'utilisation précédente.
+ASF change rapidement et cherche toujours à devenir meilleur. Malheureusement, cela veut dire que nous pouvons changer ou déplacer certaines fonctionnalités existantes vers une autre partie du logiciel, au profit de nouvelles fonctionnalités, de compatibilité et de stabilité. Grâce à cela, nous n’avons pas besoin de nous en tenir aux décisions de développement obsolètes ou tout simplement douloureusement erronées que nous avons prises il y a des années. Nous essayons toujours de fournir un remplacement raisonnable qui corresponde à l'utilisation attendue des fonctionnalités précédemment disponibles. C'est pourquoi la désapprobation est généralement sans danger et nécessite de petites corrections par rapport à l'utilisation précédente.
 
 ---
 
@@ -28,31 +28,21 @@ L'étape 2 est planifié après l'étape 1 expliquée ci-dessus et est publiée 
 
 ---
 
-## Summary
+## Sommaire
 
-Vous avez plus ou moins un ** mois complet </ 0> pour pouvoir effectuer le basculement approprié, ce qui devrait être amplement suffisant même si vous êtes un utilisateur occasionnel de ASF. Après cette période, ASF ne garantit plus que les anciens paramètres n’auront aucun effet (étape 2), faisant en sorte que certaines fonctions cesseront de fonctionner sans que vous le remarquiez. Si vous lancez ASF après plus d'un mois d'inactivité, il est recommandé de **
+Vous avez plus ou moins un **mois complet** pour pouvoir effectuer le basculement approprié, ce qui devrait être amplement suffisant même si vous êtes un utilisateur occasionnel de ASF. Après cette période, ASF ne garantit plus que les anciens paramètres n’auront aucun effet (étape 2), faisant en sorte que certaines fonctions cesseront de fonctionner sans que vous le remarquiez. Si vous lancez ASF après plus d'un mois d'inactivité, il est recommandé de **[recommencer à zéro](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** ou de lire tous les journaux des modifications manqués et d'adapter manuellement votre utilisation à la version actuelle.
 
- recommencer à zéro </ 0> ou de lire tous les journaux des modifications manqués et d'adapter manuellement votre utilisation à la version actuelle.</p> 
-
-In most cases, disregarding deprecation warning will not render general ASF functionality unusable, but rather falling back to default behaviour (which may or may not match your personal preferences).
-
-
+Dans la plupart des cas, ignorer l'alerte de dépréciation ne rendra pas les fonctionnalités générales d'ASF inutilisables, mais restaurera le fonctionnement par défaut (qui peut ou ne peut pas correspondre à vos préférences personnelles).
 
 ---
 
+## Exemple
 
-
-## Example
-
-We moved pre-V3.1.2.2 `--server` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** into `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**.
-
-
+Nous avons déplacé **[l'argument de commande](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**`--server` vers `IPC` **[Propriétés de configuration globales](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** dans la version pre-V3.1.2.2.
 
 ### Étape 1
 
 L'étape 1 s'est déroulée dans la version V3.1.2.2 où nous avons ajouté l'avertissement approprié à l'utilisation du `--server`. L'argument `--server` a été automatiquement mappé dans la propriété de configuration globale ` IPC: true `, agissant exactement de la même manière que l'ancien commutateur <0 --server</code>. A partir de maintenant. Cela a permis à tout le monde de faire les changements appropriés avant qu'ASF ne cesse d'accepter l'ancien argument.
-
-
 
 ### Étape 2
 

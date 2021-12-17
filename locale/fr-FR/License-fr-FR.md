@@ -6,7 +6,7 @@ La licence ASF est permissive et vous permet beaucoup plus de possibilités que 
 
 > Vous pouvez faire ce que vous voulez avec le logiciel, à condition d'inclure les avis requis.  Cette licence permissive contient une licence de brevet des contributeurs du code.
 
-By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
+En déclarant que ASF est licencié sous la licence **[Apache License 2.](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, nous nous référons au projet principal **seulement**, y compris son code source, sans faire de déclaration sur d'autres projets qu'ASF utilise (notamment les bibliothèques, outils, frameworks et frontends, tels que **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), qui peuvent-être licenciés sous des termes différents.
 
 -----
 
@@ -24,7 +24,7 @@ Vous **pouvez** :
 - Prétendre que votre logiciel/service est propulsé par ASF, si vous **n'avez** pas effectué de modifications au code source
 - Utilisez ASF à différentes fins de référence, telles que l’association de l’origine du logiciel / service, de notre wiki ou *"selon les besoins pour une utilisation raisonnable et habituelle dans la description de l’origine de l’œuvre"*
 
-You **cannot**:
+Vous **ne pouvez pas** :
 - Prétendre que votre logiciel/service **est basé sur** ASF (ou son code
 - Qualifier votre logiciel/service de **ASF Fork**
 - Prétendre que votre logiciel/service est propulsé par ASF, si vous **n'avez** pas effectué de modifications au code source
