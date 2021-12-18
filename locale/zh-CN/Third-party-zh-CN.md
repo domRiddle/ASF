@@ -30,7 +30,7 @@
 ## 集成
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**，用 Python 编写的，集成 ASF 功能的 Telegram 机器人。
-- **[ASF STM 用户脚本](https://greasyfork.org/zh-CN/scripts/404754-asf-stm)**，使您可以通过浏览器自动向我们的 **[ASF STM 列表](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN#公共-asf-stm-列表)**&#8203;内的机器人发送交易报价，而无需使用 ASF 提供的 `MatchActively` 功能。
+- **[ASF STM 用户脚本](https://greasyfork.org/zh-CN/scripts/404754-asf-stm)**，使您可以通过浏览器自动向我们的 [**ASF STM 列表**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN#公共-asf-stm-列表)内的机器人发送交易报价，而无需使用 ASF 提供的 `MatchActively` 功能。
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**，另一个用 Python 编写的集成 ASF 最基本功能的 Telegram 机器人。
 
 ---
@@ -51,7 +51,7 @@
 
 ## 工具
 
-- **[Keys extractor](https://ske.xpixv.com)**，能够从您复制的带有游戏序列号的各种文本中提取序列号，并为您生成 ASF 的 `redeem` 命令。 前往 **[GitHub 仓库](https://github.com/PixvIO/SKE)**&#8203;了解更多。
+- **[Keys extractor](https://ske.xpixv.com)**，能够从您复制的带有游戏序列号的各种文本中提取序列号，并为您生成 ASF 的 `redeem` 命令。 前往 [**GitHub 仓库**](https://github.com/PixvIO/SKE)了解更多。
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**，使您能够方便地管理多份 ASF 配置文件。
 
 ---
