@@ -89,7 +89,7 @@ Due to the nature of this property, it's also possible to set the value by decla
 
 En raison de la nature de cet propriété, il est aussi possible de définir le chemin attendu en déclarant la variable d'environnement `ASF_PATH`, ce qui peut être plus approprié pour les personnes voulant éviter des données sensibles dans les arguments du processus.
 
-If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[compatibility page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** on this manner.
+Si vous comptez utiliser cette commande pour executer plusieurs instances d'ASF, il est recommandé de lire la **[compatibility page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)**.
 
 Exemples:
 
@@ -138,6 +138,6 @@ Si vous n'avez pas l'intention de faire fonctionner IPC, cette option sera plut�
 
 ---
 
-`--system-required</ 0> - la déclaration de ce commutateur incitera ASF à signaler au système d'exploitation que le processus nécessite que le système soit opérationnel pendant toute sa durée de vie. Actuellement, ce commutateur n'a d'effet que sur les machines Windows où il sera interdit à votre système de passer en mode veille tant que le processus est en cours d'exécution. This can be proven especially useful when farming on your PC or laptop during night, as ASF will be able to keep your system awake while it's farming, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once farming is finished.</p>
+`--system-required</ 0> - la déclaration de ce commutateur incitera ASF à signaler au système d'exploitation que le processus nécessite que le système soit opérationnel pendant toute sa durée de vie. Actuellement, ce commutateur n'a d'effet que sur les machines Windows où il sera interdit à votre système de passer en mode veille tant que le processus est en cours d'exécution. Cela peut être particulièrement utile si vous comptez farmer avec votre ordinateur ou votre PC durant la nuit, car ASF pourra maintenur le système en veille. Une fois l'opération terminée, votre machine s'éteindra comme d'ordinaire. Cela vous permettra d'économiser de l'énergie.</p>
 
 <p spaces-before="0">Gardez à l’esprit que pour un arrêt automatique correct de la fonction ASF, il vous faut d’autres paramètres, en particulier pour éviter <code>--process-required` et en veillant à ce que tous vos robots suivent `ShutdownOnFarmingFinished`. Bien sûr, l’arrêt automatique n’est qu’une possibilité pour cette fonction, et non une obligation, car vous pouvez également utiliser cet fonction avec, par exemple, `--process-required`, ce qui rend votre système éveillé à l'infini après le démarrage d'ASF.
