@@ -78,6 +78,7 @@ GLOBAL CONFIG IZ LOCATD IN `ASF.json` FILE AN HAS FOLLOWIN STRUCCHUR:
     "LoginLimiterDelay": 10,
     "MaxFarmingTime": 10,
     "MaxTradeHoldDuration": 15,
+    "MinFarmingDelayAfterBlock": 60,
     "OptimizationMode": 0,
     "Statistics": true,
     "SteamMessagePrefix": "/me ",
@@ -222,6 +223,13 @@ AS SIDE NOWT, DIS VALUE IZ ALSO USD AS LOAD-BALANCIN BUFFR IN ALL ASF-SCHEDULD A
 
 `byte` TYPE WIF DEFAULT VALUE OV `15`. DIS PROPERTY DEFINEZ MAXIMUM DURASHUN OV TRADE HOLD IN DAIS DAT WERE WILLIN 2 ACCEPT - ASF WILL REJECT TRADEZ DAT R BEAN HELD 4 MOAR THAN `MaxTradeHoldDuration` DAIS, AS DEFIND IN **[TRADIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-lol-US)** SECSHUN. DIS OPSHUN MAKEZ SENSE ONLY 4 BOTS WIF `TradingPreferences` OV `SteamTradeMatcher`, AS IT DOESNT AFFECT `Master`/`SteamOwnerID` TRADEZ, NEITHR DONASHUNS. TRADE HOLDZ R ANNOYIN 4 EVRYONE, AN NOBODY RLY WANTS 2 DEAL WIF THEM. ASF IZ SUPPOSD 2 WERK ON LIBERAL RULEZ AN HALP EVRYONE, REGARDLES IF ON TRADE HOLD OR NOT - THAZ Y DIS OPSHUN IZ SET 2 `15` BY DEFAULT. HOWEVR, IF UD INSTEAD PREFR 2 REJECT ALL TRADEZ AFFECTD BY TRADE HOLDZ, U CAN SPECIFY `0` HER. PLZ CONSIDR TEH FACT DAT CARDZ WIF SHORT LIFESPAN R NOT AFFECTD BY DIS OPSHUN AN AUTOMATICALLY REJECTD 4 PEEPS WIF TRADE HOLDZ, AS DESCRIBD IN **[TRADIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-lol-US)** SECSHUN, SO THAR IZ NO NED 2 GLOBALLY REJECT EVRYBODY ONLY CUZ OV DAT. UNLES U HAS REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
+
+---
+
+### `MinFarmingDelayAfterBlock`
+
+`byte` type with default value of `60`. This property defines minimum amount of time, in seconds, which ASF will wait before resuming cards farming if it got previously disconnected with `LoggedInElsewhere`, which happens when you decide to forcefully disconnect currently-idling ASF by launching a game. This delay exists mainly for convenience and overhead reasons, for example it allows you to restart the game without having to fight with ASF occupying your account again only because playing lock was available for a split second. Due to the fact that reclaiming the session causes `LoggedInElsewhere` disconnect, ASF has to go through whole reconnect procedure, which puts additional pressure on the machine and Steam network, therefore avoiding additional disconnects, if possible, is preferable. By default, this is configured at `60` seconds, which should be enough to allow you restart the game without much hassle. However, there are scenarios when you could be interested in increasing it, for example if your network disconnects often and ASF is taking over too soon, which causes being forced to go through the reconnect process yourself. We allow a maximum value of `255` for this property, which should be enough for all common scenarios. In addition to the above, it's also possible to decrease the delay, or even remove it entirely with a value of `0`, although that is usually not recommended due to reasons stated above. UNLES U HAS REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
+
 ---
 
 ### `OptimizationMode`
@@ -230,7 +238,7 @@ AS SIDE NOWT, DIS VALUE IZ ALSO USD AS LOAD-BALANCIN BUFFR IN ALL ASF-SCHEDULD A
 
 ---
 
-### `Statistics`
+### `STATISTICS`
 
 `bool` TYPE WIF DEFAULT VALUE OV `true`. DIS PROPERTY DEFINEZ IF ASF SHUD HAS STATISTICS ENABLD. DETAILD EXPLANASHUN WUT EGSAKTLY DIS OPSHUN DOEZ IZ AVAILABLE IN **[STATISTICS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-lol-US)** SECSHUN. UNLES U HAS REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
@@ -244,7 +252,7 @@ AS SIDE NOWT, DIS VALUE IZ ALSO USD AS LOAD-BALANCIN BUFFR IN ALL ASF-SCHEDULD A
 
 ### `SteamOwnerID`
 
-`ulong` TYPE WIF DEFAULT VALUE OV `0`. DIS PROPERTY DEFINEZ STEAM ID IN 64-BIT FORM OV ASF PROCES OWNR, AN IZ VRY SIMILAR 2 `Master` PERMISHUN OV GIVEN BOT INSTANCE (BUT GLOBAL INSTEAD). U ALMOST ALWAYS WANTS 2 SET DIS PROPERTY 2 ID OV UR OWN MAIN STEAM AKOWNT. `Master` PERMISHUN INCLUDEZ FULL CONTROL OVAR HIS BOT INSTANCE, BUT GLOBAL COMMANDZ SUCH AS `exit`, `restart` OR `update` R RESERVD 4 `SteamOwnerID` ONLY. DIS AR TEH CONVENIENT, AS U CUD WANTS 2 RUN BOTS 4 UR FRENZ, WHILE NOT ALLOWIN THEM 2 CONTROL ASF PROCES, SUCH AS EXITIN IT VIA `exit` COMMAND. DEFAULT VALUE OV `0` SPECIFIEZ DAT THAR IZ NO OWNR OV ASF PROCES, WHICH MEANZ DAT NOBODY WILL BE ABLE 2 ISSUE GLOBAL ASF COMMANDZ. KEEP IN MIND DAT **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US)** COMMANDZ WERK WIF `SteamOwnerID`, SO IF U WANTS 2 USE THEM, DEN U MUST PROVIDE VALID VALUE HER.
+`ulong` TYPE WIF DEFAULT VALUE OV `0`. DIS PROPERTY DEFINEZ STEAM ID IN 64-BIT FORM OV ASF PROCES OWNR, AN IZ VRY SIMILAR 2 `Master` PERMISHUN OV GIVEN BOT INSTANCE (BUT GLOBAL INSTEAD). U ALMOST ALWAYS WANTS 2 SET DIS PROPERTY 2 ID OV UR OWN MAIN STEAM AKOWNT. `Master` PERMISHUN INCLUDEZ FULL CONTROL OVAR HIS BOT INSTANCE, BUT GLOBAL COMMANDZ SUCH AS `exit`, `restart` OR `update` R RESERVD 4 `SteamOwnerID` ONLY. DIS AR TEH CONVENIENT, AS U CUD WANTS 2 RUN BOTS 4 UR FRENZ, WHILE NOT ALLOWIN THEM 2 CONTROL ASF PROCES, SUCH AS EXITIN IT VIA `exit` COMMAND. DEFAULT VALUE OV `0` SPECIFIEZ DAT THAR IZ NO OWNR OV ASF PROCES, WHICH MEANZ DAT NOBODY WILL BE ABLE 2 ISSUE GLOBAL ASF COMMANDZ. Keep in mind that **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** commands work with `SteamOwnerID`, so if you want to use them, then you must provide a valid value here.
 
 ---
 
@@ -267,7 +275,7 @@ BY DEFAULT ASF WILL USE ALL AVAILABLE STEAM PROTOCOLS AS MEASURE 4 FIGHTIN WIF D
 
 ### `UpdateChannel`
 
-`byte` TYPE WIF DEFAULT VALUE OV `1`. DIS PROPERTY DEFINEZ UPDATE CHANNEL WHICH IZ BEAN USD, EITHR 4 AUTO-UPDATEZ (IF `UpdatePeriod` IZ GREATR THAN `0`), OR UPDATE NOTIFICASHUNS (OTHERWIZE). CURRENTLY ASF SUPPORTS 3 UPDATE CHANNELS - `0` WHICH IZ CALLD `None`, `1`, WHICH IZ CALLD `Stable`, AN `2`, WHICH IZ CALLD `Experimental`. `Stable` CHANNEL IZ TEH DEFAULT RELEASE CHANNEL, WHICH SHUD BE USD BY MAJORITY OV USERS. `Experimental` CHANNEL IN ADDISHUN 2 `Stable` RELEASEZ, ALSO INCLUDEZ **PRE-RELEASEZ** DEDICATD 4 ADVANCD USERS AN OTHR DEVELOPERS IN ORDR 2 TEST NEW FEATUREZ, CONFIRM BUGFIXEZ OR GIV FEEDBACK BOUT PLANND ENHANCEMENTS. **EXPERIMENTAL VERSHUNS OFTEN CONTAIN UNPATCHD BUGS, WERK-IN-PROGRES FEATUREZ OR REWRITTEN IMPLEMENTASHUNS**. IF U DOAN CONSIDR YOURSELF ADVANCD USR, PLZ STAY WIF DEFAULT `1` (STABLE) UPDATE CHANNEL. `Experimental` CHANNEL IZ DEDICATD 2 USERS HOO KNOE HOW 2 REPORT BUGS, DEAL WIF ISSUEZ AN GIV FEEDBACK - NO TECHNICAL SUPPORT WILL BE GIVEN. CHECK OUT ASF **[RELEASE CYCLE](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-lol-US)** IF UD LIEK 2 LERN MOAR. U CAN ALSO SET `UpdateChannel` 2 `0` (`None`), IF U WANTS 2 COMPLETELY REMOOV ALL VERSHUN CHECKZ. SETTIN `UpdateChannel` 2 `0` WILL ENTIRELY DISABLE ENTIRE FUNCSHUNALITY RELATD 2 UPDATEZ, INCLUDIN `update` COMMAND. USIN `None` CHANNEL IZ **STRONGLY DISCOURAGD** DUE 2 EXPOSIN YOURSELF 2 ALL SORT OV PROBLEMS (MENSHUND IN `UpdatePeriod` DESCRIPSHUN BELOW).
+`byte` TYPE WIF DEFAULT VALUE OV `1`. DIS PROPERTY DEFINEZ UPDATE CHANNEL WHICH IZ BEAN USD, EITHR 4 AUTO-UPDATEZ (IF `UpdatePeriod` IZ GREATR THAN `0`), OR UPDATE NOTIFICASHUNS (OTHERWIZE). CURRENTLY ASF SUPPORTS 3 UPDATE CHANNELS - `0` WHICH IZ CALLD `None`, `1`, WHICH IZ CALLD `Stable`, AN `2`, WHICH IZ CALLD `Experimental`. `Stable` CHANNEL IZ TEH DEFAULT RELEASE CHANNEL, WHICH SHUD BE USD BY MAJORITY OV USERS. `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. IF U DOAN CONSIDR YOURSELF ADVANCD USR, PLZ STAY WIF DEFAULT `1` (STABLE) UPDATE CHANNEL. `Experimental` CHANNEL IZ DEDICATD 2 USERS HOO KNOE HOW 2 REPORT BUGS, DEAL WIF ISSUEZ AN GIV FEEDBACK - NO TECHNICAL SUPPORT WILL BE GIVEN. CHECK OUT ASF **[RELEASE CYCLE](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-lol-US)** IF UD LIEK 2 LERN MOAR. U CAN ALSO SET `UpdateChannel` 2 `0` (`None`), IF U WANTS 2 COMPLETELY REMOOV ALL VERSHUN CHECKZ. SETTIN `UpdateChannel` 2 `0` WILL ENTIRELY DISABLE ENTIRE FUNCSHUNALITY RELATD 2 UPDATEZ, INCLUDIN `update` COMMAND. USIN `None` CHANNEL IZ **STRONGLY DISCOURAGD** DUE 2 EXPOSIN YOURSELF 2 ALL SORT OV PROBLEMS (MENSHUND IN `UpdatePeriod` DESCRIPSHUN BELOW).
 
 **UNLES U KNOE WUT URE DOIN**, WE **STRONGLY** RECOMMEND 2 KEEP IT AT DEFAULT.
 

@@ -78,6 +78,7 @@ ASF 采用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存储其配置�
     "LoginLimiterDelay": 10,
     "MaxFarmingTime": 10,
     "MaxTradeHoldDuration": 15,
+    "MinFarmingDelayAfterBlock": 60,
     "OptimizationMode": 0,
     "Statistics": true,
     "SteamMessagePrefix": "/me ",
@@ -222,6 +223,13 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 这是一个默认值为 `15` 的 `byte` 类型属性。 该属性定义我们能够接受的最长交易暂挂时间——ASF 将会拒绝暂挂时间超过 `MaxTradeHoldDuration` 天的交易，详见&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN)**&#8203;章节。 这个选项只对在 `TradingPreferences` 中开启了 `SteamTradeMatcher` 的机器人生效，并且不会影响来自 `Master`/`SteamOwnerID` 的交易，也不影响捐赠交易。 没有人真正愿意等待烦人的交易暂挂。 ASF 本着自由、平等交易的原则，无论对方是否有交易暂挂，都会处理交易——默认值也因此被设置为 `15`。 但是，如果您更愿意拒绝所有受交易暂挂影响的交易，可以将其设置为 `0`。 请注意，有时间限制的卡牌（例如特卖活动卡牌）不会受这一选项影响，ASF 会驳回任何有交易暂挂的交易者，如&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN)**&#8203;章节所述，所以您不需要仅仅因为这种情况驳回所有人。 除非您有理由编辑此属性，否则应将其保留为默认值。
 
+
+---
+
+### `MinFarmingDelayAfterBlock`
+
+这是一个默认值为 `60` 的 `byte` 类型属性。 This property defines minimum amount of time, in seconds, which ASF will wait before resuming cards farming if it got previously disconnected with `LoggedInElsewhere`, which happens when you decide to forcefully disconnect currently-idling ASF by launching a game. This delay exists mainly for convenience and overhead reasons, for example it allows you to restart the game without having to fight with ASF occupying your account again only because playing lock was available for a split second. Due to the fact that reclaiming the session causes `LoggedInElsewhere` disconnect, ASF has to go through whole reconnect procedure, which puts additional pressure on the machine and Steam network, therefore avoiding additional disconnects, if possible, is preferable. By default, this is configured at `60` seconds, which should be enough to allow you restart the game without much hassle. However, there are scenarios when you could be interested in increasing it, for example if your network disconnects often and ASF is taking over too soon, which causes being forced to go through the reconnect process yourself. We allow a maximum value of `255` for this property, which should be enough for all common scenarios. In addition to the above, it's also possible to decrease the delay, or even remove it entirely with a value of `0`, although that is usually not recommended due to reasons stated above. 除非您有理由编辑此属性，否则应将其保留为默认值。
+
 ---
 
 ### `OptimizationMode`
@@ -230,7 +238,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ---
 
-### `Statistics`
+### `统计`
 
 这是一个默认值为 `true` 的 `bool` 类型属性。 这个属性定义了 ASF 是否启用统计功能。 我们在&#8203;**[统计](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN)**&#8203;章节中具体解释了这个选项究竟会做什么。 除非您有理由编辑此属性，否则应将其保留为默认值。
 
@@ -329,7 +337,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 ## 机器人配置
 
-您应该已经了解，每个机器人都有自己的配置文件，其 JSON 结构如下： 首先，您需要决定机器人的名称（例如 `1.json`、`main.json`、`primary.json` 或者随便什么名字 `AnythingElse.json`，然后再开始配置。
+您应该已经了解，每个机器人都有自己的配置文件，其 JSON 结构如下文的示例。 首先，您需要决定机器人的名称（例如 `1.json`、`main.json`、`primary.json` 或者随便什么名字 `AnythingElse.json`，然后再开始配置。
 
 **注意：**&#8203;机器人不能被命名为 `ASF`（因为该关键字是留给全局配置文件的），ASF 也会忽略所有以点号开头的配置文件。
 
