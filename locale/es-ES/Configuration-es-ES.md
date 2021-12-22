@@ -295,7 +295,7 @@ A menos que tengas una **buena** razón para desactivar esta función, deberías
 
 Tipo `ushort` con valor predeterminado de `300`. Esta propiedad define, en milisegundos, la cantidad mínima de retraso entre dos solicitudes consecutivas al mismo servicio web de Steam. Dicho retraso es requerido ya que el servicio **[AkamaiGhost](https://www.akamai.com)** que Steam usa internamente incluye un límite de intentos basado en el número global de solicitudes enviadas en un período de tiempo determinado. En circunstancias normales el bloqueo de akamai es bastante difícil de lograr, pero bajo cargas de trabajo muy pesadas con una gran lista de solicitudes en curso, es posible activarlo si seguimos enviando demasiadas solicitudes en un período de tiempo muy corto.
 
-El valor predeterminado fue establecido en el supuesto de que ASF es la única herramienta accediendo a los servicios web de Steam, en particular `steamcommunity.com`, `api.steampowered.com` y `store.steampowered.com`. Si usas otras herramientas que envían solicitudes a los mismos servicios web, entonces debes asegurarte que tu herramienta incluya una función similar a `WebLimiterDelay` y establecer ambas al doble del valor por defecto, que sería `600`. Esto garantiza que bajo ninguna circunstancia excederás más de 1 solicitud por cada `300` ms.
+El valor predeterminado fue establecido en el supuesto de que ASF es la única herramienta accediendo a los servicios web de Steam, en particular `steamcommunity.com`, `api.steampowered.com` y `store.steampowered.com`. Si usas otras herramientas que envían solicitudes a los mismos servicios web, entonces debes asegurarte de que tu herramienta incluya una función similar a `WebLimiterDelay` y establecer ambas al doble del valor por defecto, que sería `600`. Esto garantiza que bajo ninguna circunstancia excederás más de 1 solicitud por cada `300` ms.
 
 En general, reducir `WebLimiterDelay` por debajo del valor predeterminado se **desaconseja fuertemente** ya que podría derivar en varios bloqueos relacionados con la IP, algunos de los cuales es posible que sean permanentes. El valor predeterminado es suficiente para ejecutar una sola instancia de ASF en el servidor, así como para usar ASF en un escenario normal junto con el cliente de Steam original. Debería ser suficiente para la mayoría de los usos, y solo debes aumentarlo (nunca reducirlo), si - además de usar ASF, también estás usando otra herramienta que pueda enviar un número excesivo de solicitudes al mismo servicio web del que ASF esté haciendo uso. En resumen, el número global de todas las solicitudes enviadas desde una misma IP a un mismo dominio de Steam nunca debe exceder más de una solicitud cada `300` ms.
 
@@ -337,7 +337,7 @@ A menos que tengas una razón para editar esta propiedad, deberías dejarla en s
 
 ## Configuración de bot
 
-Como ya deberías saber, cada bot debe tener su propia configuración basada en la estructura JSON de ejemplo a continuación. Empieza por decidir cómo quieres nombrar tu bot (por ejemplo, `1.json`, `principal.json`, `primario.json` or `CualquierOtraCosa.json`) y continúa a la configuración.
+Como ya deberías saber, cada bot debe tener su propia configuración basada en la estructura JSON de ejemplo a continuación. Empieza por decidir cómo quieres nombrar tu bot (por ejemplo, `1.json`, `principal.json`, `primario.json` o `CualquierOtraCosa.json`) y continúa a la configuración.
 
 **Aviso:** Ningún bot puede ser nombrado `ASF` (ya que esa palabra está reservada para la configuración global), ASF también ignorará todos los archivos de configuración que inicien con un punto.
 
@@ -385,7 +385,7 @@ Todas las opciones se explican a continuación:
 
 ### `AcceptGifts`
 
-Tipo `bool` con valor predeterminado de `false`. Cuando esta propiedad está habilitada, ASF automáticamente aceptará y activará todos los regalos de Steam (incluyendo tarjetas de regalo) enviados al bot. Esto también incluye los regalos enviados por usuarios además de los definidos en `SteamUserPermissions`. Ten en cuenta que los regalos enviados a direcciones de correo electrónico no son enviados directamente al cliente, por lo que ASF no aceptará esas sin tu ayuda.
+Tipo `bool` con valor predeterminado de `false`. Cuando esta propiedad está habilitada, ASF automáticamente aceptará y activará todos los regalos de Steam (incluyendo tarjetas de regalo) enviados al bot. Esto también incluye los regalos enviados por usuarios además de los definidos en `SteamUserPermissions`. Ten en cuenta que los regalos enviados a direcciones de correo electrónico no son enviados directamente al cliente, por lo que ASF no aceptará esos sin tu ayuda.
 
 Esta opción se recomienda solo para cuentas alternas, ya que es muy probable que no quieras activar automáticamente todos los regalos enviados a tu cuenta principal. Si no estás seguro si quieres esta función habilitada o no, mantén el valor predeterminado de `false`.
 
@@ -393,7 +393,7 @@ Esta opción se recomienda solo para cuentas alternas, ya que es muy probable qu
 
 ### `AutoSteamSaleEvent`
 
-Tipo `bool` con valor predeterminado de `false`. Durante las ofertas de verano/invierno de Steam es común que se proporcionen cromos extra por explorar la lista de descubrimiento cada día, así como por otras actividades específicas de los eventos. Cuando esta opción está activada, ASF automáticamente comprobará la lista de descubrimiento de Steam cada `8` horas (empezando en una hora desde el inicio del programa), y la completará si es necesario. No se recomendada esta opción si quieres realizar esa acción tú mismo, y normalmente solo tiene sentido en cuentas bot. Además, debes asegurarte que tu cuenta sea al menos nivel `8` si esperas recibir esos cromos en primer lugar, lo que es directamente un requisito de Steam. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
+Tipo `bool` con valor predeterminado de `false`. Durante las ofertas de verano/invierno de Steam es común que se proporcionen cromos adicionales por explorar la lista de descubrimientos cada día, así como por otras actividades específicas de los eventos. Cuando esta opción está habilitada, ASF automáticamente comprobará la lista de descubrimientos de Steam cada `8` horas (empezando una hora después de haber iniciado el programa), y la completará si es necesario. No se recomienda usar esta opción si deseas realizar esa acción tú mismo, y normalmente solo tiene sentido en cuentas bot. Además, debes asegurarte de que tu cuenta sea al menos nivel `8` si esperas recibir esos cromos en primer lugar, lo que es directamente un requisito de Steam. Si no estás seguro si quieres esta función habilitada o no, mantén el valor predeterminado de `false`.
 
 Por favor, ten en cuenta que debido a los constantes problemas y cambios de Valve, **no garantizamos que esta característica funcione correctamente**, por lo tanto, es totalmente posible que esta opción **no funcione en absoluto**. No aceptamos **ningún** reporte de bugs, ni solicitudes de soporte para esta opción. Se ofrece absolutamente sin ninguna garantía, la usas bajo tu propio riesgo.
 
