@@ -36,7 +36,7 @@ Claro, troque `linux-x64` pela arquitetura de SO que você quer atender, tal com
 
 ### .NET framework
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net6.0` to `net48`. Tenha em mente que você vai precisar do pacote de desenvolvedor **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** apropriado para compilar a variante `netf`, além do SDK do .NET, então a instrução abaixo funcionará apenas no Windows:
+Em casos muito raros, quando você quiser compilar um pacote `generic-netf`, você pode mudar a estrutura desejada de `net6.0` para `net48`. Tenha em mente que você vai precisar do pacote de desenvolvedor **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** apropriado para compilar a variante `netf`, além do SDK do .NET, então a instrução abaixo funcionará apenas no Windows:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
@@ -50,25 +50,25 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ### ASF-ui
 
-While the above steps are everything that is required to have a fully working build of ASF, you may *also* be interested in building **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, our graphical web interface. From ASF side, all you need to do is dropping ASF-ui build output in standard `ASF-ui/dist` location, then building ASF with it (again, if needed).
+Enquanto os passos acima são tudo o que é necessário para ter uma compilação totalmente funcional do ASF, você *também* pode estar interessado em compilar a **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, nossa interface gráfica web. Do lado do ASF, tudo o que você precisa fazer é colocar a saída da compilação ASF-ui no local padrão `ASF-ui/dist` e então compilar o ASF com ela (novamente, se necessário).
 
-ASF-ui is part of ASF's source tree as a **[git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**, ensure that you've cloned the repo with `git clone --recursive`, as otherwise you'll not have the required files. You'll also need a working NPM, **[Node.js](https://nodejs.org)** comes with it. If you're using Linux/OS X, we recommend our `cc.sh` script, which will automatically cover building and shipping ASF-ui (if possible, that is, if you're meeting the requirements we've just mentioned).
+A ASF-ui é parte da árvore raíz do ASF como um **[submódulo git](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**, certifique-se de ter clonado o repositório com `git clone --recursive`, caso contrário, você não terá os arquivos necessários. Você também precisará de um NPM funcional, o **[Node.js](https://nodejs.org)** vem com ele. Se você estiver usando Linux/OS X, recomendamos o nosso script `cc.sh`, que irá cobrir automaticamente a compilação e o envio da ASF-ui (se possível, isto é, se você estiver cumprindo os requisitos que acabamos de mencionar).
 
-In addition to the `cc.sh` script, we also attach the simplified build instructions below, refer to **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** for additional documentation. From ASF's source tree location, so as above, execute the following commands:
+Além do script `cc.sh`, também anexamos as instruções de compilação simplificadas abaixo, consulte o **[repositório ASF-ui](https://github.com/JustArchiNET/ASF-ui)** para documentação adicional. Da árvore raíz do ASF, como antes, execute os seguintes comandos:
 
 ```shell
-rm -rf "ASF-ui/dist" # ASF-ui doesn't clean itself after old build
+rm -rf "ASF-ui/dist" # A ASF-ui não se limpa sozinha após a antiga compilação
 
 npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
-rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # Or accordingly to what you need as per the above
+rm -rf "out/generic/www" #Certifique-se que nossa build está livre de arquivos antigos
+dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # Ou de acordo com o que você precisa como anteriormente
 ```
 
-You should now be able to find the ASF-ui files in your `out/generic/www` folder. ASF will be able to serve those files to your browser.
+Agora você deve encontrar os arquivos da ASF-ui na pasta `out/generic/www`. O ASF será capaz de enviar esses arquivos para o seu navegador.
 
-Alternatively, you can simply build ASF-ui, whether manually or with the help of our repo, then copy the build output over to `${OUT}/www` folder manually, where `${OUT}` is the output folder of ASF that you've specified with `-o` parameter. This is exactly what ASF is doing as part of the build process, it copies `ASF-ui/dist` (if exists) over to `${OUT}/www`, nothing fancy.
+Como alternativa, você pode simplesmente compilar o ASF-ui, seja manualmente ou com a ajuda do nosso repositório, então copiar o resultado da compilação para a pasta `${OUT}/www` manualmente, onde `${OUT}` é a pasta de saída do ASF que você especificou com o parâmetro `-o`. É exatamente isso que o ASF faz como parte do processo de compilação, ela copia o `ASF-ui/dist` (se existir) para `${OUT}/www`, nada demais.
 
 ---
 
@@ -84,7 +84,7 @@ Claro que todas as sugestões acima são apenas recomendações, você pode usar
 
 ## Marcadores
 
-Não é garantido que a ramificação `main` esteja em um estado que propicie uma compilação bem sucedida ou uma execução sem falhas do ASF, uma vez que é uma ramificação em desenvolvimento, confirme especificado em nosso **[ciclo de lançamentos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. Se você deseja compilar ou referenciar o ASF desde a fonte, então você deve usar a **[tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** apropriada para tal, o que garante ao menos uma compilação bem sucedida, e muito provavelmente uma execução sem erros (se a compilação foi marcada como versão estável). In order to check the current "health" of the tree, you can use our CI - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/ci.yml?query=branch%3Amain)**.
+Não é garantido que a ramificação `main` esteja em um estado que propicie uma compilação bem sucedida ou uma execução sem falhas do ASF, uma vez que é uma ramificação em desenvolvimento, confirme especificado em nosso **[ciclo de lançamentos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. Se você deseja compilar ou referenciar o ASF desde a fonte, então você deve usar a **[tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** apropriada para tal, o que garante ao menos uma compilação bem sucedida, e muito provavelmente uma execução sem erros (se a compilação foi marcada como versão estável). Para verificar a "saúde" atual da árvore, você pode usar nossa CI: **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/ci.yml?query=branch%3Amain)**.
 
 ---
 
@@ -92,4 +92,4 @@ Não é garantido que a ramificação `main` esteja em um estado que propicie um
 
 Os lançamentos oficiais do ASF são compilados pelo **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** no Windows, com o SDK .NET mais recente que corresponde com os **[requisitos de tempo de execução](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR#requisitos-do-tempo-de-execução)** do ASF. Depois de passar nos testes, todos os pacotes são implantados no lançamento, assim como no GitHub. Isto também garante transparência, pois o GitHub sempre usa uma fonte pública oficial para todas as compilações, e você pode comparar as somas de verificação (checksums) dos artefatos do GitHub com os ativos lançados no GitHub. Os desenvolvedores do ASF não compilam ou publicam as compilações por conta própria, exceto para o processo de desenvolvimento privado e depuração.
 
-Starting from ASF V5.2.0.5, in addition to the above, ASF maintainers manually validate and publish build checksums on independent from GitHub, remote server, as additional security measure. This step is mandatory for existing ASFs to consider the release as a valid candidate for auto-update functionality.
+Desde o ASF V5.2.0.5, além do mencionado acima, os mantenedores do ASF validam manualmente e publicam somas de virificação de forma independente do GitHub, o servidor remoto, como forma adicional de seguramça. Esta etapa é obrigatória para que as versões do ASFs existentes sejam consideradas como um candidato válido para a funcionalidade de atualização automática.

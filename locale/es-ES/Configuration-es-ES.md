@@ -427,11 +427,11 @@ Una invitación de grupo inválida es un invitación que no proviene del grupo e
 
 `DismissInventoryNotifications` es extremadamente útil cuando empiezan a ser molestas las constantes notificaciones de Steam de que has recibido nuevos artículos. ASF no puede deshacerse de la notificación en sí, ya que eso está integrado en tu cliente de Steam, pero es capaz de descartar la notificación automáticamente después de recibirla, lo que ya no dejará la notificación de "nuevos artículos en el inventario". Si quieres revisar tú mismo todos los artículos recibidos (especialmente cromos recolectados con ASF), naturalmente no deberías habilitar esta opción. Cuando empieces a volverte loco, recuerda que se ofrece esta opción.
 
-`MarkReceivedMessagesAsRead` automáticamente marcará como leídos **todos** los mensajes recibidos por la cuenta en la que se esté ejecutando ASF, tanto privados como grupales. Normalmente esto debería usarse solo en las cuentas alternas para descartar las notificaciones de "nuevo mensaje" que lleguen, por ejemplo, de ti mismo al ejecutar comandos de ASF. No recomendamos esta opción para cuentas principales, a menos que quieras deshacerte de cualquier notificación de nuevos mensajes, **incluyendo** aquellas que lleguen cuando estés desconectado, asumiendo que ASF fue dejado abierto.
+`MarkReceivedMessagesAsRead` automáticamente marcará como leídos **todos** los mensajes recibidos por la cuenta en la que se esté ejecutando ASF, tanto privados como grupales. Normalmente esto debería usarse solo en las cuentas alternas para descartar las notificaciones de "nuevo mensaje" que provengan, por ejemplo, de ti mismo al ejecutar comandos de ASF. No recomendamos esta opción para cuentas principales, a menos que quieras deshacerte de cualquier notificación de nuevos mensajes, **incluyendo** aquellas que lleguen cuando estés desconectado, asumiendo que ASF fue dejado abierto.
 
 `MarkBotMessagesAsRead` funciona de forma similar marcando como leídos solo los mensajes de bots. Sin embargo, ten en cuenta que al usar esta opción en chats grupales en los que están tus bots y otras personas, debido a la implementación de Steam, al marcar como leído un mensaje de chat **también** se descartarán todos los mensajes que llegaron **antes** del que decidiste marcar como leído, si no quieres perder mensajes no relacionados que hayan llegado entre los marcados, deberías evitar usar esta función. Obviamente, también es riesgoso cuando tienes varias cuentas principales (por ejemplo, de diferentes usuarios) ejecutándose en la misma instancia de ASF, ya que también puedes perder sus mensajes normales que no sean de ASF.
 
-Si no estás seguro de cómo configurar esta opción, es mejor dejarla en su valor por defecto.
+Si no estás seguro de cómo configurar esta opción, es mejor dejarla en su valor predeterminado.
 
 ---
 
@@ -448,23 +448,23 @@ A día de hoy, los siguientes tipos de artículos están soportados en esta conf
 
 Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 
-Debido a la sobrecarga adiciona del uso de esta opción, se recomienda usarla solamente en cuentas bot que tienen una posibilidad realista de completar sets - por ejemplo, no tiene sentido activarla si ya estás usando `SendOnFarmingFinished`, `SendTradePeriod` o el comando `loot` de forma habitual.
+Debido a la sobrecarga adicional por el uso de esta opción, se recomienda usarla solamente en cuentas bot que tienen una posibilidad realista de completar sets - por ejemplo, no tiene sentido activarla si ya estás usando `SendOnFarmingFinished`, `SendTradePeriod` o el comando `loot` de forma habitual.
 
-Si no estás seguro de cómo configurar esta opción, es mejor dejarla en su valor por defecto.
+Si no estás seguro de cómo configurar esta opción, es mejor dejarla en su valor predeterminado.
 
 ---
 
 ### `CustomGamePlayedWhileFarming`
 
-Tipo `string` con valor predeterminado de `null`. Cuando ASF está recolectando, puede mostrarse como "Jugando un juego no-Steam: `CustomGamePlayedWhileFarming`" en vez del juego siendo recolectado actualmente. Esto puede ser útil si quieres dejarle saber a tus amigos que estás recolectando, pero ni quieres usar el `OnlineStatus` de `Desconectado`. Por favor, ten en cuenta que ASF no puede garantizar el orden de visualización real de la red de Steam, por lo tanto esta solo es una sugerencia que podría, o no, mostrarse correctamente. Valor predeterminado de `null` desactiva esta función.
+Tipo `string` con valor predeterminado de `null`. Cuando ASF está recolectando, puede mostrarse como "En un juego que no es de Steam: `CustomGamePlayedWhileFarming`" en lugar del juego que está siendo recolectado actualmente. Esto puede ser útil si quieres hacerle saber a tus amigos que estás recolectando, pero no quieres usar el `OnlineStatus` de `Offline`. Por favor, ten en cuenta que ASF no puede garantizar el orden de visualización real de la red de Steam, por lo tanto esta solo es una sugerencia que podría, o no, mostrarse correctamente. El valor predeterminado de `null` desactiva esta función.
 
-ASF proporciona algunas variables especiales que puedes usar opcionalmente en tu texto. `{0}` sera reemplazado por ASF con `AppID` de los juegos actualmente siendo recolectados, mientras que `{1}` será reemplazado por ASF con `GameName` de los juegos actualmente siendo recolectados.
+ASF proporciona algunas variables especiales que puedes usar opcionalmente en tu texto. `{0}` sera reemplazado por ASF con la `AppID` del juego o los juegos siendo recolectados actualmente, mientras que `{1}` será reemplazado por ASF con `GameName` el nombre del juego o los juegos siendo recolectados actualmente.
 
 ---
 
 ### `CustomGamePlayedWhileIdle`
 
-Tipo `string` con valor predeterminado de `null`. Similar a `CustomGamePlayedWhileFarming`, pero para la situación cuand ASF no tiene nada que hacer (como cuando la cuenta está completamente recolectada). Valor predeterminado de `null` desactiva esta función.
+Tipo `string` con valor predeterminado de `null`. Similar a `CustomGamePlayedWhileFarming`, pero para la situación cuando ASF no tiene nada para hacer (como cuando la cuenta está completamente recolectada). El valor predeterminado de `null` desactiva esta función.
 
 ---
 

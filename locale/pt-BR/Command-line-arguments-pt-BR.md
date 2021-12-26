@@ -50,7 +50,7 @@ Devido à natureza desta propriedade, também é possível definir a cryptkey de
 
 ---
 
-`--ignore-unsupported-environment` - will cause ASF to ignore problems related to running in unsupported environment, which normally is signalized with an error and a forced exit. Unsupported environment includes for example running .NET Framework build on platform that could be running .NET (Core) build instead. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. As of today, **all** of the unsupported environment scenarios can be corrected, such as running `generic` build instead of `generic-netf`. We strongly recommend to fix the outstanding problems instead of declaring this argument.
+`--ignore-unsupported-environment` - fará com que o ASF ignore problemas decorrentes de rodar em um ambiente não suportado, o que geralmente é sinalizado com um erro e uma saída forçada. Um ambiente não suportado inclui, por exemplo, rodar a compilação .NET Framework na plataforma que deveria estar rodando a compilação .NET (Core). Esse sinalizador permitirá que o ASF tente rodar em tais cenários, esteja ciente de que não damos suporte a isso e que você está forçando o ASF a fazer isso **por sua conta e risco**. Hoje **todos** os ambientes não suportados podem ser corrigidos, tal como rodar a compilação `genérica` ao invés da `generic-netf`. Recomendamos intensamente resolver os problemas pendentes em vez de declarar este argumento.
 
 ---
 
@@ -109,7 +109,7 @@ Se você não pretende usar o IPC, esta opção será um tanto inútil já que v
 
 ---
 
-`--service` - this switch is mainly used by our `systemd` service and forces `Headless` of `true`. Unless you have a particular need, you should instead configure `Headless` property directly in your config. This switch is here so our `systemd` service won't need to touch your global config in order to adapt it to its own environment. Of course, if you have a similar need then you may also make use of this switch (otherwise you're better with global config property).
+`--service` - esta opção é usada principalmente pelo nosso serviço `systemd` e força o `Headless` para `true`. A menos que você tenha uma necessidade específica, você deve marcar a propriedade `Headless` diretamente na sua configuração. Essa opção está aqui para que nosso serviço `systemd` não precise tocar na sua configuração global para adaptá-la ao seu próprio ambiente. Claro, se você tem uma necessidade semelhante, então você também pode fazer uso desta opção (caso contrário é melhor usar a propriedade de configuração global).
 
 ---
 
