@@ -507,7 +507,7 @@ También hay una cola de prioridad de recolección accesible a través de los **
 
 ### `FarmPriorityQueueOnly`
 
-Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si ASF debe considerar para recolección solamente las aplicaciones que tú mismo hayas añadido a la cola de prioridad de recolección, disponible mediante los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `fq`. Cuando esta opción está habilitada, ASF omitirá todos los `appIDs` que no estén en la lista, permitiéndote seleccionar los juegos para que ASF recolecte automáticamente. Ten en cuenta que si no añadiste ningún juego a la cola, entonces ASF actuará como si no hubiera nada para recolectar en tu cuenta. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
+Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si ASF debe considerar para recolección solamente las aplicaciones que tú mismo hayas añadido a la cola de prioridad de recolección, disponible mediante los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `fq`. Cuando esta opción está habilitada, ASF omitirá todos los `appIDs` que no estén en la lista, permitiéndote seleccionar los juegos para que ASF recolecte automáticamente. Ten en cuenta que si no añadiste ningún juego a la cola, entonces ASF actuará como si no hubiera nada para recolectar en tu cuenta. Si no estás seguro si quieres esta función habilitada o no, mantén el valor predeterminado de `false`.
 
 ---
 
