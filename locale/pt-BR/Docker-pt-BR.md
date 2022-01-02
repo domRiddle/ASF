@@ -11,7 +11,7 @@ O ASF está disponível 4 tipos **[marcadores](https://hub.docker.com/r/justarch
 
 ### `main`
 
-This tag always points to the ASF built from latest commit in `main` branch, which works the same as grabbing latest artifact directly from our **[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** pipeline. Normalmente você deve evitar essa versão, já que ela contém o nível mais elevado de software com erros, dedicado para desenvolvedores e usuários avançados para fins de desenvolvimento. The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken). Esse marcador está aqui para anotarmos o estado atual do projeto ASF, que não tem necessariamente garantia de ser estável ou testado, como salientado no nosso ciclo de lançamento. Esse marcador não deve ser usado em nenhum ambiente de produção.
+Esse marcador aponta para a compilação do ASF no "commit" mais recente do ramo `main`, que é o mesmo que baixar o arquivo mais recente diretamente da nossa pipeline **[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)**. Normalmente você deve evitar essa versão, já que ela contém o nível mais elevado de software com erros, dedicado para desenvolvedores e usuários avançados para fins de desenvolvimento. A imagem é atualizada a cada commit no ramo `main` do GitHub, portanto você pode esperar por muitas atualizações (e coisas falhando). Esse marcador está aqui para anotarmos o estado atual do projeto ASF, que não tem necessariamente garantia de ser estável ou testado, como salientado no nosso ciclo de lançamento. Esse marcador não deve ser usado em nenhum ambiente de produção.
 
 
 ### `released`
@@ -23,7 +23,7 @@ Muito semelhante ao anterior, esse marcador sempre aponta para a **[versão](htt
 
 Esta tag é a única que inclui o recurso de atualizações automáticas e aponta para a última versão **[estável](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** do ASF. O objetivo dessa tag é fornecer um contêiner Docker padrão que é capaz de executar a atualização automática do ASF na versão específica de OS. Por conta disso, a imagem não precisa ser atualizada tão frequentemente, já que a versão inclusa do ASF será capaz de se atualizar automaticamente sempre que preciso. Claro, `UpdatePeriod` pode ser desabilitado sem problemas (definido para `0`), mas neste caso é melhor usar a versão congelada `A.B.C.D`. Da mesma forma, você pode modificar o `UpdateChannel` padrão para o canal de atualização automática `released`.
 
-Due to the fact that the `latest` image comes with capability of auto-updates, it includes bare OS with OS-specific `linux` ASF version, contrary to all other tags that include OS with .NET runtime and `generic` ASF version. Isso acontece porque a versão mais recente do ASF (atualizada) também pode exigir um tempo de execução mais recente do que aquele com que a imagem possivelmente pode ter sido compilada, o que exigiria que a imagem fosse reconstruída do zero, anulando o tipo de uso planejado.
+Devido ao fato de que a imagem `latest` vem com a capacidade de atualização automática, ela inclui um Sistema Operacional básico com a versão `linux` especifica do ASF, ao contrário das outras tags que incluem a SO com tempo de execução .NET Core principal e versão a `generic` do ASF. Isso acontece porque a versão mais recente do ASF (atualizada) também pode exigir um tempo de execução mais recente do que aquele com que a imagem possivelmente pode ter sido compilada, o que exigiria que a imagem fosse reconstruída do zero, anulando o tipo de uso planejado.
 
 ### `A.B.C.D`
 
@@ -33,9 +33,9 @@ Em comparação com os marcadores acima, esse marcador é completamente congelad
 
 ## Qual o melhor marcador para mim?
 
-Isso depende do que você procura. Para a maioria dos usuários o marcador `latest` deve ser o melhor, uma vez que ele oferece exatamente a mesma coisa que o ASF da área de trabalho oferece, com a diferença do serviço especial do contêiner Docker. People that are rebuilding their images quite often and would instead prefer full control with ASF version tied to given release are welcome to use `released` tag. Se, ao invés disso, você preferir usar uma versão congelada específica do ASF que nunca vai mudar sem a sua intenção, as versões `A.B.C.D.` estão disponíveis para você como marcas as quais você sempre pode voltar.
+Isso depende do que você procura. Para a maioria dos usuários o marcador `latest` deve ser o melhor, uma vez que ele oferece exatamente a mesma coisa que o ASF da área de trabalho oferece, com a diferença do serviço especial do contêiner Docker. Pessoas que recompilam suas imagens com frequência e preferirem ter controle total com o ASF amarrada a determinada versão são bem vindas a usar o marcador `released`. Se, ao invés disso, você preferir usar uma versão congelada específica do ASF que nunca vai mudar sem a sua intenção, as versões `A.B.C.D.` estão disponíveis para você como marcas as quais você sempre pode voltar.
 
-We generally discourage trying `main` builds, as those are here for us to mark current state of ASF project. Nada garante que tal versão vai funcionar corretamente, mas é claro, você é mais que bem vindo para fazer um teste se estiver interessado no desenvolvimento do ASF.
+Nós geralmente desencorajamos o uso de compilações `main`, já que essas compilações estão aqui para marcarmos o estado atual do projeto ASF. Nada garante que tal versão vai funcionar corretamente, mas é claro, você é mais que bem vindo para fazer um teste se estiver interessado no desenvolvimento do ASF.
 
 ---
 

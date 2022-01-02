@@ -513,19 +513,19 @@ Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si ASF de
 
 ### `GamesPlayedWhileIdle`
 
-Tipo `ImmutableHashSet<uint>` con valor predeterminado estando vacío. Si ASF no tiene para recolectar, en su lugar puede jugar tus juegos especificados (`appIDs`). Jugar juegos de este modo incrementa tus "horas jugadas" para esos juegos, pero nada más aparte de eso. Para que esta característica funcione correctamente, tu cuenta de Steam **debe** poseer una licencia válida para todas las `appIDs` que especifiques aquí, esto también incluye juegos F2P. Esta característica puede ser habilitada al mismo tiempo con `CustomGamePlayedWhileIdle` para jugar tus juegos seleccionados mientras se muestra un estado personalizado en la red de Steam, pero en este caso, como en el de `CustomGamePlayedWhileFarming`, el orden de visualización real no está garantizado. Por favor, ten en cuenta que Steam solo le permite a ASF jugar hasta un total de `32` `appIDs`, por lo tanto solo puedes poner esa cantidad de juegos en esta propiedad.
+Tipo `ImmutableHashSet<uint>` con valor predeterminado estando vacío. Si ASF no tiene nada para recolectar, en su lugar puede jugar tus juegos especificados (`appIDs`). Jugar juegos de este modo incrementa tus "horas jugadas" para esos juegos, pero nada más aparte de eso. Para que esta característica funcione correctamente, tu cuenta de Steam **debe** poseer una licencia válida para todas las `appIDs` que especifiques aquí, esto también incluye juegos F2P. Esta característica puede ser habilitada al mismo tiempo con `CustomGamePlayedWhileIdle` para jugar tus juegos seleccionados mientras se muestra un estado personalizado en la red de Steam, pero en este caso, como en el de `CustomGamePlayedWhileFarming`, el orden de visualización real no está garantizado. Por favor, ten en cuenta que Steam solo le permite a ASF jugar hasta un total de `32` `appIDs`, por lo tanto solo puedes poner esa cantidad de juegos en esta propiedad.
 
 ---
 
 ### `HoursUntilCardDrops`
 
-Tipo `byte` con valor predeterminado de `3`. Esta propiedad define si una cuenta tiene cromos obtenibles restringidos, y si es así, por cuántas horas iniciales. Los cromos obtenibles restringidos significa que una cuenta no recibirá ningún cromo de un juego dado hasta que el juego haya sido jugado por al menos `HoursUntilCardDrops` horas. Desafortunadamente no hay una forma mágica de saber eso, por lo que ASF confía en ti. Esta propiedad afecta el **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-ES)** que será usado. Establecer esta propiedad adecuadamente maximizará los beneficios y minimizará el tiempo requerido para que los cromos sean recolectados. Recuerda que no hay una forma obvio de responder si debes usar uno u otro valor, ya que depende completamente de tu cuenta. Parece ser que las cuentas más antiguas que nunca solicitaron un reembolso tienen cromos obtenibles sin restricción, así que esas deberían usar un valor de `0`, mientras que las cuentas nuevas y aquellas que solicitaron reembolso tienen los cromos obtenibles restringidos con un valor de `3`. Sin embargo, esto es solo teoría, y no debe ser tomado como regla. El valor predeterminado de esta propiedad se estableció basado en "el mal menor" y la mayoría de los casos de uso.
+Tipo `byte` con valor predeterminado de `3`. Esta propiedad define si una cuenta tiene cromos obtenibles restringidos, y si es así, por cuántas horas. La restricción de cromos obtenibles significa que una cuenta no recibirá ningún cromo de un determinado juego hasta que este haya sido jugado por al menos `HoursUntilCardDrops` horas. Desafortunadamente no hay una forma mágica de saber eso, por lo que ASF confía en ti. Esta propiedad afecta el **[algoritmo de recolección de cromos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-ES)** que será usado. Establecer esta propiedad adecuadamente maximizará los beneficios y minimizará el tiempo requerido para que los cromos sean recolectados. Recuerda que no hay una forma obvia de responder si debes usar uno u otro valor, ya que depende completamente de tu cuenta. Parece ser que las cuentas más antiguas que nunca solicitaron un reembolso tienen cromos obtenibles sin restricción, así que esas deberían usar un valor de `0`, mientras que las cuentas nuevas y aquellas que solicitaron reembolso tienen los cromos obtenibles restringidos con un valor de `3`. Sin embargo, esto es solo teoría, y no debe ser tomado como una regla. El valor predeterminado de esta propiedad se estableció basado en "el mal menor" y la mayoría de los casos de uso.
 
 ---
 
 ### `LootableTypes`
 
-Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de artículo de Steam. Esta propiedad define el comportamiento de ASF cuando recoge los artículos de otras cuentas bot (loot) - tanto manual, usando un **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)**, así como automáticamente, a través de una o más propiedades de configuración. ASF se asegurará que solos los artículos de `LootableTypes` sea incluidos en una oferta de intercambio, por lo tanto, esta propiedad te permite elegir lo que quieres recibir en una oferta de intercambio que te sea enviada.
+Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5`. Esta propiedad define el comportamiento de ASF al saquear (loot) los artículos de otras cuentas bot  - tanto manual, usando un **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)**, así como automáticamente, a través de una o más propiedades de configuración. ASF se asegurará de que solo los artículos establecidos en `LootableTypes` sean incluidos en una oferta de intercambio, por lo tanto, esta propiedad te permite elegir lo que quieres recibir en una oferta de intercambio que te sea enviada.
 
 | Valor | Nombre                | Descripción                                                                         |
 | ----- | --------------------- | ----------------------------------------------------------------------------------- |
@@ -547,13 +547,13 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de art
 
 Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 
-La configuración por defecto de ASF está basada en el uso más común de un bot, solo "looteando" packs de refuerzo, y cromos (incluyendo los reflectantes). Esta propiedad te permite alterar ese comportamiento de cualquier modo que gustes. Por favor, ten en cuenta que todos los tipos no definidos arriba se mostrarán como tipo `Unknown`, lo que es especialmente importante cuando Valve lanza un nuevo artículo de Steam, el cual también será marcado por ASF como `Unknown`, hasta que sea añadido aquí (en futuras versiones). Es por eso que en general no se recomienda incluir el tipo `Unknown` en tu `LootableTypes`, a menos que sepas lo que haces, y entiendes que ASF enviará todo tu inventario en una oferta de intercambio si la Red de Steam se desconfigura de nuevo y marca todos tus artículos como `Unknown`. Mi recomendación es no incluir el tipo `Unknown` en los `LootableTypes`, incluso si esperas "lootear" todo (lo demás).
+La configuración por defecto de ASF está basada en el uso más común de un bot, solo saqueando (loot) packs de refuerzo y cromos (incluyendo los reflectantes). Esta propiedad te permite alterar ese comportamiento de cualquier modo que gustes. Por favor, ten en cuenta que todos los tipos no definidos arriba se mostrarán como tipo `Unknown`, lo que es especialmente importante cuando Valve lanza un nuevo artículo de Steam, el cual también será marcado por ASF como `Unknown`, hasta que sea añadido aquí (en futuras versiones). Es por eso que en general no se recomienda incluir el tipo `Unknown` en `LootableTypes`, a menos que sepas lo que haces, y entiendes que ASF enviará todo tu inventario en una oferta de intercambio si la Red de Steam se desconfigura de nuevo y marca todos tus artículos como `Unknown`. Mi recomendación es no incluir el tipo `Unknown` en `LootableTypes`, incluso si esperas saquear todo (lo demás).
 
 ---
 
 ### `MatchableTypes`
 
-Tipo `ImmutableHashSet<byte>` con valor predeterminado de tipos de artículo de Steam `5`. Esta propiedad define qué tipos de artículo de Steam están permitidos para emparejamiento cuando la opción `SteamTradeMatcher` está activada en `TradingPreferences`. Los tipos se describen a continuación:
+Tipo `ImmutableHashSet<byte>` con valor predeterminado de `5`. Esta propiedad define qué tipos de artículos de Steam están permitidos para emparejamiento cuando la opción `SteamTradeMatcher` está habilitada en `TradingPreferences`. Los tipos se describen a continuación:
 
 | Valor | Nombre                | Descripción                                                                         |
 | ----- | --------------------- | ----------------------------------------------------------------------------------- |
@@ -573,9 +573,9 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de tipos de artículo de 
 | 13    | AvatarProfileFrame    | Marco de avatar especial para el perfil de Steam                                    |
 | 14    | AnimatedAvatar        | Avatar animado especial para el perfil de Steam                                     |
 
-Por supuesto, los tipos que normalmente debes usar para esta propiedad solo incluyen `2`, `3`, `4` y `5`, ya que solo esos tipos son soportados por STM. ASF incluye una lógica adecuada para descubrir la rareza de los artículos, por lo tanto también es seguro para emparejar emoticonos o fondos de perfil, dado que ASF solo considerará como justos aquellos artículos del mismo juego y tipo, que también compartan la misma rareza.
+Por supuesto, los tipos que normalmente debes usar para esta propiedad solo incluyen `2`, `3`, `4` y `5`, ya que solo esos tipos son soportados por STM. ASF incluye la lógica adecuada para descubrir la rareza de los artículos, por lo tanto también es seguro para emparejar emoticonos o fondos de perfil, dado que ASF solo considerará como justos aquellos artículos del mismo juego y tipo, que también compartan la misma rareza.
 
-Por favor, ten en cuenta que **ASF no es un bot de intercambio** y **NO le importará el precio del mercado**. Si no consideras que los artículos de la misma rareza y del mismo set son de precio similares, entonces esta opción NO es para ti. Por favor, considera dos veces si entiendes y estás de acuerdo con esta declaración antes de decidir cambiar esta configuración.
+Por favor, ten en cuenta que **ASF no es un bot de intercambio** y **NO le importará el precio del mercado**. Si no consideras que los artículos de la misma rareza y del mismo set son iguales en cuanto a precio, entonces esta opción NO es para ti. Por favor, considera detenidamente si entiendes y estás de acuerdo con esta declaración antes de decidir cambiar esta configuración.
 
 A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de `5`.
 
@@ -583,7 +583,7 @@ A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de
 
 ### `OnlineStatus`
 
-Tipo `byte` con valor predeterminado de `1`. Esta propiedad especifica el estado de la comunidad de Steam con que el bot será mostrado después de iniciar sesión en la red de Steam. Actualmente puedes elegir uno de los siguientes estados:
+Tipo `byte` con valor predeterminado de `1`. Esta propiedad especifica el estatus de la comunidad de Steam con el cual será mostrado el bot después de iniciar sesión en la red de Steam. Actualmente puedes elegir uno de los siguientes estatus:
 
 | Valor | Nombre         |
 | ----- | -------------- |
@@ -596,15 +596,15 @@ Tipo `byte` con valor predeterminado de `1`. Esta propiedad especifica el estado
 | 6     | LookingToPlay  |
 | 7     | Invisible      |
 
-El estado `Desconectado` es extremadamente útil para cuentas principales. Como debes saber, recolectar un juego muestra tu estado de Steam como "Jugando XXX", lo cual puede ser engañoso para tus amigos, haciéndoles creer que estás jugando un juego cuando en realidad solo lo estás recolectando. Usar el estado `Desconectado` soluciona ese problema - tu cuenta nunca se mostrará como "Jugando" cuando estés recolectando cromos con ASF. Esto es posible gracias al hecho de que ASF no tiene que iniciar sesión en la Comunidad de Steam para funcionar correctamente, así que estamos de hecho jugando esos juegos, conectados a la red de Steam, pero sin anunciar nuestra presencia en línea. Ten en cuenta que los juegos jugados usando el estado desconectado seguirán contando para tu tiempo de juego, y mostrados en "Actividad reciente" en tu perfil.
+El estatus `Offline` es extremadamente útil para cuentas principales. Como debes saber, recolectar un juego muestra tu estatus de Steam como "Jugando XXX", lo cual puede ser engañoso para tus amigos, haciéndoles creer que estás jugando un juego cuando en realidad solo lo estás recolectando. Usar el estado `Offline` soluciona ese problema - tu cuenta nunca se mostrará como "Jugando" cuando estés recolectando cromos con ASF. Esto es posible gracias al hecho de que ASF no tiene que iniciar sesión en la Comunidad de Steam para funcionar correctamente, así que estamos de hecho jugando esos juegos, conectados a la red de Steam, pero sin anunciar nuestra presencia en línea. Ten en cuenta que los juegos jugados usando el estatus desconectado seguirán contando para tu tiempo de juego, y mostrados en "Actividad reciente" en tu perfil.
 
-Además, está característica también es importante si quieres recibir notificaciones y mensaje no leídos cuando ASF se esté ejecutando, sin mantener abierto el cliente de Steam al mismo tiempo. Esto se debe a que ASF actúa como un cliente de Steam en sí, y ya sea que ASF quiera o no, Steam le envía todos esos mensajes y otros eventos. Esto no es problema si tienes ASF y el cliente de Steam ejecutándose al mismo tiempo, ya que ambos clientes reciben exactamente los mismos eventos. Sin embargo, si solo se está ejecutando ASF, la red de Steam podría marcar ciertos eventos y mensajes como "entregados", a pesar de que el cliente tradicional de Steam no los reciba debido a que no está presente. El estado desconectado también soluciona este problema, ya que ASF nunca es considerado en este caso para ningún evento de la comunidad, así que todos los mensajes no leídos y otros eventos serán marcados apropiadamente como no leídos cuando regreses.
+Además, esta característica también es importante si quieres recibir notificaciones y mensaje no leídos cuando ASF se esté ejecutando, sin mantener abierto el cliente de Steam al mismo tiempo. Esto se debe a que ASF actúa como un cliente de Steam en sí, y ya sea que ASF quiera o no, Steam le envía todos esos mensajes y otros eventos. Esto no es problema si tienes ASF y el cliente de Steam ejecutándose al mismo tiempo, ya que ambos clientes reciben exactamente los mismos eventos. Sin embargo, si solo se está ejecutando ASF, la red de Steam podría marcar ciertos eventos y mensajes como "entregados", a pesar de que el cliente tradicional de Steam no los reciba debido a que no está abierto. El estatus desconectado también soluciona este problema, ya que ASF nunca es considerado en este caso para ningún evento de la comunidad, así que todos los mensajes no leídos y otros eventos serán marcados apropiadamente como no leídos para cuando regreses.
 
-Es importante tener en cuenta que ASF ejecutándose en modo `Offline` **no** será capaz de recibir comandos de la forma habitual a través del chat de Steam, puesto que el chat, así como toda presencia en la comunidad, está de hecho, completamente desconectado. Una solución a este problema es usar en su lugar el modo `Invisible`, que funciona de manera similar (sin exponer el estado), pero mantiene la capacidad de recibir y responder a los mensajes (así como la posibilidad de descartar notificaciones y mensajes no leídos como se dijo anteriormente). El modo `Invisible` tiene más sentido en cuentas alternas que no quieres exponer (en cuanto al estado), pero aún poder enviarles comandos.
+Es importante tener en cuenta que ASF ejecutándose en modo `Offline` **no** será capaz de recibir comandos de la forma habitual a través del chat de Steam, puesto que el chat, así como toda presencia en la comunidad, está de hecho, completamente desconectado. Una solución a este problema es usar en su lugar el modo `Invisible`, que funciona de manera similar (sin exponer el estatus), pero mantiene la capacidad de recibir y responder a los mensajes (así como la posibilidad de descartar notificaciones y mensajes no leídos como se dijo anteriormente). El modo `Invisible` tiene más sentido en cuentas alternas que no quieres exponer (en cuanto al estatus), pero aún poder enviarles comandos.
 
-Sin embargo, hay una trampa con el modo `Invisible` - no va bien con cuentas principales. Esto es porque **cualquier** sesión de Steam que esté actualmente en línea	 **expone** el estatus, incluso si ASF no lo hace. Esto es causado por la actual limitación/bug de la red de Steam que no es posible solucionar desde el lado de ASF, así que si quieres usar el modo `Invisible` además tendrás que asegurarte de que **todas** las otras sesiones de la misma cuenta también usen el modo `Invisible`. Este será el caso en cuentas alternas donde ASF es posiblemente la única sesión activa, pero en las cuentas principales casi siempre preferirás mostrarte a tus amigos como `e línea`, ocultando solamente la actividad de ASF, y en este caso el modo `Invisible` será completamente inútil para ti (en su lugar recomendamos usar el modo `Desconectado`). Con suerte esta limitación/bug será resuelta en el futuro por Valve, pero no esperaría que eso suceda pronto...
+Sin embargo, hay una trampa con el modo `Invisible` - no va bien con cuentas principales. Esto es porque **cualquier** sesión de Steam que esté actualmente en línea	 **expone** el estatus, incluso si ASF no lo hace. Esto es causado por la actual limitación/bug de la red de Steam que no es posible solucionar desde el lado de ASF, así que si quieres usar el modo `Invisible` además tendrás que asegurarte de que **todas** las otras sesiones de la misma cuenta también usen el modo `Invisible`. Este será el caso en cuentas alternas donde ASF es posiblemente la única sesión activa, pero en las cuentas principales casi siempre preferirás mostrarte a tus amigos como `Online`, ocultando solamente la actividad de ASF, y en este caso el modo `Invisible` será completamente inútil para ti (en su lugar recomendamos usar el modo `Offline`). Con suerte esta limitación/bug será resuelta en el futuro por Valve, pero no esperaría que eso suceda pronto...
 
-Si no estás seguro de cómo configurar esta propiedad, se recomienda usar un valor de `0` (`Desconectado`) para cuentas principales, y el predeterminado `1` (`En Línea`) de otro modo.
+Si no estás seguro de cómo configurar esta propiedad, se recomienda usar un valor de `0` (`Offline`) para cuentas principales, y el predeterminado `1` (`Online`) para los demás casos.
 
 ---
 
@@ -616,13 +616,13 @@ Tipo `byte` con valor predeterminado de `0` (`PlainText`). Esta propiedad define
 
 ### `Paused`
 
-Tipo `bool` con valor predeterminado de `false`. Esta propiedad define el estado inicial del módulo `CardsFarmer`. Con un valor predeterminado de `false`, el bot comenzará a recolectar automáticamente cuando se inicie, ya sea a causa de `Enabled` o el comando `start`. Solo debes cambiar esta propiedad a `true` si quieres `resume` reanudar manualmente el proceso de recolección automática, por ejemplo, porque quieres usar el comando `play` todo el tiempo y nunca usar el módulo automático de `CardsFarmer` - esto funciona exactamente igual que el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `pause`. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
+Tipo `bool` con valor predeterminado de `false`. Esta propiedad define el estado inicial del módulo de recolección de cromos `CardsFarmer`. Con un valor predeterminado de `false`, el bot comenzará a recolectar automáticamente cuando se inicie, ya sea a causa de la propiedad `Enabled` o el comando `start`. Solo debes cambiar esta propiedad a `true` si quieres usar `resume` para reanudar manualmente el proceso de recolección automática, por ejemplo, porque quieres usar el comando `play` todo el tiempo y nunca usar el módulo `CardsFarmer` que es el encargado de la recolección de cromos - esto funciona exactamente igual que el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `pause`. Si no estás seguro si quieres esta función habilitada o no, mantén el valor predeterminado de `false`.
 
 ---
 
 ### `RedeemingPreferences`
 
-Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comportamiento de ASF al activar claves de juego, y se describe a continuación:
+Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comportamiento de ASF al activar claves de producto, y se describe a continuación:
 
 | Valor | Nombre                             | Descripción                                                                                                                                                      |
 | ----- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -634,25 +634,25 @@ Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comp
 
 Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
-`Forwarding` causará que el bot envíe una clave que no es posible activar, a otro bot conectado que no tenga ese juego en particular (si es posible comprobarlo). La situación más común es enviar un juego `AlreadyPurchased` a otro bot al que le falte ese juego en particular, pero esta opción también cubre otros escenarios, tal como `DoesNotOwnRequiredApp`, `RateLimited` o `RestrictedCountry`.
+`Forwarding` causará que el bot reenvíe una clave que no es posible activar, a otro bot conectado que no tenga ese juego en particular (si es posible comprobarlo). La situación más común es reenviar un juego  ya poseído, lo que se indica con el estatus `AlreadyPurchased`, a otro bot al que le falte ese juego en particular, pero esta opción también cubre otros escenarios, tal como `DoesNotOwnRequiredApp` (no poseer el juego base), `RateLimited` (límite de intentos excedido) o `RestrictedCountry` (restricción regional).
 
-`Distributing` causará que el bot distribuya todas las claves recibidas entre sí mismo y otros bots. Esto significa que cada bot recibirá una sola clave del lote. Normalmente esto se usa cuando estás activando muchas claves del mismo juego, y quieres distribuirlas equitativamente entre tus bots, contrario a activar claves de diferentes juegos. Esta característica no tiene sentido si solo estás activando una clave en una acción `redeem` (ya que no hay claves extra que distribuir).
+`Distributing` causará que el bot distribuya todas las claves recibidas entre sí mismo y otros bots. Esto significa que cada bot recibirá una sola clave del lote. Normalmente esto se usa cuando estás activando muchas claves del mismo juego, y quieres distribuirlas equitativamente entre tus bots, contrario a activar claves de diferentes juegos. Esta característica no tiene sentido si solo estás activando una clave en un único comando `redeem` (ya que no hay claves adicionales para distribuir).
 
-`KeepMissingGames` causará que el bot omita `Forwarding` cuando no podemos estar seguros si la clave efectivamente ya la tiene nuestro bot, o no. Básicamente esto significa que `Forwarding` **solo** aplicará a claves `AlreadyPurchased`, en lugar de abarcar otros casos tales como `DoesNotOwnRequiredApp`, `RateLimited` o `RestrictedCountry`. Normalmente querrás usar esta opción en la cuenta principal, para asegurarte que las claves activadas en ella no sean enviadas si tu bot, por ejemplo, tiene temporalmente `RateLimited`. Como puedes adivinar por la descripción, este campo no ningún efecto si `Forwarding` no está habilitado.
+`KeepMissingGames` causará que el bot omita el comportamiento de `Forwarding` cuando no podemos estar seguros si nuestro bot ya posee el juego correspondiente a la clave intentando ser activada, o no. Básicamente esto significa que `Forwarding` **solo** aplicará a claves `AlreadyPurchased`, en lugar de abarcar otros casos tales como `DoesNotOwnRequiredApp`, `RateLimited` o `RestrictedCountry`. Normalmente querrás usar esta opción en la cuenta principal, para asegurarte de que las claves activadas en ella no sean reenviadas si tu bot, por ejemplo, ha recibido temporalmente el estatus `RateLimited`. Como puedes adivinar por la descripción, este campo no tiene ningún efecto si `Forwarding` no está habilitado.
 
-`AssumeWalletKeyOnBadActivationCode` causará que las claves con el estado `BadActivationCode` sean tratadas como `CannotRedeemCodeFromClient`, y por lo tanto resultará en que ASF intente activarlas como códigos de la cartera. Esto es necesario porque Steam podría anunciar los códigos de la cartera como `BadActivationCode` (y no `CannotRedeemCodeFromClient` como lo hacía antes), resultando en que ASF nunca las intente activar. Sin embargo, **desaconsejamos** usar esta preferencia, ya que dará como resultado que ASF intente activar como códigos de la cartera todas las claves inválidas, lo que conducirá a una cantidad excesiva de solicitudes (potencialmente inválidas) enviadas al servicio de Steam, con todas las potenciales consecuencias. En cambio, recomendamos usar el modo de activación `ForceAssumeWalletKey` del comando **[`redeem^`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es#modos-redeem)** al activar intencionalmente códigos de la cartera, lo que activará la alternativa necesaria solo cuando sea requerido.
+`AssumeWalletKeyOnBadActivationCode` causará que las claves con el estatus `BadActivationCode` sean tratadas como `CannotRedeemCodeFromClient`, y por lo tanto resultará en que ASF intente activarlas como códigos de la cartera. Esto es necesario porque Steam podría marcar los códigos de la cartera como `BadActivationCode` (y no `CannotRedeemCodeFromClient` como lo hacía antes), resultando en que ASF nunca los intente activar. Sin embargo, **desaconsejamos** usar esta preferencia, ya que dará como resultado que ASF intente activar como códigos de la cartera todas las claves inválidas, lo que conducirá a una cantidad excesiva de solicitudes (potencialmente inválidas) enviadas al servicio de Steam, con todas las potenciales consecuencias. En cambio, recomendamos usar el modo de activación `ForceAssumeWalletKey` del comando **[`redeem^`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es#modos-redeem)** al activar intencionalmente códigos de la cartera, lo que activará la alternativa necesaria solo cuando sea requerido.
 
-Habilitar `Forwarding` y `Distributing` pondrá la función de distribuir por encima de la de enviar, lo que hace que ASF intente activar una clave en todos los bots (enviar) antes de pasar a la siguiente (distribuir). Normalmente querrás usar esta opción solo cuando quieras `Forwarding`, pero con el comportamiento modificado de cambiar el bot en que se intenta activar la clave, en lugar de siempre ir en orden con cada clave (lo que sería solamente `Forwarding`). Este comportamiento puede ser beneficioso si sabes que la mayoría o todas tus claves pertenecen al mismo juego, porque en esta situación `Forwarding` intentaría activar todo en un bot (lo que tiene sentido si tus claves son de juegos diferentes), y `Forwarding` + `Distributing` cambiará el bot en la siguiente clave, "distribuyendo" la tarea de activar una nueva clave en otro bot diferente al inicial (lo cual tiene sentido si las claves son para el mismo juego, omitiendo un intento de activación).
+Habilitar `Forwarding` y `Distributing` añadirá la función de distribuir posterior a la de reenviar, lo que hace que ASF intente activar una clave en todos los bots (reenviar) antes de pasar a la siguiente (distribuir). Normalmente querrás usar esta opción solo cuando quieras usar `Forwarding`, pero con el comportamiento modificado de cambiar el bot cuando una clave es usada, en lugar de siempre ir en orden con cada clave (lo que sería solamente `Forwarding`). Este comportamiento puede ser beneficioso si sabes que la mayoría o todas tus claves pertenecen al mismo juego, porque en esta situación `Forwarding` intentaría activar todo en un bot (lo que tiene sentido si tus claves son de juegos diferentes), y `Forwarding` + `Distributing` cambiará el bot en la siguiente clave, "distribuyendo" la tarea de activar una nueva clave en otro bot diferente al inicial (lo cual tiene sentido si las claves son para el mismo juego, omitiendo un intento de activación sin sentido).
 
-El orden real de los bots para todos los escenarios de activación es alfabético, excluyendo bots que no están disponibles (no conectados, detenidos y así por el estilo). Por favor, ten en cuenta que hay un límite por hora de intentos de activación por IP y por cuenta, y cada intento de activación que no termina con `OK` contribuye a los intentos fallidos. ASF hará todo lo posible por minimizar el número de fallos `AlreadyPurchased`, por ejemplo, intentando evitar enviar una clave a otro bot que ya tenga ese juego en particular, pero no siempre se garantiza que funcione debido a cómo Steam está manejando las licencias. Usar banderas de activación como `Forwarding` o `Distributing` siempre aumentará tu probabilidad de alcanzar `RateLimited`.
+El orden real de los bots para todos los escenarios de activación es alfabético, excluyendo bots que no están disponibles (no conectados, detenidos y así por el estilo). Por favor, ten en cuenta que hay un límite por hora de intentos de activación por IP y por cuenta, y cada intento de activación que no termina con el estatus `OK` contribuye a los intentos fallidos. ASF hará todo lo posible por minimizar el número de fallos `AlreadyPurchased`, por ejemplo, intentando evitar enviar una clave a otro bot que ya tenga ese juego en particular, pero no siempre se garantiza que funcione debido a cómo Steam está manejando las licencias. Usar banderas de activación tal como `Forwarding` o `Distributing` siempre aumentará tu probabilidad de alcanzar el estatus `RateLimited`.
 
-También ten en cuenta que no puedes enviar o distribuir claves a bots a los que no tienes acceso. Esto debería ser obvio, pero asegúrate de que al menos eres `Operator` de todos los bots que quieras incluir en tu proceso de activación, por ejemplo, con el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `status ASF`.
+También ten en cuenta que no puedes reenviar o distribuir claves a bots a los que no tienes acceso. Esto debería ser obvio, pero asegúrate de que al menos eres `Operator` de todos los bots que quieras incluir en tu proceso de activación, por ejemplo, con el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `status ASF`.
 
 ---
 
 ### `SendOnFarmingFinished`
 
-Tipo `bool` con valor predeterminado de `false`. Cuando ASF termine de recolectar una cuenta dada, pueden enviar automáticamente un intercambio que contenga todo lo recolectado hasta este punto al usuario con permisos `Master`, lo cual es conveniente si no quieres molestarte haciendo los intercambios tú mismo. Esta opción funciona igual que el comando `loot`, por lo tanto, ten en cuenta que requiere establecer un usuario con permiso `Master`, también es posible que necesites un `SteamTradeToken` válido, así como usar una cuenta que sea elegible para intercambios en primer lugar. Además de iniciar `loot` después de terminar la recolección, ASF también iniciará `loot` en cada notificación de nuevos artículos (cuando no está recolectando), y después de completar cada intercambio que resulte en nuevos artículos (siempre) cuando esta opción está activa. Esto es especialmente útil para "enviar" artículos recibidos de otras personas a nuestra cuenta.
+Tipo `bool` con valor predeterminado de `false`. Cuando ASF termine de recolectar una determinada cuenta, puede enviar automáticamente un intercambio que contenga todo lo recolectado hasta este punto al usuario con permisos `Master`, lo cual es conveniente si no quieres molestarte haciendo los intercambios tú mismo. Esta opción funciona igual que el comando `loot`, por lo tanto, ten en cuenta que requiere establecer un usuario con permiso `Master`, también es posible que necesites un `SteamTradeToken` válido, así como usar una cuenta que sea elegible para intercambios en primer lugar. Además de iniciar `loot` después de terminar la recolección, ASF también iniciará `loot` en cada notificación de nuevos artículos (cuando no está recolectando), y después de completar cada intercambio que resulte en nuevos artículos (siempre) cuando esta opción está activa. Esto es especialmente útil para "reenviar" artículos recibidos de otras personas a nuestra cuenta.
 
 Normalmente querrás usar **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-ES)** junto con esta función, aunque no es un requisito si tienes intención de confirmar manualmente de forma oportuna. Si no estás seguro de cómo establecer esta propiedad, déjala con su valor predeterminado de `false`.
 
@@ -660,7 +660,7 @@ Normalmente querrás usar **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteam
 
 ### `SendTradePeriod`
 
-Tipo `byte` con valor predeterminado de `0`. Esta propiedad funciona muy similar a la propiedad `SendOnFarmingFinished`, con una diferencia - en lugar de enviar un intercambio cuando se termine de recolectar, también podemos enviarlo cada `SendTradePeriod` horas, independientemente de cuánto falte por recolectar. Esto es útil si quieres `"lootear"` tus cuentas alternas de forma habitual en lugar de esperar a que terminen de recolectar. El valor predeterminado de `0` desactiva esta función, si quieres que tu bot te envíe un intercambio, por ejemplo, cada día, debes poner aquí `24`.
+Tipo `byte` con valor predeterminado de `0`. Esta propiedad funciona de forma muy similar a la propiedad `SendOnFarmingFinished`, con una diferencia - en lugar de enviar un intercambio cuando se termine de recolectar, también podemos enviarlo cada `SendTradePeriod` horas, independientemente de cuánto falte por recolectar. Esto es útil si quieres saquear (`loot`) tus cuentas alternas de forma habitual en lugar de esperar a que terminen de recolectar. El valor predeterminado de `0` desactiva esta función, si quieres que tu bot te envíe un intercambio, por ejemplo, cada día, debes poner aquí `24`.
 
 Normalmente querrás usar **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-ES)** junto con esta función, aunque no es un requisito si tienes intención de confirmar manualmente de forma oportuna. Si no estás seguro de cómo establecer esta propiedad, déjala con su valor predeterminado de `0`.
 
@@ -668,7 +668,7 @@ Normalmente querrás usar **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteam
 
 ### `ShutdownOnFarmingFinished`
 
-Tipo `bool` con valor predeterminado de `false`. ASF "ocupa" una cuenta durante todo el tiempo que el proceso está activo. Cuando una cuenta dada termina de recolectar, ASF comprueba periódicamente (cada `IdleFarmingPeriod` horas), si en ese tipo se añadió algún juego nuevo con cromos, así puede continuar recolectando en esa cuenta sin necesidad de reiniciar el proceso. Esto es útil para la mayoría de las personas, ya que ASF puede continuar recolectando automáticamente cuando sea necesario. Sin embargo, puede que quieras detener el proceso cuando una cuenta dada termine de recolectar, puedes lograr eso estableciendo esta propiedad a `true`. Cuando está habilitado, ASF procederá a cerrar sesión cuando la cuenta esté totalmente recolectada, lo que significa que ya no será comprobada periódicamente ni será usada. Debes decidir si prefieres que ASF trabaje en una instancia de bot dada todo el tiempo, o si ASF debe detenerla cuando el proceso de recolección esté terminado. Cuando todas las cuentas se detienen y el proceso no se está ejecutando en **[modo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-es-ES)** `--process-required`, ASF también se cerrará, haciendo descansar tu máquina y permitiéndote programar otras acciones, tal como suspender o apagarse al momento de obtener el último cromo disponible.
+Tipo `bool` con valor predeterminado de `false`. ASF "ocupa" una cuenta durante todo el tiempo que el proceso está activo. Cuando una determinada cuenta termina de recolectar, ASF comprueba periódicamente (cada `IdleFarmingPeriod` horas), si en ese tiempo se añadió algún juego nuevo con cromos, así puede continuar recolectando en esa cuenta sin necesidad de reiniciar el proceso. Esto es útil para la mayoría de las personas, ya que ASF puede continuar recolectando automáticamente cuando sea necesario. Sin embargo, puede que quieras detener el proceso cuando una cuenta dada termine de recolectar, puedes lograr eso estableciendo esta propiedad a `true`. Cuando esta propiedad está habilitada, ASF procederá a cerrar sesión cuando la cuenta esté totalmente recolectada, lo que significa que ya no será comprobada periódicamente ni será usada. Debes decidir si prefieres que ASF trabaje en una instancia de bot dada todo el tiempo, o si ASF debe detenerla cuando el proceso de recolección esté terminado. Cuando todas las cuentas se detienen y el proceso no se está ejecutando en **[modo](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-es-ES)** `--process-required`, ASF también se cerrará, haciendo descansar tu máquina y permitiéndote programar otras acciones, tal como suspender o apagarse al momento de obtener el último cromo disponible.
 
 Si no estás seguro de cómo establecer esta propiedad, déjala con su valor predeterminado de `false`.
 
@@ -676,7 +676,7 @@ Si no estás seguro de cómo establecer esta propiedad, déjala con su valor pre
 
 ### `SkipRefundableGames`
 
-Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si ASF tiene permitido recolectar juegos que todavía son reembolsables. Un juego reembolsable es aquel que compraste en las últimas dos semanas a través de la Tienda de Steam y que aún no has jugado por más de 2 horas, como se indica en la página de **[reembolsos de Steam](https://store.steampowered.com/steam_refunds)**. Por defecto, cuando esta opción se establece en `false`, ASF ignora completamente la política de reembolsos de Steam y recolecta todo, como la mayoría espera. Sin embargo, puedes cambiar esta opción a `true` si quieres asegurarte de que ASF no recolectará ninguno de tus juegos reembolsables, permitiéndote evaluar esos juegos y reembolsarlos si es necesario, sin preocuparte por que ASF afecte negativamente el tiempo de juego. Ten en cuenta que si habilitas esta opción los juegos comprados en la Tienda de Steam no serán recolectados por ASF durante un máximo de 14 días desde la fecha de activación, lo que mostrará que no hay nada para recolectar si tu cuenta no posee nada más. Si no estás seguro si quieres esta función activada o no, mantén el valor predeterminado de `false`.
+Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si ASF tiene permitido recolectar juegos que todavía son reembolsables. Un juego reembolsable es aquel que compraste en las últimas dos semanas a través de la Tienda de Steam y que aún no has jugado por más de 2 horas, como se indica en la página de **[reembolsos de Steam](https://store.steampowered.com/steam_refunds)**. Por defecto, cuando esta opción se establece en `false`, ASF ignora completamente la política de reembolsos de Steam y recolecta todo, como la mayoría espera. Sin embargo, puedes cambiar esta opción a `true` si quieres asegurarte de que ASF no recolectará ninguno de tus juegos reembolsables, permitiéndote evaluar esos juegos y reembolsarlos si es necesario, sin preocuparte por que ASF afecte negativamente el tiempo de juego. Ten en cuenta que si habilitas esta opción los juegos comprados en la Tienda de Steam no serán recolectados por ASF durante un máximo de 14 días desde la fecha de activación, lo que mostrará que no hay nada para recolectar si tu cuenta no posee nada más. Si no estás seguro si quieres esta función habilitada o no, mantén el valor predeterminado de `false`.
 
 ---
 
@@ -688,7 +688,7 @@ Tipo `string` con valor predeterminado de `null`. Esta propiedad define tu nombr
 
 ### `SteamMasterClanID`
 
-Tipo `ulong` con valor predeterminado de `0`. Esta propiedad define el steamID del grupo de Steam al que el bot debe unirse automáticamente, incluyendo su chat de grupo. Puedes comprobar el steamID de tu grupo navegando a su **[página](https://steamcommunity.com/groups/archiasf)**, luego añadiendo `/memberslistxml?xml=1` al final del enlace, para que el enlace se vea **[así](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**. Entonces puedes obtener el steamID de tu grupo del resultado, está en la etiqueta `<groupID64>`. En el ejemplo anterior sería `103582791440160998`. Además de intentar unirse a un grupo dado durante el inicio, el bot también aceptará automáticamente invitaciones de este grupo, lo que hace posible que invites a tu bot manualmente si tu grupo tiene membresía privada. Si no tienes un grupo dedicado a tus bots, debes dejar esta propiedad con el valor predeterminado de `0`.
+Tipo `ulong` con valor predeterminado de `0`. Esta propiedad define el steamID del grupo de Steam al que el bot debe unirse automáticamente, incluyendo su chat de grupo. Puedes comprobar el steamID de tu grupo navegando a su **[página](https://steamcommunity.com/groups/archiasf)**, luego añadiendo `/memberslistxml?xml=1` al final del enlace, para que el enlace se vea **[así](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**. Entonces puedes obtener el steamID de tu grupo del resultado, está en la etiqueta `<groupID64>`. En el ejemplo anterior sería `103582791440160998`. Además de intentar unirse a un determinado grupo durante el inicio, el bot también aceptará automáticamente invitaciones de este grupo, lo que hace posible que invites a tu bot manualmente si tu grupo tiene membresía privada. Si no tienes un grupo dedicado para tus bots, debes dejar esta propiedad con el valor predeterminado de `0`.
 
 ---
 
@@ -696,7 +696,7 @@ Tipo `ulong` con valor predeterminado de `0`. Esta propiedad define el steamID d
 
 Tipo `string` con valor predeterminado de `null`. Esta propiedad define el PIN del modo familiar. ASF requiere acceso a recursos protegidos por el modo familiar, por lo tanto si usas esa función, debes proporcionar el PIN del modo familiar, para que pueda funcionar normalmente. El valor por defecto de `null` significa que no se requiere un PIN del modo familiar para desbloquear esta cuenta, y esto es probablemente lo que quieres si no usas la funcionalidad del modo familiar. Además de definir el PIN del modo familiar, también puedes usar el valor de `0` si quieres introducir tu PIN del modo familiar en cada inicio de ASF, cuando sea necesario, en vez de ponerlo en la configuración. Esto puede ser útil si no quieres guardar datos confidenciales en el archivo de configuración.
 
-En circunstancias limitadas, ASF también es capaz de generar por sí mismo un PIN de modo familiar válido, aunque eso requiere una gran cantidad de recursos del sistema operativo y tiempo adicional para terminar, sin mencionar que no se garantiza que tenga éxito, por lo tanto recomendamos no confiar en esa función y en su lugar poner `SteamParentalCode` en la configuración para que utilice ASF.
+En circunstancias limitadas, ASF también es capaz de generar por sí mismo un PIN del modo familiar válido, aunque eso requiere una gran cantidad de recursos del sistema operativo y tiempo adicional para terminar, sin mencionar que no se garantiza que tenga éxito, por lo tanto recomendamos no confiar en esa función y en su lugar poner un `SteamParentalCode` válido en la configuración para que utilice ASF.
 
 ---
 
@@ -708,7 +708,7 @@ Tipo `string` con valor predeterminado de `null`. Esta propiedad define tu contr
 
 ### `SteamTradeToken`
 
-Tipo `string` con valor predeterminado de `null`. Cuando tienes tu bot en tu lista de amigos, entonces el bot puede te puede enviar un intercambio directamente sin preocuparte por el token de intercambio, por lo tanto puedes dejar esta propiedad con el valor predeterminado de `null`. No obstante, si decides NO tener tu bot en tu lista de amigos, entonces tendrás que generar e ingresar un token de intercambio del usuario al que este bot se espera que le envié los intercambios. En otras palabras, esta propiedad debe llenarse con el token de intercambio de la cuenta que está definida con permiso `Master` en `SteamUserPermissions` de **esta** instancia de bot.
+Tipo `string` con valor predeterminado de `null`. Cuando tienes tu bot en tu lista de amigos, entonces el bot te puede enviar un intercambio directamente sin preocuparte por el token de intercambio, por lo tanto puedes dejar esta propiedad con el valor predeterminado de `null`. No obstante, si decides NO tener tu bot en tu lista de amigos, entonces tendrás que generar e ingresar un token de intercambio del usuario al que se espera que este bot envíe intercambios. En otras palabras, esta propiedad debe llenarse con el token de intercambio de la cuenta que está definida con permiso `Master` en `SteamUserPermissions` de **esta** instancia de bot.
 
 Para encontrar tu token, inicia la sesión del usuario con permiso `Master`, dirígete **[aquí](https://steamcommunity.com/my/tradeoffers/privacy)** y echa un vistazo a tu URL de intercambio. El token que estamos buscando está compuesto de 8 caracteres después de la parte `&token=` en tu URL de intercambio. Debes copiar y poner esos 8 caracteres aquí, como `SteamTradeToken`. No incluyas toda la URL de intercambio, tampoco la parte de `&token=`, solo el token en sí (8 caracteres).
 
@@ -716,7 +716,7 @@ Para encontrar tu token, inicia la sesión del usuario con permiso `Master`, dir
 
 ### `SteamUserPermissions`
 
-Tipo `ImmutableDictionary<ulong, byte>` con valor predeterminado estando vacío. Esta propiedad es de tipo diccionario, la cual mapea a un usuario de Steam identificado por su ID de 64 bits, a un número `byte` que especifica sus permisos en la instancia de ASF. Los permisos de bot disponibles actualmente en ASF se definen a continuación:
+Tipo `ImmutableDictionary<ulong, byte>` con valor predeterminado estando vacío. Esta propiedad es un array asociativo que mapea un usuario de Steam identificado por su ID de 64 bits, a un número `byte` que especifica sus permisos en la instancia de ASF. Los permisos de bot disponibles actualmente en ASF se definen a continuación:
 
 | Valor | Nombre        | Descripción                                                                                                                                                                                                                                     |
 | ----- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -754,7 +754,7 @@ Para más información sobre la lógica de intercambios de ASF, y descripción d
 
 ### `TransferableTypes`
 
-Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de artículo de Steam. Esta propiedad define qué tipos de artículos de Steam serán considerados para transferirse entre bots, durante el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `transfer`. ASF se asegurará que solo los artículos de `TransferableTypes` sean incluidos en una oferta de intercambio, por lo tanto esta propiedad te permite elegir lo que quieres recibir en una oferta de intercambio enviada a uno de tus bots.
+Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5`. Esta propiedad define qué tipos de artículos de Steam serán considerados para transferirse entre bots, durante el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `transfer`. ASF se asegurará de que solo los artículos establecidos en `TransferableTypes` sean incluidos en una oferta de intercambio, por lo tanto esta propiedad te permite elegir lo que quieres recibir en una oferta de intercambio enviada a uno de tus bots.
 
 | Valor | Nombre                | Descripción                                                                         |
 | ----- | --------------------- | ----------------------------------------------------------------------------------- |
@@ -776,17 +776,17 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5` tipos de art
 
 Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 
-La configuración por defecto de ASf está basada en el uso más común de un bot, solo transfiriendo packs de refuerzo, y cromos (incluyendo los reflectantes). Esta propiedad te permite alterar ese comportamiento de cualquier modo que gustes. Por favor, ten en cuenta que todos los tipos no definidos arriba se mostrarán como tipo `Unknown`, lo que es especialmente importante cuando Valve lanza un nuevo artículo de Steam, el cual también será marcado por ASF como `Unknown`, hasta que sea añadido aquí (en futuras versiones). Es por eso que en general no se recomienda incluir el tipo `Unknown` en tu `TransferableTypes`, a menos que sepas lo que haces, y entiendes que ASF enviará todo tu inventario en una oferta de intercambio si la Red de Steam se desconfigura de nuevo y marca todos tus artículos como `Unknown`. Mi recomendación es no incluir el tipo `Unknown` en los `TransferableTypes`, incluso si esperas transferir todo.
+La configuración por defecto de ASF está basada en el uso más común de un bot, solo transfiriendo packs de refuerzo y cromos (incluyendo los reflectantes). Esta propiedad te permite alterar ese comportamiento de cualquier modo que gustes. Por favor, ten en cuenta que todos los tipos no definidos arriba se mostrarán como tipo `Unknown`, lo que es especialmente importante cuando Valve lanza un nuevo artículo de Steam, el cual también será marcado por ASF como `Unknown`, hasta que sea añadido aquí (en futuras versiones). Es por eso que en general no se recomienda incluir el tipo `Unknown` en `TransferableTypes`, a menos que sepas lo que haces, y entiendes que ASF enviará todo tu inventario en una oferta de intercambio si la red de Steam se desconfigura de nuevo y marca todos tus artículos como `Unknown`. Mi recomendación es no incluir el tipo `Unknown` en `TransferableTypes`, incluso si esperas transferir todo.
 
 ---
 
 ### `UseLoginKeys`
 
-Tipo `bool` con valor predeterminado de `true`. Esta propiedad define si ASF debe usar el mecanismo de claves de acceso para esta cuenta de Steam. El mecanismo de claves de acceso funciona muy similar a la opción "recordarme" del cliente oficial de Steam, lo que hace posible que ASF almacene y use una clave de acceso temporal de un solo uso para el siguiente intento de inicio de sesión, omitiendo la necesidad de proporcionar contraseña, código de Steam Guard o 2FA siempre que nuestra clave de acceso sea válida. La clave de acceso se almacena en el archivo `BotName.db` y se actualiza automáticamente. Por eso no necesitas proporcionar contraseña/código Steam Guard/código 2FA después de iniciar sesión con éxito en ASF una vez.
+Tipo `bool` con valor predeterminado de `true`. Esta propiedad define si ASF debe usar el mecanismo de claves de acceso para esta cuenta de Steam. El mecanismo de claves de acceso funciona muy similar a la opción "recordarme" del cliente oficial de Steam, lo que hace posible que ASF almacene y use una clave de acceso temporal de un solo uso para el siguiente intento de inicio de sesión, omitiendo la necesidad de proporcionar contraseña, código de Steam Guard o 2FA siempre que nuestra clave de acceso sea válida. La clave de acceso se almacena en el archivo `BotName.db` y se actualiza automáticamente. Es por eso que no necesitas proporcionar contraseña/código SteamGuard/código 2FA después de iniciar sesión con éxito en ASF una vez.
 
 Las claves de acceso se usan por defecto para tu comodidad, para que no tengas que introducir `SteamPassword`, SteamGuard o código 2FA (cuando no se está usando **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-ES)**) en cada inicio de sesión. También es una alternativa superior ya que la clave de acceso solo puede ser utilizada una vez y no revela de ninguna manera tu contraseña original. Exactamente el mismo método es usado por el cliente de Steam, que guarda el nombre de tu cuenta y la clave de acceso para el siguiente intento de inicio de sesión, siendo lo mismo que usar en ASF `SteamLogin` con `UseLoginKeys` y dejar vacío `SteamPassword`.
 
-Sin embargo, algunas personas podrían preocuparse incluso por este pequeño detalle, por lo tanto esta opción está disponible si quieres asegurarte que ASF no almacenará ningún tipo de token que permita reanudar sesiones previas después de cerrarlo, lo que dará como resultado que la autenticación completa sea obligatoria en cada intento de inicio de sesión. Desactivar esta opción funcionará exactamente igual que no marcar "recordarme" en el cliente oficial de Steam. A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de `true`.
+Sin embargo, algunas personas podrían preocuparse incluso por este pequeño detalle, por lo tanto esta opción está disponible si quieres asegurarte de que ASF no almacenará ningún tipo de token que permita reanudar sesiones previas después de cerrarlo, lo que dará como resultado que la autenticación completa sea obligatoria en cada intento de inicio de sesión. Deshabilitar esta opción funcionará exactamente igual que no marcar "recordarme" en el cliente oficial de Steam. A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de `true`.
 
 ---
 
@@ -806,7 +806,7 @@ Si no estás seguro de cómo establecer esta propiedad, déjala con su valor pre
 
 ## Estructura de archivos
 
-ASF usa una está de archivos bastante sencilla.
+ASF usa una estructura de archivos bastante sencilla.
 
 ```text
 ├── config
@@ -824,37 +824,37 @@ ASF usa una está de archivos bastante sencilla.
 └── ...
 ```
 
-Para mover ASF a una nueva ubicación, por ejemplo, otro PC, basta con mover/copiar solo el directorio `config`, y esa es la forma recomendada de hacer cualquier tipo de "respaldos de ASF", ya que siempre puedes descargar la parte restante (el programa) del GitHub, sin arriesgarse a corromper archivos internos de ASF, por ejemplo, por un respaldo defectuoso.
+Para mover ASF a una nueva ubicación, por ejemplo, otro PC, basta con mover/copiar solo el directorio `config`, y esa es la forma recomendada de hacer cualquier tipo de "respaldos de ASF", ya que siempre puedes descargar la parte restante (el programa) de GitHub, sin arriesgarse a corromper archivos internos de ASF, por ejemplo, por un respaldo defectuoso.
 
-El archivo `log.txt` contiene el registro generado por la última ejecución de ASF. Este archivo no contiene ninguna información sensible, y es extremadamente útil cuando se trata de problemas, fallos o simplemente como información de lo que ocurrió en la última ejecución de ASF. A menudo preguntaremos por este archivo si te encuentras con problemas o bugs. ASF gestiona automáticamente este archivo, pero puedes modificar más el módulo de **[registro](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-es-ES)** si eres un usuario avanzado.
+El archivo `log.txt` contiene el registro generado por la última ejecución de ASF. Este archivo no contiene ninguna información confidencial, y es extremadamente útil cuando se trata de problemas, fallos o simplemente como información de lo que ocurrió en la última ejecución de ASF. A menudo pediremos este archivo si te encuentras con problemas o bugs. ASF gestiona automáticamente este archivo, pero puedes modificar el módulo de **[registro](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-es-ES)** si eres un usuario avanzado.
 
 El directorio `config` es el lugar que contiene la configuración de ASF, incluyendo la de todos sus bots.
 
-`ASF.json` es un archivo de configuración global de ASF. Esta configuración se usa para especificar cómo se comporta ASF como proceso, lo que afecta a todos los bots y al propio programa. Aquí puedes encontrar propiedades globales, como el propietario del proceso de ASD, actualizaciones automáticas o depuración.
+`ASF.json` es un archivo de configuración global de ASF. Esta configuración se usa para especificar cómo se comporta ASF como proceso, lo que afecta a todos los bots y al propio programa. Aquí puedes encontrar propiedades globales, tal como el propietario del proceso de ASF, actualizaciones automáticas o depuración.
 
-`BotName.json` es la configuración de una instancia de bot dada. Esta configuración se utiliza para especificar cómo se comporta una instancia de bot dada, por lo tanto esas configuraciones son específicas de ese bot y no se comparte con otros. Esto te permite configurar bots con diferentes ajustes y no necesariamente que todos funcionen exactamente igual. Cada bot es nombrado usando un identificador único, elegido por ti en lugar `BotName`.
+`BotName.json` es la configuración de una determinada instancia de bot. Esta configuración se utiliza para especificar cómo se comporta una determinada instancia de bot, por lo tanto esas configuraciones son específicas de ese bot y no se comparte con otros. Esto te permite configurar bots con diferentes ajustes y no necesariamente que todos funcionen exactamente de la misma forma. Cada bot es nombrado usando un identificador único, elegido por ti en lugar de `BotName`.
 
-Aparte de los archivos de configuración, ASF también usar el directorio `config` para almacenar bases de datos.
+Aparte de los archivos de configuración, ASF también usa el directorio `config` para almacenar bases de datos.
 
 `ASF.db` es un archivo de base de datos global de ASF. Actúa como un almacenamiento global persistente y se utiliza para guardar información diversa relacionada con el proceso de ASF, como la IP de los servidores locales de Steam. **No debes editar este archivo**.
 
-`BotName.db` es la base de datos una instancia de bot dada. Este archivo se utiliza para almacenar información crucial sobre una instancia de bot dada en almacenamiento persistente, como claves de acceso o ASF 2FA. **No debes editar este archivo**.
+`BotName.db` es la base de datos de una determinada instancia de bot. Este archivo se utiliza para almacenar información crucial sobre una determinada instancia de bot en almacenamiento persistente, como claves de acceso o ASF 2FA. **No debes editar este archivo**.
 
-`BotName.bin` es un archivo especial de una instancia de bot dada, que contiene información sobre el sentry hash de Steam. El sentry hash se utiliza para autenticar usando el mecanismo `SteamGuard`, muy similar al archivo `ssfn` de Steam. **No debes editar este archivo**.
+`BotName.bin` es un archivo especial de una determinada instancia de bot, que contiene información sobre el sentry hash de Steam. Sentry hash se utiliza para autenticación usando el mecanismo `SteamGuard`, muy similar al archivo `ssfn` de Steam. **No debes editar este archivo**.
 
-`BotName.keys` es un archivo especial que puede ser usado para importar claves al **[activador de juegos en segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-es-ES)**. No es obligatorio ni generado, pero ASF lo reconoce. Este archivo se elimina automáticamente después de que las claves son importadas correctamente.
+`BotName.keys` es un archivo especial que puede ser usado para importar claves al **[activador de juegos en segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-es-ES)**. No es obligatorio y no se genera, pero ASF lo reconoce. Este archivo se elimina automáticamente después de que las claves son importadas exitosamente.
 
-`BotName.maFile` es un archivo especial que puede ser usado para importar **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-ES)**. No es obligatorio ni generado, pero ASF lo reconoce si tu `NombreDeBot` todavía no usa ASF 2FA. Este archivo se elimina automáticamente después de que ASF 2FA es importado correctamente.
+`BotName.maFile` es un archivo especial que puede ser usado para importar **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-ES)**. No es obligatorio y no se genera, pero ASF lo reconoce si tu `BotName` todavía no usa ASF 2FA. Este archivo se elimina automáticamente después de que ASF 2FA es importado exitosamente.
 
 ---
 
 ## Mapeo JSON
 
-Cada tipo de configuración tiene un tipo. El tipo de la propiedad define los valores que son válidos para esta. Solo puedes usar valores que sean válidos para un tipo dado - si usas un valor inválido, ASF no será capaz de analizar tu configuración.
+Cada propiedad de configuración tiene su tipo. El tipo de la propiedad define los valores que son válidos para esta. Solo puedes usar valores que sean válidos para un determinado tipo - si usas un valor inválido, ASF no será capaz de analizar tu configuración.
 
 **Recomendamos fuertemente usar ConfigGenerator para generar las configuraciones** - maneja por ti la mayoría de las cosas de bajo nivel (como validación de los tipos), para que solo tengas que introducir los valores apropiados, y no tengas que entender los tipos de variables especificados a continuación. Esta sección es principalmente para las personas que generan/editan las configuraciones manualmente, para que sepan qué valores pueden usar.
 
-Los tipos usados por ASF son tipos nativos de C#, que se describen a continuación:
+Los tipos usados por ASF son tipos nativos de C#, y se describen a continuación:
 
 ---
 
@@ -864,23 +864,23 @@ Ejemplo: `"Enabled": true`
 
 ---
 
-`byte` - Tipo byte sin firmar, solo acepta enteros desde `0` hasta `255` (inclusive).
+`byte` - Tipo byte sin signo, solo acepta números enteros desde `0` hasta `255` (inclusive).
 
 Ejemplo: `"ConnectionTimeout": 60`
 
 ---
 
-`ushort` - Tipo short sin firmar, solo acepta enteros desde `0` hasta `65535` (inclusive).
+`ushort` - Tipo short sin signo, solo acepta números enteros desde `0` hasta `65535` (inclusive).
 
 Ejemplo: `"WebLimiterDelay": 300`
 
 ---
 
-`uint` - Tipo entero sin firmar, solo acepta enteros desde `0` hasta `4294967295` (inclusive).
+`uint` - Tipo entero sin signo, solo acepta números enteros desde `0` hasta `4294967295` (inclusive).
 
 ---
 
-`ulong` - tipo entero largo sin firmar, solo acepta enteros desde `0` hasta `18446744073709551615` (inclusive).
+`ulong` - tipo entero largo sin signo, solo acepta números enteros desde `0` hasta `18446744073709551615` (inclusive).
 
 Ejemplo: `"SteamMasterClanID": 103582791440160998`
 
@@ -892,25 +892,25 @@ Ejemplos: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountNam
 
 ---
 
-`ImmutableList<valueType>` - Colección inmutable (lista) de valores en determinados `valueType`. En JSON, está definido como una matriz de elementos en determinado `valueType`. ASF utiliza `List` para indicar que cierta propiedad soporta múltiples valores y que su orden puede ser relevante.
+`ImmutableList<valueType>` - Colección (lista) inmutable de valores en determinado `valueType`. En JSON, está definido como una matriz de elementos en determinado `valueType`. ASF usa `List` para indicar que una propiedad determinada soporta múltiples valores y que su orden puede ser relevante.
 
 Ejemplo para `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
 
 ---
 
-`ImmutableHashSet<valueType>` - Colección (set) inmutable de valores únicos en determinado `valueType`. En JSON, está definido como una matriz de elementos en determinado `valueType`. ASF usa `HashSet` para indicar que una propiedad dada solo tiene sentido para valores únicos y que su orden no importa, por lo tanto, intencionalmente ignorará cualquier posible duplicado (si por alguna razón los proporcionas).
+`ImmutableHashSet<valueType>` - Colección (conjunto) inmutable de valores únicos en determinado `valueType`. En JSON, está definido como una matriz de elementos en determinado `valueType`. ASF usa `HashSet` para indicar que una propiedad determinada solo tiene sentido para valores únicos y que su orden no importa, por lo tanto, intencionalmente ignorará cualquier posible duplicado durante el análisis (si por alguna razón los proporcionas).
 
 Ejemplo para `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 
 ---
 
-`ImmutableDictionary<keyType, valueType>` - Diccionario (mapa) inmutable que mapea una clave única especificada en su `keyType`, al valor especificado en su `valueType`. En JSON, esta definida como un objeto con pares de valor clave. Ten en cuenta que `keyType` siempre se cita en este caso, incluso si es tipo de valor, como `keyType`. También existe un requisito estricto de que la clave sea única en el mapa, aplicado por JSON.
+`ImmutableDictionary<keyType, valueType>` - Array asociativo (mapa) inmutable que mapea una clave única especificada en su `keyType`, al valor especificado en su `valueType`. En JSON, está definida como un objeto con pares clave-valor. Ten en cuenta que `keyType` siempre va entre comillas en este caso, incluso si es un tipo de valor, tal como `ulong`. También existe un requisito estricto de que la clave sea única en el mapa, esta vez también impuesto por JSON.
 
 Ejemplo para `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 
 ---
 
-`flags` - Los atributos de bandera combinan varias propiedades en un valor final al aplicar operaciones de bits. Esto permite elegir al mismo tempo cualquier posible combinación de diferentes valores permitidos. El valor final es el resultado de la suma de los valores de todas las opciones habilitadas.
+`flags` - Los atributos de bandera combinan varias propiedades diferentes en un valor final aplicando operaciones bit a bit. Esto permite elegir cualquier combinación posible de diferentes valores permitidos al mismo tiempo. El valor final es el resultado de la suma de los valores de todas las opciones habilitadas.
 
 Por ejemplo, dados los siguientes valores:
 
@@ -921,9 +921,9 @@ Por ejemplo, dados los siguientes valores:
 | 2     | B      |
 | 4     | C      |
 
-Usar `B + C` resultaría en el valor `6`, usar `A + C` resultaría en el valor `5`, usar `C` resultaría en el valor `4` y así sucesivamente. Esto permite crear cualquier posible combinación de valores habilitados - si decides habilitar todos, usando `Ninguno + A + B + C`, obtendrías el valor `7`. También ten en cuenta que la bandera con valor `0` está habilitada por definición en todas las otras combinaciones disponibles, por lo tanto muy a menudo es una bandera que no habilitada nada específico (como en `Ninguno`).
+Usar `B + C` resultaría en el valor `6`, usar `A + C` resultaría en el valor `5`, usar `C` resultaría en el valor `4` y así sucesivamente. Esto permite crear cualquier combinación posible de valores habilitados - si decidieras habilitar todos, usando `None + A + B + C`, obtendrías el valor `7`. También ten en cuenta que la bandera con valor `0` está habilitada por definición en todas las otras combinaciones disponibles, por lo tanto muy a menudo es una bandera que no habilita nada específico (tal como `None`).
 
-Como puedes ver, en el ejemplo anterior tenemos 3 banderas disponibles para activar/apagar (`A`, `B`, `C`), y `8` posibles valores en total:
+Como puedes ver, en el ejemplo anterior tenemos 3 banderas disponibles para activar/desactivar (`A`, `B`, `C`), y `8` valores posibles en total:
 - `None -> 0`
 - `A -> 1`
 - `B -> 2`
@@ -939,24 +939,24 @@ Ejemplo: `"SteamProtocols": 7`
 
 ## Compatibilidad de mapeo
 
-Debido a las limitaciones de JavaScript de ser incapaz de serializar correctamente los campos `ulong` en JSON cuando se usa el ConfigGenerator basado en la web, los campos `ulong` serán interpretados como líneas con el prefijo `s_` en la configuración resultante. Esto incluye, por ejemplo, `"SteamOwnerID": 76561198006963719` que será escrito por nuestro ConfigGenerator como `"s_SteamOwnerID": "76561198006963719"`. ASF incluye la lógica adecuada para manejar este mapeo de líneas automáticamente, así que las entradas `s_` en tus configuraciones son válidas y correctamente generadas. Si estás generando las configuraciones tú mismo, recomendamos apegarse a los campos `ulong` originales de ser posible, pero si no es posible, también puedes seguir este esquema y codificarlos con el prefijo `s_` añadido a sus nombres. Esperamos resolver eventualmente esta limitación de JavaScript.
+Debido a las limitaciones de JavaScript de ser incapaz de serializar correctamente los campos `ulong` en JSON cuando se usa el ConfigGenerator basado en la web, los campos `ulong` serán interpretados como líneas con el prefijo `s_` en la configuración resultante. Esto incluye, por ejemplo, `"SteamOwnerID": 76561198006963719` que será escrito por nuestro ConfigGenerator como `"s_SteamOwnerID": "76561198006963719"`. ASF incluye la lógica adecuada para manejar este mapeo de líneas automáticamente, así que las entradas `s_` en tus configuraciones son válidas y correctamente generadas. Si estás generando las configuraciones tú mismo, recomendamos apegarse a los campos `ulong` originales de ser posible, pero si no es posible, también puedes seguir este esquema y codificarlos con el prefijo `s_` añadido a sus nombres. Esperamos resolver esta limitación de JavaScript en algún momento.
 
 ---
 
 ## Compatibilidad de configuraciones
 
-Es de prioridad alta para ASF permanecer compatible con configuraciones antiguas. Como ya debes saber, las propiedades de configuración faltantes son tratadas del mismo modo como si estuvieran definidas en sus **valores predeterminados**. Por lo tanto, si una nueva propiedad de configuración es introducida en una nueva versión de ASF, todas tus configuraciones permanecerán **compatibles** con la nueva versión, y ASF tratará esa nueva propiedad como si estuviera definida en su **valor predeterminado**. Siempre puedes acuerdo, eliminar o editar las propiedades de configuración de acuerdo a tus necesidades. Recomendamos limitar las propiedades de configuración definidas solo a aquellas que quieres cambiar, ya que de esta manera automáticamente se adquieren los valores por defecto para todas las demás, no solo manteniendo limpia tu configuración sino además aumentando la compatibilidad en caso de que decidamos cambiar el valor por defecto de una propiedad que no quieras establecer explícitamente tú mismo (ejemplo, `WebLimiterDelay`).
+Es de prioridad alta para ASF permanecer compatible con configuraciones antiguas. Como ya debes saber, las propiedades de configuración faltantes son tratadas del mismo modo como si estuvieran definidas en sus **valores predeterminados**. Por lo tanto, si una nueva propiedad de configuración es introducida en una nueva versión de ASF, todas tus configuraciones permanecerán **compatibles** con la nueva versión, y ASF tratará esa nueva propiedad como si estuviera definida en su **valor predeterminado**. Siempre puedes añadir, eliminar o editar las propiedades de configuración de acuerdo a tus necesidades. Recomendamos limitar las propiedades de configuración definidas solo a aquellas que quieres cambiar, ya que de esta manera automáticamente se adquieren los valores por defecto para todas las demás, no solo manteniendo limpia tu configuración sino además aumentando la compatibilidad en caso de que decidamos cambiar el valor por defecto de una propiedad que no quieras establecer explícitamente tú mismo (por ejemplo, `WebLimiterDelay`).
 
 ---
 
 ## Recarga automática
 
-Empezando en ASF V2.1.6.2+, el programa ahora puede detectar "al momento" la modificación de las configuraciones - gracias a eso ASF automáticamente:
+A partir de ASF V2.1.6.2+, el programa es consciente de configuraciones siendo modificadas "al vuelo" - gracias a eso, ASF automáticamente:
 - Crea (e inicia, si es necesario) una nueva instancia de bot, cuando creas su archivo de configuración
 - Detiene (si es necesario) y elimina una instancia de bot antigua, cuando eliminas su archivo de configuración
 - Detiene (e inicia, si es necesario) cualquier instancia de bot, cuando editas su archivo de configuración
 - Reinicia (si es necesario) el bot con un nuevo nombre, cuando renombras su archivo de configuración
 
-Todo lo anterior es transparente y se hará automáticamente sin necesidad de reiniciar el programa, o detener otras (no afectadas) instancias de bot.
+Todo lo anterior es transparente y se hará automáticamente sin necesidad de reiniciar el programa, o detener otras instancias de bot (no afectadas).
 
 Además, ASF también se reiniciará a sí mismo (si `AutoRestart` lo permite) si modificas el archivo de configuración principal de ASF `ASF.json`. Del mismo modo, el programa se cerrará si eliminas o renombras este archivo.
