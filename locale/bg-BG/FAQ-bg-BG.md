@@ -8,7 +8,7 @@ Our basic FAQ covers standard questions and answers that you may have. For a les
 * [Comparison with similar tools](#comparison-with-similar-tools)
 * [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
 * [Разни](#misc)
-* [Issues](#issues)
+* [Проблеми](#issues)
 
 ---
 
