@@ -1,8 +1,8 @@
-# Aktivace her v pozadí
+# Aktivace her na pozadí
 
-Background games redeemer is a special built-in ASF feature that allows you to import given set of Steam cd-keys (together with their names) to be redeemed in the background. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+Aktivace her na pozadí je speciální vestavěná funkce ASF, která umožňuje importovat danou sadu klíčů Steam cd-key (společně s jejich jmény) na pozadí. To je zvláště užitečné, pokud máte mnoho klíčů k uplatnění a máte jistotu, že dosáhnete `RateLimited` **[stav](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)**, než budete mít hotovou aktivaci všech klíčů.
 
-Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, if needed.
+Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. Tuto funkci lze v případě potřeby použít společně s (nebo namísto) `uplatnit` **[příkaz](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
 
 ---
 
