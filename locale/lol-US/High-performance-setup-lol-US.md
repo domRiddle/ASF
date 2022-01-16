@@ -10,11 +10,11 @@ ASF ALREADY TRIEZ 2 PREFR PERFORMANCE WHEN IT COMEZ 2 GENERAL BALANCD TUNIN, THE
 
 ## RUNTIME TUNIN (ADVANCD)
 
-Below tricks **involve serious memory and startup time increase** and should therefore be used with caution.
+BELOW TRICKZ **INVOLVE SERIOUS MEMS AN STARTUP TIEM INCREASE** AN SHUD THEREFORE BE USD WIF CAUSHUN.
 
-The recommended way of applying those settings is through `DOTNET_` environment properties. OV COURSE, U CUD ALSO USE OTHR METHODZ, E.G. `runtimeconfig.json`, BUT SUM SETTINGS R IMPOSIBLE 2 BE SET DIS WAI, AN ON TOP OV DAT ASF WILL REPLACE UR CUSTOM `runtimeconfig.json` WIF ITZ OWN ON TEH NEXT UPDATE, THEREFORE WE RECOMMEND ENVIRONMENT PROPERTIEZ DAT U CAN SET EASILY PRIOR 2 LAUNCHIN TEH PROCES.
+TEH RECOMMENDD WAI OV APPLYIN DOSE SETTINGS IZ THRU `DOTNET_` ENVIRONMENT PROPERTIEZ. OV COURSE, U CUD ALSO USE OTHR METHODZ, E.G. `runtimeconfig.json`, BUT SUM SETTINGS R IMPOSIBLE 2 BE SET DIS WAI, AN ON TOP OV DAT ASF WILL REPLACE UR CUSTOM `runtimeconfig.json` WIF ITZ OWN ON TEH NEXT UPDATE, THEREFORE WE RECOMMEND ENVIRONMENT PROPERTIEZ DAT U CAN SET EASILY PRIOR 2 LAUNCHIN TEH PROCES.
 
-.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs. We've documented below properties that are especially important in our opinion.
+.NET RUNTIME ALLOWS U 2 **[TWEAK GARBAGE COLLECTOR](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** IN LOT OV WAYS, EFFECTIVELY FINE-TUNIN TEH GC PROCES ACCORDIN 2 UR NEEDZ. WEVE DOCUMENTD BELOW PROPERTIEZ DAT R ESPECIALLY IMPORTANT IN R OPINION.
 
 ### [`gcServer`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
@@ -32,25 +32,25 @@ HOWEVR, IF MEMS IZ NOT PROBLEM 4 U (AS GC STILL TAKEZ INTO AKOWNT UR AVAILABLE M
 
 ### **[`DOTNET_TieredPGO`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#profile-guided-optimization)**
 
-> This setting enables dynamic or tiered profile-guided optimization (PGO) in .NET 6 and later versions.
+> DIS SETTIN ENABLEZ DYNAMIC OR TIERD PROFILE-GUIDD OPTIMIZASHUN (PGO) IN .NET 6 AN LATR VERSHUNS.
 
-Disabled by default. In a nutshell, this will cause JIT to spend more time analyzing ASF's code and its patterns in order to generate superior code optimized for your typical usage. If you want to learn more about this setting, visit **[performance improvements in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**.
+DISABLD BY DEFAULT. IN NUTSHELL, DIS WILL CAUSE JIT 2 SPEND MOAR TIEM ANALYZIN ASFS CODE AN ITZ PATTERNS IN ORDR 2 GENERATE SUPERIOR CODE OPTIMIZD 4 UR TYPICAL USAGE. IF U WANTS 2 LERN MOAR BOUT DIS SETTIN, VISIT **[PERFORMANCE IMPROOVEMENTS IN .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**.
 
 ### **[`DOTNET_ReadyToRun`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#readytorun)**
 
-> Configures whether the .NET Core runtime uses pre-compiled code for images with available ReadyToRun data. Disabling this option forces the runtime to JIT-compile framework code.
+> CONFIGUREZ WHETHR TEH .NET CORE RUNTIME USEZ PRE-COMPILD CODE 4 IMAGEZ WIF AVAILABLE READYTORUN DATA. DISABLIN DIS OPSHUN FORCEZ TEH RUNTIME 2 JIT-COMPILE FRAMEWORK CODE.
 
-Enabled by default. Disabling this in combination with enabling `DOTNET_TieredPGO` allows you to extend tiered profile-guided optimization to the whole .NET platform, and not just ASF code.
+ENABLD BY DEFAULT. DISABLIN DIS IN COMBINASHUN WIF ENABLIN `DOTNET_TieredPGO` ALLOWS U 2 EXTEND TIERD PROFILE-GUIDD OPTIMIZASHUN 2 TEH WHOLE .NET PLATFORM, AN NOT JUS ASF CODE.
 
 ### **[`DOTNET_TC_QuickJitForLoops`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
 
-> Configures whether the JIT compiler uses quick JIT on methods that contain loops. Enabling quick JIT for loops may improve startup performance. However, long-running loops can get stuck in less-optimized code for long periods.
+> CONFIGUREZ WHETHR TEH JIT COMPILR USEZ QUICK JIT ON METHODZ DAT CONTAIN LOOPS. ENABLIN QUICK JIT 4 LOOPS CUD IMPROOOV STARTUP PERFORMANCE. HOWEVR, LONG-RUNNIN LOOPS CAN GIT STUCK IN LES-OPTIMIZD CODE 4 LONG PERIODZ.
 
-Disabled by default. While the description doesn't make it obvious, enabling this will allow methods with loops to go through additional compilation tier, which will allow `DOTNET_TieredPGO` to do a better job by analyzing its usage data.
+DISABLD BY DEFAULT. WHILE TEH DESCRIPSHUN DOESNT MAK IT OBVIOUS, ENABLIN DIS WILL ALLOW METHODZ WIF LOOPS 2 GO THRU ADDISHUNAL COMPILASHUN TIR, WHICH WILL ALLOW `DOTNET_TieredPGO` 2 DO BETTR JOB BY ANALYZIN ITZ USAGE DATA.
 
 ---
 
-You can enable selected properties by setting appropriate environment variables. 4 EXAMPLE, ON LINUX (SHELL):
+U CAN ENABLE SELECTD PROPERTIEZ BY SETTIN APPROPRIATE ENVIRONMENT VARIABLEZ. 4 EXAMPLE, ON LINUX (SHELL):
 
 ```shell
 export DOTNET_gcServer=1
@@ -59,7 +59,7 @@ export DOTNET_TieredPGO=1
 export DOTNET_ReadyToRun=0
 export DOTNET_TC_QuickJitForLoops=1
 
-./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm # 4 OS-SPECIFIC BUILD
 ```
 
 OR ON WINDOWS (POWERSHELL):
@@ -71,7 +71,7 @@ $Env:DOTNET_TieredPGO=1
 $Env:DOTNET_ReadyToRun=0
 $Env:DOTNET_TC_QuickJitForLoops=1
 
-.\ArchiSteamFarm.exe # For OS-specific build
+.\ArchiSteamFarm.exe # 4 OS-SPECIFIC BUILD
 ```
 
 ---
@@ -79,8 +79,8 @@ $Env:DOTNET_TC_QuickJitForLoops=1
 ## RECOMMENDD OPTIMIZASHUN
 
 - ENSURE DAT URE USIN DEFAULT VALUE OV `OptimizationMode` WHICH IZ `MaxPerformance`. DIS AR TEH BY FAR TEH MOST IMPORTANT SETTIN, AS USIN `MinMemoryUsage` VALUE HAS DRAMATIC EFFECTS ON PERFORMANCE.
-- ENABLE SERVR GC. SERVR GC CAN BE IMMEDIATELY SEEN AS BEAN ACTIV BY SIGNIFICANT MEMS INCREASE COMPARD 2 WERKSTASHUN GC. This will spawn a GC thread for every CPU thread your machine has in order to perform GC operations in parallel with maximum speed.
-- If you can't afford memory increase due to server GC, consider tweaking **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** and/or **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gcheaphardlimitpercent)** to achieve "the best of both worlds". HOWEVR, IF UR MEMS CAN AFFORD IT, DEN IZ BETTR 2 KEEP IT AT DEFAULT - SERVR GC ALREADY TWEAKZ ITSELF DURIN RUNTIME AN IZ SMART ENOUGH 2 USE LES MEMS WHEN UR OS WILL TRULY NED IT.
-- You can also consider increased optimization for longer startup time with additional tweaking through other `DOTNET_` properties explained above.
+- ENABLE SERVR GC. SERVR GC CAN BE IMMEDIATELY SEEN AS BEAN ACTIV BY SIGNIFICANT MEMS INCREASE COMPARD 2 WERKSTASHUN GC. DIS WILL SPAWN GC THREAD 4 EVRY CPU THREAD UR MACHINE HAS IN ORDR 2 PERFORM GC OPERASHUNS IN PARALLEL WIF MAXIMUM SPED.
+- IF U CANT AFFORD MEMS INCREASE DUE 2 SERVR GC, CONSIDR TWEAKIN **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-lol-US#gclatencylevel)** AN/OR **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-lol-US#gcheaphardlimitpercent)** 2 ACHIEVE "TEH BEST OV BOTH WORLDZ". HOWEVR, IF UR MEMS CAN AFFORD IT, DEN IZ BETTR 2 KEEP IT AT DEFAULT - SERVR GC ALREADY TWEAKZ ITSELF DURIN RUNTIME AN IZ SMART ENOUGH 2 USE LES MEMS WHEN UR OS WILL TRULY NED IT.
+- U CAN ALSO CONSIDR INCREASD OPTIMIZASHUN 4 LONGR STARTUP TIEM WIF ADDISHUNAL TWEAKIN THRU OTHR `DOTNET_` PROPERTIEZ EXPLAIND ABOOV.
 
-Applying recommendations above allows you to have superior ASF performance that should be blazing fast even with hundreds or thousands of enabled bots. CPU SHUD NOT BE BOTTLENECK NOMORE, AS ASF IZ ABLE 2 USE UR ENTIRE CPU POWR WHEN NEEDD, CUTTIN REQUIRD TIEM 2 BARE MINIMUM. TEH NEXT STEP WUD BE CPU AN RAM UPGRADEZ.
+APPLYIN RECOMMENDASHUNS ABOOV ALLOWS U 2 HAS SUPERIOR ASF PERFORMANCE DAT SHUD BE BLAZIN FAST EVEN WIF HUNDREDZ OR THOUSANDZ OV ENABLD BOTS. CPU SHUD NOT BE BOTTLENECK NOMORE, AS ASF IZ ABLE 2 USE UR ENTIRE CPU POWR WHEN NEEDD, CUTTIN REQUIRD TIEM 2 BARE MINIMUM. TEH NEXT STEP WUD BE CPU AN RAM UPGRADEZ.

@@ -222,7 +222,7 @@ ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们
 对于 `generic` 包，您需要参考上述的操作系统包的安装指南，但有两点小小的区别。 除了要安装 .NET 依赖项之外，您还需要安装 .NET SDK，并且 `ArchiSteamFarm.dll` 二进制文件将会取代操作系统特定的 `ArchiSteamFarm(.exe)` 可执行文件， 其他的步骤都是相同的。
 
 添加额外的步骤之后：
-- 安装 **[.NET 依赖项](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**。
+- 安装 **[.NET 依赖项](#net-依赖)**。
 - 安装适合您操作系统的 **[.NET SDK](https://www.microsoft.com/net/download)**（或至少安装 ASP.NET Core 运行时环境）。 您可能需要使用一个安装器。 如果您不确定应该安装哪个版本，请参考&#8203;**[运行时环境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#运行时环境需求)**。
 - 在 **[ASF 发布页面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下载 `generic` 包。
 - 将压缩包解压到一个新文件夹。

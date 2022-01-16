@@ -222,7 +222,7 @@ However, keep in mind that you're in charge of .NET runtime in this case. This m
 Для` универсального пакета`, вы можете следовать всему руководству по установке под конкретную ОС, приведенному выше, с двумя небольшими отличиями. In addition to installing .NET prerequisites, you also want to install .NET SDK, and instead of having OS-specific `ArchiSteamFarm(.exe)` executable file, you now have a generic `ArchiSteamFarm.dll` binary only. Всё остальное практически точно так же.
 
 Вместе с дополнительными шагами, вы должны:
-- Установить **[предусловия для .NET](https://docs.microsoft.com/dotnet/core/install/dependencies?tabs=netcore31)**.
+- Установить **[предусловия для .NET](#net-prerequisites)**.
 - Install **[.NET SDK](https://www.microsoft.com/net/download)** (or at least ASP.NET Core runtime) appropriate for your OS. Скорее всего вы захотите использовать установщик. Обратитесь к разделу "**[Требования среды исполнения](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU#user-content-Требования-среды-исполнения)**" если не уверены, какую версию вам надо установить.
 - Скачать **[последнюю версию ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** в `универсальном (generic)` варианте.
 - Распаковать архив в новое место.

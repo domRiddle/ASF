@@ -96,9 +96,9 @@ su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFa
 
 DAT WUD BE DOIN IT MANUALLY, IZ MUTCH EASIR 2 USE R **[`systemd` SERVICE](#systemd-service-4-linux)** EXPLAIND ABOOV.
 
-### I know better and I still want to run as `root`
+### I KNOE BETTR AN I STILL WANTS 2 RUN AS `root`
 
-As of V5.2.0.10, ASF no longer stops you from doing so, only displays a warning with a short notice. Just don't be shocked if one day due to a bug in the program it'll blow up your whole OS with complete data loss - you've been warned.
+AS OV V5.2.0.10, ASF NO LONGR STOPS U FRUM DOIN SO, ONLY DISPLAYS WARNIN WIF SHORT NOTICE. JUS DOAN BE SHOCKD IF WAN DAI DUE 2 BUG IN DA PROGRAM ITLL BLOW UP UR WHOLE OS WIF COMPLETE DATA LOS - UVE BEEN WARND.
 
 ---
 

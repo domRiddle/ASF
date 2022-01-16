@@ -36,7 +36,7 @@ OV COURSE, REPLACE `linux-x64` WIF OS-ARCHITECCHUR DAT U WANTS 2 TARGET, SUCH AS
 
 ### .NET FRAMEWORK
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net6.0` to `net48`. KEEP IN MIND DAT ULL NED APPROPRIATE **[.NET FRAMEWORK](https://dotnet.microsoft.com/download/visual-studio-sdks)** DEVELOPR PACK 4 COMPILIN `netf` VARIANT, IN ADDISHUN 2 .NET SDK, SO TEH BELOW WILL WERK ONLY ON WINDOWS:
+IN VRY RARE CASE WHEN UD WANTS 2 BUILD `generic-netf` PACKAGE, U CAN CHANGE TARGET FRAMEWORK FRUM `net6.0` 2 `net48`. KEEP IN MIND DAT ULL NED APPROPRIATE **[.NET FRAMEWORK](https://dotnet.microsoft.com/download/visual-studio-sdks)** DEVELOPR PACK 4 COMPILIN `netf` VARIANT, IN ADDISHUN 2 .NET SDK, SO TEH BELOW WILL WERK ONLY ON WINDOWS:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
@@ -50,25 +50,25 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ### ASF-UI
 
-While the above steps are everything that is required to have a fully working build of ASF, you may *also* be interested in building **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, our graphical web interface. From ASF side, all you need to do is dropping ASF-ui build output in standard `ASF-ui/dist` location, then building ASF with it (again, if needed).
+WHILE TEH ABOOV STEPS R EVRYTHIN DAT IZ REQUIRD 2 HAS FULLY WERKIN BUILD OV ASF, U CUD *ALSO* BE INTERESTD IN BUILDIN **[ASF-UI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US#asf-ui)**, R GRAFICAL WEB INTERFACE. FRUM ASF SIDE, ALL U NED 2 DO IZ DROPPIN ASF-UI BUILD OUTPUT IN STANDARD `ASF-ui/dist` LOCASHUN, DEN BUILDIN ASF WIF IT (AGAIN, IF NEEDD).
 
-ASF-ui is part of ASF's source tree as a **[git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**, ensure that you've cloned the repo with `git clone --recursive`, as otherwise you'll not have the required files. You'll also need a working NPM, **[Node.js](https://nodejs.org)** comes with it. If you're using Linux/OS X, we recommend our `cc.sh` script, which will automatically cover building and shipping ASF-ui (if possible, that is, if you're meeting the requirements we've just mentioned).
+ASF-UI IZ PART OV ASFS SOURCE TREE AS **[GIT SUBMODULE](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**, ENSURE DAT UVE CLOND TEH REPO WIF `git clone --recursive`, AS OTHERWIZE ULL NOT HAS TEH REQUIRD FILEZ. ULL ALSO NED WERKIN NPM, **[NODE.JS](https://nodejs.org)** COMEZ WIF IT. IF URE USIN LINUX/OS X, WE RECOMMEND R `cc.sh` SCRIPT, WHICH WILL AUTOMATICALLY COVR BUILDIN AN SHIPPIN ASF-UI (IF POSIBLE, DAT IZ, IF URE MEETIN TEH REQUIREMENTS WEVE JUS MENSHUND).
 
-In addition to the `cc.sh` script, we also attach the simplified build instructions below, refer to **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** for additional documentation. From ASF's source tree location, so as above, execute the following commands:
+IN ADDISHUN 2 TEH `cc.sh` SCRIPT, WE ALSO ATTACH TEH SIMPLIFID BUILD INSTRUCSHUNS BELOW, REFR 2 **[ASF-UI REPO](https://github.com/JustArchiNET/ASF-ui)** 4 ADDISHUNAL DOCUMENTASHUN. FRUM ASFS SOURCE TREE LOCASHUN, SO AS ABOOV, EXECUTE TEH FOLLOWIN COMMANDZ:
 
 ```shell
-rm -rf "ASF-ui/dist" # ASF-ui doesn't clean itself after old build
+rm -rf "ASF-ui/dist" # ASF-UI DOESNT CLEAN ITSELF AFTR OLD BUILD
 
 npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
-rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # Or accordingly to what you need as per the above
+rm -rf "out/generic/www" # ENSURE DAT R BUILD OUTPUT IZ CLEAN OV TEH OLD FILEZ
+dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # OR ACCORDINGLY 2 WUT U NED AS PER TEH ABOOV
 ```
 
-You should now be able to find the ASF-ui files in your `out/generic/www` folder. ASF will be able to serve those files to your browser.
+U SHUD NAO BE ABLE 2 FIND TEH ASF-UI FILEZ IN UR `out/generic/www` FOLDR. ASF WILL BE ABLE 2 SERVE DOSE FILEZ 2 UR BROWSR.
 
-Alternatively, you can simply build ASF-ui, whether manually or with the help of our repo, then copy the build output over to `${OUT}/www` folder manually, where `${OUT}` is the output folder of ASF that you've specified with `-o` parameter. This is exactly what ASF is doing as part of the build process, it copies `ASF-ui/dist` (if exists) over to `${OUT}/www`, nothing fancy.
+ALTERNATIVELY, U CAN SIMPLY BUILD ASF-UI, WHETHR MANUALLY OR WIF TEH HALP OV R REPO, DEN COPY TEH BUILD OUTPUT OVAR 2 `${OUT}/www` FOLDR MANUALLY, WER `${OUT}` IZ TEH OUTPUT FOLDR OV ASF DAT UVE SPECIFID WIF `-o` PARAMETR. DIS AR TEH EGSAKTLY WUT ASF IZ DOIN AS PART OV TEH BUILD PROCES, IT COPIEZ `ASF-ui/dist` (IF EXISTS) OVAR 2 `${OUT}/www`, NOTHIN FANCY.
 
 ---
 
@@ -92,4 +92,4 @@ OV COURSE ALL SUGGESHUNS ABOOV R ONLY RECOMMENDASHUNS, U CAN USE WHATEVR U WANTS
 
 OFFISHUL ASF RELEASEZ R COMPILD BY **[GITHUB](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** ON WINDOWS, WIF LATEST .NET SDK DAT MATCHEZ ASF **[RUNTIME REQUIREMENTS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US#runtime-requirements)**. AFTR PASIN TESTS, ALL PACKAGEZ R DEPLOYD AS TEH RELEASE, ALSO ON GITHUB. DIS ALSO GUARANTEEZ TRANZPARENCY, SINCE GITHUB ALWAYS USEZ OFFISHUL PUBLIC SOURCE 4 ALL BUILDZ, AN U CAN COMPARE CHECKSUMS OV GITHUB ARTIFACTS WIF GITHUB RELEASE ASSETS. ASF DEVELOPERS DO NOT COMPILE OR PUBLISH BUILDZ THEMSELVEZ, EXCEPT 4 PRIVATE DEVELOPMENT PROCES AN DEBUGGIN.
 
-Starting from ASF V5.2.0.5, in addition to the above, ASF maintainers manually validate and publish build checksums on independent from GitHub, remote server, as additional security measure. This step is mandatory for existing ASFs to consider the release as a valid candidate for auto-update functionality.
+STARTIN FRUM ASF V5.2.0.5, IN ADDISHUN 2 TEH ABOOV, ASF MAINTAINERS MANUALLY VALIDATE AN PUBLISH BUILD CHECKSUMS ON INDEPENDENT FRUM GITHUB, REMOTE SERVR, AS ADDISHUNAL SECURITY MEASURE. DIS STEP IZ MANDATORY 4 EXISTIN ASFS 2 CONSIDR TEH RELEASE AS VALID CANDIDATE 4 AUTO-UPDATE FUNCSHUNALITY.

@@ -270,7 +270,7 @@ Para el paquete `generic`, puedes seguir la guía de sistema operativo específi
 
 Con pasos extra:
 
-- Instalar los **[prerrequisitos de .NET](https://docs.microsoft.com/es-es/dotnet/core/install/windows?tabs=netcore31)**.
+- Instalar los **[prerrequisitos .NET](#prerrequisitos-de-net)**.
 - Instalar el **[.NET SDK](https://www.microsoft.com/net/download)** (o por lo menos ASP.NET Core runtime) apropiado para tu sistema operativo. Probablemente querrás usar un instalador. Dirígete a **[requisitos de runtime](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#requisitos-de-runtime)** si no estás seguro de qué versión instalar.
 - Descarga la **[última versión de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** en su variante `generic`.
 - Extraer el archivo en una nueva ubicación.
