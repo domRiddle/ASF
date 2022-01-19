@@ -91,7 +91,7 @@ Después, tu plugin está listo para usarse. Depende de ti cómo quieres distrib
 
 Este solo es el escenario más básico para empezar. Tenemos el proyecto **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** que muestra ejemplos de interfaces y acciones que puedes realizar dentro de tu propio plugin, con comentarios útiles incluidos. Siéntete libre de echar un vistazo si quieres aprender de un código funcional, o descubrir el namespace (espacio de nombres) `ArchiSteamFarm.Plugins` y dirígete a la documentación incluida para todas las opciones disponibles.
 
-Si en lugar de ejemplos quieres aprender de proyectos reales, está el plugin **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** desarrollado por nosotros, y que viene junto con ASF. Además, también hay plugins hechos por otros desarrolladores, en nuestra sección **[aplicaciones de terceros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-es-ES#plugins-de-asf)**.
+Si en lugar de un plugin de ejemplo deseas aprender de proyectos reales, está el plugin **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** desarrollado por nosotros, y que viene junto con ASF. Además, también hay plugins hechos por otros desarrolladores, en nuestra sección **[aplicaciones de terceros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-es-ES#plugins-de-asf)**.
 
 ---
 

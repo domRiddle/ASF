@@ -91,7 +91,7 @@ dotnet publish YourPluginName -c "Release" -o "out"
 
 Это самый простой сценарий, просто чтобы помочь вам начать. У нас также есть проект **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** который представляет собой пример интерфейсов и действий, которые вы можете использовать в своём плагине, включая полезные комментарии. Не стесняйтесь заглянуть туда, если предпочитаете учиться по работающему коду, или сами изучите пространство имён `ArchiSteamFarm.Plugins` и обратитесь ко встроенной документации чтобы узнать все доступные возможности.
 
-Если вместо примеров плагинов, вы хотите изучить на реальных проектах, есть плагин **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)**, разработанный нами, который идет в комплекте с ASF. В дополнение к этому, в нашем разделе **[сторонних плагинов](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-ru-RU#user-content-Плагины-для-asf)** есть также плагины, разработанные другими разработчиками.
+If instead of example plugin you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. В дополнение к этому, в нашем разделе **[сторонних плагинов](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-ru-RU#user-content-Плагины-для-asf)** есть также плагины, разработанные другими разработчиками.
 
 ---
 

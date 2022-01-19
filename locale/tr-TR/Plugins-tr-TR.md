@@ -90,7 +90,7 @@ Daha sonra eklentiniz dağıtım için hazırdır. Eklentinizi tam olarak nasıl
 
 Bu, başlamanıza yardımcı olacak en basit senaryodur. Yardımcı yorumlar da dahil olmak üzere kendi eklentiniz içinde yapabileceğiniz örnek arayüzleri ve eylemleri gösteren **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** projemiz var. Çalışan bir koddan öğrenmek isterseniz göz atmaya çekinmeyin, veya `ArchiSteamFarm.Plugins` ad alanını kendiniz keşfedin ve mevcut tüm seçenekler için birlikte verilen belgelere bakın.
 
-Örnek eklentiler yerine gerçek projelerden öğrenmek istiyorsanız, bizim tarafımızdan geliştirilen **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** eklentisi var, ASF ile birlikte paketlenmiş bir eklenti. Buna ek olarak, **[üçüncü-taraf](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** bölümümüzde diğer geliştiriciler tarafından geliştirilen eklentiler de var.
+If instead of example plugin you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. Buna ek olarak, **[üçüncü-taraf](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** bölümümüzde diğer geliştiriciler tarafından geliştirilen eklentiler de var.
 
 ---
 
