@@ -80,10 +80,10 @@ public sealed class YourPluginName : IPlugin {
 IN ORDR 2 MAK USE OV UR PLUGIN, U MUST FIRSTLY COMPILE IT. U CAN DO DAT EITHR FRUM UR IDE, OR FRUM WITHIN TEH ROOT DIRECTORY OV UR PROJECT VIA COMMAND:
 
 ```shell
-# If your project is standalone (no need to define its name since it's the only one)
+# IF UR PROJECT IZ STANDALONE (NO NED 2 DEFINE ITZ NAYM SINCE IZ TEH ONLY WAN)
 dotnet publish -c "Release" -o "out"
 
-# If your project is part of ASF source tree (to avoid compiling unnecessary parts)
+# IF UR PROJECT IZ PART OV ASF SOURCE TREE (2 AVOID COMPILIN UNNECESARY PARTS)
 dotnet publish YourPluginName -c "Release" -o "out"
 ```
 
@@ -91,7 +91,7 @@ AFTERWARDZ, UR PLUGIN IZ READY 4 DEPLOYMENT. IZ UP 2 U HOW EGSAKTLY U WANTS 2 DI
 
 DIS AR TEH ONLY TEH MOST BASIC SCENARIO 2 GIT U STARTD. WE HAS **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** PROJECT DAT SHOWS U EXAMPLE INTERFACEZ AN ACSHUNS DAT U CAN DO WITHIN UR OWN PLUGIN, INCLUDIN HELPFUL COMMENTS. FEELZ FREE 2 TAEK LOOK IF UD LIEK 2 LERN FRUM WERKIN CODE, OR DISCOVR `ArchiSteamFarm.Plugins` NAMESPACE YOURSELF AN REFR 2 TEH INCLUDD DOCUMENTASHUN 4 ALL AVAILABLE OPSHUNS.
 
-If instead of example plugin you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. IN ADDISHUN 2 DAT, THAR R ALSO PLUGINS DEVELOPD BY OTHR DEVELOPERS, IN R **[THIRD-PARTY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-lol-US#asf-plugins)** SECSHUN.
+IF INSTEAD OV EXAMPLE PLUGIN UD WANTS 2 LERN FRUM REAL PROJECTS, THAR IZ **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** PLUGIN DEVELOPD BY US, TEH WAN DAT IZ BUNDLD TOGETHR WIF ASF. IN ADDISHUN 2 DAT, THAR R ALSO PLUGINS DEVELOPD BY OTHR DEVELOPERS, IN R **[THIRD-PARTY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-lol-US#asf-plugins)** SECSHUN.
 
 ---
 

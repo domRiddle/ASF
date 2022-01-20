@@ -38,7 +38,7 @@ In jedem Fall möchten sich die SteamDB-Mitarbeiter im Voraus für Ihre Hilfe be
 
 ## Erweiterte Einstellungen
 
-Starting with ASF V5.1.0.0, our plugin supports advanced config which might come useful for people that would like to tweak the internals to their preference.
+Beginnend mit ASF V5.1.0.0 unterstützt unser Plugin fortgeschrittene Konfigurationen, die für Leute nützlich sein könnten, die die interne Funktion nach ihren Wünschen anpassen möchten.
 
 Die erweiterte Konfiguration hat folgende Struktur innerhalb von `ASF.json`:
 
