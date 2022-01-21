@@ -1,12 +1,12 @@
 # Dvoufaktorové ověření
 
-A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
+Před časem Valve zavedlo systém zvaný "Ecrow", který vyžaduje další autentifikátor pro aktivity související s účtem. Více se dozvíte **[zde](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** a **[zde](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. Než se pokusíme porozumět logice schované za ASF 2FA, je nutné nejdříve porozumět samotnému systému 2FA.
 
-Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, ASF includes a solution to that problem, called ASF 2FA.
+Jak nyní vidíte, jsou všechny obchody pozdržené až o 15 dní, což není velký problém pro ASF, nicméně to stále může být otravné, hlavně pro ty, kteří chtějí plnou automatizaci. Naštěstí, ASF zahrnuje řešení tohoto problému, zvaný ASF 2FA.
 
 ---
 
-# ASF logic
+# ASF logika
 
 Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're needed (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
 
@@ -14,15 +14,15 @@ Regardless if you use ASF 2FA explained below or not, ASF includes proper logic 
 
 # ASF 2FA
 
-ASF 2FA is a built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. It duplicates your existing authenticator, so that you can use your current authenticator and ASF 2FA at the same time.
+ASF 2FA is a built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. Duplikuje to váš současný autentifikátor, takže můžete současně používat současný autentifikátor a ASF 2FA.
 
 You can verify whether your bot account is using ASF 2FA already by executing `2fa` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
 
 ---
 
-## Import
+## Importovat
 
-In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, you need to choose one of those and set it up firstly. If you don't know better which one to pick, we recommend WinAuth, but any of the above will work fine assuming you follow the instructions.
+In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. Pokud ještě nemáte autentifikátor, musíte si vybrat jeden z nich a nastavit ho. If you don't know better which one to pick, we recommend WinAuth, but any of the above will work fine assuming you follow the instructions.
 
 All following guides require from you to already have **working and operational** authenticator being used with given tool/application. ASF 2FA will not operate properly if you import invalid data, therefore make sure that your authenticator works properly before attempting to import it. This does include testing and verifying that following authenticator functions work properly:
 - You can generate tokens and those tokens are accepted by Steam network

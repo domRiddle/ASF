@@ -6,9 +6,9 @@ This page is dedicated for ASF configuration. It serves as a complete documentat
 * **[Web-based ConfigGenerator](#web-based-configgenerator)**
 * **[ASF-ui configuration](#asf-ui-configuration)**
 * **[Manual configuration](#manual-configuration)**
-* **[Global config](#global-config)**
-* **[Bot config](#bot-config)**
-* **[File structure](#file-structure)**
+* **[Globální konfigurace](#global-config)**
+* **[Konfigurace bota](#bot-config)**
+* **[Struktura souboru](#file-structure)**
 * **[JSON mapping](#json-mapping)**
 * **[Compatibility mapping](#compatibility-mapping)**
 * **[Configs compatibility](#configs-compatibility)**
