@@ -1,12 +1,12 @@
 # Совместимость
 
-ASF is a C# application that is running on .NET platform. Это значит, что ASF не компилируется напрямую в **[машинный код](https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BE%D0%B4)**, который исполняется на вашем ЦП, а компилируется в код **[CIL](https://ru.wikipedia.org/wiki/Common_Intermediate_Language)**, которому для работы требуется CIL-совместимая среда выполнения.
+ASF - это приложение на C#, работающее на .NET платформе. Это значит, что ASF не компилируется напрямую в **[машинный код](https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BE%D0%B4)**, который исполняется на вашем ЦП, а компилируется в код **[CIL](https://ru.wikipedia.org/wiki/Common_Intermediate_Language)**, которому для работы требуется CIL-совместимая среда выполнения.
 
 Этот подход даёт гигантское количество преимуществ, поскольку CIL платформо-независим, и поэтому ASF может запускаться на множестве доступных ОС, в частности Windows, Linux и OS X. Для этого не только не требуется эмуляция, но даже поддерживаются оптимизации под конкретную аппаратуру, такие как наборы инструкций SSE. Благодаря этому, ASF может достигать превосходной производительности и оптимальности, и при этом оставаться прекрасно совместимым и надёжным.
 
 Это также означает что ASF не имеет **особых требований к ОС**, поскольку всё что он требует это работающую **среду выполнения** на этой ОС, а не саму ОС. As long as that runtime is executing ASF code properly, it does not matter whether underlying OS is Windows, Linux, OS X, BSD, Sony Playstation 4, Nintendo Wii or your toaster - as long as there is **[.NET for it](https://dotnet.microsoft.com/download/dotnet)**, there is **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** for it.
 
-However, regardless of where you run ASF, you must ensure that your target platform has **[.NET prerequisites](https://github.com/dotnet/core/blob/main/Documentation/prereqs.md)** installed. Это низкоуровневые библиотеки, необходимые для функционирования среды выполнения и ядра ASF. Вполне возможно, что некоторые (или даже все) из них у вас уже установлены.
+Однако, независимо от того, где вы запускаете ASF, вы должны убедиться, что на вашей целевой платформе установлены **[необходимые компоненты .NET](https://github.com/dotnet/core/blob/main/Documentation/prereqs.md)**. Это низкоуровневые библиотеки, необходимые для функционирования среды выполнения и ядра ASF. Вполне возможно, что некоторые (или даже все) из них у вас уже установлены.
 
 ---
 
