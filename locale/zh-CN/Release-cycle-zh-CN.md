@@ -4,7 +4,7 @@ ASF 使用常见的 4 数字 C# 版本号，形式为 `A.B.C.D`。 给定的版�
 
 一般地，就 ASF 版本来说，我们会尽力在最后 3 个数字——`B.C.D` 上遵循 `主版本号.次版本号.修订` 形式的 **[semver](https://semver.org/lang/zh-CN/)**（语义化版本）。 这三个数字直接与 ASF 代码相关。 最重要的 `A` 数字表示超出 ASF 代码本身范围的变化，通常直接影响程序的基本架构。
 
-ASF 的项目目标是大约**每月发布一个功能版本**，以更新 `C` 数字来表示。 为了能够使用这种发布方式，我们为进阶用户提供较小的**预览版本**，如果自上次预览版之时有足够的变更，就会根据需要作为较小的里程碑发布为预览版。 最后，如果一个最新预览版被确定为足够稳定和成熟，与上个稳定版相比没有任何已知的关键回退需要修复，它就会被标记为新的稳定版，同时为下一个版本开启月度周期。
+ASF 的项目目标是大约**每月发布一个功能版本**，以更新 `C` 数字来表示。 为了能够使用这种发布方式，我们为进阶用户提供较小的**预览版本**，如果自上次预览版之时有足够的变更，就会根据需要作为较小的里程碑发布为预览版。 Eventually, when a final pre-release will be determined to be stable and mature enough with no known critical regressions that should be corrected compared to previous stable release, it'll be promoted to the new stable release, at the same time opening a new monthly cycle for the next one.
 
 我们会尽力保证即使是预览版本也是相对稳定的，但仍需注意**预览版不应该被用于任何生产环境**。 预览版可能含有**严重错误**或其他功能问题，这也是我们发布预览版的原因——避免稳定版出现这些问题，并提供可靠的软件。 如果您不打算接受使用不稳定软件带来的高风险，**请不要使用我们的预览版构建**，而应该始终使用适合大多数用户的&#8203;**[稳定版](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**。
 
@@ -19,6 +19,6 @@ ASF 的项目目标是大约**每月发布一个功能版本**，以更新 `C` �
 
 请注意，新引入的功能和更改可能不会立刻被记录（例如在 Wiki 上），因为我们通常会在给定功能的代码编写完成的时候才编写文档（以便于我们在修改功能时节省编写文档的时间）。 由于预览版可能会包含未完成的代码，因此这些功能的文档可能要在之后的开发阶段中编写。 更新日志也是同样的，一些预览版的更新日志有时是不完整的。 因此，如果您决定使用预览版，就可能需要时刻关注 ASF 内部的&#8203;**[提交](https://github.com/JustArchiNET/ArchiSteamFarm/commits/main)**。 当然，**只有**预览版才可能缺少文档说明——每个稳定版在发布时一定已有完整的更新日志和 Wiki 文档。
 
-两个版本之间的详细更新日志总是可以在 GitHub 上比较——通过提交记录和代码变更。 在发布中，我们倾向于仅记录我们认为的上次稳定版与当前版本之间的重要更改。 这样的简短更新日志并不完整，所以如果您希望了解两个版本之间发生的详细更改（例如我们的依赖升级）——请查看 GitHub 历史记录。
+两个版本之间的详细更新日志总是可以在 GitHub 上比较——通过提交记录和代码变更。 在发布中，我们倾向于仅记录我们认为的上次稳定版与当前版本之间的重要更改。 Such brief changelog is never a complete one, so if you'd like to see every change that happened between one version and another (such as our dependencies upgrades) - please use **[GitHub history](https://github.com/JustArchiNET/ArchiSteamFarm/compare)** for that.
 
 ASF 项目由 **[CI 流程](https://github.com/JustArchiNET/ArchiSteamFarm/actions)**&#8203;提供支持。 每个构建都应该是可重现的，因此如果您获取对应版本的源代码（在发布页面同时提供）并自行编译，其结果应该与我们预编译的二进制文件相同。 我们通常避免自行编译发布，已发布的二进制包都直接来自于 CI 流程。
