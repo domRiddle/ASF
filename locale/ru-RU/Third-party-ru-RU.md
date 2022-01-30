@@ -8,7 +8,7 @@
 
 ## Плагины для ASF
 
-### Ryzhehvost
+### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
 - **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, плагин для ASF, дающий возможность управлять достижениями Steam.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, плагин для ASF, добавляющий функционал создания наборов карточек из самоцветов.
@@ -17,7 +17,7 @@
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, плагин для ASF, позволяющий автоматически принимать предложения обмена, в которых у него запрашивают предметы заданного(ых) типа(ов).
 - ** [ Selective-Loot-and-Transfer-Plugin ](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin) **, плагин для ASF, предоставляющий расширение команды ` transfer ` для передачи предметов Steam.
 
-### Vital7
+### **[Vital7](https://github.com/Vital7)**
 
 - ** [ FriendAccepter ](https://github.com/Vital7/FriendAccepter) **, плагин для ASF, позволяющий автоматически принимать все приглашения в друзья.
 - ** [ GameRemover ](https://github.com/Vital7/GameRemover) **, плагин для ASF, реализующий команду удаления лицензий Steam для выбранных экземпляры ботов.

@@ -8,7 +8,7 @@
 
 ## ASF 플러그인
 
-### Ryzhehvost
+### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
 - **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, 부스터 팩 생성기능을 하는 ASF 플러그인입니다.
@@ -17,7 +17,7 @@
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, ASF가 특정 형태의 아이템 거래를 자동으로 수락하는 플러그인입니다.
 - **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
 
-### Vital7
+### **[Vital7](https://github.com/Vital7)**
 
 - **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
 - **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.

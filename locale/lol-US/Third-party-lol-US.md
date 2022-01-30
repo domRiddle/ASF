@@ -8,7 +8,7 @@ PLZ NOWT DAT BELOW PROGRAMS R **NOT** MAINTAIND BY ASF DEVELOPERS AN THEREFORE *
 
 ## ASF PLUGINS
 
-### RYZHEHVOST
+### **[RYZHEHVOST](https://github.com/Ryzhehvost)**
 
 - **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, PLUGIN 4 ASF DAT ALLOWS U 2 MANAGE STEAM ACHIEVEMENTS.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, PLUGIN 4 ASF ADDIN FUNCSHUNALITY OV CREATIN BOOSTR PACKZ.
@@ -17,7 +17,7 @@ PLZ NOWT DAT BELOW PROGRAMS R **NOT** MAINTAIND BY ASF DEVELOPERS AN THEREFORE *
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, PLUGIN 4 ASF 2 AUTOMATICALLY ACCEPT TRADE REQUEST 4 CERTAIN TYPE(S) OV ITEMS.
 - **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, PLUGIN 4 ASF PROVIDIN ADVANCD `transfer` COMMAND 4 TRANZFERRIN STEAM ITEMS.
 
-### Vital7
+### **[Vital7](https://github.com/Vital7)**
 
 - **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, PLUGIN 4 ASF 2 AUTOMATICALLY ACCEPT ALL FREND INVITEZ.
 - **[GameRemover](https://github.com/Vital7/GameRemover)**, PLUGIN 4 ASF IMPLEMENTIN COMMAND 2 REMOOV STEAM LICENSEZ 4 SELECTD BOT INSTANCEZ.

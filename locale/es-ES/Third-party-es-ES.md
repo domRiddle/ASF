@@ -8,7 +8,7 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 
 ## Plugins de ASF
 
-### Ryzhehvost
+### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
 - **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin para ASF que permite gestionar los logros de Steam.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin para ASF que añade la funcionalidad de crear packs de refuerzo.
@@ -17,7 +17,7 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin de ASF para aceptar automáticamente solicitudes de intercambio para ciertos tipos de artículos.
 - **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin para ASF que proporciona un comando `transfer` avanzado para transferir artículos de Steam.
 
-### Vital7
+### **[Vital7](https://github.com/Vital7)**
 
 - **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin de ASF para aceptar automáticamente todas las solicitudes de amistad.
 - **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin para ASF que implementa un comando para eliminar licencias de Steam para las instancias de bot seleccionadas.

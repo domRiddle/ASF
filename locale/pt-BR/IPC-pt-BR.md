@@ -8,7 +8,7 @@ O IPC pode ser usado para muitas coisas diferentes, dependendo de suas necessida
 
 # Uso
 
-Unless you manually disabled IPC through `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's enabled by default. O ASF indicará a execução do IPC em seu log que você pode usar para verificar se a interface IPC foi iniciada corretamente:
+A menos que você tenha desabilitado manualmente o IPC através da **[propriedade de configuração global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)** do `IPC`, ele estará habilitado por padrão. O ASF indicará a execução do IPC em seu log que você pode usar para verificar se a interface IPC foi iniciada corretamente:
 
 ```text
 INFO|ASF|Start() Iniciando o servidor IPC...
@@ -19,9 +19,9 @@ O servidor http do ASF agora vai escutar nos endpoints selecionados. Se você n�
 
 A interface IPC do ASF pode ser acessada de três maneiras diferentes dependendo de como você planeja usá-lo.
 
-No nível mais baixo há o **[ASF API](#asf-api)** que é o núcleo da nossa interface IPC e permite que todo o resto opere. É ele que você vai usar em suas próprias ferramentas, utilitários e projetos a fim de comunicar-se diretamente com o ASF.
+No nível mais baixo há o **[ASF API](#asf-api)** que é o núcleo da nossa interface IPC e permite que todo o resto opere. Isso é o que você quer usar em suas próprias ferramentas, utilitários e projetos a fim de comunicar-se diretamente com o ASF.
 
-No nível médio há a nossa **[documentação Swagger](#documentação-Swagger)** que atua como uma interface para o API do ASF. Ela apresenta uma documentação completa para a API do ASF que também permite que você o acesse mais facilmente. É ela que você quer checar se você planeja desenvolver uma ferramenta, utilitário ou outros projetos que supõem se comunicar com o ASF através da API.
+No nível médio há a nossa **[documentação Swagger](#documentação-Swagger)** que atua como uma interface para o API do ASF. Ela apresenta uma documentação completa para a API do ASF que também permite que você o acesse mais facilmente. Isso é o que você quer checar se você está planejando escrever uma ferramenta, utilitário ou outros projetos supostos a se comunicarem com o ASF por meio da API.
 
 No nível mais alto há a **[ASF-ui](#asf-ui)** que é baseada no nosso API do ASF e fornece uma forma amigável de executar várias ações do ASF. Essa é nossa interface IPC padrão desenvolvida para usuários finais, e um exemplo perfeito do que você pode criar com a API do ASF. Se você quiser, você pode usar sua própria interface web com o ASF, especificando o caminho com o **[](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR#argumentos)** `--path` e utilizando a pasta `www` localizada lá.
 

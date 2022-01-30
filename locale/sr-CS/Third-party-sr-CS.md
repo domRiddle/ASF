@@ -8,7 +8,7 @@ Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog 
 
 ## ASF dodaci
 
-### Ryzhehvost
+### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
 - **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin za SF koji vam omogućava da upravljate vašim Steam dostignućima.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, dodatak za ASF koji dodaje funkcionalnost za pravljenje booster pakova.
@@ -17,7 +17,7 @@ Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog 
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, dodatak za ASF koji automatski prihvata zahtjeve za razmjenu za određene tipove item-a.
 - **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin za ASF koji obezbeđuje napredni `prenos` komandi za transferovanja Steam itema.
 
-### Vital7
+### **[Vital7](https://github.com/Vital7)**
 
 - **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin za ASF koji automatski prihvata sve zahteve za prijateljstvo.
 - **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin za ASF koji implementira komandu za uklanjanje Steam licenci za izabrane botove.

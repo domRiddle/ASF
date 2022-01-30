@@ -8,7 +8,7 @@
 
 ## ASF 插件
 
-### Ryzhehvost
+### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
 - **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**，使您可以通过 ASF 管理 Steam 成就的插件。
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**，使 ASF 能够制作补充包的插件。
@@ -17,7 +17,7 @@
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**，使 ASF 自动接受特定类型物品的交易请求的插件。
 - **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**，为 ASF 提供用于转移 Steam 物品的高级 `transfer` 命令。
 
-### Vital7
+### **[Vital7](https://github.com/Vital7)**
 
 - **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**，使 ASF 自动接受所有好友请求的插件。
 - **[GameRemover](https://github.com/Vital7/GameRemover)**，为 ASF 添加一个命令，可以为指定的机器人移除 Steam 许可证。

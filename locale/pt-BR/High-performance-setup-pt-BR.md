@@ -10,11 +10,11 @@ O ASF tenta preferir desempenho quando se trata equilíbrio, portanto não há m
 
 ## Ajuste do tempo de execução (avançado)
 
-Below tricks **involve serious memory and startup time increase** and should therefore be used with caution.
+Os truques abaixo **envolvem um aumento sério de memória e tempo de inicialização** e, portanto, devem ser usados ​​com cautela.
 
-The recommended way of applying those settings is through `DOTNET_` environment properties. Claro, você também pode usar outros métodos, p. ex.: `runtimeconfig.json`, mas é impossível definir algumas configurações desta maneira e, além disso, o ASF substituirá o seu arquivo personalizado `runtimeconfig.json` pelo arquivo próprio do ASF, portanto recomendamos propriedades de ambiente que você possa definir facilmente antes de iniciar o processo.
+A maneira recomendada de aplicar estas configurações é por meio das propriedades de ambiente `DOTNET_`. Claro, você também pode usar outros métodos, p. ex.: `runtimeconfig.json`, mas é impossível definir algumas configurações desta maneira e, além disso, o ASF substituirá o seu arquivo personalizado `runtimeconfig.json` pelo arquivo próprio do ASF, portanto recomendamos propriedades de ambiente que você possa definir facilmente antes de iniciar o processo.
 
-.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs. We've documented below properties that are especially important in our opinion.
+O .NET runtime permite que você **[ajuste o coletor de lixo](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** em diferentes maneiras, melhorando-o efetivamente de acordo com suas necessidades. Nós documentamos abaixo propriedades que são especialmente importantes em nossa opinião.
 
 ### [`gcServer`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
@@ -32,9 +32,9 @@ No entanto, se memória não é um problema para você (como o coletor de lixo l
 
 ### **[`DOTNET_TieredPGO`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#profile-guided-optimization)**
 
-> This setting enables dynamic or tiered profile-guided optimization (PGO) in .NET 6 and later versions.
+> Essa configuração habilita a otimização guiada por perfil (PGO) dinâmica ou escalonada no .NET 6 e versões posteriores.
 
-Disabled by default. In a nutshell, this will cause JIT to spend more time analyzing ASF's code and its patterns in order to generate superior code optimized for your typical usage. If you want to learn more about this setting, visit **[performance improvements in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**.
+Desativado por padrão. In a nutshell, this will cause JIT to spend more time analyzing ASF's code and its patterns in order to generate superior code optimized for your typical usage. Se você quiser aprender mais sobre essa configuração, visite **[melhorias de desempenho no .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**.
 
 ### **[`DOTNET_ReadyToRun`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#readytorun)**
 
