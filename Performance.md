@@ -30,7 +30,7 @@ Don't blindly set `HoursUntilCardDrops` only because somebody told you to - do t
 
 ### What is the best way to find out if your account is restricted?
 
-Make sure you have some games to farm, preferably 5+, and run ASF with `HoursUntilCardDrops` of `0`. It would be a good idea if you didn't play anything during farming period for more accurate results (best to run ASF during the night). Let ASF farm those 5 games, and after that check out the log for results.
+Make sure you have some games with **no playtime recorded** to farm, preferably 5+, and run ASF with `HoursUntilCardDrops` of `0`. It would be a good idea if you didn't play anything during farming period for more accurate results (best to run ASF during the night). Let ASF farm those 5 games, and after that check out the log for results.
 
 ASF clearly states when a card for given game was dropped. You're interested in fastest card drop achieved by ASF. For example, if your account is unrestricted then a first card drop should happen after around 30 minutes since you started farming. If you notice **at least one** game that did drop card in those initial 30 minutes, then this is an indicator that your account is **not** restricted and should use `HoursUntilCardDrops` of `0`.
 
