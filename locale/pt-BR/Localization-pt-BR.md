@@ -24,15 +24,15 @@ Se o idioma de sua escolha conter linhas sem tradução, você pode pegá-las e 
 
 Por exemplo, você poderia ter uma linha assim:
 
-> We have {0} games to farm.
+> Temos {0} jogos para farmar.
 
 Mas em seu idioma, a seguinte frase poderia fazer mais sentido:
 
-> The number of games to farm is equal to {0}.
+> O número de jogos para farmar é igual à {0}.
 
 Ou:
 
-> {0} is the number of games to farm.
+> {0} é o número de jogos para farmar.
 
 A flexibilidade é fornecida especialmente para você, então você pode reformular ligeiramente a sentença do ASF para ficar melhor em seu idioma e mover o número fornecido pelo ASF ou outras informações para o lugar que se encaixe em sua tradução (em vez de traduzir cada parte independentemente). Isso melhora a qualidade geral da tradução.
 

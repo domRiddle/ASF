@@ -112,7 +112,7 @@ Se você tem um autenticador em seu telefone, você pode, opcionalmente, remover
 
 ---
 
-## FAQ
+## Perguntas Frequentes (F.A.Q)
 
 ### Como o ASF faz uso do módulo 2FA?
 
