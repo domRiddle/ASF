@@ -54,7 +54,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
 
 ---
 
-## Global config
+## Globální konfigurace
 
 Global config is located in `ASF.json` file and has following structure:
 
@@ -335,7 +335,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 ---
 
-## Bot config
+## Konfigurace bota
 
 As you should know already, every bot should have its own config based on example JSON structure below. Start from deciding how you want to name your bot (e.g. `1.json`, `main.json`, `primary.json` or `AnythingElse.json`) and head over to configuration.
 
@@ -497,7 +497,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 | 14    | MarketableAscending       | Try to farm games with unmarketable card drops first                             |
 | 15    | MarketableDescending      | Try to farm games with marketable card drops first                               |
 
-Since this property is an array, it allows you to use several different settings in your fixed order. For example, you can include values of `15`, `11` and `7` in order to sort by marketable games first, then by those with highest badge level, and finally alphabetically. As you can guess, the order actually matters, as reverse one (`7`, `11` and `15`) achieves something entirely different. Majority of people will probably use just one order out of all of them, but in case you want to, you can also sort further by extra parameters.
+Since this property is an array, it allows you to use several different settings in your fixed order. For example, you can include values of `15`, `11` and `7` in order to sort by marketable games first, then by those with highest badge level, and finally alphabetically. As you can guess, the order actually matters, as reverse one (`7`, `11` and `15`) achieves something entirely different (sorts games alphabetically first, and due to game names being unique, the other two are effectively useless). Majority of people will probably use just one order out of all of them, but in case you want to, you can also sort further by extra parameters.
 
 Also notice the word "try" in all above descriptions - the actual ASF order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. For example, in `Simple` algorithm, selected `FarmingOrders` should be entirely respected in current farming session (as every game has the same performance value), while in `Complex` algorithm actual order is affected by hours first, and then sorted according to chosen `FarmingOrders`. This will lead to different results, as games with existing playtime will have a priority over others, so effectively ASF will prefer games that already passed required `HoursUntilCardDrops` firstly, and only then sorting those games further by your chosen `FarmingOrders`. Likewise, once ASF runs out of already-bumped games, it'll sort remaining queue by hours first (as that will decrease time required for bumping any of remaining titles to `HoursUntilCardDrops`). Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer farming performance over `FarmingOrders`).
 
@@ -804,7 +804,7 @@ If you're not sure how to set this property, leave it with default value of `0`.
 
 ---
 
-## File structure
+## Struktura souboru
 
 ASF is using quite simple file structure.
 

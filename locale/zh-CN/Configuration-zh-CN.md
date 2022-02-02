@@ -497,7 +497,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 | 14 | MarketableAscending       | 尝试先挂掉落卡牌无法出售的游戏         |
 | 15 | MarketableDescending      | 尝试先挂掉落卡牌可以出售的游戏         |
 
-由于此属性是一个数组，因此您可以按不同优先级使用多种排序方式。 例如，您可以按顺序选择方式 `15`、`11` 和 `7`，首先按照卡牌能否出售排序，然后按照徽章等级排序，最后按照字母顺序排序。 您可能已经猜到，选项的顺序很重要，如果您反转该属性的选项（`7`、`11` 和 `15`），则结果会完全不同。 大多数用户可能只需要从中选择一种排序方式，但如果您想进一步调整挂卡顺序，也可以添加多种排序方式。
+由于此属性是一个数组，因此您可以按不同优先级使用多种排序方式。 例如，您可以按顺序选择方式 `15`、`11` 和 `7`，首先按照卡牌能否出售排序，然后按照徽章等级排序，最后按照字母顺序排序。 As you can guess, the order actually matters, as reverse one (`7`, `11` and `15`) achieves something entirely different (sorts games alphabetically first, and due to game names being unique, the other two are effectively useless). 大多数用户可能只需要从中选择一种排序方式，但如果您想进一步调整挂卡顺序，也可以添加多种排序方式。
 
 需要注意的是上表中所有描述都含有词汇“尝试”——ASF 实际采用的顺序非常受所选的&#8203;**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**&#8203;影响，并且 ASF 只会在不影响性能的情况下尝试进行排序。 例如，在使用 `Simple` 算法时，当前挂卡会话将会严格按照您设置的 `FarmingOrders` 排序（因为每款游戏的性能值都相同），而在使用 `Complex` 算法时，实际的挂卡顺序首先受游戏小时数影响，然后才按照 `FarmingOrders` 排序。 这会导致不同的结果，因为已有游戏时间的游戏将会优于其他游戏，因此 ASF 会首先挂游戏时长已满足 `HoursUntilCardDrops` 要求的游戏，然后才按照您设置的 `FarmingOrders` 顺序挂其他游戏。 同样地，ASF 在挂完了所有时长达标的游戏之后，会将剩余的游戏按照游戏小时数排序（因为这能够减少将游戏时长挂到 `HoursUntilCardDrops` 所需的时间）。 因此，这个配置属性仅仅是为 ASF 提供的一个**建议**，ASF 会在不降低挂卡性能的情况下尽量遵守（在二者有冲突时，ASF 会优先考虑性能而不是 `FarmingOrders`）。
 

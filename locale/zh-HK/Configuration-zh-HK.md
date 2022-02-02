@@ -497,7 +497,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 | 14 | MarketableAscending       | 嘗試先對掉落不可售卡片的遊戲進行掛卡       |
 | 15 | MarketableDescending      | 嘗試先對掉落可售卡片的遊戲進行掛卡        |
 
-由於此屬性是一個數組，因此它允許您按固定順序使用多個不同的設置。 例如，您可以設置` 15 `，` 11 `和` 7 `的值，以便先按會掉落可交易卡的遊戲進行排序，然後按徽章級別最高的遊戲進行排序 ，最後按遊戲名稱字母順序排列。 正如您所猜測的那樣，順序實際上很重要，因為反向排列（` 7 `，` 11 `和` 15 `）會導致截然不同的結果。 大多數人可能只使用其中一個順序，但如果您願意，您還可以通過額外的參數進一步排序。
+由於此屬性是一個數組，因此它允許您按固定順序使用多個不同的設置。 例如，您可以設置` 15 `，` 11 `和` 7 `的值，以便先按會掉落可交易卡的遊戲進行排序，然後按徽章級別最高的遊戲進行排序 ，最後按遊戲名稱字母順序排列。 As you can guess, the order actually matters, as reverse one (`7`, `11` and `15`) achieves something entirely different (sorts games alphabetically first, and due to game names being unique, the other two are effectively useless). 大多數人可能只使用其中一個順序，但如果您願意，您還可以通過額外的參數進一步排序。
 
 另請注意以上所有描述中的“嘗試”一詞——實際的ASF順序受所選** [掛卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**的影響，並且排序將僅影響ASF認為性能相同的結果。 例如，在` Simple `算法中，在當前的掛卡會話中應該完全遵循所選的` FarmingOrders `（因為每個遊戲具有相同的性能值），而在` Complex `算法中，實際順序首先受遊戲時間影響，然後根據所選` FarmingOrders `進行排序。 這將導致不同的結果，因為具有遊戲時間的遊戲將優先於其他遊戲，因此ASF將首先優先選擇遊戲時間滿足所需的` HoursUntilCardDrops `的遊戲，然後僅通過您選擇的 `FarmingOrders`進一步對這些遊戲進行排序。 同樣，一旦ASF完成對置頂遊戲的掛卡，它將首先按遊戲時間對剩餘隊列排序（因為這將減少將任何剩餘遊戲掛卡以達` HoursUntilCardDrops `所需的時間）。 Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer farming performance over `FarmingOrders`).
 

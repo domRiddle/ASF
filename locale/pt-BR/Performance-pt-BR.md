@@ -16,7 +16,7 @@ O algorítimo **simples (Simple)** funciona melhor para contas que não tem rest
 
 O **complexo (Complex)** é um algoritmo novo que foi implementado para ajudar contas restritas a maximizar seus lucros. ASF will firstly use standard **Simple** algorithm on all games that passed `HoursUntilCardDrops` hours of playtime, then, if no games with >= `HoursUntilCardDrops` hours are left, it will farm all games (up to `32` limit) with < `HoursUntilCardDrops` hours left simultaneously, until any of them hits `HoursUntilCardDrops` hours mark, then ASF will continue the loop from beginning (use **Simple** on that game, return to simultaneous on < `HoursUntilCardDrops` and so on). Podemos rodar vários jogos neste caso para aumentar as horas dos jogos que precisamos coletar até que eles atinjam o valor necessário. Keep in mind that during farming hours, ASF **does not** farm cards, therefore it also won't check for any card drops during that period (for reasons stated above).
 
-Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDrops` config property (which is  set by **you**). If `HoursUntilCardDrops` is set to `0`, **Simple** algorithm will be used, otherwise, **Complex** algorithm will be used instead.
+Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDrops` config property (which is  set by **you**). If `HoursUntilCardDrops` is set to `0`, **Simple** algorithm will be used, otherwise, **Complex** algorithm will be used instead - configured to bump playtime in all games to given amount of hours before farming them for card drops.
 
 ---
 
@@ -30,7 +30,7 @@ Não defina cegamente `HoursUntilCardDrops` só porque alguém te disse para faz
 
 ### Qual é a melhor maneira de descobrir se sua conta é restrita?
 
-Tenha certeza de que você tem jogos dos quais coletar, preferencialmente cinco ou mais, e rode o ASF com o valor `0` em `HoursUntilCardDrops`. Seria uma boa ideia não jogar nada durante o período de coleta para obter resultados mais precisos (melhor rodar o ASF durante a noite). Deixe o ASF fazer o processo de coleta desses 5 jogos e, depois, confira o log para ver os resultados.
+Make sure you have some games with **no playtime recorded** to farm, preferably 5+, and run ASF with `HoursUntilCardDrops` of `0`. Seria uma boa ideia não jogar nada durante o período de coleta para obter resultados mais precisos (melhor rodar o ASF durante a noite). Deixe o ASF fazer o processo de coleta desses 5 jogos e, depois, confira o log para ver os resultados.
 
 O ASF diz claramente quando uma carta para determinado jogo foi recebida. Você está interessado no recebimento mais rápido alcançado pelo ASF. Por exemplo, se sua conta não tiver restrição, então a primeira carta deve aparecer após cerca de 30 minutos de coleta. If you notice **at least one** game that did drop card in those initial 30 minutes, then this is an indicator that your account is **not** restricted and should use `HoursUntilCardDrops` of `0`.
 

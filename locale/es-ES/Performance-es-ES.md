@@ -16,7 +16,7 @@ El algoritmo **Simple** funciona mejor para cuentas que tienen la obtención de 
 
 El algoritmo **Complejo** es uno nuevo que fue implementado para ayudar a las cuentas con restricción a maximizar sus beneficios. ASF primero usará el algoritmo **Simple** estándar en todos los juegos que superen las horas de tiempo jugado definido en `HoursUntilCardDrops`, luego, si no quedan juegos con >= `HoursUntilCardDrops` horas jugadas, recolectará simultáneamente todos los juegos (hasta un límite de `32`) con < `HoursUntilCardDrops` horas, hasta que cualquiera de ellos alcance la marca de `HoursUntilCardDrops` horas, entonces ASF continuará el ciclo desde el principio (usará el algoritmo **Simple** en ese juego, regresará a la recolección simultánea en los que tengan < `HoursUntilCardDrops` horas y así sucesivamente). Podemos usar la recolección de múltiples juegos en este caso para aumentar a un valor apropiado las horas de los juegos que necesitamos recolectar. Ten en cuenta que durante la recolección de horas, ASF **no** recolecta cromos, por lo que tampoco comprobará la obtención de cromos durante ese período (por las razones señaladas arriba).
 
-Actualmente, ASF elige el algoritmo de recolección de cromos basado exclusivamente en la propiedad de configuración `HoursUntilCardDrops` (que es establecida por **ti**). Si `HoursUntilCardDrops` se encuentra establecido en `0`, se utilizará el algoritmo **Simple**, de lo contrario, en su lugar se usará el algoritmo **Complejo**.
+Actualmente, ASF elige el algoritmo de recolección de cromos basado exclusivamente en la propiedad de configuración `HoursUntilCardDrops` (que es establecida por **ti**). Si `HoursUntilCardDrops` se establece a `0`, se usará el algoritmo **Simple**, de lo contrario, se usará el algoritmo **Complejo** - configurado para aumentar el tiempo de juego en todos los juegos hasta una determinada cantidad de horas antes de recolectarlos por cromos obtenibles.
 
 ---
 
@@ -30,7 +30,7 @@ No establezcas ciegamente `HoursUntilCardDrops` solo porque alguien te lo dijo -
 
 ### ¿Cuál es la mejor manera de averiguar si tu cuenta está restringida?
 
-Asegúrate de que tienes algunos juegos para obtener cromos, de preferencia 5 o más, y ejecuta ASF con `HoursUntilCardDrops` de `0`. Sería buena idea que no juegues nada durante el período de recolección para mayor precisión en los resultados (mejor ejecutar ASF durante la noche). Deja que ASF recolecte esos 5 juegos, y después de eso comprueba el registro para los resultados.
+Asegúrate de tener algunos juegos para recolectar **sin tiempo de juego registrado**, de preferencia 5 o más, y ejecuta ASF con `HoursUntilCardDrops` de `0`. Sería buena idea que no juegues nada durante el período de recolección para mayor precisión en los resultados (mejor ejecutar ASF durante la noche). Deja que ASF recolecte esos 5 juegos, y después de eso comprueba el registro para los resultados.
 
 ASF indica claramente cuando se ha obtenido un cromo para un juego determinado. Te interesa encontrar la obtención de cromos más rápida lograda por ASF. Por ejemplo, si tu cuenta no tiene restricción entonces la primera obtención de cromos debería producirse aproximadamente 30 minutos desde que iniciaste la recolección. Si notas **al menos un** juego que soltó un cromo en esos 30 minutos iniciales, este es un indicador de que tu cuenta **no** está restringida y debería usar `HoursUntilCardDrops` de `0`.
 

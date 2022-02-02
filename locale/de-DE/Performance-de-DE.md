@@ -16,7 +16,7 @@ ASF beinhaltet derzeit zwei Sammel-Algorithmen:
 
 **Komplex** ist ein neuer Algorithmus der implementiert wurde, um auch eingeschränkten Konten zu helfen, ihre Gewinne zu maximieren. ASF will firstly use standard **Simple** algorithm on all games that passed `HoursUntilCardDrops` hours of playtime, then, if no games with >= `HoursUntilCardDrops` hours are left, it will farm all games (up to `32` limit) with < `HoursUntilCardDrops` hours left simultaneously, until any of them hits `HoursUntilCardDrops` hours mark, then ASF will continue the loop from beginning (use **Simple** on that game, return to simultaneous on < `HoursUntilCardDrops` and so on). In diesem Fall können wir "Mehrere-Spiele-Sammeln" verwenden, um die Stunden der Spiele, die wir Sammeln müssen, auf einen angemessenen Wert zu bringen. Keep in mind that during farming hours, ASF **does not** farm cards, therefore it also won't check for any card drops during that period (for reasons stated above).
 
-Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDrops` config property (which is  set by **you**). If `HoursUntilCardDrops` is set to `0`, **Simple** algorithm will be used, otherwise, **Complex** algorithm will be used instead.
+Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDrops` config property (which is  set by **you**). If `HoursUntilCardDrops` is set to `0`, **Simple** algorithm will be used, otherwise, **Complex** algorithm will be used instead - configured to bump playtime in all games to given amount of hours before farming them for card drops.
 
 ---
 
@@ -30,7 +30,7 @@ Dies ist einer der Gründe, warum du keinen Karten-Sammel-Algorithmus wählst, s
 
 ### Was ist der beste Weg, um herauszufinden, ob dein Konto eingeschränkt ist?
 
-Stelle sicher, dass du einige Spiele zu Sammeln hast, vorzugsweise 5+, und führe ASF mit `HoursUntilCardDrops` von `0` aus. Es wäre eine gute Idee, wenn du während des Sammelns nichts spielen würdest, um genauere Ergebnisse zu erzielen (am besten ASF nachts laufen lassen). Lass ASF diese 5 Spiele sammeln und schaue Ihrendanach das Protokoll an, um die Ergebnisse zu sehen.
+Make sure you have some games with **no playtime recorded** to farm, preferably 5+, and run ASF with `HoursUntilCardDrops` of `0`. Es wäre eine gute Idee, wenn du während des Sammelns nichts spielen würdest, um genauere Ergebnisse zu erzielen (am besten ASF nachts laufen lassen). Lass ASF diese 5 Spiele sammeln und schaue Ihrendanach das Protokoll an, um die Ergebnisse zu sehen.
 
 ASF zeigt deutlich an, wann eine Karte für ein bestimmtes Spiel gesammelt wurde. Du möchtest den schnellsten Karten Drop den ASF erreicht hat. Wenn dein Konto beispielsweise uneingeschränkt ist, sollte ein erster Karten Drop nach etwa 30 Minuten seit Beginn des Sammelns erfolgen. If you notice **at least one** game that did drop card in those initial 30 minutes, then this is an indicator that your account is **not** restricted and should use `HoursUntilCardDrops` of `0`.
 
