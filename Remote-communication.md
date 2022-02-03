@@ -55,7 +55,7 @@ If you're looking for easy way to access our listing in programmatic way, we hav
 
 ### Privacy policy
 
-If you agree to being listed in our listing, by enabling `SteamTradeMatcher` and not refusing `PublicListing`, as specified above, we'll temporarily store some of your Steam account details on our server in order to offer the core functionality.
+If you agree to being listed in our listing, by enabling `SteamTradeMatcher` and not refusing `PublicListing`, as specified above, we'll temporarily store some of your Steam account details on our server in order to provide the core functionality.
 
 Public info (exposed by Steam to every interested party) includes:
 - Your Steam identificator (in 64-bit form, for generating links)
