@@ -64,7 +64,7 @@ Public info (exposed by Steam to every interested party) includes:
 - Total number of `MatchableTypes` Steam items in your inventory (for display purposes and matching)
 - Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and matching)
 
-Private info (selected data required for offering the functionality) includes:
+Private info (selected data required for providing the functionality) includes:
 - Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
 - Your `MatchableTypes` (for display purposes and matching)
 - Value of `MatchEverything` in your `TradingPreferences` (for display purposes and matching)
