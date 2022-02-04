@@ -80,7 +80,6 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
     "MaxTradeHoldDuration": 15,
     "MinFarmingDelayAfterBlock": 60,
     "OptimizationMode": 0,
-    "Statistics": true,
     "SteamMessagePrefix": "/me ",
     "SteamOwnerID": 0,
     "SteamProtocols": 7,
@@ -228,7 +227,7 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ### `MinFarmingDelayAfterBlock`
 
-`byte` type with default value of `60`. This property defines minimum amount of time, in seconds, which ASF will wait before resuming cards farming if it got previously disconnected with `LoggedInElsewhere`, which happens when you decide to forcefully disconnect currently-idling ASF by launching a game. This delay exists mainly for convenience and overhead reasons, for example it allows you to restart the game without having to fight with ASF occupying your account again only because playing lock was available for a split second. Due to the fact that reclaiming the session causes `LoggedInElsewhere` disconnect, ASF has to go through whole reconnect procedure, which puts additional pressure on the machine and Steam network, therefore avoiding additional disconnects, if possible, is preferable. By default, this is configured at `60` seconds, which should be enough to allow you restart the game without much hassle. However, there are scenarios when you could be interested in increasing it, for example if your network disconnects often and ASF is taking over too soon, which causes being forced to go through the reconnect process yourself. We allow a maximum value of `255` for this property, which should be enough for all common scenarios. In addition to the above, it's also possible to decrease the delay, or even remove it entirely with a value of `0`, although that is usually not recommended due to reasons stated above. 除非您有充分的修改理由，否則應保持它為預設值。
+這是一個預設值為`60`的`byte flags`類型屬性。 This property defines minimum amount of time, in seconds, which ASF will wait before resuming cards farming if it got previously disconnected with `LoggedInElsewhere`, which happens when you decide to forcefully disconnect currently-idling ASF by launching a game. This delay exists mainly for convenience and overhead reasons, for example it allows you to restart the game without having to fight with ASF occupying your account again only because playing lock was available for a split second. Due to the fact that reclaiming the session causes `LoggedInElsewhere` disconnect, ASF has to go through whole reconnect procedure, which puts additional pressure on the machine and Steam network, therefore avoiding additional disconnects, if possible, is preferable. By default, this is configured at `60` seconds, which should be enough to allow you restart the game without much hassle. However, there are scenarios when you could be interested in increasing it, for example if your network disconnects often and ASF is taking over too soon, which causes being forced to go through the reconnect process yourself. We allow a maximum value of `255` for this property, which should be enough for all common scenarios. In addition to the above, it's also possible to decrease the delay, or even remove it entirely with a value of `0`, although that is usually not recommended due to reasons stated above. 除非您有充分的修改理由，否則應保持它為預設值。
 
 ---
 
@@ -238,21 +237,15 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ---
 
-### `統計資訊`
-
-預設值為 `true` 的 `bool` 類型。 此屬性定義ASF是否啟用統計資訊。 Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. 除非您有充分的修改理由，否則應保持它為預設值。
-
----
-
 ### `SteamMessagePrefix`
 
-預設值為 `"/me "` 的 `string` 類型。 此屬性定義了一個首碼, 該首碼將作為ASF發送的所有 Steam 消息的首碼。 預設情況下, ASF使用`"/me "` 首碼, 以便通過在 Steam 聊天中以不同的顏色顯示機械人消息來更輕鬆地區分機械人消息。 另一個值得提及的地方是 `"/pre "` 首碼, 它實現了類似的結果, 但使用了不同的格式。 您還可以將此屬性設置為空字串或 `null`, 以便完全禁用首碼, 並以傳統方式輸出所有ASF消息。 好消息是, 此屬性僅影響 Steam 消息-通過其他通道 (如 IPC) 返回的回應不受影響。 除非您要自訂標準 ASF 行為, 否則最好將其保留為預設值。
+預設值為 `"/me "` 的 `string` 類型。 此屬性定義了一個首碼, 該首碼將作為ASF發送的所有 Steam 消息的首碼。 預設情況下, ASF使用`"/me "` 首碼, 以便通過在 Steam 聊天中以不同的顏色顯示機器人消息來更輕鬆地區分機器人消息。 另一個值得提及的地方是 `"/pre "` 首碼, 它實現了類似的結果, 但使用了不同的格式。 您還可以將此屬性設置為空字串或 `null`, 以便完全禁用首碼, 並以傳統方式輸出所有ASF消息。 好消息是, 此屬性僅影響 Steam 消息-通過其他通道 (如 IPC) 返回的回應不受影響。 除非您要自訂標準 ASF 行為, 否則最好將其保留為預設值。
 
 ---
 
 ### `SteamOwnerID`
 
-預設值 為`0` 的 `ulong` 類型。 此屬性以64位形式的Steam ID定義 ASF 進程擁有者，類似于給定機械人實例的 `master` 許可權（但作用於全域）。 通常您應該會希望將屬性設置為您的Steam主帳戶ID。 `Master` 許可權包括對其機器人實例的完全控制， 僅`SteamOwnerID`中指定的用戶才能發佈全域命令，如 `exit``restart` 或 `update`。 這很方便，因為你可能想為你的朋友運行機械人，同時不允許他們通過 `exit` 之類的命令控制 ASF 進程。 預設值 `0` 表示當前ASF進程無擁有者，這意味著沒有人能夠發出全域 ASF 命令。 Keep in mind that **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** commands work with `SteamOwnerID`, so if you want to use them, then you must provide a valid value here.
+預設值 為`0` 的 `ulong` 類型。 此屬性以64位形式的Steam ID定義 ASF 進程擁有者，類似于給定機械人實例的 `master` 許可權（但作用於全域）。 通常您應該會希望將屬性設置為您的Steam主帳戶ID。 `Master` 許可權包括對其機器人實例的完全控制， 僅`SteamOwnerID`中指定的用戶才能發佈全域命令，如 `exit``restart` 或 `update`。 這很方便，因為你可能想為你的朋友運行機械人，同時不允許他們通過 `exit` 之類的命令控制 ASF 進程。 預設值 `0` 表示當前ASF進程無擁有者，這意味著沒有人能夠發出全域 ASF 命令。 請記住，**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 命令必須和`SteamOwnerID`配合使用才能工作，因此，如果您想要使用它們，那麼您必須在此處提供一個有效的值。
 
 ---
 
@@ -267,15 +260,15 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 | 2 | UDP        | **[用戶數據報協議](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**       |
 | 4 | WebSockets | **[WebSockets](https://en.wikipedia.org/wiki/WebSocket)**                 |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. 不啟用任何標誌會導致` None `選項被啟用，並且該選項本身未曾指定有效值。
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項被啟用，並且該選項本身未曾指定有效值。
 
-By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. 通常，如果要將 ASF 限制為僅使用一個或兩個特定協議而不是所有可用協議，則需要更改此屬性。 如果您只在防火牆上啟用 TCP 流量，並且不希望 ASF 嘗試通過 UDP 進行連接，則可能需要這樣的措施。 但是，除非您正在調試特定問題或漏洞，否則您幾乎總是希望確保 ASF 可以自由使用當前支持的任何協議，而不僅僅是一個或兩個。 Unless you have a **strong** reason to edit this property, you should keep it at default.
+By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. 通常，如果要將 ASF 限制為僅使用一個或兩個特定協議而不是所有可用協議，則需要更改此屬性。 如果您只在防火牆上啟用 TCP 流量，並且不希望 ASF 嘗試通過 UDP 進行連接，則可能需要這樣的措施。 但是，除非您正在調試特定問題或漏洞，否則您幾乎總是希望確保 ASF 可以自由使用當前支持的任何協議，而不僅僅是一個或兩個。 除非您有**強烈**的修改意願，否則應保持它為预設值。
 
 ---
 
 ### `UpdateChannel`
 
-這是一個預設值為`1` 的 `byte flags` 類型屬性。 此屬性定義正在使用的更新通道，用於自動更新（如果` UpdatePeriod `大於` 0 `），或收到更新通知時（其他情況）。 當前 ASF 支援三個更新通道──`0`，`無更新`；`1`，`穩定版`；`2`，`探索版`。 `穩定版`通道是預設值，適用於大多數用戶。 `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. 如果您不認為自己是高級使用者, 請保留預設 ` 1 ` (穩定) 更新通道。 `Experimental` 通道專門針對知道如何報告錯誤、處理問題和提供回饋的使用者--不會提供任何技術支援。 如果您想了解更多資訊，請查看 ASF **[發布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**。 如果要完全禁用所有版本更新，還可以將` UpdateChannel `設置為` 0 `（` None `）。 將 `UpdateChannel` 設置為 ` 0 ` 將完全禁用與更新相關的整個功能, 包括 `update` 命令。 **強烈建議不要**使用`None`通道，因為您會遇到各種問題（在下面的` UpdatePeriod `說明中提到）。
+這是一個預設值為`7` 的 `byte flags` 類型屬性。 此屬性定義正在使用的更新通道，用於自動更新（如果` UpdatePeriod `大於` 0 `），或收到更新通知時（其他情況）。 當前 ASF 支援三個更新通道──`0`，`無更新`；`1`，`穩定版`；`2`，`探索版`。 `穩定版`通道是預設值，適用於大多數用戶。 `探索版`通道除了`穩定版`，還包括**預發行版本**， 專用於高級用戶和其他開發人員，以測試新功能、確認錯誤修復或提出增強功能。 **探索版通常包含未修補的漏洞、正在測試的工作功能或某些重寫的實現**。 如果您不認為自己是高級使用者, 請保留預設 ` 1 ` (穩定) 更新通道。 `Experimental` 通道專門針對知道如何報告錯誤、處理問題和提供回饋的使用者--不會提供任何技術支援。 如果您想了解更多資訊，請查看 ASF **[發布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**。 如果要完全禁用所有版本更新，還可以將` UpdateChannel `設置為` 0 `（` None `）。 將 `UpdateChannel` 設置為 ` 0 ` 將完全禁用與更新相關的整個功能, 包括 `update` 命令。 **強烈建議不要**使用`None`通道，因為您會遇到各種問題（在下面的` UpdatePeriod `說明中提到）。
 
 **除非您知道您在做什麼**，否則我們 **強烈** 建議保持它為預設值。
 
@@ -362,6 +355,7 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
     "PasswordFormat": 0,
     "Paused": false,
     "RedeemingPreferences": 0,
+    "RemoteCommunication": 7,
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,
@@ -650,11 +644,29 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 ---
 
+### `RemoteCommunication`
+
+`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+
+| 值 | 名稱            | 描述                                                                                                                                                                                                                                                                           |
+| - | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
+| 1 | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
+| 2 | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. 不啟用任何標誌會導致` None `選項。
+
+This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
+
+Further explanation on this subject is available in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. 除非您有充分的修改理由，否則應保持它為預設值。
+
+---
+
 ### `SendOnFarmingFinished`
 
 預設值為 `false` 的 `bool` 類型。 當 ASF 完成對給定帳戶的掛卡之後，它可以自動向擁有` Master `權限的用戶發送至今為止的掛卡所得，如果您不想自己發起交易提案，這將帶來便利。 此選項與` loot `命令的作用相同，因此請謹記，首先您需要有效的` SteamTradeToken `， 並使用實際有資格進行交易的帳戶，且只有` Master `權限集的用戶才能執行。 此選項處於活動狀態時，ASF除了在完成掛卡後執行` loot `之外，還（ 總是）會在收到每個新物品通知（不掛卡時）或完成每次交易之後執行` loot `。 這對於將從別處收到的物品「轉發」到我們的帳戶特別有用。
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
+通常情況下，您需要將此功能與 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**配合使用，但如果您打算手動確認，則 ASF 2FA並非必需。 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
 
 ---
 
@@ -662,13 +674,13 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 這是一個預設值為`0` 的 `byte flags` 類型。 這個屬性與` SendOnFarmingFinished `屬性非常相似，只有一個區別——當掛卡完成時，我們也可以每隔` SendTradePeriod `小時發送一次交易提案，而考慮我們有多少尚未完成掛卡的遊戲。 如果您想隨時從您的小號處 `拾取` 掛卡所得，而不必等待它完成掛卡，這將會很有幫助。 預設值 `0` 將禁用此功能，如果您想讓您的機器人向您發送交易，例如每天，您應該將此值設置為` 24 `。
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 如果您不確定該如何設置此屬性，請將其保留為預設值`0`。
+通常情況下，您需要將此功能與 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**配合使用，但如果您打算手動確認，則 ASF 2FA並非必需。 如果您不確定該如何設置此屬性，請將其保留為預設值`0`。
 
 ---
 
 ### `ShutdownOnFarmingFinished`
 
-預設值為 `false` 的 `bool` 類型。 ASF 會在整個進程中「佔用」處於活動狀態的帳戶。 當給定帳戶完成掛卡之後，ASF 會定期（每個` IdleFarmingPeriod `小時）檢查帳戶狀態，如果在此期間新增了一些帶有 Steam 卡的新遊戲，那麼它可以在無需重啓的情況下恢復該帳戶的掛卡進程。 這對大多數人都很有用，因為 ASF 可以在需要時自動復原掛卡。 但是，您可能實際上希望在給定帳戶完全結束掛卡後停止該過程，您可以通過將此屬性設置為 `true` 來實現。 啟用後，ASF 將在帳戶完全結束掛卡後登出，這意味著 ASF 不會對此帳戶進行定期檢查或佔用。 您應該自己決定是否更喜歡ASF在整個時間內使用給定的機械人實例，或者ASF是否應該在掛卡過程完成時停止它。 When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well, putting your machine at rest and allowing you to schedule other actions, such as sleep or shutdown at the same moment of last card dropping.
+預設值為 `false` 的 `bool` 類型。 ASF 會在整個進程中「佔用」處於活動狀態的帳戶。 當給定帳戶完成掛卡之後，ASF 會定期（每個` IdleFarmingPeriod `小時）檢查帳戶狀態，如果在此期間新增了一些帶有 Steam 卡的新遊戲，那麼它可以在無需重啓的情況下恢復該帳戶的掛卡進程。 這對大多數人都很有用，因為 ASF 可以在需要時自動復原掛卡。 但是，您可能實際上希望在給定帳戶完全結束掛卡後停止該過程，您可以通過將此屬性設置為 `true` 來實現。 啟用後，ASF 將在帳戶完全結束掛卡後登出，這意味著 ASF 不會對此帳戶進行定期檢查或佔用。 您應該自己決定是否更喜歡ASF在整個時間內使用給定的機械人實例，或者ASF是否應該在掛卡過程完成時停止它。 當所有帳戶都停止並且進程未在 `--process-required` **[模式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**下運行時，ASF 也將關閉，讓您的機器處於休眠狀態，並允許您安排其他操作，例如在獲得最後一張掉落卡片之後進入睡眠或關機狀態。
 
 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
 
@@ -676,7 +688,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `SkipRefundableGames`
 
-預設值為 `false` 的 `bool` 類型。 This property defines if ASF is permitted to farm games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. 如果您不確定是否要啟用此功能，請將其保留為預設值 `false`。
+預設值為 `false` 的 `bool` 類型。 This property defines if ASF is permitted to farm games that are still refundable. 所謂可退款的遊戲，是你在過去2周內通過 Steam 商店購買但遊戲時間不超過2小時的遊戲，如 **[Steam 退款](https://store.steampowered.com/steam_refunds)**頁面所述。 By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. 如果您不確定是否要啟用此功能，請將其保留為預設值 `false`。
 
 ---
 

@@ -228,7 +228,7 @@ However, keep in mind that Valve could still add ASF to the blacklist at some po
 
 ### 它安全嗎？
 
-如果您詢問ASF作為軟件是否安全，它不會對您的計算機造成任何損害，也不會竊取您的私人數據，安裝病毒或任何其他類似的東西——那麽這是安全的。 ASF is free of malware, data stealing, cryptocurrency miners and any (and all) other doubtful behaviour that can be considered malicious or unwanted by the user. In addition to that we have a dedicated **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section which covers our privacy policy and ASF behaviour that goes beyond what you configured the program to do yourself.
+如果您詢問ASF作為軟件是否安全，它不會對您的計算機造成任何損害，也不會竊取您的私人數據，安裝病毒或任何其他類似的東西——那麽這是安全的。 ASF is free of malware, data stealing, cryptocurrency miners and any (and all) other doubtful behaviour that can be considered malicious or unwanted by the user. In addition to that we have a dedicated **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section which covers our privacy policy and ASF behaviour that goes beyond what you configured the program to do yourself.
 
 Our code is open-source, and distributed binaries are always compiled from **[publicly available sources](https://en.wikipedia.org/wiki/Open-source_software)** by **[automated and trusted continuous integration systems](https://en.wikipedia.org/wiki/Build_automation)**, and not even developers themselves. Each build is reproducible by following our build script and will result in exactly the same, **[deterministic](https://en.wikipedia.org/wiki/Deterministic_system)** IL (binary) code. If you for whatever reason don't trust our builds, you can always compile and use ASF from source, including all libraries that ASF is using (such as SteamKit2), which are open-source too.
 
@@ -302,7 +302,7 @@ All of the incidents above have one thing in common - ASF is just a tool and it'
 
 ### What privacy information ASF discloses?
 
-You can find detailed explanation in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. 如果您關心自己的隱私，請查看它，例如： 如果您想知道為什麼使用ASF的帳戶會加入我們的Steam群組。 ASF doesn't collect any sensitive information, and doesn't share it with any third-parties.
+You can find detailed explanation in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. 如果您關心自己的隱私，請查看它，例如： 如果您想知道為什麼使用ASF的帳戶會加入我們的Steam群組。 ASF doesn't collect any sensitive information, and doesn't share it with any third-parties.
 
 ---
 

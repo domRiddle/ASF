@@ -51,11 +51,11 @@ Bu seçeneği etkinleştirdiğinizde, **[ASF 2FA](https://github.com/JustArchiNE
 
 ### `MatchActively`
 
-`MatchActively` ayarı, `SteamTradeMatcher`'ın genişletilmiş versiyonudur ve bu seçeneğin sunduğu pasif eşleştirmeye ek olarak, botun diğer kişilere işlem göndereceği aktif eşleştirmeyi de içerir.
+`MatchActively` setting is active version of `SteamTradeMatcher` which includes interactive matching in which the bot will send trades to other people. It can work standalone, or together with `SteamTradeMatcher` setting.
 
-Bu seçeneği kullanmak için karşılamanız gereken bir dizi gereksiniminiz vardır. İlk olarak, `SteamTradeMatcher`'ı etkinleştirmeniz gerekir (çünkü bu özellik bunun bir uzantısıdır) ve `MatchEverything`'in **devre dışı** olduğundan emin olun. (ticaret botları hiçbir zaman aktif olarak eşleşmez). Ardından, gereksinimleri biraz gevşeterek **[ASF STM listemiz](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** için uygun olmanız gerekir. En azından `Statistics`'i etkinleştirmiş olmalısınız, **[Sınırsız](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** bir Steam hesabı, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** etkin ve `MatchableTypes`'da ticaret kartları gibi en az bir geçerli tür bulunmalı.
+Bu seçeneği kullanmak için karşılamanız gereken bir dizi gereksiniminiz vardır. You have to be eligible for our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)**, with a bit relaxed requirements. At the minimum you must have **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active and at least one valid type in `MatchableTypes`, such as trading cards.
 
-Yukarıdaki gereksinimlerin tümünü karşılıyorsanız, ASF periyodik olarak **[herkese açık ASF STM listesi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** ile mevcut botları aktif olarak eşleştirmek için iletişim kuracaktır.
+Yukarıdaki gereksinimlerin tümünü karşılıyorsanız, ASF periyodik olarak **[herkese açık ASF STM listesi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** ile mevcut botları aktif olarak eşleştirmek için iletişim kuracaktır.
 
 - Her eşleştirme oturumu, tek bir eşleştirme oturumunda maksimum `10` tane olmak üzere "turlardan" oluşur.
 - Her turda ASF, eşleştirilebilecek `MatchableTypes` ögelerini bulmak için listelenmiş seçili botların envanterini ve senin envanterini alacaktır. Eğer eşleşme bulunursa, ASF takas teklifini otomatik olarak gönderecek ve onaylayacaktır.

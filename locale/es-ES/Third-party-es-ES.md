@@ -30,7 +30,7 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 ## Integraciones
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot de telegram escrito en python con integración ASF.
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, para aquellos que quieran enviar ofertas de intercambio automatizadas a los bots en nuestro **[listado ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-es-es#lista-p%C3%BAblica-asf-stm)** a través del navegador web, sin usar la función `MatchActively` provista por ASF.
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, otro bot de telegram escrito en python con integración ASF.
 
 ---

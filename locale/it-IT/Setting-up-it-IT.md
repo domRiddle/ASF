@@ -138,7 +138,7 @@ Dopo aver fatto tutto ciò, se hai installato tutte le dipendenze richieste nell
 
 Se hai fornito `SteamLogin` e `SteamPassword` ad ASF, ti sarà solamente chiesto il token per SteamGuard (e-mail, 2FA o nessuno, a seconda delle tue impostazioni di Steam). Se non lo hai fatto, ti sarà chiesto anche di inserire il nome utente e la password di Steam.
 
-Now would be a good time to review our **[privacy policy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** section if you're concerned about stuff ASF is programmed to do, like joining a certain Steam group on launch.
+Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name.
 
 After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start farming using default settings that you didn't change as of now:
 

@@ -23,7 +23,7 @@
 * **[🛠️ Kompatibilitás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Teljesítmény](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📊 Statisztikák](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[📡 Remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
 * **[👪 Steam családi megosztása](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[🔄 Kereskedés](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 

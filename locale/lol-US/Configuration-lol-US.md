@@ -80,7 +80,6 @@ GLOBAL CONFIG IZ LOCATD IN `ASF.json` FILE AN HAS FOLLOWIN STRUCCHUR:
     "MaxTradeHoldDuration": 15,
     "MinFarmingDelayAfterBlock": 60,
     "OptimizationMode": 0,
-    "Statistics": true,
     "SteamMessagePrefix": "/me ",
     "SteamOwnerID": 0,
     "SteamProtocols": 7,
@@ -238,12 +237,6 @@ AS SIDE NOWT, DIS VALUE IZ ALSO USD AS LOAD-BALANCIN BUFFR IN ALL ASF-SCHEDULD A
 
 ---
 
-### `STATISTICS`
-
-`bool` TYPE WIF DEFAULT VALUE OV `true`. DIS PROPERTY DEFINEZ IF ASF SHUD HAS STATISTICS ENABLD. DETAILD EXPLANASHUN WUT EGSAKTLY DIS OPSHUN DOEZ IZ AVAILABLE IN **[STATISTICS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-lol-US)** SECSHUN. UNLES U HAS REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
-
----
-
 ### `SteamMessagePrefix`
 
 `string` TYPE WIF DEFAULT VALUE OV `"/me "`. DIS PROPERTY DEFINEZ PREFIX DAT WILL BE PREPENDD 2 ALL STEAM MESAGEZ BEAN SENT BY ASF. BY DEFAULT ASF USEZ `"/me "` PREFIX IN ORDR 2 DISTINGUISH BOT MESAGEZ MOAR EASILY BY SHOWIN THEM IN DIFFERENT COLOR ON STEAM CHAT. ANOTHR WORTHY MENSHUN IZ `"/pre "` PREFIX WHICH ACHIEVEZ SIMILAR RESULT, BUT USEZ DIFFERENT FORMATTIN. U CAN ALSO SET DIS PROPERTY 2 EMPTY STRIN OR `null` IN ORDR 2 DISABLE USIN PREFIX ENTIRELY AN OUTPUT ALL ASF MESAGEZ IN TRADISHUNAL WAI. IZ NICE 2 NOWT DAT DIS PROPERTY AFFECTS STEAM MESAGEZ ONLY - RESPONSEZ RETURND THRU OTHR CHANNELS (SUCH AS IPC) R NOT AFFECTD. UNLES U WANTS 2 CUSTOMIZE STANDARD ASF BEHAVIOUR, IT BE GUD IDEA 2 LEEF IT AT DEFAULT.
@@ -362,6 +355,7 @@ TEH BOT CONFIG HAS FOLLOWIN STRUCCHUR:
     "PasswordFormat": 0,
     "Paused": false,
     "RedeemingPreferences": 0,
+    "RemoteCommunication": 7,
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,
@@ -647,6 +641,24 @@ ENABLIN BOTH `Forwarding` AN `Distributing` WILL ADD DISTRIBUTIN FEACHUR ON TOP 
 TEH AKSHUL BOTS ORDR 4 ALL OV TEH REDEEMIN SCENARIOS IZ ALFABETICAL, EXCLUDIN BOTS DAT R UNAVAILABLE (NOT CONNECTD, STOPPD OR LIKEWIZE). PLZ KEEP IN MIND DAT THAR IZ PER-IP AN PER-AKOWNT HOURLY LIMIT OV REDEEMIN TRIEZ, AN EVRY REDEEM TRY DAT DIDNT END WIF `OK` CONTRIBUTEZ 2 FAILD TRIEZ. ASF WILL DO ITZ BEST 2 MINIMIZE NUMBR OV `AlreadyPurchased` FAILUREZ, E.G. BY TRYIN 2 AVOID FORWARDIN KEY 2 ANOTHR BOT DAT ALREADY OWNS DAT PARTICULAR GAME, BUT IZ NOT ALWAYS GUARANTED 2 WERK DUE 2 HOW STEAM IZ HANDLIN LICENSEZ. USIN REDEEMIN FLAGS SUCH AS `Forwarding` OR `Distributing` WILL ALWAYS INCREASE UR LIKELYHOOD 2 HIT `RateLimited`.
 
 ALSO KEEP IN MIND DAT U CANT FWD OR DISTRIBUTE KEYS 2 BOTS DAT U DO NOT HAS ACCES 2. DIS SHUD BE OBVIOUS, BUT ENSURE DAT URE AT LEAST `Operator` OV ALL TEH BOTS U WANTS 2 INCLUDE IN UR REDEEMIN PROCES, 4 EXAMPLE WIF `status ASF` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)**.
+
+---
+
+### `RemoteCommunication`
+
+`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+
+| VALUE | NAYM          | DESCRIPSHUN                                                                                                                                                                                                                                                                  |
+| ----- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
+| 1     | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
+| 2     | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+
+PLZ NOTICE DAT DIS PROPERTY IZ `flags` FIELD, THEREFORE IZ POSIBLE 2 CHOOSE ANY COMBINASHUN OV AVAILABLE VALUEZ. CHECK OUT **[FLAGS MAPPIN](#json-mappin)** IF UD LIEK 2 LERN MOAR. NOT ENABLIN ANY OV FLAGS RESULTS IN `None` OPSHUN.
+
+This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
+
+Further explanation on this subject is available in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. UNLES U HAS REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
 
 ---
 

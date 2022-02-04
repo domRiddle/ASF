@@ -23,7 +23,7 @@
 * **[🛠️ Съвместимост](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Производителност](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📊 Статистики](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[📡 Remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
 * **[👪 Steam Семейно споделяне](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[🔄 Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 

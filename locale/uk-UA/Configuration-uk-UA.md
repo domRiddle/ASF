@@ -80,7 +80,6 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
     "MaxTradeHoldDuration": 15,
     "MinFarmingDelayAfterBlock": 60,
     "OptimizationMode": 0,
-    "Statistics": true,
     "SteamMessagePrefix": "/me ",
     "SteamOwnerID": 0,
     "SteamProtocols": 7,
@@ -228,19 +227,13 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ### `MinFarmingDelayAfterBlock`
 
-`byte` type with default value of `60`. This property defines minimum amount of time, in seconds, which ASF will wait before resuming cards farming if it got previously disconnected with `LoggedInElsewhere`, which happens when you decide to forcefully disconnect currently-idling ASF by launching a game. This delay exists mainly for convenience and overhead reasons, for example it allows you to restart the game without having to fight with ASF occupying your account again only because playing lock was available for a split second. Due to the fact that reclaiming the session causes `LoggedInElsewhere` disconnect, ASF has to go through whole reconnect procedure, which puts additional pressure on the machine and Steam network, therefore avoiding additional disconnects, if possible, is preferable. By default, this is configured at `60` seconds, which should be enough to allow you restart the game without much hassle. However, there are scenarios when you could be interested in increasing it, for example if your network disconnects often and ASF is taking over too soon, which causes being forced to go through the reconnect process yourself. We allow a maximum value of `255` for this property, which should be enough for all common scenarios. In addition to the above, it's also possible to decrease the delay, or even remove it entirely with a value of `0`, although that is usually not recommended due to reasons stated above. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+параметр типу `byte` зі значенням за замовчуванням `60`. This property defines minimum amount of time, in seconds, which ASF will wait before resuming cards farming if it got previously disconnected with `LoggedInElsewhere`, which happens when you decide to forcefully disconnect currently-idling ASF by launching a game. This delay exists mainly for convenience and overhead reasons, for example it allows you to restart the game without having to fight with ASF occupying your account again only because playing lock was available for a split second. Due to the fact that reclaiming the session causes `LoggedInElsewhere` disconnect, ASF has to go through whole reconnect procedure, which puts additional pressure on the machine and Steam network, therefore avoiding additional disconnects, if possible, is preferable. By default, this is configured at `60` seconds, which should be enough to allow you restart the game without much hassle. However, there are scenarios when you could be interested in increasing it, for example if your network disconnects often and ASF is taking over too soon, which causes being forced to go through the reconnect process yourself. We allow a maximum value of `255` for this property, which should be enough for all common scenarios. In addition to the above, it's also possible to decrease the delay, or even remove it entirely with a value of `0`, although that is usually not recommended due to reasons stated above. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 ---
 
 ### `OptimizationMode`
 
-`byte` type with default value of `0`. Цей параметр визначає режим оптимізації, якого дотримується ASF протягом роботи. Наразі ASF підтримує два режими - `0` під назвою `MaxPerformance` (максимальна продуктивність), та `1` під назвою `MinMemoryUsage` (мінімальне вживання пам'яті). За замовчуванням ASF намагається робити якнайбільше задач паралельно (одночасно), що підвищує продуктивність через балансування навантаження на усіх ядрах ЦП, декількох потоках ЦП, декількох сокетах та декількох задачах пула потоків. For example, ASF will ask for your first badge page when checking for games to farm, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. Це саме те що вам потрібно **у більшості випадків**, тому що накладні витрати мінімальні а переваги від асинхронного коду ASF помітні навіть на дуже старому обладнанні з єдиним ядром ЦП та обмеженою потужністю. Однак, при роботі багатьох процесів паралельно, ASF має займатися їх підтримкою, тобто, підтримувати відкриті сокети, живі потоки та задачі, що іноді може призвести до збільшення вживання пам'яті, тож якщо ви надзвичайно обмежені обсягом пам'яті у наявності, ви можете змінити значення цього параметра на `1` (`MinMemoryUsage`), щоб змусити ASF використовувати якнайменше задач, і виконувати асинхронний код, який зазвичай виконується паралельно, у синхронний манір. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
-
----
-
-### `Статистика`
-
-параметр типу `bool` зі значенням за замовчуванням `true`. Цей параметр визначає, чи буде ASF збирати статистику, а також чи будуть ваші боти додані до групи ASF. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+параметр типу `byte` зі значенням за замовчуванням `0`. Цей параметр визначає режим оптимізації, якого дотримується ASF протягом роботи. Наразі ASF підтримує два режими - `0` під назвою `MaxPerformance` (максимальна продуктивність), та `1` під назвою `MinMemoryUsage` (мінімальне вживання пам'яті). За замовчуванням ASF намагається робити якнайбільше задач паралельно (одночасно), що підвищує продуктивність через балансування навантаження на усіх ядрах ЦП, декількох потоках ЦП, декількох сокетах та декількох задачах пула потоків. For example, ASF will ask for your first badge page when checking for games to farm, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. Це саме те що вам потрібно **у більшості випадків**, тому що накладні витрати мінімальні а переваги від асинхронного коду ASF помітні навіть на дуже старому обладнанні з єдиним ядром ЦП та обмеженою потужністю. Однак, при роботі багатьох процесів паралельно, ASF має займатися їх підтримкою, тобто, підтримувати відкриті сокети, живі потоки та задачі, що іноді може призвести до збільшення вживання пам'яті, тож якщо ви надзвичайно обмежені обсягом пам'яті у наявності, ви можете змінити значення цього параметра на `1` (`MinMemoryUsage`), щоб змусити ASF використовувати якнайменше задач, і виконувати асинхронний код, який зазвичай виконується паралельно, у синхронний манір. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ---
 
@@ -269,7 +262,7 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
-By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
+By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 ---
 
@@ -362,6 +355,7 @@ The bot config has following structure:
     "PasswordFormat": 0,
     "Paused": false,
     "RedeemingPreferences": 0,
+    "RemoteCommunication": 7,
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,
@@ -650,6 +644,24 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ---
 
+### `RemoteCommunication`
+
+`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+
+| Value | Ім'я          | Description                                                                                                                                                                                                                                                                  |
+| ----- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | Не обрано     | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
+| 1     | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
+| 2     | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+
+This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
+
+Further explanation on this subject is available in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+
+---
+
 ### `SendOnFarmingFinished`
 
 параметр типу `bool` зі значенням за замовчуванням `false`. When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with `Master` permission, which is very convenient if you don't want to bother with trades yourself. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account.
@@ -660,7 +672,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `SendTradePeriod`
 
-`byte` type with default value of `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
+параметр типу `byte` зі значенням за замовчуванням `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
 
 Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. If you're not sure how to set this property, leave it with default value of `0`.
 

@@ -136,7 +136,7 @@ Nach diesem Schritt, vorausgesetzt, du hast alle erforderlichen Abhängigkeiten 
 
 Wenn du `SteamLogin` und `SteamPassword` für ASF angegeben hast, wirst du nur nach deinem SteamGuard-Code gefragt (E-Mail, 2FA oder keine, abhängig von deinen Steam-Einstellungen). Wenn du es nicht getan hast, wirst du auch nach deinem Steam-Login und Passwort gefragt.
 
-Now would be a good time to review our **[privacy policy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** section if you're concerned about stuff ASF is programmed to do, like joining a certain Steam group on launch.
+Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name.
 
 After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start farming using default settings that you didn't change as of now:
 

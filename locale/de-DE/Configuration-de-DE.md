@@ -80,7 +80,6 @@ Die globale Konfiguration befindet sich in der Datei `ASF.json` und hat folgende
     "MaxTradeHoldDuration": 15,
     "MinFarmingDelayAfterBlock": 60,
     "OptimizationMode": 0,
-    "Statistics": true,
     "SteamMessagePrefix": "/me ",
     "SteamOwnerID": 0,
     "SteamProtocols": 7,
@@ -238,12 +237,6 @@ Nebenbei bemerkt, wird dieser Wert auch als Load-Balancing-Puffer in allen ASF-g
 
 ---
 
-### `Statistiken`
-
-`bool` Typ mit Standardwert von `true`. Diese Eigenschaft legt fest, ob ASF die Statistik aktiviert haben soll. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. Wenn Sie keinen Grund haben diese Eigenschaft zu bearbeiten, solltest der Standardwert belassen werden.
-
----
-
 ### `SteamMessagePrefix`
 
 `string` Typ mit einem Standardwert von `"/me "`. Diese Eigenschaft definiert ein Präfix, das allen Steam-Nachrichten, die von ASF gesendet werden, vorangestellt wird. Standardmäßig verwendet ASF das Präfix `"/me "`, um Bot-Nachrichten leichter zu unterscheiden, da sie im Steam-Chat in verschiedenen Farben angezeigt werden. Eine weitere erwähnenswerte Eigenschaft ist das Präfix `"/pre "`, das ein ähnliches Ergebnis erzielt, aber eine andere Formatierung verwendet. Sie können diese Eigenschaft auch auf eine leere Zeichenkette oder `null` setzen, um die Verwendung des Präfixes vollständig zu deaktivieren und alle ASF-Nachrichten auf traditionelle Weise auszugeben. Es ist gut zu wissen, dass diese Eigenschaft nur Steam-Nachrichten betrifft - Antworten, die über andere Kanäle (z. B. IPC) zurückgegeben werden, sind nicht betroffen. Wenn Sie das standardmäßige ASF-Verhalten nicht anpassen möchten, ist es eine gute Idee, es bei den Standardeinstellungen zu belassen.
@@ -252,7 +245,7 @@ Nebenbei bemerkt, wird dieser Wert auch als Load-Balancing-Puffer in allen ASF-g
 
 ### `SteamOwnerID`
 
-`ulong` Typ mit einem Standardwert von `0`. Diese Eigenschaft definiert die Steam-ID in 64-Bit-Form des ASF-Prozessinhabers und ist sehr ähnlich der `Master` Berechtigung der gegebenen Bot-Instanz (aber stattdessen global). Sie möchten diese Eigenschaft fast immer auf die ID des eigenen Steam-Haupt-Kontos setzen. Die `Master`-Berechtigung beinhaltet die volle Kontrolle über seine Bot-Instanz, aber globale Befehle wie `exit`, `restart` oder `update` sind nur für `SteamOwnerID` verfügbar. Dies ist praktisch, da Sie vielleicht Bots für Freunde ausführen möchten, ohne ihnen zu erlauben, den ASF-Prozess zu steuern, wie z. B. das Beenden über den Befehl `exit`. Der Standardwert von `0` gibt an, dass es keinen Besitzer des ASF-Prozesses gibt, was bedeutet, dass niemand in der Lage sein wird, globale ASF-Befehle auszuführen. Keep in mind that **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** commands work with `SteamOwnerID`, so if you want to use them, then you must provide a valid value here.
+`ulong` Typ mit einem Standardwert von `0`. Diese Eigenschaft definiert die Steam-ID in 64-Bit-Form des ASF-Prozessinhabers und ist sehr ähnlich der `Master` Berechtigung der gegebenen Bot-Instanz (aber stattdessen global). Sie möchten diese Eigenschaft fast immer auf die ID des eigenen Steam-Haupt-Kontos setzen. Die `Master`-Berechtigung beinhaltet die volle Kontrolle über seine Bot-Instanz, aber globale Befehle wie `exit`, `restart` oder `update` sind nur für `SteamOwnerID` verfügbar. Dies ist praktisch, da Sie vielleicht Bots für Freunde ausführen möchten, ohne ihnen zu erlauben, den ASF-Prozess zu steuern, wie z. B. das Beenden über den Befehl `exit`. Der Standardwert von `0` gibt an, dass es keinen Besitzer des ASF-Prozesses gibt, was bedeutet, dass niemand in der Lage sein wird, globale ASF-Befehle auszuführen. Bedenken Sie, dass **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#IPC)** Befehle in Verbindung mit der `SteamOwnerID` ausgeführt werden, also musst hier ein gültiger Wert angeben werden, wenn Sie diese verwenden möchten.
 
 ---
 
@@ -267,15 +260,15 @@ Nebenbei bemerkt, wird dieser Wert auch als Load-Balancing-Puffer in allen ASF-g
 | 2    | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4    | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
 
-Bitte bedenken Sie, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Das Nicht-Aktivieren eines der Flags führt zur Option `None`, und diese Option ist an sich schon ungültig.
+Bitte bedenken Sie, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Mehr Informationen finden Sie unter **[JSON-Mapping](#json-mapping)**. Das Nicht-Aktivieren eines der Flags führt zur Option `None`, und diese Option ist an sich schon ungültig.
 
-Standardmäßig verwendet ASF alle verfügbaren Steam-Protokolle als Maßnahme für den Kampf gegen Ausfallzeiten und ähnliche Steam-Probleme. Normalerweise möchten Sie diese Eigenschaft ändern, wenn Sie ASF darauf beschränken möchten, nur ein oder zwei bestimmte Protokolle anstelle aller verfügbaren zu verwenden. Eine solche Maßnahme könnte erforderlich sein, wenn Sie z. B. nur TCP-Datenverkehr auf einer Firewall aktivieren, und verhindern möchten, dass ASF versucht, eine Verbindung über UDP herzustellen. Wenn Sie jedoch kein bestimmtes Problem debuggen, ist es aber immer in Ihrem Sinne, dass ASF jedes Protokoll verwenden kann, das derzeit unterstützt wird, anstelle von nur ein oder zwei. Unless you have a **strong** reason to edit this property, you should keep it at default.
+Standardmäßig verwendet ASF alle verfügbaren Steam-Protokolle als Maßnahme für den Kampf gegen Ausfallzeiten und ähnliche Steam-Probleme. Normalerweise möchten Sie diese Eigenschaft ändern, wenn Sie ASF darauf beschränken möchten, nur ein oder zwei bestimmte Protokolle anstelle aller verfügbaren zu verwenden. Eine solche Maßnahme könnte erforderlich sein, wenn Sie z. B. nur TCP-Datenverkehr auf einer Firewall aktivieren, und verhindern möchten, dass ASF versucht, eine Verbindung über UDP herzustellen. Wenn Sie jedoch kein bestimmtes Problem debuggen, ist es aber immer in Ihrem Sinne, dass ASF jedes Protokoll verwenden kann, das derzeit unterstützt wird, anstelle von nur ein oder zwei. Wenn du keinen **triftigen** Grund hast diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
 
 ---
 
 ### `UpdateChannel`
 
-`byte` Typ mit einem Standardwert von `1`. Diese Eigenschaft definiert den Aktualisierungskanal, der entweder für automatische Aktualisierungen verwendet wird (wenn `UpdatePeriod` größer als `0` ist) oder für Aktualisierungsbenachrichtigungen (anderweitig). Derzeit unterstützt ASF drei Aktualisierungskanäle - `0`, welcher `None` genannt wird, `1`, welcher `Stable` genannt wird, und `2`, welcher `Experimental` genannt wird. Der Kanal `Stable` ist der standardmäßige Veröffentlichungskanal, der von der Mehrheit der Benutzer verwendet werden sollte. `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. Wenn Sie sich nicht als fortgeschrittener Benutzer betrachten, bleiben Sie bitte beim Standard-Aktualisierungskanal `1` (Stable). Der Kanal `experimental` ist für Benutzer gedacht, die wissen, wie man Fehler meldet, Probleme löst und Rückmeldung gibt - es wird keine technische Unterstützung geboten. Sehen Sie sich den **[Veröffentlichungszyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-de-DE#veröffentlichungszyklus)** von ASF an, um mehr darüber zu erfahren. Sie können auch den`UpdateChannel` auf `0` (`None`) setzen, wenn alle Versionsüberprüfungen vollständig deaktivieren werden sollen. Falls `UpdateChannel` auf `0` gesetzt ist, wird die gesamte Funktionalität im Zusammenhang mit Aktualisierungen vollständig deaktiviert, einschließlich des Befehls `update`. Es wird **ausdrücklich** von der Verwendung des `None`-Kanals **abgeraten**, weil Sie sich dadurch allen möglichen Problemen aussetzt (erwähnt in [`UpdatePeriod`](#UpdatePeriod) Beschreibung unten).
+`byte` Typ mit einem Standardwert von `1`. Diese Eigenschaft definiert den Aktualisierungskanal, der entweder für automatische Aktualisierungen verwendet wird (wenn `UpdatePeriod` größer als `0` ist) oder für Aktualisierungsbenachrichtigungen (anderweitig). Derzeit unterstützt ASF drei Aktualisierungskanäle - `0`, welcher `None` genannt wird, `1`, welcher `Stable` genannt wird, und `2`, welcher `Experimental` genannt wird. Der Kanal `Stable` ist der standardmäßige Veröffentlichungskanal, der von der Mehrheit der Benutzer verwendet werden sollte. Der Kanal `experimental` beinhaltet zusätzlich zu `Stable` Veröffentlichungen, auch **Vorveröffentlichungen** für fortgeschrittene Benutzer und andere Entwickler, um neue Funktionen zu testen, fehlerbehebungen zu bestätigen oder Rückmeldungen über geplante Verbesserungen abzugeben. **Experimentelle Versionen enthalten oft unbehobene Programmfehler, Work-in-Progress-Funktionen oder neu geschriebene Implementierungen**. Wenn Sie sich nicht als fortgeschrittener Benutzer betrachten, bleiben Sie bitte beim Standard-Aktualisierungskanal `1` (Stable). Der Kanal `experimental` ist für Benutzer gedacht, die wissen, wie man Fehler meldet, Probleme löst und Rückmeldung gibt - es wird keine technische Unterstützung geboten. Sehen Sie sich den **[Veröffentlichungszyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-de-DE#veröffentlichungszyklus)** von ASF an, um mehr darüber zu erfahren. Sie können auch den`UpdateChannel` auf `0` (`None`) setzen, wenn alle Versionsüberprüfungen vollständig deaktivieren werden sollen. Falls `UpdateChannel` auf `0` gesetzt ist, wird die gesamte Funktionalität im Zusammenhang mit Aktualisierungen vollständig deaktiviert, einschließlich des Befehls `update`. Es wird **ausdrücklich** von der Verwendung des `None`-Kanals **abgeraten**, weil Sie sich dadurch allen möglichen Problemen aussetzt (erwähnt in [`UpdatePeriod`](#UpdatePeriod) Beschreibung unten).
 
 **Wenn Sie nicht wissen, was Sie tun**, empfehlen wir **ausdrücklich** es bei den Standardeinstellungen zu belassen.
 
@@ -295,11 +288,11 @@ Wenn du keinen **triftigen** Grund hast, diese Funktion zu deaktivieren, solltes
 
 `ushort` Typ mit einem Standardwert von `300`. Diese Eigenschaft definiert in Millisekunden die minimale Verzögerung zwischen dem Senden von zwei aufeinanderfolgenden Anfragen an denselben Steam-Webservice. Eine solche Verzögerung ist erforderlich, da der Dienst **[AkamaiGhost](https://www.akamai.com/de/de)**, den Steam intern nutzt, eine Geschwindigkeitsbegrenzung basierend auf der globalen Anzahl der über einen bestimmten Zeitraum gesendeten Anfragen beinhaltet. Unter normalen Umständen ist eine Blockierung des Akamai-Services ziemlich schwer zu erreichen, aber unter sehr hohen Arbeitslasten mit einer riesigen laufenden Warteschlange von Anfragen ist es möglich, ihn auszulösen, wenn wir immer wieder zu viele Anfragen über einen zu kurzen Zeitraum senden.
 
-Der Standardwert wurde unter der Annahme festgelegt, dass ASF das einzige Programm ist, das auf die Steam-Webdienste zugreift, insbesondere `steamcommunity.com`, `api.steampowered.com` und `store.steampowered.com`. Wenn Sie andere Programme verwendest, die Anfragen an dieselben Webservices senden, dann solltest du sicherstellen, dass das Programm ähnliche Funktionen wie `WebLimiterDelay` enthält und beide auf das Doppelte des Standardwerts setzen, was `600` wäre. Dies garantiert, dass unter keinen Umständen mehr als 1 Anfrage pro `300` ms gesendet wird.
+Der Standardwert wurde unter der Annahme festgelegt, dass ASF das einzige Programm ist, das auf die Steam-Webdienste zugreift, insbesondere `steamcommunity.com`, `api.steampowered.com` und `store.steampowered.com`. Wenn du andere Programme verwendest, die Anfragen an dieselben Webservices senden, dann solltest du sicherstellen, dass dein Programm ähnliche Funktionen wie `WebLimiterDelay` enthält und beide auf das Doppelte des Standardwerts setzen, was `600` wäre. Dies garantiert, dass du unter keinen Umständen mehr als 1 Anfrage pro `300` ms senden wirst.
 
 Im Allgemeinen wird das Herabsetzen von `WebLimiterDelay` unter den Standardwert **stark abgeraten**, da es zu verschiedenen IP-bezogenen Sperren führen kann, von denen einige dauerhaft sein können. Der Standardwert ist gut genug, um eine einzelne ASF-Instanz auf dem Server auszuführen und ASF im Normalfall zusammen mit dem ursprünglichen Steam-Client zu verwenden. Es sollte für die meisten Anwendungen zutreffend sein, und Sie sollten es nur erhöhen (nie senken), wenn Sie- abgesehen von der Verwendung von ASF - auch ein anderes Programm verwenden, das eine übermäßige Anzahl von Anfragen an dieselben Webdienste senden könnte, die ASF nutzt. Kurz gesagt, die globale Anzahl aller Anfragen, die von einer einzelnen IP an eine einzelne Steam-Domäne gesendet werden, sollte nie 1 Anfrage pro `300` ms überschreiten.
 
-Wenn Sie keinen Grund haben diese Eigenschaft zu bearbeiten, solltest der Standardwert belassen werden.
+Wenn du keinen Grund hast, diese Eigenschaft zu bearbeiten, solltest du sie auf dem Standard belassen.
 
 ---
 
@@ -315,7 +308,7 @@ Wenn ein Proxy eine Benutzer-Authentifizierung erfordert, musst auch `WebProxyUs
 
 Im Moment verwendet ASF den Web-Proxy nur für `http` und `https` Anfragen, was **nicht** die interne Steam-Netzwerk-Kommunikation innerhalb des internen Steam-Clients von ASF beinhaltet. Es gibt derzeit keine Pläne dies zu unterstützen, hauptsächlich wegen der fehlenden **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** Funktionalität. Wenn Sie dies benötigen/wollen, schlagen wir vor, da anzufangen.
 
-Wenn Sie keinen Grund haben diese Eigenschaft zu bearbeiten, sollten Sie den Standardwert belassen.
+Wenn Sie keinen Grund haben diese Eigenschaft zu bearbeiten, solltest der Standardwert belassen werden.
 
 ---
 
@@ -337,7 +330,7 @@ Wenn Sie keinen Grund haben diese Eigenschaft zu bearbeiten, solltest der Standa
 
 ## Bot Konfiguration
 
-Wie du bereits weißt, sollte jeder Bot eine eigene Konfiguration haben, die auf der folgenden beispielhaften JSON-Struktur basiert. Entscheide dich wie du deinen Bot benennen möchtest (z.B. `1.json`, `main.json`, `haupt.json` oder `IrgendwasAnderes.json`) und gehe zur Konfiguration über.
+Wie du bereits weißt, sollte jeder Bot eine eigene Konfiguration haben, die auf der folgenden beispielhaften JSON-Struktur basiert. Beginne damit, zu entscheiden, wie du deinen Bot benennen möchtest (z.B. `1.json`, `main.json`, `haupt.json` oder `IrgendwasAnderes.json`) und gehe zur Konfiguration über.
 
 **Hinweis:** Der Bot kann den Namen `ASF` nicht haben (da dieses Schlüsselwort für die globale Konfiguration reserviert ist), ASF ignoriert auch alle Konfigurationsdateien, die mit einem Punkt beginnen.
 
@@ -362,6 +355,7 @@ Die Bot-Konfiguration hat folgende Struktur:
     "PasswordFormat": 0,
     "Paused": false,
     "RedeemingPreferences": 0,
+    "RemoteCommunication": 7,
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,
@@ -431,7 +425,7 @@ Eine ungültige Gruppeneinladung ist eine Einladung, die nicht aus der Gruppe `S
 
 `MarkBotMessagesAsRead` funktioniert in ähnlicher Weise, nur werden hier lediglich Bot-Nachrichten als gelesen markiert. Beachten Sie, dass die Steam-Implementierung ** sowohl beim verwenden dieser Option** Gruppen-Chats mit den Bots und anderen Leuten bestätigt, **als auch alle vorherigen Nachrichten**. Wenn Sie also aus irgenIhrem Grund keine unzusammenhängende Nachricht verpassen wollen, sollten Sie diese Funktion in der Regel vermeiden. Natürlich ist es ebenfalls riskant, wenn mehrere Primärkonten (z.B. von unterschiedlichen Nutzern) in der Selben ASF-Instanz laufen, besonders weil Sie die out-of-ASF Nachrichten verpassen könnten.
 
-Wenn du dir nicht sicher bist wie du diese Option konfigurieren sollst, ist es am besten, sie auf dem Standardwert zu belassen.
+Wenn Sie sich nicht sicher sind, wie Sie diese Option konfigurieren, können Sie den Standardwert belassen.
 
 ---
 
@@ -525,7 +519,7 @@ There is also idling priority queue that is accessible through `fq` **[commands]
 
 ### `LootableTypes`
 
-`ImmutableHashSet<byte>` Typ mit Standardwert von `1, 3, 5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert das ASF-Verhalten beim Plündern - sowohl manuell, durch Verwendung eines **[Befehls](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**, als auch automatisch über eine oder mehrere Konfigurationseigenschaften. ASF wird sicherstellen, dass nur Gegenstände von `LootableTypes` in ein Handelsangebot aufgenommen werden, daher können Sie mit dieser Eigenschaft wählen, was Sie in einem Handelsangebot erhalten möchten, das an Sie gesendet wird.
+`ImmutableHashSet<byte>` Typ mit Standardwert von `1, 3, 5` Steam-Gegenstandstypen. Diese Eigenschaft definiert das ASF-Verhalten beim Plündern - sowohl manuell, durch Verwendung eines **[Befehls](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**, als auch automatisch über eine oder mehrere Konfigurationseigenschaften. ASF wird sicherstellen, dass nur Gegenstände von `LootableTypes` in ein Handelsangebot aufgenommen werden, daher können Sie mit dieser Eigenschaft wählen, was Sie in einem Handelsangebot erhalten möchten, das an Sie gesendet wird.
 
 | Wert | Name                  | Beschreibung                                                                                  |
 | ---- | --------------------- | --------------------------------------------------------------------------------------------- |
@@ -553,7 +547,7 @@ Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bo
 
 ### `MatchableTypes`
 
-`ImmutableHashSet<byte>` Typ mit Standardwert von `5` Steam-Gegenstands-Typen. Diese Eigenschaft definiert, welche Steam Gegenstands-Arten angepasst werden dürfen, wenn die Option `SteamTradeMatcher` in `TradingPreferences` aktiviert ist. Die Arten sind wie folgt definiert:
+`ImmutableHashSet<byte>` Typ mit Standardwert von `5` Steam-Gegenstandstypen. Diese Eigenschaft definiert, welche Steam Gegenstandsarten angepasst werden dürfen, wenn die Option `SteamTradeMatcher` in `TradingPreferences` aktiviert ist. Die Arten sind wie folgt definiert:
 
 | Wert | Name                  | Beschreibung                                                                                           |
 | ---- | --------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -650,11 +644,29 @@ Bedenke auch, dass du keine Produktschlüssel an Bots weiterleiten oder verteile
 
 ---
 
+### `RemoteCommunication`
+
+`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+
+| Wert | Name          | Beschreibung                                                                                                                                                                                                                                                                 |
+| ---- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0    | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
+| 1    | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
+| 2    | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+
+Bitte bedenken Sie, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
+
+This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
+
+Further explanation on this subject is available in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. Wenn Sie keinen Grund haben diese Eigenschaft zu bearbeiten, solltest der Standardwert belassen werden.
+
+---
+
 ### `SendOnFarmingFinished`
 
 `bool` Typ mit einem Standardwert von `false`. Wenn ASF mit dem Sammeln des angegebenen Kontos fertig ist, kann es automatisch ein Steam-Handelsangebot mit allem, was bis zu diesem Punkt gesammelt wurde, an den Benutzer mit der Berechtigung `Master` senden, was sehr praktisch ist, wenn du dich nicht selbst mit den Handelsangeboten beschäftigen möchtest. Diese Option funktioniert genauso wie der Befehl `loot`, deshalb denken Sie daran, dass Sie einen Benutzer mit der Berechtigung `Master` benötigen, Sie können auch einen gültigen `SteamTradeToken` benötigen, sowie ein Konto, das überhaupt zum Handel zugelassen ist. Zusätzlich zum Einleiten von `loot` nach Beendigung des Sammelns initiiert ASF auch `loot` bei jeder Benachrichtigung über neue Gegenstände (wenn nicht am Sammeln) und nach Abschluss jedes Handelsangebotes, der zu neuen Gegenständen führt (immer), wenn diese Option aktiv ist. Dies ist besonders nützlich, um von anderen Personen erhaltene Gegenstände auf unser Konto "weiterzuleiten".
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. Wenn du dir nicht sicher bist, wie du diese Eigenschaft einstellen sollst, belasse sie bei dem Standardwert `false`.
+Normalerweise solltest du **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** zusammen mit dieser Funktion verwenden, obwohl es keine Voraussetzung ist, wenn du beabsichtigst, manuell und rechtzeitig zu bestätigen. Wenn du dir nicht sicher bist, wie du diese Eigenschaft einstellen sollst, belasse sie bei dem Standardwert `false`.
 
 ---
 
@@ -662,13 +674,13 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 `byte` Typ mit einem Standardwert von `0`. Diese Eigenschaft funktioniert sehr ähnlich wie `SendOnFarmingFinished` Eigenschaft, mit einem Unterschied - anstatt Handelsangebote zu senden, wenn das Sammeln abgeschlossen ist, können wir sie auch alle `SendTradePeriod` Stunden senden, unabhängig davon, wie viel wir noch zu sammeln haben. Dies ist nützlich, wenn du den normalen `loot` Befehl auf deinen Alternativ-Konten ausführen willst, anstatt darauf zu warten, dass sie das Sammeln beenden. Der Standardwert von `0` deaktiviert diese Funktion, wenn du möchtest, dass dein Bot dir z.B. jeden Tag Handelsangebote sendet, solltest du `24` hier eintragen.
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. Wenn du dir nicht sicher bist, wie du diese Eigenschaft einstellen sollst, belasse sie bei dem Standardwert `0`.
+Normalerweise solltest du **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** zusammen mit dieser Funktion verwenden, obwohl es keine Voraussetzung ist, wenn du beabsichtigst, manuell und rechtzeitig zu bestätigen. Wenn du dir nicht sicher bist, wie du diese Eigenschaft einstellen sollst, belasse sie bei dem Standardwert `0`.
 
 ---
 
 ### `ShutdownOnFarmingFinished`
 
-`bool` Typ mit einem Standardwert von `false`. ASF "belegt" ein Konto für die gesamte Zeit des aktiven Prozesses. Wenn ein Konto mit dem Sammeln fertig ist, überprüft ASF regelmäßig (jede `IdleFarmingPeriode` Stunden), ob in der Zwischenzeit vielleicht einige neue Spiele mit Steam-Karten hinzugefügt wurden, damit es das Sammeln dieses Kontos fortsetzen kann, ohne den Prozess neu starten zu müssen. Dies ist für die Mehrheit der Menschen nützlich, da ASF bei Bedarf automatisch das Sammeln wieder aufnehmen kann. Jedoch kannst du den Prozess tatsächlich stoppen wollen, wenn das angegebene Konto vollständig gesammelt ist, du kannst das erreichen, indem du diese Eigenschaft auf `true` setzt. Wenn aktiviert, fährt ASF mit der Abmeldung fort, wenn das Konto vollständig gesammelt ist, was bedeutet, dass es nicht mehr regelmäßig überprüft oder belegt wird. Du solltest selbst entscheiden, ob du es vorziehst, dass ASF die ganze Zeit an einer bestimmten Bot-Instanz arbeitet, oder ob ASF sie vielleicht stoppen sollte, wenn das Sammeln abgeschlossen ist. When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well, putting your machine at rest and allowing you to schedule other actions, such as sleep or shutdown at the same moment of last card dropping.
+`bool` Typ mit einem Standardwert von `false`. ASF "belegt" ein Konto für die gesamte Zeit des aktiven Prozesses. Wenn ein Konto mit dem Sammeln fertig ist, überprüft ASF regelmäßig (jede `IdleFarmingPeriode` Stunden), ob in der Zwischenzeit vielleicht einige neue Spiele mit Steam-Karten hinzugefügt wurden, damit es das Sammeln dieses Kontos fortsetzen kann, ohne den Prozess neu starten zu müssen. Dies ist für die Mehrheit der Menschen nützlich, da ASF bei Bedarf automatisch das Sammeln wieder aufnehmen kann. Jedoch kannst du den Prozess tatsächlich stoppen wollen, wenn das angegebene Konto vollständig gesammelt ist, du kannst das erreichen, indem du diese Eigenschaft auf `true` setzt. Wenn aktiviert, fährt ASF mit der Abmeldung fort, wenn das Konto vollständig gesammelt ist, was bedeutet, dass es nicht mehr regelmäßig überprüft oder belegt wird. Du solltest selbst entscheiden, ob du es vorziehst, dass ASF die ganze Zeit an einer bestimmten Bot-Instanz arbeitet, oder ob ASF sie vielleicht stoppen sollte, wenn das Sammeln abgeschlossen ist. Wenn alle Konten gestoppt sind und der Prozess nicht in `--process-required` **[Modus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-de-DE)** läuft, wird ASF auch heruntergefahren, wodurch deine Maschine in den Ruhemodus geht und du andere Aktionen planen kannst wie z.B. Schlafmodus oder Herunterfahren sobald die letzte Karte gesammelt wurde.
 
 Wenn du dir nicht sicher bist, wie du diese Eigenschaft einstellen sollst, belasse sie bei dem Standardwert `false`.
 
@@ -676,7 +688,7 @@ Wenn du dir nicht sicher bist, wie du diese Eigenschaft einstellen sollst, belas
 
 ### `SkipRefundableGames`
 
-`bool` Typ mit einem Standardwert von `false`. This property defines if ASF is permitted to farm games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. Wenn du dir nicht sicher bist ob du diese Funktion aktivieren möchtest oder nicht, behalte sie mit dem Standardwert `false`.
+`bool` Typ mit einem Standardwert von `false`. This property defines if ASF is permitted to farm games that are still refundable. Ein rückerstattungsfähiges Spiel ist ein Spiel, das du in den letzten 2 Wochen über den Steam-Shop gekauft hast und das wir noch nicht länger als 2 Stunden gespielt haben, wie auf der **[Steam-Rückerstattungen](https://store.steampowered.com/steam_refunds)** Seite angegeben. By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. Wenn du dir nicht sicher bist ob du diese Funktion aktivieren möchtest oder nicht, behalte sie mit dem Standardwert `false`.
 
 ---
 
@@ -720,7 +732,7 @@ Um deinen Code zu finden, navigiere als angemeldeter Benutzer mit der Berechtigu
 
 | Wert | Name          | Beschreibung                                                                                                                                                                                                                              |
 | ---- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | None          | Keine spezielle Berechtigung, dies ist hauptsächlich ein Referenzwert, der den in diesem Verzeichnis fehlenden Steam-IDs zugeordnet wird. Es ist nicht notwendig, irgendjemanden mit dieser Berechtigung zu definieren.                   |
+| 0    | None          | Keine spezielle Berechtigung, dies ist hauptsächlich ein Referenzwert, der den in diesem Verzeichnis fehlenden Steam-IDs zugeordnet wird - es ist nicht notwendig, irgendjemanden mit dieser Berechtigung zu definieren                   |
 | 1    | FamilySharing | Bietet einen minimalen Zugriff für Familienmitglieder. Auch hier handelt es sich vor allem um einen Referenzwert, da ASF in der Lage ist, automatisch Steam-IDs zu entdecken, die wir für die Nutzung unserer Bibliothek zugelassen haben |
 | 2    | Operator      | Bietet Basiszugriff auf bestimmte Bot-Instanzen, hauptsächlich das Hinzufügen von Lizenzen und das Einlösen von Schlüsseln                                                                                                                |
 | 3    | Master        | Gewährt vollen Zugriff auf die angegebene Bot-Instanz                                                                                                                                                                                     |
@@ -838,13 +850,13 @@ Neben den Konfigurationsdateien verwendet ASF auch das Verzeichnis `config` zum 
 
 `ASF.db` ist eine globale ASF-Datenbankdatei. Es fungiert als globaler dauerhafter Speicher und wird zum Speichern verschiedener Informationen im Zusammenhang mit dem ASF-Prozess verwendet, wie z.B. IPs von lokalen Steam-Servern. **Du solltest diese Datei nicht bearbeiten**.
 
-`BotName.db` ist eine Datenbank der jeweiligen Bot-Instanz. Diese Datei wird verwendet, um wichtige Daten der jeweiligen Bot-Instanz im dauerhaften Speicher zu speichern, wie z.B. Anmelde-Schlüssel oder ASF-2FA. **Du solltest diese Datei nicht bearbeiten**.
+`BotName.db` ist eine Datenbank der jeweiligen Bot-Instanz. Diese Datei wird verwendet, um wichtige Daten der jeweiligen Bot-Instanz im dauerhaften Speicher zu speichern, wie z.B. Anmelde-Schlüssel oder ASF 2FA. **Du solltest diese Datei nicht bearbeiten**.
 
 `BotName.bin` ist eine spezielle Datei der jeweiligen Bot-Instanz, die Informationen über den Steam-Sentry-Hash enthält. Der Sentry-Hash wird für die Authentifizierung mit dem `SteamGuard` Mechanismus verwendet, sehr ähnlich Steam-Datei `ssfn`. **Du solltest diese Datei nicht bearbeiten**.
 
 `BotName.keys` ist eine spezielle Datei, die zum Importieren von Produkt-Schlüsseln in den **[Hintergrundproduktschlüsselaktivierer ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-de-DE)** verwendet werden kann. Es ist nicht zwingend erforderlich und wird nicht generiert, aber von ASF anerkannt. Diese Datei wird nach dem erfolgreichen Import der Produkt-Schlüssel automatisch gelöscht.
 
-`BotName.maFile` ist eine spezielle Datei, die für den Import von **[ASF-2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** verwendet werden kann. Es ist nicht zwingend erforderlich und wird nicht generiert, aber von ASF erkannt, wenn dein `BotName` ASF-2FA noch nicht verwendet. Diese Datei wird nach erfolgreichem Import von ASF-2FA automatisch gelöscht.
+`BotName.maFile` ist eine spezielle Datei, die für den Import von **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** verwendet werden kann. Es ist nicht zwingend erforderlich und wird nicht generiert, aber von ASF erkannt, wenn dein `BotName` ASF 2FA noch nicht verwendet. Diese Datei wird nach erfolgreichem Import von ASF 2FA automatisch gelöscht.
 
 ---
 

@@ -80,7 +80,6 @@ La configuration globale se trouve dans le fichier ASF.json et se présente dans
     "MaxTradeHoldDuration": 15,
     "MinFarmingDelayAfterBlock": 60,
     "OptimizationMode": 0,
-    "Statistics": true,
     "SteamMessagePrefix": "/me ",
     "SteamOwnerID": 0,
     "SteamProtocols": 7,
@@ -234,17 +233,11 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 ### `OptimizationMode`
 
-`byte` type with default value of `0`. This property defines optimization mode which ASF will prefer during runtime. Currently ASF supports two modes - `0` which is called `MaxPerformance`, and `1` which is called `MinMemoryUsage`. By default ASF prefers to run as many things in parallel (concurrently) as possible, which enhances performance by load-balancing work across all CPU cores, multiple CPU threads, multiple sockets and multiple threadpool tasks. For example, ASF will ask for your first badge page when checking for games to farm, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. This is what you should want **almost always**, as the overhead in most cases is minimal and benefits from asynchronous ASF code can be seen even on the oldest hardware with a single CPU core and heavily limited power. However, with many tasks being processed in parallel, ASF runtime is responsible for their maintenance, e.g. keeping sockets open, threads alive and tasks being processed, which can result in increased memory usage from time to time, and if you're extremely constrained by available memory, you may want to switch this property to `1` (`MinMemoryUsage`) in order to force ASF into using as little tasks as possible, and typically running possible-to-parallel asynchronous code in a synchronous manner. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`byte` avec la valeur par défaut `0`. This property defines optimization mode which ASF will prefer during runtime. Currently ASF supports two modes - `0` which is called `MaxPerformance`, and `1` which is called `MinMemoryUsage`. By default ASF prefers to run as many things in parallel (concurrently) as possible, which enhances performance by load-balancing work across all CPU cores, multiple CPU threads, multiple sockets and multiple threadpool tasks. For example, ASF will ask for your first badge page when checking for games to farm, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. This is what you should want **almost always**, as the overhead in most cases is minimal and benefits from asynchronous ASF code can be seen even on the oldest hardware with a single CPU core and heavily limited power. However, with many tasks being processed in parallel, ASF runtime is responsible for their maintenance, e.g. keeping sockets open, threads alive and tasks being processed, which can result in increased memory usage from time to time, and if you're extremely constrained by available memory, you may want to switch this property to `1` (`MinMemoryUsage`) in order to force ASF into using as little tasks as possible, and typically running possible-to-parallel asynchronous code in a synchronous manner. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ---
 
-### `Statistiques`
-
-`bool` avec la valeur par défaut `true</ 0>. This property defines if ASF should have statistics enabled. Detailed explanation what exactly this option does is available in <strong x-id="1"><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics">statistics</a></strong> section. Sauf si vous avez une raison de modifier cette fonction, vous devez la conserver par défaut.</p>
-
-<hr />
-
-<h3 spaces-before="0"><code>SteamMessagePrefix`</h3>
+### `SteamMessagePrefix`
 
 `chaîne` avec la valeur par défaut `/me`. This property defines a prefix that will be prepended to all Steam messages being sent by ASF. By default ASF uses `"/me "` prefix in order to distinguish bot messages more easily by showing them in different color on Steam chat. Another worthy mention is `"/pre "` prefix which achieves similar result, but uses different formatting. You can also set this property to empty string or `null` in order to disable using prefix entirely and output all ASF messages in a traditional way. It's nice to note that this property affects Steam messages only - responses returned through other channels (such as IPC) are not affected. Unless you want to customize standard ASF behaviour, it's a good idea to leave it at default.
 
@@ -268,9 +261,9 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 | 2       | UDP        | **[Protocole utilisateur Datagram ](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**              |
 | 4       | WebSockets | **[WebSockets](https://en.wikipedia.org/wiki/WebSocket)**                                                |
 
-Veuillez noter que cette  fonction est le champ `flags`, il est donc possible de choisir n’importe quelle combinaison de valeurs disponibles. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Si aucun indicateur n’est activé, l’option `None` est validée et cette option n’est pas valide par elle-même.
+Veuillez noter que cette  fonction est le champ `flags`, il est donc possible de choisir n’importe quelle combinaison de valeurs disponibles. Consultez **[le mapping des drapeaux](#json-mapping)** si vous souhaitez en savoir plus. Si aucun indicateur n’est activé, l’option `None` est validée et cette option n’est pas valide par elle-même.
 
-By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Généralement, vous souhaitez modifier cette fonction si vous souhaitez limiter ASF à l’utilisation d’un ou deux protocoles spécifiques au lieu de tous les protocoles disponibles. Une telle mesure pourrait être nécessaire si, par exemple, en activant uniquement le trafic TCP sur votre pare-feu, vous ne voulez pas qu'ASF tente de se connecter via UDP. Cependant, sauf si vous êtes en train de debug un problème ou un problème particulier, vous voulez presque toujours vous assurer qu'ASF est libre d'utiliser tout protocole actuellement pris en charge, et non un ou deux. Unless you have a **strong** reason to edit this property, you should keep it at default.
+By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Généralement, vous souhaitez modifier cette fonction si vous souhaitez limiter ASF à l’utilisation d’un ou deux protocoles spécifiques au lieu de tous les protocoles disponibles. Une telle mesure pourrait être nécessaire si, par exemple, en activant uniquement le trafic TCP sur votre pare-feu, vous ne voulez pas qu'ASF tente de se connecter via UDP. Cependant, sauf si vous êtes en train de debug un problème ou un problème particulier, vous voulez presque toujours vous assurer qu'ASF est libre d'utiliser tout protocole actuellement pris en charge, et non un ou deux. À moins que vous n'ayez une raison **forte** de modifier cette fonction, vous devez la conserver par défaut.
 
 ---
 
@@ -363,6 +356,7 @@ La configuration du bot a la structure suivante :
     "PasswordFormat": 0,
     "Paused": false,
     "RedeemingPreferences": 0,
+    "RemoteCommunication": 7,
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,
@@ -651,6 +645,24 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ---
 
+### `RemoteCommunication`
+
+`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+
+| Valeur  | Nom           | Description                                                                                                                                                                                                                                                                  |
+| ------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0       | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
+| 1       | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
+| 2       | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+
+Veuillez noter que cette  fonction est le champ `flags`, il est donc possible de choisir n’importe quelle combinaison de valeurs disponibles. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Si aucun indicateur n’est activé, l’option `None` est activée.
+
+This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
+
+Further explanation on this subject is available in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. Sauf si vous avez une raison de modifier cette fonction, vous devez la conserver par défaut.
+
+---
+
 ### `SendOnFarmingFinished`
 
 `bool` avec la valeur par défaut `false`. When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with `Master` permission, which is very convenient if you don't want to bother with trades yourself. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account.
@@ -661,7 +673,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `SendTradePeriod`
 
-`byte` type with default value of `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
+`byte` avec la valeur par défaut `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
 
 Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. Si vous n'êtes pas sur du réglage de cette propriété, laissez-la à la valeur par défaut de `0`.
 
@@ -740,7 +752,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 | Valeur  | Nom                 | Description                                                                                                                                                                                                     |
 | ------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0       | None                | No special trading preferences, default                                                                                                                                                                         |
+| 0       | Aucune              | No special trading preferences, default                                                                                                                                                                         |
 | 1       | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                               |
 | 2       | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Consultez **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** pour plus de détails |
 | 4       | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                               |

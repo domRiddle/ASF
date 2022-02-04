@@ -79,13 +79,12 @@ A configuração global esta localizada no arquivo `ASF.json` e tem a seguinte e
     "MaxFarmingTime": 10,
     "MaxTradeHoldDuration": 15,
     "MinFarmingDelayAfterBlock": 60,
-    "Modo Otimizado": 0,
-    "Estatísticas": true,
+    "OptimizationMode": 0,
     "SteamMessagePrefix": "/me ",
     "SteamOwnerID": 0,
-    "Protocolo Steam": 7,
-    "Atualizar Canal": 1,
-    "Tempo de atualização": 24,
+    "SteamProtocols": 7,
+    "UpdateChannel": 1,
+    "UpdatePeriod": 24,
     "WebLimiterDelay": 300,
     "WebProxy": null,
     "WebProxyPassword": null,
@@ -238,12 +237,6 @@ Tipo `byte` com o valor padrão `0`. Esta propriedade define o modo de otimizaç
 
 ---
 
-### `Estatísticas`
-
-Tipo `bool` com valor padrão `true`. Esta propriedade define se ASF deve ter estatísticas habilitadas. Uma explicação detalhada do que exatamente essa opção faz está disponível na seção **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-pt-BR)**. A menos que você tenha uma razão para editar essa propriedade, você deve mantê-la padrão.
-
----
-
 ### `SteamMessagePrefix`
 
 Tipo `string` com o valor padrão `"/me"`. Esta propriedade define um prefixo que será anexado a todas as mensagens da Steam sendo enviadas pelo ASF. Por padrão o ASF usa o prefixo `"/ me"` para distinguir as mensagens do bot mais facilmente, mostrando-os em cores diferentes no chat da Steam. Outro prefixo digno de menção é `"/ pre"` que alcança resultados semelhantes, mas usa uma formatação diferente. Você também pode definir essa propriedade como vazia ou `null` para desativar inteiramente o uso do prefixo e deixar todas as mensagens do ASF de forma tradicional. É bom notar que esta propriedade afeta apenas mensagens da Steam - as respostas retornadas através de outros canais (como IPC) não são afetadas. A menos que você deseja personalizar o comportamento padrão do ASF, é uma boa ideia deixá-lo assim.
@@ -362,6 +355,7 @@ A configuração do bot tem a seguinte estrutura:
     "PasswordFormat": 0,
     "Paused": false,
     "RedeemingPreferences": 0,
+    "RemoteCommunication": 7,
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,
@@ -385,7 +379,7 @@ Todas as opções são explicadas abaixo:
 
 ### `AcceptGifts`
 
-Tipo `bool` com valor padrão `false`. Quando habilitado, o ASF vai aceitar e resgatar automaticamente todos os presentes Steam (incluindo vales-presente da carteira) enviados para o bot. Isso também inclui presentes enviadas de usuários que não estejam os definidos em `SteamUserPermissions`. Tenha em mente que presentes enviados para o endereço de e-mail não são encaminhados diretamente para o cliente, então o ASF não aceitará esses sem a sua ajuda.
+Tipo `bool` com valor padrão `false`. Quando habilitado, o ASF vai aceitar e resgatar automaticamente todos os presentes Steam (incluindo vales-presente da carteira) enviados para o bot. Isso também inclui presentes enviados por usuários que não estejam definidos em `SteamUserPermissions`. Tenha em mente que presentes enviados para o endereço de e-mail não são encaminhados diretamente para o cliente, então o ASF não os aceitará sem a sua ajuda.
 
 Esta opção é recomendada apenas para contas alternativas, já que é muito provável que você não queira resgatar automaticamente todos os presentes enviados para sua conta principal. Se você não tiver certeza se quer esse recurso habilitado ou não, mantenha-o com o valor `false` padrão.
 
@@ -415,7 +409,7 @@ Tipo `byte flags` com o valor padrão `0`. Esta propriedade define o comportamen
 
 Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#mapeamento-json)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
 
-Em geral você vai desejar modificar esta propriedade se você espera que o ASF faça certa quantidade de automação relacionados à sua atividade, como seria de esperar de uma conta bot, mas não uma conta primária usada no ASF. Portanto, alterar esta propriedade faz sentido principalmente para contas alternativas, embora você seja livre para usar as opções selecionadas para contas principais também.
+Em geral você vai querer modificar esta propriedade se espera que o ASF faça certa quantidade de automação relacionados à sua atividade, como seria de esperar de uma conta bot, mas não uma conta primária usada no ASF. Portanto, alterar esta propriedade faz sentido principalmente para contas alternativas, embora você seja livre para usar as opções selecionadas para contas principais também.
 
 O comportamento normal do ASF (`None`) existe apenas para automatizar as coisas que o usuário quer (por exemplo, coleta de cartas ou propostas do `SteamTradeMatcher`, se definido em `TradingPreferences`). Este é o modo menos invasivo, e é benéfico para a maioria dos usuários já que você permanece com controle completo sobre sua conta e pode decidir se deseja permitir certas interações fora do escopo ou não.
 
@@ -650,6 +644,24 @@ Também tenha em mente que você não pode encaminhar ou distribuir keys para bo
 
 ---
 
+### `RemoteCommunication`
+
+`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+
+| Valor | Nome          | Descrição                                                                                                                                                                                                                                                                    |
+| ----- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
+| 1     | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
+| 2     | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+
+Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#mapeamento-json)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
+
+This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
+
+Further explanation on this subject is available in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. A menos que você tenha uma razão para editar essa propriedade, você deve mantê-la padrão.
+
+---
+
 ### `SendOnFarmingFinished`
 
 Tipo `bool` com valor padrão `false`. Quando o ASF termina a coleta em determinada conta, ele pode automaticamente enviar uma proposta de troca contendo tudo o que foi coletado até o momento para o usuário com permissão `Master`, o que é muito conveniente se você não quiser ficar se preocupando com trocas. Esta opção funciona da mesma forma que o comando `loot`, portanto, tenha em mente que ele requer um usuário com o conjunto de permissões `Master`, você também pode precisar de um `SteamTradeToken` válido, tanto quanto o uso de uma conta que seja, em primeiro lugar, elegível para trocas. Quando essa opção está ativada, além de iniciar o `loot` após terminar a coleta, o ASF também inicia o `loot` a cada notificação de novos itens (quando não estiver coletando) e depois de completar trocas que resultem em novos itens (sempre). Isso é especialmente útil para "encaminhar" itens recebidos de outras pessoas para a nossa conta.
@@ -718,12 +730,12 @@ Para encontrar seu token, estando conectado como o usuário com a permissão `Ma
 
 Tipo `ImmutableDictionary<ulong, byte>` com o valor padrão vazio. Esta propriedade é um array associativo que atribui uma correspondência entre determinado usuário Steam identificado pelo steamID de 64-bit e o número em `byte` que especifica quis os seus direitos sobre esse bot do ASF. Atualmente as permissões disponíveis para os bots no ASF são definidas como:
 
-| Valor | Nome          | Descrição                                                                                                                                                                                                                                 |
-| ----- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None          | Sem permissões especiais, esse é apenas um valor de referência que é atribuído quando não há IDs Steam nesse parâmetro - não há necessidade de definir alguém com esta permissão                                                          |
-| 1     | FamilySharing | Fornece acesso mínimo para usuários do compartilhamento de biblioteca. Novamente, esse é apenas um valor de referência, uma vez que o ASF é capaz de descobrir automaticamente os IDs Steam que estão autorizados a usar nossa biblioteca |
-| 2     | Operator      | Fornece acesso básico a determinadas contas bot, principalmente adicionar licenças e resgatar keys                                                                                                                                        |
-| 3     | Master        | Fornece acesso completo a determinada conta bot                                                                                                                                                                                           |
+| Valor | Nome          | Descrição                                                                                                                                                                                                               |
+| ----- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | Nenhum        | Sem permissões especiais, esse é apenas um valor de referência que é atribuído quando não há IDs Steam nesse parâmetro - não há necessidade de definir alguém com esta permissão                                        |
+| 1     | FamilySharing | Fornece acesso mínimo para usuários do modo família. Novamente, esse é apenas um valor de referência, uma vez que o ASF é capaz de descobrir automaticamente os IDs Steam que estão autorizados a usar nossa biblioteca |
+| 2     | Operator      | Fornece acesso básico a determinadas contas bot, principalmente adicionar licenças e resgatar keys                                                                                                                      |
+| 3     | Master        | Fornece acesso completo a determinada conta bot                                                                                                                                                                         |
 
 Em resumo, esta propriedade permite que você manipule permissões para determinados usuários. As permissões são importantes principalmente para acessar os **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** do ASF, mas também para habilitar muitos recursos, tais como aceitar trocas. Por exemplo, você pode querer definir sua própria conta como `Master` e dar acesso de `Operator` para 2 ou 3 dos seus amigos, assim eles podem facilmente resgatar keys para seu bot com o ASF, enquanto **não** são elegíveis, por exemplo, para parar o processo. Graças a isso você pode facilmente atribuir permissões para determinados usuários e deixá-los usarem seu bot para determinadas tarefas especificadas pelo seu nível.
 
@@ -739,7 +751,7 @@ Tipo `byte flags` com o valor padrão `0`. Essa propriedade define o comportamen
 
 | Valor | Nome                | Descrição                                                                                                                                                                                                                     |
 | ----- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | Nenhum              | Sem preferências especiais de troca, padrão                                                                                                                                                                                   |
+| 0     | None                | Sem preferências especiais de troca, padrão                                                                                                                                                                                   |
 | 1     | AcceptDonations     | Aceita trocas em que não estamos perdendo nada                                                                                                                                                                                |
 | 2     | SteamTradeMatcher   | Participa passivamente de trocas do tipo **[STM](https://www.steamtradematcher.com)**. Visite a seção **[trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-pt-BR#steamtradematcher)** para mais informações |
 | 4     | MatchEverything     | Requer que `SteamTradeMatcher` seja definido, e em combinação com ele - também aceita trocas ruins além de boas e neutras                                                                                                     |

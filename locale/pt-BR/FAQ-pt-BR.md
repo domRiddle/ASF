@@ -228,7 +228,7 @@ No entanto, tenha em mente que a Valve ainda pode adicionar o ASF a sua lista de
 
 ### Ele é seguro?
 
-Se você pergunta se o ASF é seguro como um software, que ele não vai causar qualquer dano ao seu computador, não vai roubar seus dados privados, instalar vírus ou qualquer outra coisa nesse sentido - a resposta é sim. ASF é livre de malware, roubo de dados, mineradores de criptomoeda e quaisquer outros comportamentos duvidosos que possam ser considerados maliciosos ou indesejados pelo usuário. Além disso, temos uma seção dedicada às **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-pt-BR)** que cobre nossa política de privacidade e comportamento do ASF que vai além da configuração que você fez no programa.
+Se você pergunta se o ASF é seguro como um software, que ele não vai causar qualquer dano ao seu computador, não vai roubar seus dados privados, instalar vírus ou qualquer outra coisa nesse sentido - a resposta é sim. ASF é livre de malware, roubo de dados, mineradores de criptomoeda e quaisquer outros comportamentos duvidosos que possam ser considerados maliciosos ou indesejados pelo usuário. In addition to that we have a dedicated **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section which covers our privacy policy and ASF behaviour that goes beyond what you configured the program to do yourself.
 
 Nosso código é aberto e os executáveis distribuídos são sempre compilados por **[ ferramentas de integração contínua automáticas e confiáveis](https://pt.wikipedia.org/wiki/Automa%C3%A7%C3%A3o_de_compila%C3%A7%C3%A3o)** de **[ fontes disponíveis publicamente](https://pt.wikipedia.org/wiki/Software_de_c%C3%B3digo_aberto)** e não pelos próprios desenvolvedores. Cada compilação pode ser reproduzida seguindo nosso script de compilação e terá resultado exatamente igual, um executável de código IL (binário) **[determinístico](https://en.wikipedia.org/wiki/Deterministic_system)**. Se por algum motivo você não acredita em nossas compilações você pode compilar e usar o ASF pela fonte, incluindo todas as bibliotecas que o ASF usa (como o SteamKit2), que também são de código aberto.
 
@@ -302,7 +302,7 @@ Todos os incidentes acima têm uma coisa em comum - o ASF é apenas uma ferramen
 
 ### Quais informações de privacidade o ASF divulga?
 
-Você pode encontrar uma explicação detalhada do que exatamente essa opção faz na seção de **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**. Você deve revê-la se você se preocupa com sua privacidade, por exemplo, se você está se perguntando por que contas usadas no ASF estão entrando em nosso grupo Steam. O ASF não coleta quaisquer informações confidenciais e não as compartilha com quaisquer terceiros.
+You can find detailed explanation in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. Você deve revê-la se você se preocupa com sua privacidade, por exemplo, se você está se perguntando por que contas usadas no ASF estão entrando em nosso grupo Steam. O ASF não coleta quaisquer informações confidenciais e não as compartilha com quaisquer terceiros.
 
 ---
 

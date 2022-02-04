@@ -30,7 +30,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 ## Integraatiot
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, pythonilla kirjoitettu telegram botti ASF integraatiolla.
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, toinen (minimaalinen) pythonilla kirjoitettu telegram botti ASF integraatiolla.
 
 ---

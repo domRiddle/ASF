@@ -30,7 +30,7 @@ Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog 
 ## Integracije
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot napisan u python-u sa ASF integracijom.
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, za one koji žele da šalju automatizovane zahtjeve za razmjenu našim botovima na **[ASF STM listi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** preko pretraživača, bez korišćenja `MatchActively` funkcije koje postoji u ASF-u.
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, za one koji žele da šalju automatizovane zahtjeve za razmjenu našim botovima na **[ASF STM listi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** preko pretraživača, bez korišćenja `MatchActively` funkcije koje postoji u ASF-u.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, još jedan (minimalan) telegram bot napisan u python-u koji sadrži ASF integraciju.
 
 ---

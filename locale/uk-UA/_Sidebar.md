@@ -23,7 +23,7 @@
 * **[🛠️ Сумісність](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-uk-UA)**
 * **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Продуктивність](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📊 Статистика](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)**
+* **[📡 Remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
 * **[👪 Спільний доступ до бібліотеки Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[🔄 Обміни](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 

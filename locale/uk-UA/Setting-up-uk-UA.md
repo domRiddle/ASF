@@ -136,7 +136,7 @@ ASF потребує ваші облікові дані бо він має вб�
 
 Якщо ви надали ASF для використання `SteamLogin` та `SteamPassword`, то у вас запитають лише код SteamGuard (з e-mail, 2ФА чи ніякого, в залежності від ваших налаштувань Steam). Якщо ж ні - у вас також спитають логін та пароль від Steam.
 
-Now would be a good time to review our **[privacy policy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)** section if you're concerned about stuff ASF is programmed to do, like joining a certain Steam group on launch.
+Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name.
 
 After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start farming using default settings that you didn't change as of now:
 

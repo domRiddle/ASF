@@ -23,7 +23,7 @@
 * **[🛠️ COMPATIBILITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US)**
 * **[📋 MANAGEMENT](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-lol-US)**
 * **[⏱️ PERFORMANCE](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-lol-US)**
-* **[📊 STATISTICS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-lol-US)**
+* **[📡 Remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
 * **[👪 STEAM PPLZ SHARIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing-lol-US)**
 * **[🔄 TRADIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-lol-US)**
 

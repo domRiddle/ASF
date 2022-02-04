@@ -80,7 +80,6 @@ ASF 采用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存储其配置�
     "MaxTradeHoldDuration": 15,
     "MinFarmingDelayAfterBlock": 60,
     "OptimizationMode": 0,
-    "Statistics": true,
     "SteamMessagePrefix": "/me ",
     "SteamOwnerID": 0,
     "SteamProtocols": 7,
@@ -238,12 +237,6 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ---
 
-### `统计`
-
-这是一个默认值为 `true` 的 `bool` 类型属性。 这个属性定义了 ASF 是否启用统计功能。 我们在&#8203;**[统计](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN)**&#8203;章节中具体解释了这个选项究竟会做什么。 除非您有理由编辑此属性，否则应将其保留为默认值。
-
----
-
 ### `SteamMessagePrefix`
 
 这是一个默认值为 `"/me "` 的 `string` 类型属性。 该属性定义消息前缀，ASF 会在所有向外发出的消息前面加上这个前缀。 ASF 默认使用 `"/me "` 前缀，使机器人发出的消息在聊天中以不同颜色显示，更容易区分。 另一个不错的前缀 `"/pre "` 有着类似的效果，但是格式略有不同。 您也可以将这个属性设置为空字符串或者 `null` 完全禁用前缀，以传统的方式输出所有 ASF 消息。 值得注意的是，这个属性仅影响 Steam 消息——通过其他渠道（例如 IPC）返回的消息不受影响。 除非您希望更改 ASF 的标准行为，否则最好将其保留为默认值。
@@ -337,7 +330,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 ## 机器人配置
 
-您应该已经了解，每个机器人都有自己的配置文件，其 JSON 结构如下文的示例。 首先，您需要决定机器人的名称（例如 `1.json`、`main.json`、`primary.json` 或者随便什么名字 `AnythingElse.json`，然后再开始配置。
+您应该已经了解，每个机器人都有自己的配置文件，其 JSON 结构如下： 首先，您需要决定机器人的名称（例如 `1.json`、`main.json`、`primary.json` 或者随便什么名字 `AnythingElse.json`，然后再开始配置。
 
 **注意：**&#8203;机器人不能被命名为 `ASF`（因为该关键字是留给全局配置文件的），ASF 也会忽略所有以点号开头的配置文件。
 
@@ -362,6 +355,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
     "PasswordFormat": 0,
     "Paused": false,
     "RedeemingPreferences": 0,
+    "RemoteCommunication": 7,
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,
@@ -650,6 +644,24 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ---
 
+### `RemoteCommunication`
+
+`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+
+| 值 | 名称            | 描述                                                                                                                                                                                                                                                                           |
+| - | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
+| 1 | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
+| 2 | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+
+请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
+
+This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
+
+Further explanation on this subject is available in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. 除非您有理由编辑此属性，否则应将其保留为默认值。
+
+---
+
 ### `SendOnFarmingFinished`
 
 这是一个默认值为 `false` 的 `bool` 类型属性。 当 ASF 完成给定帐户的挂卡任务时，它可以通过交易报价将全部挂卡所得发送给拥有 `Master` 权限的用户，免去您手动发送交易报价的麻烦。 此选项的运作方式与 `loot` 命令相同，因此请注意，您需要先正确为用户设置 `Master` 权限，并且设置有效的 `SteamTradeToken`，并且还要保证此帐户原本就能够进行交易。 启用此选项时，除了在挂卡完成之后激发 `loot` 命令，ASF 也会在每次获得新物品时（未挂卡时）以及每次在交易中获得新物品时激发 `loot` 命令。 这可以方便地将来自其他人的物品“转发”到我们的帐户中。
@@ -769,7 +781,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 | 8  | Consumable            | 使用后消失的特殊消耗品               |
 | 9  | ProfileModifier       | 修改 Steam 个人资料外观的特殊物品      |
 | 10 | Sticker               | Steam 聊天中使用的特殊物品（聊天贴纸）    |
-| 11 | ChatEffect            | Steam 聊天中使用的特殊物品（聊天室效果）   |
+| 11 | ChatEffect            | Steam 聊天中使用的特殊物品（聊天贴纸）    |
 | 12 | MiniProfileBackground | Steam 个人资料迷你背景            |
 | 13 | AvatarProfileFrame    | Steam 个人资料头像边框            |
 | 14 | AnimatedAvatar        | Steam 个人资料动画头像            |

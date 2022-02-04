@@ -80,7 +80,6 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
     "MaxTradeHoldDuration": 15,
     "MinFarmingDelayAfterBlock": 60,
     "OptimizationMode": 0,
-    "Statistics": true,
     "SteamMessagePrefix": "/me ",
     "SteamOwnerID": 0,
     "SteamProtocols": 7,
@@ -228,19 +227,13 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 ### `MinFarmingDelayAfterBlock`
 
-`byte` type with default value of `60`. This property defines minimum amount of time, in seconds, which ASF will wait before resuming cards farming if it got previously disconnected with `LoggedInElsewhere`, which happens when you decide to forcefully disconnect currently-idling ASF by launching a game. This delay exists mainly for convenience and overhead reasons, for example it allows you to restart the game without having to fight with ASF occupying your account again only because playing lock was available for a split second. Due to the fact that reclaiming the session causes `LoggedInElsewhere` disconnect, ASF has to go through whole reconnect procedure, which puts additional pressure on the machine and Steam network, therefore avoiding additional disconnects, if possible, is preferable. By default, this is configured at `60` seconds, which should be enough to allow you restart the game without much hassle. However, there are scenarios when you could be interested in increasing it, for example if your network disconnects often and ASF is taking over too soon, which causes being forced to go through the reconnect process yourself. We allow a maximum value of `255` for this property, which should be enough for all common scenarios. In addition to the above, it's also possible to decrease the delay, or even remove it entirely with a value of `0`, although that is usually not recommended due to reasons stated above. 이 속성값을 변경해야 할 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
+`byte` 타입으로 기본값은 `60`입니다. This property defines minimum amount of time, in seconds, which ASF will wait before resuming cards farming if it got previously disconnected with `LoggedInElsewhere`, which happens when you decide to forcefully disconnect currently-idling ASF by launching a game. This delay exists mainly for convenience and overhead reasons, for example it allows you to restart the game without having to fight with ASF occupying your account again only because playing lock was available for a split second. Due to the fact that reclaiming the session causes `LoggedInElsewhere` disconnect, ASF has to go through whole reconnect procedure, which puts additional pressure on the machine and Steam network, therefore avoiding additional disconnects, if possible, is preferable. By default, this is configured at `60` seconds, which should be enough to allow you restart the game without much hassle. However, there are scenarios when you could be interested in increasing it, for example if your network disconnects often and ASF is taking over too soon, which causes being forced to go through the reconnect process yourself. We allow a maximum value of `255` for this property, which should be enough for all common scenarios. In addition to the above, it's also possible to decrease the delay, or even remove it entirely with a value of `0`, although that is usually not recommended due to reasons stated above. 이 속성값을 변경해야 할 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 ---
 
 ### `OptimizationMode`
 
 `byte` 타입으로 기본값은 `0`입니다. This property defines optimization mode which ASF will prefer during runtime. Currently ASF supports two modes - `0` which is called `MaxPerformance`, and `1` which is called `MinMemoryUsage`. By default ASF prefers to run as many things in parallel (concurrently) as possible, which enhances performance by load-balancing work across all CPU cores, multiple CPU threads, multiple sockets and multiple threadpool tasks. For example, ASF will ask for your first badge page when checking for games to farm, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. This is what you should want **almost always**, as the overhead in most cases is minimal and benefits from asynchronous ASF code can be seen even on the oldest hardware with a single CPU core and heavily limited power. However, with many tasks being processed in parallel, ASF runtime is responsible for their maintenance, e.g. keeping sockets open, threads alive and tasks being processed, which can result in increased memory usage from time to time, and if you're extremely constrained by available memory, you may want to switch this property to `1` (`MinMemoryUsage`) in order to force ASF into using as little tasks as possible, and typically running possible-to-parallel asynchronous code in a synchronous manner. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
-
----
-
-### `통계`
-
-`bool` 타입으로 기본값은 `true`입니다. 이 속성값은 ASF가 통계를 활성화할지를 정의합니다. Detailed explanation what exactly this option does is available in **[statistics](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics)** section. 이 속성값을 변경해야 할 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 ---
 
@@ -252,7 +245,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 ### `SteamOwnerID`
 
-`ulong` 타입으로 기본값은 `0`입니다. 이 속성값은 ASF 프로세스 소유자의 64비트 형태로 된 Steam ID를 정의합니다. 봇 인스턴스(일반 환경설정이 아닙니다)의 `주인(Master)` 권한과 매유 유사합니다. 이 속성값은 당신 자신의 메인 Steam 계정의 ID로 설정합니다. `주인(Master)` 권한은 봇 인스턴스에 대한 전체 제어를 갖지만, `exit`, `restart` 또는 `update` 같은 일반 환경의 명령어는 `SteamOwnerID` 전용입니다. This is convenient, as you may want to run bots for your friends, while not allowing them to control ASF process, such as exiting it via `exit` command. 기본값인 `0`은 ASF 프로세스의 소유자가 없다는 것으로, 일반 ASF 명령을 누구도 실행할 수 없다는 뜻입니다. Keep in mind that **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** commands work with `SteamOwnerID`, so if you want to use them, then you must provide a valid value here.
+`ulong` 타입으로 기본값은 `0`입니다. 이 속성값은 ASF 프로세스 소유자의 64비트 형태로 된 Steam ID를 정의합니다. 봇 인스턴스(일반 환경설정이 아닙니다)의 `주인(Master)` 권한과 매유 유사합니다. 이 속성값은 당신 자신의 메인 Steam 계정의 ID로 설정합니다. `주인(Master)` 권한은 봇 인스턴스에 대한 전체 제어를 갖지만, `exit`, `restart` 또는 `update` 같은 일반 환경의 명령어는 `SteamOwnerID` 전용입니다. This is convenient, as you may want to run bots for your friends, while not allowing them to control ASF process, such as exiting it via `exit` command. 기본값인 `0`은 ASF 프로세스의 소유자가 없다는 것으로, 일반 ASF 명령을 누구도 실행할 수 없다는 뜻입니다. **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ko-KR)** 명령어는 `SteamOwnerID`와 함께 동작함을 명심하고, IPC 명령어를 사용하려면 여기에 유효한 값을 입력하십시오.
 
 ---
 
@@ -267,15 +260,15 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 | 2 | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4 | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
 
-이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. 어떤 플래그도 활성화하지 않으면 `없음(None)` 옵션과 동일하며, 이는 유효하지 않은 값입니다.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 어떤 플래그도 활성화하지 않으면 `없음(None)` 옵션과 동일하며, 이는 유효하지 않은 값입니다.
 
-By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. 일반적으로 ASF가 가능한 전체 프로토콜 대신 하나나 두개의 특정 프로토콜만 사용하도록 제한하려는 경우 이 속성값을 변경합니다. 예를들어 방화벽에서 TCP만 활성화하고 ASF가 UDP로 연결을 시도하지 않길 원한다면 이런 수단이 필요할 수 있습니다. 그러나, 특정 문제나 이슈를 디버깅하는 중이 아니라면 거의 항상 ASF가 한두개가 아닌 현재 지원되는 어느 프로토콜이든 자유롭게 사용하길 원할 것입니다. Unless you have a **strong** reason to edit this property, you should keep it at default.
+By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. 일반적으로 ASF가 가능한 전체 프로토콜 대신 하나나 두개의 특정 프로토콜만 사용하도록 제한하려는 경우 이 속성값을 변경합니다. 예를들어 방화벽에서 TCP만 활성화하고 ASF가 UDP로 연결을 시도하지 않길 원한다면 이런 수단이 필요할 수 있습니다. 그러나, 특정 문제나 이슈를 디버깅하는 중이 아니라면 거의 항상 ASF가 한두개가 아닌 현재 지원되는 어느 프로토콜이든 자유롭게 사용하길 원할 것입니다. 이 속성값을 변경해야 할 **명확한** 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 ---
 
 ### `UpdateChannel`
 
-`byte` 타입으로 기본값은 `1`입니다. 이 속성값은 자동 업데이트(`UpdatePeriod` 가 `0`보다 큰 경우)나 업데이트 알림에서 사용할 업데이트 채널을 정의합니다. 현재 ASF는 3개의 업데이트 채널을 지원합니다. `0`은 `없음(None)`, `1`은 `안정(Stable)`, 그리고 `2`는 `실험(Experimental)`입니다. `안정(Stable)` 채널은 기본 릴리스 채널로, 대부분의 사용자가 사용해야 합니다. `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. 스스로 고급사용자라고 생각하지 않는다면 기본값 `1`인 안정(Stable) 채널을 유지하십시오. `실험(Experimental)` 채널은 버그를 제보하고, 이슈를 다루며 피드백을 주는 방법을 아는 사용자 용입니다. 기술지원은 제공되지 않습니다. 더 알고 싶다면 ASF의 **[릴리스 주기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)** 를 참고하십시오. 모든 버전확인을 완전히 제거하고 싶다면 `UpdateChannel`을 `0`(`없음(None)`)으로 설정할 수도 있습니다. `UpdateChannel`을 `0`으로 설정하면 `update` 명령을 포함한 업데이트와 관련된 모든 기능을 모두 비활성화합니다. 아래의 `UpdatePeriod` 설명에서 언급하는 모든 종류의 문제에 노출되므로 `없음(None)` 채널은 **하지 않기를 강력하게 권고합니다**.
+`byte` 타입으로 기본값은 `1`입니다. 이 속성값은 자동 업데이트(`UpdatePeriod` 가 `0`보다 큰 경우)나 업데이트 알림에서 사용할 업데이트 채널을 정의합니다. 현재 ASF는 3개의 업데이트 채널을 지원합니다. `0`은 `없음(None)`, `1`은 `안정(Stable)`, 그리고 `2`는 `실험(Experimental)`입니다. `안정(Stable)` 채널은 기본 릴리스 채널로, 대부분의 사용자가 사용해야 합니다. `실험(Experimental)` 채널은 `안정(Stable)` 릴리스에, 새로운 기능을 테스트하고 버그수정이나 계획된 개선사항에 대한 피드백을 주기 위한 고급 사용자와 개발자용인 **사전 릴리스(pre-releases)** 를 포함합니다. **실험(Experimental) 버전은 종종 수정되지 않은 버그나 작업중인 기능이 포함되어 있습니다.**. 스스로 고급사용자라고 생각하지 않는다면 기본값 `1`인 안정(Stable) 채널을 유지하십시오. `실험(Experimental)` 채널은 버그를 제보하고, 이슈를 다루며 피드백을 주는 방법을 아는 사용자 용입니다. 기술지원은 제공되지 않습니다. 더 알고 싶다면 ASF의 **[릴리스 주기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)** 를 참고하십시오. 모든 버전확인을 완전히 제거하고 싶다면 `UpdateChannel`을 `0`(`없음(None)`)으로 설정할 수도 있습니다. `UpdateChannel`을 `0`으로 설정하면 `update` 명령을 포함한 업데이트와 관련된 모든 기능을 모두 비활성화합니다. 아래의 `UpdatePeriod` 설명에서 언급하는 모든 종류의 문제에 노출되므로 `없음(None)` 채널은 **하지 않기를 강력하게 권고합니다**.
 
 **지금 하고 있는 것이 뭔지 알고 있지 않다면**, 기본값 그대로 두는 것을 **강력하게** 권장합니다.
 
@@ -362,6 +355,7 @@ In general, lowering `WebLimiterDelay` under default value is **strongly discour
     "PasswordFormat": 0,
     "Paused": false,
     "RedeemingPreferences": 0,
+    "RemoteCommunication": 7,
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,
@@ -650,11 +644,29 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ---
 
+### `RemoteCommunication`
+
+`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+
+| 값 | 이름            | 설명                                                                                                                                                                                                                                                                           |
+| - | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | 없음(None)      | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
+| 1 | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
+| 2 | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
+
+This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
+
+Further explanation on this subject is available in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. 이 속성값을 변경해야 할 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
+
+---
+
 ### `SendOnFarmingFinished`
 
 `bool` 타입으로 기본값은 `false`입니다. ASF가 해당 계정의 농사를 끝내면 이 시점까지 농사지은 모든 것을 포함시킨 Steam 거래를 `주인(Master)` 권한을 가진 사용자에게 자동으로 보낼 수 있습니다. 이는 직접 거래하기 귀찮다면 매우 편리합니다. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. 이 옵션이 켜져있다면 농사 후 `루팅`을 시작하는 것과 함께, ASF는 거래로 생기는 새로운 항목의 알림도 `루팅`을 시작합니다. 이것은 다른 사람이 우리 계정에 보낸 항목을 "전달"하는데 매우 유용합니다.
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `false`로 두십시오.
+시간이 들어도 수동으로 확인하길 원한다면 필수사항은 아니지만, 보통 이 기능과 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 을 함께 사용하길 원합니다. 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `false`로 두십시오.
 
 ---
 
@@ -662,13 +674,13 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 `byte` 타입으로 기본값은 `0`입니다. 이 속성값은 `SendOnFarmingFinished` 속성값과 매우 유사하게 동작하지만 차이가 하나 있습니다. 농사가 끝나면 거래를 보내는 대신 농사가 얼마나 남았는지와 상관없이 매 `SendTradePeriod` 시간마다 거래를 보냅니다. 부계정의 농사가 끝날때까지 기다리는 대신 평소에 `루팅` 하고 싶은 경우 유용합니다. 기본값인 `0`은 이 기능을 비활성화합니다. 예를 들어 봇이 매일 거래를 보내길 원한다면 여기에 `24`를 넣으십시오.
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `0`으로 두십시오.
+시간이 들어도 수동으로 확인하길 원한다면 필수사항은 아니지만, 보통 이 기능과 **[2단계 인증](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ko-KR)** 을 함께 사용하길 원합니다. 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `0`으로 두십시오.
 
 ---
 
 ### `ShutdownOnFarmingFinished`
 
-`bool` 타입으로 기본값은 `false`입니다. ASF는 활성화된 모든 시간동안 계정을 "점유하고" 있습니다. 해당 계정의 농사가 끝났다면, ASF는 주기적으로 매 `IdleFarmingPeriod` 시간마다 Steam 카드가 있는 새로운 게임이 그 사이에 추가되었는지를 확인하여 프로세스를 재시작할 필요없이 농사를 계속할 수 있도록 합니다. 이는 대부분의 사람들에게 유용한데, ASF는 필요하면 자동으로 농사를 이어서할 수 있기 때문입니다. 하지만 해당 계정이 완전히 농사가 끝난 다음에 프로세스를 실제로 멈추고 싶다면, 이 속성값을 `true`로 설정함으로써 그렇게 할 수 있습니다. 활성화되면 ASF는 계정의 농사가 완전히 끝나면 로그오프하여 더이상 주기적으로 체크하거나 점유하지 않게 합니다. ASF가 모든 시간을 봇 인스턴스에 사용하도록 하거나, 혹은 농사 프로세스가 끝나면 멈추게 할지를 스스로 정해야 합니다. When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well, putting your machine at rest and allowing you to schedule other actions, such as sleep or shutdown at the same moment of last card dropping.
+`bool` 타입으로 기본값은 `false`입니다. ASF는 활성화된 모든 시간동안 계정을 "점유하고" 있습니다. 해당 계정의 농사가 끝났다면, ASF는 주기적으로 매 `IdleFarmingPeriod` 시간마다 Steam 카드가 있는 새로운 게임이 그 사이에 추가되었는지를 확인하여 프로세스를 재시작할 필요없이 농사를 계속할 수 있도록 합니다. 이는 대부분의 사람들에게 유용한데, ASF는 필요하면 자동으로 농사를 이어서할 수 있기 때문입니다. 하지만 해당 계정이 완전히 농사가 끝난 다음에 프로세스를 실제로 멈추고 싶다면, 이 속성값을 `true`로 설정함으로써 그렇게 할 수 있습니다. 활성화되면 ASF는 계정의 농사가 완전히 끝나면 로그오프하여 더이상 주기적으로 체크하거나 점유하지 않게 합니다. ASF가 모든 시간을 봇 인스턴스에 사용하도록 하거나, 혹은 농사 프로세스가 끝나면 멈추게 할지를 스스로 정해야 합니다. 모든 계정이 멈추고 프로세스가 `--process-required` **[모드](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-ko-KR)** 에서 실행중이 아니면, ASF 또한 종료되고 기기도 쉴 수 있게 되며, 마지막 카드 획득 순간에 대기모드나 종료 등 다른 작업을 할 수 있도록 합니다.
 
 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `false`로 두십시오.
 
@@ -676,7 +688,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `SkipRefundableGames`
 
-`bool` 타입으로 기본값은 `false`입니다. This property defines if ASF is permitted to farm games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
+`bool` 타입으로 기본값은 `false`입니다. This property defines if ASF is permitted to farm games that are still refundable. 환불 가능한 게임은 **[Steam 환불](https://store.steampowered.com/steam_refunds)** 페이지에 게시된 것 처럼 Steam 상점에서 구매한지 2주 이내이고 2시간을 넘지않게 플레이한 게임입니다. By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. 이 기능을 사용할지 아닐지 불확실하다면 기본값인 `false`를 유지하십시오.
 
 ---
 

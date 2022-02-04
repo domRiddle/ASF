@@ -51,11 +51,11 @@ Es altamente recomendable usar **[ASF 2FA](https://github.com/JustArchiNET/Archi
 
 ### `MatchActively`
 
-El ajuste `MatchActively` es una versión extendida de `SteamTradeMatcher` que además del emparejamiento pasivo ofrecido por esta opción, también incluye emparejamiento activo en el que el bot enviará intercambios a otras personas.
+`MatchActively` setting is active version of `SteamTradeMatcher` which includes interactive matching in which the bot will send trades to other people. It can work standalone, or together with `SteamTradeMatcher` setting.
 
-Para usar esa opción, tienes que cumplir ciertos requisitos. Primero, necesitas habilitar `SteamTradeMatcher` (puesto que esta característica es una extensión de aquella), y asegurarte de que tienes `MatchEverything` **deshabilitado** (ya que los bots de intercambio nunca emparejan activamente). Además, tienes que ser elegible para nuestra **[lista ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-es-es#pol%C3%ADtica-de-privacidad-actual)**, con requisitos más flexibles. Como mínimo debes tener `Statistics` habilitado, una cuenta **[ilimitada](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-es#asf-2fa)** activo y por lo menos un tipo válido en `MatchableTypes`, tal como cromos.
+Para usar esa opción, tienes que cumplir ciertos requisitos. You have to be eligible for our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)**, with a bit relaxed requirements. At the minimum you must have **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active and at least one valid type in `MatchableTypes`, such as trading cards.
 
-Si cumples todos los requisitos anteriores, ASF se comunicará periódicamente con nuestra **[lista pública de ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-es-es#lista-p%C3%BAblica-asf-stm)** para emparejar activamente con los bots que estén disponibles.
+If you meet all of the requirements above, ASF will periodically communicate with our **[public ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to actively match bots that are currently available.
 
 - Cada sesión de emparejamiento se compone de "rondas", con hasta `10` siendo el máximo en una sesión de emparejamiento.
 - En cada ronda ASF analizará nuestro inventario y el inventario de los bots seleccionados que estén listados para encontrar artículos `MatchableTypes` que puedan ser emparejados. Si se encuentra una coincidencia, ASF enviará y confirmará automáticamente la oferta de intercambio.

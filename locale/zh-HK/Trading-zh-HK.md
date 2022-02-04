@@ -57,11 +57,11 @@ ASF 2FA</0 >, 因為如果您決定手動確認每個交易, 則此功能將失�
 
 ### `MatchActively`
 
-`MatchActively` 設置是擴展版本的 `SteamTradeMatcher`， 除了該選項提供的被動匹配外，還包括主動匹配，機械人將主動向其他人發送交易。
+`MatchActively` setting is active version of `SteamTradeMatcher` which includes interactive matching in which the bot will send trades to other people. It can work standalone, or together with `SteamTradeMatcher` setting.
 
-為了使用該選項，您有一組需要滿足的要求。 首先，您需要啟用 `SteamTradeMatcher`（因為該特性是此功能的擴展），並確保您已**禁用**`MatchEverything`（因為交易機械人永遠不會參與主動匹配）。 Afterwards, you have to be eligible for our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#current-privacy-policy)**, with a bit relaxed requirements. At the minimum you must have `Statistics` enabled, **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active and at least one valid type in `MatchableTypes`, such as trading cards.
+為了使用該選項，您有一組需要滿足的要求。 You have to be eligible for our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)**, with a bit relaxed requirements. At the minimum you must have **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active and at least one valid type in `MatchableTypes`, such as trading cards.
 
-If you meet all of the requirements above, ASF will periodically communicate with our **[public ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics#public-asf-stm-listing)** in order to actively match bots that are currently available.
+If you meet all of the requirements above, ASF will periodically communicate with our **[public ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to actively match bots that are currently available.
 
 - Each matching session is composed of "rounds", with `10` being maximum in a single matching session.
 - 在每一輪匹配中， ASF 將獲取我們和清單中可選機械人的物品庫以找到符合 `匹配類型` 的物品。 如果找到匹配項，ASF 將自動發送並確認交易報價。

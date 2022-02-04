@@ -51,11 +51,11 @@ STM 仅会处理有利的交易，这意味着使用 STM 进行重复卡牌匹�
 
 ### `MatchActively`
 
-`MatchActively`（主动匹配）是 `SteamTradeMatcher` 的扩展版本，除了被动匹配以外，机器人还可以主动向其他人发送交易报价。
+`MatchActively` setting is active version of `SteamTradeMatcher` which includes interactive matching in which the bot will send trades to other people. It can work standalone, or together with `SteamTradeMatcher` setting.
 
-为了使用该选项，您需要满足一系列需求。 首先，您需要启用 `SteamTradeMatcher`（因为此功能是它的扩展版），并且**禁用** `MatchEverything` 属性（因为交易机器人不会主动发起交易）。 之后，您需要有加入我们的 **[ASF STM 列表](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN#当前隐私政策)**&#8203;的资格，但条件略微宽松。 您至少应该保证 `Statistics` 启用、帐户&#8203;**[不受限](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**、**[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN#asf-两步验证)** 启用，并且在 `MatchableTypes` 中设置了至少一种有效的类型，例如集换式卡牌。
+为了使用该选项，您需要满足一系列需求。 You have to be eligible for our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)**, with a bit relaxed requirements. At the minimum you must have **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active and at least one valid type in `MatchableTypes`, such as trading cards.
 
-如果您满足上述所有要求，ASF 将会定期与我们的&#8203;**[公共 ASF STM 列表](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Statistics-zh-CN#公共-asf-stm-列表)**&#8203;通信，以主动匹配当前在线的机器人。
+If you meet all of the requirements above, ASF will periodically communicate with our **[public ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to actively match bots that are currently available.
 
 - 每次匹配流程都由数个“轮次”组成，单次匹配流程最多可含 `10` 轮。
 - 每一轮，ASF 将会获取我们的库存与列表中选定机器人的库存，以寻找可匹配的 `MatchableTypes` 物品。 如果找到合适的匹配，ASF 将会自动发送并确认交易报价。
