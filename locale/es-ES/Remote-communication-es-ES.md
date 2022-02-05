@@ -1,35 +1,35 @@
-# Remote communication
+# Comunicación remota
 
-This section elaborates on remote communication that ASF includes, including further explanation on how one can influence it. While we don't consider anything below as malicious or otherwise unwanted, and neither we're legally obliged to disclose it, we want you to better understand the program functionality especially in regards to your privacy and data being shared.
+Esta sección explica la comunicación remota que ASF incorpora, incluyendo más información sobre cómo uno puede influenciarla. Si bien no consideramos nada de lo siguiente como malicioso o no deseado, ni estamos legalmente obligados a revelarlo, queremos que entiendas mejor la funcionalidad del programa, especialmente en lo que respecta a tu privacidad y los datos que se comparten.
 
 ## Steam
 
-ASF communicates with Steam network (**[CM servers](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), as well as **[Steam API](api.steampowered.com)**, **[Steam store](https://store.steampowered.com)** and **[Steam community](https://steamcommunity.com)**.
+ASF se comunica con la red de Steam (**[servidores CM](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), así como **[Steam API](api.steampowered.com)**, **[la tienda de Steam](https://store.steampowered.com)** y **[la comunidad de Steam](https://steamcommunity.com)**.
 
-It's not possible to disable any of the above communication, as it's the core foundation ASF is based on in order to provide its basic functionality. You'll need to refrain from using ASF if you're not comfortable with the above.
+No es posible desactivar ninguna de las comunicaciones mencionadas, ya que es lo principal en que ASF se basa para proporcionar su funcionalidad básica. Deberás abstenerte de usar ASF si no estás de acuerdo con lo anterior.
 
-## Steam group
+## Grupo de Steam
 
-ASF communicates with our **[Steam group](https://steamcommunity.com/groups/archiasf)**. The group provides you with announcements, especially new versions, critical issues, Steam problems and other things that are important to keep community updated. It also allows you to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements. By default, accounts used in ASF will automatically join the group upon login.
+ASF se comunica con nuestro **[grupo de Steam](https://steamcommunity.com/groups/archiasf)**. El grupo te proporciona anuncios, especialmente de versiones nuevas, problemas críticas, problemas de Steam y otras cosas que son importantes para mantener actualizada a la comunidad. También te permite usar nuestro soporte técnico, haciendo preguntas, resolviendo problemas, reportando problemas o sugiriendo mejoras. Por defecto, las cuentas usadas en ASF se unirán automáticamente al grupo al iniciar sesión.
 
-You can decide to opt-out of joining the group by disabling `SteamGroup` flag in bot's **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** settings.
+Puedes optar por no unirte al grupo desactivando la bandera `SteamGroup` en las opciones **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#remotecommunication)** del bot.
 
 ## GitHub
 
-ASF communicates with **[GitHub's API](https://api.github.com)** in order to fetch **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** for the update functionality. This is done as part of auto-updates (if you've kept **[`UpdatePeriod`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updateperiod)** enabled), as well as `update` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. You can influence ASF's communication with GitHub through **[`UpdateChannel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updatechannel)** property - setting it to `None` will result in disabling entire update functionality, including GitHub communication in this regard.
+ASF se comunica con la **[API de GitHub](https://api.github.com)** para obtener las **[versiones de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** para la funcionalidad de actualización. Esto se hace como parte de las actualizaciones automáticas (si dejaste **[`UpdatePeriod`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#updateperiod)** habilitado), así como con el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `update`. Puedes influir la comunicación de ASF con GitHub a través de la propiedad **[`UpdateChannel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#updatechannel)** - estableciéndola a `None` resultará en deshabilitar por completo la funcionalidad de actualización, incluyendo la comunicación con GitHub en este sentido.
 
-## ASF's server
+## Servidor de ASF
 
-ASF communicates with **[our own server](https://asf.justarchi.net)** for more advanced functionality. In particular, this includes:
-- Verifying checksums of ASF builds downloaded from GitHub against our own independent database to ensure that all downloaded builds are legitimate (free of malware, MITM attacks or other tampering)
-- Announcing your bot in **[our listing](https://asf.justarchi.net/STM)** if you've enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** and meet other criteria
-- Downloading currently available bots to trade from **[our listing](https://asf.justarchi.net/STM)** if you've enabled `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** and meet other criteria
+ASF se comunica con **[nuestro servidor](https://asf.justarchi.net)** para funcionalidades avanzadas. En particular, esto incluye:
+- Verificar las sumas de comprobación de las compilaciones de ASF descargadas de GitHub contra nuestra base de datos independiente para asegurar que todas las compilaciones descargadas sean legítimas (libres de malware, ataques de intermediario u otro tipo de manipulación)
+- Anunciar tu bot en **[nuestra lista](https://asf.justarchi.net/STM)** si habilitaste `SteamTradeMatcher` en **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#tradingpreferences)** y cumples con otros criterios.
+- Descargar los bots disponibles para intercambiar de **[nuestra lista](https://asf.justarchi.net/STM)** si habilitaste `MatchActively` en **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#tradingpreferences)** y cumples con otros criterios.
 
-As a security measure, it's not possible to disable checksum verification for ASF builds. However, you can disable auto-updates entirely if you'd like to avoid this, as described above in the GitHub section.
+Como medida de seguridad, no es posible desactivar la suma de verificación para las compilaciones de ASF. Sin embargo, puedes desactivar las actualizaciones automáticas si deseas evitar esto, como se describió anteriormente en la sección GitHub.
 
-You can decide to opt-out of being announced in the listing by disabling `PublicListing` flag in bot's **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** settings. This might be useful if you'd like to run `SteamTradeMatcher` bot without being announced at the same time.
+Puedes optar por no ser anunciado en la lista desactivando la bandera `PublicListing` en las opciones **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#remotecommunication)** del bot. Esto puede ser útil si quieres ejecutar un bot con `SteamTradeMatcher` sin ser anunciado al mismo tiempo.
 
-Downloading bots from our listing is mandatory for `MatchActively` setting, you'll need to disable that setting if you're unwilling to accept that.
+Descargar los bots de nuestro listado es obligatorio para la opción `MatchActively`, necesitarás deshabilitar dicha opción si no deseas aceptar eso.
 
 ---
 
@@ -53,22 +53,22 @@ La lista ASF STM solo acepta bots de ASF por el momento. No hay forma de listar 
 
 Si buscas una forma sencilla de acceder a nuestro listado de manera programática, tenemos un endpoint **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** muy simple que puedes usar. Este es también el endpoint que ASF usa internamente para los usuarios de `MatchActively`.
 
-### Privacy policy
+### Política de privacidad
 
-If you agree to being listed in our listing, by enabling `SteamTradeMatcher` and not refusing `PublicListing`, as specified above, we'll temporarily store some of your Steam account details on our server in order to provide the core functionality.
+Si aceptas aparecer en nuestro listado, al habilitar `SteamTradeMatcher` y no rechazando `PublicListing`, como se especificó arriba, temporalmente almacenaremos algunos detalles de tu cuenta de Steam en nuestro servidor para proporcionar la funcionalidad principal.
 
-Public info (exposed by Steam to every interested party) includes:
+La información pública (expuesta por Stea a todas las partes interesadas) incluye:
 - Tu identificador de Steam (en forma de 64 bits, para generar enlaces)
 - Tu nombre de usuario (para efectos de visualización)
 - Tu avatar (para efectos de visualización)
 - El número total de artículos `MatchableTypes` en tu inventario (para efectos de visualización y emparejamiento)
 - El número total de juegos de los que provienen los artículos `MatchableTypes` mencionados antes (para efectos de visualización y emparejamiento)
 
-Private info (selected data required for providing the functionality) includes:
+La información privada (datos seleccionados necesarios para proporcionar la funcionalidad) incluye:
 - Tu **[token de intercambio](https://steamcommunity.com/my/tradeoffers/privacy)** (para que las personas fuera de tu lista de amigos puedan enviarte intercambios)
 - Tus `MatchableTypes` (para efectos de visualización y emparejamiento)
-- Value of `MatchEverything` in your **[`TradingPreferences`](#tradingpreferences)** (for display purposes and matching)
+- El valor de `MatchEverything` en **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#tradingpreferences)** (para efectos de visualización y emparejamiento)
 
-ASF server will **not** collect, store or otherwise process any other data not listed above, without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand the process.
+El servidor de ASF **no** recolectará, almacenará o procesará cualquier otra información no mencionada arriba, sin previo aviso en el registro de cambios, y sin una buena razón práctica en primer lugar. No consideramos nada de lo anterior como un asunto grave, y lo mencionamos para que sepas exactamente lo que hace ASF además de aquello para lo que lo configuraste, para que la gente pueda entender mejor el proceso.
 
-Your data will be automatically hidden from general public in up to 15 minutes since the moment you stop using our listing, whether due to change of settings or not having ASF launched anymore. In addition to that, it'll be automatically deleted from our server (including all backup copies) in up to 7 days since the above happening.
+Tu información se ocultará automáticamente del público general en hasta 15 minutos desde el momento en que dejes de usar nuestro listado, ya sea por un cambio en la configuración o por ya no tener ASF en ejecución. Además, será borrada automáticamente de nuestro servidor (incluyendo todas las copias de respaldo) en hasta 7 días desde que ocurra lo mencionado anteriormente.

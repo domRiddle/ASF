@@ -22,8 +22,8 @@ ASF communicates with **[GitHub's API](https://api.github.com)** in order to fet
 
 ASF communicates with **[our own server](https://asf.justarchi.net)** for more advanced functionality. In particular, this includes:
 - Verifying checksums of ASF builds downloaded from GitHub against our own independent database to ensure that all downloaded builds are legitimate (free of malware, MITM attacks or other tampering)
-- Announcing your bot in **[our listing](https://asf.justarchi.net/STM)** if you've enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** and meet other criteria
-- Downloading currently available bots to trade from **[our listing](https://asf.justarchi.net/STM)** if you've enabled `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** and meet other criteria
+- Announcing your bot in **[our listing](https://asf.justarchi.net/STM)** if you've enabled `SteamTradeMatcher` in **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** and meet other criteria
+- Downloading currently available bots to trade from **[our listing](https://asf.justarchi.net/STM)** if you've enabled `MatchActively` in **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** and meet other criteria
 
 As a security measure, it's not possible to disable checksum verification for ASF builds. However, you can disable auto-updates entirely if you'd like to avoid this, as described above in the GitHub section.
 
@@ -67,7 +67,7 @@ Public info (exposed by Steam to every interested party) includes:
 Private info (selected data required for providing the functionality) includes:
 - **[simbolul tău de tranzacționare](https://steamcommunity.com/my/tradeoffers/privacy)** (astfel încât oamenii din afara listei tale de prieteni îți pot trimite tranzacții)
 - Valoarea ta de `MatchableTypes` (pentru scopuri de afișare și potrivire)
-- Value of `MatchEverything` in your **[`TradingPreferences`](#tradingpreferences)** (for display purposes and matching)
+- Value of `MatchEverything` in your **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** (for display purposes and matching)
 
 ASF server will **not** collect, store or otherwise process any other data not listed above, without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand the process.
 

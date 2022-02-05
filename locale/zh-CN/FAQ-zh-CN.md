@@ -228,7 +228,7 @@ ASF 根本不需要您运行，甚至都不需要安装 Steam 客户端。 根�
 
 ### 它安全吗？
 
-如果您询问 ASF 作为软件是否安全，或者说它是否对您的计算机有害、是否窃取您的私人数据、是否为您安装病毒等恶意程序，则这个问题的答案是——它很安全。 ASF 没有恶意软件、数据挖掘、加密货币挖矿，以及任何（所有）其他可能被用户视为有危害或者不希望的可疑行为。 In addition to that we have a dedicated **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section which covers our privacy policy and ASF behaviour that goes beyond what you configured the program to do yourself.
+如果您询问 ASF 作为软件是否安全，或者说它是否对您的计算机有害、是否窃取您的私人数据、是否为您安装病毒等恶意程序，则这个问题的答案是——它很安全。 ASF 没有恶意软件、数据挖掘、加密货币挖矿，以及任何（所有）其他可能被用户视为有危害或者不希望的可疑行为。 除此之外，我们有一个专门的[**远程通信**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-CN)章节，涵盖了我们的隐私政策，以及超出了您自己为程序配置的功能的 ASF 行为。
 
 我们的代码是开源的，并且分发的二进制文件总是由&#8203;**[来源公开](https://en.wikipedia.org/wiki/Open-source_software)**&#8203;的&#8203;**[自动化并且可信的 CI 系统](https://en.wikipedia.org/wiki/Build_automation)**&#8203;而不是开发者编译。 每个构建都可以由我们的构建脚本重现，并产生完全相同、**[确定](https://en.wikipedia.org/wiki/Deterministic_system)**&#8203;的 IL（二进制）代码。 如果您出于任何原因不信任我们的构建，您随时可以从源代码以及 ASF 使用的所有依赖库（例如 SteamKit2）编译 ASF，这些库也同样是开源的。
 
@@ -302,7 +302,7 @@ ASF 真正需要关注的重点是：
 
 ### ASF 会收集哪些隐私信息？
 
-You can find detailed explanation in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. 如果您关心您的隐私，例如，您想知道为何使用 ASF 的帐户需要加入我们的 Steam 群组，就需要审查我们的隐私策略。 ASF 不会收集任何敏感信息，也不会将统计信息分享给第三方。
+您可以在[**远程通信**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-CN)章节详细了解。 如果您关心您的隐私，例如，您想知道为何使用 ASF 的帐户需要加入我们的 Steam 群组，就需要审查我们的隐私策略。 ASF 不会收集任何敏感信息，也不会将统计信息分享给第三方。
 
 ---
 

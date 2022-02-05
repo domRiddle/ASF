@@ -160,7 +160,7 @@ Posteriormente, asumiendo que instalaste todas las dependencias necesarias en el
 
 Si proporcionaste `SteamLogin` y `SteamPassword` para que utilice ASF, se te pedirá solamente tu código de SteamGuard (correo electrónico, 2FA o ninguno, dependiendo de los ajustes de tu cuenta de Steam). Si no lo hiciste, también se te pedirá tu nombre de usuario y contraseña.
 
-Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name.
+Ahora sería un buen momento para revisar nuestra sección de **[comunicación remota](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-es-ES)** si te preocupa lo que ASF está programado para hacer, incluyendo acciones que realizará en tu nombre.
 
 Después de la etapa de conexión, asumiendo que tus datos son correctos, iniciarás sesión con éxito, y ASF comenzará a recolectar cromos usando la configuración predeterminada:
 

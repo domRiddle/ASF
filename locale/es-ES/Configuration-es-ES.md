@@ -646,19 +646,19 @@ También ten en cuenta que no puedes reenviar o distribuir claves a bots a los q
 
 ### `RemoteCommunication`
 
-`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+Tipo `byte flags` con valor predeterminado de `3`. Esta propiedad define el comportamiento de ASF por cada bot cuando se trata de la comunicación con servicios remotos de terceros, y se describe a continuación:
 
-| Valor | Nombre        | Descripción                                                                                                                                                                                                                                                                  |
-| ----- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
-| 1     | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
-| 2     | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+| Valor | Nombre        | Descripción                                                                                                                                                                                                                                                                                             |
+| ----- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | None          | No se permite la comunicación de terceros, dejando inutilizables ciertas funciones de ASF.                                                                                                                                                                                                              |
+| 1     | SteamGroup    | Permite la comunicación con el **[grupo de ASF en Steam](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                                  |
+| 2     | PublicListing | Permite la comunicación con el  **[listado ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-es-ES#lista-p%C3%BAblica-asf-stm)** para poder ser mostrado, si el usuario también tiene habilitado `SteamTradeMatcher` en **[`TradingPreferences`](#tradingpreferences)** |
 
 Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
-This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
+Esta opción no incluye todas las comunicaciones de terceros ofrecidas por ASF, solo aquellas que no están implícitas en otros ajustes. Por ejemplo, si habilitaste las actualizaciones automáticas, ASF se comunicará con GitHub (para descargas) y con nuestro servidor (para la suma de verificación), según tu configuración. Del mismo modo, habilitar `MatchActively` en **[`TradingPreferences`](#tradingpreferences)** implica la comunicación con nuestro servidor para obtener los bots listados, lo que es necesario para dicha funcionalidad.
 
-Further explanation on this subject is available in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. A menos que tengas una razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
+Más información al respecto se encuentra disponible en la sección de **[comunicación remota](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-es-ES)**. A menos que tengas una razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
 ---
 

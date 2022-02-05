@@ -16,7 +16,7 @@ ASF 的主要目标是尽可能高效地挂卡，这基于两种可操作的数�
 
 **复杂**（Complex）算法是新算法，帮助卡牌掉落受限帐户最大化收益。 ASF 将会首先为所有游戏时间已超过 `HoursUntilCardDrops` 的游戏应用标准的**简单**算法，然后，如果没有游戏时间达到 `HoursUntilCardDrops` 的游戏剩余，它将会同时挂所有游戏时间不足 `HoursUntilCardDrops` 的游戏（最多同时挂 `32` 个），直到其中的所有游戏的游戏时间达到 `HoursUntilCardDrops`，此时 ASF 将会重复上述的过程（对游戏使用**简单**算法，同时运行游戏时间不足 `HoursUntilCardDrops` 的游戏等等）。 在这种情况下，我们会同时挂多个游戏，使它们的游戏时间先达到掉卡时长。 请注意，在挂游戏时间时，ASF **不会**挂卡牌，因此它也不会检查这段时间内是否有卡牌掉落（原因如上所述）。
 
-目前，ASF 完全根据 `HoursUntilCardDrops` 配置文件属性（由**您**设置）来选择挂卡算法。 If `HoursUntilCardDrops` is set to `0`, **Simple** algorithm will be used, otherwise, **Complex** algorithm will be used instead - configured to bump playtime in all games to given amount of hours before farming them for card drops.
+目前，ASF 完全根据 `HoursUntilCardDrops` 配置文件属性（由**您**设置）来选择挂卡算法。 如果 `HoursUntilCardDrops` 被设置为 `0`，就会采用**简单**算法，否则会采用**复杂**算法——也就是配置为先把所有游戏的游戏时长挂到指定的小时数，然后再挂机获得卡牌。
 
 ---
 
@@ -30,7 +30,7 @@ ASF 的主要目标是尽可能高效地挂卡，这基于两种可操作的数�
 
 ### 检查您的帐户是否被限制的最好方法是什么？
 
-Make sure you have some games with **no playtime recorded** to farm, preferably 5+, and run ASF with `HoursUntilCardDrops` of `0`. 如果您在挂卡期间没有玩游戏，结果会更准确（最好在夜间进行此测试）。 让 ASF 自动挂这 5 款游戏，之后查询日志获取结果。
+确保您有**未记录游戏时长的**游戏来挂卡，最好至少有 5 款，然后以 `HoursUntilCardDrops` 为 `0` 值运行 ASF。 如果您在挂卡期间没有玩游戏，结果会更准确（最好在夜间进行此测试）。 让 ASF 自动挂这 5 款游戏，之后查询日志获取结果。
 
 ASF 清楚地说明指定游戏的卡牌在何时掉落。 您需要关注 ASF 最早掉落的卡牌。 例如，如果您的帐户不受限，则第一张卡牌应该在挂卡开始后大约 30 分钟时掉落。 如果您注意到**至少一款**游戏在起始 30 分钟内掉卡，就表明您的帐户**不受限**，并且应该将 `HoursUntilCardDrops` 设置为 `0`。
 

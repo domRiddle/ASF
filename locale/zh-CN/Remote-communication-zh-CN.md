@@ -1,35 +1,35 @@
-# Remote communication
+# 远程通信
 
-This section elaborates on remote communication that ASF includes, including further explanation on how one can influence it. While we don't consider anything below as malicious or otherwise unwanted, and neither we're legally obliged to disclose it, we want you to better understand the program functionality especially in regards to your privacy and data being shared.
+本章节描述 ASF 所包含的远程通信，以及进一步解释您如何改变其行为。 虽然我们不认为下文所述是恶意或者不需要的，我们在法律上也没有义务予以披露，但我们希望您能更好地理解程序功能，特别是在您的隐私和数据共享方面。
 
 ## Steam
 
-ASF communicates with Steam network (**[CM servers](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), as well as **[Steam API](api.steampowered.com)**, **[Steam store](https://store.steampowered.com)** and **[Steam community](https://steamcommunity.com)**.
+ASF 会与 Steam 网络（**[CM 服务器](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**）、**[Steam API](api.steampowered.com)**、[**Steam 商店**](https://store.steampowered.com)和 [**Steam 社区**](https://steamcommunity.com)通信。
 
-It's not possible to disable any of the above communication, as it's the core foundation ASF is based on in order to provide its basic functionality. You'll need to refrain from using ASF if you're not comfortable with the above.
+禁用上述任何通信是不可能的，因为它是 ASF 提供一切基本功能的基础。 如果您不喜欢上述通信，则应该选择不使用 ASF。
 
-## Steam group
+## Steam 组
 
-ASF communicates with our **[Steam group](https://steamcommunity.com/groups/archiasf)**. The group provides you with announcements, especially new versions, critical issues, Steam problems and other things that are important to keep community updated. It also allows you to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements. By default, accounts used in ASF will automatically join the group upon login.
+ASF 与我们的 [**Steam 组**](https://steamcommunity.com/groups/archiasf)通信。 群组可以为您发布公告，特别是新版本、紧急状况、Steam 问题以及其他对于保持社区更新非常重要的事项。 它还使您可以使用我们的技术支持，即提出问题、解决问题、报告问题或建议改进。 默认情况下，使用 ASF 的帐户会在登录时自动加入到群组。
 
-You can decide to opt-out of joining the group by disabling `SteamGroup` flag in bot's **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** settings.
+您可以选择不加入群组，只需要在机器人的 **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#remotecommunication)** 设置中关闭 `SteamGroup` flag。
 
 ## GitHub
 
-ASF communicates with **[GitHub's API](https://api.github.com)** in order to fetch **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** for the update functionality. This is done as part of auto-updates (if you've kept **[`UpdatePeriod`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updateperiod)** enabled), as well as `update` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. You can influence ASF's communication with GitHub through **[`UpdateChannel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updatechannel)** property - setting it to `None` will result in disabling entire update functionality, including GitHub communication in this regard.
+ASF 与 **[GitHub 的 API](https://api.github.com)** 通信来获取 **[ASF Release](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** 用于更新功能。 需要此通信的包括自动更新（如果您启用了 **[`UpdatePeriod`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#updateperiod)**），也包括 `update` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 您可以设置 **[`UpdateChannel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#updatechannel)** 属性影响 ASF 与 GitHub 的通信——设置为 `None` 会完全禁用更新功能，因此也就禁用了与 GitHub 的通信。
 
-## ASF's server
+## ASF 服务器
 
-ASF communicates with **[our own server](https://asf.justarchi.net)** for more advanced functionality. In particular, this includes:
-- Verifying checksums of ASF builds downloaded from GitHub against our own independent database to ensure that all downloaded builds are legitimate (free of malware, MITM attacks or other tampering)
-- Announcing your bot in **[our listing](https://asf.justarchi.net/STM)** if you've enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** and meet other criteria
-- Downloading currently available bots to trade from **[our listing](https://asf.justarchi.net/STM)** if you've enabled `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** and meet other criteria
+ASF 与[**我们的服务器**](https://asf.justarchi.net)通信提供进阶功能。 特别包括：
+- 验证从 GitHub 下载的 ASF 构建符合我们独立数据库中的校验和，以确保所有下载的构建是安全的（不含恶意软件、中间人攻击或其他篡改）
+- 如果您在 **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#tradingpreferences)** 中启用了 `SteamTradeMatcher`，并满足我们的要求，则会在[**我们的列表**](https://asf.justarchi.net/STM)中展示您的机器人
+- 如果您在 **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#tradingpreferences)** 中启用了 `MatchActively`，并满足我们的其他要求，则会从[**我们的列表**](https://asf.justarchi.net/STM)中下载当前可以交易的机器人
 
-As a security measure, it's not possible to disable checksum verification for ASF builds. However, you can disable auto-updates entirely if you'd like to avoid this, as described above in the GitHub section.
+作为安全措施，您无法禁用 ASF 构建的校验和验证。  但是，如上文 GitHub 小节所述，如果您想避免此类通信，可以完全禁用自动更新。
 
-You can decide to opt-out of being announced in the listing by disabling `PublicListing` flag in bot's **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** settings. This might be useful if you'd like to run `SteamTradeMatcher` bot without being announced at the same time.
+您可以选择不在列表中展示，只需要在机器人的 **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#remotecommunication)** 设置中关闭 `PublicListing` flag。 如果您想要运行 `SteamTradeMatcher` 机器人但不展示，就可以这样设置。
 
-Downloading bots from our listing is mandatory for `MatchActively` setting, you'll need to disable that setting if you're unwilling to accept that.
+从我们的列表中下载机器人对于 `MatchActively` 是强制要求，您如果不愿意接受，就必须禁用其设置。
 
 ---
 
@@ -53,22 +53,22 @@ ASF STM 列表暂时只接受 ASF 机器人。 目前无法在我们的列表中
 
 如果您正在寻找以编程方式访问我们的列表的方法，我们为您提供了一个简单的 **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** 端点。 这也是 ASF 内部为 `MatchActively` 用户使用的端点。
 
-### Privacy policy
+### 隐私政策
 
-If you agree to being listed in our listing, by enabling `SteamTradeMatcher` and not refusing `PublicListing`, as specified above, we'll temporarily store some of your Steam account details on our server in order to provide the core functionality.
+如果您同意在我们的列表中展示，即如上所述，启用 `SteamTradeMatcher`，并且不拒绝 `PublicListing`，我们会在服务器中临时存储一些您的 Steam 帐户数据，以便提供核心功能。
 
-Public info (exposed by Steam to every interested party) includes:
+公开信息（由 Steam 暴露给任何感兴趣的人 ）包括：
 - 您的 Steam ID（64 位形式，用于生成链接）
 - 您的昵称（用于显示目的）
 - 您的头像（经过哈希，用于显示目的）
 - 您库存中 `MatchableTypes` 物品的总数（用于显示和匹配目的）
 - 提供上述 `MatchableTypes` 物品的游戏总数（用于显示和匹配目的）
 
-Private info (selected data required for providing the functionality) includes:
+私密信息（提供功能所需的特定数据）包括：
 - 您的&#8203;**[交易令牌](https://steamcommunity.com/my/tradeoffers/privacy)**（使不是您好友的人可以向您发送交易报价）
 - 您的 `MatchableTypes`（用于显示和匹配目的）
-- Value of `MatchEverything` in your **[`TradingPreferences`](#tradingpreferences)** (for display purposes and matching)
+- 您在 **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#tradingpreferences)** 中为 `MatchEverything` 设置的值（用于显示和匹配目的）
 
-ASF server will **not** collect, store or otherwise process any other data not listed above, without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand the process.
+ASF 服务器**不会**在事先没有通知条款变更及其切实原因的情况下收集、存储或处理任何其他上面未列出的数据。 我们认为上述的一切都不是严重问题，我们提到这些是为了让您了解 ASF 在除了您自己配置的功能之外究竟还做了什么，使用户更好地了解其流程。
 
-Your data will be automatically hidden from general public in up to 15 minutes since the moment you stop using our listing, whether due to change of settings or not having ASF launched anymore. In addition to that, it'll be automatically deleted from our server (including all backup copies) in up to 7 days since the above happening.
+您的数据会在停止使用公共列表后的最多 15 分钟内自动从公开转为隐藏，无论是因为您更改了设置还是关闭了 ASF。     此外，自上述情况发生起最多 7 天内，它将被自动从我们的服务器上删除（包括所有备份）。

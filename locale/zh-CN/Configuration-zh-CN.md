@@ -491,7 +491,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 | 14 | MarketableAscending       | 尝试先挂掉落卡牌无法出售的游戏         |
 | 15 | MarketableDescending      | 尝试先挂掉落卡牌可以出售的游戏         |
 
-由于此属性是一个数组，因此您可以按不同优先级使用多种排序方式。 例如，您可以按顺序选择方式 `15`、`11` 和 `7`，首先按照卡牌能否出售排序，然后按照徽章等级排序，最后按照字母顺序排序。 As you can guess, the order actually matters, as reverse one (`7`, `11` and `15`) achieves something entirely different (sorts games alphabetically first, and due to game names being unique, the other two are effectively useless). 大多数用户可能只需要从中选择一种排序方式，但如果您想进一步调整挂卡顺序，也可以添加多种排序方式。
+由于此属性是一个数组，因此您可以按不同优先级使用多种排序方式。 例如，您可以按顺序选择方式 `15`、`11` 和 `7`，首先按照卡牌能否出售排序，然后按照徽章等级排序，最后按照字母顺序排序。 您可能已经猜到，选项的顺序很重要，如果您反转该属性的选项（`7`、`11` 和 `15`），则结果会完全不同（先按字母顺序排序，由于游戏名称非常独特，此时其他两个选项几乎不会起作用）。 大多数用户可能只需要从中选择一种排序方式，但如果您想进一步调整挂卡顺序，也可以添加多种排序方式。
 
 需要注意的是上表中所有描述都含有词汇“尝试”——ASF 实际采用的顺序非常受所选的&#8203;**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**&#8203;影响，并且 ASF 只会在不影响性能的情况下尝试进行排序。 例如，在使用 `Simple` 算法时，当前挂卡会话将会严格按照您设置的 `FarmingOrders` 排序（因为每款游戏的性能值都相同），而在使用 `Complex` 算法时，实际的挂卡顺序首先受游戏小时数影响，然后才按照 `FarmingOrders` 排序。 这会导致不同的结果，因为已有游戏时间的游戏将会优于其他游戏，因此 ASF 会首先挂游戏时长已满足 `HoursUntilCardDrops` 要求的游戏，然后才按照您设置的 `FarmingOrders` 顺序挂其他游戏。 同样地，ASF 在挂完了所有时长达标的游戏之后，会将剩余的游戏按照游戏小时数排序（因为这能够减少将游戏时长挂到 `HoursUntilCardDrops` 所需的时间）。 因此，这个配置属性仅仅是为 ASF 提供的一个**建议**，ASF 会在不降低挂卡性能的情况下尽量遵守（在二者有冲突时，ASF 会优先考虑性能而不是 `FarmingOrders`）。
 
@@ -646,19 +646,19 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ### `RemoteCommunication`
 
-`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+这是一个默认值为 `3` 的 `byte flags` 类型属性。 该属性为每个机器人定义 ASF 与以下第三方服务进行远程通信的行为：
 
-| 值 | 名称            | 描述                                                                                                                                                                                                                                                                           |
-| - | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0 | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
-| 1 | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
-| 2 | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+| 值 | 名称            | 描述                                                                                                                                                                                                           |
+| - | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0 | None          | 不允许与第三方通信，指定的 ASF 功能将不可用                                                                                                                                                                                     |
+| 1 | SteamGroup    | 允许与 [**ASF 的 Steam 组**](https://steamcommunity.com/groups/archiasf)通信                                                                                                                                        |
+| 2 | PublicListing | 如果用户还启用了 **[`TradingPreferences`](#tradingpreferences)** 中的 `SteamTradeMatcher`，则允许与 [**ASF STM 列表**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-CN#公共-asf-stm-列表)通信以展示在列表上 |
 
 请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
 
-This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
+此选项不包含所有 ASF 提供的第三方通信，仅包含其他设置没有隐含的通信。 例如，如果您启用 ASF 自动更新，ASF 就会按照您的设置，与 GitHub（用于下载）和我们的服务器（用于完整性校验）通信。 同样地，在 **[`TradingPreferences`](#tradingpreferences)** 中启用 `MatchActively` 隐含了与我们服务器的通信，即获取列表中的机器人，这也是启用此功能所必需的。
 
-Further explanation on this subject is available in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. 除非您有理由编辑此属性，否则应将其保留为默认值。
+关于此主题的详细解释，您可以阅读[**远程通信**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-CN)章节了解。 除非您有理由编辑此属性，否则应将其保留为默认值。
 
 ---
 
