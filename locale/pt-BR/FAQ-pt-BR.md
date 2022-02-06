@@ -15,7 +15,7 @@ A seção de perguntas frequentes cobre respostas a questões comuns que você p
 ## Geral
 
 ### O que é o ASF?
-### Why does the program claim that there is nothing to farm on my account?
+### Por que o programa diz que não há nada para ser coletado na minha conta?
 ### Por que minha conta está limitada?
 
 Antes de tentar entender o que é o ASF, certifique-se de que você entende o que são as cartas Colecionáveis Steam e como obtê-las, o que é muito bem descrito na seção oficial de perguntas frequentes **[aqui](https://steamcommunity.com/tradingcards/faq)**.

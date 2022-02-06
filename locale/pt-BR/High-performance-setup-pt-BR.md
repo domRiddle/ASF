@@ -34,23 +34,23 @@ No entanto, se memória não é um problema para você (como o coletor de lixo l
 
 > Essa configuração habilita a otimização guiada por perfil (PGO) dinâmica ou escalonada no .NET 6 e versões posteriores.
 
-Desativado por padrão. In a nutshell, this will cause JIT to spend more time analyzing ASF's code and its patterns in order to generate superior code optimized for your typical usage. Se você quiser aprender mais sobre essa configuração, visite **[melhorias de desempenho no .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**.
+Desativado por padrão. Resumidamente, isso fará com que o JIT passe mais tempo analisando o código do ASF e seus padrões de modo a gerar um código superior otimizado para seu uso do dia a dia. Se você quiser aprender mais sobre essa configuração, visite **[melhorias de desempenho no .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**.
 
 ### **[`DOTNET_ReadyToRun`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#readytorun)**
 
-> Configures whether the .NET Core runtime uses pre-compiled code for images with available ReadyToRun data. Disabling this option forces the runtime to JIT-compile framework code.
+> Configura se o .NET Core runtime usa código pré-compilado para imagens com dados ReadyToRun disponíveis. Desabilitar esta opção força o runtime a compilar o código do framework usando Just-In-Time.
 
-Enabled by default. Disabling this in combination with enabling `DOTNET_TieredPGO` allows you to extend tiered profile-guided optimization to the whole .NET platform, and not just ASF code.
+Ativado por padrão. Disabling this in combination with enabling `DOTNET_TieredPGO` allows you to extend tiered profile-guided optimization to the whole .NET platform, and not just ASF code.
 
 ### **[`DOTNET_TC_QuickJitForLoops`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
 
-> Configures whether the JIT compiler uses quick JIT on methods that contain loops. Enabling quick JIT for loops may improve startup performance. However, long-running loops can get stuck in less-optimized code for long periods.
+> Configura se o compilador JIT usa JIT rápido em métodos que contém loops. Enabling quick JIT for loops may improve startup performance. However, long-running loops can get stuck in less-optimized code for long periods.
 
-Disabled by default. While the description doesn't make it obvious, enabling this will allow methods with loops to go through additional compilation tier, which will allow `DOTNET_TieredPGO` to do a better job by analyzing its usage data.
+Desativado por padrão. Embora a descrição não seja óbvia, habilitar isso permitirá que métodos com loops passem por uma camada de compilação adicional, tornando possível que `DOTNET_TieredPGO` execute um trabalho melhor ao analisar seus dados de uso.
 
 ---
 
-You can enable selected properties by setting appropriate environment variables. Por exemplo, no linux (shell):
+Você pode habilitar propriedades selecionadas ao definir variáveis de ambiente apropriadas. Por exemplo, no Linux (shell):
 
 ```shell
 export DOTNET_gcServer=1

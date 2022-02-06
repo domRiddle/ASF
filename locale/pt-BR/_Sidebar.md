@@ -21,11 +21,16 @@
 * **[👥 Ativador de códigos em segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-pt-BR)**
 * **[📢 Comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)**
 * **[🛠️ Compatibilidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**
-* **[📋 Gerenciamento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
-* **[⏱️ Desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📡 Remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
-* **[👪 Compartilhamento de biblioteca Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[🔄 Trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+* **[<a href=https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-pt-BR>📋 Gerenciamento</1>](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
+* **
+[⏱️ Desempenho</1>](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-pt-BR)</strong></li> 
+  
+  * **[📡 Comunicação remota</1>](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-pt-BR)</strong></li> 
+  
+  * **[👪 Compartilhamento de Biblioteca Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[🔄 Trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**</ul> 
+
+
 
 
 ## 🧙 Avançado
@@ -44,6 +49,8 @@
 * **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin-pt-BR)**
 * **[📦 Aplicativos de terceiros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-pt-BR)**
 * **[📵 Autenticação em duas etapas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)**
+
+
 
 
 ## 👷 Desenvolvedores
