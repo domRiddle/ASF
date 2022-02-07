@@ -185,7 +185,7 @@ E no texto da wiki:
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
+Quando não há nenhum HTML (segundo caso), isso fica ainda mais fácil já que você só precisa ir até `Hidden texts` -> `Link addresses`.
 
 ---
 
