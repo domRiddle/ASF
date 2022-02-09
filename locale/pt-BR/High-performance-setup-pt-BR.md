@@ -14,7 +14,7 @@ Os truques abaixo **envolvem um aumento sério de memória e tempo de inicializa
 
 A maneira recomendada de aplicar estas configurações é por meio das propriedades de ambiente `DOTNET_`. Claro, você também pode usar outros métodos, p. ex.: `runtimeconfig.json`, mas é impossível definir algumas configurações desta maneira e, além disso, o ASF substituirá o seu arquivo personalizado `runtimeconfig.json` pelo arquivo próprio do ASF, portanto recomendamos propriedades de ambiente que você possa definir facilmente antes de iniciar o processo.
 
-O .NET runtime permite que você **[ajuste o coletor de lixo](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** em diferentes maneiras, melhorando-o efetivamente de acordo com suas necessidades. Nós documentamos abaixo propriedades que são especialmente importantes em nossa opinião.
+O tempo de execução do .NET permite que você **[ajuste o coletor de lixo](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** de várias formas, melhorando-o efetivamente conforme as suas necessidades. Nós documentamos abaixo propriedades que são especialmente importantes em nossa opinião.
 
 ### [`gcServer`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 

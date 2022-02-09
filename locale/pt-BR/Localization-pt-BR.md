@@ -145,7 +145,7 @@ No Crowdin, a primeira coisa que você deve fazer é ir até as configurações 
 Agora, durante a tradução no Crowdin, dependendo da formatação, você verá links do ASF no texto nas formas abaixo:
 
 * Linhas para traduzir com tags HTML (a maior parte delas, onde apenas uma parte da frase é um link)
-* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar - those require proofreader access to translate, sadly)
+* Uma linha sozinha para traduzir, com link incluído em `Hidden texts` -> `Link addresses` (raro, onde a linha inteira é um link, mais comum na barra lateral - eles exigem acesso de revisor para traduzir, Infelizmente)
 
 No exemplo acima vemos o primeiro caso (já que apenas "setting up" é um link), então você terá:
 

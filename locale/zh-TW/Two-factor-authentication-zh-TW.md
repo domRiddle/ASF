@@ -1,4 +1,4 @@
-# 兩步驟驗證
+# 雙重驗證
 
 A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
 
@@ -12,7 +12,7 @@ Regardless if you use ASF 2FA explained below or not, ASF includes proper logic 
 
 ---
 
-# ASF 兩步驟驗證
+# ASF 雙重驗證
 
 ASF 2FA is a built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. It duplicates your existing authenticator, so that you can use your current authenticator and ASF 2FA at the same time.
 
@@ -114,13 +114,13 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 ## FAQ
 
-### ASF 如何使用兩步驟驗證模組？
+### ASF 如何使用雙重驗證模組？
 
 如果 ASF 兩步驟驗證可用，ASF 將用它自動確認由 ASF 傳送/接受的交易。 It will also be capable of automatically generating 2FA tokens on as-needed basis, for example in order to log in. In addition to that, having ASF 2FA also enables `2fa` commands for you to use. That should be all for now, if I didn't forget about anything - basically ASF uses 2FA module on as-needed basis.
 
 ---
 
-### 假如我需要兩步驟驗證權杖？
+### 假如我需要雙重驗證權杖？
 
 You will need 2FA token to access 2FA-protected account, that includes every account with ASF 2FA as well. You should generate tokens in authenticator that you used for import, but you can also generate temporary tokens through `2fa` command sent via the chat to given bot. You can also use `2fa <BotNames>` command to generate temporary token for given bot instances. This should be enough for you to access bot accounts through e.g. browser, but as noted above - you should use your friendly authenticator (Android, iOS, SDA or WinAuth) instead.
 
@@ -138,7 +138,7 @@ ASF mobile authenticator is saved in `BotName.db` file in your config directory,
 
 ---
 
-### 如何移除 ASF 兩步驟驗證？
+### 如何移除 ASF 雙重驗證？
 
 Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2FA you want to remove. This option will remove associated imported 2FA with ASF, but will NOT delink your authenticator. If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, iOS, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linking that authenticator, on the Steam website. It's not possible to unlink your authenticator through ASF, this is what general-purpose authenticator that you already have should be used for.
 

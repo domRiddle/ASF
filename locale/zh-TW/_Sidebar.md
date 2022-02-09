@@ -10,27 +10,27 @@
 
 ## 👨‍🏫 基礎
 
-* **[🏡 主頁面](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
-* **[🔧配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+* **[🏡 首頁](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
+* **[🔧 配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[💬 常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* ⚙️設置(從這裡開始)
+* **[⚙️ 設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)****（從這裡開始）**
 
 
 ## 👨‍🎓️ 主要
 
 * **[👥 背景啟動序號](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
-* **[🛠️ 兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[🛠️ 相容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[📋 管理](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
-* **[⏱️ 性能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📡 Remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
+* **[⏱️ 效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
+* **[📡 遠端通訊](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
 * **[👪 Steam 家庭共享](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[🔄 交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 
 ## 🧙 進階
 
-* **[⌨️ 指令參數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
+* **[⌨️ 指令引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[🚧 棄用](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[🐳 Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[🤔 其他常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
@@ -50,5 +50,5 @@
 
 * **[🏗️ 編譯](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
 * **[🤝 貢獻指南](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
-* **[⚖️ 執照](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
+* **[⚖️ 授權](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[🏭 發佈週期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
