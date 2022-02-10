@@ -245,7 +245,7 @@ Tipo `string` con valor predeterminado de `"/me "`. Esta propiedad define un pre
 
 ### `SteamOwnerID`
 
-Tipo `ulong` con valor predeterminado de `0`. Esta propiedad define el Steam ID del propietario del proceso ASF en forma de 64 bits, y es muy similar al permiso `Master` de una determinada instancia de bot (pero de manera global). Casi siempre querrás establecer esta propiedad al ID de tu cuenta de Steam principal. Los permisos `Master` incluyen control total sobre tu instancia de bot, pero los comandos globales como `exit`, `restart` o `update` están reservados solamente para `SteamOwnerID`. Esto es conveniente, ya que puedes querer ejecutar bots para tus amigos, sin permitirles controlar el proceso de ASF, tal como salir a través del comando `exit`. El valor predeterminado de `0` especifica que el proceso de ASF no tiene propietario, lo que significa que nadie podrá enviar comandos globales de ASF. Te en cuenta que los comandos **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES)** funcionan con `SteamOwnerID`, así que si quieres usarlos, debes proporcionar un valor válido aquí.
+Tipo `ulong` con valor predeterminado de `0`. Esta propiedad define el Steam ID del propietario del proceso ASF en forma de 64 bits, y es muy similar al permiso `Master` de una determinada instancia de bot (pero de manera global). Casi siempre querrás establecer esta propiedad al ID de tu cuenta de Steam principal. Los permisos `Master` incluyen control total sobre tu instancia de bot, pero los comandos globales como `exit`, `restart` o `update` están reservados solamente para `SteamOwnerID`. Esto es conveniente, ya que puedes querer ejecutar bots para tus amigos, sin permitirles controlar el proceso de ASF, tal como salir a través del comando `exit`. El valor predeterminado de `0` especifica que el proceso de ASF no tiene propietario, lo que significa que nadie podrá enviar comandos globales de ASF. Ten en cuenta que los comandos **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES)** funcionan con `SteamOwnerID`, así que si quieres usarlos, debes proporcionar un valor válido aquí.
 
 ---
 
@@ -922,7 +922,7 @@ Ejemplo para `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "765
 
 ---
 
-`flags` - Los atributos de bandera combinan varias propiedades en un valor final al aplicar operaciones de bits. Esto permite elegir al mismo tempo cualquier posible combinación de diferentes valores permitidos. El valor final es el resultado de la suma de los valores de todas las opciones habilitadas.
+`flags` - Los atributos de bandera combinan varias propiedades diferentes en un valor final aplicando operaciones bit a bit. Esto permite elegir cualquier combinación posible de diferentes valores permitidos al mismo tiempo. El valor final es el resultado de la suma de los valores de todas las opciones habilitadas.
 
 Por ejemplo, dados los siguientes valores:
 
@@ -933,9 +933,9 @@ Por ejemplo, dados los siguientes valores:
 | 2     | B      |
 | 4     | C      |
 
-Usar `B + C` resultaría en el valor `6`, usar `A + C` resultaría en el valor `5`, usar `C` resultaría en el valor `4` y así sucesivamente. Esto permite crear cualquier posible combinación de valores habilitados - si decides habilitar todos, usando `Ninguno + A + B + C`, obtendrías el valor `7`. También ten en cuenta que la bandera con valor `0` está habilitada por definición en todas las otras combinaciones disponibles, por lo tanto muy a menudo es una bandera que no habilitada nada específico (como en `Ninguno`).
+Usar `B + C` resultaría en el valor `6`, usar `A + C` resultaría en el valor `5`, usar `C` resultaría en el valor `4` y así sucesivamente. Esto permite crear cualquier combinación posible de valores habilitados - si decidieras habilitar todos, usando `None + A + B + C`, obtendrías el valor `7`. También ten en cuenta que la bandera con valor `0` está habilitada por definición en todas las otras combinaciones disponibles, por lo tanto muy a menudo es una bandera que no habilita nada específico (tal como `None`).
 
-Como puedes ver, en el ejemplo anterior tenemos 3 banderas disponibles para activar/apagar (`A`, `B`, `C`), y `8` posibles valores en total:
+Como puedes ver, en el ejemplo anterior tenemos 3 banderas disponibles para activar/desactivar (`A`, `B`, `C`), y `8` valores posibles en total:
 - `None -> 0`
 - `A -> 1`
 - `B -> 2`
@@ -951,24 +951,24 @@ Ejemplo: `"SteamProtocols": 7`
 
 ## Compatibilidad de mapeo
 
-Debido a las limitaciones de JavaScript de ser incapaz de serializar correctamente los campos `ulong` en JSON cuando se usa el ConfigGenerator basado en la web, los campos `ulong` serán interpretados como líneas con el prefijo `s_` en la configuración resultante. Esto incluye, por ejemplo, `"SteamOwnerID": 76561198006963719` que será escrito por nuestro ConfigGenerator como `"s_SteamOwnerID": "76561198006963719"`. ASF incluye la lógica adecuada para manejar este mapeo de líneas automáticamente, así que las entradas `s_` en tus configuraciones son válidas y correctamente generadas. Si estás generando las configuraciones tú mismo, recomendamos apegarse a los campos `ulong` originales de ser posible, pero si no es posible, también puedes seguir este esquema y codificarlos con el prefijo `s_` añadido a sus nombres. Esperamos resolver eventualmente esta limitación de JavaScript.
+Debido a las limitaciones de JavaScript de ser incapaz de serializar correctamente los campos `ulong` en JSON cuando se usa el ConfigGenerator basado en la web, los campos `ulong` serán interpretados como líneas con el prefijo `s_` en la configuración resultante. Esto incluye, por ejemplo, `"SteamOwnerID": 76561198006963719` que será escrito por nuestro ConfigGenerator como `"s_SteamOwnerID": "76561198006963719"`. ASF incluye la lógica adecuada para manejar este mapeo de líneas automáticamente, así que las entradas `s_` en tus configuraciones son válidas y correctamente generadas. Si estás generando las configuraciones tú mismo, recomendamos apegarse a los campos `ulong` originales de ser posible, pero si no es posible, también puedes seguir este esquema y codificarlos con el prefijo `s_` añadido a sus nombres. Esperamos resolver esta limitación de JavaScript en algún momento.
 
 ---
 
 ## Compatibilidad de configuraciones
 
-Es de prioridad alta para ASF permanecer compatible con configuraciones antiguas. Como ya debes saber, las propiedades de configuración faltantes son tratadas del mismo modo como si estuvieran definidas en sus **valores predeterminados**. Por lo tanto, si una nueva propiedad de configuración es introducida en una nueva versión de ASF, todas tus configuraciones permanecerán **compatibles** con la nueva versión, y ASF tratará esa nueva propiedad como si estuviera definida en su **valor predeterminado**. Siempre puedes acuerdo, eliminar o editar las propiedades de configuración de acuerdo a tus necesidades. Recomendamos limitar las propiedades de configuración definidas solo a aquellas que quieres cambiar, ya que de esta manera automáticamente se adquieren los valores por defecto para todas las demás, no solo manteniendo limpia tu configuración sino además aumentando la compatibilidad en caso de que decidamos cambiar el valor por defecto de una propiedad que no quieras establecer explícitamente tú mismo (ejemplo, `WebLimiterDelay`).
+Es de prioridad alta para ASF permanecer compatible con configuraciones antiguas. Como ya debes saber, las propiedades de configuración faltantes son tratadas del mismo modo como si estuvieran definidas en sus **valores predeterminados**. Por lo tanto, si una nueva propiedad de configuración es introducida en una nueva versión de ASF, todas tus configuraciones permanecerán **compatibles** con la nueva versión, y ASF tratará esa nueva propiedad como si estuviera definida en su **valor predeterminado**. Siempre puedes añadir, eliminar o editar las propiedades de configuración de acuerdo a tus necesidades. Recomendamos limitar las propiedades de configuración definidas solo a aquellas que quieres cambiar, ya que de esta manera automáticamente se adquieren los valores por defecto para todas las demás, no solo manteniendo limpia tu configuración sino además aumentando la compatibilidad en caso de que decidamos cambiar el valor por defecto de una propiedad que no quieras establecer explícitamente tú mismo (por ejemplo, `WebLimiterDelay`).
 
 ---
 
 ## Recarga automática
 
-Empezando en ASF V2.1.6.2+, el programa ahora puede detectar "al momento" la modificación de las configuraciones - gracias a eso ASF automáticamente:
+A partir de ASF V2.1.6.2+, el programa es consciente de configuraciones siendo modificadas "al vuelo" - gracias a eso, ASF automáticamente:
 - Crea (e inicia, si es necesario) una nueva instancia de bot, cuando creas su archivo de configuración
 - Detiene (si es necesario) y elimina una instancia de bot antigua, cuando eliminas su archivo de configuración
 - Detiene (e inicia, si es necesario) cualquier instancia de bot, cuando editas su archivo de configuración
 - Reinicia (si es necesario) el bot con un nuevo nombre, cuando renombras su archivo de configuración
 
-Todo lo anterior es transparente y se hará automáticamente sin necesidad de reiniciar el programa, o detener otras (no afectadas) instancias de bot.
+Todo lo anterior es transparente y se hará automáticamente sin necesidad de reiniciar el programa, o detener otras instancias de bot (no afectadas).
 
 Además, ASF también se reiniciará a sí mismo (si `AutoRestart` lo permite) si modificas el archivo de configuración principal de ASF `ASF.json`. Del mismo modo, el programa se cerrará si eliminas o renombras este archivo.

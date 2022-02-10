@@ -11,9 +11,9 @@ Isso não significa que você não possa usá-lo no seu computador ou que o uso 
 ## Instalador para sistemas operacionais específicos
 
 Em geral, é isso que vamos fazer nos próximos minutos:
-- Install **[.NET prerequisites](#net-prerequisites)**.
+- Instalar os **[pré-requisitos do .NET](#net-prerequisites)**.
 - Baixar a **[última versão do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** na versão correta para o seu SO.
-- Extract the archive into new location.
+- Extrair o arquivo para um novo local.
 - **[Configurar o ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)**.
 - Executar o ASF e ver a mágica.
 
@@ -21,32 +21,32 @@ Parece simples o bastante, certo? Então, vamos ver.
 
 ---
 
-### .NET prerequisites
+### Pré-requisitos do .NET
 
-O primeiro passo é garantir que seu sistema operacional pode mesmo executar o ASF corretamente. ASF is written in C#, based on .NET platform and may require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. Esse é nosso material de referência e ele deve ser usado, mas para simplificar nós detalhamos todos os pacotes necessários abaixo para que você não precise ler todo o documento.
+O primeiro passo é garantir que seu sistema operacional pode mesmo executar o ASF corretamente. O ASF é escrito em C#, baseado na plataforma .NET e pode requerer bibliotecas nativas que ainda não estão disponíveis na sua plataforma. Os requisitos serão diferentes se você usa Windows, Linux ou OS X, embora todos estejam listados no documento **[pré-requisitos .NET](https://docs.microsoft.com/dotnet/core/install)** que você deve seguir. Esse é nosso material de referência e ele deve ser usado, mas para simplificar nós detalhamos todos os pacotes necessários abaixo para que você não precise ler todo o documento.
 
 É perfeitamente normal que algumas dependências (ou mesmo todas) já tenham sido instaladas no seu sistema por algum outro software que você use. Ainda assim, você deve garantir executando o instalador apropriado para seu sistema operacional - sem essas dependências o ASF não vai nem iniciar.
 
 Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET SDK or even runtime, since OS-specific package includes all of that already. You need only .NET prerequisites (dependencies) to run .NET runtime included in ASF.
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
-- **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)** for 64-bit Windows, **[x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)** for 32-bit Windows)
-- É altamente recomendado garantir que todas as atualizações do Windows estejam instaladas. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**, **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. Todas elas já estarão instaladas se o seu Windows estiver atualizado. Certifique-se de que você atende a esses requisitos antes de instalar o pacote do Visual C++.
-- If you're using Windows 7, you'll be forced to run **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)** variant as your OS is no longer supported by OS-specific package. Recomendamos fortemente uma atualização, já que versões futuras do ASF provavelmente pararão de trabalhar com ela, sem mencionar que o sistema operacional atingiu o seu fim de vida em 2020.
+- **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)** para Windows 64-bit, **[x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)** para Windows 32-bit)
+- É altamente recomendado garantir que todas as atualizações do Windows estejam instaladas. Você precisa pelo menos das atualizações **[KB2533623](https://support.microsoft.com/pt-br/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** e **[KB2999226](https://support.microsoft.com/pt-br/help/2999226/update-for-universal-c-runtime-in-windows)**, mas outras atualizações podem ser necessárias. Todas elas já estarão instaladas se o seu Windows estiver atualizado. Certifique-se de que você atende a esses requisitos antes de instalar o pacote do Visual C++.
+- Se você estiver usando o Windows 7, você será forçado a executar a versão <a href=https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pt-BR#configura%C3%A7%C3%A3o-gen%C3%A9rica>genérica</a></strong> já que o seu sistema operacional não é mais suportado por um pacote específico para SO. Recomendamos fortemente uma atualização, já que versões futuras do ASF provavelmente pararão de trabalhar com ela, sem mencionar que o sistema operacional atingiu o seu fim de vida em 2020.
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**:
 Os nomes dos pacotes dependem da distribuição do Linux que você esteja usando, nós listamos as mais comuns. Você pode obter todas elas com o gerenciador de pacotes nativo do seu SO (como `apt` para Debian ou `yum` por CentOS).
 
-- `ca-certificates` (standard trusted SSL certificates to make HTTPS connections)
+- `ca-certificates` (certificados SSL padrão confiáveis para fazer conexões HTTPS)
 - `libc6` (`libc`)
 - `libgcc1` (`libgcc`)
 - `libicu` (`icu-libs`, versão mais recente para a sua distribuição, por exemplo `libicu67`)
 - `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
-- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, at least `1.1.X` as `1.0.X` may no longer work)
+- `libssl1.1` (`libssl`, `openssl-libs`, versão mais recente para a sua distribuição, pelo menos `1.1.X`, já que a `1.0.X` pode não funcionar mais)
 - `libstdc++6` (`libstdc++`, na versão `5.0` ou superior)
 - `zlib1g` (`zlib`)
 
-Pelo menos a maioria deles já deve estar disponível nativamente no seu sistema. The minimal installation of Debian stable required only `libicu67`.
+Pelo menos a maioria deles já deve estar disponível nativamente no seu sistema. A instalação mínima do Debian estável requer apenas `libicu67`.
 
 #### **[macOS](https://docs.microsoft.com/dotnet/core/install/macos)**:
 - Nenhum por enquanto, mas você deve ter a versão mais recente do OS X instalada, pelo menos 10.15+
@@ -222,11 +222,11 @@ However, keep in mind that you're in charge of .NET runtime in this case. This m
 Para o pacote `generic` você pode acompanhar o guia de instalação para sistemas operacionais inteiro acima, com duas pequenas alterações. In addition to installing .NET prerequisites, you also want to install .NET SDK, and instead of having OS-specific `ArchiSteamFarm(.exe)` executable file, you now have a generic `ArchiSteamFarm.dll` binary only. Todo o resto permanece igual.
 
 Com etapas extras:
-- Install **[.NET prerequisites](#net-prerequisites)**.
-- Install **[.NET SDK](https://www.microsoft.com/net/download)** (or at least ASP.NET Core runtime) appropriate for your OS. Você provavelmente vai desejar usar um instalador. Veja **[requisitos de tempo de execução](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** se você não tiver certeza de qual versão instalar.
+- Instalar os **[pré-requisitos do .NET](#net-prerequisites)**.
+- Instalar o **[.NET SDK](https://www.microsoft.com/net/download)** (ou pelo menos o ASP.NET Core runtime) apropriado para seu SO. Você provavelmente vai desejar usar um instalador. Confira os **[requisitos de tempo de execução](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** se você não tiver certeza de qual versão instalar.
 - Baixar a **[última versão do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** na versão `generic`.
-- Extract the archive into new location.
+- Extrair o arquivo para um novo local.
 - **[Configurar o ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)**.
 - Abra o ASF usando um script auxiliar ou executando `dotnet /path/to/ArchiSteamFarm.dll` manualmente pelo seu shell favorito.
 
-Scripts de ajuda (como `ArchiSteamFarm.cmd` para Windows e `ArchiSteamFarm.sh` para Linux/iOS) estão juntos com o `ArchiSteamFarm.dll` - eles são inclusos apenas na variante `generic`. Você pode usá-los se você não quer executar o comando `dotnet` manualmente. Obviously helper scripts won't work if you didn't install .NET SDK and you don't have `dotnet` executable available in your `PATH`. Os scripts de ajuda são inteiramente opcionais, você pode sempre usar o método manual `dotnet /path/to/ArchiSteamFarm.dll`.
+Scripts de ajuda (como `ArchiSteamFarm.cmd` para Windows e `ArchiSteamFarm.sh` para Linux/iOS) estão juntos com o `ArchiSteamFarm.dll` - eles são inclusos apenas na variante `generic`. Você pode usá-los se você não quer executar o comando `dotnet` manualmente. Obviamente os scripts de ajuda não funcionarão se você não instalar o .NET SDK e não tenha o executável `dotnet` disponível em seu `PATH`. Os scripts de ajuda são inteiramente opcionais, você pode sempre usar o método manual `dotnet /path/to/ArchiSteamFarm.dll`.

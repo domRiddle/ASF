@@ -40,11 +40,11 @@ Desativado por padrão. Resumidamente, isso fará com que o JIT passe mais tempo
 
 > Configura se o .NET Core runtime usa código pré-compilado para imagens com dados ReadyToRun disponíveis. Desabilitar esta opção força o runtime a compilar o código do framework usando Just-In-Time.
 
-Ativado por padrão. Disabling this in combination with enabling `DOTNET_TieredPGO` allows you to extend tiered profile-guided optimization to the whole .NET platform, and not just ASF code.
+Ativado por padrão. Desativando isso junto com a ativação de `DOTNET_TieredPGO` permite que você extenda a otimização guiada por perfil em camadas para toda a plataforma .NET, e não apenas para o código ASF.
 
 ### **[`DOTNET_TC_QuickJitForLoops`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
 
-> Configura se o compilador JIT usa JIT rápido em métodos que contém loops. Enabling quick JIT for loops may improve startup performance. However, long-running loops can get stuck in less-optimized code for long periods.
+> Configura se o compilador JIT usa JIT rápido em métodos que contém loops. Ativando o JIT rápido para loops pode melhorar o desempenho de inicialização. Contudo, loops de longa duração podem ficar presos em códigos menos otimizados por maiores períodos.
 
 Desativado por padrão. Embora a descrição não seja óbvia, habilitar isso permitirá que métodos com loops passem por uma camada de compilação adicional, tornando possível que `DOTNET_TieredPGO` execute um trabalho melhor ao analisar seus dados de uso.
 
@@ -79,8 +79,8 @@ $Env:DOTNET_TC_QuickJitForLoops=1
 ## Otimização recomendada
 
 - Certifique-se de estar usando o valor padrão em `OptimizationMode` (modo de otimização) que é `MaxPerformance` (máximo desempenho). Esse é de longe a configuração mais importante uma vez que usar o valor `MinMemoryUsage` (uso mínimo de memória) traz sérios efeitos ao desempenho.
-- Habilitar coletor de lixo no servidor. A ativação da coleta de lixo do servidor pode ser percebida imediatamente por um aumento significativo de memória em comparação com o coletor de lixo de estação de trabalho. This will spawn a GC thread for every CPU thread your machine has in order to perform GC operations in parallel with maximum speed.
-- If you can't afford memory increase due to server GC, consider tweaking **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** and/or **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gcheaphardlimitpercent)** to achieve "the best of both worlds". No entanto, se sua memória não aguenta é melhor manter tudo nos valores padrão; o coletor de lixo de servidor se auto-ajusta durante o tempo de execução e é inteligente o bastante para usar menos memória quando seu sistema operacional necessita dela.
-- You can also consider increased optimization for longer startup time with additional tweaking through other `DOTNET_` properties explained above.
+- Habilitar coletor de lixo no servidor. A ativação da coleta de lixo do servidor pode ser percebida imediatamente por um aumento significativo de memória em comparação com o coletor de lixo de estação de trabalho. Isso gerará uma thread de coleta de lixo para cada thread de CPU que sua máquina possui para conseguir executar operações de coleta de lixo em paralelo com velocidade máxima.
+- Se você não puder arcar com o aumento de memória devido a coleta de lixo do servidor, considere ajustar **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-pt-BR#gclatencylevel)** e/ou **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-pt-BR#gcheaphardlimitpercent)** para aproveitar "o melhor dos dois mundos". No entanto, se sua memória não aguenta é melhor manter tudo nos valores padrão; o coletor de lixo de servidor se auto-ajusta durante o tempo de execução e é inteligente o bastante para usar menos memória quando seu sistema operacional necessita dela.
+- Você também pode considerar uma maior otimização para um tempo de inicialização mais longo com ajustes adicionais através das outras propriedades `DOTNET_` explicadas acima.
 
-Applying recommendations above allows you to have superior ASF performance that should be blazing fast even with hundreds or thousands of enabled bots. O CPU não deverá mais ser um gargalo, já que o ASF pode usar todo o desempenho do seu CPU caso necessário, reduzindo o tempo necessário ao mínimo possível. O próximo passo seria um upgrade em sua CPU e memória RAM.
+Usando as recomendações acima permite que você tenha um desempenho superior para o ASF que deverá ficar muito mais rápido mesmo com centenas ou milhares de bots habilitados. O CPU não deverá ter mais gargalo, já que o ASF pode usar todo o desempenho do seu CPU caso necessário, reduzindo o tempo necessário ao mínimo possível. O próximo passo seria um upgrade em sua CPU e memória RAM.
