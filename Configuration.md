@@ -578,7 +578,7 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 ### `OnlineFlags`
 
-`ushort flags` type with default value of `0`. This property works as addition to **[`OnlineStatus`](#onlinestatus)** and specifies additional online presence features announced to Steam network. Requires **[`OnlineStatus`](#onlinestatus)** other than `Offline`, and is defined as below:
+`ushort flags` type with default value of `0`. This property works as supplement to **[`OnlineStatus`](#onlinestatus)** and specifies additional online presence features announced to Steam network. Requires **[`OnlineStatus`](#onlinestatus)** other than `Offline`, and is defined as below:
 
 Value | Name | Description
 --- | --- | ---
