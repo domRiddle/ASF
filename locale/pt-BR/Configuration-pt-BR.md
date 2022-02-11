@@ -351,6 +351,7 @@ A configuração do bot tem a seguinte estrutura:
     "HoursUntilCardDrops": 3,
     "LootableTypes": [1, 3, 5],
     "MatchableTypes": [5],
+    "OnlineFlags": 0,
     "OnlineStatus": 1,
     "PasswordFormat": 0,
     "Paused": false,
@@ -575,6 +576,26 @@ A menos que você saiba o que está fazendo, você deve mantê-lo com o valor `5
 
 ---
 
+### `OnlineFlags`
+
+`ushort flags` type with default value of `0`. This property works as supplement to **[`OnlineStatus`](#onlinestatus)** and specifies additional online presence features announced to Steam network. Requires **[`OnlineStatus`](#onlinestatus)** other than `Offline`, and is defined as below:
+
+| Valor | Nome              | Descrição                                 |
+| ----- | ----------------- | ----------------------------------------- |
+| 0     | None              | No special online presence flags, default |
+| 256   | ClientTypeWeb     | Client is using web interface             |
+| 512   | ClientTypeMobile  | Client is using mobile app                |
+| 1024  | ClientTypeTenfoot | Client is using big picture               |
+| 2048  | ClientTypeVR      | Client is using VR headset                |
+
+Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#mapeamento-json)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
+
+The underlying enum this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+
+Se você não tem certeza de como definir essa propriedade, deixe-a com o valor padrão `0`.
+
+---
+
 ### `OnlineStatus`
 
 Tipo `byte` com o valor padrão `1`. Esta propriedade especifica o status na comunidade Steam no qual o bot será anunciado após efetuar login na rede Steam. Atualmente você pode escolher um dos status abaixo:
@@ -621,9 +642,9 @@ Tipo `byte flags` com o valor padrão `0`. Essa propriedade define o comportamen
 | Valor | Nome                               | Descrição                                                                                                                   |
 | ----- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | 0     | None                               | Sem preferências especiais de resgate, padrão                                                                               |
-| 1     | Forwarding                         | Encaminha os códigos de produtos indisponíveis para que sejam resgatados por outros bots                                    |
-| 2     | Distributing                       | Distribui todos os códigos de produto entre si e os outros bots                                                             |
-| 4     | KeepMissingGames                   | Guarda os códigos de jogos que (possivelmente) não estejam em sua conta, deixando-os sem uso                                |
+| 1     | Forwarding                         | Encaminha keys indisponíveis para serem resgatadas por outros bots                                                          |
+| 2     | Distributing                       | Distribui todas as keys entre si e os outros bots                                                                           |
+| 4     | KeepMissingGames                   | Guarda as keys de jogos que (possivelmente) não estejam em sua conta, deixando-as sem uso                                   |
 | 8     | AssumeWalletKeyOnBadActivationCode | Assume que `BadActivationCode` são iguais à `CannotRedeemCodeFromClient` e, portanto, tenta resgatá-los como vales presente |
 
 Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#mapeamento-json)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
@@ -650,11 +671,11 @@ Tipo `byte flags` com o valor padrão `3`. Essa propriedade define o comportamen
 
 | Valor | Nome          | Descrição                                                                                                                                                                                                                                                                   |
 | ----- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None          | Não permitida nenhuma comunicação com terceiros, tornando os recursos ASF selecionados inutilizáveis                                                                                                                                                                        |
+| 0     | Nenhum        | Não permitida nenhuma comunicação com terceiros, tornando os recursos ASF selecionados inutilizáveis                                                                                                                                                                        |
 | 1     | SteamGroup    | Permite comunicação com o **[Grupo Steam do ASF](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                              |
 | 2     | PublicListing | Permite a comunicação com a **[lista STM do ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** para ser listado, se o usuário também habilitou `SteamTradeMatcher` em **[`TradingPreferences `](#tradingpreferences)** |
 
-Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira o **[mapeamento por flags](#mapeamento-json)** se você quiser aprender mais. Não habilitar nenhuma flag resultará na opção `None`.
+Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#mapeamento-json)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
 
 Esta opção não incluí todas as comunicações de terceiros oferecidos pelo ASF, somente aquelas que não são implícitas pelas outras configurações. Por exemplo, se você habilitou as atualizações automáticas do ASF, o ASF irá se comunicar com o GitHub (para downloads), e com o nosso servidor (para a verificação do checksum), de acordo com sua configuração. Do mesmo modo que habilitar `MatchActively` em **[`TradingPreferences`](#tradingpreferences)**, faz com que a comunicação seja feita com o nosso servidor para buscar bots listados, que é necessário para essa funcionalidade.
 
@@ -732,7 +753,7 @@ Tipo `ImmutableDictionary<ulong, byte>` com o valor padrão vazio. Esta propried
 
 | Valor | Nome          | Descrição                                                                                                                                                                                                               |
 | ----- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | Nenhum        | Sem permissões especiais, esse é apenas um valor de referência que é atribuído quando não há IDs Steam nesse parâmetro - não há necessidade de definir alguém com esta permissão                                        |
+| 0     | None          | Sem permissões especiais, esse é apenas um valor de referência que é atribuído quando não há IDs Steam nesse parâmetro - não há necessidade de definir alguém com esta permissão                                        |
 | 1     | FamilySharing | Fornece acesso mínimo para usuários do modo família. Novamente, esse é apenas um valor de referência, uma vez que o ASF é capaz de descobrir automaticamente os IDs Steam que estão autorizados a usar nossa biblioteca |
 | 2     | Operator      | Fornece acesso básico a determinadas contas bot, principalmente adicionar licenças e resgatar keys                                                                                                                      |
 | 3     | Master        | Fornece acesso completo a determinada conta bot                                                                                                                                                                         |

@@ -47,61 +47,61 @@ ASF 支援各種指令，以此控制程式和 BOT 執行個體的行為。
 
 ## 指令
 
-| 指令                                                                   | 存取              | 描述                                                                                                                                                                       |
-| -------------------------------------------------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `2fa [Bots]`                                                         | `Master`        | 為指定 BOT 產生臨時的**[兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​權杖。                                                        |
-| `2fano [Bots]`                                                       | `Master`        | 為指定 BOT 拒絕所有待處理的**[兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​交易確認。                                                   |
-| `2faok [Bots]`                                                       | `Master`        | 為指定 BOT 接受所有待處理的**[兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​交易確認。                                                   |
-| `addlicense [Bots] <Licenses>`                                 | `Operator`      | 在指定 BOT 上啟用給定的 `licenses `，請參閱**[下文](#addlicense-licenses)**解釋。                                                                                                          |
-| `balance [Bots]`                                                     | `Master`        | 顯示指定 BOT 的 Steam 錢包餘額。                                                                                                                                                   |
-| `bgr [Bots]`                                                         | `Master`        | 印出關於指定 BOT 的**[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**佇列的資訊。                                                     |
-| `encrypt <encryptionMethod> <stringToEncrypt>`           | `Owner`         | Encrypts the string using provided cryptographic method - further explained **[below](#encrypt-command)**.                                                               |
-| `exit`                                                               | `Owner`         | 完全終止ASF進程。                                                                                                                                                               |
-| `farm [Bots]`                                                        | `Master`        | 重啟指定機器人的掛卡模塊。                                                                                                                                                            |
-| `fb [Bots]`                                                          | `Master`        | Lists apps blacklisted from automatic farming of given bot instances.                                                                                                    |
-| `fbadd [Bots] <AppIDs>`                                        | `Master`        | Adds given `appIDs` to apps blacklisted from automatic farming of given bot instances.                                                                                   |
-| `fbrm [Bots] <AppIDs>`                                         | `Master`        | Removes given `appIDs` from apps blacklisted from automatic farming of given bot instances.                                                                              |
-| `fq [Bots]`                                                          | `Master`        | Lists priority farming queue of given bot instances.                                                                                                                     |
-| `fqadd [Bots] <AppIDs>`                                        | `Master`        | Adds given `appIDs` to priority farming queue of given bot instances.                                                                                                    |
-| `fqrm [Bots] <AppIDs>`                                         | `Master`        | Removes given `appIDs` from farming queue of given bot instances.                                                                                                        |
-| `hash <hashingMethod> <stringToHash>`                    | `Owner`         | Generated a hash of the string using provided cryptographic method - further explained **[below](#hash-command)**.                                                       |
-| `help`                                                               | `FamilySharing` | 顯示幫助（指向此頁面的連結）。                                                                                                                                                          |
-| `input [Bots] <Type> <Value>`                            | `Master`        | 設定指定 BOT 為指定的輸入類型，僅在 `Headless` 模式工作──請參閱**[下文](#input-指令)**解釋。                                                                                                          |
-| `level [Bots]`                                                       | `Master`        | 顯示指定機器人的 Steam 等級。                                                                                                                                                       |
-| `loot [Bots]`                                                        | `Master`        | 將指定機器人的所有 `LootableTypes` 社區物品交易給其 `SteamUserPermissions` 屬性中設置的 `Master` 用戶（如有多個則取 steamID 最小的）。                                                                        |
-| `loot@ [Bots] <AppIDs>`                                        | `Master`        | 將所有符合 `AppIDs` 的 `LootableTypes` 社群物品從指定 BOT 交易至 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個則取 steamID 最小的）。 這是跟 `loot%` 相反的指令。                                      |
-| `loot% [Bots] <AppIDs>`                                        | `Master`        | 將所有除了 `AppIDs` 以外的 `LootableTypes` 社群物品從指定 BOT 交易至 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個則取 steamID 最小的）。 這是跟 `loot@` 相反的指令。                                    |
-| `loot^ [Bots] <AppID> <ContextID>`                       | `Master`        | 將指定 BOT 的` ContextID` 物品庫分類中符合特定 `AppID` 的物品交易給其 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如果有多個則取 steamID 最小的）。                                                        |
-| `mab [Bots]`                                                         | `Master`        | Lists apps blacklisted from automatic trading in **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)**.                       |
-| `mabadd [Bots] <AppIDs>`                                       | `Master`        | Adds given `appIDs` to apps blacklisted from automatic trading in **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)**.      |
-| `mabrm [Bots] <AppIDs>`                                        | `Master`        | Removes given `appIDs` from apps blacklisted from automatic trading in **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)**. |
-| `nickname [Bots] <Nickname>`                                   | `Master`        | 將指定機器人的 Steam `nickname`更改為自訂暱稱。                                                                                                                                         |
-| `owns [Bots] <Games>`                                          | `Operator`      | 檢查指定 BOT 是否已擁有指定  `games`，請參閱**[下文](#owns-games)**解釋。                                                                                                                    |
-| `pause [Bots]`                                                       | `Operator`      | 停止指定機器人的自動掛卡模塊。 ASF 在本次會話中將不會再嘗試對此帳戶進行掛卡，除非您手動 `resume` 或者重啟 ASF。                                                                                                        |
-| `pause~ [Bots]`                                                      | `FamilySharing` | 暫停指定機器人的自動掛卡模塊。 掛卡進程將會在下次遊戲事件被觸發時或機器人斷開連接時自動恢復。 您可以` resume` 以恢復掛卡。                                                                                                      |
-| `pause& [Bots] <Seconds>`                                  | `Operator`      | 暫停指定機器人的自動掛卡模塊`seconds` 秒。 之後，掛卡將自動恢復。                                                                                                                                   |
-| `play [Bots] <AppIDs,GameName>`                                | `Master`        | 切換至手動掛卡模式——使指定機器人運行特定的 `AppIDs`，並且可選自定義 `GameName` 為當前遊戲名稱。 若要使此功能正常工作，您的 Steam 帳戶**必須**擁有您指定的所有 `AppIDs` 的有效許可，包括免費遊玩遊戲。 使用 `reset` 或 `resume` 指令恢復。                    |
-| `points [Bots]`                                                      | `Master`        | Displays number of points in **[Steam store](https://store.steampowered.com/points/shop)**.                                                                              |
-| `privacy [Bots] <Settings>`                                    | `Master`        | 更改指定機器人的 **[Steam 隱私設置](https://steamcommunity.com/my/edit/settings)**，可用選項將於**[​下文](#privacy-settings)**詳述。                                                             |
-| `redeem [Bots] <Keys>`                                         | `Operator`      | 為指定 BOT 啟用給出的遊戲序列號或兌換給出的錢包儲值碼。                                                                                                                                           |
-| `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`      | 以將於**[​下文](#redeem-modes)**解釋的 `Modes` 模式為指定 BOT 啟用給出的遊戲序列號或兌換給出的錢包儲值碼。                                                                                                  |
-| `reset [Bots]`                                                       | `Master`        | Resets the playing status back to original (previous) state, the command is used during manual farming with `play` command.                                              |
-| `重新啟動`                                                               | `Owner`         | 重啟 ASF 進程。                                                                                                                                                               |
-| `resume [Bots]`                                                      | `FamilySharing` | 恢復指定機器人的自動掛卡進程。                                                                                                                                                          |
-| `start [Bots]`                                                       | `Master`        | 啟動指定機器人。                                                                                                                                                                 |
-| `stats`                                                              | `Owner`         | 顯示進程統計信息，例如託管記憶體用量。                                                                                                                                                      |
-| `status [Bots]`                                                      | `FamilySharing` | 顯示指定機器人的狀態。                                                                                                                                                              |
-| `stop [Bots]`                                                        | `Master`        | 停止指定機器人的進程。                                                                                                                                                              |
-| `tb [Bots]`                                                          | `Master`        | 列出指定 BOT 的使用者交易黑名單。                                                                                                                                                      |
-| `tbadd [Bots] <SteamIDs64>`                                    | `Master`        | 將指定 `steamIDs` 新增至指定 BOT 的使用者交易黑名單。                                                                                                                                      |
-| `tbrm [Bots] <SteamIDs64>`                                     | `Master`        | 將指定 `steamIDs` 移除自指定 BOT 的使用者交易黑名單。                                                                                                                                      |
-| `transfer [Bots] <TargetBot>`                                  | `Master`        | 將指定 BOT 所有 `TransferableTypes` 社群物品交易至目標 BOT。                                                                                                                            |
-| `transfer@ [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 將所有符合 `AppIDs` 的 `TransferableTypes` 社群物品從指定 BOT 交易至目標 BOT。 這是跟 `transfer%` 相反的指令。                                                                                       |
-| `transfer% [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 將所有除了 `AppIDs` 以外的 `TransferableTypes` 社群物品從指定 BOT 交易至目標 BOT。 這是跟 `transfer@` 相反的指令。                                                                                     |
-| `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`        | 將指定BOT的 `ContextID` 庫存分類中符合特定 `AppID` 的物品交易至目標 BOT。                                                                                                                      |
-| `unpack [Bots]`                                                      | `Master`        | 拆開指定機器人庫存中的所有補充包。                                                                                                                                                        |
-| `update`                                                             | `Owner`         | 檢查 GitHub 上的 ASF 更新（每 `UpdatePeriod` 自動執行一次）。                                                                                                                            |
-| `version`                                                            | `FamilySharing` | 顯示 ASF 的版本號。                                                                                                                                                             |
+| 指令                                                                   | 存取              | 描述                                                                                                                                                    |
+| -------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `2fa [Bots]`                                                         | `Master`        | 為指定 BOT 產生臨時的**[兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​權杖。                                     |
+| `2fano [Bots]`                                                       | `Master`        | 為指定 BOT 拒絕所有待處理的**[兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​交易確認。                                |
+| `2faok [Bots]`                                                       | `Master`        | 為指定 BOT 接受所有待處理的**[兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​交易確認。                                |
+| `addlicense [Bots] <Licenses>`                                 | `Operator`      | 在指定 BOT 上啟用給定的 `licenses `，請參閱**[下文](#addlicense-licenses)**解釋。                                                                                       |
+| `balance [Bots]`                                                     | `Master`        | 顯示指定 BOT 的 Steam 錢包餘額。                                                                                                                                |
+| `bgr [Bots]`                                                         | `Master`        | 印出關於指定 BOT 的**[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**佇列的資訊。                                  |
+| `encrypt <encryptionMethod> <stringToEncrypt>`           | `Owner`         | 以指定的加密方式加密字串——詳見​**[下文的解釋](#encrypt-command)**。                                                                                                       |
+| `exit`                                                               | `Owner`         | 完全終止ASF進程。                                                                                                                                            |
+| `farm [Bots]`                                                        | `Master`        | 重新啟動指定 Bot 的掛卡模組。                                                                                                                                     |
+| `fb [Bots]`                                                          | `Master`        | 列出指定 Bot 的自動掛卡黑名單。                                                                                                                                    |
+| `fbadd [Bots] <AppIDs>`                                        | `Master`        | 將指定 `appIDs` 新增至指定 BOT 的自動掛卡黑名單。                                                                                                                      |
+| `fbrm [Bots] <AppIDs>`                                         | `Master`        | 將指定 `appIDs` 移除自指定 BOT 的自動掛卡黑名單。                                                                                                                      |
+| `fq [Bots]`                                                          | `Master`        | 列出指定 BOT 的優先掛卡佇列。                                                                                                                                     |
+| `fqadd [Bots] <AppIDs>`                                        | `Master`        | 將指定 `appIDs` 新增至指定 BOT 的優先掛卡佇列。                                                                                                                       |
+| `fqrm [Bots] <AppIDs>`                                         | `Master`        | 將指定 `appIDs` 移除自指定 BOT 的優先掛卡佇列。                                                                                                                       |
+| `hash <hashingMethod> <stringToHash>`                    | `Owner`         | 以指定的加密方式產生指定字串的雜湊值——詳見​**[下文的解釋](#hash-command)**。                                                                                                    |
+| `help`                                                               | `FamilySharing` | 顯示幫助（指向此頁面的連結）。                                                                                                                                       |
+| `input [Bots] <Type> <Value>`                            | `Master`        | 設定指定 BOT 為指定的輸入類型，僅在 `Headless` 模式工作──請參閱**[下文](#input-指令)**解釋。                                                                                       |
+| `level [Bots]`                                                       | `Master`        | 顯示指定機器人的 Steam 等級。                                                                                                                                    |
+| `loot [Bots]`                                                        | `Master`        | 將指定機器人的所有 `LootableTypes` 社區物品交易給其 `SteamUserPermissions` 屬性中設置的 `Master` 用戶（如有多個則取 steamID 最小的）。                                                     |
+| `loot@ [Bots] <AppIDs>`                                        | `Master`        | 將所有符合 `AppIDs` 的 `LootableTypes` 社群物品從指定 BOT 交易至 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個則取 steamID 最小的）。 這是跟 `loot%` 相反的指令。                   |
+| `loot% [Bots] <AppIDs>`                                        | `Master`        | 將所有除了 `AppIDs` 以外的 `LootableTypes` 社群物品從指定 BOT 交易至 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個則取 steamID 最小的）。 這是跟 `loot@` 相反的指令。                 |
+| `loot^ [Bots] <AppID> <ContextID>`                       | `Master`        | 將指定 BOT 的` ContextID` 物品庫分類中符合特定 `AppID` 的物品交易給其 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如果有多個則取 steamID 最小的）。                                     |
+| `mab [Bots]`                                                         | `Master`        | 列出 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** 自動交易的 App 黑名單。                                    |
+| `mabadd [Bots] <AppIDs>`                                       | `Master`        | 將指定的 `AppIDs` 加入到 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** 自動交易的 App 黑名單。                     |
+| `mabrm [Bots] <AppIDs>`                                        | `Master`        | 將指定的 `AppIDs` 從 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** 自動交易 App 黑名單中移除。                     |
+| `nickname [Bots] <Nickname>`                                   | `Master`        | 將指定機器人的 Steam `nickname`更改為自訂暱稱。                                                                                                                      |
+| `owns [Bots] <Games>`                                          | `Operator`      | 檢查指定 BOT 是否已擁有指定  `games`，請參閱**[下文](#owns-games)**解釋。                                                                                                 |
+| `pause [Bots]`                                                       | `Operator`      | 停止指定機器人的自動掛卡模塊。 ASF 在本次會話中將不會再嘗試對此帳戶進行掛卡，除非您手動 `resume` 或者重啟 ASF。                                                                                     |
+| `pause~ [Bots]`                                                      | `FamilySharing` | 暫停指定機器人的自動掛卡模塊。 掛卡進程將會在下次遊戲事件被觸發時或機器人斷開連接時自動恢復。 您可以` resume` 以恢復掛卡。                                                                                   |
+| `pause& [Bots] <Seconds>`                                  | `Operator`      | 暫停指定機器人的自動掛卡模塊`seconds` 秒。 之後，掛卡將自動恢復。                                                                                                                |
+| `play [Bots] <AppIDs,GameName>`                                | `Master`        | 切換至手動掛卡模式——使指定機器人運行特定的 `AppIDs`，並且可選自定義 `GameName` 為當前遊戲名稱。 若要使此功能正常工作，您的 Steam 帳戶**必須**擁有您指定的所有 `AppIDs` 的有效許可，包括免費遊玩遊戲。 使用 `reset` 或 `resume` 指令恢復。 |
+| `points [Bots]`                                                      | `Master`        | 顯示指定 Bot 的 **[Steam 商店](https://store.steampowered.com/points/shop)**​點數餘額。                                                                           |
+| `privacy [Bots] <Settings>`                                    | `Master`        | 更改指定機器人的 **[Steam 隱私設置](https://steamcommunity.com/my/edit/settings)**，可用選項將於**[​下文](#privacy-settings)**詳述。                                          |
+| `redeem [Bots] <Keys>`                                         | `Operator`      | 為指定 BOT 啟用給出的遊戲序列號或兌換給出的錢包儲值碼。                                                                                                                        |
+| `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`      | 以將於**[​下文](#redeem-modes)**解釋的 `Modes` 模式為指定 BOT 啟用給出的遊戲序列號或兌換給出的錢包儲值碼。                                                                               |
+| `reset [Bots]`                                                       | `Master`        | 重設為原始(之前的)遊玩狀態，用來配合 `play` 命令的手動掛卡模式使用。                                                                                                               |
+| `重新啟動`                                                               | `Owner`         | 重啟 ASF 進程。                                                                                                                                            |
+| `resume [Bots]`                                                      | `FamilySharing` | 恢復指定機器人的自動掛卡進程。                                                                                                                                       |
+| `start [Bots]`                                                       | `Master`        | 啟動指定機器人。                                                                                                                                              |
+| `stats`                                                              | `Owner`         | 顯示進程統計信息，例如託管記憶體用量。                                                                                                                                   |
+| `status [Bots]`                                                      | `FamilySharing` | 顯示指定機器人的狀態。                                                                                                                                           |
+| `stop [Bots]`                                                        | `Master`        | 停止指定機器人的進程。                                                                                                                                           |
+| `tb [Bots]`                                                          | `Master`        | 列出指定 BOT 的使用者交易黑名單。                                                                                                                                   |
+| `tbadd [Bots] <SteamIDs64>`                                    | `Master`        | 將指定 `steamIDs` 新增至指定 BOT 的使用者交易黑名單。                                                                                                                   |
+| `tbrm [Bots] <SteamIDs64>`                                     | `Master`        | 將指定 `steamIDs` 移除自指定 BOT 的使用者交易黑名單。                                                                                                                   |
+| `transfer [Bots] <TargetBot>`                                  | `Master`        | 將指定 BOT 所有 `TransferableTypes` 社群物品交易至目標 BOT。                                                                                                         |
+| `transfer@ [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 將所有符合 `AppIDs` 的 `TransferableTypes` 社群物品從指定 BOT 交易至目標 BOT。 這是跟 `transfer%` 相反的指令。                                                                    |
+| `transfer% [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 將所有除了 `AppIDs` 以外的 `TransferableTypes` 社群物品從指定 BOT 交易至目標 BOT。 這是跟 `transfer@` 相反的指令。                                                                  |
+| `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`        | 將指定BOT的 `ContextID` 庫存分類中符合特定 `AppID` 的物品交易至目標 BOT。                                                                                                   |
+| `unpack [Bots]`                                                      | `Master`        | 拆開指定機器人庫存中的所有補充包。                                                                                                                                     |
+| `update`                                                             | `Owner`         | 檢查 GitHub 上的 ASF 更新（每 `UpdatePeriod` 自動執行一次）。                                                                                                         |
+| `version`                                                            | `FamilySharing` | 顯示 ASF 的版本號。                                                                                                                                          |
 
 ---
 
@@ -278,9 +278,9 @@ owns ASF app/292030,name/Witcher
 
 
 
-## `encrypt` command
+## `encrypt` 指令
 
-`encrypt` command allows you to encrypt arbitrary strings using ASF's encryption methods. `<encryptionMethod>` must be one of the encryption methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
+`encrypt` 指令使您能夠使用 ASF 的加密方式加密任意字串。 加密方式 `<encryptionMethod>` 必須是​**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**​章節所述方式之一。 我們建議透過安全的頻道 (ASF 控制台、ASF-ui 或 IPC 提供的專用 API 端點) 使用此命令，否則可能有敏感資訊被第三方記錄 (例如 Steam 伺服器的聊天記錄)。
 
 
 
@@ -288,9 +288,9 @@ owns ASF app/292030,name/Witcher
 
 
 
-## `hash` command
+## `hash` 指令
 
-`hash` command allows you to generate hashes of arbitrary strings using ASF's hashing methods. `<hashingMethod>` must be one of the hashing methods specified and explained in **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. We recommend to use this command through secure channels (ASF console or IPC interface, which also has a dedicated API endpoint for it), as otherwise sensitive details might get logged by various third-parties (such as chat messages being logged by Steam servers).
+`hash` 指令使您能夠使用 ASF 的雜湊方式產生任意字串的雜湊值。 雜湊方式 `<hashingMethod>` 必須是​**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**​章節所述方式之一。 我們建議透過安全的頻道 (ASF 控制台、ASF-ui 或 IPC 提供的專用 API 端點) 使用此命令，否則可能有敏感資訊被第三方記錄 (例如 Steam 伺服器的聊天記錄)。
 
 
 
@@ -300,7 +300,7 @@ owns ASF app/292030,name/Witcher
 
 ## `input` 指令
 
-`input` command can be used only in `Headless` mode, for inputting given data via **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** or Steam chat when ASF is running without support for user interaction.
+`input` 指令僅可用於 `Headless` 模式，用來在 ASF 無法接受使用者輸入的情況下，透過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 或者 Steam 聊天輸入一些資料。
 
 通用語法為 `input [Bots] <Type> <Value>`。
 
@@ -321,14 +321,14 @@ owns ASF app/292030,name/Witcher
 
 ### 範例
 
-假設我們有一個未啟用2FA，僅由 SteamGuard保護的機器人。 We want to launch that bot with `Headless` set to `true`.
+假設我們有一個未啟用2FA，僅由 SteamGuard保護的機器人。 我們希望在 `Headless` 為 `true` 的情況下啟動這個 BOT。
 
 為此，我們需要執行以下指令：
 
-`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. 我們做這一步的目的是讓 Steam 網路向我們發送驗證碼電子郵件——否則我們就可以跳過這一步了。
+`start MySteamGuardBot` -> BOT 會嘗試登錄，但因為缺少驗證碼而登錄失敗，然後因為 ASF 處於 `Headless` 模式，BOT 會停止執行。 我們做這一步的目的是讓 Steam 網路向我們發送驗證碼電子郵件——否則我們就可以跳過這一步了。
 
-`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. 當然, 在這種情況下, `ABCDE` 是我們從電子郵件中獲得的驗證代碼。
+`input MySteamGuardBot SteamGuard ABCDE` -> 我們將 `MySteamGuardBot` BOT 的 `SteamGuard` 輸入設定為 `ABCDE`。 當然, 在這種情況下, `ABCDE` 是我們從電子郵件中獲得的驗證代碼。
 
-`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
+`start MySteamGuardBot` -> 我們重新啟動已停止的 BOT，這一次會自動使用我們在上一步中設定的驗證碼，登錄將會成功，並且之前的驗證碼輸入會被清除。
 
 同樣, 我們可以控制受2FA 保護的機器人 (如果它們不使用 ASF 2FA), 只需在運行時設置其他必需的屬性。

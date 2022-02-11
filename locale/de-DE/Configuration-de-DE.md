@@ -351,6 +351,7 @@ Die Bot-Konfiguration hat folgende Struktur:
     "HoursUntilCardDrops": 3,
     "LootableTypes": [1, 3, 5],
     "MatchableTypes": [5],
+    "OnlineFlags": 0,
     "OnlineStatus": 1,
     "PasswordFormat": 0,
     "Paused": false,
@@ -575,6 +576,26 @@ Wenn du nicht weißt, was du tust, solltest du es bei dem Standardwert `5` belas
 
 ---
 
+### `OnlineFlags`
+
+`ushort flags` type with default value of `0`. This property works as supplement to **[`OnlineStatus`](#onlinestatus)** and specifies additional online presence features announced to Steam network. Requires **[`OnlineStatus`](#onlinestatus)** other than `Offline`, and is defined as below:
+
+| Wert | Name              | Beschreibung                              |
+| ---- | ----------------- | ----------------------------------------- |
+| 0    | None              | No special online presence flags, default |
+| 256  | ClientTypeWeb     | Client is using web interface             |
+| 512  | ClientTypeMobile  | Client is using mobile app                |
+| 1024 | ClientTypeTenfoot | Client is using big picture               |
+| 2048 | ClientTypeVR      | Client is using VR headset                |
+
+Bitte bedenken Sie, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Mehr Informationen finden Sie unter **[JSON-Mapping](#json-mapping)**. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
+
+The underlying enum this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+
+Wenn du dir nicht sicher bist, wie du diese Eigenschaft einstellen sollst, belasse sie bei dem Standardwert `0`.
+
+---
+
 ### `OnlineStatus`
 
 `byte` Typ mit einem Standardwert von `1`. Diese Eigenschaft gibt den Status der Steam-Community an, mit dem der Bot nach der Anmeldung im Steam-Netzwerk angekündigt wird. Derzeit kannst du einen der folgenden Stati wählen:
@@ -646,7 +667,7 @@ Bedenke auch, dass du keine Produktschlüssel an Bots weiterleiten oder verteile
 
 ### `RemoteCommunication`
 
-`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+`byte flags` Typ mit einem Standardwert von `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
 
 | Wert | Name          | Beschreibung                                                                                                                                                                                                                                                                 |
 | ---- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -654,7 +675,7 @@ Bedenke auch, dass du keine Produktschlüssel an Bots weiterleiten oder verteile
 | 1    | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
 | 2    | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
 
-Bitte bedenken Sie, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
+Bitte bedenken Sie, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Mehr Informationen finden Sie unter **[JSON-Mapping](#json-mapping)**. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
 
 This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
 

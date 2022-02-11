@@ -352,6 +352,7 @@ La configuration du bot a la structure suivante :
     "HoursUntilCardDrops": 3,
     "LootableTypes": [1, 3, 5],
     "MatchableTypes": [5],
+    "OnlineFlags": 0,
     "OnlineStatus": 1,
     "PasswordFormat": 0,
     "Paused": false,
@@ -576,6 +577,26 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 ---
 
+### `OnlineFlags`
+
+`ushort flags` type with default value of `0`. This property works as supplement to **[`OnlineStatus`](#onlinestatus)** and specifies additional online presence features announced to Steam network. Requires **[`OnlineStatus`](#onlinestatus)** other than `Offline`, and is defined as below:
+
+| Valeur  | Nom               | Description                               |
+| ------- | ----------------- | ----------------------------------------- |
+| 0       | None              | No special online presence flags, default |
+| 256     | ClientTypeWeb     | Client is using web interface             |
+| 512     | ClientTypeMobile  | Client is using mobile app                |
+| 1024    | ClientTypeTenfoot | Client is using big picture               |
+| 2048    | ClientTypeVR      | Client is using VR headset                |
+
+Veuillez noter que cette  fonction est le champ `flags`, il est donc possible de choisir n’importe quelle combinaison de valeurs disponibles. Consultez **[le mapping des drapeaux](#json-mapping)** si vous souhaitez en savoir plus. Si aucun indicateur n’est activé, l’option `None` est activée.
+
+The underlying enum this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+
+Si vous n'êtes pas sur du réglage de cette propriété, laissez-la à la valeur par défaut de `0`.
+
+---
+
 ### `OnlineStatus`
 
 `byte` avec la valeur par défaut `1`. This property specifies Steam community status that the bot will be announced with after logging in to Steam network. Currently you can choose one of below statuses:
@@ -647,7 +668,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ### `RemoteCommunication`
 
-`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+`byte flags` avec la valeur par défaut `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
 
 | Valeur  | Nom           | Description                                                                                                                                                                                                                                                                  |
 | ------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -655,7 +676,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 | 1       | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
 | 2       | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
 
-Veuillez noter que cette  fonction est le champ `flags`, il est donc possible de choisir n’importe quelle combinaison de valeurs disponibles. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Si aucun indicateur n’est activé, l’option `None` est activée.
+Veuillez noter que cette  fonction est le champ `flags`, il est donc possible de choisir n’importe quelle combinaison de valeurs disponibles. Consultez **[le mapping des drapeaux](#json-mapping)** si vous souhaitez en savoir plus. Si aucun indicateur n’est activé, l’option `None` est activée.
 
 This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
 
@@ -733,7 +754,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 | Valeur  | Nom             | Description                                                                                                                                                                                        |
 | ------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0       | None            | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
+| 0       | Aucune          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
 | 1       | PartageFamilial | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
 | 2       | Opérateur       | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
 | 3       | Maître          | Provides full access to given bot instance                                                                                                                                                         |
@@ -752,7 +773,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 | Valeur  | Nom                 | Description                                                                                                                                                                                                     |
 | ------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0       | Aucune              | No special trading preferences, default                                                                                                                                                                         |
+| 0       | None                | No special trading preferences, default                                                                                                                                                                         |
 | 1       | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                               |
 | 2       | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Consultez **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** pour plus de détails |
 | 4       | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                               |

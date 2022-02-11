@@ -351,6 +351,7 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
     "HoursUntilCardDrops": 3,
     "LootableTypes": [1, 3, 5],
     "MatchableTypes": [5],
+    "OnlineFlags": 0,
     "OnlineStatus": 1,
     "PasswordFormat": 0,
     "Paused": false,
@@ -575,6 +576,26 @@ There is also idling priority queue that is accessible through `fq` **[commands]
 
 ---
 
+### `OnlineFlags`
+
+`ushort flags` type with default value of `0`. This property works as supplement to **[`OnlineStatus`](#onlinestatus)** and specifies additional online presence features announced to Steam network. Requires **[`OnlineStatus`](#onlinestatus)** other than `Offline`, and is defined as below:
+
+| Значение | Имя               | Описание                                  |
+| -------- | ----------------- | ----------------------------------------- |
+| 0        | None              | No special online presence flags, default |
+| 256      | ClientTypeWeb     | Client is using web interface             |
+| 512      | ClientTypeMobile  | Client is using mobile app                |
+| 1024     | ClientTypeTenfoot | Client is using big picture               |
+| 2048     | ClientTypeVR      | Client is using VR headset                |
+
+Обратите внимание что это параметр типа `flags`, и следовательно ему может быть присвоена любая комбинация приведенных выше значений. Ознакомьтесь с **[типами параметров в JSON](#user-content-Типы-параметров-в-json)** если хотите узнать больше. Если вы не включите никаких флагов, будет использоваться вариант `None`.
+
+The underlying enum this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+
+Если вы не уверены как настроить этот параметр - оставьте ему значение по-умолчанию `​0​`.
+
+---
+
 ### `OnlineStatus`
 
 Параметр типа `byte` со значением по-умолчанию `1`. Этот параметр задаёт статус в сообществе Steam, который будет указывать бот при входе в сеть Steam. На данный момент вы можете выбрать один из нижеприведенных статусов:
@@ -646,15 +667,15 @@ There is also idling priority queue that is accessible through `fq` **[commands]
 
 ### `RemoteCommunication`
 
-`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+Параметр типа `byte flags` со значением по-умолчанию `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
 
-| Значение | Имя           | Описание                                                                                                                                                                                                                                                                     |
-| -------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0        | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
-| 1        | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
-| 2        | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+| Имя | Имя           | Описание                                                                                                                                                                                                                                                                     |
+| --- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0   | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
+| 1   | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
+| 2   | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
 
-Обратите внимание что это параметр типа `flags`, и следовательно ему может быть присвоена любая комбинация приведенных выше значений. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Если вы не включите никаких флагов, будет использоваться вариант `None`.
+Обратите внимание что это параметр типа `flags`, и следовательно ему может быть присвоена любая комбинация приведенных выше значений. Ознакомьтесь с **[типами параметров в JSON](#user-content-Типы-параметров-в-json)** если хотите узнать больше. Если вы не включите никаких флагов, будет использоваться вариант `None`.
 
 This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
 

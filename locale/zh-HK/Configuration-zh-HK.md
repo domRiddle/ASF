@@ -351,6 +351,7 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
     "HoursUntilCardDrops": 3,
     "LootableTypes": [1, 3, 5],
     "MatchableTypes": [5],
+    "OnlineFlags": 0,
     "OnlineStatus": 1,
     "PasswordFormat": 0,
     "Paused": false,
@@ -575,6 +576,26 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 
 ---
 
+### `OnlineFlags`
+
+`ushort flags` type with default value of `0`. This property works as supplement to **[`OnlineStatus`](#onlinestatus)** and specifies additional online presence features announced to Steam network. Requires **[`OnlineStatus`](#onlinestatus)** other than `Offline`, and is defined as below:
+
+| 值    | 名稱                | 描述                                        |
+| ---- | ----------------- | ----------------------------------------- |
+| 0    | None              | No special online presence flags, default |
+| 256  | ClientTypeWeb     | Client is using web interface             |
+| 512  | ClientTypeMobile  | Client is using mobile app                |
+| 1024 | ClientTypeTenfoot | Client is using big picture               |
+| 2048 | ClientTypeVR      | Client is using VR headset                |
+
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項。
+
+The underlying enum this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+
+如果您不確定該如何設置此屬性，請將其保留為預設值`0`。
+
+---
+
 ### `OnlineStatus`
 
 這是一個預設值為`1` 的 `byte flags` 類型屬性。 此屬性定義機械人在登錄Steam網絡後將顯示的Steam社區狀態。 當前您可以選擇以下狀態之一：
@@ -646,7 +667,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 ### `RemoteCommunication`
 
-`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+這是一個預設值為`3` 的 `byte flags` 類型屬性。 This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
 
 | 值 | 名稱            | 描述                                                                                                                                                                                                                                                                           |
 | - | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -654,7 +675,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 | 1 | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
 | 2 | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. 不啟用任何標誌會導致` None `選項。
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項。
 
 This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
 

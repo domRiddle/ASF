@@ -351,6 +351,7 @@ The bot config has following structure:
     "HoursUntilCardDrops": 3,
     "LootableTypes": [1, 3, 5],
     "MatchableTypes": [5],
+    "OnlineFlags": 0,
     "OnlineStatus": 1,
     "PasswordFormat": 0,
     "Paused": false,
@@ -572,6 +573,26 @@ Of course, types that you should use for this property typically include only `2
 Please note that **ASF is not a trading bot** and **will NOT care about the market price**. If you don't consider items of the same rarity from the same set to be the same price-wise, then this option is NOT for you. Please evaluate twice if you understand and agree with this statement before you decide to change this setting.
 
 Unless you know what you're doing, you should keep it with default value of `5`.
+
+---
+
+### `OnlineFlags`
+
+`ushort flags` type with default value of `0`. This property works as supplement to **[`OnlineStatus`](#onlinestatus)** and specifies additional online presence features announced to Steam network. Requires **[`OnlineStatus`](#onlinestatus)** other than `Offline`, and is defined as below:
+
+| Érték | Név               | Leírás                                    |
+| ----- | ----------------- | ----------------------------------------- |
+| 0     | None              | No special online presence flags, default |
+| 256   | ClientTypeWeb     | Client is using web interface             |
+| 512   | ClientTypeMobile  | Client is using mobile app                |
+| 1024  | ClientTypeTenfoot | Client is using big picture               |
+| 2048  | ClientTypeVR      | Client is using VR headset                |
+
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+
+The underlying enum this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+
+If you're not sure how to set this property, leave it with default value of `0`.
 
 ---
 

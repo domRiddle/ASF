@@ -351,6 +351,7 @@ TEH BOT CONFIG HAS FOLLOWIN STRUCCHUR:
     "HoursUntilCardDrops": 3,
     "LootableTypes": [1, 3, 5],
     "MatchableTypes": [5],
+    "OnlineFlags": 0,
     "OnlineStatus": 1,
     "PasswordFormat": 0,
     "Paused": false,
@@ -575,14 +576,34 @@ UNLES U KNOE WUT URE DOIN, U SHUD KEEP IT WIF DEFAULT VALUE OV `5`.
 
 ---
 
+### `OnlineFlags`
+
+`ushort flags` type with default value of `0`. This property works as supplement to **[`OnlineStatus`](#onlinestatus)** and specifies additional online presence features announced to Steam network. Requires **[`OnlineStatus`](#onlinestatus)** other than `Offline`, and is defined as below:
+
+| VALUE | NAYM              | DESCRIPSHUN                               |
+| ----- | ----------------- | ----------------------------------------- |
+| 0     | None              | No special online presence flags, default |
+| 256   | ClientTypeWeb     | Client is using web interface             |
+| 512   | ClientTypeMobile  | Client is using mobile app                |
+| 1024  | ClientTypeTenfoot | Client is using big picture               |
+| 2048  | ClientTypeVR      | Client is using VR headset                |
+
+PLZ NOTICE DAT DIS PROPERTY IZ `flags` FIELD, THEREFORE IZ POSIBLE 2 CHOOSE ANY COMBINASHUN OV AVAILABLE VALUEZ. CHECK OUT **[FLAGS MAPPIN](#json-mappin)** IF UD LIEK 2 LERN MOAR. NOT ENABLIN ANY OV FLAGS RESULTS IN `None` OPSHUN.
+
+The underlying enum this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+
+IF URE NOT SURE HOW 2 SET DIS PROPERTY, LEEF IT WIF DEFAULT VALUE OV `0`.
+
+---
+
 ### `OnlineStatus`
 
 `byte` TYPE WIF DEFAULT VALUE OV `1`. DIS PROPERTY SPECIFIEZ STEAM COMMUNITY STATUS DAT TEH BOT WILL BE ANNOUNCD WIF AFTR LOGGIN IN 2 STEAM NETWORK. CURRENTLY U CAN CHOOSE WAN OV BELOW STATUSEZ:
 
 | VALUE | NAYM           |
 | ----- | -------------- |
-| 0     | Offline        |
-| 1     | Online         |
+| 0     | OFFLINE        |
+| 1     | ONLINE         |
 | 2     | Busy           |
 | 3     | Away           |
 | 4     | Snooze         |
@@ -646,7 +667,7 @@ ALSO KEEP IN MIND DAT U CANT FWD OR DISTRIBUTE KEYS 2 BOTS DAT U DO NOT HAS ACCE
 
 ### `RemoteCommunication`
 
-`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+`byte flags` TYPE WIF DEFAULT VALUE OV `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
 
 | VALUE | NAYM          | DESCRIPSHUN                                                                                                                                                                                                                                                                  |
 | ----- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
