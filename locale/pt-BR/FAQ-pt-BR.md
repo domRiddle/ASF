@@ -1,6 +1,6 @@
 # Perguntas frequentes (FAQ)
 
-A seção de perguntas frequentes cobre respostas a questões comuns que você pode ter. Para questões menos comuns, por favor visite a seção **[Perguntas frequentes adicionais](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
+A seção de perguntas frequentes cobre respostas a questões comuns que você pode ter. Para questões menos comuns, por favor visite a seção **[Perguntas frequentes adicionais](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-pt-BR)**.
 
 # Tabela de conteúdos
 

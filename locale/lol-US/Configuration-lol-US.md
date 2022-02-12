@@ -590,7 +590,7 @@ UNLES U KNOE WUT URE DOIN, U SHUD KEEP IT WIF DEFAULT VALUE OV `5`.
 
 PLZ NOTICE DAT DIS PROPERTY IZ `flags` FIELD, THEREFORE IZ POSIBLE 2 CHOOSE ANY COMBINASHUN OV AVAILABLE VALUEZ. CHECK OUT **[FLAGS MAPPIN](#json-mappin)** IF UD LIEK 2 LERN MOAR. NOT ENABLIN ANY OV FLAGS RESULTS IN `None` OPSHUN.
 
-The underlying enum this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+The underlying `EPersonaStateFlag` type that this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
 
 IF URE NOT SURE HOW 2 SET DIS PROPERTY, LEEF IT WIF DEFAULT VALUE OV `0`.
 

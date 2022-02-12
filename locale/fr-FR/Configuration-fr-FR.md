@@ -591,7 +591,7 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 Veuillez noter que cette  fonction est le champ `flags`, il est donc possible de choisir n’importe quelle combinaison de valeurs disponibles. Consultez **[le mapping des drapeaux](#json-mapping)** si vous souhaitez en savoir plus. Si aucun indicateur n’est activé, l’option `None` est activée.
 
-The underlying enum this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+The underlying `EPersonaStateFlag` type that this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
 
 Si vous n'êtes pas sur du réglage de cette propriété, laissez-la à la valeur par défaut de `0`.
 

@@ -23,7 +23,7 @@ O console interativo não está disponível no modo [**`Headless`**](https://git
 
 ---
 
-### Chat Steam
+### Conversa Steam
 
 Você também pode executar o comando para o bot ASF através do chat Steam. Obviamente que você não pode falar diretamente consigo mesmo, então você precisará de pelo menos outra conta bot se você quiser executar comandos para a sua conta principal.
 

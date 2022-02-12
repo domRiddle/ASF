@@ -590,7 +590,7 @@ There is also idling priority queue that is accessible through `fq` **[commands]
 
 Обратите внимание что это параметр типа `flags`, и следовательно ему может быть присвоена любая комбинация приведенных выше значений. Ознакомьтесь с **[типами параметров в JSON](#user-content-Типы-параметров-в-json)** если хотите узнать больше. Если вы не включите никаких флагов, будет использоваться вариант `None`.
 
-The underlying enum this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+The underlying `EPersonaStateFlag` type that this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
 
 Если вы не уверены как настроить этот параметр - оставьте ему значение по-умолчанию `​0​`.
 

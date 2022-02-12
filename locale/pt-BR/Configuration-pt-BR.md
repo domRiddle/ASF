@@ -262,7 +262,7 @@ Tipo `byte flags` com o valor padrão `7`. Esta propriedade define os protocolos
 
 Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#mapeamento-json)** se você quiser aprender mais. Não habilitar nenhum flag resulta na opção `None`, e essa opção é inválida, por si só.
 
-Por padrão ASF vai usar todos os protocolos Steam disponíveis como medida para lutar contra tempos de inatividade e outras questões semelhantes da Steam. Normalmente você vai querer alterar essa propriedade se você desejar limitar o ASF para usar apenas um ou dois protocolos específicos, em vez de todos os que estão disponíveis. Tal medida poderia ser necessário se você está habilitando, por exemplo, apenas tráfego TCP em seu firewall e você não quer que o ASF tente conectar via UDP. No entanto, a menos que você está depurando determinado problema ou questão, você quase sempre vai desejar garantir que o ASF esteja livre para usar qualquer protocolo que é atualmente suportado e não apenas um ou dois. A menos que você tenha uma razão muito **forte** para editar essa propriedade, você deve mantê-la padrão.
+Por padrão o ASF vai usar todos os protocolos Steam disponíveis como medida para lutar contra tempos de inatividade e outras questões semelhantes do Steam. Normalmente você vai querer alterar essa propriedade se você desejar limitar o ASF para usar apenas um ou dois protocolos específicos, em vez de todos os que estão disponíveis. Tal medida poderia ser necessário se você está habilitando, por exemplo, apenas tráfego TCP em seu firewall e você não quer que o ASF tente conectar via UDP. No entanto, a menos que você está depurando determinado problema ou questão, você quase sempre vai desejar garantir que o ASF esteja livre para usar qualquer protocolo que é atualmente suportado e não apenas um ou dois. A menos que você tenha uma razão muito **forte** para editar essa propriedade, você deve mantê-la padrão.
 
 ---
 
@@ -584,13 +584,13 @@ A menos que você saiba o que está fazendo, você deve mantê-lo com o valor `5
 | ----- | ----------------- | ----------------------------------------- |
 | 0     | None              | No special online presence flags, default |
 | 256   | ClientTypeWeb     | Client is using web interface             |
-| 512   | ClientTypeMobile  | Client is using mobile app                |
-| 1024  | ClientTypeTenfoot | Client is using big picture               |
-| 2048  | ClientTypeVR      | Client is using VR headset                |
+| 512   | ClientTypeMobile  | Cliente está usando dispositivo móvel     |
+| 1024  | ClientTypeTenfoot | Cliente está usando big picture           |
+| 2048  | ClientTypeVR      | Cliente está usando headset VR            |
 
 Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#mapeamento-json)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
 
-The underlying enum this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+O tipo subjacente `EPersonaStateFlag` no qual essa propriedade se baseia inclui mais flags disponíveis, no entanto, até onde sabemos, eles não têm absolutamente nenhum efeito a partir de hoje, portanto, foram deixados de lado.
 
 Se você não tem certeza de como definir essa propriedade, deixe-a com o valor padrão `0`.
 

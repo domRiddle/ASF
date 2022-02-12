@@ -590,7 +590,7 @@ Wenn du nicht weißt, was du tust, solltest du es bei dem Standardwert `5` belas
 
 Bitte bedenken Sie, dass diese Eigenschaft das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Mehr Informationen finden Sie unter **[JSON-Mapping](#json-mapping)**. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
 
-The underlying enum this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+The underlying `EPersonaStateFlag` type that this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
 
 Wenn du dir nicht sicher bist, wie du diese Eigenschaft einstellen sollst, belasse sie bei dem Standardwert `0`.
 

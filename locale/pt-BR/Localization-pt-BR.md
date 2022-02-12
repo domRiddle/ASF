@@ -32,7 +32,7 @@ Mas em seu idioma, a seguinte frase poderia fazer mais sentido:
 
 Ou:
 
-> {0} é o número de jogos para farmar.
+> {0} é o número de jogos para coletar.
 
 A flexibilidade é fornecida especialmente para você, então você pode reformular ligeiramente a sentença do ASF para ficar melhor em seu idioma e mover o número fornecido pelo ASF ou outras informações para o lugar que se encaixe em sua tradução (em vez de traduzir cada parte independentemente). Isso melhora a qualidade geral da tradução.
 

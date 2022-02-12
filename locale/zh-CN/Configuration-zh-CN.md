@@ -578,19 +578,19 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ### `OnlineFlags`
 
-`ushort flags` type with default value of `0`. This property works as supplement to **[`OnlineStatus`](#onlinestatus)** and specifies additional online presence features announced to Steam network. Requires **[`OnlineStatus`](#onlinestatus)** other than `Offline`, and is defined as below:
+这是一个默认值为 `0` 的 `ushort flags` 类型属性。 此属性可以作为 **[`OnlineStatus`](#onlinestatus)** 的补充功能，向 Steam 网络公布额外的在线状态信息。 此选项需要 **[`OnlineStatus`](#onlinestatus)** 不为 `Offline`，可选值如下：
 
-| 值    | 名称                | 描述                                        |
-| ---- | ----------------- | ----------------------------------------- |
-| 0    | None              | No special online presence flags, default |
-| 256  | ClientTypeWeb     | Client is using web interface             |
-| 512  | ClientTypeMobile  | Client is using mobile app                |
-| 1024 | ClientTypeTenfoot | Client is using big picture               |
-| 2048 | ClientTypeVR      | Client is using VR headset                |
+| 值    | 名称                | 描述             |
+| ---- | ----------------- | -------------- |
+| 0    | None              | 无特殊在线状态，默认值    |
+| 256  | ClientTypeWeb     | 客户端正在使用 Web 界面 |
+| 512  | ClientTypeMobile  | 客户端正在使用移动平台应用  |
+| 1024 | ClientTypeTenfoot | 客户端正在使用大屏幕模式   |
+| 2048 | ClientTypeVR      | 客户端正在使用 VR 头显  |
 
 请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
 
-The underlying enum this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+此属性底层的 `EPersonaStateFlag` 类型包括更多可用 Flag，但据我们所知，它们目前并不会有实际效果，因而没有在此包含。
 
 如果您不确定应该如何设置这个属性，请保留默认值 `0`。
 
