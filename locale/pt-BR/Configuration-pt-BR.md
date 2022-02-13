@@ -578,15 +578,15 @@ A menos que você saiba o que está fazendo, você deve mantê-lo com o valor `5
 
 ### `OnlineFlags`
 
-`ushort flags` type with default value of `0`. This property works as supplement to **[`OnlineStatus`](#onlinestatus)** and specifies additional online presence features announced to Steam network. Requires **[`OnlineStatus`](#onlinestatus)** other than `Offline`, and is defined as below:
+Tipo `ushort flags` com o valor padrão `0`. Esta propriedade funciona como um complemento para **[`OnlineStatus`](#onlinestatus)** e especifica recursos adicionais de presença online anunciados à rede Steam. Requer **[`OnlineStatus`](#onlinestatus)** diferente de `Offline`, e é definido como abaixo:
 
-| Valor | Nome              | Descrição                                 |
-| ----- | ----------------- | ----------------------------------------- |
-| 0     | None              | No special online presence flags, default |
-| 256   | ClientTypeWeb     | Client is using web interface             |
-| 512   | ClientTypeMobile  | Cliente está usando dispositivo móvel     |
-| 1024  | ClientTypeTenfoot | Cliente está usando big picture           |
-| 2048  | ClientTypeVR      | Cliente está usando headset VR            |
+| Valor | Nome              | Descrição                             |
+| ----- | ----------------- | ------------------------------------- |
+| 0     | None              | Nenhuma flag online especial, padrão  |
+| 256   | ClientTypeWeb     | Cliente está usando interface web     |
+| 512   | ClientTypeMobile  | Cliente está usando dispositivo móvel |
+| 1024  | ClientTypeTenfoot | Cliente está usando big picture       |
+| 2048  | ClientTypeVR      | Cliente está usando headset VR        |
 
 Por favor note que esta propriedade é um campo do tipo `flags`, portanto é possível escolher qualquer combinação de valores disponíveis. Confira **[mapeamento flags](#mapeamento-json)** se você quiser aprender mais. Não habilitar nem um flag resultará na opção `None`.
 
