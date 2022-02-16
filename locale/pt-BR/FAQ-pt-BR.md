@@ -25,10 +25,10 @@ Em resumo, as Cartas Colecionáveis são itens que você obtém ao jogar certos 
 Os pontos principais são apresentados aqui novamente, porque geralmente as pessoas não querem concordar com eles e gostam de fingir que eles não existem:
 
 - **Você precisa ter o jogo na sua biblioteca Steam para ser elegível a ganhar cartas dele. Compartilhamento de biblioteca não conta.**
-- **Você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Once you drop all of them (around a half of the full set), the game is not a candidate for farming anymore. Não importa se você vendeu, trocou, criou insígnias ou esqueceu o que aconteceu com as cartas que você obteve, assim que acabarem as cartas disponíveis para determinado jogo. ele estará concluído.**
+- **Você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Quando você terminar de coletar todas elas (cerca de metade do conjunto completo), o jogo não dará mais cartas. Não importa se você vendeu, trocou, criou insígnias ou esqueceu o que aconteceu com as cartas que você obteve, assim que acabarem as cartas disponíveis para determinado jogo. ele estará concluído.**
 - **Não é possível coletar cartas de jogos F2P (gratuitos para jogar) sem gastar nenhum dinheiro neles. Isso significa jogos permanentemente gratuitos como Team Fortress 2 ou Dota 2. Possuir jogos F2P não te garante cartas.**
 - **Você não pode receber cartas em [contas limitadas](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=portuguese), independentemente dos jogos que possua. Isso foi possível no passado, mas não é mais o caso.**
-- **Paid games that you've obtained for free during a promotion can't be farmed for card drops, regardless of what is displayed on the store page. Isso foi possível no passado, mas não é mais o caso.**
+- **Jogos pagos que você obteve de graça durante alguma promoção não são legíveis para coleta de cartas, independente do que é mostrado na página da loja. Isso foi possível no passado, mas não é mais o caso.**
 
 Então, como você pode ver, Cartas Colecionáveis Steam são concedidas a você por jogar um jogo que você comprou, ou um jogo gratuito no qual você colocou dinheiro. Se você jogar tais jogos por tempo suficiente, todas as cartas para aquele jogo vão eventualmente aparecer no seu inventário, tornando possível que você complete uma insígnia (após obter a metade restante do jogo de cartas), venda-as, ou faça o que mais você quiser.
 

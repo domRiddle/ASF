@@ -1,17 +1,17 @@
 # Docker
 
-Starting with version 3.0.3.2, ASF is now also available as **[docker container](https://www.docker.com/what-container)**. Running ASF in docker container typically has no advantages for casual users, but it could be an excellent way of making use of ASF on servers, ensuring that ASF is being run in sandboxed environment separated from all other apps. Our docker packages are currently available on **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** as well as **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+Bắt đầu từ phiên bản 3.0.3.2, ASF giờ cũng có sẵn như là **[khoang chứa docker](https://www.docker.com/what-container)**. Chạy ASF trong khoang chứa docker thường không lợi ích gì thêm cho người dùng thông thường, nhưng nó cũng có thể là một cách tốt để chạy ASF trên server, đảm bảo rằng ASF đang được chạy trong một môi trường cô lập và tách biệt với các ứng dụng khác. Gói docker của chúng tôi hiện đang có mặt trên **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** cũng như trên **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 ---
 
-## Tags
+## Nhãn (tag)
 
-ASF is available through 4 main types of **[tags](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
+ASF có sẵn qua 4 loại **[nhãn](https://hub.docker.com/r/justarchi/archisteamfarm/tags)** chính:
 
 
 ### `main`
 
-This tag always points to the ASF built from latest commit in `main` branch, which works the same as grabbing latest artifact directly from our **[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** pipeline. Typically you should avoid this tag, as it's the highest level of bugged software dedicated to developers and advanced users for development purposes. The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken). It's here for us to mark current state of ASF project, which is not necessarily guaranteed to be stable or tested, just like pointed out in our release cycle. This tag should not be used in any production environment.
+Nhãn này luôn hướng tới bản ASF từ commit mới nhất trong nhánh `main`, hoạt động tương tự như việc lấy artifact mới nhất thẳng từ đường **[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** của chúng tôi. Thường thì bạn nên tránh nhãn này, vì đây là nhãn cấp cao nhất của phần mềm bị lỗi dành riêng cho các nhà phát triển và người dùng nâng cao nhằm mục đích phát triển. The image is being updated with each commit in the `main` GitHub branch, therefore you can expect very often updates (and stuff being broken). It's here for us to mark current state of ASF project, which is not necessarily guaranteed to be stable or tested, just like pointed out in our release cycle. This tag should not be used in any production environment.
 
 
 ### `released`
@@ -115,7 +115,7 @@ By default, each ASF running inside a docker container is standalone, which mean
 mkdir -p /tmp/ASF-g1
 docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 --pull always justarchi/archisteamfarm
 docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 --pull always justarchi/archisteamfarm
-# And so on, all ASF containers are now synchronized with each other
+# Và tương tự vậy, toàn bộ các khoang chứa ASF giờ đã được đồng bộ hóa với nhau
 ```
 
 We recommend to bind ASF's `/tmp/ASF` directory also to a temporary `/tmp` directory on your machine, but of course you're free to choose any other one that satisfies your usage. Each ASF container that is expected to be synchronized should have its `/tmp/ASF` directory shared with other containers that are taking part in the same synchronization process.
@@ -131,7 +131,7 @@ Mounting `/tmp/ASF` is completely optional and actually not recommended, unless 
 ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container through environment variables. You should use specific environment variables for supported switches, and `ASF_ARGS` for the rest. This can be achieved with `-e` switch added to `docker run`, for example:
 
 ```shell
-docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --name asf --pull always justarchi/archisteamfarm
+docker run -it -e "ASF_CRYPTKEY=MậtKhẩuCủaTôi" -e "ASF_ARGS=--no-config-migrate" --name asf --pull always justarchi/archisteamfarm
 ```
 
 This will properly pass your `--cryptkey` argument to ASF process being run inside docker container, as well as other args. Of course, if you're advanced user then you can also modify `ENTRYPOINT` or add `CMD` and pass your custom arguments yourself.
@@ -170,7 +170,7 @@ If you set everything properly, `docker run` command above will make **[IPC](htt
 
 ---
 
-### Complete example
+### Ví dụ hoàn thiện
 
 Combining whole knowledge above, an example of a complete setup would look like this:
 
