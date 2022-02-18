@@ -1,8 +1,8 @@
 # Třetí strana
 
-This section includes various third-party additions written exclusively (or mainly) for usage together with ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
+Tento oddíl obsahuje různé doplňky třetích stran napsané výhradně (nebo hlavně) pro použití společně s ASF. Rozsah zahrnuje ASF pluginy přes jednoduché webové aplikace a interní knihovny pro integraci, až po plnohodnotné boty pro jiné platformy. Pokud byste chtěli něco přidat do seznamu, dejte nám vědět na Discordu nebo na naší Steam skupině.
 
-Please note that below programs are **not** maintained by ASF developers and therefore **we give no guarantee about any of them**, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only. You should always ensure that the third-party utility you're about to use is legit enough for you, as you're using all of them at your own risk.
+Vezměte prosím na vědomí, že níže uvedené programy nejsou **** udržovány vývojáři ASF, a proto **neposkytujeme žádnou záruku za žádnou z nich**. zejména pokud jde o zabezpečení, bezpečnost nebo Steam ToS. Tento seznam je veden pouze pro reference. You should always ensure that the third-party utility you're about to use is legit enough for you, as you're using all of them at your own risk.
 
 ---
 
@@ -27,7 +27,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ---
 
-## Integrations
+## Integrace
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
 - **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
@@ -35,7 +35,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ---
 
-## Libraries
+## Knihovny
 
 - **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
 
@@ -56,6 +56,6 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ---
 
-## Want to find more?
+## Chcete najít více?
 
 We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** topic on GitHub for all projects that integrate with ASF.
