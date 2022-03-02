@@ -61,12 +61,12 @@ Public info (exposed by Steam to every interested party) includes:
 - Your Steam identificator (in 64-bit form, for generating links)
 - Your nickname (for display purposes)
 - Your avatar (hash, for display purposes)
-- Total number of `MatchableTypes` Steam items in your inventory (for display purposes and matching)
-- Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and matching)
 
 Private info (selected data required for providing the functionality) includes:
 - Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
 - Your `MatchableTypes` (for display purposes and matching)
+- Total number of `MatchableTypes` Steam items in your inventory (for display purposes and matching)
+- Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and matching)
 - Value of `MatchEverything` in your **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** (for display purposes and matching)
 
 ASF server will **not** collect, store or otherwise process any other data not listed above, without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand the process.
