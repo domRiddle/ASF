@@ -4,7 +4,7 @@
 
 * **[簡介](#introduction)**
 * **[網頁設定檔產生器](#web-based-configgenerator)**
-* **[ASF-ui configuration](#asf-ui-configuration)**
+* **[ASF-ui 設定](#asf-ui-configuration)**
 * **[手動設定](#manual-configuration)**
 * **[全域設定檔](#global-config)**
 * **[BOT 設定檔](#bot-config)**
@@ -38,7 +38,7 @@ The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/
 
 ---
 
-## ASF-ui configuration
+## ASF-ui 設定
 
 Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
 

@@ -4,7 +4,7 @@ Starting with ASF V3.1.2.2, we'll be following consistent deprecation policy in 
 
 ---
 
-## What is deprecation?
+## 什麼是棄用？
 
 Deprecation is the process of doing smaller or bigger breaking changes that render previously used options, arguments, functionalities or usage cases obsolete. Deprecation usually means that given thing was simply rewritten into another (similar) form, and you should ensure in timely manner that you'll make appropriate switch to it. In this case, it's simply moving given functionality to more appropriate place.
 
@@ -12,7 +12,7 @@ ASF changes rapidly and always strikes for becoming better. This sadly means tha
 
 ---
 
-## Deprecation stages
+## 棄用階段
 
 ASF will follow 2 stages of deprecation, making transition much easier and less troublesome.
 
@@ -28,7 +28,7 @@ Stage 2 is scheduled after stage 1 explained above takes place and gets released
 
 ---
 
-## Summary
+## 概要
 
 You have more or less a **full month** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 2), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than a month of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs that you've missed and manually adapt your usage to current one.
 
@@ -36,7 +36,7 @@ In most cases, disregarding deprecation warning will not render general ASF func
 
 ---
 
-## Example
+## 範例
 
 We moved pre-V3.1.2.2 `--server` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** into `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**.
 

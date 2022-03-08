@@ -51,7 +51,7 @@ STM работает только с хорошими обменами, а зн�
 
 ### `MatchActively`
 
-`MatchActively` setting is active version of `SteamTradeMatcher` which includes interactive matching in which the bot will send trades to other people. It can work standalone, or together with `SteamTradeMatcher` setting.
+Настройка `MatchActively` — это активная версия `SteamTradeMatcher`, которая включает интерактивное сопоставление, при котором бот будет отправлять сделки другим людям. Он может работать автономно или вместе с настройкой `SteamTradeMatcher`.
 
 Чтобы использовать данный режим, вам необходимо соответствовать ряду требований. You have to be eligible for our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)**, with a bit relaxed requirements. At the minimum you must have **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active and at least one valid type in `MatchableTypes`, such as trading cards.
 

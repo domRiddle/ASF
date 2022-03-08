@@ -1,16 +1,16 @@
 # Remote communication
 
-This section elaborates on remote communication that ASF includes, including further explanation on how one can influence it. While we don't consider anything below as malicious or otherwise unwanted, and neither we're legally obliged to disclose it, we want you to better understand the program functionality especially in regards to your privacy and data being shared.
+This section elaborates on remote communication that ASF includes, including further explanation on how one can influence it. Хотя мы не считаем что-либо из приведенного ниже вредоносным или иным образом нежелательным, и мы не обязаны по закону раскрывать это, мы хотим, чтобы вы лучше понимали функциональные возможности программы, особенно в отношении вашей конфиденциальности и обмена данными.
 
 ## Steam
 
-ASF communicates with Steam network (**[CM servers](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), as well as **[Steam API](api.steampowered.com)**, **[Steam store](https://store.steampowered.com)** and **[Steam community](https://steamcommunity.com)**.
+ASF communicates with Steam network (**[CM servers](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), as well as **[Steam API](https://steamcommunity.com/dev)**, **[Steam store](https://store.steampowered.com)** and **[Steam community](https://steamcommunity.com)**.
 
 It's not possible to disable any of the above communication, as it's the core foundation ASF is based on in order to provide its basic functionality. You'll need to refrain from using ASF if you're not comfortable with the above.
 
-## Steam group
+## Группа Steam
 
-ASF communicates with our **[Steam group](https://steamcommunity.com/groups/archiasf)**. The group provides you with announcements, especially new versions, critical issues, Steam problems and other things that are important to keep community updated. It also allows you to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements. By default, accounts used in ASF will automatically join the group upon login.
+ASF связывается с нашей **[группой Steam](https://steamcommunity.com/groups/archiasf)**. Группа предоставляет вам объявления, в частности о новых версиях, критических проблемах, проблемах Steam и других вещах, которые важны участникам сообщества. Это также позволяет вам использовать нашу техническую поддержку, задавая вопросы, решая проблемы, сообщая о проблемах или предлагая улучшения. По умолчанию учетные записи, используемые в ASF, автоматически присоединяются к группе при входе в систему.
 
 You can decide to opt-out of joining the group by disabling `SteamGroup` flag in bot's **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** settings.
 
@@ -18,7 +18,7 @@ You can decide to opt-out of joining the group by disabling `SteamGroup` flag in
 
 ASF communicates with **[GitHub's API](https://api.github.com)** in order to fetch **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** for the update functionality. This is done as part of auto-updates (if you've kept **[`UpdatePeriod`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updateperiod)** enabled), as well as `update` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. You can influence ASF's communication with GitHub through **[`UpdateChannel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updatechannel)** property - setting it to `None` will result in disabling entire update functionality, including GitHub communication in this regard.
 
-## ASF's server
+## ASF сервер
 
 ASF communicates with **[our own server](https://asf.justarchi.net)** for more advanced functionality. In particular, this includes:
 - Verifying checksums of ASF builds downloaded from GitHub against our own independent database to ensure that all downloaded builds are legitimate (free of malware, MITM attacks or other tampering)
@@ -53,7 +53,7 @@ ASF отправляет начальные данные один раз пос�
 
 Если вы ищете удобный способ получить доступ к нашему каталогу из программы, у нас есть очень простая конечная точка **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** как раз для этого случая. Именно эту конечную точку ASF использует для пользователей с включенным режимом `MatchActively`.
 
-### Privacy policy
+### Политика конфиденциальности
 
 If you agree to being listed in our listing, by enabling `SteamTradeMatcher` and not refusing `PublicListing`, as specified above, we'll temporarily store some of your Steam account details on our server in order to provide the core functionality.
 
@@ -61,12 +61,12 @@ Public info (exposed by Steam to every interested party) includes:
 - Ваш идентификатор Steam (в 64-разрядном формате, для создания ссылок)
 - Ваш никнейм (для отображения)
 - Ваш аватар (только хеш, для отображения)
-- Общее число предметов Steam, соответствующих `MatchableTypes` типов в вашем инвентаре (для отображения и сопоставления)
-- Общее число уникальных игр из которых указанные выше предметы Steam соответствующих `MatchableTypes` типов были получена (для отображения и сопоставления)
 
 Private info (selected data required for providing the functionality) includes:
 - Ваш **[токен для обменов](https://steamcommunity.com/my/tradeoffers/privacy)** (чтобы люди, не состоящие в вашем списке друзей могли отправить вам обмен)
 - Значение параметра `MatchableTypes` (для отображения и сопоставления)
+- Общее число предметов Steam, соответствующих `MatchableTypes` типов в вашем инвентаре (для отображения и сопоставления)
+- Общее число уникальных игр из которых указанные выше предметы Steam соответствующих `MatchableTypes` типов были получена (для отображения и сопоставления)
 - Value of `MatchEverything` in your **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** (for display purposes and matching)
 
 ASF server will **not** collect, store or otherwise process any other data not listed above, without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand the process.

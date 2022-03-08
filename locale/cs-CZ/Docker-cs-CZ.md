@@ -4,7 +4,7 @@ Starting with version 3.0.3.2, ASF is now also available as **[docker container]
 
 ---
 
-## Tags
+## Tagy
 
 ASF is available through 4 main types of **[tags](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**:
 
@@ -47,7 +47,7 @@ Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which me
 
 ---
 
-## Usage
+## Použití
 
 For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/commandline/docker)**, we'll cover only basic usage in this guide, you're more than welcome to dig deeper.
 
@@ -175,10 +175,10 @@ If you set everything properly, `docker run` command above will make **[IPC](htt
 Combining whole knowledge above, an example of a complete setup would look like this:
 
 ```shell
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf --pull always justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-This assumes that you'll use a single ASF container, with all ASF config files in `/home/archi/asf`. You should modify the config path to the one that matches your machine. This setup is also ready for optional IPC usage if you've decided to include `IPC.config` in your config directory with a content like below:
+This assumes that you'll use a single ASF container, with all ASF config files in `/home/archi/ASF/config`. You should modify the config path to the one that matches your machine. This setup is also ready for optional IPC usage if you've decided to include `IPC.config` in your config directory with a content like below:
 
 ```json
 {

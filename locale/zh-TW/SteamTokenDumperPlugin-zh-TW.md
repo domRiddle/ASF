@@ -36,7 +36,7 @@ In any case, SteamDB staff would like to thank you in advance for your help. The
 
 ---
 
-## Advanced config
+## 進階設定
 
 Starting with ASF V5.1.0.0, our plugin supports advanced config which might come useful for people that would like to tweak the internals to their preference.
 
@@ -86,7 +86,7 @@ The advanced config has the following structure located within `ASF.json`:
 
 ---
 
-## Further explanation
+## 詳細解說
 
 At the root level, every Steam account owns a set of packages (licenses, subscriptions), which are classified by their `packageID` (also known as `subID`). Every package may contain several apps classified by their `appID`. Every app may then include several depots classified by their `depotID`.
 

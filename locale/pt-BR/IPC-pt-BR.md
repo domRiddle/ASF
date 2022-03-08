@@ -100,13 +100,13 @@ O arquivo de configuração baseia-se na seguinte estrutura JSON:
 
 `KnownNetworks` - Esta variável **opcional** especifica os endereços de rede que consideramos confiáveis. Por padrão, o ASF está configurado para confiar na interface de loopback (`localhost`, mesma máquina) **apenas**. Esta propriedade é usada de duas maneiras. Primeiramente, se você omitir `IPCPassword`, então permitiremos que apenas máquinas de redes conhecidas tenham acesso a API do ASF, e negaremos todas as outras como medida de segurança. Em segundo lugar, essa propriedade é crucial em relação aos proxies reversos que acessam o ASF, já que o ASF honrará seus cabeçalhos somente se o servidor de proxy reverso for de redes conhecidas. Honrar os cabeçalhos é crucial em relação ao mecanismo anti-bruteforce do ASF, pois ao invés de banir o proxy reverso em caso de um problema, ele irá banir o IP especificado pelo proxy reverso como fonte da mensagem original. Tenha muito cuidado com as redes que você especifica aqui, pois isso permite um potencial ataque de falsificação de IP e acesso não autorizado caso a máquina confiável esteja comprometida ou incorretamente configurada.
 
-`PathBase` - This is **optional** base path that will be used by IPC interface. Defaults to `/` and shouldn't be required to modify for majority of use cases. Mudar essa propriedade fará com que a interface IPC seja hospedada em um prefixo personalizado, por exemplo `http://localhost:1242/MeuPrefixo` ao invés de apenas `http://localhost:1242`. Usar um `PathBase` personalizado pode ser desejável em combinação com uma configuração específica de proxy reverso, onde você quer que o proxy funcione apenas em uma URL específica, por exemplo `meudomínio.com/ASF` ao invés de todo o domínio `meudomínio.com`. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
+`PathBase` - Esse é o diretório base **opcional** que será usado pela interface IPC. O padrão é `/` e não deve ser necessário modificar para a maioria dos casos de uso. Mudar essa propriedade fará com que a interface IPC seja hospedada em um prefixo personalizado, por exemplo `http://localhost:1242/MeuPrefixo` ao invés de apenas `http://localhost:1242`. Usar um `PathBase` personalizado pode ser desejável em combinação com uma configuração específica de proxy reverso, onde você quer que o proxy funcione apenas em uma URL específica, por exemplo `meudomínio.com/ASF` ao invés de todo o domínio `meudomínio.com`. Normalmente isso exigiria que você escrevesse uma regra de reescrita para seu servidor web que poderia mapear `meudomínio.com/ASF/Api/X` -> `localhost:1242/Api/X`, mas em vez disso você pode definir um `PathBase` personalizado como `/ASF` e obter uma configuração mais fácil como `meudomínio.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
 
 A menos que você realmente precise especificar um caminho base personalizado, é melhor deixá-lo padrão.
 
 ## Exemplo de configuração
 
-The following config will allow remote access from all sources, therefore you should **ensure that you read and understood our security notice about that**, available above.
+A configuração à seguir permite acesso remoto de todas as fontes, portanto você **deve se certificar que leu e entendeu nosso aviso de segurança sobre isso**, disponível acima.
 
 ```json
 {
@@ -126,7 +126,7 @@ Se você não precisa de acesso de todas as fontes, mas, por exemplo, apenas da 
 
 # Autenticação
 
-A interface ASF do IPC não requer qualquer tipo de autenticação por padrão, já que `IPCPassword` é definido como `null`. No entanto, se `IPCPassword` for definido com qualquer valor não-vazio, todas as chamadas à API do ASF vão requerer a senha correspondente definida em `IPCPassword`. Se você omitir a autenticação ou entrar com uma senha errada, você terá o erro `401 - Unauthorized` erro. After 5 failed authentication attempts (wrong password), you'll get temporarily blocked with `403 - Forbidden` error.
+A interface ASF do IPC não requer qualquer tipo de autenticação por padrão, já que `IPCPassword` é definido como `null`. No entanto, se `IPCPassword` for definido com qualquer valor não-vazio, todas as chamadas à API do ASF vão requerer a senha correspondente definida em `IPCPassword`. Se você omitir a autenticação ou entrar com uma senha errada, você terá o erro `401 - Unauthorized` erro. Após 5 tentativas de autenticação não sucedidas (senha incorreta), você será temporariamente bloqueado com o erro `403 - Forbidden`.
 
 A autenticação pode ser feita de duas formas diferentes.
 
@@ -160,7 +160,7 @@ Além de usar nossa documentação Swagger como uma especificação completa do 
 
 Por padrão o ASF escuta apenas nos endereços `localhost`, o que significa que acessar o IPC do ASF de qualquer outro computador **é impossível**. A menos que você modifique os endpoints padrão, um invasor precisaria de um acesso direto ao seu computador acessar o IPC do ASF, portanto ele é tão seguro quanto possível e não há possibilidade de outra pessoa acessá-lo, até mesmo de sua própria rede doméstica.
 
-No entanto, se você decidir mudar os endereços padrão do `localhost`, então você deve configurar regras de firewall adequadas **por sua conta** para permitir apenas IPs autorizados a acessar a interface de IPC do ASF. In addition to doing that, you will need to set up `IPCPassword`, as ASF will refuse to let other machines access ASF API without one, which adds another layer of extra security. Você também pode querer rodar a interface IPC do ASF sob um proxy reverso nesse caso, que será melhor explicado abaixo.
+No entanto, se você decidir mudar os endereços padrão do `localhost`, então você deve configurar regras de firewall adequadas **por sua conta** para permitir apenas IPs autorizados a acessar a interface de IPC do ASF. Além de fazer isso, você precisará configurar `IPCPassword`, já que o ASF recusará outras máquinas de acessarem ASF API sem esta configuração, cujo adiciona outra camada de segurança extra. Você também pode querer rodar a interface IPC do ASF sob um proxy reverso nesse caso, que será melhor explicado abaixo.
 
 ### Posso acessar o API do ASF pelas minhas próprias ferramentas ou userscripts?
 
@@ -168,7 +168,7 @@ Sim, é para isso que a API do ASF foi desenvolvida e você pode usar qualquer c
 
 ### Posso acessar o IPC do ASF remotamente, de outro computador por exemplo?
 
-Yes, we recommend to use a reverse proxy for that. Dessa forma você pode acessar seu servidor web como de costume, o qual então acessará o IPC do ASF no mesmo computador. Como alternativa, se você não quiser executar um proxy reverso, você pode usar uma **[configuração personalizada](#configuração-personalizada)** com uma URL personalizada. For example, if your machine is in a VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
+Sim, recomendamos usar um proxy reverso para isso. Dessa forma você pode acessar seu servidor web como de costume, o qual então acessará o IPC do ASF no mesmo computador. Como alternativa, se você não quiser executar um proxy reverso, você pode usar uma **[configuração personalizada](#configuração-personalizada)** com uma URL personalizada. For example, if your machine is in a VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
 
 ### Posso usar o IPC do ASF atrás de um proxy reverso como Apache ou Nginx?
 

@@ -136,7 +136,7 @@ AFTR DOIN SO, ASSUMIN U INSTALLD ALL REQUIRD DEPENDENCIEZ IN DA FURST STEP, ASF 
 
 IF U SUPPLID `SteamLogin` AN `SteamPassword` 4 ASF 2 USE, ULL BE ASKD 4 UR STEAMGUARD TOKEN ONLY (E-MAIL, 2FA OR NONE, DEPENDIN ON UR STEAM SETTINGS). IF U DIDNT, ULL ALSO BE ASKD 4 UR STEAM LOGIN AN PASWORD.
 
-Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name.
+NAO WUD BE GUD TIEM 2 REVIEW R **[REMOTE COMMUNICASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-lol-US)** SECSHUN IF URE CONCERND BOUT STUFF ASF IZ PROGRAMMD 2 DO, INCLUDIN ACSHUNS ITLL TAEK IN UR NAYM.
 
 AFTR PASIN THRU INITIAL LOGIN GATE, ASSUMIN UR DETAILS R CORRECT, ULL SUCCESFULLY LOG IN, AN ASF WILL START FARMIN USIN DEFAULT SETTINGS DAT U DIDNT CHANGE AS OV NAO:
 

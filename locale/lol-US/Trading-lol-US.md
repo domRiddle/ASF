@@ -51,11 +51,11 @@ IZ HIGHLY RECOMMENDD 2 USE **[ASF 2FA](https://github.com/JustArchiNET/ArchiStea
 
 ### `MatchActively`
 
-`MatchActively` setting is active version of `SteamTradeMatcher` which includes interactive matching in which the bot will send trades to other people. It can work standalone, or together with `SteamTradeMatcher` setting.
+`MatchActively` SETTIN IZ ACTIV VERSHUN OV `SteamTradeMatcher` WHICH INCLUDEZ INTERACTIV MATCHIN IN WHICH TEH BOT WILL SEND TRADEZ 2 OTHR PEEPS. IT CAN WERK STANDALONE, OR TOGETHR WIF `SteamTradeMatcher` SETTIN.
 
-IN ORDR 2 MAK USE OV DAT OPSHUN, U HAS SET OV REQUIREMENTS 2 MEET. You have to be eligible for our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)**, with a bit relaxed requirements. At the minimum you must have **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active and at least one valid type in `MatchableTypes`, such as trading cards.
+IN ORDR 2 MAK USE OV DAT OPSHUN, U HAS SET OV REQUIREMENTS 2 MEET. U HAS 2 BE ELIGIBLE 4 R **[ASF STM LISTIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-lol-US#public-asf-stm-listin)**, WIF BIT RELAXD REQUIREMENTS. AT TEH MINIMUM U MUST HAS **[UNRESTRICTD](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** AKOWNT, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-lol-US#asf-2fa)** ACTIV AN AT LEAST WAN VALID TYPE IN `MatchableTypes`, SUCH AS TRADIN CARDZ.
 
-If you meet all of the requirements above, ASF will periodically communicate with our **[public ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to actively match bots that are currently available.
+IF U MEET ALL OV TEH REQUIREMENTS ABOOV, ASF WILL PERIODICALLY SPEEK WIF R **[PUBLIC ASF STM LISTIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-lol-US#public-asf-stm-listin)** IN ORDR 2 ACTIVELY MATCH BOTS DAT R CURRENTLY AVAILABLE.
 
 - EACH MATCHIN SESHUN IZ COMPOSD OV "ROUNDZ", WIF `10` BEAN MAXIMUM IN SINGLE MATCHIN SESHUN.
 - IN EACH ROUND ASF WILL FETCH R INVENTORY AN INVENTORY OV SELECTD BOTS DAT R LISTD IN ORDR 2 FIND `MatchableTypes` ITEMS DAT CAN BE MATCHD. IF MATCH IZ FINDZ, ASF WILL SEND AN CONFIRM TRADE OFFR AUTOMATICALLY.

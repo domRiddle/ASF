@@ -10,19 +10,19 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 ### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, Plugin für ASF, das die Funktionalität der Erstellung von Booster-Paketen bereitstellt.
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, Plugin für ASF, um Botnamen case-insensitiv zu machen.
+- **[ASF-Errungenschaften-Verwalter](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, Erweiterung für ASF die Ihnen erlaubt, Ihre Steam Errungenschaften zu verwalten.
+- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, Erweiterung für ASF, das die Funktionalität der Erstellung von Booster-Paketen bereitstellt.
+- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, Erweiterung für ASF, um Botnamen unabhängig von Groß- und Kleinschreibung zu machen.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, Plugin für ASF welches die befehllose Produktschlüssel-Aktivierung zu re-implementieren.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, Plugin, damit ASF automatisch Handelsanfragen für bestimmte Artikeltyp(en) akzeptiert.
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
+- **[Selektive-Loot-und-Übertragungserweiterung](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, Erweiterung für ASF die erweiterte Befehle zum Übertragen von Steam-Gegenständen bietet.
 
 ### **[Vital7](https://github.com/Vital7)**
 
-- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
-- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
-- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
-- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
+- **[Freundschaftsanfragen-Akzeptierer](https://github.com/Vital7/FriendAccepter)**, Erweiterung für ASF die automatisch Freundschaftsanfragen annimmt.
+- **[Spielentferner](https://github.com/Vital7/GameRemover)**, Erweiterung für ASF, die einen Befehl implementiert, um Steam-Lizenzen von ausgewählten Bots zu entfernen.
+- **[Email-abrufen](https://github.com/Vital7/GetEmail)**, Erweiterung für ASF, die einen Befehl implementiert, der die E-Mail-Adressen der Bot-Instanzen direkt von Steam abruft.
+- **[API-Schlüssel-zurücksetzen](https://github.com/Vital7/ResetAPIKey)**, Erweiterung für ASF, die einen Befehl implementiert, den API Schlüssel für ausgewählte Bot-Instanzen zurückzusetzen.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, Plugin für ASF erlaubt das Proxifieren von WebSocket-Verbindungen.
 
 ---
@@ -45,7 +45,7 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 - **[AUR Repository #1](https://aur.archlinux.org/packages/asf)**, erlaubt es dir ASF einfach auf Arch Linux zu installieren.
 - **[AUR Repository #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, erlaubt es dir ASF einfach auf Arch Linux zu installieren.
-- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, allowing you to easily install ASF on OS X.
+- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, erlaubt ihnen ASF leicht auf OS X zu installieren.
 
 ---
 

@@ -34,7 +34,7 @@ Então, como você pode ver, Cartas Colecionáveis Steam são concedidas a você
 
 Agora que nós explicamos o básico do Steam, nós podemos explicar o ASF. O programa em si é bastante complexo para se entender totalmente, então ao invés de explicar todos os detalhes técnicos, vamos oferecer uma explicação mais simples abaixo.
 
-O ASF se conecta à sua conta Steam através de um Cliente Steam personalizado codificado internamente usando as credenciais que você forneceu. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for farming (`X` card drops remaining). Após analisar todas as páginas e fazer a lista final de jogos que estão aptos, o ASF escolhe o algoritmo de coleta mais eficiente e inicia o processo. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully farmed already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
+O ASF se conecta à sua conta Steam através de um Cliente Steam personalizado codificado internamente usando as credenciais que você forneceu. Uma vez conectado, ele analisa suas **[insígnias](https://steamcommunity.com/my/badges)** a fim de encontrar jogos com cartas disponíveis para coleta (`X` drops de carta restante). Após analisar todas as páginas e fazer a lista final de jogos que estão aptos, o ASF escolhe o algoritmo de coleta mais eficiente e inicia o processo. O processo depende do **[algorítimo de coleta de cartas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-pt-BR)** escolhido, mas geralmente consiste em jogar um jogo elegível e periodicamente (também em cada drop de item) verificar se o jogo já está totalmente coletado - se sim, o ASF pode prosseguir com o próximo título, usando o mesmo procedimento, até que todos os jogos sejam totalmente coletados.
 
 Tenha em mente que a explicação acima é simplificada e não descreve as dezenas de recursos e funções extras que o ASF oferece. Visite o resto da **[nossa wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-pt-BR)** se você quiser conhecer cada detalhe do ASF. Eu tentei fazê-la simples o bastante para que todos a entendam, sem entrar em detalhes técnicos - usuários avançados são encorajados a cavar mais fundo.
 
@@ -80,15 +80,15 @@ When/If all ASF requirements are satisfied, we'll consider releasing official An
 
 ---
 
-### Can ASF farm items from Steam games, such as CS:GO or Unturned?
+### O ASF pode coletar itens de jogos Steam, como CS:GO e Unturned?
 
-**Não**, isso é contra o **[Acordo de Assinatura do Steam](https://store.steampowered.com/subscriber_agreement)** e a Valve deixou isso muito claro com a última onda de banimentos da comunidade por coleta de itens do TF2. O ASF é um programa de coleta automática de Cartas Colecionáveis Steam, não de intens de jogos - ele não tem qualquer capacidade de coletar itens de jogo e não temos planos de adicionar tal característica no futuro, nunca, principalmente por violar os termos de uso da Steam. Não peça isso - o melhor que você vai conseguir é uma denúncia de algum usuário ofendido e um problema por conta disso. The same goes for all other types of farming, such as farming drops from CS:GO broadcasts. O ASF é focado exclusivamente em cartas colecionáveis Steam.
+**Não**, isso é contra o **[Acordo de Assinatura do Steam](https://store.steampowered.com/subscriber_agreement)** e a Valve deixou isso muito claro com a última onda de banimentos da comunidade por coleta de itens do TF2. O ASF é um programa de coleta automática de Cartas Colecionáveis Steam, não de intens de jogos - ele não tem qualquer capacidade de coletar itens de jogo e não temos planos de adicionar tal característica no futuro, nunca, principalmente por violar os termos de uso da Steam. Não peça isso - o melhor que você vai conseguir é uma denúncia de algum usuário ofendido e um problema por conta disso. O mesmo vale para todos os outros tipos de coleta, como drops de transmissões ao vivo do CS:GO. O ASF é focado exclusivamente em cartas colecionáveis Steam.
 
 ---
 
-### Can I choose which games should be farmed?
+### Posso escolher quais jogos coletar?
 
-**Sim**, de diversas formas. If you want to alter the default order of farming queue, then that's what `FarmingOrders` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being farmed automatically, you can use idle blacklist which is available with `fb` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you'd like to farm everything but give some apps priority over everything else, that is what idle priority queue available with `fq` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to farm specific games of your choice only, then you can use `FarmPriorityQueueOnly` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idle priority queue.
+**Sim**, de diversas formas. Se você quiser mudar a lista padrão de coleta é só usar o **[parâmetro de configuração do bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-do-bot)** `FarmingOrders`. If you want to manually blacklist given games from being farmed automatically, you can use idle blacklist which is available with `fb` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you'd like to farm everything but give some apps priority over everything else, that is what idle priority queue available with `fq` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to farm specific games of your choice only, then you can use `FarmPriorityQueueOnly` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idle priority queue.
 
 Além de gerenciar o módulo de coleta automática que foi descrito acima, você também pode mudar o ASF para o modo manual com o **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `play`, ou usar uma mistura de configurações externas como o **[parâmetro de configuração do bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-do-bot)** `GamesPlayedWhileIdle`.
 
@@ -104,7 +104,7 @@ Como alternativa, você pode usar o comando **[`play`](https://github.com/JustAr
 
 ---
 
-### I'm Linux / OS X user, will ASF farm games that are not available for my OS? Will ASF farm 64-bit games when I'm running it on 32-bit OS?
+### Eu sou usuário do Linux / macOS, o ASF roda jogos que não estão disponíveis para o meu Sistema Operacional? O ASF rodará jogos 64-bit mesmo se eu tiver um Sistema Operacional 32-bit?
 
 Sim, o ASF não vai baixar nenhum arquivo de jogo, então ele funciona com todas as licenças que estejam ligadas a sua conta Steam, independente de qualquer requisito técnico ou de plataforma. Ele também deve funcionar com jogos que tenham bloqueio regional, mesmo quando você não estiver na região correta, embora não garantimos isso (funcionou na última vez que testamos).
 
@@ -116,7 +116,7 @@ Sim, o ASF não vai baixar nenhum arquivo de jogo, então ele funciona com todas
 
 ### O ASF é similar ao Idle Master?
 
-The only similarity is the general purpose of both programs, which is farming Steam games in order to receive card drops. Everything else, including the actual farming method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation - IM is running on .NET Framework, ASF on .NET (Core). O ASF foi criado para resolver alguns problemas do IM que não eram possíveis de serem resolvidos com uma simples edição no código - é por isso que o ASF foi escrito do zero, sem usar nem uma simples linha de código ou mesmo a ideia geral do IM, pois aquele código e aquelas idéias eram totalmente falhas para começo de conversa. O IM e o ASF são como Windows e Linux - ambos são sistemas operacionais e ambos podem ser instalados no seu PC, mas eles não compartilham nada entre si além de servirem para o mesma finalidade.
+A única semelhança é o propósito geral de ambos os programas, que é rodar jogos Steam a fim de coletar drop de cartas. Todo o resto, incluindo o método de coleta, algoritmos usados, estrutura do programa, funcionalidade, compatibilidade, até mesmo o próprio código-fonte, é totalmente diferente e esses dois programas não têm nada em comum um com o outro, até mesmo a base principal - o IM está sendo executado no .NET Framework, o ASF em .NET (Core). O ASF foi criado para resolver alguns problemas do IM que não eram possíveis de serem resolvidos com uma simples edição no código - é por isso que o ASF foi escrito do zero, sem usar nem uma simples linha de código ou mesmo a ideia geral do IM, pois aquele código e aquelas idéias eram totalmente falhas para começo de conversa. O IM e o ASF são como Windows e Linux - ambos são sistemas operacionais e ambos podem ser instalados no seu PC, mas eles não compartilham nada entre si além de servirem para o mesma finalidade.
 
 Por esse motivo também você não deve comparar o ASF com o IM baseado no que é esperado do IM. Você deve tratar o ASF e o IM como programas completamente diferentes com suas características próprias e exclusivas. Algumas dessas características podem se sobrepor e você poderá encontrar uma característica particular em ambos, mas muito raramente, uma vez que o ASF serve a esse propósito de uma madeira muito diferente comparado ao IM.
 
@@ -302,7 +302,7 @@ Todos os incidentes acima têm uma coisa em comum - o ASF é apenas uma ferramen
 
 ### Quais informações de privacidade o ASF divulga?
 
-You can find detailed explanation in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. Você deve revê-la se você se preocupa com sua privacidade, por exemplo, se você está se perguntando por que contas usadas no ASF estão entrando em nosso grupo Steam. O ASF não coleta quaisquer informações confidenciais e não as compartilha com quaisquer terceiros.
+Você pode encontrar uma explicação detalhada dessa opção na seção de **<a href=https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-pt-BR>comunicação remota</a>**. Você deve revê-la se você se preocupa com sua privacidade, por exemplo, se você está se perguntando por que contas usadas no ASF estão entrando em nosso grupo Steam. O ASF não coleta quaisquer informações confidenciais e não as compartilha com quaisquer terceiros.
 
 ---
 
@@ -332,7 +332,7 @@ Sim, você deve colocá-lo no parâmetro `SteamParentalCode` na configuração d
 
 Sim, se você quiser iniciar o ASF com o módulo de coleta pausado, você pode setar a propriedade de configuração do bot `Paused` para `true`. Isso permitirá que você `retome` a coleta durante o tempo de execução.
 
-If you want to completely disable cards farming module and ensure that it'll never run without you explicitly telling it otherwise, then we recommend to set `FarmPriorityQueueOnly` to `true`, which instead of just pausing it, will disable the farming completely until you add the games to idle priority queue yourself.
+Se você quiser desabilitar completamente o módulo de coleta de cartas e garantir que nenhum jogo seja executado sem que você diga isso explicitamente, então recomendamos definir `FarmPriorityQueueOnly` para `true`, que apenas não pausará, como também irá desabilitar todas as coletas completamente até que você adicione jogos para coleta você mesmo.
 
 Com o módulo de coleta pausado/desabilitado, você pode utilizar as demais funcionalidades do ASF normalmente, tais como `GamesPlayedWhileIdle`.
 
@@ -352,7 +352,7 @@ O ASF é um aplicativo de console, não há janela para ser minimizada pois as j
 
 ### Existe alguma maneira de se comunicar com o ASF?
 
-Yes, through several different ways. Visite a seção **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** para mais informações.
+Sim, de diversas formas. Visite a seção **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** para mais informações.
 
 ---
 

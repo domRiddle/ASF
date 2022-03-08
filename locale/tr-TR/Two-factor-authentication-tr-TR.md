@@ -14,59 +14,59 @@ Aşağıda açıklanan ASF 2FA' yı kullansanız da kullanmasanız da, ASF uygun
 
 # ASF 2FA
 
-ASF 2FA is a built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. It duplicates your existing authenticator, so that you can use your current authenticator and ASF 2FA at the same time.
+ASF 2AD, ASF sürecine belirteç oluşturma ve onayları kabul etme gibi 2AD özellikleri sağlamaktan sorumlu dahili bir modüldür. Mevcut kimlik doğrulayıcınızı çoğaltır, böylece geçerli kimlik doğrulayıcınızı ve ASF 2AD'yi aynı anda kullanabilirsiniz.
 
-Bot hesabınızın ASF 2FA kullanıp kullanmadığını `2fa` **[komutlarını](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** uygulayarak kontrol edebilirsiniz. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
+Bot hesabınızın ASF 2AD'yi zaten kullandığını `2ad` **[komutlarını](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** yürüterek doğrulayabilirsiniz. Kimlik doğrulayıcınızı ASF 2AD olarak almadıysanız, 2ad komutlarının tümü çalışmayacaktır, yani hesabınız ASF 2AD kullanmaz, bu nedenle modülün çalışır durumda olmasını gerektiren gelişmiş ASF özellikleri için de kullanılamaz.
 
 ---
 
 ## İçe aktarma
 
-In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. If you don't have any authenticator yet, you need to choose one of those and set it up firstly. If you don't know better which one to pick, we recommend WinAuth, but any of the above will work fine assuming you follow the instructions.
+ASF 2AD'yi kullanmak için, ASF tarafından desteklenen bağlantı kurulmuş ve çalışan kimlik doğrulayıcıya sahip olmanız gerekir. ASF şu anda birkaç farklı resmi ve resmi olmayan 2AD Android, iOS, SteamDesktopAuthenticator ve WinAuth kaynağını desteklemektedir. Henüz bir kimlik doğrulayıcınız yoksa, bunlardan birini seçip ilk önce onu kurmanız gerekir. Hangisini seçeceğinizi iyi bilmiyorsanız, WinAuth'u öneririz, ancak talimatları uyguladığınızı varsayarsak yukarıdakilerden herhangi biri işinizi görecektir.
 
-All following guides require from you to already have **working and operational** authenticator being used with given tool/application. ASF 2FA will not operate properly if you import invalid data, therefore make sure that your authenticator works properly before attempting to import it. This does include testing and verifying that following authenticator functions work properly:
+Aşağıdaki tüm rehberin, belirli bir araç/uygulama ile birlikte düzgün çalışan bir kimlik doğrulayıcısına ihtiyacı vardır. Geçersiz verileri içe aktarırsanız ASF 2AD düzgün çalışmaz, bu nedenle içe aktarmayı denemeden önce kimlik doğrulayıcınızın düzgün çalıştığından emin olun. Bu, aşağıdaki kimlik doğrulayıcı işlevlerinin düzgün çalışıp çalışmadığını test etmeyi ve doğrulamayı içerir:
 - You can generate tokens and those tokens are accepted by Steam network
 - You can fetch confirmations, and they are arriving on your mobile authenticator
 - You can accept those confirmations, and they're properly recognized by Steam network as confirmed/rejected
 
-Ensure that your authenticator works by checking if above actions work - if they don't, then they won't work in ASF either, you'll only waste time and cause yourself additional trouble.
+Yukarıdaki eylemlerin işe yarayıp yaramadığını kontrol ederek kimlik doğrulayıcınızın çalıştığından emin olun - çalışmazlarsa, ASF'de de çalışmazlar, yalnızca zaman kaybedersiniz ve kendinize ek sorunlara neden olursunuz.
 
 ---
 
-### Android phone
+### Android telefon
 
-In general for importing authenticator from your Android phone you will need **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** access. Rooting varies from device to device, so I won't tell you how to root your device. Visit **[XDA](https://www.xda-developers.com/root)** for excellent guides on how to do that, as well as general information on rooting in general. If you can't find your device or the guide that you need, try to find it on google second.
+Genel olarak, Android telefonunuzdan kimlik doğrulayıcıyı içe aktarmak için **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** erişimine ihtiyacınız olacaktır. Root işlemi cihazdan cihaza değişir, bu yüzden size cihazınızı nasıl rootlayacağınızı söylemeyeceğim. Ancak root işleminin nasıl yapılacağına dair mükemmel bir rehber sayfası olan **[XDA](https://www.xda-developers.com/root)**'yı zirayet etmenizi önereceğim. Cihazınızı veya ihtiyacınız olan rehberi buradan bulamıyorsanız, o zaman google amcadan bulmaya çalışın.
 
-At least officially, it's not possible to access protected Steam files without root. The only official non-root method for extracting Steam files is creating unencrypted `/data` backup in one way or another and manually fetching appropriate files from it on your PC, however because such thing highly depends on your phone manufacturer and **is not** in Android standard, we won't discuss it here. If you're lucky to have such functionality, you can make use of it, but majority of users don't have anything like that.
+En azından resmi olarak, korumalı Steam dosyalarına root olmadan erişmek mümkün değildir. Steam dosyalarını ayıklamak için tek resmi olmayan yöntem root yöntemidir. Şu veya bu şekilde şifrelenmemiş veri(`/data`) yedeklemesi oluşturmak ve uygun dosyaları buradan PC'nize manuel olarak getirmektir, ancak böyle bir şey büyük ölçüde telefon üreticinize bağlı olduğundan ve Android standardında **olmadığı** için, burada tartışmayacağız. Böyle bir işlevselliğe zaten sahip olduğunuz için şanslıysanız, bundan yararlanabilirsiniz, ancak kullanıcıların çoğunda bu işlevsellik yoktur.
 
-Unofficially, it is possible to extract the needed files without root access, by installing or downgrading your Steam app to version 2.1 (or earlier), setting up mobile authenticator and then creating a snapshot of the app (together with the `data` files that we need) through `adb backup`. However, since it's a serious security breach and entirely unsupported way to extract the files, we won't elaborate further on this, Valve disabled this security hole in newer versions for a reason, and we only mention it as a possibility.
+Gayri resmi olarak, Steam uygulamanızı sürüm 2.1'e (veya daha eski) yükleyerek veya indirerek, mobil kimlik doğrulayıcıyı ayarlayarak ve ardından uygulamanın bir anlık görüntüsünü oluşturarak (ihtiyacımız olan veri (`data`) dosyalarıyla birlikte) gerekli dosyaları root erişimi olmadan çıkarmak `adb backup`. yoluyla mümkündür. Ancak, ciddi bir güvenlik ihlali ve dosyaları çıkarmanın tamamen desteklenmeyen bir yolu olduğu için, bunun üzerinde daha fazla durmayacağız, Valve bu güvenlik açığını yeni sürümlerde bir nedenden dolayı devre dışı bıraktı ve bundan sadece bir olasılık olarak bahsediyoruz.
 
-Assuming that you've successfully rooted your phone, you should afterwards download any root explorer available on the market, such as **[this one](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** (or any other one of your preference). You can also access the protected files through ADB (Android Debug Bridge) or any other available to you method, we'll do it through the explorer since it's definitely the most user-friendly way.
+Telefonunuzu başarılı bir şekilde rootladığınızı varsayarsak, daha sonra **[bunun gibi](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** piyasada bulunan herhangi bir root gezginini (veya tercih ettiğiniz herhangi bir başkasını) indirmelisiniz. Ayrıca, korunan dosyalara ADB (Android Hata Ayıklama Köprüsü) veya kullanabileceğiniz diğer herhangi bir yöntemle erişebilirsiniz, kesinlikle en kullanıcı dostu yol olduğu için bunu gezgin aracılığıyla yapacağız.
 
-Once you opened your root explorer, navigate to `/data/data` folder. Keep in mind that `/data/data` directory is protected and you won't be able to access it without root access. Once there, find `com.valvesoftware.android.steam.community` folder and copy it to your `/sdcard`, which points to your built-in internal storage. Afterwards, you should be able to plug your phone to your PC and copy the folder from your internal storage like usual. If by any chance the folder won't be visible despite you being sure that you copied it to the right place, try restarting your phone first.
+Root gezgininizi açtıktan sonra `/data/data` klasörüne gidin. `/data/data` dizininin korunduğunu ve root erişimi olmadan ona erişemeyeceğinizi unutmayın. `com.valvesoftware.android.steam.community` klasörünü bulun ve yerleşik dahili depolama alanınızı gösteren `/sdcard`'ınıza kopyalayın. Daha sonra, telefonunuzu PC'nize bağlayabilmeli ve klasörü her zamanki gibi dahili depolama alanınızdan kopyalayabilmelisiniz. Doğru yere kopyaladığınızdan emin olmanıza rağmen klasör görünmüyorsa, önce telefonunuzu yeniden başlatmayı deneyin.
 
-Now, you can choose if you want to import your authenticator to WinAuth first, then to ASF, or to ASF right away. First option is more friendly and allows you to duplicate your authenticator also on your PC, allowing you to make confirmations and generate tokens from 3 different places - your phone, your PC and ASF. If you want to do that, simply open WinAuth, add new Steam authenticator and choose importing from Android option, then follow instructions by accessing the files that you've obtained above. When done, you can then import this authenticator from WinAuth to ASF, which is explained in dedicated WinAuth section below.
+Şimdi, kimlik doğrulayıcınızı önce WinAuth'a, ardından ASF'ye veya hemen ASF'ye aktarmak isteyip istemediğinizi seçebilirsiniz. İlk seçenek daha kolay ve kimlik doğrulayıcınızı PC'nizde de çoğaltmanıza izin vererek, 3 farklı yerden - telefonunuz, PC'niz ve ASF - onaylar yapmanıza ve belirteçler oluşturmanıza olanak tanır. Bunu yapmak istiyorsanız, sadece WinAuth'u açın, yeni Steam kimlik doğrulayıcı ekleyin ve Android'den içe aktar seçeneğini seçin, ardından yukarıda edindiğiniz dosyalara erişerek talimatları izleyin. Bittiğinde, bu kimlik doğrulayıcıyı WinAuth'tan ASF'ye aktarabilirsiniz; bu, aşağıdaki özel WinAuth bölümünde açıklanmıştır.
 
-If you don't want to or don't need to go through WinAuth, then simply copy `files/Steamguard-SteamID` file from our protected directory, where `SteamID` is your 64-bit Steam identificator of the account that you want to add (if more than one, because if you have only one account then this will be the only file). You need to place that file in ASF's `config` directory. Once you do that, rename the file to `BotName.maFile`, where `BotName` is the name of your bot you're adding ASF 2FA to. After this step, launch ASF - it should notice the `.maFile` and import it.
+WinAuth'u kullanmak istemiyorsanız veya buna gerek duymuyorsanız, `files/Steamguard-SteamID` dosyasını korumalı dizinimizden kopyalamamamız yeterlidir. Burada; eklemek istediğiniz hesabınızın `SteamID`'sini yani 64-bit'lik Steam kimliğini bulup onu eklemeniz gerekmektedir (eğer birden fazla hesabınız varsa burada farklı kimliklerde(Id) birden fazla klasör göreceksiniz. Eğer tek bir hesabınız varsa burada bir adet klasör göreceksiniz). Bu dosyayı ASF'nin yapılandırma(`config`) dizinine yerleştirmeniz gerekiyor. Bunu yaptıktan sonra dosyayı `BotName.maFile` olarak yeniden adlandırın. Burada ki `BotName`, ASF 2AD'yı eklediğiniz botunuzun adıdır. Bu adımdan sonra, ASF'yi başlatın ve ASF `.maFile` dosyasını fark etmeli ve içe aktarmalıdır.
 
 ```text
-[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+[*] BİLGİ: İçeAktarılanKimlikDoğrulayıcı() <1> .maFile ASF formatına dönüştürülüyor...
+[*] BİLGİ: İçeAktarılanKimlikDoğrulayıcı() <1> Mobil kimlik doğrulayıcıyı içe aktarma başarıyla tamamlandı!
 ```
 
-That's all, assuming that you've imported the correct file with valid secrets, everything should work properly, which you can verify by using `2fa` commands. If you made a mistake, you can always remove `Bot.db` and start over if needed.
+Hepsi bu kadar, geçerli sırlarla doğru dosyayı içe aktardığınızı varsayarsak, `2ad` komutlarını kullanarak doğrulayabileceğiniz her şey düzgün çalışmalıdır. Bir hata yaptıysanız, her zaman `Bot.db` 'yi kaldırabilir ve gerekirse baştan başlayabilirsiniz.
 
 ---
 
 ### iOS
 
-For iOS you can use **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)**. This is possible thanks to the fact that you can make decrypted backup, put in on your PC and use the tool in order to extract Steam data that is otherwise impossible to get (at least without jailbreak, due to iOS encryption).
+iOS için **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)** kullanabilirsiniz. Bu, şifresi çözülmüş yedekleme yapabilmeniz, PC'nize koyabilmeniz ve aksi takdirde elde edilmesi imkansız olan Steam verilerini (en azından iOS şifrelemesi nedeniyle jailbreak olmadan) çıkarmak için aracı kullanabilmeniz sayesinde mümkündür.
 
-Head over to **[latest release](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** in order to download the program. Once you extract the data you can put it e.g. in WinAuth, then from WinAuth to ASF (although you can also simply copy generated json starting from `{` ending on `}` into `BotName.maFile` and proceed like usual). If you ask me, I strongly recommend to import to WinAuth first, then making sure that both generating tokens as well as accepting confirmations work properly, so you can be sure that everything is alright. If your credentials are invalid, ASF 2FA will not work properly, so it's much better to make ASF import step your last one.
+Programı indirmek için **[en son sürüme](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** gidin. Verileri çıkardıktan sonra, ör. WinAuth'da, ardından WinAuth'tan ASF'ye (yine de, `{` ile biten `}` ile başlayıp oluşturulan json'u `BotName.maFile` içine kopyalayabilir ve her zamanki gibi ilerleyebilirsiniz). Bana sorarsanız, önce WinAuth'a aktarmanızı, ardından hem token oluşturmanın hem de onayları kabul etmenin düzgün çalıştığından emin olmanızı şiddetle tavsiye ederim, böylece her şeyin yolunda olduğundan emin olabilirsiniz. Kimlik bilgileriniz geçersizse, ASF 2AD düzgün çalışmayacaktır, bu nedenle ASF içe aktarma adımını son adımınız yapmak çok daha iyidir.
 
-For questions/issues, please visit **[issues](https://github.com/CaitSith2/ios-steamguard-extractor/issues)**.
+Sorularınız/sorunlarınız için lütfen **[sorunları](https://github.com/CaitSith2/ios-steamguard-extractor/issues)** ziyaret edin.
 
-*Keep in mind that above tool is unofficial, you're using it at your own risk. We do not offer technical support if it doesn't work properly - we got a few signals that it's exporting invalid 2FA credentials - verify that confirmations work in authenticator like WinAuth prior to importing that data to ASF!*
+*Yukarıdaki aracın gayri resmi olduğunu, riski size ait olmak üzere kullandığınızı unutmayın. Düzgün çalışmıyorsa teknik destek sağlamıyoruz. geçersiz 2FA kimlik bilgilerini dışa aktardığına dair birkaç sinyal aldık. bu verileri ASF'ye aktarmadan önce onayların WinAuth gibi bir kimlik doğrulayıcıda çalıştığını doğrulayın!*
 
 ---
 

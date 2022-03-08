@@ -1,8 +1,8 @@
 # 安全性
 
-## Encryption
+## 加密
 
-ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
+ASF 目前支援以下加密方式作為  `ECryptoMethod` 的定義：
 
 | 值 | 名稱                          |
 | - | --------------------------- |
@@ -12,7 +12,7 @@ ASF currently supports the following encryption methods as a definition of `ECry
 | 3 | EnvironmentVariable         |
 | 4 | 文字檔                         |
 
-The exact description and comparison of them is available below.
+以下提供了它們的詳細描述和比較。
 
 In order to generate encrypted password, e.g. for `SteamPassword` usage, you should execute `encrypt` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate encryption that you chose and your original plain-text password. Afterwards, put the encrypted string that you've got as `SteamPassword` bot config property, and finally change `PasswordFormat` to the one that matches your chosen encryption method. Some formats do not require `encrypt` command, for example `EnvironmentVariable` or `File`, just put appropriate path for them.
 

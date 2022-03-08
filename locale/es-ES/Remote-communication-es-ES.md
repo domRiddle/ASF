@@ -4,7 +4,7 @@ Esta sección explica la comunicación remota que ASF incorpora, incluyendo más
 
 ## Steam
 
-ASF se comunica con la red de Steam (**[servidores CM](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), así como **[Steam API](api.steampowered.com)**, **[la tienda de Steam](https://store.steampowered.com)** y **[la comunidad de Steam](https://steamcommunity.com)**.
+ASF se comunica con la red de Steam (**[servidores CM](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), así como **[Steam API](https://steamcommunity.com/dev)**, **[la tienda de Steam](https://store.steampowered.com)** y **[la comunidad de Steam](https://steamcommunity.com)**.
 
 No es posible desactivar ninguna de las comunicaciones mencionadas, ya que es lo principal en que ASF se basa para proporcionar su funcionalidad básica. Deberás abstenerte de usar ASF si no estás de acuerdo con lo anterior.
 
@@ -61,12 +61,12 @@ La información pública (expuesta por Stea a todas las partes interesadas) incl
 - Tu identificador de Steam (en forma de 64 bits, para generar enlaces)
 - Tu nombre de usuario (para efectos de visualización)
 - Tu avatar (para efectos de visualización)
-- El número total de artículos `MatchableTypes` en tu inventario (para efectos de visualización y emparejamiento)
-- El número total de juegos de los que provienen los artículos `MatchableTypes` mencionados antes (para efectos de visualización y emparejamiento)
 
 La información privada (datos seleccionados necesarios para proporcionar la funcionalidad) incluye:
 - Tu **[token de intercambio](https://steamcommunity.com/my/tradeoffers/privacy)** (para que las personas fuera de tu lista de amigos puedan enviarte intercambios)
 - Tus `MatchableTypes` (para efectos de visualización y emparejamiento)
+- El número total de artículos `MatchableTypes` en tu inventario (para efectos de visualización y emparejamiento)
+- El número total de juegos de los que provienen los artículos `MatchableTypes` mencionados antes (para efectos de visualización y emparejamiento)
 - El valor de `MatchEverything` en **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#tradingpreferences)** (para efectos de visualización y emparejamiento)
 
 El servidor de ASF **no** recolectará, almacenará o procesará cualquier otra información no mencionada arriba, sin previo aviso en el registro de cambios, y sin una buena razón práctica en primer lugar. No consideramos nada de lo anterior como un asunto grave, y lo mencionamos para que sepas exactamente lo que hace ASF además de aquello para lo que lo configuraste, para que la gente pueda entender mejor el proceso.

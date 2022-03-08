@@ -4,7 +4,7 @@ This section elaborates on remote communication that ASF includes, including fur
 
 ## Steam
 
-ASF communicates with Steam network (**[CM servers](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), as well as **[Steam API](api.steampowered.com)**, **[Steam store](https://store.steampowered.com)** and **[Steam community](https://steamcommunity.com)**.
+ASF communicates with Steam network (**[CM servers](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), as well as **[Steam API](https://steamcommunity.com/dev)**, **[Steam store](https://store.steampowered.com)** and **[Steam community](https://steamcommunity.com)**.
 
 It's not possible to disable any of the above communication, as it's the core foundation ASF is based on in order to provide its basic functionality. You'll need to refrain from using ASF if you're not comfortable with the above.
 
@@ -61,12 +61,12 @@ Public info (exposed by Steam to every interested party) includes:
 - 您的Steam身份驗證器（64位形式，用於生成連結）
 - 您的昵稱（用於顯示）
 - 您的頭像（哈希，用於顯示）
-- 您庫存里符合`MatchableTypes`的 Steam 物品總數量（用於顯示和匹配）
-- 符合`MatchableTypes`的 Steam 物品所屬遊戲總數（用於顯示和匹配）
 
 Private info (selected data required for providing the functionality) includes:
 - 您的**[交易代碼](https://steamcommunity.com/my/tradeoffers/privacy)**（用於允許不在您好友名單中的用戶對您發起交易）
 - 您的 `匹配類型`（用於顯示和匹配）
+- 您庫存里符合`MatchableTypes`的 Steam 物品總數量（用於顯示和匹配）
+- 符合`MatchableTypes`的 Steam 物品所屬遊戲總數（用於顯示和匹配）
 - Value of `MatchEverything` in your **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** (for display purposes and matching)
 
 ASF server will **not** collect, store or otherwise process any other data not listed above, without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand the process.

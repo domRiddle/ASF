@@ -175,10 +175,10 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull alway
 Объединив знания, полученные выше, мы можем сделать полный пример конфигурации, он будет выглядеть примерно так:
 
 ```shell
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf --pull always justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Предполагается, что у вас один контейнер с ASF, и все конфигурационные файлы ASF расположены в `/home/archi/asf`. Вам нужно изменить путь к конфигурационным файлам на соответствующий вашей машине. Эта конфигурация также готова к использованию IPC если вы решите включить в вашу папку конфигурации файл `IPC.config` со следующим содержимым:
+This assumes that you'll use a single ASF container, with all ASF config files in `/home/archi/ASF/config`. Вам нужно изменить путь к конфигурационным файлам на соответствующий вашей машине. Эта конфигурация также готова к использованию IPC если вы решите включить в вашу папку конфигурации файл `IPC.config` со следующим содержимым:
 
 ```json
 {

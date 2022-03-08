@@ -4,7 +4,7 @@ This section elaborates on remote communication that ASF includes, including fur
 
 ## Steam
 
-ASF communicates with Steam network (**[CM servers](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), as well as **[Steam API](api.steampowered.com)**, **[Steam store](https://store.steampowered.com)** and **[Steam community](https://steamcommunity.com)**.
+ASF communicates with Steam network (**[CM servers](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), as well as **[Steam API](https://steamcommunity.com/dev)**, **[Steam store](https://store.steampowered.com)** and **[Steam community](https://steamcommunity.com)**.
 
 It's not possible to disable any of the above communication, as it's the core foundation ASF is based on in order to provide its basic functionality. You'll need to refrain from using ASF if you're not comfortable with the above.
 
@@ -66,14 +66,14 @@ Public info (exposed by Steam to every interested party) includes:
 - Votre identificateur Steam (sous forme 64 bits, pour générer des liens)
 - Votre pseudo (pour l'affichage)
 - Votre avatar (hash, pour l'affichage)
-- Total number of `MatchableTypes` Steam items in your inventory (for display purposes and matching)
-- Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and matching)
 
 Private info (selected data required for providing the functionality) includes:
 
 - Votre ** jeton de d'échange </ 0> (afin que des personnes ne faisant pas partie de votre liste d'amis puissent vous envoyer des échanges)</li> 
   
   - Your `MatchableTypes` (for display purposes and matching)
+- Total number of `MatchableTypes` Steam items in your inventory (for display purposes and matching)
+- Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and matching)
 - Value of `MatchEverything` in your **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** (for display purposes and matching)</ul> 
 
 ASF server will **not** collect, store or otherwise process any other data not listed above, without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand the process.

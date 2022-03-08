@@ -1,4 +1,4 @@
-# Management
+# 管理
 
 This section covers subjects related to managing the ASF process in optimal way. While not strictly mandatory for usage, it includes bunch of tips, tricks and good practices that we'd like to share, especially for system administrators, people packaging the ASF for usage in third-party repositories, as well as advanced users and alike.
 
@@ -73,7 +73,7 @@ ASF_NETWORK_GROUP="my_network_group"
 
 ---
 
-## Never run ASF as administrator!
+## 永遠不要以管理員模式執行 ASF！
 
 ASF includes its own validation whether the process is being run as administrator (`root`) or not. Running as root is **not** required for any kind of operation done by the ASF process, assuming properly configured environment it's operating in, and therefore should be regarded as a **bad practice**. This means that on Windows, ASF should never be executed with "run as administrator" setting, and on Unix ASF should have a dedicated user account for itself, or re-use your own in case of a desktop system.
 

@@ -1,12 +1,12 @@
 # 相容性
 
-ASF is a C# application that is running on .NET platform. 這意味著 ASF 並非被編譯為可供 CPU 直接執行的​**[機器碼](https://en.wikipedia.org/wiki/Machine_code)**，而是被編譯為  **[CIL（通用中間語言）](https://en.wikipedia.org/wiki/Common_Intermediate_Language)**碼，一種需要相容的執行階段才能執行的語言。
+ASF 是一個在 .NET Core 平台上執行的 C# 應用程式。 這意味著 ASF 並非被編譯為可供 CPU 直接執行的​**[機器碼](https://en.wikipedia.org/wiki/Machine_code)**，而是被編譯為  **[CIL（通用中間語言）](https://en.wikipedia.org/wiki/Common_Intermediate_Language)**碼，一種需要相容的執行階段才能執行的語言。
 
 這種方法能夠帶來巨大的方便。由於 CIL 是跨平台的，這使得 ASF 能夠在許多作業系統上執行，特別是 Windows、Linux 和 OS X 這三個系統。ASF 不但無須透過模擬執行，同時所有對於系統及其相關硬體的最佳化也對其有效。 因此，ASF可以實現卓越的效能和最佳化，同時仍然提供完美的相容性和可靠性。
 
 這也意味著執行 ASF **沒有特定的作業系統需求**，因為它需要的只是執行於作業系統上的**執行階段**而非作業系統本身。 As long as that runtime is executing ASF code properly, it does not matter whether underlying OS is Windows, Linux, OS X, BSD, Sony Playstation 4, Nintendo Wii or your toaster - as long as there is **[.NET for it](https://dotnet.microsoft.com/download/dotnet)**, there is **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** for it.
 
-However, regardless of where you run ASF, you must ensure that your target platform has **[.NET prerequisites](https://github.com/dotnet/core/blob/main/Documentation/prereqs.md)** installed. 這些都是確保執行階段功能正常的底層庫，也是確保 ASF 能夠第一時間工作的絕對核心。 很有可能你已經安裝了其中的一些（甚至全部）。
+然而，無論您想要在哪個平台上執行 ASF，您必須確保該平台安裝了 **[ .NET Core 的必要條件 ](https://github.com/dotnet/core/blob/main/Documentation/prereqs.md)**。 這些都是確保執行階段功能正常的底層庫，也是確保 ASF 能夠第一時間工作的絕對核心。 很有可能你已經安裝了其中的一些（甚至全部）。
 
 ---
 

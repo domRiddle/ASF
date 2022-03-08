@@ -1,35 +1,35 @@
-# Remote communication
+# REMOTE COMMUNICASHUN
 
-This section elaborates on remote communication that ASF includes, including further explanation on how one can influence it. While we don't consider anything below as malicious or otherwise unwanted, and neither we're legally obliged to disclose it, we want you to better understand the program functionality especially in regards to your privacy and data being shared.
+DIS SECSHUN ELABORATEZ ON REMOTE COMMUNICASHUN DAT ASF INCLUDEZ, INCLUDIN FURTHR EXPLANASHUN ON HOW WAN CAN INFLUENCE IT. WHILE WE DOAN CONSIDR ANYTHIN BELOW AS MALISHUS OR OTHERWIZE UNWANTD, AN NEITHR WERE LEGALLY OBLIGD 2 DISCLOSE IT, WE WANTS U 2 BETTR UNDERSTAND TEH PROGRAM FUNCSHUNALITY ESPECIALLY IN REGARDZ 2 UR PRIVACY AN DATA BEAN SHARD.
 
-## Steam
+## STEAM
 
-ASF communicates with Steam network (**[CM servers](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), as well as **[Steam API](api.steampowered.com)**, **[Steam store](https://store.steampowered.com)** and **[Steam community](https://steamcommunity.com)**.
+ASF SPEEKZ WIF STEAM NETWORK (**[CM SERVERS](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), AS WELL AS **[STEAM API](https://steamcommunity.com/dev)**, **[STEAM STORE](https://store.steampowered.com)** AN **[STEAM COMMUNITY](https://steamcommunity.com)**.
 
-It's not possible to disable any of the above communication, as it's the core foundation ASF is based on in order to provide its basic functionality. You'll need to refrain from using ASF if you're not comfortable with the above.
+IZ NOT POSIBLE 2 DISABLE ANY OV TEH ABOOV COMMUNICASHUN, AS IZ TEH CORE FOUNDASHUN ASF IZ BASD ON IN ORDR 2 PROVIDE ITZ BASIC FUNCSHUNALITY. ULL NED 2 REFRAIN FRUM USIN ASF IF URE NOT COMFORTABLE WIF TEH ABOOV.
 
-## Steam group
+## STEAM GROUP
 
-ASF communicates with our **[Steam group](https://steamcommunity.com/groups/archiasf)**. The group provides you with announcements, especially new versions, critical issues, Steam problems and other things that are important to keep community updated. It also allows you to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements. By default, accounts used in ASF will automatically join the group upon login.
+ASF SPEEKZ WIF R **[STEAM GROUP](https://steamcommunity.com/groups/archiasf)**. TEH GROUP PROVIDEZ U WIF ANNOUNCEMENTS, ESPECIALLY NEW VERSHUNS, CRITICAL ISSUEZ, STEAM PROBLEMS AN OTHR THINGS DAT R IMPORTANT 2 KEEP COMMUNITY UPDATD. IT ALSO ALLOWS U 2 USE R TECHNICAL SUPPORT, BY ASKIN QUESHUNS, RESOLVIN PROBLEMS, REPORTIN ISSUEZ OR SUGGESTIN IMPROOVEMENTS. BY DEFAULT, ACCOUNTS USD IN ASF WILL AUTOMATICALLY JOIN TEH GROUP UPON LOGIN.
 
-You can decide to opt-out of joining the group by disabling `SteamGroup` flag in bot's **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** settings.
+U CAN DECIDE 2 OPT-OUT OV JOININ TEH GROUP BY DISABLIN `SteamGroup` FLAG IN BOT'S **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#remotecommunication)** SETTINGS.
 
-## GitHub
+## GITHUB
 
-ASF communicates with **[GitHub's API](https://api.github.com)** in order to fetch **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** for the update functionality. This is done as part of auto-updates (if you've kept **[`UpdatePeriod`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updateperiod)** enabled), as well as `update` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. You can influence ASF's communication with GitHub through **[`UpdateChannel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updatechannel)** property - setting it to `None` will result in disabling entire update functionality, including GitHub communication in this regard.
+ASF SPEEKZ WIF **[GITHUB'S API](https://api.github.com)** IN ORDR 2 FETCH **[ASF RELEASEZ](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** 4 DA UPDATE FUNCSHUNALITY. DIS AR TEH DUN AS PART OV AUTO-UPDATEZ (IF UVE KEPT **[`UpdatePeriod`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updateperiod)** ENABLD), AS WELL AS `update` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)**. U CAN INFLUENCE ASFS COMMUNICASHUN WIF GITHUB THRU **[`UpdateChannel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updatechannel)** PROPERTY - SETTIN IT 2 `None` WILL RESULT IN DISABLIN ENTIRE UPDATE FUNCSHUNALITY, INCLUDIN GITHUB COMMUNICASHUN IN DIS REGARD.
 
-## ASF's server
+## ASF'S SERVR
 
-ASF communicates with **[our own server](https://asf.justarchi.net)** for more advanced functionality. In particular, this includes:
-- Verifying checksums of ASF builds downloaded from GitHub against our own independent database to ensure that all downloaded builds are legitimate (free of malware, MITM attacks or other tampering)
-- Announcing your bot in **[our listing](https://asf.justarchi.net/STM)** if you've enabled `SteamTradeMatcher` in **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** and meet other criteria
-- Downloading currently available bots to trade from **[our listing](https://asf.justarchi.net/STM)** if you've enabled `MatchActively` in **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** and meet other criteria
+ASF SPEEKZ WIF **[R OWN SERVR](https://asf.justarchi.net)** 4 MOAR ADVANCD FUNCSHUNALITY. IN PARTICULAR, DIS INCLUDEZ:
+- VERIFYIN CHECKSUMS OV ASF BUILDZ DOWNLOADD FRUM GITHUB AGAINST R OWN INDEPENDENT DATABASE 2 ENSURE DAT ALL DOWNLOADD BUILDZ R LEGITIMATE (FREE OV MALWARE, MITM ATTACKZ OR OTHR TAMPERIN)
+- ANNOUNCIN UR BOT IN **[R LISTIN](https://asf.justarchi.net/STM)** IF UVE ENABLD `SteamTradeMatcher` IN **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#tradingpreferences)** AN MEET OTHR CRITERIA
+- DOWNLOADIN CURRENTLY AVAILABLE BOTS 2 TRADE FRUM **[R LISTIN](https://asf.justarchi.net/STM)** IF UVE ENABLD `MatchActively` IN **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#tradingpreferences)** AN MEET OTHR CRITERIA
 
-As a security measure, it's not possible to disable checksum verification for ASF builds. However, you can disable auto-updates entirely if you'd like to avoid this, as described above in the GitHub section.
+AS SECURITY MEASURE, IZ NOT POSIBLE 2 DISABLE CHECKSUM VERIFICASHUN 4 ASF BUILDZ. HOWEVR, U CAN DISABLE AUTO-UPDATEZ ENTIRELY IF UD LIEK 2 AVOID DIS, AS DESCRIBD ABOOV IN DA GITHUB SECSHUN.
 
-You can decide to opt-out of being announced in the listing by disabling `PublicListing` flag in bot's **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** settings. This might be useful if you'd like to run `SteamTradeMatcher` bot without being announced at the same time.
+U CAN DECIDE 2 OPT-OUT OV BEAN ANNOUNCD IN DA LISTIN BY DISABLIN `PublicListing` FLAG IN BOTS **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#remotecommunication)** SETTINGS. DIS MITE BE USEFUL IF UD LIEK 2 RUN `SteamTradeMatcher` BOT WITHOUT BEAN ANNOUNCD AT TEH SAME TIEM.
 
-Downloading bots from our listing is mandatory for `MatchActively` setting, you'll need to disable that setting if you're unwilling to accept that.
+DOWNLOADIN BOTS FRUM R LISTIN IZ MANDATORY 4 `MatchActively` SETTIN, ULL NED 2 DISABLE DAT SETTIN IF URE UNWILLIN 2 ACCEPT DAT.
 
 ---
 
@@ -53,22 +53,22 @@ ASF STM LISTIN ONLY ACCEPTS ASF BOTS 4 TIEM BEAN. THAR IZ NOWAI 2 LIST THIRD-PAR
 
 IF URE LOOKIN 4 EASY WAI 2 ACCES R LISTIN IN PROGRAMMATIC WAI, WE HAS VRY SIMPLE **[/API/BOTS](https://asf.justarchi.net/Api/Bots)** ENDPOINT DAT U CAN USE. DIS AR TEH ALSO TEH ENDPOINT DAT ASF USEZ INTERNALLY 4 `MatchActively` USERS.
 
-### Privacy policy
+### PRIVACY POLICY
 
-If you agree to being listed in our listing, by enabling `SteamTradeMatcher` and not refusing `PublicListing`, as specified above, we'll temporarily store some of your Steam account details on our server in order to provide the core functionality.
+IF U AGREE 2 BEAN LISTD IN R LISTIN, BY ENABLIN `SteamTradeMatcher` AN NOT REFUSIN `PublicListing`, AS SPECIFID ABOOV, WELL TEMPORARILY STORE SUM OV UR STEAM AKOWNT DETAILS ON R SERVR IN ORDR 2 PROVIDE TEH CORE FUNCSHUNALITY.
 
-Public info (exposed by Steam to every interested party) includes:
+PUBLIC INFO (EXPOSD BY STEAM 2 EVRY INTERESTD PARTY) INCLUDEZ:
 - UR STEAM IDENTIFICATOR (IN 64-BIT FORM, 4 GENERATIN LINKZ)
 - UR NICKNAME (4 DISPLAY PURPOSEZ)
 - UR AVATAR (HASH, 4 DISPLAY PURPOSEZ)
-- TOTAL NUMBR OV `MatchableTypes` STEAM ITEMS IN UR INVENTORY (4 DISPLAY PURPOSEZ AN MATCHIN)
-- TOTAL NUMBR OV UNIQUE GAMEZ DAT ABOOV `MatchableTypes` STEAM ITEMS R MADE OV (4 DISPLAY PURPOSEZ AN MATCHIN)
 
-Private info (selected data required for providing the functionality) includes:
+PRIVATE INFO (SELECTD DATA REQUIRD 4 PROVIDIN TEH FUNCSHUNALITY) INCLUDEZ:
 - UR **[TRADIN TOKEN](https://steamcommunity.com/my/tradeoffers/privacy)** (SO PEEPS OUTSIDE OV UR FRIENDLIST CAN SEND U TRADEZ)
 - UR `MatchableTypes` (4 DISPLAY PURPOSEZ AN MATCHIN)
-- Value of `MatchEverything` in your **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** (for display purposes and matching)
+- TOTAL NUMBR OV `MatchableTypes` STEAM ITEMS IN UR INVENTORY (4 DISPLAY PURPOSEZ AN MATCHIN)
+- TOTAL NUMBR OV UNIQUE GAMEZ DAT ABOOV `MatchableTypes` STEAM ITEMS R MADE OV (4 DISPLAY PURPOSEZ AN MATCHIN)
+- VALUE OV `MatchEverything` IN UR **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#tradingpreferences)** (4 DISPLAY PURPOSEZ AN MATCHIN)
 
-ASF server will **not** collect, store or otherwise process any other data not listed above, without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand the process.
+ASF SERVR WILL **NOT** COLLECT, STORE OR OTHERWIZE PROCES ANY OTHR DATA NOT LISTD ABOOV, WITHOUT PRIOR IMPORTANT NOTICE IN DA CHANGELOG, AN VRY GUD PRACTICAL REASON IN DA FURST PLACE. WE DO NOT CONSIDR ANYTHIN ABOOV 2 BE SERIOUS MATTR, AN WE MENSHUN IT 2 LET U KNOE WUT PRECISELY ASF DOEZ APART OV WUT U CONFIGURD IT 2 DO YOURSELF, SO PEEPS CAN BETTR UNDERSTAND TEH PROCES.
 
-Your data will be automatically hidden from general public in up to 15 minutes since the moment you stop using our listing, whether due to change of settings or not having ASF launched anymore. In addition to that, it'll be automatically deleted from our server (including all backup copies) in up to 7 days since the above happening.
+UR DATA WILL BE AUTOMATICALLY HIDDEN FRUM GENERAL PUBLIC IN UP 2 15 MINUTEZ SINCE TEH MOMENT U STOP USIN R LISTIN, WHETHR DUE 2 CHANGE OV SETTINGS OR NOT HAVIN ASF LAUNCHD NOMORE. IN ADDISHUN 2 DAT, ITLL BE AUTOMATICALLY DELETD FRUM R SERVR (INCLUDIN ALL BAKUP COPIEZ) IN UP 2 7 DAIS SINCE TEH ABOOV HAPPENIN.

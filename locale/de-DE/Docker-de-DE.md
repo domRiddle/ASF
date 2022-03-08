@@ -175,10 +175,10 @@ Wenn du alles richtig eingestellt hast, wird der oben gezeigte `docker run` Befe
 Wenn man das gesamte obige Wissen kombiniert, würde ein Beispiel für ein komplettes Setup so aussehen:
 
 ```shell
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/asf:/app/config --name asf --pull always justarchi/archisteamfarm
+docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Dies setzt voraus, dass Sie einen einzigen ASF-Container mit allen ASF-Konfigurationsdateien in `/home/archi/asf` verwenden. Sie sollten den Konfigurationspfad zu dem ändern, der zu Ihrem Rechner passt. Dieses Setup ist auch für die optionale IPC-Nutzung bereit, wenn Sie sich entschieden haben, `IPC.config` in ein Konfigurationsverzeichnis mit einem Inhalt wie unten beschrieben mit einzubeziehen:
+This assumes that you'll use a single ASF container, with all ASF config files in `/home/archi/ASF/config`. Sie sollten den Konfigurationspfad zu dem ändern, der zu Ihrem Rechner passt. Dieses Setup ist auch für die optionale IPC-Nutzung bereit, wenn Sie sich entschieden haben, `IPC.config` in ein Konfigurationsverzeichnis mit einem Inhalt wie unten beschrieben mit einzubeziehen:
 
 ```json
 {

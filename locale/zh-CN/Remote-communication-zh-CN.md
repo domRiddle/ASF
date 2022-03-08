@@ -4,7 +4,7 @@
 
 ## Steam
 
-ASF 会与 Steam 网络（**[CM 服务器](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**）、**[Steam API](api.steampowered.com)**、[**Steam 商店**](https://store.steampowered.com)和 [**Steam 社区**](https://steamcommunity.com)通信。
+ASF 会与 Steam 网络（**[CM 服务器](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**）、**[Steam API](https://steamcommunity.com/dev)**、[**Steam 商店**](https://store.steampowered.com)和 [**Steam 社区**](https://steamcommunity.com)通信。
 
 禁用上述任何通信是不可能的，因为它是 ASF 提供一切基本功能的基础。 如果您不喜欢上述通信，则应该选择不使用 ASF。
 
@@ -61,12 +61,12 @@ ASF STM 列表暂时只接受 ASF 机器人。 目前无法在我们的列表中
 - 您的 Steam ID（64 位形式，用于生成链接）
 - 您的昵称（用于显示目的）
 - 您的头像（经过哈希，用于显示目的）
-- 您库存中 `MatchableTypes` 物品的总数（用于显示和匹配目的）
-- 提供上述 `MatchableTypes` 物品的游戏总数（用于显示和匹配目的）
 
 私密信息（提供功能所需的特定数据）包括：
 - 您的&#8203;**[交易令牌](https://steamcommunity.com/my/tradeoffers/privacy)**（使不是您好友的人可以向您发送交易报价）
 - 您的 `MatchableTypes`（用于显示和匹配目的）
+- 您库存中 `MatchableTypes` 物品的总数（用于显示和匹配目的）
+- 提供上述 `MatchableTypes` 物品的游戏总数（用于显示和匹配目的）
 - 您在 **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#tradingpreferences)** 中为 `MatchEverything` 设置的值（用于显示和匹配目的）
 
 ASF 服务器**不会**在事先没有通知条款变更及其切实原因的情况下收集、存储或处理任何其他上面未列出的数据。 我们认为上述的一切都不是严重问题，我们提到这些是为了让您了解 ASF 在除了您自己配置的功能之外究竟还做了什么，使用户更好地了解其流程。

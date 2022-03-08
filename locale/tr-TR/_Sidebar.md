@@ -8,27 +8,27 @@
 
 ***
 
-## 👨‍🏫Temel
+## 👨‍🏫Başlangıç
 
 * **[🏡 Ana Sayfa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[🔧 Yapılandırma](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
-* **[💬SSS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[Kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(buradan başlayın)**
+* **[💬 SSS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[⚙️ Kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(buradan başlayın)**
 
 
-## 👨‍🎓️ Ana
+## 👨‍🎓️ Temel Özellikler
 
 * **[👥 Arkaplan oyun etkinleştirici](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Komutlar](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Uyumluluk](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
-* **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
+* **[📋 Yönetim](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Performans](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📡 Remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
+* **[📡 Uzaktan iletişim](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
 * **[👪 Steam Aile Paylaşımı](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[🔄 Takas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 
-## 🧙 Gelişmiş
+## 🧙 Gelişmiş Özellikler
 
 * **[⌨️Komut satırı argümanları](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
 * **[🚧 Kullanımdan kaldırma](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
@@ -43,10 +43,10 @@
 * **[🔐 Güvenlik](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[🧩 SteamTokenDumper Eklentisi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[📦 Üçüncü-Parti](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[📵 İki aşamalı kimlik doğrulaması](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[📵 İki adımlı kimlik doğrulama](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 
-## 👷 Geliştiriciler
+## 👷 Geliştirici
 
 * **[🏗️ Derleme](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
 * **[🤝 Katkıda bulunma yönergeleri](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**

@@ -1,10 +1,10 @@
-# Remote communication
+# Comunicação remota
 
 This section elaborates on remote communication that ASF includes, including further explanation on how one can influence it. While we don't consider anything below as malicious or otherwise unwanted, and neither we're legally obliged to disclose it, we want you to better understand the program functionality especially in regards to your privacy and data being shared.
 
 ## Steam
 
-ASF communicates with Steam network (**[CM servers](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), as well as **[Steam API](api.steampowered.com)**, **[Steam store](https://store.steampowered.com)** and **[Steam community](https://steamcommunity.com)**.
+ASF communicates with Steam network (**[CM servers](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), as well as **[Steam API](https://steamcommunity.com/dev)**, **[Steam store](https://store.steampowered.com)** and **[Steam community](https://steamcommunity.com)**.
 
 It's not possible to disable any of the above communication, as it's the core foundation ASF is based on in order to provide its basic functionality. You'll need to refrain from using ASF if you're not comfortable with the above.
 
@@ -61,12 +61,12 @@ Public info (exposed by Steam to every interested party) includes:
 - Seu identificador Steam (na forma de 64-bit, para gerar ligações)
 - Seu apelido (para fins de exibição)
 - Seu avatar (hash, para fins de exibição)
-- O número total de itens Steam correspondentes a `MatchableTypes` em seu inventário (para fins de exibição e combinação)
-- O número total de jogos exclusivos dos quais os itens Steam acima correspondem aos tipos `MatchableTypes` foram obtidos (para fins de exibição e combinação)
 
 Private info (selected data required for providing the functionality) includes:
 - Seu **[token de trocas](https://steamcommunity.com/my/tradeoffers/privacy)** (para que pessoas fora da sua lista de amigos possam te enviar propostas de trocas)
 - Seu `MatchableTypes` (para fins de exibição e combinação)
+- O número total de itens Steam correspondentes a `MatchableTypes` em seu inventário (para fins de exibição e combinação)
+- O número total de jogos exclusivos dos quais os itens Steam acima correspondem aos tipos `MatchableTypes` foram obtidos (para fins de exibição e combinação)
 - O valor de `MatchEverything` em **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** (para fins de exibição e combinação)
 
 ASF server will **not** collect, store or otherwise process any other data not listed above, without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand the process.

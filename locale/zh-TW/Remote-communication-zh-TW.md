@@ -1,14 +1,14 @@
-# Remote communication
+# 遠端通訊
 
 This section elaborates on remote communication that ASF includes, including further explanation on how one can influence it. While we don't consider anything below as malicious or otherwise unwanted, and neither we're legally obliged to disclose it, we want you to better understand the program functionality especially in regards to your privacy and data being shared.
 
 ## Steam
 
-ASF communicates with Steam network (**[CM servers](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), as well as **[Steam API](api.steampowered.com)**, **[Steam store](https://store.steampowered.com)** and **[Steam community](https://steamcommunity.com)**.
+ASF 與 Steam 網絡（**[CM 服務器](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**）、 **[Steam API](https://steamcommunity.com/dev)**、**[Steam 商店](https://store.steampowered.com)** 以及 **[Steam 社區](https://steamcommunity.com)** 通信。
 
 It's not possible to disable any of the above communication, as it's the core foundation ASF is based on in order to provide its basic functionality. You'll need to refrain from using ASF if you're not comfortable with the above.
 
-## Steam group
+## Steam 群組
 
 ASF communicates with our **[Steam group](https://steamcommunity.com/groups/archiasf)**. The group provides you with announcements, especially new versions, critical issues, Steam problems and other things that are important to keep community updated. It also allows you to use our technical support, by asking questions, resolving problems, reporting issues or suggesting improvements. By default, accounts used in ASF will automatically join the group upon login.
 
@@ -18,7 +18,7 @@ You can decide to opt-out of joining the group by disabling `SteamGroup` flag in
 
 ASF communicates with **[GitHub's API](https://api.github.com)** in order to fetch **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** for the update functionality. This is done as part of auto-updates (if you've kept **[`UpdatePeriod`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updateperiod)** enabled), as well as `update` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. You can influence ASF's communication with GitHub through **[`UpdateChannel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updatechannel)** property - setting it to `None` will result in disabling entire update functionality, including GitHub communication in this regard.
 
-## ASF's server
+## ASF 伺服器
 
 ASF communicates with **[our own server](https://asf.justarchi.net)** for more advanced functionality. In particular, this includes:
 - Verifying checksums of ASF builds downloaded from GitHub against our own independent database to ensure that all downloaded builds are legitimate (free of malware, MITM attacks or other tampering)
@@ -53,7 +53,7 @@ ASF STM listing only accepts ASF bots for time being. There is no way to list th
 
 If you're looking for easy way to access our listing in programmatic way, we have a very simple **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** endpoint that you can use. This is also the endpoint that ASF uses internally for `MatchActively` users.
 
-### Privacy policy
+### 隱私條款
 
 If you agree to being listed in our listing, by enabling `SteamTradeMatcher` and not refusing `PublicListing`, as specified above, we'll temporarily store some of your Steam account details on our server in order to provide the core functionality.
 
@@ -61,13 +61,13 @@ Public info (exposed by Steam to every interested party) includes:
 - Your Steam identificator (in 64-bit form, for generating links)
 - Your nickname (for display purposes)
 - Your avatar (hash, for display purposes)
-- Total number of `MatchableTypes` Steam items in your inventory (for display purposes and matching)
-- Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and matching)
 
 Private info (selected data required for providing the functionality) includes:
 - Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
 - Your `MatchableTypes` (for display purposes and matching)
-- Value of `MatchEverything` in your **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** (for display purposes and matching)
+- 您的物品庫中總共有 `MatchableTypes` 個 Steam 物品（用於顯示和匹配）
+- 構成以上 `MatchableTypes` 個 Steam 物品的獨特遊戲總數（用於顯示和匹配）
+- 您的 **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** 中 `MatchEverything` 的價值（用於顯示和匹配）
 
 ASF server will **not** collect, store or otherwise process any other data not listed above, without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand the process.
 
