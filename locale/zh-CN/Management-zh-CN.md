@@ -21,7 +21,7 @@ adduser asf
 
 我们最好先确认一下我们的目录仍然属于 `asf` 用户，也就是执行一次 `chown -hR asf:asf /home/asf/ArchiSteamFarm` 命令。 因为如果您是以 `root` 用户下载或解压 zip 文件，权限可能是错误的。
 
-接下来，`cd /etc/systemd/system` 并执行 `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`，这会为服务定义文件创建一个符号链接，并将它注册给 `systemd`。
+接下来，`cd /etc/systemd/system` 并执行 `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`，这会为服务定义文件创建一个符号链接，并将它注册给 `systemd`。 使用符号链接是为了让 ASF 能在更新时自动更新您的 `systemd` 单元——取决于您的情况，您可能希望这样做，如果不希望，也可以直接使用 `cp` 命令复制文件并自行管理。
 
 然后，确保 `systemd` 能够识别我们的服务：
 

@@ -1,4 +1,4 @@
-# Arkaplan oyun etkinleştirici
+# Arka plan oyun etkinleştirici
 
 Arkaplan oyunları etkinleştiricisi, arka planda kullanılmak üzere verilen Steam cd-anahtarlarının (isimleri ile birlikte) içe aktarılabilmesini sağlayan özel bir ASF özelliğidir. Bu özellikle, çok sayıda anahtarınız varsa ve tüm toplu işleminiz tamamlanmadan önce `RateLimited` **[durumunu](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** ulaşmayı garantilediyseniz kullanışlıdır.
 
@@ -62,7 +62,7 @@ It's also possible to add extra games to import while having some games already 
 
 ---
 
-## Remarks
+## Notlar
 
 Background keys redeemer uses `OrderedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file (or IPC API call). This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above, but not below. For example, this means that if you have DLC `D` that requires game `G` to be activated firstly, then cd-key for game `G` should **always** be included before cd-key for DLC `D`. Likewise, if DLC `D` would have dependencies on `A`, `B` and `C`, then all 3 should be included before (in any order, unless they have dependencies on their own).
 

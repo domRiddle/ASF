@@ -10,7 +10,7 @@ Lütfen aşağıdaki programların ASF geliştiricileri tarafından **sağlanmad
 
 ### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
+- **[ASF Başarım Yöneticisi](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, Steam başarımlarını yönetmenize izin veren ASF eklentisidir.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, güçlendirici paketler oluşturma işlevini sağlayan ASF eklentisidir.
 - **[Case-Inresponsive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, bot adlarını büyük/küçük harfe duyarlı hale getiren ASF eklentisidir.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, ürün kodunu komut girmeden uygulamanızı sağlayan ASF eklentisidir.
@@ -19,7 +19,7 @@ Lütfen aşağıdaki programların ASF geliştiricileri tarafından **sağlanmad
 
 ### **[Vital7](https://github.com/Vital7)**
 
-- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
+- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, Gelen tüm arkadaşlık isteklerini otomatik kabul eden ASF eklentisidir.
 - **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
 - **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
 - **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.

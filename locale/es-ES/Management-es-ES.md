@@ -21,7 +21,7 @@ Haremos todas las siguientes acciones como `root`, por lo que debes llegar al sh
 
 En primer lugar, es buena idea asegurarse de que nuestra carpeta todavía pertenece a nuestro usuario `asf`, ejecutar `chown -hR asf:asf /home/asf/ArchiSteamFarm` una vez será suficiente. Los permisos podrían ser incorrectos, por ejemplo, si has descargado y/o descomprimido el archivo zip como usuario `root`.
 
-A continuación, `cd /etc/systemd/system` y ejecuta `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`, esto creará un enlace simbólico a nuestra declaración de servicio y lo registrará en `systemd`.
+A continuación, `cd /etc/systemd/system` y ejecuta `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`, esto creará un enlace simbólico a nuestra declaración de servicio y lo registrará en `systemd`. El enlace simbólico permitirá a ASF actualizar automáticamente tu unidad `systemd` como parte de la actualización de ASF - dependiendo de tu situación, o simplemente usa el comando `cp` en el archivo y gestiónalo como gustes.
 
 Después, asegúrate de que `systemd` reconoce nuestro servicio:
 

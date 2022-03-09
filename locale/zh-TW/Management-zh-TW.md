@@ -21,7 +21,7 @@ We'll do all below actions as `root`, so get to its shell with `su` or `sudo -i`
 
 Firstly it's a good idea to ensure that our folder still belongs to our `asf` user, `chown -hR asf:asf /home/asf/ArchiSteamFarm` executed once will do it. The permissions could be wrong e.g. if you've downloaded and/or unpacked the zip file as `root`.
 
-Next, `cd /etc/systemd/system` and execute `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`, this will create a symbolic link to our service declaration and register it in `systemd`.
+接下來，`cd /etc/systemd/system` 並執行 `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`，這將創建一個指向我們服務聲明的符號連結並在 `systemd` 中註冊。 符號連結將允許 ASF 自動更新您的 `systemd` 單元，作為 ASF 更新的一部分 - 根據您的情況，您可能想要使用該方法，或者乾脆 `cp` 文件和隨心所欲地自行管理。
 
 Afterwards, ensure that `systemd` recognizes our service:
 
