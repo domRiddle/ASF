@@ -11,19 +11,19 @@
 ## 👨‍🏫 Base
 
 * **[🏡 Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
-* **[🔧 Configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
-* **[💬 FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[⚙️ Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[🔧 Configurazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
+* **[💬 Domande frequenti](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
+* **[Installazione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(inizia qui)**
 
 
-## 👨‍🎓️ Main
+## 👨‍🎓 Principale
 
 * **[👥 Riscatto giochi in background](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
-* **[📢 Commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
-* **[🛠️ Compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
-* **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
-* **[⏱️ Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📡 Remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
+* **[📢 Comandi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
+* **[🛠️ Compatibilità](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[📋 Gestione](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
+* **[⏱️ Prestazioni](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
+* **[📡 Comunicazione remota](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
 * **[👪 Condivisione familiare di Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[🔄 Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
