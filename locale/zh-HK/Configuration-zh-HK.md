@@ -539,6 +539,7 @@ There is also idling priority queue that is accessible through `fq` **[commands]
 | 12 | MiniProfileBackground | Special background for Steam profile         |
 | 13 | AvatarProfileFrame    | Special avatar frame for Steam profile       |
 | 14 | AnimatedAvatar        | Special animated avatar for Steam profile    |
+| 15 | KeyboardSkin          | Special keyboard skin for Steam deck         |
 
 請注意，無論上述設置如何，ASF只會處理Steam（` appID ` of 753）社區（` contextID ` of 6）物品，所以所有遊戲物品、禮品等根據定義被排除在交易提案之外。
 
@@ -567,6 +568,7 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 | 12 | MiniProfileBackground | Special background for Steam profile         |
 | 13 | AvatarProfileFrame    | Special avatar frame for Steam profile       |
 | 14 | AnimatedAvatar        | Special animated avatar for Steam profile    |
+| 15 | KeyboardSkin          | Special keyboard skin for Steam deck         |
 
 當然，通常您應該僅在此屬性中選擇` 2 `，` 3 `，` 4 `和` 5 `， 因為STM只支持這些類型。 ASF包含用於判斷物品稀有度的正確邏輯，因此匹配表情符號或背景也是安全的，因為ASF將認為來自相同遊戲和類型的物品具有相同的稀有性。
 
@@ -806,6 +808,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 | 12 | MiniProfileBackground | Special background for Steam profile         |
 | 13 | AvatarProfileFrame    | Special avatar frame for Steam profile       |
 | 14 | AnimatedAvatar        | Special animated avatar for Steam profile    |
+| 15 | KeyboardSkin          | Special keyboard skin for Steam deck         |
 
 請注意，無論上述設置如何，ASF只會處理Steam（` appID ` of 753）社區（` contextID ` of 6）物品，所以所有遊戲物品、禮品等根據定義被排除在交易提案之外。
 

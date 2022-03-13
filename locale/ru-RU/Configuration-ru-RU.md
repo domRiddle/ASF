@@ -539,6 +539,7 @@ There is also idling priority queue that is accessible through `fq` **[commands]
 | 12       | MiniProfileBackground | Особый фон для профиля Steam                                              |
 | 13       | AvatarProfileFrame    | Особая рамка для аватара профиля Steam                                    |
 | 14       | AnimatedAvatar        | Особый аватар профиля Steam                                               |
+| 15       | KeyboardSkin          | Special keyboard skin for Steam deck                                      |
 
 Обратите внимание, что независимо от настроек выше, ASF будет отправлять только предметы из сообщества (`contextID` равно 6) Steam (`appID` равно 753), поэтому все игровые предметы, подарки, и так далее, исключены из предложений обмена по определению.
 
@@ -567,6 +568,7 @@ There is also idling priority queue that is accessible through `fq` **[commands]
 | 12       | MiniProfileBackground | Особый фон для профиля Steam                                              |
 | 13       | AvatarProfileFrame    | Особая рамка для аватара профиля Steam                                    |
 | 14       | AnimatedAvatar        | Особый аватар профиля Steam                                               |
+| 15       | KeyboardSkin          | Special keyboard skin for Steam deck                                      |
 
 Разумеется, обычно имеет смысл использовать в этом параметре только типы `2`, `3`, `4` и `5`, поскольку только эти типы поддерживает STM. ASF включает в себя логику распознавания редкости предметов, поэтому можно безопасно обменивать смайлики и фоны, поскольку ASF посчитает честными только предмета одного и того же типа и из одной и той же игры, у которых одинаковая редкость.
 
@@ -806,6 +808,7 @@ Further explanation on this subject is available in **[remote communication](htt
 | 12  | MiniProfileBackground | Особый фон для профиля Steam                                              |
 | 13  | AvatarProfileFrame    | Особая рамка для аватара профиля Steam                                    |
 | 14  | AnimatedAvatar        | Особый аватар профиля Steam                                               |
+| 15  | KeyboardSkin          | Special keyboard skin for Steam deck                                      |
 
 Обратите внимание, что независимо от настроек выше, ASF будет отправлять только предметы из сообщества (`contextID` равно 6) Steam (`appID` равно 753), поэтому все игровые предметы, подарки, и так далее, исключены из предложений обмена по определению.
 

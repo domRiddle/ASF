@@ -539,6 +539,7 @@ There is also idling priority queue that is accessible through `fq` **[commands]
 | 12   | MiniProfilhintergrund | Besonderer Hintergrund für Steam-Profil                                                       |
 | 13   | AvatarProfileFrame    | Besonderer Avatarrahmen für das Steam-Profil                                                  |
 | 14   | AnimatedAvatar        | Besonders animierter Avatar für das Steam-Profil                                              |
+| 15   | KeyboardSkin          | Special keyboard skin for Steam deck                                                          |
 
 Bitte bedenke, dass ASF unabhängig von den obigen Einstellungen nur nach Steam (`appID` von 753) Community (`contextID` von 6) Gegenständen fragt, so dass alle Spiel-Gegenstände und Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
 
@@ -567,6 +568,7 @@ Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bo
 | 12   | MiniProfilhintergrund | Besonderer Hintergrund für Steam Profile                                                               |
 | 13   | AvatarProfileFrame    | Besonderer Avatarrahmen für das Steam-Profil                                                           |
 | 14   | AnimatedAvatar        | Besonders animierter Avatar für das Steam-Profil                                                       |
+| 15   | KeyboardSkin          | Special keyboard skin for Steam deck                                                                   |
 
 Natürlich beinhalten die Typen, die Sie für diese Eigenschaft verwenden sollten, typischerweise nur `2`, `3`, `4` und `5`, da nur diese Typen von STM unterstützt werden. ASF beinhaltet die passende Logik, um die Seltenheit der Gegenstände zu ermitteln, daher ist es auch sicher, Emoticons oder Hintergründe zu vergleichen, da ASF nur die Gegenstände aus dem gleichen Spiel und Typ, die auch die gleiche Seltenheit aufweisen, als fair erachten wird.
 
@@ -806,6 +808,7 @@ Für weitere Erläuterungen zur ASF-Handelslogik und zur Beschreibung jedes verf
 | 12   | MiniProfilhintergrund | Besonderer Hintergrund für Steam Profile                                                               |
 | 13   | AvatarProfileFrame    | Besonderer Avatarrahmen für das Steam-Profil                                                           |
 | 14   | AnimatedAvatar        | Besonders animierter Avatar für das Steam-Profil                                                       |
+| 15   | KeyboardSkin          | Special keyboard skin for Steam deck                                                                   |
 
 Bitte bedenke, dass ASF unabhängig von den obigen Einstellungen nur nach Steam (`appID` von 753) Community (`contextID` von 6) Gegenständen fragt, so dass alle Spiel-Gegenstände und Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
 

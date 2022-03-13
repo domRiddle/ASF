@@ -539,6 +539,7 @@ There is also idling priority queue that is accessible through `fq` **[commands]
 | 12 | MiniProfileBackground       | Special background for Steam profile         |
 | 13 | AvatarProfileFrame          | Special avatar frame for Steam profile       |
 | 14 | AnimatedAvatar              | Special animated avatar for Steam profile    |
+| 15 | KeyboardSkin                | Special keyboard skin for Steam deck         |
 
 위의 설정과 상관없이 ASF는 Steam(`appID` 753) 커뮤니티(`contextID` 6) 아이템만을 요청할 것입니다. 모든 게임 아이템, 선물 등등은 정의에 따라 거래 제안에서 제외됩니다.
 
@@ -567,6 +568,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 | 12 | MiniProfileBackground       | Special background for Steam profile         |
 | 13 | AvatarProfileFrame          | Special avatar frame for Steam profile       |
 | 14 | AnimatedAvatar              | Special animated avatar for Steam profile    |
+| 15 | KeyboardSkin                | Special keyboard skin for Steam deck         |
 
 물론, 이 속성값에 사용해야 할 타입은 보통 `2`, `3`, `4`, `5`만을 포함해야 하는데, 이 타입만 STM에서 지원하기 때문입니다. ASF는 아이템의 희귀도를 구별하는 적절한 논리구조를 가지고 있으며, 따라서 이모티콘이나 배경을 안전하게 매치할 수 있습니다. ASF는 같은 게임의 같은 타입의 이모티콘이나 배경을 공평하다고 판단하고 동일한 희귀도를 공유합니다.
 
@@ -806,6 +808,7 @@ ASF의 거래 논리, 가능한 모든 플래그의 설명 등에 대한 자세�
 | 12 | MiniProfileBackground       | Special background for Steam profile         |
 | 13 | AvatarProfileFrame          | Special avatar frame for Steam profile       |
 | 14 | AnimatedAvatar              | Special animated avatar for Steam profile    |
+| 15 | KeyboardSkin                | Special keyboard skin for Steam deck         |
 
 위의 설정과 상관없이 ASF는 Steam(`appID` 753) 커뮤니티(`contextID` 6) 아이템만을 요청할 것입니다. 모든 게임 아이템, 선물 등등은 정의에 따라 거래 제안에서 제외됩니다.
 

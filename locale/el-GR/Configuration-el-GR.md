@@ -255,7 +255,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 | Τιμή | Όνομα     | Περιγραφή                                                                                        |
 | ---- | --------- | ------------------------------------------------------------------------------------------------ |
-| 0    | None      | No protocol                                                                                      |
+| 0    | Κανένα    | No protocol                                                                                      |
 | 1    | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
 | 2    | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4    | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
@@ -400,7 +400,7 @@ Please note that due to constant Valve issues, changes and problems, **we give n
 
 | Τιμή | Όνομα                         | Περιγραφή                                                                                                |
 | ---- | ----------------------------- | -------------------------------------------------------------------------------------------------------- |
-| 0    | None                          | No special bot behaviour, the least invasive mode, default                                               |
+| 0    | Κανένα                        | No special bot behaviour, the least invasive mode, default                                               |
 | 1    | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites                                    |
 | 2    | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers                                      |
 | 4    | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites                                     |
@@ -539,6 +539,7 @@ There is also idling priority queue that is accessible through `fq` **[commands]
 | 12   | MiniProfileBackground | Special background for Steam profile                          |
 | 13   | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
 | 14   | AnimatedAvatar        | Special animated avatar for Steam profile                     |
+| 15   | KeyboardSkin          | Special keyboard skin for Steam deck                          |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -567,6 +568,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 | 12   | MiniProfileBackground | Special background for Steam profile                          |
 | 13   | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
 | 14   | AnimatedAvatar        | Special animated avatar for Steam profile                     |
+| 15   | KeyboardSkin          | Special keyboard skin for Steam deck                          |
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. ASF includes proper logic for discovering rarity of the items, therefore it's also safe to match emoticons or backgrounds, as ASF will properly consider fair only those items from the same game and type, that also share the same rarity.
 
@@ -582,7 +584,7 @@ Unless you know what you're doing, you should keep it with default value of `5`.
 
 | Τιμή | Όνομα             | Περιγραφή                                 |
 | ---- | ----------------- | ----------------------------------------- |
-| 0    | None              | No special online presence flags, default |
+| 0    | Κανένα            | No special online presence flags, default |
 | 256  | ClientTypeWeb     | Client is using web interface             |
 | 512  | ClientTypeMobile  | Client is using mobile app                |
 | 1024 | ClientTypeTenfoot | Client is using big picture               |
@@ -641,7 +643,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 | Τιμή | Όνομα                              | Περιγραφή                                                                                                                       |
 | ---- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | None                               | No special redeeming preferences, default                                                                                       |
+| 0    | Κανένα                             | No special redeeming preferences, default                                                                                       |
 | 1    | Forwarding                         | Forward keys unavailable to redeem to other bots                                                                                |
 | 2    | Distributing                       | Distribute all keys among itself and other bots                                                                                 |
 | 4    | KeepMissingGames                   | Keep keys for (potentially) missing games when forwarding, leaving them unused                                                  |
@@ -671,7 +673,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 | Τιμή | Όνομα         | Περιγραφή                                                                                                                                                                                                                                                                    |
 | ---- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
+| 0    | Κανένα        | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
 | 1    | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
 | 2    | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
 
@@ -753,7 +755,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 | Τιμή | Όνομα         | Περιγραφή                                                                                                                                                                                          |
 | ---- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | None          | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
+| 0    | Κανένα        | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
 | 1    | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
 | 2    | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
 | 3    | Master        | Provides full access to given bot instance                                                                                                                                                         |
@@ -772,7 +774,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 | Τιμή | Όνομα               | Περιγραφή                                                                                                                                                                                            |
 | ---- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | None                | No special trading preferences, default                                                                                                                                                              |
+| 0    | Κανένα              | No special trading preferences, default                                                                                                                                                              |
 | 1    | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                    |
 | 2    | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info |
 | 4    | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                    |
@@ -806,6 +808,7 @@ For further explanation of ASF trading logic, and description of every available
 | 12   | MiniProfileBackground | Special background for Steam profile                          |
 | 13   | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
 | 14   | AnimatedAvatar        | Special animated avatar for Steam profile                     |
+| 15   | KeyboardSkin          | Special keyboard skin for Steam deck                          |
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -947,12 +950,12 @@ Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "7656
 
 For example, given following values:
 
-| Τιμή | Όνομα |
-| ---- | ----- |
-| 0    | None  |
-| 1    | A     |
-| 2    | B     |
-| 4    | C     |
+| Τιμή | Όνομα  |
+| ---- | ------ |
+| 0    | Κανένα |
+| 1    | A      |
+| 2    | B      |
+| 4    | C      |
 
 Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 
