@@ -539,7 +539,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5`. Esta propie
 | 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |
 | 13    | AvatarProfileFrame    | Marco de avatar especial para el perfil de Steam                                    |
 | 14    | AnimatedAvatar        | Avatar animado especial para el perfil de Steam                                     |
-| 15    | KeyboardSkin          | Special keyboard skin for Steam deck                                                |
+| 15    | KeyboardSkin          | Apariencia del teclado para Steam Deck                                              |
 
 Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 
@@ -568,7 +568,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `5`. Esta propiedad de
 | 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |
 | 13    | AvatarProfileFrame    | Marco de avatar especial para el perfil de Steam                                    |
 | 14    | AnimatedAvatar        | Avatar animado especial para el perfil de Steam                                     |
-| 15    | KeyboardSkin          | Special keyboard skin for Steam deck                                                |
+| 15    | KeyboardSkin          | Apariencia del teclado para Steam Deck                                              |
 
 Por supuesto, los tipos que normalmente debes usar para esta propiedad solo incluyen `2`, `3`, `4` y `5`, ya que solo esos tipos son soportados por STM. ASF incluye la lógica adecuada para descubrir la rareza de los artículos, por lo tanto también es seguro para emparejar emoticonos o fondos de perfil, dado que ASF solo considerará como justos aquellos artículos del mismo juego y tipo, que también compartan la misma rareza.
 
@@ -808,7 +808,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5`. Esta propie
 | 12    | MiniProfileBackground | Fondo especial para el perfil de Steam                                              |
 | 13    | AvatarProfileFrame    | Marco de avatar especial para el perfil de Steam                                    |
 | 14    | AnimatedAvatar        | Avatar animado especial para el perfil de Steam                                     |
-| 15    | KeyboardSkin          | Special keyboard skin for Steam deck                                                |
+| 15    | KeyboardSkin          | Apariencia del teclado para Steam Deck                                              |
 
 Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 

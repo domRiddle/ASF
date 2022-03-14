@@ -1,12 +1,12 @@
 # Έλεγχος ταυτότητας δύο παραγόντων
 
-A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
+Πριν από λίγο καιρό η Valve παρουσίασε ένα σύστημα γνωστό ως "Escrow" που απαιτεί επιπλέον έλεγχο ταυτότητας για διάφορες δραστηριότητες που σχετίζονται με λογαριασμούς. Μπορείτε να διαβάσετε περισσότερα σχετικά με αυτό **[εδώ](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** και **[εδώ](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. Είναι σημαντικό να κατανοήσουμε το σύστημα 2FA πρώτα, πριν προσπαθήσουμε να κατανοήσουμε τη λογική πίσω από το ASF 2FA.
 
-Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, ASF includes a solution to that problem, called ASF 2FA.
+Τώρα όπως μπορείτε να δείτε όλες τις συναλλαγές που κρατούνται για έως και 15 ημέρες, οι οποίες δεν είναι σημαντικό πρόβλημα όταν έρχεται στο ASF μας, αλλά μπορεί ακόμα να είναι ενοχλητικό, ειδικά για εκείνους που θέλουν πλήρη αυτοματισμό. Ευτυχώς, η ASF περιλαμβάνει μια λύση σε αυτό το πρόβλημα, που ονομάζεται ASF 2FA.
 
 ---
 
-# ASF logic
+# Λογική ASF
 
 Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're needed (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
 
@@ -33,7 +33,7 @@ Ensure that your authenticator works by checking if above actions work - if they
 
 ---
 
-### Android phone
+### Κινητό Android
 
 In general for importing authenticator from your Android phone you will need **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** access. Rooting varies from device to device, so I won't tell you how to root your device. Visit **[XDA](https://www.xda-developers.com/root)** for excellent guides on how to do that, as well as general information on rooting in general. If you can't find your device or the guide that you need, try to find it on google second.
 
@@ -50,8 +50,8 @@ Now, you can choose if you want to import your authenticator to WinAuth first, t
 If you don't want to or don't need to go through WinAuth, then simply copy `files/Steamguard-SteamID` file from our protected directory, where `SteamID` is your 64-bit Steam identificator of the account that you want to add (if more than one, because if you have only one account then this will be the only file). You need to place that file in ASF's `config` directory. Once you do that, rename the file to `BotName.maFile`, where `BotName` is the name of your bot you're adding ASF 2FA to. After this step, launch ASF - it should notice the `.maFile` and import it.
 
 ```text
-[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+[*] INFO: ImportAuthenticator() <1> Μετατροπή του .maFile σε μορφή ASF...
+[*] INFO: ImportAuthenticator() <1> Ολοκληρώθηκε με επιτυχία η εισαγωγή του επαληθευτή κινητού!
 ```
 
 That's all, assuming that you've imported the correct file with valid secrets, everything should work properly, which you can verify by using `2fa` commands. If you made a mistake, you can always remove `Bot.db` and start over if needed.
@@ -79,8 +79,8 @@ You should now rename `steamID.maFile` to `BotName.maFile` in ASF config directo
 If you did everything correctly, launch ASF, and you should notice:
 
 ```text
-[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+[*] INFO: ImportAuthenticator() <1> Μετατροπή του .maFile σε μορφή ASF...
+[*] INFO: ImportAuthenticator() <1> Ολοκληρώθηκε με επιτυχία η εισαγωγή του επαληθευτή κινητού!
 ```
 
 From now on, your ASF 2FA should be operational for this account.
@@ -96,8 +96,8 @@ Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGua
 If you did everything correctly, launch ASF, and you should notice:
 
 ```text
-[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+[*] INFO: ImportAuthenticator() <1> Μετατροπή του .maFile σε μορφή ASF...
+[*] INFO: ImportAuthenticator() <1> Ολοκληρώθηκε με επιτυχία η εισαγωγή του επαληθευτή κινητού!
 ```
 
 From now on, your ASF 2FA should be operational for this account.
@@ -112,7 +112,7 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 ---
 
-## FAQ
+## Συχνές ερωτήσεις
 
 ### How is ASF making use of 2FA module?
 

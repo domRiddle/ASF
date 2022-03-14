@@ -92,7 +92,7 @@ ASF configuration can be done in at least three ways - through our web config ge
 
 Navigate to our **[web config generator](https://justarchinet.github.io/ASF-WebConfigGenerator)** page with your favourite browser, you'll need to have javascript enabled in case you manually disabled it. We recommend Chrome or Firefox, but it should work on all most popular browsers.
 
-After opening the page, switch to "Bot" tab. You should now see a page similar to the one below:
+Μετά το άνοιγμα της σελίδας, μεταβείτε στην καρτέλα "Bot". Τώρα θα πρέπει να δείτε μια σελίδα παρόμοια με αυτή που ακολουθεί:
 
 ![Bot tab](https://i.imgur.com/aF3k8Rg.png)
 
@@ -185,7 +185,7 @@ Editing your ASF configs can be done much easier by using our ASF-ui frontend, w
 
 ---
 
-#### Using ASF-ui
+#### Χρήση ASF-ui
 
 ASF is a console app and doesn't include a graphical user interface. However, we're actively working on **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** frontend to our IPC interface, which can be a very decent and user-friendly way to access various ASF features.
 
@@ -221,7 +221,7 @@ However, keep in mind that you're in charge of .NET runtime in this case. This m
 
 For `generic` package, you can follow entire OS-specific guide above, with two small changes. In addition to installing .NET prerequisites, you also want to install .NET SDK, and instead of having OS-specific `ArchiSteamFarm(.exe)` executable file, you now have a generic `ArchiSteamFarm.dll` binary only. Everything else is exactly the same.
 
-With extra steps:
+Με επιπλέον βήματα:
 - Install **[.NET prerequisites](#net-prerequisites)**.
 - Install **[.NET SDK](https://www.microsoft.com/net/download)** (or at least ASP.NET Core runtime) appropriate for your OS. You most likely want to use an installer. Refer to **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)** if you're not sure which version to install.
 - Download **[latest ASF release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** in `generic` variant.

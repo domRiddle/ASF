@@ -14,7 +14,7 @@ ASF на данный момент поддерживает следующие �
 
 Их полное описание и сравнение вы найдёте ниже.
 
-Для создания зашифрованного пароля, например для использования в `SteamPassword`, вам нужно выполнить **[команду](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)** `encrypt` с соответствующим типом шифрования и вашим паролем в виде открытого текста. После этого, установите полученную зашифрованную строку в качестве значения для параметра `SteamPassword`, и, наконец, измените значение параметра `PasswordFormat` на соответствующее вашему методу шифрования. Some formats do not require `encrypt` command, for example `EnvironmentVariable` or `File`, just put appropriate path for them.
+Для создания зашифрованного пароля, например для использования в `SteamPassword`, вам нужно выполнить **[команду](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)** `encrypt` с соответствующим типом шифрования и вашим паролем в виде открытого текста. После этого, установите полученную зашифрованную строку в качестве значения для параметра `SteamPassword`, и, наконец, измените значение параметра `PasswordFormat` на соответствующее вашему методу шифрования. Некоторые форматы не требуют команды `encrypt`, например `EnvironmentVariable` или `Файл`, просто укажите для них соответствующий путь.
 
 ---
 
@@ -42,7 +42,7 @@ ASF на данный момент поддерживает следующие �
 
 ### `EnvironmentVariable`
 
-Memory-based storage defined as `ECryptoMethod` of `3`. ASF will read the password from the environment variable with given name specified in the password field (e.g. `SteamPassword`). For example, setting `SteamPassword` to `ASF_PASSWORD_MYACCOUNT` and `PasswordFormat` to `3` will cause ASF to evaluate `${ASF_PASSWORD_MYACCOUNT}` environment variable and use whatever is assigned to it as the account password.
+Memory-based storage defined as `ECryptoMethod` of `3`. ASF будет считывать пароль из переменной среды с заданным именем, указанным в поле пароля (например, `SteamPassword`). For example, setting `SteamPassword` to `ASF_PASSWORD_MYACCOUNT` and `PasswordFormat` to `3` will cause ASF to evaluate `${ASF_PASSWORD_MYACCOUNT}` environment variable and use whatever is assigned to it as the account password.
 
 ---
 
@@ -50,7 +50,7 @@ Memory-based storage defined as `ECryptoMethod` of `3`. ASF will read the passwo
 
 File-based storage (possibly outside of the ASF config directory) defined as `ECryptoMethod` of `4`. ASF will read the password from the file path specified in the password field (e.g. `SteamPassword`). The specified path can be either absolute, or relative to ASF's "home" location (the folder where the `config` directory is included, taking into account `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**). This method can be used for example with **[Docker secrets](https://docs.docker.com/engine/swarm/secrets)**, which create such files for usage, but can also be used outside of Docker if you create appropriate file yourself. For example, setting `SteamPassword` to `/etc/secrets/MyAccount.pass` and `PasswordFormat` to `4` will cause ASF to read `/etc/secrets/MyAccount.pass` and use whatever is written to that file as the account password.
 
-Remember to ensure that file containing the password is not readable by unauthorized users, as that defeats the whole purpose of using this method.
+Не забудьте убедиться, что файл, содержащий пароль, не может быть прочитан неавторизованными пользователями, так как это противоречит всей цели использования этого метода.
 
 ---
 
