@@ -12,7 +12,7 @@ Firstly, create the account for the user you want to run ASF under, assuming it 
 
 ```sh
 su # or sudo -i
-adduser asf
+useradd -m asf
 ```
 
 Next, unpack ASF to `/home/asf/ArchiSteamFarm` folder. The folder structure is important for our service unit, it should be `ArchiSteamFarm` folder in your `$HOME`, so `/home/<user>`. If you did everything correctly, there will be `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` file existing.
@@ -89,7 +89,7 @@ After doing that, you should no longer get any kind of issue related to ASF not 
 
 ```sh
 su # or sudo -i
-adduser asf
+useradd -m asf
 chown -hR asf:asf /path/to/ASF
 su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
 ```
