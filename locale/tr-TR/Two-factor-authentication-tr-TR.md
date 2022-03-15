@@ -72,51 +72,51 @@ Sorularınız/sorunlarınız için lütfen **[sorunları](https://github.com/Cai
 
 ### SteamDesktopAuthenticator
 
-If you have your authenticator running in SDA already, you should notice that there is `steamID.maFile` file available in `maFiles` folder. Copy that file to `config` directory of ASF. Make sure that `.maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` character.
+Kimlik doğrulayıcınız zaten SDA'da çalışıyorsa, `maFiles` klasörü içersinde `steamID.maFile` dosyası olduğunu göreceksiniz. Bu dosyayı ASF'nin `config` dizinine kopyalayın. ASF, SDA dosyalarının şifresini çözemediğinden `.maFile` dosyasının şifrelenmemiş biçimde olduğundan emin olun. Şifrelenmemiş dosya içeriği `{` karakteri ile başlamalıdır.
 
-You should now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Alternatively you can leave it as it is, ASF will then pick it automatically after logging in. Helping ASF makes it possible to use ASF 2FA before logging in, if you won't help ASF, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
+Şimdi, ASF'nin "config" dizininde `steamID.maFile` dosyasını `BotName.maFile` olarak yeniden adlandırmalısınız; burada ki `BotName`, ASF 2AD'yı eklediğiniz botunuzun adıdır. Alternatif bir adım olarak, olduğu gibi bırakabilirsiniz, ASF, oturum açtıktan sonra otomatik olarak seçecektir. ASF, oturum açmadan önce ASF 2AD'nin kullanılmasını mümkün kılar, ASF'ye yardımcı olmazsanız, dosya yalnızca ASF'de başarıyla oturum açtıktan sonra (ASF gerçekte oturum açmadan önce hesabınızın `steamID`'sini bilmediği için) çalışır.
 
-If you did everything correctly, launch ASF, and you should notice:
+Her şeyi doğru yaptıysanız, ASF'yi başlatın ve şunu fark etmelisiniz:
 
 ```text
-[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+[*] BİLGİ: İçeAktarılanKimlikDoğrulayıcı() <1> .maFile ASF formatına dönüştürülüyor...
+[*] BİLGİ: İçeAktarılanKimlikDoğrulayıcı() <1> Mobil kimlik doğrulayıcıyı içe aktarma başarıyla tamamlandı!
 ```
 
-From now on, your ASF 2FA should be operational for this account.
+Şu andan itibaren, ASF 2AD'nız bu hesap için çalışır durumda olmalıdır.
 
 ---
 
 ### WinAuth
 
-Firstly create new empty `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Remember that it should be `BotName.maFile` and NOT `BotName.maFile.txt`, Windows likes to hide known extensions by default. If you provide incorrect name, it won't be picked by ASF.
+Öncelikle ASF config dizininde yeni boş `BotName.maFile` oluşturun; burada ki `BotName`, ASF 2AD'yı eklediğiniz botunuzun adı olmalıdır. Bunun `BotName.maFile` olması gerektiğini ve bu yüzden `BotName.maFile.txt` OLMAMASI gerektiğini unutmayın, Windows varsayılan olarak bilinen uzantıları gizlemeyi sever. Yanlış ad verirseniz, ASF tarafından seçilmeyecektir.
 
-Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGuard and Recovery Code". Then check "Allow copy". You should notice familiar to you JSON structure on the bottom of the window, starting with `{`. Copy whole text into a `BotName.maFile` file created by you in previous step.
+Şimdi WinAuth'u her zamanki gibi başlatın. Steam simgesine sağ tıklayın ve "SteamGuard ve Kurtarma Kodunu Göster"i seçin. Ardından "Kopyalamaya izin ver" seçeneğini işaretleyin. Pencerenin alt kısmında `{` ile başlayan JSON yapısının size tanıdık geldiğini fark etmelisiniz. Burada ki tüm metni, önceki adımda oluşturduğunuz `BotName.maFile` dosyasına kopyalayın.
 
-If you did everything correctly, launch ASF, and you should notice:
+Her şeyi doğru yaptıysanız, ASF'yi başlatın ve şunu fark etmelisiniz:
 
 ```text
-[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+[*] BİLGİ: İçeAktarılanKimlikDoğrulayıcı() <1> .maFile ASF formatına dönüştürülüyor...
+[*] BİLGİ: İçeAktarılanKimlikDoğrulayıcı() <1> Mobil kimlik doğrulayıcıyı içe aktarma başarıyla tamamlandı!
 ```
 
-From now on, your ASF 2FA should be operational for this account.
+Şu andan itibaren, ASF 2AD'nız bu hesap için çalışır durumda olmalıdır.
 
 ---
 
 ## Bitti
 
-From this moment, all `2fa` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your authenticator of choice (Android, iOS, SDA or WinAuth) to generate tokens and accept confirmations.
+Bu andan itibaren, tüm `2ad` komutları, klasik 2AD cihazınızda çağrıldıkları gibi çalışacaktır. Belirteç oluşturmak ve onayları kabul etmek için hem ASF 2AD'yı hem de seçtiğiniz kimlik doğrulayıcınızı (Android, iOS, SDA veya WinAuth) kullanabilirsiniz.
 
-If you have authenticator on your phone, you can optionally remove SteamDesktopAuthenticator and/or WinAuth, as we won't need it anymore. However, I suggest to keep it just in case, not to mention that it's more handy than normal steam authenticator. Just keep in mind that ASF 2FA is **NOT** a general purpose authenticator and it should **never** be the only one you use, since it doesn't even include all data that authenticator should have. It's not possible to convert ASF 2FA back to original authenticator, therefore always make sure that you have general-purpose authenticator in other place, such as in WinAuth/SDA, or on your phone.
+Telefonunuzda kimlik doğrulayıcı varsa, isteğe bağlı olarak SteamDesktopAuthenticator ve/veya WinAuth'u kaldırabilirsiniz, çünkü artık ihtiyacımız olmayacak. Ancak, her ihtimale karşı saklamanızı öneririm, normal Steam doğrulayıcıdan daha kullanışlı olduğundan bahsetmiyorum bile. ASF 2AD'nın genel amaçlı bir kimlik doğrulayıcı **OLMADIĞINI** ve kimlik doğrulayıcının sahip olması gereken tüm verileri içermediği için, kullandığınız tek kimlik doğrulayıcı **olmaması ** gerektiğini unutmayın. ASF 2AD'yı orijinal kimlik doğrulayıcıya geri dönüştürmek mümkün değildir, bu nedenle WinAuth/SDA gibi başka bir yerde veya telefonunuzda genel amaçlı kimlik doğrulayıcınız olduğundan her zaman emin olun.
 
 ---
 
-## FAQ
+## SSS
 
-### How is ASF making use of 2FA module?
+### ASF 2AD modülünü nasıl kullanıyor?
 
-If ASF 2FA is available, ASF will use it for automatic confirmation of trades that are being sent/accepted by ASF. It will also be capable of automatically generating 2FA tokens on as-needed basis, for example in order to log in. In addition to that, having ASF 2FA also enables `2fa` commands for you to use. That should be all for now, if I didn't forget about anything - basically ASF uses 2FA module on as-needed basis.
+ASF 2AD mevcutsa, ASF tarafından gönderilen/kabul edilmesi gereken işlemlerin otomatik olarak onaylanması için ASF bunu kullanacaktır. Ayrıca, örneğin oturum açmak için gerektiğinde otomatik olarak 2AD belirteçleri oluşturabilecektir. Buna ek olarak, ASF 2AD'ya sahip olmak, 2ad komutlarını kullanmanıza olanak tanır. Şimdilik bu kadar, eğer hiçbir şeyi unutmadıysam. Temelde ASF, gerektiğinde 2AD modülünü kullanır.
 
 ---
 
@@ -126,21 +126,21 @@ You will need 2FA token to access 2FA-protected account, that includes every acc
 
 ---
 
-### Can I use my original authenticator after importing it as ASF 2FA?
+### Orijinal kimlik doğrulayıcımı ASF 2AD olarak içe aktardıktan sonra kullanabilir miyim?
 
-Yes, your original authenticator remains functional and you can use it together with using ASF 2FA. That's the whole point of the process - we're importing your authenticator credentials into ASF, so ASF can make use of them and accept selected confirmations on your behalf.
-
----
-
-### Where is ASF mobile authenticator saved?
-
-ASF mobile authenticator is saved in `BotName.db` file in your config directory, along with some other crucial data related to given account. If you want to remove ASF 2FA, read how below.
+Evet, orijinal kimlik doğrulayıcınız çalışır durumda kalır ve onu ASF 2AD ile birlikte kullanabilirsiniz. Sürecin bütün amacı budur. ASF'nin bunları kullanabilmesi ve sizin adınıza seçilen onayları kabul edebilmesi için kimlik doğrulayıcı kimlik bilgilerinizi ASF'ye aktarıyoruz.
 
 ---
 
-### How to remove ASF 2FA?
+### ASF mobil kimlik doğrulayıcı nereye kaydedilir?
 
-Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2FA you want to remove. This option will remove associated imported 2FA with ASF, but will NOT delink your authenticator. If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, iOS, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linking that authenticator, on the Steam website. It's not possible to unlink your authenticator through ASF, this is what general-purpose authenticator that you already have should be used for.
+ASF mobil kimlik doğrulayıcı, verilen hesapla ilgili diğer bazı önemli verilerle birlikte yapılandırma(config) dizininizdeki `BotName.db` dosyasına kaydeder. ASF 2AD'yı kaldırmak istiyorsanız, aşağıda nasıl yapılacağını okuyun.
+
+---
+
+### ASF 2AD nasıl kaldırılır?
+
+ASF'yi durdurun ve kaldırmak istediğiniz ASF 2AD ile bağlantılı botun `BotName.db` dosyasını kaldırın. Bu seçenek, ASF ile ilişkili içe aktarılan 2FA'yı kaldıracak, ancak kimlik doğrulayıcınızın bağlantısını ÇIKARMAYACAKTIR. Bunun yerine, ASF'den (ilk olarak) kaldırmak dışında, kimlik doğrulayıcınızın bağlantısını kaldırmak istiyorsanız, seçtiğiniz kimlik doğrulayıcıda (Android, iOS, SDA veya WinAuth) bağlantısını kaldırmanız gerekir veya herhangi bir nedenle bunu yapamıyorsanız, şunu deneyin: Steam web sitesinde bu doğrulayıcıyı bağlarken aldığınız iptal kodu. ASF aracılığıyla kimlik doğrulayıcınızın bağlantısını kaldırmak mümkün değildir, zaten sahip olduğunuz genel amaçlı kimlik doğrulayıcı bunun için kullanılmalıdır.
 
 ---
 
