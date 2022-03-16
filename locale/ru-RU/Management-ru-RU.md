@@ -12,7 +12,7 @@ Firstly, create the account for the user you want to run ASF under, assuming it 
 
 ```sh
 su # or sudo -i
-adduser asf
+useradd -m asf
 ```
 
 Next, unpack ASF to `/home/asf/ArchiSteamFarm` folder. The folder structure is important for our service unit, it should be `ArchiSteamFarm` folder in your `$HOME`, so `/home/<user>`. If you did everything correctly, there will be `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` file existing.
@@ -88,10 +88,10 @@ After doing that, you should no longer get any kind of issue related to ASF not 
 ### I run as `root` because I don't know how to do it otherwise
 
 ```sh
-su # или sudo -i
-adduser asf
+su # or sudo -i
+useradd -m asf
 chown -hR asf:asf /path/to/ASF
-su asf -c /path/to/ASF/ArchiSteamFarm # или sudo -u asf /path/to/ASF/ArchiSteamFarm
+su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
 ```
 
 That would be doing it manually, it's much easier to use our **[`systemd` service](#systemd-service-for-linux)** explained above.
@@ -113,3 +113,5 @@ ASF будет по возможности использовать миниму
 Использование одинаковых параметров `*LimiterDelay` для всех запущенных экземпляров не является обязательным, они могут использовать различные значение, поскольку каждый экземпляр ASF будет добавлять собственную, заданную в конфигурационном файле, задержку до освобождения файла после его захвата. Если параметр `*LimiterDelay` задан равным `0`, этот экземпляр ASF будет полностью игнорировать ожидание блокировки заданных ресурсов, разделяемых с другими экземплярами (которые могут потенциально поддерживать общую блокировку между собой). При установке любых других значений, ASF будет правильно синхронизироваться с любыми другими экземплярами ASF и будет ждать своей очереди, а затем снимать блокировку после заданной задержки, позволяя другим экземплярам продолжить работу.
 
 ASF учитывает настройки `WebProxy` для принятия решения об использовании блокировок, то есть два экземпляра ASF, использующих разную настройку `WebProxy` не будут иметь общей блокировки между собой. Это сделано чтоб позволить конфигурациям с использованием `WebProxy` работать без излишних задержек, как ожидается от разных сетевых интерфейсов. Этого должно быть достаточно для большинства вариантов использования, однако, если ваша конфигурация специфична, например вы перенаправляете запросы самостоятельно каким-то другим образом, вы можете задать сетевую группу сами с помощью **[аргумента командной строки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU)** `--network-group`, позволяющего вам указывать группу ASF которая будет синхронизироваться с данным экземпляром. Имейте в виду, что пользовательские сетевые группы переопределяют внутреннюю группировку, а значит ASF больше не будет учитывать значение `WebProxy` для определения правильной группы, так как в этом случае вы полностью отвечаете за группировку.
+
+If you'd like to utilize our **[`systemd` service](#systemd-service-for-linux)** explained above for multiple ASF instances, it's very simple, just use another user for our `ArchiSteamFarm@` service declaration and follow with the rest of the steps.

@@ -11,8 +11,8 @@ In `generic` and `linux` variants, ASF comes with `ArchiSteamFarm@.service` file
 Firstly, create the account for the user you want to run ASF under, assuming it doesn't exist yet. We'll use `asf` user for this example, if you decided to use a different one, you'll need to substitute `asf` user in all of our examples below with your selected one. Our service does not allow you to run ASF as `root`, since it's considered a **[bad practice](#never-run-asf-as-administrator)**.
 
 ```sh
-su # or sudo -i
-adduser asf
+su # 或 sudo -i
+useradd -m asf
 ```
 
 Next, unpack ASF to `/home/asf/ArchiSteamFarm` folder. The folder structure is important for our service unit, it should be `ArchiSteamFarm` folder in your `$HOME`, so `/home/<user>`. If you did everything correctly, there will be `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` file existing.
@@ -88,10 +88,10 @@ After doing that, you should no longer get any kind of issue related to ASF not 
 ### I run as `root` because I don't know how to do it otherwise
 
 ```sh
-su # or sudo -i
-adduser asf
+su # 或 sudo -i
+useradd -m asf
 chown -hR asf:asf /path/to/ASF
-su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
+su asf -c /path/to/ASF/ArchiSteamFarm # 或 sudo -u asf /path/to/ASF/ArchiSteamFarm
 ```
 
 That would be doing it manually, it's much easier to use our **[`systemd` service](#systemd-service-for-linux)** explained above.
@@ -113,3 +113,5 @@ ASF will do its best to maintain a minimum amount of OS-wide, cross-process comm
 It's not required for running ASF instances to share the same `*LimiterDelay` properties, they can use different values, as each ASF will add its own configured delay to the release time after acquiring the lock. If the configured `*LimiterDelay` is set to `0`, ASF instance will entirely skip waiting for the lock of given resource that is shared with other instances (that could potentially still maintain a shared lock with each other). When set to any other value, ASF will properly synchronize with other ASF instances and wait for its turn, then release the lock after configured delay, allowing other instances to continue.
 
 ASF takes into account `WebProxy` setting when deciding about shared scope, which means that two ASF instances using different `WebProxy` configurations will not share their limiters with each other. This is implemented in order to allow `WebProxy` setups to operate without excessive delays, as expected from different network interfaces. This should be good enough for majority of use cases, however, if you have a specific custom setup in which you're e.g. routing requests yourself in a different way, you can specify network group yourself through `--network-group` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**, which will allow you to declare ASF group that will be synchronized with this instance. Keep in mind that custom network groups are used exclusively, which means that ASF will no longer use `WebProxy` for determining the right group, as you're in charge of grouping in this case.
+
+如果您想使用我們以上針對多個 ASF 實例說明中的 **[`systemd` 服務](#systemd-service-for-linux)**，這非常簡單，只需在我們的 `ArchiSteamFarm@` 服務聲明中使用另一個用戶，然後執行其餘步驟即可。

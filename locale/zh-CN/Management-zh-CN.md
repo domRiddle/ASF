@@ -12,7 +12,7 @@
 
 ```sh
 su # 或者 sudo -i
-adduser asf
+useradd -m asf
 ```
 
 接下来，解压 ASF 到 `/home/asf/ArchiSteamFarm` 目录。 目录结构对于我们的服务单元非常重要，它应该是您 `$HOME` 目录，也就是 `/home/<user>` 下的 `ArchiSteamFarm` 目录。 如果您的操作完全正确，则现在应该存在 `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` 文件。
@@ -89,7 +89,7 @@ ASF 有自己的逻辑，验证自身是否以管理员用户（`root`）运行�
 
 ```sh
 su # 或者 sudo -i
-adduser asf
+useradd -m asf
 chown -hR asf:asf /path/to/ASF
 su asf -c /path/to/ASF/ArchiSteamFarm # 或者 sudo -u asf /path/to/ASF/ArchiSteamFarm
 ```
@@ -113,3 +113,5 @@ ASF 会尽全力减少操作系统层面的与其他 ASF 实例的跨进程通�
 运行多个 ASF 实例不需要它们共享相同的 `*LimiterDelay` 属性，它们可以设置不同的值，因为每个 ASF 都会在获得锁之后将自己配置的延迟添加到释放时间。 如果配置的 `*LimiterDelay` 设置为 `0`，ASF 实例将完全跳过等待其他实例释放资源的锁（它们之间可能仍然会维护一个共享锁）。 当设置为其他任何值时，ASF 将会与其他实例同步此值，并等待自己获得锁，然后会在预先配置的延迟时间之后释放锁，使其他实例继续工作。
 
 ASF 在决定共享范围时会考虑到 `WebProxy` 设置，即使用不同 `WebProxy` 的 ASF 实例之间不会采用同一个限制。 实现此功能是为了让 `WebProxy` 设置不会导致过大的操作延迟，符合使用不同网络接口的预期。 对于大多数情况，这应该足够了，然而，如果您的方案使用自定义的机制，例如使用其他方式手动路由请求，您可以通过 `--network-group` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**&#8203;指定网络组，使您指定 ASF 需要与同一个组内的实例同步。 请注意，设置自定义网络组选项后，ASF 就不再根据 `WebProxy` 判断所需的组，因为此时由您自己管理分组。
+
+如果您希望利用上文所述的 [**`systemd 服务`**](#linux-的-systemd-服务) 实现 ASF 多实例，也非常简单，只需要在我们声明 `ArchiSteamFarm@` 服务时使用另一个用户，随后的步骤都完全相同。

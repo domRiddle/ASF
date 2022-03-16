@@ -12,7 +12,7 @@ Firstly, create the account for the user you want to run ASF under, assuming it 
 
 ```sh
 su # or sudo -i
-adduser asf
+useradd -m asf
 ```
 
 Next, unpack ASF to `/home/asf/ArchiSteamFarm` folder. The folder structure is important for our service unit, it should be `ArchiSteamFarm` folder in your `$HOME`, so `/home/<user>`. If you did everything correctly, there will be `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` file existing.
@@ -89,7 +89,7 @@ After doing that, you should no longer get any kind of issue related to ASF not 
 
 ```sh
 su # or sudo -i
-adduser asf
+useradd -m asf
 chown -hR asf:asf /path/to/ASF
 su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
 ```
@@ -113,3 +113,5 @@ O ASF fará o seu melhor para manter uma quantidade mínima de comunicação ent
 Não é necessário que instâncias do ASF compartilhem as mesmas propriedades `*LimiterDelay`, elas podem usar valores diferentes já que cada ASF adicionará seu próprio atraso configurado para o tempo de liberação após adquirir o bloqueio. Se a configuração `*LimiterDelay` estiver definida como `0`, a instância do ASF vai pular a espera pelo bloqueio de determinado recurso que for compartilhado com outras instâncias (isso poderia manter um bloqueio compartilhado uns com os outros). Quando definido como outro valor, o ASF irá sincronizar corretamente com outras instâncias e esperar pela sua vez e liberar o bloqueio após o atraso configurado, permitindo que outras instâncias continuem.
 
 O ASF leva em conta a configuração `WebProxy` quando decide sobre o escopo compartilhado, o que significa que duas instâncias do ASF usando configurações `WebProxy` diferentes não compartilharão seus limitadores entre si. Isso foi implementado para permitir que as configurações de `WebProxy` operem sem atrasos excessivos, como esperado de diferentes interfaces de rede. Isso deve ser o suficiente para a maioria dos casos, no entanto, se você tiver uma configuração personalizada específica na qual você roteie os pedidos de forma diferente, por exemplo, você pode especificar manualmente o grup de rede atráves do **[argumento de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)** `--network-group`, o que vai permitir que você declare o grupo do ASF que será sincronizado com essa instância. Tenha em mente que grupos de rede personalizados são exclusividades, o que significa que o ASF não vai mais usar o `WebProxy` para determinar o grupo certo, já que você é responsável pelo agrupamento nesse caso.
+
+If you'd like to utilize our **[`systemd` service](#systemd-service-for-linux)** explained above for multiple ASF instances, it's very simple, just use another user for our `ArchiSteamFarm@` service declaration and follow with the rest of the steps.
