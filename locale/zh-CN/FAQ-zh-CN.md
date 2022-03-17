@@ -251,7 +251,7 @@ ASF 真正需要关注的重点是：
 
 > Valve may cancel your Account or any particular Subscription(s) at any time in the event that (a) Valve ceases providing such Subscriptions to similarly situated Subscribers generally, or (b) you breach any terms of this Agreement (including any Subscription Terms or Rules of Use).（参考译文：Valve 随时可以在以下情况停止您的帐户或者中止订阅：(a) Valve 不再向此类订阅者提供订阅服务，或 (b) 您违反了本协议中的条款，包括任何订阅条款和使用规则。）
 
-因此，与每款 Steam 软件一样，ASF 未经 Valve 授权，如果 Valve 突然决定封禁使用 ASF 的用户，我无法保证您不会被中止服务。 考虑到目前已有超过 50 万个 Steam 帐户正在使用 ASF，这是极不可能的，但无论其概率多低，都仍有此可能。
+因此，与每款 Steam 软件一样，ASF 未经 Valve 授权，如果 Valve 突然决定封禁使用 ASF 的用户，我无法保证您不会被中止服务。 考虑到目前已有上百万个 Steam 帐户正在使用 ASF，这是极不可能的，但无论其概率多低，都仍有此可能。
 
 特别是因为：
 > In regard to all Subscriptions, Content and Services that are not authored by Valve, Valve does not screen such third-party content available on Steam or through other sources.（参考译文：对于不是由 Valve 创作的订阅、内容和服务，Valve 不会在 Steam 或其他来源上屏蔽此类第三方内容。） Valve assumes no responsibility or liability for such third party content.（参考译文：Valve 对此类第三方内容不承担任何责任。） Some third-party application software is capable of being used by businesses for business purposes - however, you may only acquire such software via Steam for private personal use.（参考译文：某些第三方应用软件能够被企业用于商业目的——但是，您通过 Steam 购买的此类软件仅供私人个人使用。）
@@ -286,7 +286,7 @@ ASF 真正需要关注的重点是：
 
 > Hello XXX, Thank you for contacting Steam Support.（译文：感谢您联系 Steam 客服。） This and other accounts were used for flooding our network infrastructure, which is a violation of Steam online conduct.（译文：此帐户和其他帐户被用于攻击我们的网络设备，违反了 Steam 在线行为准则。） The account has been permanently blocked and Steam Support can not provide additional support on this issue.（译文：此帐户已被永久封禁，Steam 客服无法在此问题上为您提供进一步帮助。）
 
-这起事件比较容易分析，因为这名用户提供了额外的细节。 显然这名用户在使用一个**过期已久的 ASF 版本**，其中有一个向 Steam 服务器发送过多请求的漏洞。 这个漏洞并非一开始就存在，但是 Steam 之后的一些变化导致了这个漏洞，此时 ASF 的新版本早已修复这个问题。 **只有在 GitHub 上发布的&#8203;[最新稳定版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest) ASF 才受我们支持**。 软件是由人类编写的，而人类往往会犯错误。 如果错误会影响所有人，就会被快速修复并作为补丁发布给所有用户。 显然，Valve 不会因为我犯的错误而突然封禁 50 万 ASF 用户。 但如果您故意放弃使用最新版本的 ASF，则您就将自己归类于极少数用户，因为**没有技术支持**，您将会**暴露于类似的问题下**，因为没有人会关注您的过期版本 ASF，没有人会为它修复漏洞，没有人可以保证您在启动程序时不会被封禁。 **请使用最新版本的软件**，不仅是 ASF，也包括其他所有应用程序。
+这起事件比较容易分析，因为这名用户提供了额外的细节。 显然这名用户在使用一个**过期已久的 ASF 版本**，其中有一个向 Steam 服务器发送过多请求的漏洞。 这个漏洞并非一开始就存在，但是 Steam 之后的一些变化导致了这个漏洞，此时 ASF 的新版本早已修复这个问题。 **只有在 GitHub 上发布的&#8203;[最新稳定版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest) ASF 才受我们支持**。 软件是由人类编写的，而人类往往会犯错误。 如果错误会影响所有人，就会被快速修复并作为补丁发布给所有用户。 显然，Valve 不会因为我犯的错误而突然封禁上百万 ASF 用户。 但如果您故意放弃使用最新版本的 ASF，则您就将自己归类于极少数用户，因为**没有技术支持**，您将会**暴露于类似的问题下**，因为没有人会关注您的过期版本 ASF，没有人会为它修复漏洞，没有人可以保证您在启动程序时不会被封禁。 **请使用最新版本的软件**，不仅是 ASF，也包括其他所有应用程序。
 
 最近一起事件发生在 2021 年 6 月左右，据此用户称：
 

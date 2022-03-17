@@ -37,6 +37,8 @@ Downloading bots from our listing is mandatory for `MatchActively` setting, you'
 
 我們的公開 ASF STM 清單位于**[此處](https://asf.justarchi.net/STM)**，它被用作使用` MatchActively `的ASF用戶的公共服務，以及幫助ASF和非ASF用戶進行手動匹配。
 
+請注意，如果您未符合所有要求，您將**不會**在網站上顯示 。 ASF won't even bother communicating with our server in this case, so this section is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes. Also public listing is compatible only with latest stable version of ASF and may refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
+
 ### 工作原理
 
 登錄後，ASF 會發送一次初始數據，其中包含公開清單會使用的所有屬性。 然後，每10分鐘，ASF 發送一個非常小的心跳請求，通知我們的伺服器機械人仍在運行。 如果由於某種原因心跳訊號沒有到達，例如由於網絡問題，ASF 將每分鐘重試發送一次，直到伺服器註冊它。
@@ -44,8 +46,6 @@ Downloading bots from our listing is mandatory for `MatchActively` setting, you'
 這允許我們的網站記錄哪些帳戶可用於匹配，以及它們是否仍處於活動狀態。 多虧了這一點，我們的網站可以顯示在**過去15分鐘**中活躍的所有啟用 ASF 2FA 和 STM 的帳戶。
 
 用戶按照他們的庫存（按降序排序）——首先是` MatchEverything `機械人，`Any`橫幅意味著它接受所有1：1交易，然後是符合` MatchableTypes `的遊戲計數，最後是符合` MatchableTypes `的物品計數。
-
-請注意，如果您未符合所有要求，您將**不會**在網站上顯示 。 在這種情況下，ASF甚至不會費心與我們的服務器通信，因此，如果您沒有啟用` SteamTradeMatcher `以幫助自己匹配冗餘物品，則會完全跳過第二點。 Also public listing is compatible only with latest stable version of ASF and may refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
 
 ### API
 

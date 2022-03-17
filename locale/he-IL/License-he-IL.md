@@ -1,12 +1,12 @@
 # רישיון
 
-Unless stated otherwise, ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**. For a quick overview what you can and cannot do, you can use **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+Unless stated otherwise, ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**. For a quick overview what you can and cannot do, you can use **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
 
 ASF license is very permissive and you're allowed to do much more than in standard GPL license, including using ASF in commercial projects without a requirement of making code open-source. In short, as stated by tl;dr Legal:
 
 > You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
 
-By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
+By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
 
 -----
 

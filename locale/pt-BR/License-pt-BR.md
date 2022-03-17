@@ -1,12 +1,12 @@
 # Licença
 
-A menos que seja indicado o contrário, o ASF é licenciado sob a **[Licença Apache 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**. Para uma rápida visão geral sobre o que você pode ou não fazer, acesse o site **[tl; dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+A menos que seja indicado o contrário, o ASF é licenciado sob a **[Licença Apache 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**. Para uma rápida visão geral sobre o que você pode ou não fazer, acesse o site **[tl; dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
 
 A licença do ASF é muito permissiva e você pode fazer muito mais do que o permitido em uma licença GPL padrão, como incluir o ASF em projetos comerciais sem a exigência de deixar código aberto. Em suma, como mencionado no tl;dr Legal:
 
 > You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
 
-Ao declarar que o ASF está licenciado sob **[Licença Apache 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, nos referimos **somente** ao projeto principal, incluindo seu código-fonte, sem fazer qualquer declaração sobre outros projetos que o ASF faz uso (especialmente bibliotecas, ferramentas, frameworks e frontends, como **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), que normalmente são licenciados sob termos diferentes.
+By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
 
 -----
 

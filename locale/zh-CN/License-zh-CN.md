@@ -1,12 +1,12 @@
 # 许可
 
-除非另有说明，ASF 基于 **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)** 许可证授权。 想要快速了解您能做什么与不能做什么，可以阅读 **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**。
+除非另有说明，ASF 基于 **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)** 许可证授权。 想要快速了解您能做什么与不能做什么，可以阅读 **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**。
 
 ASF 的许可证是非常宽松的，您可以做的事比标准 GPL 许可证规定的更多，包括在商业项目中使用 ASF，而不需要使代码开源。 简而言之，正如 tl;dr Legal 所述：
 
 > You can do what you like with the software, as long as you include the required notices. （参考译文：您可以使用此软件做任何事情，只要您在项目中作出原作者所要求的通知声明。） This permissive license contains a patent license from the contributors of the code.（参考译文：这种宽松的许可证会授予您一份来自代码贡献者的专利许可。）
 
-在提到 ASF 是在 **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)** 许可证下授权时，我们指的**仅仅是** ASF 主项目和它的源代码，而不包含 ASF 所使用的任何其他项目（特别是库、工具、框架和前端，例如 **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**），这些项目通常会按不同条款授权。
+在提到 ASF 是在 **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)** 许可证下授权时，我们指的**仅仅是** ASF 主项目和它的源代码，而不包含 ASF 所使用的任何其他项目（特别是库、工具、框架和前端，例如 **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**），这些项目通常会按不同条款授权。
 
 -----
 

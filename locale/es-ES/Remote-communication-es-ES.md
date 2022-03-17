@@ -37,6 +37,8 @@ Descargar los bots de nuestro listado es obligatorio para la opción `MatchActiv
 
 Nuestra lista pública ASF STM está ubicada en **[nuestro sitio web](https://asf.justarchi.net/STM)** y es usada como un servicio público tanto para usuarios de ASF que usan `MatchActively`, así como para usuarios y no usuarios de ASF para emparejamiento manual.
 
+Ten en cuenta que **no** serás mostrado en el sitio web si no cumples con todos los requisitos. En este caso ASF ni siquiera se tomará la molestia de comunicarse con nuestro servidor, por lo que esta sección se omite completamente si intencionalmente no habilitaste `SteamTradeMatcher` para ayudarte a emparejar duplicados. Además, la lista pública es compatible solo con la última versión estable de ASF y puede negarse a mostrar bots desactualizados, especialmente si les falta alguna funcionalidad crucial que solo se puede encontrar en las versiones más recientes.
+
 ### Cómo funciona exactamente
 
 ASF envía información inicial después de iniciar sesión, que contiene todas las propiedades de las que hace uso la lista pública. Luego, cada 10 minutos ASF envía una pequeña solicitud "latido" que notifica a nuestro servidor que el bot todavía está funcionando. Si por alguna razón el latido no llega, por ejemplo debido a problemas de red, entonces ASF intentará enviarlo cada minuto, hasta que el servidor lo registre.
@@ -44,8 +46,6 @@ ASF envía información inicial después de iniciar sesión, que contiene todas 
 Esto permite a nuestro sitio web registrar qué cuentas pueden ser usadas para emparejamiento, así como para registrar si todavía están activas. Gracias a eso, nuestro sitio web puede mostrar todas las cuentas ASF 2FA+STM que estaban activas en los **últimos 15 minutos**.
 
 Los usuarios se ordenan de acuerdo a sus inventarios (en orden descendente) - bots con `MatchEverything` con la etiqueta `Any` que aceptan todos los intercambios 1:1, luego por cantidad de juegos únicos `MatchableTypes`, y finalmente por cantidad de artículos `MatchableTypes`.
-
-Ten en cuenta que **no** serás mostrado en el sitio web si no cumples con todos los requisitos. En este caso ASF ni siquiera se tomará la molestia de comunicarse con nuestro servidor, así que el segundo punto se omite completamente si intencionalmente no habilitaste `SteamTradeMatcher` para ayudarte a emparejar duplicados. Además la lista pública es compatible solo con la última versión estable de ASF y puede negarse a mostrar bots desactualizados, especialmente si les falta alguna funcionalidad crucial que solo se puede encontrar en las versiones más recientes.
 
 ### API
 

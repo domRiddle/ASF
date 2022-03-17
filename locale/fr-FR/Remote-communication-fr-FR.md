@@ -37,6 +37,8 @@ Downloading bots from our listing is mandatory for `MatchActively` setting, you'
 
 Our public ASF STM listing is located on **[our website](https://asf.justarchi.net/STM)** and used as a public service for both ASF users that make use of `MatchActively`, as well as ASF and non-ASF users for manual matching.
 
+Veuillez noter que vous ne serez **pas** affiché sur le site si vous ne remplissez pas toutes les exigences. ASF won't even bother communicating with our server in this case, so this section is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes. Also public listing is compatible only with latest stable version of ASF and may refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
+
 ### Comment ça marche exactement
 
 ASF envoie les données initiales une fois après la connexion, contenant toutes les propriétés que la liste publique utilise. Ensuite, toutes les 10 minutes, ASF envoie une très petite requête de type "pulsation" qui informe notre serveur que le bot est toujours opérationnel. Si, pour une raison quelconque, la pulsation n’arrivait pas, par exemple à cause de problèmes de réseau, ASF tentera de l’envoyer à chaque minute, jusqu’à ce que le serveur l’enregistre.
@@ -44,8 +46,6 @@ ASF envoie les données initiales une fois après la connexion, contenant toutes
 Cela permet à notre site Web d'enregistrer les comptes pouvant être utilisés pour le matching, ainsi que s'ils sont toujours actifs. Grâce à cela, notre site Web peut afficher tous les comptes ASF 2FA + STM actifs au cours des ** 15 dernières minutes </ 0>.</p>
 
 Users are sorted according to their inventories (in descending order) - `MatchEverything` bots with `Any` banner that accept all 1:1 trades, then `MatchableTypes` unique games count, and finally `MatchableTypes` items count.
-
-Veuillez noter que vous ne serez **pas** affiché sur le site si vous ne remplissez pas toutes les exigences. ASF won't even bother communicating with our server in this case, so second point is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes. Also public listing is compatible only with latest stable version of ASF and may refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
 
 ### API
 

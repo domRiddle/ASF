@@ -1,12 +1,12 @@
 # Licence
 
-Sauf indication contraire, ASF est sous licence **[Apache License 2.0.](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)** Pour un aperçu rapide de ce que vous pouvez et ne pouvez pas faire, vous pouvez utiliser **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+Sauf indication contraire, ASF est sous licence **[Apache License 2.0.](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)** Pour un aperçu rapide de ce que vous pouvez et ne pouvez pas faire, vous pouvez utiliser **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
 
 La licence ASF est permissive et vous permet beaucoup plus de possibilités que une licence GPL standard. Elle permet l’utilisation de ASF dans des projets commerciaux sans obligation de rendre le code open source. En bref, comme l'a déclaré tl; dr Legal:
 
 > Vous pouvez faire ce que vous voulez avec le logiciel, à condition d'inclure les avis requis.  Cette licence permissive contient une licence de brevet des contributeurs du code.
 
-En déclarant que ASF est licencié sous la licence **[Apache License 2.](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, nous nous référons au projet principal **seulement**, y compris son code source, sans faire de déclaration sur d'autres projets qu'ASF utilise (notamment les bibliothèques, outils, frameworks et frontends, tels que **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), qui peuvent-être licenciés sous des termes différents.
+By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
 
 -----
 

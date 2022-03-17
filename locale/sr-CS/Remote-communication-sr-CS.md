@@ -37,6 +37,8 @@ Downloading bots from our listing is mandatory for `MatchActively` setting, you'
 
 Naša javna ASF STM lista se nalazi na **[našem websajtu](https://asf.justarchi.net/STM)** i ima svrhu javne upotrebe za ASF korisnike koji koriste funkciju `MatchActively`, kao i ASF i ne-ASF korisnika radi ručnog poklapanja.
 
+Zapamtite da **nećete** biti prikazani na websajtu ako ne ispunjavate sve zahteve. ASF won't even bother communicating with our server in this case, so this section is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes. Takođe, javna lista je kompatabilna samo sa poslednjom stabilnom verzijom ASF-a i ne prikazuje neažurirane botove, posebno ako ne posjeduju glavne funkcionalnosti koje mogu biti u novijim verzijama.
+
 ### Kako to tačno radi
 
 ASF šalje podatke jednom kada se prijavi, a to sadrži sva podešavanja koja javna lista može da iskoristi. Onda, svakih 10 minuta ASF šalje jedan, veoma mali zahtjev koji obavještava server da je bot još aktivan i radi. Ako zbog nekog razloga taj zahtjev ne stige, npr. ako image probleme sa mrežom, onda će ASF ponavljati taj zahtjev svakog minuta, sve dok on ne stigne.
@@ -44,8 +46,6 @@ ASF šalje podatke jednom kada se prijavi, a to sadrži sva podešavanja koja ja
 Ovo nam omogućava da imamo informacije o tome koga možemo spojiti, kao i da li su još aktivni. Zahvaljujući tome, naš websajt može da prikaže sve ASF 2FA+STM naloge koji su aktivni u **zadnjih 15 minuta**.
 
 Nalozi su sortirani u zavisnosti od njihovog inventara (u nizlaznom redu) - `MatchEverything` botovi sa `Any` banerom koji prihvataju 1:1 razmjene, onda `MatchableTypes` unikatne igrice, i na kraju `MatchableTypes` itemi.
-
-Zapamtite da **nećete** biti prikazani na websajtu ako ne ispunjavate sve zahteve. ASF neće u tom slučaju ni pokušavati da komunicira sa našim serverom, pa je druga tačka skroz preskočena ako niste namjerno omogućili `SteamTradeMatcher` radi pomoći oko razmjene duplikata. Takođe, javna lista je kompatabilna samo sa poslednjom stabilnom verzijom ASF-a i ne prikazuje neažurirane botove, posebno ako ne posjeduju glavne funkcionalnosti koje mogu biti u novijim verzijama.
 
 ### API
 

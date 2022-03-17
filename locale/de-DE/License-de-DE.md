@@ -1,12 +1,12 @@
 # Li­zen­zie­rung
 
-Sofern nicht anders angegeben ist ASF unter **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)** lizenziert. Für einen schnellen Überblick was du tun kannst und was nicht, kannst du **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))** verwenden.
+Sofern nicht anders angegeben ist ASF unter **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)** lizenziert. Für einen schnellen Überblick was du tun kannst und was nicht, kannst du **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))** verwenden.
 
 Die ASF-Lizenz ist sehr freizügig und du darfst viel mehr tun als in der Standard-GPL-Lizenz, einschließlich der Verwendung von ASF in kommerziellen Projekten, ohne dass du den Quellcode Open-Source machen musst. Kurz gesagt, wie von tl;dr Legal angegeben:
 
 > Sie können mit der Software tun was du willst, solange du die erforderlichen Hinweise beifügst. Diese freizügige Lizenz enthält eine Patent-Lizenz von den Mitwirkenden des Quellcodes.
 
-By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE-2.0.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
+By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
 
 -----
 
