@@ -24,15 +24,15 @@ Wenn der Sprache Ihrer Wahl noch einige Zeichenketten fehlen, kannst du sie Ihre
 
 Zum Beispiel könntest du folgende Zeichenkette haben:
 
-> We have {0} games to farm.
+> Wir haben {0} Spiele zu Sammeln.
 
 Aber basierend auf Ihrer Sprache könnte folgender Satz mehr Sinn machen:
 
-> The number of games to farm is equal to {0}.
+> Die Anzahl der Spiele die zu sammeln sind ist equivalent zu {0}.
 
 Oder:
 
-> {0} is the number of games to farm.
+> {0} ist die Anzahl der Spiele, die wir sammeln können.
 
 Diese Flexibilität wird speziell für Sie bereitgestellt, sodass Sie den ASF-Satz leicht umformulieren können, um ihn besser an eine Sprache anzupassen und die von ASF bereitgestellte Nummer oder andere Informationen an einen Ort zu verschieben, der zu der Übersetzung passt (anstatt jeden Teil unabhängig zu übersetzen). Das Verbessert die allgemeine Übersetzungsqualität.
 
