@@ -47,7 +47,7 @@ Se você fez tudo certo, seu `csproj` será semelhante ao exemplo abaixo:
   <ItemGroup>
     <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
 
-    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
+    <!-- Se estiver compilando como parte da árvore de origem do ASF, use isso ao invés da <Reference> acima-->
     <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
@@ -62,12 +62,12 @@ using System.Threading.Tasks;
 using ArchiSteamFarm;
 using ArchiSteamFarm.Plugins;
 
-namespace YourNamespace.YourPluginName;
+namespace SeuNamespace.NomeDoSeuPlugin;
 
 [Export(typeof(IPlugin))]
-public sealed class YourPluginName : IPlugin {
-    public string Name => nameof(YourPluginName);
-    public Version Version => typeof(YourPluginName).Assembly.GetName().Version;
+public sealed class NomeDoSeuPlugin : IPlugin {
+    public string Name => nameof(NomeDoSeuPlugin);
+    public Version Version => typeof(NomeDoSeuPlugin).Assembly.GetName().Version;
 
     public Task OnLoaded() {
         ASF.ArchiLogger.LogGenericInfo("Meow");
@@ -92,7 +92,7 @@ Após isso seu plugin estará pronto. Como exatamente você quer distribuir e pu
 
 Esse é o cenário mais básico, apenas para começar. Temos o projeto **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** que mostra interfaces e ações que você pode fazer dentro do seu próprio plugin, incluindo comentários úteis. Sinta-se livre para dar uma olhada se você quiser aprender com um código funcional, ou explore o namespace `ArquiSteamFarm.Plugins` por sua conta e consulte a documentação incluída para todas as opções disponíveis.
 
-If instead of example plugin you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. Além disso há outros plugins desenvolvidos por outros, na nossa seção **[aplicativos de terceiros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-pt-BR#plugins-para-o-asf)**.
+Se em vez do plug-in de exemplo, você quiser aprender com projetos reais, há o plug-in **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** desenvolvido por nós, que vem acompanhado junto ao ASF. Além disso há outros plugins desenvolvidos por outros, na nossa seção **[aplicativos de terceiros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-pt-BR#plugins-para-o-asf)**.
 
 ---
 
@@ -134,6 +134,6 @@ Native dependencies are generated as part of OS-specific builds, as there is no 
 
 Isto nunca será um problema com as compilações genéricas, pois elas nunca lidam com dependências nativas (pois elas têm um tempo de execução completo no host, executando o ASF). Essa também é uma solução automática para o problema: **use seu plugin exclusivamente em compilações genéricas**, mas obviamente isso tem seu lado ruim, o de privar usuários que rodem compilações específicas para SO de usarem seu plugin no ASF. Se você estiver se perguntando se seu problema está relacionado a dependências nativas, você pode usar este método para verificação, carregue seu plugin em uma compilação genérica do ASF e veja se ele funciona. Caso positivo, tudo estará certo com as dependencias do pugin e os problemas estão sendo causados pelas dependencias nativas.
 
-Infelizmente, tivemos que fazer uma escolha difícil entre publicar todo o tempo de execução como parte de nossas compilações específicas para SO, ou cortar os recursos não utilizados deixanto a compilação final com cerca de 50 MB a menos em comparação a versão completa. Nós escolhemos a segunda opção, e infelizmente é impossível para você incluir os recursos que faltam no tempo de execução juntamente com seu plugin. Se seu projeto requer acesso aos recursos de tempo de execução que não foram utilizados, você terá que incluir o tempo de execução .NET que você precisa completo, e isso significa executar seu plugin junto com a versão `generic` do ASF. You can't run your plugin in OS-specific builds, as those builds are simply missing a runtime feature that you need, and .NET runtime as of now is unable to "merge" native dependency that you could've provided with our own. Talvez isso melhore um dia no futuro, mas a no momento simplesmente não é possível.
+Infelizmente, tivemos que fazer uma escolha difícil entre publicar todo o tempo de execução como parte de nossas compilações específicas para SO, ou cortar os recursos não utilizados deixanto a compilação final com cerca de 50 MB a menos em comparação a versão completa. Nós escolhemos a segunda opção, e infelizmente é impossível para você incluir os recursos que faltam no tempo de execução juntamente com seu plugin. Se seu projeto requer acesso aos recursos de tempo de execução que não foram utilizados, você terá que incluir o tempo de execução .NET que você precisa completo, e isso significa executar seu plugin junto com a versão `generic` do ASF. Você não pode executar seu plugin em compilações específicas para SO, já que essas compilações simplesmente não possuem um recurso do tempo de execução que você precisa, e o tempo de execução do .NET runtime é incapaz de "mesclar" a dependência nativa que você poderia ter fornecido à nossa. Talvez isso melhore um dia no futuro, mas no momento simplesmente não é possível.
 
 As compilações específicas de SO do ASF incluem o mínimo de funcionalidades adicionais que são necessárias para executar nossos plugins oficiais. Ele também expande ligeiramente a quantidade de dependências adicionais que podem ser necessárias para os plug-ins mais básicos. Portanto, nem todos os plugins vão precisar se preocupar com dependências nativas - apenas aqueles que vão além do que o ASF e nossos plugins oficiais precisam diretamente. Isso é feito como em extra, porque se nós precisarmos incluir dependências adicionais para nossos propósitos, podemos simplesmente fornecê-las diretamente ao ASF, tornando-as disponíveis para você também.
