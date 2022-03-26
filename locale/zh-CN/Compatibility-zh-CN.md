@@ -24,7 +24,7 @@ Generic 包是一个与平台无关的版本，所以它不包含特定于计算
 
 #### .NET 框架包
 
-除了上面提到的 Generic 包，我们也提供 `Generic-netf` 包，它基于 .NET 框架而非 .NET（Core）。 该包是一种旧式包，它补全了从 ASF V2 时代即已知的兼容性缺失，并且可以使用 **[Mono](https://www.mono-project.com)** 运行，而来自 .NET 的 `Generic` 包则无法用于 Mono。
+除了上面提到的 Generic 包，我们也提供 `Generic-netf` 包，它基于 .NET 框架而非 .NET（Core）。 该包是一种旧式包，它补全了如今缺少的 ASF V2 时代的兼容性，并且可以使用 **[Mono](https://www.mono-project.com)** 运行，而来自 .NET 的 `Generic` 包则无法用于 Mono。
 
 通常，您应该**尽量避免使用此程序包**，因为大多数操作系统都完全（并且更好地）支持上面提到的 `Generic` 包。 事实上，这个软件包只适用于缺乏 .NET 运行时环境，但能够运行 Mono 的平台。 此类平台包括 `linux-x86`（32 位 i386/i686 Linux），以及 `linux-armel`（Raspberry Pi 0 & 1 等开发板所用的 ARMv6），目前官方尚未提供这些平台可用的 .NET 运行时环境。
 
@@ -38,12 +38,12 @@ Generic 包是一个与平台无关的版本，所以它不包含特定于计算
 
 ASF 目前提供以下几种 OS-specific 包：
 
-- `win-x64`，支持 64 位 Windows 操作系统。 包括 Windows 7 SP1+、8.1、10、11、Server 2012+ 以及未来的版本。 Windows 7 需要安装 **[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#安装-generic-包)** 包，并且对其支持非常有限，您在此系统下运行 ASF 可能会遇到问题。 我们强烈建议您尽快更新，因为将来版本的 ASF 可能会完全不能在此系统运行，更不用说这个操作系统已经在 2020 年寿终正寝。
 - `linux-arm`，支持 32 位基于 ARM（ARMv7+）的 GNU/Linux 操作系统。 包括所有支持当前和未来版本 GNU/Linux 操作系统（例如 Raspberry Pi OS）的平台，例如 Raspberry Pi 2（或更新版本）。 此包**不**支持更早的 ARM 架构，例如 Raspberry Pi 0 & 1 使用的 ARMv6，也不支持未实现所需 GNU/Linux 环境的操作系统（例如 Android）。
 - `linux-arm64`，支持 64 位基于 ARM（ARMv8+）的 GNU/Linux 操作系统。 包括所有支持当前和未来版本 AArch64 GNU/Linux 操作系统（例如 Debian）的平台，例如 Raspberry Pi 3（或更新版本）。 此包**不**支持 32 位操作系统（例如 Raspberry Pi OS），因为它们缺少所需的 64 位库，也不支持未实现所需 GNU/Linux 环境的操作系统（例如 Android）。
 - `linux-x64` 支持 64 位 GNU/Linux 操作系统。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu、OpenSUSE/SLES 等很多操作系统以及它们的衍生版的当前和未来版本。
 - `osx-arm64` 支持 64 位 ARM 架构（Apple silicon）的 macOS。 包括 11 及更新版本。
 - `osx-x64` 支持 64 位 macOS 操作系统。 包括 10.15 及更新版本。
+- `win-x64`，支持 64 位 Windows 操作系统。 包括 Windows 8.1、10、11、Server 2012+ 以及未来的版本。 Windows 7 需要安装 **[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#安装-generic-包)** 包，并且对其支持非常有限，您在此系统下运行 ASF 可能会遇到问题。 我们强烈建议您尽快更新，因为将来版本的 ASF 可能会完全不能在此系统运行，更不用说这个操作系统已经在 2020 年寿终正寝。
 
 当然，即使没有适合您操作系统及架构的 OS-specific 包，您也可以手动安装适当的 .NET 运行时环境并运行 Generic ASF 包，这也是这个包存在的主要原因。 Generic ASF 包与平台无关，可在任何具有可用 .NET 运行时环境的平台上运行。 需要注意——ASF 需要的是 .NET 运行时环境，而不是特定的操作系统或架构。 例如，如果您使用的是 32 位 Windows，但 ASF 没有 `win-x86` 版本，您仍然可以安装 `win-x86` 版本的 .NET SDK，然后运行 Generic 版本的 ASF。 我们无法为所有操作系统和架构组合都生成一份可执行文件，所以我们为此画下一道分隔线。 x86 就是这条线之一，因为这种架构自 2004 年开始就过时了。
 
