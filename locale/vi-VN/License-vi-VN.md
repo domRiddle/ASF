@@ -1,12 +1,12 @@
 # Giấy phép
 
-Trừ khi được quy định khác, ASF được cấp phép dưới **[Giấy phép Apache 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**. Cho một cách nhìn tổng quan về việc bạn có thể và không thể làm, bạn có thể sử dụng **[tl;dr Pháp luật](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+Trừ khi được quy định khác, ASF được cấp phép dưới **[Giấy phép Apache 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**. Cho một cái nhìn tổng quan về những điều có thể và không thể làm, bạn có thể tham khảo **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
 
-Giấy phép ASF rất dễ dãi và bạn được phép làm nhiều thứ hơn so với giấy phép chuẩn GPL, bao gồm sử dụng ASF trong các dự án thương mại mà không cần làm mã nguồn mở. Ngắn gọn, như đã nêu bởi tl;dr Pháp luật:
+Giấy phép ASF rất dễ dãi và bạn được phép làm nhiều thứ hơn so với giấy phép chuẩn GPL, bao gồm sử dụng ASF trong các dự án thương mại mà không cần làm mã nguồn mở. Ngắn gọn, như đã nêu bởi tl;dr Legal:
 
 > Bạn có thể làm bất kì điều gì bạn thích với phần mềm, miễn là bạn bao gồm các thông báo yêu cầu. Giấy phép dễ dãi này chứa một giấy phép bằng sáng chế từ những người đóng góp cho mã nguồn.
 
-By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
+Việc tuyên bố rằng ASF được cấp phép dưới **[Giấy phép Apache 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**, nghĩa là chúng tôi **chỉ** đề cập tới dự án chính, bao gồm mã nguồn của nó, mà không đưa ra thêm bất kỳ tuyên bố nào về các dự án khác mà ASF sử dụng (đặc biệt là các thư viện, công cụ, khung framework và giao diện người dùng, chẳng hạn như **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), thứ mà thường được cấp phép dưới các điều khoản khác nhau.
 
 -----
 
