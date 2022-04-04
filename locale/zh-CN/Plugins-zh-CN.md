@@ -135,4 +135,4 @@ dotnet publish YourPluginName -c "Release" -o "out"
 
 不幸的是，我们必须做出一个难以抉择的决定，一是在特定操作系统构建中打包完整的运行时环境，二是删除其中未被使用的部分，使构建能比完整版本减少超过 50 MB。 我们选择了后者，因而，您无法在您的插件中使用运行时环境缺失的功能。 如果您的项目需要使用这些功能，就必须包含您依赖的完整的 .NET 运行时环境，这意味着您的插件需要与 ASF 的 `generic` 版本一起使用。 您无法在特定操作系统版本中使用此插件，因为那些版本缺少您所需的运行时环境功能，而 .NET 运行时环境目前无法支持“合并”您自己额外提供的本机依赖项。 也许在将来某天会支持，但现在不可能做到。
 
-ASF 的特定操作系统构建已包含运行我们官方插件的最基本额外功能。 除此之外，这也稍微扩展为大多数基础插件可用的额外依赖项。 因此，不是所有插件都需要担心本机依赖项——只有超越 ASF 与其官方插件功能的插件才需要考虑。 这是额外提供的，因为如果我们需要为我们自己的需求添加额外的本机依赖项，就可以直接把它们与 ASF 一同打包，使您可以更容易地使用它们。
+ASF 的特定操作系统构建已包含运行我们官方插件的最基本额外功能。 除此之外，这也稍微扩展为大多数基础插件可用的额外依赖项。 因此，不是所有插件都需要担心本机依赖项——只有超越 ASF 与其官方插件功能的插件才需要考虑。 这是额外提供的，因为如果我们需要为我们自己的需求添加额外的本机依赖项，就可以直接把它们与 ASF 一同打包，使您可以更容易地使用它们。 Unfortunately, this is not always enough, and as your plugin gets bigger and more complex, the likelihood of running into trimmed functionality increases. Therefore, we usually recommend you to run your custom plugins in `generic` ASF flavour exclusively. You can still manually verify that OS-specific build of ASF has everything that your plugin requires for its functionality - but since that changes on your updates as well as ours, it might be tricky to maintain.
