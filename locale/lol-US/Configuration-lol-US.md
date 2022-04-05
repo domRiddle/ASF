@@ -539,7 +539,7 @@ THAR IZ ALSO IDLIN PRIORITY KEW DAT IZ ACCESIBLE THRU `fq` **[COMMANDZ](https://
 | 12    | MiniProfileBackground | SPESHUL BAKGROUND 4 STEAM PROFILE                       |
 | 13    | AvatarProfileFrame    | SPESHUL AVATAR FRAME 4 STEAM PROFILE                    |
 | 14    | AnimatedAvatar        | SPESHUL ANIMATD AVATAR 4 STEAM PROFILE                  |
-| 15    | KeyboardSkin          | Special keyboard skin for Steam deck                    |
+| 15    | KeyboardSkin          | SPESHUL KEYBORD SKIN 4 STEAM DECK                       |
 
 PLZ NOWT DAT REGARDLES OV TEH SETTINGS ABOOV, ASF WILL ONLY ASK 4 STEAM (`appID` OV 753) COMMUNITY (`contextID` OV 6) ITEMS, SO ALL GAME ITEMS, GIFTS AN LIKEWIZE, R EXCLUDD FRUM TEH TRADE OFFR BY DEFINISHUN.
 
@@ -568,7 +568,7 @@ DEFAULT ASF SETTIN IZ BASD ON TEH MOST COMMON USAGE OV TEH BOT, WIF LOOTIN ONLY 
 | 12    | MiniProfileBackground | SPESHUL BAKGROUND 4 STEAM PROFILE                       |
 | 13    | AvatarProfileFrame    | SPESHUL AVATAR FRAME 4 STEAM PROFILE                    |
 | 14    | AnimatedAvatar        | SPESHUL ANIMATD AVATAR 4 STEAM PROFILE                  |
-| 15    | KeyboardSkin          | Special keyboard skin for Steam deck                    |
+| 15    | KeyboardSkin          | SPESHUL KEYBORD SKIN 4 STEAM DECK                       |
 
 OV COURSE, TYPEZ DAT U SHUD USE 4 DIS PROPERTY TYPICALLY INCLUDE ONLY `2`, `3`, `4` AN `5`, AS ONLY DOSE TYPEZ R SUPPORTD BY STM. ASF INCLUDEZ PROPR LOGIC 4 DISCOVERIN RARITY OV TEH ITEMS, THEREFORE IZ ALSO SAFE 2 MATCH EMOTICONS OR BAKGROUNDZ, AS ASF WILL PROPERLY CONSIDR FAIR ONLY DOSE ITEMS FRUM TEH SAME GAME AN TYPE, DAT ALSO SHARE TEH SAME RARITY.
 
@@ -808,7 +808,7 @@ PLZ NOTICE DAT DIS PROPERTY IZ `flags` FIELD, THEREFORE IZ POSIBLE 2 CHOOSE ANY 
 | 12    | MiniProfileBackground | SPESHUL BAKGROUND 4 STEAM PROFILE                       |
 | 13    | AvatarProfileFrame    | SPESHUL AVATAR FRAME 4 STEAM PROFILE                    |
 | 14    | AnimatedAvatar        | SPESHUL ANIMATD AVATAR 4 STEAM PROFILE                  |
-| 15    | KeyboardSkin          | Special keyboard skin for Steam deck                    |
+| 15    | KeyboardSkin          | SPESHUL KEYBORD SKIN 4 STEAM DECK                       |
 
 PLZ NOWT DAT REGARDLES OV TEH SETTINGS ABOOV, ASF WILL ONLY ASK 4 STEAM (`appID` OV 753) COMMUNITY (`contextID` OV 6) ITEMS, SO ALL GAME ITEMS, GIFTS AN LIKEWIZE, R EXCLUDD FRUM TEH TRADE OFFR BY DEFINISHUN.
 
