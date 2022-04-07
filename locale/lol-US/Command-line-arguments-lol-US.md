@@ -72,6 +72,10 @@ DUE 2 TEH NACHUR OV DIS PROPERTY, IZ ALSO POSIBLE 2 SET TEH VALUE BY DECLARIN `A
 
 ---
 
+`--no-steam-parental-generation` - by default ASF will automatically attempt to generate Steam parental PINs, as described in **[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamparentalcode)** configuration property. However, since that might require excessive amount of OS resources, this switch allows you to disable that behaviour, which will result in ASF skipping auto-generation and go straight to asking user for PIN instead, which is what would normally happen only if the auto-generation has failed. Usually we recommend to keep the generation enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+
+---
+
 `--path <path>` OR `--path=<path>` - ASF ALWAYS NAVIGATEZ 2 ITZ OWN DIRECTORY ON STARTUP. BY SPECIFYIN DIS ARGUMENT, ASF WILL NAVIGATE 2 GIVEN DIRECTORY AFTR INITIALIZASHUN, WHICH ALLOWS U 2 USE CUSTOM PATH 4 VARIOUS APPLICASHUN PARTS (INCLUDIN `config`, `plugins` AN `www` DIRECTORIEZ, AS WELL AS `NLog.config` FILE), WITHOUT NED OV DUPLICATIN BINARY IN DA SAME PLACE. IT CUD COME ESPECIALLY USEFUL IF UD LIEK 2 SEPARATE BINARY FRUM AKSHUL CONFIG, AS IZ DUN IN LINUX-LIEK PACKAGIN - DIS WAI U CAN USE WAN (UP-2-DATE) BINARY WIF SEVERAL DIFFERENT SETUPS. TEH PATH CAN BE EITHR RELATIV ACCORDIN 2 CURRENT PLACE OV ASF BINARY, OR ABSOLUTE. KEEP IN MIND DAT DIS COMMAND POINTS 2 NEW "ASF HOME" - TEH DIRECTORY DAT HAS TEH SAME STRUCCHUR AS ORIGINAL ASF, WIF CONFIG DIRECTORY INSIDE, C BELOW EXAMPLE 4 EXPLANASHUN.
 
 DUE 2 TEH NACHUR OV DIS PROPERTY, IZ ALSO POSIBLE 2 SET EXPECTD PATH BY DECLARIN `ASF_PATH` ENVIRONMENT VARIABLE, WHICH CUD BE MOAR APPROPRIATE 4 PEEPS DAT WUD WANTS 2 AVOID SENSITIV DETAILS IN DA PROCES ARGUMENTS.

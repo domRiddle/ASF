@@ -729,9 +729,9 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ### `SteamParentalCode`
 
-这是一个默认值为 `null` 的 `string` 类型属性。 该属性定义您的 Steam 家庭监护 PIN 代码。 ASF 需要有权限访问由 Steam 家庭监护保护的资源，因此如果您的帐户启用了家庭监护，就需要将家庭监护解锁 PIN 提供给 ASF，使它能够正常运行。 默认值 `null` 表示无需 Steam 家庭监护 PIN 解锁此帐户，如果您没有启用家庭监护功能，就不需要更改。 除了在配置文件内输入 Steam 家庭监护 PIN 代码，您还可以使用 `0` 值，并在 ASF 每次启动并需要此代码时手动输入。 如果您不希望在文件中保存敏感信息，这是更好的方法。
+这是一个默认值为 `null` 的 `string` 类型属性。 该属性定义您的 Steam 家庭监护 PIN 代码。 ASF 需要有权限访问由 Steam 家庭监护保护的资源，因此如果您的帐户启用了家庭监护，就需要将家庭监护解锁 PIN 提供给 ASF，使它能够正常运行。 默认值 `null` 表示无需 Steam 家庭监护 PIN 解锁此帐户，如果您没有启用家庭监护功能，就不需要更改。
 
-在有限的情况下，ASF 也能够自动生成有效的家庭监护代码，但这需要消耗大量的系统资源和时间来完成，并且也不能保证一定成功，因此我们不建议您依赖此功能，而是在配置文件内手动指定有效的 `SteamParentalCode` 值。
+在有限的情况下，ASF 也能够自动生成有效的家庭监护代码，但这需要消耗大量的系统资源和时间来完成，并且也不能保证一定成功，因此我们不建议您依赖此功能，而是在配置文件内手动指定有效的 `SteamParentalCode` 值。 If ASF determines that PIN is required, and it'll be unable to generate one on its own, it'll ask you for input.
 
 ---
 

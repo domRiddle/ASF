@@ -72,6 +72,10 @@ Datorită naturii acestei proprietăți, este posibilă și setarea cheii de cri
 
 ---
 
+`--no-steam-parental-generation` - by default ASF will automatically attempt to generate Steam parental PINs, as described in **[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamparentalcode)** configuration property. However, since that might require excessive amount of OS resources, this switch allows you to disable that behaviour, which will result in ASF skipping auto-generation and go straight to asking user for PIN instead, which is what would normally happen only if the auto-generation has failed. Usually we recommend to keep the generation enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+
+---
+
 `--path <path>` sau `--path<path>` - ASF navigează întotdeauna spre propriul său director la pornire. Prin specificarea acestui argument, ASF va naviga la un anumit director după inițializare, care vă permite să utilizaţi calea personalizată pentru diferite componente ale aplicaţiei (inclusiv directoarele`config`, `plugins` și `www`, precum și fișierul `NLog.config`), fără a fi nevoie de duplicarea binarului în același loc. Poate fi folositor mai ales dacă doriţi să separaţi binarul de configurarea reală, aşa cum este făcut în ambalajul din Linux - în acest fel puteţi folosi un binar (actualizat) cu mai multe configurări diferite. Calea poate fi relativă în funcție de locul curent al sistemului binar ASF, sau absolut. Țineți cont că această comandă indică către noul "ASF home" - directorul care are aceeași structură ca ASF original, cu folderul de configurare înăuntru, vezi mai jos exemplul de explicație.
 
 Datorită naturii acestei proprietăți, este posibil să setezi calea așteptată prin declararea variabilei `ASF_PATH`, care ar putea fi mai potrivite pentru persoanele care ar dori să evite detaliile sensibile în argumentele procesului.

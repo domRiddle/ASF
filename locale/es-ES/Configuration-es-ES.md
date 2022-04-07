@@ -729,9 +729,9 @@ Tipo `ulong` con valor predeterminado de `0`. Esta propiedad define el steamID d
 
 ### `SteamParentalCode`
 
-Tipo `string` con valor predeterminado de `null`. Esta propiedad define el PIN del modo familiar. ASF requiere acceso a recursos protegidos por el modo familiar, por lo tanto si usas esa función, debes proporcionar el PIN del modo familiar, para que pueda funcionar normalmente. El valor por defecto de `null` significa que no se requiere un PIN del modo familiar para desbloquear esta cuenta, y esto es probablemente lo que quieres si no usas la funcionalidad del modo familiar. Además de definir el PIN del modo familiar, también puedes usar el valor de `0` si quieres introducir tu PIN del modo familiar en cada inicio de ASF, cuando sea necesario, en vez de ponerlo en la configuración. Esto puede ser útil si no quieres guardar datos confidenciales en el archivo de configuración.
+Tipo `string` con valor predeterminado de `null`. Esta propiedad define el PIN del modo familiar. ASF requiere acceso a recursos protegidos por el modo familiar, por lo tanto si usas esa función, debes proporcionar el PIN del modo familiar, para que pueda funcionar normalmente. El valor por defecto de `null` significa que no se requiere un PIN del modo familiar para desbloquear esta cuenta, y esto es probablemente lo que quieres si no usas la funcionalidad del modo familiar.
 
-En circunstancias limitadas, ASF también es capaz de generar por sí mismo un PIN del modo familiar válido, aunque eso requiere una gran cantidad de recursos del sistema operativo y tiempo adicional para terminar, sin mencionar que no se garantiza que tenga éxito, por lo tanto recomendamos no confiar en esa función y en su lugar poner un `SteamParentalCode` válido en la configuración para que utilice ASF.
+En circunstancias limitadas, ASF también es capaz de generar por sí mismo un PIN del modo familiar válido, aunque eso requiere una gran cantidad de recursos del sistema operativo y tiempo adicional para terminar, sin mencionar que no se garantiza que tenga éxito, por lo tanto recomendamos no confiar en esa función y en su lugar poner un `SteamParentalCode` válido en la configuración para que utilice ASF. Si ASF determina que se requiere el código, y no será capaz de generarlo por sí mismo, solicitará que lo ingreses.
 
 ---
 

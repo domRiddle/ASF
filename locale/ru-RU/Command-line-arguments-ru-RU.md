@@ -72,6 +72,10 @@ Linux/OS X:
 
 ---
 
+`--no-steam-parental-generation` - by default ASF will automatically attempt to generate Steam parental PINs, as described in **[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamparentalcode)** configuration property. However, since that might require excessive amount of OS resources, this switch allows you to disable that behaviour, which will result in ASF skipping auto-generation and go straight to asking user for PIN instead, which is what would normally happen only if the auto-generation has failed. Usually we recommend to keep the generation enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+
+---
+
 `--path <path>` или `--path=<path>` - ASF всегда использует папку из которой был запущен. При использовании этого аргумента ASF будет переходить после инициализации в указанную папку, что позволяет вам использовать произвольный путь для различных частей приложения (включая папки `config`, `plugins` и `www`, а также файл `NLog.config`), без необходимости дублировать исполняемый файл в заданном месте. Это может оказаться особенно полезно если вы хотите разделить исполняемые файлы от собственно файлов конфигурации, как это делается в пакетах Linux - таким образом вы можете использовать один (обновляемый) исполняемый файл с несколькими разными наборами конфигураций. Путь может быть как относительный, по отношению к текущему расположению исполняемого файла ASF, так и абсолютный. Не забывайте, что этот параметр указывает на новую "домашнюю папку ASF" - папку, которая имеет такую же структуру как оригинальная папка ASF, с папкой config внутри неё, см. пример ниже для пояснения.
 
 Из-за природы этого параметра также есть возможность задавать необходимый путь с помощью задания переменной среды `ASF_PATH`, это может оказаться более подходящим для людей, которые хотели бы избежать наличия конфиденциальной информации в аргументах процесса.

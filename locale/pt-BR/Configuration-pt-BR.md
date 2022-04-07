@@ -539,7 +539,7 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | 12    | MiniProfileBackground | Plano de fundo especial para o perfil Steam                                 |
 | 13    | AvatarProfileFrame    | Moldura do avatar especial para o perfil Steam                              |
 | 14    | AnimatedAvatar        | Avatar animado especial para o perfil Steam                                 |
-| 15    | KeyboardSkin          | Special keyboard skin for Steam deck                                        |
+| 15    | KeyboardSkin          | Skin especial de teclado para Steam deck                                    |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 
@@ -729,9 +729,9 @@ Tipo `ulong` com o valor padrão `0`. Esta propriedade define a steamID do grupo
 
 ### `SteamParentalCode`
 
-Tipo `string` com o valor padrão `null`. Essa propriedade define o seu PIN de acesso ao Modo Família. O ASF requer acesso a recursos protegidos pelo modo família, portanto se você usa esse recurso, você precisa fornecer ao ASF o PIN de desbloqueio, assim ele poderá operar normalmente. O valor padrão `null` significa que não há um PIN necessário para desbloquear esta conta, e isso é o que você precisa se você não usa o modo família. Além de definir o PIN aqui, você também pode usar o valor `0` se desejar digitar seu PIN de acesso em cada inicialização do ASF, quando necessário, em vez de colocá-lo na configuração. Isso pode ser útil para você se você não quiser salvar dados confidenciais no arquivo de configuração.
+Tipo `string` com o valor padrão `null`. Essa propriedade define o seu PIN de acesso ao Modo Família. O ASF requer acesso a recursos protegidos pelo modo família, portanto se você usa esse recurso, você precisa fornecer ao ASF o PIN de desbloqueio, assim ele poderá operar normalmente. O valor padrão `null` significa que não há um PIN necessário para desbloquear esta conta, e isso é o que você precisa se você não usa o modo família.
 
-Em circunstâncias limitadas, o ASF também estará apto a gerar um código por conta própria, embora isso requira uma quantidade considerável de recursos do Sistema Operacional e tempo adicional, e ainda não é garantido que funcione, portanto nós recomendamos não contar com esse recurso e ao invés disso colocar um `SteamParentalCode` válido no arquivo de configuração para que o ASF o utilize.
+Em circunstâncias limitadas, o ASF também estará apto a gerar um código por conta própria, embora isso requira uma quantidade considerável de recursos do Sistema Operacional e tempo adicional, e ainda não é garantido que funcione, portanto nós recomendamos não contar com esse recurso e ao invés disso colocar um `SteamParentalCode` válido no arquivo de configuração para que o ASF o utilize. If ASF determines that PIN is required, and it'll be unable to generate one on its own, it'll ask you for input.
 
 ---
 
@@ -808,7 +808,7 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | 12    | MiniProfileBackground | Plano de fundo especial para o perfil Steam                                       |
 | 13    | AvatarProfileFrame    | Moldura do avatar especial para o perfil Steam                                    |
 | 14    | AnimatedAvatar        | Avatar animado especial para o perfil Steam                                       |
-| 15    | KeyboardSkin          | Special keyboard skin for Steam deck                                              |
+| 15    | KeyboardSkin          | Skin especial de teclado para Steam deck                                          |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 
