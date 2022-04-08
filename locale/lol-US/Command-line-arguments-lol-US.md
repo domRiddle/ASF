@@ -72,7 +72,7 @@ DUE 2 TEH NACHUR OV DIS PROPERTY, IZ ALSO POSIBLE 2 SET TEH VALUE BY DECLARIN `A
 
 ---
 
-`--no-steam-parental-generation` - by default ASF will automatically attempt to generate Steam parental PINs, as described in **[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamparentalcode)** configuration property. However, since that might require excessive amount of OS resources, this switch allows you to disable that behaviour, which will result in ASF skipping auto-generation and go straight to asking user for PIN instead, which is what would normally happen only if the auto-generation has failed. Usually we recommend to keep the generation enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-steam-parental-generation` - BY DEFAULT ASF WILL AUTOMATICALLY ATTEMPT 2 GENERATE STEAM PARENTAL PINS, AS DESCRIBD IN **[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#steamparentalcode)** CONFIGURASHUN PROPERTY. HOWEVR, SINCE DAT MITE REQUIRE EXCESIV AMOUNT OV OS RESOURCEZ, DIS SWITCH ALLOWS U 2 DISABLE DAT BEHAVIOUR, WHICH WILL RESULT IN ASF SKIPPIN AUTO-GENERASHUN AN GO STRAIGHT 2 ASKIN USR 4 PIN INSTEAD, WHICH IZ WUT WUD NORMALLY HAPPEN ONLY IF TEH AUTO-GENERASHUN HAS FAILD. USUALLY WE RECOMMEND 2 KEEP TEH GENERASHUN ENABLD, BUT IF U HAS PARTICULAR REASON 4 DISABLIN IT AN WUD INSTEAD PREFR ASF 2 NOT DO DAT, U CAN USE DIS SWITCH 4 ACHIEVIN DAT PURPOSE.
 
 ---
 

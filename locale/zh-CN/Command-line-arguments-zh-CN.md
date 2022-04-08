@@ -72,7 +72,7 @@ Linux/macOS：
 
 ---
 
-`--no-steam-parental-generation` - by default ASF will automatically attempt to generate Steam parental PINs, as described in **[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamparentalcode)** configuration property. However, since that might require excessive amount of OS resources, this switch allows you to disable that behaviour, which will result in ASF skipping auto-generation and go straight to asking user for PIN instead, which is what would normally happen only if the auto-generation has failed. Usually we recommend to keep the generation enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-steam-parental-generation`——ASF 默认会自动尝试生成 Steam 家庭监护 PIN 代码，如 **[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#steamparentalcode)** 配置属性所述。 然而，因为这可能会需要过多操作系统资源，此开关允许您禁用此行为，这会使 ASF 跳过自动生成，直接向用户询问 PIN 代码，就像正常情况下自动生成失败时一样。 通常我们建议启用自动生成，但如果您有特定的禁用理由，不希望 ASF 自动生成，就可以用此开关达成目的。
 
 ---
 
