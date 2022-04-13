@@ -18,15 +18,17 @@ Si quieres usar el registro por defecto de ASF sin modificaciones, no necesitas 
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" archiveFileName="${currentdir}/logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="${currentdir}/log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
+
     <!-- Lo siguiente se activa cuando se inicia la interfaz IPC de ASF -->
-    <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
+    <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" />
   </targets>
 
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
     <logger name="*" minlevel="Debug" writeTo="File" />
+
     <!-- Lo siguiente se activa cuando se inicia la interfaz IPC de ASF -->
-    <!-- <logger name="*" minlevel="Debug" writeTo="History" /> -->
+    <logger name="*" minlevel="Debug" writeTo="History" />
   </rules>
 </nlog>
 ```
@@ -39,13 +41,13 @@ ASF incluye algunos trucos de código que mejoran su integración con NLog, perm
 
 La variable `${logger}` específica de NLog siempre distinguirá el origen del mensaje - será `BotName` de uno de tus bots, o `ASF` si el mensaje viene directamente del proceso de ASF. Así puedes captar mensajes fácilmente considerando bots específicos, o el proceso de ASF (solo), en lugar de todos ellos, basado en el nombre del logger.
 
-ASF intenta marcar los mensaje de forma adecuada basándose en los niveles de advertencia proporcionados por NLog, lo que hace posible captar solo mensajes específicos de niveles de registro específicos en lugar de todos ellos. Por supuesto, el nivel de registro para un mensaje específico no puede ser personalizado, ya que es decisión de ASF qué tan importante es un mensaje determinado, pero definitivamente puedes hacer a ASF menos/más silencioso, como te parezca oportuno.
+ASF intenta marcar los mensaje de forma adecuada basándose en los niveles de registro proporcionados por NLog, lo que hace posible captar solo mensajes específicos de niveles de registro específicos en lugar de todos ellos. Por supuesto, el nivel de registro para un mensaje específico no puede ser personalizado, ya que es decisión de ASF qué tan importante es un mensaje determinado, pero definitivamente puedes hacer a ASF menos/más silencioso, como te parezca oportuno.
 
 ASF registra información adicional, tal como mensajes de usuario/chat en el nivel de registro `Trace`. El registro por defecto de ASF solo registra el nivel `Debug` y superior, el cual oculta esa información adicional, ya que no es necesaria para la mayoría de los usuarios, además de que se opacan mensajes potencialmente más importantes. Sin embargo puedes usar esa información reactivando el nivel de registro `Trace`, especialmente en combinación con registrar solo un bot específico de tu elección, con el evento particular en el que estás interesado.
 
 En general, ASF intenta hacerlo tan fácil y conveniente como sea posible, registrar solo los mensajes que quieres en lugar de obligarte a filtrarlos manualmente mediante herramientas de terceros como `grep` y similares. Simplemente configura NLog correctamente como se describe a continuación, y deberías poder especificar incluso reglas de registro muy complejas con objetivos personalizados tal como bases de datos enteras.
 
-En cuanto a la versión - ASF siempre intenta contar con la versión más actualizada de NLog que esté disponible en **[NuGet](https://www.nuget.org/packages/NLog)** al momento de la publicación de ASF. A menudo es una versión más reciente que la última estable, por lo tanto no debería haber problema al usar en ASF cualquier función que puedas encontrar en la wiki de NLog, incluso funciones que están en desarrollo y en estado WIP (work in process) - solo asegúrate de que también estás usando ASF actualizado.
+En cuanto a la versión - ASF siempre intenta contar con la versión más actualizada de NLog que esté disponible en **[NuGet](https://www.nuget.org/packages/NLog)** al momento de la publicación de ASF. No debería haber problema por usar en ASF cualquier característica que puedas encontrar en la wiki de NLog - solo asegúrate de que también estás usando ASF actualizado.
 
 Como parte de la integración, ASF también incluye soporte para objetivos de registro ASF NLog adicionales, lo que se explica abajo.
 

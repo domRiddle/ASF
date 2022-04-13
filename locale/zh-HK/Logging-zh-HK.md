@@ -18,15 +18,17 @@ Using custom NLog config automatically disables default ASF config, your config 
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" archiveFileName="${currentdir}/logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="${currentdir}/log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
+
     <!-- Below becomes active when ASF's IPC interface is started -->
-    <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
+    <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" />
   </targets>
 
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
     <logger name="*" minlevel="Debug" writeTo="File" />
+
     <!-- Below becomes active when ASF's IPC interface is started -->
-    <!-- <logger name="*" minlevel="Debug" writeTo="History" /> -->
+    <logger name="*" minlevel="Debug" writeTo="History" />
   </rules>
 </nlog>
 ```
@@ -39,13 +41,13 @@ ASF包含一些很好的代碼技巧，可以增強與NLog的集成，使您可�
 
 NLog-specific `${logger}` variable will always distinguish the source of the message - it will be either `BotName` of one of your bots, or `ASF` if message comes from ASF process directly. This way you can easily catch messages considering specific bot(s), or ASF process (only), instead of all of them, based on the name of the logger.
 
-ASF嘗試根據NLog提供的警告級別適當地標記消息，這使您可以僅捕獲來自特定日誌級別而不是所有日誌級別的特定消息。 當然，特定消息的日誌記錄級別無法自訂，因為它是ASF硬編碼決定給定消息的嚴重程度，但您確實可以出於個人喜好使ASF捕獲更少/更多消息。
+ASF tries to mark messages appropriately based on NLog-provided logging levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them. 當然，特定消息的日誌記錄級別無法自訂，因為它是ASF硬編碼決定給定消息的嚴重程度，但您確實可以出於個人喜好使ASF捕獲更少/更多消息。
 
 ASF在` Trace `日誌級別上記錄額外信息，例如用戶/聊天消息。 ASF日誌預設僅記錄` Debug `級別及以上信息，它隱藏了額外信息，因為大多數用戶不需要這些信息，以及包含可能更重要的消息的雜亂輸出。 但是，您可以通過重新啟用` Trace `日誌記錄級別來使用該信息，特別是結合僅記錄您選擇的一個特定機械人，以及您感興趣的特定事件。
 
 通常，ASF會盡可能簡單方便地記錄您想要的消息，而不是強迫您通過第三方工具（如` grep `等）手動過濾它。 只需按照下面的說明正確配置NLog，您就可以使用自訂目標（如整個數據庫）指定非常複雜的日誌記錄規則。
 
-Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. It's very often a version that is newer than latest stable, therefore it should not be a problem to use any feature you can find on NLog wiki in ASF, even features that are in very active development and WIP state - just make sure you're also using up-to-date ASF.
+關於版本控制——在ASF發佈時，ASF嘗試始終附帶最新版本的NLog，可在** [ NuGet ](https://www.nuget.org/packages/NLog)**上找到 。 It should not be a problem to use any feature you can find on NLog wiki in ASF - just make sure you're also using up-to-date ASF.
 
 作為ASF集成的一部分，ASF還包括對其他ASF NLog日誌記錄目標的支援，這將在下面解釋。
 
@@ -53,7 +55,7 @@ Regarding versioning - ASF tries to always ship with most up-to-date version of 
 
 ## 範例
 
-千里之行始於足下。 We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. 我們的初始` NLog.config `將如下所示：
+千里之行始於足下。 舉個簡單的例子，僅使用** [ ColoredConsole ](https://github.com/nlog/nlog/wiki/ColoredConsole-target) **目標。 我們的初始` NLog.config `將如下所示：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -154,7 +156,7 @@ You can see how we used ASF integration above and easily distinguished source of
 
 ---
 
-## Limitations
+## 限制
 
 ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Therefore, if you want to keep logging for other targets even when ASF expects user input, you should define those targets with their own rules, as shown in examples above, instead of putting many targets in `writeTo` of the same rule (unless this is your wanted behaviour). Temporary disable of console targets is done in order to keep console clean when waiting for user input.
 
@@ -166,7 +168,7 @@ ASF includes extended support for chat logging by not only recording all receive
 
 ### Event properties
 
-| Name        | Description                                                                                                                                                                                                  |
+| 名稱          | 描述                                                                                                                                                                                                           |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Echo        | `bool` type. This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.                                                                                               |
 | Message     | `string` type. This is the actual sent/received message.                                                                                                                                                     |
@@ -174,7 +176,7 @@ ASF includes extended support for chat logging by not only recording all receive
 | ChatID      | `ulong` type. This is the ID of the `ChatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                  |
 | SteamID     | `ulong` type. This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat). |
 
-### Example
+### 範例
 
 This example is based on our `ColoredConsole` basic example above. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
 
@@ -291,7 +293,7 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 #### Screenshots
 
-![Screenshot](https://i.imgur.com/5juKHMt.png)
+![截圖](https://i.imgur.com/5juKHMt.png)
 
 ---
 
@@ -324,7 +326,7 @@ _name_ - Name of the target.
 
 ---
 
-##### Layout Options
+##### 佈局選項
 _layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 ---

@@ -18,15 +18,17 @@ Wenn du die standard ASF-Protokollierung ohne irgendwelche Veränderung verwende
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" archiveFileName="${currentdir}/logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="${currentdir}/log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
+
     <!-- Below becomes active when ASF's IPC interface is started -->
-    <!-- <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" /> -->
+    <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" />
   </targets>
 
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
     <logger name="*" minlevel="Debug" writeTo="File" />
+
     <!-- Below becomes active when ASF's IPC interface is started -->
-    <!-- <logger name="*" minlevel="Debug" writeTo="History" /> -->
+    <logger name="*" minlevel="Debug" writeTo="History" />
   </rules>
 </nlog>
 ```
@@ -39,13 +41,13 @@ ASF enthält einige nette Quellcode-Tricks, die die Integration mit NLog verbess
 
 Die NLog-spezifische `${logger}` Variable wird immer die Quelle der Nachricht anzeigen - es wird entweder `BotName` von einem Ihrer Bots sein, oder `ASF` wenn die Nachricht direkt vom ASF-Prozess kommt. Auf diese Weise kannst du Nachrichten leicht abfangen, die bestimmte Bot(s) oder ASF-Prozesse (nur) berücksichtigen, anstatt sie alle, basierend auf dem Namen des Loggers.
 
-ASF versucht, Meldungen entsprechend den von NLog bereitgestellten Warnstufen zu kennzeichnen, was es Ihrenermöglicht, nur bestimmte Meldungen von bestimmten Protokollebenen statt von allen zu erhalten. Natürlich kann die Protokollierungsstufe für eine bestimmte Nachricht nicht angepasst werden, da es sich um eine ASF-Festlegung handelt, wie ernst die gegebene Nachricht ist, aber du kannst ASF definitiv weniger/mehr leise machen, wie du es für richtig hältst.
+ASF tries to mark messages appropriately based on NLog-provided logging levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them. Natürlich kann die Protokollierungsstufe für eine bestimmte Nachricht nicht angepasst werden, da es sich um eine ASF-Festlegung handelt, wie ernst die gegebene Nachricht ist, aber du kannst ASF definitiv weniger/mehr leise machen, wie du es für richtig hältst.
 
 ASF protokolliert zusätzliche Informationen, wie z. B. Benutzer-/Chat-Nachrichten auf der `Trace` Protokollierungsebene. Die standardmäßige ASF-Protokollierung protokolliert nur die `Debug` Ebene und darüber, was diese zusätzlichen Informationen verbirgt, da sie für die Mehrheit der Benutzer nicht benötigt werden, sowie die Ausgabe mit potenziell wichtigeren Nachrichten zu mült. Sie können diese Informationen jedoch nutzen, indem du `Trace` Logging-Ebene wieder aktivierst, insbesondere in Kombination mit dem Logging nur eines bestimmten Bots Ihrer Wahl, mit einem bestimmten Event, an dem du interessiert bist.
 
 Im Allgemeinen versucht ASF, es Ihrenso einfach und bequem wie möglich zu machen, nur die Nachrichten zu protokollieren, die du willst, anstatt dich zu zwingen, sie manuell durch Drittanbieterprogramme wie `grep` und ähnliche zu filtern. Konfiguriere NLog einfach wie unten beschrieben und du solltest in der Lage sein, auch sehr komplexe Protokollierungsregeln mit benutzerdefinierten Zielen, wie beispielsweise ganze Datenbanken, zu spezifizieren.
 
-Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. Es ist sehr oft eine Version, die neuer als die neueste stabile ist, daher sollte es kein Problem sein, alle Funktionen zu verwenden, die du im NLog-Wiki in ASF finden kannst, sogar Funktionen, die sich in einem sehr aktiven Entwicklungs- und WIP-Status befinden - stelle einfach sicher, dass du auch aktuelles ASF verwendest.
+In Bezug auf die Versionierung - ASF versucht immer die aktuellste Version von NLog zu liefern, die zum Zeitpunkt der ASF-Version unter **[NuGet](https://www.nuget.org/packages/NLog)** verfügbar ist. It should not be a problem to use any feature you can find on NLog wiki in ASF - just make sure you're also using up-to-date ASF.
 
 Im Rahmen der ASF-Integration bietet ASF auch Unterstützung für zusätzliche ASF NLog-Protokollierungsziele, die im Folgenden erläutert werden.
 
@@ -53,7 +55,7 @@ Im Rahmen der ASF-Integration bietet ASF auch Unterstützung für zusätzliche A
 
 ## Beispiele
 
-Lass uns mit etwas einfachem anfangen. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Unsere initiale `NLog.config` wird so aussehen:
+Lass uns mit etwas einfachem anfangen. Wir werden nur **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target verwenden. Unsere initiale `NLog.config` wird so aussehen:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -68,11 +70,11 @@ Lass uns mit etwas einfachem anfangen. We will use **[ColoredConsole](https://gi
 </nlog>
 ```
 
-The explanation of above config is rather simple - we define one **logging target**, which is `ColoredConsole`, then we redirect **all loggers** (`*`) of level `Debug` and higher to `ColoredConsole` target we defined earlier. Das ist alles.
+Die Erklärung der obigen Konfiguration ist ziemlich einfach - wir definieren ein **logging target**, das `ColoredConsole` ist, dann leiten wir **all loggers** (`*`) der Ebene `Debug` und höher zu `ColoredConsole` target um, das wir zuvor definiert haben. Das ist alles.
 
 Wenn du ASF jetzt mit obiger `NLog.config` startest, wird nur `ColoredConsole` target aktiv sein, und ASF wird nicht in `File` schreiben, unabhängig von der fest programmierten ASF NLog Konfiguration.
 
-Nehmen wir an, wir mögen das Standardformat `${longdate}|${level:uppercase=true}|${logger}|${message}` nicht und wir wollen nur die Meldung protokollieren. We can do so by modifying **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
+Nehmen wir an, wir mögen das Standardformat `${longdate}|${level:uppercase=true}|${logger}|${message}` nicht und wir wollen nur die Meldung protokollieren. Wir können dies tun, indem wir **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** unseres targets ändern.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -89,7 +91,7 @@ Nehmen wir an, wir mögen das Standardformat `${longdate}|${level:uppercase=true
 
 Wenn du ASF jetzt startest, wirst du feststellen, dass Datum, Level und Logger-Name verschwunden sind - und du nur noch ASF-Nachrichten im Format `Function() Message` hast.
 
-Wir können die Konfiguration auch so ändern, dass sie bei mehr als einem Ziel protokolliert. Let's log to `ColoredConsole` and **[File](https://github.com/nlog/nlog/wiki/File-target)** at the same time.
+Wir können die Konfiguration auch so ändern, dass sie bei mehr als einem Ziel protokolliert. Lasst uns gleichzeitig `ColoredConsole` und **[File](https://github.com/nlog/nlog/wiki/File-target)** protokollieren.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -150,23 +152,23 @@ Sie können sehen, wie wir die ASF-Integration oben verwendet haben und leicht z
 
 ## Erweiterte Nutzung
 
-Die obigen Beispiele sind ziemlich einfach und sollen Ihrenzeigen, wie einfach es ist, eigene Protokollierungsregeln zu definieren, die mit ASF verwendet werden können. Sie können NLog für verschiedene Dinge verwenden, einschließlich komplexer Ziele (wie das Führen von Protokollen in `Datenbank`), Protokollrotation (wie das Entfernen alter `File` Protokolle), Verwendung benutzerdefinierter `Layout`s, Deklaration eigener `<when>` Protokollierungsfilter und vieles mehr. I encourage you to read through entire **[NLog documentation](https://github.com/nlog/nlog/wiki/Configuration-file)** to learn about every option that is available to you, allowing you to fine-tune ASF logging module in the way you want. Es ist ein wirklich leistungsstarkes Programm und die Anpassung der ASF-Protokollierung war nie einfacher.
+Die obigen Beispiele sind ziemlich einfach und sollen Ihrenzeigen, wie einfach es ist, eigene Protokollierungsregeln zu definieren, die mit ASF verwendet werden können. Sie können NLog für verschiedene Dinge verwenden, einschließlich komplexer Ziele (wie das Führen von Protokollen in `Datenbank`), Protokollrotation (wie das Entfernen alter `File` Protokolle), Verwendung benutzerdefinierter `Layout`s, Deklaration eigener `<when>` Protokollierungsfilter und vieles mehr. Ich empfehle dir, die gesamte **[NLog-Dokumentation](https://github.com/nlog/nlog/wiki/Configuration-file)** durchzulesen, um mehr über jede Option zu erfahren, die dir zur Verfügung steht, damit du das ASF-Logging-Modul so anpassen kannst, wie du willst. Es ist ein wirklich leistungsstarkes Programm und die Anpassung der ASF-Protokollierung war nie einfacher.
 
 ---
 
-## Limitations
+## Einschränkungen
 
-ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Wenn du also die Protokollierung für andere Ziele beibehalten möchtest, auch wenn ASF Benutzereingaben erwartet werden, solltest du diese Ziele mit ihren eigenen Regeln definieren, wie in den obigen Beispielen gezeigt, anstatt viele Ziele in `writeTo` der gleichen Regel zu setzen (es sei denn, dies ist dein gewünschtes Verhalten). Die vorübergehende Deaktivierung von Konsole-Zielen wird durchgeführt, um die Konsole sauber zu halten, wenn auf Benutzereingaben gewartet wird.
+ASF deaktiviert vorübergehend **alle** Regeln, die `ColoredConsole` oder `Console` Targets beinhalten, wenn Benutzereingaben erwartet werden. Wenn du also die Protokollierung für andere Ziele beibehalten möchtest, auch wenn ASF Benutzereingaben erwartet werden, solltest du diese Ziele mit ihren eigenen Regeln definieren, wie in den obigen Beispielen gezeigt, anstatt viele Ziele in `writeTo` der gleichen Regel zu setzen (es sei denn, dies ist dein gewünschtes Verhalten). Die vorübergehende Deaktivierung von Konsole-Zielen wird durchgeführt, um die Konsole sauber zu halten, wenn auf Benutzereingaben gewartet wird.
 
 ---
 
 ## Chat-Protokollierung
 
-ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. Dies liegt daran, dass wir Chat-Nachrichten ohnehin als Befehle behandeln müssen, sodass es uns nichts kostet, diese Ereignisse zu protokollieren, um es Ihnen zu ermöglichen, zusätzliche Logik hinzuzufügen (z. B. ASF zu einem persönlichen Steam-Chat-Archiv zu machen).
+ASF bietet erweiterte Unterstützung für das Chat-Logging, indem es nicht nur alle empfangene/gesendete Nachrichten auf `Trace` Logging-Ebene aufzeichnet, sondern auch zusätzliche Informationen zu ihnen in **[Ereigniss-Eigenschaften](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)** anzeigt. Dies liegt daran, dass wir Chat-Nachrichten ohnehin als Befehle behandeln müssen, sodass es uns nichts kostet, diese Ereignisse zu protokollieren, um es Ihnen zu ermöglichen, zusätzliche Logik hinzuzufügen (z. B. ASF zu einem persönlichen Steam-Chat-Archiv zu machen).
 
 ### Ereigniseigenschaften
 
-| Name        | Description                                                                                                                                                                                                                                   |
+| Name        | Beschreibung                                                                                                                                                                                                                                  |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Echo        | `bool` Typ. Dies wird auf `true` gesetzt, wenn die Nachricht von uns an den Empfänger gesendet wird, und andernfalls auf `false`.                                                                                                             |
 | Message     | `string` Typ. Dies ist die eigentliche gesendete/empfangene Nachricht.                                                                                                                                                                        |
@@ -174,9 +176,9 @@ ASF includes extended support for chat logging by not only recording all receive
 | ChatID      | `ulong` Typ. Dies ist die ID des `ChatGroupID` Kanals für gesendete/empfangene Nachrichten. Wird `0` sein, wenn kein Gruppen-Chat für die Übertragung dieser Nachricht verwendet wird.                                                        |
 | SteamID     | `ulong` Typ. Dies ist die ID des Steam-Benutzers für gesendete/empfangene Nachrichten. Kann `0` sein, wenn kein bestimmter Benutzer an der Nachrichtenübertragung beteiligt ist (z. B. wenn wir eine Nachricht an einen Gruppen-Chat senden). |
 
-### Example
+### Beispiel
 
-Dieses Beispiel basiert auf unserem `ColoredConsole` Basisbeispiel oben. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
+Dieses Beispiel basiert auf unserem `ColoredConsole` Basisbeispiel oben. Bevor du versuchst, es zu verstehen, empfehle ich dir dringend, einen Blick auf **[oben](#beispiele)** zu werfen, um zunächst die Grundlagen der NLog-Protokollierung zu erfahren.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -319,19 +321,19 @@ Lies mehr über die Verwendung der [Konfigurationsdatei](https://github.com/NLog
 
 #### Parameter
 
-##### General Options
-_name_ - Name of the target.
+##### Allgemeine Optionen
+_name_ - Name des Ziels.
 
 ---
 
-##### Layout Options
-_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Standard: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+##### Layout Optionen
+_layout_ - Der zu rendernde Text. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Erforderlich. Standard: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 ---
 
 ##### HistoryTarget Optionen
 
-_maxCount_ - Maximale Anzahl der gespeicherten Protokolle für die Abrufhistorie. Not required. Die Standardeinstellung ist `20`, was eine gute Balance für die Bereitstellung der Anfangshistorie ist, während die Speichernutzung, die sich aus den Speicheranforderungen ergibt, immer noch im Auge behalten wird. Muss größer als `0` sein.
+_maxCount_ - Maximale Anzahl der gespeicherten Protokolle für die Abrufhistorie. Nicht erforderlich. Die Standardeinstellung ist `20`, was eine gute Balance für die Bereitstellung der Anfangshistorie ist, während die Speichernutzung, die sich aus den Speicheranforderungen ergibt, immer noch im Auge behalten wird. Muss größer als `0` sein.
 
 ---
 
