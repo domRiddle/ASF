@@ -13,10 +13,10 @@
 * **[🏡 Startseite](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE)**
 * **[🔧 Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**
 * **[💬 Häufig gestellte Fragen (FAQ)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-de-DE)**
-* **[⚙️ Installation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE)** **(hier starten)**
+* **[⚙️ Installation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE)** **(hier beginnen)**
 
 
-## 👨‍🎓️ Wichtigstes
+## 👨‍🎓️ Grundlagen
 
 * **[👥 Hintergrund-Schlüssel-Einlöser](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-de-DE)**
 * **[📢 Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**
@@ -34,7 +34,7 @@
 * **[🚧 Veraltete Funktionen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-de-DE)**
 * **[🐳 Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-de-DE)**
 * **[🤔 Erweitertes FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-de-DE)**
-* **[🚀 hochperformantes Setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-de-DE)**
+* **[🚀 Hochperformantes Setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-de-DE)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)**
 * **[🌐 Übersetzung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-de-DE)**
 * **[📝 Protokollierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-de-DE)**

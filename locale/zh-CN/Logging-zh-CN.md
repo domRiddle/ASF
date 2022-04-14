@@ -19,7 +19,7 @@ ASF 允许您自定义运行时使用的日志模块。 您可以将名为 `NLog
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" archiveFileName="${currentdir}/logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="${currentdir}/log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
 
-    <!-- Below becomes active when ASF's IPC interface is started -->
+    <!-- 以下目标仅在 ASF 的 IPC 接口启用时激活 -->
     <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" />
   </targets>
 
@@ -27,7 +27,7 @@ ASF 允许您自定义运行时使用的日志模块。 您可以将名为 `NLog
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
     <logger name="*" minlevel="Debug" writeTo="File" />
 
-    <!-- Below becomes active when ASF's IPC interface is started -->
+    <!-- 以下目标仅在 ASF 的 IPC 接口启用时激活 -->
     <logger name="*" minlevel="Debug" writeTo="History" />
   </rules>
 </nlog>
@@ -41,13 +41,13 @@ ASF 使用了一些不错的代码技巧增强了 NLog 的集成，使您能够�
 
 NLog 特定的 `${logger}` 变量始终用于标明消息的来源——可以是某个机器人的 `BotName`，或者是 `ASF` 表明消息直接来自于 ASF 进程。 这样，根据 Logger（日志记录器）的名字，您可以仅捕获特定机器人或者 ASF 进程的消息，而不是捕获全部。
 
-ASF tries to mark messages appropriately based on NLog-provided logging levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them. 当然，特定消息的日志级别无法被自定义，因为这是 ASF 硬编码的决策，指示了给定消息的严重程度，但您可以定义 ASF 的沉默程度，使其符合您的需求。
+ASF 会尝试以 NLog 提供的适当的日志级别标记消息，这样您可以只捕获特定日志级别的消息，而不是全部。 当然，特定消息的日志级别无法被自定义，因为这是 ASF 硬编码的决策，指示了给定消息的严重程度，但您可以定义 ASF 的沉默程度，使其符合您的需求。
 
 ASF 也会记录额外的信息，例如 `Trace` 日志级别就包含用户的聊天消息。 默认的 ASF 最低日志级别是 `Debug`，也就是隐藏了这些额外的信息，因为对于大多数用户来说没有必要显示，并且这些杂项消息可能会掩盖掉重要的消息。 但您可以重新启用 `Trace` 日志级别来利用这些消息，特别是您需要仅仅记录某个特定机器人及其相关事件的时候。
 
 一般情况下，ASF 会尽力为您提供方便，只记录您需要的消息，而不是让您通过 `grep` 等第三方工具来手动筛选。 只需要按照下文的说明正确配置 NLog，您就应该能够使用自定义目标（如整个数据库）指定非常复杂的日志规则。
 
-关于版本——ASF 始终尝试在发布时提供当时 **[NuGet](https://www.nuget.org/packages/NLog)** 上最新版本的 NLog。 It should not be a problem to use any feature you can find on NLog wiki in ASF - just make sure you're also using up-to-date ASF.
+关于版本——ASF 始终尝试在发布时提供当时 **[NuGet](https://www.nuget.org/packages/NLog)** 上最新版本的 NLog。 您应该能够使用所有 NLog 文档中的特性——只需要确保您的 ASF 是最新版。
 
 作为 ASF 集成的一部分，ASF 也支持一些额外的 ASF NLog 日志目标，下文将对此进行说明。
 
