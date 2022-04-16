@@ -20,7 +20,7 @@ Windows:
 .\ArchiSteamFarm.exe --parameter --andereParameter
 ```
 
-Linux/OS X:
+Linux/macOS:
 
 ```shell
 ./ArchiSteamFarm --parameter --andereParameter

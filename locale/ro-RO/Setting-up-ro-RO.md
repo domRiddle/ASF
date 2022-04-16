@@ -23,7 +23,7 @@ Sună destul de simplu, nu? Atunci haideți să începem.
 
 ### .NET prerequisites
 
-Primul pas este să vă asigurați că sistemul dvs. de operare poate lansa ASF în mod corespunzător. ASF is written in C#, based on .NET platform and may require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. Acesta este materialul nostru de referinţă care ar trebui folosit, dar de dragul simplității am detaliat, de asemenea, toate pachetele necesare mai jos, astfel încât să nu trebuiască să citești tot documentul.
+Primul pas este să vă asigurați că sistemul dvs. de operare poate lansa ASF în mod corespunzător. ASF is written in C#, based on .NET platform and may require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or macOS, you will have different requirements, although all of them are listed in **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. Acesta este materialul nostru de referinţă care ar trebui folosit, dar de dragul simplității am detaliat, de asemenea, toate pachetele necesare mai jos, astfel încât să nu trebuiască să citești tot documentul.
 
 Este perfect normal ca unele (sau chiar toate) dependențe să existe deja în sistemul tău datorită faptului că sunt instalate de un software terț pe care îl folosești. Totuși, ar trebui să vă asigurați că este cu adevărat cazul prin rularea programului de instalare adecvat pentru sistemul de operare - fără aceste dependențe ASF nu va putea fi lansat.
 
@@ -48,8 +48,8 @@ Numele pachetelor depind de distributia Linux pe care o folositi, am listat cele
 
 Cel puţin majoritatea acestora ar trebui să fie deja disponibile pe sistemul dumneavoastră. The minimal installation of Debian stable required only `libicu67`.
 
-#### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
-- Nu există momentan, dar ar trebui să instalați cea mai recentă versiune de OS X, cel puțin 10.15+
+#### **[macOS](https://docs.microsoft.com/dotnet/core/install/macos)**:
+- None for now, but you should have latest version of macOS installed, at least 10.15+
 
 ---
 
@@ -59,7 +59,7 @@ Deoarece avem deja toate dependențele, următorul pas este descărcarea **[ulti
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-După descărcare, pornește extragerea fișierului zip în propriul său director. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/OS X should work without problems as well.
+După descărcare, pornește extragerea fișierului zip în propriul său director. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
 
 Be advised to unpack ASF to **its own directory** and not to any existing directory you're already using for something else - ASF's auto-updates feature will delete all old and unrelated files when upgrading, which may lead to you losing anything unrelated you put in ASF directory. If you have any extra scripts or files that you want to use with ASF, put them in one folder above.
 
@@ -229,4 +229,4 @@ With extra steps:
 - **[Configurați ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
-Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in `generic` variant only. You can use them if you don't want to execute `dotnet` command manually. Obviously helper scripts won't work if you didn't install .NET SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.
+Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/macOS) are located next to `ArchiSteamFarm.dll` binary - those are included in `generic` variant only. You can use them if you don't want to execute `dotnet` command manually. Obviously helper scripts won't work if you didn't install .NET SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

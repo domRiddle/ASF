@@ -104,7 +104,7 @@ When/If all ASF requirements are satisfied, we'll consider releasing official An
 
 ---
 
-### Я пользователь Linux / OS X, будет ли ASF фармить игры которые не доступны для моей OS? Будет ли ASF фармить 64-битные игры если я запущу его на 32-битной ОС?
+### I'm Linux / macOS user, will ASF farm games that are not available for my OS? Будет ли ASF фармить 64-битные игры если я запущу его на 32-битной ОС?
 
 Да, ASF даже не скачивает файлы игры, поэтому он будет работать со всеми лицензиями на вашем аккаунте Steam, независимо от платформы или технических требований. Он также должен работать и с играми, привязанными к конкретному региону (игры с "регион-локом") даже если вы не находитесь в подходящем регионе, но мы этого не гарантируем (это работало когда мы последний раз проверяли).
 
@@ -340,7 +340,7 @@ You can find detailed explanation in **[remote communication](https://github.com
 
 ### Может ли ASF сворачиваться в трей?
 
-ASF - консольное приложение, у которого нет окна, чтобы сворачиваться, поскольку окно создаётся для вас вашей ОС. Однако вы можете использовать любую стороннюю утилиту с таким функционалом, такую как **[RBTray](https://github.com/benbuck/rbtray)** для Windows, или **[screen](https://linux.die.net/man/1/screen)** для Linux/OS X. Это просто примеры, есть много других приложений с похожим функционалом.
+ASF - консольное приложение, у которого нет окна, чтобы сворачиваться, поскольку окно создаётся для вас вашей ОС. You can however use any third-party tool capable of doing so, such as **[RBTray](https://github.com/benbuck/rbtray)** for Windows, or **[screen](https://linux.die.net/man/1/screen)** for Linux/macOS. Those are only examples, there are many other apps with similar functionality.
 
 ---
 

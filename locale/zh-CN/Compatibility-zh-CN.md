@@ -2,9 +2,9 @@
 
 ASF 是一个用 C# 语言编写并运行在 .NET 平台上的应用程序。 这意味着 ASF 并非直接被编译为可供 CPU 执行的&#8203;**[机器码](https://en.wikipedia.org/wiki/Machine_code)**，而是被编译为 **[CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)**，一种需要相应的运行环境才能执行的语言。
 
-这种方法能够带来巨大的方便。由于 CIL 是跨平台的，这使得 ASF 天然能够运行在许多可供使用的操作系统上，特别是 Windows、Linux 和 macOS 这三个系统。ASF 不仅不需要通过模拟运行，同时所有对于系统及其相关硬件的优化也对其有效。 基于此，ASF 在表现出卓越的性能以及优化的同时，仍然能提供完美的兼容性和可靠性。
+This approach has gigantic amount of advantages, as CIL is platform-independent, which is why ASF can run natively on many available OSes, especially Windows, Linux and macOS. There is not only no emulation needed, but also support for all platform-related and hardware-related optimizations, such as CPU SSE instructions. 基于此，ASF 在表现出卓越的性能以及优化的同时，仍然能提供完美的兼容性和可靠性。
 
-这也意味着运行 ASF **没有特定的操作系统要求**，因为它需要的只是运行于操作系统上的**运行环境**而非操作系统本身。 只要运行环境能够正确地执行 ASF 的代码，底层系统是 Windows、Linux、macOS 还是 BSD，是运行在 Sony Playstation 4、Nintendo Wii 还是您的烤面包机上都无所谓。有供它运行的 **[.NET](https://dotnet.microsoft.com/download/dotnet)** 就有能正常运行的 **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**。
+这也意味着运行 ASF **没有特定的操作系统要求**，因为它需要的只是运行于操作系统上的**运行环境**而非操作系统本身。 As long as that runtime is executing ASF code properly, it does not matter whether underlying OS is Windows, Linux, macOS, BSD, Sony Playstation 4, Nintendo Wii or your toaster - as long as there is **[.NET for it](https://dotnet.microsoft.com/download/dotnet)**, there is **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** for it.
 
 但是，无论您想要在哪个平台上运行 ASF，您必须确保该平台安装了 **[.NET 的依赖项](https://github.com/dotnet/core/blob/main/Documentation/prereqs.md)**。 这些都是确保运行环境功能正常的底层库，也是确保 ASF 能够第一时间工作的绝对核心。 通常情况下，部分库（甚至全部）很有可能已经安装在系统内。
 
@@ -41,8 +41,8 @@ ASF 目前提供以下几种 OS-specific 包：
 - `linux-arm`，支持 32 位基于 ARM（ARMv7+）的 GNU/Linux 操作系统。 包括所有支持当前和未来版本 GNU/Linux 操作系统（例如 Raspberry Pi OS）的平台，例如 Raspberry Pi 2（或更新版本）。 此包**不**支持更早的 ARM 架构，例如 Raspberry Pi 0 & 1 使用的 ARMv6，也不支持未实现所需 GNU/Linux 环境的操作系统（例如 Android）。
 - `linux-arm64`，支持 64 位基于 ARM（ARMv8+）的 GNU/Linux 操作系统。 包括所有支持当前和未来版本 AArch64 GNU/Linux 操作系统（例如 Debian）的平台，例如 Raspberry Pi 3（或更新版本）。 此包**不**支持 32 位操作系统（例如 Raspberry Pi OS），因为它们缺少所需的 64 位库，也不支持未实现所需 GNU/Linux 环境的操作系统（例如 Android）。
 - `linux-x64` 支持 64 位 GNU/Linux 操作系统。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu、OpenSUSE/SLES 等很多操作系统以及它们的衍生版的当前和未来版本。
-- `osx-arm64` 支持 64 位 ARM 架构（Apple silicon）的 macOS。 包括 11 及更新版本。
-- `osx-x64` 支持 64 位 macOS 操作系统。 包括 10.15 及更新版本。
+- `osx-arm64` works on 64-bit ARM-based (Apple silicon) macOS OSes. 包括 11 及更新版本。
+- `osx-x64` works on 64-bit macOS OSes. 包括 10.15 及更新版本。
 - `win-x64`，支持 64 位 Windows 操作系统。 包括 Windows 8.1、10、11、Server 2012+ 以及未来的版本。 Windows 7 需要安装 **[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#安装-generic-包)** 包，并且对其支持非常有限，您在此系统下运行 ASF 可能会遇到问题。 我们强烈建议您尽快更新，因为将来版本的 ASF 可能会完全不能在此系统运行，更不用说这个操作系统已经在 2020 年寿终正寝。
 
 当然，即使没有适合您操作系统及架构的 OS-specific 包，您也可以手动安装适当的 .NET 运行时环境并运行 Generic ASF 包，这也是这个包存在的主要原因。 Generic ASF 包与平台无关，可在任何具有可用 .NET 运行时环境的平台上运行。 需要注意——ASF 需要的是 .NET 运行时环境，而不是特定的操作系统或架构。 例如，如果您使用的是 32 位 Windows，但 ASF 没有 `win-x86` 版本，您仍然可以安装 `win-x86` 版本的 .NET SDK，然后运行 Generic 版本的 ASF。 我们无法为所有操作系统和架构组合都生成一份可执行文件，所以我们为此画下一道分隔线。 x86 就是这条线之一，因为这种架构自 2004 年开始就过时了。

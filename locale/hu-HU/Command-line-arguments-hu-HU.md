@@ -20,7 +20,7 @@ Windows esetén:
 .\ArchiSteamFarm.exe --argumentum --másikArgumentum
 ```
 
-Linux/OS X:
+Linux/macOS:
 
 ```shell
 ./ArchiSteamFarm --argumentum --másikArgumentum

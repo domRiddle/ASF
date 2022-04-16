@@ -23,7 +23,7 @@
 
 ### .NET prerequisites
 
-まずは、お使いの OS で ASF が正しく起動できるかを確認して下さい。 ASF is written in C#, based on .NET platform and may require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. これはマイクロソフトによる公式的な説明ですが、簡単にするために、必要なものを以下にも書きますので、リンク先の全文を読まなくて結構です。
+まずは、お使いの OS で ASF が正しく起動できるかを確認して下さい。 ASF is written in C#, based on .NET platform and may require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or macOS, you will have different requirements, although all of them are listed in **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. これはマイクロソフトによる公式的な説明ですが、簡単にするために、必要なものを以下にも書きますので、リンク先の全文を読まなくて結構です。
 
 ASF が依存するソフトが、他のソフトによってすでに一部または全てインストールされていることが普通です。 それでも、ASFが確実に作動するために、依存関係を再度インストールすることが必要とされることもある。
 
@@ -48,8 +48,8 @@ Keep in mind that you don't need to do anything else for OS-specific builds, esp
 
 At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu67`.
 
-#### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**
-- ユーザーは何もせずとも、アップルが用意してくれている。ただし、OS X の最新バージョン、少なくとも 10.15 以上が必要です。
+#### **[macOS](https://docs.microsoft.com/dotnet/core/install/macos)**:
+- None for now, but you should have latest version of macOS installed, at least 10.15+
 
 ---
 
@@ -59,7 +59,7 @@ At least a majority of those should be already natively available on your system
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-ダウンロードしたら、まずは zip ファイルをお好きなフォルダに解凍して下さい。 We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/OS X should work without problems as well.
+ダウンロードしたら、まずは zip ファイルをお好きなフォルダに解凍して下さい。 We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
 
 ASF を&#8203;**ほかに何も入っていないディレクトリ**&#8203;に解凍することをお勧めします。ASF の自動更新機能はアップグレード時に古いファイルや関係のないファイルをすべて削除するようになっているので、ASF ディレクトリにある関係のないファイルが削除される可能性があります。 ASFで使用するほかのスクリプトやファイルは、親ディレクトリに入れてください。
 
@@ -229,4 +229,4 @@ With extra steps:
 - **[ASF を設定します](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ja-JP)**
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
-Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in `generic` variant only. You can use them if you don't want to execute `dotnet` command manually. Obviously helper scripts won't work if you didn't install .NET SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.
+Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/macOS) are located next to `ArchiSteamFarm.dll` binary - those are included in `generic` variant only. You can use them if you don't want to execute `dotnet` command manually. Obviously helper scripts won't work if you didn't install .NET SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.

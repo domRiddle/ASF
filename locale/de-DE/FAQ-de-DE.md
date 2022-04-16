@@ -104,7 +104,7 @@ Alternativ können Sie den Befehl **[`play`](https://github.com/JustArchiNET/Arc
 
 ---
 
-### I'm Linux / OS X user, will ASF farm games that are not available for my OS? Will ASF farm 64-bit games when I'm running it on 32-bit OS?
+### I'm Linux / macOS user, will ASF farm games that are not available for my OS? Will ASF farm 64-bit games when I'm running it on 32-bit OS?
 
 Ja, ASF kümmert sich nicht einmal um das Herunterladen aktueller Spieldateien, sodass es mit allen Lizenzen funktioniert, die an Ihr Steam-Konto gebunden sind, unabhängig von Plattform oder technischen Anforderungen. Obwohl wir das nicht garantieren (es hat bei unserem letzten Versuch funktioniert), sollte es auch für regional gebundene (in bestimmten Regionen gesperrte) Spiele funktionieren, auch wenn Sie nicht in der passenden Region sind.
 
@@ -340,7 +340,7 @@ Wenn das Karten-Farming-Modul angehalten/deaktiviert ist, können Sie zusätzlic
 
 ### Kann ich ASF in die Taskleiste minimieren?
 
-ASF ist eine Konsolenanwendung, es gibt kein zu minimierendes Fenster, da das Fenster von deinem Betriebssystem für dich erstellt wird. Sie können jedoch ein beliebiges Drittanbieterprogramm verwenden wie z. B. **[RBTray](https://github.com/benbuck/rbtray)** für Windows oder **[screen](https://linux.die.net/man/1/screen)** für Linux/OS X. Das sind nur Beispiele, es gibt viele andere Programme mit ähnlicher Funktionalität.
+ASF ist eine Konsolenanwendung, es gibt kein zu minimierendes Fenster, da das Fenster von deinem Betriebssystem für dich erstellt wird. You can however use any third-party tool capable of doing so, such as **[RBTray](https://github.com/benbuck/rbtray)** for Windows, or **[screen](https://linux.die.net/man/1/screen)** for Linux/macOS. Those are only examples, there are many other apps with similar functionality.
 
 ---
 

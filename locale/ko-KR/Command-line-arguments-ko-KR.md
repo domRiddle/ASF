@@ -20,7 +20,7 @@ dotnet ArchiSteamFarm.dll --인자1 --인자2
 .\ArchiSteamFarm.exe --인자1 --인자2
 ```
 
-Linux/OS X:
+Linux/macOS:
 
 ```shell
 ./ArchiSteamFarm --인자1 --인자2

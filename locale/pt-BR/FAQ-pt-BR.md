@@ -104,7 +104,7 @@ Como alternativa, você pode usar o comando **[`play`](https://github.com/JustAr
 
 ---
 
-### Eu sou usuário do Linux / macOS, o ASF roda jogos que não estão disponíveis para o meu Sistema Operacional? O ASF rodará jogos 64-bit mesmo se eu tiver um Sistema Operacional 32-bit?
+### I'm Linux / macOS user, will ASF farm games that are not available for my OS? O ASF rodará jogos 64-bit mesmo se eu tiver um Sistema Operacional 32-bit?
 
 Sim, o ASF não vai baixar nenhum arquivo de jogo, então ele funciona com todas as licenças que estejam ligadas a sua conta Steam, independente de qualquer requisito técnico ou de plataforma. Ele também deve funcionar com jogos que tenham bloqueio regional, mesmo quando você não estiver na região correta, embora não garantimos isso (funcionou na última vez que testamos).
 
@@ -340,7 +340,7 @@ Com o módulo de coleta pausado/desabilitado, você pode utilizar as demais func
 
 ### Posso minimizar o ASF para a bandeja?
 
-O ASF é um aplicativo de console, não há janela para ser minimizada pois as janelas são criadas para você pelo seu SO. No entanto você pode usar qualquer ferramenta de terceiros capaz de fazer isso, tal como **[RBTray](https://github.com/benbuck/rbtray)** para Windows ou **[screen](https://linux.die.net/man/1/screen)** para Linux/macOS. Esss são apenas exemplos, há muitas outras ferramentas com o mesmo recurso.
+O ASF é um aplicativo de console, não há janela para ser minimizada pois as janelas são criadas para você pelo seu SO. You can however use any third-party tool capable of doing so, such as **[RBTray](https://github.com/benbuck/rbtray)** for Windows, or **[screen](https://linux.die.net/man/1/screen)** for Linux/macOS. Those are only examples, there are many other apps with similar functionality.
 
 ---
 

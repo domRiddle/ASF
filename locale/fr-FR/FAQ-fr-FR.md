@@ -104,7 +104,7 @@ Alternatively, you can make use of the **[`play`](https://github.com/JustArchiNE
 
 ---
 
-### I'm Linux / OS X user, will ASF farm games that are not available for my OS? Will ASF farm 64-bit games when I'm running it on 32-bit OS?
+### I'm Linux / macOS user, will ASF farm games that are not available for my OS? Will ASF farm 64-bit games when I'm running it on 32-bit OS?
 
 Oui, ASF ne se soucie même pas de télécharger des fichiers de jeu réels. Il fonctionnera donc avec toutes vos licences liées à votre compte Steam, quelles que soient les exigences techniques de la plate-forme. It should also work for games tied to specific region (region-locked games) even when you're not in the matching region, although we don't guarantee that (it worked last time we tried).
 
@@ -358,7 +358,7 @@ With cards farming module paused/disabled, you can make use of extra ASF feature
 
 ### ASF peut-il se réduire au minimum?
 
-ASF est une application console, il n'y a pas de fenêtre à minimiser, car celle-ci est créée pour vous par votre système d'exploitation. Vous pouvez toutefois utiliser tout outil tiers capable de le faire, tel que **[RBTray](https://github.com/benbuck/rbtray)** pour Windows ou **[screen](https://linux.die.net/man/1/screen)** pour Linux / OS X. Ce ne sont que des exemples, il y en a beaucoup d'autres des applications avec des fonctionnalités similaires.
+ASF est une application console, il n'y a pas de fenêtre à minimiser, car celle-ci est créée pour vous par votre système d'exploitation. You can however use any third-party tool capable of doing so, such as **[RBTray](https://github.com/benbuck/rbtray)** for Windows, or **[screen](https://linux.die.net/man/1/screen)** for Linux/macOS. Those are only examples, there are many other apps with similar functionality.
 
 
 

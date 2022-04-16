@@ -104,7 +104,7 @@ Alternativamente, puedes usar el comando **[`play`](https://github.com/JustArchi
 
 ---
 
-### Soy usuario de Linux / OS X, ¿ASF recolectará juegos que no están disponibles para mi sistema operativo? ¿ASF recolectará juegos de 64 bits cuanto lo estoy ejecutando en un sistema operativo de 32 bits?
+### Soy usuario de Linux / macOS  ¿ASF recolectará juegos que no están disponibles para mi sistema operativo? ¿ASF recolectará juegos de 64 bits cuanto lo estoy ejecutando en un sistema operativo de 32 bits?
 
 Sí, ASF ni siquiera se molesta en descargar archivos de los juegos, así que funcionará con todas las licencias vinculadas a tu cuenta de Steam, independientemente de la plataforma o los requerimientos técnicos. También debería funcionar con juegos vinculados a una región específica (juegos con bloqueo regional) incluso si no estás en la región correspondiente, aunque no garantizamos eso (funcionó la última vez que lo intentamos).
 
@@ -340,7 +340,7 @@ Con el módulo de recolección de cromos pausado/deshabilitado, puedes utilizar 
 
 ### ¿Se puede minimizar ASF a la bandeja del sistema?
 
-ASF es una aplicación de consola, no hay ventana para ser minimizada, porque la ventana es creada para ti por tu sistema operativo. Sin embargo puedes usar cualquier herramienta de terceros capaz de hacer tal cosa, como **[RBTray](https://github.com/benbuck/rbtray)** para Windows, o **[screen](https://linux.die.net/man/1/screen)** para Linux/OS. Estos son solo ejemplos, hay muchas otras aplicaciones con una funcionalidad similar.
+ASF es una aplicación de consola, no hay ventana para ser minimizada, porque la ventana es creada para ti por tu sistema operativo. Sin embargo puedes usar cualquier herramienta de terceros capaz de hacerlo, tal como **[RBTray](https://github.com/benbuck/rbtray)** para Windows, o **[screen](https://linux.die.net/man/1/screen)** para Linux/macOS. Estos son solo ejemplos, hay muchas otras aplicaciones con funciones similares.
 
 ---
 

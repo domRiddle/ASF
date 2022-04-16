@@ -23,7 +23,7 @@ Yeterince basit görünüyor, değil mi? Öyleyse hadi başlayalım.
 
 ### .NET prerequisites
 
-İlk adım, işletim sisteminizin ASF'yi düzgün şekilde başlatabilmesini sağlamaktır. ASF is written in C#, based on .NET platform and may require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or OS X, you will have different requirements, although all of them are listed in **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. Bu, kullanılması gereken referans materyalimizdir, ancak basitlik adına, gerekli tüm paketleri aşağıda ayrıntılı olarak açıkladık, bu nedenle belgenin tamamını okumanıza gerek yok.
+İlk adım, işletim sisteminizin ASF'yi düzgün şekilde başlatabilmesini sağlamaktır. ASF is written in C#, based on .NET platform and may require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or macOS, you will have different requirements, although all of them are listed in **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. Bu, kullanılması gereken referans materyalimizdir, ancak basitlik adına, gerekli tüm paketleri aşağıda ayrıntılı olarak açıkladık, bu nedenle belgenin tamamını okumanıza gerek yok.
 
 Kullanmakta olduğunuz üçüncü taraf yazılımlar tarafından yüklendiği için bazı (hatta tüm) bağımlılıkların sisteminizde zaten mevcut olması tamamen normaldir. Yine de, işletim sisteminiz için uygun yükleyiciyi çalıştırarak durumun gerçekten böyle olduğundan emin olmalısınız - bu bağımlılıklar olmadan ASF hiç başlamaz.
 
@@ -48,8 +48,8 @@ Paket adları, kullandığınız Linux dağıtımına bağlıdır, en yaygın ol
 
 Bunların en azından çoğunluğu sisteminizde yerel olarak mevcut olmalıdır. The minimal installation of Debian stable required only `libicu67`.
 
-#### **[OS X](https://docs.microsoft.com/dotnet/core/install/macos)**:
-- Şimdilik yok, ancak OS X'in en son sürümüne sahip olmalısınız, en az 10.15+
+#### **[macOS](https://docs.microsoft.com/dotnet/core/install/macos)**:
+- None for now, but you should have latest version of macOS installed, at least 10.15+
 
 ---
 
@@ -59,7 +59,7 @@ Gerekli tüm bağımlılıklara zaten sahip olduğumuzdan, bir sonraki adım **[
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-İndirdikten sonra, zip dosyasını kendi klasörüne çıkarmaya başlayın. **[7-zip](https://www.7-zip.org)** kullanmanızı öneririz, ancak `unzip` gibi tüm standart yardımcı programlar Linux/OS X'te de sorunsuz çalışmalıdır.
+İndirdikten sonra, zip dosyasını kendi klasörüne çıkarmaya başlayın. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
 
 ASF'yi başka bir şey için kullanmakta olduğunuz mevcut herhangi bir dizine değil, **kendi dizinine** açmanız tavsiye edilir - ASF'nin otomatik güncelleme özelliği tüm eski ve alakasız dosyaları siler yükseltme yaparken, ASF dizinine koyduğunuz ilgisiz herhangi bir şeyi kaybetmenize neden olabilir. ASF ile kullanmak istediğiniz fazladan komut dosyalarınız veya dosyalarınız varsa, bunları yukarıdaki bir klasöre koyun.
 
@@ -229,4 +229,4 @@ With extra steps:
 - **[ASF'yi yapılandırın](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
 - Launch ASF by either using a helper script or executing `dotnet /path/to/ArchiSteamFarm.dll` manually from your favourite shell.
 
-Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/OS X) are located next to `ArchiSteamFarm.dll` binary - those are included in `generic` variant only. You can use them if you don't want to execute `dotnet` command manually. Obviously helper scripts won't work if you didn't install .NET SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.
+Helper scripts (such as `ArchiSteamFarm.cmd` for Windows and `ArchiSteamFarm.sh` for Linux/macOS) are located next to `ArchiSteamFarm.dll` binary - those are included in `generic` variant only. You can use them if you don't want to execute `dotnet` command manually. Obviously helper scripts won't work if you didn't install .NET SDK and you don't have `dotnet` executable available in your `PATH`. Helper scripts are entirely optional to use, you can always `dotnet /path/to/ArchiSteamFarm.dll` manually.
