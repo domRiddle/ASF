@@ -104,7 +104,7 @@ ASF 是一个 C# 程序，需要安装正常工作的 .NET 环境实现。 自 .
 
 ---
 
-### I'm Linux / macOS user, will ASF farm games that are not available for my OS? 我可以在 32 位系统上挂 64 位游戏吗？
+### 我是 Linux / macOS 用户，ASF 可以挂我的操作系统不支持的游戏吗？ 我可以在 32 位系统上挂 64 位游戏吗？
 
 是的，ASF 甚至不需要下载实际的游戏文件，因此无论游戏的系统或技术需求如何，它对您 Steam 帐户内的所有游戏许可都有效。 它甚至可以在您不处于指定区域的情况下运行区域限制（锁区）的游戏，但是我们无法保证这一点（我们上次尝试时仍然可以）。
 
@@ -340,7 +340,7 @@ ASF 真正需要关注的重点是：
 
 ### ASF 能最小化到托盘吗？
 
-ASF 是一个控制台应用程序，没有可以最小化的图形窗口，因为控制台窗口是由您的操作系统创建的。 You can however use any third-party tool capable of doing so, such as **[RBTray](https://github.com/benbuck/rbtray)** for Windows, or **[screen](https://linux.die.net/man/1/screen)** for Linux/macOS. Those are only examples, there are many other apps with similar functionality.
+ASF 是一个控制台应用程序，没有可以最小化的图形窗口，因为控制台窗口是由您的操作系统创建的。 但您可以使用任何第三方工具做到这一点，例如 Windows 的 **[RBTray](https://github.com/benbuck/rbtray)** 或者 Linux/macOS 的 **[screen](https://linux.die.net/man/1/screen)**。 这些只是例子，还有许多具有类似功能的应用程序。
 
 ---
 

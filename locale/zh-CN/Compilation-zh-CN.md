@@ -20,7 +20,7 @@
 dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic"
 ```
 
-If you're using Linux/macOS, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
+如果您在使用 Linux/macOS，您也可以使用 `cc.sh` 脚本，以稍复杂的方式实现同样的效果。
 
 如果编译成功完成，您可以在 `out/generic` 目录中找到您的 ASF `source` 包。 这与官方的 `generic` 构建相同，但因为这是您自己的构建，所以它强制 `UpdateChannel` 和 `UpdatePeriod` 为 `0`。
 
@@ -52,7 +52,7 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 上文是构建可用 ASF 的所有必须步骤，您可能*也*有兴趣了解如何构建我们的图形化 Web 界面 **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#asf-ui)**。 从 ASF 的角度看，您只需要将 ASF 的构建输出放入标准的 `ASF-ui/dist` 路径，然后（如果需要），带上它构建 ASF。
 
-ASF-ui 以 **[Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)** 形式作为 ASF 源码树的一部分，您需要确保在克隆仓库时使用 `git clone --recursive`，否则您会缺少必须的文件。 您还必须拥有可用的 NPM，**[Node.js](https://nodejs.org)** 默认已经包含它了。 If you're using Linux/macOS, we recommend our `cc.sh` script, which will automatically cover building and shipping ASF-ui (if possible, that is, if you're meeting the requirements we've just mentioned).
+ASF-ui 以 **[Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)** 形式作为 ASF 源码树的一部分，您需要确保在克隆仓库时使用 `git clone --recursive`，否则您会缺少必须的文件。 您还必须拥有可用的 NPM，**[Node.js](https://nodejs.org)** 默认已经包含它了。 如果您使用的是 Linux/macOS，我们建议您使用 `cc.sh` 脚本，如果可能（也就是说如果您已经满足上述的所有要求），它将自动处理 ASF-ui 的构建和装载。
 
 除了 `cc.sh` 脚本，我们也在下文附上了简要的构建说明，您可以查阅 **[ASF-ui 仓库](https://github.com/JustArchiNET/ASF-ui)**&#8203;获得更详细的文档。 同上，在 ASF 源码树根目录下，执行下列命令：
 
@@ -76,7 +76,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # 或者
 
 如果您想要编辑 ASF 代码，您可以使用任何兼容 .NET 的 IDE，但这也是可选的，因为您甚至可以用记事本编辑代码并用上述 `dotnet` 命令编译。 不过，对于 Windows 系统，我们推荐使用&#8203;**[最新版本的 Visual Studio](https://visualstudio.microsoft.com/downloads)**（免费的社区版即可）。
 
-If you'd like to work with ASF code on Linux/macOS instead, we recommend **[latest Visual Studio Code](https://code.visualstudio.com/download)**. 它没有经典的 Visual Studio 那么丰富的功能，但是应该足够了。
+如果您要在 Linux/macOS 上开发 ASF 代码，我们推荐使用[**最新版的 Visual Studio Code**](https://code.visualstudio.com/download)。 它没有经典的 Visual Studio 那么丰富的功能，但是应该足够了。
 
 当然，以上的所有建议都仅仅是建议，您可以使用您想用的任何工具，最后您都要使用 `dotnet build` 命令进行构建。 我们使用 **[JetBrains Rider](https://www.jetbrains.com/rider)** 进行 ASF 的开发，尽管这个解决方案并不是免费的。
 
