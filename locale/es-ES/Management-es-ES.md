@@ -59,7 +59,7 @@ Ten en cuenta que como no hay una entrada estándar habilitada para nuestro serv
 
 Es posible proporcionar variables de entorno adicionales a nuestro servicio `systemd`, lo que te interesa en caso de que quieras usar un **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-ES#argumentos)** `--cryptkey` personalizado, y por lo tanto especificar la variable de entorno `ASF_CRYPTKEY`.
 
-Para proporcionar variables de entorno personalizadas, crea la carpeta `/etc/asf` (en caso de que no exista), `mkdir -p /etc/asf`, luego escribe a un archivo `/etc/asf/<user>`, donde `<user>` es el usuario con el que estás ejecutando el servicio (`asf` en nuestro ejemplo de arriba, por lo tanto `/etc/asf/asf`).
+Para proporcionar variables de entorno personalizadas, crea la carpeta `/etc/asf` (en caso de que no exista), `mkdir -p /etc/asf`. Recomendamos `chmod 700 /etc/asf` para asegurar que solo el usuario `root` tiene acceso de lectura para esos archivos, porque podrían contener propiedades cofidenciales tal como `ASF_CRYPTKEY`. Posterioremente, escribe a un archivo `/etc/asf/<user>`, donde `<user>` es el usuario con el que ejecutas el servicio (`asf` en nuestro ejemplo anterior, así que `/etc/asf/asf`).
 
 El archivo debería contener todas las variables de entorno que quieras proporcionar al proceso:
 
