@@ -45,7 +45,7 @@ PLZ NOWT DAT BELOW PROGRAMS R **NOT** MAINTAIND BY ASF DEVELOPERS AN THEREFORE *
 
 - **[AUR REPO #1](https://aur.archlinux.org/packages/asf)**, ALLOWIN U 2 EASILY INSTALL ASF ON ARCH LINUX.
 - **[AUR REPO #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, ALLOWIN U 2 EASILY INSTALL ASF ON ARCH LINUX.
-- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, allowing you to easily install ASF on macOS.
+- **[HOMEBREW](https://formulae.brew.sh/formula/archi-steam-farm)**, ALLOWIN U 2 EASILY INSTALL ASF ON MACOS.
 
 ---
 

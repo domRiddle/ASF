@@ -20,7 +20,7 @@ WINDOWS:
 .\ArchiSteamFarm.exe --argument --otherOne
 ```
 
-Linux/macOS:
+LINUX/MACOS:
 
 ```shell
 ./ArchiSteamFarm --argument --otherOne
