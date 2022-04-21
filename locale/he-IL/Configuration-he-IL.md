@@ -604,14 +604,14 @@ If you're not sure how to set this property, leave it with default value of `0`.
 
 | Value | שם             |
 | ----- | -------------- |
-| 0     | Offline        |
-| 1     | Online         |
-| 2     | Busy           |
-| 3     | Away           |
-| 4     | Snooze         |
+| 0     | לא מחובר       |
+| 1     | מחובר          |
+| 2     | עסוק           |
+| 3     | לא זמין        |
+| 4     | נודניק         |
 | 5     | LookingToTrade |
 | 6     | LookingToPlay  |
-| 7     | Invisible      |
+| 7     | בלתי נראה      |
 
 `Offline` status is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Using `Offline` status solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, connected to Steam network, but without announcing our online presence at all. Keep in mind that played games using offline status will still count towards your playtime, and show as "recently played" on your profile.
 
