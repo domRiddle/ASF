@@ -72,7 +72,7 @@ Aufgrund der Natur dieser Eigenschaft ist es auch möglich, den Wert zu setzen, 
 
 ---
 
-`--no-steam-parental-generation` - by default ASF will automatically attempt to generate Steam parental PINs, as described in **[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamparentalcode)** configuration property. However, since that might require excessive amount of OS resources, this switch allows you to disable that behaviour, which will result in ASF skipping auto-generation and go straight to asking user for PIN instead, which is what would normally happen only if the auto-generation has failed. Usually we recommend to keep the generation enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-damam-parental-generation` - standardmäßig wird ASF automatisch versuchen, die Steam-PINs der Eltern zu generieren, wie in **[`beschrieben. SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-de#steamparentalcode)** konfiguriert. Da dies jedoch eine übermäßige Menge an Betriebssystem-Ressourcen erfordern kann, erlaubt Ihnen dieser Schalter dieses Verhalten zu deaktivieren, was dazu führt, dass ASF die automatische Generierung überspringt, und stattdessen den Benutzer direkt nach PIN fragt. Dies würde sonst nur passieren, wenn die Auto-Generation versagt hat. Wir empfehlen die Generation aktiviert zu lassen, es sei denn Sie haben einen guten Grund diese zu deaktivieren, und wünschen, dass ASF dies nicht tut.
 
 ---
 
@@ -113,7 +113,7 @@ Wenn du nicht vorhast IPC auszuführen, wird diese Option für dich ziemlich nut
 
 ---
 
-`--service`- Dieser Schalter wird hauptsächlich für unseren `systemd` service und erzwingt den Wert von `Headless` auf `true`. Unless you have a particular need, you should instead configure `Headless` property directly in your config. This switch is here so our `systemd` service won't need to touch your global config in order to adapt it to its own environment. Of course, if you have a similar need then you may also make use of this switch (otherwise you're better with global config property).
+`--service`- Dieser Schalter wird hauptsächlich für unseren `systemd` service und erzwingt den Wert von `Headless` auf `true`. Wenn Sie keinen besonderen Grund haben, sollten Sie stattdessen die `headless` Eigenschaft direkt in Ihrer Konfiguration konfigurieren. This switch is here so our `systemd` service won't need to touch your global config in order to adapt it to its own environment. Of course, if you have a similar need then you may also make use of this switch (otherwise you're better with global config property).
 
 ---
 

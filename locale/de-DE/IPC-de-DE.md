@@ -15,7 +15,7 @@ INFO|ASF|Start() Starte IPC-Server...
 INFO|ASF|Start() IPC-Server bereit!
 ```
 
-ASF's http-Server hört nun auf den ausgewählten Endpunkten. Falls du keine benutzerdefinierte Konfigurationsdatei für IPC angegeben hast wird für IPv4 **[127.0.0.1](http://127.0.0.1:1242)** und für IPv6 **[[::1]](http://[::1]:1242)** auf Standard-Port `1242` verwendet. Du kannst auf unsere IPC-Schnittstelle über die obigen Links von dem selben Gerätaus zugreifen, auf der auch der ASF-Prozess läuft.
+ASF's http-Server hört nun auf den ausgewählten Endpunkten. Falls du keine benutzerdefinierte Konfigurationsdatei für IPC angegeben hast wird für IPv4 **[127.0.0.1](http://127.0.0.1:1242)** und für IPv6 **[[::1]](http://[::1]:1242)** auf Standard-Port `1242` verwendet. Du kannst auf unsere IPC-Schnittstelle über die obigen Links von dem selben Gerät aus zugreifen, auf der auch der ASF-Prozess läuft.
 
 Die IPC-Schnittstelle von ASF bietet je nach der von Ihrengeplanten Nutzung drei verschiedene Möglichkeiten, darauf zuzugreifen.
 
@@ -166,7 +166,7 @@ Wenn du dich jedoch dazu entscheidest die standardmäßig eingestellten `localho
 
 Ja, dafür wurde die ASF-API entwickelt und du kannst alles verwenden was fähig ist eine HTTP-Anfrage zu senden um darauf zuzugreifen. Lokale Benutzerskripte folgen der **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** Logik, und wir erlauben den Zugriff von allen Ursprüngen für diese (`*`) solange `IPCPassword` gesetzt ist (als zusätzliche Sicherheitsmaßnahme). Auf diese Weise kannst du verschiedene authentifizierte ASF-API-Anfragen ausführen, ohne dass potenziell bösartige Skripte dies automatisch tun können (da sie dazu dein `IPCPassword` kennen müssten).
 
-### Kann ich aus der Ferne auf die IPC-Schnittstelle von ASF zugreifen, z.B. von einem anderen Gerätaus?
+### Kann ich aus der Ferne auf die IPC-Schnittstelle von ASF zugreifen, z.B. von einem anderen Gerät aus?
 
 Yes, we recommend to use a reverse proxy for that. Auf diese Weise kannst du wie gewohnt auf deinen Webserver zugreifen, der dann auf dem gleichen Gerät auf die IPC-Schnittstelle von ASF zugreift. Andernfalls, wenn du nicht mit einem Reverse-Proxy arbeiten möchtest, kannst du die **[benutzerdefinierte Konfiguration](#benutzerdefinierte-konfiguration)** mit entsprechender URL verwenden. For example, if your machine is in a VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
 

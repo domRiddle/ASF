@@ -1,14 +1,14 @@
-# Zwei-Faktor-Authentifizierung
+# Zwei-Faktor-Authentifizierung (2FA)
 
-Vor einiger Zeit hat Valve ein System namens "Treuhand" eingeführt, das einen zusätzlichen Authentifikator für verschiedene kontobezogene Aktivitäten erfordert. Sie können **[hier](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** und **[hier](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)** mehr darüber lesen. Es ist wichtig, das 2FA-System zuerst zu verstehen, bevor man versucht, die Logik hinter ASF-2FA zu verstehen.
+Vor einiger Zeit hat Valve ein System namens "Treuhand" eingeführt, das einen zusätzlichen Authentifikator für verschiedene kontobezogene Aktivitäten erfordert. Sie können **[hier](https://help.steampowered.com/de/faqs/view/2E6E-A02C-5581-8904)** und **[hier](https://help.steampowered.com/de/faqs/view/34A1-EA3F-83ED-54AB)** mehr darüber lesen. Es ist wichtig, das 2FA-System zuerst zu verstehen, bevor man versucht, die Logik hinter ASF-2FA zu verstehen.
 
-Wie du sehen kannst, werden alle Handelsangebote für bis zu 15 Tage zurückgehalten, was kein großes Problem für unsere ASF ist, aber dennoch ärgerlich sein kann, besonders für diejenigen, die eine vollständige Automatisierung wünschen. Glücklicherweise enthält ASF eine Lösung für dieses Problem, genannt ASF-2FA.
+Wie Sie sehen können, werden alle Handelsangebote für bis zu 15 Tage zurückgehalten. Dies ist kein großes Problem für ASF, kann jedoch insbesondere für diejenigen ärgerlich sein, die eine vollständige Automatisierung wünschen. Glücklicherweise enthält ASF eine Lösung für dieses Problem, genannt ASF-2FA.
 
 ---
 
 # ASF-Logik
 
-Unabhängig davon, ob du das unten erklärte ASF-2FA verwenden wirst oder nicht, enthält ASF die passende Logik und ist sich bewusst, dass die Konten durch das Standard 2FA geschützt sind. Es fragt dich nach den erforderlichen Details, wenn sie benötigt werden (z. B. beim Anmelden). Wenn du ASF-2FA verwendest, kann das Programm diese Anfragen überspringen und automatisch benötigte Codes generieren, was IhrenÄrger erspart und zusätzliche Funktionen ermöglicht (siehe unten).
+Unabhängig davon, ob Sie das unten erklärte ASF-2FA verwenden oder nicht, enthält ASF die passende Logik und ist sich bewusst, dass die Konten durch das Standard 2FA geschützt sind. Es fragt Sie nach den erforderlichen Details, sobald diese benötigt werden (z. B. beim Anmelden). Sofern Sie ASF-2FA verwenden, kann das Programm diese Anfragen überspringen und automatisch benötigte Codes generieren, was Ihren Ärger erspart und zusätzliche Funktionen ermöglicht (siehe unten).
 
 ---
 
@@ -16,7 +16,7 @@ Unabhängig davon, ob du das unten erklärte ASF-2FA verwenden wirst oder nicht,
 
 ASF-2FA ist ein eingebautes Modul, das für die Bereitstellung von 2FA-Funktionen für den ASF-Prozess verantwortlich ist, wie z. B. das Erzeugen von Codes und das Annehmen von Bestätigungen. Es dupliziert Ihren bestehenden Authentifikator, sodass Sie Ihren aktuellen Authentifikator und ASF-2FA gleichzeitig verwenden können.
 
-Sie können überprüfen, ob dein Bot-Konto bereits ASF-2FA verwendet, indem du den `2fa` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** ausführst. Wenn Sie Ihren Authentifikator nicht bereits als ASF-2FA importiert haben, sind alle `2fa`-Befehle nicht funktionsfähig, was bedeutet, dass Ihr Konto nicht ASF-2FA verwendet, weshalb es auch nicht für erweiterte ASF-Funktionen verfügbar ist, die den Betrieb des Moduls erfordern.
+Sie können überprüfen, ob dein Bot-Konto bereits ASF-2FA verwendet, indem Sie den `2fa` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** ausführen. Wenn Sie Ihren Authentifikator nicht bereits als ASF-2FA importiert haben, sind alle `2fa`-Befehle nicht funktionsfähig, was bedeutet, dass Ihr Konto ASF-2FA nicht verwendet, weshalb es auch nicht für erweiterte ASF-Funktionen verfügbar ist, die den Betrieb des Moduls erfordern.
 
 ---
 
@@ -112,7 +112,7 @@ Wenn du einen Authentifikator auf Ihrem Handy hast, kannst du optional SteamDesk
 
 ---
 
-## FAQ
+## FAQ (Häufig gestellte Fragen)
 
 ### Wie nutzt ASF das 2FA-Modul?
 
