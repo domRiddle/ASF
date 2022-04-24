@@ -49,7 +49,7 @@ ASF 会在请求中包含贡献者的 `SteamID`，即您已在 ASF 内设置好�
     "SecretAppIDs": [],
     "SecretDepotIDs": [],
     "SecretPackageIDs": [],
-    "SkipAutoGrantPackages": false
+    "SkipAutoGrantPackages": true
   }
 }
 ```
@@ -82,7 +82,7 @@ ASF 会在请求中包含贡献者的 `SteamID`，即您已在 ASF 内设置好�
 
 ### `SkipAutoGrantPackages`
 
-这是一个默认值为 `false` 的 `bool` 类型属性。 该属性非常类似 `SecretPackageIDs`，启用时，下文所述的解析过程将会跳过 `EPaymentMethod` 值为 `AutoGrant` 的 Package。 **[Steamworks](https://partner.steamgames.com)** 会使用 `AutoGrant` 付款方式自动为开发者帐户激活 Package。 这个选项不像其他 `Secret` 选项那样明确指定 ID，因此无法保证行为符合预期（您可能拥有一些非 `AutoGrant` 但仍然不想提交的 Package），但应该已经足以跳过大多数（可能并非全部）的私密 Package。
+这是一个默认值为 `true` 的 `bool` 类型属性。 该属性非常类似 `SecretPackageIDs`，启用时，下文所述的解析过程将会跳过 `EPaymentMethod` 值为 `AutoGrant` 的 Package。 **[Steamworks](https://partner.steamgames.com)** 会使用 `AutoGrant` 付款方式自动为开发者帐户激活 Package。 这个选项不像其他 `Secret` 选项那样明确指定 ID，因此无法保证行为符合预期（您可能拥有一些非 `AutoGrant` 但仍然不想提交的 Package），但应该已经足以跳过大多数（可能并非全部）的私密 Package。 This option is enabled by default, as people that actually have access to `AutoGrant` packages will almost never want to leak those to general public, and therefore using value of `false` is very situational.
 
 ---
 

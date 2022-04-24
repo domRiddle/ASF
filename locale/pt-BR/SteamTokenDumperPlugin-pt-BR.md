@@ -49,7 +49,7 @@ A configuração avançada tem a seguinte estrutura localizada dentro do `ASF.js
     "SecretAppIDs": [],
     "SecretDepotIDs": [],
     "SecretPackageIDs": [],
-    "SkipAutoGrantPackages": false
+    "SkipAutoGrantPackages": true
   }
 }
 ```
@@ -82,7 +82,7 @@ Tipo `ImmutableHashSet<uint>` com valor padrão vazio. This property specifies `
 
 ### `SkipAutoGrantPackages`
 
-Tipo `bool` com valor padrão `false`. This property acts very similar to `SecretPackageIDs` and when enabled, will cause packages with `EPaymentMethod` of `AutoGrant` to be skipped during resolve routine explained below. `AutoGrant` payment method is used by **[Steamworks](https://partner.steamgames.com)** to automatically grant packages on developer accounts. While this is not as explicit as other `Secret` options, and therefore doesn't guarantee anything (since you might have other packages than `AutoGrant` that you still don't want to submit), it should be good enough for skipping majority, if not all, of the secret packages.
+Tipo `bool` com valor padrão `true`. This property acts very similar to `SecretPackageIDs` and when enabled, will cause packages with `EPaymentMethod` of `AutoGrant` to be skipped during resolve routine explained below. `AutoGrant` payment method is used by **[Steamworks](https://partner.steamgames.com)** to automatically grant packages on developer accounts. While this is not as explicit as other `Secret` options, and therefore doesn't guarantee anything (since you might have other packages than `AutoGrant` that you still don't want to submit), it should be good enough for skipping majority, if not all, of the secret packages. This option is enabled by default, as people that actually have access to `AutoGrant` packages will almost never want to leak those to general public, and therefore using value of `false` is very situational.
 
 ---
 

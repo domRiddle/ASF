@@ -49,7 +49,7 @@ La configuración avanzada tiene la siguiente estructura en el archivo `ASF.json
     "SecretAppIDs": [],
     "SecretDepotIDs": [],
     "SecretPackageIDs": [],
-    "SkipAutoGrantPackages": false
+    "SkipAutoGrantPackages": true
   }
 }
 ```
@@ -82,7 +82,7 @@ Tipo `ImmutableHashSet<uint>` con valor predeterminado estando vacío. Esta prop
 
 ### `SkipAutoGrantPackages`
 
-Tipo `bool` con valor predeterminado de `false`. Esta propiedad actúa muy similar a `SecretPackageIDs` y cuando está habilitada, causará que los paquetes con `EPaymentMethod` de `AutoGrant` sean omitidos durante la rutina de análisis explicada abajo. El método de pago `AutoGrant` es usado por **[Steamworks](https://partner.steamgames.com)** para otorgar automáticamente paquetes a cuentas de desarrolladores. Aunque esto no es tan explícito como otras opciones `Secret`, y por lo tanto no garantiza nada (ya que podrías tener otros paquetes que no sean `AutoGrant` que no deseas enviar), debería ser suficiente para omitir la mayoría, si no todos, los paquetes secretos.
+Tipo `bool` con valor predeterminado de `true`. Esta propiedad actúa muy similar a `SecretPackageIDs` y cuando está habilitada, causará que los paquetes con `EPaymentMethod` de `AutoGrant` sean omitidos durante la rutina de análisis explicada abajo. El método de pago `AutoGrant` es usado por **[Steamworks](https://partner.steamgames.com)** para otorgar automáticamente paquetes a cuentas de desarrolladores. Aunque esto no es tan explícito como otras opciones `Secret`, y por lo tanto no garantiza nada (ya que podrías tener otros paquetes que no sean `AutoGrant` que no deseas enviar), debería ser suficiente para omitir la mayoría, si no todos, los paquetes secretos. Esta opción está habilitada por defecto, ya que las personas que tienen acceso a paquetes `AutoGrant` casi nunca querrán filtrarlos al público general, y por lo tanto usar el valor `false` es para situaciones muy específicas.
 
 ---
 
