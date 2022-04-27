@@ -77,7 +77,7 @@ ASF_NETWORK_GROUP="my_network_group"
 
 ASF 有自己的逻辑，验证自身是否以管理员用户（`root`）运行。 只要环境配置正确，ASF 进程的任何操作都**不**需要 root 权限，因此以 root 用户运行算是一种**错误实践**。 这意味着在 Windows 上，ASF 永远不应该“以管理员身份运行”，而在 Unix 上，ASF 应该以专门的用户帐户运行，或者在桌面环境下使用您自己的帐户。
 
-若要进一步了解我们*为什么*不鼓励以 root 权限运行 ASF，请阅读 **[SuperUser](https://superuser.com/questions/218379/why-is-it-bad-to-run-as-root)** 或其他资料。 如果您仍然不相信，请想象一下，如果 ASF 在启动后自动执行 `rm -rf --no-preserve-root /` 命令会发生什么。
+若要进一步了解我们*为什么*不鼓励以 root 权限运行 ASF，请阅读 **[SuperUser](https://superuser.com/questions/218379/why-is-it-bad-to-run-as-root)** 或其他资料。 如果您仍然不相信，请想象一下，如果 ASF 在启动后自动执行 `rm -rf /*` 命令会发生什么。
 
 ### 我用 `root` 运行是因为 ASF 无法写入自己的文件
 

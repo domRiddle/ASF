@@ -77,7 +77,7 @@ ASF_NETWORK_GROUP="mi_grupo_de_red"
 
 ASF incluye su propia validación ya sea que el proceso se ejecute como administrador (`root`) o no. Ejecutar como root **no** se requiere para ningún tipo de operación realizada por el proceso de ASF, suponiendo que el entorno en el que opera esté correctamente configurado, y por lo tanto debería ser considerado como una **mala práctica**. Esto significa que en Windows, ASF nunca debe ser ejecutado con la configuración "ejecutar como administrador", y en Unix ASF debería tener una cuenta de usuario dedicada, o reutilizar la tuya en caso de un sistema de escritorio.
 
-Para más información sobre *por qué* no recomendamos ejecutar ASF como root, revisa **[superuser](https://superuser.com/questions/218379/why-is-it-bad-to-run-as-root)** y otros recursos. Si todavía no estás convencido, pregúntate qué le pasaría a tu máquina si el proceso de ASF ejecutara el comando `rm -rf --no-preserve-root /` justo después de ejecutarse.
+Para más información sobre *por qué* no recomendamos ejecutar ASF como root, revisa **[superuser](https://superuser.com/questions/218379/why-is-it-bad-to-run-as-root)** y otros recursos. If you're still not convinced, ask yourself what would happen to your machine if ASF process executed `rm -rf /*` command right after its launch.
 
 ### Ejecuto como `root` porque ASF no puede escribir a sus archivos
 
