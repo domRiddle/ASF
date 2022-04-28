@@ -731,7 +731,7 @@ Tipo `ulong` com o valor padrão `0`. Esta propriedade define a steamID do grupo
 
 Tipo `string` com o valor padrão `null`. Essa propriedade define o seu PIN de acesso ao Modo Família. O ASF requer acesso a recursos protegidos pelo modo família, portanto se você usa esse recurso, você precisa fornecer ao ASF o PIN de desbloqueio, assim ele poderá operar normalmente. O valor padrão `null` significa que não há um PIN necessário para desbloquear esta conta, e isso é o que você precisa se você não usa o modo família.
 
-Em circunstâncias limitadas, o ASF também estará apto a gerar um código por conta própria, embora isso requira uma quantidade considerável de recursos do Sistema Operacional e tempo adicional, e ainda não é garantido que funcione, portanto nós recomendamos não contar com esse recurso e ao invés disso colocar um `SteamParentalCode` válido no arquivo de configuração para que o ASF o utilize. If ASF determines that PIN is required, and it'll be unable to generate one on its own, it'll ask you for input.
+Em circunstâncias limitadas, o ASF também estará apto a gerar um código por conta própria, embora isso requira uma quantidade considerável de recursos do Sistema Operacional e tempo adicional, e ainda não é garantido que funcione, portanto nós recomendamos não contar com esse recurso e ao invés disso colocar um `SteamParentalCode` válido no arquivo de configuração para que o ASF o utilize. Se o ASF determinar que o PIN é necessário e que não será possível gerar um por conta própria, ele pedirá que você digite um.
 
 ---
 
