@@ -14,11 +14,11 @@ Our basic FAQ covers standard questions and answers that you may have. Az biline
 
 ## Genel
 
-### What is ASF?
-### Why does the program claim that there is nothing to farm on my account?
-### Why is my account limited?
+### ASF nedir?
+### Neden program hesabımda çalıştıracak hiçbir şey olmadığı söylüyor?
+### Hesabım neden kısıtlı?
 
-Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
+ASF'nin ne olduğunu anlamaya çalışmadan önce, lütfen resmi SSS **[sayfasında](https://steamcommunity.com/tradingcards/faq)** güzelce açıklanmış olan, Steam kartlarının ne olduğunu ve nasıl elde edildiğini anladığınızdan emin olun.
 
 Kısaca, Steam kartları bir oyuna sahip olduğunuzda elde etme hakkı kazandığınız, rozet üretmekte kullanılabilen, Steam topluluk pazarında satılabilen veya seçtiğiniz herhangi başka bir amaç için kullanabilen koleksiyon ürünleridir.
 
@@ -138,7 +138,7 @@ In addition to that, IM is officially discontinued and can break completely in t
 
 ---
 
-### What interesting features ASF offers that Idle Master does not?
+### ASF, Idle Master'in sunmadığı hangi özellikleri sunuyor?
 
 It depends what you consider "interesting" for you. If you plan to farm more accounts than one then the answer is already obvious since ASF allows you to farm all of them with one superior solution, saving resources, hassle, and compatibility issues. However, if you're asking that question then most likely you don't have this particular need, so let's evaluate other benefits that apply to one single account used in ASF.
 
@@ -180,15 +180,15 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ---
 
-### Can ASF farm multiple games at once?
+### ASF aynı anda birçok oyunu çalıştırabilir mi?
 
-**Yes**, although ASF knows better when to use that feature, based on selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. Card drops rate when farming multiple games is close to zero, this is why ASF is using multiple games farming exclusively for hours in order to overcome `HoursUntilCardDrops` faster, for up to `32` games at once. This is also why you should focus on configuration part of the ASF, and let algorithms decide what is the most optimal way to achieve the goal - what you think is right, is not necessarily right in reality, farming multiple games at once will not provide you with any card drops.
+**Evet**, fakat seçilen **[kart çalıştırma algoritması](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**na göre ASF bu özelliği ne zaman kullanacağını daha iyi bilir. Card drops rate when farming multiple games is close to zero, this is why ASF is using multiple games farming exclusively for hours in order to overcome `HoursUntilCardDrops` faster, for up to `32` games at once. This is also why you should focus on configuration part of the ASF, and let algorithms decide what is the most optimal way to achieve the goal - what you think is right, is not necessarily right in reality, farming multiple games at once will not provide you with any card drops.
 
 ---
 
-### Can ASF skip through games fast?
+### ASF oyunları hızlıca atlayabilir mi?
 
-**No**, ASF doesn't support, neither encourages usage of **[Steam glitches](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance#steam-glitches)**.
+**Hayır**, ASF **[Steam açıklarını](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance#steam-glitches)** desteklemez ve kullanmayı önermez.
 
 ---
 
@@ -198,9 +198,9 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ---
 
-### Can I play a game while ASF is farming?
+### ASF çalışırken oyun oynayabilir miyim?
 
-**No**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
+**Hayır**. ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
 
 Keep in mind that cards drop rate when playing multiple games is close to 0 anyway, therefore there are no direct benefits from being able to do that with IM, while there are strong benefits of no interfering with other games launched with ASF, which is crucial e.g. VAC-wise.
 
@@ -210,7 +210,7 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 ---
 
-### Can I get VAC ban for using this?
+### Bunu kullandığım için VAC ban yiyebilir miyim?
 
 No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor its processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running - this is because **ASF doesn't even require Steam Client being installed at all** in order to work properly. ASF is the only farming program that can currently guarantee being VAC-free.
 
@@ -226,7 +226,7 @@ However, keep in mind that Valve could still add ASF to the blacklist at some po
 
 ---
 
-### Is it safe?
+### Güvenli mi?
 
 If you ask if ASF is safe as a software, which means that it won't cause any damage to your computer, won't steal your private data, install viruses or any other stuff like that - it is safe. ASF is free of malware, data stealing, cryptocurrency miners and any (and all) other doubtful behaviour that can be considered malicious or unwanted by the user. In addition to that we have a dedicated **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section which covers our privacy policy and ASF behaviour that goes beyond what you configured the program to do yourself.
 
@@ -236,9 +236,9 @@ In the end however, it's always a matter of trust to the developer(s) of your ap
 
 ---
 
-### Can I get banned for this?
+### Banlanabilirmiyim?
 
-In order to answer that question, we should take a closer look at **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. Steam doesn't prohibit using of multiple accounts, in fact, **[it allows it](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)** implying that you can use same mobile authenticator on more than one account. What it however doesn't allow is sharing accounts with other people, but we're not doing that here.
+Bu soruyu cevaplamak için, **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**'a yakından bakmalıyız. Steam doesn't prohibit using of multiple accounts, in fact, **[it allows it](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)** implying that you can use same mobile authenticator on more than one account. What it however doesn't allow is sharing accounts with other people, but we're not doing that here.
 
 The only real point that considers ASF is the following:
 > You may not use Cheats, automation software (bots), mods, hacks, or any other unauthorized third-party software, to modify or automate any Subscription Marketplace process.
@@ -266,7 +266,7 @@ You're using this software at your own risk. It's very unlikely that you can get
 
 ---
 
-### Did somebody get banned for it?
+### Şuana kadar birisi banlandı mı?
 
 **Yes**, we had at least a few incidents so far that resulted in some kind of Steam suspension. Whether ASF itself was the root cause or not is entirely different story that we'll probably never get to know.
 
