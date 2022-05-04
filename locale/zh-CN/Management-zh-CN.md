@@ -49,7 +49,7 @@ systemctl status ArchiSteamFarm@asf
 (...)
 ```
 
-如果 `systemd` 的状态是 `active (running)`，意味着一切正常，并且您可以通过执行命令 `tail -f -n 100 /var/log/syslog` 等方式来验证 ASF 已经启动并运行，因为 ASF 默认会将控制台输出报告到 syslog。 如果您满意现在的设置，就可以执行 `systemctl enable ArchiSteamFarm@asf` 命令，告诉 `systemd` 在系统启动时自动启动服务。 一切完成。
+如果 `systemd` 的状态是 `active (running)`，意味着一切正常，并且您可以通过执行命令 `journalctl -r` 等方式来验证 ASF 已经启动并运行，因为 ASF 默认会输出到控制台，并被 `systemd` 记录下来。 如果您满意现在的设置，就可以执行 `systemctl enable ArchiSteamFarm@asf` 命令，告诉 `systemd` 在系统启动时自动启动服务。 一切完成。
 
 如果您想停止进程，只需要执行 `systemctl stop ArchiSteamFarm@asf`。 类似地，如果您想要禁止 ASF 在系统启动时运行，就执行 `systemctl disable ArchiSteamFarm@asf`，非常简单。
 

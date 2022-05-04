@@ -49,7 +49,7 @@ systemctl status ArchiSteamFarm@asf
 (...)
 ```
 
-Si `systemd` indica `active (running)`, significa que todo ha salido bien, y puedes verificar que el proceso de ASF debería estar activo y ejecutándose, por ejemplo con `tail -f -n 100 /var/log/syslog`, ya que ASF por defecto también reporta su salida de consola a syslog. Si estás satisfecho con la configuración que tienes actualmente, puedes indicarle a `systemd` que inicie automáticamente tu servicio durante el arranque, ejecutando el comando `systemctl enable ArchiSteamFarm@asf`. Eso es todo.
+Si `systemd` indica `active (running)`, significa que todo ha ido bien, y puedes verificar que el proceso de ASF debería estar activo y en funcionamiento, por ejemplo con `journalctl -r`, ya que ASF por defecto también escribe a su salida de consola, lo que es registrado por `systemd`. Si estás satisfecho con la configuración que tienes actualmente, puedes indicarle a `systemd` que inicie automáticamente tu servicio durante el arranque, ejecutando el comando `systemctl enable ArchiSteamFarm@asf`. Eso es todo.
 
 Si por alguna razón quieres detener el proceso, simplemente ejecuta `systemctl stop ArchiSteamFarm@asf`. Del mismo modo, si quieres deshabilitar que ASF se inicie automáticamente durante el arranque,  `systemctl disable ArchiSteamFarm@asf` funcionará para ti, es muy simple.
 
