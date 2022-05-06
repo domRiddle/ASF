@@ -356,7 +356,7 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
     "PasswordFormat": 0,
     "Paused": false,
     "RedeemingPreferences": 0,
-    "RemoteCommunication": 7,
+    "RemoteCommunication": 3,
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,

@@ -356,7 +356,7 @@ Konfiguracja bota ma następującą strukturę:
     "PasswordFormat": 0,
     "Paused": false,
     "RedeemingPreferences": 0,
-    "RemoteCommunication": 7,
+    "RemoteCommunication": 3,
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,

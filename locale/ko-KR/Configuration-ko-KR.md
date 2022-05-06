@@ -356,7 +356,7 @@ In general, lowering `WebLimiterDelay` under default value is **strongly discour
     "PasswordFormat": 0,
     "Paused": false,
     "RedeemingPreferences": 0,
-    "RemoteCommunication": 7,
+    "RemoteCommunication": 3,
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,

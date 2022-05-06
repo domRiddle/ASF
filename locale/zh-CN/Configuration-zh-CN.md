@@ -356,7 +356,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
     "PasswordFormat": 0,
     "Paused": false,
     "RedeemingPreferences": 0,
-    "RemoteCommunication": 7,
+    "RemoteCommunication": 3,
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,

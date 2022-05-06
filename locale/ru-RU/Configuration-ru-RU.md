@@ -356,7 +356,7 @@ ASF использует формат **[JSON](https://ru.wikipedia.org/wiki/JSO
     "PasswordFormat": 0,
     "Paused": false,
     "RedeemingPreferences": 0,
-    "RemoteCommunication": 7,
+    "RemoteCommunication": 3,
     "SendOnFarmingFinished": false,
     "SendTradePeriod": 0,
     "ShutdownOnFarmingFinished": false,
