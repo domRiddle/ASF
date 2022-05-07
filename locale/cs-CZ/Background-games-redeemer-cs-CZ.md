@@ -2,26 +2,26 @@
 
 Aktivace her na pozadí je speciální vestavěná funkce ASF, která umožňuje importovat danou sadu klíčů Steam cd-key (společně s jejich jmény) na pozadí. To je zvláště užitečné, pokud máte mnoho klíčů k uplatnění a máte jistotu, že dosáhnete `RateLimited` **[stav](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)**, než budete mít hotovou aktivaci všech klíčů.
 
-Background games redeemer is made to have a single bot scope, which means that it does not make use of `RedeemingPreferences`. Tuto funkci lze v případě potřeby použít společně s (nebo namísto) `uplatnit` **[příkaz](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+Aktivace her na pozadí je vytvořena tak, aby byl použit jeden bot, což znamená, že nepoužívá `RedeemingPreferences`. Tuto funkci lze v případě potřeby použít společně s (nebo namísto) `uplatnit` **[příkaz](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
 
 ---
 
 ## Import
 
-The import process can be done through two ways - either by using a file, or IPC.
+Import lze provést dvěma způsoby - buď pomocí souboru, nebo IPC.
 
-### File
+### Soubor
 
-ASF will recognize in its `config` directory a file named `BotName.keys` where `BotName` is the name of your bot. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. If multiple tabs are used, then first entry is considered game's name, last entry is considered a cd-key, and everything in-between is ignored. For example:
+ASF rozezná ve svém `konfiguračním adresáři` soubor s názvem `BotName.keys`, kde `BotName` je název vašeho bota. Tento soubor očekával fixní strukturu se jmény her a klíčy, oddělené od sebe tabulátorem a zakončen novou řádkou pro označení dalšího záznamu. Pokud se používá více tabulátorů, pak je první položka považována za jméno hry, poslední položka je považována za klíče a vše mezi nimi je ignorováno. Například:
 
 ```text
-POSTAL 2    ABCDE-EFGHJ-IJKLM
+POSTAL 2 ABCDE-EFGHJ-IJKLM
 Domino Craft VR 12345-67890-ZXCVB
-A Week of Circus Terror POIUY-KJHGD-QWERT
-Terraria    ThisIsIgnored   ThisIsIgnoredToo    ZXCVB-ASDFG-QWERT
+Týden cirkulu POIUY-KJHGD-QWERT
+Terraria ThisIsIgnored ThisIsIgnoredToo ZXCVB-ASDFG-QWERT
 ```
 
-Alternatively, you're also able to use keys only format (still with a newline between each entry). ASF in this case will use Steam's response (if possible) to fill the right name. For any kind of keys tagging, we recommend that you name your keys yourself, as packages being redeemed on Steam do not have to follow logic of games that they're activating, so depending on what the developer has put, you may see correct game names, custom package names (e.g. Humble Indie Bundle 18) or outright wrong and potentially even malicious ones (e.g. Half-Life 4).
+Případně můžete použít pouze formát klíčů (stále s novým řádkem mezi každým záznamem). ASF v tomto případě použije odpověď ze Steamu dotazu (je-li to možné) k určení správného jména. Pro jakýkoli druh klíčů doporučujeme pojmenovat vaše klíče manuálně, protože balíčky jsou na Steamu vybírané, nemusí dodržovat logiku her, které se aktivují, takže v závislosti na tom, co napsal vývojář, můžete vidět správné názvy her a vlastní názvy balíčků (např.. Humble Indie Bundle 18) nebo přímo špatný a potenciálně dokonce jiný název balíčku (např. Half-Life 4).
 
 ```text
 ABCDE-EFGHJ-IJKLM
@@ -30,40 +30,40 @@ POIUY-KJHGD-QWERT
 ZXCVB-ASDFG-QWERT
 ```
 
-Regardless which format you've decided to stick with, ASF will import your `keys` file, either on bot startup, or later during execution. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
+Bez ohledu na to, kterého formátu jste se rozhodli držet, ASF importuje váš soubor `klíče`, a to buď při startu bota, nebo později během spuštění. Po úspěšné analýze souboru a případném vynechání neplatných záznamů, všechny správně zjištěné hry budou přidány do fronty na pozadí a `BotName.keys` soubor bude odstraněn z `adresáře s konfigurací`.
 
 ### IPC
 
-In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
+Kromě použití výše uvedeného souboru klíčů ASF také odhaluje `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)**, který může být spuštěné jakýmkoliv nástrojem IPC, včetně našeho ASF-ui. Použití IPC by mohlo být více užitečné, protože můžete sami dělat analýzy, jako například. používání vlastního oddělovače místo toho, abyste byli nuceni využívat tabulátor jako oddělovač, nebo dokonce můžete zavést zcela vlastní vlastní strukturu klíčů.
 
 ---
 
-## Queue
+## Fronta
 
-Once games are successfully imported, they're added to the queue. ASF automatically goes through its background queue as long as bot is connected to Steam network, and the queue is not empty. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
+Jakmile jsou hry úspěšně importovány, přidávají se do fronty. ASF automaticky prochází frontou na pozadí, pokud je bot připojen k síti Steam a fronta není prázdná. Klíč, který byl použit k pokusu o vybrání a nevedl k `RateLimited`, je ze fronty odstraněn, a status je zapsán do souboru ve složce `config` - anebo `BotName.keys.used`, pokud byl klíč použit v procesu (např. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`) nebo `BotName.keys.unused`. ASF úmyslně používá zadaný název hry, protože klíč nezaručuje odpovídající jméno poskytnuté sítí Steam - tímto způsobem můžete své klíče označit i pomocí vlastních názvů, pokud je to nutné/chtěné.
 
-If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
-
----
-
-## Example
-
-Let's assume that you have a list of 100 keys. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
-
-Now you can open our new file and copy-paste list of our 100 keys there, fixing the format if needed. After fixes our `BotName.keys.new` file will have exactly 100 (or 101, with last newline) lines, each line having a structure of `GameName\tcd-key\n`, where `\t` is tab character and `\n` is newline.
-
-You're now ready to rename this file from `BotName.keys.new` to `BotName.keys` in order to let ASF know that it's ready to be picked up. The moment you do this, ASF will automatically import the file (without a need of restart) and delete it afterwards, confirming that all our games were parsed and added to the queue.
-
-Instead of using `BotName.keys` file, you could also use IPC API endpoint, or even combining both if you want to.
-
-After some time, `BotName.keys.used` and `BotName.keys.unused` files will be generated. Those files contain results of our redeeming process. For example, you could rename `BotName.keys.unused` into `BotName2.keys` file and therefore submit our unused keys for some other bot, since previous bot didn't make use of those keys himself. Or you could simply copy-paste unused keys to some other file and keep it for later, your call. Keep in mind that as ASF goes through the queue, new entries will be added to our output `used` and `unused` files, therefore it's recommended to wait for the queue to be fully emptied before making use of them. If you absolutely must access those files before queue is fully emptied, you should firstly **move** output file you want to access to some other directory, **then** parse it. This is because ASF can append some new results while you're doing your thing, and that could potentially lead to loss of some keys if you read a file having e.g. 3 keys inside, then delete it, totally missing the fact that ASF added 4 other keys to your removed file in the meantime. If you want to access those files, ensure to move them away from ASF `config` directory before reading them, for example by rename.
-
-It's also possible to add extra games to import while having some games already in our queue, by repeating all above steps. ASF will properly add our extra entries to already-ongoing queue and deal with it eventually.
+Pokud během procesu náš účet zasáhne stav `RateLimited`, fronta je dočasně pozastavena na celou hodinu, aby bylo možné čekat na vypršení cooldownu. Poté proces pokračuje tam, kde přestal, dokud není celá fronta prázdná.
 
 ---
 
-## Remarks
+## Příklad
 
-Background keys redeemer uses `OrderedDictionary` under the hood, which means that your cd-keys will have preserved order as they were specified in the file (or IPC API call). This means that you can (and should) provide a list where given cd-key can only have direct dependencies on cd-keys listed above, but not below. For example, this means that if you have DLC `D` that requires game `G` to be activated firstly, then cd-key for game `G` should **always** be included before cd-key for DLC `D`. Likewise, if DLC `D` would have dependencies on `A`, `B` and `C`, then all 3 should be included before (in any order, unless they have dependencies on their own).
+Předpokládejme, že máte seznam 100 klíčů. Nejprve byste měli vytvořit nový soubor `BotName.keys.new` v adresáři `config`. Připojili jsme `.new` koncovku, aby ASF věděl, že by neměl tento soubor okamžitě použít v době jeho vytvoření (protože se jedná o nový prázdný soubor, který zatím není připraven k importu).
 
-Not following the scheme above will result in your DLC not being activated with `DoesNotOwnRequiredApp`, even if your account would be eligible for activating it after going through its entire queue. If you want to avoid that then you must make sure that your DLC is always included after the base game in your queue.
+Nyní můžete otevřít náš nový soubor a vložit seznam našich 100 klíčů, případně opravit formát textu. Po opravě našeho `BotName.keys.new` soubor bude mít přesně 100 (nebo 101 s posledními novými řádky), každý řádek se strukturou `GameName\tcd-key\n`, kde `\t` je tabulátor a `\n` je nový řádek.
+
+Nyní můžete přejmenovat tento soubor z `BotName.keys.new` na `BotName.keys` aby ASF věděl, že je připraven k použití. Jakmile to uděláte, ASF automaticky importuje soubor (bez nutnosti restartovat) a poté jej odstraní, s potvrzením, že všechny naše hry byly analyzovány a přidány do fronty.
+
+Namísto použití souboru `BotName.keys` můžete také použít IPC API endpoint, nebo dokonce kombinovat obě varianty, pokud chcete.
+
+Po nějaké době budou vygenerovány `BotName.keys.used` a `BotName.keys.unused` soubory. Tyto soubory obsahují výsledky našeho procesu vyzvedávání klíčů. Například můžete přejmenovat `BotName.keys.unused` na `BotName2.keys` soubor a tím se naše nepoužité klíče použijí pro jiného bota, protože předchozí bot tyto klíče nevyužil. Nebo můžete jednoduše kopírovat a vkládat nepoužité klíče do jiného souboru a ponechat je pro pozdější použití. Mějte na paměti, že ASF prochází frontu nových položek, nové položky budou přidány do našeho výstupu `used` a `unused` souborů, Proto je doporučeno počkat na úplné vyprázdnění fronty před jejich použitím. Pokud musíte k těmto souborům přistupovat před úplným vyprázdněním fronty, nejprve byste měli **přesunout** výstupní soubor, ke kterému chcete přistupovat do jiného adresáře, **pak** jej analyzovat. Je to proto, že ASF může připojit některé nové výsledky, zatímco vy provádíte tuto akci, a to by mohlo vést ke ztrátě některých klíčů, pokud máte otevřený soubor, kde jsou např. 3 klíče uvnitř, poté je odstraníte, v souboru zcela chybí další 4 klíče, které ASF mezitím přidal do souboru. Pokud chcete mít přístup k těmto souborům, ujistěte se, že je před jejich otevřením je přesunete z adresáře ASF `config`, například přejmenováním.
+
+Také je možné přidat další hry k importu, zatímco některé hry jsou již ve frontě, opakováním všech výše uvedených kroků. ASF přidá další položky do již probíhající fronty a nakonec se s ní vypořádá.
+
+---
+
+## Poznámky
+
+Klíče na pozadí používají implementaci `OrderedDictionary`, což znamená, že vaše klíče budou zachovány v pořadí tak, jak byly specifikovány v souboru (nebo IPC API volání). To znamená, že můžete (a měli byste) poskytnout seznam, kde může mít daný klíč pouze přímou závislost na klíč uvedených výše, ale ne níže. Například to znamená, že pokud máte DLC `D`, které vyžaduje aktivaci hry `G`, pak klíč pro hru `G` by **vždy** měl být před cd-key pro DLC `D`. Stejně tak pokud by DLC `D` mělo záviset na `A`, `B` a `C`před tím by měly být zahrnuty všechny 3 (v každém pořadí, pokud nejsou závislé na sobě).
+
+Nedodržení tohoto schématu způsobí, že vaše DLC není aktivováno s `DoesNotOwnRequdApp`, i v případě, že by váš účet byl způsobilý k aktivaci po provedení celé fronty. Pokud se tomu chcete vyhnout, musíte se ujistit, že vaše DLC je vždy ve frontě zahrnuto až po základní hře.

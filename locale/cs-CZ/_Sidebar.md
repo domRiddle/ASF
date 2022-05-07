@@ -8,7 +8,7 @@
 
 ***
 
-## 👨‍🏫 Base
+## Základní informace
 
 * **[🏡 Domovská stránka](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[🔧 Konfigurace](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
@@ -23,7 +23,7 @@
 * **[🛠️ Kompatibilita](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[📋 Správa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Výkon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📡 Remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
+* **[📡 Vzdálená komunikace](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
 * **[👪 Rodinné sdílení na Steamu](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
@@ -37,12 +37,12 @@
 * **[🚀 Nastavení pro vysoký výkon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[🌐 Lokalizace](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[📝 Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[💾 Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[📝 Log záznamy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[💾 Nastavení pro nízký výkon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[🔌 Pluginy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[🔐 Zabezpečení](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
-* **[📦 Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[📦 Třetí strana](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[📵 Dvoufaktorové ověření](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 
@@ -50,5 +50,5 @@
 
 * **[🏗️ Kompilace](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
 * **[🤝Jak přispět](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
-* **[⚖️ License](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
-* **[🏭 Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
+* **[⚖️ Licence](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
+* **[🏭 Cyklus vydávání](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
