@@ -6,9 +6,9 @@ ASF includes support for several command-line arguments that can affect the prog
 
 ## Χρήση
 
-Usage depends on your OS and ASF flavour.
+Η χρήση εξαρτάται από το επιλεγμένο σας OS και ASF.
 
-Generic:
+Γενικά:
 
 ```shell
 dotnet ArchiSteamFarm.dll --argument --otherOne
@@ -28,7 +28,7 @@ Linux/macOS:
 
 Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+If your argument includes spaces, don't forget to quote it. Αυτά τα δύο είναι λάθος:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
@@ -42,7 +42,7 @@ However, those two are completely fine:
 ./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
 ```
 
-## Arguments
+## Παράμετροι
 
 `--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
 

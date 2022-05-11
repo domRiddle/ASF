@@ -41,7 +41,7 @@
 
 ---
 
-## Packaging
+## Συσκευασία
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, allowing you to easily install ASF on arch linux.
@@ -56,6 +56,6 @@
 
 ---
 
-## Want to find more?
+## Θέλετε να βρείτε περισσότερα;
 
 We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** topic on GitHub for all projects that integrate with ASF.
