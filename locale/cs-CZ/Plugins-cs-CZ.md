@@ -4,7 +4,7 @@ Starting with ASF V4, the program includes support for custom plugins that can b
 
 ---
 
-## For users
+## Pro uživatele
 
 ASF loads plugins from `plugins` directory located in your ASF folder. It's a recommended practice to maintain a dedicated directory for each plugin that you want to use, which can be based off its name, such as `MyPlugin`. Doing so will result in the final tree structure of `plugins/MyPlugin`. Finally, all binary files of the plugin should be put inside that dedicated folder, and ASF will properly discover and use your plugin after restart.
 
@@ -18,7 +18,7 @@ You can find some featured plugins in our **[third-party](https://github.com/Jus
 
 ---
 
-## For developers
+## Pro vývojáře
 
 Plugins are standard .NET libraries that inherit common `IPlugin` interface with ASF. You can develop plugins entirely independently of mainline ASF and reuse them in current and future ASF versions, as long as API remains compatible. Plugin system used in ASF is based on `System.Composition`, formerly known as **[Managed Extensibility Framework](https://docs.microsoft.com/dotnet/framework/mef)** which allows ASF to discover and load your libraries during runtime.
 
@@ -95,7 +95,7 @@ If instead of example plugin you'd want to learn from real projects, there is **
 
 ---
 
-### API availability
+### Dostupnost API
 
 ASF, apart from what you have access to in the interfaces themselves, exposes to you a lot of its internal APIs that you can make use of, in order to extend the functionality. For example, if you'd like to send some kind of new request to Steam web, then you do not need to implement everything from scratch, especially dealing with all the issues we've had to deal with before you. Simply use our `Bot.ArchiWebHandler` which already exposes a lot of `UrlWithSession()` methods for you to use, handling all the lower-level stuff such as authentication, session refresh or web limiting for you. Likewise, for sending web requests outside of Steam platform, you could use standard .NET `HttpClient` class, but it's much better idea to use `Bot.ArchiWebHandler.WebBrowser` that is available for you, which once again offers you a helpful hand, for example in regards to retrying failed requests.
 
@@ -105,7 +105,7 @@ In fact, internal ASF's API is the only real limitation in terms of what your pl
 
 ---
 
-### API compatibility
+### API kompatibilita
 
 It's important to emphasize that ASF is a consumer application and not a typical library with fixed API surface that you can depend on unconditionally. This means that you can't assume that your plugin once compiled will keep working with all future ASF releases regardless, it's just impossible if you want to keep developing the program further, and being unable to adapt to ever-ongoing Steam changes for the sake of backwards compatibility is just not appropriate for our case. This should be logical for you, but it's important to highlight that fact.
 
@@ -113,7 +113,7 @@ We'll do our best to keep public parts of ASF working and stable, but we'll not 
 
 ---
 
-### Plugin dependencies
+### Závislosti pluginu
 
 Your plugin will include at least two dependencies by default, `ArchiSteamFarm` reference for internal API, and `PackageReference` of `System.Composition.AttributedModel` that is required for being recognized as ASF plugin to begin with. In addition to that, it may include more dependencies in regards to what you've decided to do in your plugin (e.g. `Discord.Net` library if you've decided to integrate with Discord).
 
@@ -127,7 +127,7 @@ If you're confused about above statement and you don't know better, check which 
 
 ---
 
-### Native dependencies
+### Nativní závislosti
 
 Native dependencies are generated as part of OS-specific builds, as there is no .NET runtime available on the host and ASF is running through its own .NET runtime that is bundled as part of OS-specific build. In order to minimize the build size, ASF trims its native dependencies to include only the code that can be possibly reached within the program, which effectively cuts the unused parts of the runtime. This can create a potential problem for you in regards to your plugin, if suddenly you find out yourself in a situation where your plugin depends on some .NET feature that isn't being used in ASF, and therefore OS-specific builds can't execute it properly, usually throwing `System.MissingMethodException` or `System.Reflection.ReflectionTypeLoadException` in the process.
 

@@ -6,19 +6,19 @@ If you're interested in what is currently going on, you can check **[ASF Crowdin
 
 ---
 
-## Scope
+## Rozsah
 
 Our platform supports localization of our main ASF program, as well as whole localizable content that we offer together with it. This includes especially our ASF-WebConfigGenerator, ASF-ui, as well as our wiki. All of that is possible to translate through convenient crowdin interface.
 
 ---
 
-## Signing up
+## Registrace
 
 If you'd like to help with ASF, either by translating, reviewing or approving translations, please sign up on our **[Crowdin project page](https://crowdin.com/project/archisteamfarm)**. Registration is easy and absolutely free! After logging in you can pick languages that you'd like to get assigned to, then proceed to ASF strings and help the rest of the community with translating ASF into all most popular languages!
 
 ---
 
-### Translating
+### Překlady
 
 If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as `{0}`. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format. This is especially important in RTL languages, such as Hebrew.
 
@@ -38,7 +38,7 @@ The flexibility is provided specially for you, so you can slightly reword ASF se
 
 ---
 
-### Reviewing
+### Přezkum
 
 If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion - this enhances overall translation quality even further. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).
 
@@ -46,7 +46,7 @@ If your string was already translated by somebody else, you can vote for it. Vot
 
 ---
 
-### Proof-reading
+### Potvrzení o čtení
 
 It's a good idea to have a consistent translation, even if it could potentially take freedom from community review/voting process explained above. This is mainly because incorrect translations that are not necessarily bad may get so many upvotes that it's no longer possible to suggest any better translation, even if somebody has such.
 
@@ -70,7 +70,7 @@ There are currently 4 supported type of issues:
 
 ---
 
-### Translation progress
+### Stav překladů
 
 Every language has two states of completion - translation, and proof-reading.
 
@@ -82,7 +82,7 @@ ASF will include given language **as soon as possible**, which means that it doe
 
 ---
 
-## Missing languages
+## Chybějící jazyky
 
 By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or a local dialect to already available one), please **[let us know](https://crowdin.com/messages/create/13177432/240376)** and we'll add it ASAP. We don't want to open several hundred different languages if nobody is going to translate them, that's why we limited it to some fair number. Please don't hesitate to contact us if you'd like to translate some not-listed language, it's very easy for us to add another one. Just make sure that you have actual willings and determination to translate ASF into your language, before you decide to contact with us.
 
@@ -90,7 +90,7 @@ For a complete list of all available languages that ASF can be translated to, **
 
 ---
 
-## Pluralization
+## Pluralizace
 
 Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
 
@@ -118,7 +118,7 @@ Wiki is a bit special in this regard, since it's online help where you don't nee
 
 ---
 
-### Global links
+### Globální odkazy
 
 Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
 
@@ -245,7 +245,7 @@ If you believe that something inappropriate is included in a code block, or that
 
 ---
 
-## Hall of fame
+## Síň slávy
 
 We'd like to show our eternal gratitude to people that have spent a significant amount of their time and willings to make ASF localization better. Their effort is incredible, and you can enjoy complete translations, including the wiki, mostly thanks to them.
 
@@ -259,4 +259,4 @@ We'd like to show our eternal gratitude to people that have spent a significant 
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, German     |
 | **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinese (HK)       |
 
-Thank you all for improving our ASF localization quality!
+Děkujeme vám všem za zlepšení naší kvality lokalizace ASF!

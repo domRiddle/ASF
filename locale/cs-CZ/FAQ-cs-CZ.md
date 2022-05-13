@@ -1,6 +1,6 @@
 # Často kladené otázky
 
-Our basic FAQ covers standard questions and answers that you may have. Pro méně obvyklé dotazy navštivte **[rozšířené FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
+Toto FAQ obsahuje odpovědi na obyklé otázky. Pro méně obvyklé dotazy navštivte **[rozšířené FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
 
 # Obsah
 
@@ -14,9 +14,9 @@ Our basic FAQ covers standard questions and answers that you may have. Pro mén�
 
 ## Obecné
 
-### What is ASF?
-### Why does the program claim that there is nothing to farm on my account?
-### Why is my account limited?
+### Co je ASF?
+### Proč program tvrdí, že na mém účtu není nic k farmení?
+### Proč je můj účet omezený?
 
 Dříve než se pokusíte pochopit, co je ASF, měli byste se ujistit, že rozumíte tomu, co jsou Steam karty a jak je získat, což je dobře popsáno v oficiálním FAQ **[zde](https://steamcommunity.com/tradingcards/faq)**.
 
@@ -46,7 +46,7 @@ So to sum up - ASF is a program that helps you drop those cards you're eligible 
 
 ---
 
-### Do I have to put my account credentials?
+### Musím dát přihlašovací údaje k účtu?
 
 **Yes**. ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input them as-needed when ASF asks for them.
 
@@ -54,25 +54,25 @@ Keep in mind that ASF tool is for your personal use and your credentials are nev
 
 ---
 
-### How long do I have to wait for cards to drop?
+### Jak dlouho musím čekat na to, až budou karty obdrženy?
 
 **As long as it takes** - seriously. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. In addition to that, your account could be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section. Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section.
 
 ---
 
-### Farming takes too long, can I somehow speed it up?
+### Farmení trvá příliš dlouho, mohu ho nějakým způsobem urychlit?
 
 The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** for your bot instance. Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. If you really have an urge of making every single second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
 
 ---
 
-### But ASF said that farming will take about X time!
+### Ale ASF řekl, že farmin si vyžádá asi X čas!
 
 ASF gives you rough approximation based on number of cards you need to drop, and your chosen algorithm - this is nowhere close to the actual time that you will spend on farming, which is usually longer than this, as ASF assumes best case only, and ignores all Steam Network quirks, internet disconnections, overload of Steam servers and likewise. It should be seen only as a general indicator how long you can expect ASF to be farming, very often in best case, as actual time will differ, even significantly in some cases. Like pointed out above, do not try to guess how long given game will be farmed, it's not up to you, neither ASF to decide.
 
 ---
 
-### Can ASF work on my android/smartphone?
+### Může ASF fungovat na mém androidu/chytrém telefonu?
 
 ASF is a C# program that requires working implementation of .NET. Android became a valid platform starting with .NET 6.0, however, there is currently a major blocker in making ASF happen on Android due to **[lack of ASP.NET runtime available on it](https://github.com/dotnet/aspnetcore/issues/35077)**. Even though there isn't a native option available, there are proper and working builds for GNU/Linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
 
@@ -80,7 +80,7 @@ When/If all ASF requirements are satisfied, we'll consider releasing official An
 
 ---
 
-### Can ASF farm items from Steam games, such as CS:GO or Unturned?
+### Může ASF farmit předměty ze Steamových her, jako je CS:GO nebo Unturned?
 
 **No**, this is against **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF is a Steam cards farming program, not game items farmer - it doesn't have any capability of farming game items, and it's not planned to add such feature in the future, ever, mainly because of violating Steam terms of use. Please do not ask about this - the best you can get is a report from some salty user and you having problems. The same goes for all other types of farming, such as farming drops from CS:GO broadcasts. ASF is focusing on Steam trading cards exclusively.
 
@@ -114,7 +114,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 ---
 
-### Is ASF similar to Idle Master?
+### Je ASF podobný jako Idle Master?
 
 The only similarity is the general purpose of both programs, which is farming Steam games in order to receive card drops. Everything else, including the actual farming method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation - IM is running on .NET Framework, ASF on .NET (Core). ASF was created to solve IM issues that were not possible to solve with a simple code edit - this is why ASF was written from scratch, without using a single code line or even general idea from IM, because that code and those ideas were entirely flawed to begin with. IM and ASF are like Windows and Linux - both are operating systems and both can be installed on your PC, but they share almost nothing with each other, apart from serving the similar purpose.
 

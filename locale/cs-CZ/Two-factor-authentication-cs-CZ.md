@@ -33,7 +33,7 @@ Ensure that your authenticator works by checking if above actions work - if they
 
 ---
 
-### Android phone
+### Android telefon
 
 In general for importing authenticator from your Android phone you will need **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** access. Rooting varies from device to device, so I won't tell you how to root your device. Visit **[XDA](https://www.xda-developers.com/root)** for excellent guides on how to do that, as well as general information on rooting in general. If you can't find your device or the guide that you need, try to find it on google second.
 
@@ -104,7 +104,7 @@ From now on, your ASF 2FA should be operational for this account.
 
 ---
 
-## Done
+## Hotovo
 
 From this moment, all `2fa` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your authenticator of choice (Android, iOS, SDA or WinAuth) to generate tokens and accept confirmations.
 
@@ -112,21 +112,21 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 ---
 
-## FAQ
+## Často kladené otázky
 
-### How is ASF making use of 2FA module?
+### Jak ASF používá 2FA modul?
 
 If ASF 2FA is available, ASF will use it for automatic confirmation of trades that are being sent/accepted by ASF. It will also be capable of automatically generating 2FA tokens on as-needed basis, for example in order to log in. In addition to that, having ASF 2FA also enables `2fa` commands for you to use. That should be all for now, if I didn't forget about anything - basically ASF uses 2FA module on as-needed basis.
 
 ---
 
-### What if I need a 2FA token?
+### Co když potřebuji 2FA token?
 
 You will need 2FA token to access 2FA-protected account, that includes every account with ASF 2FA as well. You should generate tokens in authenticator that you used for import, but you can also generate temporary tokens through `2fa` command sent via the chat to given bot. You can also use `2fa <BotNames>` command to generate temporary token for given bot instances. This should be enough for you to access bot accounts through e.g. browser, but as noted above - you should use your friendly authenticator (Android, iOS, SDA or WinAuth) instead.
 
 ---
 
-### Can I use my original authenticator after importing it as ASF 2FA?
+### Mohu použít svého původního autentifikátoru po import jako ASF 2FA?
 
 Yes, your original authenticator remains functional and you can use it together with using ASF 2FA. That's the whole point of the process - we're importing your authenticator credentials into ASF, so ASF can make use of them and accept selected confirmations on your behalf.
 
@@ -138,7 +138,7 @@ ASF mobile authenticator is saved in `BotName.db` file in your config directory,
 
 ---
 
-### How to remove ASF 2FA?
+### Jak odstranit ASF 2FA?
 
 Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2FA you want to remove. This option will remove associated imported 2FA with ASF, but will NOT delink your authenticator. If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, iOS, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linking that authenticator, on the Steam website. It's not possible to unlink your authenticator through ASF, this is what general-purpose authenticator that you already have should be used for.
 

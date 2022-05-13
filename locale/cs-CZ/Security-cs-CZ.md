@@ -1,6 +1,6 @@
 # Zabezpečení
 
-## Encryption
+## Šifrování
 
 ASF currently supports the following encryption methods as a definition of `ECryptoMethod`:
 
@@ -18,7 +18,7 @@ In order to generate encrypted password, e.g. for `SteamPassword` usage, you sho
 
 ---
 
-### `PlainText`
+### `Text`
 
 This is the most simple and insecure way of storing a password, defined as `ECryptoMethod` of `0`. ASF expects the string to be a plain text - a password in its direct form. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
 
@@ -40,13 +40,13 @@ Currently the most secure way of encrypting the password that ASF offers, and mu
 
 ---
 
-### `EnvironmentVariable`
+### `Proměnná pro prostředí`
 
 Memory-based storage defined as `ECryptoMethod` of `3`. ASF will read the password from the environment variable with given name specified in the password field (e.g. `SteamPassword`). For example, setting `SteamPassword` to `ASF_PASSWORD_MYACCOUNT` and `PasswordFormat` to `3` will cause ASF to evaluate `${ASF_PASSWORD_MYACCOUNT}` environment variable and use whatever is assigned to it as the account password.
 
 ---
 
-### `File`
+### `Soubory`
 
 File-based storage (possibly outside of the ASF config directory) defined as `ECryptoMethod` of `4`. ASF will read the password from the file path specified in the password field (e.g. `SteamPassword`). The specified path can be either absolute, or relative to ASF's "home" location (the folder where the `config` directory is included, taking into account `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**). This method can be used for example with **[Docker secrets](https://docs.docker.com/engine/swarm/secrets)**, which create such files for usage, but can also be used outside of Docker if you create appropriate file yourself. For example, setting `SteamPassword` to `/etc/secrets/MyAccount.pass` and `PasswordFormat` to `4` will cause ASF to read `/etc/secrets/MyAccount.pass` and use whatever is written to that file as the account password.
 
@@ -54,7 +54,7 @@ Remember to ensure that file containing the password is not readable by unauthor
 
 ---
 
-## Recommendation
+## Doporučení
 
 If compatibility is not an issue for you, and you're fine with the way how `ProtectedDataForCurrentUser` method works, it is the **recommended** option of storing the password in ASF, as it provides the best security. `AES` method is a good choice for people who still want to make use of their configs on any machine they want, while `PlainText` is the most simple way of storing the password, if you don't mind that anybody can look into JSON configuration file for it.
 
@@ -66,7 +66,7 @@ In addition to encryption methods specified above, it's possible to also avoid s
 
 ---
 
-## Decryption
+## Dešifrování
 
 ASF doesn't support any way of decrypting already encrypted passwords, as decryption methods are used only internally for accessing the data inside the process. If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply repeat the procedure from beginning in the new environment.
 
@@ -110,6 +110,6 @@ ASF allows you to specify salt for this method via `--cryptkey` **[command-line 
 
 ---
 
-## Recommendation
+## Doporučení
 
 If you'd like to use a hashing method for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).
