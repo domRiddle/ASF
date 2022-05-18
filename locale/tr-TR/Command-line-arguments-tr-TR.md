@@ -1,6 +1,6 @@
-# Komut satırı değişkenleri
+# Komut satırı argümanları
 
-ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF, program çalışmasını etkileyebilecek bir çok komut satırı argümanını destekler. Gelişmiş kullanıcılar programın nasıl çalışacağını belirtmek için bunları kullanabilir. Varsayılan ayar değiştirme yolu olan `ASF.json` ayar dosyasıyla kıyaslanacak olursa, komut satırı argümanları çekirdek başlatmasını (örn. `--path`), platforma özel ayarlar (örn. `--system-required`) veya hassas bilgileri (örn. `--cryptkey`) programa sunabilir.
 
 ---
 
@@ -8,45 +8,45 @@ ASF includes support for several command-line arguments that can affect the prog
 
 Kullanım işletim sisteminize ve ASF zevkinize göre değişir.
 
-Generic:
+Genel:
 
 ```shell
-dotnet ArchiSteamFarm.dll --argument --otherOne
+dotnet ArchiSteamFarm.dll --argüman --başkaArgüman
 ```
 
 Windows:
 
 ```powershell
-.\ArchiSteamFarm.exe --argument --otherOne
+.\ArchiSteamFarm.exe --argüman --başkaArgüman
 ```
 
 Linux/macOS:
 
 ```shell
-./ArchiSteamFarm --argument --otherOne
+./ArchiSteamFarm --argüman --başkaArgüman
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+Komut satırı argümanları `ArchiSteamFarm.cmd` veya `ArchiSteamFarm.sh` gibi genel yardımcı betik dosyalarında da kullanılır. Ek olarak yardımcı betikler ile, **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** bölümünde bahsedildiği gibi `ASF_ARGS` ortam değişkenini de kullanabilirsiniz.
 
-If your argument includes spaces, don't forget to quote it. Şu ikisi hatalıdır:
+Eğer argümanınızda boşluklar varsa tırnak içinde kullanmayı unutmayın. Şu ikisi hatalıdır:
 
 ```shell
-./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
-./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
+./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Kötü!
+./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Kötü!
 ```
 
 Ancak şu ikisi tamamen hatasızdır:
 
 ```shell
-./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
-./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
+./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # Doğru
+./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # Doğru
 ```
 
-## Arguments
+## Argümanlar
 
-`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
+`--cryptkey <key>` veya `--cryptkey=<key>` - ASF'yi `<key>` değerinde verilen özel kriptografik anahtar ile başlatır. Bu seçenek **[güvenliği](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** etkiler ve ASF'nin içine gömülü kriptografik anahtar yerine sizin verdiğiniz özel `<key>` anahtarı kullanılır. Bu değişken varsayılan şifreleme anahtarını (şifreleme için) ve salt değerini (hashing için) değiştirdiği için, sizin sunduğunuz anahtarla şifrelenen/hashlenen her şeyi kullanabilmek için her defasında ASF'ye bu anahtarı vermek zorunda olacağınızı unutmayın.
 
-Due to the nature of this property, it's also possible to set cryptkey by declaring `ASF_CRYPTKEY` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+Bu değişkenin doğası gereği, cryptkey'i `ASF_CRYPTKEY` ortam değişkeni ile de değiştirebilirsiniz, işlem argümanlarında hassas bilgilerin bulunmamasını isteyen kişiler için daha ideal olur.
 
 ---
 
