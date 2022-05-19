@@ -19,15 +19,28 @@ ASF 允许您自定义运行时使用的日志模块。 您可以将名为 `NLog
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" archiveFileName="${currentdir}/logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="${currentdir}/log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
 
-    <!-- 以下目标仅在 ASF 的 IPC 接口启用时激活 -->
+    <!-- 下列条目仅在 ASF 的 IPC 接口启用时激活 -->
     <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" />
   </targets>
 
   <rules>
+    <!-- 下列条目指定了 ASP.NET（IPC）的日志，我们声明它们是为了使最顶层的调试捕获默认不包含 ASP.NET 部分 -->
+    <logger name="Microsoft*" finalMinLevel="Warn" writeTo="ColoredConsole" />
+    <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="ColoredConsole" />
+    <logger name="System*" finalMinLevel="Warn" writeTo="ColoredConsole" />
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
+
+    <!-- 下列条目指定了 ASP.NET（IPC）的日志，我们声明它们是为了使最顶层的调试捕获默认不包含 ASP.NET 部分 -->
+    <logger name="Microsoft*" finalMinLevel="Warn" writeTo="File" />
+    <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="File" />
+    <logger name="System*" finalMinLevel="Warn" writeTo="File" />
     <logger name="*" minlevel="Debug" writeTo="File" />
 
-    <!-- 以下目标仅在 ASF 的 IPC 接口启用时激活 -->
+    <!-- 下列条目仅在 ASF 的 IPC 接口启用时激活 -->
+    <!-- 下列条目指定了 ASP.NET（IPC）的日志，我们声明它们是为了使最顶层的调试捕获默认不包含 ASP.NET 部分 -->
+    <logger name="Microsoft*" finalMinLevel="Warn" writeTo="History" />
+    <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="History" />
+    <logger name="System*" finalMinLevel="Warn" writeTo="History" />
     <logger name="*" minlevel="Debug" writeTo="History" />
   </rules>
 </nlog>

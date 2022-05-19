@@ -24,10 +24,23 @@ Se você quiser usar o registro padrão do ASF sem quaisquer modificações, voc
   </targets>
 
   <rules>
+    <!-- The following entries specify ASP.NET (IPC) logging, we declare those so our last Debug catch-all doesn't include ASP.NET logs by default -->
+    <logger name="Microsoft*" finalMinLevel="Warn" writeTo="ColoredConsole" />
+    <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="ColoredConsole" />
+    <logger name="System*" finalMinLevel="Warn" writeTo="ColoredConsole" />
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
+
+    <!-- The following entries specify ASP.NET (IPC) logging, we declare those so our last Debug catch-all doesn't include ASP.NET logs by default -->
+    <logger name="Microsoft*" finalMinLevel="Warn" writeTo="File" />
+    <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="File" />
+    <logger name="System*" finalMinLevel="Warn" writeTo="File" />
     <logger name="*" minlevel="Debug" writeTo="File" />
 
-    <!-- Below becomes active when ASF's IPC interface is started -->
+    <!-- Below becomes active when ASF's IPC interface is enabled -->
+    <!-- The following entries specify ASP.NET (IPC) logging, we declare those so our last Debug catch-all doesn't include ASP.NET logs by default -->
+    <logger name="Microsoft*" finalMinLevel="Warn" writeTo="History" />
+    <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="History" />
+    <logger name="System*" finalMinLevel="Warn" writeTo="History" />
     <logger name="*" minlevel="Debug" writeTo="History" />
   </rules>
 </nlog>

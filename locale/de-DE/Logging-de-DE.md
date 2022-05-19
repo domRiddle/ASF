@@ -19,15 +19,28 @@ Wenn du die standard ASF-Protokollierung ohne irgendwelche Veränderung verwende
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" archiveFileName="${currentdir}/logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="${currentdir}/log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
 
-    <!-- Unten wird aktiv, wenn die IPC-Schnittstelle von ASF gestartet wird -->
+    <!-- Below becomes active when ASF's IPC interface is started -->
     <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" />
   </targets>
 
   <rules>
+    <!-- The following entries specify ASP.NET (IPC) logging, we declare those so our last Debug catch-all doesn't include ASP.NET logs by default -->
+    <logger name="Microsoft*" finalMinLevel="Warn" writeTo="ColoredConsole" />
+    <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="ColoredConsole" />
+    <logger name="System*" finalMinLevel="Warn" writeTo="ColoredConsole" />
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
+
+    <!-- The following entries specify ASP.NET (IPC) logging, we declare those so our last Debug catch-all doesn't include ASP.NET logs by default -->
+    <logger name="Microsoft*" finalMinLevel="Warn" writeTo="File" />
+    <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="File" />
+    <logger name="System*" finalMinLevel="Warn" writeTo="File" />
     <logger name="*" minlevel="Debug" writeTo="File" />
 
-    <!-- Unten wird aktiv, wenn die IPC-Schnittstelle von ASF gestartet wird -->
+    <!-- Below becomes active when ASF's IPC interface is enabled -->
+    <!-- The following entries specify ASP.NET (IPC) logging, we declare those so our last Debug catch-all doesn't include ASP.NET logs by default -->
+    <logger name="Microsoft*" finalMinLevel="Warn" writeTo="History" />
+    <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="History" />
+    <logger name="System*" finalMinLevel="Warn" writeTo="History" />
     <logger name="*" minlevel="Debug" writeTo="History" />
   </rules>
 </nlog>
