@@ -15,7 +15,7 @@ su # or sudo -i
 useradd -m asf
 ```
 
-A continuación, descomprime ASF en la carpeta `/home/asf/ArchiSteamFarm`. La estructura de carpetas es importante para nuestra unidad de servicio, debería ser la carpeta `ArchiSteamFarm` en `$HOME`, por lo tanto `/home/<user>`.  Si hiciste todo correctamente, habrá un archivo `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service`.
+A continuación, descomprime ASF en la carpeta `/home/asf/ArchiSteamFarm`. La estructura de carpetas es importante para nuestra unidad de servicio, debería ser la carpeta `ArchiSteamFarm` en `$HOME`, por lo tanto `/home/<user>`.  Si hiciste todo correctamente, habrá un archivo `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service`. Si estás usando la variante `linux` y no desempaquetaste el archivo en Linux, pero por ejemplo usaste la transferencia de archivos desde Windows, entonces también necesitarás usar `chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm`.
 
 Haremos todas las siguientes acciones como `root`, por lo que debes llegar al shell con el comando `su` o `sudo -i`.
 
@@ -114,4 +114,4 @@ No es necesario que las instancias de ASF compartan las mismas propiedades `*Lim
 
 ASF toma en cuenta la configuración de `WebProxy` al decidir sobre el ámbito compartido, lo que significa que dos instancias de ASF que usan diferentes configuraciones `WebProxy` no compartirán sus limitadores entre sí. Esto se implementa para permitir que las configuraciones `WebProxy` funcionen sin retrasos excesivos, como se espera de diferentes interfaces de red. Esto debería ser suficiente para la mayoría de los casos de uso, sin embargo, si tienes una configuración personalizada en la que, por ejemplo, estés enrutando solicitudes de forma distinta, puedes especificar el grupo de red a través del **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-es)** `--network-group`, lo que te permitirá declarar el grupo de ASF que se sincronizará con esta instancia. Ten en cuenta que los grupos de red personalizados se utilizan exclusivamente, lo que significa que ASF ya no usará `WebProxy` para determinar el grupo correcto, ya que tú eres responsable del agrupamiento en este caso.
 
-Si deseas usar nuestro **[servicio `systemd`](#servicio-systemd-para-linux)** explicado anteriormente para múltiples instancias de ASF, es muy simple, solamente usa otro usuario para nuestra declaración de servicio `ArchiSteamFarm@` y sigue el resto de los pasos.
+Si deseas usar nuestro **[servicio `systemd`](#servicio-systemd-para-linux)** explicado anteriormente para múltiples instancias de ASF, es muy simple, solamente usa otro usuario para nuestra declaración de servicio `ArchiSteamFarm@` y sigue el resto de los pasos. Esto será equivalente a ejecutar múltiples instancias de ASF con distintos ejecutables, así también podrán autoactualizarse y operar de forma independiente entre sí.

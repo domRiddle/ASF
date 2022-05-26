@@ -15,7 +15,7 @@ su # or sudo -i
 useradd -m asf
 ```
 
-Next, unpack ASF to `/home/asf/ArchiSteamFarm` folder. The folder structure is important for our service unit, it should be `ArchiSteamFarm` folder in your `$HOME`, so `/home/<user>`. If you did everything correctly, there will be `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` file existing.
+Next, unpack ASF to `/home/asf/ArchiSteamFarm` folder. The folder structure is important for our service unit, it should be `ArchiSteamFarm` folder in your `$HOME`, so `/home/<user>`. If you did everything correctly, there will be `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` file existing. If you're using `linux` variant and didn't unpack the file on Linux, but for example used file transfer from Windows, then you'll also need to `chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm`.
 
 We'll do all below actions as `root`, so get to its shell with `su` or `sudo -i`.
 
@@ -114,4 +114,4 @@ ASF будет по возможности использовать миниму
 
 ASF учитывает настройки `WebProxy` для принятия решения об использовании блокировок, то есть два экземпляра ASF, использующих разную настройку `WebProxy` не будут иметь общей блокировки между собой. Это сделано чтоб позволить конфигурациям с использованием `WebProxy` работать без излишних задержек, как ожидается от разных сетевых интерфейсов. Этого должно быть достаточно для большинства вариантов использования, однако, если ваша конфигурация специфична, например вы перенаправляете запросы самостоятельно каким-то другим образом, вы можете задать сетевую группу сами с помощью **[аргумента командной строки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU)** `--network-group`, позволяющего вам указывать группу ASF которая будет синхронизироваться с данным экземпляром. Имейте в виду, что пользовательские сетевые группы переопределяют внутреннюю группировку, а значит ASF больше не будет учитывать значение `WebProxy` для определения правильной группы, так как в этом случае вы полностью отвечаете за группировку.
 
-If you'd like to utilize our **[`systemd` service](#systemd-service-for-linux)** explained above for multiple ASF instances, it's very simple, just use another user for our `ArchiSteamFarm@` service declaration and follow with the rest of the steps.
+If you'd like to utilize our **[`systemd` service](#systemd-service-for-linux)** explained above for multiple ASF instances, it's very simple, just use another user for our `ArchiSteamFarm@` service declaration and follow with the rest of the steps. This will be equivalent of running multiple ASF instances with distinct binaries, so they can also auto-update and operate independently of each other.
