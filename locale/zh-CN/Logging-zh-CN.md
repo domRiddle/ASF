@@ -28,12 +28,14 @@ ASF 允许您自定义运行时使用的日志模块。 您可以将名为 `NLog
     <logger name="Microsoft*" finalMinLevel="Warn" writeTo="ColoredConsole" />
     <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="ColoredConsole" />
     <logger name="System*" finalMinLevel="Warn" writeTo="ColoredConsole" />
+
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
 
     <!-- 下列条目指定了 ASP.NET（IPC）的日志，我们声明它们是为了使最顶层的调试捕获默认不包含 ASP.NET 部分 -->
     <logger name="Microsoft*" finalMinLevel="Warn" writeTo="File" />
     <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="File" />
     <logger name="System*" finalMinLevel="Warn" writeTo="File" />
+
     <logger name="*" minlevel="Debug" writeTo="File" />
 
     <!-- 下列条目仅在 ASF 的 IPC 接口启用时激活 -->
@@ -41,6 +43,7 @@ ASF 允许您自定义运行时使用的日志模块。 您可以将名为 `NLog
     <logger name="Microsoft*" finalMinLevel="Warn" writeTo="History" />
     <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="History" />
     <logger name="System*" finalMinLevel="Warn" writeTo="History" />
+
     <logger name="*" minlevel="Debug" writeTo="History" />
   </rules>
 </nlog>

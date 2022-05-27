@@ -1,4 +1,4 @@
-# Commands
+# Команди
 
 ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
 
@@ -45,7 +45,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 
 ---
 
-## Commands
+## Команди
 
 | Команда                                                              | Достъп              | Описание                                                                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -91,6 +91,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 | `стартирай [Bots]`                                                   | `Master`            | Starts given bot instances.                                                                                                                                                                                                                                                                                                         |
 | `стaтистики`                                                         | `Собственик`        | Prints process statistics, such as managed memory usage.                                                                                                                                                                                                                                                                            |
 | `статус [Bots]`                                                      | `Семейно Споделяне` | Prints status of given bot instances.                                                                                                                                                                                                                                                                                               |
+| `std`                                                                | `Собственик`        | Special command for **[`SteamTokenDumperPlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)** which triggers submission of data immediately.                                                                                                                                                       |
 | `спри [Bots]`                                                        | `Master`            | Stops given bot instances.                                                                                                                                                                                                                                                                                                          |
 | `tb [Bots]`                                                          | `Master`            | Lists blacklisted users from trading module of given bot instances.                                                                                                                                                                                                                                                                 |
 | `tbadd [Bots] <SteamIDs64>`                                    | `Master`            | Blacklists given `steamIDs` from trading module of given bot instances.                                                                                                                                                                                                                                                             |

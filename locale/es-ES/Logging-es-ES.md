@@ -24,23 +24,26 @@ Si quieres usar el registro por defecto de ASF sin modificaciones, no necesitas 
   </targets>
 
   <rules>
-    <!-- Las siguientes entradas especifican  el registro ASP.NET (IPC), las declaramos para que el nivel Debug no incluya los registros ASP.NET por defecto -->
+    <!-- Las siguientes entradas especifican el registro de ASP.NET (IPC), las declaramos para que el nivel Debug no incluya por defecto los registros de ASP.NET -->
     <logger name="Microsoft*" finalMinLevel="Warn" writeTo="ColoredConsole" />
     <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="ColoredConsole" />
     <logger name="System*" finalMinLevel="Warn" writeTo="ColoredConsole" />
+
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
 
-    <!-- Las siguientes entradas especifican  el registro ASP.NET (IPC), las declaramos para que el nivel Debug no incluya los registros ASP.NET por defecto -->
+    <!-- Las siguientes entradas especifican el registro de ASP.NET (IPC), las declaramos para que el nivel Debug no incluya por defecto los registros de ASP.NET -->
     <logger name="Microsoft*" finalMinLevel="Warn" writeTo="File" />
     <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="File" />
     <logger name="System*" finalMinLevel="Warn" writeTo="File" />
+
     <logger name="*" minlevel="Debug" writeTo="File" />
 
     <!-- Lo siguiente se activa cuando la interfaz IPC de ASF está habilitada -->
-    <!-- Las siguientes entradas especifican  el registro ASP.NET (IPC), las declaramos para que el nivel Debug no incluya los registros ASP.NET por defecto -->
+    <!-- Las siguientes entradas especifican el registro de ASP.NET (IPC), las declaramos para que el nivel Debug no incluya por defecto los registros de ASP.NET -->
     <logger name="Microsoft*" finalMinLevel="Warn" writeTo="History" />
     <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="History" />
     <logger name="System*" finalMinLevel="Warn" writeTo="History" />
+
     <logger name="*" minlevel="Debug" writeTo="History" />
   </rules>
 </nlog>

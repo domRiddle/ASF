@@ -13,7 +13,7 @@
 * **[🏡 Начало](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[🔧 Настройка](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[💬 Често Задавани Въпроси](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[⚙️ Setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(start here)**
+* **[⚙️ Начални настройки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(започнете от тук)**
 
 
 ## 👨‍🎓️ Main
