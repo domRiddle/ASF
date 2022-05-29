@@ -6,13 +6,13 @@ Funkcja aktywacji kluczy w tle została napisana żeby się wykonała w jednej p
 
 ---
 
-## Import
+## Importowanie
 
 Proces importowania może odbyć się na dwa sposoby - poprzez plik, lub IPC.
 
 ### Plik
 
-ASF rozpozna w katalogu `config` plik o nazwie `BotName.keys`, gdzie `BotName` jest nazwą bot. Ten plik ma oczekuje i stałej struktury nazwa gry z cd-key, oddzielone od siebie znakiem tabulacji i kończy znakiem nowej linii, aby wskazać następnego wpisu. Jeśli wiele kart są używane, a następnie pierwszy wpis jest uważana za nazwę gry, ostatni wpis jest uważany za cd-key i wszystko pomiędzy nimi jest ignorowana. For example:
+ASF rozpozna w katalogu `config` plik o nazwie `BotName.keys`, gdzie `BotName` jest nazwą bot. Ten plik ma oczekuje i stałej struktury nazwa gry z cd-key, oddzielone od siebie znakiem tabulacji i kończy znakiem nowej linii, aby wskazać następnego wpisu. Jeśli wiele kart są używane, a następnie pierwszy wpis jest uważana za nazwę gry, ostatni wpis jest uważany za cd-key i wszystko pomiędzy nimi jest ignorowana. Na przykład:
 
 ```text
 POCZTOWY 2 ABCDE-EFGHJ-IJKLM
@@ -34,7 +34,7 @@ Bez względu na to, w jakim formacie zdecydowałeś się trzymać, ASF zaimportu
 
 <h3 spaces-before="0">IPC</h3>
 
-<p spaces-before="0">Oprócz użycia wspomnianego wcześniej pliku kluczy, ASF udostępnia również <GamesToRedeemInBackground </ 0> <strong x-id="1"><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api"> punkt końcowy API ASF </ 1>, który może być wykonywany przez dowolne narzędzie IPC, w tym nasz ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.</p>
+<p spaces-before="0">Oprócz użycia wspomnianego wcześniej pliku kluczy, ASF udostępnia również <GamesToRedeemInBackground </ 0> <strong x-id="1"><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api"> punkt końcowy API ASF </ 1>, który może być wykonywany przez dowolne narzędzie IPC, w tym nasz ASF-ui. Używanie IPC może być znacznie potężniejsze, ponieważ możesz sam dokonać właściwego analizowania, na przykład użyć niestandardowego ogranicznika zamiast być zmuszonym do wstawiania znaków tabulacji, lub nawet wprowadzać całkowicie własną niestandardową strukturę klawiszy.</p>
 
 <hr />
 
@@ -46,7 +46,7 @@ Bez względu na to, w jakim formacie zdecydowałeś się trzymać, ASF zaimportu
 
 <hr />
 
-<h2 spaces-before="0">Example</h2>
+<h2 spaces-before="0">Przykład</h2>
 
 <p spaces-before="0">Załóżmy, że masz listę 100 kluczy. Po pierwsze należy utworzyć nowy plik <code>BotName.keys.new` w katalogu `config` ASF. Możemy dołączane `nowe` rozszerzenie w celu niech ASF, wiem, że to nie powinien odebrać ten plik natychmiast w chwili, gdy jest tworzony (jak to jest nowy pusty plik, nie jest gotowy do importu, jeszcze).
 
@@ -56,7 +56,7 @@ Teraz jesteś gotowy, aby zmienić nazwę tego pliku od `BotName.keys.new` do `B
 
 Zamiast przy użyciu pliku `BotName.keys`, można również użyć IPC API punktu końcowego, lub nawet połączenie obu Jeśli chcesz.
 
-After some time, `BotName.keys.used` and `BotName.keys.unused` files will be generated. Te pliki zawierają wyniki naszego procesu wymiany. Na przykład, możesz zmienić nazwę pliku ` BotName.keys.unused </ 0> na plik <code> BotName2.keys </ 0>, a następnie przesłać nasze nieużywane klucze do innego bota, ponieważ poprzedni bot nie użył te klucze sam. Lub możesz po prostu skopiować i wkleić nieużywane klucze do jakiegoś innego pliku i zachować go na później, twój telefon. Należy pamiętać, że gdy ASF przechodzi przez kolejkę, nowe wpisy zostaną dodane do naszych wyjściowych <code> używanych </ 0> i <code> nieużywanych </ 0> plików, dlatego zaleca się, aby poczekać na pełne opróżnienie kolejki zanim skorzystasz z nich. Jeśli bezwzględnie musisz uzyskać dostęp do tych plików przed całkowitym opróżnieniem kolejki, powinieneś najpierw <strong x-id="1"> przenieść </ 0> plik wyjściowy, do którego chcesz uzyskać dostęp do innego katalogu, <strong x-id="1"> następnie </ 0> go przeanalizować. Dzieje się tak dlatego, że ASF może dodawać nowe wyniki, gdy robisz coś, co może prowadzić do utraty niektórych kluczy, jeśli czytasz plik zawierający np. 3 klucze wewnątrz, a następnie usuń je, całkowicie pomijając fakt, że ASF dodał 4 inne klucze do usuniętego pliku w międzyczasie. Jeśli chcesz uzyskać dostęp do tych plików, upewnij się, że zostały przeniesione z katalogu ASF <code> config </ 0> przed ich odczytaniem, na przykład przez zmianę nazwy.</p>
+Po pewnym czasie pliki `BotName.keys.used` i `BotName.keys.nieużywane` zostaną wygenerowane. Te pliki zawierają wyniki naszego procesu wymiany. Na przykład, możesz zmienić nazwę pliku ` BotName.keys.unused </ 0> na plik <code> BotName2.keys </ 0>, a następnie przesłać nasze nieużywane klucze do innego bota, ponieważ poprzedni bot nie użył te klucze sam. Lub możesz po prostu skopiować i wkleić nieużywane klucze do jakiegoś innego pliku i zachować go na później, twój telefon. Należy pamiętać, że gdy ASF przechodzi przez kolejkę, nowe wpisy zostaną dodane do naszych wyjściowych <code> używanych </ 0> i <code> nieużywanych </ 0> plików, dlatego zaleca się, aby poczekać na pełne opróżnienie kolejki zanim skorzystasz z nich. Jeśli bezwzględnie musisz uzyskać dostęp do tych plików przed całkowitym opróżnieniem kolejki, powinieneś najpierw <strong x-id="1"> przenieść </ 0> plik wyjściowy, do którego chcesz uzyskać dostęp do innego katalogu, <strong x-id="1"> następnie </ 0> go przeanalizować. Dzieje się tak dlatego, że ASF może dodawać nowe wyniki, gdy robisz coś, co może prowadzić do utraty niektórych kluczy, jeśli czytasz plik zawierający np. 3 klucze wewnątrz, a następnie usuń je, całkowicie pomijając fakt, że ASF dodał 4 inne klucze do usuniętego pliku w międzyczasie. Jeśli chcesz uzyskać dostęp do tych plików, upewnij się, że zostały przeniesione z katalogu ASF <code> config </ 0> przed ich odczytaniem, na przykład przez zmianę nazwy.</p>
 
 <p spaces-before="0">Możliwe jest również dodanie dodatkowych gier do zaimportowania, podczas gdy niektóre gry są już w naszej kolejce, powtarzając wszystkie powyższe kroki. ASF poprawnie doda nasze dodatkowe wpisy do już trwającej kolejki i ostatecznie sobie z tym poradzi.</p>
 
