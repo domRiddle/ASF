@@ -46,6 +46,8 @@ Sei pregato di notare che i seguenti programmi **non** sono mantenuti da svilupp
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, permette di installare facilmente ASF su Arch Linux.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, permette di installare facilmente ASF su Arch Linux.
 - **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, allowing you to easily install ASF on macOS.
+- **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, allowing you to easily install ASF on distros with Nix.
+- **[NixOS](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, allowing you to configure and install ASF with NixOS.
 
 ---
 
