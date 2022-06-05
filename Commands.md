@@ -128,6 +128,7 @@ Some commands are also available with their aliases, to save you on typing:
 
 Command | Alias
 --- | ---
+`addlicense` | `addlicence`
 `owns ASF` | `oa`
 `status ASF` | `sa`
 `redeem` | `r`
