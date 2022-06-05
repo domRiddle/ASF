@@ -104,7 +104,7 @@ The configuration file is based on following JSON structure:
 
 Unless you truly need to specify a custom base path, it's best to leave it at default.
 
-## Example config
+## Example configs
 
 ### Changing default port
 
