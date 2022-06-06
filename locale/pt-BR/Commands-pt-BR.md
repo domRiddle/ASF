@@ -126,12 +126,13 @@ Como você leu acima, um caractere de espaço está sendo usado como um delimita
 
 Alguns comandos também estão disponíveis através de apelidos, para facilitar a digitação:
 
-| Comando      | Apelido |
-| ------------ | ------- |
-| `owns ASF`   | `oa`    |
-| `status ASF` | `sa`    |
-| `redeem`     | `r`     |
-| `redeem^`    | `r^`    |
+| Comando      | Apelido      |
+| ------------ | ------------ |
+| `addlicense` | `addlicence` |
+| `owns ASF`   | `oa`         |
+| `status ASF` | `sa`         |
+| `redeem`     | `r`          |
+| `redeem^`    | `r^`         |
 
 ---
 

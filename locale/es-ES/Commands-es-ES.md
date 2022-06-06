@@ -126,12 +126,13 @@ Como leíste arriba, se usa un carácter de espacio como delimitador para un com
 
 Algunos comandos también están disponibles con sus alias, para ahorrarte la escritura:
 
-| Comando      | Alias |
-| ------------ | ----- |
-| `owns ASF`   | `oa`  |
-| `status ASF` | `sa`  |
-| `redeem`     | `r`   |
-| `redeem^`    | `r^`  |
+| Comando      | Alias        |
+| ------------ | ------------ |
+| `addlicense` | `addlicence` |
+| `owns ASF`   | `oa`         |
+| `status ASF` | `sa`         |
+| `redeem`     | `r`          |
+| `redeem^`    | `r^`         |
 
 ---
 

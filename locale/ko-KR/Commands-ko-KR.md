@@ -126,12 +126,13 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 일부 명령어들은 또한 입력을 줄이기 위해서 그것들의 별칭과 함께 사용 가능합니다:
 
-| 명령어          | 별칭   |
-| ------------ | ---- |
-| `owns ASF`   | `oa` |
-| `status ASF` | `sa` |
-| `redeem`     | `r`  |
-| `redeem^`    | `r^` |
+| 명령어          | 별칭           |
+| ------------ | ------------ |
+| `addlicense` | `addlicence` |
+| `owns ASF`   | `oa`         |
+| `status ASF` | `sa`         |
+| `redeem`     | `r`          |
+| `redeem^`    | `r^`         |
 
 ---
 

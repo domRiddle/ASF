@@ -104,7 +104,30 @@ ASF-ui 是一个社区项目，主要为最终用户提供了一个用户友好�
 
 除非您确实需要指定自定义根路径，否则最好将其保留为默认值。
 
-## 示例配置
+## Example configs
+
+### Changing default port
+
+The following config simply changes default ASF listening port from `1242` to `1337`. You can pick any port you like, but we recommend `1024-49151` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
+
+```json
+{
+    "Kestrel": {
+        "Endpoints": {
+            "HTTP4": {
+                "Url": "http://127.0.0.1:1337"
+            },
+            "HTTP6": {
+                "Url": "http://[::1]:1337"
+            }
+        }
+    }
+}
+```
+
+---
+
+### Enabling access from all IPs
 
 以下配置允许任何来源的远程访问，因此您应该**确认您已阅读并理解上文的安全警告**。
 

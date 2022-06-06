@@ -104,7 +104,30 @@ When available, this file specifies advanced configuration of ASF's Kestrel http
 
 除非您確實需要指定自訂基本路徑，否則最好將其保留為預設路徑。
 
-## 配置範例
+## Example configs
+
+### Changing default port
+
+The following config simply changes default ASF listening port from `1242` to `1337`. You can pick any port you like, but we recommend `1024-49151` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
+
+```json
+{
+    "Kestrel": {
+        "Endpoints": {
+            "HTTP4": {
+                "Url": "http://127.0.0.1:1337"
+            },
+            "HTTP6": {
+                "Url": "http://[::1]:1337"
+            }
+        }
+    }
+}
+```
+
+---
+
+### Enabling access from all IPs
 
 The following config will allow remote access from all sources, therefore you should **ensure that you read and understood our security notice about that**, available above.
 
@@ -248,7 +271,7 @@ Example Apache configuration can be found below. Please refer to **[apache docum
 
 ### 我可以通過 HTTPS 協議訪問 IPC 接口嗎？
 
-**是的**，您可以通過兩種不同的方式實現它。 A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
+**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
 
 Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. This way is recommended if you're not running any other web server and don't want to run one exclusively for ASF. Otherwise, it's much easier to achieve a satisfying setup by using a reverse proxy mechanism.
 

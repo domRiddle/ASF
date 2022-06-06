@@ -126,12 +126,13 @@ Wie Sie oben gelesen haben, wird ein Leerzeichen als Trennzeichen für einen Bef
 
 Für einige Befehle sind auch Aliase verfügbar, um Zeit beim tippen zu sparen:
 
-| Befehl       | Alias |
-| ------------ | ----- |
-| `owns ASF`   | `oa`  |
-| `status ASF` | `sa`  |
-| `redeem`     | `r`   |
-| `redeem^`    | `r^`  |
+| Befehl       | Alias        |
+| ------------ | ------------ |
+| `addlicense` | `addlicence` |
+| `owns ASF`   | `oa`         |
+| `status ASF` | `sa`         |
+| `redeem`     | `r`          |
+| `redeem^`    | `r^`         |
 
 ---
 

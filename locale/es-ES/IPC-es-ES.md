@@ -104,7 +104,30 @@ El archivo de configuración se basa en la siguiente estructura JSON:
 
 A menos que realmente necesites especificar una ruta base personalizada, es mejor dejarlo en sus valores por defecto.
 
-## Ejemplo de configuración
+## Configuraciones de ejemplo
+
+### Cambiar el puerto predeterminado
+
+La siguiente configuración simplemente cambia el puerto de escucha de ASF de `1242` a `1337`. Puedes elegir el puerto que desees, pero recomendamos el rango `1024-49151`, ya que normalmente otros puertos están **[registrados](https://en.wikipedia.org/wiki/Registered_port)**, y podrían, por ejemplo, requerir acceso `root` en Linux.
+
+```json
+{
+    "Kestrel": {
+        "Endpoints": {
+            "HTTP4": {
+                "Url": "http://127.0.0.1:1337"
+            },
+            "HTTP6": {
+                "Url": "http://[::1]:1337"
+            }
+        }
+    }
+}
+```
+
+---
+
+### Habilitar el acceso desde todas las IP
 
 La siguiente configuración permitirá el acceso remoto desde todas las fuentes, por lo tanto debes **asegurarte de leer y entender nuestro aviso de seguridad al respecto**, disponible arriba.
 
@@ -174,7 +197,7 @@ Sí, recomendamos usar un proxy inverso para eso. De esta manera puedes acceder 
 
 **Sí**, nuestra IPC es totalmente compatible con tal configuración, por lo que eres libre de alojarlo frente a tus propias herramientas para seguridad y compatibilidad adicionales, si es lo que deseas. En general, el servidor http Kestrel de ASF es muy seguro y no presenta ningún riesgo cuando se conecta directamente a internet, pero ponerlo tras un proxy inverso como Apache o Nginx podría proporcionar funcionalidad adicional que no se podría lograr de otra forma, como asegurar la interfaz de ASF con **[autenticación básica](https://es.wikipedia.org/wiki/Autenticación_de_acceso_básica)**.
 
-A continuación puedes encontrar un ejemplo de configuración Nginx. Hemos incluido el bloque `server` completo, aunque te interesan principalmente los bloques `location`. Por favor, consulta la **[documentación nginx](https://nginx.org/en/docs)** si necesitas más detalles.
+A continuación puedes encontrar un ejemplo de configuración Nginx. Incluimos el bloque `server` completo, aunque te interesan principalmente los bloques `location`. Por favor, consulta la **[documentación nginx](https://nginx.org/en/docs)** si necesitas más detalles.
 
 ```nginx
 server {

@@ -104,7 +104,30 @@ Die Konfigurationsdatei basiert auf folgender JSON-Struktur:
 
 Wenn du nicht wirklich einen benutzerdefinierten Basispfad angeben musst, ist es am besten ihn bei der Standardeinstellung zu belassen.
 
-## Beispielhafte Konfiguration
+## Example configs
+
+### Changing default port
+
+The following config simply changes default ASF listening port from `1242` to `1337`. You can pick any port you like, but we recommend `1024-49151` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
+
+```json
+{
+    "Kestrel": {
+        "Endpoints": {
+            "HTTP4": {
+                "Url": "http://127.0.0.1:1337"
+            },
+            "HTTP6": {
+                "Url": "http://[::1]:1337"
+            }
+        }
+    }
+}
+```
+
+---
+
+### Enabling access from all IPs
 
 The following config will allow remote access from all sources, therefore you should **ensure that you read and understood our security notice about that**, available above.
 
@@ -166,11 +189,11 @@ Wenn du dich jedoch dazu entscheidest die standardmäßig eingestellten `localho
 
 Ja, dafür wurde die ASF-API entwickelt und du kannst alles verwenden was fähig ist eine HTTP-Anfrage zu senden um darauf zuzugreifen. Lokale Benutzerskripte folgen der **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** Logik, und wir erlauben den Zugriff von allen Ursprüngen für diese (`*`) solange `IPCPassword` gesetzt ist (als zusätzliche Sicherheitsmaßnahme). Auf diese Weise kannst du verschiedene authentifizierte ASF-API-Anfragen ausführen, ohne dass potenziell bösartige Skripte dies automatisch tun können (da sie dazu dein `IPCPassword` kennen müssten).
 
-### Kann ich aus der Ferne auf die IPC-Schnittstelle von ASF zugreifen, z.B. von einem anderen Gerät aus?
+### Kann ich aus der Ferne auf die IPC-Schnittstelle von ASF zugreifen, z.B. von einem anderen Gerätaus?
 
 Yes, we recommend to use a reverse proxy for that. Auf diese Weise kannst du wie gewohnt auf deinen Webserver zugreifen, der dann auf dem gleichen Gerät auf die IPC-Schnittstelle von ASF zugreift. Andernfalls, wenn du nicht mit einem Reverse-Proxy arbeiten möchtest, kannst du die **[benutzerdefinierte Konfiguration](#benutzerdefinierte-konfiguration)** mit entsprechender URL verwenden. For example, if your machine is in a VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
 
-### Kann ich ASF IPC hinter einem Reverse-Proxy wie Apache oder Nginx verwenden?
+### Kann ich die IPC-Schnittstelle von ASF hinter einem Reverse-Proxy wie Apache oder Nginx verwenden?
 
 **Ja**, unser IPC ist vollständig kompatibel mit einem solchen Setup, so dass du ihn auch vor deinen eigenen Programmen hosten kannst, für zusätzliche Sicherheit und Kompatibilität, wenn du möchtest. Im Allgemeinen ist der Kestrel http-Server von ASF sehr sicher und birgt kein Risiko, wenn er direkt mit dem Internet verbunden ist, aber wenn man ihn hinter einen Reverse-Proxy wie Apache oder Nginx stellt, kann er zusätzliche Funktionen bieten die sonst nicht möglich wären, wie z. B. die Sicherung der ASF-Schnittstelle mit einer **[Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
 
@@ -226,7 +249,7 @@ server {
 }
 ```
 
-Im Folgenden finden Sie ein Beispiel für die Apache Konfiguration. Bitte wenden Sie sich an die **[Apache Dokumentation](https://httpd.apache.org/docs)** sollten Sie weitere Erklärungen benötigen.
+Im Folgenden finden Sie ein Beispiel für die Apache Konfiguration. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
 
 ```apache
 <IfModule mod_ssl.c>
@@ -248,9 +271,9 @@ Im Folgenden finden Sie ein Beispiel für die Apache Konfiguration. Bitte wenden
 
 ### Kann ich über das HTTPS-Protokoll auf die IPC-Schnittstelle zugreifen?
 
-**Ja**, du kannst es auf zwei verschiedene Arten erreichen. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. Auf diese Weise ist dein Datenverkehr vollständig verschlüsselt und du musst IPC in keiner Weise ändern um ein solches Setup zu unterstützen.
+**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. Auf diese Weise ist dein Datenverkehr vollständig verschlüsselt und du musst IPC in keiner Weise ändern um ein solches Setup zu unterstützen.
 
-Die zweite Möglichkeit besteht darin eine **[benutzerdefinierte Konfiguration](#custom-configuration)** für die IPC-Schnittstelle von ASF zu spezifizieren, wo du https-Endpunkt aktivieren und das entsprechende Zertifikat direkt an unseren Kestrel http-Server senden kannst. Dieser Weg wird empfohlen, wenn du keinen anderen Webserver betreibst und keinen ausschließlich für ASF betreiben möchtest. Andernfalls ist es viel einfacher ein befriedigendes Setup zu erreichen, indem man einen Reverse-Proxy-Mechanismus verwendet.
+Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. Dieser Weg wird empfohlen, wenn du keinen anderen Webserver betreibst und keinen ausschließlich für ASF betreiben möchtest. Andernfalls ist es viel einfacher ein befriedigendes Setup zu erreichen, indem man einen Reverse-Proxy-Mechanismus verwendet.
 
 ---
 

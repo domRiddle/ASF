@@ -104,7 +104,30 @@ IPC 인터페이스는 추가 환경설정 파일을 지원합니다.`IPC.config
 
 당신이 사용자 지정 기본 경로를 지정할 필요가 있다고 진심으로 믿지 않는 한, 기본값으로 두는 것이 최선입니다.
 
-## 환경설정 예시
+## Example configs
+
+### Changing default port
+
+The following config simply changes default ASF listening port from `1242` to `1337`. You can pick any port you like, but we recommend `1024-49151` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
+
+```json
+{
+    "Kestrel": {
+        "Endpoints": {
+            "HTTP4": {
+                "Url": "http://127.0.0.1:1337"
+            },
+            "HTTP6": {
+                "Url": "http://[::1]:1337"
+            }
+        }
+    }
+}
+```
+
+---
+
+### Enabling access from all IPs
 
 The following config will allow remote access from all sources, therefore you should **ensure that you read and understood our security notice about that**, available above.
 
@@ -226,7 +249,7 @@ server {
 }
 ```
 
-다음은 아파치 환경설정의 예시입니다. 더 자세한 설명이 필요하면 **[apache 문서(영문)](https://httpd.apache.org/docs)** 를 참고하십시오.
+다음은 아파치 환경설정의 예시입니다. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
 
 ```apache
 <IfModule mod_ssl.c>
@@ -248,9 +271,9 @@ server {
 
 ### HTTPS 프로토콜로 IPC 인터페이스에 접근할 수 있습니까?
 
-**예**. 두가지 방법으로 가능합니다. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. 이 방법은 트래픽이 완전히 암호화되므로 이런 설치를 위해 IPC를 어떤 방식으로든 수정할 필요가 없습니다.
+**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. 이 방법은 트래픽이 완전히 암호화되므로 이런 설치를 위해 IPC를 어떤 방식으로든 수정할 필요가 없습니다.
 
-두번째 방법은 ASF IPC 인터페이스의 **[사용자 지정 환경설정](#사용자-지정-환경설정)** 에 명시하는 것으로, https 단말을 활성화 하고 Kestrel http 서버에 적절한 인증을 직접 제공하는 것입니다. 이 방법은 다른 웹서버를 실행하지 않고 있으며 오직 ASF를 위해서 웹서버를 추가로 실행하고 싶지 않은 경우 추천합니다. 그렇지 않으면 역방향 프록시 구조를 사용하는 것이 설치하는데 훨씬 쉬울 것입니다.
+Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. 이 방법은 다른 웹서버를 실행하지 않고 있으며 오직 ASF를 위해서 웹서버를 추가로 실행하고 싶지 않은 경우 추천합니다. 그렇지 않으면 역방향 프록시 구조를 사용하는 것이 설치하는데 훨씬 쉬울 것입니다.
 
 ---
 

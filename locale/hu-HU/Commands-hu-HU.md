@@ -128,6 +128,7 @@ Néhány parancsot alternatív módon is meg lehet adni, így nem kell annyit g�
 
 | Parancs      | Alternatív parancs |
 | ------------ | ------------------ |
+| `addlicense` | `addlicence`       |
 | `owns ASF`   | `oa`               |
 | `status ASF` | `sa`               |
 | `redeem`     | `r`                |

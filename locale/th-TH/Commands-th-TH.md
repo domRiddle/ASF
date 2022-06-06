@@ -126,12 +126,13 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Some commands are also available with their aliases, to save you on typing:
 
-| คำสั่ง       | ย่อ  |
-| ------------ | ---- |
-| `owns ASF`   | `oa` |
-| `status ASF` | `sa` |
-| `redeem`     | `r`  |
-| `redeem^`    | `r^` |
+| คำสั่ง       | ย่อ          |
+| ------------ | ------------ |
+| `addlicense` | `addlicence` |
+| `owns ASF`   | `oa`         |
+| `status ASF` | `sa`         |
+| `redeem`     | `r`          |
+| `redeem^`    | `r^`         |
 
 ---
 

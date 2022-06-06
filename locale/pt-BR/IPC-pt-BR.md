@@ -104,7 +104,30 @@ O arquivo de configuração baseia-se na seguinte estrutura JSON:
 
 A menos que você realmente precise especificar um caminho base personalizado, é melhor deixá-lo padrão.
 
-## Exemplo de configuração
+## Example configs
+
+### Changing default port
+
+The following config simply changes default ASF listening port from `1242` to `1337`. You can pick any port you like, but we recommend `1024-49151` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
+
+```json
+{
+    "Kestrel": {
+        "Endpoints": {
+            "HTTP4": {
+                "Url": "http://127.0.0.1:1337"
+            },
+            "HTTP6": {
+                "Url": "http://[::1]:1337"
+            }
+        }
+    }
+}
+```
+
+---
+
+### Enabling access from all IPs
 
 A configuração à seguir permite acesso remoto de todas as fontes, portanto você **deve se certificar que leu e entendeu nosso aviso de segurança sobre isso**, disponível acima.
 
@@ -226,7 +249,7 @@ server {
 }
 ```
 
-Segue abaixo um exemplo de configuração Apache. Consulte a **[documentação apache](https://httpd.apache.org/docs)** se você precisar de mais explicações.
+Segue abaixo um exemplo de configuração Apache. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
 
 ```apache
 <IfModule mod_ssl.c>
@@ -248,9 +271,9 @@ Segue abaixo um exemplo de configuração Apache. Consulte a **[documentação a
 
 ### Posso acessar a interface IPC através do protocolo HTTPS?
 
-**Sim**, isso pode ser feito de duas formas. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. Desta forma o seu tráfego será totalmente criptografado e você não precisa modificar o IPC para tal configuração.
+**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. Desta forma o seu tráfego será totalmente criptografado e você não precisa modificar o IPC para tal configuração.
 
-A segunda forma inclui especificar uma **[configuração personalizada](#configuração-personalizada)** para a interface IPC do ASF, onde você pode habilitar o endpoint https e fornecer um certificado apropriado diretamente para o nosso servidor http Kestrel. Este modo é recomendado se você não estiver executando nenhum outro servidor web e não quer executar um exclusivamente para o ASF. Caso contrário, é muito mais fácil efetuar uma configuração satisfatória por meio de um mecanismo de proxy reverso.
+Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. Este modo é recomendado se você não estiver executando nenhum outro servidor web e não quer executar um exclusivamente para o ASF. Caso contrário, é muito mais fácil efetuar uma configuração satisfatória por meio de um mecanismo de proxy reverso.
 
 ---
 

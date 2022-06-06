@@ -104,7 +104,30 @@ TEH CONFIGURASHUN FILE IZ BASD ON FOLLOWIN JSON STRUCCHUR:
 
 UNLES U TRULY NED 2 SPECIFY CUSTOM BASE PATH, IZ BEST 2 LEEF IT AT DEFAULT.
 
-## EXAMPLE CONFIG
+## Example configs
+
+### Changing default port
+
+The following config simply changes default ASF listening port from `1242` to `1337`. You can pick any port you like, but we recommend `1024-49151` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
+
+```json
+{
+    "Kestrel": {
+        "Endpoints": {
+            "HTTP4": {
+                "Url": "http://127.0.0.1:1337"
+            },
+            "HTTP6": {
+                "Url": "http://[::1]:1337"
+            }
+        }
+    }
+}
+```
+
+---
+
+### Enabling access from all IPs
 
 TEH FOLLOWIN CONFIG WILL ALLOW REMOTE ACCES FRUM ALL SOURCEZ, THEREFORE U SHUD **ENSURE DAT U READ AN UNDERSTOOD R SECURITY NOTICE BOUT DAT**, AVAILABLE ABOOV.
 

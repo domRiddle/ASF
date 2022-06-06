@@ -130,12 +130,13 @@ Comme vous l'avez lu plus haut, un caractère d'espacement est utilisé comme d�
 
 Certaines commandes sont également disponibles avec leurs alias, pour vous éviter de taper:
 
-| Commande     | Alias |
-| ------------ | ----- |
-| `owns ASF`   | `oa`  |
-| `status ASF` | `sa`  |
-| `redeem`     | `r`   |
-| `redeem^`    | `r^`  |
+| Commande     | Alias        |
+| ------------ | ------------ |
+| `addlicense` | `addlicence` |
+| `owns ASF`   | `oa`         |
+| `status ASF` | `sa`         |
+| `redeem`     | `r`          |
+| `redeem^`    | `r^`         |
 
 ---
 

@@ -126,12 +126,13 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Niektóre polecenia są również dostępne z ich aliasami, aby uprościć ich wpisywanie:
 
-| Komenda      | Alias |
-| ------------ | ----- |
-| `owns ASF`   | `oa`  |
-| `status ASF` | `sa`  |
-| `redeem`     | `r`   |
-| `redeem^`    | `r^`  |
+| Komenda      | Alias        |
+| ------------ | ------------ |
+| `addlicense` | `addlicence` |
+| `owns ASF`   | `oa`         |
+| `status ASF` | `sa`         |
+| `redeem`     | `r`          |
+| `redeem^`    | `r^`         |
 
 ---
 

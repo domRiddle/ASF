@@ -126,12 +126,13 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 Some commands are also available with their aliases, to save you on typing:
 
-| Lệnh         | Alias |
-| ------------ | ----- |
-| `owns ASF`   | `oa`  |
-| `status ASF` | `sa`  |
-| `redeem`     | `r`   |
-| `redeem^`    | `r^`  |
+| Lệnh         | Alias        |
+| ------------ | ------------ |
+| `addlicense` | `addlicence` |
+| `owns ASF`   | `oa`         |
+| `status ASF` | `sa`         |
+| `redeem`     | `r`          |
+| `redeem^`    | `r^`         |
 
 ---
 

@@ -126,12 +126,13 @@ AS UVE READ ABOOV, SPACE CHARACTR IZ BEAN USD AS DELIMITR 4 COMMAND, THEREFORE I
 
 SUM COMMANDZ R ALSO AVAILABLE WIF THEIR ALIASEZ, 2 SAVE U ON TYPIN:
 
-| COMMAND      | ALIAS |
-| ------------ | ----- |
-| `owns ASF`   | `oa`  |
-| `status ASF` | `sa`  |
-| `redeem`     | `r`   |
-| `redeem^`    | `r^`  |
+| COMMAND      | ALIAS        |
+| ------------ | ------------ |
+| `addlicense` | `addlicence` |
+| `owns ASF`   | `oa`         |
+| `status ASF` | `sa`         |
+| `redeem`     | `r`          |
+| `redeem^`    | `r^`         |
 
 ---
 
