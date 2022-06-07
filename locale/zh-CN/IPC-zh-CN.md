@@ -104,11 +104,11 @@ ASF-ui 是一个社区项目，主要为最终用户提供了一个用户友好�
 
 除非您确实需要指定自定义根路径，否则最好将其保留为默认值。
 
-## Example configs
+## 示例配置
 
-### Changing default port
+### 更改默认端口
 
-The following config simply changes default ASF listening port from `1242` to `1337`. You can pick any port you like, but we recommend `1024-49151` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
+以下配置仅仅将 ASF 默认监听的端口从 `1242` 改为 `1337`。 您可以使用任何端口，但我们推荐在 `1024-49151` 范围内选择，因为其他端口属于典型的[**注册端口**](https://en.wikipedia.org/wiki/Registered_port)，并且在 Linux 上可能需要 `root` 权限。
 
 ```json
 {
@@ -127,7 +127,7 @@ The following config simply changes default ASF listening port from `1242` to `1
 
 ---
 
-### Enabling access from all IPs
+### 允许任何 IP 访问
 
 以下配置允许任何来源的远程访问，因此您应该**确认您已阅读并理解上文的安全警告**。
 
