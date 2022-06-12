@@ -1,4 +1,4 @@
-# Remote communication
+# Vzdálená komunikace
 
 This section elaborates on remote communication that ASF includes, including further explanation on how one can influence it. While we don't consider anything below as malicious or otherwise unwanted, and neither we're legally obliged to disclose it, we want you to better understand the program functionality especially in regards to your privacy and data being shared.
 
@@ -64,6 +64,7 @@ Public info (exposed by Steam to every interested party) includes:
 
 Private info (selected data required for providing the functionality) includes:
 - Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
+- Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
 - Your `MatchableTypes` (for display purposes and matching)
 - Total number of `MatchableTypes` Steam items in your inventory (for display purposes and matching)
 - Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and matching)

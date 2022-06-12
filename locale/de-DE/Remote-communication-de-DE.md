@@ -1,4 +1,4 @@
-# Remote communication
+# Drittanbieterkommunikation
 
 This section elaborates on remote communication that ASF includes, including further explanation on how one can influence it. While we don't consider anything below as malicious or otherwise unwanted, and neither we're legally obliged to disclose it, we want you to better understand the program functionality especially in regards to your privacy and data being shared.
 
@@ -64,6 +64,7 @@ Public info (exposed by Steam to every interested party) includes:
 
 Private info (selected data required for providing the functionality) includes:
 - Dein **[Handels-Code](https://steamcommunity.com/my/tradeoffers/privacy)** (damit Leute außerhalb Ihrer Freundesliste IhrenHandelsangebote schicken können)
+- Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
 - Deine `MatchableTypes` (zum Anzeigen und Abgleichen)
 - Gesamtzahl der `MatchableTypes` Steam-Gegenständen in Ihrem Inventar (für Anzeigezwecke und Zusammenführung)
 - Gesamtzahl der einzigartigen Spiele, die über `MatchableTypes` Steam Gegenstände bestehen (für Anzeigezwecke und Zusammenführung)

@@ -64,6 +64,7 @@ Public info (exposed by Steam to every interested party) includes:
 
 Private info (selected data required for providing the functionality) includes:
 - Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
+- Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
 - Your `MatchableTypes` (for display purposes and matching)
 - Total number of `MatchableTypes` Steam items in your inventory (for display purposes and matching)
 - Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and matching)

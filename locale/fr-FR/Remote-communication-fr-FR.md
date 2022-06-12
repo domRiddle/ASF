@@ -71,7 +71,8 @@ Private info (selected data required for providing the functionality) includes:
 
 - Votre ** jeton de d'échange </ 0> (afin que des personnes ne faisant pas partie de votre liste d'amis puissent vous envoyer des échanges)</li> 
   
-  - Your `MatchableTypes` (for display purposes and matching)
+  - Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
+- Your `MatchableTypes` (for display purposes and matching)
 - Total number of `MatchableTypes` Steam items in your inventory (for display purposes and matching)
 - Total number of unique games that above `MatchableTypes` Steam items are made of (for display purposes and matching)
 - Value of `MatchEverything` in your **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** (for display purposes and matching)</ul> 

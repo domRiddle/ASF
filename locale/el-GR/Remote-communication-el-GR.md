@@ -64,6 +64,7 @@ Public info (exposed by Steam to every interested party) includes:
 
 Private info (selected data required for providing the functionality) includes:
 - Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
+- Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
 - Your `MatchableTypes` (for display purposes and matching)
 - Συνολικός αριθμός `ταιριάσιμων` αντικειμένων Steam στα αποθέματά σας (για σκοπούς εμφάνισης και αντιστοίχισης)
 - Συνολικός αριθμός μοναδικών παιχνιδιών που είναι πάνω από τα κατασκευασμένα στοιχεία `Ταιριαστά` Steam (για σκοπούς εμφάνισης και αντιστοίχιση)

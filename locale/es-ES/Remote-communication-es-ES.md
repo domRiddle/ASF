@@ -64,6 +64,7 @@ La información pública (expuesta por Stea a todas las partes interesadas) incl
 
 La información privada (datos seleccionados necesarios para proporcionar la funcionalidad) incluye:
 - Tu **[token de intercambio](https://steamcommunity.com/my/tradeoffers/privacy)** (para que las personas fuera de tu lista de amigos puedan enviarte intercambios)
+- Tu `MaxTradeHoldDuration` (para que otras personas sepan si estás dispuesto a aceptar sus intercambios)
 - Tus `MatchableTypes` (para efectos de visualización y emparejamiento)
 - El número total de artículos `MatchableTypes` en tu inventario (para efectos de visualización y emparejamiento)
 - El número total de juegos de los que provienen los artículos `MatchableTypes` mencionados antes (para efectos de visualización y emparejamiento)

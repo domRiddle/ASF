@@ -64,6 +64,7 @@ Public info (exposed by Steam to every interested party) includes:
 
 Private info (selected data required for providing the functionality) includes:
 - **[simbolul tău de tranzacționare](https://steamcommunity.com/my/tradeoffers/privacy)** (astfel încât oamenii din afara listei tale de prieteni îți pot trimite tranzacții)
+- Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
 - Valoarea ta de `MatchableTypes` (pentru scopuri de afișare și potrivire)
 - Numărul total de `MatchableTypes` articole Steam din inventarul tău (pentru scopuri de afișare și potrivire)
 - Numărul total de `MatchableTypes` articole Steam din inventarul tău (pentru scopuri de afișare și potrivire)

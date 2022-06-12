@@ -64,6 +64,7 @@ Public info (exposed by Steam to every interested party) includes:
 
 Private info (selected data required for providing the functionality) includes:
 - 您的**[交易代碼](https://steamcommunity.com/my/tradeoffers/privacy)**（用於允許不在您好友名單中的用戶對您發起交易）
+- Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
 - 您的 `匹配類型`（用於顯示和匹配）
 - 您庫存里符合`MatchableTypes`的 Steam 物品總數量（用於顯示和匹配）
 - 符合`MatchableTypes`的 Steam 物品所屬遊戲總數（用於顯示和匹配）

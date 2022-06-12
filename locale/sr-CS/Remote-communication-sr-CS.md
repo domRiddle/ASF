@@ -64,6 +64,7 @@ Public info (exposed by Steam to every interested party) includes:
 
 Private info (selected data required for providing the functionality) includes:
 - Vaš **[token za razmenu](https://steamcommunity.com/my/tradeoffers/privacy)** (da bi ljudi van vaše liste prijatelja mogli da vrše razmenu sa vama)
+- Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
 - Vašeg `MatchableTypes` (za svrhe prikazivanja i pronalaženja)
 - Ukupan broj `MatchableTypes` Steam iteam u vašem inventaru (za svrhe prikazivanja i pronalaženja)
 - Ukupan broj različitih igrica kojima gornji `MatchableTypes` Steam itemi pripadaju (za svrhe prikazivanja i pronalaženja)

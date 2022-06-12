@@ -64,6 +64,7 @@ Public info (exposed by Steam to every interested party) includes:
 
 Private info (selected data required for providing the functionality) includes:
 - Ваш **[токен для обменов](https://steamcommunity.com/my/tradeoffers/privacy)** (чтобы люди, не состоящие в вашем списке друзей могли отправить вам обмен)
+- Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
 - Значение параметра `MatchableTypes` (для отображения и сопоставления)
 - Общее число предметов Steam, соответствующих `MatchableTypes` типов в вашем инвентаре (для отображения и сопоставления)
 - Общее число уникальных игр из которых указанные выше предметы Steam соответствующих `MatchableTypes` типов были получена (для отображения и сопоставления)
