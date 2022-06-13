@@ -64,7 +64,7 @@ ASF STM 列表暂时只接受 ASF 机器人。 目前无法在我们的列表中
 
 私密信息（提供功能所需的特定数据）包括：
 - 您的&#8203;**[交易令牌](https://steamcommunity.com/my/tradeoffers/privacy)**（使不是您好友的人可以向您发送交易报价）
-- Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
+- 您的 `MaxTradeHoldDuration`（使其他人了解您是否愿意接受他们的交易）
 - 您的 `MatchableTypes`（用于显示和匹配目的）
 - 您库存中 `MatchableTypes` 物品的总数（用于显示和匹配目的）
 - 提供上述 `MatchableTypes` 物品的游戏总数（用于显示和匹配目的）
