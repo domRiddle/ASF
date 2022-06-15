@@ -64,7 +64,7 @@ Public info (exposed by Steam to every interested party) includes:
 
 Private info (selected data required for providing the functionality) includes:
 - Seu **[token de trocas](https://steamcommunity.com/my/tradeoffers/privacy)** (para que pessoas fora da sua lista de amigos possam te enviar propostas de trocas)
-- Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
+- Seu `MaxTradeHoldDuration` (para que outras pessoas saibam se você está disposto a aceitar as trocas delas)
 - Seu `MatchableTypes` (para fins de exibição e combinação)
 - O número total de itens Steam correspondentes a `MatchableTypes` em seu inventário (para fins de exibição e combinação)
 - O número total de jogos exclusivos dos quais os itens Steam acima correspondem aos tipos `MatchableTypes` foram obtidos (para fins de exibição e combinação)
