@@ -1,8 +1,8 @@
 # Pelien lunastaminen taustalla
 
-Pelien lunastaminen taustalla on erityinen sisäänrakennettu ominaisuus ASF: ään, joka mahdollistaa lisätä kerralla useita Steam-pelikoodeja (niiden nimien kanssa) lunastettavaksi taustalla. This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit `RateLimited` **[status](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** before you're done with your entire batch.
+Pelien lunastaminen taustalla on erityinen sisäänrakennettu ominaisuus ASF: ään, joka mahdollistaa lisätä kerralla useita Steam-pelikoodeja (niiden nimien kanssa) lunastettavaksi taustalla. Tämä on erityisen hyödyllistä, jos sinulla on paljon lunastavia avaimia ja olet varma `RateLimited` **[tila](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** ennen kuin olet tehnyt koko erän.
 
-Taustalla pelien lunastaja on tehty sille, että on yksi botti skooppi, mikä tarkoitta että se ei ota hyötyä `RedeemingPreferences: tä.`. This feature can be used together with (or instead of) `redeem` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, if needed.
+Taustalla pelien lunastaja on tehty sille, että on yksi botti skooppi, mikä tarkoitta että se ei ota hyötyä `RedeemingPreferences: tä.`. Tätä ominaisuutta voidaan käyttää tarvittaessa yhdessä `lunastaa` **[komennon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**kanssa.
 
 ---
 
