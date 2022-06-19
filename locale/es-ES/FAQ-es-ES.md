@@ -459,7 +459,7 @@ Por supuesto, esto asume que estás ejecutando ASF con los ajustes predeterminad
 
 ### ¿Por qué el tiempo de juego de los juegos recolectados con ASF no aumenta?
 
-Lo hace, pero **no en tiempo real**. Steam registra tu tiempo de juego en intervalos fijos y agenda una actualización para ello, pero no está garantizado que se actualice inmediatamente al momento que abandones la sesión, mucho menos durante. Si fuera posible omitir el tiempo de juego durante la recolección de cromos puedes estar seguro de que lo habríamos implementado en ASF hace tiempo, y lo usaríamos en los ajustes por defecto. Pero no lo hacemos, y no lo hacemos porque es imposible - solo porque el tiempo de juego no se actualice en tiempo real no significa que no se registre.
+Lo hace, pero **no en tiempo real**. Steam registra tu tiempo de juego en intervalos fijos y agenda una actualización para ello, pero no está garantizado que se actualice inmediatamente al momento que abandones la sesión, mucho menos durante. Solo porque el tiempo de juego no se actualiza en tiempo real no significa que no se registre, normalmente se actualiza cada 30 minutos aproximadamente.
 
 ---
 

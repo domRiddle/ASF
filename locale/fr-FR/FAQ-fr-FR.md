@@ -538,7 +538,7 @@ Of course, all of that assumes that you're running ASF with default untouched se
 
 ### Why playtime of games farmed through ASF doesn't increase?
 
-Oui, mais **pas en temps réel**. Steam enregistre votre temps de lecture à intervalles fixes et planifie sa mise à jour, mais vous n'êtes pas sûr de l'avoir immédiatement mis à jour dès que vous quittez la session, et encore moins pendant une telle heure. If it was possible to skip playtime while farming cards then you can be sure that we'd have it implemented in ASF long time ago, and actually use it in default settings. Mais nous ne le faisons pas, et nous ne le faisons pas exactement parce que ce n'est pas possible - le fait que la lecture ne soit pas mise à jour en temps réel ne signifie pas qu'elle n'est pas enregistrée.
+Oui, mais **pas en temps réel**. Steam enregistre votre temps de lecture à intervalles fixes et planifie sa mise à jour, mais vous n'êtes pas sûr de l'avoir immédiatement mis à jour dès que vous quittez la session, et encore moins pendant une telle heure. Just because the playtime isn't updated in real-time doesn't mean that it's not recorded, it's usually updated every 30 minutes or so.
 
 
 
