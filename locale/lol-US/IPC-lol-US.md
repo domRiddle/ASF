@@ -104,11 +104,11 @@ TEH CONFIGURASHUN FILE IZ BASD ON FOLLOWIN JSON STRUCCHUR:
 
 UNLES U TRULY NED 2 SPECIFY CUSTOM BASE PATH, IZ BEST 2 LEEF IT AT DEFAULT.
 
-## Example configs
+## EXAMPLE CONFIGS
 
-### Changing default port
+### CHANGIN DEFAULT PORT
 
-The following config simply changes default ASF listening port from `1242` to `1337`. You can pick any port you like, but we recommend `1024-49151` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
+TEH FOLLOWIN CONFIG SIMPLY CHANGEZ DEFAULT ASF LISTENIN PORT FRUM `1242` 2 `1337`. U CAN PICK ANY PORT U LIEK, BUT WE RECOMMEND `1024-49151` RANGE, AS OTHR PORTS R TYPICALLY **[REGISTERD](https://en.wikipedia.org/wiki/Registered_port)**, AN CUD 4 EXAMPLE REQUIRE `root` ACCES ON LINUX.
 
 ```json
 {
@@ -127,7 +127,7 @@ The following config simply changes default ASF listening port from `1242` to `1
 
 ---
 
-### Enabling access from all IPs
+### ENABLIN ACCES FRUM ALL IPS
 
 TEH FOLLOWIN CONFIG WILL ALLOW REMOTE ACCES FRUM ALL SOURCEZ, THEREFORE U SHUD **ENSURE DAT U READ AN UNDERSTOOD R SECURITY NOTICE BOUT DAT**, AVAILABLE ABOOV.
 
