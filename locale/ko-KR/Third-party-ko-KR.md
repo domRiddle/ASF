@@ -25,6 +25,10 @@
 - **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, ASF가 WebSocket 연결을 프록시화 하도록 하는 플러그인입니다.
 
+### 기타
+
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+
 ---
 
 ## 통합

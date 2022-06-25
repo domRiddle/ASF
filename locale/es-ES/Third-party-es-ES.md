@@ -25,13 +25,17 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 - **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin para ASF que implementa un comando para restablecer la clave API de las instancias de bot seleccionadas.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin para ASF que permite usar proxy con conexiones WebSocket.
 
+### Otros
+
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin para ASF que lo mejora con diversas nuevas funciones, especialmente comandos.
+
 ---
 
 ## Integraciones
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot de telegram escrito en python con integración ASF.
 - **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, para aquellos que quieran enviar ofertas de intercambio automatizadas a los bots en nuestro **[listado ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-es-ES#lista-p%C3%BAblica-asf-stm)** a través del navegador web, sin usar la función `MatchActively` provista por ASF.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, otro bot de telegram escrito en python con integración ASF.
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, otro (mínimo) bot de telegram escrito en python con integración de ASF.
 
 ---
 

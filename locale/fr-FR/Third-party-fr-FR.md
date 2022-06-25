@@ -25,12 +25,16 @@ Please note that below programs are **not** maintained by ASF developers and the
 - **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin for ASF allowing proxifying WebSocket connections.
 
+### Autres
+
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin pour ASF l'améliorant avec de nouvelles fonctionnalités, en particulier des commandes.
+
 ---
 
 ## Integrations
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot télégramme écrit en python avec l’intégration de ASF.
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
+- **[Script utilisateur ASF STM](https://greasyfork.org/en/scripts/404754-asf-stm)**, pour ceux qui veulent envoyer des offres d'échange automatisées aux bots sur notre liste **[ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** via le navigateur Web, sans utiliser la fonction `MatchActively` fournie par ASF.
 - **[télégramme-asf](https://github.com/deluxghost/telegram-asf)**, un autre bot de télégramme (minime), écrit en python avec l’intégration de ASF.
 
 ---
@@ -45,9 +49,9 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 - **[>AUR repo #1](https://aur.archlinux.org/packages/asf)**, vous permet d’installer facilement ASF sur Arch Linux.
 - **[>AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, vous permet d’installer facilement ASF sur Arch Linux.
-- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, allowing you to easily install ASF on macOS.
-- **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, allowing you to easily install ASF on distros with Nix.
-- **[NixOS](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, allowing you to configure and install ASF with NixOS.
+- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, vous permettant d'installer facilement ASF sur macOS.
+- **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, vous permettant d'installer facilement ASF sur les distributions avec Nix.
+- **[NixOS](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, vous permettant de configurer et d'installer ASF avec NixOS.
 
 ---
 

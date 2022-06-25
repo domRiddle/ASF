@@ -25,6 +25,10 @@ Sei pregato di notare che i seguenti programmi **non** sono mantenuti da svilupp
 - **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin per ASF che implementa un comando per resettare la chiave API per le istanze dei bot selezionati.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin di ASF che consente di configurare un proxy per le connessioni WebSocket.
 
+### Altro
+
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+
 ---
 
 ## Integrazioni

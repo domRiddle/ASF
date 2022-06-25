@@ -25,6 +25,10 @@ PLZ NOWT DAT BELOW PROGRAMS R **NOT** MAINTAIND BY ASF DEVELOPERS AN THEREFORE *
 - **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, PLUGIN 4 ASF IMPLEMENTIN COMMAND 2 RESET API KEY 4 SELECTD BOT INSTANCEZ.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, PLUGIN 4 ASF ALLOWIN PROXIFYIN WEBSOCKET CONNECSHUNS.
 
+### OTHR
+
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+
 ---
 
 ## INTEGRASHUNS

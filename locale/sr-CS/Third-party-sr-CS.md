@@ -25,6 +25,10 @@ Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog 
 - **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin za ASF koji implementira komandu za uklanjanje API ključeva za izabrane botove.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, dodatak za ASF koji omogućava korišćenje proxy-a u WebSocket konekcijama.
 
+### Ostalo
+
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+
 ---
 
 ## Integracije

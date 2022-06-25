@@ -25,6 +25,10 @@
 - **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, πρόσθετο για ASF, εντολή για να επαναφέρετε το κλειδί API για επιλεγμένες παρουσίες bot.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin for ASF allowing proxifying WebSocket connections.
 
+### Other
+
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+
 ---
 
 ## Ενσωματώσεις

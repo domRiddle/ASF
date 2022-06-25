@@ -25,6 +25,10 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 - **[API-Schlüssel-zurücksetzen](https://github.com/Vital7/ResetAPIKey)**, Erweiterung für ASF, die einen Befehl implementiert, den API Schlüssel für ausgewählte Bot-Instanzen zurückzusetzen.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, Plugin für ASF erlaubt das Proxifieren von WebSocket-Verbindungen.
 
+### Sonstiges
+
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+
 ---
 
 ## Integrationen

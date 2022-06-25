@@ -25,6 +25,10 @@
 - **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**，为 ASF 添加一个命令，重置指定机器人的 API 密钥。
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**，允许 ASF 代理 WebSocket 连接的插件。
 
+### 其他
+
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+
 ---
 
 ## 集成
@@ -53,7 +57,7 @@
 
 ## 工具
 
-- **[Keys extractor](https://ske.xpixv.com)**，能够从您复制的带有游戏序列号的各种文本中提取序列号，并为您生成 ASF 的 `redeem` 命令。 前往 [**GitHub 仓库**](https://github.com/PixvIO/SKE)了解更多。
+- **[Keys extractor](https://ske.xpixv.com)**，能够从您复制的带有游戏序列号的各种文本中提取序列号，并为您生成 ASF 的 `redeem` 命令。 前往 **[GitHub 仓库](https://github.com/PixvIO/SKE)**&#8203;了解更多。
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**，使您能够方便地管理多份 ASF 配置文件。
 
 ---

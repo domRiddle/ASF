@@ -25,6 +25,10 @@
 - ** [ ResetAPIKey ](https://github.com/Vital7/ResetAPIKey) **, плагин для ASF, реализующий команду сброса ключа API для выбранных экземпляров ботов.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, плагин для ASF, позволяющий направить соединения по WebSocket через прокси.
 
+### Другое
+
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+
 ---
 
 ## Интеграция
