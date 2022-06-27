@@ -23,7 +23,7 @@
 * **[🛠️ Khả năng tương thích](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[📋 Quản lý](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Hiệu năng](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📡 Remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
+* **[📡 Liên lạc từ xa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
 * **[👪 Chia sẻ gia đình Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[🔄 Trao đổi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
