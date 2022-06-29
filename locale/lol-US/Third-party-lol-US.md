@@ -27,7 +27,7 @@ PLZ NOWT DAT BELOW PROGRAMS R **NOT** MAINTAIND BY ASF DEVELOPERS AN THEREFORE *
 
 ### OTHR
 
-- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, PLUGIN 4 ASF ENHANCIN IT WIF VARIOUS NEW FEATUREZ, ESPECIALLY COMMANDZ.
 
 ---
 
