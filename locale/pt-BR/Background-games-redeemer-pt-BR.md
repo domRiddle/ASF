@@ -21,7 +21,7 @@ A Week of Circus Terror POIUY-KJHGD-QWERT
 Terraria    IssoÉIgnorado    IssoTambémÉIgnorado    ZXCVB-ASDFG-QWERT
 ```
 
-Como alternativa você também pode usar apenas os códigos de produto (com uma nova linha entre cada uma delas). Nesse caso o ASF vai usar a resposta da Steam (se possível) para preencher o nome correto. Seja qual for a formatação dos códigos de produto, sugerimos que você mesmo os nomeie, uma vez que os pacotes ativados pelo Steam não precisam seguir uma lógica quanto aos jogos que estão sendo ativados, então, dependendo do que o desenvolvedor colocou você pode ver o nome correto do jogo, o nome do pacote (por exemplo, Humble Indie Bundle 18) ou mesmo um nome errado e até malicioso (por exemplo, Half-Life 4).
+Como alternativa você também pode usar apenas os códigos de produto (com uma nova linha entre cada uma delas). Nesse caso o ASF vai usar a resposta do Steam (se possível) para preencher o nome correto. Seja qual for a formatação dos códigos de produto, sugerimos que você mesmo os nomeie, uma vez que os pacotes ativados pelo Steam não precisam seguir uma lógica quanto aos jogos que estão sendo ativados, então, dependendo do que o desenvolvedor colocou você pode ver o nome correto do jogo, o nome do pacote (por exemplo, Humble Indie Bundle 18) ou mesmo um nome errado e até malicioso (por exemplo, Half-Life 4).
 
 ```text
 ABCDE-EFGHJ-IJKLM

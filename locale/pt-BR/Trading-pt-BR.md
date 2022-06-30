@@ -1,6 +1,6 @@
 # Trocas
 
-O ASF possui suporte não interativo (offline) para trocas Steam. Tanto receber (aceitar/rejeitar) quanto enviar trocas é uma função disponível de imediato e não requer uma configuração especial, mas obviamente requer uma conta Steam sem restrições (que já tenha gasto 5 dólares na loja). O módulo de trocas não está disponível para contas restritas.
+O ASF possui suporte não interativo (off-line) para trocas Steam. Tanto receber (aceitar/rejeitar) quanto enviar trocas é uma função disponível de imediato e não requer uma configuração especial, mas obviamente requer uma conta Steam sem restrições (que já tenha gasto 5 dólares na loja). O módulo de trocas não está disponível para contas restritas.
 
 ---
 
@@ -8,7 +8,7 @@ O ASF possui suporte não interativo (offline) para trocas Steam. Tanto receber 
 
 O ASF sempre aceitará todas as trocas, independente de quais são os itens, enviadas pelo usuário com acesso `Master` (ou superior) ao bot. Isso permite não apenas pegar facilmente as cartas obtidas pela conta bot como também ajuda a administrar de forma mais fácil os itens que o bot guarda no inventário - incluindo itens de outros jogos (CS:GO por exemplo).
 
-O ASF rejeitará a oferta de troca, independente do conteúdo, de qualquer usuário (não Master) que esteja na lista negra do módulo de trocas. A lista negra é armazenada no banco de dados padrão `BotName.db` e pode ser gerenciada através dos **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `tb`, `tbadd` e `tbrm`. Isso deve funcionar como um alternativa ao bloqueio de usuário padrão da Steam - use com cautela.
+O ASF rejeitará a oferta de troca, independente do conteúdo, de qualquer usuário (não Master) que esteja na lista negra do módulo de trocas. A lista negra é armazenada no banco de dados padrão `BotName.db` e pode ser gerenciada através dos **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `tb`, `tbadd` e `tbrm`. Isso deve funcionar como um alternativa ao bloqueio de usuário padrão do Steam - use com cautela.
 
 O ASF aceitará todos os `loots` enviados entre os bots, a menos que `TradingPreferences` esteja definido como `DontAcceptBotTrades`. Em resumo, a configuração padrão `None` de `TradingPreferences` fará com que o ASF aceite automaticamente trocas do usuário com acesso `Master` ao bot (como explicado anteriormente), assim como todas as trocas de doação de outros bots que façam parte do processo do ASF. Se você quer desativar trocas de doação de outros bots, então é para isso que `DontAcceptBotTrades` na configuração `TradingPreferences` serve.
 
