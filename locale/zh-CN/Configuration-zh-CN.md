@@ -451,7 +451,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 ### `CustomGamePlayedWhileFarming`
 
-这是一个默认值为 `null` 的 `string` 类型属性。 ASF 可以在挂卡时显示“非 Steam 游戏中：`CustomGamePlayedWhileFarming`“，而不是正在挂卡的游戏名。 如果您希望好友们明白您正在挂卡，但是又不想将 `OnlineStatus` 设置为 `Offline`，则可以设置这个属性。 请注意，ASF 不能保证 Steam 网络的实际显示顺序，因此这只是一个建议值，或许能正常显示，或许不能。 默认值 `null` 将会禁用此功能。
+这是一个默认值为 `null` 的 `string` 类型属性。 ASF 可以在挂卡时显示“非 Steam 游戏中：`CustomGamePlayedWhileFarming`“，而不是正在挂卡的游戏名。 如果您希望好友们明白您正在挂卡，但是又不想将 `OnlineStatus` 设置为 `Offline`，则可以设置这个属性。 请注意，ASF 不能保证 Steam 网络的实际显示顺序，因此这只是一个建议值，或许能正常显示，或许不能。 In particular, custom name will not display in `Complex` farming algorithm if ASF fills all `32` slots with games requiring hours to be bumped. 默认值 `null` 将会禁用此功能。
 
 ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 ASF 替换为当前挂卡游戏的 `AppID`， `{1}` 会被 ASF 替换为当前挂卡游戏的名称。
 
@@ -459,7 +459,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ### `CustomGamePlayedWhileIdle`
 
-这是一个默认值为 `null` 的 `string` 类型属性。 类似于 `CustomGamePlayedWhileFarming`，但该属性设置的是 ASF 闲置时（挂卡完成后）显示的内容。 默认值 `null` 将会禁用此功能。
+这是一个默认值为 `null` 的 `string` 类型属性。 类似于 `CustomGamePlayedWhileFarming`，但该属性设置的是 ASF 闲置时（挂卡完成后）显示的内容。 请注意，ASF 不能保证 Steam 网络的实际显示顺序，因此这只是一个建议值，或许能正常显示，或许不能。 If you're using `GamesPlayedWhileIdle` together with this option, then keep in mind that `GamesPlayedWhileIdle` get priority, therefore you can't declare more than `31` of them, as otherwise `CustomGamePlayedWhileIdle` will not be able to occupy the slot for custom name. 默认值 `null` 将会禁用此功能。
 
 ---
 

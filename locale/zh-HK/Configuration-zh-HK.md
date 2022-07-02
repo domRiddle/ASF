@@ -451,7 +451,7 @@ Due to additional overhead of using this option, it's recommended to use it only
 
 ### `CustomGamePlayedWhileFarming`
 
-預設值為 `null` 的 `string` 類型。 當ASF掛卡時，它可以顯示狀態為“玩非Steam遊戲：` CustomGamePlayedWhileFarming `”而不是當前掛卡的遊戲。 如果您想讓您的朋友知道您正在掛卡，但您不想使用` Offline `的` OnlineStatus `，這將非常有用。 請注意，ASF無法干預Steam網絡的實際顯示順序，因此這只是一種建議，可能會正確顯示，也可能不會。 ` null `的預設值禁用此功能。
+預設值為 `null` 的 `string` 類型。 當ASF掛卡時，它可以顯示狀態為“玩非Steam遊戲：` CustomGamePlayedWhileFarming `”而不是當前掛卡的遊戲。 如果您想讓您的朋友知道您正在掛卡，但您不想使用` Offline `的` OnlineStatus `，這將非常有用。 請注意，ASF無法干預Steam網絡的實際顯示順序，因此這只是一種建議，可能會正確顯示，也可能不會。 In particular, custom name will not display in `Complex` farming algorithm if ASF fills all `32` slots with games requiring hours to be bumped. ` null `的預設值禁用此功能。
 
 ASF provides a few special variables that you can optionally use in your text. `{0}` will be replaced by ASF with `AppID` of currently farmed game(s), while `{1}` will be replaced by ASF with `GameName` of currently farmed game(s).
 
@@ -459,7 +459,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 ### `CustomGamePlayedWhileIdle`
 
-預設值為 `null` 的 `string` 類型。 類似於` CustomGamePlayedWhileFarming `，但是用於ASF無卡可掛的情況（因為帳戶已經獲得了所有的可掉落卡片）。 ` null `的預設值禁用此功能。
+預設值為 `null` 的 `string` 類型。 類似於` CustomGamePlayedWhileFarming `，但是用於ASF無卡可掛的情況（因為帳戶已經獲得了所有的可掉落卡片）。 請注意，ASF無法干預Steam網絡的實際顯示順序，因此這只是一種建議，可能會正確顯示，也可能不會。 If you're using `GamesPlayedWhileIdle` together with this option, then keep in mind that `GamesPlayedWhileIdle` get priority, therefore you can't declare more than `31` of them, as otherwise `CustomGamePlayedWhileIdle` will not be able to occupy the slot for custom name. ` null `的預設值禁用此功能。
 
 ---
 

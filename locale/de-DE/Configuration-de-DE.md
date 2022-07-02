@@ -451,7 +451,7 @@ Wenn Sie sich nicht sicher sind, wie Sie diese Option konfigurieren, können Sie
 
 ### `CustomGamePlayedWhileFarming`
 
-`string` Typ mit einem Standardwert von `null`. Wenn ASF sammelt, kann es sich als "Spielt ein Steam fremdes Spiel: `CustomGamePlayedWhileFarming`" anzeigen, anstatt des aktuellen Spiels was gesammelt wird. Dies kann nützlich sein, wenn du deine Freunde darüber informieren möchtest, dass du am Sammeln bist, aber den `OnlineStatus` nicht auf `Offline` ändern möchtest. Bitte bedenke, dass ASF die tatsächliche Anzeige-Reihenfolge des Steam-Netzwerks nicht garantieren kann, daher ist dies nur ein Vorschlag, der richtig angezeigt werden kann oder auch nicht. Der Standardwert von `null` deaktiviert dieses Feature.
+`string` Typ mit einem Standardwert von `null`. Wenn ASF sammelt, kann es sich als "Spielt ein Steam fremdes Spiel: `CustomGamePlayedWhileFarming`" anzeigen, anstatt des aktuellen Spiels was gesammelt wird. Dies kann nützlich sein, wenn du deine Freunde darüber informieren möchtest, dass du am Sammeln bist, aber den `OnlineStatus` nicht auf `Offline` ändern möchtest. Bitte bedenke, dass ASF die tatsächliche Anzeige-Reihenfolge des Steam-Netzwerks nicht garantieren kann, daher ist dies nur ein Vorschlag, der richtig angezeigt werden kann oder auch nicht. In particular, custom name will not display in `Complex` farming algorithm if ASF fills all `32` slots with games requiring hours to be bumped. Der Standardwert von `null` deaktiviert dieses Feature.
 
 ASF bietet einige spezielle Variablen, die Sie optional in Ihrem Text verwenden können. `{0}` wird durch die `AppID` des derzeit gefarmtem Spiele(s) von ASF ersetzt, während `{1}` stattdessen den `GameName` verwendet.
 
@@ -459,7 +459,7 @@ ASF bietet einige spezielle Variablen, die Sie optional in Ihrem Text verwenden 
 
 ### `CustomGamePlayedWhileIdle`
 
-`string` Typ mit einem Standardwert von `null`. Ähnlich wie `CustomGamePlayedWhileFarming`, aber für die Situation, in der ASF nichts zu tun hat (da das Konto vollständig gesammelt wurde). Der Standardwert von `null` deaktiviert dieses Feature.
+`string` Typ mit einem Standardwert von `null`. Ähnlich wie `CustomGamePlayedWhileFarming`, aber für die Situation, in der ASF nichts zu tun hat (da das Konto vollständig gesammelt wurde). Bitte bedenke, dass ASF die tatsächliche Anzeige-Reihenfolge des Steam-Netzwerks nicht garantieren kann, daher ist dies nur ein Vorschlag, der richtig angezeigt werden kann oder auch nicht. If you're using `GamesPlayedWhileIdle` together with this option, then keep in mind that `GamesPlayedWhileIdle` get priority, therefore you can't declare more than `31` of them, as otherwise `CustomGamePlayedWhileIdle` will not be able to occupy the slot for custom name. Der Standardwert von `null` deaktiviert dieses Feature.
 
 ---
 

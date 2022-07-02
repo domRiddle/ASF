@@ -451,7 +451,7 @@ Si no estás seguro de cómo configurar esta opción, es mejor dejarla en su val
 
 ### `CustomGamePlayedWhileFarming`
 
-Tipo `string` con valor predeterminado de `null`. Cuando ASF está recolectando, puede mostrarse como "En un juego que no es de Steam: `CustomGamePlayedWhileFarming`" en lugar del juego que está siendo recolectado actualmente. Esto puede ser útil si quieres hacerle saber a tus amigos que estás recolectando, pero no quieres usar el `OnlineStatus` de `Offline`. Por favor, ten en cuenta que ASF no puede garantizar el orden de visualización real de la red de Steam, por lo tanto esta solo es una sugerencia que podría, o no, mostrarse correctamente. El valor predeterminado de `null` desactiva esta función.
+Tipo `string` con valor predeterminado de `null`. Cuando ASF está recolectando, puede mostrarse como "En un juego que no es de Steam: `CustomGamePlayedWhileFarming`" en lugar del juego que está siendo recolectado actualmente. Esto puede ser útil si quieres hacerle saber a tus amigos que estás recolectando, pero no quieres usar el `OnlineStatus` de `Offline`. Por favor, ten en cuenta que ASF no puede garantizar el orden de visualización real de la red de Steam, por lo tanto esta solo es una sugerencia que podría, o no, mostrarse correctamente. In particular, custom name will not display in `Complex` farming algorithm if ASF fills all `32` slots with games requiring hours to be bumped. El valor predeterminado de `null` desactiva esta función.
 
 ASF proporciona algunas variables especiales que puedes usar opcionalmente en tu texto. `{0}` sera reemplazado por ASF con la `AppID` del juego o los juegos siendo recolectados actualmente, mientras que `{1}` será reemplazado por ASF con `GameName` el nombre del juego o los juegos siendo recolectados actualmente.
 
@@ -459,7 +459,7 @@ ASF proporciona algunas variables especiales que puedes usar opcionalmente en tu
 
 ### `CustomGamePlayedWhileIdle`
 
-Tipo `string` con valor predeterminado de `null`. Similar a `CustomGamePlayedWhileFarming`, pero para la situación cuando ASF no tiene nada para hacer (como cuando la cuenta está completamente recolectada). El valor predeterminado de `null` desactiva esta función.
+Tipo `string` con valor predeterminado de `null`. Similar a `CustomGamePlayedWhileFarming`, pero para la situación cuando ASF no tiene nada para hacer (como cuando la cuenta está completamente recolectada). Por favor, ten en cuenta que ASF no puede garantizar el orden de visualización real de la red de Steam, por lo tanto esta solo es una sugerencia que podría, o no, mostrarse correctamente. If you're using `GamesPlayedWhileIdle` together with this option, then keep in mind that `GamesPlayedWhileIdle` get priority, therefore you can't declare more than `31` of them, as otherwise `CustomGamePlayedWhileIdle` will not be able to occupy the slot for custom name. El valor predeterminado de `null` desactiva esta función.
 
 ---
 

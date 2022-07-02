@@ -27,7 +27,7 @@
 
 ### 其他
 
-- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**，ASF 增强插件，包含各种新功能和新命令。
 
 ---
 
