@@ -108,7 +108,7 @@ UNLES U TRULY NED 2 SPECIFY CUSTOM BASE PATH, IZ BEST 2 LEEF IT AT DEFAULT.
 
 ### CHANGIN DEFAULT PORT
 
-TEH FOLLOWIN CONFIG SIMPLY CHANGEZ DEFAULT ASF LISTENIN PORT FRUM `1242` 2 `1337`. U CAN PICK ANY PORT U LIEK, BUT WE RECOMMEND `1024-49151` RANGE, AS OTHR PORTS R TYPICALLY **[REGISTERD](https://en.wikipedia.org/wiki/Registered_port)**, AN CUD 4 EXAMPLE REQUIRE `root` ACCES ON LINUX.
+TEH FOLLOWIN CONFIG SIMPLY CHANGEZ DEFAULT ASF LISTENIN PORT FRUM `1242` 2 `1337`. You can pick any port you like, but we recommend `1024-32767` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
 
 ```json
 {
