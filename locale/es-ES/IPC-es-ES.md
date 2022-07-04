@@ -108,7 +108,7 @@ A menos que realmente necesites especificar una ruta base personalizada, es mejo
 
 ### Cambiar el puerto predeterminado
 
-La siguiente configuración simplemente cambia el puerto de escucha de ASF de `1242` a `1337`. You can pick any port you like, but we recommend `1024-32767` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
+La siguiente configuración simplemente cambia el puerto de escucha de ASF de `1242` a `1337`. Puedes elegir el puerto que desees, pero recomendamos el rango `1024-32767`, ya que normalmente otros puertos están **[registrados](https://en.wikipedia.org/wiki/Registered_port)**, y podrían, por ejemplo, requerir acceso `root` en Linux.
 
 ```json
 {
