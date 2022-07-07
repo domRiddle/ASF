@@ -20,7 +20,7 @@ Assumindo que você tenha o SDK .NET na versão apropriada, simplesmente navegue
 dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic"
 ```
 
-If you're using Linux/macOS, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
+Se você estiver usando Linux/macOS, você pode usar o código `cc.sh`, que fará o mesmo de uma maneira um pouco mais complexa.
 
 Se a compilação obteve sucesso você poderá encontrar a `source` da sua versão do ASF na pasta `out/generic`. Essa compilação é a mesma que a `genérica` do ASF, mas ela força o valor de `UpdateChannel` e `UpdatePeriod` para `0`, o que é o correto para versões auto compiladas.
 
@@ -52,7 +52,7 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 Enquanto os passos acima são tudo o que é necessário para ter uma compilação totalmente funcional do ASF, você *também* pode estar interessado em compilar a **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, nossa interface gráfica web. Do lado do ASF, tudo o que você precisa fazer é colocar a saída da compilação ASF-ui no local padrão `ASF-ui/dist` e então compilar o ASF com ela (novamente, se necessário).
 
-A ASF-ui é parte da árvore raíz do ASF como um **[submódulo git](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**, certifique-se de ter clonado o repositório com `git clone --recursive`, caso contrário, você não terá os arquivos necessários. Você também precisará de um NPM funcional, o **[Node.js](https://nodejs.org)** vem com ele. If you're using Linux/macOS, we recommend our `cc.sh` script, which will automatically cover building and shipping ASF-ui (if possible, that is, if you're meeting the requirements we've just mentioned).
+A ASF-ui é parte da árvore raíz do ASF como um **[submódulo git](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**, certifique-se de ter clonado o repositório com `git clone --recursive`, caso contrário, você não terá os arquivos necessários. Você também precisará de um NPM funcional, o **[Node.js](https://nodejs.org)** vem com ele. Se você estiver usando Linux/macOS, recomendamos o nosso script `cc.sh`, que irá cobrir automaticamente a compilação e o envio da ASF-ui (se possível, isto é, se você estiver cumprindo os requisitos que acabamos de mencionar).
 
 Além do script `cc.sh`, também anexamos as instruções de compilação simplificadas abaixo, consulte o **[repositório ASF-ui](https://github.com/JustArchiNET/ASF-ui)** para documentação adicional. Da árvore raíz do ASF, como antes, execute os seguintes comandos:
 
@@ -76,7 +76,7 @@ Como alternativa, você pode simplesmente compilar o ASF-ui, seja manualmente ou
 
 Se você quiser editar o código do ASF, você pode usar qualquer IDE compatível com o .NET, embora até mesmo isso seja opcional, uma vez que você pode editar em um bloco de notas e compilar com o comando `dotnet` descrito acima. Mesmo assim, para o Windows nós recomendamos **[o Visual Studio mais recente](https://visualstudio.microsoft.com/downloads)** (a versão comunidade é mais que o suficiente, e é gratuita).
 
-If you'd like to work with ASF code on Linux/macOS instead, we recommend **[latest Visual Studio Code](https://code.visualstudio.com/download)**. Ele não é tão rico quanto o Visual Studio clássico, mas é bom o suficiente.
+Se, em vez disso, você quiser trabalhar com o código ASF no Linux/macOS, recomendamos o **[Visual Studio Code](https://code.visualstudio.com/download)** mais recente. Ele não é tão rico quanto o Visual Studio clássico, mas é bom o suficiente.
 
 Claro que todas as sugestões acima são apenas recomendações, você pode usar o que quiser, tudo se resume ao comando `dotnet build` de qualquer maneira. Nós usamos o **[Rider da Jetbrains](https://www.jetbrains.com/rider)** para o desenvolvimento do ASF, embora não seja uma solução gratuita.
 

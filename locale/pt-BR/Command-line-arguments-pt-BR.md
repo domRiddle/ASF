@@ -72,7 +72,7 @@ Devido à natureza desta propriedade, também é possível definir o valor decla
 
 ---
 
-`--no-steam-parental-generation` - by default ASF will automatically attempt to generate Steam parental PINs, as described in **[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamparentalcode)** configuration property. However, since that might require excessive amount of OS resources, this switch allows you to disable that behaviour, which will result in ASF skipping auto-generation and go straight to asking user for PIN instead, which is what would normally happen only if the auto-generation has failed. Usually we recommend to keep the generation enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-steam-parental-generation` - por padrão o ASF tentará gerar automaticamente os códigos de acesso do Modo Família, conforme descrito na propriedade de configuração **<a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#steamparentalcode>`SteamParentalCode`</a>**. No entanto, uma vez que isso pode exigir uma quantidade excessiva de recursos do Sistema Operacional, esta opção permite que você desative esse comportamento, o que fará com que o ASF pule a geração automática e peça o código de acesso diretamente ao usuário, o que normalmente só aconteceria se a geração automática falhasse. Recomendamos manter a geração ativa, mas se você tem algum motivo para desativá-la, você pode usar esta configuração.
 
 ---
 
