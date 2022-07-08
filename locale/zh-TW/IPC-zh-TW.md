@@ -51,7 +51,7 @@ For complete documentation of available endpoints, descriptions, requests, respo
 
 ---
 
-# Custom configuration
+# 自訂組態
 
 Our IPC interface supports extra config file, `IPC.config` that should be put in standard ASF's `config` directory.
 
