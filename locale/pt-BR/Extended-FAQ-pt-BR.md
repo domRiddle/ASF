@@ -42,15 +42,15 @@ O mesmo vale para a segurança do seu PC. Sim, ter malware em seu PC arruina cad
 
 Será que usar o ASF é completamente seguro e livre de todos os riscos? Não, nós seríamos hipócritas afirmando isso, já que **todo** software tem seus problemas orientados para segurança. Contrario ao que muitas empresas estão fazendo, estamos tentando ser o mais transparentes possível em nossas **[consultorias de segurança](https://github.com/JustArchiNET/ArchiSteamFarm/security/advisories)** e, assim que descobrirmos até mesmo uma situação *hipotética* onde o ASF poderia contribuir de alguma forma para uma situação potencialmente indesejada quanto à segurança, nós anunciamos imediatamente. Foi isso que aconteceu com o **[CVE-2021-32794](https://github.com/JustArchiNET/ArchiSteamFarm/security/advisories/GHSA-wxx4-66c2-vj2v)** por exemplo, embora o ASF não tenha tido qualquer falha de segurança, mas sim um bug que poderia levar ao usuário acidentalmente a criar uma.
 
-As of today, there are no known, unpatched security flaws in ASF, and as the program is used by more and more people out of which both **[white hats](https://en.wikipedia.org/wiki/White_hat_(computer_security))** as well as **[black hats](https://en.wikipedia.org/wiki/Black_hat_(computer_security))** analyze its source code, the overall trust factor only increases with time, as the number of security flaws to find out is finite, and ASF as a program that focuses first and foremost on its security, definitely isn't making it easy for finding one. Regardless of our best intentions, we still recommend to stay cool-headed and always be wary of potential security threats, ones coming from ASF usage as well.
+No momento não existem falhas de segurança conhecidas e sem correção no ASF, e como o programa é usado por mais e mais pessoas, das quais tanto **[white hats](https://en.wikipedia.org/wiki/White_hat_(computer_security))** quanto **[black hats](https://en.wikipedia.org/wiki/Black_hat_(computer_security))** analisam seu código-fonte, o fator de confiança geral só aumenta com o tempo, uma vez que o número de falhas de segurança a serem derscobertas é finito e o ASF, como um programa que se foca primeiro e acima de tudo em sua segurança, não está facilitando para encontrar um. Independentemente de nossas melhores intenções, ainda recomendamos manter a cabeça fria e ter sempre cuidado com potenciais ameaças à segurança incluindo alguma que possa vir do próprio ASF.
 
 ---
 
-### How do I verify that the downloaded files are genuine?
+### Como faço para verificar se os arquivos baixados são genuínos?
 
-As part of our releases on GitHub, we utilize a very similar verification process as the one used by **[Debian](https://www.debian.org/CD/verify)**. In every official release starting with ASF V5.1.3.3, in addition to `zip` files you can find `SHA512SUMS` and `SHA512SUMS.sign` files. Download them for verification purposes together with the `zip` files of your choice.
+Como parte de nossas versões no GitHub, utilizamos um processo de verificação muito semelhante ao usado pelo **[Debian](https://www.debian.org/CD/verify)**. Em todas as versões oficiais à partir do ASF V5.1.3., além do arquivo `zip` você também encontrará os arquivos `SHA512SUMS` e `SHA512SUMS.sign`. Faça o download deles para fins de verificação, junto com os arquivos `zip` que escolher.
 
-Firstly, you should use `SHA512SUMS` file in order to verify that `SHA-512` checksum of the selected `zip` files matches the one we calculated ourselves. On Linux, you can use `sha512sum` utility for that purpose.
+Primeiro, você deve usar o arquivo `SHA512SUMS` para verificar se a soma de verificação `SHA-512` dos arquivos `zip` selecionados corresponde ao arquivo que nós mesmos calculamos. No Linux, você pode usar `sha512sum` para esse fim.
 
 
 ```
@@ -58,7 +58,7 @@ $ sha512sum -c --ignore-missing SHA512SUMS
 ASF-linux-x64.zip: OK
 ```
 
-On Windows, we can do that from powershell, although you have to manually verify with `SHA512SUMS`:
+No Windows, podemos fazer isso através do powershell, embora você tenha que verificar manualmente com o `SHA512SUMS`:
 
 ```
 PS > Get-Content SHA512SUMS | Select-String -Pattern ASF-linux-x64.zip
@@ -73,7 +73,7 @@ Algorithm       Hash                                                            
 SHA512          F605E573CC5E044DD6FADBC44F6643829D11360A2C6E4915B0C0B8F5227BC2A2575... ASF-linux-x64.zip
 ```
 
-This way we ensured that whatever was written to `SHA512SUMS` matches the resulting files and they weren't tampered with. However, it doesn't prove yet that `SHA512SUMS` file you checked against really comes from us. For that, we'll use `SHA512SUMS.sign` file, which holds digital PGP signature proving the authenticity of `SHA512SUMS`. We can use `gpg` utility for that purpose, both on **[Linux](https://gnupg.org/download/index.html)** and **[Windows](https://gpg4win.org)** (change `gpg` command into `gpg.exe` on Windows).
+Assim garantimos que o que foi escrito em `SHA512SUMS` corresponde aos arquivos resultantes e não foram adulterados. No entanto, isso ainda não prova que o arquivo `SHA512SUMS` que você verificou vem de nós. Para isso, vamos usar o arquivo `SHA512SUMS.sign`, que contém a assinatura PGP digital comprovando a autenticidade do `SHA512SUMS`. Podemos usar o utilitário `gpg` para isso, tanto no **[Linux](https://gnupg.org/download/index.html)** quanto no **[Windows](https://gpg4win.org)** (mude o comando `gpg` para `gpg.exe` no Windows).
 
 ```
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
@@ -82,7 +82,7 @@ gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg: Can't check signature: No public key
 ```
 
-As you can see, the file indeed holds a valid signature, but of unknown origin. You'll need to import ArchiBot's **[public key](https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc)** that we sign the `SHA-512` sums with for full validation.
+Como você pode ver, o arquivo de fato possui uma assinatura válida, mas de origem desconhecida. Você precisará importar a **[chave pública](https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc)** do ArchiBot que assinamos com as somas do `SHA-512` para a validação.
 
 ```
 $ curl https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc -o ArchiBot_public.asc
@@ -94,7 +94,7 @@ gpg:               imported: 1
 
 ```
 
-Finally, you can verify the `SHA512SUMS` file again:
+Finalmente, você pode verificar novamente o arquivo `SHA512SUMS`:
 
 ```
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
@@ -106,11 +106,11 @@ gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 224D A6DB 47A3 935B DCC3  BE17 A3D1 81DF 2D55 4CCF
 ```
 
-This has verified that the `SHA512SUMS.sign` holds a valid signature of our `224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF` key for `SHA512SUMS` file that you've verified against.
+Isto verificou que o `SHA512SUMS.sign` contém uma assinatura válida da nossa chave `224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF` para o arquivo `SHA512SUMS` que você já verificou.
 
-You could be wondering where the last warning comes from. You've successfully imported our key, but didn't decide to trust it just yet. While this is not mandatory, we can cover it as well. Normally this includes verifying through different channel (e.g. phone call, SMS) that the key is valid, then signing the key with your own to trust it. For this example, you can consider this wiki entry as such (very weak) different channel, since the original key comes from **[ArchiBot's profile](https://github.com/JustArchi-ArchiBot)**. In any case we'll assume that you have enough of confidence as it is.
+Você poderá estar imagendando de onde o último aviso veio. Você importou com sucesso nossa chave, mas decidiu não confiar nela ainda. Embora isto não seja obrigatório, também podemos cobri-lo. Normalmente isso inclui verificar através de um canal diferente (chamada telefônica, SMS, por ex.) que a chave é válida e, em seguida, assinar a chave com a sua própria confiança nela. Para esse exemplo, você pode considerar esta entrada no wiki como tal canal diferente (embora muito fraco), já que a chave original vem do perfil do **[ArchiBot](https://github.com/JustArchi-ArchiBot)**. De qualquer forma, partimos do princípio de que você tem bastante confiança do jeito como está.
 
-Firstly, **[generate private key for yourself](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Generating_an_OpenPGP_Key)**, if you don't have one just yet. We'll use `--quick-gen-key` as a quick example.
+Primeiro, **[crie uma chave provada para você](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Generating_an_OpenPGP_Key)**, caso ainda não tenha uma. Vamos usar `--quick-gen-key` como um exemplo rápido.
 
 ```
 $ gpg --batch --passphrase '' --quick-gen-key "$(whoami)"
@@ -120,7 +120,7 @@ gpg: directory '/home/archi/.gnupg/openpgp-revocs.d' created
 gpg: revocation certificate stored as '/home/archi/.gnupg/openpgp-revocs.d/8E5D685F423A584569686675E4E763905FAD148B.rev'
 ```
 
-Now you can sign our key with yours in order to trust it:
+Agora você pode assinar nossa chave com a sua para ter confiança:
 
 ```
 $ gpg --sign-key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
@@ -146,7 +146,7 @@ key "archi" (E4E763905FAD148B)
 Really sign? (y/N) y
 ```
 
-And done, after trusting our key, `gpg` should no longer display the warning when verifying:
+Pronto, depois de confiar na nossa chave, o `gpg` não deve mais exibir o aviso ao verificar:
 
 ```
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
@@ -155,12 +155,12 @@ gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [full]
 ```
 
-Notice the `[unknown]` trust indicator changing into `[full]` once you signed our key with yours.
+Observe o indicador de confiança `[unknown]` mudar para `[full]` assim que você assinar nossa chave com a sua.
 
-Congratulations, you've verified that nobody has tampered with the release you've downloaded! 👍
+Parabéns, você confirmou que ninguém alterou a versão que você baixou! 👍
 
 ---
 
-### It's April the 1st and the ASF language changed into something strange, what is going on?
+### É primeiro de abril e o idioma do ASF mudou para algo estranho, o que está acontecendo?
 
-PARABENZ POR DISHCOBRIRR NOSS EASTR EGG DO JIA PRIMEIR DO ABRIL! If you didn't set custom `CurrentCulture` option, then ASF on April the 1st will actually use **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** language instead of your system language. Se você quiser desativar esse comportamento, você pode simplesmente configurar `CurrentCulture` para seu idioma preferido. Também é interessante notar que você pode ativar nosso easter egg incondicionalmente configurando a opção `CurrentCulture` com o valor `qps-Ploc`.
+PARABENZ POR DISHCOBRIRR NOSS EASTR EGG DO JIA PRIMEIIIRO DO ABRIL! Se você não definiu uma opção personalizada em `CurrentCulture`, então o ASF iniciado no dia 1 de abril usará o idioma **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** em vez do idioma do seu sistema. Se você quiser desativar esse comportamento, você pode simplesmente configurar `CurrentCulture` para seu idioma preferido. Também é interessante notar que você pode ativar nosso easter egg incondicionalmente configurando a opção `CurrentCulture` com o valor `qps-Ploc`.
