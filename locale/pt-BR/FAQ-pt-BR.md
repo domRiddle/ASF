@@ -251,7 +251,7 @@ Não estamos modificando ou automatizando o processo do Mercado de Assinaturas s
 
 > A Valve poderá cancelar sua Conta ou qualquer Assinatura específica a qualquer momento, caso (a) a Valve não forneça mais tais Assinaturas a Assinantes em geral em igual situação, ou (b) você violar quaisquer termos deste Acordo (incluindo quaisquer Termos de Assinatura ou Regras de Uso).
 
-Portanto, assim como todos os softwares da Valve, o ASF não é autorizado por ela e não posso garantir que você não vai ser suspenso se a Valve decidir de repente que vão banir contas que usem o ASF. This is exceptionally unlikely considering the fact that ASF is being used on more than a million of Steam accounts, but still a possibility, regardless of actual probability.
+Portanto, assim como todos os softwares da Valve, o ASF não é autorizado por ela e não posso garantir que você não vai ser suspenso se a Valve decidir de repente que vão banir contas que usem o ASF. Isso é extremamente improvável, considerando o fato de que o ASF está sendo usado em mais de um milhão de contas Steam, mas ainda é uma possibilidade, independentemente da probabilidade real.
 
 Especialmente porque:
 > Em relação a todas as Assinaturas, Conteúdo e Serviços que não sejam de autoria da Valve, a Valve não examina esses conteúdos de terceiros disponíveis no Steam ou por meio de outras fontes. A Valve não assume qualquer responsabilidade ou passivo por esses conteúdos de terceiros. É possível que determinados softwares aplicativos de terceiros sejam usados pelas empresas para propósitos empresariais; contudo, você poderá adquirir esse Software apenas por meio do Steam para uso privado.
