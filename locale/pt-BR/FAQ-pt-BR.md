@@ -340,7 +340,7 @@ Com o módulo de coleta pausado/desabilitado, você pode utilizar as demais func
 
 ### Posso minimizar o ASF para a bandeja?
 
-O ASF é um aplicativo de console, não há janela para ser minimizada pois as janelas são criadas para você pelo seu SO. You can however use any third-party tool capable of doing so, such as **[RBTray](https://github.com/benbuck/rbtray)** for Windows, or **[screen](https://linux.die.net/man/1/screen)** for Linux/macOS. Those are only examples, there are many other apps with similar functionality.
+O ASF é um aplicativo de console, não há janela para ser minimizada pois as janelas são criadas pelo Sistema Operacional. No entanto você pode usar qualquer ferramenta de terceiros capaz disso, tais como o **[RBTray](https://github.com/benbuck/rbtray)** para Windows ou o **[screen](https://linux.die.net/man/1/screen)** para Linux/macOS. Those are only examples, there are many other apps with similar functionality.
 
 ---
 
@@ -370,7 +370,7 @@ Obrigado pelo seu interesse! Você pode encontrar todos os detalhes na seção *
 
 ### O ASF parece estar funcionando, mas eu não estou conseguindo cartas!
 
-A taxa de coleta de cartas difere de um jogo para outro, como você pode ler em **[desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. Demora um pouco, geralmente **várias horas por jogo**, e você não deve esperar que as cartas apareçam em seu inventário apenas alguns minutos após inciar o programa. If you can see that ASF actively checks cards status, and switches the game after current one is fully farmed, then everything works fine. É possível que você tenha habilitado alguma opção tal como `DismissInventoryNotifications` em `BotBehaviour` que dispensa automaticamente as nitificações de inventário. Visite a seção **[configuração](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)** para mais informações.
+A taxa de coleta de cartas difere de um jogo para outro, como você pode ler em **[desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. Demora um pouco, geralmente **várias horas por jogo**, e você não deve esperar que as cartas apareçam em seu inventário apenas alguns minutos após inciar o programa. Se você notar que o ASF analisa o estado das cartas ativamente e troca de jogo quando o atual está totalmente coletado, então tudo está funcionando bem. É possível que você tenha habilitado alguma opção tal como `DismissInventoryNotifications` em `BotBehaviour` que dispensa automaticamente as nitificações de inventário. Visite a seção **[configuração](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR)** para mais informações.
 
 ---
 
