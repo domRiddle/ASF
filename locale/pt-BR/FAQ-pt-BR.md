@@ -340,7 +340,7 @@ Com o módulo de coleta pausado/desabilitado, você pode utilizar as demais func
 
 ### Posso minimizar o ASF para a bandeja?
 
-O ASF é um aplicativo de console, não há janela para ser minimizada pois as janelas são criadas pelo Sistema Operacional. No entanto você pode usar qualquer ferramenta de terceiros capaz disso, tais como o **[RBTray](https://github.com/benbuck/rbtray)** para Windows ou o **[screen](https://linux.die.net/man/1/screen)** para Linux/macOS. Those are only examples, there are many other apps with similar functionality.
+O ASF é um aplicativo de console, não há janela para ser minimizada pois as janelas são criadas pelo Sistema Operacional. No entanto você pode usar qualquer ferramenta de terceiros capaz disso, tais como o **[RBTray](https://github.com/benbuck/rbtray)** para Windows ou o **[screen](https://linux.die.net/man/1/screen)** para Linux/macOS. Essas são apenas exemplos, existem muitas outras aplicações com funções semelhantes.
 
 ---
 
