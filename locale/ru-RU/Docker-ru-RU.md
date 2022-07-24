@@ -31,7 +31,7 @@ Due to the fact that the `latest` image comes with capability of auto-updates, i
 
 ### `A.B.C.D`
 
-В сравнении с тегами выше, этот тег полностью зафиксирован, это означает что образ не будет обновляться после публикации. Это работает аналогично сборкам на GitHub, которые никогда не меняются после выпуска, что гарантирует стабильную и неизменную среду. Обычно вы можете захотеть использовать этот тег если вы хотите определённую версию ASF(более старую чем `latest`) и не хотите использовать никаких авто-обновлений (например, предоставляемых в теге `latest`).
+В сравнении с тегами выше, этот тег полностью зафиксирован, это означает что образ не будет обновляться после публикации. Это работает аналогично сборкам на GitHub, которые никогда не меняются после выпуска, что гарантирует стабильную и неизменную среду. Typically you should use this tag when you want to use some specific ASF release and you don't want to use any kind of auto-updates (e.g. those offered in `latest` tag).
 
 ---
 
@@ -45,7 +45,7 @@ We generally discourage trying `main` builds, as those are here for us to mark c
 
 ## Архитектуры
 
-ASF docker image is currently built on `linux` platform with 3 architectures - `x64`, `arm` and `arm64`. Вы можете прочитать больше об этом в разделе **[Совместимость](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU)**.
+ASF docker image is currently built on `linux` platform targetting 3 architectures - `x64`, `arm` and `arm64`. Вы можете прочитать больше об этом в разделе **[Совместимость](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU)**.
 
 Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker run`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
 
@@ -179,7 +179,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull alway
 Объединив знания, полученные выше, мы можем сделать полный пример конфигурации, он будет выглядеть примерно так:
 
 ```shell
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
+docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 This assumes that you'll use a single ASF container, with all ASF config files in `/home/archi/ASF/config`. Вам нужно изменить путь к конфигурационным файлам на соответствующий вашей машине. Эта конфигурация также готова к использованию IPC если вы решите включить в вашу папку конфигурации файл `IPC.config` со следующим содержимым:

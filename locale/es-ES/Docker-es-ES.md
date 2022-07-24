@@ -31,7 +31,7 @@ Debido a que la imagen `latest` tiene la capacidad de actualizarse automáticame
 
 ### `A.B.C.D`
 
-En comparación con las etiquetas anteriores, esta etiqueta está completamente congelada, lo que significa que la imagen no se actualizará una vez publicada. Esto funciona similar a nuestras publicaciones de GitHub que nunca se tocan después de la publicación inicial, lo que te garantiza un entorno estable y congelado. Normalmente deberías utilizar esta etiqueta cuando deseas usar alguna versión específica de ASF (más antigua que `latest`) y no quieres usar ningún tipo de actualizaciones automáticas (por ejemplo, aquellas ofrecidas en la etiqueta `latest`).
+En comparación con las etiquetas anteriores, esta etiqueta está completamente congelada, lo que significa que la imagen no se actualizará una vez publicada. Esto funciona similar a nuestras publicaciones de GitHub que nunca se tocan después de la publicación inicial, lo que te garantiza un entorno estable y congelado. Normalmente deberías usar esta etiqueta cuando deseas usar una versión específica de ASF y no quieres usar ningún tipo de actualizaciones automáticas (por ejemplo, las ofrecidas en la etiqueta `latest`).
 
 ---
 
@@ -45,7 +45,7 @@ Generalmente no recomendamos probar las compilaciones `main`, ya que estas son p
 
 ## Arquitecturas
 
-La imagen docker ASF se compila actualmente en la plataforma `linux` con tres arquitecturas - `x64`, `arm` y `arm64`. Puedes leer más acerca de ellas en la sección de **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es)**.
+La imagen docker ASF se compila actualmente en la plataforma `linux` teniendo como objetivo tres arquitecturas - `x64`, `arm` y `arm64`. Puedes leer más acerca de ellas en la sección de **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es)**.
 
 Desde la versión V5.0.2.2 de ASF, nuestras etiquetas utilizan un manifiesto multiplataforma, lo que significa que el Docker instalado en tu máquina seleccionará automáticamente la imagen adecuada para tu plataforma al extraer la imagen. Si por algún motivo deseas extraer una imagen de plataforma específica que no coincida con la que estás ejecutando, puedes hacerlo mediante el modificador `--platform` con los comandos docker apropiados, tal como `docker run`. Para más información revisa la documentación docker en **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)**.
 
@@ -179,7 +179,7 @@ Si estableciste todo correctamente, el comando `docker run` hará que la interfa
 Combinando todo el conocimiento anterior, un ejemplo de configuración completa se vería así:
 
 ```shell
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
+docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 Esto asume que usarás un solo contenedor de ASF, con todos los archivos de configuración de ASF en `/home/archi/ASF/config`. Debes modificar la ruta de configuración a la que coincide con tu máquina. Esta configuración también está lista para el uso opcional de IPC si decidiste incluir `IPC.config` en tu directorio de configuración con un contenido como el siguiente:

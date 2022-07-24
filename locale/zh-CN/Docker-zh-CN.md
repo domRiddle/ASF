@@ -31,7 +31,7 @@ ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archi
 
 ### `A.B.C.D`
 
-与上面的分支相比，这个分支是完全冻结的，这意味着映像一旦发布就不会再更新。 这类似于我们的 GitHub 发布版本，一经发布就不会更改，这保证了环境的长期稳定。 通常，如果您希望使用特定的（早于 `latest` 的）ASF 版本，并且不希望启用任何自动更新功能（例如 `latest` 所提供的），就应该使用这种分支。
+与上面的分支相比，这个分支是完全冻结的，这意味着映像一旦发布就不会再更新。 这类似于我们的 GitHub 发布版本，一经发布就不会更改，这保证了环境的长期稳定。 通常，如果您希望使用特定的 ASF 版本，并且不希望启用任何自动更新功能（例如 `latest` 所提供的），就应该使用这种分支。
 
 ---
 
@@ -45,7 +45,7 @@ ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archi
 
 ## 架构
 
-ASF Docker 映像目前基于 `linux` 平台构建，支持 3 种架构——`x64`、`arm` 和 `arm64`。 您可以阅读&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解更多。
+ASF Docker 映像目前基于 `linux` 平台构建，指向 3 种架构——`x64`、`arm` 和 `arm64`。 您可以阅读&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解更多。
 
 从 ASF V5.0.2.2 版本开始，我们的标签已使用多平台 Manifest，这意味着您机器上的 Docker 会在您拉取时自动按照平台选择合适的映像。 如果您需要拉取某个不符合当前平台的映像，您可以为相应的 docker 命令，例如 `docker run` 指定 `--platform` 参数。 您可以查看 Docker 的 **[Image Manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** 文档了解更多。
 
@@ -179,7 +179,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull alway
 结合上述的全部内容，完整安装的一个示例如下所示：
 
 ```shell
-docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
+docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
 此示例假定您将使用单个 ASF 容器，所有配置文件都放在 `/home/archi/ASF/config`。 您需要修改此处的配置文件路径以匹配您的环境。 如果您打算编写内容如下的 `IPC.config` 配置文件，则此 ASF 也能够正常启用 IPC 接口：

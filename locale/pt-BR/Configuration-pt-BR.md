@@ -156,7 +156,7 @@ Tipo `bool` com valor padrão `false`. Esta propriedade define se o processo dev
 
 ### `FarmingDelay`
 
-Tipo `byte` com o valor padrão `15`. Para que o ASF funcione, é necessário verificar periodicamente num intervalo de minutos informado em `FarmingDelay`, para ver se todas as cartas já foram obtidas. Um valor muito baixo vai fazer com que uma quantidade excessiva de solicitações sejam enviadas para o Steam, enquanto um valor muito alto fará com que o ASF continue rodando o jogo até terminar o tempo do `FarmingDelay`, mesmo que ele já tenha sido totalmente explorado. O valor padrão deve ser excelente para a maioria dos usuários, mas se você tem muitos bots em execução, você pode considerar aumentá-lo para algo em torno de `30` minutos, a fim de limitar a quantidade de pedidos enviados para o Steam. Felizmente o ASF usa um manipulador de eventos e verifica a página de insígnia do jogo sempre que há notificação de item recebido, então em geral **não precisamos verificar isso em intervalos regulares**, mas como não confiamos plenamente na rede Steam - ainda checamos a página de insígnia do jogo caso não tenhamos verificado através das notificações de recebimento no intervalo de tempo do `FarmingDelay` (para p caso da rede Steam não nos informar sobre o item recebido ou coisas assim). Assumindo que a rede Steam esteja funcionando corretamente, diminuir este valor **não vai melhorar a eficiência da coleta**, mas **aumentará significativamente a sobrecarga de rede** - é recomendado aumentá-lo apenas (se necessário) em padrões de `15` minutos. A menos que você tenha uma razão muito **forte** para editar essa propriedade, você deve mantê-la padrão.
+Tipo `byte` com o valor padrão `15`. Para que o ASF funcione, é necessário verificar periodicamente num intervalo de minutos informado em `FarmingDelay`, para ver se todas as cartas já foram obtidas. Um valor muito baixo vai fazer com que uma quantidade excessiva de solicitações sejam enviadas para o Steam, enquanto um valor muito alto fará com que o ASF continue rodando o jogo até terminar o tempo do `FarmingDelay`, mesmo que ele já tenha sido totalmente explorado. O valor padrão deve ser excelente para a maioria dos usuários, mas se você tem muitos bots em execução, você pode considerar aumentá-lo para algo em torno de `30` minutos, a fim de limitar a quantidade de pedidos enviados para o Steam. Felizmente o ASF usa um manipulador de eventos e verifica a página de insígnia do jogo sempre que há notificação de item recebido, então em geral **não precisamos verificar isso em intervalos regulares**, mas como não confiamos plenamente na rede Steam - ainda checamos a página de insígnia do jogo caso não tenhamos verificado através das notificações de recebimento no intervalo de tempo do `FarmingDelay` (para o caso da rede Steam não nos informar sobre o item recebido ou coisas assim). Assumindo que a rede Steam esteja funcionando corretamente, diminuir este valor **não vai melhorar a eficiência da coleta**, mas **aumentará significativamente a sobrecarga de rede** - é recomendado aumentá-lo apenas (se necessário) em padrões de `15` minutos. A menos que você tenha uma razão muito **forte** para editar essa propriedade, você deve mantê-la padrão.
 
 ---
 
@@ -604,7 +604,7 @@ Tipo `byte` com o valor padrão `1`. Esta propriedade especifica o status na com
 
 | Valor | Nome            |
 | ----- | --------------- |
-| 0     | Off-line        |
+| 0     | Offline         |
 | 1     | Disponível      |
 | 2     | Ocupado         |
 | 3     | Ausente         |
