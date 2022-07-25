@@ -572,7 +572,7 @@ InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
 
 ASF 使用登录密钥使凭据长期有效（如果 `UseLoginKeys` 为启用状态），这与 Steam 本身使用的机制相同——您只需要输入一次两步验证/Steam 令牌代码。 然而，由于 Steam 网络本身的问题，有可能登录密钥没有被保存，不仅 ASF 有这样的问题， Steam 官方客户端也有（即使勾选了“记住我的密码”，每次登录仍要输入用户名和密码）。
 
-您可以删除受影响机器人的 `BotName.db` 和 `BotName.bin` 文件（如果存在的话），然后尝试再次将 ASF 链接到您的帐户，但该方法不一定能成功。 ASF 的解决方案是将您的验证器导入为 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**——当需要时，ASF 可以自动生成令牌代码，而不需要您手动输入。 通常，一段时间后，该问题就会自动消失，所以您也可以耐心等待。 当然，您也可以向 Valve 询问解决方案，因为我无法强制要求 Steam 网络认可我们的登录密钥。
+您可以删除受影响机器人的 `BotName.db` 和 `BotName.bin` 文件（如果存在的话），然后尝试再次将 ASF 链接到您的帐户，但该方法通常不会有任何作用。 一些用户报告说在 Steam 网站上[**取消对其他所有设备的授权**](https://store.steampowered.com/twofactor/manage)或者修改密码会有帮助。 但这些仅仅是一些小窍门，不一定总是有效，ASF 的真正解决方案是将您的验证器导入为 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**——当需要时，ASF 可以自动生成令牌代码，而不需要您手动输入。 通常，一段时间后，该问题就会自动消失，所以您也可以耐心等待。 当然，您也可以向 Valve 询问解决方案，因为我无法强制要求 Steam 网络认可我们的登录密钥。
 
 作为一个旁注，您也可以将 `UseLoginKeys` 配置属性设置为 `false`，来禁用登录密钥功能，但这无法解决问题，仅仅能跳过登录密钥的报错。 ASF 已经了解此问题，如果它可以自己获取所有需要的登录凭据，就会尽量避免使用登录密钥，如果您可以提供所有登录细节，并且使用 ASF 2FA，就不需要手动调整 `UseLoginKeys` 属性。
 

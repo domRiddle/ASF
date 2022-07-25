@@ -22,7 +22,7 @@ ASF 2단계 인증은 토큰 생성, 확인사항 수락과 같은 ASF 프로세
 
 ## 불러오기
 
-ASF 2단계 인증(2FA)를 사용하려면 Steam에 연결되고 작동가능한, ASF가 지원하는 인증기가 있어야 합니다. ASF는 현재 몇 가지의 공식적/비공식적 2단계 인증을 지원합니다. 안드로이드, iOS, SteamDesktopAuthenticator, WinAuth 입니다. 아직 인증기가 없다면 이것들 중 하나를 골라 먼저 설치해야 합니다. 어느 것을 골라야 할지 모르겠다면 WinAuth를 추천합니다. 물론 설명만 잘 따라한다면 다른 것들도 잘 작동할 것입니다.
+ASF 2단계 인증(2FA)를 사용하려면 Steam에 연결되고 작동가능한, ASF가 지원하는 인증기가 있어야 합니다. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth, on top of manual method which allows you to provide required credentials yourself. If you don't have any authenticator yet, you need to choose one of available apps and set it up firstly. 어느 것을 골라야 할지 모르겠다면 WinAuth를 추천합니다. 물론 설명만 잘 따라한다면 다른 것들도 잘 작동할 것입니다.
 
 아래의 모든 가이드는 **정상동작하고 있는** 인증기를 필요로 합니다. 유효하지 않은 데이터를 가져오면 ASF 2단계 인증은 정상적으로 동작하지 않을것이므로 데이터를 가져오기 전에 인증기가 정상 작동하는지 확인하여야 합니다. 다음의 인증기 기능이 정상 작동하는지 테스트하고 확인하십시오.
 - 토큰을 생성하고 이 토큰이 Steam 네트워크에서 수락될 수 있어야 함
@@ -39,7 +39,7 @@ ASF 2단계 인증(2FA)를 사용하려면 Steam에 연결되고 작동가능한
 
 적어도 공식적으로 루팅없이 보호된 Steam 파일에 접근하는 것은 불가능합니다. Steam 파일을 추출하는 루팅이 필요없는 유일한 공식적 방법은 암호화되지 않은 `/data` 백업을 이런 저런 방법으로 생성해서 그 중 적절한 파일을 PC에 수동으로 가져오는 것입니다. 이는 휴대전화 제조사에 매우 의존하고 안드로이드 표준이 **아니므로** 여기서 다루지는 않습니다. 운이 좋아서 그런 기능이 있다면 사용할 수 있겠지만 대부분의 사용자들은 그런 것이 없습니다.
 
-비공식적으로 루트 권한 없이 필요한 파일을 추출하는 것은 가능합니다. Steam 앱을 2.1 버전 혹은 이전버전으로 설치 또는 다운그레이드 하고, 모바일 인증기를 설정한 후, `adb backup`으로 앱과 우리가 필요로 하는 `data` 파일의 스냅샷을 생성하면 됩니다. 하지만 이는 심각한 보안 취약점이고 전혀 지원을 받을 수 없는 방법이므로 더이상 자세히 말하지는 않겠습니다. Valve는 새 버전에서 어떤 이유로 이 보안취약점을 막아버렸고, 우리는 단지 가능성만 언급하겠습니다.
+비공식적으로 루트 권한 없이 필요한 파일을 추출하는 것은 가능합니다. Steam 앱을 2.1 버전 혹은 이전버전으로 설치 또는 다운그레이드 하고, 모바일 인증기를 설정한 후, `adb backup`으로 앱과 우리가 필요로 하는 `data` 파일의 스냅샷을 생성하면 됩니다. 하지만 이는 심각한 보안 취약점이고 전혀 지원을 받을 수 없는 방법이므로 더이상 자세히 말하지는 않겠습니다. Valve는 새 버전에서 어떤 이유로 이 보안취약점을 막아버렸고, 우리는 단지 가능성만 언급하겠습니다. Still, it might be possible to do a clean install of that version, link new authenticator, extract the required files, and then upgrade the app, which should be just enough, but you're on your own with this method anyway.
 
 당신이 휴대전화를 성공적으로 루팅했다고 가정하면, 그 다음엔 마켓에서 **[이것](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** 과 같은, 혹은 선호하는 어떤 루트 탐색기를 다운로드해야 합니다. 보호된 파일은 ADB (Android Debug Bridge) 나 다른 어떤 방법으로도 접근이 가능한데, 우리는 가장 사용자 친화적인 방법인 탐색기를 사용하겠습니다.
 
@@ -47,7 +47,7 @@ ASF 2단계 인증(2FA)를 사용하려면 Steam에 연결되고 작동가능한
 
 이제 인증기를 WinAuth에 먼저 가져오고 그 뒤에 ASF로 가져올수도 있고, ASF에 바로 가져올 수도 있습니다. 첫번째 옵션은 더 친숙하고 인증기를 PC에 복제하여 전화기, PC, ASF 세가지 다른 곳에서 확인을 누르고 토큰을 생성할 수 있게 합니다. 이렇게 하려면 WinAuth를 열고, 새 Steam 인증기를 추가하고, 안드로이드에서 가져오기를 선택하고, 위에서 가져온 파일을 선택하여 지시를 따르십시오. 끝난 뒤에 이 인증기를 WinAuth에서 ASF로 가져올 수 있습니다. 방법은 아래의 WinAuth 항목에서 설명합니다.
 
-WinAuth를 사용하고 싶지 않거나 필요없다면 보호된 디렉토리에서 `files/Steamguard-SteamID`를 복사하십시오. `SteamID`는 추가하려는 계정의 64비트 Steam 식별자입니다. (계정이 하나라면 이 파일이 유일하겠지만 계정이 두개 이상이라면 SteamID로 구별하십시오) 이 파일을 ASF의 `config` 디렉토리에 넣어야 합니다. 그 다음, 이 파일을 `봇이름.maFile`로 이름을 변경하십시오. `봇이름`은 ASF 2단계 인증을 추가하려는 봇의 이름입니다. 이 단계 후에 ASF를 실행하십시오. ASF는 `.maFile`을 인식하고 가져올 것입니다.
+If you don't want to or don't need to go through WinAuth, then simply copy `files/Steamguard-<SteamID>` file from our protected directory, where `SteamID` is your 64-bit Steam identificator of the account that you want to add (if more than one, because if you have only one account then this will be the only file). 이 파일을 ASF의 `config` 디렉토리에 넣어야 합니다. 그 다음, 이 파일을 `봇이름.maFile`로 이름을 변경하십시오. `봇이름`은 ASF 2단계 인증을 추가하려는 봇의 이름입니다. 이 단계 후에 ASF를 실행하십시오. ASF는 `.maFile`을 인식하고 가져올 것입니다.
 
 ```text
 [*] 정보: ImportAuthenticator() <1> .maFile을 ASF 형식으로 변환하는 중...

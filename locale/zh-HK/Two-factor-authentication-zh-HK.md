@@ -22,7 +22,7 @@ ASF 2FA is a built-in module responsible for providing 2FA features to ASF proce
 
 ## 導入
 
-In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth. 如果您還沒有任何驗證器，則需要先選擇其中一個並進行設置。 如果您不知道選擇哪一個，我們推薦 WinAuth，但只要您按照說明操作，上述任何一項都可以正常工作。
+In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth, on top of manual method which allows you to provide required credentials yourself. If you don't have any authenticator yet, you need to choose one of available apps and set it up firstly. 如果您不知道選擇哪一個，我們推薦 WinAuth，但只要您按照說明操作，上述任何一項都可以正常工作。
 
 以下所有指南都要求您已擁有在上述工具/應用程式中 **可運行的**身份驗證器。 如果導入無效資料，ASF 2FA將無法正常運行，因此在嘗試導入資料之前，請確保您的身份驗證器運行正常。 這包括測試和驗證以下身份驗證器功能能否正常運行：
 - 您可以生成代碼，且它們受Steam網絡承認
@@ -39,7 +39,7 @@ Ensure that your authenticator works by checking if above actions work - if they
 
 理論上來説，沒有root權限就無法訪問受保護的Steam檔案。 The only official non-root method for extracting Steam files is creating unencrypted `/data` backup in one way or another and manually fetching appropriate files from it on your PC, however because such thing highly depends on your phone manufacturer and **is not** in Android standard, we won't discuss it here. 如果您很幸運有這樣的功能，你可以考慮利用它，但大多數使用者並非如此。
 
-Unofficially, it is possible to extract the needed files without root access, by installing or downgrading your Steam app to version 2.1 (or earlier), setting up mobile authenticator and then creating a snapshot of the app (together with the `data` files that we need) through `adb backup`. 但是，由於這種提取文件的方式存在嚴重的安全漏洞，且完全沒有技術支援，我們將不會在此詳細說明，原因之一是Valve在新版本中禁用此安全漏洞，我們僅是提到存在使用此方法的可能性。
+Unofficially, it is possible to extract the needed files without root access, by installing or downgrading your Steam app to version 2.1 (or earlier), setting up mobile authenticator and then creating a snapshot of the app (together with the `data` files that we need) through `adb backup`. 但是，由於這種提取文件的方式存在嚴重的安全漏洞，且完全沒有技術支援，我們將不會在此詳細說明，原因之一是Valve在新版本中禁用此安全漏洞，我們僅是提到存在使用此方法的可能性。 Still, it might be possible to do a clean install of that version, link new authenticator, extract the required files, and then upgrade the app, which should be just enough, but you're on your own with this method anyway.
 
 Assuming that you've successfully rooted your phone, you should afterwards download any root explorer available on the market, such as **[this one](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** (or any other one of your preference). 您還可以通過ADB（Android Debug Bridge）或任何其他可用的方法訪問受保護的檔案，我們將通過資源管理器進行訪問，因為它絕對是對用戶最友好的方式。
 
@@ -47,7 +47,7 @@ Assuming that you've successfully rooted your phone, you should afterwards downl
 
 Now, you can choose if you want to import your authenticator to WinAuth first, then to ASF, or to ASF right away. 先將驗證器導入WinAuth的選項更友好，它允許您在您的PC上備份身份驗證器，這樣您就可以從3個不同的地方生成代碼並確認交易──您的手機，您的PC以及ASF。 如果您想這樣做，只需打開WinAuth，添加新的Steam身份驗證器並從Android選項中選擇導入，然後遵循指南，訪問您之前獲得的檔案。 完成後，您可以將此驗證器從WinAuth導入ASF，這將在下面的WinAuth部分中專門進行說明。
 
-If you don't want to or don't need to go through WinAuth, then simply copy `files/Steamguard-SteamID` file from our protected directory, where `SteamID` is your 64-bit Steam identificator of the account that you want to add (if more than one, because if you have only one account then this will be the only file). 您需要將該檔放入ASF` config `目錄中。 Once you do that, rename the file to `BotName.maFile`, where `BotName` is the name of your bot you're adding ASF 2FA to. After this step, launch ASF - it should notice the `.maFile` and import it.
+If you don't want to or don't need to go through WinAuth, then simply copy `files/Steamguard-<SteamID>` file from our protected directory, where `SteamID` is your 64-bit Steam identificator of the account that you want to add (if more than one, because if you have only one account then this will be the only file). 您需要將該檔放入ASF` config `目錄中。 Once you do that, rename the file to `BotName.maFile`, where `BotName` is the name of your bot you're adding ASF 2FA to. After this step, launch ASF - it should notice the `.maFile` and import it.
 
 ```text
 [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
@@ -112,7 +112,7 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 ---
 
-## FAQ
+## 如何使用
 
 ### ASF如何使用2FA模組？
 

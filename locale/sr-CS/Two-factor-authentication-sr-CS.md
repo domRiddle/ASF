@@ -22,7 +22,7 @@ Možete provjeriti da li vaš bot nalog već koristi ASF 2FA izvršavanjem `2fa`
 
 ## Unos
 
-Da bi koristili ASF 2FA, morate već imati postojeći i operacioni autentikator koji je podržan od strane ASF-a. ASF trenutno podržava nekoliko različitih oficijalnih i neoficijalnih izvora 2FA - Android, iOS, SteamDesktopAuthenticator i WinAuth. Ako već nemate autentikator, morate prvo izabrati i podesiti jedan od ovih. Ako ne znate koji da izaberete, predlažmo vam WinAuth, ali bilo koji od ovih će raditi dobro ako pratite instrukcije.
+Da bi koristili ASF 2FA, morate već imati postojeći i operacioni autentikator koji je podržan od strane ASF-a. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth, on top of manual method which allows you to provide required credentials yourself. If you don't have any authenticator yet, you need to choose one of available apps and set it up firstly. Ako ne znate koji da izaberete, predlažmo vam WinAuth, ali bilo koji od ovih će raditi dobro ako pratite instrukcije.
 
 Sva naredna uputstva zahtijevaju da već imate **radni i operativni** autentikator koji možete koristi sa aplikacijom. ASF 2FA neće raditi propisno ako unesete nepravilne podatke, pa zbog toga budite sigurni da vaš autentikator radi prije nego što pokušate da ga unesete. To podrazumijeva testiranje i verifikaciju pravilnog rada sledećih funkcija:
 - možete generisati tokene koje prihvata Steam network,
@@ -39,7 +39,7 @@ Generalno, za ubacanje autentikatora sa vašeg Android telefona morate imati **[
 
 Oficijalno, nije moguće da pristupite zaštićenim Steam fajlovima bez root-a. Jedini oficijalni bez-rootni način da dođete to Steam fajlova jeste da kreirate nezaštićenu `/data` kopiju na neki način i da ručno tražite potrebne fajlove u njoj na PC-u, ali pošto ta funkcija zavisi o vašeg proizvođaća uređaja i **nije** standardno na Android-u, nećemo o tome govoriti. Ako se zadesi da imate tu funkcijonalnost, možete je koristiti, ali najčešće korisnici to nemaju.
 
-Neoficijalno, moguće je izvući te fajlove bez root privilegija, ako instalirate Steam aplikaciju verzije 2.1(ili ranuju), postavite mobilnu autentikaciju i napravite kopiju vaše aplikacije (zajedno sa `/data` fajlovima koji su nam potrebni) pomoću `adb backup`. Ali pošto je ove ozbiljan sigurnosni problem i skroz nepodržan način da se izvuku fajlovi, ne možemo govoriti dalje o tome, Valve je onemogućijo ovo s razlogom, a mi ga pominjemo jedino kao mogućnosti.
+Neoficijalno, moguće je izvući te fajlove bez root privilegija, ako instalirate Steam aplikaciju verzije 2.1(ili ranuju), postavite mobilnu autentikaciju i napravite kopiju vaše aplikacije (zajedno sa `/data` fajlovima koji su nam potrebni) pomoću `adb backup`. Ali pošto je ove ozbiljan sigurnosni problem i skroz nepodržan način da se izvuku fajlovi, ne možemo govoriti dalje o tome, Valve je onemogućijo ovo s razlogom, a mi ga pominjemo jedino kao mogućnosti. Still, it might be possible to do a clean install of that version, link new authenticator, extract the required files, and then upgrade the app, which should be just enough, but you're on your own with this method anyway.
 
 Pretpostavljajući da ste već uspješno root-ovali vaš uređaj, trebate nakon toga preuzeti root pretraživač koji je dosupan Play prodavnici, kao što je **[ovaj](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** (ili bilo koji drugi u zavisnosti od vašeg izbora). Takođe možete doći to zaštićenih fajlova pomoću ADB (Android Debug Bridge) ili drugog vama dostupnog metoda, mi ćemo objasniti pomoću pretraživača, pošto je to najdostupniji način za koristike.
 
@@ -47,7 +47,7 @@ Kad otvorite root pretraživač, idite u folder `/data/data`. Još jednom napomi
 
 Sada možete odlučiti da li želite da ubacite vaš autentikator prvo u WinAuth, pa u ASF, ili direktno u ASF. Prvo opcija je lakša i omogućava vam da duplirate autentikator na vašem PC, što vam omogućava da prihvatate potvrde i generišete tokene sa tri različita mjesta - vašeg telefona, PC-a i ASF-a. Ako želite da to uradite, otvorite WinAuth, dodajte novi Steam autentikator i izaberite opciju "importing from Android(unesite sa Android-a)", zatim pratite instrukcije i izaberite fajlove koje ste preuzeli ranije. Kada završite, možete da dodate ovaj autentikator iz WinAuth-a u ASF, a ovo je objašnjeno ispod u WinAuth odjeljku.
 
-Ako ne želite ili nemate potrebu da ovo radite pomoću WinAuth-a, ona možete kopirati fajl `files/Steamguard-SteamID` iz zaštićenog direktorijuma, gdje je 64-bitni `SteamID` Steam identifikator naloga kojeg želite da dodate (ako je samo jedan, to je zbog toga što imate samo jedan profil, i to je fajl koji vam je potreban). Treba da premjestite ovaj fajl in ASF-ov `config` direktorijum. Kada to uradite, promijenite ime fajla sa `BotName.maFile`, gdje je `BotName` isto kao ime kojim ste nazvali bota tokom konfiguracije i kojem dodajete ASF 2FA. Nakon ovog koraka, pokrenite ASF - on će zapaziti `.maFile` i iskoristiti ga.
+If you don't want to or don't need to go through WinAuth, then simply copy `files/Steamguard-<SteamID>` file from our protected directory, where `SteamID` is your 64-bit Steam identificator of the account that you want to add (if more than one, because if you have only one account then this will be the only file). Treba da premjestite ovaj fajl in ASF-ov `config` direktorijum. Kada to uradite, promijenite ime fajla sa `BotName.maFile`, gdje je `BotName` isto kao ime kojim ste nazvali bota tokom konfiguracije i kojem dodajete ASF 2FA. Nakon ovog koraka, pokrenite ASF - on će zapaziti `.maFile` i iskoristiti ga.
 
 ```text
 [*] INFO: PreuzimanjeAutentikatora() <1> Mijenjanje .maFile-a u ASF format...
@@ -112,7 +112,7 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 ---
 
-## FAQ
+## Najčešće postavljana pitanja (FAQ)
 
 ### Kako ASF koristi 2FA modul?
 
