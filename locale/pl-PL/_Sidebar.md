@@ -21,7 +21,7 @@
 * **[👥 Aktywacja gier w tle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-pl-PL)**
 * **[📢 Komendy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pl-PL)**
 * **[🛠️ Kompatybilność](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pl-PL)**
-* **[Zarządzanie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
+* **[📋 Zarządzanie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Wydajność](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[Zdalne połączenia](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
 * **[👪 Udostępnianie gier Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
