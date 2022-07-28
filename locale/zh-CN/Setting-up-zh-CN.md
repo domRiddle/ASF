@@ -197,8 +197,6 @@ ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-请注意，一些功能，例如发送命令，需要您在全局配置属性中正确设置 `SteamOwnerID`。 既然您已经让 ASF-ui 成功运行了，何不试试在前端页面上自己设置一下呢？ 您需要输入您帐户的唯一 64 位 Steam ID。 您可以在各种途径获取它，例如 **[STEAMID I/O](https://steamid.io)** 或 **[SteamRep](https://steamrep.com)**。 您需要找的数字应该看起来和我自己的帐户 ID `76561198006963719` 相似。
-
 ---
 
 ### 总结

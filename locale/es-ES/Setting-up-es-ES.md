@@ -197,8 +197,6 @@ Puedes acceder a la interfaz IPC de ASF en **[este](http://localhost:1242)** enl
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-Ten en cuenta que algunas características, como el envío de comandos, requieren que la propiedad de configuración global `SteamOwnerID` esté correctamente establecida. Ahora que tienes ASF-ui activo y ejecutándose, ¿por qué no intentas configurarla desde el mismo frontend? Necesitarás introducir el identificador único de Steam en forma de 64 bits (steamID64) de tu cuenta. Lo puedes encontrar de varias maneras, por ejemplo, a través de **[STEAMID I/O](https://steamid.io)** o **[SteamRep](https://steamrep.com)**. El número que buscas debería ser similar a `76561198006963719`, que es el ID de mi cuenta.
-
 ---
 
 ### Sumario
@@ -211,7 +209,7 @@ Has configurado ASF con éxito para usar tus cuentas de Steam y ya lo has person
 
 Esta configuración es para usuarios avanzados que quieren establecer ASF para ejecutarlo en su variante **[genérica](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#gen%C3%A9rico)**. No se recomienda para personas que pueden usar la **[configuración de sistema operativo específico](#configuración-de-sistema-operativo-específico)**.
 
-Querrás usar la variante `generic` principalmente en estas situaciones (pero puedes usarla independientemente de eso):
+Querrás usar la variante `generic` principalmente en esas situaciones (pero puedes usarla de todos modos):
 - Cuando usas un sistema operativo para el cual no compilamos un paquete de sistema operativo específico (tal como Windows de 32-bits)
 - Cuando ya tienes .NET Runtime/SDK, o quieres instalar y usar uno
 - Cuando quieres minimizar el tamaño de la estructura de ASF manejando los requerimientos de runtime por ti mismo
@@ -221,7 +219,7 @@ Sin embargo, ten en cuenta que tú eres responsable del .NET runtime en este cas
 
 Para el paquete `generic`, puedes seguir la guía de sistema operativo específico vista anteriormente, con dos pequeños cambios. Además de instalar los prerrequisitos de .NET, también querrás instalar .NET SDK, y en lugar de tener un archivo ejecutable `ArchiSteamFarm(.exe)` para sistema operativo específico, ahora solamente tienes un binario genérico `ArchiSteamFarm.dll` . Todo lo demás es exactamente igual.
 
-Con pasos extra:
+Con pasos adicionales:
 - Instalar los **[prerrequisitos .NET](#prerrequisitos-de-net)**.
 - Instalar el **[.NET SDK](https://www.microsoft.com/net/download)** (o por lo menos ASP.NET Core runtime) apropiado para tu sistema operativo. Probablemente querrás usar un instalador. Dirígete a **[requisitos de runtime](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#requisitos-de-runtime)** si no estás seguro de qué versión instalar.
 - Descarga la **[última versión de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** en su variante `generic`.

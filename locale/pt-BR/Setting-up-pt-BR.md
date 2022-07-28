@@ -197,8 +197,6 @@ Você pode acessar a interface IPC do ASF por **[esse](http://localhost:1242)** 
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
-Note que algumas funcionalidades como o envio de comandos, requerem qeu a propriedade de configuração global `SteamOwnerID` esteja definida corretamente. Agora que você tem a ASF-ui rodando, por que não seguir e configurá-la pelo próprio front-end? Você precisa colocar o identificador Steam em formato 64-bits exclusivo da sua conta. Você pode encontrá-lo de várias formas, por exemplo, através do **[STEAMID I/O](https://steamid.io)** ou **[SteamRep](https://steamrep.com)**. O número que você está procurando deve ser semelhante a `76561198006963719`, que é o ID da minha conta.
-
 ---
 
 ### Resumo
