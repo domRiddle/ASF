@@ -20,7 +20,7 @@ Esta etiqueta siempre apunta al ASF compilado a partir del último commit en la 
 
 ### `released`
 
-Muy similar a la anterior, esta etiqueta siempre apunta a la última versión **[publicada](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** de ASF, incluyendo prelanzamientos. Comparado con la etiqueta `main`, esta imagen se actualiza cada vez que se envía una nueva etiqueta de GitHub. Dedicado a usuarios avanzados que les encanta vivir al límite de lo que se puede considerar estable y fresco al mismo tiempo. Esta es la que recomendamos si no quieres usar la etiqueta `latest`. Por favor, ten en cuenta que usar esta etiqueta es igual a usar nuestros **[prelanzamientos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-es-es)**.
+Muy similar a la anterior, esta etiqueta siempre apunta a la última versión **[publicada](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** de ASF, incluyendo prelanzamientos. Comparado con la etiqueta `main`, esta imagen se actualiza cada vez que se envía una nueva etiqueta de GitHub. Dedicado a usuarios avanzados que les encanta vivir al límite de lo que se puede considerar estable y fresco al mismo tiempo. Esta es la que recomendamos si no quieres usar la etiqueta `latest`. En la práctica funciona igual que usar la etiqueta apuntando a la versión `A.B.C.D` más reciente al momento de la solicitud. Por favor, ten en cuenta que usar esta etiqueta es igual a usar nuestros **[prelanzamientos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-es-es)**.
 
 
 ### `latest`

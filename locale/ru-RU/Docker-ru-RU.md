@@ -20,7 +20,7 @@ This tag always points to the ASF built from latest commit in `main` branch, whi
 
 ### `released`
 
-По аналогии с тегом выше, этот тег всегда соответствует последней **[версии ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**, включая предварительные. Compared to `main` tag, this image is being updated each time a new GitHub tag is pushed. Предназначен для продвинутых пользователей, которые предпочитают самые свежие версии программного обеспечения, находящиеся на грани того, что можно считать стабильным. Мы рекомендуем это если вы по какой-то причине не хотите использовать тег `latest`. Пожалуйста, обратите внимание, что использование этого тега аналогично использованию **[предварительных версий](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ru-RU)**.
+По аналогии с тегом выше, этот тег всегда соответствует последней **[версии ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**, включая предварительные. Compared to `main` tag, this image is being updated each time a new GitHub tag is pushed. Предназначен для продвинутых пользователей, которые предпочитают самые свежие версии программного обеспечения, находящиеся на грани того, что можно считать стабильным. Мы рекомендуем это если вы по какой-то причине не хотите использовать тег `latest`. In practice, it works the same as rolling tag pointing to the most recent `A.B.C.D` release at the time of pulling. Пожалуйста, обратите внимание, что использование этого тега аналогично использованию **[предварительных версий](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ru-RU)**.
 
 
 ### `latest`

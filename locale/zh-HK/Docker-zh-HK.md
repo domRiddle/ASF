@@ -20,7 +20,7 @@ This tag always points to the ASF built from latest commit in `main` branch, whi
 
 ### `released`
 
-與上面類似的是，此標記始終指向**[最新發佈的ASF版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**，包括預發佈版本。 Compared to `main` tag, this image is being updated each time a new GitHub tag is pushed. Dedicated to advanced/power users that love to live on the edge of what can be considered stable and fresh at the same time. 如果您不想使用 `最新` 標記，我們建議您使用此選項。 請注意，使用此標籤等於使用我們的 **[預發佈版本](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**。
+與上面類似的是，此標記始終指向**[最新發佈的ASF版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**，包括預發佈版本。 Compared to `main` tag, this image is being updated each time a new GitHub tag is pushed. Dedicated to advanced/power users that love to live on the edge of what can be considered stable and fresh at the same time. 如果您不想使用 `最新` 標記，我們建議您使用此選項。 In practice, it works the same as rolling tag pointing to the most recent `A.B.C.D` release at the time of pulling. 請注意，使用此標籤等於使用我們的 **[預發佈版本](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**。
 
 
 ### `latest`
