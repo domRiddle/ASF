@@ -15,11 +15,9 @@ Os comandos executados através do chat Steam são afetados pela **[propriedade 
 
 ### Console interativo
 
-À partir da versão V4.0.0.9, o ASF oferece suporte a um console interativo que pode ser habilitado configurando a propriedade [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#steamownerid). Depois, simplesmente pressione o botão `c` para ativar o modo de comando, digite seu comando e confirme com enter.
+Starting with V4.0.0.9, ASF has support for interactive console, as long as you're not running in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Simplesmente pressione o botão `c` para ativar o modo de comando, digite seu comando e confirme com enter.
 
 ![Captura da tela](https://i.imgur.com/bH5Gtjq.png)
-
-O console interativo não está disponível no modo [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#headless) `(não-interativo)`.
 
 ---
 
@@ -29,7 +27,7 @@ Você também pode executar o comando para o bot ASF através do chat Steam. Obv
 
 ![Captura da tela](https://i.imgur.com/IvFRJ5S.png)
 
-Da mesma forma, você também pode usar o chat em grupo de um determinado grupo Steam. Tenha em mente que esta opção requer que a propriedade `SteamMasterClanID` esteja definida corretamente, pois nesse caso o bot ouvirá os comandos também na conversa em grupo (e até entrará no mesmo, se necessário). Ele também pode ser usado para "falar sozinho" já que não exige uma conta bot dedicada, ao contrário do chat privado. Você pode simplesmente configurar a propriedade `SteamMasterClanID` com o id do seu grupo recém-criado e então se dar acesso através do `SteamOwnerID` ou ` SteamUserPermissions` do seu próprio bot. Desta forma, o bot ASF (você) vai se juntar ao grupo e ao chat do grupo selecionado e atender aos comandos da sua própria conta. Você pode se juntar a esta sala de chat a fim enviar comandos para si mesmo (já que você estará enviando comandos para a sala de conversa e o ASF, estando na mesma sala, os receberá, mesmo parecendo que apenas sua conta esteja lá).
+Da mesma forma, você também pode usar o chat em grupo de um determinado grupo Steam. Tenha em mente que esta opção requer que a propriedade `SteamMasterClanID` esteja definida corretamente, pois nesse caso o bot ouvirá os comandos também no bate-papo em grupo (e até entrará no mesmo, se necessário). Ele também pode ser usado para "falar sozinho" já que não exige uma conta bot dedicada, ao contrário do chat privado. Você pode simplesmente configurar a propriedade `SteamMasterClanID` com o id do seu grupo recém-criado e então se dar acesso através do `SteamOwnerID` ou ` SteamUserPermissions` do seu próprio bot. Desta forma, o bot ASF (você) vai se juntar ao grupo e ao chat do grupo selecionado e atender aos comandos da sua própria conta. Você pode se juntar a esta sala de chat a fim enviar comandos para si mesmo (já que você estará enviando comandos para a sala de bate-papo e o ASF, estando na mesma sala, os receberá, mesmo parecendo que apenas sua conta esteja lá).
 
 Note que enviar um comando para o chat do grupo atua como uma retransmissão. Se você enviar `redeem X` para 3 de seus bots que estejam no chat junto com você, você terá o mesmo resultado que enviar `redeem X` para cada um deles em particular. Na maioria casos, **não é isso que você quer** e, em vez disso, você deve usar um comando que `indica um bot` para **um único bot em uma janela particular**. O ASF suporta chat em grupo, já que em muitos casos isso pode ser uma fonte útil de comunicação com seu único bot, mas você quase nunca deve executar qualquer comando no chat em grupo se tiverem 2 ou mais bots nele, a não ser que você entenda completamente o comportamento do ASF descrito aqui e você, de fato, queira repetir o mesmo comando para todo bot que esteja na mesma conversa.
 
@@ -110,7 +108,7 @@ A forma mais avançada e flexível de executar comandos, perfeito para interaç�
 
 Todos os comandos não diferenciam maiúsculas de minúsculas, mas seus argumentos (tais como nomes dos bots) geralmente sim.
 
-O argumento `[Bots]` é opcional em todos os comandos. Quando especificado, o comando é executado no bot indicado. Quando omitido, o comando é executado no bot que recebe o comando. Em outras palavras, `status A` enviado para o bot `B` é o mesmo que enviar `status` para o bot `A`, nesse caso o bot `B` funciona apenas como um proxy. Isso também pode ser usado para enviar comandos para bots que estejam indisponíveis de outra forma, por exempo, para iniciar bots parados, ou executar ações na sua conta principal (que você está utilizando para executar os comandos).
+O argumento `[Bots]` é opcional em todos os comandos. Quando especificado, o comando é executado nesse bot. Quando omitido, o comando é executado no bot que recebe o comando. Em outras palavras, `status A` enviado para o bot `B` é o mesmo que enviar `status` para o bot `A`, nesse caso o bot `B` funciona apenas como um proxy. Isso também pode ser usado para enviar comandos para bots que estejam indisponíveis de outra forma, por exempo, para iniciar bots parados, ou executar ações na sua conta principal (que você está utilizando para executar os comandos).
 
 O **acesso** aos comandos se define com, no **mínimo**, `EPermission` em `SteamUserPermissions`, com exceção do `Owner` que tem a `SteamOwnerID` definida no arquivo de configuração global (e é a maior permissão possível).
 
@@ -118,13 +116,13 @@ Múltiplos argumentos, tais como `[Bots]`, `<Keys>` ou `<AppIDs>` significam que
 
 O ASF usa todos os caracteres em branco, como espaço e quebras de linha, como possíveis delimitadores para um comando. Isto significa que você não precisa usar o espaço para delimitar seus argumentos, você pode usar qualquer outro caractere de espaço em branco (tal como tab ou quebra de linha).
 
-O ASF "combina" os argumentos extras como sendo do tipo múltiplo do último argumento válido. Isso significa que `redeem bot key1 key2 key3` para `redeem [Bots] <Keys>` funcionará exatamente da mesma forma que `redeem bot key1,key2,key3`. Junto com o fato de aceitar a quebra de linha como comando delimitador, isso torna possível que você escreva `redeem bot` e então cole uma lista de códigos de protudos separados por qualquer caractere delimitador aceitável (tal qual a quebra de linha), ou o delimitador padrão do ASF `,`. Tenha em mente que esse truque só pode ser usado nas variantes de comando que usam um grande número de argumentos (então especificar os `[Bots]` é obrigatório nesse caso).
+O ASF "combina" os argumentos extras como sendo do tipo múltiplo do último argumento válido. Isso significa que `redeem bot key1 key2 key3` para `redeem [Bots] <Keys>` funcionará exatamente da mesma forma que `redeem bot key1,key2,key3`. Junto com o fato de aceitar a quebra de linha como comando delimitador, isso torna possível que você escreva `redeem bot` e então cole uma lista de keys separadas por qualquer caractere delimitador aceitável (tal qual a quebra de linha), ou o delimitador padrão do ASF `,`. Tenha em mente que esse truque só pode ser usado nas variantes de comando que usam um grande número de argumentos (então especificar os `[Bots]` é obrigatório nesse caso).
 
 Como você leu acima, um caractere de espaço está sendo usado como um delimitador para um comando, portanto não pode ser usado nos argumentos. No entanto, também como mencionado acima, o ASF pode combinar parâmetros redundantes, o que significa que você pode usar um espaço nos últimos parâmetros definidos para esse comando. Por exemplo, `nickname bob Great Bob` irá definir corretamente o apelido do bot `bob` como "Great Bob". De forma semelhante, você pode verificar nomes que contenham espaços no comando `owns`.
 
 ---
 
-Alguns comandos também estão disponíveis através de apelidos, para facilitar a digitação:
+Alguns comandos também estão disponíveis com seus pseudônimos, para facilitar a digitação:
 
 | Comando      | Apelido      |
 | ------------ | ------------ |
@@ -140,11 +138,11 @@ Alguns comandos também estão disponíveis através de apelidos, para facilitar
 
 O argumento `[Bots]` é uma variante especial de múltiplos argumentos, além de aceitar diversos valores ele também oferece funcionalidades extras.
 
-Em primeiro lugar e mais importante, há uma palavra-chave especial do `ASF` que atua como "todos os bots no processo", então o comando `status ASF` é igual a `status de todos,os,seus,bots,listados,aqui`. Isso também pode ser usado para identificar facilmente os bots que você tem acesso, já que a palavra-chave `ASF`, apesar de se dirigir a todos os bots, resultará em resposta apenas daqueles bots para os quais você pode, de fato, enviar comandos.
+Primeiro e acima de tudo, há uma palavra-chave especial do `ASF` que atua como "todos os bots no processo", então o comando `status ASF` é igual a `status de todos,os,seus,bots,listados,aqui`. Isso também pode ser usado para identificar facilmente os bots que você tem acesso, já que a palavra-chave `ASF`, apesar de se dirigir a todos os bots, resultará em resposta apenas daqueles bots para os quais você pode, de fato, enviar comandos.
 
 O argumento `[Bots]` suporta uma sintaxe de "classe" especial, o que te permite escolher uma série de bots mais facilmente. A sintaxe geral para `[Bots]`, nesse caso, é `PrimeiroBot...ÚltimoBot`. Por exemplo, se você tem bots chamados `A, B, C, D, E, F`, você pode executar `status B..E`, que é igual a `status B, C, D, E`, neste caso. Ao usar essa sintaxe, o ASF usará a ordem alfabética a fim de determinar quais bots estão na classe especificada. Tanto o `PrimeiroBot` quanto o `ÚltimoBot` devem ser nomes válidos de bots reconhecidos por ASF, caso contrário a sintaxe é totalmente ignorada.
 
-Além de sintaxe de classe descrita acima, o argumento `[Bots]` também suporta correspondência de **[expressão regular](https://pt.wikipedia.org/wiki/Express%C3%A3o_regular)**. Você pode ativar o padrão de expressão regular usando `r!<pattern>` como um nome de bot, onde `r!` é o ativador ASF para correspondência de expressão regular e `<pattern>` é o seu padrão de expressão regular. Um exemplo de comando de bot baseado em expressão regular seria `status r! \d{3}` que enviará o comando `status` para bots que tenham o nome composto por 3 dígitos (por exemplo, `123` e `981`). Sinta-se a vontade para dar uma olhada nos **[documentos](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** para mais explicações e mais exemplos de padrões de expressão regular disponíveis.
+Além de sintaxe de classe descrita acima, o argumento `[Bots]` também suporta correspondência de **[expressão regular](https://pt.wikipedia.org/wiki/Express%C3%A3o_regular)**. Você pode ativar o padrão de expressão regular usando `r!<pattern>` como um nome de bot, onde `r!` é o ativador ASF para correspondência de expressão regular e `<pattern>` é o seu padrão de expressão regular. An example of a regex-based bot command would be `status r!^\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). Sinta-se a vontade para dar uma olhada nos **[documentos](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** para mais explicações e mais exemplos de padrões de expressão regular disponíveis.
 
 ---
 
@@ -246,7 +244,7 @@ owns ASF app/292030,name/Witcher
 
 ## Métodos `redeem^`
 
-O comando `redeem^` permite que você ajuste os métodos que serão usados em um cenário individual de ativação de códigos de produto. Ele funciona como uma substituição temporária do **[parâmetro de configuração do bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-do-bot)** `RedeemingPreferences`.
+O comando `redeem^`permite que você ajuste os métodos que serão usados em um cenário individual de resgate. Ele funciona como uma substituição temporária do **[parâmetro de configuração do bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-do-bot)** `RedeemingPreferences`.
 
 O argumento `<Modes>` aceita vários valores de métodos, como de costume separados por uma vírgula. Valores disponíveis de métodos são especificados abaixo:
 
@@ -263,7 +261,7 @@ O argumento `<Modes>` aceita vários valores de métodos, como de costume separa
 | SKMG  | SkipKeepMissingGames  | Força a desativação da preferência de resgate `KeepMissingGames`                         |
 | V     | Validate              | Valida a formatação correta dos códigos de produto e ignora automaticamente os inválidos |
 
-Por exemplo, digamos que queremos resgatar 3 códigos de produto em qualquer um dos nossos bots que ainda não possuem os jogos, mas não no nosso bot `primary`. Para isso nós podemos usar:
+Por exemplo, gostaríamos de resgatar 3 chaves em qualquer um dos nossos bots que ainda não possuem os jogos, mas não nosso bot `primário`. Para isso nós podemos usar:
 
 `redeem^ primary FF,SI key1,key2,key3`
 

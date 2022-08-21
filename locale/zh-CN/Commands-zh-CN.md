@@ -15,11 +15,9 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 ### 交互式控制台
 
-自 V4.0.0.9 版本开始，只要您正确设置了 [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#steamownerid) 属性，就可以在 ASF 中启用交互式控制台。 随后，只需要按下 `c` 键就可以启用命令模式，此时您可以输入命令，并按回车键确认。
+自 V4.0.0.9 版本开始，ASF 支持交互式控制台，只要您没有让它在 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#headless) 模式下运行。 只需要按下 `c` 键就可以启用命令模式，此时您可以输入命令，并按回车键确认。
 
 ![屏幕截图](https://i.imgur.com/bH5Gtjq.png)
-
-交互式控制台在 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#headless) 模式下不可用。
 
 ---
 
@@ -144,7 +142,7 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 `[Bots]` 参数支持范围语法，您可以很容易地选择一定范围的机器人。 这种情况下，`[Bots]` 的一般语法为 `firstBot..lastBot`。 例如，假设您有机器人 `A, B, C, D, E, F`，如果您执行 `status B..E`，效果与执行 `status B,C,D,E` 是相同的。 在使用此语法时，ASF 将会以字母顺序为机器人排序，以决定哪些机器人在指定范围内。 `firstBot` 和 `lastBot` 必须是 ASF 能够识别的有效机器人名称，否则范围语法将不会生效。
 
-除了上述的范围语法，`[Bots]` 参数还支持&#8203;**[正则表达式](https://en.wikipedia.org/wiki/Regular_expression)**&#8203;匹配。 您可以使用 `r!<pattern>` 作为机器人名称，其中 `r!` 告诉 ASF 使用正则表达式匹配，而 `<pattern>` 则是正则表达式。 一个使用正则表达式的例子为 `status r!\d{3}` 命令，它会向所有名称为 3 个数字的机器人（例如 `123` 和 `981`）发送 `status` 命令。 您可以阅读这份&#8203;**[文档](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)**，进一步了解正则表达式的解释和示例。
+除了上述的范围语法，`[Bots]` 参数还支持[**正则表达式**](https://en.wikipedia.org/wiki/Regular_expression)匹配。 您可以使用 `r!<pattern>` 作为机器人名称，其中 `r!` 告诉 ASF 使用正则表达式匹配，而 `<pattern>` 则是正则表达式。 一个使用正则表达式的例子为 `status r!^\d{3}` 命令，它会向所有名称为 3 个数字的机器人（例如 `123` 和 `981`）发送 `status` 命令。 您可以阅读这份[**文档**](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)，进一步了解正则表达式的解释和示例。
 
 ---
 
@@ -273,13 +271,13 @@ owns ASF app/292030,name/Witcher
 
 ## `encrypt` 命令
 
-`encrypt` 命令使您能够使用 ASF 的加密方式加密任意字符串。 加密方式 `<encryptionMethod>` 必须是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节所述方式之一。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
+`encrypt` 命令使您能够使用 ASF 的加密方式加密任意字符串。 加密方式 `<encryptionMethod>` 必须是[**安全性**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)章节所述方式之一。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
 
 ---
 
 ## `hash` 命令
 
-`hash` 命令使您能够使用 ASF 的哈希方式生成任意字符串的哈希值。 哈希方式 `<hashingMethod>` 必须是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节所述方式之一。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
+`hash` 命令使您能够使用 ASF 的哈希方式生成任意字符串的哈希值。 哈希方式 `<hashingMethod>` 必须是[**安全性**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)章节所述方式之一。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
 
 ---
 

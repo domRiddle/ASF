@@ -15,11 +15,9 @@ Steam 채팅으로 실행된 명령어들은 기본값으로 `!`으로 지정된
 
 ### 대화형 콘솔
 
-ASF V4.0.0.9 버전부터 대화형 콘솔을 지원합니다. [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR#steamownerid) 속성값을 설정하여 활성화 할 수 있습니다. 그 다음 `c` 버튼을 눌러 명령어 모드를 활성화하고, 명령어를 입력하고 엔터로 확인합니다.
+Starting with V4.0.0.9, ASF has support for interactive console, as long as you're not running in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Simply press `c` button in order to enable command mode, type your command and confirm with enter.
 
 ![스크린샷](https://i.imgur.com/bH5Gtjq.png)
-
-대화형 콘솔은 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ko-KR#headless) 모드에서는 사용할 수 없습니다.
 
 ---
 
@@ -144,7 +142,7 @@ First and foremost, there is a special `ASF` keyword which acts as "all bots in 
 
 `[Bots]` argument supports special "range" syntax, which allows you to choose a range of bots more easily. The general syntax for `[Bots]` in this case is `firstBot..lastBot`. For example, if you have bots named `A, B, C, D, E, F`, you can execute `status B..E`, which is equal to `status B,C,D,E` in this case. When using this syntax, ASF will use alphabetical sorting in order to determine which bots are in your specified range. Both `firstBot` and `lastBot` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
 
-In addition to range syntax above, `[Bots]` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. You can activate regex pattern by using `r!<pattern>` as a bot name, where `r!` is ASF activator for regex matching, and `<pattern>` is your regex pattern. An example of a regex-based bot command would be `status r!\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). Feel free to take a look at the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for further explanation and more examples of available regex patterns.
+In addition to range syntax above, `[Bots]` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. You can activate regex pattern by using `r!<pattern>` as a bot name, where `r!` is ASF activator for regex matching, and `<pattern>` is your regex pattern. An example of a regex-based bot command would be `status r!^\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). Feel free to take a look at the **[docs](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** for further explanation and more examples of available regex patterns.
 
 ---
 

@@ -15,11 +15,9 @@ Los comandos ejecutados por medio del chat de Steam son afectados por la **[prop
 
 ### Consola interactiva
 
-A partir de V4.0.0.9, ASF tiene soporte para una consola interactiva que puede ser activada configurando la propiedad [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es#steamownerid). Después, simplemente pulsa la tecla `c` para activar el modo de comandos, escribe tu comando y confirma con Enter.
+A partir de V4.0.0.9, ASF tiene soporte para consola interactiva, siempre y cuando no lo estés ejecutando en modo [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#headless) Simplemente pulsa el botón `c` para habilitar el modo de comandos, escribe tu comando y confirma con Enter
 
 ![Captura de pantalla](https://i.imgur.com/bH5Gtjq.png)
-
-La consola interactiva no está disponible en el modo [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es#headless).
 
 ---
 
@@ -108,7 +106,7 @@ La forma más avanzada y flexible de ejecutar comandos, perfecta para la interac
 
 ### Notas
 
-Todos los comandos no diferencian mayúsculas y minúsculas, pero sus argumentos (como nombres de bots) sí suelen distinguir mayúsculas y minúsculas.
+Ningún comando es sensible a mayúsculas y minúsculas, pero sus argumentos (como nombres de bots) sí suelen diferenciarlas.
 
 El argumento `[Bots]` es opcional en todos los comandos. Cuando se especifica, el comando se ejecuta en los bots indicados. Cuando se omite, el comando se ejecuta en el bot actual que reciba el comando. En otras palabras, `status A` enviado al bot `B` es lo mismo que enviar `status` al bot `A`, pero el bot `B` en este caso actúa solo como un proxy. Esto también se puede usar para enviar comandos a bots que de otro modo no están disponibles, por ejemplo, iniciar bots detenidos, o ejecutar acciones en tu cuenta principal (que estás usando para ejecutar comandos).
 
@@ -144,7 +142,7 @@ En primer lugar, hay una palabra clave `ASF` que actúa como "todos los bots en 
 
 El argumento `[Bots]` soporta una sintaxis especial de "rango", que te permite elegir un rango de bots más fácilmente. La sintaxis general para `[Bots]` en este caso es `primerBot..últimoBot`. Por ejemplo, si tienes bots llamados `A, B, C, D, E, F`, puedes ejecutar `status B..E`, lo que es igual a `status B,C,D,E` en este caso. Al usar esta sintaxis, ASF usará el orden alfabético para determinar qué bots están en tu rango especificado. Tanto `primerBot` como `últimoBot` deben ser nombres válidos de bots reconocidos por ASF, de lo contrario la sintaxis de rango se omite completamente.
 
-Además de la sintaxis de rango, el argumento `[Bots]` también soporta la coincidencia de **[expresión regular](https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular)**. Puedes activar el patrón de expresión regular usando `r!<pattern>` como nombre de bot, donde `r!` es el activador de ASF para la coincidencia de expresión regular, y `<pattern>` es tu patrón de expresión regular. Un ejemplo de comando basado en expresión regular sería `status r!\d{3}` que enviará el comando `status` a los bots que tengan un nombre formado por 3 dígitos (por ejemplo `123` y `981`). No dudes en echar un vistazo a la **[documentación](https://docs.microsoft.com/es-es/dotnet/standard/base-types/regular-expression-language-quick-reference)** para mayor información y más ejemplos de patrones de expresión regular disponibles.
+Además de la sintaxis de rango, el argumento `[Bots]` también soporta la coincidencia de **[expresión regular](https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular)**. Puedes activar el patrón de expresión regular usando `r!<pattern>` como nombre de bot, donde `r!` es el activador de ASF para la coincidencia de expresión regular, y `<pattern>` es tu patrón de expresión regular. Un ejemplo de comando basado en expresión regular sería `status r!^\d{3}` que enviará el comando `status` a los bots que tengan un nombre formado por 3 dígitos (por ejemplo `123` y `981`). No dudes en echar un vistazo a la **[documentación](https://docs.microsoft.com/es-es/dotnet/standard/base-types/regular-expression-language-quick-reference)** para mayor información y más ejemplos de patrones de expresión regular disponibles.
 
 ---
 
@@ -172,7 +170,7 @@ Mientras que los valores válidos para todos ellos son:
 | 2     | `FriendsOnly` |
 | 3     | `Public`      |
 
-Puedes usar un nombre, que no distingue mayúsculas y minúsculas, o un valor numérico. Los argumentos omitidos por defecto se establecerán a `Private` privado. Es importante tener en cuenta la relación entre padre e hijo de los argumentos especificados anteriormente, ya que el hijo nunca puede tener permisos más abiertos que el padre. Por ejemplo, **no** puedes tener juegos poseídos en `Public` público teniendo el perfil en `Private` privado.
+Puedes usar un nombre, sin distinción de mayúsculas y minúsculas, o un valor numérico. Los argumentos omitidos por defecto se establecerán a `Private` privado. Es importante tener en cuenta la relación entre padre e hijo de los argumentos especificados anteriormente, ya que el hijo nunca puede tener permisos más abiertos que el padre. Por ejemplo, **no** puedes tener juegos poseídos en `Public` público teniendo el perfil en `Private` privado.
 
 ### Ejemplo
 

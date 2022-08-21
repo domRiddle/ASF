@@ -15,11 +15,9 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 
 ### 互動式主控台
 
-從 V4.0.0.9 開始，ASF 支援互動式主控台，可通過設置 [**`SteamOwnerID`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamownerid) 屬性來啟用。 之後，只需按 `c` 按鈕，即可啟用命令模式，鍵入命令並使用 Enter 按鈕進行確認。
+Starting with V4.0.0.9, ASF has support for interactive console, as long as you're not running in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Simply press `c` button in order to enable command mode, type your command and confirm with enter.
 
 ![截圖](https://i.imgur.com/bH5Gtjq.png)
-
-互動式主控台在 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) 模式中不可用。
 
 ---
 
@@ -144,7 +142,7 @@ ASF 會將命令末尾超出規定範圍的多餘參數「聯接」到符合語�
 
 `[Bots]` argument supports special "range" syntax, which allows you to choose a range of bots more easily. The general syntax for `[Bots]` in this case is `firstBot..lastBot`. 例如，如果您有名為 `A, B, C, D, E, F`的機械人，在這種情況下，执行 `status B..E`的效果等於执行 `status B,C,D,E` 。 使用此語法時，ASF將使用字母排序，以决定哪些機械人在指定的範圍內。 `firstBot` 和 `lastBot` 都必須是可被 ASF 識別的有效機械人名稱，否則進程將完全跳過範圍語法。
 
-In addition to range syntax above, `[Bots]` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. 您可以使用 `r!<pattern>` 作為機械人名稱來激活正則運算式模式，其中 `r!` 是用於正則運算式匹配的ASF啟動命令，而 `<pattern>` 是您的正則運算式。 一個使用正則運算式的例子為 `status r!\d{3}` 命令，它會向所有名稱由 3 個數位組成的機械人（例如 `123` 和 `981`）發送` status` 命令。 您可以隨時閱讀這份**[​文檔](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)**，以進一步了解更多可用正則運算式的解釋和示例。
+In addition to range syntax above, `[Bots]` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. 您可以使用 `r!<pattern>` 作為機械人名稱來激活正則運算式模式，其中 `r!` 是用於正則運算式匹配的ASF啟動命令，而 `<pattern>` 是您的正則運算式。 An example of a regex-based bot command would be `status r!^\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). 您可以隨時閱讀這份**[​文檔](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)**，以進一步了解更多可用正則運算式的解釋和示例。
 
 ---
 
