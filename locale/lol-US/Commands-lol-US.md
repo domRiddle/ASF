@@ -15,7 +15,7 @@ COMMANDZ EXECUTD THRU STEAM CHAT R AFFECTD BY `CommandPrefix` **[GLOBAL CONFIGUR
 
 ### INTERACTIV CONSOLE
 
-Starting with V4.0.0.9, ASF has support for interactive console, as long as you're not running in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Simply press `c` button in order to enable command mode, type your command and confirm with enter.
+STARTIN WIF V4.0.0.9, ASF HAS SUPPORT 4 INTERACTIV CONSOLE, AS LONG AS URE NOT RUNNIN IN [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#headless) MODE. SIMPLY PRES `c` BUTN IN ORDR 2 ENABLE COMMAND MODE, TYPE UR COMMAND AN CONFIRM WIF ENTR.
 
 ![Screenshot](https://i.imgur.com/bH5Gtjq.png)
 
@@ -142,7 +142,7 @@ FURST AN FOREMOST, THAR IZ SPESHUL `ASF` KEYWORD WHICH ACTS AS "ALL BOTS IN DA P
 
 `[Bots]` ARGUMENT SUPPORTS SPESHUL "RANGE" SYNTAX, WHICH ALLOWS U 2 CHOOSE RANGE OV BOTS MOAR EASILY. TEH GENERAL SYNTAX 4 `[Bots]` IN DIS CASE IZ `firstBot..lastBot`. 4 EXAMPLE, IF U HAS BOTS NAMD `A, B, C, D, E, F`, U CAN EXECUTE `status B..E`, WHICH IZ EQUAL 2 `status B,C,D,E` IN DIS CASE. WHEN USIN DIS SYNTAX, ASF WILL USE ALFABETICAL SORTIN IN ORDR 2 DETERMINE WHICH BOTS R IN UR SPECIFID RANGE. BOTH `firstBot` AN `lastBot` MUST BE VALID BOT NAMEZ RECOGNIZD BY ASF, OTHERWIZE RANGE SYNTAX IZ ENTIRELY SKIPPD.
 
-IN ADDISHUN 2 RANGE SYNTAX ABOOV, `[Bots]` ARGUMENT ALSO SUPPORTS **[REGEX](https://en.wikipedia.org/wiki/Regular_expression)** MATCHIN. U CAN ACTIVATE REGEX PATTERN BY USIN `r!<pattern>`AS BOT NAYM, WER `r!` IZ ASF ACTIVATOR 4 REGEX MATCHIN, AN `<pattern>` IZ UR REGEX PATTERN. An example of a regex-based bot command would be `status r!^\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). FEELZ FREE 2 TAEK LOOK AT TEH **[DOCS](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** 4 FURTHR EXPLANASHUN AN MOAR EXAMPLEZ OV AVAILABLE REGEX PATTERNS.
+IN ADDISHUN 2 RANGE SYNTAX ABOOV, `[Bots]` ARGUMENT ALSO SUPPORTS **[REGEX](https://en.wikipedia.org/wiki/Regular_expression)** MATCHIN. U CAN ACTIVATE REGEX PATTERN BY USIN `r!<pattern>`AS BOT NAYM, WER `r!` IZ ASF ACTIVATOR 4 REGEX MATCHIN, AN `<pattern>` IZ UR REGEX PATTERN. AN EXAMPLE OV REGEX-BASD BOT COMMAND WUD BE `status r!^\d{3}` WHICH WILL SEND `status` COMMAND 2 BOTS DAT HAS NAYM MADE OUT OV 3 DIGITS (E.G. `123` AN `981`). FEELZ FREE 2 TAEK LOOK AT TEH **[DOCS](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** 4 FURTHR EXPLANASHUN AN MOAR EXAMPLEZ OV AVAILABLE REGEX PATTERNS.
 
 ---
 
