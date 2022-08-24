@@ -104,7 +104,7 @@ O arquivo de configuração baseia-se na seguinte estrutura JSON:
 
 A menos que você realmente precise especificar um caminho base personalizado, é melhor deixá-lo padrão.
 
-## Example configs
+## Configurações de exemplo
 
 ### Changing default port
 
