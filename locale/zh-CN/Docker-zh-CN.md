@@ -107,6 +107,16 @@ docker exec -u root asf chown -hR 1001:1001 /app
 
 在通过 `docker run` 命令创建 Docker 容器之后，您只需要执行一次该命令，并且只有您需要自定义执行 ASF 进程的用户时才需要。 也不要忘记将上述命令中的 `1001:1001` 更改为实际用户的 `uid` 和 `gid`。
 
+### 启用 SELinux 时使用卷
+
+如果您操作系统上的 SELinux 状态为 Enforced，这在基于 RHEL 的发行版上是默认状态，则在挂载卷时，您需要添加 `:Z` 选项，以正确设置 SELinux 上下文。
+
+```
+docker run -it -v /home/archi/ASF/config:/app/config:Z --name asf --pull always justarchi/archisteamfarm
+```
+
+这允许 Docker 容器内的 ASF 在目标卷内创建文件。
+
 ---
 
 ## 多实例同步
@@ -132,7 +142,7 @@ docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name a
 
 ## 命令行参数
 
-ASF 允许您通过设定环境变量，来向 Docker 容器内传递&#8203;**[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**。 对于部分受支持的参数，您应该使用特定的环境变量，而 `ASF_ARGS` 适用于其他参数。 您可以向 `docker run` 命令添加 `-e` 参数，例如：
+ASF 允许您通过设定环境变量，来向 Docker 容器内传递[**命令行参数**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)。 对于部分受支持的参数，您应该使用特定的环境变量，而 `ASF_ARGS` 适用于其他参数。 您可以向 `docker run` 命令添加 `-e` 参数，例如：
 
 ```shell
 docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --name asf --pull always justarchi/archisteamfarm
@@ -148,7 +158,7 @@ docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --
 
 如果您没有修改默认的 `IPC` **[全局配置属性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#全局配置)**，则 IPC 已启用。 但您必须额外做两件事，才能使 IPC 在 Docker 中正常工作。 首先，您必须设置 `IPCPassword` 或者在自定义 `IPC.config` 中修改默认的 `KnownNetworks`，使您可以在无密码的情况下从外部访问。 除非您明确了解自己在做什么，否则请直接设置 `IPCPassword`。 另外，您还需要修改默认的监听地址 `localhost`，因为 Docker 无法将外部流量路由到环回接口。 一个合适的例子是将其设置为 `http://*:1242`，监听所有网络接口。 当然，您也可以使用更严格的绑定，例如仅限本地局域网或者 VPN 网络，但它必须可被外部访问——`localhost` 就不能，因为此路由完全在客户机内部。
 
-要做到这一点，您需要使用以下形式的&#8203;**[自定义 IPC 配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#自定义配置)**：
+要做到这一点，您需要使用以下形式的[**自定义 IPC 配置**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN#自定义配置)：
 
 ```json
 {

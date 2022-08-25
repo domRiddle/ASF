@@ -107,6 +107,16 @@ docker exec -u root asf chown -hR 1001:1001 /app
 
 ASF 프로세스에 일반 사용자를 사용하기로 정한 경우에만, 컨테이너를 `docker run`으로 생성한 후 한번만 하면 됩니다. 위의 `1001:1001` 인자를 ASF가 실행될 실제 `uid`와 `gid`로 변경하는 것을 잊지 마십시오.
 
+### Volume with SELinux
+
+If you're using SELinux in enforced state on your OS, which is the default for example on RHEL-based distros, then you should mount the volume appending `:Z` option, which will set correct SELinux context for it.
+
+```
+docker run -it -v /home/archi/ASF/config:/app/config:Z --name asf --pull always justarchi/archisteamfarm
+```
+
+This will allow ASF to create files targetting the volume while inside docker container.
+
 ---
 
 ## Multiple instances synchronization

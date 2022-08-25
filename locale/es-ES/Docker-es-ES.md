@@ -107,6 +107,16 @@ docker exec -u root asf chown -hR 1001:1001 /app
 
 Esto solo tiene que hacerse una vez después de crear tu contenedor con `docker run`, y solo si decidiste usar un usuario personalizado para el proceso de ASF. Tampoco olvides cambiar el argumento `1001:1001` en los dos comandos al `uid` y `gid` con los que en realidad quieres ejecutar ASF.
 
+### Volumen con SELinux
+
+Si estás usando SELinux en estado forzado en tu sistema operativo, que es lo predeterminado por ejemplo en distros basadas en RHEL, entonces deberías montar el volumen añadiendo la opción `:Z`, lo que establecerá el contexto SELinux correcto para ello.
+
+```
+docker run -it -v /home/archi/ASF/config:/app/config:Z --name asf --pull always justarchi/archisteamfarm
+```
+
+Esto permitirá a ASF crear archivos que tengan como objetivo el volumen dentro del contenedor docker.
+
 ---
 
 ## Sincronización de múltiples instancias
