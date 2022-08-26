@@ -107,15 +107,15 @@ docker exec -u root asf chown -hR 1001:1001 /app
 
 DIS HAS 2 BE DUN ONLY ONCE AFTR U CREATD UR CONTAINR WIF `docker run`, AN ONLY IF U DECIDD 2 USE CUSTOM USR 4 ASF PROCES. ALSO DOAN FORGET 2 CHANGE `1001:1001` ARGUMENT IN BOTH COMMANDZ ABOOV 2 TEH `uid` AN `gid` U AKSHULLY WANTS 2 RUN ASF UNDR.
 
-### Volume with SELinux
+### VOLUME WIF SELINUX
 
-If you're using SELinux in enforced state on your OS, which is the default for example on RHEL-based distros, then you should mount the volume appending `:Z` option, which will set correct SELinux context for it.
+IF URE USIN SELINUX IN ENFORCD STATE ON UR OS, WHICH IZ TEH DEFAULT 4 EXAMPLE ON RHEL-BASD DISTROS, DEN U SHUD MOUNT TEH VOLUME APPENDIN `:Z` OPSHUN, WHICH WILL SET CORRECT SELINUX CONTEXT 4 IT.
 
 ```
 docker run -it -v /home/archi/ASF/config:/app/config:Z --name asf --pull always justarchi/archisteamfarm
 ```
 
-This will allow ASF to create files targetting the volume while inside docker container.
+DIS WILL ALLOW ASF 2 CREATE FILEZ TARGETTIN TEH VOLUME WHILE INSIDE DOCKR CONTAINR.
 
 ---
 
