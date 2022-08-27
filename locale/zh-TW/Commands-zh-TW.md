@@ -1,21 +1,21 @@
 # 指令
 
-ASF 支援各種指令，以此控制程式和 Bot 執行個體的行為。
+ASF 支援各種指令，以此控制程序及 Bot 實例的行為。
 
-您可以透過這些不同的方式發送指令：
-- 透過互動式 ASF 主控台
+您可以透過這些方式來發送指令：
+- 透過互動式 ASF 控制台
 - 透過 Steam 私人／群組聊天
 - 透過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)** 介面
 
-請注意，與 ASF 互動需要您擁有執行相關指令的許可權。 查看 `SteamUserPermissions` 和 `SteamOwnerID` 設定檔屬性瞭解更多。
+請注意，與 ASF 互動需要您擁有執行相關指令的權限。 查看 `SteamUserPermissions` 和 `SteamOwnerID` 的設定屬性以了解更多。
 
-透過 Steam 聊天執行的指令都受 `CommandPrefix` **[全域設定檔屬性影響](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#commandprefix)**，該屬性的預設值為 `!`。 這意味著，當您要執行 `status` 指令時，實際應該發送 `!status`（或者使用您自訂的 `CommandPrefix`）。 當您使用主控台或 IPC 時可以省略 `CommandPrefix`，這項屬性不是強制性的。
+透過 Steam 聊天執行的指令都受**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#commandprefix)**的 `CommandPrefix` 影響，而該屬性的預設值為 `!`。 這意味著，當您要執行 `status` 指令時，實際應該傳送 `!status`（或使用您自訂的 `CommandPrefix`）。 而當您使用控制台或 IPC 時，可以省略 `CommandPrefix`，這項屬性在這裡不是強制性的。
 
 ---
 
-### 互動式主控台
+### 互動式控制台
 
-Starting with V4.0.0.9, ASF has support for interactive console, as long as you're not running in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Simply press `c` button in order to enable command mode, type your command and confirm with enter.
+從 V4.0.0.9 版本開始，ASF 支援互動式控制台，只要您沒有讓它在 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#headless) 模式下執行。 只要按下 `C` 鍵，就可以啟用指令模式。輸入您的指令並按下確認鍵確認。
 
 ![截圖](https://i.imgur.com/bH5Gtjq.png)
 
@@ -23,11 +23,11 @@ Starting with V4.0.0.9, ASF has support for interactive console, as long as you'
 
 ### Steam 聊天
 
-您也可以透過 Steam 聊天對指定的 ASF Bot 執行指令。 顯然，您不能直接跟自己聊天，因此，如果您想在自己的主帳號執行指令，您需要至少另一個 Bot 帳號。
+您也可以透過 Steam 聊天，使指定的 ASF Bot 執行指令。 很顯然，您無法直接跟自己聊天。因此若您想在自己的主帳號執行指令，您至少需要另一個 Bot 帳號。
 
 ![截圖](https://i.imgur.com/IvFRJ5S.png)
 
-類似的，您也可以使用指定的 Steam 群組聊天。 請注意，此選項需要您正確設定 `SteamMasterClanID` 屬性，使 Bot 同樣監聽（並加入）指定的群組交談。 不同於私人聊天，因為這種方法不需要專用的 Bot 帳號，所以可以用於「和自己交談」。 您可以簡單的將 `SteamMasterClanID` 屬性設定為您新建立的群組，然後透過設定 Bot 的 `SteamOwnerID` 或 `SteamUserPermissions` 給您自己存取權限。 這樣，ASF Bot（即您自己的帳號）將會加入這個群組和群組聊天室，並且開始監聽您發送的指令。 您可以加入同一個群組聊天室，以便向自己發送指令（因為在您向聊天室發送指令時，同樣在聊天室內的 ASF 執行個體將會收到指令，即使界面上顯示只有您自己在聊天室內）。
+同樣，您也可以使用指定的 Steam 群組聊天。 請注意，此選項需要您正確設定 `SteamMasterClanID` 屬性，使 Bot 也會同時監聽（並加入）指定群組聊天中的指令。 不同於私人聊天，因為這種方法不需要專用的 Bot 帳號，所以可以用於「和自己交談」。 您可以簡單的將 `SteamMasterClanID` 屬性設定為您新建立的群組，然後透過設定 Bot 的 `SteamOwnerID` 或 `SteamUserPermissions` 給您自己存取權限。 這樣，ASF Bot（即您自己的帳號）將會加入這個群組和群組聊天室，並且開始監聽您發送的指令。 您可以加入同一個群組聊天室，以便向自己發送指令（因為在您向聊天室發送指令時，同樣在聊天室內的 ASF 執行個體將會收到指令，即使界面上顯示只有您自己在聊天室內）。
 
 請注意，傳送指令至群組聊天就像是一個中繼。 如果您向一個含有 3 個 Bot 的群組聊天發送 `redeem X` 指令，其效果跟分別向每個 Bot 私人聊天發送 `redeem X` 指令一樣。 在大多數情況下，**這不是您想要的效果**，您應該像之前與**單個 Bot 交談**時一樣，使用`特定 Bot`名稱的指令形式。 ASF 支持群組聊天，是因為在多數情況下它是一種與您唯一的 Bot 通訊的有效方式，但如果您的群組中有多個 ASF Bot，就最好不要在這裡執行指令，除非您完全理解 ASF 的相關行為，並且您確實想要讓所有 Bot 執行相同的指令。
 

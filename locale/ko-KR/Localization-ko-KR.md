@@ -66,7 +66,7 @@ Crowdin 혹은 우리가 신뢰하고 확인가능한 다른 현지화 플랫폼
 - 일반 질문 - 아래 이슈에 해당하지 않는 모든 경우를 말합니다. 일반적으로 이 종류는 **피해주시기 바랍니다**. 만약 문제가 아래 종류에 해당사항이 없다면 번역 이슈가 **아닐 가능성이 높습니다**. 모든 경우의 수를 대비해서 만들어 둔 상태입니다.
 - 현재 번역이 잘못됨 - 이미 교정자에 의해 승인된 번역이지만 오타가 있거나 번역을 개선할 유효한 제안이 있는 경우 등 **틀렸다고** 판단될때에만 사용하시기 바랍니다. 또한, 커뮤니티나 투표로 정해진 번역에는 절대 사용하지 마십시오. 이 경우 해당 번역자와 연락하여 수정을 요청하거나, 혹은 리뷰하기 항목에서 설명한 것 처럼 더 나은 번역에 투표하십시오. We'll remove the approval of the translation and notify the appropriate proof-reader in charge of the language to take into account your comment and verify again.
 - 문맥 정보 부족 - 현재 번역중인 내용이 ASF의 어느 부분인지, 해당 문자열의 문맥 혹은 의도가 무엇인지 확실하지 않을때 사용하시기 바랍니다. 이 종류는 ASF 개발쪽에서만 사용하여야 합니다. 즉 해당 문자열을 어떻게 번역할지 확실치 않아서 기술적 지원이 필요하다는 뜻입니다.
-- 원본 문자열 오류 - 영어 원본 문자열이 틀렸다고 생각하는 경우에만 사용하십시오. 상당히 드문 경우이긴 합니다만, 개발자 본인도 영어 원어민이 아니므로 원본을 어떻게 개선할지 아이디어가 있다면 자유롭게 이용하시기 바랍니다. Alternatively, since this is strictly related to the development, you may use our **[GitHub issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** for that purpose, if you'd like to.
+- 원본 문자열 오류 - 영어 원본 문자열이 틀렸다고 생각하는 경우에만 사용하십시오. Quite rare, but not all of us are speaking English natively either, so feel free to use it if you have a general idea how it could be improved. Alternatively, since this is strictly related to the development, you may use our **[GitHub issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** for that purpose, if you'd like to.
 
 ---
 

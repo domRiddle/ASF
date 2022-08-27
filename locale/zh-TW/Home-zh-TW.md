@@ -1,13 +1,13 @@
 # 首頁
 
-歡迎使用 ASF Wiki 維基。 Wiki 是一個涵蓋許多主題的線上說明，包括可能的問題、用法、設定等。 如果您想瞭解 ASF 的工作原理，尤其是如何安裝、設定和使用 ASF，則應遵循以下步驟。
+歡迎使用 ASF Wiki。 Wiki 是一個涵蓋許多主題的線上說明，包括常見問題、可能遇到的狀況、使用方法及設定等。 若您想瞭解 ASF 如何運作，尤其是如何安裝、設定及使用 ASF，您應該遵循以下步驟。
 
-您可以透過向任何訪問的頁面位址添加 `-locale` 字串以變更 Wiki 語言。 例如，與其訪問 **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** 首頁，您可以訪問已翻譯成俄語的首頁（如果可用）**[Home-ru-RU](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU)**。 在社區中在地化完成 90% 以上的語言將在我們的 Wiki 側邊欄（右側）上提供，以便於訪問。
+您可以透過將 `-locale` 字串加入至任何 Wiki 頁面以變更語言。 舉例來說，您可以訪問已翻譯成俄語的首頁 **[Home-ru-RU](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU)**（若其可用），而不是 **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**。 在社群中完成在地化 90% 以上的語言，將會在我們的 Wiki 側邊欄（在右側）提供您方便使用。
 
-除非另有說明（如「V2」），所有 Wiki 頁面永遠只適用於 **[最新發佈的 ASF 版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**。 如果您想查看一個特定時間點的 Wiki 頁面（例如一個舊版的 ASF 說明），請點選在每個頁面頂部的 **[revisions](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/_history)** 修訂版本然後選取一個跟您的 ASF 版本相稱的日期。 我們會保持所有以前及現在的主要 ASF 版本頁面可用。
+除非另有說明（如「V2」），所有 Wiki 頁面永遠只適用於**[最新版 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**。 若您想查看特定時間點的 Wiki 頁面（例如舊版 ASF 的說明），請點選在每個頁面頂部的 **[revisions](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/_history)** 修訂版本，然後選取符合您 ASF 版本的日期。 我們會保留現在及過往 ASF 主要版本的頁面。
 
-如果您是新使用者，我們建議您從 **[新手上路](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-TW)** 開始。 您可以在螢幕右側的側邊欄找到其他所有相關的 Wiki 頁面。 ASF 的知識是無限的，請隨意閱讀您感興趣的內容，但我們建議從頭開始閱讀。
+如果您是新使用者，我們建議您從 **[新手上路](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-TW)** 開始。 您可以在螢幕右側的側邊欄中找到其他所有相關的 Wiki 頁面。 ASF 的知識是無限的，可以隨意閱讀您感興趣的內容，但我們會建議您從頭開始閱覽。
 
-如果您需要進一步幫助，請造訪我們用於所有問題和技術性困難的 **[支援站](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**。
+若您需要進一步的幫助，請查看我們的**[支援站](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**，在這您可以解決所有疑問和技術性問題。
 
-GitHub 的 **[Issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** 議題頁面用於 ASF 開發，特別是程式錯誤和改善的事項。 因為 GitHub **不**是一般的支援站，所以對於 Issues 我們有非常嚴格的政策：Issues 頁面專用於 ASF 開發，我們不會在此答覆一般的 ASF 問題，相關問題請前往 **[支援站](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)** 提問。 如果不確定您的問題是否與 ASF 的開發有關係，建議您使用支援站。 無效的 GitHub issues 將會被立即關閉且不會得到回答。
+GitHub 的 **[Issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** 議題頁面是用於 ASF 的開發，特別是程式錯誤和改進事項。 因為 GitHub **不**是一般的支援站，所以我們對此有著非常嚴格的政策：Issues 頁面專用於 ASF 的開發，我們不會在此答覆一般的 ASF 問題，請前往我們的**[支援站](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**提問。 若您不確定您的問題是否與 ASF 的開發相關，我們建議您使用支援站。 無效的 GitHub Issue 將會被立即關閉，且不會得到回答。
