@@ -9,7 +9,7 @@ ASF 支援各種指令，以此控制程序及 Bot 實例的行為。
 
 請注意，與 ASF 互動需要您擁有執行相關指令的權限。 查看 `SteamUserPermissions` 和 `SteamOwnerID` 的設定屬性以了解更多。
 
-透過 Steam 聊天執行的指令都受**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#commandprefix)**的 `CommandPrefix` 影響，而該屬性的預設值為 `!`。 這意味著，當您要執行 `status` 指令時，實際應該傳送 `!status`（或使用您自訂的 `CommandPrefix`）。 而當您使用控制台或 IPC 時，可以省略 `CommandPrefix`，這項屬性在這裡不是強制性的。
+透過 Steam 聊天執行的指令都受**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#commandprefix)**的 `CommandPrefix` 影響，而該屬性的預設值為 `!`。 這意味著，當您要執行 `status` 指令時，實際應該要傳送 `!status`（或使用您自訂的 `CommandPrefix`）。 而當您使用控制台或 IPC 時，可以省略 `CommandPrefix`，這項屬性在這裡不是強制性的。
 
 ---
 
@@ -17,7 +17,7 @@ ASF 支援各種指令，以此控制程序及 Bot 實例的行為。
 
 從 V4.0.0.9 版本開始，ASF 支援互動式控制台，只要您沒有讓它在 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#headless) 模式下執行。 只要按下 `C` 鍵，就可以啟用指令模式。輸入您的指令並按下確認鍵確認。
 
-![截圖](https://i.imgur.com/bH5Gtjq.png)
+![擷圖](https://i.imgur.com/bH5Gtjq.png)
 
 ---
 
@@ -25,106 +25,106 @@ ASF 支援各種指令，以此控制程序及 Bot 實例的行為。
 
 您也可以透過 Steam 聊天，使指定的 ASF Bot 執行指令。 很顯然，您無法直接跟自己聊天。因此若您想在自己的主帳號執行指令，您至少需要另一個 Bot 帳號。
 
-![截圖](https://i.imgur.com/IvFRJ5S.png)
+![擷圖](https://i.imgur.com/IvFRJ5S.png)
 
-同樣，您也可以使用指定的 Steam 群組聊天。 請注意，此選項需要您正確設定 `SteamMasterClanID` 屬性，使 Bot 也會同時監聽（並加入）指定群組聊天中的指令。 這與私人聊天不同，因為這個方式不需要專用的 Bot 帳號，所以可以用於「和自己交談」。 您只需將 `SteamMasterClanID` 屬性設為您新建立的群組，然後透過設定 Bot 的 `SteamOwnerID` 或 `SteamUserPermissions` 給您自己存取權限。 這樣，ASF Bot（即您自己的帳號）將會加入這個群組及它的群組聊天室，並開始監聽您發送的指令。 您可以加入同一個群組聊天室，以便向自己發送指令（因為在您向聊天室發送指令時，同樣在聊天室內的 ASF 執行個體將會收到指令，即使界面上顯示只有您自己在聊天室內）。
+同樣，您也可以使用指定的 Steam 群組聊天。 請注意，此選項需要您正確設定 `SteamMasterClanID` 屬性，使 Bot 也會同時監聽（並加入）指定群組聊天中的指令。 這與私人聊天不同，因為這個方式不需要專用的 Bot 帳號，所以可以用於「和自己交談」。 您只需將 `SteamMasterClanID` 屬性設為您新建立的群組，然後透過設定 Bot 的 `SteamOwnerID` 或 `SteamUserPermissions` 給您自己存取權限。 這樣，ASF Bot（即您自己的帳號）將會加入這個群組及它的群組聊天室，並開始監聽您發送的指令。 您可以加入同一個群組聊天室，以便向自己發送指令（因為在您向聊天室發送指令時，同樣在聊天室內的 ASF 實例將會收到指令，即使界面上顯示只有您自己在聊天室中）。
 
-請注意，傳送指令至群組聊天就像是一個中繼。 如果您向一個含有 3 個 Bot 的群組聊天發送 `redeem X` 指令，其效果跟分別向每個 Bot 私人聊天發送 `redeem X` 指令一樣。 在大多數情況下，**這不是您想要的效果**，您應該像之前與**單個 Bot 交談**時一樣，使用`特定 Bot`名稱的指令形式。 ASF 支持群組聊天，是因為在多數情況下它是一種與您唯一的 Bot 通訊的有效方式，但如果您的群組中有多個 ASF Bot，就最好不要在這裡執行指令，除非您完全理解 ASF 的相關行為，並且您確實想要讓所有 Bot 執行相同的指令。
+請注意，傳送指令至群組聊天就像是一個中繼。 如果您向一個含有 3 個 Bot 的群組聊天發送 `redeem X` 指令，其效果跟分別向每個 Bot 私人聊天發送 `redeem X` 指令一樣。 在大多數情況下，**這並非您想要的效果**，您應該像之前**與單個 Bot 交談**時一樣，使用`特定 Bot` 名稱的指令形式。 ASF 支援群組聊天，是因為在多數情況下，它是一種與您唯一的 Bot 通訊的有效方式。但若您的群組中有多個 ASF Bot，就最好不要在這裡執行指令，除非您完全理解 ASF 的相關行為，並且您確實想讓所有 Bot 執行相同的指令。
 
-*即使在這種情況下，您也應該使用 `[Bots]` 私人交談向 Bot 發送指令。*
+*但即使在這種情況下，您也應該使用帶有 `[Bots]` 語法的私人聊天，來向 Bot 發送指令。*
 
 ---
 
 ### IPC
 
-這是最先進、靈活的執行指令方式，非常適合用戶集成（ASF-ui）或者第三方工具腳本（ASF API）。這種方式需要 ASF 運行在 `IPC` 模式下，並且客戶端需要通過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 介面來執行指令。
+這是最先進且最靈活執行指令的方式，非常適合使用者交互（ASF-ui）及第三方工具或腳本（ASF API）。這種方式需要 ASF 執行於 `IPC` 模式，且用戶端需要透過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 介面來執行指令。
 
-![截圖](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
+![擷圖](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
 ---
 
 ## 指令
 
-| 指令                                                                   | 存取              | 描述                                                                                                                                                                            |
-| -------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `2fa [Bots]`                                                         | `Master`        | 為指定 BOT 產生臨時的**[兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​權杖。                                                             |
-| `2fano [Bots]`                                                       | `Master`        | 為指定 BOT 拒絕所有待處理的**[兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​交易確認。                                                        |
-| `2faok [Bots]`                                                       | `Master`        | 為指定 BOT 接受所有待處理的**[兩步驟驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​交易確認。                                                        |
-| `addlicense [Bots] <Licenses>`                                 | `Operator`      | 在指定 BOT 上啟用給定的 `licenses `，請參閱**[下文](#addlicense-licenses)**解釋。                                                                                                               |
-| `balance [Bots]`                                                     | `Master`        | 顯示指定 BOT 的 Steam 錢包餘額。                                                                                                                                                        |
-| `bgr [Bots]`                                                         | `Master`        | 印出關於指定 BOT 的**[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**佇列的資訊。                                                          |
-| `encrypt <encryptionMethod> <stringToEncrypt>`           | `Owner`         | 以指定的加密方式加密字串——詳見​**[下文的解釋](#encrypt-command)**。                                                                                                                               |
-| `exit`                                                               | `Owner`         | 完全終止ASF進程。                                                                                                                                                                    |
-| `farm [Bots]`                                                        | `Master`        | 重新啟動指定 Bot 的掛卡模組。                                                                                                                                                             |
-| `fb [Bots]`                                                          | `Master`        | 列出指定 Bot 的自動掛卡黑名單。                                                                                                                                                            |
-| `fbadd [Bots] <AppIDs>`                                        | `Master`        | 將指定 `appIDs` 新增至指定 BOT 的自動掛卡黑名單。                                                                                                                                              |
-| `fbrm [Bots] <AppIDs>`                                         | `Master`        | 將指定 `appIDs` 移除自指定 BOT 的自動掛卡黑名單。                                                                                                                                              |
-| `fq [Bots]`                                                          | `Master`        | 列出指定 BOT 的優先掛卡佇列。                                                                                                                                                             |
-| `fqadd [Bots] <AppIDs>`                                        | `Master`        | 將指定 `appIDs` 新增至指定 BOT 的優先掛卡佇列。                                                                                                                                               |
-| `fqrm [Bots] <AppIDs>`                                         | `Master`        | 將指定 `appIDs` 移除自指定 BOT 的優先掛卡佇列。                                                                                                                                               |
-| `hash <hashingMethod> <stringToHash>`                    | `Owner`         | 以指定的加密方式產生指定字串的雜湊值——詳見​**[下文的解釋](#hash-command)**。                                                                                                                            |
-| `help`                                                               | `FamilySharing` | 顯示幫助（指向此頁面的連結）。                                                                                                                                                               |
-| `input [Bots] <Type> <Value>`                            | `Master`        | 設定指定 BOT 為指定的輸入類型，僅在 `Headless` 模式工作──請參閱**[下文](#input-指令)**解釋。                                                                                                               |
-| `level [Bots]`                                                       | `Master`        | 顯示指定機器人的 Steam 等級。                                                                                                                                                            |
-| `loot [Bots]`                                                        | `Master`        | 將指定機器人的所有 `LootableTypes` 社區物品交易給其 `SteamUserPermissions` 屬性中設置的 `Master` 用戶（如有多個則取 steamID 最小的）。                                                                             |
-| `loot@ [Bots] <AppIDs>`                                        | `Master`        | 將所有符合 `AppIDs` 的 `LootableTypes` 社群物品從指定 BOT 交易至 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個則取 steamID 最小的）。 這是跟 `loot%` 相反的指令。                                           |
-| `loot% [Bots] <AppIDs>`                                        | `Master`        | 將所有除了 `AppIDs` 以外的 `LootableTypes` 社群物品從指定 BOT 交易至 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個則取 steamID 最小的）。 這是跟 `loot@` 相反的指令。                                         |
-| `loot^ [Bots] <AppID> <ContextID>`                       | `Master`        | 將指定 BOT 的` ContextID` 物品庫分類中符合特定 `AppID` 的物品交易給其 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如果有多個則取 steamID 最小的）。                                                             |
-| `mab [Bots]`                                                         | `Master`        | 列出 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** 自動交易的 App 黑名單。                                                            |
-| `mabadd [Bots] <AppIDs>`                                       | `Master`        | 將指定的 `AppIDs` 加入到 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** 自動交易的 App 黑名單。                                             |
-| `mabrm [Bots] <AppIDs>`                                        | `Master`        | 將指定的 `AppIDs` 從 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** 自動交易 App 黑名單中移除。                                             |
-| `nickname [Bots] <Nickname>`                                   | `Master`        | 將指定機器人的 Steam `nickname`更改為自訂暱稱。                                                                                                                                              |
-| `owns [Bots] <Games>`                                          | `Operator`      | 檢查指定 BOT 是否已擁有指定  `games`，請參閱**[下文](#owns-games)**解釋。                                                                                                                         |
-| `pause [Bots]`                                                       | `Operator`      | 停止指定機器人的自動掛卡模塊。 ASF 在本次會話中將不會再嘗試對此帳戶進行掛卡，除非您手動 `resume` 或者重啟 ASF。                                                                                                             |
-| `pause~ [Bots]`                                                      | `FamilySharing` | 暫停指定機器人的自動掛卡模塊。 掛卡進程將會在下次遊戲事件被觸發時或機器人斷開連接時自動恢復。 您可以` resume` 以恢復掛卡。                                                                                                           |
-| `pause& [Bots] <Seconds>`                                  | `Operator`      | 暫停指定機器人的自動掛卡模塊`seconds` 秒。 之後，掛卡將自動恢復。                                                                                                                                        |
-| `play [Bots] <AppIDs,GameName>`                                | `Master`        | 切換至手動掛卡模式——使指定機器人運行特定的 `AppIDs`，並且可選自定義 `GameName` 為當前遊戲名稱。 若要使此功能正常工作，您的 Steam 帳戶**必須**擁有您指定的所有 `AppIDs` 的有效許可，包括免費遊玩遊戲。 使用 `reset` 或 `resume` 指令恢復。                         |
-| `points [Bots]`                                                      | `Master`        | 顯示指定 Bot 的 **[Steam 商店](https://store.steampowered.com/points/shop)**​點數餘額。                                                                                                   |
-| `privacy [Bots] <Settings>`                                    | `Master`        | 更改指定機器人的 **[Steam 隱私設置](https://steamcommunity.com/my/edit/settings)**，可用選項將於**[​下文](#privacy-settings)**詳述。                                                                  |
-| `redeem [Bots] <Keys>`                                         | `Operator`      | 為指定 BOT 啟用給出的遊戲序列號或兌換給出的錢包儲值碼。                                                                                                                                                |
-| `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`      | 以將於**[​下文](#redeem-modes)**解釋的 `Modes` 模式為指定 BOT 啟用給出的遊戲序列號或兌換給出的錢包儲值碼。                                                                                                       |
-| `reset [Bots]`                                                       | `Master`        | 重設為原始(之前的)遊玩狀態，用來配合 `play` 命令的手動掛卡模式使用。                                                                                                                                       |
-| `重新啟動`                                                               | `Owner`         | 重啟 ASF 進程。                                                                                                                                                                    |
-| `resume [Bots]`                                                      | `FamilySharing` | 恢復指定機器人的自動掛卡進程。                                                                                                                                                               |
-| `start [Bots]`                                                       | `Master`        | 啟動指定機器人。                                                                                                                                                                      |
-| `stats`                                                              | `Owner`         | 顯示進程統計信息，例如託管記憶體用量。                                                                                                                                                           |
-| `status [Bots]`                                                      | `FamilySharing` | 顯示指定機器人的狀態。                                                                                                                                                                   |
-| `std`                                                                | `Owner`         | Special command for **[`SteamTokenDumperPlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)** which triggers submission of data immediately. |
-| `stop [Bots]`                                                        | `Master`        | 停止指定機器人的進程。                                                                                                                                                                   |
-| `tb [Bots]`                                                          | `Master`        | 列出指定 BOT 的使用者交易黑名單。                                                                                                                                                           |
-| `tbadd [Bots] <SteamIDs64>`                                    | `Master`        | 將指定 `steamIDs` 新增至指定 BOT 的使用者交易黑名單。                                                                                                                                           |
-| `tbrm [Bots] <SteamIDs64>`                                     | `Master`        | 將指定 `steamIDs` 移除自指定 BOT 的使用者交易黑名單。                                                                                                                                           |
-| `transfer [Bots] <TargetBot>`                                  | `Master`        | 將指定 BOT 所有 `TransferableTypes` 社群物品交易至目標 BOT。                                                                                                                                 |
-| `transfer@ [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 將所有符合 `AppIDs` 的 `TransferableTypes` 社群物品從指定 BOT 交易至目標 BOT。 這是跟 `transfer%` 相反的指令。                                                                                            |
-| `transfer% [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 將所有除了 `AppIDs` 以外的 `TransferableTypes` 社群物品從指定 BOT 交易至目標 BOT。 這是跟 `transfer@` 相反的指令。                                                                                          |
-| `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`        | 將指定BOT的 `ContextID` 庫存分類中符合特定 `AppID` 的物品交易至目標 BOT。                                                                                                                           |
-| `unpack [Bots]`                                                      | `Master`        | 拆開指定機器人庫存中的所有補充包。                                                                                                                                                             |
-| `update`                                                             | `Owner`         | 檢查 GitHub 上的 ASF 更新（每 `UpdatePeriod` 自動執行一次）。                                                                                                                                 |
-| `version`                                                            | `FamilySharing` | 顯示 ASF 的版本號。                                                                                                                                                                  |
+| 指令                                                                   | 存取權限            | 描述                                                                                                                                                             |
+| -------------------------------------------------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `2fa [Bots]`                                                         | `Master`        | 使指定的 Bot 實例，生成臨時的**[雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​權杖。                                           |
+| `2fano [Bots]`                                                       | `Master`        | 使指定的 Bot 實例，拒絕所有待處理的**[雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​交易確認。                                      |
+| `2faok [Bots]`                                                       | `Master`        | 使指定的 Bot 實例，接受所有待處理的**[雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**​交易確認。                                      |
+| `addlicense [Bots] <Licenses>`                                 | `Operator`      | 在指定的 Bot 實例上啟用給定的 `licenses`，請參閱**[下文](#addlicense-licenses)**的說明（僅適用於免費遊戲）。                                                                                   |
+| `balance [Bots]`                                                     | `Master`        | 顯示指定 Bot 實例的 Steam 錢包餘額。                                                                                                                                       |
+| `bgr [Bots]`                                                         | `Master`        | 顯示關於指定 Bot 實例的**[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**佇列的資訊。                                         |
+| `encrypt <encryptionMethod> <stringToEncrypt>`           | `Owner`         | 以指定的加密方式加密字串──請參閱​**[下文](#encrypt-command)**的說明。                                                                                                               |
+| `exit`                                                               | `Owner`         | 完全終止 ASF 程序。                                                                                                                                                   |
+| `farm [Bots]`                                                        | `Master`        | 重新啟動指定 Bot 實例的掛卡模組。                                                                                                                                            |
+| `fb [Bots]`                                                          | `Master`        | 列出指定 Bot 實例的應用程式自動掛卡黑名單。                                                                                                                                       |
+| `fbadd [Bots] <AppIDs>`                                        | `Master`        | 將給定的 `AppIDs` 新增至指定 Bot 實例的應用程式自動掛卡黑名單中。                                                                                                                       |
+| `fbrm [Bots] <AppIDs>`                                         | `Master`        | 將給定的 `AppIDs` 從指定 Bot 實例的應用程式自動掛卡黑名單中移除。                                                                                                                       |
+| `fq [Bots]`                                                          | `Master`        | 列出指定 Bot 實例的優先掛卡佇列。                                                                                                                                            |
+| `fqadd [Bots] <AppIDs>`                                        | `Master`        | 將給定的 `AppIDs` 新增至指定 Bot 實例的優先掛卡佇列中。                                                                                                                            |
+| `fqrm [Bots] <AppIDs>`                                         | `Master`        | 將給定的 `AppIDs` 從指定 Bot 實例的優先掛卡佇列中移除。                                                                                                                            |
+| `hash <hashingMethod> <stringToHash>`                    | `Owner`         | 以指定的加密方式產生給定字串的雜湊值──請參閱​**[下文](#hash-command)**的說明。                                                                                                            |
+| `help`                                                               | `FamilySharing` | 顯示幫助（指向此頁面的連結）。                                                                                                                                                |
+| `input [Bots] <Type> <Value>`                            | `Master`        | 為指定 Bot 實例輸入指定類型的輸入值，僅在 `Headless` 模式下工作──請參閱**[下文](#input-指令)**的說明。                                                                                           |
+| `level [Bots]`                                                       | `Master`        | 顯示指定 Bot 實例的 Steam 帳號等級。                                                                                                                                       |
+| `loot [Bots]`                                                        | `Master`        | 將指定 Bot 實例中所有 `LootableTypes` Steam 社群物品，交易給其 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個，則取 steamID 最小者）。                                                 |
+| `loot@ [Bots] <AppIDs>`                                        | `Master`        | 將指定 Bot 實例中，所有符合 `AppIDs` 的 `LootableTypes` Steam 社群物品，交易給其 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個，則取 steamID 最小者）。 這是與 `loot%` 相反的指令。                |
+| `loot% [Bots] <AppIDs>`                                        | `Master`        | 將指定 Bot 實例中，除符合 `AppIDs` 以外的所有 `LootableTypes` Steam 社群物品，交易給其 `SteamUserPermissions` 屬性中設定的 `Master` 使用者（如有多個，則取 steamID 最小者）。 這是與 `loot@` 相反的指令。             |
+| `loot^ [Bots] <AppID> <ContextID>`                       | `Master`        | 將指定 Bot 實例的 `ContextID` 物品庫分類中，所有符合給定 `AppID` 的 `LootableTypes` Steam 社群物品，交易給其 `SteamUserPermissions` 屬性中設定的 <0>Master</0> 使用者（如有多個，則取 steamID 最小者）。          |
+| `mab [Bots]`                                                         | `Master`        | 列出 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** 中的應用程式自動交易黑名單。                                             |
+| `mabadd [Bots] <AppIDs>`                                       | `Master`        | 將給定的 `AppIDs` 加入至 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** 的應用程式自動交易黑名單中。                              |
+| `mabrm [Bots] <AppIDs>`                                        | `Master`        | 將給定的 `AppIDs` 從 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** 的應用程式自動交易黑名單中移除。                              |
+| `nickname [Bots] <Nickname>`                                   | `Master`        | 將指定 Bot 實例的 Steam 暱稱，更改為給定的 `Nickname`。                                                                                                                        |
+| `owns [Bots] <Games>`                                          | `Operator`      | 檢查指定的 Bot 實例是否已擁有給定的 `Games`，請參閱**[下文](#owns-games)**的說明。                                                                                                      |
+| `pause [Bots]`                                                       | `Operator`      | 停止指定 Bot 實例的自動掛卡模組。 ASF 在本次階段中，將不會再次嘗試對此帳號進行掛卡，除非您手動 `resume`，或者重新啟動 ASF 程序。                                                                                   |
+| `pause~ [Bots]`                                                      | `FamilySharing` | 暫停指定 Bot 實例的自動掛卡模組。 掛卡程序將會在下次遊戲事件被觸發時，或在 Bot 斷線時自動恢復。 您可以使用 `resume` 以恢復掛卡。                                                                                    |
+| `pause& [Bots] <Seconds>`                                  | `Operator`      | 暫停指定 Bot 實例的自動掛卡模組 `Seconds` 秒。 在此之後，掛卡模組將會自動恢復。                                                                                                               |
+| `play [Bots] <AppIDs,GameName>`                                | `Master`        | 切換至手動掛卡模式──使指定的 Bot 實例為給定的 `AppIDs` 執行掛卡，自訂的 `GameName` 為可選的遊戲名稱。 若要使此功能正常運作，您的 Steam 帳號**必須**擁有您指定的所有 `AppIDs` 的有效許可，包括免費遊戲。 使用 `reset` 或 `resume` 指令來恢復自動掛卡。 |
+| `points [Bots]`                                                      | `Master`        | 顯示指定 Bot 實例的 **[Steam 商店](https://store.steampowered.com/points/shop)**​點數餘額。                                                                                  |
+| `privacy [Bots] <Settings>`                                    | `Master`        | 更改指定 Bot 實例的 **[Steam 隱私設定](https://steamcommunity.com/my/edit/settings)**，可用的選項請參閱**[​下文](#privacy-settings)**的說明。                                            |
+| `redeem [Bots] <Keys>`                                         | `Operator`      | 使指定的 Bot 實例啟用給定的產品序號或錢包儲值碼。                                                                                                                                    |
+| `redeem^ [Bots] <Modes> <Keys>`                          | `Operator`      | 使指定的 Bot 實例啟用給定的產品序號或錢包儲值碼，並以**[​下文](#redeem-modes)**說明的 `Modes` 模式使用。                                                                                         |
+| `reset [Bots]`                                                       | `Master`        | 將遊戲狀態重設為初始（先前的）狀態。本指令用於配合 `play` 指令的手動掛卡模式。                                                                                                                    |
+| `restart`                                                            | `Owner`         | 重新啟動 ASF 程序。                                                                                                                                                   |
+| `resume [Bots]`                                                      | `FamilySharing` | 恢復指定 Bot 實例的自動掛卡程序。                                                                                                                                            |
+| `start [Bots]`                                                       | `Master`        | 啟動指定的 Bot 實例。                                                                                                                                                  |
+| `stats`                                                              | `Owner`         | 顯示程序的統計資料，例如託管記憶體的使用量。                                                                                                                                         |
+| `status [Bots]`                                                      | `FamilySharing` | 顯示指定 Bot 實例的狀態。                                                                                                                                                |
+| `std`                                                                | `Owner`         | 用於控制 **[`SteamTokenDumperPlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin-zh-TW)** 的特殊指令，用於立即提交資料。                          |
+| `stop [Bots]`                                                        | `Master`        | 停止指定的 Bot 實例。                                                                                                                                                  |
+| `tb [Bots]`                                                          | `Master`        | 列出指定 Bot 實例交易模組黑名單中的使用者。                                                                                                                                       |
+| `tbadd [Bots] <SteamIDs64>`                                    | `Master`        | 將給定的 `SteamIDs64` 加入至指定 Bot 的實例交易模組黑名單中。                                                                                                                       |
+| `tbrm [Bots] <SteamIDs64>`                                     | `Master`        | 將給定的 `SteamIDs64` 從指定 Bot 的實例交易模組黑名單中移除。                                                                                                                       |
+| `transfer [Bots] <TargetBot>`                                  | `Master`        | 將指定 Bot 實例所有 `TransferableTypes` 的 Steam 社群物品交易至目標 Bot 實例。                                                                                                     |
+| `transfer@ [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 將指定 Bot 實例中，所有符合 `AppIDs` 的 `TransferableTypes` 的 Steam 社群物品，交易至目標 Bot 實例。 這是與 `transfer%` 相反的指令。                                                              |
+| `transfer% [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 將指定 Bot 實例中，除符合 `AppIDs` 以外的 `TransferableTypes` 的所有 Steam 社群物品，交易至目標 Bot 實例。 這是與 `transfer@` 相反的指令。                                                           |
+| `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`        | 將指定 Bot 實例的 `ContextID` 中，符合 `AppID` 的 Steam 物品交易至目標 Bot 實例。                                                                                                   |
+| `unpack [Bots]`                                                      | `Master`        | 拆開指定 Bot 實例物品庫中的所有擴充包。                                                                                                                                         |
+| `update`                                                             | `Owner`         | 檢查 GitHub 上的 ASF 更新（每 `UpdatePeriod` 會自動執行一次）。                                                                                                                 |
+| `version`                                                            | `FamilySharing` | 顯示 ASF 的版本號碼。                                                                                                                                                  |
 
 ---
 
-### 註解
+### 備註
 
-所有的指令都不區分大小寫，但它們的參數（例如 BOT 名稱）通常是區分大小寫的。
+所有的指令都不區分大小寫，但它們的引數（例如 Bot 的名稱）通常需要區分大小寫。
 
-`[Bots]` 參數在所有指令內都是可省略的。 當指定該參數時，指令會在指定的 BOT 上執行。 但省略時，指令會在當前接收指令的 BOT 上執行。 換句話說，向 BOT `B` 發送 `status A` 指令等於向 BOT `A` 發送 `status` 指令，在這種情況下 BOT `B` 只是作為一個代理 BOT。 這也可用於向不可用的 BOT 傳送指令，例如啟動已停止的 BOT，或者在（您用於執行指令的）主要帳戶上執行動作。
+`[Bots]` 引數在所有指令中，都是可省略的。 當指定該引數時，指令會在指定的 Bot 上執行。 但省略時，指令會在當前接收到指令的 Bot 上執行。 換句話說，向 Bot `B` 發送 `status A`，等於直接向 Bot `A` 發送 `status` 指令。在這種情形下， Bot `B` 只被作為一個代理 Bot。 這也可用於向無法使用的 Bot 傳送指令，例如啟動已終止的 Bot，或者在（您用於執行指令的）主要帳號上執行動作。
 
-指令的**許可權**定義了需要執行此指令所需的**最低**許可權，即 `SteamUserPermissions `中定義的 `EPermission`，例外情況是 `Owner` 指全域設定檔中定義的 `SteamOwnerID` 使用者（擁有最高許可權）。
+指令的**存取權限**定義了執行此指令所需的**最低**權限，即 `SteamUserPermissions` 中定義的 `EPermission`。但有個例外，`Owner` 是指全域設定檔中定義的 `SteamOwnerID` 使用者（擁有最高權限）。
 
-複數參數，例如 `[Bots]`、`<Keys>`或`<AppIDs>`意味著該參數支援多個由逗號分隔的同類型值。 例如，`status [Bots]` 可以用為 `status MyBot,MyOtherBot,Primary`。 這樣，該指令會在**所有目標 BOT** 上執行，效果等同分別向所有 BOT 單獨發送 `status`指令。 需要注意的是「`,`」後面不能有空格。
+複數引數，例如 `[Bots]`、`<Keys>`或`<AppIDs>`，意味著該引數支援多個由逗號分隔的相同類型數值。 舉例來說，`status [Bots]` 可以輸入成 `status MyBot,MyOtherBot,Primary`。 這樣，該指令會在**所有的目標 Bot** 上執行，效果等同於向所有的 Bot 分別發送 `status` 指令。 需要注意的是，「`,`」後面不能有空格。
 
-ASF 使用所有空白字元作為指令的分隔符，例如空格和換行符。 這意味著您不僅可以使用空格來分隔參數，還可以使用任何其他空白字元（如製表符和換行符）。
+ASF 使用所有的空白字元作為指令的定界符，例如空格和換行字元。 這代表您不僅可以使用空格來分隔引數，還可以使用任何其他空白字元（例如 Tab 及換行）。
 
-ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語法規定的最後一個複數參數上。 這表示對於 `redeem [Bots] <Keys>`指令，`redeem bot key1 key2 key3` 跟 `redeem bot key1,key2,key3` 的作用完全一樣。 再加上您可以使用換行符作為指令分隔符，這樣您就可以先寫 `redeem bot`，然後在其後貼上一個產品序號列表，其中每一項可以由任意空白字元（例如換行符）或者 ASF 標準的`,`分隔。 請注意，要使用這一技巧，您必須採用該指令參數數量最多的形式（所以在這種情況下，您必須指定 `[Bots]` 參數）。
+ASF 會將超出指令範圍的多餘引數「連接」至符合語法的最後一個複數引數上。 這代表對於 `redeem [Bots]<Keys>` 指令而言，`redeem bot key1 key2 key3` 跟 `redeem bot key1,key2,key3` 的作用完全相同。 再加上您可以使用換行作為指令定界符，這樣您就可以先輸入 `redeem bot`，然後再貼上產品序號清單，其中的每一項可以由任意空白字元（例如換行字元）或者 ASF 的標準 `,` 作為定界。 請注意，若要使用這一技巧，您必須採用該指令引數數量最多的形式（故在這種情形下，您必須指定 `[Bots]` 引數）。
 
-如上所述，空白字元被用於分隔指令參數，所以參數內部無法再使用空白字元。 但同樣如上所述，ASF 可以連接超出範圍的參數，這意味著您可以在指令的最後一個參數中使用空白字元。 例如，`nickname bob Great Bob` 指令能夠正確地將 BOT `bob` 的暱稱變更為「Great Bob」。 與此類似，您也可以使用 `owns` 指令檢查含有空格的名稱。
+如上所述，空白字元被用於指令引數的定界符，所以引數內部無法再使用空白字元。 但同樣如上所述，ASF 可以連接超出範圍的引數。這代表您可以在指令的最後一個引數中，使用空白字元。 舉例來說，`nickname bob Great Bob` 指令能夠將 Bot `bob` 的暱稱正確設定成「Great Bob」。 與之相似，您也可以使用 `owns` 指令來檢查帶有空格的名稱。
 
 ---
 
-一些指令有較短的別名可用，便於輸入。
+部分指令亦有較短的指令別名可供使用，以便於輸入：
 
-| 指令           | 別名           |
+| 指令           | 指令別名         |
 | ------------ | ------------ |
 | `addlicense` | `addlicence` |
 | `owns ASF`   | `oa`         |
@@ -134,23 +134,23 @@ ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語�
 
 ---
 
-### `[Bots]` 參數
+### `[Bots]` 引數
 
-`[Bots]` 是複數參數的一個特殊變體，除了接受多個值以外，它還有額外的功能。
+`[Bots]` 是複數引數的一個特殊變體，除了能夠接收多個值以外，它還具有額外的功能。
 
-首要的是，您可以使用特殊的關鍵字 `ASF` 來表示「所有 BOT」，因此 `status ASF` 指令等同於 `status all,your,bots,listed,here`。 這也可以方便地辨識您有權操作哪些 BOT，因為儘管 `ASF` 關鍵字的目標是所有 BOT，但只有您能夠實際發送指令的 BOT 才會作出回應。
+首先，您可以使用特殊關鍵字 `ASF` 來表示「程序中的所有 Bot」。因此 `status ASF` 指令等同於 `status 您,在此,列出的,所有,Bot`。 這也可以方便地辨識您有權操作哪些 Bot，因為儘管關鍵字 `ASF` 的目標是所有 Bot，但只有您實際能夠傳送指令的 Bot 才會作出回應。
 
-`[Bots]` 參數支援特殊的「範圍」語法，這可以讓您更容易地選擇特定範圍的 BOT。 `[Bots]` 參數支援特殊的「範圍」語法，這可以讓您更容易地選擇特定範圍的 BOT。 例如，假設您有 BOT `A, B, C, D, E, F`，如果您執行 `status B..E`，效果等同于執行 `status B,C,D,E`。 在使用此語法時，ASF 將會以字母排序以決定哪些 BOT 在指定範圍內。 `firstBot` 和`lastBot`必須是 ASF 能夠辨識的有效 BOT 名稱，否則範圍語法將不會生效。
+`[Bots]` 引數支援特殊的「範圍」語法，這可以讓您更容易選擇特定範圍的 Bot。 在這種情況下，`[Bots]` 的一般語法是 `firstBot..lastBot`。 舉例來說，假設您有名為 `A, B, C, D, E, F` 的 Bot，若您執行 `status B..E`，等同於執行 `status B,C,D,E`。 在使用此語法時，ASF 將會以字母排序來決定哪些 Bot 在指定範圍內。 `firstBot` 及 `lastBot` 必須皆是 ASF 能夠辨識的有效 Bot 名稱，否則範圍語法將不會生效。
 
-除了上述的範圍語法，`[Bots]` 參數還支援**[規則運算式](https://en.wikipedia.org/wiki/Regular_expression)**符合。 您可以使用 `r!<pattern>` 作為 BOT 名稱來激活規則運算式模式，其中 `r!` 是用於規則運算式符合的 ASF 啟動指令，而 `<pattern>` 是您的規則運算式。 An example of a regex-based bot command would be `status r!^\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). 您可以閱讀這份**[文件](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)**，進一步瞭解規則運算式的解釋和示例。
+除了上述的範圍語法，`[Bots]` 引數還支援**[正規表示式](https://en.wikipedia.org/wiki/Regular_expression)**的檢索符合規則。 您可以使用 `r!<pattern>` 作為 Bot 的名稱，來使用正規表示式。其中 `r!` 是 ASF 用於進入正規表示式檢索行為的啟動指令，而 `<pattern>` 是您的正規表示式。 一個正規表示式的 Bot 指令範例：`status r!^\d{3}`，它會向所有名稱為 3 位數字的 Bot（例如 `123` 及 `981`）傳送 `status` 指令。 您可以閱讀這份**[檔案說明](https://docs.microsoft.com/zh-tw/dotnet/standard/base-types/regular-expression-language-quick-reference)**，來進一步了解更多說明及範例。
 
 ---
 
-## `privacy` 設定
+## `privacy` 指令中的 Setting 引數
 
-`<Settings>` 參數接受**最多 7 個**不同的選項，使用 ASF 標準的逗號分隔格式。 這些選項分別是：
+`<Settings>` 引數接受**最多 7 個**不同的選項，它使用了 ASF 的標準逗號定界格式。 這些選項分別是：
 
-| 參數 | 名稱             | 從屬於        |
+| 引數 | 名稱             | 為…的子選項     |
 | -- | -------------- | ---------- |
 | 1  | Profile        |            |
 | 2  | OwnedGames     | Profile    |
@@ -160,58 +160,58 @@ ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語�
 | 6  | InventoryGifts | Inventory  |
 | 7  | Comments       | Profile    |
 
-關於上述選項的說明，請訪問 **[Steam 隱私設定](https://steamcommunity.com/my/edit/settings)**。
+關於上述選項的說明，請造訪 **[Steam 隱私設定](https://steamcommunity.com/my/edit/settings)**。
 
 每個選項的有效值可以是：
 
-| 值 | 名稱            |
-| - | ------------- |
-| 1 | `Private`     |
-| 2 | `FriendsOnly` |
-| 3 | `Public`      |
+| 值 | 名稱                  |
+| - | ------------------- |
+| 1 | `Private（私人）`       |
+| 2 | `FriendsOnly（僅限好友）` |
+| 3 | `Public（公開）`        |
 
-您可以使用它們的名稱（不區分大小寫）或者數值。 未賦值的參數將會被設定為預設值 `Private`。 請謹記上述參數的從屬關係非常重要，因為子選項無法擁有比父選項更高的許可權。 例如，如果您將個人檔案設定為 `Private`，就**無法**再將遊戲資料設定為 `Public`。
+您可以使用它們的名稱（不區分大小寫）或數值。 未賦值的引數將會被設為預設值 `Private`。 特別注意，上述引數的從屬關係非常重要，因為子選項無法擁有比父選項還高的權限。 舉例來說，若您將個人檔案設為 `Private`，就**無法**再將遊戲資料設定成 `Public`。
 
 ### 範例
 
-如果您希望將 BOT `Main` 的**所有**隱私設定都設為 `Private`，可以使用以下任一指令：
+如果希望將名為 `Main` 的 Bot 的**所有**隱私設定都設為 `Private`，您可以使用以下任一指令：
 
 ```text
 privacy Main 1
 privacy Main Private
 ```
 
-這是因為 ASF 會預設所有未賦值選項為 `Private`，所以您不需要全部寫出它們。 另一方面，如果您希望設定所有選項為 `Public`，可以使用以下任一指令：
+這是因為 ASF 會將所有未賦值的選項設為 `Private`，所以您無需將它們全部列出來。 與上述完全相反的情況，若您希望將所有選項設為 `Public`，則可以使用以下任一指令：
 
 ```text
 privacy Main 3,3,3,3,3,3,3
 privacy Main Public,Public,Public,Public,Public,Public,Public
 ```
 
-也可以為每個選項設定不同的值：
+用這種方式，您也可以為每個選項設定不同的值：
 
 ```text
 privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 ```
 
-上述指令將會設定個人檔案為公開、遊戲資料為僅限好友、總遊玩時數為私人、好友名單為公開、物品庫為公開、物品庫禮物為私密、留言為私人。 若有需要，您也可以使用數字值來實現相同效果。
+上述指令會將個人檔案設為公開、遊戲資料設為僅限好友、總遊玩時數為私人、好友名單為公開、物品庫為公開、物品庫禮物為私密、個人檔案留言為私人。 若有需要，您也可以使用數值來實現相同效果。
 
-請記住子選項的許可權無法比父選項更高。 有關可用選項，請參閱參數關係。
+請記住，子選項的權限無法高於父選項。 您可以參閱上述引數選項的子選項關係。
 
 ---
 
-## `addlicense` licenses
+## `addlicense` 指令中的 Licenses 引數
 
 `addlicense` 指令支援兩種不同的授權類型：
 
-| 類型    | 別名  | 範例           | 描述                              |
-| ----- | --- | ------------ | ------------------------------- |
-| `app` | `a` | `app/292030` | 透過遊戲唯一的 `appID` 授權。             |
-| `sub` | `s` | `sub/47807`  | 透過遊戲套裝唯一的 `subID` 授權，包括一款以上的遊戲。 |
+| 類型    | 別名  | 範例           | 描述                                |
+| ----- | --- | ------------ | --------------------------------- |
+| `app` | `a` | `app/292030` | 透過遊戲的唯一 `appID` 授權。               |
+| `sub` | `s` | `sub/47807`  | 透過遊戲組合包的唯一 `subID` 授權，包含一款或以上的遊戲。 |
 
-其中的區別很重要，因為 ASF 將對 app 類型使用 Steam 網路激活，對sub 類型使用 Steam 商店激活。 兩者互不相容，通常您將會對免費週末和永久免費遊玩遊戲使用 app 類型，而對其他遊戲使用 sub。
+需要注意這兩者的區別，因為以 ASF 來說，對於應用程式將會使用 Steam 網路來啟動，而對遊戲組合包則使用 Steam 商店來啟動。 這兩者互不相容。一般而言，您會對免費週末及永久免費遊玩的遊戲使用 app 類型，而對遊戲組合包使用 sub。
 
-我們建議您明確定義每一個項目的類型，以避免引起歧義的的結果，但為了向後相容性，在您提供了無效的類型或省略了類型的情況下，ASF 將會假設您想要使用 `sub` 類型。 您也可以使用 ASF 標準的分隔符「`,`」來同時啟用多個許可。
+我們建議您明確定義每一個項目的類型，以避免歧義。但為了反向相容性，在您提供了無效或省略的類型的情況下，ASF 將會預設您想要使用 `sub` 類型。 您也可以使用 ASF 的標準定界符「`,`」來同時啟用多個許可。
 
 完整的指令範例：
 
@@ -221,15 +221,15 @@ addlicense ASF app/292030,sub/47807
 
 ---
 
-## `owns` games
+## `owns` 指令中的 Games 引數
 
-`owns` 指令支援幾種不同的 `<games>` 遊戲參數類型，分別是：
+`owns` 指令支援數種不同的 `<games>` 引數類型：
 
-用於遊戲名稱的**[規則運算式](https://en.wikipedia.org/wiki/Regular_expression)**，區分大小寫。 請參閱**[文件](https://docs.microsoft.com/zh-tw/dotnet/standard/base-types/regular-expression-language-quick-reference)</strong>以取得完整語法和更多範例。</td> </tr> 
+使用**[正規表示式](https://en.wikipedia.org/wiki/Regular_expression)**來表示遊戲名稱，區分大小寫。 請參閱**[檔案說明](https://docs.microsoft.com/zh-tw/dotnet/standard/base-types/regular-expression-language-quick-reference)</strong>，來進一步了解完整語法及範例。</td> </tr> 
 
 </tbody> </table> 
 
-我們建議您明確定義每一個項目的類型，以避免引起歧義的的結果，但為了向後相容性，在您提供了無效的類型或省略了類型的情況下，如果您填入了數字，ASF 將會假設您想要使用 `app` 類型，如果不是數字則視為 `name` 類型。 您也可以使用 ASF 標準的分隔符「`,`」來同時查詢多個遊戲。
+我們建議您明確定義每一個項目的類型，以避免歧義。但為了反向相容性，在您提供了無效或省略的類型的情況下，若您填入了數字，ASF 將會預設您想要使用 `app` 類型，若為其他值則為 `name` 類型。 您也可以使用 ASF 的標準定界符「`,`」來同時查詢多個遊戲。
 
 完整的指令範例：
 
@@ -246,31 +246,31 @@ owns ASF app/292030,name/Witcher
 
 
 
-## `redeem^` 模式
+## `redeem^` 指令中的 Modes 引數
 
-`redeem^` 指令允許您微調用於單個兌換場景的模式。 此指令會臨時覆蓋 `RedeemingPreferences` **[BOT 設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#BOT-設定檔)**。
+`redeem^` 指令允許您微調使用於兌換單個產品序號情境的模式。 此指令會臨時覆蓋 `RedeemingPreferences` **[Bot 設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#Bot-設定檔)**。
 
-`<Modes>` 參數接受多個模式值，通常用逗號分隔。 可用的模式值如下所示：
+`<Modes>` 引數接受多個模式值，通常使用逗號分隔。 可用的模式值如下：
 
-| 值    | 名稱                    | 描述                                               |
-| ---- | --------------------- | ------------------------------------------------ |
-| FAWK | ForceAssumeWalletKey  | 強制啟用 `AssumeWalletKeyOnBadActivationCode` 兌換偏好設定 |
-| FD   | ForceDistributing     | 強制啟用 `Distributing` 兌換偏好設定                       |
-| FF   | ForceForwarding       | 強制啟用 `Forwarding` 兌換偏好設定                         |
-| FKMG | ForceKeepMissingGames | 強制啟用 `KeepMissingGames` 兌換偏好設定                   |
-| SAWK | SkipAssumeWalletKey   | 強制停用 `AssumeWalletKeyOnBadActivationCode` 兌換偏好設定 |
-| SD   | SkipDistributing      | 強制停用 `Distributing` 兌換偏好設定                       |
-| SF   | SkipForwarding        | 強制停用 `Forwarding` 兌換偏好設定                         |
-| SI   | SkipInitial           | 跳過初始 BOT 的產品序號兌換過程                               |
-| SKMG | SkipKeepMissingGames  | 強制停用 `KeepMissingGames` 兌換偏好設定                   |
-| V    | Validate              | 檢查產品序號格式，自動跳過無效產品序號                              |
+| 值    | 名稱                    | 描述                                                |
+| ---- | --------------------- | ------------------------------------------------- |
+| FAWK | ForceAssumeWalletKey  | 強制啟用 `AssumeWalletKeyOnBadActivationCode` 兌換偏好設定。 |
+| FD   | ForceDistributing     | 強制啟用 `Distributing` 兌換偏好設定。                       |
+| FF   | ForceForwarding       | 強制啟用 `Forwarding` 兌換偏好設定。                         |
+| FKMG | ForceKeepMissingGames | 強制啟用 `KeepMissingGames` 兌換偏好設定。                   |
+| SAWK | SkipAssumeWalletKey   | 強制停用 `AssumeWalletKeyOnBadActivationCode` 兌換偏好設定。 |
+| SD   | SkipDistributing      | 強制停用 `Distributing` 兌換偏好設定。                       |
+| SF   | SkipForwarding        | 強制停用 `Forwarding` 兌換偏好設定。                         |
+| SI   | SkipInitial           | 產品序號兌換過程跳過第一個 Bot。                                |
+| SKMG | SkipKeepMissingGames  | 強制停用 `KeepMissingGames` 兌換偏好設定。                   |
+| V    | Validate              | 檢查序號格式，自動跳過無效的產品序號。                               |
 
 
-例如，我們打算為尚未擁有遊戲的 BOT 兌換 3 個產品序號，但不包括 `primary` BOT。 為此我們需要執行指令：
+舉例來說，我們打算為任何尚未擁有遊戲的 Bot 兌換 3 個產品序號，但不包含 `primary` Bot。 為此，我們需要執行指令：
 
 `redeem^ primary FF,SI key1,key2,key3`
 
-需要注意的是，進階兌換模式只會替換你**在指令中使用**的`RedeemingPreferences`選項。 例如，如果您在`RedeemingPreferences` 中啟用了 `Distributing`，那麼無論是否使用 `FD` 模式，都不會有任何區別，因為您已經在 `RedeemingPreferences` 中兌換了 Distributing。 這就是為什麼每個可強制啟用的模式也有一個可強制停用的選項，您可以決定自己是希望在啟用的情況下強制覆蓋，反之亦然。
+需要注意的是，進階兌換模式只會替換您**在指令中指定**的 `RedeemingPreferences` 選項。 舉例來說，若您在`RedeemingPreferences` 中啟用了 `Distributing`，那麼無論是否使用 `FD` 模式，都不會有任何區別，因為您已經在 `RedeemingPreferences` 中啟用了它。 這就是為什麼每個可強制啟用的模式，也會有一個可強制停用的選項。您可以將被停用的選項強制覆蓋成啟用，相反的狀況亦可。
 
 
 

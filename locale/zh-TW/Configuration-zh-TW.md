@@ -7,7 +7,7 @@
 * **[ASF-ui 設定](#asf-ui-configuration)**
 * **[手動設定](#manual-configuration)**
 * **[全域設定檔](#global-config)**
-* **[BOT 設定檔](#bot-config)**
+* **[Bot 設定檔](#bot-config)**
 * **[檔案結構](#file-structure)**
 * **[JSON 對應](#json-mapping)**
 * **[相容性對應](#compatibility-mapping)**
