@@ -280,7 +280,7 @@ owns ASF app/292030,name/Witcher
 
 ## `encrypt` 指令
 
-`encrypt` 指令使您能夠使用 ASF 的加密方式加密任意字串。 加密方式 `<encryptionMethod>` 必須是​**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**​章節所述方式之一。 我們建議透過安全的頻道 (ASF 控制台、ASF-ui 或 IPC 提供的專用 API 端點) 使用此命令，否則可能有敏感資訊被第三方記錄 (例如 Steam 伺服器的聊天記錄)。
+`encrypt` 指令使您能夠使用 ASF 的加密方式加密任意字串。 加密方式 `<encryptionMethod>` 必須是​**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**​章節所述方式之一。 我們建議透過安全的通道（ASF 控制台、ASF-ui 或 IPC 提供的專用 API 端點）使用此指令，否則敏感資訊可能會被第三方記錄（例如聊天訊息會被 Steam 伺服器記錄）。
 
 
 
@@ -290,7 +290,7 @@ owns ASF app/292030,name/Witcher
 
 ## `hash` 指令
 
-`hash` 指令使您能夠使用 ASF 的雜湊方式產生任意字串的雜湊值。 雜湊方式 `<hashingMethod>` 必須是​**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**​章節所述方式之一。 我們建議透過安全的頻道 (ASF 控制台、ASF-ui 或 IPC 提供的專用 API 端點) 使用此命令，否則可能有敏感資訊被第三方記錄 (例如 Steam 伺服器的聊天記錄)。
+`hash` 指令使您能夠使用 ASF 的雜湊方式，產生任意字串的雜湊值。 雜湊方式 `<hashingMethod>` 必須是​**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**​章節所述方式之一。 我們建議透過安全的通道（ASF 控制台、ASF-ui 或 IPC 提供的專用 API 端點）使用此指令，否則敏感資訊可能會被第三方記錄（例如聊天訊息會被 Steam 伺服器記錄）。
 
 
 
@@ -300,35 +300,35 @@ owns ASF app/292030,name/Witcher
 
 ## `input` 指令
 
-`input` 指令僅可用於 `Headless` 模式，用來在 ASF 無法接受使用者輸入的情況下，透過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 或者 Steam 聊天輸入一些資料。
+`input` 指令僅可在 `Headless` 模式下使用。在 ASF 無法接受使用者輸入的情況下，透過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 或 Steam 聊天來輸入資料。
 
-通用語法為 `input [Bots] <Type> <Value>`。
+基本語法為 `input [Bots] <Type> <Value>`。
 
-`<Type>` 不區分大小寫，並定義由 ASF 辨識的輸入類型。 目前，ASF 可辨識以下類型：
+`<Type>` 不區分大小寫，定義 ASF 可識別的輸入類型。 目前 ASF 可識別以下類型：
 
-| 類型                      | 描述                                         |
-| ----------------------- | ------------------------------------------ |
-| Login                   | `SteamLogin`機器人配置屬性，在設定檔缺失這個值時使用。          |
-| 密碼                      | `SteamPassword` 機器人配置屬性，在設定檔缺失這個值時使用。      |
-| SteamGuard              | 如果您未啟用2FA，驗證碼將以電子郵件的方式發送。                  |
-| SteamParentalCode       | `SteamParentalCode` 機器人配置屬性，在設定檔缺失這個值時使用。  |
-| TwoFactorAuthentication | 如果您使用的是2FA, 但未使用 ASF 2FA, 則從您的手機生成2FA 代碼 。 |
+| 類型                      | 描述                                       |
+| ----------------------- | ---------------------------------------- |
+| Login                   | `SteamLogin` Bot 設定屬性，設定檔缺失時使用此值。        |
+| Password                | `SteamPassword` Bot 設定屬性，設定檔缺失時使用此值。     |
+| SteamGuard              | 如果您未啟用雙重驗證，驗證碼將以電子郵件的方式發送。               |
+| SteamParentalCode       | `SteamParentalCode` Bot 設定屬性，設定檔缺失時使用此值。 |
+| TwoFactorAuthentication | 如果您啟用雙重驗證但並非 ASF 雙重驗證，雙重驗證權杖將由您的手機生成。    |
 
 
-`<Value>` 是要為指定類型設定的值。 目前所有的值都是字串。
+`<Value>` 是要為指定類型設定的值。 目前所有的值都屬於字串。
 
 
 
 ### 範例
 
-假設我們有一個未啟用兩步驟驗證，僅由 SteamGuard 保護的 BOT。 我們希望在 `Headless` 為 `true` 的情況下啟動這個 BOT。
+假設我們有一個未啟用雙重驗證，僅由 SteamGuard 保護的 Bot。 我們希望在 `Headless` 為 `true` 的情況下啟動這個 Bot。
 
 為此，我們需要執行以下指令：
 
-`start MySteamGuardBot` -> BOT 會嘗試登錄，但因為缺少驗證碼而登錄失敗，然後因為 ASF 處於 `Headless` 模式，BOT 會停止執行。 我們做這一步的目的是讓 Steam 網路向我們發送驗證碼電子郵件——否則我們就可以跳過這一步了。
+`start MySteamGuardBot` -> Bot 將嘗試登入，但會因為缺少驗證碼而登入失敗，然後因為 ASF 處於 `Headless` 模式，Bot 會停止執行。 我們做這一步的目的，是讓 Steam 網路透過電子郵件向我們發送驗證碼──若不需要，我們可以直接跳過此步驟。
 
-`input MySteamGuardBot SteamGuard ABCDE` -> 我們將 `MySteamGuardBot` BOT 的 `SteamGuard` 輸入設定為 `ABCDE`。 當然，在這種情況下，`ABCDE` 是我們從電子郵件中獲得的驗證代碼。
+`input MySteamGuardBot SteamGuard ABCDE` -> 我們將 `MySteamGuardBot` Bot 的 `SteamGuard` 輸入設定為 `ABCDE`。 當然在這種情形下，`ABCDE` 就是我們從電子郵件中獲得的驗證碼。
 
-`start MySteamGuardBot` -> 我們重新啟動已停止的 BOT，這一次會自動使用我們在上一步中設定的驗證碼，登錄將會成功，並且之前的驗證碼輸入會被清除。
+`start MySteamGuardBot` -> 我們重新啟動已停止的 Bot。這一次，會自動使用我們在上個步驟中設定的驗證碼，登入將會成功，且之前輸入的驗證碼會被清除。
 
-同樣，我們可以控制受兩步驟驗證保護的 BOT（如果它們不使用 ASF 兩步驟驗證），只需在執行時設定其他必需的屬性。
+以同樣的方式，我們可以存取受雙重驗證保護的 Bot（如果它們不使用 ASF 雙重驗證），只需在執行時設定其他必須屬性即可。

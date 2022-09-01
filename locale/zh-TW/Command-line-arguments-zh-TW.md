@@ -1,50 +1,50 @@
-# 指令參數
+# 命令列引數
 
-ASF 支援一些能夠影響程式執行階段的指令參數。 進階使用者可使用這些參數以定義程式執行方式。 相較使用 `ASF.json `設定檔的預設方式，指令參數可用於核心初始化（如` --path`）、平台特定設定（如` --system-required`）或敏感資料（如` --cryptkey`）。
+ASF 支援一些能夠影響程式執行階段的命令列引數。 進階使用者可以使用這些引數，來定義程式的執行方式。 相較於使用 `ASF.json` 設定檔的預設方式，命令列引數可用於核心初始化（如 `--path`）、平台特定設定（如 `--system-required`）或敏感資料（如 `--cryptkey`）。
 
 ---
 
-## 使用
+## 使用方法
 
-使用方法取決於您的作業系統和ASF偏好。
+使用方法取決於您的作業系統及 ASF 的版本。
 
 通用：
 
 ```shell
-dotnet ArchiSteamFarm.dll --參數 --另一個參數
+dotnet ArchiSteamFarm.dll --引數 --另一個引數
 ```
 
 Windows：
 
 ```powershell
-.\ArchiSteamFarm.exe --參數 --另一個參數
+.\ArchiSteamFarm.exe --引數 --另一個引數
 ```
 
-Linux/macOS:
+Linux/macOS：
 
 ```shell
-./ArchiSteamFarm --參數 --另一個參數
+./ArchiSteamFarm --引數 --另一個引數
 ```
 
-指令參數也可用於通用輔助腳本中，例如`ArchiSteamFarm.cmd`或`ArchiSteamFarm.sh`。 除此之外，如在 **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-zh-TW#指令參數)** 章節中所述，使用輔助腳本時，您也可使用 `ASF_ARGS` 環境屬性。
+命令列引數也可用於通用輔助腳本中，例如 `ArchiSteamFarm.cmd` 或 `ArchiSteamFarm.sh`。 除此之外，如在 **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-zh-TW#命令列引數)** 章節中所述，使用輔助腳本時，您也可使用 `ASF_ARGS` 環境屬性。
 
-若您的參數中存在空格，請務必要使用引號將其括住。 兩個錯誤示例：
+若您的引數中存在空格，別忘了使用引號將其括住。 兩個錯誤的範例：
 
 ```shell
-./ArchiSteamFarm --path /home/archi/My Downloads/ASF # 錯誤！
-./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # 錯誤！
+./ArchiSteamFarm --path /home/archi/My Downloads/ASF # 這是錯的！
+./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # 這是錯的！
 ```
 
-兩個正確示例：
+下面兩個才是正確的：
 
 ```shell
-./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # 正確
-./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # 正確
+./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # 這樣才正確
+./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # 這樣才正確
 ```
 
-## 參數
+## 引數
 
-`--cryptkey <key>` 或 `--cryptkey=<key>` - 將以自訂的密鑰 `<key>` 啟動 ASF。 This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
+`--cryptkey<key>` 或 `--cryptkey=<key>`──將以自訂金鑰 `<key>` 啟動 ASF。 This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
 
 Due to the nature of this property, it's also possible to set cryptkey by declaring `ASF_CRYPTKEY` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 

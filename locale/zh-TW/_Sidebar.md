@@ -13,7 +13,7 @@
 * **[🏡 首頁](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[🔧 配置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[💬 常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[⚙️ 設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)****（由此開始）**
+* **[⚙️ 新手上路](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)****（由此開始）**
 
 
 ## 👨‍🎓️ 主要
@@ -36,7 +36,7 @@
 * **[🤔 其他常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[🚀 高效能設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[🌐 翻譯](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[🌐 在地化翻譯](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 紀錄日誌](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 低記憶體設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[🔌 外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**

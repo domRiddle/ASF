@@ -1,4 +1,4 @@
-# 在地化
+# 在地化翻譯
 
 ASF 在地化由 Crowdin 提供服務，使每個人都能幫助翻譯 ASF 為所有語言。 需要更多關於 Crowdin 如何工作的詳細解釋，請查看 **[Crowdin 介紹](https://support.crowdin.com/crowdin-intro)**。
 

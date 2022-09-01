@@ -1,4 +1,4 @@
-# 發佈週期
+# 發布週期
 
 ASF uses common C# versioning with 4 numbers, written as `A.B.C.D`. Given version is always frozen, pointing to a fixed source code it was built from (bundled together with the release). We do not intend to remove any previously-published version, as long as our hosting provider (GitHub) remains fine with preserving them for indefinite future, therefore you can safely rollback to any of them without a need of making self-copies.
 
