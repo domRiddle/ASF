@@ -48,7 +48,7 @@ Linux/macOS：
 
 鹽</1></0>（用於雜湊），請注意使用此金鑰加密／雜湊出的一切，ASF 在每次執行時都需要給入相同的值。</p> 
 
-由於此屬性的性質，它還能透過宣告 `ASF_CRYPTKEY` 的環境變數來設定 cryptkey，這更適合希望在程序引數中，不包含敏感資訊的使用者。
+由於此屬性的性質，它還能透過宣告 `ASF_CRYPTKEY` 環境變數來設定 cryptkey，這更適合希望在程序引數中，不包含敏感資訊的使用者。
 
 
 
@@ -60,15 +60,15 @@ Linux/macOS：
 
 ---
 
-`--network-group <group>` 或 `--network-group=<group>`──使 ASF 使用 `<group>` 值的自訂網路群組來初始化其限制器。 這個選項會影響執行**[多個實例](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#多個實例)**的 ASF，使用此選項指定的實例只會與相同網路群組的實例相互分享資訊，而與其他實例獨立。 通常只有在您透過自訂機制（如不同的 IP 位址）來設定 ASF 的路由請求時，才需要使用本選項來設定網路群組，不再依 ASF 自動執行此操作（目前只包含 <0 >WebProxy</code>）。 Keep in mind that when using a custom network group, this is unique identifier within the local machine, and ASF will not take into account any other details, such as `WebProxy` value, allowing you to e.g. start two instances with different `WebProxy` values which are still dependent on each other.
+`--network-group <group>` 或 `--network-group=<group>`──使 ASF 使用 `<group>` 值的自訂網路群組來初始化其限制器。 這個選項會影響執行**[多個實例](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#多個實例)**的 ASF，使用此選項指定的實例只會與相同網路群組的實例相互分享資訊，而與其他實例獨立。 通常只有在您透過自訂機制（如不同的 IP 位址）來設定 ASF 的路由請求時，才需要使用本選項來設定網路群組，不再依 ASF 自動執行此操作（目前只包含 <0 >WebProxy</code>）。 請注意，在使用自訂網路群組時，這是本機電腦中的唯一識別碼，ASF 將不考慮任何其他細節。例如 `WebProxy` 的值，您可以使用不同的 `WebProxy` 值來執行兩個實例，但它們仍會互相影響。
 
-Due to the nature of this property, it's also possible to set the value by declaring `ASF_NETWORK_GROUP` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+由於此屬性的性質，它還能透過宣告 `ASF_NETWORK_GROUP` 環境變數來設定其值，這更適合希望在程序引數中，不包含敏感資訊的使用者。
 
 
 
 ---
 
-`--no-config-migrate` - by default ASF will automatically migrate your config files to latest syntax. Migration includes conversion of deprecated properties into latest ones, removing properties with default values (as they have no effect), as well as cleaning up the file in general (correcting indentation and likewise). This is almost always a good idea, but you might have a particular situation where you'd prefer ASF to never overwrite the config files automatically. For example, you might want to `chmod 400` your config files (read permission for the owner only) or put `chattr +i` over them, in result denying write access for everyone, e.g. as a security measure. Usually we recommend to keep the config migration enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-config-migrate`──在預設情形下，ASF 會自動將您的設定檔遷移成最新的語法。 Migration includes conversion of deprecated properties into latest ones, removing properties with default values (as they have no effect), as well as cleaning up the file in general (correcting indentation and likewise). This is almost always a good idea, but you might have a particular situation where you'd prefer ASF to never overwrite the config files automatically. For example, you might want to `chmod 400` your config files (read permission for the owner only) or put `chattr +i` over them, in result denying write access for everyone, e.g. as a security measure. Usually we recommend to keep the config migration enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
 
 
 
