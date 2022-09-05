@@ -68,7 +68,7 @@ Linux/macOS：
 
 ---
 
-`--no-config-migrate`──在預設情形下，ASF 會自動將您的設定檔遷移成最新的語法。 Migration includes conversion of deprecated properties into latest ones, removing properties with default values (as they have no effect), as well as cleaning up the file in general (correcting indentation and likewise). This is almost always a good idea, but you might have a particular situation where you'd prefer ASF to never overwrite the config files automatically. For example, you might want to `chmod 400` your config files (read permission for the owner only) or put `chattr +i` over them, in result denying write access for everyone, e.g. as a security measure. Usually we recommend to keep the config migration enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-config-migrate`──在預設情形下，ASF 會自動將您的設定檔遷移成最新的語法。 遷移包含：將廢止的屬性轉換成最新的屬性，刪除值為預設的屬性（因為它們沒有意義），以及清理檔案內容（修正縮排等）。 這通常是個好方法，但您可能會遇到特殊情形，以致於希望 ASF 不會去自動覆蓋設定檔。 舉例來說，您可能想要對設定檔 `chmod 400`（僅擁有者可讀取），或使用 `chattr +i` 禁止任何人寫入，來作為安全措施。 Usually we recommend to keep the config migration enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
 
 
 
