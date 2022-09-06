@@ -68,13 +68,13 @@ Linux/macOS：
 
 ---
 
-`--no-config-migrate`──在預設情形下，ASF 會自動將您的設定檔遷移成最新的語法。 遷移包含：將廢止的屬性轉換成最新的屬性，刪除值為預設的屬性（因為它們沒有意義），以及清理檔案內容（修正縮排等）。 這通常是個好方法，但您可能會遇到特殊情形，以致於希望 ASF 不會去自動覆蓋設定檔。 舉例來說，您可能想要對設定檔 `chmod 400`（僅擁有者可讀取），或使用 `chattr +i` 禁止任何人寫入，來作為安全措施。 Usually we recommend to keep the config migration enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-config-migrate`──在預設情形下，ASF 會自動將您的設定檔遷移成最新的語法。 遷移包含：將廢止的屬性轉換成最新的屬性，刪除值為預設的屬性（因為它們沒有意義），以及清理檔案內容（修正縮排等）。 這通常是個好方法，但您可能會遇到特殊情形，以致於希望 ASF 不會去自動覆蓋設定檔。 舉例來說，您可能想要對設定檔 `chmod 400`（僅擁有者可讀取），或使用 `chattr +i` 禁止任何人寫入，來作為安全措施。 一般而言，我們建議保留啟用設定遷移，但如果您有特定的理由停用它，並希望 ASF 不遷移設定，您可以使用此開關來達成。
 
 
 
 ---
 
-`--no-config-watch` - by default ASF sets up a `FileSystemWatcher` over your `config` directory in order to listen for events related to file changes, so it can interactively adapt to them. For example, this includes stopping bots on config deletion, restarting bot on config being changed, or loading keys into **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** once you drop them into the `config` directory. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate. Usually we recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-config-watch`──在預設情形下，ASF 會在您的 `config` 資料夾中設定 `FileSystemWatcher`，以監聽更動檔案的事件 ，因此才能夠動態的適應這些改動。 For example, this includes stopping bots on config deletion, restarting bot on config being changed, or loading keys into **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** once you drop them into the `config` directory. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate. Usually we recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
 
 
 
