@@ -22,7 +22,7 @@ Prima di provare a comprendere cosa ASF sia, dovresti assicurarti di aver capito
 
 In breve, le carte di Steam sono oggetti raccoglibili che sei idoneo a ricevere quando possiedi un particolare gioco, e sono utilizzabili per creare distintivi, vendere sul mercato di Steam od ogni altro scopo di tua scelta.
 
-I punti fondamentali sono ribaditi qui, perché le persone in generale non vogliono acconsentire e adorano pretendere che non esistano:
+Core points are stated once again here, because people in general don't want to agree with them and prefer to pretend that those do not exist:
 
 - **Devi possedere il gioco sul tuo profilo di Steam per essere idoneo a ricevere ogni carta da esso. La condivisione familiare non conta.**
 - **Non puoi farmare infinitamente il gioco, ogni gioco ha un numero fisso di carte ottenibili. Once you drop all of them (around a half of the full set), the game is not a candidate for farming anymore. Non importa che tu abbia venduto, scambiato, creato o dimenticato cosa sia successo a quelle carte che hai ottenuto, una volta finite le carte ottenibili, il gioco è finito.**

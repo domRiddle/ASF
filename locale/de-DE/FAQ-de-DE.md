@@ -22,7 +22,7 @@ Bevor Sie versuchen herauszufinden, was ASF ist, sollten Sie sicherstellen, dass
 
 Kurz gesagt, Steam-Sammelkarten sind sammelbare Gegenstände, welche Sie sammeln können, wenn Sie ein bestimmtes Spiel besitzen, und können für die Herstellung von Abzeichen, den Verkauf auf dem Steam-Markt oder für jeden anderen Zweck Ihrer Wahl verwendet werden.
 
-Hier werden noch einmal die Kernpunkte genannt, weil Leute im Allgemeinen nicht mit ihnen einverstanden sind und so tun als ob diese nicht existieren würden:
+Core points are stated once again here, because people in general don't want to agree with them and prefer to pretend that those do not exist:
 
 - **Sie müssen das Spiel auf dem Steam-Account besitzen, um für die dazu gehörigen Kartenfunde berechtigt zu sein. Spiele die über die Steam-Familienbibliothek geteilt werden zählen nicht.**
 - **Sie können nicht unendlich lange sammeln; jedes Spiel hat eine feste Anzahl an Kartenfunde. Once you drop all of them (around a half of the full set), the game is not a candidate for farming anymore. Es ist unwichtig, ob Sie die Karten verkauft, gehandelt, Abzeichen hergestellt oder lediglich vergessen haben, was damit geschehen ist; sobald die maximale Anzahl erreicht wurde, wird für dieses Spiel nicht weiter gesammelt.**

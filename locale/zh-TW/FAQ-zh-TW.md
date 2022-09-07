@@ -1,6 +1,6 @@
 # 常見問題
 
-基本的「常見問題」包含了您可能會问的問題和標準答案。 如果您的問題並不常見，請參閱**[其他常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-zh-TW)**。
+常見問題包含了您可能會經常遇到的問題及它們的解答。 如果您的問題並不常見，請參閱**[其他常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-zh-TW)**。
 
 # 目錄
 
@@ -22,7 +22,7 @@
 
 Steam 交換卡片是物品庫裡的一個項目，在你擁有一款遊戲時，你可以獲得該遊戲的交換卡片，並使用交換卡片來合成徽章或於社群市集販賣。
 
-Core points are stated once again here, because people in general don't want to agree with them and like to pretend that those do not exist:
+Core points are stated once again here, because people in general don't want to agree with them and prefer to pretend that those do not exist:
 
 - **You need to own the game on your Steam account in order to be eligible for any card drops from it. 親友同享的遊戲不包含在內。**
 - **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for farming anymore. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**

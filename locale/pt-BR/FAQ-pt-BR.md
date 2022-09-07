@@ -22,7 +22,7 @@ Antes de tentar entender o que é o ASF, certifique-se de que você entende o qu
 
 Em resumo, as Cartas Colecionáveis são itens que você obtém ao jogar certos jogos, elas podem ser usadas para criar insígnias, serem vendidas no Mercado da Comunidade Steam ou qualquer outro objetivo de sua escolha.
 
-Os pontos principais são apresentados aqui novamente, porque geralmente as pessoas não querem concordar com eles e gostam de fingir que eles não existem:
+Core points are stated once again here, because people in general don't want to agree with them and prefer to pretend that those do not exist:
 
 - **Você precisa ter o jogo na sua biblioteca Steam para ser elegível a ganhar cartas dele. Compartilhamento de biblioteca não conta.**
 - **Você não pode coletar de um jogo infinitamente, cada jogo tem um número fixo de cartas. Quando você terminar de coletar todas elas (cerca de metade do conjunto completo), o jogo não dará mais cartas. Não importa se você vendeu, trocou, criou insígnias ou esqueceu o que aconteceu com as cartas que você obteve, assim que acabarem as cartas disponíveis para determinado jogo. ele estará concluído.**

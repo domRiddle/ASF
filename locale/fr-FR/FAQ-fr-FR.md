@@ -22,7 +22,7 @@ Avant d'essayer de comprendre ce qu'est ASF, vous devez vous assurer de bien com
 
 En bref, les cartes Steam sont des objets de collection auxquels vous êtes admissible lorsque vous possédez un jeu en particulier. Vous pouvez les utiliser pour confectionner des badges, vendre sur le marché Steam ou à toute autre chose de votre choix.
 
-Core points are stated once again here, because people in general don't want to agree with them and like to pretend that those do not exist:
+Core points are stated once again here, because people in general don't want to agree with them and prefer to pretend that those do not exist:
 
 - **You need to own the game on your Steam account in order to be eligible for any card drops from it. Le partage familial ne compte pas.**
 - **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for farming anymore. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**

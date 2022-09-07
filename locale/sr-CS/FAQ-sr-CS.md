@@ -22,7 +22,7 @@ Prije nego što pokušate da razumijete šta je ASF, trebate razumjeti šta su S
 
 Ukratko, Steam kartice su itemi koji se sakupljaju i igricama koje posjedujete i koje to podržavaju, a koje mogu biti iskorišćene za pravljenje bedževa, ili prodaju istih na Steam marketu ili za bilo koju drugu vašu namjeru.
 
-Glavne tačke su izložene ponovo ovdje, zato što ljudi uglavnom ne slaži sa njima i vole da se pretvaraju da ne postoje:
+Core points are stated once again here, because people in general don't want to agree with them and prefer to pretend that those do not exist:
 
 - **Morate posjedovati igricu na vašem Steam nalogu da bi mogli da dobijate kartice od istih. Porodično podijeljene igrice se ne računaju.**
 - **Ne možete farmati neograničen broj kartica, svaka igrica ima određen broj kartica koje možete dobiti. Once you drop all of them (around a half of the full set), the game is not a candidate for farming anymore. Nema veze da li ste ih prodali, razmijenili, napravili bedž ili zaboravili šta se sa njima desilo, kada dobijete sve kartice nećete dobiti ni jednu više.**

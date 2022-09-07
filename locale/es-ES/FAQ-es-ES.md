@@ -22,7 +22,7 @@ Antes de intentar entender lo que es ASF, debes asegurarte de que entiendes lo q
 
 En resumen, los cromos de Steam son artículos coleccionables para los que eres elegible cuando tienes un juego en particular, y pueden ser usados para fabricar insignias, venderlos en el mercado de Steam o cualquier otro propósito de tu elección.
 
-Los puntos principales se repiten aquí, porque las personas generalmente no quieren aceptarlos y les gusta pretender que no existen:
+Los puntos principales se repiten aquí, porque las personas generalmente no quieren aceptarlos y prefieren pretender que no existen:
 
 - **Necesitas poseer el juego en tu cuenta de Steam para poder obtener cromos de él. El préstamo familiar no cuenta.**
 - **No puedes recolectar el juego infinitamente, cada juego tiene un número fijo de cromos a obtener. Una vez que obtienes todos (alrededor de la mitad del set completo), el juego ya no es candidato para recolección. No importa si has vendido, intercambiado, fabricado u olvidado lo que ocurrió con los cromos que obtuviste, una vez que te quedas sin cromos obtenibles, el juego se acabó.**

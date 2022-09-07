@@ -22,7 +22,7 @@ Ennen kuin yrität ymmärtää mikä ASF on, sinun tulee varmistaa, että ymmär
 
 Lyhyesti sanottuna, Steamin kortit ovat kerättäviä esineitä, joita voit saada tietyn pelin omistaessasi. Niitä voidaan käyttää merkkien luomiseen, myymiseen Steamin kauppapaikalla, tai mihin tahansa muuhun valitsemaasi tarkoitukseen.
 
-Tässä toistetaan jälleen kerran muutama asia, joihin ihmiset eivät usko tai haluavat teeskenneellä, ettei niitä ole olemassa:
+Core points are stated once again here, because people in general don't want to agree with them and prefer to pretend that those do not exist:
 
 - **Jos haluat saada pelin kortteja, sinun tulee omistaa se Steam-tililläsi. Steamin Lainaamoa ei lasketa.**
 - **Ei voi farmata peliä loputtomasti, jokaisella pelillä on vain tietty määrä korttien pudotuksia. Once you drop all of them (around a half of the full set), the game is not a candidate for farming anymore. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
