@@ -46,7 +46,15 @@ Linux/macOS:
 
 `--cryptkey <key>` 혹은 `--cryptkey=<key>` - `<key>`값의 자체 암호화 키를 가지고 ASF를 시작합니다. 이 옵션은 **[보안](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ko-KR)**에 영향을 주고 ASF가 실행파일에 하드코딩된 기본 키 대신 제공된 자체 `<key>`키를 사용하도록 합니다. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
 
+If you want to provide `<key>` from a file, use `--cryptkey-file` for that purpose instead, explained below.
+
 이 속성값의 특성때문에 `ASF_CRYPTKEY` 환경 변수를 선언하여 cryptkey를 설정하는 것도 가능합니다. 인자 처리 중 민감한 정보를 피하고 싶은 사람들에게 더 적절합니다.
+
+---
+
+`--cryptkey-file <path>` or `--cryptkey-file=<path>` - will start ASF with custom cryptographic key read from `<path>` file. This serves the same purpose as `--cryptkey <key>` explained above, only the mechanism differs, as this property will read `<key>` from provided `<path>` instead.
+
+Due to the nature of this property, it's also possible to set cryptkey file by declaring `ASF_CRYPTKEY_FILE` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
 ---
 

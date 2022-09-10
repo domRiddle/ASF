@@ -46,7 +46,15 @@ Cu toate acestea, următoarele sunt complet în regulă:
 
 `--cryptkey <key>` sau `--cryptkey=<key>` - va începe ASF cu cheia criptografică personalizată de `<key>`. Această opțiune afectează **[securitatea](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** și va face ca ASF să utilizeze cheia personalizată oferită `<key>` în loc de cea implicită codificată în executabil. Deoarece această proprietate afectează cheia de criptare implicită (în scopuri de criptare) şi valoarea salt (în scopuri de hashing), ține cont de faptul că totu ce este criptat/hashed cu această cheie necesită ca ea să fie transmisă la fiecare rulare ASF.
 
+If you want to provide `<key>` from a file, use `--cryptkey-file` for that purpose instead, explained below.
+
 Datorită naturii acestei proprietăți, este posibilă și setarea cheii de criptare prin declararea variabilei de mediu `ASF_CRYPTKEY`, care ar putea fi mai potrivită pentru persoanele care ar dori să evite detaliile sensibile în argumentele procesului.
+
+---
+
+`--cryptkey-file <path>` or `--cryptkey-file=<path>` - will start ASF with custom cryptographic key read from `<path>` file. This serves the same purpose as `--cryptkey <key>` explained above, only the mechanism differs, as this property will read `<key>` from provided `<path>` instead.
+
+Due to the nature of this property, it's also possible to set cryptkey file by declaring `ASF_CRYPTKEY_FILE` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
 ---
 

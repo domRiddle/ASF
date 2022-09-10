@@ -46,7 +46,15 @@ Aber diese zwei sind völlig in Ordnung:
 
 `--cryptkey <key>` oder `--cryptkey=<key>` - ASF startet mit dem benutzerdefinierten kryptographischen Schlüssel `<key>`. Diese Option wirkt sich auf die **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE#sicherheit)** aus und veranlasst ASF, den von Ihnen bereitgestellten `<key>` Schlüssel anstelle des standardmäßig fest in die ausführbare Datei einprogrammierten Schlüssels zu verwenden. Beachten Sie bitte, dass sämtliche Verschlüsselungen/Hashs bei jedem ASF-Lauf weitergegeben wird, da diese Eigenschaft den Standard-Verschlüsselungsschlüssel (für Verschlüsselungszwecke) sowie SALT (für Hashing-Zwecke) betrifft.
 
+If you want to provide `<key>` from a file, use `--cryptkey-file` for that purpose instead, explained below.
+
 Aufgrund der Natur dieser Eigenschaft ist es auch möglich, einen cryptkey zu setzen, indem man die Umgebungsvariable `ASF_CRYPTKEY` deklariert, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
+
+---
+
+`--cryptkey-file <path>` or `--cryptkey-file=<path>` - will start ASF with custom cryptographic key read from `<path>` file. This serves the same purpose as `--cryptkey <key>` explained above, only the mechanism differs, as this property will read `<key>` from provided `<path>` instead.
+
+Due to the nature of this property, it's also possible to set cryptkey file by declaring `ASF_CRYPTKEY_FILE` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
 ---
 
@@ -68,7 +76,7 @@ Aufgrund der Natur dieser Eigenschaft ist es auch möglich, den Wert zu setzen, 
 
 ---
 
-`--no-restart` - Diese Option wird hauptsächlich in unseren **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-de-DE)**-Containern genutzt und setzt `AutoRestart` auf `false`. Solange du keinen bestimmten Grund besitzt, solltest du stattdessen die `AutoRestart` Option in deiner Konfiguration verwenden. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Natürlich, wenn Sie ASF in einem Skript ausführen, können Sie auch diesen Schalter verwenden (ansonsten sind Sie mit der globalen Konfigurationseigenschaft besser dran).
+`--no-restart` - Diese Option wird hauptsächlich in unseren **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-de-DE)**-Containern genutzt und setzt `AutoRestart` auf `false`. Solange du keinen bestimmten Grund besitzt, solltest du stattdessen die `AutoRestart` Option in deiner Konfiguration verwenden. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Selbstverständlich können Sie diese Option auch verwenden, wenn Sie ASF in einem Skript ausführen; ansonsten ist die globalen Konfigurationseigenschaft besser geeignet.
 
 ---
 
@@ -76,9 +84,9 @@ Aufgrund der Natur dieser Eigenschaft ist es auch möglich, den Wert zu setzen, 
 
 ---
 
-`--path <path>` oder `--path=<path>` - ASF wechselt beim Start immer in sein eigenes Verzeichnis. Wird dieser Parameter angegeben so wird ASF nach der Initialisierung zu dem gegebenem Programmverzeichnis navigieren, dies macht es Ihnen möglich andere Verzeichnisse wie z.B. `config`, `plugins` oder `www` (sowie auch die `NLog.config` Datei) für unterschiedliche Teile der Applikation zu nutzen. Das Kopieren der Binärdateien an diese Stellen ist dadurch nicht mehr nötig. Es kann besonders nützlich sein, wenn Sie die Binärdatei von der eigentlichen Konfiguration trennen möchten, wie es in einer Linux-ähnlichen Verpackung geschieht - so können Sie eine (aktuelle) Binärdatei mit mehreren verschiedenen Konfigurationen verwenden. Der Pfad kann entweder relativ zum aktuellen Ort der ASF-Binärdatei oder absolut sein. Bedenke auch, dass dieser Befehl auf einen neuen "ASF Homeordner" zeigt - ein Verzeichnis, welches die gleiche Struktur wie der ursprüngliche ASF Ordner hat, mit einem Verzeichnis config darin, siehe unteres Beispiel für eine Erklärung.
+`--path <path>` oder `--path=<path>` - ASF wechselt beim Start immer in sein eigenes Verzeichnis. Wird dieser Parameter angegeben, so wird ASF nach der Initialisierung zu dem gegebenem Programmverzeichnis navigieren. Dies macht es Ihnen möglich andere Verzeichnisse wie z. B. `config`, `plugins` oder `www` (sowie auch die `NLog.config` Datei) für unterschiedliche Teile der Applikation zu nutzen. Das Kopieren der Binärdateien an diese Stellen ist dadurch nicht mehr nötig. Es kann besonders nützlich sein, wenn Sie die Binärdatei von der eigentlichen Konfiguration trennen möchten, wie es in einer Linux-ähnlichen Paketen geschieht. So können Sie eine (aktuelle) Binärdatei mit mehreren verschiedenen Konfigurationen verwenden. Der Pfad kann entweder relativ zum aktuellen Ort der ASF-Binärdatei oder absolut sein. Bedenke auch, dass dieser Befehl auf einen neuen "ASF-Homeordner" zeigt - ein Verzeichnis, welches die gleiche Struktur wie der ursprüngliche ASF-Ordner hat, mit einem Verzeichnis config darin, siehe unteres Beispiel für eine Erklärung.
 
-Aufgrund der Natur dieser Eigenschaft ist es auch möglich, den erwarteten Pfad zu setzen, indem man die Umgebungsvariable `ASF_PATH` deklariert, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
+Aufgrund der Natur dieser Eigenschaft ist es auch möglich, den erwarteten Pfad zu setzen, indem man die Umgebungsvariable `ASF_PATH` deklariert wird, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
 
 Wenn Sie erwägen, dieses Kommandozeilenargument für die Ausführung mehrerer ASF-Instanzen zu verwenden, empfehlen wir Ihnen, unsere **[Kompatibilitätsseite](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#multiple-instances)** zu diesem Thema durchzulesen.
 

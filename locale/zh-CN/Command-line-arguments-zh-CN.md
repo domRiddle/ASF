@@ -46,7 +46,15 @@ Linux/macOS：
 
 `--cryptkey <key>` 或 `--cryptkey=<key>`——将以值为 `<key>` 的自定义密钥启动 ASF。 此参数影响[**安全性**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)且将导致 ASF 使用您所提供的自定义密钥 `<key>` 而非硬编码在程序中的默认密钥。 因为此属性会影响默认加密密钥（用于加密目的）和盐（用于加密目的），请记住，使用此密钥加密/哈希的一切都要求 ASF 每次运行时传入相同的值。
 
+If you want to provide `<key>` from a file, use `--cryptkey-file` for that purpose instead, explained below.
+
 由于该属性本身的性质，您也可以设置 `ASF_CRYPTKEY` 环境变量来设置此密钥，这更适合想避免在进程参数中暴露敏感信息的用户。
+
+---
+
+`--cryptkey-file <path>` or `--cryptkey-file=<path>` - will start ASF with custom cryptographic key read from `<path>` file. This serves the same purpose as `--cryptkey <key>` explained above, only the mechanism differs, as this property will read `<key>` from provided `<path>` instead.
+
+Due to the nature of this property, it's also possible to set cryptkey file by declaring `ASF_CRYPTKEY_FILE` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
 ---
 
@@ -54,7 +62,7 @@ Linux/macOS：
 
 ---
 
-`--network-group <group>` 或 `--network-group=<group>`——使 ASF 在自定义网络组 `<group>` 内初始化限制。 此选项影响&#8203;**[多实例](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#多实例)**&#8203;运行的 ASF，指定此实例仅与相同网络组的实例共享，与其他实例独立。 通常，只有在您通过自定义机制（例如不同 IP 地址）路由 ASF 请求时才需要使用此选项手动设置网络组，不再依赖 ASF 自动处理（目前仅会考虑 `WebProxy`）。 请注意，在使用自定义网络组时，这是属于本机的唯一标识符，ASF 将不再考虑其他细节，例如 `WebProxy` 的值，这使您可以运行两个 `WebProxy` 不同的实例，但仍然互相影响。
+`--network-group <group>` 或 `--network-group=<group>`——使 ASF 在自定义网络组 `<group>` 内初始化限制。 此选项影响[**多实例**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#多实例)运行的 ASF，指定此实例仅与相同网络组的实例共享，与其他实例独立。 通常，只有在您通过自定义机制（例如不同 IP 地址）路由 ASF 请求时才需要使用此选项手动设置网络组，不再依赖 ASF 自动处理（目前仅会考虑 `WebProxy`）。 请注意，在使用自定义网络组时，这是属于本机的唯一标识符，ASF 将不再考虑其他细节，例如 `WebProxy` 的值，这使您可以运行两个 `WebProxy` 不同的实例，但仍然互相影响。
 
 由于该属性本身的性质，您也可以设置 ` ASF_NETWORK_GROUP` 环境变量来设置此值，这更适合想避免在进程参数中暴露敏感信息的用户。
 
@@ -64,7 +72,7 @@ Linux/macOS：
 
 ---
 
-`--no-config-watch`——默认情况下，ASF 会对您的 `config` 文件夹设置 `FileSystemWatcher` 以监视与文件变更有关的事件，因此才能动态适应这些变化。 例如，在配置文件被删除后停止机器人、配置文件被修改后重启机器人，或者在您向 `config` 文件夹添加游戏序列号之后自动加载到&#8203;**[后台游戏激活器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**&#8203;中。 此开关允许您禁用这个行为，使 ASF 完全忽略 `config` 文件夹内的任何变化，您必须在需要时手动执行相关操作。 通常我们建议启用配置文件监听，但如果您有特定的禁用理由，不希望 ASF 监视事件，就可以用此开关达成目的。
+`--no-config-watch`——默认情况下，ASF 会对您的 `config` 文件夹设置 `FileSystemWatcher` 以监视与文件变更有关的事件，因此才能动态适应这些变化。 例如，在配置文件被删除后停止机器人、配置文件被修改后重启机器人，或者在您向 `config` 文件夹添加游戏序列号之后自动加载到[**后台游戏激活器**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)中。 此开关允许您禁用这个行为，使 ASF 完全忽略 `config` 文件夹内的任何变化，您必须在需要时手动执行相关操作。 通常我们建议启用配置文件监听，但如果您有特定的禁用理由，不希望 ASF 监视事件，就可以用此开关达成目的。
 
 ---
 
@@ -80,7 +88,7 @@ Linux/macOS：
 
 由于该属性本身的性质，您也可以设置 `ASF_PATH` 环境变量来设置此路径，这更适合想避免在进程参数中暴露敏感信息的用户。
 
-如果您考虑使用命令行参数以运行多个 ASF 实例，我们推荐您阅读本指南的&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#多实例)**&#8203;页面。
+如果您考虑使用命令行参数以运行多个 ASF 实例，我们推荐您阅读本指南的[**兼容性**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#多实例)页面。
 
 示例:
 

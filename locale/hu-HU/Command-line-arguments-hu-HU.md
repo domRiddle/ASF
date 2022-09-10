@@ -46,7 +46,15 @@ Viszont ez a két sor jó:
 
 `--cryptkey <key>` vagy `--cryptkey=<key>` - az ASF-t egyedi titkosító kulccsal fogja elindítani, melynek értéke `<key>`. Ez a beállítás a **[biztonságot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** befolyásolja, és kényszeríteni fogja az ASF-t, hogy az általad megadott `<key>` kulcsot használja az alapértelmezett helyett, ami a futtatható állományba van beleégetve. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
 
+If you want to provide `<key>` from a file, use `--cryptkey-file` for that purpose instead, explained below.
+
 A titkosító kulcsot lehetőség van úgy is beállítani, hogy az `ASF_CRYPTKEY` környezeti változót használod, ami azon emberek számára lehet hasznos, akik nem szeretnének érzékeny adatokat argumentumokon keresztül átadni.
+
+---
+
+`--cryptkey-file <path>` or `--cryptkey-file=<path>` - will start ASF with custom cryptographic key read from `<path>` file. This serves the same purpose as `--cryptkey <key>` explained above, only the mechanism differs, as this property will read `<key>` from provided `<path>` instead.
+
+Due to the nature of this property, it's also possible to set cryptkey file by declaring `ASF_CRYPTKEY_FILE` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
 ---
 

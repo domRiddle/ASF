@@ -48,7 +48,17 @@ Linux/macOS：
 
 鹽</1></0>（用於雜湊），請注意使用此金鑰加密／雜湊出的一切，ASF 在每次執行時都需要給入相同的值。</p> 
 
+如果您想從檔案中提供 `<key>`，請改用 `--cryptkey-file`，如下所述。
+
 由於此屬性的性質，它還能透過宣告 `ASF_CRYPTKEY` 環境變數來設定 cryptkey，這更適合希望在程序引數中，不包含敏感資訊的使用者。
+
+
+
+---
+
+`--cryptkey-file<path>` 或 `--cryptkey-file=<path>`──將使用從 `<path>` 檔案中讀取的自訂加密金鑰 <0><1></0> 啟動 ASF。 This serves the same purpose as `--cryptkey <key>` explained above, only the mechanism differs, as this property will read `<key>` from provided `<path>` instead.
+
+由於此屬性的性質，它還能透過宣告 `ASF_CRYPTKEY_FILE` 環境變數來設定 cryptkey 檔案，這更適合希望在程序引數中，不包含敏感資訊的使用者。
 
 
 
@@ -80,32 +90,32 @@ Linux/macOS：
 
 ---
 
-`--no-restart` - this switch is mainly used by our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)** containers and forces `AutoRestart` of `false`. Unless you have a particular need, you should instead configure `AutoRestart` property directly in your config. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. 當然，如果是在腳本中執行 ASF，您也可以使用此開關（否則您最好使用全域設定檔內容）。
+`--no-restart`──這個開關主要由 **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-zh-TW)** 容器所使用，它會強制將 `AutoRestart` 設定成 `false`。 除非您有特殊需求，否則您應該直接在設定中設定 `AutoRestart` 屬性。 這個開關使 Docker 腳本不需要修改您的全域設定，來適應它的環境。 當然，如果是在腳本中執行 ASF，您也可以使用此開關（否則您最好使用全域設定屬性）。
 
 
 
 ---
 
-`--no-steam-parental-generation` - by default ASF will automatically attempt to generate Steam parental PINs, as described in **[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamparentalcode)** configuration property. However, since that might require excessive amount of OS resources, this switch allows you to disable that behaviour, which will result in ASF skipping auto-generation and go straight to asking user for PIN instead, which is what would normally happen only if the auto-generation has failed. Usually we recommend to keep the generation enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-steam-parental-generation`──在預設情形下，ASF 會自動嘗試生成 Steam 家長監護 PIN 碼，如 **[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#steamparentalcode)** 組態屬性中所述。 但由於這可能需要過多的作業系統資源，因此這個開關允許您停用此行為，這將使 ASF 跳過自動生成，並直接向使用者詢問 PIN 碼，與一般情形下的自動生成失敗時相同。 一般而言，我們建議保留啟用生成，但如果您有特定的理由停用它，並希望 ASF 不生成代碼，您可以使用此開關來達成。
 
 
 
 ---
 
-`--path <path>` or `--path=<path>` - ASF 會在啟動後使用程式所在的資料夾。 通過設定此參數，ASF 會在初始化後使用指定的資料夾，讓您能為不同設定（包括 `config`、`plugins` 和 `www` 資料夾，以及 `NLog.config` 檔案）使用不同的資料夾而不用重複複製執行檔至各別資料夾。 如果您想將二進位檔和實際設定檔分開，這可能會非常有用，正如 Linux 封裝機制——這樣您就可以在多個設定檔中使用一個（最新的）二進位檔。 此路徑既可以是基於 ASF 二進位檔案所在位置的相對路徑，也可以是絕對路徑。 Keep in mind that this command points to new "ASF home" - the directory that has the same structure as original ASF, with config directory inside, see below example for explanation.
+`--path <path>` 或 `--path=<path>`──在預設情形下，ASF 總是會在啟動後，使用程式本身所在的資料夾。 透過指定此引數，ASF 會在初始化後使用指定的資料夾，讓您能為不同的設定（包含 `config`、`plugins` 及 `www` 資料夾，與 `NLog.config` 檔案）使用不同的應用程式檔案，而不用複製 ASF 至不同檔案的資料夾中。 若您想將二進制檔案和實際使用的設定檔分開，這可能會非常有用。就像是 Linux 的封裝機制一樣：這樣您就可以在多個設定檔間，共用一個（最新的）二進制檔案。 這個路徑既可以是基於 ASF 二進制檔案所在位置的相對路徑，亦可以是絕對路徑。 請注意，這個指令會指向新的「ASF 主資料夾」：與原本的 ASF 具有相同的資料夾結構，其中包含 config 資料夾，請參閱下面的說明範例。
 
-Due to the nature of this property, it's also possible to set expected path by declaring `ASF_PATH` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+由於此屬性的性質，它還能透過宣告 `ASF_PATH` 環境變數來設定路徑，這更適合希望在程序引數中，不包含敏感資訊的使用者。
 
-If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[compatibility page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** on this manner.
+如果您考慮使用此命令列引數來執行多個 ASF 實例，我們建議您閱讀我們的**[相容性頁面](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#多實例)**。
 
-範例:
+範例：
 
 
 
 ```shell
-dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # 絕對路徑
-dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # 或相對路徑
-ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # 或環境變數
+dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # 使用絕對路徑
+dotnet /opt/ASF/ArchiSteamFarm.dll --path ../TargetDirectory # 或使用相對路徑
+ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # 或使用環境變數
 ```
 
 
@@ -118,11 +128,11 @@ ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # 或環境變�
 │     │     └── ...
 │     └── TargetDirectory
 │           ├── config
-│           ├── logs（自動產生的）
-│           ├── plugins（可省略）
-│           ├── www（可省略）
-│           ├── log.txt（自動產生的）
-│           └── NLog.config（可省略）
+│           ├── logs（自動產生）
+│           ├── plugins（選擇性）
+│           ├── www（選擇性）
+│           ├── log.txt（自動產生）
+│           └── NLog.config（選擇性）
 └── ...
 ```
 
@@ -131,15 +141,15 @@ ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # 或環境變�
 
 ---
 
-`--process-required` - declaring this switch will disable default ASF behaviour of shutting down when no bots are running. No auto-shutdown behaviour is especially useful in combination with **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** where majority of users would expect their web service to be running regardless of the amount of bots that are enabled. If you're using IPC option or otherwise need ASF process to be running all the time until you close it yourself, this is the right option.
+`--process-required`──在預設情形下，ASF 會在沒有 Bot 執行時關閉，使用這個開關會停用此行為。 這項功能與 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)** 一起使用時特別有用，大多數使用者都會希望他們的 Web 服務，不管在多少個 Bot 啟用時，都能夠正常執行。 若您正在使用 IPC，或需要 ASF 程序一直執行到您手動關閉它，那麼您就該使用此選項。
 
-If you do not intend to run IPC, this option will be rather useless for you, as you can just start the process again when needed (as opposed to ASF's web server where you require it listening all the time in order to send commands).
+若您沒有打算執行 IPC，則這個選項對您來說沒有用處，因為您可以在需要時重新啟動程序（與始終監聽來傳送指令的 ASF Web 伺服器相反）。
 
 
 
 ---
 
-`--service` - this switch is mainly used by our `systemd` service and forces `Headless` of `true`. Unless you have a particular need, you should instead configure `Headless` property directly in your config. This switch is here so our `systemd` service won't need to touch your global config in order to adapt it to its own environment. Of course, if you have a similar need then you may also make use of this switch (otherwise you're better with global config property).
+`--service`──這個開關主要由 `systemd` 服務所使用，它會強制將 `Headless` 設定成 `true`。 除非您有特殊需求，否則您應該直接在設定中設定 `Headless` 屬性。 這個開關使 `systemd` 服務不需要修改您的全域設定，來適應它的環境。 當然，如果您有類似需求，您也可以使用此開關（否則您最好使用全域設定屬性）。
 
 
 
@@ -147,4 +157,4 @@ If you do not intend to run IPC, this option will be rather useless for you, as 
 
 `--system-required` - declaring this switch will cause ASF to try signalizing the OS that the process requires system to be up and running for its entire lifetime. Currently this switch has effect only on Windows machines where it'll forbid your system from going into sleep mode as long as the process is running. This can be proven especially useful when farming on your PC or laptop during night, as ASF will be able to keep your system awake while it's farming, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once farming is finished.
 
-Keep in mind that for proper auto-shutdown of ASF you need other settings - especially avoiding `--process-required` and ensuring that all your bots are following `ShutdownOnFarmingFinished`. 當然，自動關閉只是這個參數的用法之一，因為您還可以將此參數配合 `--process-required` 使用，使您的作業系統在 ASF 啟動之後無限運行下去。
+Keep in mind that for proper auto-shutdown of ASF you need other settings - especially avoiding `--process-required` and ensuring that all your bots are following `ShutdownOnFarmingFinished`. 當然，自動關閉只是這個參數的用法之一，因為您還可以將此參數配合 `--process-required` 使用，使您的作業系統在 ASF 啟動之後無限執行下去。

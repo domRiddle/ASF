@@ -46,7 +46,15 @@ Ancak şu ikisi tamamen hatasızdır:
 
 `--cryptkey <key>` veya `--cryptkey=<key>` - ASF'yi `<key>` değerinde verilen özel kriptografik anahtar ile başlatır. Bu seçenek **[güvenliği](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** etkiler ve ASF'nin içine gömülü kriptografik anahtar yerine sizin verdiğiniz özel `<key>` anahtarı kullanılır. Bu değişken varsayılan şifreleme anahtarını (şifreleme için) ve salt değerini (hashing için) değiştirdiği için, sizin sunduğunuz anahtarla şifrelenen/hashlenen her şeyi kullanabilmek için her defasında ASF'ye bu anahtarı vermek zorunda olacağınızı unutmayın.
 
+If you want to provide `<key>` from a file, use `--cryptkey-file` for that purpose instead, explained below.
+
 Bu değişkenin doğası gereği, cryptkey'i `ASF_CRYPTKEY` ortam değişkeni ile de değiştirebilirsiniz, işlem argümanlarında hassas bilgilerin bulunmamasını isteyen kişiler için daha ideal olur.
+
+---
+
+`--cryptkey-file <path>` or `--cryptkey-file=<path>` - will start ASF with custom cryptographic key read from `<path>` file. This serves the same purpose as `--cryptkey <key>` explained above, only the mechanism differs, as this property will read `<key>` from provided `<path>` instead.
+
+Due to the nature of this property, it's also possible to set cryptkey file by declaring `ASF_CRYPTKEY_FILE` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
 ---
 

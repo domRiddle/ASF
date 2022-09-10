@@ -46,7 +46,15 @@ Sin embargo, estos dos están completamente bien:
 
 `--cryptkey <key>` o `--cryptkey=<key>` - lanzará ASF con una clave criptográfica personalizada de valor `<key>`. Esta opción afecta a la **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-es)** y hará que ASF use la clave personalizada `<key>` que hayas proporcionado, en lugar de la que está establecida por defecto en el ejecutable. Dado que esta propiedad afecta la clave de cifrado predeterminada (para propósitos de cifrado) así como la sal (para propósitos de hashing), ten en cuenta que todo lo cifrado/hasheado con esta clave requerirá ser pasado en cada ejecución de ASF.
 
+Si deseas proporcionar `<key>` desde un archivo, en su lugar usa `--cryptkey-file`, se explica debajo.
+
 Debido a la naturaleza de esta propiedad, también es posible establecer la clave de cifrado declarando la variable de entorno `ASF_CRYPTKEY`, que podría ser más apropiada para quienes deseen evitar información sensible en los argumentos del proceso.
+
+---
+
+`--cryptkey-file <path>` o `--cryptkey-file=<path>` - lanzará ASF con una clave criptográfica personalizada leída desde el archivo `<path>`. Esto tiene el mismo propósito que `--cryptkey <key>` el cual se explicó anteriormente, solo el mecanismo difiere, ya que en cambio esta propiedad leerá `<key>` del `<path>` proporcionado.
+
+Debido a la naturaleza de esta propiedad, también es posible establecer el archivo de la clave de cifrado declarando la variable de entorno `ASF_CRYPTKEY_FILE`, lo que podría ser más apropiado para quienes deseen evitar información sensible en los argumentos del proceso.
 
 ---
 
@@ -68,7 +76,7 @@ Debido a la naturaleza de esta propiedad, también es posible establecer el valo
 
 ---
 
-`--no-restart` - esta opción se usa principlamente para nuestros contenedores **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-es-es)** y fuerza `AutoRestart` al valor `false`. A menos que tengas una necesidad particular, en lugar de usar esta opción deberías configurar la propiedad `AutoRestart` directamente en tu configuración. Esta opción existe para que nuestro script docker no necesite modificar tu configuración global para adaptarla a su propio entorno. Por supuesto, si estás ejecutando ASF a través de un script, también puedes utilizar esta opción (si no, es preferible emplear la propiedad de la configuración global).
+`--no-restart` - esta opción se usa principlamente para nuestros contenedores **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-es-es)** y fuerza `AutoRestart` al valor `false`. A menos que tengas una necesidad particular, en lugar de usar esta opción deberías configurar la propiedad `AutoRestart` directamente en tu configuración. Esta opción existe para que nuestro script docker no necesite modificar tu configuración global para adaptarla a su propio entorno. Por supuesto, si estás ejecutando ASF a través de un script, también puedes utilizar esta opción (si no, es preferible usar la propiedad de configuración global).
 
 ---
 
