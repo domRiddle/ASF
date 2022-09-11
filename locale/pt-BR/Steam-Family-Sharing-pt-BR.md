@@ -1,6 +1,6 @@
 # Compartilhamento de Biblioteca Steam
 
-O ASF suporta o Compartilhamento de Biblioteca Steam desde a versão 2.1.5.5+. Para entender como o ASF funciona nesse caso, primeiro você deve ler como o **[Compartilhamento de Biblioteca Steam funciona](https://store.steampowered.com/promotion/familysharing)**, que está disponível na loja Steam.
+O ASF suporta o Compartilhamento de Biblioteca Steam desde a versão 2.1.5.5+. Para entender como o ASF funciona nesse caso, primeiro você deve ler como o **[Compartilhamento de Biblioteca Steam funciona](https://store.steampowered.com/promotion/familysharing)**, que está disponível na Loja Steam.
 
 ---
 
@@ -24,4 +24,4 @@ Conectar as duas funcionalidades descritas acima permite que seus amigos pausem 
 
 ## Limitações
 
-A rede Steam adora enganar o ASF compartilhando atualizações de status falsas, que pode fazer o ASF acreditar que pode retomar o processo, expulsando seu amigo da seção de jogo. Esse problema é exatamente o mesmo já explicado **[nessa seção](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-pt-BR#o-asf-est%C3%A1-encerrando-minha-sess%C3%A3o-no-cliente-steam-enquanto-eu-jogo--voc%C3%AA-j%C3%A1-iniciou-a-sess%C3%A3o-em-outro-computador)**. Recomendamos exatamente as mesmas soluções, principalmente promovendo seus amigos com a permissão de `Operator` (ou acima) e pedindo para que eles usem os comandos `pause` e `resume`.
+A Rede Steam adora enganar o ASF compartilhando atualizações de status falsas, que pode fazer o ASF acreditar que pode retomar o processo, expulsando seu amigo da seção de jogo. Esse problema é exatamente o mesmo já explicado **[nessa seção](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-pt-BR#o-asf-est%C3%A1-encerrando-minha-sess%C3%A3o-no-cliente-steam-enquanto-eu-jogo--voc%C3%AA-j%C3%A1-iniciou-a-sess%C3%A3o-em-outro-computador)**. Recomendamos exatamente as mesmas soluções, principalmente promovendo seus amigos com a permissão de `Operator` (ou acima) e pedindo para que eles usem os comandos `pause` e `resume`.

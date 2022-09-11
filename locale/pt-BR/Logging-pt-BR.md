@@ -301,7 +301,7 @@ Para escrever todas as mensagens do nível `Debug` para cima, do bot chamado `My
 
 **Observação:** Nosso `SteamTarget` é um alvo personalizado, então você deve ter certeza de que você o está declarando como `type="Steam"`, e NÃO `xsi:type="Steam"`, já que xsi é reservado para alvos oficiais suportados pelo NLog.
 
-Quando você abrir o ASF com o arquivo `NLog.config` similar ao exemplo acima, o `MyBot` vai começar a enviar mensagens para o usuário Steam `76561198006963719` com todas as mensagens do registro do ASF. Tenha em mente que `MyBot` deve estar conectado para enviar mensagens, então todas as mensagens que ocorrerem antes que nosso bot se conectasse à rede Steam não serão enviadas.
+Quando você abrir o ASF com o arquivo `NLog.config` similar ao exemplo acima, o `MyBot` vai começar a enviar mensagens para o usuário Steam `76561198006963719` com todas as mensagens do registro do ASF. Tenha em mente que `MyBot` deve estar conectado para enviar mensagens, então todas as mensagens que ocorrerem antes que nosso bot se conectasse à Rede Steam não serão enviadas.
 
 Claro, `SteamTarget` tem todas as funções típicas que você poderia esperar do `TargetWithLayout` genérico, então você pode usá-lo em conjunto, por exemplo, com layouts personalizados, nomes ou regras personalizadas de registro. O exemplo acima é apenas o mais básico.
 
