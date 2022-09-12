@@ -1,78 +1,78 @@
 # 新手上路
 
-如果您是第一次來到這裡，歡迎！ 我們很高興又看到一位對我們的專案感興趣的旅客，但請記住：能力越強，責任越大—— ASF 能夠完成許多不同的 Steam 相關事項，但您必須**足夠小心地學習使用方法**。 入門 ASF 的過程將會是一條陡峭的學習曲線，我們希望您在這方面閱讀 Wiki，它會詳細解釋一切如何運作。
+如果您是第一次來到這裡，歡迎！ 我們很高興又看到一位對我們的專案感興趣的旅客，但請記住：能力越強，責任越大──只要您**足夠認真學習如何使用它**，ASF 就能完成相當多的 Steam 相關事務。 學習的過程將充滿艱辛與坎坷，我們希望您閱讀與之相關的 Wiki，並詳細了解這一切是如何運作的。
 
-如果您還在這裡，那就表示您堅持看完了上面的文字，非常好。 除非您跳過了上面的文字，那樣您很快就會經歷一段**[糟糕的時間](https://www.youtube.com/watch?v=WJgt6m6njVw)**…… 總之，ASF 是一個控制台應用程序，這意味著應用程式本身沒有你習慣的圖型介面。 ASF 主要設計執行於伺服器，所以它只是一個服務（守護行程）而非桌面應用程式。
+如果您還在這裡，那就代表您堅持看完了上面的文字，做得不錯。 除非您跳過了它，那樣的話，您很快就會經歷一段**[不好的時光](https://www.youtube.com/watch?v=WJgt6m6njVw)**…… 總的來說，ASF 是一個控制台應用程式，這代表程式本身沒有您習慣的圖型介面。 ASF 主要是設計執行於伺服器中，所以它更偏向為一個服務（常駐程式），而非桌面應用程式。
 
-然而這並不代表您不能在電腦上使用 ASF 或是使用比一般程式複雜。 ASF 是一個無需安裝的獨立程式，並且可以立即使用，但在這之前需要進行設定。 設定檔會告訴 ASF 啟動之後應該做什麼。 如果你在沒有設定檔的情況下啟動它，那麼 ASF 將不會做任何事情，就是這麼簡單。
+然而，這並不代表您無法在電腦上使用 ASF，或是使用起來會比一般的程式更為複雜。 ASF 是一個獨立的免安裝應用程式，可以直接使用，但在此之前，需要先進行組態設定。 設定檔會告訴 ASF 啟動之後應該做什麼。 若您在沒有設定檔的情況下啟動它，那麼，ASF 將不會做任何事情，就是如此簡單。
 
 ---
 
-## 安裝特定作業系統（OS-specific）套件
+## 適用於您的作業系統的設定
 
 一般來說，這是我們在接下來的幾分鐘內要做的事情：
-- 安裝 **[.NET 必要條件](#net-prerequisites)**。
-- 下載適合您作業系統的**[最新 ASF 版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**變體。
-- 將壓縮檔解壓到一個新資料夾。
-- **[設定 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**
-- 執行 ASF 並觀賞神奇的一刻
+- 安裝必要的 **[.NET 套件](#.NET 套件需求)**。
+- 在**[ASF 發布頁面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**下載適用於您的作業系統的版本變體。
+- 將壓縮檔解壓縮至一個新資料夾中。
+- **[設定 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**。
+- 執行 ASF，並見證奇蹟！
 
-聽起來有夠簡單，是吧？ 那就一起繼續吧。
+聽起來十分簡單，對吧？ 那就讓我們繼續吧。
 
 ---
 
-### .NET 必要條件
+### .NET 套件需求
 
-第一步是確保您的作業系統可以正確地啟動 ASF。 ASF 是用 C# 語言編寫的，基於 .NET 平台，並且可能需要你的平台上尚不可用的原生程式庫。 Depending on whether you use Windows, Linux or macOS, you will have different requirements, although all of them are listed in **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. 這是我們應該使用的參考資料，但為了簡單起見，我們還額外詳細說明了下面所有需要的軟體。因此您無需閱讀完整的文件。
+首要步驟，是確保您的作業系統可以正確地啟動 ASF。 ASF 是用 C# 語言編寫的，基於 .NET 平台，並可能需要您平台上尚未擁有的原生函式庫。 取決您使用的是 Windows、Linux 還是 macOS，您將有不同的系統需求。所有要求都列在您應遵循的 **[.NET 套件需求](#.NET 套件需求)**文件中。 這是我們應當使用的參考資料，但為了簡單起見，我們在下面額外列出需要的所有軟體套件。因此您無需閱讀完整的文件。
 
-由於您正在使用的第三方軟體，一些（甚至全部）相依性已經存在於您的作業系統是完全正常的。 但您仍應透過在作業系統上執行合適的安裝程式來確保這些軟體確實已經安裝——缺少這些相依性，ASF 將完全無法啟動。
+若您已安裝並使用其他第三方軟體，一些（甚至全部）相依性套件已存在於您的作業系統上，是很正常的。 不過，您仍應在作業系統上執行合適的安裝程式，來確保這些軟體確實已被安裝──缺少這些相依套件，ASF 將完全無法啟動。
 
-Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET SDK or even runtime, since OS-specific package includes all of that already. You need only .NET prerequisites (dependencies) to run .NET runtime included in ASF.
+請注意，您不需要特地為作業系統的建置版本做其他任何事情，特別是 .NET SDK 的安裝或執行環境，因為它們已包含於作業系統套件中。 您只需要安裝必要的 .NET 相依套件，即可執行 ASF 裡面自帶的 .NET 執行環境。
 
-#### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**:
-- **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)** for 64-bit Windows, **[x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)** for 32-bit Windows)
-- 強烈建議確保已安裝所有Windows更新。 At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**, **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. 如果您的 Windows 更新到最新版，則上述所有都已安裝。 在安裝 Visual C++ 套件之前，請確保滿足這些要求。
-- If you're using Windows 7, you'll be forced to run **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)** variant as your OS is no longer supported by OS-specific package. We strongly recommend an update soon, as future versions of ASF are likely to stop working altogether with it, not to mention that the OS reached its end of life back in 2020.
+#### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**：
+- **[Microsoft Visual C++ 可轉散發套件更新](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)**（**[x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)** 適用於 64 位元 Windows；**[x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)** 適用於 32 位元 Windows）
+- 強烈建議您，務必確保已安裝所有的 Windows 更新。 您最少需要安裝 **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**、**[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**，但仍可能需要更多的更新。 如果您的 Windows 已更新至最新版，則上述更新補丁都已安裝。 在安裝 Visual C++ 套件前，請確保滿足上述需求。
+- 若您使用 Windows 7，您必須使用 **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)** 版本變體，因為套件不再支援您的作業系統。 我們強烈建議您盡快進行更新您的作業系統，因為 ASF 的未來版本可能會完全無法在上面使用，而且說實話，Windows 7 在 2020 年就已經結束了生命週期。
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**：
-套件名稱取決於您正在使用的 Linux 發行版，我們已經列出了最常見的套件。 您可以使用本地套件管理系統，為您的作業系統取得全部套件（例如 Debian 的 `apt` 或 CentOS 的 `yum`）。
+套件名稱取決於您使用的 Linux 發行版本，我們列出了最常見的套件名稱。 您可以使用本機中的套件管理系統，為您的作業系統取得全部套件（例如適用於 Debian 的 `apt` 或適用於 CentOS 的 `yum`）。
 
-- `ca-certificates` (standard trusted SSL certificates to make HTTPS connections)
-- `libc6` (`libc`)
-- `libgcc1` (`libgcc`)
-- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
-- `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
-- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, at least `1.1.X` as `1.0.X` may no longer work)
-- `libstdc++6` (`libstdc++`, in version `5.0` or higher)
+- `ca-certificates`（用於建立 HTTPS 連線的標準可信賴的 SSL 憑證）
+- `libc6`（`libc`）
+- `libgcc1`（`libgcc`）
+- `libicu`（`icu-libs`，您的發行版本的最新版，例如 `libicu67`）
+- `libgssapi-krb5-2`（`libkrb5-3`、`krb5-libs`）
+- `libssl1.1`（`libssl`、`openssl-libs`，您的發行版本的最新版，且至少為 `1.1.X` 版本，因為 `1.0.X` 版本可能無法運作）
+- `libstdc++6`（`libstdc++`，`5.0` 版本或更高）
 - `zlib1g`（`zlib`）
 
-At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu67`.
+上述大多數套件應早已安裝於您的系統中。 Debian 穩定版的最小安裝也只需再安裝 `libicu67` 即可。
 
-#### **[macOS](https://docs.microsoft.com/dotnet/core/install/macos)**:
-- None for now, but you should have latest version of macOS installed, at least 10.15+
+#### **[macOS](https://docs.microsoft.com/dotnet/core/install/macos)**：
+- 暫時沒有需求，但您仍應安裝最新版本的 macOS，至少為 10.15+ 版本
 
 ---
 
 ### 下載
 
-既然我們已經擁有所有相依性程式，下一步就是下載**[最新的 ASF 版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**。 ASF 有許多變體可用，但您應該關注符合您作業系統和系統架構的套件。 例如，如果您正在使用 `64` 位元 `Win`dows，那麼您將需要 `ASF-win-x64` 套件。 要取得更多關於可用變體的資訊，請參閱**[相容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW)**部分。 ASF 也可以執行在我們沒有建置特定作業系統套件的系統上，例如 **32 位元 Windows** 請前往**[安裝通用（Generic）套件](#generic-setup)**。
+既然我們有了所有的相依性套件，那麼接下來就是下載 **[ASF 最新版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**。 ASF 有許多變體版本可供使用，但您應使用符合您作業系統及其架構的版本套件。 舉例來說，假設您使用 `64` 位元 `Win`dows，那麼您需使用 `ASF-win-x64` 版本的套件。 欲取得關於可用變體的更多資訊，請參閱**[相容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW)**章節。 ASF 也可以執行於沒有提供建置版本的作業系統上，例如 **32 位元 Windows**，請前往**[安裝通用版本套件](#安裝通用版本套件)**繼續閱讀。
 
 ![資產](https://i.imgur.com/Ym2xPE5.png)
 
-下載完成之後，從解壓縮 ZIP 檔至一個資料夾中開始。 We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
+下載完成後，請先解壓縮 .zip 檔至一個資料夾中。 我們建議使用 **[7-zip](https://www.7-zip.org)**，但所有標準工具（例如 Linux/macOS 中的 `unzip` 工具）應該也可以正常運作。
 
-建議將 ASF 解壓縮到**獨立的目錄**中而不是任何已有其他用途的目錄—— ASF 的自動更新功能將會在升級時刪除所有舊的和無關檔案，可能會使您丟失您儲存於 ASF 目錄的任何檔案。 如果您有任何想用於 ASF 的額外腳本或檔案，請將他們置放在 ASF 資料夾的上一層。
+並建議將 ASF 解壓縮至**獨立資料夾**中，而不是包含其他檔案的資料夾中：ASF 的自動更新功能，會在升級時刪除所有舊的或無關的檔案，並可能導致您遺失儲存於 ASF 資料夾中的其餘檔案。 若您有任何額外用於 ASF 的腳本或檔案，請將它們存放於 ASF 的上層資料夾。
 
-一個範例結構看起來會像是這樣：
+一個檔案結構範例，看起來會像是這樣：
 
 ```text
-C:\ASF (where you put your own things)
-    ├── ASF shortcut.lnk (optional)
-    ├── Config shortcut.lnk (optional)
-    ├── Commands.txt (optional)
-    ├── MyExtraScript.bat (optional)
-    ├── (...) (any other files of your choice, optional)
-    └── Core (dedicated to ASF only, where you extract the archive)
+C:\ASF（可存放您自己的東西）
+    ├── ASF shortcut.lnk（選擇性）
+    ├── Config shortcut.lnk（選擇性）
+    ├── Commands.txt（選擇性）
+    ├── MyExtraScript.bat（選擇性）
+    ├── (...)（其餘您想存放的檔案，選擇性）
+    └── Core（ASF 專用資料夾，也就是您解壓縮壓縮檔的地方）
          ├── ArchiSteamFarm(.exe)
          ├── config
          ├── logs
@@ -82,9 +82,9 @@ C:\ASF (where you put your own things)
 
 ---
 
-### 設定檔
+### 組態設定
 
-現在只剩最後一步：設定檔。 這是目前為止最複雜的步驟，因為它包含了許多您還不熟悉的新資訊，所以我們會嘗試在此提供一些易於理解的範例和簡單的解釋。
+現在只剩最後一步：組態設定。 這是目前為止最複雜的步驟，因為它包含了許多您還不熟悉的新資訊，所以我們會嘗試在此提供一些易於理解的範例和簡單的解釋。
 
 首先最重要的，**[設定檔](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**頁面解釋了跟設定檔有關的**一切事物**，但它包含了數量龐大的新資訊，其中有很大一部分是我們不需要立即瞭解的。 作為代替，我們會教您如何取得您真正應該查找的資訊。
 
@@ -205,7 +205,7 @@ You can access ASF's IPC interface under **[this](http://localhost:1242)** link,
 
 ---
 
-## 安裝通用（Generic）套件
+## 安裝通用版本套件
 
 這部分是為想要安裝 ASF **[通用（Generic）](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#通用Generic)** 套件的進階使用者準備的。 如果您可以**[安裝特定作業系統（OS-specific）套件](#安裝特定作業系統OS-specific套件)**，我們不推薦安裝您安装通用套件。
 

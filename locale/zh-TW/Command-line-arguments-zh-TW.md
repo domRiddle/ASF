@@ -56,7 +56,7 @@ Linux/macOS：
 
 ---
 
-`--cryptkey-file<path>` 或 `--cryptkey-file=<path>`──將使用從 `<path>` 檔案中讀取的自訂加密金鑰 <0><1></0> 啟動 ASF。 This serves the same purpose as `--cryptkey <key>` explained above, only the mechanism differs, as this property will read `<key>` from provided `<path>` instead.
+`--cryptkey-file<path>` 或 `--cryptkey-file=<path>`──將使用從 `<path>` 檔案中讀取的自訂加密金鑰 <0><1></0> 啟動 ASF。 這與上述說明的 `--cryptkey<key>` 的目的相同。但機制不同，因為此屬性是從 `<path>` 讀取 `<key>`。
 
 由於此屬性的性質，它還能透過宣告 `ASF_CRYPTKEY_FILE` 環境變數來設定 cryptkey 檔案，這更適合希望在程序引數中，不包含敏感資訊的使用者。
 
@@ -84,7 +84,7 @@ Linux/macOS：
 
 ---
 
-`--no-config-watch`──在預設情形下，ASF 會在您的 `config` 資料夾中設定 `FileSystemWatcher`，以監聽更動檔案的事件 ，因此才能夠動態的適應這些改動。 例如，在刪除設定檔後停止 Bot，更改設定後重新啟動 Bot，或在您將序號加入至 config 資料夾後，載入至 **[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)** 中。 這個開關允許您停用此行為，使 ASF 完全忽略 `config` 資料夾中的所有變更。若情形需要，您必須手動執行此操作。 一般而言，我們建議保留啟用設定檔監聽，但如果您有特定的理由停用它，並希望 ASF 不監聽事件，您可以使用此開關來達成。
+`--no-config-watch`──在預設情形下，ASF 會在您的 `config` 資料夾中設定 `FileSystemWatcher`，以監聽更動檔案的事件 ，因此才能夠動態地適應這些改動。 例如，在刪除設定檔後停止 Bot，更改設定後重新啟動 Bot，或在您將序號加入至 config 資料夾後，載入至 **[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)** 中。 這個開關允許您停用此行為，使 ASF 完全忽略 `config` 資料夾中的所有變更。若情形需要，您必須手動執行此操作。 一般而言，我們建議保留啟用設定檔監聽，但如果您有特定的理由停用它，並希望 ASF 不監聽事件，您可以使用此開關來達成。
 
 
 
@@ -155,6 +155,6 @@ ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # 或使用環�
 
 ---
 
-`--system-required`──使用這個開關，將使 ASF 嘗試通知作業系統，表明本程序需要在系統執行期間，保持啟動與正常執行狀態。 Currently this switch has effect only on Windows machines where it'll forbid your system from going into sleep mode as long as the process is running. This can be proven especially useful when farming on your PC or laptop during night, as ASF will be able to keep your system awake while it's farming, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once farming is finished.
+`--system-required`──使用這個開關，將使 ASF 嘗試通知作業系統，表明本程序需要在系統執行期間，保持啟動與正常執行狀態。 目前這個開關只對 Windows 系統有效，只要程序正在執行，它就會阻止您的系統進入睡眠模式。 當您在夜間使用桌機或筆電掛卡時，這個功能是相當實用的，因為 ASF 將會在掛卡期間讓您的系統保持喚醒狀態。一旦 ASF 完成掛卡，它會像平常一樣自動關閉，使您的系統可以再次進入睡眠模式，以此節省電力消耗。
 
-Keep in mind that for proper auto-shutdown of ASF you need other settings - especially avoiding `--process-required` and ensuring that all your bots are following `ShutdownOnFarmingFinished`. 當然，自動關閉只是這個參數的用法之一，因為您還可以將此參數配合 `--process-required` 使用，使您的作業系統在 ASF 啟動之後無限執行下去。
+請注意，要正確地使 ASF 自動關閉，您還需要其他設定：特別是避免使用 `--process-required`，並確保您的所有 Bot 都設定了 `ShutdownOnFarmingFinished`。 當然，自動關閉只是這個功能的其中一種用法，因為您還可以配合 `--process-required` 使用，讓您的系統在 ASF 啟動之後永遠地保持喚醒狀態。

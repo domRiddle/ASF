@@ -2,7 +2,7 @@
 
 背景序號啟動器是 ASF 內建的特殊功能，可以讓您匯入一批 Steam 序號（包含遊戲名稱）以便在背景啟用。 如果您需要一次啟動大量序號，在全數啟動前，必定會觸發 `RateLimited` **[狀態](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-TW#啟用遊戲序號時的狀態是什麼意思)**，此時背景啟動功能將會非常有用。
 
-背景序號啟動器僅對單個 Bot 有效，也就是說它不會採用 `RedeemingPreferences` 中的設定。 若有需要，本功能可以和 `redeem` **[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**一起使用（或者代替它）。
+背景序號啟動器只對單個 Bot 有效，也就是說它不會採用 `RedeemingPreferences` 中的設定。 若有需要，本功能可以和 `redeem` **[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**一起使用（或者代替它）。
 
 ---
 

@@ -1,11 +1,11 @@
-# 配置
+# 組態設定
 
 此頁面專門用於 ASF 設定。 提供關於 `config` 目錄的完整文件，允許您依照您的需求調整 ASF。
 
 * **[簡介](#introduction)**
 * **[網頁設定檔產生器](#web-based-configgenerator)**
-* **[ASF-ui 設定](#asf-ui-configuration)**
-* **[手動設定](#manual-configuration)**
+* **[ASF-ui 設定](#ASF-ui 設定)**
+* **[手動設定](#手動設定)**
 * **[全域設定檔](#global-config)**
 * **[Bot 設定檔](#bot-config)**
 * **[檔案結構](#file-structure)**
