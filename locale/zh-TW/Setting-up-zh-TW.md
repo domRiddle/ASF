@@ -84,86 +84,86 @@ C:\ASF（可存放您自己的東西）
 
 ### 組態設定
 
-現在只剩最後一步：組態設定。 這是目前為止最複雜的步驟，因為它包含了許多您還不熟悉的新資訊，所以我們會嘗試在此提供一些易於理解的範例和簡單的解釋。
+現在只剩最後一步：組態設定。 這是迄今為止最複雜的步驟，因為它包含了許多您還不熟悉的新資訊，所以我們在此會嘗試提供一些讓您便於理解的範例及簡明扼要的解釋。
 
-首先最重要的，**[設定檔](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**頁面解釋了跟設定檔有關的**一切事物**，但它包含了數量龐大的新資訊，其中有很大一部分是我們不需要立即瞭解的。 作為代替，我們會教您如何取得您真正應該查找的資訊。
+首先，**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**頁面解釋了與設定檔相關的**一切事物**，但它包含了數量龐大的新資訊，其中有很大一部分是我們不需要立即瞭解的。 但我們會教您如何取得您真正需要查找的資訊。
 
-ASF configuration can be done in at least three ways - through our web config generator, ASF-ui or manually. 這在**[設定檔](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**部分有深入地解釋，所以如果您想要取得更多詳細資訊，請參閱此部分。 We'll use web config generator as a starting point.
+您可以透過至少三種方式來設定 ASF：線上設定檔生成器、ASF-ui 或是手動設定。 這在**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**章節中有深入的解釋，若您想要取得更多詳細資訊，請參閱此部分。 我們先以線上設定檔生成器為例。
 
-使用您最愛的瀏覽器造訪我們的**[網頁設定檔產生器](https://justarchinet.github.io/ASF-WebConfigGenerator)**頁面，在您手動停用了 JavaScript 的情況下您將需要啟用它。 我們建議使用 Chrome 瀏覽器或 Firefox 瀏覽器，不過產生器應該能在大多數熱門瀏覽器上作業。
+使用您常用的瀏覽器造訪我們的**[設定檔生成器](https://justarchinet.github.io/ASF-WebConfigGenerator)**網頁工具，若您手動停用了 JavaScript，您需要啟用它。 我們建議使用 Chrome 或 Firefox，但它應能在大部分的主流瀏覽器上運作。
 
-開啟頁面後，切換到「BOT」分頁。 您應該會看見跟下面圖片相似的頁面：
+開啟頁面後，切換到「Bot」分頁。 您應該會看見類似於下圖的頁面：
 
 ![Bot tab](https://i.imgur.com/aF3k8Rg.png)
 
-如果您剛剛下載的 ASF 版本低於設定檔產生器的預設值的話，只需要在下拉式選單中選擇您的 ASF 版本號。 這會在設定檔產生器可用於尚未標記為穩定版的更新版（預覽版）ASF時發生。 您已經下載了已證實能可靠工作的最新穩定版 ASF。
+如果您剛剛下載的 ASF 版本低於設定檔生成器的預設值，只需在下拉式選單中選擇您的 ASF 版本。 這種情況會在設定檔生成器用於尚未標示為穩定版的更新版本（預覽版）ASF 時發生。 您下載的最新穩定版本的 ASF，是證實能穩定運作的版本。
 
-從把 BOT 名稱輸入紅色醒目提示的欄位開始。 您可以使用任何名稱，例如您的暱稱、帳戶名稱、一串數字或是任何其他文字。 只有一個不能使用的名稱，`ASF`，因為這個關鍵字是為全域設定檔保留的。 除了 BOT 名稱不能以一個點開始（ASF 會故意略過那些檔案）以外。 我們還建議您避免使用空格，如果需要請使用「`_`」作為分隔符號。
+首先將您的 Bot 名稱輸入至紅色醒目的欄位中。 您可以使用任何名稱，例如您的暱稱、帳號名稱、一串數字或是任何其他文字。 其中只有一個您無法使用的名稱，`ASF`，因為這個關鍵字是為全域設定檔保留的。 除此之外，Bot 的名稱不能以一個點作為開頭（ASF 會略過那些檔案）。 並建議您避免使用空格，如有需要，請使用「`_`」作為分隔符號。
 
-決定好 BOT 名稱之後，把「Enabled」開啟，這個選項決定了您的 BOT 是否應該在 ASF 開啟後自動啟用。
+在您決定好名稱後，將「Enabled」選項開啟，這個選項會決定您的 Bot 是否會在 ASF 開啟後自動啟用。
 
-現在您可以在兩件事上做決定：
-- 您可以將帳戶名稱填入 `SteamLogin` 欄位，密碼填入 `SteamPassword` 欄位
-- 或者您可以留空
+您接下來會面臨一項選擇：
+- 您可以將帳號名稱及密碼分別填入 `SteamLogin` 與 `SteamPassword` 欄位中
+- 或是將兩個欄位留空
 
-選擇做第一件事會允許 ASF 開啟時自動使用您的帳戶認證資訊，這樣您就不需要每次 ASF 需要這些資訊時都手動輸入。 不過您也可以選擇忽略它們，這樣它們就不會被儲存，所以缺少您的幫助 ASF 將無法自動啟動，您需要在執行階段輸入。
+如果填入，ASF 將在開啟時自動使用您的帳號憑證，這樣您就無需在每次 ASF 需要這些資訊時，都手動輸入它們。 不過，您也可以選擇不填入帳號密碼，這樣它們就不會被儲存。但缺少這些資訊，ASF 會無法自動登入，您需要在執行期間手動輸入。
 
-ASF 需要您的登入認證，因為它透過內建 Steam 用戶端自行實現，需要跟您自己使用的用戶端相同的資訊來登入。 您的登入認證只會儲存在您的電腦上的 ASF `Config` 目錄，不會儲存在其他地方，我們的網頁設定檔產生器是基於用戶端的，也就是說代碼是在您的瀏覽器本地執行來產生 ASF 設定檔的，您輸入的資訊永遠不會離開您的電腦，所以沒有必要擔心任何可能的敏感資料洩漏。 然而，無論是什麼原因讓您不想輸入登入認證，我們能夠理解，您可以稍後手動輸入到產生的檔案裡，或者徹底省略並只在 ASF 命令提示字元輸入。 更多安全性問題可以在**[設定檔](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**部分找到。
+ASF 需要您的登入憑證，因為它是透過內建的 Steam 用戶端來實現的，且需要跟您自己使用的用戶端相同的登入資訊。 您的登入認證只會儲存在您電腦上的 ASF `config` 資料夾中，我們的設定檔生成器也是基於用戶端的網頁，也就是說，代碼是在您本機的瀏覽器中執行，以此來生成 ASF 設定檔。您輸入的資訊永遠不會從您的電腦發送出去，所以您不必擔心任何可能的敏感資料洩漏。 儘管如此，我們能理解您仍可能出於某些原因不想輸入登入資訊。您可以稍後再手動輸入到產生的檔案中，或者徹底略過，並只在 ASF 的命令提示字元中輸入。 更多安全性問題，請參閱**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**章節。
 
-您也可以選擇只省略一個欄位，例如 `SteamPassword`（Steam 密碼），這樣將能使 ASF 自動登入，不過仍然會詢問密碼（類似 Steam 用戶端）。 如果您在使用 Steam 家庭監護，要解鎖您的帳戶，您需要將 PIN 碼填入 `SteamParentalCode` 欄位。
+您也可以省略其中一個欄位，例如 `SteamPassword`，這樣 ASF 仍能自動登入，但會向您詢問密碼（類似 Steam 用戶端）。 若您使用 Steam 家庭監護帳號，您需要將 PIN 碼填入 `SteamParentalCode` 欄位來解鎖。
 
-在一連串的決定和選擇過後，您的網頁現在看起來會像是下圖：
+在這些操作完成後，您的網頁現在看起來會像是下圖：
 
 ![Bot tab 2](https://i.imgur.com/yf54Ouc.png)
 
-您現在可以按下您現在可以按下「下載」按鈕了，網頁設定檔產生器將會產生一個名為您剛才輸入的名稱的 `json` 檔。 Save that file into `config` directory which is located in the folder where you've extracted our zip file in the previous step.
+現在您可以點擊「下載」按鈕，設定檔生成器會生成一個名為您剛才輸入的名稱的 `.json` 檔。 將這個檔案儲存至 `config` 資料夾中，該資料夾位於您在上個步驟解壓縮 .zip 檔後，得到的資料夾中。
 
-您的 `config` 目錄現在看來會像是這樣：
+現在，您的 `config` 資料夾看起來會像這樣：
 
 ![架構 2](https://i.imgur.com/crWdjcp.png)
 
-恭喜！ 您剛剛完成了最基本的 ASF BOT 設定。 我們之後將會擴充設定檔，現在您暫時只需要這些。
+恭喜！ 您剛剛完成了最基本的 ASF Bot 組態設定。 我們之後會擴充設定檔，而現在您暫時只需要這些。
 
 ---
 
 ### 執行 ASF
 
-現在您已經準備好第一次啟動程式了。 Simply double-click `ArchiSteamFarm` binary in ASF directory. You can also start it from the console.
+現在您已經準備好第一次啟動程式了。 只需雙擊 ASF 資料夾中的 `ArchiSteamFarm` 二進制執行檔即可。 您也可以使用控制台來開啟它。
 
-按下以後，如果您在第一步正確地安裝了所有相依性，ASF 應該會正確地啟動，注意您的第一個 BOT（如果您沒忘記把產生的設定檔置放在 `config` 目錄裡），然後嘗試登入：
+開啟後，若您在第一步正確地安裝了所有需要的相依性套件，ASF 應該會正常啟動。如果您沒忘記把生成的設定檔存放至 `config` 資料夾中，就可以看到 ASF 正嘗試登入您的第一個 Bot：
 
 ![ASF](https://i.imgur.com/u5hrSFz.png)
 
-如果您在設定檔提供了 `SteamLogin` 和 `SteamPassword` 給 ASF 使用，ASF 將只會詢問您的 Steam Guard 權杖（電子郵件、兩步驟驗證或無，取決於您的 Steam 設定）。 如果您沒有提供這兩項，ASF 也會同時詢問您的 Steam 帳戶名稱和密碼。
+若您在設定檔中提供了 `SteamLogin` 和 `SteamPassword` 給 ASF 使用，ASF 就只會詢問您的 Steam Guard 權杖（電子郵件、雙重驗證或未設定，取決於您的 Steam 設定）。 若您並未提供，ASF 也會同時詢問您的 Steam 帳號名稱及密碼。
 
-Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name.
+如果您對 ASF 有任何的擔心，例如以您的身分進行操作，現在可以到[**遠端通訊**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-TW)章節閱讀。
 
-After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start farming using default settings that you didn't change as of now:
+在輸入資訊後，假設您填寫的資訊無誤，您會成功地登入，而 ASF 將使用您目前尚未更改的預設設定來開始掛卡：
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-這表明 ASF 現在成功在您的帳戶上工作了，所以您現在可以最小化程式然後幹其他事。 經過足夠的時間後（取決於**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**），您將會看到 Steam 交換卡片慢慢掉落。 Of course, for that to happen you must have valid games to farm, showing as "you can get X more card drops from playing this game" on your **[badges page](https://steamcommunity.com/my/badges)** - if there are no games to farm, then ASF will state that there is nothing to do, as stated in our **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)**.
+這代表 ASF 現在已成功地在您的帳號上運作，您可以將程式最小化，然後去做其他事情。 在經過足夠的時間後（取決於**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**），您將會看到 Steam 交換卡片慢慢掉落。 當然，要做到這一點，您必須擁有可以掛卡的遊戲，它會在您的**[徽章頁面](https://steamcommunity.com/my/badges)**上顯示「您可以透過遊玩本遊戲獲得 X 更多掉落卡片」；如果沒有可供掛卡的遊戲，ASF 將不做任何事情，如同**[常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)**中所述。
 
-我們最基本的新手上路指南到此結束。 您現在可以決定要進一步設定 ASF，還是讓 ASF 以預設設定工作。 我們將會介紹更多基本細節，然後您可以自己探索整個 Wiki。
-
----
-
-### 擴充設定
-
-#### 多個帳戶同時掛卡
-
-ASF 支援一個帳戶以上同時掛卡，也是它的主要功能。 您可以透過產生更多 BOT 設定檔來添加更多帳戶，方法跟您幾分鐘前產生的第一個設定檔完全相同。 您只需要確保兩件事：
-
-- BOT 名稱唯一，例如假設您的第一個 BOT 名為「主帳戶」，您就不能擁有另一個跟它名稱一樣的 BOT。
-- 登入資訊有效，例如 `SteamLogin`、`SteamPassword` 和 `SteamParentalCode`（如果正在使用 Steam 家庭監護）
-
-換句話說，只要再次跳轉到設定檔部分，然後做完全一樣的事，只不過這次要填入您第二或是第三個帳戶的資訊。 記住為您所有的 BOT 使用唯一的名稱。
+我們最基本的新手上路指南到此結束。 您現在可以決定要進一步設定 ASF，或是讓 ASF 以預設設定運作。 我們將會介紹更多基本細節，然後您可以自己探索整個 Wiki。
 
 ---
 
-#### 變更設定
+### 延伸設定
 
-您可以透過完全相同的方式來變更現有的設定——產生一個新的設定檔。 如果您還沒有關閉網頁設定檔產生器，按一下「開啟進階設定」然後看看有什麼是您發現您所需要的選項。 For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is farming, instead of showing actual game.
+#### 同時掛卡多個帳號
+
+ASF 支援一個帳號以上的同時掛卡，這也是它的主要功能。 您可以透過生成更多 Bot 設定檔來增加更多帳號，方法跟您幾分鐘前產生的第一個設定檔完全相同。 您只需要確保兩件事：
+
+- 唯一的 Bot 名稱，例如假設您的第一個 Bot 名叫「MainAccount」，您就不能擁有另一個跟它名稱一樣的 Bot。
+- 正確的登入資訊，例如 `SteamLogin`、`SteamPassword` 和 `SteamParentalCode`（如果使用 Steam 家庭監護功能）
+
+換句話說，就是再次回到組態設定的部分，然後做完全一樣的事情，只不過這次要填入您第二或是第三個帳號的資訊。 記住，您所有的 Bot 需使用唯一的名稱。
+
+---
+
+#### 更改設定
+
+您可以透過相同的方式來更改現有的設定：生成一個新的設定檔。 若您還沒有關閉設定檔生成器網頁，按一下「開啟／關閉進階設定」然後看看裡面有些什麼。 For this tutorial we'll change `CustomGamePlayedWhileFarming` setting, which allows you to set custom name being displayed when ASF is farming, instead of showing actual game.
 
 So let's do that, if you run ASF and start farming, in default settings you'll see that your Steam account is in-game now:
 

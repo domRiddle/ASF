@@ -310,7 +310,7 @@ owns ASF app/292030,name/Witcher
 | ----------------------- | ---------------------------------------- |
 | Login                   | `SteamLogin` Bot 設定屬性，設定檔缺失時使用此值。        |
 | Password                | `SteamPassword` Bot 設定屬性，設定檔缺失時使用此值。     |
-| SteamGuard              | 如果您未啟用雙重驗證，驗證碼將以電子郵件的方式發送。               |
+| Steam Guard             | 如果您未啟用雙重驗證，驗證碼將以電子郵件的方式發送。               |
 | SteamParentalCode       | `SteamParentalCode` Bot 設定屬性，設定檔缺失時使用此值。 |
 | TwoFactorAuthentication | 如果您啟用雙重驗證但並非 ASF 雙重驗證，雙重驗證權杖將由您的手機生成。    |
 
@@ -321,7 +321,7 @@ owns ASF app/292030,name/Witcher
 
 ### 範例
 
-假設我們有一個未啟用雙重驗證，僅由 SteamGuard 保護的 Bot。 我們希望在 `Headless` 為 `true` 的情況下啟動這個 Bot。
+假設我們有一個未啟用雙重驗證，僅由 Steam Guard 保護的 Bot。 我們希望在 `Headless` 為 `true` 的情況下啟動這個 Bot。
 
 為此，我們需要執行以下指令：
 
