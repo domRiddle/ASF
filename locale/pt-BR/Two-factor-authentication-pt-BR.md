@@ -35,11 +35,13 @@ Certifique-se de que seu autenticador funciona verificando se as ações acima f
 
 ### Android
 
+**The below instructions apply to Steam app in version `2.X`, there are currently no resources on extracting required details from version `3.0` onwards. We'll update this section once generally-available method is found. As of today, a workaround would be to intentionally install older version of Steam app, register 2FA and extract the required details first, after which it's possible to update the application to latest version - existing authenticator will continue to work.**
+
 Em geral, para importar o autenticador do seu Android você vai precisar de acesso ao **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))**. Fazer o root varia de um dispositivo pra outro, então eu não vou te dizer como fazer no seu aparelho. Visite o **[XDA](https://www.xda-developers.com/root)** para ver excelentes tutoriais sobre como fazer isso, assim como informações gerais sobre como fazer o root. Se você não conseguir encontrar seu dispositivo ou o guia que precisa, tente procurar no google.
 
 Pelo menos oficialmente, não é possível acessar arquivos protegidos do Steam sem root. O único método oficial sem root para extrair arquivos Steam é criando backups não encriptados da pasta `/data` de uma maneira ou outra e buscar manualmente os arquivos certos pelo seu PC, no entanto, como isso depende muito do fabricante do seu telefone e **não é** um padrão do Android, não vamos discuti-lo aqui. Se você tem sorte de ter essa funcionalidade, você pode fazer uso dela, mas a maioria dos usuários não tem algo assim.
 
-Extraoficialmente, é possível extrair os arquivos necessários sem acesso ao root instalando ou rebaixando a versão do seu aplicativo Steam para a versão 2.1 (ou anterior), ativando o autenticador móvel e então criando um instantâneo do aplicativo (junto com os arquivos da pasta `data` que precisamos) através de um `adb backup`. No entanto, uma vez que é uma grave violação da segurança e uma maneira totalmente não suportada de extrair os arquivos, não vamos falar nada mais sobre isto, a Valve desativou esta falha na segurança em versões mais recentes por uma razão, e apenas a mencionamos como uma possibilidade. Still, it might be possible to do a clean install of that version, link new authenticator, extract the required files, and then upgrade the app, which should be just enough, but you're on your own with this method anyway.
+Unofficially, it is possible to extract the needed files without root access, by installing or downgrading your Steam app to version `2.1` (or earlier), setting up mobile authenticator and then creating a snapshot of the app (together with the `data` files that we need) through `adb backup`. No entanto, uma vez que é uma grave violação da segurança e uma maneira totalmente não suportada de extrair os arquivos, não vamos falar nada mais sobre isto, a Valve desativou esta falha na segurança em versões mais recentes por uma razão, e apenas a mencionamos como uma possibilidade. Still, it might be possible to do a clean install of that version, link new authenticator, extract the required files, and then upgrade the app, which should be just enough, but you're on your own with this method anyway.
 
 Assumindo que você fez o root com sucesso em seu telefone, você deve baixar qualquer explorador de root disponível no mercado, tal como **[esse](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** (ou qualquer outro de sua preferência). Você também pode acessar os arquivos protegidos através do ADB (Android Debug Bridge) ou qualquer outro modo que você prefira, nós vamos fazer isso através do explorador de arquivos, pois é definitivamente o caminho mais fácil de utilizar.
 
@@ -60,7 +62,7 @@ Isso é tudo, assumindo que você importou o arquivo correto com os segredos vá
 
 ### iOS
 
-Para iOS você pode usar o **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)**. Isso é possível graças ao fato de que você pode fazer backups descodificados, colocá-los em seu PC e usar a ferramenta para extrair dados do Steam que seriam impossíveis de se obter de outra forma (ao menos sem desbloqueio, dado a codificação do iOS).
+Para iOS você pode usar o **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)**. Isso é possível graças ao fato de que você pode fazer backups descodificados, colocá-los em seu PC e usar a ferramenta para extrair dados da Steam que seriam impossíveis de se obter de outra forma (ao menos sem desbloqueio, dado a codificação do iOS).
 
 Vá até o **[último lançamento](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** para baixar o programa. Depois que você extrair os dados você pode colocá-los, por exemplo, no WinAuth, em seguida, do WinAuth para o ASF (embora você também possa simplesmente copiar o código json gerado, começando no `{` até o `}` em um arquivo `NomeDoBot.maFile` e prosseguir como de costume). Se você me perguntar, eu recomendo fortemente importar para o WinAuth primeiro, depois certificar-se que tanto gerar tokens como aceitar confirmações estão funcionando corretamente, assim você pode ter certeza que está tudo bem. Se suas credenciais forem inválidas, ASF 2FA não vai funcionar direito, então é muito melhor deixar o passo de importar para o ASF por último.
 
@@ -91,7 +93,7 @@ De agora em diante, seu ASF 2FA deverá estar operacional para esta conta.
 
 Em primeiro lugar, crie um arquivo novo com o nome `NomeDoBot.maFile` na pasta config do ASF, onde `NomeDoBot` é o nome do bot para o qual você está adicionando o ASF 2FA. Lembre-se que ele deve ser `NomeDoBot.maFile` e não `NomeDoBot.maFile.txt`, o Windows gosta de ocultar extensões conhecidas de arquivos por padrão. Se você colocar o nome errado, o arquivo não será selecionado pelo ASF.
 
-Agora inicie o Winauth como de costume. Clique com o botão direito no ícone do Steam e selecione "Show SteamGuard and Recovery Code". Então marque "Allow copy". Você vai observar uma estrutura JSON familiar para você na parte inferior da janela, começando com `{`. Copie todo o texto para o arquivo `NomeDoBot.maFile` que você criou na etapa anterior.
+Agora inicie o Winauth como de costume. Clique com o botão direito no ícone da steam e selecione "Show SteamGuard and Recovery Code". Então marque "Allow copy". Você vai observar uma estrutura JSON familiar para você na parte inferior da janela, começando com `{`. Copie todo o texto para o arquivo `NomeDoBot.maFile` que você criou na etapa anterior.
 
 Se você fez tudo corretamente, abra o ASF e você deverá notar:
 
@@ -108,7 +110,7 @@ De agora em diante, seu ASF 2FA deverá estar operacional para esta conta.
 
 A partir de agora, todos os comandos `2fa` funcionarão como se fossem chamados pelo seu dispositivo 2FA padrão. Você pode usar tanto o ASF 2FA quanto o seu autenticador de escolha (Android, iOS, SDA ou WinAuth) para gerar tokens e aceitar as confirmações.
 
-Se você tem um autenticador em seu telefone, você pode, opcionalmente, remover o SteamDesktopAuthenticator e/ou o WinAuth, já que não precisaremos mais deles. No entanto, eu sugiro que você os mantenha para o caso de precisar, para não falar que eles são mais acessíveis que o autenticador normal do Steam. Apenas tenha em mente que o ASF 2FA **NÃO** tem a finalidade geral de ser um autenticador e **nunca** deve ser o único que você utiliza, já que ele nem mesmo inclui todos os dados que um autenticador deve ter. Não é possível converter o ASF 2FA de volta ao autenticador original, portanto certifique-se sempre que você tem um autenticador de uso geral em outro lugar, como o WinAuth/SDA, ou no seu telefone.
+Se você tem um autenticador em seu telefone, você pode, opcionalmente, remover o SteamDesktopAuthenticator e/ou o WinAuth, já que não precisaremos mais deles. No entanto, eu sugiro que você os mantenha para o caso de precisar, para não falar que eles são mais acessíveis que o autenticador normal da steam. Apenas tenha em mente que o ASF 2FA **NÃO** tem a finalidade geral de ser um autenticador e **nunca** deve ser o único que você utiliza, já que ele nem mesmo inclui todos os dados que um autenticador deve ter. Não é possível converter o ASF 2FA de volta ao autenticador original, portanto certifique-se sempre que você tem um autenticador de uso geral em outro lugar, como o WinAuth/SDA, ou no seu telefone.
 
 ---
 
@@ -140,7 +142,7 @@ O autenticador móvel do ASF é salvo no arquivo `NomeDoBot.db` na sua pasta con
 
 ### Como remover o ASF 2FA?
 
-Simplesmente pare o ASF e remova o arquivo `NomeDoBot.db` do bot com o ASF 2FA vinculado que deseja remover. Esta opção irá remover o 2FA associado importado para o ASF, mas NÃO desvinculará seu autenticador. Se ao invés disso você quiser desvincular seu autenticador, além de removê-lo do ASF (em primeiro lugar), você deve desvinculá-lo no autenticador de sua escolha (Android, iOS, SDA ou WinAuth), ou - se por alguma razão você não puder, use o código de revogação que recebeu durante a vinculação com o autenticador, no site do Steam. Não é possível desvincular seu autenticador através do ASF, para isso você deve usar o próprio autenticador.
+Simplesmente pare o ASF e remova o arquivo `NomeDoBot.db` do bot com o ASF 2FA vinculado que deseja remover. Esta opção irá remover o 2FA associado importado para o ASF, mas NÃO desvinculará seu autenticador. Se ao invés disso você quiser desvincular seu autenticador, além de removê-lo do ASF (em primeiro lugar), você deve desvinculá-lo no autenticador de sua escolha (Android, iOS, SDA ou WinAuth), ou - se por alguma razão você não puder, use o código de revogação que recebeu durante a vinculação com o autenticador, no site da Steam. Não é possível desvincular seu autenticador através do ASF, para isso você deve usar o próprio autenticador.
 
 ---
 
@@ -167,4 +169,4 @@ Se você for um usuário avançado, você pode gerar o arquivo maFile manualment
 }
 ```
 
-Dados padrão do autenticador tem mais campos - eles são completamente ignorados pelo ASF durante a importação, já que não são necessários. Você não precisa removê-los - o ASF só requer um arquivo JSON válido com os 2 campos obrigatórios descritos anteriormente, e vai ignorar qualquer campo adicional (se existirem). Claro, você precisa substituir o campo `STRING` no exemplo acima com valores válidos para sua conta.
+Dados padrão do autenticador tem mais campos - eles são completamente ignorados pelo ASF durante a importação, já que não são necessários. Você não precisa removê-los - o ASF só requer um arquivo JSON válido com os 2 campos obrigatórios descritos anteriormente, e vai ignorar qualquer campo adicional (se existirem). Claro, você precisa substituir o campo `STRING` no exemplo acima com valores válidos para sua conta. Each `STRING` should be base64-encoded representation of bytes the appropriate private key is made of.

@@ -1,33 +1,33 @@
-# 授權
+# 授權條款
 
-Unless stated otherwise, ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**. For a quick overview what you can and cannot do, you can use **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+除另有說明，ASF 基於 **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)** 授權條款所授權。 想要快速了解您能做與不能做什麼，可以閱讀 **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**。
 
-ASF license is very permissive and you're allowed to do much more than in standard GPL license, including using ASF in commercial projects without a requirement of making code open-source. In short, as stated by tl;dr Legal:
+ASF 授權條款是非常寬容的，它允許的範圍比標準 GPL 授權條款更大，包括允許您在商業性專案中使用 ASF，且不需要開放原始碼。 簡而言之，正如 tl;dr Legal 中所述：
 
-> You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
+> 只要您在專案中遵循開發人員的要求做出相關聲明，便可將此程式用作任意用途。 此授權條款授權包含來自程式碼貢獻者的專利許可。
 
-By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
+聲明：ASF 是依據 **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)** 授權，我們指的**僅包含是**主要專案及其原始碼，而不包含 ASF 所使用的其他任何專案項目（尤其是函式庫、工具、框架及前端，例如 **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**），這些項目通常會依不同條款授權。
 
 -----
 
 ## 備註
 
-If you're creating your own software/service based on ASF or part of its code, please review point 6 of the license:
+若您正基於 ASF 或其部分程式碼建立自己的軟體／服務，請查看授權條款的第 6 條：
 
-> Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+> 商標。 本授權條款不授予使用授權人的商號、商標、服務商標或產品名稱，除描述作品來源及複製 NOTICE 檔案內容時，才得以合理使用。
 
-We do not grant you direct permission to use ASF/ArchiSteamFarm product name in your own software, but we allow using it in some common-sense scenarios:
+我們不允許您在自己的軟體中直接使用 ASF/ArchiSteamFarm 產品名稱，但我們允許在一些慣用情景中使用它：
 
 您**可以**：
-- Claim that your software/service **is based on** ASF (or its code)
-- Refer to your software/service as **ASF fork**
-- Claim that your software/service is powered by ASF, if you **didn't** do any changes to the source code
-- Use ASF for various reference purposes, such as linking software/service origin, our wiki, or *"as required for reasonable and customary use in describing the origin of the Work"*
+- 聲明您的軟體／服務**基於** ASF（或其程式碼）
+- 命名您的軟體／服務為 **ASF 的分支版本**
+- 在您**未**更改任何原始碼的情況下，聲明您的軟體／服務由 ASF 提供支援
+- 將 ASF 用於各種參考目的，例如連結軟體／服務的來源、我們的 Wiki，或*「用於描述作品來源的合理習慣」*
 
-You **cannot**:
-- Claim that your software/service **is** ASF
-- Refer to your software/service as **ASF**
-- Claim that your software/service is powered by ASF, if you **did** any changes to the source code
-- Use false advertising, such as stating that ASF or its developers are affiliated with your software/service
+您**無法**：
+- 聲明您的軟體／服務**是** ASF
+- 命名您的軟體／服務為 **ASF/0></li>
+- 在您**有**更改任何原始碼的情況下，聲明您的軟體／服務由 ASF 提供支援
+- 發布不實廣告，例如聲明 ASF 或其開發人員與您的軟體／服務相關聯</ul>
 
-If in doubt, please contact with us, and we'll be happy to answer your legal/licensing questions.
+如有疑問，請與我們聯繫，我們將很樂意回答您的法律／授權問題。

@@ -52,9 +52,9 @@ Linux/macOS：
 
 ---
 
-`--cryptkey-file <path>` or `--cryptkey-file=<path>` - will start ASF with custom cryptographic key read from `<path>` file. This serves the same purpose as `--cryptkey <key>` explained above, only the mechanism differs, as this property will read `<key>` from provided `<path>` instead.
+`--cryptkey-file <path>` 或 `--cryptkey-file=<path>`——将从 `<path>` 文件中读取自定义密钥启动 ASF。 这与上文的 `--cryptkey <key>` 效果相同，仅有读取方式不同，此属性的 `<key>` 将会从 `<path>` 文件中读取 。
 
-Due to the nature of this property, it's also possible to set cryptkey file by declaring `ASF_CRYPTKEY_FILE` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+由于该属性本身的性质，您也可以设置 `ASF_CRYPTKEY_FILE` 环境变量来设置此密钥文件，这更适合想避免在进程参数中暴露敏感信息的用户。
 
 ---
 

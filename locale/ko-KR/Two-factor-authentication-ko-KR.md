@@ -35,11 +35,13 @@ ASF 2단계 인증(2FA)를 사용하려면 Steam에 연결되고 작동가능한
 
 ### 안드로이드 전화기
 
+**The below instructions apply to Steam app in version `2.X`, there are currently no resources on extracting required details from version `3.0` onwards. We'll update this section once generally-available method is found. As of today, a workaround would be to intentionally install older version of Steam app, register 2FA and extract the required details first, after which it's possible to update the application to latest version - existing authenticator will continue to work.**
+
 일반적으로 안드로이드 전화기에서 인증기를 가져올때 **[루트](https://ko.wikipedia.org/wiki/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C_%EB%A3%A8%ED%8C%85)** 권한이 필요하지는 않습니다. 루팅은 기기마다 다르므로 어떻게 루팅하는지는 말씀드리지 않겠습니다. 일반적으로 루팅을 어떻게 하는지에 대한 훌륭한 가이드와 일반적 정보는 **[XDA](https://www.xda-developers.com/root)** 를 참고하십시오. 자신의 기기나 필요한 가이드를 찾을 수 없다면, 그다음으로는 구글에서 찾아보십시오.
 
 적어도 공식적으로 루팅없이 보호된 Steam 파일에 접근하는 것은 불가능합니다. Steam 파일을 추출하는 루팅이 필요없는 유일한 공식적 방법은 암호화되지 않은 `/data` 백업을 이런 저런 방법으로 생성해서 그 중 적절한 파일을 PC에 수동으로 가져오는 것입니다. 이는 휴대전화 제조사에 매우 의존하고 안드로이드 표준이 **아니므로** 여기서 다루지는 않습니다. 운이 좋아서 그런 기능이 있다면 사용할 수 있겠지만 대부분의 사용자들은 그런 것이 없습니다.
 
-비공식적으로 루트 권한 없이 필요한 파일을 추출하는 것은 가능합니다. Steam 앱을 2.1 버전 혹은 이전버전으로 설치 또는 다운그레이드 하고, 모바일 인증기를 설정한 후, `adb backup`으로 앱과 우리가 필요로 하는 `data` 파일의 스냅샷을 생성하면 됩니다. 하지만 이는 심각한 보안 취약점이고 전혀 지원을 받을 수 없는 방법이므로 더이상 자세히 말하지는 않겠습니다. Valve는 새 버전에서 어떤 이유로 이 보안취약점을 막아버렸고, 우리는 단지 가능성만 언급하겠습니다. Still, it might be possible to do a clean install of that version, link new authenticator, extract the required files, and then upgrade the app, which should be just enough, but you're on your own with this method anyway.
+Unofficially, it is possible to extract the needed files without root access, by installing or downgrading your Steam app to version `2.1` (or earlier), setting up mobile authenticator and then creating a snapshot of the app (together with the `data` files that we need) through `adb backup`. 하지만 이는 심각한 보안 취약점이고 전혀 지원을 받을 수 없는 방법이므로 더이상 자세히 말하지는 않겠습니다. Valve는 새 버전에서 어떤 이유로 이 보안취약점을 막아버렸고, 우리는 단지 가능성만 언급하겠습니다. Still, it might be possible to do a clean install of that version, link new authenticator, extract the required files, and then upgrade the app, which should be just enough, but you're on your own with this method anyway.
 
 당신이 휴대전화를 성공적으로 루팅했다고 가정하면, 그 다음엔 마켓에서 **[이것](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** 과 같은, 혹은 선호하는 어떤 루트 탐색기를 다운로드해야 합니다. 보호된 파일은 ADB (Android Debug Bridge) 나 다른 어떤 방법으로도 접근이 가능한데, 우리는 가장 사용자 친화적인 방법인 탐색기를 사용하겠습니다.
 
@@ -167,4 +169,4 @@ ASF 모바일 인증기는 해당 계정에 관련된 중요한 다른 데이터
 }
 ```
 
-표준 인증기 데이터는 더 많은 항목이 있지만, ASF의 가져오기 단계에서 모두 무시되므로 필요하지 않습니다. 그렇다고 삭제할 필요는 없습니다. ASF는 위에서 설명한 2개의 필수 항목만 필요로 하고, 그 외 추가 항목은(있다면) 무시할 것입니다. Of course, you need to replace `STRING` placeholder in the example above with valid values for your account.
+표준 인증기 데이터는 더 많은 항목이 있지만, ASF의 가져오기 단계에서 모두 무시되므로 필요하지 않습니다. 그렇다고 삭제할 필요는 없습니다. ASF는 위에서 설명한 2개의 필수 항목만 필요로 하고, 그 외 추가 항목은(있다면) 무시할 것입니다. Of course, you need to replace `STRING` placeholder in the example above with valid values for your account. Each `STRING` should be base64-encoded representation of bytes the appropriate private key is made of.

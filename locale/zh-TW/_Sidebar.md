@@ -31,7 +31,7 @@
 ## 🧙 進階
 
 * **[⌨️ 命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW)**
-* **[🚧 棄用的功能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-zh-TW)**
+* **[🚧 功能棄用](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-zh-TW)**
 * **[🐳 Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-zh-TW)**
 * **[🤔 其他常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-zh-TW)**
 * **[🚀 高效能設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-zh-TW)**
@@ -50,5 +50,5 @@
 
 * **[🏗️ 編譯](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-zh-TW)**
 * **[🤝 貢獻指南](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
-* **[⚖️ 授權](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License-zh-TW)**
+* **[⚖️ 授權條款](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License-zh-TW)**
 * **[🏭 發布週期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-TW)**

@@ -1,49 +1,49 @@
-# 棄用的功能
+# 功能棄用
 
-Starting with ASF V3.1.2.2, we'll be following consistent deprecation policy in order to make both development as well as usage far more consistent.
+由 ASF V3.1.2.2 版本開始，我們將遵循一致的棄用政策，以使開發及使用更加一致。
 
 ---
 
 ## 什麼是棄用？
 
-Deprecation is the process of doing smaller or bigger breaking changes that render previously used options, arguments, functionalities or usage cases obsolete. Deprecation usually means that given thing was simply rewritten into another (similar) form, and you should ensure in timely manner that you'll make appropriate switch to it. In this case, it's simply moving given functionality to more appropriate place.
+棄用是進行或大或小重要改動的過程，這些更改會使先前使用的選項、引數、功能或使用案例過時。 功能棄用通常代表原先給定的內容，被重寫成另一種（相似的）型態，您應確保及時在合適的時機切換至新型態。 在這種情況下，它只是將給定的功能移動至更適合的位置。
 
-ASF changes rapidly and always strikes for becoming better. This sadly means that we may change or move some existing functionality into another segment of the program in order for it to benefit from new features, compatibility or stability. Thanks to that we don't need to stick with obsolete or simply painfully wrong development decisions that we made years ago. We're always trying to provide reasonable replacement that fits expected usage of previously-available functionality, which is why deprecation is mostly harmless and requires small fixes to previous usage.
+ASF 版本更新迅速，並總在追求卓越。 遺憾的是，這代表我們可能會將某些現有功能更改或移動至程式的其他部分，以適應新功能、增加相容性及穩定性。 但因如此，我們不需堅持多年前做出過時的或錯誤的開發決策。 我們持續努力提供合理的替代方案，以符合先前可用功能的預期用途，這就是為什麼大部分的棄用皆是無害的，只需對過往的用法進行少量修正。
 
 ---
 
-## 棄用階段
+## 棄用流程
 
-ASF will follow 2 stages of deprecation, making transition much easier and less troublesome.
+ASF 的棄用流程分為兩個階段，使過渡期間更簡單並減少麻煩。
 
 ### 第一階段
 
-Stage 1 happens once given feature becomes deprecated, with immediate availability of another solution (or none if there are no plans of re-introducing it).
+一旦決定該功能將被棄用，就會立刻進入第一階段，同時會提供一個替代方案（若沒有重新引入該功能的計劃，則不提供）。
 
-During this stage, ASF will print appropriate warning when deprecated function is being used. As long as it's possible, ASF will try to mimic the old behaviour and keep being compatible with it. ASF will keep being in stage 1 regarding that functionality at least until next stable version. This is the moment when, hopefully without breaking compatibility, you can make appropriate switch in all your tools and patterns to satisfy new behaviour. You can confirm whether you did all appropriate changes by no longer seeing the deprecation warning.
+在這個階段，ASF 會在將被棄用的函數被調用時，發出相應的警告訊息。 只要有可能，ASF 就會嘗試模擬之前的行為，並保持與它相容。 至少在下一個穩定版本前，該功能會在 ASF 中停留於第一階段。 在這時，您應該在不破壞相容性的情形下，在所有工具及模式中進行適當的轉換，以適應新的行為。 若您不再看到棄用警告，這就代表您進行了適當的更改。
 
 ### 第二階段
 
-Stage 2 is scheduled after stage 1 explained above takes place and gets released in a stable release. This stage introduces complete removal of deprecated feature existence, which means that ASF will not even acknowledge that you're attempting to use a deprecated feature, let alone respect it, since it simply doesn't exist in the current code. ASF will no longer print any warning, since it no longer recognizes what you're attempting to do.
+第二階段發生於上述的第一階段之後，並會在穩定版本中發布。 這個階段已完全刪除被棄用的功能，這代表 ASF 甚至不會接受您嘗試使用的已棄用的功能，更不用說執行它了，因為它根本就不存在於當前的程式碼中。 ASF will no longer print any warning, since it no longer recognizes what you're attempting to do.
 
 ---
 
-## 概要
+## 總結
 
-You have more or less a **full month** in order to make appropriate switch, which should be more than enough even if you're a casual ASF user. After that period, ASF no longer guarantees that old settings will have any effect (stage 2), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than a month of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs that you've missed and manually adapt your usage to current one.
+您有大約**一個月**的時間來調整及轉換，即使您只是偶爾使用 ASF，這也應該足夠了。 After that period, ASF no longer guarantees that old settings will have any effect (stage 2), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than a month of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs that you've missed and manually adapt your usage to current one.
 
-In most cases, disregarding deprecation warning will not render general ASF functionality unusable, but rather falling back to default behaviour (which may or may not match your personal preferences).
+在大多數情形下，忽略棄用警告不會使 ASF 的基本功能失效，而是會回溯至預設行為（可能符合您的個人偏好，也可能不符合）。
 
 ---
 
 ## 範例
 
-We moved pre-V3.1.2.2 `--server` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** into `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**.
+我們將 V3.1.2.2 版本之前的 `--server` **[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW)**遷移至 `IPC` **[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#全域設定)**。
 
 ### 第一階段
 
-Stage 1 happened in version V3.1.2.2 where we added appropriate warning to usage of `--server`. Now-obsolete `--server` argument was automatically mapped into `IPC: true` global config property, effectively acting exactly the same as old `--server` switch for time being. This allowed everybody to do appropriate switch before ASF stops accepting old argument.
+第一階段起始於 V3.1.2.2 版本，我們對 `--server` 的使用加入了適當的警告訊息。 當下過時的 `--server` 引數將會被自動轉換成 `IPC: true` 全域設定屬性，它的實際效果與之前的 `--server` 開關完全相同。 這使得每個人都能在 ASF 停止接受舊引數前，進行適當的轉換。
 
 ### 第二階段
 
-Stage 2 happened in version V3.1.3.0, right after V3.1.2.9 stable with stage 1 explained above. Stage 2 caused ASF to stop recognizing the `--server` argument at all, treating it like every other invalid argument being passed, which no longer has any effect on the program. For people that still didn't change their usage of `--server` into `IPC: true`, it caused IPC to stop functioning altogether, as ASF no longer did appropriate mapping.
+第二階段發生於 V3.1.3.0 版本，是緊接著在上述第一階段說明的 V3.1.2.9 穩定版本發布之後。 第二階段使 ASF 完全停止辨識 `--server ` 引數，將其視為其他所有無效引數，並對程式不再有任何影響。 對於仍未由 `--server ` 改為使用 `IPC: true` 的使用者，由於 ASF 不再進行轉換，會使 IPC 完全停止運作。
