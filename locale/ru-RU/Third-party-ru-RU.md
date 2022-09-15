@@ -15,26 +15,26 @@
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, плагин для ASF, который делает имена ботов регистронезависимыми.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, плагин, возвращающий в ASF возможность активации ключей без команды.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, плагин для ASF, позволяющий автоматически принимать предложения обмена, в которых у него запрашивают предметы заданного(ых) типа(ов).
-- ** [ Selective-Loot-and-Transfer-Plugin ](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin) **, плагин для ASF, предоставляющий расширение команды ` transfer ` для передачи предметов Steam.
+- **[ Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, плагин для ASF, предоставляющий расширение команды `transfer` для передачи предметов Steam.
 
 ### **[Vital7](https://github.com/Vital7)**
 
-- ** [ FriendAccepter ](https://github.com/Vital7/FriendAccepter) **, плагин для ASF, позволяющий автоматически принимать все приглашения в друзья.
-- ** [ GameRemover ](https://github.com/Vital7/GameRemover) **, плагин для ASF, реализующий команду удаления лицензий Steam для выбранных экземпляры ботов.
-- ** [ GetEmail ](https://github.com/Vital7/GetEmail) **, плагин для ASF, реализующий команду получения адреса электронной почты заданных экземпляров ботов прямо из Steam.
-- ** [ ResetAPIKey ](https://github.com/Vital7/ResetAPIKey) **, плагин для ASF, реализующий команду сброса ключа API для выбранных экземпляров ботов.
+- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, плагин для ASF, позволяющий автоматически принимать все приглашения в друзья.
+- **[GameRemover](https://github.com/Vital7/GameRemover)**, плагин для ASF, реализующий команду удаления лицензий Steam для выбранных экземпляров ботов.
+- **[GetEmail](https://github.com/Vital7/GetEmail)**, плагин для ASF, реализующий команду для получения адресов электронной почты заданных экземпляров ботов непосредственно из Steam.
+- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, плагин для ASF, реализующий команду сброса ключа API для выбранных экземпляров ботов.
 - **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, плагин для ASF, позволяющий направить соединения по WebSocket через прокси.
 
 ### Другое
 
-- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, плагин для ASF, дополняющий его различными новыми функциями, особенно командами.
 
 ---
 
-## Интеграция
+## Интеграции
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, бот для telegram, написанный на python и интегрированный с ASF.
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
+- **[ASF STM](https://greasyfork.org/en/scripts/404754-asf-stm)** - userscript для тех, кто хочет отправлять автоматизированные торговые предложения ботам в нашем **[листинге ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** через веб-браузер без использования функции `MatchActively`, предоставляемой ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, другой (минималистичный) бот для telegram, написанный на python и интегрированный с ASF.
 
 ---
@@ -49,9 +49,9 @@
 
 - **[репозиторий AUR #1](https://aur.archlinux.org/packages/asf)**, позволяющий легко установить ASF на Arch linux.
 - **[репозиторий AUR #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, позволяющий легко установить ASF на Arch linux.
-- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, allowing you to easily install ASF on macOS.
-- **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, allowing you to easily install ASF on distros with Nix.
-- **[NixOS](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, allowing you to configure and install ASF with NixOS.
+- **[репозиторий Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, позволяющий легко установить ASF на macOS.
+- **[репозиторий Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, позволяющий легко установить ASF на дистрибутивы с Nix.
+- **[репозиторий NixOS](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, позволяющий легко установить ASF на дистрибутивы с NixOS.
 
 ---
 

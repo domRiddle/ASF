@@ -24,7 +24,7 @@
 * **[📋 管理](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-TW)**
 * **[⏱️ 效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**
 * **[📡 遠端通訊](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-TW)**
-* **[👪 Steam 家庭共享](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing-zh-TW)**
+* **[👪 Steam 親友同享](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing-zh-TW)**
 * **[🔄 交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW)**
 
 

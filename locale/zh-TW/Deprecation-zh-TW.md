@@ -24,13 +24,13 @@ ASF 的棄用流程分為兩個階段，使過渡期間更簡單並減少麻煩�
 
 ### 第二階段
 
-第二階段發生於上述的第一階段之後，並會在穩定版本中發布。 這個階段已完全刪除被棄用的功能，這代表 ASF 甚至不會接受您嘗試使用的已棄用的功能，更不用說執行它了，因為它根本就不存在於當前的程式碼中。 ASF will no longer print any warning, since it no longer recognizes what you're attempting to do.
+第二階段發生於上述的第一階段之後，並會在穩定版本中發布。 這個階段已完全刪除被棄用的功能，這代表 ASF 甚至不會接受您嘗試使用的已棄用的功能，更不用說執行它了，因為它根本就不存在於當前的程式碼中。 ASF 不會發出任何警告，因為它不再能辨識您嘗試執行的操作。
 
 ---
 
 ## 總結
 
-您有大約**一個月**的時間來調整及轉換，即使您只是偶爾使用 ASF，這也應該足夠了。 After that period, ASF no longer guarantees that old settings will have any effect (stage 2), effectively making certain features to stop functioning altogether without you noticing. If you're launching ASF after more than a month of inactivity, it's recommended for you to **[start from scratch](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** again, or read all the changelogs that you've missed and manually adapt your usage to current one.
+您有大約**一個月**的時間來調整及轉換，即使您只是偶爾使用 ASF，這也應該足夠了。 在這段期間之後，ASF 不再保證舊設定能產生任何效果（第二階段），某些功能會在您未發現的情形下完全停止運作。 如果您已長達一個月以上未使用 ASF，建議您再次**[重新開始](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-TW)**，或者閱讀所有您錯過的更新日誌，並手動更改設定，使您的 ASF 適應當前的用法。
 
 在大多數情形下，忽略棄用警告不會使 ASF 的基本功能失效，而是會回溯至預設行為（可能符合您的個人偏好，也可能不符合）。
 

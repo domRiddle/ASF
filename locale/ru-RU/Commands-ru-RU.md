@@ -15,7 +15,7 @@ ASF поддерживает множество команд, которые и�
 
 ### Интерактивная консоль
 
-Starting with V4.0.0.9, ASF has support for interactive console, as long as you're not running in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Simply press `c` button in order to enable command mode, type your command and confirm with enter.
+Начиная с V4.0.0.9, ASF поддерживает интерактивную консоль, если вы не работаете в режиме [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless). Просто нажмите кнопку `c` (англ.) для включения режима команд, введите свою команду и подтвердите с помощью enter.
 
 ![Скриншот](https://i.imgur.com/bH5Gtjq.png)
 

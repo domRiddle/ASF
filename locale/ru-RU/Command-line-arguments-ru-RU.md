@@ -46,19 +46,19 @@ Linux/macOS:
 
 `--cryptkey <key>` или `--cryptkey=<key>` - запустит ASF с пользовательским значением ключа шифрования `<key>`. Эта настройка влияет на **[безопасность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ru-RU)** и ASF будет использовать данный ключ шифрования `<key>` вместо внедрённого в исполняемый файл. Поскольку эта настройка влияет на ключ шифрования по умолчанию (для шифрования), а также на соль (для хеширования), не забывайте, что для любого шифрования/хеширования этот ключ должен передаваться ASF при каждом запуске.
 
-If you want to provide `<key>` from a file, use `--cryptkey-file` for that purpose instead, explained below.
+Если вы хотите предоставить `<key>` из файла, используйте `--cryptkey-file` для этой цели, пояснение ниже.
 
 Из-за природы этого параметра также есть возможность задавать ключ шифрования путём задания переменной среды `ASF_CRYPTKEY`, это может оказаться более подходящим для людей, которые хотели бы избежать наличия конфиденциальной информации в аргументах процесса.
 
 ---
 
-`--cryptkey-file <path>` or `--cryptkey-file=<path>` - will start ASF with custom cryptographic key read from `<path>` file. This serves the same purpose as `--cryptkey <key>` explained above, only the mechanism differs, as this property will read `<key>` from provided `<path>` instead.
+`--cryptkey-file <path>` или `--cryptkey-file=<path>` - запустит ASF с помощью пользовательского криптографического ключа из файла `<path>`. Это служит той же цели, что и объяснённый выше `--cryptkey<key>`, только механизм отличается так как это свойство прочитает `<key>` из предоставленного `<path>` файла.
 
-Due to the nature of this property, it's also possible to set cryptkey file by declaring `ASF_CRYPTKEY_FILE` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+Из-за природы этого параметра также есть возможность задавать ключ шифрования путём задания переменной среды `ASF_CRYPTKEY`, это может оказаться более подходящим для людей, которые хотели бы избежать наличия конфиденциальной информации в аргументах процесса.
 
 ---
 
-`--ignore-unsupported-environment` - will cause ASF to ignore problems related to running in unsupported environment, which normally is signalized with an error and a forced exit. Unsupported environment includes for example running .NET Framework build on platform that could be running .NET (Core) build instead. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. As of today, **all** of the unsupported environment scenarios can be corrected, such as running `generic` build instead of `generic-netf`. We strongly recommend to fix the outstanding problems instead of declaring this argument.
+`--ignore-unsupported-environment` - указывает ASF игнорировать запуск в неподдерживаемой среде, что обычно приводит к выводу ошибки и остановке программы. Неподдерживаемая среда включает, например, запуск сборки на основе .NET Framework на платформе, на которой вместо этого возможен запуск сборки на основе .NET (Core). Хотя этот флаг позволит ASF попытаться запуститься в таких сценариях, имейте в виду, что мы не поддерживаем их официально, и вы вынуждаете ASF делать это полностью **на свой страх и риск**. На сегодняшний день **все** сценарии неподдерживаемой среды могут быть исправлены, например запуск `generic` build вместо `generic-netf`. Мы настоятельно рекомендуем исправить нерешенные проблемы вместо использования этого аргумента.
 
 ---
 
@@ -80,7 +80,7 @@ Due to the nature of this property, it's also possible to set cryptkey file by d
 
 ---
 
-`--no-steam-parental-generation` - by default ASF will automatically attempt to generate Steam parental PINs, as described in **[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamparentalcode)** configuration property. However, since that might require excessive amount of OS resources, this switch allows you to disable that behaviour, which will result in ASF skipping auto-generation and go straight to asking user for PIN instead, which is what would normally happen only if the auto-generation has failed. Usually we recommend to keep the generation enabled, but if you have a particular reason for disabling it and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-steam-parental-generation` - по умолчанию ASF будет автоматически пытаться сгенерировать родительский PIN-код Steam, как описано в в свойстве конфигурации **[`Параметры SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#steamparentalcode)**. Однако, поскольку для этого может потребоваться чрезмерное количество ресурсов ОС, этот переключатель позволяет вам отключить такое поведение, что приведет к тому, что ASF пропустит автоматическую генерацию и вместо этого сразу запросит у пользователя PIN-код, что обычно происходит, только если автоматическая генирация не удалась. Обычно мы рекомендуем оставить генерацию включенной, но если у вас есть особая причина для отключения и вместо этого предпочитаете чтобы ASF этого не делал, вы можете использовать этот переключатель для достижения этой цели.
 
 ---
 

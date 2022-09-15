@@ -6,7 +6,7 @@
 
 除非另有說明（如「V2」），所有的 Wiki 頁面永遠只適用於**[最新版 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**。 若您想查看特定時間點的 Wiki 頁面（例如舊版 ASF 的說明），請點選在每個頁面頂部的 **[revisions](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/_history)** 修訂版本，然後選取符合您 ASF 版本的日期。 我們會保留現在及過往 ASF 主要版本的頁面。
 
-如果您是新使用者，我們建議您從 **[新手上路](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-TW)** 開始。 您可以在螢幕右側的側邊欄中找到其他所有相關的 Wiki 頁面。 ASF 的知識是無限的，可以隨意閱讀您感興趣的內容，但我們會建議您從頭開始閱覽。
+如果您是新使用者，我們建議您從**[新手上路](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-TW)** 開始。 您可以在螢幕右側的側邊欄中找到其他所有相關的 Wiki 頁面。 ASF 的知識是無限的，可以隨意閱讀您感興趣的內容，但我們會建議您從頭開始閱覽。
 
 若您需要進一步的幫助，請查看我們的**[支援站](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**，在這您可以解決所有疑問和技術性問題。
 

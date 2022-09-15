@@ -12,15 +12,15 @@ By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubu
 
 ## Uwagi
 
-If you're creating your own software/service based on ASF or part of its code, please review point 6 of the license:
+Jeśli tworzysz własne oprogramowanie/usługi na podstawie ASF lub części jego kodu, sprawdź punkt 6 licencji:
 
-> Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+> Znaki towarowe. Niniejsza Licencja nie zezwala na używanie nazw handlowych, znaków towarowych, znaków usługowych lub nazw produktów Licencjodawcy, z wyjątkiem przypadków wymaganych do rozsądnego i zwyczajowego ich użytku do opisywania pochodzenia Utworu i rozpowszechniania treści pliku NOTICE.
 
-We do not grant you direct permission to use ASF/ArchiSteamFarm product name in your own software, but we allow using it in some common-sense scenarios:
+Nie udzielamy bezpośredniego pozwolenia na używanie nazwy produktu ASF/ArchiSteamFarm w Twoim oprogramowaniu, ale zezwalamy na używanie go w niektórych zwyczajowych sytuacjach:
 
 **Możesz**:
-- Claim that your software/service **is based on** ASF (or its code)
-- Refer to your software/service as **ASF fork**
+- Wskazywać, że twoje oprogramowanie/usługa **bazuje** na ASF (lub jego kodzie)
+- Używać w odniesieniu do swojego oprogramowania/usługi jako **fork ASF**
 - Claim that your software/service is powered by ASF, if you **didn't** do any changes to the source code
 - Use ASF for various reference purposes, such as linking software/service origin, our wiki, or *"as required for reasonable and customary use in describing the origin of the Work"*
 
