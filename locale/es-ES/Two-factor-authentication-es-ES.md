@@ -169,4 +169,4 @@ Si eres un usuario avanzado, también puedes generar los archivos maFile manualm
 }
 ```
 
-Los datos de un autenticador estándar tienen más campos - son ignorados completamente por ASF durante la importación, ya que no son necesarios. No tienes que eliminarlos - ASF solo requiere un JSON válido con los 2 campos obligatorios descritos arriba, e ignorará campos adicionales (si los hay). Por supuesto, necesitas reemplazar el `STRING` del ejemplo anterior con los valores válidos para tu cuenta. Each `STRING` should be base64-encoded representation of bytes the appropriate private key is made of.
+Los datos de un autenticador estándar tienen más campos - son ignorados completamente por ASF durante la importación, ya que no son necesarios. No tienes que eliminarlos - ASF solo requiere un JSON válido con los 2 campos obligatorios descritos arriba, e ignorará campos adicionales (si los hay). Por supuesto, necesitas reemplazar el `STRING` del ejemplo anterior con los valores válidos para tu cuenta. Cada `STRING` debería ser una representación codificada de bytes en base 64 que componen la clave privada.

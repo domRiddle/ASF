@@ -1,12 +1,12 @@
 # 交易
 
-ASF 支援 Steam 的非互動式（離線）交易。 Both receiving (accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
+ASF 支援 Steam 的非互動式（離線）交易。 您可以直接接收（接受／拒絕）及發送交易，不需要特殊設定，但顯而易見這需要不受限制的 Steam 帳號（需已在商店中消費 5 美元）。 受限制的帳號無法使用交易模組。
 
 ---
 
 ## 邏輯
 
-ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
+ASF 始終會接受來自具有 `Master`（或更高）存取權限的使用者發送的所有交易，無論交易物品為何。 This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
 
 ASF will reject trade offer, regardless of content, from any (non-master) user that is blacklisted from trading module. Blacklist is stored in standard `BotName.db` database, and can be managed via `tb`, `tbadd` and `tbrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. This should work as an alternative to standard user block offered by Steam - use with caution.
 
