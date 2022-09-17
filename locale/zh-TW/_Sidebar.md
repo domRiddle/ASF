@@ -13,7 +13,7 @@
 * **[🏡 首頁](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-TW)**
 * **[🔧 組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**
 * **[💬 常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-TW)**
-* **[⚙️ 新手上路](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)****（由此開始）**
+* **[⚙️ 新手上路](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)**&#8203;**（由此開始）**
 
 
 ## 👨‍🎓️ 主要

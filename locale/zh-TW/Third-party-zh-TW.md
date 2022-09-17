@@ -34,7 +34,7 @@
 ## 整合
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**：用 Python 編寫，整合 ASF 與 Telegram 機器人。
-- **[ASF STM 使用者腳本](https://greasyfork.org/zh-TW/scripts/404754-asf-stm)**：使您可以透過瀏覽器向我們的 **[ASF STM 清單](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#公開-asf-stm-清單)**中的 Bot 發送自動交易報價，而不必使用 ASF 提供的 `MatchActively` 功能。
+- **[ASF STM 使用者腳本](https://greasyfork.org/zh-TW/scripts/404754-asf-stm)**：使您可以透過瀏覽器向我們的 **[ASF STM 清單](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#公開的 ASF STM 清單)**中的 Bot 發送自動交易報價，而不必使用 ASF 提供的 `MatchActively` 功能。
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**：另一個（最小版本）用 Python 編寫，整合 ASF 與 Telegram 機器人。
 
 ---

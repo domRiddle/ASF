@@ -6,7 +6,7 @@ IPC can be used for a lot of different things, depending on your needs and skill
 
 ---
 
-# 使用
+# 使用方法
 
 Unless you manually disabled IPC through `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's enabled by default. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
 
@@ -104,9 +104,9 @@ The configuration file is based on following JSON structure:
 
 Unless you truly need to specify a custom base path, it's best to leave it at default.
 
-## Example configs
+## 設定範例
 
-### Changing default port
+### 更改預設連接埠
 
 The following config simply changes default ASF listening port from `1242` to `1337`. You can pick any port you like, but we recommend `1024-32767` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
 
@@ -127,7 +127,7 @@ The following config simply changes default ASF listening port from `1242` to `1
 
 ---
 
-### Enabling access from all IPs
+### 允許所有 IP 存取
 
 The following config will allow remote access from all sources, therefore you should **ensure that you read and understood our security notice about that**, available above.
 
@@ -147,17 +147,17 @@ If you do not require access from all sources, but for example your LAN only, th
 
 ---
 
-# Authentication
+# 身分驗證
 
 ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF's API requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. After 5 failed authentication attempts (wrong password), you'll get temporarily blocked with `403 - Forbidden` error.
 
 Authentication can be done through two separate ways.
 
-## `Authentication` header
+## `Authentication` 標頭
 
 In general you should use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword'` as a parameter. This way authentication is passed in the headers of the request, where it in fact should take place.
 
-## `password` parameter in query string
+## Query 字串中的 `password` 參數
 
 Alternatively you can append `password` parameter to the end of the URL you're about to call, for example by calling `/Api/ASF?password=MyPassword` instead of `/Api/ASF` alone. This approach is good enough, but obviously it exposes password in the open, which is not necessarily always appropriate. In addition to that it's extra argument in the query string, which complicates the look of the URL and makes it feel like it's URL-specific, while password applies to entire ASF API communication.
 
@@ -179,21 +179,21 @@ Apart from using our swagger documentation as a complete specification of ASF AP
 
 # 常見問題
 
-### Is ASF's IPC interface secure and safe to use?
+### ASF 的 IPC 介面安全嗎？
 
 ASF by default listens only on `localhost` addresses, which means that accessing ASF IPC from any other machine but your own **is impossible**. Unless you modify default endpoints, attacker would need a direct access to your own machine in order to access ASF's IPC, therefore it's as secure as it can be and there is no possibility of anybody else accessing it, even from your own LAN.
 
 However, if you decide to change default `localhost` bind addresses to something else, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF's IPC interface. In addition to doing that, you will need to set up `IPCPassword`, as ASF will refuse to let other machines access ASF API without one, which adds another layer of extra security. You may also want to run ASF's IPC interface behind a reverse proxy in this case, which is further explained below.
 
-### Can I access ASF API through my own tools or userscripts?
+### 我可以使用自己的工具或腳本存取 ASF API 嗎？
 
 Yes, this is what ASF API was designed for and you can use anything capable of sending a HTTP request to access it. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins for them (`*`), as long as `IPCPassword` is set, as an extra security measure. This allows you to execute various authenticated ASF API requests, without allowing potentially malicious scripts to do that automatically (as they'd need to know your `IPCPassword` to do that).
 
-### Can I access ASF's IPC remotely, e.g. from another machine?
+### 我可以遠端存取 ASF 的 IPC 嗎？例如從另一台機器上？
 
 Yes, we recommend to use a reverse proxy for that. This way you can access your web server in typical way, which will then access ASF's IPC on the same machine. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that. For example, if your machine is in a VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
 
-### Can I use ASF's IPC behind a reverse proxy such as Apache or Nginx?
+### 我可以在 Apache 或 Nginx 等反向代理後使用 ASF 的 IPC 嗎？
 
 **Yes**, our IPC is fully compatible with such setup, so you're free to host it also in front of your own tools for extra security and compatibility, if you'd like to. In general ASF's Kestrel http server is very secure and possesses no risk when being connected directly to the internet, but putting it behind a reverse-proxy such as Apache or Nginx could provide extra functionality that wouldn't be possible to achieve otherwise, such as securing ASF's interface with a **[basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
 
@@ -269,7 +269,7 @@ Example Apache configuration can be found below. Please refer to **[apache docum
 </IfModule>
 ```
 
-### Can I access IPC interface through HTTPS protocol?
+### 我可以透過 HTTPS 協定存取 IPC 介面嗎？
 
 **Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
 
@@ -277,6 +277,6 @@ Second way includes specifying a **[custom config](#custom-configuration)** for 
 
 ---
 
-### Why am I getting `403 Forbidden` error when not using `IPCPassword`?
+### 為什麼我在不使用 `IPCPassword` 時，收到 `403 Forbidden` 錯誤？
 
 Starting with ASF V5.1.2.1, we've added additional security measure that, by default, allows only loopback interface (`localhost`, your own machine) to access ASF API without `IPCPassword` set in the config. This is because using `IPCPassword` should be a **minimum** security measure set by everybody who decides to expose ASF interface further. You're still able to override this decision by specifying the networks which you trust to reach ASF without `IPCPassword` specified, you can set those in `KnownNetworks` property in custom config. However, unless you **really** know what you're doing and fully understand the risks, you should instead use `IPCPassword` as declaring `KnownNetworks` will allow everybody from those networks to access ASF API unconditionally.

@@ -56,7 +56,7 @@ The advanced config has the following structure located within `ASF.json`:
 
 以下是對所有選項的解釋：
 
-### `Enabled（啟用）`
+### `Enabled`
 
 `bool` 類型，預設值為「`false`」。 This property acts the same as `SteamTokenDumperPluginEnabled` root-level property explained above, and can be used instead, dedicated to people that would prefer to have entire plugin-related config in its own structure (so most likely those already using other advanced properties explained below).
 

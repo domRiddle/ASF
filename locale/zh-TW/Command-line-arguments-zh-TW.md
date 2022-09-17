@@ -90,13 +90,13 @@ Linux/macOS：
 
 ---
 
-`--no-restart`──這個開關主要由 **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-zh-TW)** 容器所使用，它會強制將 `AutoRestart` 設定成 `false`。 除非您有特殊需求，否則您應該直接在設定中設定 `AutoRestart` 屬性。 這個開關使 Docker 腳本不需要修改您的全域設定，來適應它的環境。 當然，如果是在腳本中執行 ASF，您也可以使用此開關（否則您最好使用全域設定屬性）。
+`--no-restart`──這個開關主要由 **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-zh-TW)** 容器所使用，它會強制將 `AutoRestart` 設定成 `false`。 除非您有特殊需求，否則您應該直接在設定中設定 `AutoRestart` 屬性。 這個開關使 Docker 腳本不需要修改您的全域設定，來適應它的環境。 當然，如果是在腳本中執行 ASF，您也可以使用此開關（否則您最好使用全域設定屬性）。
 
 
 
 ---
 
-`--no-steam-parental-generation`──在預設情形下，ASF 會自動嘗試生成 Steam 家長監護 PIN 碼，如 **[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#steamparentalcode)** 組態屬性中所述。 但由於這可能需要過多的作業系統資源，因此這個開關允許您停用此行為，這將使 ASF 跳過自動生成，並直接向使用者詢問 PIN 碼，與一般情形下的自動生成失敗時相同。 一般而言，我們建議保留啟用生成，但如果您有特定的理由停用它，並希望 ASF 不生成代碼，您可以使用此開關來達成。
+`--no-steam-parental-generation`──在預設情形下，ASF 會自動嘗試生成 Steam 家長監護 PIN 碼，如 **[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#SteamParentalCode)** 組態屬性中所述。 但由於這可能需要過多的作業系統資源，因此這個開關允許您停用此行為，這將使 ASF 跳過自動生成，並直接向使用者詢問 PIN 碼，與一般情形下的自動生成失敗時相同。 一般而言，我們建議保留啟用生成，但如果您有特定的理由停用它，並希望 ASF 不生成代碼，您可以使用此開關來達成。
 
 
 

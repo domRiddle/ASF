@@ -51,7 +51,7 @@ For a complete list of all supported platforms and OSes by .NET 6.0, visit **[re
 
 ---
 
-## 執行階段必要條件
+## 執行環境需求
 
 If you're using OS-specific package then you don't need to worry about runtime requirements, because ASF always ships with required and up-to-date runtime that will work properly as long as you have **[.NET prerequisites](https://github.com/dotnet/core/blob/main/Documentation/prereqs.md)** installed and up-to-date. In other words, **you don't need to install .NET runtime or SDK**, as OS-specific builds require only native OS dependencies (prerequisites) and nothing else.
 

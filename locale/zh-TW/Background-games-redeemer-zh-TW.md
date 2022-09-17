@@ -34,7 +34,7 @@ ZXCVB-ASDFG-QWERT
 
 ### IPC
 
-除了使用上述提到的遊戲序號文字檔外，ASF 也開放了可供任意 IPC 工具（包括我們的 ASF-ui）使用的 `GamesToRedeemInBackground` **[ASF API 端點](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#asf-api)**。 IPC 將能提供更完善的功能，因為您可以使用自己覺得合適的方式進行剖析。例如使用自訂定界符，而非強制使用 Tab，甚至，您可以完全自訂序號的格式。
+除了使用上述提到的遊戲序號文字檔外，ASF 也開放了可供任意 IPC 工具（包括我們的 ASF-ui）使用的 `GamesToRedeemInBackground` **[ASF API 端點](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#ASF-API)**。 IPC 將能提供更完善的功能，因為您可以使用自己覺得合適的方式進行剖析。例如使用自訂定界符，而非強制使用 Tab，甚至，您可以完全自訂序號的格式。
 
 ---
 
