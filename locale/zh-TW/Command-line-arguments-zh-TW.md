@@ -70,7 +70,7 @@ Linux/macOS：
 
 ---
 
-`--network-group <group>` 或 `--network-group=<group>`──使 ASF 使用 `<group>` 值的自訂網路群組來初始化其限制器。 這個選項會影響執行**[多個實例](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#多個實例)**的 ASF，使用此選項指定的實例只會與相同網路群組的實例相互分享資訊，而與其他實例獨立。 通常只有在您透過自訂機制（如不同的 IP 位址）來設定 ASF 的路由請求時，才需要使用本選項來設定網路群組，不再依 ASF 自動執行此操作（目前只包含 <0 >WebProxy</code>）。 請注意，在使用自訂網路群組時，這是本機電腦中的唯一識別碼，ASF 將不考慮任何其他細節。例如 `WebProxy` 的值，您可以使用不同的 `WebProxy` 值來執行兩個實例，但它們仍會互相影響。
+`--network-group <group>` 或 `--network-group=<group>`──使 ASF 使用 `<group>` 值的自訂網路群組來初始化其限制器。 This option affects running ASF in **[multiple instances](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** by signalizing that given instance is dependent only on instances sharing the same network group, and independent of the rest. 通常只有在您透過自訂機制（如不同的 IP 位址）來設定 ASF 的路由請求時，才需要使用本選項來設定網路群組，不再依 ASF 自動執行此操作（目前只包含 <0 >WebProxy</code>）。 請注意，在使用自訂網路群組時，這是本機電腦中的唯一識別碼，ASF 將不考慮任何其他細節。例如 `WebProxy` 的值，您可以使用不同的 `WebProxy` 值來執行兩個實例，但它們仍會互相影響。
 
 由於此屬性的性質，它還能透過宣告 `ASF_NETWORK_GROUP` 環境變數來設定其值，這更適合希望在程序引數中，不包含敏感資訊的使用者。
 
@@ -106,7 +106,7 @@ Linux/macOS：
 
 由於此屬性的性質，它還能透過宣告 `ASF_PATH` 環境變數來設定路徑，這更適合希望在程序引數中，不包含敏感資訊的使用者。
 
-如果您考慮使用此命令列引數來執行多個 ASF 實例，我們建議您閱讀我們的**[相容性頁面](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#多實例)**。
+If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[management page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** on this manner.
 
 範例：
 

@@ -62,7 +62,7 @@ Due to the nature of this property, it's also possible to set cryptkey file by d
 
 ---
 
-`--network-group <group>` sau `--network-group=<group>` - va determina ASF să își inițializeze limitele cu un grup de rețea personalizat de `<group>`. Această opțiune afectează rularea ASF în **[mai multe instanțe](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** prin semnalizarea că o anumită instanță este dependentă doar de instanțele care partajează același grup de rețea, independent de restul. De obicei vrei să folosești această proprietate doar dacă direcționezi cereri ASF prin mecanisme personalizate (de ex. adrese IP diferite) și doriți să setați dvs. grupuri de rețea; fără a se baza pe ASF pentru a face acest lucru automat (care include în prezent doar luarea în considerare a `WebProxy`). Rețineți că atunci când utilizați un grup de rețea personalizat, acesta este un identificator unic în cadrul mașinii locale, iar ASF nu va lua în considerare alte detalii, cum ar fi valoarea `WebProxy`, care permite de ex. pornirea a două instanțe cu valori `WebProxy` diferite, care sunt încă dependente una de cealaltă.
+`--network-group <group>` sau `--network-group=<group>` - va determina ASF să își inițializeze limitele cu un grup de rețea personalizat de `<group>`. Această opțiune afectează rularea ASF în **[mai multe instanțe](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** prin semnalizarea că o anumită instanță este dependentă doar de instanțele care partajează același grup de rețea, independent de restul. De obicei vrei să folosești această proprietate doar dacă direcționezi cereri ASF prin mecanisme personalizate (de ex. adrese IP diferite) și doriți să setați dvs. grupuri de rețea; fără a se baza pe ASF pentru a face acest lucru automat (care include în prezent doar luarea în considerare a `WebProxy`). Rețineți că atunci când utilizați un grup de rețea personalizat, acesta este un identificator unic în cadrul mașinii locale, iar ASF nu va lua în considerare alte detalii, cum ar fi valoarea `WebProxy`, care permite de ex. pornirea a două instanțe cu valori `WebProxy` diferite, care sunt încă dependente una de cealaltă.
 
 Datorită naturii acestei proprietăți, este posibilă și setarea cheii de criptare prin declararea variabilei de mediu `ASF_NETWORK_GROUP`, care ar putea fi mai potrivită pentru persoanele care ar dori să evite detaliile sensibile în argumentele procesului.
 
@@ -88,7 +88,7 @@ Datorită naturii acestei proprietăți, este posibilă și setarea cheii de cri
 
 Datorită naturii acestei proprietăți, este posibil să setezi calea așteptată prin declararea variabilei `ASF_PATH`, care ar putea fi mai potrivite pentru persoanele care ar dori să evite detaliile sensibile în argumentele procesului.
 
-Dacă vă gândiți să folosiți acest argument de linie de comandă pentru a rula mai multe instanțe de ASF, îți recomandăm să citești **[pagina noastră de compatibilitate](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** pe această cale.
+If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[management page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** on this manner.
 
 Exemple:
 

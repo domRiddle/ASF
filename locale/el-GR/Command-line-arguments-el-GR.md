@@ -62,7 +62,7 @@ Due to the nature of this property, it's also possible to set cryptkey file by d
 
 ---
 
-`--network-group <group>` ή `--network-group=<group>` - θα προκαλέσει το ASF να εισέλθει στα όριά του με μια προσαρμοσμένη ομάδα δικτύου `<group>` τιμή. Αυτή η επιλογή επηρεάζει την εκτέλεση του ASF σε **[πολλαπλές περιπτώσεις](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** υπογράφοντας ότι η συγκεκριμένη παρουσία εξαρτάται μόνο από περιπτώσεις που μοιράζονται την ίδια ομάδα δικτύου, και ανεξάρτητα από τα υπόλοιπα. Typically you want to use this property only if you're routing ASF requests through custom mechanism (e.g. different IP addresses) and you want to set networking groups yourself, without relying on ASF to do it automatically (which currently includes taking into account `WebProxy` only). Keep in mind that when using a custom network group, this is unique identifier within the local machine, and ASF will not take into account any other details, such as `WebProxy` value, allowing you to e.g. start two instances with different `WebProxy` values which are still dependent on each other.
+`--network-group <group>` ή `--network-group=<group>` - θα προκαλέσει το ASF να εισέλθει στα όριά του με μια προσαρμοσμένη ομάδα δικτύου `<group>` τιμή. Αυτή η επιλογή επηρεάζει την εκτέλεση του ASF σε **[πολλαπλές περιπτώσεις](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** υπογράφοντας ότι η συγκεκριμένη παρουσία εξαρτάται μόνο από περιπτώσεις που μοιράζονται την ίδια ομάδα δικτύου, και ανεξάρτητα από τα υπόλοιπα. Typically you want to use this property only if you're routing ASF requests through custom mechanism (e.g. different IP addresses) and you want to set networking groups yourself, without relying on ASF to do it automatically (which currently includes taking into account `WebProxy` only). Keep in mind that when using a custom network group, this is unique identifier within the local machine, and ASF will not take into account any other details, such as `WebProxy` value, allowing you to e.g. start two instances with different `WebProxy` values which are still dependent on each other.
 
 Λόγω της φύσης αυτής της ιδιότητας, είναι επίσης δυνατό να ορίσετε την τιμή δηλώνοντας `ASF_NETWORK_GROUP` μεταβλητή περιβάλλοντος, που μπορεί να είναι πιο κατάλληλο για τους ανθρώπους που θα ήθελαν να αποφύγουν ευαίσθητες λεπτομέρειες στα επιχειρήματα της διαδικασίας.
 
@@ -88,7 +88,7 @@ Due to the nature of this property, it's also possible to set cryptkey file by d
 
 Due to the nature of this property, it's also possible to set expected path by declaring `ASF_PATH` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
-If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[compatibility page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** on this manner.
+If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[management page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** on this manner.
 
 Παραδείγματα:
 

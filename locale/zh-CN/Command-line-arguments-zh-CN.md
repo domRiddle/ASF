@@ -62,7 +62,7 @@ Linux/macOS：
 
 ---
 
-`--network-group <group>` 或 `--network-group=<group>`——使 ASF 在自定义网络组 `<group>` 内初始化限制。 此选项影响[**多实例**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#多实例)运行的 ASF，指定此实例仅与相同网络组的实例共享，与其他实例独立。 通常，只有在您通过自定义机制（例如不同 IP 地址）路由 ASF 请求时才需要使用此选项手动设置网络组，不再依赖 ASF 自动处理（目前仅会考虑 `WebProxy`）。 请注意，在使用自定义网络组时，这是属于本机的唯一标识符，ASF 将不再考虑其他细节，例如 `WebProxy` 的值，这使您可以运行两个 `WebProxy` 不同的实例，但仍然互相影响。
+`--network-group <group>` 或 `--network-group=<group>`——使 ASF 在自定义网络组 `<group>` 内初始化限制。 此选项影响[**多实例**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-CN#多实例)运行的 ASF，指定此实例仅与相同网络组的实例共享，与其他实例独立。 通常，只有在您通过自定义机制（例如不同 IP 地址）路由 ASF 请求时才需要使用此选项手动设置网络组，不再依赖 ASF 自动处理（目前仅会考虑 `WebProxy`）。 请注意，在使用自定义网络组时，这是属于本机的唯一标识符，ASF 将不再考虑其他细节，例如 `WebProxy` 的值，这使您可以运行两个 `WebProxy` 不同的实例，但仍然互相影响。
 
 由于该属性本身的性质，您也可以设置 ` ASF_NETWORK_GROUP` 环境变量来设置此值，这更适合想避免在进程参数中暴露敏感信息的用户。
 
@@ -88,7 +88,7 @@ Linux/macOS：
 
 由于该属性本身的性质，您也可以设置 `ASF_PATH` 环境变量来设置此路径，这更适合想避免在进程参数中暴露敏感信息的用户。
 
-如果您考虑使用命令行参数以运行多个 ASF 实例，我们推荐您阅读本指南的[**兼容性**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#多实例)页面。
+如果您考虑使用命令行参数以运行多个 ASF 实例，我们推荐您阅读本指南的[**管理**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-CN#多实例)页面。
 
 示例:
 

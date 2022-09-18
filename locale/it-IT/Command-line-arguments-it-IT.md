@@ -62,7 +62,7 @@ Due to the nature of this property, it's also possible to set cryptkey file by d
 
 ---
 
-`--network-group <group>` o `--network-group=<group>` - causerà ASF l'inizializzazione dei suoi limitatori con un gruppo di rete personalizzato con valore `<group>`. Questa opzione influisce sull'esecuzione di ASF in **[istanze multiple](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** segnalando che la data istanza dipende solo dalle istanze che condividono lo stesso gruppo di rete, e indipendente dal resto. In genere vuoi usare questa proprietà solo se stai instradando le richieste di ASF attraverso un meccanismo personalizzato (ad es. indirizzi IP diversi) e si desidera impostare gruppi di rete da soli, senza fare affidamento su ASF per farlo automaticamente (che attualmente include prendendo in considerazione `WebProxy` soltanto). Tieni presente che quando si utilizza un gruppo di rete personalizzato, si tratta di un identificatore univoco all'interno della macchina locale, e ASF non terrà conto di altri dettagli, come ad esempio il valore `WebProxy`, che consente di per esempio avviare due istanze con diversi valori `WebProxy` che sono ancora dipendenti l'uno dall'altro.
+`--network-group <group>` o `--network-group=<group>` - causerà ASF l'inizializzazione dei suoi limitatori con un gruppo di rete personalizzato con valore `<group>`. Questa opzione influisce sull'esecuzione di ASF in **[istanze multiple](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** segnalando che la data istanza dipende solo dalle istanze che condividono lo stesso gruppo di rete, e indipendente dal resto. In genere vuoi usare questa proprietà solo se stai instradando le richieste di ASF attraverso un meccanismo personalizzato (ad es. indirizzi IP diversi) e si desidera impostare gruppi di rete da soli, senza fare affidamento su ASF per farlo automaticamente (che attualmente include prendendo in considerazione `WebProxy` soltanto). Tieni presente che quando si utilizza un gruppo di rete personalizzato, si tratta di un identificatore univoco all'interno della macchina locale, e ASF non terrà conto di altri dettagli, come ad esempio il valore `WebProxy`, che consente di per esempio avviare due istanze con diversi valori `WebProxy` che sono ancora dipendenti l'uno dall'altro.
 
 A causa della natura di questa proprietà, è anche possibile impostare il valore dichiarando `ASF_NETWORK_GROUP` variabile d'ambiente, che può essere più appropriato per le persone che vorrebbero evitare dettagli sensibili nelle discussioni di processo.
 
@@ -88,7 +88,7 @@ A causa della natura di questa proprietà, è anche possibile impostare il valor
 
 Due to the nature of this property, it's also possible to set expected path by declaring `ASF_PATH` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
-If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[compatibility page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** on this manner.
+If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[management page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** on this manner.
 
 Esempi:
 
