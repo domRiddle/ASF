@@ -4,14 +4,14 @@ This section covers subjects related to managing the ASF process in optimal way.
 
 ---
 
-## `systemd` service for Linux
+## Linux 的 `systemd` 服務
 
 In `generic` and `linux` variants, ASF comes with `ArchiSteamFarm@.service` file, which is a configuration file of the service for **[`systemd`](https://systemd.io)**. If you'd like to run ASF as a service, for example in order to launch it automatically after startup of your machine, then a proper `systemd` service is arguably the best way to do it, therefore we highly recommend it instead of managing it on your own through `nohup`, `screen` or alike.
 
 Firstly, create the account for the user you want to run ASF under, assuming it doesn't exist yet. We'll use `asf` user for this example, if you decided to use a different one, you'll need to substitute `asf` user in all of our examples below with your selected one. Our service does not allow you to run ASF as `root`, since it's considered a **[bad practice](#never-run-asf-as-administrator)**.
 
 ```sh
-su # 或 sudo -i
+su # 或是 sudo -i
 useradd -m asf
 ```
 
@@ -55,7 +55,7 @@ If by any chance you'd like to stop the process, simply execute `systemctl stop 
 
 Please note that, as there is no standard input enabled for our `systemd` service, you won't be able to input your details through the console in usual way. Running through `systemd` is equivalent to specifying **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** setting and comes with all its implications. Fortunately for you, it's very easy to manage your ASF through **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, which we recommend in case you need to supply additional details during login or otherwise manage your ASF process further.
 
-### Environment variables
+### 環境變數
 
 It's possible to supply additional environment variables to our `systemd` service, which you'll be interested in doing in case you want to for example use a custom `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**, therefore specifying `ASF_CRYPTKEY` environment variable.
 
@@ -64,45 +64,45 @@ In order to provide custom environment variables, create `/etc/asf` folder (in c
 The file should contain all environment variables that you'd like to provide to the process:
 
 ```sh
-# Declare only those that you actually need
+# 只宣告您實際所需的變數
 ASF_CRYPTKEY="my_super_important_secret_cryptkey"
 ASF_NETWORK_GROUP="my_network_group"
 
-# And any other ones you're interested in
+# 及其他任何您想要使用的變數
 ```
 
 ---
 
-## 永遠不要以管理員模式執行 ASF！
+## 永遠不要以系統管理員身分執行 ASF！
 
 ASF includes its own validation whether the process is being run as administrator (`root`) or not. Running as root is **not** required for any kind of operation done by the ASF process, assuming properly configured environment it's operating in, and therefore should be regarded as a **bad practice**. This means that on Windows, ASF should never be executed with "run as administrator" setting, and on Unix ASF should have a dedicated user account for itself, or re-use your own in case of a desktop system.
 
 For further elaboration on *why* we discourage running ASF as root, refer to **[superuser](https://superuser.com/questions/218379/why-is-it-bad-to-run-as-root)** and other resources. If you're still not convinced, ask yourself what would happen to your machine if ASF process executed `rm -rf /*` command right after its launch.
 
-### I run as `root` because ASF can't write to its files
+### 我使用 `root` 執行，因為 ASF 無法寫入它自己的檔案
 
 This means that you have wrongly configured permissions of the files ASF is trying to access. You should login as `root` account (either with `su` or `sudo -i`) and then **correct** the permissions by issuing `chown -hR asf:asf /path/to/ASF` command, substituting `asf:asf` with the user that you'll run ASF under, and `/path/to/ASF` accordingly. If by any chance you're using custom `--path` telling ASF user to use the different directory, you should execute the same command again for that path as well.
 
 After doing that, you should no longer get any kind of issue related to ASF not being able to write over its own files, as you've just changed the owner of everything ASF is interested in to the user the ASF process will actually run under.
 
-### I run as `root` because I don't know how to do it otherwise
+### 我使用 `root` 執行，因為我不知道該怎麼做
 
 ```sh
-su # 或 sudo -i
+su # 或是 sudo -i
 useradd -m asf
 chown -hR asf:asf /path/to/ASF
-su asf -c /path/to/ASF/ArchiSteamFarm # 或 sudo -u asf /path/to/ASF/ArchiSteamFarm
+su asf -c /path/to/ASF/ArchiSteamFarm # 或是 sudo -u asf /path/to/ASF/ArchiSteamFarm
 ```
 
 That would be doing it manually, it's much easier to use our **[`systemd` service](#systemd-service-for-linux)** explained above.
 
-### I know better and I still want to run as `root`
+### 我十分清楚，且依然想要使用 `root` 執行
 
 As of V5.2.0.10, ASF no longer stops you from doing so, only displays a warning with a short notice. Just don't be shocked if one day due to a bug in the program it'll blow up your whole OS with complete data loss - you've been warned.
 
 ---
 
-## Multiple instances
+## 多個實例
 
 ASF is compatible with running multiple instances of the process on the same machine. The instances can be completely standalone or derived from the same binary location (in which case, you want to run them with different `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**).
 

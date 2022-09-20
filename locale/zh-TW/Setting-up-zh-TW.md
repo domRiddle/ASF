@@ -193,7 +193,7 @@ ASF是一個沒有圖形使用者介面的控制台應用程式。 然而，我�
 
 ![IPC](https://i.imgur.com/ZmkO8pk.png)
 
-只要ASF在執行中，您就可以在同一台機器上透過&#8203;**[這個連結](http://localhost:1242)**&#8203;，來存取ASF的IPC介面。 您可以使用ASF-ui來進行各種操作，例如直接編輯設定檔，或是傳送&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;。 您可以隨意瀏覽，來發現ASF-ui的全部功能。
+只要ASF在執行中，您就可以在同一台設備上透過&#8203;**[這個連結](http://localhost:1242)**&#8203;，來存取ASF的IPC介面。 您可以使用ASF-ui來進行各種操作，例如直接編輯設定檔，或是傳送&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;。 您可以隨意瀏覽，來發現ASF-ui的全部功能。
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 

@@ -10,4 +10,4 @@
 
 若您需要進一步的幫助，請前往我們的&#8203;**[支援站](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**&#8203;，在這裡，您可以解決所有疑問與技術性問題。
 
-GitHub的&#8203;**[Issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues)**&#8203;頁面用於ASF的開發，特別是程式錯誤及改進事項方面。 因為GitHub&#8203;**不是**&#8203;一般的支援站，所以我們對此有著非常嚴格的政策：Issues頁面專用於ASF的開發，我們不會在此答覆一般的ASF問題，請前往我們的&#8203;**[支援站](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**&#8203;提問。 若您不確定您的問題是否與ASF的開發相關，我們建議您使用支援站。 無效的GitHub Issue將會被立即關閉，且不會得到任何回應。
+GitHub的&#8203;**[Issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues)**&#8203;頁面用於ASF的開發，特別是程式錯誤及改進事項方面。 因為GitHub&#8203;**並非**&#8203;是一般的支援站，所以我們對此有著非常嚴格的政策：Issues頁面專用於ASF的開發，我們不會在此答覆一般的ASF問題，請前往我們的&#8203;**[支援站](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/SUPPORT.md)**&#8203;提問。 若您不確定您的問題是否與ASF的開發相關，我們建議您使用支援站。 無效的GitHub Issue將會被立即關閉，且不會得到任何回應。

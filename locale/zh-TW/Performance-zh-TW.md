@@ -20,7 +20,7 @@ Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDr
 
 ---
 
-### **There is no obvious answer which algorithm is better for you**.
+### **哪種演算法更適合您並沒有明確的答案**&#8203;。
 
 This is one of the reasons why you do not choose cards farming algorithm, instead, you tell ASF if account has restricted drops or not. If account has non-restricted drops, **Simple** algorithm will **work better** on that account, as we won't be wasting time on bringing all games to `X` hours - cards drop ratio is close to 0% when farming multiple games. On the other hand, if your account has card drops restricted, **Complex** algorithm will be better for you, as there's no point in farming solo if game didn't reach `HoursUntilCardDrops` hours yet - so we'll farm **playtime** first, **then** cards in solo mode.
 
@@ -28,7 +28,7 @@ Don't blindly set `HoursUntilCardDrops` only because somebody told you to - do t
 
 ---
 
-### What is the best way to find out if your account is restricted?
+### 確認您的帳號是否為受限的最好的方法是什麼？
 
 Make sure you have some games with **no playtime recorded** to farm, preferably 5+, and run ASF with `HoursUntilCardDrops` of `0`. It would be a good idea if you didn't play anything during farming period for more accurate results (best to run ASF during the night). Let ASF farm those 5 games, and after that check out the log for results.
 

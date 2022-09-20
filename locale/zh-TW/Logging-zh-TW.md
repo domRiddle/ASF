@@ -4,7 +4,7 @@ ASF allows you to configure your own custom logging module that will be used dur
 
 ---
 
-## 預設記錄
+## 預設紀錄
 
 By default, ASF is logging to `ColoredConsole` (standard output) and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
 
@@ -19,27 +19,27 @@ If you want to use default ASF logging without any modifications, you don't need
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" archiveFileName="${currentdir}/logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="${currentdir}/log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
 
-    <!-- Below becomes active when ASF's IPC interface is started -->
+    <!-- 在ASF的IPC介面啟動時，下列將變為活動狀態 -->
     <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" />
   </targets>
 
   <rules>
-    <!-- The following entries specify ASP.NET (IPC) logging, we declare those so our last Debug catch-all doesn't include ASP.NET logs by default -->
+    <!-- 下列項指定了ASP.NET（IPC）紀錄，我們宣告它們，因此我們最頂層的Debug catch-all在預設情形下不包含ASP.NET紀錄 -->
     <logger name="Microsoft*" finalMinLevel="Warn" writeTo="ColoredConsole" />
     <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="ColoredConsole" />
     <logger name="System*" finalMinLevel="Warn" writeTo="ColoredConsole" />
 
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
 
-    <!-- The following entries specify ASP.NET (IPC) logging, we declare those so our last Debug catch-all doesn't include ASP.NET logs by default -->
+    <!-- 下列項指定了ASP.NET（IPC）紀錄，我們宣告它們，因此我們最頂層的Debug catch-all在預設情形下不包含ASP.NET紀錄 -->
     <logger name="Microsoft*" finalMinLevel="Warn" writeTo="File" />
     <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="File" />
     <logger name="System*" finalMinLevel="Warn" writeTo="File" />
 
     <logger name="*" minlevel="Debug" writeTo="File" />
 
-    <!-- Below becomes active when ASF's IPC interface is enabled -->
-    <!-- The following entries specify ASP.NET (IPC) logging, we declare those so our last Debug catch-all doesn't include ASP.NET logs by default -->
+    <!-- 在ASF的IPC介面啟用時，下列將變為活動狀態 -->
+    <!-- 下列項指定了ASP.NET（IPC）紀錄，我們宣告它們，因此我們最頂層的Debug catch-all在預設情形下不包含ASP.NET紀錄 -->
     <logger name="Microsoft*" finalMinLevel="Warn" writeTo="History" />
     <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="History" />
     <logger name="System*" finalMinLevel="Warn" writeTo="History" />
@@ -178,11 +178,11 @@ ASF will temporarily disable **all** rules that include `ColoredConsole` or `Con
 
 ---
 
-## 聊天記錄
+## 聊天紀錄
 
 ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. This is because we need to handle chat messages as commands anyway, so it doesn't cost us anything to log those events in order to make it possible for you to add extra logic (such as making ASF your personal Steam chatting archive).
 
-### 事件內容
+### 事件屬性
 
 | 名稱          | 描述                                                                                                                                                                                                         |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -244,7 +244,7 @@ Supported in all environments used by ASF.
 
 ---
 
-#### Configuration Syntax
+#### 組態設定語法
 ```xml
 <targets>
   <target type="Steam"
@@ -260,19 +260,19 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 ---
 
-#### Parameters
+#### 參數
 
 ##### 一般選項
 _name_ - Name of the target.
 
 ---
 
-##### 配置選項
+##### 布局選項
 _layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${level:uppercase=true}|${logger}|${message}`
 
 ---
 
-##### SteamTarget Options
+##### SteamTarget 選項
 
 _chatGroupID_ - ID of the group chat declared as 64-bit long unsigned integer. 非必要。 Defaults to `0` which will disable group chat functionality and use private chat instead. When enabled (set to non-zero value), `steamID` property below acts as `chatID` and specifies ID of the channel in this `chatGroupID` that the bot should send messages to.
 
@@ -282,7 +282,7 @@ _botName_ - Name of the bot (as it's recognized by ASF, case-sensitive) that wil
 
 ---
 
-#### SteamTarget Examples
+#### SteamTarget 範例
 
 In order to write all messages of `Debug` level and above, from bot named `MyBot` to steamID of `76561198006963719`, you should use `NLog.config` similar to below:
 
@@ -307,9 +307,9 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 ---
 
-#### 螢幕擷圖
+#### 擷圖
 
-![截圖](https://i.imgur.com/5juKHMt.png)
+![擷圖](https://i.imgur.com/5juKHMt.png)
 
 ---
 
@@ -321,7 +321,7 @@ Supported in all environments used by ASF.
 
 ---
 
-#### Configuration Syntax
+#### 組態設定語法
 ```xml
 <targets>
   <target type="History"
@@ -335,25 +335,25 @@ Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki
 
 ---
 
-#### Parameters
+#### 參數
 
 ##### 一般選項
 _name_ - Name of the target.
 
 ---
 
-##### 配置選項
+##### 布局選項
 _layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 ---
 
-##### HistoryTarget Options
+##### HistoryTarget 選項
 
 _maxCount_ - Maximum amount of stored logs for on-demand history. 非必要。 Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
 
 ---
 
-## Caveats
+## 警語
 
 Be careful when you decide to combine `Debug` logging level or below in your `SteamTarget` with `steamID` that is taking part in the ASF process. This can lead to potential `StackOverflowException` because you'll create an infinite loop of ASF receiving given message, then logging it through Steam, resulting in another message that needs to be logged. Currently the only possibility for it to happen is to log `Trace` level (where ASF records its own chat messages), or `Debug` level while also running ASF in `Debug` mode (where ASF records all Steam packets).
 

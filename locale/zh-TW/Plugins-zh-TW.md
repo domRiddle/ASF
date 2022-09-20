@@ -47,7 +47,7 @@ If you did everything properly, your `csproj` will be similar to below:
   <ItemGroup>
     <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
 
-    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
+    <!-- 若要作為ASF的SourceTree，請使用這個代替上面的<Reference> -->
     <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
@@ -80,11 +80,11 @@ public sealed class YourPluginName : IPlugin {
 In order to make use of your plugin, you must firstly compile it. You can do that either from your IDE, or from within the root directory of your project via a command:
 
 ```shell
-# If your project is standalone (no need to define its name since it's the only one)
+# 若您的專案是獨立的（不需要定義它的名稱，因為它是唯一的）
 dotnet publish -c "Release" -o "out"
 
-# If your project is part of ASF source tree (to avoid compiling unnecessary parts)
-dotnet publish YourPluginName -c "Release" -o "out"
+# 若您的專案屬於ASF的SourceTree的一部份（用以防止編譯不需要的部分）
+dotnet publish 您外掛程式的名稱 -c "Release" -o "out"
 ```
 
 Afterwards, your plugin is ready for deployment. It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its **[dependencies](#plugin-dependencies)**. This way user will simply need to unpack your zip archive into his `plugins` directory and do nothing else.
@@ -113,7 +113,7 @@ We'll do our best to keep public parts of ASF working and stable, but we'll not 
 
 ---
 
-### Plugin dependencies
+### 外掛程式相依性
 
 Your plugin will include at least two dependencies by default, `ArchiSteamFarm` reference for internal API, and `PackageReference` of `System.Composition.AttributedModel` that is required for being recognized as ASF plugin to begin with. In addition to that, it may include more dependencies in regards to what you've decided to do in your plugin (e.g. `Discord.Net` library if you've decided to integrate with Discord).
 
@@ -127,7 +127,7 @@ If you're confused about above statement and you don't know better, check which 
 
 ---
 
-### Native dependencies
+### 本機相依性
 
 Native dependencies are generated as part of OS-specific builds, as there is no .NET runtime available on the host and ASF is running through its own .NET runtime that is bundled as part of OS-specific build. In order to minimize the build size, ASF trims its native dependencies to include only the code that can be possibly reached within the program, which effectively cuts the unused parts of the runtime. This can create a potential problem for you in regards to your plugin, if suddenly you find out yourself in a situation where your plugin depends on some .NET feature that isn't being used in ASF, and therefore OS-specific builds can't execute it properly, usually throwing `System.MissingMethodException` or `System.Reflection.ReflectionTypeLoadException` in the process.
 

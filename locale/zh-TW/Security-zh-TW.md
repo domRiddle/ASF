@@ -2,7 +2,7 @@
 
 ## 加密
 
-ASF 目前支援以下加密方式作為  `ECryptoMethod` 的定義：
+ASF目前支援以下加密方式，作為&#8203;`ECryptoMethod`&#8203;的定義：
 
 | 值 | 名稱                          |
 | - | --------------------------- |
@@ -36,7 +36,7 @@ The method above guarantees security as long as attacker doesn't know ASF encryp
 
 Currently the most secure way of encrypting the password that ASF offers, and much safer than `AES` method explained above, is defined as `ECryptoMethod` of `2`. The major advantage of this method is at the same time the major disadvantage - instead of using encryption key (like in `AES`), data is encrypted using login credentials of currently logged in user, which means that it's possible to decrypt the data **only** on the machine it was encrypted on, and in addition to that, **only** by the user who issued the encryption. This ensures that even if you send your entire `Bot.json` with encrypted `SteamPassword` using this method to somebody else, he will not be able to decrypt the password without direct access to your PC. This is excellent security measure, but at the same time has a major disadvantage of being least compatible, as the password encrypted using this method will be incompatible with any other user as well as machine - including **your own** if you decide to e.g. reinstall your operating system. Still, it's one of the best methods of storing passwords, and if you're worried about security of `PlainText`, and don't want to put password each time, then this is your best bet as long as you don't have to access your configs from any other machine than your own.
 
-**Please note that this option is available only for machines running Windows OS as of now.**
+**請注意，這個選項目前只適用於執行Windows作業系統的設備。**
 
 ---
 
@@ -72,7 +72,7 @@ ASF doesn't support any way of decrypting already encrypted passwords, as decryp
 
 ---
 
-## Hashing
+## 雜湊
 
 ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
 

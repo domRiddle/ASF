@@ -41,7 +41,7 @@ Which means that memory will spike the most when ASF is dealing with reading bad
 
 ---
 
-## 執行階段調整（進階）
+## 執行環境調整（進階）
 
 Below tricks **involve performance degradation** and should be used with caution.
 
@@ -49,7 +49,7 @@ The recommended way of applying those settings is through `DOTNET_` environment 
 
 .NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs. We've documented below properties that are especially important in our opinion.
 
-### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
+### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
 > Specifies the allowable GC heap usage as a percentage of the total physical memory.
 
@@ -57,7 +57,7 @@ The "hard" memory limit for ASF process, this setting tunes GC to use only a sub
 
 On the other hand, setting this value high enough is a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing the program to do its job as efficiently as possible.
 
-### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
+### [`GCHighMemPercent`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 
 > Specifies the amount of memory used after which GC becomes more aggressive.
 
@@ -69,7 +69,7 @@ This setting configures the memory treshold of your whole OS, which once passed,
 
 This is undocumented property that turned out to work exceptionally well for ASF, by limiting size of GC generations and in result make GC purge them more frequently and more aggressively. Default (balanced) latency level is `1`, but you can use `0`, which will tune for memory usage.
 
-### [`gcTrimCommitOnLowMemory`](https://docs.microsoft.com/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
+### [`gcTrimCommitOnLowMemory`](https://docs.microsoft.com/zh-tw/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
 
 > When set we trim the committed space more aggressively for the ephemeral seg. This is used for running many instances of server processes where they want to keep as little memory committed as possible.
 
@@ -80,34 +80,34 @@ This offers little improvement, but may make GC even more aggressive when system
 You can enable selected properties by setting appropriate environment variables. For example, on Linux (shell):
 
 ```shell
-# Don't forget to tune those if you're planning to make use of them
+# 若您打算使用它們，別忘了調整一下
 export DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
 export DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
 export DOTNET_GCLatencyLevel=0
 export DOTNET_gcTrimCommitOnLowMemory=1
 
-./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm # 適用於您的作業系統的建置版本
 ```
 
 或在 Windows 上（PowerShell）：
 
 ```powershell
-# Don't forget to tune those if you're planning to make use of them
+# 若您打算使用它們，別忘了調整一下
 $Env:DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
 $Env:DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
 $Env:DOTNET_GCLatencyLevel=0
 $Env:DOTNET_gcTrimCommitOnLowMemory=1
 
-.\ArchiSteamFarm.exe # For OS-specific build
+.\ArchiSteamFarm.exe # 適用於您的作業系統的建置版本
 ```
 
 Especially `GCLatencyLevel` will come very useful as we verified that the runtime indeed optimizes code for memory and therefore drops average memory usage significantly, even with server GC. It's one of the best tricks that you can apply if you want to significantly lower ASF memory usage while not degrading performance too much with `OptimizationMode`.
 
 ---
 
-## ASF tuning (intermediate)
+## ASF 調整（中等）
 
 Below tricks **involve serious performance degradation** and should be used with caution.
 
@@ -115,7 +115,7 @@ Below tricks **involve serious performance degradation** and should be used with
 
 ---
 
-## Recommended optimization
+## 優化建議
 
 - Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
 - If it's still not enough, enable all configuration properties listed above by setting appropriate `DOTNET_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.
