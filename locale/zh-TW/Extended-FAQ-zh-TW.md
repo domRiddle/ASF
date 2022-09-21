@@ -4,7 +4,7 @@ Our extended FAQ covers a bit less common questions and answers that you may hav
 
 ---
 
-### 誰建立了 ASF？
+### 是誰建立了 ASF？
 
 **[Archi](https://github.com/JustArchi)** 在2015年10月建立了 ASF。 In case you were wondering, I'm a **[Steam user](https://steamcommunity.com/profiles/76561198006963719)** just like you. Apart from playing games, I also love to put my skills and determination to use, which you can explore right now. There is no big company involved here, no team of developers and no $1M of budget to cover all of that - just me, fixing things that are not broken.
 
@@ -14,7 +14,7 @@ Thank you all for helping in ASF development! You're awesome.
 
 ---
 
-### Why was ASF created in the first place?
+### 一開始為什麼要建立 ASF？
 
 ASF was created with primary purpose of being fully automated Steam farming tool for Linux, without a need of any external dependencies (such as Steam client). In fact, this still remains its primary purpose and focus, because my concept of ASF didn't change since then and I'm still using it in exactly the same way as I used it back in 2015. Of course, there was really **a lot** of changes since then, and I'm very happy to see how far ASF has progressed, mostly thanks to its users, because I'd never code even half of the features if it was for myself only.
 
@@ -22,7 +22,7 @@ It's nice to note that ASF was never made to compete with other, similar program
 
 ---
 
-### OK, where is the catch? What do you gain from sharing ASF?
+### 那麼，代價是什麼？ 分享 ASF 為你帶來了什麼？
 
 There is no catch, I created ASF **for myself** and shared it with the rest of the community in hope that it'll come useful. Exactly the same thing happened back in 1991, when Linus Torvalds **[shared his first Linux kernel](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)** with the rest of the world. There is no hidden malware, data mining, crypto mining or any other activity that would generate any monetary benefit for me. ASF project is supported entirely by non-obligatory donations sent by happy users such as you. You can use ASF in exactly the same way how I'm using it, and if you like it, you can always buy me a coffee, showing your gratitude for what I'm doing.
 
@@ -30,7 +30,7 @@ I'm also using ASF as a perfect example of a modern C# project that always strik
 
 ---
 
-### Right after launching ASF I've lost all my accounts/items/friends/(...)!
+### 在啟動 ASF 後，我遺失了我所有帳號／物品／好友……等！
 
 Statistically speaking, regardless how sad it is, it's guaranteed that shortly after launching ASF there will be at least one guy who will die in a car accident. The difference is that nobody sane will blame ASF for causing it, but for some reason there are people who will accuse ASF of the same just because it happened to their Steam accounts instead. Of course we can understand the reasoning for that, after all ASF operates within Steam platform, so naturally people will accuse ASF of everything that happened to their Steam-related property regardless of lack of any evidence that the software they ran is even remotely connected with that whatsoever.
 
@@ -46,7 +46,7 @@ As of today, there are no known, unpatched security flaws in ASF, and as the pro
 
 ---
 
-### How do I verify that the downloaded files are genuine?
+### 我要如何驗證下載的檔案是否為正版？
 
 As part of our releases on GitHub, we utilize a very similar verification process as the one used by **[Debian](https://www.debian.org/CD/verify)**. In every official release starting with ASF V5.1.3.3, in addition to `zip` files you can find `SHA512SUMS` and `SHA512SUMS.sign` files. Download them for verification purposes together with the `zip` files of your choice.
 
@@ -161,6 +161,6 @@ Congratulations, you've verified that nobody has tampered with the release you'v
 
 ---
 
-### It's April the 1st and the ASF language changed into something strange, what is going on?
+### 在 4 月 1 日時，ASF 的語言變成了奇怪的東西，這是怎麼回事？
 
 CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! If you didn't set custom `CurrentCulture` option, then ASF on April the 1st will actually use **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** language instead of your system language. If by any chance you'd like to disable that behaviour, you can simply set `CurrentCulture` to the locale that you'd like to use instead. It's also nice to note that you can enable our easter egg unconditionally, by setting your `CurrentCulture` to `qps-Ploc` value.

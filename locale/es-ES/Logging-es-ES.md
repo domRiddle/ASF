@@ -207,7 +207,7 @@ Este ejemplo se basa en nuestro ejemplo básico de `ColoredConsole` que se mostr
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
     <logger name="MainAccount" level="Trace" writeTo="ChatLogFile">
-      <filters>
+      <filters defaultAction="Log">
         <when condition="not starts-with('${message}','OnIncoming') and not starts-with('${message}','SendMessage')" action="Ignore" />
       </filters>
     </logger>

@@ -142,7 +142,7 @@ ASF需要您的登入憑證，因為它是透過內建的Steam用戶端來實現
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-這代表ASF現在已成功地在您的帳號上運作，您可以將程式最小化，然後去做其他事情。 在經過足夠的時間後（取決於&#8203;**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;），您將會看到Steam交換卡片慢慢掉落。 當然，要做到這一點，您必須擁有可以掛卡的遊戲，它會在您的&#8203;**[徽章頁面](https://steamcommunity.com/my/badges)**&#8203;上顯示「您可以透過遊玩本遊戲獲得X更多掉落卡片」；如果沒有可供掛卡的遊戲，ASF將不做任何事情，如同&#8203;**[常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)**&#8203;中所述。
+這代表ASF現在已成功地在您的帳號上運作，您可以將程式最小化，然後去做其他事情。 在經過足夠的時間後（取決於&#8203;**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;），您將會看到Steam交換卡片慢慢掉落。 當然，要做到這一點，您必須擁有可以掛卡的遊戲，它會在您的&#8203;**[徽章頁面](https://steamcommunity.com/my/badges)**&#8203;上顯示「還有X張卡片會掉落」；如果沒有可供掛卡的遊戲，ASF將不做任何事情，如同&#8203;**[常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)**&#8203;中所述。
 
 我們最基本的新手上路指南到此結束。 您現在可以決定要進一步設定ASF，或是讓ASF以預設設定運作。 我們將會介紹更多基本細節，然後您可以自己探索整個Wiki。
 

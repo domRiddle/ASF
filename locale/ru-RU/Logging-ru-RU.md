@@ -207,7 +207,7 @@ ASF включает в себя расширенную поддержку жу�
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
     <logger name="MainAccount" level="Trace" writeTo="ChatLogFile">
-      <filters>
+      <filters defaultAction="Log">
         <when condition="not starts-with('${message}','OnIncoming') and not starts-with('${message}','SendMessage')" action="Ignore" />
       </filters>
     </logger>

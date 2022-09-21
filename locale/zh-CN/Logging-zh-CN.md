@@ -207,7 +207,7 @@ ASF 包括了对聊天记录的扩展支持，不仅在 `Trace` 日志级别中�
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
     <logger name="MainAccount" level="Trace" writeTo="ChatLogFile">
-      <filters>
+      <filters defaultAction="Log">
         <when condition="not starts-with('${message}','OnIncoming') and not starts-with('${message}','SendMessage')" action="Ignore" />
       </filters>
     </logger>

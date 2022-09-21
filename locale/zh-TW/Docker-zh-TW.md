@@ -35,7 +35,7 @@ In comparison with above tags, this tag is completely frozen, which means that t
 
 ---
 
-## Which tag is the best for me?
+## 哪個標籤最適合我？
 
 That depends on what you're looking for. For majority of users, `latest` tag should be the best one as it offers exactly what desktop ASF does, just in special Docker container as a service. People that are rebuilding their images quite often and would instead prefer full control with ASF version tied to given release are welcome to use `released` tag. If you instead want to use some specific frozen ASF version that will never change without your clear intention, `A.B.C.D` releases are available for you as fixed ASF milestones you can always fall back to.
 
@@ -43,7 +43,7 @@ We generally discourage trying `main` builds, as those are here for us to mark c
 
 ---
 
-## Architectures
+## 架構
 
 ASF docker image is currently built on `linux` platform targetting 3 architectures - `x64`, `arm` and `arm64`. You can read more about them in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section.
 
@@ -51,11 +51,11 @@ Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which me
 
 ---
 
-## 使用
+## 使用方法
 
 For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/commandline/docker)**, we'll cover only basic usage in this guide, you're more than welcome to dig deeper.
 
-### Hello ASF!
+### 你好，ASF！
 
 Firstly we should verify if our docker is even working correctly, this will serve as our ASF "hello world":
 
@@ -75,7 +75,7 @@ docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 
 ---
 
-## Using a volume
+## 使用卷
 
 If you're using ASF in docker container then obviously you need to configure the program itself. You can do it in various different ways, but the recommended one would be to create ASF `config` directory on local machine, then mount it as a shared volume in ASF docker container.
 
@@ -89,7 +89,7 @@ And that's it, now your ASF docker container will use shared directory with your
 
 Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF docker container. We're only covering basic usage in this guide.
 
-### Volume permissions
+### 卷的權限
 
 ASF container by default is initialized with default `root` user, which allows it to handle the internal permissions stuff and then eventually switch to `asf` (UID `1000`) user for the remaining part of the main process. While this should be satisfying for the vast majority of users, it does affect the shared volume as newly-generated files will be normally owned by `asf` user, which may not be desired situation if you'd like some other user for your shared volume.
 
@@ -107,7 +107,7 @@ docker exec -u root asf chown -hR 1001:1001 /app
 
 This has to be done only once after you created your container with `docker run`, and only if you decided to use custom user for ASF process. Also don't forget to change `1001:1001` argument in both commands above to the `uid` and `gid` you actually want to run ASF under.
 
-### Volume with SELinux
+### 在 SELinux 使用卷
 
 If you're using SELinux in enforced state on your OS, which is the default for example on RHEL-based distros, then you should mount the volume appending `:Z` option, which will set correct SELinux context for it.
 
@@ -119,7 +119,7 @@ This will allow ASF to create files targetting the volume while inside docker co
 
 ---
 
-## Multiple instances synchronization
+## 多個實例同步
 
 ASF includes support for multiple instances synchronization, as stated in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#multiple-instances)** section. When running ASF in docker container, you can optionally "opt-in" into the process, in case you're running multiple containers with ASF and you'd like for them to synchronize with each other.
 
@@ -129,7 +129,7 @@ By default, each ASF running inside a docker container is standalone, which mean
 mkdir -p /tmp/ASF-g1
 docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 --pull always justarchi/archisteamfarm
 docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 --pull always justarchi/archisteamfarm
-# And so on, all ASF containers are now synchronized with each other
+# 以此類推，所有 ASF 容器現在相互同步
 ```
 
 We recommend to bind ASF's `/tmp/ASF` directory also to a temporary `/tmp` directory on your machine, but of course you're free to choose any other one that satisfies your usage. Each ASF container that is expected to be synchronized should have its `/tmp/ASF` directory shared with other containers that are taking part in the same synchronization process.
@@ -140,7 +140,7 @@ Mounting `/tmp/ASF` is completely optional and actually not recommended, unless 
 
 ---
 
-## 指令參數
+## 命令列引數
 
 ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container through environment variables. You should use specific environment variables for supported switches, and `ASF_ARGS` for the rest. This can be achieved with `-e` switch added to `docker run`, for example:
 
@@ -184,7 +184,7 @@ If you set everything properly, `docker run` command above will make **[IPC](htt
 
 ---
 
-### 完整範例
+### 完整的範例
 
 Combining whole knowledge above, an example of a complete setup would look like this:
 

@@ -328,7 +328,7 @@ Yes, you must set it in `SteamParentalCode` bot config property. This is mainly 
 
 ---
 
-### I don't want ASF to farm any games by default, yet I want to use extra ASF features. 這可能嗎？
+### 我希望 ASF 預設不要掛任何遊戲，我只想使用 ASF 的附加功能。 這是可以做到的嗎？
 
 Yes, if you just want to start ASF with paused cards farming module, you can set `Paused` bot config property to `true` in order to achieve that. This will allow you to `resume` it during runtime.
 
@@ -338,49 +338,49 @@ With cards farming module paused/disabled, you can make use of extra ASF feature
 
 ---
 
-### ASF 能最小化到工作列吗？
+### ASF 能最小化到工作列中嗎？
 
 ASF is a console app, there is no window to be minimized, because window is created for you by your OS. You can however use any third-party tool capable of doing so, such as **[RBTray](https://github.com/benbuck/rbtray)** for Windows, or **[screen](https://linux.die.net/man/1/screen)** for Linux/macOS. Those are only examples, there are many other apps with similar functionality.
 
 ---
 
-### Does using ASF preserve eligibility for receiving booster packs?
+### 使用 ASF 是否能為我保有獲得擴充包的資格？
 
 **是的**。 ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
 
 ---
 
-### Is there any way to communicate with ASF?
+### 有任何方式與 ASF 通訊嗎？
 
 Yes, through several different ways. Check out **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** section for more info.
 
 ---
 
-### I'd like to help with ASF translation, what do I need to do?
+### 我想要幫助 ASF 翻譯，我需要做什麼？
 
 Thank you for your interest! You can find all details in our **[localization](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)** section.
 
 ---
 
-### I have only one (main) account added to ASF, can I still issue commands through steam chat?
+### 我在 ASF 中只有一個（主要）帳號，我仍然能透過 Steam 聊天來傳送指令嗎？
 
 **Yes**, it's explained in **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands#notes)** section. You can do so through Steam group chat, although using **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** could be easier for you.
 
 ---
 
-### ASF seems to be working, but I'm not receiving any card drops!
+### ASF 似乎已在執行，但我沒有獲得任何掉落卡片！
 
 Cards farming rate differs from game to game, as you can read in **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. It takes a while, usually **several hours per game**, and you shouldn't expect cards to drop in a few minutes since launching a program. If you can see that ASF actively checks cards status, and switches the game after current one is fully farmed, then everything works fine. It's possible that you've enabled an option such as `DismissInventoryNotifications` of `BotBehaviour` which automatically dismisses inventory notifications. Check out **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** for details.
 
 ---
 
-### How to completely stop ASF process for my account?
+### 如何完全終止我的帳號的 ASF 程序？
 
 Simply shutdown the ASF process, for example by clicking [X] on Windows. If instead you want to stop a particular bot of your choice but keep other ones running, then take a look at `Enabled` **[bot config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**, or `stop` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you instead want to stop automatic farming process, yet keep ASF running for your account, then that's what `Paused` **[bot config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** and `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** is for.
 
 ---
 
-### How many bots can I run with ASF?
+### 我可以在 ASF 上執行多少個 Bot？
 
 ASF as a program doesn't have any hard upper limit of bot instances, so you can run as much as you have memory on your machine, however, you're still being limited by the Steam network and other Steam services. Currently you can run up to 100-200 bots with a single IP and a single ASF instance. It's possible to run more bots with more IPs and more ASF instances, by working around IP limitations. Keep in mind that if you're using that big amount of bots, you should control their number yourself, such as making sure that all of them in fact are logging in and working at the same time. ASF was not tweaked for that huge number of bots, and the general rule applies that **the more bots you have, the more issues you'll encounter**. Also notice that the limit above in general depends on many internal factors, it's approximation rather than a strict limit - you will most likely be able to run more/less bots than specified above.
 
@@ -388,7 +388,7 @@ ASF team suggests running (and **owning**) up to **10 bots in total**, anything 
 
 ---
 
-### Can I run more ASF instances then?
+### 那我可以同時執行更多個 ASF 實例嗎？
 
 You can run as many ASF instances on one machine as you like, assuming every instance has its own directory and its own configs, and account used in one instance is not used in another one. However, ask yourself why you want to do that. ASF is optimized to handle more than a hundred of accounts at the same time, and launching that hundred of bots in their own ASF instances degrades performance, takes more OS resources (such as CPU and memory), and causes a potential synchronization issues between standalone ASF instances, as ASF is forced to share its limiters with other instances.
 
@@ -398,7 +398,7 @@ Of course, there are still valid use cases for multiple ASF instances on the sam
 
 ---
 
-### 啟用遊戲序號時的狀態是什麼意思？
+### 啟用序號時的狀態是什麼意思？
 
 Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
 
@@ -415,7 +415,7 @@ Status indicates how given redeem attempt turned out. There are many different s
 
 ---
 
-### Are you affiliated with any cards farming/idling service?
+### 你是否附屬於任何掛卡／掛機服務？
 
 **不**。 ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement)** that:
 
@@ -435,7 +435,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ---
 
-### One of my games is being farmed for more than 10 hours now, but I still didn't get any cards from it!
+### 我有一款遊戲現在已經掛超過 10 個小時了，但我仍然沒有獲得任何卡片！
 
 The reason for that could be related to known issue of Steam, which happens when you have two licenses for the same game, one of which has card drops limited. This usually happens when you activate game for free during a mass giveaway on Steam, and then activate a key for the same game (but without limitations), e.g. from a paid bundle. If such situation happens, Steam reports on badge page that game still has cards to drop, but no matter how much you play the game - cards will never drop due to free license on your account. Since it's not an ASF issue, but a Steam one, we can't somehow circumvent it on ASF's side, and you need to solve it yourself.
 
@@ -445,7 +445,7 @@ In order to remove the free license from your account, visit **[Steam support pa
 
 ---
 
-### ASF doesn't detect game `X` as available for farming, yet I know it includes Steam trading cards!
+### 我知道有&#8203;`某款`&#8203;遊戲能夠掉落 Steam 交換卡片，但 ASF 並未偵測到！
 
 There are two main reasons here. First and most obvious reason is the fact that you're referring to **Steam store** where given game is announced as card drops enabled game. This is **wrong** assumption, as it simply states that the game **has** card drops included, but not necessarily this function for that game is **enabled** right away. You can read more about this in **[official announcement](https://steamcommunity.com/games/593110/announcements/detail/1954971077935370845)**.
 
@@ -457,13 +457,13 @@ Of course, all of that assumes that you're running ASF with default untouched se
 
 ---
 
-### Why playtime of games farmed through ASF doesn't increase?
+### 為什麼透過 ASF 掛的遊戲時數並未增加？
 
 It does, but **not in real-time**. Steam records your playtime in fixed intervals and schedules update for it, but you're not guaranteed to have it updated immediately the moment you quit the session, let alone during such. Just because the playtime isn't updated in real-time doesn't mean that it's not recorded, it's usually updated every 30 minutes or so.
 
 ---
 
-### What is the difference between a warning and an error in the log?
+### 紀錄中的警告與錯誤的區別在哪？
 
 ASF writes to its log a bunch of information on various logging levels. Our objective is to explain **precisely** what ASF is doing, including what Steam issues it has to deal with, or other problems to overcome. Most of the time not everything is relevant, this is why we have two major levels being used in ASF in terms of problems - a warning level, and error level.
 
@@ -475,7 +475,7 @@ In one TL;DR sentence - report errors, don't report warnings. You can still ask 
 
 ---
 
-### ASF doesn't start, the program window closes immediately!
+### 無法開啟 ASF，程式的視窗會立刻關閉！
 
 In normal conditions, any ASF crash or exit will generate a `log.txt` in the program's directory for you to view, which can be used for finding the cause of that. In addition to that, a few last log files are also archived in `logs` directory, since the main `log.txt` file is overwritten with each ASF run.
 
@@ -483,7 +483,7 @@ However, if even .NET runtime isn't able to boot on your machine, then `log.txt`
 
 ---
 
-### ASF is kicking my Steam Client session while I'm playing! / *This account is logged on another PC*
+### 在我遊玩的時候，ASF 會將我的 Steam 用戶端踢下線！ ／&#8203;*此帳號已於另一台電腦中登入*&#8203;
 
 This shows up as a message in Steam overlay that the account is being used somewhere else while you're playing. This issue can have two different reasons.
 
@@ -497,7 +497,7 @@ The only proper solution to this problem is manually pausing your bot with `paus
 
 ---
 
-### `Disconnected from Steam!` - I can't establish connection with Steam servers.
+### `已與 Steam 中斷連線！`&#8203;：我無法與 Steam 伺服器建立連線。
 
 ASF can only **try** to establish connection with Steam servers, and it can fail due to many reasons, including lack of internet connection, Steam being down, your firewall blocking connection, third-party tools, incorrectly configured routes or temporary failures. You can enable `Debug` mode to check out more verbose log stating exact failure reasons, although usually it's simply caused by your own actions, such as using "CS:GO MM Server Picker" that blacklists a lot of Steam IPs, making it very hard for you to actually reach Steam network.
 
@@ -509,7 +509,7 @@ In a very unlikely situation of having incorrect servers being cached, for examp
 
 ---
 
-### `Could not get badges information, will try again later!`
+### `無法取得徽章頁資訊，我們將稍後再試 ！`
 
 Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalCode`.
 
@@ -517,7 +517,7 @@ Other reasons include temporary Steam problem, network issue or likewise. If iss
 
 ---
 
-### ASF is failing with `Request failed after 5 tries` errors!
+### ASF 發生&#8203;`在嘗試 5 次請求後失敗`&#8203;的錯誤！
 
 Usually it means that you're using Steam parental PIN to access your account, yet you forgot to put it in ASF config. You must put valid PIN in `SteamParentalCode` bot config property, otherwise ASF will not be able to access most of web content, therefore will not be able to work properly. Head over to **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)** in order to learn more about `SteamParentalCode`.
 
@@ -544,13 +544,13 @@ Before doing that you should **make sure that the error is worth reporting in th
 
 ---
 
-### ASF seems to freeze and doesn't print anything on the console until I press a key!
+### ASF 似乎卡住了，如果我不按下任意鍵，控制台就不會輸出任何東西！
 
 You're most likely using Windows and your console has QuickEdit mode enabled. Refer to **[this](https://stackoverflow.com/questions/30418886/how-and-why-does-quickedit-mode-in-command-prompt-freeze-applications)** question on StackOverflow for technical explanation. You should disable QuickEdit mode by right clicking your ASF console window, opening properties, and unchecking appropriate checkbox.
 
 ---
 
-### ASF can't accept or send trades!
+### ASF 無法接受或提出任何交易請求！
 
 Obvious thing first - new accounts start as limited. Until you unlock account by loading its wallet or spending $5 in the store, ASF can't accept neither send trades using this account. In this case, ASF will state that inventory seems empty, because every card that is in it is non-tradable. It also won't be possible to receive any trade, as that part requires ASF to be able to fetch API key, and API key functionality is disabled for limited accounts. In short - trading is off for all limited accounts, no exceptions.
 
@@ -568,7 +568,7 @@ In any case, ASF can only **try** to send a proper request to Steam in order to 
 
 ---
 
-### Why do I have to put 2FA/SteamGuard code on each login? / *Removed expired login key*
+### 為什麼我每次登入時，都需要輸入雙重驗證／Steam Guard 代碼？ ／&#8203;*移除過期的登入金鑰*&#8203;
 
 ASF uses login keys (if you kept `UseLoginKeys` enabled) for keeping credentials valid, the same mechanism that Steam uses - 2FA/SteamGuard token is required only once. However, due to Steam network issues and quirks, it's entirely possible that login key is not saved in the network, we've already seen such issues not only with ASF, but with regular steam client as well (a need to input login + password on each run, regardless of "remember me" option).
 
@@ -578,7 +578,7 @@ As a side note, you can also turn off login keys with `UseLoginKeys` config prop
 
 ---
 
-### I'm getting error: *Unable to login to Steam: `InvalidPassword` or `RateLimitExceeded`*
+### 我遇到了錯誤：&#8203;*無法登入至 Steam：&#8203;`InvalidPassword`&#8203;或&#8203;`RateLimitExceeded`*
 
 This error can mean a lot of things, some of them include:
 
@@ -633,7 +633,7 @@ This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation
 
 ---
 
-### ASF is being detected as a malware by my AntiVirus! 這是怎麼回事？
+### ASF 被我的防毒軟體偵測成惡意程式！ 這是怎麼回事？
 
 **Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and can contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
 

@@ -207,7 +207,7 @@ DIS EXAMPLE IZ BASD ON R `ColoredConsole` BASIC EXAMPLE ABOOV. BEFORE TRYIN 2 UN
   <rules>
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
     <logger name="MainAccount" level="Trace" writeTo="ChatLogFile">
-      <filters>
+      <filters defaultAction="Log">
         <when condition="not starts-with('${message}','OnIncoming') and not starts-with('${message}','SendMessage')" action="Ignore" />
       </filters>
     </logger>

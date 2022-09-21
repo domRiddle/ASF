@@ -38,7 +38,7 @@
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ru-RU)**
 * **[🌐 Локализация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-ru-RU)**
 * **[📝 Журналирование](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-ru-RU)**
-* **[💾 Конфигурация для малой ОЗУ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-ru-RU)**
+* **[💾 Конфигурация для малого ОЗУ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-ru-RU)**
 * **[🔌 Плагины](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-ru-RU)**
 * **[🔐 Безопасность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ru-RU)**
 * **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin-ru-RU)**

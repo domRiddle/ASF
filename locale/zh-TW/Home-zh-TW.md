@@ -2,7 +2,7 @@
 
 歡迎使用ASF Wiki。 本Wiki是一個涵蓋許多主題的線上說明，包括常見問題、可能遇到的狀況、使用方法及設定等。 若您想了解ASF如何運作，特別是如何安裝、設定及使用ASF，則您應該要遵照下列說明。
 
-您可以將&#8203;`-locale`&#8203;字串加入到任何頁面網址的末端來變更Wiki的語言。 舉例來說，您可以造訪已翻譯成繁體中文的首頁&#8203;**[Home-zh-TW](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-TW)**&#8203;（如果存在），而不是英文的首頁&#8203;**[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**&#8203;。 在社群中完成在地化90%以上的語言，將會在我們的Wiki右側的側邊欄中提供，讓您方便使用。
+您可以將&#8203;`-locale`&#8203;語言編碼加入到任何頁面網址的末端，來變更Wiki的語言。 舉例來說，您可以造訪已翻譯成繁體中文的首頁&#8203;**[Home-zh-TW](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-TW)**&#8203;（如果存在），而不是英文的首頁&#8203;**[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**&#8203;。 在社群中完成在地化90%以上的語言，將會在我們的Wiki右側的側邊欄中提供，讓您方便使用。
 
 除非另有說明（像是「V2」），所有的Wiki頁面永遠只適用於&#8203;**[最新版ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;。 若您想查看特定時間點的Wiki頁面（例如舊版ASF的說明），請點選在每個頁面頂部的&#8203;**[revisions](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/_history)**&#8203;修訂版本頁面，然後選擇符合您ASF版本的日期。 我們會保留現在及過去ASF主要版本的頁面。
 
