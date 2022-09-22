@@ -88,7 +88,7 @@ Due to the nature of this property, it's also possible to set cryptkey file by d
 
 Due to the nature of this property, it's also possible to set expected path by declaring `ASF_PATH` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
-If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[management page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** on this manner.
+Αν σκέφτεστε να χρησιμοποιήσετε αυτή την παράμετρο γραμμής εντολών για εκτέλεση πολλαπλών εμφανίσεων του ASF, συνιστούμε να διαβάσετε τη **[σελίδα διαχείρισης](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** με αυτόν τον τρόπο.
 
 Παραδείγματα:
 

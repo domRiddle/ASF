@@ -197,7 +197,7 @@ ASF includes extended support for chat logging by not only recording all receive
 This example is based on our `ColoredConsole` basic example above. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
 
 ```xml
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml έκδοση="1. " encoding="utf-8" ?>
 <nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xsi:schemaLocation="NLog NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <targets>
     <target xsi:type="ColoredConsole" name="ColoredConsole" />

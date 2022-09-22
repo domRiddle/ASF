@@ -1,18 +1,18 @@
 # 常見問題
 
-常見問題包含了您可能會經常遇到的問題及它們的解答。 如果您的問題並不常見，請參閱**[其他常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-zh-TW)**。
+常見問題包含了您可能會經常遇到的問題及它們的解答。 如果您的問題並不常見，請參閱&#8203;**[其他常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-zh-TW)**&#8203;。
 
 # 目錄
 
-* [一般](#general)
-* [與相似的工具比較](#comparison-with-similar-tools)
-* [安全／隱私／VAC／封鎖／服務條款](#security--privacy--vac--bans--tos)
-* [其他](#misc)
-* [執行問題](#issues)
+* [基本問題](#基本問題)
+* [與相似的工具比較](#與相似的工具比較)
+* [安全／隱私／VAC／封鎖／服務條款](#安全隱私vac封鎖服務條款)
+* [其他](#其他)
+* [執行問題](#執行問題)
 
 ---
 
-## 一般
+## 基本問題
 
 ### 什麼是 ASF？
 ### 為什麼程式提示我的帳號沒有卡片可以掛？
@@ -66,7 +66,7 @@ The only thing which heavily affects speed of farming is selected **[cards farmi
 
 ---
 
-### 但 ASF 說掛卡會耗費大約 X 小時！
+### 但 ASF 說掛卡會耗費大約 X 個小時！
 
 ASF gives you rough approximation based on number of cards you need to drop, and your chosen algorithm - this is nowhere close to the actual time that you will spend on farming, which is usually longer than this, as ASF assumes best case only, and ignores all Steam Network quirks, internet disconnections, overload of Steam servers and likewise. It should be seen only as a general indicator how long you can expect ASF to be farming, very often in best case, as actual time will differ, even significantly in some cases. Like pointed out above, do not try to guess how long given game will be farmed, it's not up to you, neither ASF to decide.
 
@@ -475,7 +475,7 @@ In one TL;DR sentence - report errors, don't report warnings. You can still ask 
 
 ---
 
-### 無法開啟 ASF，程式的視窗會立刻關閉！
+### 無法開啟 ASF，程式視窗會立刻關閉！
 
 In normal conditions, any ASF crash or exit will generate a `log.txt` in the program's directory for you to view, which can be used for finding the cause of that. In addition to that, a few last log files are also archived in `logs` directory, since the main `log.txt` file is overwritten with each ASF run.
 

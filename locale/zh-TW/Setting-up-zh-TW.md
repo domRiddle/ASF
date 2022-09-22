@@ -11,7 +11,7 @@
 ## 適用於您的作業系統的設定
 
 一般來說，這是我們在接下來的幾分鐘內要做的事情：
-- 安裝必要的&#8203;**[.NET 需求套件](#net-需求套件)**&#8203;。
+- 安裝&#8203;**[.NET 需求套件](#net-需求套件)**&#8203;。
 - 在&#8203;**[ASF發布頁面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下載適用於您的作業系統的版本變體。
 - 將壓縮檔解壓縮至一個新資料夾中。
 - **[設定ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;。
@@ -31,7 +31,7 @@
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**&#8203;：
 - **[Microsoft Visual C++可轉散發套件更新](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)**&#8203;（&#8203;**[x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)**&#8203;適用於64位元Windows；&#8203;**[x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)**&#8203;適用於32位元Windows）
-- 強烈建議您，務必確保已安裝所有的Windows更新。 您最少需要安裝 **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**、**[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**，但仍可能需要更多的更新。 如果您的Windows已更新至最新版，則上述更新補丁都已安裝。 在安裝Visual C++套件前，請確保滿足上述需求。
+- 強烈建議您，務必確保已安裝所有的Windows更新。 您至少需要安裝**[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**、**[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**，但仍可能需要更多的更新。 如果您的Windows已更新至最新版，則上述更新補丁都已安裝。 在安裝Visual C++套件前，請確保滿足上述需求。
 - 若您使用Windows 7，您必須使用&#8203;**[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)**&#8203;變體版本，因為套件不再支援您的作業系統。 我們強烈建議您盡快進行更新您的作業系統，因為ASF的未來版本可能會完全無法在上面使用，而且說實話，Windows 7在2020年就已經結束了生命週期。
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**&#8203;：
@@ -72,7 +72,7 @@ C:\ASF（可存放您自己的東西）
     ├── Commands.txt（選擇性）
     ├── MyExtraScript.bat（選擇性）
     ├── (...)（其餘您想存放的檔案，選擇性）
-    └── Core（ASF 專用資料夾，也就是您解壓縮壓縮檔的地方）
+    └── Core（ASF專用資料夾，也就是您解壓縮壓縮檔的地方）
          ├── ArchiSteamFarm(.exe)
          ├── config
          ├── logs
@@ -88,9 +88,9 @@ C:\ASF（可存放您自己的東西）
 
 首先，&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;頁面解釋了與設定檔相關的&#8203;**一切事物**&#8203;，但它包含了數量龐大的新資訊，其中有很大一部分是我們不需要立即了解的。 但我們會教您如何取得您真正需要查找的資訊。
 
-您可以透過至少三種方式來設定ASF：線上設定檔生成器、ASF-ui或是手動設定。 這在&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;章節中有深入的解釋，若您想要取得更多詳細資訊，請參閱此部分。 我們先以線上設定檔生成器為例。
+您可以透過至少三種方式來設定ASF：設定檔生成器網頁工具、ASF-ui或是手動設定。 這在&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;章節中有深入的解釋，若您想要取得更多詳細資訊，請參閱此部分。 我們先以設定檔生成器網頁工具為例。
 
-使用您常用的瀏覽器造訪我們的&#8203;**[設定檔生成器](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;網頁工具，若您手動停用了JavaScript，您需要啟用它。 我們建議使用Chrome或Firefox，但它應能在大部分的主流瀏覽器上運作。
+使用您常用的瀏覽器造訪我們的&#8203;**[設定檔生成器](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;網頁工具，若您手動停用了JavaScript，您需要重新啟用它。 我們建議使用Chrome或Firefox，但它應能在大部分的主流瀏覽器上運作。
 
 開啟頁面後，切換到「Bot」分頁。 您應該會看見類似於下圖的頁面：
 
@@ -108,7 +108,7 @@ C:\ASF（可存放您自己的東西）
 
 如果填入，ASF將在開啟時自動使用您的帳號憑證，這樣您就無需在每次ASF需要這些資訊時，都手動輸入它們。 不過，您也可以選擇不填入帳號密碼，這樣它們就不會被儲存。但缺少這些資訊，ASF會無法自動登入，您需要在執行期間手動輸入。
 
-ASF需要您的登入憑證，因為它是透過內建的Steam用戶端來實現的，且需要跟您自己使用的用戶端相同的登入資訊。 您的登入認證只會儲存在您電腦上ASF的&#8203;`config`&#8203;資料夾中，我們的設定檔生成器也是基於用戶端的網頁，也就是說，代碼是在您本機的瀏覽器中執行，以此來生成ASF設定檔。您輸入的資訊永遠不會從您的電腦發送出去，所以您不必擔心任何可能的敏感資料洩漏。 儘管如此，我們能理解您仍可能出於某些原因不想輸入登入資訊。您可以稍後再手動輸入到產生的檔案中，或者徹底略過，並只在ASF的命令提示字元中輸入。 更多安全性問題，請參閱&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;章節。
+ASF需要您的登入憑證，因為它是透過內建的Steam用戶端來實現的，且需要跟您自己使用的用戶端相同的登入資訊。 您的登入認證只會儲存在您電腦上ASF的&#8203;`config`&#8203;資料夾中，我們的設定檔生成器也是基於用戶端的網頁工具，也就是說，代碼是在您本機的瀏覽器中執行，以此來生成ASF設定檔。您輸入的資訊永遠不會從您的電腦發送出去，所以您不必擔心任何可能的敏感資料洩漏。 儘管如此，我們能理解您仍可能出於某些原因不想輸入登入資訊。您可以稍後再手動輸入到產生的檔案中，或者徹底略過，並只在ASF的命令提示字元中輸入。 更多安全性問題，請參閱&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;章節。
 
 您也可以省略其中一個欄位，例如 &#8203;`SteamPassword`&#8203;，這樣ASF仍能自動登入，但會向您詢問密碼（類似Steam用戶端）。 若您使用Steam家庭監護帳號，您需要將PIN碼填入&#8203;`SteamParentalCode`&#8203;欄位來解鎖。
 
@@ -154,22 +154,22 @@ ASF需要您的登入憑證，因為它是透過內建的Steam用戶端來實現
 
 ASF支援一個帳號以上的同時掛卡，這也是它的主要功能。 您可以透過生成更多Bot設定檔來增加更多帳號，方法跟您幾分鐘前產生的第一個設定檔完全相同。 您只需要確保兩件事：
 
-- 唯一的Bot名稱，例如假設您的第一個Bot名叫「MainAccount」，您就不能擁有另一個跟它名稱一樣的Bot。
+- 唯一的Bot名稱，假如您的第一個Bot叫做「MainAccount」，您就不能擁有另一個跟它名稱一樣的Bot。
 - 正確的登入資訊，例如&#8203;`SteamLogin`&#8203;、&#8203;`SteamPassword`&#8203;和&#8203;`SteamParentalCode`&#8203;（如果使用Steam家庭監護功能）
 
-換句話說，就是再次回到組態設定的部分，然後做完全一樣的事情，只不過這次要填入您第二或是第三個帳號的資訊。 記住，您所有的Bot需使用唯一的名稱。
+也就是說，就是再次回到組態設定的部分，然後做完全一樣的事情，只不過這次要填入您第二或是第三個帳號的資訊。 記住，您所有的Bot名稱都是唯一的。
 
 ---
 
 #### 修改設定
 
-您可以透過相同的方式來修改現有的設定：生成一個新的設定檔。 若您還沒有關閉設定檔生成器網頁，按一下「開啟／關閉進階設定」然後看看裡面有些什麼。 在本篇教學中，我們會更改&#8203;`CustomGamePlayedWhileFarming`&#8203;選項，這個選項可以使ASF在掛卡時，顯示自訂名稱，而不是實際上的遊戲名稱。
+您可以透過相同的方式來修改現有的設定：生成一個新的設定檔。 若您還沒有關閉設定檔生成器網頁工具，按一下「開啟／關閉進階設定」然後看看裡面有些什麼。 在本篇教學中，我們會更改&#8203;`CustomGamePlayedWhileFarming`&#8203;選項，這個選項可以使ASF在掛卡時，顯示自訂名稱，而不是實際上的遊戲名稱。
 
 讓我們現在開始教學。如果您執行了ASF並開始掛卡，在預設情形下，您會看到您的Steam帳號正在遊戲中：
 
 ![Steam](https://i.imgur.com/1VCDrGC.png)
 
-我們來更改它。 在設定檔生成器的網頁上按一下「開啟／關閉進階設定」，然後找到&#8203;`CustomGamePlayedWhileFarming`&#8203;。 找到後，輸入您想要顯示的的自訂文字，例如「正在掛卡」：
+我們來更改它。 設定檔生成器網頁工具上按一下「開啟／關閉進階設定」，然後找到&#8203;`CustomGamePlayedWhileFarming`&#8203;。 找到後，輸入您想要顯示的的自訂文字，例如「正在掛卡」：
 
 ![Bot 分頁 3](https://i.imgur.com/gHqdEqb.png)
 
@@ -220,11 +220,11 @@ ASF是一個沒有圖形使用者介面的控制台應用程式。 然而，我�
 對於&#8203;`Generic`&#8203;套件，您需要參考上述適用於您的作業系統的安裝指南，但有兩處微小的差別。 除了安裝.NET需求套件外，您還需要安裝.NET SDK，且&#8203;`ArchiSteamFarm.dll`&#8203;二進制檔案會取代適用於您的作業系統的&#8203;`ArchiSteamFarm(.exe)`&#8203;執行檔。 而其他步驟都是完全相同的。
 
 增加了額外步驟之後：
-- 安裝必要的&#8203;**[.NET 需求套件](#.NET 需求套件)**&#8203;。
-- 安裝適合您的作業系統的&#8203;**[.NET SDK](https://www.microsoft.com/net/download)**&#8203;（或至少安裝ASP.NET Core執行環境）。 大部分情況下您會需要一個安裝程式。 如果您不知道要安裝.NET Core的哪一個版本，請參閱&#8203;**[執行階段必要條件](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#執行階段必要條件)**&#8203;。
+- 安裝&#8203;**[.NET 需求套件](#net-需求套件)**&#8203;。
+- 安裝適合您的作業系統的&#8203;**[.NET SDK](https://www.microsoft.com/net/download)**&#8203;（或至少安裝ASP.NET Core執行環境）。 大部分情況下您會需要一個安裝程式。 如果您不知道要安裝.NET Core的哪一個版本，請參閱&#8203;**[執行環境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#執行環境需求)**&#8203;。
 - 在&#8203;**[ASF發布頁面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下載&#8203;`Generic`&#8203;版本變體。
 - 將壓縮檔解壓縮至一個新資料夾中。
-- **[設定 ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;。
+- **[設定ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;。
 - 透過輔助腳本或是手動在Shell中執行&#8203;`dotnet /路徑/至/ArchiSteamFarm.dll`&#8203;指令來啟動ASF。
 
-輔助腳本（例如用於Windows的&#8203;`ArchiSteamFarm.cmd`&#8203;及用於Linux/macOS的&#8203;`ArchiSteamFarm.sh`&#8203;）與&#8203;`ArchiSteamFarm.dll` &#8203;二進制檔案，這些檔案都是&#8203;`Generic`&#8203;變體版本獨有的。 若您不想手動執行&#8203;`dotnet`&#8203;指令，您可以使用輔助腳本。 當然，如果您沒有安裝.NET SDK，或您的&#8203;`PATH`&#8203;中沒有可用的&#8203;`dotnet`&#8203;執行檔，則輔助腳本將無法運作。 輔助腳本不完全是必要的，您永遠可以透過手動執行&#8203;`dotnet /路徑/至/ArchiSteamFarm.dll`&#8203;指令來開啟ASF。
+輔助腳本（例如用於Windows的&#8203;`ArchiSteamFarm.cmd`&#8203;及用於Linux/macOS的&#8203;`ArchiSteamFarm.sh`&#8203;）與&#8203;`ArchiSteamFarm.dll`&#8203;二進制檔案，這些檔案都是&#8203;`Generic`&#8203;變體版本獨有的。 若您不想手動執行&#8203;`dotnet`&#8203;指令，您可以使用輔助腳本。 當然，如果您沒有安裝.NET SDK，或您的&#8203;`PATH`&#8203;中沒有可用的&#8203;`dotnet`&#8203;執行檔，則輔助腳本將無法運作。 輔助腳本並不是必要的，您一直都能透過手動執行&#8203;`dotnet /路徑/至/ArchiSteamFarm.dll`&#8203;指令來開啟ASF。

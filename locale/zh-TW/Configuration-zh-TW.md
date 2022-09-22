@@ -2,17 +2,17 @@
 
 此頁面專門用於 ASF 設定。 提供關於 `config` 目錄的完整文件，允許您依照您的需求調整 ASF。
 
-* **[簡介](#introduction)**
-* **[設定檔生成器網路應用程式](#設定檔生成器網路應用程式)**
-* **[ASF-ui 設定](#ASF-ui-設定)**
+* **[簡介](#簡介)**
+* **[設定檔生成器網頁工具](#設定檔生成器網頁工具)**
+* **[ASF-ui 設定](#asf-ui-組態設定)**
 * **[手動設定](#手動設定)**
-* **[全域設定檔](#global-config)**
-* **[Bot 設定檔](#bot-config)**
-* **[檔案結構](#file-structure)**
-* **[JSON 對應](#json-mapping)**
-* **[相容性對應](#compatibility-mapping)**
-* **[設定相容性](#configs-compatibility)**
-* **[自動重新載入](#auto-reload)**
+* **[全域設定檔](#全域設定檔)**
+* **[Bot 設定檔](#bot-設定檔)**
+* **[檔案結構](#檔案結構)**
+* **[JSON 映射](#json-映射)**
+* **[相容性映射](#相容性映射)**
+* **[設定相容性](設定相容性)**
+* **[自動重新載入](#自動重新載入)**
 
 ---
 
@@ -28,11 +28,11 @@ Configuration can be done in several ways. You can use our **[Web-based ConfigGe
 
 ---
 
-## 網頁設定檔產生器
+## 設定檔生成器網頁工具
 
-The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. 網頁設定檔產生器是100%基於用戶端的，這意味著您輸入的任何資訊都不會被上傳，而僅在本地進行處理。 這保證了安全性和可靠性，因為如果您願意下載所有相關檔案，併在您喜愛的瀏覽器中打開其中的 `index.html`，它甚至可以​**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**​運行。
+The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. 設定檔生成器也是基於用戶端的網頁工具，也就是說，您輸入的任何資訊都不會被上傳，而只在本機中進行處理。 這保證了安全性和可靠性，因為如果您願意下載所有相關檔案，併在您喜愛的瀏覽器中打開其中的 `index.html`，它甚至可以​**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**​運行。
 
-網頁設定檔產生器已經在 Chrome 和 Firefox 上經過驗證可以正常執行，但它也應該可以在所有流行的支援 JavaScript 的瀏覽器中正常執行。
+設定檔生成器網頁工具在Chrome與Firefox上經過驗證能夠正常執行，且它應該也能在所有支援JavaScript的主流瀏覽器中正常執行。
 
 它的用法非常簡單——切換到正確的標籤來選取要產生 `ASF` 設定檔還是 `BOT` 設定檔，確保所選設定檔的版本與您的 ASF 版本相符，然後輸入所有詳細資訊並點選「下載」按鈕。 將此檔案移動到 ASF 的 `config` 資料夾，如果需要的話，覆蓋掉已經存在的檔案。 如果要繼續設定，則重複以上操作，並參考本頁的其他部分以瞭解所有可設定的選項。
 
@@ -253,12 +253,12 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 
 這是一個預設值為`7` 的 `byte flags` 類型屬性。 此屬性定義了 ASF 在連接 Steam 伺服器時使用的網路協議，其定義如下：
 
-| 值 | 名稱        | 描述                                                                        |
-| - | --------- | ------------------------------------------------------------------------- |
-| 0 | 無         | 無協議                                                                       |
-| 1 | TCP       | **[傳輸控制協議](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
-| 2 | UDP       | **[用戶資料包協定](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**       |
-| 4 | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                  |
+| 值 | 名稱        | 描述                                                                                                            |
+| - | --------- | ------------------------------------------------------------------------------------------------------------- |
+| 0 | 無         | 無協議                                                                                                           |
+| 1 | TCP       | **[傳輸控制協議](https://zh.wikipedia.org/zh-tw/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE)**           |
+| 2 | UDP       | **[用戶資料包協定](https://zh.wikipedia.org/zh-tw/%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%8D%8F%E8%AE%AE)** |
+| 4 | WebSocket | **[WebSocket](https://zh.wikipedia.org/zh-tw/WebSocket)**                                                     |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
@@ -328,7 +328,7 @@ Unless you have a reason to edit this property, you should keep it at default.
 
 ---
 
-## BOT 設定檔
+## Bot 設定檔
 
 As you should know already, every bot should have its own config based on example JSON structure below. Start from deciding how you want to name your bot (e.g. `1.json`, `main.json`, `primary.json` or `AnythingElse.json`) and head over to configuration.
 
@@ -884,7 +884,7 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 
 ---
 
-## JSON 對應
+## JSON 映射
 
 Every configuration property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
 
@@ -973,7 +973,7 @@ Example: `"SteamProtocols": 7`
 
 ---
 
-## 相容性對應
+## 相容性映射
 
 Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
 
