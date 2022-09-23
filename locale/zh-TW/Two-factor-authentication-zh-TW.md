@@ -1,8 +1,8 @@
 # 雙重驗證
 
-A while ago Valve has introduced a system known as "Escrow" that requires extra authenticator for various account-related activity. You can read more about it **[here](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** and **[here](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**. It's crucial to understand 2FA system firstly, before trying to understand the logic behind ASF 2FA.
+不久前，Valve引入了一種稱為「託管」的系統，該系統需要額外的驗證器才能進行各種與帳號相關的操作。 您可以在&#8203;**[這裡](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)**&#8203;以及&#8203;**[這裡](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)**&#8203;閱讀，以了解更多。 在試圖了解ASF雙重驗證的邏輯之前，首先要了解雙重驗證系統。
 
-Now as you can see all trades are being hold for up to 15 days, which is not a major problem when it comes to our ASF, but can still be annoying, especially for those who want full automation. Luckily, ASF includes a solution to that problem, called ASF 2FA.
+如您所見，所有交易都會被託管最多15天，雖然對於ASF來說並不是個問題，但對於那些想要完全自動化的人來說，仍特別煩人。 幸運的是，ASF擁有解決該問題的辦法，叫做ASF雙重驗證。
 
 ---
 
