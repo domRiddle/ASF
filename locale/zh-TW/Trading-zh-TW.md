@@ -14,7 +14,7 @@ ASF將接受所有透過Bot發送類似&#8203;`loot`&#8203;的交易，除非在
 
 當您在&#8203;`TradingPreferences`&#8203;中設定&#8203;`AcceptDonations`&#8203;後，ASF還將接受任何贈禮交易：Bot帳號不會失去任何物品的交易。 這個屬性只影響非Bot帳號，因為Bot帳號是受&#8203;`DontAcceptBotTrades`&#8203;的影響。 `AcceptDonations`&#8203;能讓您輕鬆地接受來自其他使用者，及不在同一ASF程序中Bot的贈禮。
 
-值得一提的是，&#8203;`AcceptDonations`&#8203;不需要&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor- authentication-zh-TW)**&#8203;，因為如果我們沒有失去任何物品，則無需進行交易確認。
+值得一提的是，&#8203;`AcceptDonations`&#8203;不需要&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**&#8203;，因為如果我們沒有失去任何物品，則無需進行交易確認。
 
 您還可以透過修改相應的&#8203;`TradingPreferences`&#8203;來進一步自訂ASF的交易功能。 `TradingPreferences`&#8203;的其中一個主要功能是&#8203;`SteamTradeMatcher`&#8203;選項，它將使ASF使用內建邏輯來接受交易，並幫助您完成缺少的徽章，這在結合&#8203;**[SteamTradeMatcher](https://www.steamtradematcher.com)**&#8203;的公開清單使用時特別有用，但它也能單獨運作。 我們將在下面進一步說明。
 
@@ -36,7 +36,7 @@ ASF將接受所有透過Bot發送類似&#8203;`loot`&#8203;的交易，除非在
 前四個拒絕條件應該是顯而易見的。 最後一個含有實際的重複邏輯，它檢查我們物品庫的當前狀態，再決定交易狀態。
 
 - 如果交易會使您的徽章進度增加，則為&#8203;**有利**&#8203;。 例如：A A（交易前）-> A B（交易後）
-- 如果交易不影響您的徽章進度，則為&#8203;**均衡**&#8203;。 例如：A B（交易前）-> A C（交易後）
+- 如果交易並不影響您的徽章進度，則為&#8203;**均衡**&#8203;。 例如：A B（交易前）-> A C（交易後）
 - 如果交易會使您的徽章進度減少，則為&#8203;**不利**&#8203;。 例如：A C（交易前）-> A A（交易後）
 
 STM只會處理有利的交易，代表使用STM進行重複卡片匹配的使用者，只能發送對我們有利的交易。 然而，ASF的機制更加自由，它也接受均衡交易，因為在這種交易中，我們並沒有實際上的損失，所以沒有理由拒絕它們。 這對好友之間的交易特別有用，因為他們可以在不使用STM的情形下，交換您多餘的卡片，且不影響您的徽章進度。
@@ -53,9 +53,9 @@ STM只會處理有利的交易，代表使用STM進行重複卡片匹配的使�
 
 `MatchActively`&#8203;設定是&#8203;`SteamTradeMatcher`&#8203;的主動版本，包含Bot發送交易給其他使用者的交互式匹配。 它可以單獨運作，亦可結合&#8203;`SteamTradeMatcher`&#8203;設定一起運作。
 
-為了使用這個選項，您需要滿足一系列的需求。 您需要擁有加入我們的&#8203;[ASF STM清單](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-TW#公開的-asf-stm-清單)</strong>&#8203;的資格，但需求略為寬鬆。 您至少應保證帳號&#8203;**[不受限制](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**&#8203;、啟用&#8203;**[ASF 雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW#asf-雙重驗證)**&#8203;，並在&#8203;`MatchableTypes`&#8203;中設定至少一種有效類型，例如交換卡片。
+為了使用這個選項，您需要滿足一系列的需求。 您需要擁有加入我們的&#8203;**[ASF STM清單](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-TW#公開的-asf-stm-清單)**&#8203;的資格，但需求略為寬鬆。 您至少應保證帳號&#8203;**[不受限制](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**&#8203;、啟用&#8203;**[ASF 雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW#asf-雙重驗證)**&#8203;，並在&#8203;`MatchableTypes`&#8203;中設定至少一種有效類型，例如交換卡片。
 
-若您滿足了上述需求，ASF將會定期與我們的&#8203;[公開的ASF STM清單](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-TW#公開的-asf-stm-清單)</strong>&#8203;通訊，已主動匹配當前可用的Bot。
+若您滿足了上述需求，ASF將會定期與我們的&#8203;**[公開的ASF STM清單](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-TW#公開的-asf-stm-清單)**&#8203;通訊，已主動匹配當前可用的Bot。
 
 - 每個匹配階段都是由「輪次」組成，單次匹配階段最多可包含&#8203;`10`&#8203;輪。
 - 每輪中，ASF 都會擷取我們的物品庫，並列出的所選Bot的物品庫，以便找到可以匹配的&#8203;`MatchableTypes`&#8203;物品 若找到合適的配對，ASF將自動發送並確認交易提案。
@@ -68,6 +68,6 @@ STM只會處理有利的交易，代表使用STM進行重複卡片匹配的使�
 
 ASF會盡力將使用該選項產生的請求量及壓力降至最低，同時最大限度地提高匹配效率。 匹配Bot及組織整個流程的演算法是ASF的實作細節，並且可以依據回饋、實際情形及未來的想法而改變。
 
-當前版本的演算法會使ASF優先考慮&#8203;`Any`&#8203;標籤的Bot，特別是那些擁有更多種遊戲物品的Bot。 當&#8203;`Any`&#8203; Bot用完後，ASF將依據相同遊戲物品的規則平均匹配Bot。與其他Bot相比，擁有過多物品的Bot更有可能出現物品庫相關問題，而被進一步降低優先級。 無論如何，ASF將至少嘗試匹配一次每個可用的Bot，以保證我們不會錯過可能的徽章套卡進度。
+當前版本的演算法會使ASF優先考慮&#8203;`Any`&#8203;標籤的Bot，特別是那些擁有更多種遊戲物品的Bot。 當&#8203;`Any`&#8203;的Bot用完後，ASF將依據相同遊戲物品的規則平均匹配Bot。與其他Bot相比，擁有過多物品的Bot更有可能出現物品庫相關問題，而被進一步降低優先級。 無論如何，ASF將至少嘗試匹配一次每個可用的Bot，以保證我們不會錯過可能的徽章套卡進度。
 
 `MatchActively`&#8203;會考慮您使用交易&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;`tbadd`&#8203;加入黑名單的Bot帳號，且不會嘗試匹配它們。 這能用來告訴ASF它不該匹配哪些Bot，即使它們可能有重複物品能提供我們使用。

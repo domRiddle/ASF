@@ -4,7 +4,7 @@ ASF是一個在.NET Core平台上執行的C#應用程式。 這代表ASF並不�
 
 這種方法具有巨大的優勢，因為CIL獨立於平台，這就是為什麼ASF能夠天然地在許多作業系統上執行的原因，特別是Windows、Linux與macOS。 不僅不需要模擬，同時也支援所有平台相關及硬體相關的優化，例如CPU SSE指令。 因此，ASF在表現卓越的效能及優化時，同時仍能提供完美的相容性與可靠性。
 
-這也代表執行ASF&#8203;**沒有特定的作業系統需求**&#8203;，因為它需要的只是執行於作業系統上的&#8203;**執行環境**&#8203;，而非作業系統本身。 只要在執行期間正確執行ASF程式碼，底層的作業系統無論是Windows、Linux、macOS、BSD、Sony Playstation 4、Nintendo Wii或是您的烤麵包機上都無所謂，只要有相應的&#8203;**[.NET](https://dotnet.microsoft.com/download/dotnet)**&#8203;，就能執行&#8203;**[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;。
+這也代表執行ASF&#8203;**沒有特定的作業系統需求**&#8203;，因為它需要的只是執行於作業系統上的&#8203;**執行環境**&#8203;，而非作業系統本身。 只要在執行期間正確執行ASF程式碼，底層的作業系統無論是Windows、Linux、macOS、BSD、Sony Playstation 4、Nintendo Wii，或是您的烤麵包機上，都無所謂。只要有相應的&#8203;**[.NET](https://dotnet.microsoft.com/download/dotnet)**&#8203;，就能執行&#8203;**[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;。
 
 然而，不論您想要在哪個平台上執行ASF，您都需要確保該平台安裝了&#8203;**[.NET需求套件](https://github.com/dotnet/core/blob/main/Documentation/prereqs.md)**&#8203;。 這些都是確保執行環境功能正常所需的底層函式庫，也是ASF第一時間運作的絕對核心。 很有可能您已安裝了其中的一些（甚至全部）。
 
@@ -26,7 +26,7 @@ Generic套件與平台無關，所以它不包含任何給特定設備的程式�
 
 除了上面所提到的Generic套件外，我們也有&#8203;`Generic-netf`&#8203;套件，它是建立於.NET Framework而不是.NET（Core）之上。 這個套件是個舊的變體版本，它提供了從ASF V2時代開始缺少的相容性，且可以執行於例如&#8203;**[Mono](https://www.mono-project.com)**&#8203;之上，而.NET的&#8203;`Generic`&#8203;套件則無法使用。
 
-在一般情形下，您應該要&#8203;**盡量避免使用此套件**&#8203;，因為大多數作業系統都完全（並且更好地）支援上面所提到的 &#8203;`Generic`&#8203;套件。 事實上，這個套件只適用於缺少.NET執行環境，但同時具有Mono實作的平台上。 此類平台的範例包含&#8203;`linux-x86`&#8203;（32位元i386/i686 Linux）與&#8203;`linux-armel`&#8203;（例如在Raspberry Pi 0 & 1開發版中使用的ARMv6），到目前為止，這些平台都沒有官方的.NET執行環境。
+在一般情形下，您應該要&#8203;**盡量避免使用此套件**&#8203;，因為大多數作業系統都完全（並且更好地）支援上面所提到的&#8203;`Generic`&#8203;套件。 事實上，這個套件只適用於缺少.NET執行環境，但同時具有Mono實作的平台上。 此類平台的範例包含&#8203;`linux-x86`&#8203;（32位元i386/i686 Linux）與&#8203;`linux-armel`&#8203;（例如在Raspberry Pi 0 & 1開發版中使用的ARMv6），到目前為止，這些平台都沒有官方的.NET執行環境。
 
 隨著時間的推移，.NET支援的平台會越來越多，.NET Framework與.NET間的相容性會越來越差，而&#8203;`Generic-netf`&#8203;套件將會在未來完全被&#8203;`Generic`&#8203;套件所取代。 如果您可以使用任何.NET套件，請不要使用它，因為與.NET版本相比，&#8203;`Generic-netf`&#8203;缺少很多功能及相容性，而且它的功能會隨時間減少。 我們&#8203;**只會**&#8203;對無法使用&#8203;`Generic`&#8203;套件的平台提供此版本的支援（例如&#8203;`linux-x86`&#8203;），並且也只會支援基於最新版本的執行環境（例如最新版Mono）。
 
@@ -38,12 +38,12 @@ Generic套件與平台無關，所以它不包含任何給特定設備的程式�
 
 ASF目前擁有以下特定作業系統的變體版本：
 
-- `linux-arm`&#8203;支援32位元基於ARM（ARMv7+）的GNU／Linux作業系統。 這包含例如Raspberry Pi 2（或更新版本）等的平台，以及所有在當前和未來版本中可用的GNU／Linux作業系統（例如Raspberry Pi OS）。 這個變體版本&#8203;**並不**&#8203;支援較舊的ARM架構，例如Raspberry Pi 0中的ARMv6 & 1，它也不適用於未實作所需GNU／Linux環境的作業系統（例如Android）。
-- `linux-arm64`&#8203;支援64 位元基於ARM（ARMv8+）的GNU／Linux作業系統。 這包含例如Raspberry Pi 3（或更新版本）等的平台，以及所有在當前和未來版本中可用的AArch64 GNU／Linux作業系統（例如Debian）。 這個變體版本&#8203;**並不**&#8203;支援沒有所需64位元函式庫的32位元作業系統（例如Raspberry Pi OS），它也不適用於未實作所需GNU／Linux環境的作業系統（例如Android）。
-- `linux-x64`&#8203;支援64位元的GNU／Linux作業系統。 這包含Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu、OpenSUSE/SLES等很多作業系統，包含它們在當前和未來的版本中的衍生版本。
+- `linux-arm`&#8203;支援32位元基於ARM（ARMv7+）的GNU/Linux作業系統。 這包含例如Raspberry Pi 2（或更新版本）等的平台，以及所有在當前和未來版本中可用的GNU/Linux作業系統（例如Raspberry Pi OS）。 這個變體版本&#8203;**並不**&#8203;支援較舊的ARM架構，例如Raspberry Pi 0中的ARMv6 & 1，它也不適用於未實作所需GNU/Linux環境的作業系統（例如Android）。
+- `linux-arm64`&#8203;支援64 位元基於ARM（ARMv8+）的GNU/Linux作業系統。 這包含例如Raspberry Pi 3（或更新版本）等的平台，以及所有在當前和未來版本中可用的AArch64 GNU/Linux作業系統（例如Debian）。 這個變體版本&#8203;**並不**&#8203;支援沒有所需64位元函式庫的32位元作業系統（例如Raspberry Pi OS），它也不適用於未實作所需GNU/Linux環境的作業系統（例如Android）。
+- `linux-x64`&#8203;支援64位元的GNU/Linux作業系統。 這包含Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu、OpenSUSE/SLES等很多作業系統，包含它們在當前和未來的版本中的衍生版本。
 - `osx-x64`&#8203;支援64位元基於ARM（Apple silicon）的macOS作業系統。 包含版本11及其更新版本。
 - `osx-x64`&#8203;支援64位元的macOS作業系統。 包含版本10.15及其更新版本。
-- `win-x64`&#8203;支援64位元的Windows作業系統。 包含Windows 8.1、10、11、Server 2012+及其更新版本。 Windows 7需要使用**[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)**變體版本，對它只具有限的支援，您可能會在該環境中執行ASF時遇到問題。 我們強烈建議您盡快進行更新您的作業系統，因為ASF的未來版本可能會完全無法在上面使用，而且說實話，Windows 7在2020年就已經結束了生命週期。
+- `win-x64`&#8203;支援64位元的Windows作業系統。 包含Windows 8.1、10、11、Server 2012+及其更新版本。 Windows 7需要使用&#8203;**[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)**&#8203;變體版本，對它只具有限的支援，您可能會在該環境中執行ASF時遇到問題。 我們強烈建議您盡快進行更新您的作業系統，因為ASF的未來版本可能會完全無法在上面使用，而且說實話，Windows 7在2020年就已經結束了生命週期。
 
 當然，即使沒有適合您作業系統及架構的特定作業系統套件，您也可以手動安裝適當的.NET Core執行環境並執行Generic ASF套件，這也是這個套件存在的主要原因。 Generic ASF套件與平台無關，可以在任何具有可用.NET Core執行環境的平台上執行。 需要注意：ASF需要的是.NET Core執行環境，而不是特定的作業系統或架構。 例如，如果您使用的是32位元Windows，但ASF沒有&#8203;`win-x86`&#8203;版本，您仍然可以安裝&#8203;`win-x86`&#8203;版本的.NET Core SDK，然後執行Generic版本的ASF。 我們無法為所有作業系統及架構組合都產生一份執行檔，所以我們為此畫下一道分隔線。 x86就是這條線的其中之一，因為這種架構從2004年開始就過時了。
 

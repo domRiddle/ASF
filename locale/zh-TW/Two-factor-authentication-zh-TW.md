@@ -8,38 +8,38 @@
 
 # ASF 邏輯
 
-Regardless if you use ASF 2FA explained below or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're needed (such as during logging in). If you use ASF 2FA, program will be able to skip those requests and automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+不論您是否使用以下所述的ASF雙重驗證，ASF都包含正確的邏輯，且完全了解受標準雙重驗證保護的帳號。 它會在需要時，向您請求所需的詳細資訊（例如在登入期間）。 若您使用ASF雙重驗證，程式能夠跳過這些請求並自動生成所需的權杖，為您免去麻煩的同時並啟用額外功能（如下所述）。
 
 ---
 
 # ASF 雙重驗證
 
-ASF 2FA is a built-in module responsible for providing 2FA features to ASF process, such as generating tokens and accepting confirmations. It duplicates your existing authenticator, so that you can use your current authenticator and ASF 2FA at the same time.
+ASF雙重驗證是一個內建模組，負責為ASF程序提供雙重驗證功能，例如生成權杖及接受交易確認。 它會複製您現有的驗證器，所以您可以同時使用原有的驗證器與ASF雙重驗證。
 
-You can verify whether your bot account is using ASF 2FA already by executing `2fa` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you've already imported your authenticator as ASF 2FA, all `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
+您可以執行&#8203;`2fa`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;來驗證您的Bot帳號是否已啟用ASF雙重驗證。 除非您已將驗證器導入成ASF雙重驗證，否則所有&#8203;`2fa`&#8203;指令都沒有作用，這代表您的帳號未啟用ASF雙重驗證，因此對於需要此模組的進階功能也無法運作。
 
 ---
 
 ## 匯入
 
-In order to use ASF 2FA, you should have already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth, on top of manual method which allows you to provide required credentials yourself. If you don't have any authenticator yet, you need to choose one of available apps and set it up firstly. If you don't know better which one to pick, we recommend WinAuth, but any of the above will work fine assuming you follow the instructions.
+要使用ASF雙重驗證，您應該已經擁有並綁定ASF支援可用的驗證器。 除了您能自行手動提供所需的憑證外，ASF目前還支援幾種不同的官方或非官方雙重驗證來源：Android、iOS、SteamDesktopAuthenticator與WinAuth。 若您還沒有任何驗證器，則需要先選擇一個可用的應用程式，並進行設定。 如果您不知道該選擇哪個，我們建議您使用WinAuth，但只要您依說明操作，上述任何一個都能正常運作。
 
-All following guides require from you to already have **working and operational** authenticator being used with given tool/application. ASF 2FA will not operate properly if you import invalid data, therefore make sure that your authenticator works properly before attempting to import it. This does include testing and verifying that following authenticator functions work properly:
-- You can generate tokens and those tokens are accepted by Steam network
-- You can fetch confirmations, and they are arriving on your mobile authenticator
-- You can accept those confirmations, and they're properly recognized by Steam network as confirmed/rejected
+以下所有指南都需要您已擁有上述工具／應用程式中**可使用的**驗證器。 若您導入無效資料，ASF雙重驗證會無法正常運作，因此在嘗試導入前，請確認您的身份驗證器運作正常。 這包含測試並驗證下列驗證器功能是否正常運作：
+- 您能生成權杖，且Steam網路接受這些權杖
+- 您能獲得交易確認，且您的行動裝置驗證器能收到它們
+- 您能接受這些交易確認，且Steam網路能夠正確辨識它們為已確認／已拒絕
 
-Ensure that your authenticator works by checking if above actions work - if they don't, then they won't work in ASF either, you'll only waste time and cause yourself additional trouble.
+檢查上述操作是否有效，來保證您的驗證器正常運作──若它們不正常，那麼它們也不會在ASF中運作，您只會浪費時間並給自己帶來額外麻煩。
 
 ---
 
 ### Android 手機
 
-**The below instructions apply to Steam app in version `2.X`, there are currently no resources on extracting required details from version `3.0` onwards. We'll update this section once generally-available method is found. As of today, a workaround would be to intentionally install older version of Steam app, register 2FA and extract the required details first, after which it's possible to update the application to latest version - existing authenticator will continue to work.**
+**以下說明適用於&#8203;`2.X`&#8203;版本的Steam應用程式，目前還未有從&#8203;`3.0`&#8203;及以上版本擷取所需資源的方法。 一旦找到普遍可用的方法，我們將更新本章節。 至今為止，暫時的解決方法是故意安裝舊版的Steam應用程式，註冊雙重驗證，提取所需資訊，最後再將應用程式更新到最新版本──原有的驗證器將繼續運作。**
 
-In general for importing authenticator from your Android phone you will need **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** access. Rooting varies from device to device, so I won't tell you how to root your device. Visit **[XDA](https://www.xda-developers.com/root)** for excellent guides on how to do that, as well as general information on rooting in general. If you can't find your device or the guide that you need, try to find it on google second.
+在一般情形下，若要從您的Android手機導入驗證器，您需要具有&#8203;**[Root](https://zh.wikipedia.org/zh-tw/Root_(Android)) **&#8203;權限。 不同的設備具有不同的Root方法，所以無法告訴您如何Root您的設備。 可以造訪&#8203;**[XDA](https://www.xda-developers.com/root)**&#8203;查詢相關指南，及與Root相關的一般資訊。 若您找不到適用於您設備的指南，請在Google中搜尋。
 
-At least officially, it's not possible to access protected Steam files without root. The only official non-root method for extracting Steam files is creating unencrypted `/data` backup in one way or another and manually fetching appropriate files from it on your PC, however because such thing highly depends on your phone manufacturer and **is not** in Android standard, we won't discuss it here. If you're lucky to have such functionality, you can make use of it, but majority of users don't have anything like that.
+理論上來說，若沒有Root權限則無法讀取受保護的Steam檔案。 The only official non-root method for extracting Steam files is creating unencrypted `/data` backup in one way or another and manually fetching appropriate files from it on your PC, however because such thing highly depends on your phone manufacturer and **is not** in Android standard, we won't discuss it here. If you're lucky to have such functionality, you can make use of it, but majority of users don't have anything like that.
 
 Unofficially, it is possible to extract the needed files without root access, by installing or downgrading your Steam app to version `2.1` (or earlier), setting up mobile authenticator and then creating a snapshot of the app (together with the `data` files that we need) through `adb backup`. However, since it's a serious security breach and entirely unsupported way to extract the files, we won't elaborate further on this, Valve disabled this security hole in newer versions for a reason, and we only mention it as a possibility. Still, it might be possible to do a clean install of that version, link new authenticator, extract the required files, and then upgrade the app, which should be just enough, but you're on your own with this method anyway.
 

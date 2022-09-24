@@ -38,7 +38,7 @@ ASF的棄用流程分為兩個階段，使過渡期間更簡單並減少麻煩�
 
 ## 範例
 
-我們將V3.1.2.2版本之前的&#8203;`--server` **[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW)**&#8203;遷移至&#8203;`IPC`&#8203;**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#全域設定)**&#8203;。
+我們將V3.1.2.2版本之前的&#8203;`--server`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW)**&#8203;遷移至&#8203;`IPC`&#8203;**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#全域設定)**&#8203;。
 
 ### 第一階段
 

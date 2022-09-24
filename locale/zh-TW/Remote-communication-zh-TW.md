@@ -16,7 +16,7 @@ ASF與我們的&#8203;**[Steam群組](https://steamcommunity.com/groups/archiasf
 
 ## GitHub
 
-ASF與&#8203;**[GitHub的API](https://api.github.com)**&#8203;通訊，獲取&#8203;**[ASF Release](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;以用於更新功能。 這是自動更新（若您保持啟用&#8203;**[`UpdatePeriod`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updateperiod)**&#8203;），及&#8203;`update`&#8203;**[指令](https://github. com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;的一部分。 您可以透過設定&#8203;**[`UpdateChannel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updatechannel)**&#8203;屬性，來影響ASF與GitHub的通訊：設定成&#8203;`None`&#8203;將停用整個更新功能，包含此方面的GitHub通訊。
+ASF與&#8203;**[GitHub的API](https://api.github.com)**&#8203;通訊，獲取&#8203;**[ASF Release](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;以用於更新功能。 這是自動更新（若您保持啟用&#8203;**[`UpdatePeriod`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updateperiod)**&#8203;），及&#8203;`update`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;的一部分。 您可以透過設定&#8203;**[`UpdateChannel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updatechannel)**&#8203;屬性，來影響ASF與GitHub的通訊：設定成&#8203;`None`&#8203;將停用整個更新功能，包含此方面的GitHub通訊。
 
 ## ASF 伺服器
 
@@ -68,8 +68,7 @@ ASF STM清單暫時只接受ASF Bot。 目前無法在我們的清單中顯示�
 - 您的&#8203;`MatchableTypes`&#8203;（用於顯示及匹配）
 - 您物品庫中的&#8203;`MatchableTypes`&#8203; Steam物品總數（用於顯示及匹配）
 - 構成以上&#8203;`MatchableTypes`&#8203;個Steam物品的遊戲總數（用於顯示及匹配）
-- 您的&#8203;**[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-
-TW#tradingpreferences)**&#8203;中&#8203;`MatchEverything`&#8203;的價值（用於顯示及匹配）
+- 您的&#8203;**[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#tradingpreferences)**&#8203;中&#8203;`MatchEverything`&#8203;的價值（用於顯示及匹配）
 
 ASF伺服器&#8203;**不會**&#8203;在沒有事先於更新日誌中通知變更及其原因的情形下，收集、儲存或以其他方式處理任何上述未列出的資料。 我們認為上述一切都不是嚴重的事情，我們提到這些是為了讓您知道，ASF除了您自己設定的功能之外究竟還做了什麼，以便使您更好地了解其流程。
 
