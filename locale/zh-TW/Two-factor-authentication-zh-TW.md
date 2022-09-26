@@ -64,53 +64,53 @@ ASF雙重驗證是一個內建模組，負責為ASF程序提供雙重驗證功�
 
 對於iOS而言，您可以使用&#8203;**[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)**&#8203;。 這是能夠做到是因為您可以解密並備份，放到您的PC上，並使用該工具來擷取原本無法獲得的Steam資料（由於iOS的加密機制，至少在沒有越獄的情形下無法做到）。
 
-前往&#8203;**[發布頁面](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)**&#8203;下載這個程式的最新版本。 擷取資料後，您可以將其放進WinAuth中，然後從WinAuth複製到ASF（但您也可以將生成的.json裡面，從&#8203;`{`&#8203;起始到&#8203;`}`&#8203;結尾的部分複製到&#8203;`BotName.maFile`&#8203;再繼續）。 若您詢問，我會強烈建議先匯入到WinAuth，然後確保生成權杖與接受確認都正常運作，這樣您就能確定到目前為止沒有出問題。 If your credentials are invalid, ASF 2FA will not work properly, so it's much better to make ASF import step your last one.
+前往&#8203;**[發布頁面](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)**&#8203;下載這個程式的最新版本。 擷取資料後，您可以將其放進WinAuth中，然後從WinAuth複製到ASF（但您也可以將生成的.json裡面，從&#8203;`{`&#8203;起始到&#8203;`}`&#8203;結尾的部分複製到&#8203;`BotName.maFile`&#8203;再繼續）。 若您詢問，我會強烈建議先匯入到WinAuth，然後確保生成權杖與接受確認都正常運作，這樣您就能確定到目前為止沒有出問題。 若您的憑證無效，ASF雙重驗證將不會正常運作，所以最好最後再導入至ASF中。
 
-For questions/issues, please visit **[issues](https://github.com/CaitSith2/ios-steamguard-extractor/issues)**.
+如有任何問題，請造訪&#8203;**[Issues](https://github.com/CaitSith2/ios-steamguard-extractor/issues)**&#8203;頁面。
 
-*Keep in mind that above tool is unofficial, you're using it at your own risk. We do not offer technical support if it doesn't work properly - we got a few signals that it's exporting invalid 2FA credentials - verify that confirmations work in authenticator like WinAuth prior to importing that data to ASF!*
+*請注意，上面的工具並非官方，您需要自行承擔風險。 若它無法正常運作，我們亦不提供技術支援──我們收到一些跡象表明它匯出無效的雙重驗證憑證──在將資料匯入ASF前，確認一下交易確認在WinAuth等驗證器中是否有效！*
 
 ---
 
 ### SteamDesktopAuthenticator
 
-If you have your authenticator running in SDA already, you should notice that there is `steamID.maFile` file available in `maFiles` folder. Copy that file to `config` directory of ASF. Make sure that `.maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` character.
+若您已有執行於SDA中的驗證器，您應該已注意到&#8203;`maFiles`&#8203;資料夾中有&#8203;`steamID.maFile`&#8203;檔案。 複製該檔案到ASF的&#8203;`config`&#8203;資料夾中。 確保&#8203;`.maFile`&#8203;是未加密的格式，因為ASF無法解密SDA檔案──未加密的檔案應以&#8203;`{`&#8203;字元開頭。
 
-You should now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Alternatively you can leave it as it is, ASF will then pick it automatically after logging in. Helping ASF makes it possible to use ASF 2FA before logging in, if you won't help ASF, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
+現在您應將ASF的config資料夾中的&#8203;`steamID.maFile`&#8203;檔案重新命名成&#8203;`BotName.maFile`&#8203;，其中&#8203;`BotName`&#8203;是您加入ASF雙重驗證的Bot的名稱。 或者您亦可保持原樣，ASF會在登入後自動偵測到它。 若您協助ASF偵測，就可以在登入前使用ASF雙重驗證，否則只有在ASF登入成功後才能讀取檔案（因為ASF在實際登入前，無法知道您帳號的&#8203;`steamID`&#8203;）。
 
-If you did everything correctly, launch ASF, and you should notice:
+若您做的完全正確，啟動ASF，您應該會看到：
 
 ```text
-[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+[*] INFO: ImportAuthenticator() <1> 正在將 .maFile 轉換成 ASF 格式…
+[*] INFO: ImportAuthenticator() <1> 成功匯入行動驗證器！
 ```
 
-From now on, your ASF 2FA should be operational for this account.
+從現在開始，您帳號的ASF雙重驗證已經可以使用了。
 
 ---
 
 ### WinAuth
 
-Firstly create new empty `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Remember that it should be `BotName.maFile` and NOT `BotName.maFile.txt`, Windows likes to hide known extensions by default. If you provide incorrect name, it won't be picked by ASF.
+首先，在ASF的config資料夾中新增一個空的&#8203;`BotName.maFile`&#8203;，其中&#8203;`BotName`&#8203;是您要加入ASF雙重驗證的Bot的名稱。 記住，檔案名稱應為&#8203;`BotName.maFile`&#8203;，而不是&#8203;`BotName.maFile.txt`&#8203;，Windows預設會隱藏副檔名。 若您提供錯誤的檔名，ASF將無法偵測到。
 
-Now launch WinAuth as usual. Right click on Steam icon and select "Show SteamGuard and Recovery Code". Then check "Allow copy". You should notice familiar to you JSON structure on the bottom of the window, starting with `{`. Copy whole text into a `BotName.maFile` file created by you in previous step.
+現在像平常一樣啟動WinAuth。 右鍵點擊Steam圖示，然後選擇「顯示Steam Guard與恢復代碼」。 然後選擇「允許複製」。 您應該能在視窗底部發現以&#8203;`{`&#8203;開頭的JSON結構。 複製整個本文到上一步您所建立的&#8203;`BotName.maFile`&#8203;檔案中。
 
-If you did everything correctly, launch ASF, and you should notice:
+若您做的完全正確，啟動ASF，您應該會看到：
 
 ```text
-[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
-[*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
+[*] INFO: ImportAuthenticator() <1> 正在將 .maFile 轉換成 ASF 格式…
+[*] INFO: ImportAuthenticator() <1> 成功匯入行動驗證器！
 ```
 
-From now on, your ASF 2FA should be operational for this account.
+從現在開始，您帳號的ASF雙重驗證已經可以使用了。
 
 ---
 
 ## 完成
 
-From this moment, all `2fa` commands will work as they'd be called on your classic 2FA device. You can use both ASF 2FA and your authenticator of choice (Android, iOS, SDA or WinAuth) to generate tokens and accept confirmations.
+從此之後，所有&#8203;`2fa`&#8203;指令都會像在原本的雙重驗證設備上一樣運作。 您可以使用ASF雙重驗證及其他（Android、iOS、SDA或WinAuth驗證器）來生成權杖及接受交易確認。
 
-If you have authenticator on your phone, you can optionally remove SteamDesktopAuthenticator and/or WinAuth, as we won't need it anymore. However, I suggest to keep it just in case, not to mention that it's more handy than normal steam authenticator. Just keep in mind that ASF 2FA is **NOT** a general purpose authenticator and it should **never** be the only one you use, since it doesn't even include all data that authenticator should have. It's not possible to convert ASF 2FA back to original authenticator, therefore always make sure that you have general-purpose authenticator in other place, such as in WinAuth/SDA, or on your phone.
+若您的手機上有驗證器，您也可以選擇移除SteamDesktopAuthenticator和／或WinAuth，因為我們不再需要它了。 不過，我建議將它們留下以防萬一，而且它們比一般的Steam驗證器更為好用。 請注意，ASF雙重驗證&#8203;**不是**&#8203;一個通用驗證器，您&#8203;**不能**&#8203;把它當作唯一的驗證器，因為它不包含驗證器所需的所有資料。 無法將ASF雙重驗證轉換回原本的驗證器，因此請永遠確保您在其他地方擁有完整功能的通用驗證器，例如WinAuth/SDA或您的手機。
 
 ---
 
@@ -118,7 +118,7 @@ If you have authenticator on your phone, you can optionally remove SteamDesktopA
 
 ### ASF 如何使用雙重驗證模組？
 
-如果 ASF 兩步驟驗證可用，ASF 將用它自動確認由 ASF 傳送/接受的交易。 It will also be capable of automatically generating 2FA tokens on as-needed basis, for example in order to log in. In addition to that, having ASF 2FA also enables `2fa` commands for you to use. That should be all for now, if I didn't forget about anything - basically ASF uses 2FA module on as-needed basis.
+如果ASF雙重驗證可以使用，ASF將用它自動確認由ASF發起／接受的交易提案。 它還能在需要時自動生成雙重驗證權杖，例如在登入的時候。 除此之外，擁有ASF雙重驗證也能讓您使用&#8203;`2fa`&#8203;指令。 That should be all for now, if I didn't forget about anything - basically ASF uses 2FA module on as-needed basis.
 
 ---
 
