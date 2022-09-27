@@ -110,7 +110,7 @@ ASF雙重驗證是一個內建模組，負責為ASF程序提供雙重驗證功�
 
 從此之後，所有&#8203;`2fa`&#8203;指令都會像在原本的雙重驗證設備上一樣運作。 您可以使用ASF雙重驗證及其他（Android、iOS、SDA或WinAuth驗證器）來生成權杖及接受交易確認。
 
-若您的手機上有驗證器，您也可以選擇移除SteamDesktopAuthenticator和／或WinAuth，因為我們不再需要它了。 不過，我建議將它們留下以防萬一，而且它們比一般的Steam驗證器更為好用。 請注意，ASF雙重驗證&#8203;**不是**&#8203;一個通用驗證器，您&#8203;**不能**&#8203;把它當作唯一的驗證器，因為它不包含驗證器所需的所有資料。 無法將ASF雙重驗證轉換回原本的驗證器，因此請永遠確保您在其他地方擁有完整功能的通用驗證器，例如WinAuth/SDA或您的手機。
+若您的手機上有驗證器，您也可以選擇移除SteamDesktopAuthenticator和／或WinAuth，因為我們不再需要它了。 不過，我建議將它們留下以防萬一，而且它們比一般的Steam驗證器更為好用。 請注意，ASF雙重驗證&#8203;**並不是**&#8203;一個通用驗證器，您&#8203;**亦無法**&#8203;把它當作唯一的驗證器，因為它不包含驗證器所需的所有資料。 無法將ASF雙重驗證轉換回原本的驗證器，因此請永遠確保您在其他地方擁有完整功能的通用驗證器，例如WinAuth/SDA或您的手機。
 
 ---
 
@@ -118,31 +118,31 @@ ASF雙重驗證是一個內建模組，負責為ASF程序提供雙重驗證功�
 
 ### ASF 如何使用雙重驗證模組？
 
-如果ASF雙重驗證可以使用，ASF將用它自動確認由ASF發起／接受的交易提案。 它還能在需要時自動生成雙重驗證權杖，例如在登入的時候。 除此之外，擁有ASF雙重驗證也能讓您使用&#8203;`2fa`&#8203;指令。 That should be all for now, if I didn't forget about anything - basically ASF uses 2FA module on as-needed basis.
+如果ASF雙重驗證可以使用，ASF將用它自動確認由ASF發起／接受的交易提案。 它還能在需要時自動生成雙重驗證權杖，例如在登入的時候。 除此之外，擁有ASF雙重驗證也能讓您使用&#8203;`2fa`&#8203;指令。 如果我沒有忘記說，應該就是現在這些了──基本上ASF會依據需要，使用雙重驗證模組。
 
 ---
 
 ### 假如我需要雙重驗證權杖？
 
-You will need 2FA token to access 2FA-protected account, that includes every account with ASF 2FA as well. You should generate tokens in authenticator that you used for import, but you can also generate temporary tokens through `2fa` command sent via the chat to given bot. You can also use `2fa <BotNames>` command to generate temporary token for given bot instances. This should be enough for you to access bot accounts through e.g. browser, but as noted above - you should use your friendly authenticator (Android, iOS, SDA or WinAuth) instead.
+您需要雙重驗證權杖才能存取受到雙重驗證保護的帳號，這也包含每個使用ASF雙重驗證的帳號。 您應該在用於匯入的驗證器生成權杖，但您也可以透過聊天向指定Bot傳送&#8203;`2fa`&#8203;指令，來生成臨時權杖。 您還可以使用&#8203;`2fa <BotNames>`&#8203;指令來為指定的Bot實例生成臨時權杖。 在透過瀏覽器等存取Bot帳號時，這方法應該夠用了，但如上所述──您應該使用更友善的驗證器（Android、iOS、SDA或WinAuth）。
 
 ---
 
 ### 匯入 ASF 雙重驗證後，我可以使用原本的驗證器嗎？
 
-Yes, your original authenticator remains functional and you can use it together with using ASF 2FA. That's the whole point of the process - we're importing your authenticator credentials into ASF, so ASF can make use of them and accept selected confirmations on your behalf.
+可以，您原有的驗證器依然保有功能，而且能與ASF雙重驗證一起使用。 整個過程的重點是：我們匯入您的驗證器憑證到ASF，使ASF能夠使用它們並代表您接受所選的交易確認。
 
 ---
 
 ### ASF 行動裝置驗證器儲存在哪裡？
 
-ASF mobile authenticator is saved in `BotName.db` file in your config directory, along with some other crucial data related to given account. If you want to remove ASF 2FA, read how below.
+ASF行動驗證器儲存在config資料夾的&#8203;`BotName.db`&#8203;檔案中，這個檔案也包含指定帳號的其他關鍵資料。 若您想移除ASF雙重驗證，請閱讀下文。
 
 ---
 
 ### 如何移除 ASF 雙重驗證？
 
-Simply stop ASF and remove associated `BotName.db` of the bot with linked ASF 2FA you want to remove. This option will remove associated imported 2FA with ASF, but will NOT delink your authenticator. If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, iOS, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linking that authenticator, on the Steam website. It's not possible to unlink your authenticator through ASF, this is what general-purpose authenticator that you already have should be used for.
+只需要關閉ASF，並刪除想要移除ASF雙重驗證的Bot的&#8203;`BotName.db`&#8203;檔案。 這個選項會移除ASF與匯入的雙重驗證的關聯，但不會使您的驗證器解除綁定。 If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, iOS, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linking that authenticator, on the Steam website. It's not possible to unlink your authenticator through ASF, this is what general-purpose authenticator that you already have should be used for.
 
 ---
 
