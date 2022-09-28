@@ -142,13 +142,13 @@ ASF行動驗證器儲存在config資料夾的&#8203;`BotName.db`&#8203;檔案中
 
 ### 如何移除 ASF 雙重驗證？
 
-只需要關閉ASF，並刪除想要移除ASF雙重驗證的Bot的&#8203;`BotName.db`&#8203;檔案。 這個選項會移除ASF與匯入的雙重驗證的關聯，但不會使您的驗證器解除綁定。 If you instead want to delink your authenticator, apart from removing it from ASF (firstly), you should delink it in authenticator of your choice (Android, iOS, SDA or WinAuth), or - if you can't for some reason, use revocation code that you received during linking that authenticator, on the Steam website. It's not possible to unlink your authenticator through ASF, this is what general-purpose authenticator that you already have should be used for.
+只需要關閉ASF，並刪除想要移除ASF雙重驗證的Bot的&#8203;`BotName.db`&#8203;檔案。 這個選項會移除ASF與匯入的雙重驗證的關聯，但不會使您的驗證器解除綁定。 若您打算將您的驗證器解除綁定，除了首先要把它從ASF刪除外，您還需要在原有的設備上（Android、iOS、SDA或WinAuth）解除綁定。若是您因某些原因已無法使用，則應在Steam網站上使用綁定驗證器時收到的恢復代碼。 您不能使用ASF來取消您的驗證器連結，這就是您為什麼要使用通用驗證器。
 
 ---
 
 ### 我將驗證器綁定到 SDA/WinAuth，然後匯入 ASF。 我可以解除綁定，並重新綁定到我的手機上嗎？
 
-**不**。 ASF **imports** your authenticator data in order to use it. If you delink your authenticator then you'll also cause ASF 2FA to stop functioning, regardless if you remove it firstly like stated in above question or not. If you want to use your authenticator on both your phone and ASF (plus optionally in SDA/WinAuth), then you'll need to **import** your authenticator from your phone, and not create new one in SDA/WinAuth. You can have only **one** linked authenticator, that's why ASF **imports** that authenticator and its data in order to use it as ASF 2FA - it's **the same** authenticator, just existing in two places. If you decide to delink your mobile authenticator credentials - regardless in which way, ASF 2FA will stop working, as previously copied mobile authenticator credentials will no longer be valid. In order to use ASF 2FA together with authenticator on your phone, you must import it from Android/iOS, which is described above.
+**不能**&#8203;。 ASF是為了&#8203;**匯入**&#8203;才使用您的驗證器資料。 若您解除綁定驗證器，不論您是否與上述相同將它移除，都會使ASF雙重驗證失效。 If you want to use your authenticator on both your phone and ASF (plus optionally in SDA/WinAuth), then you'll need to **import** your authenticator from your phone, and not create new one in SDA/WinAuth. You can have only **one** linked authenticator, that's why ASF **imports** that authenticator and its data in order to use it as ASF 2FA - it's **the same** authenticator, just existing in two places. If you decide to delink your mobile authenticator credentials - regardless in which way, ASF 2FA will stop working, as previously copied mobile authenticator credentials will no longer be valid. In order to use ASF 2FA together with authenticator on your phone, you must import it from Android/iOS, which is described above.
 
 ---
 
