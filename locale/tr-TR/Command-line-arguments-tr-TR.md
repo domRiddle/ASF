@@ -46,7 +46,7 @@ Ancak şu ikisi tamamen hatasızdır:
 
 `--cryptkey <key>` veya `--cryptkey=<key>` - ASF'yi `<key>` değerinde verilen özel kriptografik anahtar ile başlatır. Bu seçenek **[güvenliği](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** etkiler ve ASF'nin içine gömülü kriptografik anahtar yerine sizin verdiğiniz özel `<key>` anahtarı kullanılır. Bu değişken varsayılan şifreleme anahtarını (şifreleme için) ve salt değerini (hashing için) değiştirdiği için, sizin sunduğunuz anahtarla şifrelenen/hashlenen her şeyi kullanabilmek için her defasında ASF'ye bu anahtarı vermek zorunda olacağınızı unutmayın.
 
-If you want to provide `<key>` from a file, use `--cryptkey-file` for that purpose instead, explained below.
+It's nice to mention that there are also two other ways to provide this detail: `--cryptkey-file` and `--input-cryptkey`.
 
 Bu değişkenin doğası gereği, cryptkey'i `ASF_CRYPTKEY` ortam değişkeni ile de değiştirebilirsiniz, işlem argümanlarında hassas bilgilerin bulunmamasını isteyen kişiler için daha ideal olur.
 
@@ -59,6 +59,10 @@ Due to the nature of this property, it's also possible to set cryptkey file by d
 ---
 
 `--ignore-unsupported-environment` - will cause ASF to ignore problems related to running in unsupported environment, which normally is signalized with an error and a forced exit. Unsupported environment includes for example running .NET Framework build on platform that could be running .NET (Core) build instead. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. As of today, **all** of the unsupported environment scenarios can be corrected, such as running `generic` build instead of `generic-netf`. We strongly recommend to fix the outstanding problems instead of declaring this argument.
+
+---
+
+`--input-cryptkey` - will make ASF ask about the `--cryptkey` during startup. This option might be useful for you if instead of providing cryptkey, whether in environment variables or a file, you'd prefer to not have it saved anywhere and instead input it manually on each ASF run.
 
 ---
 

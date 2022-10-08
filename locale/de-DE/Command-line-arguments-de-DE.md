@@ -46,7 +46,7 @@ Aber diese zwei sind völlig in Ordnung:
 
 `--cryptkey <key>` oder `--cryptkey=<key>` - ASF startet mit dem benutzerdefinierten kryptographischen Schlüssel `<key>`. Diese Option wirkt sich auf die **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE#sicherheit)** aus und veranlasst ASF, den von Ihnen bereitgestellten `<key>` Schlüssel anstelle des standardmäßig fest in die ausführbare Datei einprogrammierten Schlüssels zu verwenden. Beachten Sie bitte, dass sämtliche Verschlüsselungen/Hashs bei jedem ASF-Lauf weitergegeben wird, da diese Eigenschaft den Standard-Verschlüsselungsschlüssel (für Verschlüsselungszwecke) sowie SALT (für Hashing-Zwecke) betrifft.
 
-If you want to provide `<key>` from a file, use `--cryptkey-file` for that purpose instead, explained below.
+It's nice to mention that there are also two other ways to provide this detail: `--cryptkey-file` and `--input-cryptkey`.
 
 Aufgrund der Natur dieser Eigenschaft ist es auch möglich, einen cryptkey zu setzen, indem man die Umgebungsvariable `ASF_CRYPTKEY` deklariert, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
 
@@ -59,6 +59,10 @@ Due to the nature of this property, it's also possible to set cryptkey file by d
 ---
 
 `--ignore-unsupported-environment` - wird ASF dazu führen die Erkennung von nicht unterstützten Umgebungen zu ignorieren, die normalerweise mit einem Fehler signalisiert und das Beenden erzwingen. Nicht unterstützte Umgebung beinhalten zum Beispiel das Ausführen von .NET Framework Build auf Plattformen, die stattdessen .NET (Core) Build ausführen könnten. Während diese Option es ASF erlaubt, in solchen Szenarien zu laufen, sollten Sie beachten, dass wir dies offiziell nicht unterstützen und Sie dies vollständig **auf eigene Gefahr** tun. Ab heute können **alle** der nicht unterstützten Umgebungsszenarien korrigiert werden, wie zum Beispiel das Ausführen von `generic` Build statt `generic-netf`. Wir empfehlen Ihnen dringend, die offenen Probleme zu beheben, anstatt dieses Argument anzugeben.
+
+---
+
+`--input-cryptkey` - will make ASF ask about the `--cryptkey` during startup. This option might be useful for you if instead of providing cryptkey, whether in environment variables or a file, you'd prefer to not have it saved anywhere and instead input it manually on each ASF run.
 
 ---
 

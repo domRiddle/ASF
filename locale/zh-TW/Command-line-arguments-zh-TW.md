@@ -46,7 +46,7 @@ Linux/macOS：
 
 `--cryptkey<key>`&#8203;或&#8203;`--cryptkey=<key>`&#8203;──將以自訂金鑰&#8203;`<key>`&#8203;啟動ASF。 此選項將會影響&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;，並使ASF使用您的自訂金鑰&#8203;`<key>`&#8203;，而不是程式中硬碼的預設值。 因為此屬性會影響預設加密鍵（用於加密）及&#8203;**[鹽](https://zh.wikipedia.org/zh-tw/%E7%9B%90_(%E5%AF%86%E7%A0%81%E5%AD%A6))**&#8203;（用於雜湊），請注意使用此金鑰加密／雜湊出的一切，ASF在每次執行時都需要給入相同的值。
 
-如果您想從檔案中提供&#8203;`<key>`&#8203;，請改用&#8203;`--cryptkey-file`&#8203;，詳見下文所述。
+It's nice to mention that there are also two other ways to provide this detail: `--cryptkey-file` and `--input-cryptkey`.
 
 由於此屬性的性質，它還能透過宣告&#8203;`ASF_CRYPTKEY`&#8203;環境變數來設定cryptkey，這更適合希望在程序引數中，不包含敏感資訊的使用者。
 
@@ -59,6 +59,10 @@ Linux/macOS：
 ---
 
 `--ignore-unsupported-environment`&#8203;──使ASF忽略在不支援環境中執行的各種問題。而在原本的情形下，會顯示程式出錯並強制退出。 不支援的環境包含並例如，應該在.NET (Core)平台執行的建置版本，卻執行於.NET Framework平台上。 雖然此旗標允許ASF嘗試在這些情境中執行，但請注意，我們不正式支援此行為。若您強制ASF這樣做，&#8203;**後果自負**&#8203;。 截至今日，&#8203;**所有**&#8203;不受支援環境的情形都可以被修正，例如執行&#8203;`generic`&#8203;建置版本，而不是&#8203;`generic-netf`&#8203;。 我們強烈建議從根本上修正問題，而非去使用這個引數。
+
+---
+
+`--input-cryptkey` - will make ASF ask about the `--cryptkey` during startup. This option might be useful for you if instead of providing cryptkey, whether in environment variables or a file, you'd prefer to not have it saved anywhere and instead input it manually on each ASF run.
 
 ---
 

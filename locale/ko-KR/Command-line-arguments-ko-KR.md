@@ -46,7 +46,7 @@ Linux/macOS:
 
 `--cryptkey <key>` 혹은 `--cryptkey=<key>` - `<key>`값의 자체 암호화 키를 가지고 ASF를 시작합니다. 이 옵션은 **[보안](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ko-KR)**에 영향을 주고 ASF가 실행파일에 하드코딩된 기본 키 대신 제공된 자체 `<key>`키를 사용하도록 합니다. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
 
-If you want to provide `<key>` from a file, use `--cryptkey-file` for that purpose instead, explained below.
+It's nice to mention that there are also two other ways to provide this detail: `--cryptkey-file` and `--input-cryptkey`.
 
 이 속성값의 특성때문에 `ASF_CRYPTKEY` 환경 변수를 선언하여 cryptkey를 설정하는 것도 가능합니다. 인자 처리 중 민감한 정보를 피하고 싶은 사람들에게 더 적절합니다.
 
@@ -59,6 +59,10 @@ Due to the nature of this property, it's also possible to set cryptkey file by d
 ---
 
 `--ignore-unsupported-environment` - will cause ASF to ignore problems related to running in unsupported environment, which normally is signalized with an error and a forced exit. Unsupported environment includes for example running .NET Framework build on platform that could be running .NET (Core) build instead. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. As of today, **all** of the unsupported environment scenarios can be corrected, such as running `generic` build instead of `generic-netf`. We strongly recommend to fix the outstanding problems instead of declaring this argument.
+
+---
+
+`--input-cryptkey` - will make ASF ask about the `--cryptkey` during startup. This option might be useful for you if instead of providing cryptkey, whether in environment variables or a file, you'd prefer to not have it saved anywhere and instead input it manually on each ASF run.
 
 ---
 

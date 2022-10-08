@@ -47,7 +47,7 @@ Cependant, ces deux la sont complètement valides:
 
  sécurité </ 0> et obligera ASF à utiliser votre clé `<key>` fournie à la place de la clé par défaut codée dans l'exécutable. Puisque cette propriété affecte la clé de chiffrement par défaut (pour le chiffrement) ainsi que son salt (pour le hachage), Gardez à l'esprit que tout ce qui est chiffré/haché avec cette clé nécessitera qu'elle soit transmise à chaque exécution d'ASF.</p> 
 
-If you want to provide `<key>` from a file, use `--cryptkey-file` for that purpose instead, explained below.
+It's nice to mention that there are also two other ways to provide this detail: `--cryptkey-file` and `--input-cryptkey`.
 
 En raison de la nature de cette propriété, il est également possible de définir la clé de chiffrement en déclarant la variable d'environnement `ASF_CRYPTKEY`, qui peut être plus appropriée pour les personnes qui voudraient éviter de divulguer des informations privées dans les arguments du processus.
 
@@ -64,6 +64,12 @@ Due to the nature of this property, it's also possible to set cryptkey file by d
 ---
 
 `--ignore-unsupported-environment` - fera ignorer à ASF les problèmes liés à l'exécution dans un environnement non pris en charge, ce qui est normalement signalisé avec une erreur et une sortie forcée. L'environnement non pris en charge inclut par exemple l'exécution de la compilation .NET Framework sur une plate-forme qui pourrait exécuter la compilation .NET (Core) à la place. Même si ce flag laissera ASF s'exécuter dans de tels scénarios, soyez avertis; Nous ne prenons pas en charge ces éléments officiellement et vous forcez ASF à le faire entièrement **à vos risques et périls**. Aujourd'hui, **tous** les scénarios d'environnement non pris en charge peuvent être corrigés, par exemple, exécuter la version `générique` au lieu de `generic-netf`. Nous recommandons fortement de résoudre les problèmes précédents plutôt que d'utiliser cet argument.
+
+
+
+---
+
+`--input-cryptkey` - will make ASF ask about the `--cryptkey` during startup. This option might be useful for you if instead of providing cryptkey, whether in environment variables or a file, you'd prefer to not have it saved anywhere and instead input it manually on each ASF run.
 
 
 
