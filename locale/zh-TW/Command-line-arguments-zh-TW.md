@@ -46,7 +46,7 @@ Linux/macOS：
 
 `--cryptkey<key>`&#8203;或&#8203;`--cryptkey=<key>`&#8203;──將以自訂金鑰&#8203;`<key>`&#8203;啟動ASF。 此選項將會影響&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;，並使ASF使用您的自訂金鑰&#8203;`<key>`&#8203;，而不是程式中硬碼的預設值。 因為此屬性會影響預設加密鍵（用於加密）及&#8203;**[鹽](https://zh.wikipedia.org/zh-tw/%E7%9B%90_(%E5%AF%86%E7%A0%81%E5%AD%A6))**&#8203;（用於雜湊），請注意使用此金鑰加密／雜湊出的一切，ASF在每次執行時都需要給入相同的值。
 
-It's nice to mention that there are also two other ways to provide this detail: `--cryptkey-file` and `--input-cryptkey`.
+需要再提一點，還有另外兩種方法可以提供此詳細資料：&#8203;`--cryptkey-file`&#8203;與&#8203;`--input-cryptkey`&#8203;。
 
 由於此屬性的性質，它還能透過宣告&#8203;`ASF_CRYPTKEY`&#8203;環境變數來設定cryptkey，這更適合希望在程序引數中，不包含敏感資訊的使用者。
 
@@ -62,7 +62,7 @@ It's nice to mention that there are also two other ways to provide this detail: 
 
 ---
 
-`--input-cryptkey` - will make ASF ask about the `--cryptkey` during startup. This option might be useful for you if instead of providing cryptkey, whether in environment variables or a file, you'd prefer to not have it saved anywhere and instead input it manually on each ASF run.
+`--input-cryptkey`&#8203;──使ASF在啟動過程詢問&#8203;`--cryptkey`&#8203;。 若您不希望在任何地方儲存cryptkey，例如環境變數或檔案中，而要在每次ASF執行時手動輸入，則可以使用此選項。
 
 ---
 
@@ -72,7 +72,7 @@ It's nice to mention that there are also two other ways to provide this detail: 
 
 ---
 
-`--no-config-migrate`&#8203;──在預設情形下，ASF會自動將您的設定檔遷移成最新的語法。 遷移包含：將廢止的屬性轉換成最新的屬性，刪除值為預設的屬性（因為它們沒有意義），以及清理檔案內容（修正縮排等）。 這通常是個好方法，但您可能會遇到特殊情形，以致於希望ASF不會去自動覆蓋設定檔。 舉例來說，您可能想要對設定檔&#8203;`chmod 400`&#8203;（僅擁有者可讀取），或使用&#8203;`chattr +i`&#8203;禁止任何人寫入，來作為安全措施。 一般而言，我們建議保留啟用設定遷移，但如果您有特定的理由停用它，並希望ASF不遷移設定，您可以使用此開關來達成。
+`--no-config-migrate`&#8203;──在預設情形下，ASF會自動將您的設定檔遷移成最新的語法。 遷移包含：將廢止的屬性轉換成最新的屬性，刪除值為預設的屬性（因為它們沒有意義），以及清理檔案內容（修正縮排等）。 這通常是個好方法，但您可能會遇到特殊情形，以至於希望ASF不會去自動覆蓋設定檔。 舉例來說，您可能想要對設定檔&#8203;`chmod 400`&#8203;（僅擁有者可讀取），或使用&#8203;`chattr +i`&#8203;禁止任何人寫入，來作為安全措施。 一般而言，我們建議保留啟用設定遷移，但如果您有特定的理由停用它，並希望ASF不遷移設定，您可以使用此開關來達成。
 
 ---
 
@@ -92,7 +92,7 @@ It's nice to mention that there are also two other ways to provide this detail: 
 
 由於此屬性的性質，它還能透過宣告&#8203;`ASF_PATH`&#8203;環境變數來設定路徑，這更適合希望在程序引數中，不包含敏感資訊的使用者。
 
-如果您考慮使用此命令列引數來執行多個ASF實例，我們建議您閱讀我們的&#8203;**[相容性頁面](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-TW#多實例)**&#8203;。
+如果您考慮使用此命令列引數來執行多個ASF實例，我們建議您閱讀我們的&#8203;**[相容性頁面](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-TW#多個實例)**&#8203;。
 
 範例：
 

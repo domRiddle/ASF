@@ -1,18 +1,18 @@
 # 高效能設定
 
-This is exact opposite of **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and typically you want to follow those tips if you want to further increase ASF performance (in terms of CPU speed), for potential cost of increased memory usage.
+這與&#8203;**[低記憶體設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW)**&#8203;完全相反，若您想進一步提高ASF的效能（就CPU速度方面），請遵循這些提示，這可能會增加記憶體使用量。
 
 ---
 
-ASF already tries to prefer performance when it comes to general balanced tuning, therefore there is not a lot you can do to further increase its performance, although you're not completely out of options either. However, keep in mind that those options are not enabled by default, which means that they're not good enough to consider them balanced for majority of usages, therefore you should decide yourself if memory increase brought by them is acceptable for you.
+ASF已經嘗試在一般的平衡性中考慮效能優先，因此您沒有很多提高效能的餘地，但您也不是完全沒有其他選擇。 但請注意，這些選項預設是未啟用，這代表它們不能在大多數情形下保證平衡性，因此，您應該自行決定是否能夠接受它們所造成的記憶體增加。
 
 ---
 
 ## 執行環境調整（進階）
 
-Below tricks **involve serious memory and startup time increase** and should therefore be used with caution.
+以下技巧&#8203;**涉及嚴重的記憶體及啟動時間的增加**&#8203;，因此應謹慎使用。
 
-The recommended way of applying those settings is through `DOTNET_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
+套用這些設定的推薦方法，是設定&#8203;`DOTNET_`&#8203;環境屬性。 Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
 
 .NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs. We've documented below properties that are especially important in our opinion.
 
