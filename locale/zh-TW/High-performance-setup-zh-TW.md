@@ -1,6 +1,6 @@
 # 高效能設定
 
-這與&#8203;**[低記憶體設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW)**&#8203;完全相反，若您想進一步提高ASF的效能（就CPU速度方面），請遵循這些提示，這可能會增加記憶體使用量。
+這與&#8203;**[低記憶體設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW)**&#8203;完全相反，若您想進一步提高ASF的效能（就CPU速度方面），請遵照下列指示。這可能會增加記憶體使用量。
 
 ---
 
@@ -12,17 +12,17 @@ ASF已經嘗試在一般的平衡性中考慮效能優先，因此您沒有很�
 
 以下技巧&#8203;**涉及嚴重的記憶體及啟動時間的增加**&#8203;，因此應謹慎使用。
 
-套用這些設定的推薦方法，是設定&#8203;`DOTNET_`&#8203;環境屬性。 Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
+套用這些設定的推薦方法，是設定&#8203;`DOTNET_`&#8203;環境屬性。 當然，您也可以使用其他方法，例如&#8203;`runtimeconfig.json`&#8203;，但有些設定無法如此設定。除此之外，ASF會在每次更新時，將您的自訂&#8203;`runtimeconfig.json`&#8203;取代成自己的檔案，因此，我們建議使用環境屬性，這樣您在啟動程序前就可以輕鬆設定。
 
-.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs. We've documented below properties that are especially important in our opinion.
+.NET執行環境允許您以多種方法&#8203;**[調整垃圾回收](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)**&#8203;，依據您的需求高效微調垃圾回收（GC）程序。 我們記錄了下列我們認為特別重要的屬性。
 
 ### [`gcServer`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
-> Configures whether the application uses workstation garbage collection or server garbage collection.
+> 設定應用程式是使用工作站垃圾回收還是伺服器垃圾回收。
 
-You can read the exact specific of the server GC at **[fundamentals of garbage collection](https://docs.microsoft.com/dotnet/standard/garbage-collection/fundamentals)**.
+您可以在&#8203;**[記憶體回收的基本概念](https://learn.microsoft.com/zh-tw/dotnet/standard/garbage-collection/fundamentals)**&#8203;中閱讀伺服器GC的詳細資訊。
 
-ASF is using workstation garbage collection by default. This is mainly because of a good balance between memory usage and performance, which is more than enough for just a few bots, as usually a single concurrent background GC thread is fast enough to handle entire memory allocated by ASF.
+ASF預設使用工作站垃圾回收。 這主要是因為記憶體的使用與效能間的平衡良好，這對於執行少數Bot來說綽綽有餘，因為通常單個並行的背景GC執行緒，足以快速處理所有由ASF分配的記憶體。
 
 However, today we have a lot of CPU cores that ASF can greatly benefit from, by having a dedicated GC thread per each CPU vCore that is available. This can greatly improve the performance during heavy ASF tasks such as parsing badge pages or the inventory, since every CPU vCore can help, as opposed to just 2 (main and GC). Server GC is recommended for machines with 3 CPU vCores and more, workstation GC is automatically forced if your machine has just 1 CPU vCore, and if you have exactly 2 then you can consider trying both (results may vary).
 
