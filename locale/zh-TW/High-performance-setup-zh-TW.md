@@ -24,17 +24,17 @@ ASF已經嘗試在一般的平衡性中考慮效能優先，因此您沒有很�
 
 ASF預設使用工作站垃圾回收。 這主要是因為記憶體的使用與效能間的平衡良好，這對於執行少數Bot來說綽綽有餘，因為通常單個並行的背景GC執行緒，足以快速處理所有由ASF分配的記憶體。
 
-However, today we have a lot of CPU cores that ASF can greatly benefit from, by having a dedicated GC thread per each CPU vCore that is available. This can greatly improve the performance during heavy ASF tasks such as parsing badge pages or the inventory, since every CPU vCore can help, as opposed to just 2 (main and GC). Server GC is recommended for machines with 3 CPU vCores and more, workstation GC is automatically forced if your machine has just 1 CPU vCore, and if you have exactly 2 then you can consider trying both (results may vary).
+但是如至今日我們通常擁有很多CPU核心，使ASF也因此受益，因為在每個CPU vCore中都能有一個專用的GC執行緒。 這可以大大地提高ASF執行繁重工作時的效能，例如剖析徽章頁面或物品庫，因為每個CPU vCore都可以提供協助，而不只是2個（主執行緒及GC）。 對於具有3個或更多CPU vCore的設備，建議使用伺服器GC；若您的設備只有1個CPU vCore，則會自動強制使用工作站GC；若您正好有2個，您可以考慮嘗試使用兩者（結果可能會不同）。
 
-Server GC itself does not result in a very huge memory increase by just being active, but it has much bigger generation sizes, and therefore is far more lazy when it comes to giving memory back to OS. You may find yourself in a sweet spot where server GC increases performance significantly and you'd like to keep using it, but at the same time you can't afford that huge memory increase that comes out of using it. Luckily for you, there is a "best of both worlds" setting, by using server GC with **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** configuration property set to `0`, which will still enable server GC, but limit generation sizes and focus more on memory. Alternatively, you might also experiment with another property, **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gcheaphardlimitpercent)**, or even both of them at the same time.
+伺服器GC本身不會因為只處於活動狀態而導致巨量的記憶體消耗，但它具有更大的生成大小，因此更不會把記憶體還給作業系統。 您可能會發現自己處於一個尷尬情形，伺服器GC能顯著提高效能，使您希望繼續使用它，但同時您無法承受使用它帶來的巨量記憶體消耗。 幸運的是，將&#8203;**[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gclatencylevel)**&#8203;組態設定設定成&#8203;`0`&#8203;，是個「兩全其美」的方法，它仍會啟用伺服器GC，但會限制生成大小並更關照記憶體的消耗。 或者您也許可以嘗試另外一個屬性，&#8203;**[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gcheaphardlimitpercent)**&#8203;，或同時啟用這兩個選項。
 
-However, if memory is not a problem for you (as GC still takes into account your available memory and tweaks itself), it's a much better idea to not change those properties at all, achieving superior performance in result.
+但是，如果記憶體對您來說不是問題（因為GC仍會依據您可用的記憶體來自行調整），那麼最好不要更改這些屬性，以達到最高效能。
 
 ### **[`DOTNET_TieredPGO`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/compilation#profile-guided-optimization)**
 
-> This setting enables dynamic or tiered profile-guided optimization (PGO) in .NET 6 and later versions.
+> 這個設定在.NET 6及更高版本中啟用動態或分層特性指引最佳化（PGO）。
 
-Disabled by default. In a nutshell, this will cause JIT to spend more time analyzing ASF's code and its patterns in order to generate superior code optimized for your typical usage. If you want to learn more about this setting, visit **[performance improvements in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**.
+預設為停用。 簡而言之，這會使JIT使用更多時間來分析ASF的代碼及其模式，以便為您的典型使用方式來生成最佳化的上級程式碼。 若您想了解更多關於此設定的資訊，請造訪&#8203;**[Performance Improvements in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**&#8203;。
 
 ### **[`DOTNET_ReadyToRun`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/compilation#readytorun)**
 
@@ -76,7 +76,7 @@ $Env:DOTNET_TC_QuickJitForLoops=1
 
 ---
 
-## 優化建議
+## 最佳化建議
 
 - Ensure that you're using default value of `OptimizationMode` which is `MaxPerformance`. This is by far the most important setting, as using `MinMemoryUsage` value has dramatic effects on performance.
 - 啟用伺服器 GC。 Server GC can be immediately seen as being active by significant memory increase compared to workstation GC. This will spawn a GC thread for every CPU thread your machine has in order to perform GC operations in parallel with maximum speed.

@@ -2,7 +2,7 @@
 
 ASF是一個在.NET Core平台上執行的C#應用程式。 這代表ASF並不是被編譯成可供CPU直接執行的&#8203;**[機器語言](https://zh.wikipedia.org/wiki/%E6%9C%BA%E5%99%A8%E8%AF%AD%E8%A8%80)**&#8203;，而是被編譯成&#8203;**[通用中間語言](https://en.wikipedia.org/wiki/Common_Intermediate_Language)**&#8203;（CIL），一種需要對應的執行環境才能執行的語言。
 
-這種方法具有巨大的優勢，因為CIL獨立於平台，這就是為什麼ASF能夠天然地在許多作業系統上執行的原因，特別是Windows、Linux與macOS。 不僅不需要模擬，同時也支援所有平台相關及硬體相關的優化，例如CPU SSE指令。 因此，ASF在表現卓越的效能及優化時，同時仍能提供完美的相容性與可靠性。
+這種方法具有巨大的優勢，因為CIL獨立於平台，這就是為什麼ASF能夠天然地在許多作業系統上執行的原因，特別是Windows、Linux與macOS。 不僅不需要模擬，同時也支援所有平台相關及硬體相關的最佳化，例如CPU SSE指令。 因此，ASF在表現卓越的效能及最佳化時，同時仍能提供完美的相容性與可靠性。
 
 這也代表執行ASF&#8203;**沒有特定的作業系統需求**&#8203;，因為它需要的只是執行於作業系統上的&#8203;**執行環境**&#8203;，而非作業系統本身。 只要在執行期間正確執行ASF程式碼，底層的作業系統無論是Windows、Linux、macOS、BSD、Sony Playstation 4、Nintendo Wii，或是您的烤麵包機上，都無所謂。只要有相應的&#8203;**[.NET](https://dotnet.microsoft.com/download/dotnet)**&#8203;，就能執行&#8203;**[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;。
 

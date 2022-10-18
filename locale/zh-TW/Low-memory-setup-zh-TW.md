@@ -115,7 +115,7 @@ Below tricks **involve serious performance degradation** and should be used with
 
 ---
 
-## 優化建議
+## 最佳化建議
 
 - Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
 - If it's still not enough, enable all configuration properties listed above by setting appropriate `DOTNET_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.
