@@ -1,6 +1,6 @@
 # Steam 親友同享
 
-ASF自2.1.5.5+版本開始，支援Steam親友同享。 想要了解ASF是如何支援Steam親友同享的，您應先閱讀Steam商店中提供的&#8203;**[親友同享](https://store.steampowered.com/promotion/familysharing)**&#8203;介紹。
+ASF從2.1.5.5+版本開始，支援Steam親友同享。 想要了解ASF是如何支援Steam親友同享的，您應先閱讀Steam商店中提供的&#8203;**[親友同享](https://store.steampowered.com/promotion/familysharing)**&#8203;介紹。
 
 ---
 
@@ -18,4 +18,4 @@ ASF含有合適的邏輯，在偵測到收藏庫被親友同享的使用者鎖�
 
 ## 限制
 
-Steam網路經常廣播不實的狀態更新來誤導ASF，這可能使ASF認為能夠恢復掛卡，並導致您的朋友被踢出遊戲連線。 這與我們已在&#8203;**[這項常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#asf-is-kicking-my-steam-client-session-while-im-playing--this-account-is-logged-on-another-pc)**&#8203;中解釋的是相同的問題。 我們建議的解決方案也完全相同，主要是讓您的朋友獲得&#8203;`Operator`&#8203;（或以上的）權限，並告訴他們使用&#8203;`pause`&#8203;與&#8203;`resume`&#8203;指令。
+Steam網路經常廣播不實的狀態更新來誤導ASF，這可能使ASF認為能夠恢復掛卡，並導致您的朋友被踢出遊戲連線。 這與我們已在&#8203;**[這項常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-TW#在我遊玩的時候asf-會將我的-steam-用戶端踢下線-此帳號已於另一台電腦中登入)**&#8203;中解釋的是相同的問題。 我們建議的解決方案也完全相同，主要是讓您的朋友獲得&#8203;`Operator`&#8203;（或以上的）權限，並告訴他們使用&#8203;`pause`&#8203;與&#8203;`resume`&#8203;指令。

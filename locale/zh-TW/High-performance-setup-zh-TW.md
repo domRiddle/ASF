@@ -14,7 +14,7 @@ ASF已經嘗試在一般的平衡性中考慮效能優先，因此您沒有很�
 
 套用這些設定的推薦方法，是設定&#8203;`DOTNET_`&#8203;環境屬性。 當然，您也可以使用其他方法，例如&#8203;`runtimeconfig.json`&#8203;，但有些設定無法如此設定。除此之外，ASF會在每次更新時，將您的自訂&#8203;`runtimeconfig.json`&#8203;取代成自己的檔案，因此，我們建議使用環境屬性，這樣您在啟動程序前就可以輕鬆設定。
 
-.NET執行環境允許您以多種方法&#8203;**[調整垃圾回收](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)**&#8203;，依據您的需求高效微調垃圾回收（GC）程序。 我們記錄了下列我們認為特別重要的屬性。
+.NET執行環境使您能夠以多種方法&#8203;**[調整垃圾回收](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)**&#8203;，依據您的需求高效微調垃圾回收（GC）程序。 我們記錄了下列我們認為特別重要的屬性。
 
 ### [`gcServer`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
@@ -38,19 +38,19 @@ ASF預設使用工作站垃圾回收。 這主要是因為記憶體的使用與�
 
 ### **[`DOTNET_ReadyToRun`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/compilation#readytorun)**
 
-> Configures whether the .NET Core runtime uses pre-compiled code for images with available ReadyToRun data. Disabling this option forces the runtime to JIT-compile framework code.
+> 設定.NET Core執行環境是否對具有可用ReadyToRun資料的映象使用預編譯程式碼。 停用此選項會強制使執行環境對框架的程式碼進行JIT編譯。
 
-預設啟用。 Disabling this in combination with enabling `DOTNET_TieredPGO` allows you to extend tiered profile-guided optimization to the whole .NET platform, and not just ASF code.
+預設為啟用。 停用這個選項但同時啟用&#8203;`DOTNET_TieredPGO`&#8203;可以使您將特性指引最佳化套用至整個.NET平台，而不只於ASF程式碼中。
 
 ### **[`DOTNET_TC_QuickJitForLoops`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
 
-> Configures whether the JIT compiler uses quick JIT on methods that contain loops. Enabling quick JIT for loops may improve startup performance. However, long-running loops can get stuck in less-optimized code for long periods.
+> 設定JIT編譯器是否對包含迴圈的方法使用快速JIT。 為迴圈啟用快速JIT有可能提高啟動效能。 但是，在低最佳化的程式碼中，長時執行的迴圈可能會停滯較長時間。
 
-預設停用。 While the description doesn't make it obvious, enabling this will allow methods with loops to go through additional compilation tier, which will allow `DOTNET_TieredPGO` to do a better job by analyzing its usage data.
+預設為停用。 雖然描述並不清楚，但啟用此選項可以使包含迴圈的方法通過額外的編譯層，讓&#8203;`DOTNET_TieredPGO`&#8203;得以透過分析把使用數據處理得更好。
 
 ---
 
-You can enable selected properties by setting appropriate environment variables. For example, on Linux (shell):
+您可以透過設定適當的環境變數來啟用所選的屬性。 舉例來說，在Linux（Shell）上：
 
 ```shell
 export DOTNET_gcServer=1
@@ -62,7 +62,7 @@ export DOTNET_TC_QuickJitForLoops=1
 ./ArchiSteamFarm # 適用於您的作業系統的建置版本
 ```
 
-或在 Windows 上（PowerShell）：
+或在Windows（PowerShell）上：
 
 ```powershell
 $Env:DOTNET_gcServer=1
@@ -78,9 +78,9 @@ $Env:DOTNET_TC_QuickJitForLoops=1
 
 ## 最佳化建議
 
-- Ensure that you're using default value of `OptimizationMode` which is `MaxPerformance`. This is by far the most important setting, as using `MinMemoryUsage` value has dramatic effects on performance.
-- 啟用伺服器 GC。 Server GC can be immediately seen as being active by significant memory increase compared to workstation GC. This will spawn a GC thread for every CPU thread your machine has in order to perform GC operations in parallel with maximum speed.
-- If you can't afford memory increase due to server GC, consider tweaking **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** and/or **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gcheaphardlimitpercent)** to achieve "the best of both worlds". However, if your memory can afford it, then it's better to keep it at default - server GC already tweaks itself during runtime and is smart enough to use less memory when your OS will truly need it.
-- You can also consider increased optimization for longer startup time with additional tweaking through other `DOTNET_` properties explained above.
+- 確保您使用的是&#8203;`OptimizationMode`&#8203;的預設值，為&#8203;`MaxPerformance`&#8203;。 這是到現在最重要的設定，因為使用&#8203;`MinMemoryUsage`&#8203;值會對效能產生重大影響。
+- 啟用伺服器GC。 與工作站GC相比，透過明顯的記憶體增加，可以一眼看出伺服器GC為活動狀態。 這將為您設備上的每個CPU執行緒生成一個GC執行緒，以在最高速度下平行執行GC運算。
+- 若您無法承擔伺服器GC所帶來的記憶體消耗，可以考慮調整&#8203;**[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gclatencylevel)**&#8203;和／或&#8203;**[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gcheaphardlimitpercent)**&#8203;來達成兩全。 但是，若您能承受這樣的記憶體消耗，那麼最好讓它維持預設狀態──伺服器GC在執行期間已自行調整，且足夠智慧在您的作業系統真正需要它時能使用更少的記憶體。
+- 您還可以考慮透過上述其他的&#8203;`DOTNET_`&#8203;屬性來進行額外調整，以增加最佳化來減少啟動時間。
 
-Applying recommendations above allows you to have superior ASF performance that should be blazing fast even with hundreds or thousands of enabled bots. CPU should not be a bottleneck anymore, as ASF is able to use your entire CPU power when needed, cutting required time to bare minimum. The next step would be CPU and RAM upgrades.
+套用上述建議，可以使您擁有卓越的ASF效能，在即使啟用了成百上千個Bot後，也能保有快如閃電的效能。 CPU不再成為瓶頸，因為ASF能夠在需要時發揮您CPU的全部能力，將所需時間減少到最低限度。 再更進一步就只能升級CPU及RAM了。

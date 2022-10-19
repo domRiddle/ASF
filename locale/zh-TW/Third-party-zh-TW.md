@@ -10,7 +10,7 @@
 
 ### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**&#8203;：您可以透過ASF來管理Steam成就。
+- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**&#8203;：讓您能透過ASF來管理Steam成就。
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**&#8203;：使ASF具有製作擴充包的功能。
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**&#8203;：ASF Bot的名稱將不再區分大小寫。
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**&#8203;：使ASF無需指令，即可重新實現序號啟動。
@@ -57,8 +57,8 @@
 
 ## 工具
 
-- **[Keys extractor](https://ske.xpixv.com)**&#8203;：允許您複製貼上含有各種格式的序號，並使ASF建立&#8203;`redeem`&#8203;指令。 前往&#8203;**[GitHub repo](https://github.com/PixvIO/SKE)**&#8203;以了解更多。
-- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**&#8203;：讓你能更方便的管理多個ASF設定檔。
+- **[Keys extractor](https://ske.xpixv.com)**&#8203;：讓您能複製貼上含有各種格式的序號，並使ASF建立&#8203;`redeem`&#8203;指令。 前往&#8203;**[GitHub repo](https://github.com/PixvIO/SKE)**&#8203;以了解更多。
+- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**&#8203;：讓您能更方便的管理多個ASF設定檔。
 
 ---
 

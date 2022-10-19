@@ -58,7 +58,7 @@ Linux/macOS：
 
 ---
 
-`--ignore-unsupported-environment`&#8203;──使ASF忽略在不支援環境中執行的各種問題。而在原本的情形下，會顯示程式出錯並強制退出。 不支援的環境包含並例如，應該在.NET (Core)平台執行的建置版本，卻執行於.NET Framework平台上。 雖然此旗標允許ASF嘗試在這些情境中執行，但請注意，我們不正式支援此行為。若您強制ASF這樣做，&#8203;**後果自負**&#8203;。 截至今日，&#8203;**所有**&#8203;不受支援環境的情形都可以被修正，例如執行&#8203;`generic`&#8203;建置版本，而不是&#8203;`generic-netf`&#8203;。 我們強烈建議從根本上修正問題，而非去使用這個引數。
+`--ignore-unsupported-environment`&#8203;──使ASF忽略在不支援環境中執行的各種問題。而在原本的情形下，會顯示程式出錯並強制退出。 不支援的環境包含並例如，應該在.NET (Core)平台執行的建置版本，卻執行於.NET Framework平台上。 雖然此旗標使ASF能夠嘗試在這些情境中執行，但請注意，我們不正式支援此行為。若您強制ASF這樣做，&#8203;**後果自負**&#8203;。 截至今日，&#8203;**所有**&#8203;不受支援環境的情形都可以被修正，例如執行&#8203;`generic`&#8203;建置版本，而不是&#8203;`generic-netf`&#8203;。 我們強烈建議從根本上修正問題，而非去使用這個引數。
 
 ---
 
@@ -76,7 +76,7 @@ Linux/macOS：
 
 ---
 
-`--no-config-watch`&#8203;──在預設情形下，ASF會在您的&#8203;`config`&#8203;資料夾中設定&#8203;`FileSystemWatcher`&#8203;，以監聽更動檔案的事件 ，因此才能夠動態地適應這些改動。 例如，在刪除設定檔後停止Bot，更改設定後重新啟動Bot，或在您將序號加入至config資料夾後，載入至&#8203;**[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**&#8203;中。 這個開關允許您停用此行為，使ASF完全忽略&#8203;`config`&#8203;資料夾中的所有變更。若情形需要，您必須手動執行此操作。 一般而言，我們建議保留啟用設定檔監聽，但如果您有特定的理由停用它，並希望ASF不監聽事件，您可以使用此開關來達成。
+`--no-config-watch`&#8203;──在預設情形下，ASF會在您的&#8203;`config`&#8203;資料夾中設定&#8203;`FileSystemWatcher`&#8203;，以監聽更動檔案的事件 ，因此才能夠動態地適應這些改動。 例如，在刪除設定檔後停止Bot，更改設定後重新啟動Bot，或在您將序號加入至config資料夾後，載入至&#8203;**[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**&#8203;中。 這個開關使您能夠停用此行為，使ASF完全忽略&#8203;`config`&#8203;資料夾中的所有變更。若情形需要，您必須手動執行此操作。 一般而言，我們建議保留啟用設定檔監聽，但如果您有特定的理由停用它，並希望ASF不監聽事件，您可以使用此開關來達成。
 
 ---
 
@@ -84,7 +84,7 @@ Linux/macOS：
 
 ---
 
-`--no-steam-parental-generation`&#8203;──在預設情形下，ASF會自動嘗試生成Steam家長監護PIN碼，如&#8203;**[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#steamparentalcode)**&#8203;組態屬性中所述。 但由於這可能需要過多的作業系統資源，因此這個開關允許您停用此行為，這將使ASF跳過自動生成，並直接向使用者詢問PIN碼，與一般情形下的自動生成失敗時相同。 一般而言，我們建議保留啟用生成，除非您有特定的理由停用它，並希望ASF不生成代碼，您可以使用此開關來達成。
+`--no-steam-parental-generation`&#8203;──在預設情形下，ASF會自動嘗試生成Steam家長監護PIN碼，如&#8203;**[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#steamparentalcode)**&#8203;組態屬性中所述。 但由於這可能需要過多的作業系統資源，因此這個開關使您能夠停用此行為，這將使ASF跳過自動生成，並直接向使用者詢問PIN碼，與一般情形下的自動生成失敗時相同。 一般而言，我們建議保留啟用生成，除非您有特定的理由停用它，並希望ASF不生成代碼，您可以使用此開關來達成。
 
 ---
 

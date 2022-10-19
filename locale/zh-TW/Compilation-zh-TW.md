@@ -1,14 +1,14 @@
 # 編譯
 
-編譯是建立執行檔的過程。 如果您想將自己的變更添加到ASF，或者出於任何原因不信任官方 **[releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** 中提供的可執行檔，則需要執行此操作。 如果您是使用者而不是開發人員，則很可能需要使用已預編譯的二進位檔案，但如果您希望使用自己的二進位檔案或學習新內容，請繼續閱讀。
+編譯是生成執行檔的過程。 若您想將自己的修改加入至ASF中，或出於任何原因不信任官方&#8203;**[發布頁面](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;中提供的執行檔，就需要做這件事。 如果您是一般的使用者而不是開發人員，則您很有可能需要使用已預編譯的二進制檔案，但若您希望使用自己的二進制檔案或學習新內容，請繼續閱讀。
 
-只要您擁有所有需要的工具，即可以在任何當前支援的平台上編譯ASF。
+只要您擁有所有需要的工具，就可以在任何當前支援的平台上編譯ASF。
 
 ---
 
 ## .NET SDK
 
-Regardless of platform, you need full .NET SDK (not just runtime) in order to compile ASF. Installation instructions can be found on **[.NET download page](https://dotnet.microsoft.com/download)**. You need to install appropriate .NET SDK version for your OS. 成功安裝後，`dotnet` 指令應可正常執行。 您可以執行 `dotnet --info` 指令以驗證。 Also ensure that your .NET SDK matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**.
+不論使用何種平台，您都需要完整的.NET SDK（不只是執行環境）才能編譯ASF。 可以在&#8203;**[.NET下載頁面](https://dotnet.microsoft.com/download)**&#8203;上找到安裝說明。 您需要安裝適合您作業系統的.NET SDK版本。 成功安裝後，&#8203;`dotnet`&#8203;命令應可正常執行。 您可以使用&#8203;`dotnet --info`&#8203;來驗證。 也要確保您的.NET SDK符合ASF的&#8203;**[執行環境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#執行環境需求)**&#8203;。
 
 ---
 
@@ -88,7 +88,7 @@ If you'd like to work with ASF code on Linux/macOS instead, we recommend **[late
 
 ---
 
-## 官方發佈版本
+## 官方發布版本
 
 Official ASF releases are compiled by **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** on Windows, with latest .NET SDK that matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**. After passing tests, all packages are deployed as the release, also on GitHub. This also guarantees transparency, since GitHub always uses official public source for all builds, and you can compare checksums of GitHub artifacts with GitHub release assets. 除了私人的開發和調試過程外，ASF 開發人員不會自行編譯或發佈構建版本。
 

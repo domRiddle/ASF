@@ -248,7 +248,7 @@ owns ASF app/292030,name/Witcher
 
 ## `redeem^` 指令中的 Modes 引數
 
-`redeem^`&#8203;指令允許您微調使用於兌換單個產品序號情境的模式。 此指令會臨時覆蓋&#8203;`RedeemingPreferences`&#8203; &#8203;**[Bot設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#Bot-設定檔)**&#8203;。
+`redeem^`&#8203;指令使您能夠微調使用於兌換單個產品序號情境的模式。 此指令會臨時覆蓋&#8203;`RedeemingPreferences`&#8203; &#8203;**[Bot設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#Bot-設定檔)**&#8203;。
 
 `<Modes>`&#8203;引數接受多個模式值，通常使用逗號分隔。 可用的模式值如下：
 
