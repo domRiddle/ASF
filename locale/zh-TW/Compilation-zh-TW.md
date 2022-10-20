@@ -14,35 +14,35 @@
 
 ## 編譯
 
-Assuming you have .NET SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:
+假設您已擁有適合的.NET SDK版本，只需前往ASF原始碼資料夾（Clone或下載並解壓縮後的ASF資源庫）並執行：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic"
 ```
 
-If you're using Linux/macOS, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
+若您使用Linux/macOS，則可以改用&#8203;`cc.sh`&#8203;腳本，以稍複雜的方法執行相同的操作。
 
-如果編譯成功完成，您可以在 `out/generic` 目錄中找到您的 ASF `source` 套件。 這與 ASF 官方的 `通用（Generic）` 建置相同，但因為這是您自己建置的，所以它強制設定 `UpdateChannel` 和 `UpdatePeriod` 為 `0`。
+若編譯成功完成，您可以在&#8203;`out/generic`&#8203;資料夾中找到您的ASF &#8203;`source`&#8203;套件。 這與ASF官方的&#8203;`Generic`&#8203;建置版本相同，但因為這是您自己建置的，所以它會強制設定&#8203;`UpdateChannel`&#8203;和&#8203;`UpdatePeriod`&#8203;為&#8203;`0`&#8203;。
 
-### 特定作業系統（OS-specific）
+### 適用於特定作業系統
 
-You can also generate OS-specific .NET package if you have a specific need. In general you shouldn't do that because you've just compiled `generic` flavour that you can run with your already-installed .NET runtime that you've used for the compilation in the first place, but just in case you want to:
+若您有需要，也可以生成適用於特定作業系統的.NET套件。 一般而言，不需要這樣做，因為您剛剛編譯了&#8203;`generic`&#8203;版本，您可以使用您已安裝用於編譯的.NET執行環境來執行，但以防萬一您想要：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
-當然，您需要將 `linux-x64` 替換成您需要的目標作業系統架構，例如 `win-x64`。 這一構建也將停用自動更新。
+當然，您需要將&#8203;`linux-x64`&#8203;替代成您所需目標的作業系統架構，例如&#8203;`win-x64`&#8203;。 這一建置版本也將停用自動更新。
 
 ### .NET Framework
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net6.0` to `net48`. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET SDK, so the below will work only on Windows:
+在極少見的情形下，若您想要建置&#8203;`generic-netf`&#8203;套件，您可以將目標框架從&#8203;`net6.0`&#8203;更改成&#8203;`net48`&#8203;。 請注意，您需要適合的&#8203;**[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)**&#8203;開發人員套件與.NET SDK才能編譯&#8203;`netf`&#8203;變體版本，所以下列只適用於Windows：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
 ```
 
-In case of being unable to install .NET Framework or even .NET SDK itself (e.g. because of building on `linux-x86` with `mono`), you can call `msbuild` directly. You'll also need to specify `ASFNetFramework` manually, as ASF by default disables `netf` build on non-Windows platforms:
+若無法安裝.NET Framework或甚至.NET SDK自身（例如在&#8203;`linux-x86`&#8203;上使用`mono`建置版本），您可以直接呼叫&#8203;`msbuild`&#8203;。 您還需要手動指定&#8203;`ASFNetFramework`&#8203;，因為ASF在非Windows平台上預設停用&#8203;`netf`&#8203;建置版本：
 
 ```shell
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
@@ -50,25 +50,25 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 ### ASF-ui
 
-While the above steps are everything that is required to have a fully working build of ASF, you may *also* be interested in building **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, our graphical web interface. From ASF side, all you need to do is dropping ASF-ui build output in standard `ASF-ui/dist` location, then building ASF with it (again, if needed).
+雖然上述是建置完整的ASF需要的所有步驟，但您可能&#8203;*也*&#8203;有興趣了解如何建置我們的Web使用者介面：&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#asf-ui)**&#8203;。 從ASF的角度來說，您需要做的是將ASF-ui建置版本輸出放到標準&#8203;`ASF-ui/dist`&#8203;位置，然後讓它與ASF一起建置（若需要）。
 
-ASF-ui is part of ASF's source tree as a **[git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**, ensure that you've cloned the repo with `git clone --recursive`, as otherwise you'll not have the required files. You'll also need a working NPM, **[Node.js](https://nodejs.org)** comes with it. If you're using Linux/macOS, we recommend our `cc.sh` script, which will automatically cover building and shipping ASF-ui (if possible, that is, if you're meeting the requirements we've just mentioned).
+ASF-ui作為&#8203;**[Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**&#8203;，是ASF Source Tree的一部份，請確保您已使用&#8203;`git clone --recursive`&#8203;來複製資源庫，否則您會缺失必要檔案。 您還必須擁有可用的NPM，&#8203;**[Node.js](https://nodejs.org)**&#8203;有自帶它。 若您使用Linux/macOS，我們建議使用我們的&#8203;`cc.sh`&#8203;腳本，它將自動建置並搭載ASF-ui（如果可能，也就是說，若您滿足我們剛剛提到的需求）。
 
-In addition to the `cc.sh` script, we also attach the simplified build instructions below, refer to **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** for additional documentation. From ASF's source tree location, so as above, execute the following commands:
+除了&#8203;`cc.sh`&#8203;腳本，我們也在下文附上簡明建置說明，請參閱&#8203;**[ASF-ui資源庫](https://github.com/JustArchiNET/ASF-ui)**&#8203;以獲得更多說明文件。 從ASF的Source Tree位置，同上所述，執行以下命令：
 
 ```shell
-rm -rf "ASF-ui/dist" # ASF-ui doesn't clean itself after old build
+rm -rf "ASF-ui/dist" # ASF-ui不會自行清除舊建置版本
 
 npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
-rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # Or accordingly to what you need as per the above
+rm -rf "out/generic/www" # 確保我們的建置輸出不會含有舊檔案
+dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # 或依據上文選擇您所需的
 ```
 
-You should now be able to find the ASF-ui files in your `out/generic/www` folder. ASF will be able to serve those files to your browser.
+您現在應該可以在&#8203;`out/generic/www`&#8203;資料夾中找到ASF-ui檔案了。 ASF能向您的瀏覽器伺服這些檔案。
 
-Alternatively, you can simply build ASF-ui, whether manually or with the help of our repo, then copy the build output over to `${OUT}/www` folder manually, where `${OUT}` is the output folder of ASF that you've specified with `-o` parameter. This is exactly what ASF is doing as part of the build process, it copies `ASF-ui/dist` (if exists) over to `${OUT}/www`, nothing fancy.
+或者，您也可以直接建置ASF-ui，不論是手動或是透過我們的資源庫的幫助下，再手動複製建置輸出至&#8203;`${OUT}/www`&#8203;資料夾中，其中&#8203;`${OUT}`&#8203;是您使用&#8203;`-o`&#8203;參數指定的ASF輸出資料夾。 這正是ASF在建置過程中所做的，它將&#8203;`ASF-ui/dist`&#8203;（若存在）複製到&#8203;`${OUT}/www`&#8203;，沒什麼特別的。
 
 ---
 

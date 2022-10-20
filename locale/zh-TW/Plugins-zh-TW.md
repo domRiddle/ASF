@@ -47,7 +47,7 @@ If you did everything properly, your `csproj` will be similar to below:
   <ItemGroup>
     <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
 
-    <!-- 若要作為ASF的SourceTree，請使用這個代替上面的<Reference> -->
+    <!-- 若要作為ASF的Source Tree，請使用這個代替上面的<Reference> -->
     <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
@@ -83,7 +83,7 @@ In order to make use of your plugin, you must firstly compile it. You can do tha
 # 若您的專案是獨立的（不需要定義它的名稱，因為它是唯一的）
 dotnet publish -c "Release" -o "out"
 
-# 若您的專案屬於ASF的SourceTree的一部份（用以防止編譯不需要的部分）
+# 若您的專案屬於ASF的Source Tree的一部份（用以防止編譯不需要的部分）
 dotnet publish 您外掛程式的名稱 -c "Release" -o "out"
 ```
 
