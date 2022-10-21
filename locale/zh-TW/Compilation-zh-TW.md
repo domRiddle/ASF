@@ -14,7 +14,7 @@
 
 ## 編譯
 
-假設您已擁有適合的.NET SDK版本，只需前往ASF原始碼資料夾（Clone或下載並解壓縮後的ASF資源庫）並執行：
+假設您已擁有適合的.NET SDK版本，只需前往ASF原始碼資料夾（Clone或下載並解壓縮後的ASF儲存庫）並執行：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic"
@@ -52,9 +52,9 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:Pu
 
 雖然上述是建置完整的ASF需要的所有步驟，但您可能&#8203;*也*&#8203;有興趣了解如何建置我們的Web使用者介面：&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#asf-ui)**&#8203;。 從ASF的角度來說，您需要做的是將ASF-ui建置版本輸出放到標準&#8203;`ASF-ui/dist`&#8203;位置，然後讓它與ASF一起建置（若需要）。
 
-ASF-ui作為&#8203;**[Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**&#8203;，是ASF Source Tree的一部份，請確保您已使用&#8203;`git clone --recursive`&#8203;來複製資源庫，否則您會缺失必要檔案。 您還必須擁有可用的NPM，&#8203;**[Node.js](https://nodejs.org)**&#8203;有自帶它。 若您使用Linux/macOS，我們建議使用我們的&#8203;`cc.sh`&#8203;腳本，它將自動建置並搭載ASF-ui（如果可能，也就是說，若您滿足我們剛剛提到的需求）。
+ASF-ui作為&#8203;**[Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**&#8203;，是ASF Source Tree的一部份，請確保您已使用&#8203;`git clone --recursive`&#8203;來複製儲存庫，否則您會缺失必要檔案。 您還必須擁有可用的NPM，&#8203;**[Node.js](https://nodejs.org)**&#8203;有自帶它。 若您使用Linux/macOS，我們建議使用我們的&#8203;`cc.sh`&#8203;腳本，它將自動建置並搭載ASF-ui（如果可能，也就是說，若您滿足我們剛剛提到的需求）。
 
-除了&#8203;`cc.sh`&#8203;腳本，我們也在下文附上簡明建置說明，請參閱&#8203;**[ASF-ui資源庫](https://github.com/JustArchiNET/ASF-ui)**&#8203;以獲得更多說明文件。 從ASF的Source Tree位置，同上所述，執行以下命令：
+除了&#8203;`cc.sh`&#8203;腳本，我們也在下文附上簡明建置說明，請參閱&#8203;**[ASF-ui儲存庫](https://github.com/JustArchiNET/ASF-ui)**&#8203;以獲得更多說明文件。 從ASF的Source Tree位置，同上所述，執行以下命令：
 
 ```shell
 rm -rf "ASF-ui/dist" # ASF-ui不會自行清除舊建置版本
@@ -68,15 +68,15 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # 或依
 
 您現在應該可以在&#8203;`out/generic/www`&#8203;資料夾中找到ASF-ui檔案了。 ASF能向您的瀏覽器伺服這些檔案。
 
-或者，您也可以直接建置ASF-ui，不論是手動或是透過我們的資源庫的幫助下，再手動複製建置輸出至&#8203;`${OUT}/www`&#8203;資料夾中，其中&#8203;`${OUT}`&#8203;是您使用&#8203;`-o`&#8203;參數指定的ASF輸出資料夾。 這正是ASF在建置過程中所做的，它將&#8203;`ASF-ui/dist`&#8203;（若存在）複製到&#8203;`${OUT}/www`&#8203;，沒什麼特別的。
+或者，您也可以直接建置ASF-ui，不論是手動或是透過我們的儲存庫的幫助下，再手動複製建置輸出至&#8203;`${OUT}/www`&#8203;資料夾中，其中&#8203;`${OUT}`&#8203;是您使用&#8203;`-o`&#8203;參數指定的ASF輸出資料夾。 這正是ASF在建置過程中所做的，它將&#8203;`ASF-ui/dist`&#8203;（若存在）複製到&#8203;`${OUT}/www`&#8203;，沒什麼特別的。
 
 ---
 
 ## 開發
 
-If you'd like to edit ASF code, you can use any .NET compatible IDE for that purpose, although even that is optional, since you can as well edit with a notepad and compile with `dotnet` command described above. 不過，對於 Windows 系統，我們推薦使用​**[最新版本的 Visual Studio](https://visualstudio.microsoft.com/downloads)**（免費的社區版即可）。
+若您想編輯ASF程式碼，您可以使用任何與.NET相容的IDE，但仍可以選擇不用這個，因為您也可以使用記事本來編輯，並使用上述的&#8203;`dotnet`&#8203;命令來編譯。 不過，對於Windows系統，我們建議使用&#8203;​**[最新版本的Visual Studio](https://visualstudio.microsoft.com/downloads)**&#8203;（免費的社群版本即可）。
 
-If you'd like to work with ASF code on Linux/macOS instead, we recommend **[latest Visual Studio Code](https://code.visualstudio.com/download)**. 它沒有經典的 Visual Studio 那麼豐富的功能，但已足夠了。
+若您想要在Linux/macOS上使用ASF程式碼，我們建議使用&#8203;**[最新版本的Visual Studio Code](https://code.visualstudio.com/download)**&#8203;。 它沒有經典版Visual Studio那麼豐富的功能，但也已足夠了。
 
 當然，以上的所有建議都僅僅是建議，您可以使用您想用的任何工具，最後您都要使用 `dotnet build` 指令進行構建。 We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, although it's not a free solution.
 
