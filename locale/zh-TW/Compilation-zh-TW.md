@@ -74,11 +74,11 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # 或依
 
 ## 開發
 
-若您想編輯ASF程式碼，您可以使用任何與.NET相容的IDE，但仍可以選擇不用這個，因為您也可以使用記事本來編輯，並使用上述的&#8203;`dotnet`&#8203;命令來編譯。 不過，對於Windows系統，我們建議使用&#8203;​**[最新版本的Visual Studio](https://visualstudio.microsoft.com/downloads)**&#8203;（免費的社群版本即可）。
+若您想編輯ASF程式碼，您可以使用任何與.NET相容的IDE，但仍可以選擇不用這個，因為您也可以使用記事本來編輯，並使用上述的&#8203;`dotnet`&#8203;命令來編譯。 不過，對於Windows系統，我們建議使用&#8203;**[最新版本的Visual Studio](https://visualstudio.microsoft.com/downloads)**&#8203;（免費的社群版本即可）。
 
 若您想要在Linux/macOS上使用ASF程式碼，我們建議使用&#8203;**[最新版本的Visual Studio Code](https://code.visualstudio.com/download)**&#8203;。 它沒有經典版Visual Studio那麼豐富的功能，但也已足夠了。
 
-當然，以上的所有建議都僅僅是建議，您可以使用您想用的任何工具，最後您都要使用 `dotnet build` 指令進行構建。 We use **[JetBrains Rider](https://www.jetbrains.com/rider)** for ASF development, although it's not a free solution.
+當然，以上都只是建議，您可以使用您想用的任何工具，但最後您都會需要使用&#8203;`dotnet build`&#8203;命令來建置。 我們使用了&#8203;**[JetBrains Rider](https://www.jetbrains.com/rider)**&#8203;來開發ASF，但它並不是免費的。
 
 ---
 
