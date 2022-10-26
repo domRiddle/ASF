@@ -84,12 +84,12 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # 或依
 
 ## 標籤
 
-`main` branch is not guaranteed to be in a state that allows successful compilation or flawless ASF execution in the first place, since it's development branch just like stated in our **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**. 如果您希望從原始碼編譯或參照 ASF，就應該為此選擇適當的​**[標籤](https://github.com/JustArchiNET/ArchiSteamFarm/tags)**，這樣能夠保證編譯成功，甚至可以正常運行（如果您選擇穩定版）。 In order to check the current "health" of the tree, you can use our CI - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/ci.yml?query=branch%3Amain)**.
+首先&#8203;`main`&#8203;分支無法保證可以使編譯成功或ASF正常執行，如我們在&#8203;**< a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle">發布週期</a>**&#8203;中所述，因為它是開發分支。 若您希望從原始碼編譯或參照ASF，就應該為此選擇適當的&#8203;**[標籤](https://github.com/JustArchiNET/ArchiSteamFarm/tags)**&#8203;，這樣能夠保證編譯成功，且很有可能還能完美執行（如果建置被標示成穩定版本）。 若要檢查Tree的當前「健康狀態」，您可以使用我們的CI：&#8203;**[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/ci.yml?query=branch%3Amain)**&#8203;。
 
 ---
 
 ## 官方發布版本
 
-Official ASF releases are compiled by **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)** on Windows, with latest .NET SDK that matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**. After passing tests, all packages are deployed as the release, also on GitHub. This also guarantees transparency, since GitHub always uses official public source for all builds, and you can compare checksums of GitHub artifacts with GitHub release assets. 除了私人的開發和調試過程外，ASF 開發人員不會自行編譯或發佈構建版本。
+官方ASF發布版本由&#8203;**[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)**&#8203;在Windows上編譯，並帶有符合ASF&#8203;**[執行環境](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#執行環境需求)**&#8203;的最新.NET SDK。 通過測試後，所有套件會都作為發布版本部署，並放置在GitHub上。 這也保證了透明度，因為GitHub都會使用官方開源來進行所有的建置，並且您也可以檢查GitHub部件的核對和及GitHub的發布資源。 除了私人的開發過程及除錯外，ASF開發人員不會自行編譯或發布建置版本。
 
-Starting from ASF V5.2.0.5, in addition to the above, ASF maintainers manually validate and publish build checksums on independent from GitHub, remote server, as additional security measure. This step is mandatory for existing ASFs to consider the release as a valid candidate for auto-update functionality.
+從ASF V5.2.0.5開始，除了上述外，ASF維護人員會在獨立於GitHub的遠端伺服器上手動驗證並發布建置核對和，作為額外的安全措施。 現有的ASF必須執行此步驟，才能將該版本視為自動更新功能的有效候選版本。
