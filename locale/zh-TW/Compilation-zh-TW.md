@@ -84,7 +84,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # 或依
 
 ## 標籤
 
-首先&#8203;`main`&#8203;分支無法保證可以使編譯成功或ASF正常執行，如我們在&#8203;**< a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle">發布週期</a>**&#8203;中所述，因為它是開發分支。 若您希望從原始碼編譯或參照ASF，就應該為此選擇適當的&#8203;**[標籤](https://github.com/JustArchiNET/ArchiSteamFarm/tags)**&#8203;，這樣能夠保證編譯成功，且很有可能還能完美執行（如果建置被標示成穩定版本）。 若要檢查Tree的當前「健康狀態」，您可以使用我們的CI：&#8203;**[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/ci.yml?query=branch%3Amain)**&#8203;。
+首先&#8203;`main`&#8203;分支無法保證可以使編譯成功或ASF正常執行，如我們在&#8203;**[發布週期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-TW)**&#8203;中所述，因為它是開發分支。 若您希望從原始碼編譯或參照ASF，就應該為此選擇適當的&#8203;**[標籤](https://github.com/JustArchiNET/ArchiSteamFarm/tags)**&#8203;，這樣能夠保證編譯成功，且很有可能還能完美執行（如果建置被標示成穩定版本）。 若要檢查Tree的當前「健康狀態」，您可以使用我們的CI：&#8203;**[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/ci.yml?query=branch%3Amain)**&#8203;。
 
 ---
 
