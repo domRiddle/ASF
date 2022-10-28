@@ -27,7 +27,7 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 ### Sonstiges
 
-- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, Plugin für ASF erweitert es um verschiedene neue Funktionen, insbesondere Befehle.
 
 ---
 
@@ -50,8 +50,8 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 - **[AUR Repository #1](https://aur.archlinux.org/packages/asf)**, erlaubt es dir ASF einfach auf Arch Linux zu installieren.
 - **[AUR Repository #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, erlaubt es dir ASF einfach auf Arch Linux zu installieren.
 - **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, erlaubt Ihnen eine einfache Installation von ASF auf macOS.
-- **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, allowing you to easily install ASF on distros with Nix.
-- **[NixOS](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, allowing you to configure and install ASF with NixOS.
+- **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, so dass Sie ASF einfach auf Distributionen mit Nix installieren können.
+- **[Nix](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, so dass Sie ASF einfach auf Distributionen mit NixOS installieren und konfigurieren können.
 
 ---
 

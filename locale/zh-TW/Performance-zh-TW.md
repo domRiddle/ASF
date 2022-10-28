@@ -1,28 +1,28 @@
 # 效能
 
-The primary objective of ASF is to farm as effectively as possible, based on two types of data it can operate on - small set of user-provided data that is impossible for ASF to guess/check on its own, and larger set of data which can be automatically checked by ASF.
+ASF的主要目標是盡可能地高效掛卡，它基於兩種可操作的資料──少部分由使用者提供、ASF無法自行猜測／檢查的資料，與大部分可由ASF自動獲得的資料。
 
-In automatic mode, ASF does not allow you to choose the games that should be farmed, neither allows you to change cards farming algorithm. **ASF knows better than you what it should do and what decisions it should make in order to farm as fast as possible**. Your objective is to set config properties properly, as ASF can't guess them on its own, everything else is covered.
-
----
-
-Some time ago Valve changed the algorithm for card drops. From that point onwards, we can categorize steam accounts by two categories: those **with** card drops restricted, and those **without**. The only difference between those two types is the fact that accounts with restricted card drops can't get any card from given game until they play given game for at least `X` hours. It seems that older accounts that never asked for refund have **unrestricted card drops**, while new accounts and those who did ask for refund have **restricted card drops**. This is however only theory, and should not be taken as a rule. That's why there is **no obvious answer**, and ASF relies on **you** telling it which case is appropriate for your account.
+在自動模式下，ASF不允許您選擇要掛卡的遊戲，您也無法更改掛卡演算法。 **ASF比您更清楚它該做什麼，與做什麼能最快地掛卡**&#8203;。 您的目標是正確設定設定屬性，因為ASF無法自行猜測它，而其他東西都已涵蓋在內。
 
 ---
 
-ASF currently includes two farming algorithms:
+在前段時間，Valve修改了交換卡片的掉落演算法。 自那時起，我們可以把Steam帳號分成兩種：交換卡片掉落&#8203;**受限**&#8203;與&#8203;**不受限**&#8203;。 兩種帳號間的唯一區別在於，掉卡受限的帳號在遊玩指定遊戲至少&#8203;`X`&#8203;小時之前，都無法獲得任何交換卡片。 看起來，從未要求退款的老帳號&#8203;**掉卡不受限**&#8203;，而曾經要求退款的新帳號則會&#8203;**受限**&#8203;。 然而，這只是理論，不應將它視為規則。 這就是為什麼&#8203;**沒有絕對的判斷**&#8203;，所以ASF需要&#8203;**您**&#8203;來告訴它，您的帳號符合哪種情形。
 
-**Simple** algorithm works best for accounts that have unrestricted card drops. This is primary algorithm used by ASF. Bot finds games to farm, and farms them one-by-one until all cards are dropped. This is because card drops rate when farming more than one game is close to zero and totally ineffective.
+---
 
-**Complex** is new algorithm that has been implemented to help restricted accounts to maximize their profits as well. ASF will firstly use standard **Simple** algorithm on all games that passed `HoursUntilCardDrops` hours of playtime, then, if no games with >= `HoursUntilCardDrops` hours are left, it will farm all games (up to `32` limit) with < `HoursUntilCardDrops` hours left simultaneously, until any of them hits `HoursUntilCardDrops` hours mark, then ASF will continue the loop from beginning (use **Simple** on that game, return to simultaneous on < `HoursUntilCardDrops` and so on). We can use multiple games farming in this case for bumping hours of the games we need to farm to appropriate value firstly. Keep in mind that during farming hours, ASF **does not** farm cards, therefore it also won't check for any card drops during that period (for reasons stated above).
+目前ASF有兩種掛卡演算法：
 
-Currently, ASF chooses cards farming algorithm based purely on `HoursUntilCardDrops` config property (which is  set by **you**). If `HoursUntilCardDrops` is set to `0`, **Simple** algorithm will be used, otherwise, **Complex** algorithm will be used instead - configured to bump playtime in all games to given amount of hours before farming them for card drops.
+**簡單**&#8203;演算法適用於掉卡不受限制的帳號。 這是ASF使用的主要演算法。 Bot檢測需掛卡的遊戲，逐個掛卡直到所有交換卡片都掉落。 這是因為同時掛卡多個遊戲時，掉卡率會接近零使效率低落。
+
+**複雜**&#8203;是種新型演算法，幫助受到限制的帳號最大化效益。 ASF首先會對所有遊戲時間超過&#8203;`HoursUntilCardDrops`&#8203;小時的遊戲使用標準&#8203;**簡單**&#8203;演算法，然後若沒有遊戲的時間剩餘>= &#8203;`HoursUntilCardDrops`&#8203;小時，它會同時掛所有時間剩餘< &#8203;`HoursUntilCardDrops`&#8203;小時的遊戲（限制最多&#8203;`32`&#8203;個），直到其中一個達到&#8203;`HoursUntilCardDrops`&#8203;小時，之後ASF將從頭開始循環此過程（對遊戲使用&#8203;**簡單**&#8203;，且剩餘時間< &#8203;`HoursUntilCardDrops`&#8203;小時，依此類推）。 在這種情形下，我們可以同時掛卡多個遊戲，來增加遊戲的時間，使它們先達到適當的遊戲時長。 請注意，在掛卡時，ASF&#8203;**不會**&#8203;掛交換卡片，因此，它不會檢查這期間是否有卡片掉落（原因如上所述）。
+
+目前，ASF完全依據&#8203;`HoursUntilCardDrops`&#8203;設定屬性（是由&#8203;**您**&#8203;所設定的）來選擇掛卡演算法。 若&#8203;`HoursUntilCardDrops`&#8203;設定為&#8203;`0`&#8203;，就會使用&#8203;**簡單**&#8203;演算法，否則，會使用&#8203;**複雜**&#8203;演算法──也就是設定成先把所有遊戲的時長掛到指定的小時，然後再掛取卡片。
 
 ---
 
 ### **哪種演算法更適合您並沒有明確的答案**&#8203;。
 
-This is one of the reasons why you do not choose cards farming algorithm, instead, you tell ASF if account has restricted drops or not. If account has non-restricted drops, **Simple** algorithm will **work better** on that account, as we won't be wasting time on bringing all games to `X` hours - cards drop ratio is close to 0% when farming multiple games. On the other hand, if your account has card drops restricted, **Complex** algorithm will be better for you, as there's no point in farming solo if game didn't reach `HoursUntilCardDrops` hours yet - so we'll farm **playtime** first, **then** cards in solo mode.
+這也是您不用選擇掛卡演算法的原因之一，而是告訴ASF您的帳號是否有掉落限制。 若帳號不受限制，&#8203;**簡單**&#8203;演算法在該帳號上的效果會&#8203;**更好**&#8203;，因為我們不需要浪費時間把遊戲掛至&#8203;`X`&#8203;小時──在掛多個遊戲時，掉卡率會接近0%。 On the other hand, if your account has card drops restricted, **Complex** algorithm will be better for you, as there's no point in farming solo if game didn't reach `HoursUntilCardDrops` hours yet - so we'll farm **playtime** first, **then** cards in solo mode.
 
 Don't blindly set `HoursUntilCardDrops` only because somebody told you to - do tests, compare results, and based on data you get, decide which option should be better for you. If you put some minimal effort into that, you'll ensure that ASF is working with maximum possible efficiency for your account, which is probably what you want, considering that you're reading this wiki page right now. If there was a solution that works for everybody, you'd not be given a choice - ASF would decide itself.
 
