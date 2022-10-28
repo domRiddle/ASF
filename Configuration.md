@@ -71,7 +71,7 @@ Global config is located in `ASF.json` file and has following structure:
 	"GiftsLimiterDelay": 1,
 	"Headless": false,
 	"IdleFarmingPeriod": 8,
-	"InventoryLimiterDelay": 3,
+	"InventoryLimiterDelay": 4,
 	"IPC": true,
 	"IPCPassword": null,
 	"IPCPasswordFormat": 0,
@@ -182,7 +182,7 @@ If you're running ASF on the server, you probably want to use this option togeth
 
 ### `InventoryLimiterDelay`
 
-`byte` type with default value of `3`. ASF will ensure that there will be at least `InventoryLimiterDelay` seconds in between of two consecutive inventory requests to avoid triggering rate-limit - those are being used for fetching Steam inventories, especially during your own commands such as `transfer`, as well as in features like `MatchActively`. Default value of `3` was set based on fetching inventories of over 100 consecutive bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and loot steam inventories much faster. Be warned though, as setting it too low **will** result in Steam temporarily banning your IP, and that will prevent you from fetching your inventory at all. You also may need to increase this value if you're running a lot of bots with a lot of inventory requests, although in this case you should probably try to limit number of those requests instead. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`byte` type with default value of `4`. ASF will ensure that there will be at least `InventoryLimiterDelay` seconds in between of two consecutive inventory requests to avoid triggering rate-limit - those are being used for fetching Steam inventories, especially during your own commands such as `transfer`, as well as in features like `MatchActively`. Default value of `4` was set based on fetching inventories of over 100 consecutive bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and loot steam inventories much faster. Be warned though, as setting it too low **will** result in Steam temporarily banning your IP, and that will prevent you from fetching your inventory at all. You also may need to increase this value if you're running a lot of bots with a lot of inventory requests, although in this case you should probably try to limit number of those requests instead. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ---
 
