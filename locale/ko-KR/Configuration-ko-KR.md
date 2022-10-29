@@ -71,7 +71,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
     "GiftsLimiterDelay": 1,
     "Headless": false,
     "IdleFarmingPeriod": 8,
-    "InventoryLimiterDelay": 3,
+    "InventoryLimiterDelay": 4,
     "IPC": true,
     "IPCPassword": null,
     "IPCPasswordFormat": 0,
@@ -182,7 +182,7 @@ If you're running ASF on the server, you probably want to use this option togeth
 
 ### `InventoryLimiterDelay`
 
-`byte` 타입으로 기본값은 `3`입니다. ASF는 등록제한이 걸리는 것을 피하기 위해 두개의 연속된 보관함 요청 사이에 적어도 `InventoryLimiterDelay`초의 간격을 둡니다. 이는 `transfer`와 같은 명령어 수행중이나 `MatchActively`와 같은 기능에서 Steam 보관함을 가져올 때 사용됩니다. Default value of `3` was set based on fetching inventories of over 100 consecutive bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and loot steam inventories much faster. Be warned though, as setting it too low **will** result in Steam temporarily banning your IP, and that will prevent you from fetching your inventory at all. You also may need to increase this value if you're running a lot of bots with a lot of inventory requests, although in this case you should probably try to limit number of those requests instead. 이 속성값을 변경해야 할 **명확한** 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
+`byte` type with default value of `4`. ASF는 등록제한이 걸리는 것을 피하기 위해 두개의 연속된 보관함 요청 사이에 적어도 `InventoryLimiterDelay`초의 간격을 둡니다. 이는 `transfer`와 같은 명령어 수행중이나 `MatchActively`와 같은 기능에서 Steam 보관함을 가져올 때 사용됩니다. Default value of `4` was set based on fetching inventories of over 100 consecutive bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and loot steam inventories much faster. Be warned though, as setting it too low **will** result in Steam temporarily banning your IP, and that will prevent you from fetching your inventory at all. You also may need to increase this value if you're running a lot of bots with a lot of inventory requests, although in this case you should probably try to limit number of those requests instead. 이 속성값을 변경해야 할 **명확한** 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 ---
 

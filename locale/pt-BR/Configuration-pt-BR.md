@@ -71,7 +71,7 @@ A configuração global esta localizada no arquivo `ASF.json` e tem a seguinte e
     "GiftsLimiterDelay": 1,
     "Headless": false,
     "IdleFarmingPeriod": 8,
-    "InventoryLimiterDelay": 3,
+    "InventoryLimiterDelay": 4,
     "IPC": true,
     "IPCPassword": null,
     "IPCPasswordFormat": 0,
@@ -182,7 +182,7 @@ Tipo `byte` com o valor padrão `8`. Quanto o ASF não tem o que coletar, ele va
 
 ### `InventoryLimiterDelay`
 
-Tipo `byte` com o valor padrão `3`. O ASF vai garantir que haverá um atraso em segundos, definido em `InventoryLimiterDelay`, entre duas solicitações consecutivas do inventário para evitar ativar o limitador de tráfego; essas solicitações são usadas para obter uma lista dos itens em seu inventário, especialmente durante comandos como `transfer`, e em funcionalidades como `MatchActively`. O valor padrão `3` foi definido com base na análise do inventário de mais de 100 contas bot consecutivas, e deve satisfazer a maioria dos usuários (se não todos). No entanto você pode querer reduzi-lo, ou até mesmo mudar para `0` se você tiver uma quantidade muito pequena de bots, então o ASF irá ignorar o atraso e listar os inventários Steam muito mais rápido. Porém fique ciente que definir um valor muito baixo **vai** fazer o Steam bloquear temporariamente seu IP, o que vai te impedir de acessar seu inventário. Você talvez precise aumentar esse valor se estiver executando muitos bots com muitos pedidos de acesso ao inventário, embora neste caso você deva provavelmente tentar limitar o número dessas solicitações em vez disso. A menos que você tenha uma razão muito **forte** para editar essa propriedade, você deve mantê-la padrão.
+`byte` type with default value of `4`. O ASF vai garantir que haverá um atraso em segundos, definido em `InventoryLimiterDelay`, entre duas solicitações consecutivas do inventário para evitar ativar o limitador de tráfego; essas solicitações são usadas para obter uma lista dos itens em seu inventário, especialmente durante comandos como `transfer`, e em funcionalidades como `MatchActively`. Default value of `4` was set based on fetching inventories of over 100 consecutive bot instances, and should satisfy most (if not all) of the users. No entanto você pode querer reduzi-lo, ou até mesmo mudar para `0` se você tiver uma quantidade muito pequena de bots, então o ASF irá ignorar o atraso e listar os inventários Steam muito mais rápido. Porém fique ciente que definir um valor muito baixo **vai** fazer o Steam bloquear temporariamente seu IP, o que vai te impedir de acessar seu inventário. Você talvez precise aumentar esse valor se estiver executando muitos bots com muitos pedidos de acesso ao inventário, embora neste caso você deva provavelmente tentar limitar o número dessas solicitações em vez disso. A menos que você tenha uma razão muito **forte** para editar essa propriedade, você deve mantê-la padrão.
 
 ---
 

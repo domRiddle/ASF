@@ -22,9 +22,9 @@ ASF的主要目標是盡可能地高效掛卡，它基於兩種可操作的資�
 
 ### **哪種演算法更適合您並沒有明確的答案**&#8203;。
 
-這也是您不用選擇掛卡演算法的原因之一，而是告訴ASF您的帳號是否有掉落限制。 若帳號不受限制，&#8203;**簡單**&#8203;演算法在該帳號上的效果會&#8203;**更好**&#8203;，因為我們不需要浪費時間把遊戲掛至&#8203;`X`&#8203;小時──在掛多個遊戲時，掉卡率會接近0%。 On the other hand, if your account has card drops restricted, **Complex** algorithm will be better for you, as there's no point in farming solo if game didn't reach `HoursUntilCardDrops` hours yet - so we'll farm **playtime** first, **then** cards in solo mode.
+這也是您不用選擇掛卡演算法的原因之一，而是告訴ASF您的帳號是否有掉落限制。 若帳號不受限制，&#8203;**簡單**&#8203;演算法在該帳號上的效果會&#8203;**更好**&#8203;，因為我們不需要浪費時間把遊戲掛至&#8203;`X`&#8203;小時──在掛多個遊戲時，掉卡率會接近0%。 反之，若您的帳號受到掉卡限制，&#8203;**複雜**&#8203;演算法會更適合您，因為若遊戲時數未達到&#8203;`HoursUntilCardDrops`&#8203;小時，那麼單獨掛卡並無意義──所以我們將先掛&#8203;**遊戲時間**&#8203;，&#8203;**然後**&#8203;才掛單一遊戲。
 
-Don't blindly set `HoursUntilCardDrops` only because somebody told you to - do tests, compare results, and based on data you get, decide which option should be better for you. If you put some minimal effort into that, you'll ensure that ASF is working with maximum possible efficiency for your account, which is probably what you want, considering that you're reading this wiki page right now. If there was a solution that works for everybody, you'd not be given a choice - ASF would decide itself.
+不要聽信其他人的說法盲目設定&#8203;`HoursUntilCardDrops`&#8203;，您需要進行測試、比較結果，並依據您獲得的資料，來決定何值適合您。 If you put some minimal effort into that, you'll ensure that ASF is working with maximum possible efficiency for your account, which is probably what you want, considering that you're reading this wiki page right now. If there was a solution that works for everybody, you'd not be given a choice - ASF would decide itself.
 
 ---
 
