@@ -14,29 +14,29 @@ ASF的主要目標是盡可能地高效掛卡，它基於兩種可操作的資�
 
 **簡單**&#8203;演算法適用於掉卡不受限制的帳號。 這是ASF使用的主要演算法。 Bot檢測需掛卡的遊戲，逐個掛卡直到所有交換卡片都掉落。 這是因為同時掛卡多個遊戲時，掉卡率會接近零使效率低落。
 
-**複雜**&#8203;是種新型演算法，幫助受到限制的帳號最大化效益。 ASF首先會對所有遊戲時間超過&#8203;`HoursUntilCardDrops`&#8203;小時的遊戲使用標準&#8203;**簡單**&#8203;演算法，然後若沒有遊戲的時間剩餘>= &#8203;`HoursUntilCardDrops`&#8203;小時，它會同時掛所有時間剩餘< &#8203;`HoursUntilCardDrops`&#8203;小時的遊戲（限制最多&#8203;`32`&#8203;個），直到其中一個達到&#8203;`HoursUntilCardDrops`&#8203;小時，之後ASF將從頭開始循環此過程（對遊戲使用&#8203;**簡單**&#8203;，且剩餘時間< &#8203;`HoursUntilCardDrops`&#8203;小時，依此類推）。 在這種情形下，我們可以同時掛卡多個遊戲，來增加遊戲的時間，使它們先達到適當的遊戲時長。 請注意，在掛卡時，ASF&#8203;**不會**&#8203;掛交換卡片，因此，它不會檢查這期間是否有卡片掉落（原因如上所述）。
+**複雜**&#8203;是種新型演算法，幫助受到限制的帳號最大化效益。 ASF首先會對所有遊玩時數超過&#8203;`HoursUntilCardDrops`&#8203;小時的遊戲使用標準&#8203;**簡單**&#8203;演算法，然後若沒有遊戲的時間剩餘>= &#8203;`HoursUntilCardDrops`&#8203;小時，它會同時掛所有時間剩餘< &#8203;`HoursUntilCardDrops`&#8203;小時的遊戲（限制最多&#8203;`32`&#8203;個），直到其中一個達到&#8203;`HoursUntilCardDrops`&#8203;小時，之後ASF將從頭開始循環此過程（對遊戲使用&#8203;**簡單**&#8203;，且剩餘時間< &#8203;`HoursUntilCardDrops`&#8203;小時，依此類推）。 在這種情形下，我們可以同時掛卡多個遊戲，來增加遊戲的時間，使它們先達到適當的遊戲時長。 請注意，在掛卡時，ASF&#8203;**不會**&#8203;掛交換卡片，因此，它不會檢查這期間是否有卡片掉落（原因如上所述）。
 
-目前，ASF完全依據&#8203;`HoursUntilCardDrops`&#8203;設定屬性（是由&#8203;**您**&#8203;所設定的）來選擇掛卡演算法。 若&#8203;`HoursUntilCardDrops`&#8203;設定為&#8203;`0`&#8203;，就會使用&#8203;**簡單**&#8203;演算法，否則，會使用&#8203;**複雜**&#8203;演算法──也就是設定成先把所有遊戲的時長掛到指定的小時，然後再掛取卡片。
+目前，ASF完全依據&#8203;`HoursUntilCardDrops`&#8203;設定屬性（是由&#8203;**您**&#8203;所設定的）來選擇掛卡演算法。 若&#8203;`HoursUntilCardDrops`&#8203;設定為&#8203;`0`&#8203;，就會使用&#8203;**簡單**&#8203;演算法，否則，會使用&#8203;**複雜**&#8203;演算法──也就是設定成先把所有遊戲的遊玩時數掛到指定的小時數，然後再掛取卡片。
 
 ---
 
 ### **哪種演算法更適合您並沒有明確的答案**&#8203;。
 
-這也是您不用選擇掛卡演算法的原因之一，而是告訴ASF您的帳號是否有掉落限制。 若帳號不受限制，&#8203;**簡單**&#8203;演算法在該帳號上的效果會&#8203;**更好**&#8203;，因為我們不需要浪費時間把遊戲掛至&#8203;`X`&#8203;小時──在掛多個遊戲時，掉卡率會接近0%。 反之，若您的帳號受到掉卡限制，&#8203;**複雜**&#8203;演算法會更適合您，因為若遊戲時數未達到&#8203;`HoursUntilCardDrops`&#8203;小時，那麼單獨掛卡並無意義──所以我們將先掛&#8203;**遊戲時間**&#8203;，&#8203;**然後**&#8203;才掛單一遊戲。
+這也是您不用選擇掛卡演算法的原因之一，而是告訴ASF您的帳號是否有掉落限制。 若帳號不受限制，&#8203;**簡單**&#8203;演算法在該帳號上的效果會&#8203;**更好**&#8203;，因為我們不需要浪費時間把遊戲掛至&#8203;`X`&#8203;小時──在掛多個遊戲時，掉卡率會接近0%。 反之，若您的帳號受到掉卡限制，&#8203;**複雜**&#8203;演算法會更適合您，因為若遊玩時數未達到&#8203;`HoursUntilCardDrops`&#8203;小時，那麼單獨掛卡並無意義──所以我們將先掛&#8203;**遊玩時數**&#8203;，&#8203;**然後**&#8203;才掛單一遊戲。
 
-不要聽信其他人的說法盲目設定&#8203;`HoursUntilCardDrops`&#8203;，您需要進行測試、比較結果，並依據您獲得的資料，來決定何值適合您。 If you put some minimal effort into that, you'll ensure that ASF is working with maximum possible efficiency for your account, which is probably what you want, considering that you're reading this wiki page right now. If there was a solution that works for everybody, you'd not be given a choice - ASF would decide itself.
+不要聽信其他人的說法盲目設定&#8203;`HoursUntilCardDrops`&#8203;，您需要進行測試、比較結果，並依據您獲得的資料，來決定何值適合您。 鑒於您正閱讀本Wiki頁面，您應該很需要提高ASF的效率。只要您為此付出些許努力，您就能確保ASF以最大可能的效率為您的帳號運作。 若存在適用於所有人的解決方案，您就不需要選擇了──ASF會自動決定。
 
 ---
 
 ### 確認您的帳號是否為受限的最好的方法是什麼？
 
-Make sure you have some games with **no playtime recorded** to farm, preferably 5+, and run ASF with `HoursUntilCardDrops` of `0`. It would be a good idea if you didn't play anything during farming period for more accurate results (best to run ASF during the night). Let ASF farm those 5 games, and after that check out the log for results.
+確認您有一些&#8203;**無遊玩時數**&#8203;的遊戲以供掛卡，最好有5款或以上，並以&#8203;`HoursUntilCardDrops`&#8203;為&#8203;`0`&#8203;的值來執行ASF。 掛卡期間不遊玩任何遊戲是個好主意，能獲得更加準確的結果（最好是在晚上執行ASF）。 讓ASF掛卡這5款遊戲，然後再查看紀錄來獲得結果。
 
-ASF clearly states when a card for given game was dropped. You're interested in fastest card drop achieved by ASF. For example, if your account is unrestricted then a first card drop should happen after around 30 minutes since you started farming. If you notice **at least one** game that did drop card in those initial 30 minutes, then this is an indicator that your account is **not** restricted and should use `HoursUntilCardDrops` of `0`.
+ASF清楚說明了給定遊戲的交換卡片會於何時掉落。 您需要關注ASF最早掉落的交換卡片。 舉例來說，若您的帳號不受限制，那麼您在開始掛卡後的30分鐘內會掉第一張卡。 若您發現&#8203;**至少一款**&#8203;遊戲在開始的30分鐘內掉卡，就代表您的帳號&#8203;**不受限制**&#8203;，且&#8203;`HoursUntilCardDrops`&#8203;應使用&#8203;`0`&#8203;。
 
-On the other hand, if you notice that **every** game is taking at least `X` amount of hours before it drops its first card, then this is an indicator to you what you should set `HoursUntilCardDrops` to. Majority (if not all) of restricted users require at least `3` hours of playtime for cards to drop, and this is also the default value for `HoursUntilCardDrops` setting.
+反之，若您發現&#8203;**每款**&#8203;遊戲均需至少&#8203;`X`&#8203;小時才能掉落第一張卡，那就代表您應該將&#8203;`HoursUntilCardDrops`&#8203;設定成該小時數。 大多數（但不是全部）的受限使用者需要至少&#8203;`3`&#8203;小時的遊玩時數才會開始掉卡，而這也是&#8203;`HoursUntilCardDrops`&#8203;設定的預設值。
 
-Remember that games can have different drop rate, this is why you should test if your theory is right with **at least** 3 games, preferably 5+ to ensure that you're not running into false results by a coincidence. A card drop of one game in less than an hour is a confirmation that your account **is not** restricted and can use `HoursUntilCardDrops` of `0`, but for confirming that your account **is** restricted, you need at least several games that are not dropping cards until you hit a fixed mark.
+記住，遊戲可能有不同的掉落速率，這就是為什麼您應以&#8203;**至少**&#8203;3款，最好5款或以上的遊戲來測試您的猜測，來保證您遇到的結果並非巧合。 A card drop of one game in less than an hour is a confirmation that your account **is not** restricted and can use `HoursUntilCardDrops` of `0`, but for confirming that your account **is** restricted, you need at least several games that are not dropping cards until you hit a fixed mark.
 
 It's important to note that in the past `HoursUntilCardDrops` was only `0` or `2`, and this is why ASF had a single `CardDropsRestricted` property that allowed to switch between those two values. With recent changes we noticed that not only majority of users require `3` hours in place of previous `2` now, but also that `HoursUntilCardDrops` is now dynamic and can hit any value on per-account basis.
 
