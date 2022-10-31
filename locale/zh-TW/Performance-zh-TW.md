@@ -6,7 +6,7 @@ ASF的主要目標是盡可能地高效掛卡，它基於兩種可操作的資�
 
 ---
 
-在前段時間，Valve修改了交換卡片的掉落演算法。 自那時起，我們可以把Steam帳號分成兩種：交換卡片掉落&#8203;**受限**&#8203;與&#8203;**不受限**&#8203;。 兩種帳號間的唯一區別在於，掉卡受限的帳號在遊玩指定遊戲至少&#8203;`X`&#8203;小時之前，都無法獲得任何交換卡片。 看起來，從未要求退款的老帳號&#8203;**掉卡不受限**&#8203;，而曾經要求退款的新帳號則會&#8203;**受限**&#8203;。 然而，這只是理論，不應將它視為規則。 這就是為什麼&#8203;**沒有絕對的判斷**&#8203;，所以ASF需要&#8203;**您**&#8203;來告訴它，您的帳號符合哪種情形。
+在前段時間，Valve修改了交換卡片的掉落演算法。 自那時起，我們可以把Steam帳號分成兩種：交換卡片掉落&#8203;**受限制**&#8203;與&#8203;**不受限制**&#8203;。 兩種帳號間的唯一區別在於，掉卡受限制的帳號在遊玩指定遊戲至少&#8203;`X`&#8203;小時之前，都無法獲得任何交換卡片。 看起來，從未要求退款的老帳號&#8203;**掉卡不受限制**&#8203;，而曾經要求退款的新帳號則會&#8203;**受限制**&#8203;。 然而，這只是理論，不應將它視為規則。 這就是為什麼&#8203;**沒有絕對的判斷**&#8203;，所以ASF需要&#8203;**您**&#8203;來告訴它，您的帳號符合哪種情形。
 
 ---
 
@@ -36,47 +36,47 @@ ASF清楚說明了給定遊戲的交換卡片會於何時掉落。 您需要關�
 
 反之，若您發現&#8203;**每款**&#8203;遊戲均需至少&#8203;`X`&#8203;小時才能掉落第一張卡，那就代表您應該將&#8203;`HoursUntilCardDrops`&#8203;設定成該小時數。 大多數（但不是全部）的受限使用者需要至少&#8203;`3`&#8203;小時的遊玩時數才會開始掉卡，而這也是&#8203;`HoursUntilCardDrops`&#8203;設定的預設值。
 
-記住，遊戲可能有不同的掉落速率，這就是為什麼您應以&#8203;**至少**&#8203;3款，最好5款或以上的遊戲來測試您的猜測，來保證您遇到的結果並非巧合。 A card drop of one game in less than an hour is a confirmation that your account **is not** restricted and can use `HoursUntilCardDrops` of `0`, but for confirming that your account **is** restricted, you need at least several games that are not dropping cards until you hit a fixed mark.
+記住，遊戲可能有不同的掉落速率，這就是為什麼您應以&#8203;**至少**&#8203;3款，最好5款或以上的遊戲來測試您的猜測，來保證您得到的結果並非巧合。 只要有一款遊戲在一小時之內掉卡，就可以確定您的帳號&#8203;**不受限制**&#8203;，可以把&#8203;`HoursUntilCardDrops`&#8203;設成&#8203;`0`&#8203;；但要確定您的帳號&#8203;**受限制**&#8203;，則需要有數款遊戲在達到一定時間後才會掉卡。
 
-It's important to note that in the past `HoursUntilCardDrops` was only `0` or `2`, and this is why ASF had a single `CardDropsRestricted` property that allowed to switch between those two values. With recent changes we noticed that not only majority of users require `3` hours in place of previous `2` now, but also that `HoursUntilCardDrops` is now dynamic and can hit any value on per-account basis.
+需要注意的是，在以前&#8203;`HoursUntilCardDrops`&#8203;只能是&#8203;`0`&#8203;或&#8203;`2`&#8203;，這就是為什麼ASF有個&#8203;`CardDropsRestricted`&#8203;屬性使設定在這兩個值之間切換。 但隨著最近的改動，我們注意到，不只是大多數使用者需要&#8203;`3`&#8203;個小時，而不是之前的&#8203;`2`&#8203;個小時，且&#8203;`HoursUntilCardDrops`&#8203;現在也是動態的，可以依不同帳號有不同的值。
 
-In the end, of course, decision is up to you.
+當然，最後的決定權在你。
 
-And to make it even worse - I experienced cases when people switched from restricted to unrestricted state and vice versa - either because of Steam bug (oh yeah, we have many of those), or because of some logic adjustments by Valve. So even if you confirmed that your account is restricted (or not), do not believe that it'll stay like that - in order to switch from unrestricted to restricted it's enough to ask for a refund. If you feel like previously set value is no longer appropriate, you can always do a re-test and update it accordingly.
+更糟糕的是──我遇到有些人能從受限制變成不受限制的狀態，反之亦然──可能是因為Steam的錯誤（沒錯，Steam有很多），亦或是Valve調整了一些邏輯。 所以，即使您確認您的帳號受限制（或不受限制），也不能相信它會一直維持這種狀態──只要您要求退款，就有可能從不受限制變成受限制。 若您覺得之前設定的值不再適合，您可以隨時重新測試並更新它。
 
 ---
 
-By default, ASF assumes that `HoursUntilCardDrops` is `3`, as the negative effect of setting this to `3` when it should be less is smaller than done the other way. This is because of the fact that in the worst possible case we'll waste `3` hours of farming per `32` games, compared to wasting `3` hours of farming per every single game if `HoursUntilCardDrops` was set to `0` by default. However, you should still tune this variable to match your account for maximum efficiency, as this is only a blind guess based on potential drawbacks and majority of users (so we're trying to choose "lesser evil" by default).
+預設情形下，ASF會假設&#8203;`HoursUntilCardDrops`&#8203;為`3`&#8203;，因為在它應小於&#8203;`3`&#8203;時，這樣設定的負面影響比其他值要小。 這是因為在最糟的情形下，我們每掛卡&#8203;`32`&#8203;款遊戲，只會浪費&#8203;`3`&#8203;個小時；而若把&#8203;`HoursUntilCardDrops`&#8203;預設成&#8203;`0`&#8203;，則在最糟的情形下，每款遊戲都將浪費&#8203;`3`&#8203;個小時。 但是，您應仍應調整這個變數來配合您的帳號，以獲得最大效率，因為這只是依據大多數使用者情形的盲猜（所以我們嘗試選擇預設成「較少的缺陷」）。
 
-At the moment two above algorithms are enough for all currently possible account scenarios, in order to farm as effectively as possible, therefore it's not planned to add any other ones.
+目前上述兩種演算法已足以應付帳號當前可能遇到的情形，為了盡可能提高掛卡效率，所以不打算加入更多的演算法。
 
-It's nice to note that ASF also includes manual farming mode that can be activated by `play` command. You can read more about it in **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+值得一提的是，ASF也可以使用&#8203;`play`&#8203;指令來啟用手動掛卡模式。 您可以閱讀&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;以了解更多相關資訊。
 
 ---
 
 ## Steam 故障
 
-Cards drop algorithm does not always work the way it should, and it's entirely possible for various Steam glitches to happen, such as cards being dropped on restricted accounts, cards being dropped on closing/switching the game, cards not dropping at all when game is being played, and likewise.
+掉卡演算法並不會總是依應有的方式運作，它完全有可能出現各種Steam故障，例如受限制的帳號掉卡了、在關閉／切換遊戲時掉卡、玩遊戲時完全不掉卡等。
 
-This section is mainly for people that are wondering why ASF doesn't do **X**, such as rapidly switching games to farm cards faster.
+本章節主要針對那些想知道為什麼ASF不做&#8203;**某些事情**&#8203;的人，例如快速切換遊戲以加速掉卡。
 
-What is a **Steam glitch** - a specific action triggering **undefined** behaviour, which is **not intended, undocumented, and considered as a logic flaw**. It's **unreliable by definition**, which means that it can't be reproduced reliably with clean testing environment, and therefore, coded without resorting to hacks that are supposed to guess when glitch is happening and how to fight with it / abuse it. Typically it's temporary until developers fix the logic flaw, although some misc glitches can go unnoticed for a very long period of time.
+什麼能稱為&#8203;**Steam故障**&#8203;：觸發&#8203;**未被定義**&#8203;的行為的特定操作，它&#8203;**不可靠、未被證實，且被視為一種邏輯缺陷**&#8203;。 依據定義它&#8203;**並不可靠**&#8203;，這代表它無法在乾淨的測試環境下穩定地重現，因此，不應借助猜測來進行編碼，或是應對／濫用它。 通常在開發人員修復邏輯缺陷前，它是暫時的，但一些雜項故障可能會在很長一段時間內被忽視。
 
-A good example of what is considered as a **Steam glitch** is not that uncommon situation of dropping a card when game is being closed, which can be abused to some degree with idle master's game skip function.
+**Steam故障**&#8203;的一個很好的範例是在關閉遊戲時掉卡，這很常見，而Idle Master的遊戲跳過功能在一定程度上濫用了它。
 
-- **Undefined behaviour** - you can't say if there will be 0 or 1 cards being dropped when you trigger the glitch.
-- **Not intended** - based on past experience and behaviour of Steam network that doesn't result in same behaviour when sending a single request.
-- **Undocumented** - it's clearly documented on Steam website how cards are being obtained, and **in every single place** it's clearly stated that it's obtained through **playing**, NOT closing games, getting achievements, games switching or launching 32 games concurrently.
-- **Considered as a logic flaw** - closing game(s) or switching them should have no outcome on cards being dropped which are clearly stated to be obtained through **gaining playtime**.
-- **Unreliable by definition, can't be reproduced reliably** - it doesn't work for everybody, and even if it did work for you once, it could no longer work for the second time.
+- **未被定義的行為**&#8203;：當您觸發故障時無法確定是否能夠掉落交換卡片。
+- **不可靠**&#8203;：依據過去的經驗及Steam網路的行為，在傳送單一請求時無法產生相同的結果。
+- **未被證明**&#8203;：Steam網站上清楚記載如何獲得交換卡片，且&#8203;**每個地方**&#8203;都清楚表明它是透過&#8203;**遊玩**&#8203;來獲得，而不是關閉遊戲、獲得成就、切換遊戲，或同時開著32款遊戲。
+- **被視為一種邏輯缺陷**&#8203;：關閉或切換遊戲應該與掉卡無關，這些交換卡片被明確說明是透過&#8203;**提高遊玩時數**&#8203;來獲得。
+- **依據定義並不可靠，且無法穩定重現**&#8203;：它無法對每個人都有效，且即使您成功過一次，下一次也無法保證仍然成功。
 
 Now once we realized what Steam glitch is, and the fact that cards being dropped when game gets closed **is** one, we can move on to the second point - **ASF is not abusing Steam network in any way by definition, and it's doing its best to comply with Steam ToS, its protocols and what is generally accepted**. Spamming Steam network with constant game opening/closing requests can be considered a **[DoS attack](https://en.wikipedia.org/wiki/Denial-of-service_attack)** and **directly violates [Steam Online Conduct](https://store.steampowered.com/online_conduct/?l=english)**.
 
-> As a Steam subscriber you agree to abide by the following conduct rules.
+> 作為一名Steam訂閱者，您同意遵守以下行為準則。
 > 
 > 您將不會：
 > 
-> Institute attacks upon a Steam server or otherwise disrupt Steam.
+> 對Steam伺服器發起攻擊或以其他方式破壞Steam。
 
 It doesn't matter whether you're able to trigger Steam glitch with other programs (such as IM), and it also doesn't matter if you agree with us and consider such behaviour as DoS attack, or not - it's up to Valve to judge this, but if we consider it as exploiting/abusing non-intended behaviour through excessive Steam network requests, then you can be pretty sure that Valve will have similar view on this.
 
