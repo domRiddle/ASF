@@ -9,26 +9,26 @@ ASF目前支援以下加密方式，作為&#8203;`ECryptoMethod`&#8203;的定義
 | 0 | PlainText（純文字）              |
 | 1 | AES（進階加密標準）                 |
 | 2 | ProtectedDataForCurrentUser |
-| 3 | EnvironmentVariable         |
-| 4 | 文字檔                         |
+| 3 | EnvironmentVariable（環境變數）   |
+| 4 | File（文字檔）                   |
 
-以下提供了它們的詳細描述和比較。
+以下提供了它們的詳細說明及比較。
 
-In order to generate encrypted password, e.g. for `SteamPassword` usage, you should execute `encrypt` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate encryption that you chose and your original plain-text password. Afterwards, put the encrypted string that you've got as `SteamPassword` bot config property, and finally change `PasswordFormat` to the one that matches your chosen encryption method. Some formats do not require `encrypt` command, for example `EnvironmentVariable` or `File`, just put appropriate path for them.
+要生成加密的密碼，例如在&#8203;`SteamPassword`&#8203;中使用，您可以執行&#8203;`encrypt`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;，並加上您所選的適當的加密方式及您密碼的原始純文字。 然後，將您獲得的加密字串輸入&#8203;`SteamPassword`&#8203;Bot設定屬性，並修改&#8203;`PasswordFormat`&#8203;對應至您所選的加密方法。 某些格式不需要&#8203;`encrypt`指令，例如&#8203;`EnvironmentVariable`&#8203;或&#8203;`File`&#8203;，只需給予適合的路徑。
 
 ---
 
 ### `PlainText（純文字）`
 
-This is the most simple and insecure way of storing a password, defined as `ECryptoMethod` of `0`. ASF expects the string to be a plain text - a password in its direct form. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+這是最簡單也最不安全的密碼儲存方式，指定&#8203;`ECryptoMethod`&#8203;為&#8203;`0`&#8203;。 ASF字串應為純文字──即原始形式的密碼。 它是最容易使用的，且與所有設定100%相容，因此它是儲存私密資料的預設方式，但對於安全儲存來說毫無安全可言。
 
 ---
 
 ### `AES（進階加密標準）`
 
-Considered secure by today standards, **[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)** way of storing the password is defined as `ECryptoMethod` of `1`. ASF expects the string to be a **[base64-encoded](https://en.wikipedia.org/wiki/Base64)** sequence of characters resulting in AES-encrypted byte array after translation, which then should be decrypted using included **[initialization vector](https://en.wikipedia.org/wiki/Initialization_vector)** and ASF encryption key.
+依照現今的標準，可以將&#8203;**[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)**&#8203;儲存密碼的方式視為安全的，指定&#8203;`ECryptoMethod`&#8203;為&#8203;`1`&#8203;。 ASF字串應為AES加密的位元組陣列轉換成&#8203;**[Base64編碼](https://zh.wikipedia.org/zh-tw/Base64)**&#8203;的字元序列，需含有&#8203;**[初始向量](https://en.wikipedia.org/wiki/Initialization_vector)**&#8203;及ASF加密鍵來解密。
 
-The method above guarantees security as long as attacker doesn't know ASF encryption key which is being used for decryption as well as encryption of passwords. ASF allows you to specify key via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning anybody can reverse the ASF encryption and get decrypted password. It still requires some effort and is not that easy to do, but possible, that's why you should almost always use `AES` encryption with your own `--cryptkey` which is kept in secret. AES method used in ASF provides security that should be satisfying and it's a balance between simplicity of `PlainText` and complexity of `ProtectedDataForCurrentUser`, but it's highly recommended to use it with custom `--cryptkey`. If used properly, guarantees decent security for safe storage.
+上述方法保證了安全性，只要攻擊者不知道用於加密及解密的ASF加密鍵。 ASF使您能夠透過&#8203;`--cryptkey`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-TW)**&#8203;來獲得最大的安全性。 若您決定省略它，ASF將會使用自己&#8203;**已知**&#8203;硬編碼至應用程式中的金鑰，這代表任何人都可以逆轉ASF的加密，並獲得解密的密碼。 雖然這需要一些時間且不容易做到，但它還是有可能的。這就是為什麼您總應一起使用&#8203;`AES`&#8203;及您自己的&#8203;`--cryptkey`&#8203;來加密。 ASF使用的AES方法提供了令人滿意的安全性，它在簡單的&#8203;`PlainText`&#8203;及複雜的&#8203;`ProtectedDataForCurrentUser`&#8203;間取得了平衡，並強烈建議您與自訂的&#8203;`--cryptkey`&#8203;一起使用。 若使用得當，就能保證安全儲存的良好安全性。
 
 ---
 
@@ -40,13 +40,13 @@ Currently the most secure way of encrypting the password that ASF offers, and mu
 
 ---
 
-### `EnvironmentVariable`
+### `EnvironmentVariable（環境變數）`
 
 Memory-based storage defined as `ECryptoMethod` of `3`. ASF will read the password from the environment variable with given name specified in the password field (e.g. `SteamPassword`). For example, setting `SteamPassword` to `ASF_PASSWORD_MYACCOUNT` and `PasswordFormat` to `3` will cause ASF to evaluate `${ASF_PASSWORD_MYACCOUNT}` environment variable and use whatever is assigned to it as the account password.
 
 ---
 
-### `文字檔`
+### `File（文字檔）`
 
 File-based storage (possibly outside of the ASF config directory) defined as `ECryptoMethod` of `4`. ASF will read the password from the file path specified in the password field (e.g. `SteamPassword`). The specified path can be either absolute, or relative to ASF's "home" location (the folder with `config` directory inside, taking into account `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**). This method can be used for example with **[Docker secrets](https://docs.docker.com/engine/swarm/secrets)**, which create such files for usage, but can also be used outside of Docker if you create appropriate file yourself. For example, setting `SteamPassword` to `/etc/secrets/MyAccount.pass` and `PasswordFormat` to `4` will cause ASF to read `/etc/secrets/MyAccount.pass` and use whatever is written to that file as the account password.
 
@@ -56,7 +56,7 @@ Remember to ensure that file containing the password is not readable by unauthor
 
 ## 建議
 
-If compatibility is not an issue for you, and you're fine with the way how `ProtectedDataForCurrentUser` method works, it is the **recommended** option of storing the password in ASF, as it provides the best security. `AES` method is a good choice for people who still want to make use of their configs on any machine they want, while `PlainText` is the most simple way of storing the password, if you don't mind that anybody can look into JSON configuration file for it.
+若相容性對您而言並不是個問題，且您可以接受&#8203;`ProtectedDataForCurrentUser`&#8203;方法的運作方式，那麼&#8203;**建議**&#8203;使用此選項來在ASF中儲存密碼，因為它擁有最好的安全性。 `AES` method is a good choice for people who still want to make use of their configs on any machine they want, while `PlainText` is the most simple way of storing the password, if you don't mind that anybody can look into JSON configuration file for it.
 
 Please keep in mind that all of those 3 methods are considered **insecure** if attacker has access to your PC. ASF must be able to decrypt the encrypted passwords, and if the program running on your machine is capable of doing that, then any other program running on the same machine will be capable of doing so, too. `ProtectedDataForCurrentUser` is the most secure variant as **even other user using the same PC will not be able to decrypt it**, but it's still possible to decrypt the data if somebody is able to steal your login credentials and machine info in addition to ASF config file.
 

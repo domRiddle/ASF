@@ -60,26 +60,26 @@ ASF清楚說明了給定遊戲的交換卡片會於何時掉落。 您需要關�
 
 本章節主要針對那些想知道為什麼ASF不做&#8203;**某些事情**&#8203;的人，例如快速切換遊戲以加速掉卡。
 
-什麼能稱為&#8203;**Steam故障**&#8203;：觸發&#8203;**未被定義**&#8203;的行為的特定操作，它&#8203;**不可靠、未被證實，且被視為一種邏輯缺陷**&#8203;。 依據定義它&#8203;**並不可靠**&#8203;，這代表它無法在乾淨的測試環境下穩定地重現，因此，不應借助猜測來進行編碼，或是應對／濫用它。 通常在開發人員修復邏輯缺陷前，它是暫時的，但一些雜項故障可能會在很長一段時間內被忽視。
+什麼能稱為&#8203;**Steam故障**&#8203;：觸發&#8203;**未被定義**&#8203;的行為的特定操作，它&#8203;**不可預期、未被證實，且被視為一種邏輯缺陷**&#8203;。 依據定義它&#8203;**並不可靠**&#8203;，這代表它無法在乾淨的測試環境下穩定地重現，因此，不應借助猜測來進行編碼，或是因應／濫用它。 通常在開發人員修復邏輯缺陷前，它是暫時的，但一些雜項故障可能會在很長一段時間內被忽視。
 
 **Steam故障**&#8203;的一個很好的範例是在關閉遊戲時掉卡，這很常見，而Idle Master的遊戲跳過功能在一定程度上濫用了它。
 
 - **未被定義的行為**&#8203;：當您觸發故障時無法確定是否能夠掉落交換卡片。
-- **不可靠**&#8203;：依據過去的經驗及Steam網路的行為，在傳送單一請求時無法產生相同的結果。
+- **不可預期**&#8203;：依據過去的經驗及Steam網路的行為，在傳送單一請求時無法產生相同的結果。
 - **未被證明**&#8203;：Steam網站上清楚記載如何獲得交換卡片，且&#8203;**每個地方**&#8203;都清楚表明它是透過&#8203;**遊玩**&#8203;來獲得，而不是關閉遊戲、獲得成就、切換遊戲，或同時開著32款遊戲。
 - **被視為一種邏輯缺陷**&#8203;：關閉或切換遊戲應該與掉卡無關，這些交換卡片被明確說明是透過&#8203;**提高遊玩時數**&#8203;來獲得。
 - **依據定義並不可靠，且無法穩定重現**&#8203;：它無法對每個人都有效，且即使您成功過一次，下一次也無法保證仍然成功。
 
-Now once we realized what Steam glitch is, and the fact that cards being dropped when game gets closed **is** one, we can move on to the second point - **ASF is not abusing Steam network in any way by definition, and it's doing its best to comply with Steam ToS, its protocols and what is generally accepted**. Spamming Steam network with constant game opening/closing requests can be considered a **[DoS attack](https://en.wikipedia.org/wiki/Denial-of-service_attack)** and **directly violates [Steam Online Conduct](https://store.steampowered.com/online_conduct/?l=english)**.
+現在我們明白了什麼是Steam故障，並且在關閉遊戲時掉卡&#8203;**就是**&#8203;其中之一。那我們就可以繼續說明第二點：&#8203;**依據定義，ASF並未以任何方式濫用Steam網路，並盡全力遵守Steam服務條款、其協定及普遍接受的內容**&#8203;。 不斷地向Steam網路傳送開啟／關閉遊戲的請求，可被視為&#8203;**[DoS攻擊](https://zh.wikipedia.org/zh-tw/阻斷服務攻擊)**&#8203;，且&#8203;**直接違反&#8203;[Steam線上行為守則](https://store.steampowered.com/online_conduct/?l=tchinese)**&#8203;。
 
-> 作為一名Steam訂閱者，您同意遵守以下行為準則。
+> 身為一名Steam用戶，您同意並願意遵守以下規則。
 > 
-> 您將不會：
+> 您不會：
 > 
-> 對Steam伺服器發起攻擊或以其他方式破壞Steam。
+> 策劃攻擊Steam伺服器或干擾Steam運作。
 
-It doesn't matter whether you're able to trigger Steam glitch with other programs (such as IM), and it also doesn't matter if you agree with us and consider such behaviour as DoS attack, or not - it's up to Valve to judge this, but if we consider it as exploiting/abusing non-intended behaviour through excessive Steam network requests, then you can be pretty sure that Valve will have similar view on this.
+不論您是否能夠使用其他程式（例如IM）來觸發Steam故障，也不論您是否同意我們，並將這類行為視為DoS攻擊──這取決於Valve的判斷，但只要我們認為它是經由濫用Steam網路請求來利用／濫用非預期的行為，那麼您可以很確定Valve對此會有相似的看法。
 
-ASF is **never** going to take advantage of Steam exploits, abuses, hacks or any other activity that we see as **illegal or unwanted** according to Steam ToS, Steam Online Conduct or any other trusted source that could indicate that ASF activity is unwanted by Steam network, as stated in **[contributing](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)** section.
+ASF&#8203;**絕不會**&#8203;利用Steam漏洞，濫用、駭入、或使用任何其他我們認為依據Steam服務條款、Steam線上行為守則，或其他任何可能代表ASF不受Steam網路歡迎的行為， 如&#8203;**[貢獻指南](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**&#8203;章節所述。
 
-If you want at all cost to risk your Steam account for farming a few cent cards faster than usual, then sadly ASF will never offer something like this in automatic mode, although you still have `play` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** that can be used as a tool for doing whatever you want in terms of Steam network interaction. We do not recommend taking advantage of Steam glitches and exploiting them for your own gain - not only with ASF, but with any other tool as well. In the end however, it's your account, and your choice what you want to do with it - just keep in mind that we warned you.
+若您仍想為了幾塊錢的交換卡片，不惜一切代價冒險讓您的Steam帳號比平時更快地掛卡，那麼遺憾的是，ASF永遠不會在自動模式中提供這樣的功能。但您仍能使用&#8203;`play`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;用來對Steam網路做出任何事情。 我們不建議利用Steam故障來牟利──不論是使用ASF或是任何其他工具。 但最後，這是您自己的帳號，您可以選擇如何去使用它──但請記住我們已警告過您。
