@@ -34,7 +34,7 @@ ASF目前支援以下加密方式，作為&#8203;`ECryptoMethod`&#8203;的定義
 
 ### `ProtectedDataForCurrentUser`
 
-Currently the most secure way of encrypting the password that ASF offers, and much safer than `AES` method explained above, is defined as `ECryptoMethod` of `2`. The major advantage of this method is at the same time the major disadvantage - instead of using encryption key (like in `AES`), data is encrypted using login credentials of currently logged in user, which means that it's possible to decrypt the data **only** on the machine it was encrypted on, and in addition to that, **only** by the user who issued the encryption. This ensures that even if you send your entire `Bot.json` with encrypted `SteamPassword` using this method to somebody else, he will not be able to decrypt the password without direct access to your PC. This is excellent security measure, but at the same time has a major disadvantage of being least compatible, as the password encrypted using this method will be incompatible with any other user as well as machine - including **your own** if you decide to e.g. reinstall your operating system. Still, it's one of the best methods of storing passwords, and if you're worried about security of `PlainText`, and don't want to put password each time, then this is your best bet as long as you don't have to access your configs from any other machine than your own.
+這是目前ASF提供最安全的密碼加密方式，比上述的&#8203;`AES`&#8203;方法還安全的多，您需將&#8203;`ECryptoMethod`&#8203;設為&#8203;`2`&#8203;。 這種方法的主要優點同時也是主要缺點：並不使用加密金鑰（如同&#8203;`AES`&#8203;），資料是使用當前登入使用者的憑證來加密的，也就是說它&#8203;**只能**&#8203;在加密設備上解密，除此之外也&#8203;**只能**&#8203;被加密使用者所使用。 若您使用此方法加密&#8203;`Bot.json`&#8203;的&#8203;`SteamPassword`&#8203;，即使您將整個檔案傳送給其他人，那麼要是他沒有直接存取您PC的權限，也無法解密密碼。 這是一種非常優秀的安全措施，但同時也有一個巨大的缺點，那就是幾乎沒有相容性可言，因為使用這種方法加密的密碼會與其他使用者或設備不相容：假設您打算重新安裝作業系統，這也將包含&#8203;**您自己的**&#8203;設備。 不過這仍是儲存密碼的最好方法，若您擔心&#8203;`PlainText`&#8203;的安全性，也不想要每次都輸入密碼，只要您不會在其他設備上存取您的設定檔，那麼這就是您最好的選擇。
 
 **請注意，這個選項目前只適用於執行Windows作業系統的設備。**
 
@@ -42,33 +42,33 @@ Currently the most secure way of encrypting the password that ASF offers, and mu
 
 ### `EnvironmentVariable（環境變數）`
 
-Memory-based storage defined as `ECryptoMethod` of `3`. ASF will read the password from the environment variable with given name specified in the password field (e.g. `SteamPassword`). For example, setting `SteamPassword` to `ASF_PASSWORD_MYACCOUNT` and `PasswordFormat` to `3` will cause ASF to evaluate `${ASF_PASSWORD_MYACCOUNT}` environment variable and use whatever is assigned to it as the account password.
+基於記憶體的儲存方法，&#8203;`ECryptoMethod`&#8203;為&#8203;`3`&#8203;。 ASF會從環境變數中讀取密碼，且名稱需指定於密碼欄位中（例如&#8203;`SteamPassword`&#8203;）。 舉例來說，把&#8203;`SteamPassword`&#8203;設定成&#8203;`ASF_PASSWORD_MYACCOUNT`&#8203;、&#8203;`PasswordFormat`&#8203;設定成&#8203;`3`&#8203;，就能讓ASF讀取環境變數&#8203;`${ASF_PASSWORD_MYACCOUNT}`&#8203;作為帳號的密碼。
 
 ---
 
 ### `File（文字檔）`
 
-File-based storage (possibly outside of the ASF config directory) defined as `ECryptoMethod` of `4`. ASF will read the password from the file path specified in the password field (e.g. `SteamPassword`). The specified path can be either absolute, or relative to ASF's "home" location (the folder with `config` directory inside, taking into account `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**). This method can be used for example with **[Docker secrets](https://docs.docker.com/engine/swarm/secrets)**, which create such files for usage, but can also be used outside of Docker if you create appropriate file yourself. For example, setting `SteamPassword` to `/etc/secrets/MyAccount.pass` and `PasswordFormat` to `4` will cause ASF to read `/etc/secrets/MyAccount.pass` and use whatever is written to that file as the account password.
+基於檔案的儲存方法（可在ASF設定資料夾外），&#8203;`ECryptoMethod`&#8203;為&#8203;`4`&#8203;。 ASF會從密碼欄位（例如&#8203;`SteamPassword`&#8203;）指定的路徑中讀取密碼。 指定的路徑可以是絕對路徑，也可以相對於ASF的「主要」位置（就是含有&#8203;`config`資料夾的資料夾，並與&#8203;`--path`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW#引數)**&#8203;相符）。 此方法可用於&#8203;**[Docker secret](https://docs.docker.com/engine/swarm/secrets)**&#8203;，它會建立這類檔案以供使用，但若您自行建立檔案，亦可在Docker外使用。 舉例來說，把&#8203;`SteamPassword`&#8203;設定成&#8203;`/etc/secrets/MyAccount.pass`&#8203;、&#8203;`PasswordFormat`&#8203;設定成&#8203;`4`&#8203;，就能讓ASF讀取&#8203;`/etc/secrets/MyAccount.pass`&#8203;檔案內容作為帳號的密碼。
 
-Remember to ensure that file containing the password is not readable by unauthorized users, as that defeats the whole purpose of using this method.
+記住，請確保未授權的使用者無法讀取含有密碼的檔案，因為這樣就違背了使用本方法的目的。
 
 ---
 
 ## 建議
 
-若相容性對您而言並不是個問題，且您可以接受&#8203;`ProtectedDataForCurrentUser`&#8203;方法的運作方式，那麼&#8203;**建議**&#8203;使用此選項來在ASF中儲存密碼，因為它擁有最好的安全性。 `AES` method is a good choice for people who still want to make use of their configs on any machine they want, while `PlainText` is the most simple way of storing the password, if you don't mind that anybody can look into JSON configuration file for it.
+若相容性對您而言並不是個問題，且您可以接受&#8203;`ProtectedDataForCurrentUser`&#8203;方法的運作方式，那麼&#8203;**建議**&#8203;使用此選項來在ASF中儲存密碼，因為它擁有最好的安全性。 `AES`&#8203;方法對於那些想要在其他設備上使用設定的使用者來說是個不錯的選擇，而若您不介意其他人都可以查閱JSON設定檔，那&#8203;`PlainText`是最簡單儲存密碼的方法。
 
-Please keep in mind that all of those 3 methods are considered **insecure** if attacker has access to your PC. ASF must be able to decrypt the encrypted passwords, and if the program running on your machine is capable of doing that, then any other program running on the same machine will be capable of doing so, too. `ProtectedDataForCurrentUser` is the most secure variant as **even other user using the same PC will not be able to decrypt it**, but it's still possible to decrypt the data if somebody is able to steal your login credentials and machine info in addition to ASF config file.
+請注意，若攻擊者存取您的PC，則上述3種方法都被視為&#8203;**不安全**&#8203;。 ASF必須能解密被加密的密碼，但若您設備上執行的程式能解密，那麼在相同設備上執行的其他程式亦能解密您的密碼。 `ProtectedDataForCurrentUser`&#8203;是最安全的方式，因為&#8203;**即使使用同一台PC的其他使用者，也無法解密密碼**&#8203;，但若有人能夠竊取您的登入憑證、設備資訊及ASF設定檔，則仍能解密這些資料。
 
-For advanced setups, you can utilize `EnvironmentVariable` and `File`. They have limited usability, the `EnvironmentVariable` will be a good idea if you'd prefer to obtain password through some kind of custom solution and store it in memory exclusively, while `File` is good for example with **[Docker secrets](https://docs.docker.com/engine/swarm/secrets)**. Both of them are unencrypted however, so you basically move the risk from ASF config file to whatever you pick from those two.
+對於進階的設定，您可以使用&#8203;`EnvironmentVariable`&#8203;與&#8203;`File`。 它們的用途有限，若您希望透過某種自訂方式來獲得密碼，並只儲存於記憶體中，使用&#8203;`EnvironmentVariable`&#8203;比較好；而例如使用&#8203;**[Docker secret](https://docs.docker.com/engine/swarm/secrets)**&#8203;的情形則更適合使用&#8203;`File`&#8203;。 不過，它們都並未加密，因此基本上是將風險從ASF設定檔轉移到您選擇的這兩個方法的位置上。
 
-In addition to encryption methods specified above, it's possible to also avoid specifying passwords entirely, for example as `SteamPassword` by using an empty string or `null` value. ASF will ask you for your password when it's required, and won't save it anywhere but keep in memory of currently running process, until you close it. While being the most secure method of dealing with passwords (they're not saved anywhere), it's also the most troublesome as you need to enter your password manually on each ASF run (when it's required). If that's not a problem for you, this is your best bet security-wise.
+除了上述指定的加密方法外，也可以完全不指定密碼，例如在&#8203;`SteamPassword`&#8203;設定成空字串，或&#8203;`null`&#8203;值。 ASF會在需要時向您詢問密碼，且不會儲存於任何地方，而是儲存於當前執行程序的記憶體中，直到您關閉它。 雖然這是儲存密碼最安全的方式（密碼並未儲存於任何地方），但也是最麻煩的，因為您需要在每次執行ASF時手動輸入密碼（若需要）。 若這對您而言並不是個問題，那這就是您在安全性方面最好的選擇。
 
 ---
 
 ## 解密
 
-ASF doesn't support any way of decrypting already encrypted passwords, as decryption methods are used only internally for accessing the data inside the process. If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply repeat the procedure from beginning in the new environment.
+ASF不支援解密已加密密碼的任何方式，因為解密方式只在內部使用，用於存取程序裡的資料。 If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply repeat the procedure from beginning in the new environment.
 
 ---
 
