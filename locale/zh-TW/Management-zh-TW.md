@@ -1,21 +1,21 @@
 # 管理
 
-This section covers subjects related to managing the ASF process in optimal way. While not strictly mandatory for usage, it includes bunch of tips, tricks and good practices that we'd like to share, especially for system administrators, people packaging the ASF for usage in third-party repositories, as well as advanced users and alike.
+本章節涵蓋的相關主題是以最佳方式管理ASF程序。 雖然並非嚴格強制使用，但它包含了我們想分享的大量提示、技巧和良好實作，特別是對於系統管理員、打包ASF以便於在第三方儲存庫中使用的人，及進階使用者等。
 
 ---
 
 ## Linux 的 `systemd` 服務
 
-In `generic` and `linux` variants, ASF comes with `ArchiSteamFarm@.service` file, which is a configuration file of the service for **[`systemd`](https://systemd.io)**. If you'd like to run ASF as a service, for example in order to launch it automatically after startup of your machine, then a proper `systemd` service is arguably the best way to do it, therefore we highly recommend it instead of managing it on your own through `nohup`, `screen` or alike.
+在&#8203;`generic`&#8203;及`linux`&#8203;變體版本中，ASF自帶&#8203;`ArchiSteamFarm@.service`&#8203;檔案，這是&#8203;**[`systemd`](https://systemd.io)**&#8203;的服務設定檔。 若您想以服務來執行ASF，例如能在您的設備啟動時自動執行，那麼正確的&#8203;`systemd`&#8203;服務無疑是最好的方法，因此我們強烈推薦透過服務，而不是使用&#8203;`nohup`&#8203;、&#8203;`screen`&#8203;或其他方法來管理。
 
-Firstly, create the account for the user you want to run ASF under, assuming it doesn't exist yet. We'll use `asf` user for this example, if you decided to use a different one, you'll need to substitute `asf` user in all of our examples below with your selected one. Our service does not allow you to run ASF as `root`, since it's considered a **[bad practice](#never-run-asf-as-administrator)**.
+首先，若您還尚未建立用來執行ASF使用者，請先建立它。 我們在此以&#8203;`asf`&#8203;使用者作為範例，若您想使用另外一個，您就必須將下列範例中的&#8203;`asf`&#8203;使用者取代成您想使用的使用者名稱。 我們的服務不允許您使用&#8203;`root`&#8203;來執行ASF，因為這被認為是&#8203;**[不好的方式](#永遠不要以系統管理員身分執行-asf)**&#8203;。
 
 ```sh
 su # 或是 sudo -i
 useradd -m asf
 ```
 
-Next, unpack ASF to `/home/asf/ArchiSteamFarm` folder. The folder structure is important for our service unit, it should be `ArchiSteamFarm` folder in your `$HOME`, so `/home/<user>`. If you did everything correctly, there will be `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` file existing. If you're using `linux` variant and didn't unpack the file on Linux, but for example used file transfer from Windows, then you'll also need to `chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm`.
+下一步，將ASF解壓縮至&#8203;`/home/asf/ArchiSteamFarm`&#8203;資料夾。 資料夾的結構對我們的服務單元來說非常重要，它應為您的&#8203;`$HOME`&#8203;，也就是說&#8203;`ArchiSteamFarm`&#8203;資料夾需要放在&#8203;`/home/<user>`&#8203;中。 若您的操作完全正確，則現在應存在&#8203;`/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service`&#8203;檔案。 If you're using `linux` variant and didn't unpack the file on Linux, but for example used file transfer from Windows, then you'll also need to `chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm`.
 
 We'll do all below actions as `root`, so get to its shell with `su` or `sudo -i`.
 

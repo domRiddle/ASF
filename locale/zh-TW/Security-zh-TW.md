@@ -68,13 +68,13 @@ ASF目前支援以下加密方式，作為&#8203;`ECryptoMethod`&#8203;的定義
 
 ## 解密
 
-ASF不支援解密已加密密碼的任何方式，因為解密方式只在內部使用，用於存取程序裡的資料。 If you want to revert encryption procedure e.g. for moving ASF to other machine when using `ProtectedDataForCurrentUser`, then simply repeat the procedure from beginning in the new environment.
+ASF不支援解密已加密密碼的任何方式，因為解密方式只在內部使用，用於存取程序裡的資料。 若您需要反轉加密過程，例如使用了&#8203;`ProtectedDataForCurrentUser`&#8203;後將ASF移動至另一台設備上，只需在新環境中重新開始上述流程即可。
 
 ---
 
 ## 雜湊
 
-ASF currently supports the following hashing methods as a definition of `EHashingMethod`:
+ASF目前支援的雜湊方法&#8203;`EHashingMethod`&#8203;定義如下：
 
 | 值 | 名稱             |
 | - | -------------- |
@@ -82,34 +82,34 @@ ASF currently supports the following hashing methods as a definition of `EHashin
 | 1 | SCrypt         |
 | 2 | Pbkdf2         |
 
-以下提供了它們的詳細描述和比較。
+以下提供了它們的詳細說明及比較。
 
-In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
+若要生成雜湊，如在&#8203;`IPCPassword`&#8203;中使用，您應執行&#8203;`hash`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;，並選擇適合您的雜湊方法及原始的純文字密碼。 之後將雜湊字串放入&#8203;`IPCPassword`&#8203;ASF設定屬性，最後修改&#8203;`IPCPasswordFormat`&#8203;對應至您選擇的雜湊方法。
 
 ---
 
 ### `PlainText（純文字）`
 
-This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. It's the easiest one to use, and 100% compatible with all the setups, therefore it's a default way of storing secrets, totally insecure for safe storage.
+這是最簡單也最不安全的密碼雜湊方式，指定&#8203;`EHashingMethod`&#8203;為&#8203;`0`&#8203;。 ASF會生成與原始輸入相同的雜湊值。 它是最容易使用的，且與所有設定100%相容，因此它是儲存私密資料的預設方式，但對於安全儲存來說毫無安全可言。
 
 ---
 
 ### `SCrypt`
 
-Considered secure by today standards, **[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** way of hashing the password is defined as `EHashingMethod` of `1`. ASF will use the `SCrypt` implementation using `8` blocks, `8192` iterations, `32` hash length and encryption key as a salt to generate the array of bytes. The resulting bytes will then be encoded as **[base64](https://en.wikipedia.org/wiki/Base64)** string.
+依照現今的標準，可以將&#8203;**[SCrypt](https://zh.wikipedia.org/zh-tw/Scrypt)**&#8203;雜湊密碼的方式視為安全的，指定&#8203;`EHashingMethod`&#8203;為&#8203;`1`&#8203;。 ASF以&#8203;`8`&#8203;個區塊、&#8203;`8192`&#8203;次迭代、&#8203;`32`&#8203;位雜湊長度，並使用加密鍵作為鹽的&#8203;`SCrypt`&#8203;，來生成字元組陣列。 生成的位元組字串以&#8203;**[Base64](https://zh.wikipedia.org/zh-tw/Base64)**&#8203;編碼。
 
-ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure. If used properly, guarantees decent security for safe storage.
+ASF使您能夠透過&#8203;`--cryptkey`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-TW)**&#8203;指定鹽來增加此方法的安全性。 若您決定省略它，ASF將會使用自己&#8203;**已知**&#8203;硬編碼至應用程式中的金鑰，這代表雜湊將會較不安全。 若使用得當，就能保證安全儲存的良好安全性。
 
 ---
 
 ### `Pbkdf2`
 
-Considered weak by today standards, **[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** way of hashing the password is defined as `EHashingMethod` of `2`. ASF will use the `Pbkdf2` implementation using `10000` iterations, `32` hash length and encryption key as a salt, with `SHA-256` as a hmac algorithm to generate the array of bytes. The resulting bytes will then be encoded as **[base64](https://en.wikipedia.org/wiki/Base64)** string.
+依照現今的標準，&#8203;**[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)**&#8203;雜湊密碼的方式較不安全，指定&#8203;`EHashingMethod`&#8203;為&#8203;`2`&#8203;。 ASF以&#8203;`10000`&#8203;次迭代、&#8203;`32`&#8203;位雜湊長度，並使用加密鍵作為鹽、&#8203;`SHA-256`&#8203;作為HMAC演算法的&#8203;`Pbkdf2`&#8203;，來生成字元組陣列。 生成的位元組字串以&#8203;**[Base64](https://zh.wikipedia.org/zh-tw/Base64)**&#8203;編碼。
 
-ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure.
+ASF使您能夠透過&#8203;`--cryptkey`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-TW)**&#8203;指定鹽來增加此方法的安全性。 若您決定省略它，ASF將會使用自己&#8203;**已知**&#8203;硬編碼至應用程式中的金鑰，這代表雜湊將會較不安全。
 
 ---
 
 ## 建議
 
-If you'd like to use a hashing method for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).
+若您想要以雜湊方法來儲存私密資料，例如&#8203;`IPCPassword`&#8203;，我們建議您加鹽使用&#8203;`SCrypt`&#8203;，因為它提供了非常好的安全性來防止暴力破解。 `Pbkdf2`&#8203;是因為相容性問題才提供的，主要是因為我們已經為Steam平台上的其他功能（例如家庭監護PIN碼）提供了一個有效的（且需要的）實作功能。 它仍被認為是安全的，但與其他替代方案相比沒那麼安全（例如&#8203;`SCrypt`&#8203;）。
