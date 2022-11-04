@@ -225,26 +225,22 @@ addlicense ASF app/292030,sub/47807
 
 `owns`&#8203;指令支援數種不同的&#8203;`<games>`&#8203;引數類型：
 
-使用&#8203;**[正規表示式](https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)**&#8203;來表示遊戲名稱，區分大小寫。 請參閱&#8203;**[檔案說明](https://docs.microsoft.com/zh-tw/dotnet/standard/base-types/regular-expression-language-quick-reference)</strong>&#8203;，來進一步了解完整語法及範例。</td> </tr> 
-
-</tbody> </table> 
+| 類型      | 別名  | 範例               | 描述                                                                                                                                                                                                                                   |
+| ------- | --- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `app`   | `a` | `app/292030`     | 遊戲的唯一&#8203;`appID`&#8203;。                                                                                                                                                                                                          |
+| `sub`   | `s` | `sub/47807`      | 遊戲組合包的唯一&#8203;`subID`&#8203;，包含一款或以上的遊戲。                                                                                                                                                                                            |
+| `regex` | `r` | `regex/^\d{4}:` | 使用&#8203;**[正規表示式](https://zh.wikipedia.org/zh-tw/正则表达式)**&#8203;來表示遊戲名稱，區分大小寫。 請參閱&#8203;**[檔案說明](https://learn.microsoft.com/zh-tw/dotnet/standard/base-types/regular-expression-language-quick-reference)**&#8203;，來進一步了解完整語法及範例。 |
+| `name`  | `n` | `name/Witcher`   | 遊戲的部分名稱，不區分大小寫。                                                                                                                                                                                                                      |
 
 我們建議您明確定義每一個項目的類型，以避免歧義。但為了反向相容性，在您提供了無效或省略的類型的情況下，若您填入了數字，ASF將會預設您想要使用&#8203;`app`&#8203;類型，若為其他值則為&#8203;`name`&#8203;類型。 您也可以使用ASF的標準定界符「&#8203;`,`&#8203;」來同時查詢多個遊戲。
 
 完整的指令範例：
 
-
-
 ```text
 owns ASF app/292030,name/Witcher
 ```
 
-
-
-
 ---
-
-
 
 ## `redeem^` 指令中的 Modes 引數
 
@@ -265,38 +261,25 @@ owns ASF app/292030,name/Witcher
 | SKMG | SkipKeepMissingGames  | 強制停用&#8203;`KeepMissingGames`&#8203;兌換偏好設定。                   |
 | V    | Validate              | 檢查序號格式，自動跳過無效的產品序號。                                           |
 
-
 舉例來說，我們打算為任何尚未擁有遊戲的Bot兌換3個產品序號，但不包含&#8203;`primary`&#8203; Bot。 為此，我們需要執行指令：
 
 `redeem^ primary FF,SI key1,key2,key3`
 
 需要注意的是，進階兌換模式只會替換您&#8203;**在指令中指定**&#8203;的&#8203;`RedeemingPreferences`&#8203;選項。 舉例來說，若您在&#8203;`RedeemingPreferences`&#8203;中啟用了&#8203;`Distributing`&#8203;，那麼無論是否使用&#8203;`FD`&#8203;模式，都不會有任何區別，因為您已經在&#8203;`RedeemingPreferences`&#8203;中啟用了它。 這就是為什麼每個可強制啟用的模式，也會有一個可強制停用的選項。您可以將被停用的選項強制覆蓋成啟用，相反的狀況亦可。
 
-
-
 ---
-
-
 
 ## `encrypt` 指令
 
 `encrypt`&#8203;指令使您能夠使用ASF的加密方式加密任意字串。 加密方式&#8203;`<encryptionMethod>`&#8203;必須是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;章節所述方式之一。 我們建議透過安全的通道（ASF控制台、ASF-ui或IPC提供的專用API端點）使用此指令，否則敏感資訊可能會被第三方記錄（例如聊天訊息會被Steam伺服器記錄）。
 
-
-
 ---
-
-
 
 ## `hash` 指令
 
 `hash`&#8203;指令使您能夠使用ASF的雜湊方式，產生任意字串的雜湊值。 雜湊方式&#8203;`<hashingMethod>`&#8203;必須是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;章節所述方式之一。 我們建議透過安全的通道（ASF控制台、ASF-ui或IPC提供的專用API端點）使用此指令，否則敏感資訊可能會被第三方記錄（例如聊天訊息會被Steam伺服器記錄）。
 
-
-
 ---
-
-
 
 ## `input` 指令
 
@@ -314,10 +297,7 @@ owns ASF app/292030,name/Witcher
 | SteamParentalCode       | `SteamParentalCode`&#8203; Bot設定屬性，設定檔遺失時使用此值。 |
 | TwoFactorAuthentication | 如果您啟用雙重驗證但並非ASF雙重驗證，雙重驗證權杖將由您的手機生成。            |
 
-
 `<Value>`&#8203;是要為指定類型設定的值。 目前所有的值都屬於字串。
-
-
 
 ### 範例
 

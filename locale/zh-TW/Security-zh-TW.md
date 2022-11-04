@@ -26,7 +26,7 @@ ASF目前支援以下加密方式，作為&#8203;`ECryptoMethod`&#8203;的定義
 
 ### `AES（進階加密標準）`
 
-依照現今的標準，可以將&#8203;**[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)**&#8203;儲存密碼的方式視為安全的，指定&#8203;`ECryptoMethod`&#8203;為&#8203;`1`&#8203;。 ASF字串應為AES加密的位元組陣列轉換成&#8203;**[Base64編碼](https://zh.wikipedia.org/zh-tw/Base64)**&#8203;的字元序列，需含有&#8203;**[初始向量](https://en.wikipedia.org/wiki/Initialization_vector)**&#8203;及ASF加密鍵來解密。
+依照現今的標準，可以將&#8203;**[AES](https://zh.wikipedia.org/zh-tw/高级加密标准)**&#8203;儲存密碼的方式視為安全的，指定&#8203;`ECryptoMethod`&#8203;為&#8203;`1`&#8203;。 ASF字串應為AES加密的位元組陣列轉換成&#8203;**[Base64編碼](https://zh.wikipedia.org/zh-tw/Base64)**&#8203;的字元序列，需含有&#8203;**[初始向量](https://zh.wikipedia.org/zh-tw/初始向量)**&#8203;及ASF加密鍵來解密。
 
 上述方法保證了安全性，只要攻擊者不知道用於加密及解密的ASF加密鍵。 ASF使您能夠透過&#8203;`--cryptkey`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-TW)**&#8203;來獲得最大的安全性。 若您決定省略它，ASF將會使用自己&#8203;**已知**&#8203;硬編碼至應用程式中的金鑰，這代表任何人都可以逆轉ASF的加密，並獲得解密的密碼。 雖然這需要一些時間且不容易做到，但它還是有可能的。這就是為什麼您總應一起使用&#8203;`AES`&#8203;及您自己的&#8203;`--cryptkey`&#8203;來加密。 ASF使用的AES方法提供了令人滿意的安全性，它在簡單的&#8203;`PlainText`&#8203;及複雜的&#8203;`ProtectedDataForCurrentUser`&#8203;間取得了平衡，並強烈建議您與自訂的&#8203;`--cryptkey`&#8203;一起使用。 若使用得當，就能保證安全儲存的良好安全性。
 
