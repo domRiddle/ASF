@@ -15,15 +15,15 @@ su # 或是 sudo -i
 useradd -m asf
 ```
 
-下一步，將ASF解壓縮至&#8203;`/home/asf/ArchiSteamFarm`&#8203;資料夾。 資料夾的結構對我們的服務單元來說非常重要，它應為您的&#8203;`$HOME`&#8203;，也就是說&#8203;`ArchiSteamFarm`&#8203;資料夾需要放在&#8203;`/home/<user>`&#8203;中。 若您的操作完全正確，則現在應存在&#8203;`/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service`&#8203;檔案。 If you're using `linux` variant and didn't unpack the file on Linux, but for example used file transfer from Windows, then you'll also need to `chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm`.
+下一步，將ASF解壓縮至&#8203;`/home/asf/ArchiSteamFarm`&#8203;資料夾。 資料夾的結構對我們的服務單元來說非常重要，它應為您的&#8203;`$HOME`&#8203;，也就是說&#8203;`ArchiSteamFarm`&#8203;資料夾需要放在&#8203;`/home/<user>`&#8203;中。 若您的操作完全正確，則現在應存在&#8203;`/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service`&#8203;檔案。 若您使用&#8203;`linux`變體版本，且檔案不在Linux中解壓縮，而是例如從Windows傳輸，那麼您也需執行&#8203;`chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm`&#8203;。
 
-We'll do all below actions as `root`, so get to its shell with `su` or `sudo -i`.
+我們將使用&#8203;`root`&#8203;的身分執行操作，所以需使用&#8203;`su`&#8203;或&#8203;`sudo -i`&#8203;。
 
-Firstly it's a good idea to ensure that our folder still belongs to our `asf` user, `chown -hR asf:asf /home/asf/ArchiSteamFarm` executed once will do it. The permissions could be wrong e.g. if you've downloaded and/or unpacked the zip file as `root`.
+我們最好先確認資料夾仍屬於&#8203;`asf`&#8203;使用者，執行一次&#8203;`chown -hR asf:asf /home/asf/ArchiSteamFarm`&#8203;即可。 因為例如您用&#8203;`root`&#8203;來下載且／或解壓縮.zip檔，權限可能會不正確。
 
-接下來，`cd /etc/systemd/system` 並執行 `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`，這將創建一個指向我們服務聲明的符號連結並在 `systemd` 中註冊。 符號連結將允許 ASF 自動更新您的 `systemd` 單元，作為 ASF 更新的一部分 - 根據您的情況，您可能想要使用該方法，或者乾脆 `cp` 文件和隨心所欲地自行管理。
+接下來，&#8203;`cd /etc/systemd/system`&#8203;，執行&#8203;`ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`&#8203;，這將建立一個指向我們服務聲明的符號連結，並於&#8203;`systemd`&#8203;中註冊。 符號連結可以使ASF在更新時自動更新您的&#8203;`systemd`&#8203;單元──依據您的情形，您可能想要使用該方法，或使用&#8203;`cp`&#8203;複製檔案並自行管理。
 
-Afterwards, ensure that `systemd` recognizes our service:
+然後，確保&#8203;`systemd`&#8203;能辨識我們的服務：
 
 ```
 systemctl status ArchiSteamFarm@asf
@@ -34,9 +34,9 @@ systemctl status ArchiSteamFarm@asf
        Docs: https://github.com/JustArchiNET/ArchiSteamFarm/wiki
 ```
 
-Pay special attention to the user we declare after `@`, it's `asf` in our case. Our systemd service unit expects from you to declare the user, as it influences the exact place of the binary `/home/<user>/ArchiSteamFarm`, as well as the actual user systemd will spawn the process as.
+請特別注意我們在&#8203;`@`&#8203;後宣告的使用者，在範例中是&#8203;`asf`&#8203;。 我們的systemd服務單元要求您宣告使用者，因為這會影響&#8203;`/home/<user>/ArchiSteamFarm`&#8203;二進制檔案的實際位置，及systemd生成程序的實際使用者。
 
-If systemd returned output similar to above, everything is in order, and we're almost done. Now all that is left is actually starting our service as our chosen user: `systemctl start ArchiSteamFarm@asf`. Wait a second or two, and you can check the status again:
+若systemd回傳輸出與上述相似，則一切正常，我們就快完成了。 現在，剩下的步驟就是以我們所選的使用者實際啟動服務：&#8203;`systemctl start ArchiSteamFarm@asf`&#8203;。 等待一下，您就可以再次檢查狀態：
 
 ```
 systemctl status ArchiSteamFarm@asf
@@ -49,19 +49,19 @@ systemctl status ArchiSteamFarm@asf
 (...)
 ```
 
-If `systemd` states `active (running)`, it means everything went well, and you can verify that ASF process should be up and running, for example with `journalctl -r`, as ASF by default also writes to its console output, which is recorded by `systemd`. If you're satisfied with the setup you have right now, you can tell `systemd` to automatically start your service during boot, by executing `systemctl enable ArchiSteamFarm@asf` command. That's all.
+若&#8203;`systemd`&#8203;的狀態為&#8203;`active (running)`&#8203;，代表一切正常，您可以透過例如&#8203;`journalctl -r`&#8203;來驗證ASF程序已啟動並執行中，因為ASF預設輸出至控制台，會被&#8203;`systemd`&#8203;記錄。 若您滿意現在的設定，就能執行&#8203;`systemctl enable ArchiSteamFarm@asf`&#8203;指令，告訴&#8203;`systemd`&#8203;在啟動期間自動啟動您的服務。 這樣就完成了。
 
-If by any chance you'd like to stop the process, simply execute `systemctl stop ArchiSteamFarm@asf`. Likewise, if you want to disable ASF from being started automatically on boot, `systemctl disable ArchiSteamFarm@asf` will do that for you, it's very simple.
+若您想停止程序，只需執行&#8203;`systemctl stop ArchiSteamFarm@asf`&#8203;。 同樣地，若您想要停用ASF自啟動，就執行&#8203;`systemctl disable ArchiSteamFarm@asf`&#8203;，非常簡單。
 
-Please note that, as there is no standard input enabled for our `systemd` service, you won't be able to input your details through the console in usual way. Running through `systemd` is equivalent to specifying **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** setting and comes with all its implications. Fortunately for you, it's very easy to manage your ASF through **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, which we recommend in case you need to supply additional details during login or otherwise manage your ASF process further.
+請注意，由於我們的&#8203;`systemd`&#8203;服務沒有啟用標準輸入，故您無法使用平常的方式來透過控制台輸入資訊。 透過&#8203;`systemd`執行，等同於指定&#8203;**[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#headless)**&#8203;設定。 幸運的是，若您需要在登入期間提供額外資訊，或更好地管理您的ASF程序，我們建議您使用&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**&#8203;，能夠容易地管理您的ASF。
 
 ### 環境變數
 
-It's possible to supply additional environment variables to our `systemd` service, which you'll be interested in doing in case you want to for example use a custom `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**, therefore specifying `ASF_CRYPTKEY` environment variable.
+可以為我們的&#8203;`systemd`&#8203;服務提供額外的環境變數，例如您想要使用自訂的&#8203;`--cryptkey`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW#引數)**&#8203;，就要指定&#8203;`ASF_CRYPTKEY`&#8203;環境變數。
 
-In order to provide custom environment variables, create `/etc/asf` folder (in case it doesn't exist), `mkdir -p /etc/asf`. We recommend to `chmod 700 /etc/asf` to ensure that only `root` user has access to read those files, because they might contain sensitive properties such as `ASF_CRYPTKEY`. Afterwards, write to a `/etc/asf/<user>` file, where `<user>` is the user you're running the service under (`asf` in our example above, so `/etc/asf/asf`).
+若要提供自訂環境變數，使用&#8203;`mkdir -p /etc/asf`&#8203;來建立&#8203;`/etc/asf`資料夾（若其不存在）。 我們建議使用&#8203;`chmod 700 /etc/asf`&#8203;，來確保只有&#8203;`root`&#8203;使用者能夠存取這些檔案，因為它們可能含有機密屬性，例如&#8203;`ASF_CRYPTKEY`&#8203;。 然後，編輯&#8203;`/etc/asf/<user>`&#8203;檔案，其中&#8203;`<user>`&#8203;代表您要執行服務的使用者（在上述範例中是&#8203;`asf`&#8203;，因此是&#8203;`/etc/asf/asf`&#8203;）。
 
-The file should contain all environment variables that you'd like to provide to the process:
+此檔案應該包含所有您要提供給程序的環境變數：
 
 ```sh
 # 只宣告您實際所需的變數
