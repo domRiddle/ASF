@@ -49,7 +49,7 @@ systemctl status ArchiSteamFarm@asf
 (...)
 ```
 
-若&#8203;`systemd`&#8203;的狀態為&#8203;`active (running)`&#8203;，代表一切正常，您可以透過例如&#8203;`journalctl -r`&#8203;來驗證ASF程序已啟動並執行中，因為ASF預設輸出至控制台，會被&#8203;`systemd`&#8203;記錄。 若您滿意現在的設定，就能執行&#8203;`systemctl enable ArchiSteamFarm@asf`&#8203;指令，告訴&#8203;`systemd`&#8203;在啟動期間自動啟動您的服務。 這樣就完成了。
+若&#8203;`systemd`&#8203;的狀態為&#8203;`active (running)`&#8203;，代表一切正常，您可以透過例如&#8203;`journalctl -r`&#8203;來驗證ASF程序已啟動並執行中，因為ASF預設輸出至控制台，會被&#8203;`systemd`&#8203;記錄。 若您滿意現在的設定，就能執行&#8203;`systemctl enable ArchiSteamFarm@asf`&#8203;命令，告訴&#8203;`systemd`&#8203;在啟動期間自動啟動您的服務。 這樣就完成了。
 
 若您想停止程序，只需執行&#8203;`systemctl stop ArchiSteamFarm@asf`&#8203;。 同樣地，若您想要停用ASF自啟動，就執行&#8203;`systemctl disable ArchiSteamFarm@asf`&#8203;，非常簡單。
 
@@ -75,15 +75,15 @@ ASF_NETWORK_GROUP="my_network_group"
 
 ## 永遠不要以系統管理員身分執行 ASF！
 
-ASF includes its own validation whether the process is being run as administrator (`root`) or not. Running as root is **not** required for any kind of operation done by the ASF process, assuming properly configured environment it's operating in, and therefore should be regarded as a **bad practice**. This means that on Windows, ASF should never be executed with "run as administrator" setting, and on Unix ASF should have a dedicated user account for itself, or re-use your own in case of a desktop system.
+ASF含有邏輯，驗證自己是否以系統管理員（&#8203;`root`&#8203;）身分執行。 若設定環境正確，ASF程序的任何操作都&#8203;**不**&#8203;需要執行於Root，因此使用Root執行都被視為&#8203;**不好的方式**&#8203;。 這代表在Windows上，ASF永遠都不應該使用「以系統管理員執行」設定來執行；而在Unix上，ASF應要擁有專用的使用者帳號，或在桌面環境中使用您自己的帳號。
 
-For further elaboration on *why* we discourage running ASF as root, refer to **[superuser](https://superuser.com/questions/218379/why-is-it-bad-to-run-as-root)** and other resources. If you're still not convinced, ask yourself what would happen to your machine if ASF process executed `rm -rf /*` command right after its launch.
+若要了解&#8203;*為什麼*&#8203;我們不鼓勵以Root執行ASF，請參閱&#8203;**[Superuser](https://superuser.com/questions/218379/why-is-it-bad-to-run-as-root)**&#8203;及其他資料。 若您仍不信邪，請自行想像，如果ASF程序在啟動後立刻執行&#8203;`rm -rf /*`&#8203;命令，您的設備會怎樣。
 
 ### 我使用 `root` 執行，因為 ASF 無法寫入它自己的檔案
 
-This means that you have wrongly configured permissions of the files ASF is trying to access. You should login as `root` account (either with `su` or `sudo -i`) and then **correct** the permissions by issuing `chown -hR asf:asf /path/to/ASF` command, substituting `asf:asf` with the user that you'll run ASF under, and `/path/to/ASF` accordingly. If by any chance you're using custom `--path` telling ASF user to use the different directory, you should execute the same command again for that path as well.
+這代表您錯誤設定了ASF試圖存取的檔案的權限。 您應使用&#8203;`root`&#8203;帳號（使用&#8203;`su`&#8203;或&#8203;`sudo -i`），然後執行&#8203;`chown -hR asf:asf /path/to/ASF`&#8203;命令&#8203;**更正**&#8203;權限。其中，您需將&#8203;`asf:asf`&#8203;取代成實際執行ASF的使用者，&#8203;`/path/to/ASF`&#8203;取代成ASF的實際路徑。 若您使用自訂&#8203;`--path`&#8203;，讓ASF使用者使用不同的資料夾，您還需為此路徑執行一次上述命令。
 
-After doing that, you should no longer get any kind of issue related to ASF not being able to write over its own files, as you've just changed the owner of everything ASF is interested in to the user the ASF process will actually run under.
+完成本操作後，您應該不會再遇到任何與ASF無法ASF無法寫入自己的檔案的相關問題，因為您剛剛已將ASF所需檔案的擁有者改成實際執行ASF的使用者。
 
 ### 我使用 `root` 執行，因為我不知道該怎麼做
 
@@ -94,17 +94,17 @@ chown -hR asf:asf /path/to/ASF
 su asf -c /path/to/ASF/ArchiSteamFarm # 或是 sudo -u asf /path/to/ASF/ArchiSteamFarm
 ```
 
-That would be doing it manually, it's much easier to use our **[`systemd` service](#systemd-service-for-linux)** explained above.
+這些是手動啟動，但使用我們上述說明的&#8203;**[`systemd`&#8203;服務](#linux-的-systemd-服務)**&#8203;會更加輕鬆。
 
 ### 我十分清楚，且依然想要使用 `root` 執行
 
-As of V5.2.0.10, ASF no longer stops you from doing so, only displays a warning with a short notice. Just don't be shocked if one day due to a bug in the program it'll blow up your whole OS with complete data loss - you've been warned.
+從V5.2.0.10版本開始，ASF不再阻止您這樣做，而只是顯示一條簡短的警告。 但如果有一天由於程式錯誤，使它炸毀了您的整個作業系統，並導致資料完全遺失，那就不要感到震驚──您已被警告過了。
 
 ---
 
 ## 多個實例
 
-ASF is compatible with running multiple instances of the process on the same machine. The instances can be completely standalone or derived from the same binary location (in which case, you want to run them with different `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**).
+ASF相容於同一台設備上執行多個程序實例。 The instances can be completely standalone or derived from the same binary location (in which case, you want to run them with different `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**).
 
 When running multiple instances from the same binary, keep in mind that you should typically disable auto-updates in all of their configs, as there is no synchronization between them in regards to auto-updates. If you'd like to keep having auto-updates enabled, we recommend standalone instances, but you can still make updates work, as long as you can ensure that all other ASF instances are closed.
 
