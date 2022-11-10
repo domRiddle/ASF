@@ -26,7 +26,7 @@ ASF預設使用工作站垃圾回收。 這主要是因為記憶體的使用與�
 
 但是如至今日我們通常擁有很多CPU核心，使ASF也因此受益，因為在每個CPU vCore中都能有一個專用的GC執行緒。 這可以大大地提高ASF執行繁重工作時的效能，例如剖析徽章頁面或物品庫，因為每個CPU vCore都可以提供協助，而不只是2個（主執行緒及GC）。 對於具有3個或更多CPU vCore的設備，建議使用伺服器GC；若您的設備只有1個CPU vCore，則會自動強制使用工作站GC；若您正好有2個，您可以考慮嘗試使用兩者（結果可能會不同）。
 
-伺服器GC本身不會因為只處於活動狀態而導致巨量的記憶體消耗，但它具有更大的生成大小，因此更不會把記憶體還給作業系統。 您可能會發現自己處於一個尷尬情形，伺服器GC能顯著提高效能，使您希望繼續使用它，但同時您無法承受使用它帶來的巨量記憶體消耗。 幸運的是，將&#8203;**[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gclatencylevel)**&#8203;組態設定設定成&#8203;`0`&#8203;，是個「兩全其美」的方法，它仍會啟用伺服器GC，但會限制生成大小並更關照記憶體的消耗。 或者您也許可以嘗試另外一個屬性，&#8203;**[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gcheaphardlimitpercent)**&#8203;，或同時啟用這兩個選項。
+伺服器GC本身不會因為只處於活動狀態而造成巨量的記憶體消耗，但它具有更大的生成大小，因此更不會把記憶體還給作業系統。 您可能會發現自己處於一個尷尬情形，伺服器GC能顯著提高效能，使您希望繼續使用它，但同時您無法承受使用它帶來的巨量記憶體消耗。 幸運的是，將&#8203;**[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gclatencylevel)**&#8203;組態設定設定成&#8203;`0`&#8203;，是個「兩全其美」的方法，它仍會啟用伺服器GC，但會限制生成大小並更關照記憶體的消耗。 或者您也許可以嘗試另外一個屬性，&#8203;**[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gcheaphardlimitpercent)**&#8203;，或同時啟用這兩個選項。
 
 但是，如果記憶體對您來說不是問題（因為GC仍會依據您可用的記憶體來自行調整），那麼最好不要更改這些屬性，以達到最高效能。
 
