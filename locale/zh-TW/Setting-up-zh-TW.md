@@ -207,7 +207,7 @@ ASF是一個沒有圖形使用者介面的控制台應用程式。 然而，我�
 
 ## 安裝 Generic 版本套件
 
-這部分是為想要安裝ASF &#8203;**[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#Generic)**&#8203;變體版本的進階使用者所準備的。 若您可以使用&#8203;**[適用於您的作業系統的套件](#適用於您的作業系統的設定)**&#8203;，我們不推薦安裝您安裝 Generic（通用）套件。
+這部分是為想要安裝ASF &#8203;**[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#Generic)**&#8203;變體版本的進階使用者所準備的。 若您可以使用&#8203;**[適用於您的作業系統的套件](#適用於您的作業系統的設定)**&#8203;，我們不建議安裝您安裝 Generic（通用）套件。
 
 您可能會在這些情形下選擇使用&#8203;`Generic`&#8203;變體版本（當然也可以沒有任何原因）：
 - 當套件的建置版本沒有適用於您的作業系統時（例如32位元Windows）

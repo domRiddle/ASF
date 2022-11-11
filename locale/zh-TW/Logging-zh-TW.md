@@ -1,14 +1,14 @@
 # 紀錄日誌
 
-ASF allows you to configure your own custom logging module that will be used during runtime. You can do so by putting special file named `NLog.config` in application’s directory. You can read entire documentation of NLog on **[NLog wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**, but in addition to that you'll find some useful examples here as well.
+ASF允許您自訂執行期間使用的紀錄日誌模組。 您可以將叫做&#8203;`NLog.config`&#8203;的特定檔案放置到應用程式的資料夾中來達成自訂。 您可以在&#8203;**[NLog Wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**&#8203;中閱讀完整的文件，但除此之外，您也可以在這裡找到一些有用的範例。
 
 ---
 
 ## 預設紀錄
 
-By default, ASF is logging to `ColoredConsole` (standard output) and `File`. `File` logging includes `log.txt` file in program's directory, and `logs` directory for archival purposes.
+預設情形下，ASF會記錄於&#8203;`ColoredConsole`&#8203;（標準輸出）及&#8203;`File`中。 `File`&#8203;紀錄包含在程式資料夾中的&#8203;`log.txt`&#8203;檔案及用於歸檔的&#8203;`logs`&#8203;資料夾中。
 
-Using custom NLog config automatically disables default ASF config, your config overrides **completely** default ASF logging, which means that if you want to keep e.g. our `ColoredConsole` target, then you must define it **yourself**. This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
+使用自訂NLog設定會自動停用預設的ASF設定，您的設定會&#8203;**完全**&#8203;覆寫預設的ASF紀錄，這代表例如您想要保留我們的&#8203;`ColoredConsole`&#8203;目標，就必須&#8203;**自行定義**&#8203;。 This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
 
 If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom `NLog.config`. Don't use custom `NLog.config` if you don't want to modify default ASF logging. For reference though, equivalent of hardcoded ASF default logging would be:
 
