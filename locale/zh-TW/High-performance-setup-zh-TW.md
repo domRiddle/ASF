@@ -80,7 +80,7 @@ $Env:DOTNET_TC_QuickJitForLoops=1
 
 - 確保您使用的是&#8203;`OptimizationMode`&#8203;的預設值，為&#8203;`MaxPerformance`&#8203;。 這是到現在最重要的設定，因為使用&#8203;`MinMemoryUsage`&#8203;值會對效能產生重大影響。
 - 啟用伺服器GC。 與工作站GC相比，透過明顯的記憶體增加，可以一眼看出伺服器GC為活動狀態。 這將為您設備上的每個CPU執行緒生成一個GC執行緒，以在最高速度下平行執行GC運算。
-- 若您無法承擔伺服器GC所帶來的記憶體消耗，可以考慮調整&#8203;**[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gclatencylevel)**&#8203;和／或&#8203;**[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gcheaphardlimitpercent)**&#8203;來達成兩全。 但是，若您能承受這樣的記憶體消耗，那麼最好讓它維持預設狀態──伺服器GC在執行期間已自行調整，且足夠智慧在您的作業系統真正需要它時能使用更少的記憶體。
+- 若您無法承擔伺服器GC所帶來的記憶體消耗，可以考慮調整&#8203;**[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gclatencylevel)**&#8203;和／或&#8203;**[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gcheaphardlimitpercent)**&#8203;來達成兩全。 但是，若您能承受這樣的記憶體消耗，那麼最好讓它維持預設狀態⸺伺服器GC在執行期間已自行調整，且足夠智慧在您的作業系統真正需要它時能使用更少的記憶體。
 - 您還可以考慮透過上述其他的&#8203;`DOTNET_`&#8203;屬性來進行額外調整，以增加最佳化來減少啟動時間。
 
 套用上述建議，可以使您擁有卓越的ASF效能，在即使啟用了成百上千個Bot後，也能保有快如閃電的效能。 CPU不再成為瓶頸，因為ASF能夠在需要時發揮您CPU的全部能力，將所需時間減少到最低限度。 再更進一步就只能升級CPU及RAM了。

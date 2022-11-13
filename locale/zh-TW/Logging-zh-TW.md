@@ -1,6 +1,6 @@
 # 紀錄日誌
 
-ASF允許您自訂執行期間使用的紀錄日誌模組。 您可以將叫做&#8203;`NLog.config`&#8203;的特定檔案放置到應用程式的資料夾中來達成自訂。 您可以在&#8203;**[NLog Wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**&#8203;中閱讀完整的文件，但除此之外，您也可以在這裡找到一些有用的範例。
+ASF允許您自訂執行期間使用的紀錄日誌模組。 您可以將叫做&#8203;`NLog.config`&#8203;的特定檔案存放至應用程式的資料夾中來達成自訂。 您可以在&#8203;**[NLog Wiki](https://github.com/NLog/NLog/wiki/Configuration-file)**&#8203;中閱讀完整的文件，但除此之外，您也可以在這裡找到一些有用的範例。
 
 ---
 

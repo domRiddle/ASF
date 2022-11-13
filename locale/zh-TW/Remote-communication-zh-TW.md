@@ -1,16 +1,16 @@
 # 遠端通訊
 
-本章節會詳細說明ASF包含的遠端通訊，包括進一步解釋您如何改變它。 雖然我們不認為以下任何內容是惡意或無用的，我們也沒有公開它的法律義務，但我們希望您能更好理解本程式功能，特別是在您的隱私及共享資料的方面。
+本章節會詳細說明ASF所包含的遠端通訊，並進一步解釋您如何改變它。 雖然我們不認為以下任何內容是惡意或無用的，我們也沒有公開它的法律義務，但我們希望您能更好理解本程式功能，特別是在您的隱私及共享資料的方面。
 
 ## Steam
 
 ASF與Steam網路（&#8203;**[CM伺服器](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**&#8203;）、 &#8203;**[Steam API](https://steamcommunity.com/dev)**&#8203;、&#8203;**[Steam商店](https://store.steampowered.com)**&#8203;及&#8203;**[Steam社群](https://steamcommunity.com)**&#8203;通訊。
 
-停用上述通訊是不可能的，因為它是ASF提供基本功能的核心基礎。 如果您對上述內容不滿意，請避免使用ASF。
+停用上述通訊是不可能的，因為它是ASF提供基本功能的核心基礎。 如果您對上述內容不滿意，請勿使用ASF。
 
 ## Steam 群組
 
-ASF與我們的&#8203;**[Steam群組](https://steamcommunity.com/groups/archiasf)**&#8203;通訊。 群組能為您發布公告，特別是新版本、緊急狀況、Steam問題，及其他對於保持社群更新重要的事情。 它還允許您經由提出問題、解決問題、報告問題或提出改進建議，來獲得我們的技術支援。 預設情形下，ASF使用的帳號會在登入時自動加入群組。
+ASF與我們的&#8203;**[Steam群組](https://steamcommunity.com/groups/archiasf)**&#8203;通訊。 群組能為您發布公告，特別是新版本、緊急狀況、Steam問題，以及其他對於保持社群更新的重要事情。 它還使您能夠經由提出問題、解決問題、報告問題或提出改進建議，來獲得我們的技術支援。 預設情形下，使用ASF的帳號會在登入時自動加入群組。
 
 您可以透過在Bot的&#8203;**[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#remotecommunication)**&#8203;設定中停用&#8203;`SteamGroup`&#8203;旗標，來決定退出群組。
 
@@ -25,7 +25,7 @@ ASF與&#8203;**[我們自己的伺服器](https://asf.justarchi.net)**&#8203;通
 - 如果您在&#8203;**[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#tradingpreferences)**&#8203;中啟用&#8203;`SteamTradeMatcher`&#8203;並滿足其他準則，則會在&#8203;**[我們的清單](https://asf.justarchi.net/STM)**&#8203;中顯示您的Bot
 - 如果您在&#8203;**[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#tradingpreferences)**&#8203;中啟用&#8203;`MatchActively`&#8203;並滿足其他準則，則會從&#8203;**[我們的清單](https://asf.justarchi.net/STM)**&#8203;中下載當前可交易的Bot來進行交易
 
-作為一項安全措施，您無法停用ASF建置檔案核對和的驗證。 但如果您不想發生這種情況，如上文的GitHub章節中所述，您可以完全停用自動更新。
+作為一項安全措施，您無法停用ASF建置檔案核對和的驗證。 但如果您不想發生這種情形，如上文的GitHub章節中所述，您可以完全停用自動更新。
 
 您可以透過在Bot的&#8203;**[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#remotecommunication)**&#8203;設定中停用&#8203;`PublicListing`&#8203;旗標，來決定不顯示在清單中。 如果您想執行&#8203;`SteamTradeMatcher`&#8203; Bot且不被顯示，這可能會有幫助。
 
@@ -70,6 +70,6 @@ ASF STM清單暫時只接受ASF Bot。 目前無法在我們的清單中顯示�
 - 構成以上&#8203;`MatchableTypes`&#8203;個Steam物品的遊戲總數（用於顯示及匹配）
 - 您的&#8203;**[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#tradingpreferences)**&#8203;中&#8203;`MatchEverything`&#8203;的價值（用於顯示及匹配）
 
-ASF伺服器&#8203;**不會**&#8203;在沒有事先於更新日誌中通知變更及其原因的情形下，收集、儲存或以其他方式處理任何上述未列出的資料。 我們認為上述一切都不是嚴重的事情，我們提到這些是為了讓您知道，ASF除了您自己設定的功能之外究竟還做了什麼，以便使您更好地了解其流程。
+ASF伺服器&#8203;**不會**&#8203;在沒有事先於更新日誌中通知變更及其原因的情形下，收集、儲存或以其他方式處理任何上述未列出的資料。 我們認為上述一切都不是嚴重問題，提到這些只是為了讓您知道，ASF除了您自己設定的功能之外究竟還做了什麼，以使您更好地了解其流程。
 
 您的資料會在您停止使用我們的清單後的最多15分鐘內，自動從公開變成隱藏，不論是因為您更改設定或是關閉ASF。 除此之外，在上述情形發生後的最多7天內，自動從我們的伺服器（包含所有副本備份）上刪除。

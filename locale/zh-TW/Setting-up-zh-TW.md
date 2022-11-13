@@ -1,17 +1,17 @@
 # 新手上路
 
-如果您是第一次來到這裡，歡迎！ 我們很高興又看到一位對我們的專案感興趣的旅客，但請記住：能力越強，責任越大──只要您&#8203;**足夠認真學習如何使用它**&#8203;，ASF就能完成相當多的Steam相關事務。 學習的過程將充滿艱辛與坎坷，我們希望您閱讀與之相關的Wiki，並詳細了解這一切是如何運作的。
+如果您是第一次來到這裡，歡迎！ 我們很高興又看到一位對我們的專案感興趣的旅客，但請記住：能力越強，責任越大⸺只要您&#8203;**足夠認真學習如何使用它**&#8203;，ASF就能完成相當多的Steam相關事務。 學習的過程將充滿艱辛與坎坷，我們希望您閱讀與之相關的Wiki，並詳細了解這一切是如何運作的。
 
-如果您還在這裡，那就代表您堅持看完了上面的文字，做得不錯。 除非您跳過了它，那樣的話，您很快就會經歷一段&#8203;**[不好的時光](https://www.youtube.com/watch?v=WJgt6m6njVw)**&#8203;…… 總的來說，ASF是一個控制台應用程式，這代表程式本身沒有您習慣的圖型介面。 ASF主要是設計執行於伺服器中，所以它更偏向為一個服務（常駐程式），而非桌面應用程式。
+如果您還在這裡，那就代表您堅持看完了上面的文字，做得不錯。 除非您跳過了它，那樣的話，您很快就會經歷一段&#8203;**[不好的時光](https://www.youtube.com/watch?v=WJgt6m6njVw)**&#8203;…… 總的來說，ASF是一個控制台應用程式，也就是說程式本身沒有您習慣的GUI介面。 ASF主要是設計執行於伺服器中，所以它更偏向為一個服務（常駐程式），而非桌面應用程式。
 
-然而，這並不代表您無法在電腦上使用ASF，或是使用起來會比一般的程式更為複雜。 ASF是一個獨立的免安裝應用程式，可以直接使用，但在此之前，需要先進行組態設定。 設定檔會告訴ASF啟動之後應該做什麼。 若您在沒有設定檔的情況下啟動它，那麼，ASF將不會做任何事情，就是如此簡單。
+但是，這並不代表您無法在電腦上使用ASF，或是使用起來會比一般的程式更為複雜。 ASF是一個獨立的免安裝應用程式，可以直接使用。但在此之前，需要先進行組態設定。 設定檔會告訴ASF啟動之後應該做什麼。 若您在沒有設定檔的情形下啟動它，那麼，ASF將不會做任何事情，就是如此簡單。
 
 ---
 
 ## 適用於您的作業系統的設定
 
 一般來說，這是我們在接下來的幾分鐘內要做的事情：
-- 安裝&#8203;**[.NET 需求套件](#net-需求套件)**&#8203;。
+- 安裝&#8203;**[.NET需求套件](#net-需求套件)**&#8203;。
 - 在&#8203;**[ASF發布頁面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下載適用於您的作業系統的版本變體。
 - 將壓縮檔解壓縮至一個新資料夾中。
 - **[設定ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;。
@@ -23,19 +23,19 @@
 
 ### .NET 需求套件
 
-首要步驟，是確保您的作業系統可以正確地啟動ASF。 ASF是用C#語言編寫的，基於.NET平台，並可能需要您平台上尚未擁有的原生函式庫。 取決您使用的是Windows、Linux還是macOS，您將有不同的系統需求。所有要求都列在您應遵循的&#8203;**[.NET 需求套件](https://docs.microsoft.com/dotnet/core/install)**&#8203;文件中。 這是我們應當使用的參考資料，但為了簡單起見，我們在下面額外列出需要的所有軟體套件。因此您無需閱讀完整的文件。
+首要步驟，是確保您的作業系統可以正確地啟動ASF。 ASF是用C#語言編寫的，基於.NET平台，並可能需要您平台上尚未擁有的原生函式庫。 取決您使用的是Windows、Linux還是macOS，您將有不同的系統需求。所有要求都列在您應遵循的&#8203;**[.NET需求套件](https://docs.microsoft.com/dotnet/core/install)**&#8203;文件中。 這是我們應當使用的參考資料，但為了簡單起見，我們在下面額外列出需要的所有軟體套件。因此您無需閱讀完整的文件。
 
-若您已安裝並使用其他第三方軟體，一些（甚至全部）相依性套件已存在於您的作業系統上，是很正常的。 不過，您仍應在作業系統上執行合適的安裝程式，來確保這些軟體確實已被安裝──缺少這些相依套件，ASF將完全無法啟動。
+若您已安裝並使用了其他第三方軟體，一些（甚至全部）相依性套件已存在於您的作業系統上，是很正常的。 不過，您仍應在作業系統上執行適合的安裝程式，來確保這些軟體確實已被安裝⸺缺少這些相依套件，ASF將完全無法啟動。
 
 請注意，您不需要特地為作業系統的建置版本做其他任何事情，特別是.NET SDK的安裝或執行環境，因為它們已包含於作業系統套件中。 您只需要安裝必要的.NET相依需求套件，即可執行ASF裡面自帶的.NET執行環境。
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**&#8203;：
 - **[Microsoft Visual C++可轉散發套件更新](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)**&#8203;（&#8203;**[x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)**&#8203;適用於64位元Windows；&#8203;**[x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)**&#8203;適用於32位元Windows）
-- 強烈建議您，務必確保已安裝所有的Windows更新。 您至少需要安裝**[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**、**[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**，但仍可能需要更多的更新。 如果您的Windows已更新至最新版，則上述更新補丁都已安裝。 在安裝Visual C++套件前，請確保滿足上述需求。
+- 強烈建議您，務必確保已安裝所有的Windows更新。 您至少需要安裝&#8203;**[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**&#8203;、&#8203;**[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**&#8203;，但仍可能需要更多的更新。 如果您的Windows已更新至最新版，則上述更新補丁都已安裝。 在安裝Visual C++套件前，請確保滿足上述需求。
 - 若您使用Windows 7，您必須使用&#8203;**[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)**&#8203;變體版本，因為套件不再支援您的作業系統。 我們強烈建議您盡快進行更新您的作業系統，因為ASF的未來版本可能會完全無法在上面使用，而且說實話，Windows 7在2020年就已經結束了生命週期。
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**&#8203;：
-套件名稱取決於您使用的Linux發行版本，我們列出了最常見的套件名稱。 您可以使用本機中的套件管理系統，為您的作業系統取得全部套件（例如適用於Debian的&#8203;`apt`&#8203;或適用於CentOS的&#8203;`yum`&#8203;）。
+套件名稱取決於您使用的Linux發行版本，我們列出了最常見的套件名稱。 您可以使用本機中的套件管理系統，為您的作業系統取得全部套件（例如適用於Debian的&#8203;`apt`&#8203;，或適用於CentOS的&#8203;`yum`&#8203;）。
 
 - `ca-certificates`&#8203;（用於建立HTTPS連線的標準可信賴的SSL憑證）
 - `libc6`&#8203;（&#8203;`libc`&#8203;）
@@ -55,7 +55,7 @@
 
 ### 下載
 
-既然我們有了所有的相依性套件，那麼接下來就是下載&#8203;**[ASF最新版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;。 ASF有許多變體版本可供使用，但您應使用符合您作業系統及其架構的版本套件。 舉例來說，假設您使用&#8203;`64`&#8203;位元&#8203;`Win`&#8203;dows，那麼您需使用&#8203;`ASF-win-x64`&#8203;版本的套件。 欲取得關於可用變體的更多資訊，請參閱&#8203;**[相容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW)**&#8203;章節。 ASF也可以執行於沒有提供建置版本的作業系統上，例如&#8203;**32位元Windows**&#8203;，請前往&#8203;**[安裝通用版本套件](#安裝通用版本套件)**&#8203;繼續閱讀。
+既然我們有了所有的相依性套件，那麼接下來就是下載&#8203;**[ASF最新版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;。 ASF有許多變體版本可供使用，但您應使用符合您作業系統及其架構的版本套件。 舉例來說，假設您使用&#8203;`64`&#8203;位元&#8203;`Win`&#8203;dows，那麼您需使用&#8203;`ASF-win-x64`&#8203;版本的套件。 欲取得關於可用變體的更多資訊，請參閱&#8203;**[相容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW)**&#8203;章節。 ASF也可以執行於沒有提供建置版本的作業系統上，例如&#8203;**32位元Windows**&#8203;，請前往&#8203;**[安裝Generic版本套件](#安裝-generic-版本套件)**&#8203;繼續閱讀。
 
 ![資源檔案](https://i.imgur.com/Ym2xPE5.png)
 
@@ -110,7 +110,7 @@ C:\ASF（可存放您自己的東西）
 
 ASF需要您的登入憑證，因為它是透過內建的Steam用戶端來實現的，且需要跟您自己使用的用戶端相同的登入資訊。 您的登入認證只會儲存在您電腦上ASF的&#8203;`config`&#8203;資料夾中，我們的設定檔生成器也是基於用戶端的網頁工具，也就是說，代碼是在您本機的瀏覽器中執行，以此來生成ASF設定檔。您輸入的資訊永遠不會從您的電腦發送出去，所以您不必擔心任何可能的敏感資料洩漏。 儘管如此，我們能理解您仍可能出於某些原因不想輸入登入資訊。您可以稍後再手動輸入到產生的檔案中，或者徹底略過，並只在ASF的命令提示字元中輸入。 更多安全性問題，請參閱&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;章節。
 
-您也可以省略其中一個欄位，例如 &#8203;`SteamPassword`&#8203;，這樣ASF仍能自動登入，但會向您詢問密碼（類似Steam用戶端）。 若您使用Steam家庭監護帳號，您需要將PIN碼填入&#8203;`SteamParentalCode`&#8203;欄位來解鎖。
+您也可以省略其中一個欄位，例如&#8203;`SteamPassword`&#8203;，這樣ASF仍能自動登入，但會向您詢問密碼（類似Steam用戶端）。 若您使用Steam家庭監護帳號，您需要將PIN碼填入&#8203;`SteamParentalCode`&#8203;欄位來解鎖。
 
 在這些操作完成後，您的網頁現在看起來會像是下圖：
 
@@ -142,7 +142,7 @@ ASF需要您的登入憑證，因為它是透過內建的Steam用戶端來實現
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-這代表ASF現在已成功地在您的帳號上運作，您可以將程式最小化，然後去做其他事情。 在經過足夠的時間後（取決於&#8203;**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;），您將會看到Steam交換卡片慢慢掉落。 當然，要做到這一點，您必須擁有可以掛卡的遊戲，它會在您的&#8203;**[徽章頁面](https://steamcommunity.com/my/badges)**&#8203;上顯示「還有X張卡片會掉落」；如果沒有可供掛卡的遊戲，ASF將不做任何事情，如同&#8203;**[常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-asf)**&#8203;中所述。
+這代表ASF現在已成功地在您的帳號上運作，您可以將程式最小化，然後去做其他事情。 在經過足夠的時間後（取決於&#8203;**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;），您將會看到Steam交換卡片慢慢掉落。 當然，要做到這一點，您必須擁有可以掛卡的遊戲，它會在您的&#8203;**[徽章頁面](https://steamcommunity.com/my/badges)**&#8203;上顯示「還有X張卡片會掉落」；如果沒有可供掛卡的遊戲，ASF將不做任何事情，如同&#8203;**[常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-TW#什麼是-asf)**&#8203;中所述。
 
 我們最基本的新手上路指南到此結束。 您現在可以決定要進一步設定ASF，或是讓ASF以預設設定運作。 我們將會介紹更多基本細節，然後您可以自己探索整個Wiki。
 
@@ -201,7 +201,7 @@ ASF是一個沒有圖形使用者介面的控制台應用程式。 然而，我�
 
 ### 總結
 
-您已成功設定了ASF，讓它使用您的Steam帳號，並根據您的喜好進行了客製化。 若您按照我們的整個指南進行操作，那麼您應已成功地透過ASF-ui介面來調整ASF，並發現ASF實際上具有某種GUI。 您現在可以閱讀完整的&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;章節，來了解您之前看到不同的選項有何用途，以及ASF都有哪些功能。 如果您遇到問題或有疑問，請閱讀我們的&#8203;**[常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**&#8203;，它應該涵蓋了所有，或至少絕大多數您可能會遇到的問題。 如果您想了解關於ASF的一切資訊，及它如何讓您掛卡事半功倍，請閱讀&#8203;**[ASF Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-TW)**&#8203;的剩餘部分。 若您認為我們的程式很有用，並且您願意慷慨解囊，您也可以考慮捐款幫助我們的專案。 無論如何，祝您使用愉快！
+您已成功設定了ASF，讓它使用您的Steam帳號，並根據您的喜好進行了客製化。 若您按照我們的整個指南進行操作，那麼您應已成功地透過ASF-ui介面來調整ASF，並發現ASF實際上具有某種GUI。 您現在可以閱讀完整的&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;章節，來了解您之前看到不同的選項有何用途，以及ASF都有哪些功能。 如果您遇到問題或有疑問，請閱讀我們的&#8203;**[常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-TW)**&#8203;，它應該涵蓋了所有，或至少絕大多數您可能會遇到的問題。 如果您想了解關於ASF的一切資訊，及它如何讓您掛卡事半功倍，請閱讀&#8203;**[ASF Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-TW)**&#8203;的剩餘部分。 若您認為我們的程式很有用，並且您願意慷慨解囊，您也可以考慮捐款幫助我們的專案。 無論如何，祝您使用愉快！
 
 ---
 
@@ -215,13 +215,13 @@ ASF是一個沒有圖形使用者介面的控制台應用程式。 然而，我�
 - 當您想自行管理執行環境需求，來最小化ASF的結構大小時
 - 當您想要使用自訂&#8203;**[外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-TW)**&#8203;，且它需要Generic版本的ASF才能正常運作時（因為缺少原生相依套件）
 
-但是，請注意，在這種情況下您需要自行負責.NET執行環境。 這代表如果您的.NET SDK（執行環境）無法使用、過期或損毀，ASF就會無法運作。 這就是為什麼我們不建議普通使用者使用這個版本的原因，因為現在您需要確保您的.NET SDK（執行環境）與ASF的要求相符，並能執行ASF，而不是使用&#8203;**我們**&#8203;驗證過的ASF自帶的.NET執行環境。
+但是，請注意，在這種情形下您需要自行負責.NET執行環境。 這代表如果您的.NET SDK（執行環境）無法使用、過期或損毀，ASF就會無法運作。 這就是為什麼我們不建議普通使用者使用這個版本的原因，因為現在您需要確保您的.NET SDK（執行環境）與ASF的要求相符，並能執行ASF，而不是使用&#8203;**我們**&#8203;驗證過的ASF自帶的.NET執行環境。
 
 對於&#8203;`Generic`&#8203;套件，您需要參考上述適用於您的作業系統的安裝指南，但有兩處微小的差別。 除了安裝.NET需求套件外，您還需要安裝.NET SDK，且&#8203;`ArchiSteamFarm.dll`&#8203;二進制檔案會取代適用於您的作業系統的&#8203;`ArchiSteamFarm(.exe)`&#8203;執行檔。 而其他步驟都是完全相同的。
 
 增加了額外步驟之後：
 - 安裝&#8203;**[.NET 需求套件](#net-需求套件)**&#8203;。
-- 安裝適合您的作業系統的&#8203;**[.NET SDK](https://www.microsoft.com/net/download)**&#8203;（或至少安裝ASP.NET Core執行環境）。 大部分情況下您會需要一個安裝程式。 如果您不知道要安裝.NET Core的哪一個版本，請參閱&#8203;**[執行環境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#執行環境需求)**&#8203;。
+- 安裝適合您的作業系統的&#8203;**[.NET SDK](https://www.microsoft.com/net/download)**&#8203;（或至少安裝ASP.NET Core執行環境）。 大部分情形下您會需要一個安裝程式。 如果您不知道要安裝.NET Core的哪一個版本，請參閱&#8203;**[執行環境需求](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#執行環境需求)**&#8203;。
 - 在&#8203;**[ASF發布頁面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;下載&#8203;`Generic`&#8203;版本變體。
 - 將壓縮檔解壓縮至一個新資料夾中。
 - **[設定ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;。
