@@ -1,20 +1,20 @@
 # 在地化翻譯
 
-ASF的在地化翻譯由Crowdin提供服務，使每個人都能幫助ASF翻譯成世界各地的語言。 如需更多關於Crowdin如何運作的詳細說明，請查看&#8203;**[Crowdin介紹](https://support.crowdin.com/crowdin-intro)**&#8203;。
+ASF的在地化翻譯由Crowdin提供服務，使每個人都能幫助ASF翻譯成世界各地的語言。 更多關於Crowdin如何運作的詳細說明，請查閱&#8203;**[Crowdin介紹](https://support.crowdin.com/crowdin-intro)**&#8203;。
 
-若您對這個專案感興趣，請查看ASF的&#8203;**[Crowdin活動](https://crowdin.com/project/archisteamfarm/activity_stream)**&#8203;。
+若您對這個專案感興趣，可以查看ASF的&#8203;**[Crowdin活動](https://crowdin.com/project/archisteamfarm/activity_stream)**&#8203;。
 
 ---
 
 ## 範圍
 
-我們的平台支援ASF主程式的在地化，以及我們一同提供的所有可進行在地化的內容。 這包含ASF設定檔生成器網頁工具、ASF-ui以及我們的Wiki。 這些都可以輕鬆地透過Crowdin介面進行翻譯。
+我們的平台支援ASF主程式的在地化，我們也一同提供其餘可進行在地化的內容。 這包含ASF設定檔生成器網頁工具、ASF-ui以及我們的Wiki。 這些都可以輕鬆地透過Crowdin介面進行翻譯。
 
 ---
 
 ## 註冊
 
-若您願意幫助ASF，不論是翻譯、審查或是批准翻譯，請註冊我們的&#8203;**[Crowdin專案](https://crowdin.com/project/archisteamfarm)**&#8203;。 註冊十分簡單，並完全免費！ 在登入後，您可以選擇您想參與翻譯的語言，然後開始翻譯ASF本文，並協助其他社群成員將ASF翻譯成當下最熱門的語言！
+若您願意協助ASF，不論是翻譯、審查抑或是批准翻譯，都請註冊我們的&#8203;**[Crowdin專案](https://crowdin.com/project/archisteamfarm)**&#8203;。 註冊十分簡單，並完全免費！ 在登入後，您可以選擇您想參與翻譯的語言，然後開始翻譯ASF本文，並協助其他社群成員將ASF翻譯成當下最熱門的語言！
 
 ---
 
