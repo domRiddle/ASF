@@ -17,7 +17,7 @@ REGARDLES OV PLATFORM, U NED FULL .NET SDK (NOT JUS RUNTIME) IN ORDR 2 COMPILE A
 ASSUMIN U HAS .NET SDK OPERATIV AN IN APPROPRIATE VERSHUN, SIMPLY NAVIGATE 2 SOURCE ASF DIRECTORY (CLOND OR DOWNLOADD AN UNPACKD ASF REPO) AN EXECUTE:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic"
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic"
 ```
 
 IF URE USIN LINUX/MACOS, U CAN INSTEAD USE `cc.sh` SCRIPT WHICH WILL DO TEH SAME, IN BIT MOAR COMPLEX MANNR.
@@ -29,23 +29,23 @@ IF COMPILASHUN ENDD SUCCESFULLY, U CAN FIND UR ASF IN `source` FLAVR IN `out/gen
 U CAN ALSO GENERATE OS-SPECIFIC .NET PACKAGE IF U HAS SPECIFIC NED. IN GENERAL U SHOULDNT DO DAT CUZ UVE JUS COMPILD `generic` FLAVR DAT U CAN RUN WIF UR ALREADY-INSTALLD .NET RUNTIME DAT UVE USD 4 DA COMPILASHUN IN DA FURST PLACE, BUT JUS IN CASE U WANTS 2:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 OV COURSE, REPLACE `linux-x64` WIF OS-ARCHITECCHUR DAT U WANTS 2 TARGET, SUCH AS `win-x64`. DIS BUILD WILL ALSO HAS UPDATEZ DISABLD.
 
 ### .NET FRAMEWORK
 
-IN VRY RARE CASE WHEN UD WANTS 2 BUILD `generic-netf` PACKAGE, U CAN CHANGE TARGET FRAMEWORK FRUM `net6.0` 2 `net48`. KEEP IN MIND DAT ULL NED APPROPRIATE **[.NET FRAMEWORK](https://dotnet.microsoft.com/download/visual-studio-sdks)** DEVELOPR PACK 4 COMPILIN `netf` VARIANT, IN ADDISHUN 2 .NET SDK, SO TEH BELOW WILL WERK ONLY ON WINDOWS:
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net7.0` to `net481`. KEEP IN MIND DAT ULL NED APPROPRIATE **[.NET FRAMEWORK](https://dotnet.microsoft.com/download/visual-studio-sdks)** DEVELOPR PACK 4 COMPILIN `netf` VARIANT, IN ADDISHUN 2 .NET SDK, SO TEH BELOW WILL WERK ONLY ON WINDOWS:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
+dotnet publish ArchiSteamFarm -c "Release" -f "net481" -o "out/generic-netf"
 ```
 
 IN CASE OV BEAN UNABLE 2 INSTALL .NET FRAMEWORK OR EVEN .NET SDK ITSELF (E.G. CUZ OV BUILDIN ON `linux-x86` WIF `mono`), U CAN CALL `msbuild` DIRECTLY. ULL ALSO NED 2 SPECIFY `ASFNetFramework` MANUALLY, AS ASF BY DEFAULT DISABLEZ `netf` BUILD ON NON-WINDOWS PLATFORMS:
 
 ```shell
-msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
+msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net481 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
 ```
 
 ### ASF-UI
@@ -57,13 +57,13 @@ ASF-UI IZ PART OV ASFS SOURCE TREE AS **[GIT SUBMODULE](https://git-scm.com/book
 IN ADDISHUN 2 TEH `cc.sh` SCRIPT, WE ALSO ATTACH TEH SIMPLIFID BUILD INSTRUCSHUNS BELOW, REFR 2 **[ASF-UI REPO](https://github.com/JustArchiNET/ASF-ui)** 4 ADDISHUNAL DOCUMENTASHUN. FRUM ASFS SOURCE TREE LOCASHUN, SO AS ABOOV, EXECUTE TEH FOLLOWIN COMMANDZ:
 
 ```shell
-rm -rf "ASF-ui/dist" # ASF-UI DOESNT CLEAN ITSELF AFTR OLD BUILD
+rm -rf "ASF-ui/dist" # ASF-ui doesn't clean itself after old build
 
 npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
-rm -rf "out/generic/www" # ENSURE DAT R BUILD OUTPUT IZ CLEAN OV TEH OLD FILEZ
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # OR ACCORDINGLY 2 WUT U NED AS PER TEH ABOOV
+rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic" # Or accordingly to what you need as per the above
 ```
 
 U SHUD NAO BE ABLE 2 FIND TEH ASF-UI FILEZ IN UR `out/generic/www` FOLDR. ASF WILL BE ABLE 2 SERVE DOSE FILEZ 2 UR BROWSR.

@@ -17,7 +17,7 @@
 假设您已安装适当版本的 .NET SDK，现在只需要前往 ASF 源代码目录（Clone 或者下载并解压的 ASF 仓库）并执行：
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic"
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic"
 ```
 
 如果您在使用 Linux/macOS，您也可以使用 `cc.sh` 脚本，以稍复杂的方式实现同样的效果。
@@ -29,23 +29,23 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic"
 如果您需要，也可以生成特定操作系统的 .NET 包。 一般情况下，您不需要这样做，因为您刚刚编译了 `generic` 包，您可以使用已安装的用于编译的 .NET 运行时环境运行此包，但如果您确实需要操作系统包：
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 当然，您需要将 `linux-x64` 替换成您需要的目标操作系统架构，例如 `win-x64`。 这一构建也将禁用自动更新。
 
 ### .NET 框架
 
-在罕见的情况下，您可能需要构建 `generic-netf` 包，您可以将目标框架从 `net6.0` 更改为 `net48`。 请注意，您需要合适的 **[.NET 框架](https://dotnet.microsoft.com/download/visual-studio-sdks)**&#8203;开发者工具包和 .NET SDK 才能编译 `netf` 包，所以此命令仅适用于 Windows：
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net7.0` to `net481`. 请注意，您需要合适的 **[.NET 框架](https://dotnet.microsoft.com/download/visual-studio-sdks)**&#8203;开发者工具包和 .NET SDK 才能编译 `netf` 包，所以此命令仅适用于 Windows：
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
+dotnet publish ArchiSteamFarm -c "Release" -f "net481" -o "out/generic-netf"
 ```
 
 在无法安装 .NET 框架甚至 .NET SDK 本身的情况下（例如在 `linux-x86` 平台用 `mono` 构建），可以直接调用 `msbuild`。 您还需要手动指定 `ASFNetFramework`，因为 ASF 默认禁止在非 Windows 平台上构建 `netf`：
 
 ```shell
-msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
+msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net481 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
 ```
 
 ### ASF-ui
@@ -57,13 +57,13 @@ ASF-ui 以 **[Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules
 除了 `cc.sh` 脚本，我们也在下文附上了简要的构建说明，您可以查阅 **[ASF-ui 仓库](https://github.com/JustArchiNET/ASF-ui)**&#8203;获得更详细的文档。 同上，在 ASF 源码树根目录下，执行下列命令：
 
 ```shell
-rm -rf "ASF-ui/dist" # ASF-ui 不会自动清理旧版构建
+rm -rf "ASF-ui/dist" # ASF-ui doesn't clean itself after old build
 
 npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
-rm -rf "out/generic/www" # 确保我们的构建输出不包含旧文件
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # 或者根据上文选择您需要的命令
+rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic" # Or accordingly to what you need as per the above
 ```
 
 您现在应该可以在 `out/generic/www` 目录下看到 ASF-ui 的文件了。 ASF 将能够向浏览器展示这些文件。

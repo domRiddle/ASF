@@ -43,11 +43,11 @@ ASF ist derzeit in folgenden betriebsystemspezifischen Varianten verfügbar:
 - `linux-x64` ist kompatibel mit 64-Bit GNU/Linux-Betriebssystemen. This includes Alpine, CentOS/Fedora/RHEL, Debian/Ubuntu, OpenSUSE/SLES and many other ones, including their derivatives, in current and future versions.
 - `osx-arm64` funktioniert unter 64-Bit ARM-basierten (Apple silicon) macOS Betriebssystemen. This includes version 11, as well as future ones.
 - `osx-x64` ist kompatibel mit 64-Bit macOS Betriebssystemen. This includes version 10.15, as well as future ones.
-- `win-x64` ist kompatibel mit 64-Bit-Windows-Betriebssystemen. This includes Windows 8.1, 10, 11, Server 2012+ as well as future versions. Windows 7 requires **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)** variant and its support is very limited, you may have issues running ASF in that environment. We strongly recommend an update soon, as future versions of ASF are likely to stop working altogether with it, not to mention that the OS reached its end of life back in 2020.
+- `win-x64` ist kompatibel mit 64-Bit-Windows-Betriebssystemen. This includes 10, 11, Server 2012+ as well as future versions.
 
 Of course, even if you don't have OS-specific package available for your OS-architecture combination, you can always install appropriate .NET runtime yourself and run generic ASF flavour, which is also the main reason why it exists in the first place. Generic ASF build is platform-agnostic and will run on any platform that has a working .NET runtime. This is important to note - ASF requires .NET runtime, not some specific OS or architecture. For example, if you're running 32-bit Windows then despite of no dedicated `win-x86` ASF version, you can still install .NET SDK in `win-x86` version and run generic ASF just fine. Wir können nicht jede Kombination aus Betriebssystem und Architektur ansprechen, die existiert und von jemandem verwendet wird, also müssen wir irgendwo eine Grenze ziehen. Ein gutes Beispiel für diese Grenze ist x86, da es sich um eine veraltete Architektur seit mindestens 2004 handelt.
 
-For a complete list of all supported platforms and OSes by .NET 6.0, visit **[release notes](https://github.com/dotnet/core/blob/main/release-notes/6.0/supported-os.md)**.
+For a complete list of all supported platforms and OSes by .NET 7.0, visit **[release notes](https://github.com/dotnet/core/blob/main/release-notes/7.0/supported-os.md)**.
 
 ---
 
@@ -57,6 +57,6 @@ If you're using OS-specific package then you don't need to worry about runtime r
 
 However, if you're trying to run **generic** ASF package then you must ensure that your .NET runtime supports platform required by ASF.
 
-ASF as a program is targeting **.NET 6.0** (`net6.0`) right now, but it may target newer platform in the future. `net6.0` is supported since 6.0.100 SDK (6.0.0 runtime), although ASF is configured to prefer **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. Generic ASF variant may refuse to launch if your runtime is older than the specified minimum supported one during compilation.
+ASF as a program is targeting **.NET 7.0** (`net7.0`) right now, but it may target newer platform in the future. `net7.0` is supported since 7.0.100 SDK (7.0.0 runtime), although ASF is configured to prefer **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. Generic ASF variant may refuse to launch if your runtime is older than the specified minimum supported one during compilation.
 
 Im Zweifelsfall solltest du überprüfen, was unsere **[kontinuierliche Integration](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** für die Kompilierung und Bereitstellung von ASF-Versionen auf GitHub verwendet. You can find `dotnet --info` output in every build as part of .NET verification step.

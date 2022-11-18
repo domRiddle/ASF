@@ -43,11 +43,11 @@ ASF 目前提供以下几种 OS-specific 包：
 - `linux-x64` 支持 64 位 GNU/Linux 操作系统。 包括 Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu、OpenSUSE/SLES 等很多操作系统以及它们的衍生版的当前和未来版本。
 - `osx-arm64` 支持 64 位 ARM 架构（Apple silicon）的 macOS。 包括 11 及更新版本。
 - `osx-x64` 支持 64 位 macOS 操作系统。 包括 10.15 及更新版本。
-- `win-x64`，支持 64 位 Windows 操作系统。 包括 Windows 8.1、10、11、Server 2012+ 以及未来的版本。 Windows 7 需要安装 **[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-CN#安装-generic-包)** 包，并且对其支持非常有限，您在此系统下运行 ASF 可能会遇到问题。 我们强烈建议您尽快更新，因为将来版本的 ASF 可能会完全不能在此系统运行，更不用说这个操作系统已经在 2020 年寿终正寝。
+- `win-x64`，支持 64 位 Windows 操作系统。 This includes 10, 11, Server 2012+ as well as future versions.
 
 当然，即使没有适合您操作系统及架构的 OS-specific 包，您也可以手动安装适当的 .NET 运行时环境并运行 Generic ASF 包，这也是这个包存在的主要原因。 Generic ASF 包与平台无关，可在任何具有可用 .NET 运行时环境的平台上运行。 需要注意——ASF 需要的是 .NET 运行时环境，而不是特定的操作系统或架构。 例如，如果您使用的是 32 位 Windows，但 ASF 没有 `win-x86` 版本，您仍然可以安装 `win-x86` 版本的 .NET SDK，然后运行 Generic 版本的 ASF。 我们无法为所有操作系统和架构组合都生成一份可执行文件，所以我们为此画下一道分隔线。 x86 就是这条线之一，因为这种架构自 2004 年开始就过时了。
 
-您可以访问&#8203;**[发行说明](https://github.com/dotnet/core/blob/main/release-notes/6.0/supported-os.md)**&#8203;查看完整的 .NET 6.0 支持的平台与操作系统列表。
+您可以访问&#8203;**[发行说明](https://github.com/dotnet/core/blob/main/release-notes/7.0/supported-os.md)**&#8203;查看完整的 .NET 7.0 支持的平台与操作系统列表。
 
 ---
 
@@ -57,6 +57,6 @@ ASF 目前提供以下几种 OS-specific 包：
 
 但如果您使用 **Generic** 包，则必须保证已安装 ASF 所需的对应平台的 .NET 运行时环境。
 
-ASF 目前指向的构建目标是 **.NET 6.0**（`net6.0`），但在未来可能会指向更高版本。 `net6.0` 自 6.0.100 SDK（6.0.0 运行时环境）以来就受到支持，但 ASF 被配置为偏好**编译时最新版本的运行时环境**，所以您应该确保您的机器上有&#8203;**[最新版 SDK](https://dotnet.microsoft.com/download)**（或至少有运行时环境）。 如果您的运行时环境版本低于编译时的最低支持版本，Generic ASF 包将会拒绝启动。
+ASF as a program is targeting **.NET 7.0** (`net7.0`) right now, but it may target newer platform in the future. `net7.0` is supported since 7.0.100 SDK (7.0.0 runtime), although ASF is configured to prefer **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. 如果您的运行时环境版本低于编译时的最低支持版本，Generic ASF 包将会拒绝启动。
 
 如有疑问，您可以访问我们用于编译并在 GitHub 上部署新版本的 **[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)**。 您可以在每个构建中看到 `dotnet --info` 的输出，用于验证 .NET。

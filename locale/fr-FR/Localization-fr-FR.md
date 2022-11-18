@@ -109,7 +109,7 @@ S'il manque encore des chaînes dans la langue de votre choix, vous pouvez les r
 
 <p spaces-before="0">By default ASF project has open translation only for top 30 languages that are spoken worldwide. If you'd like to add another one (or a local dialect to already available one), please <strong x-id="1"><a href="https://crowdin.com/messages/create/13177432/240376">let us know</a></strong> and we'll add it ASAP. We don't want to open several hundred different languages if nobody is going to translate them, that's why we limited it to some fair number. Please don't hesitate to contact us if you'd like to translate some not-listed language, it's very easy for us to add another one. Just make sure that you have actual willings and determination to translate ASF into your language, before you decide to contact with us.</p>
 
-<p spaces-before="0">For a complete list of all available languages that ASF can be translated to, <strong x-id="1"><a href="https://support.crowdin.com/api/language-codes">click here</a></strong>.</p>
+<p spaces-before="0">For a complete list of all available languages that ASF can be translated to, <strong x-id="1"><a href="https://developer.crowdin.com/language-codes">click here</a></strong>.</p>
 
 <hr />
 

@@ -30,9 +30,8 @@
 請注意，您不需要特地為作業系統的建置版本做其他任何事情，特別是.NET SDK的安裝或執行環境，因為它們已包含於作業系統套件中。 您只需要安裝必要的.NET相依需求套件，即可執行ASF裡面自帶的.NET執行環境。
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**&#8203;：
-- **[Microsoft Visual C++可轉散發套件更新](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)**&#8203;（&#8203;**[x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)**&#8203;適用於64位元Windows；&#8203;**[x86](https://aka.ms/vs/16/release/vc_redist.x86.exe)**&#8203;適用於32位元Windows）
+- **[Microsoft Visual C++可轉散發套件更新](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)**&#8203;（&#8203;**[x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)**&#8203;適用於64位元Windows；&#8203;**[x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)**&#8203;適用於32位元Windows）
 - 強烈建議您，務必確保已安裝所有的Windows更新。 您至少需要安裝&#8203;**[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**&#8203;、&#8203;**[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**&#8203;，但仍可能需要更多的更新。 如果您的Windows已更新至最新版，則上述更新補丁都已安裝。 在安裝Visual C++套件前，請確保滿足上述需求。
-- 若您使用Windows 7，您必須使用&#8203;**[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)**&#8203;變體版本，因為套件不再支援您的作業系統。 我們強烈建議您盡快進行更新您的作業系統，因為ASF的未來版本可能會完全無法在上面使用，而且說實話，Windows 7在2020年就已經結束了生命週期。
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**&#8203;：
 套件名稱取決於您使用的Linux發行版本，我們列出了最常見的套件名稱。 您可以使用本機中的套件管理系統，為您的作業系統取得全部套件（例如適用於Debian的&#8203;`apt`&#8203;，或適用於CentOS的&#8203;`yum`&#8203;）。

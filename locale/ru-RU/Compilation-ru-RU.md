@@ -17,7 +17,7 @@ ASF может быть скомпилирован на любой поддер�
 Если у вас есть работоспособное .NET SDK нужной версии, просто перейдите в папку с исходниками ASF (клонированный или скачанный и распакованный репозиторий ASF) и запустите:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic"
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic"
 ```
 
 If you're using Linux/macOS, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
@@ -29,23 +29,23 @@ If you're using Linux/macOS, you can instead use `cc.sh` script which will do th
 Вы также можете создать пакеты .NET для конкретных ОС, если у вас есть такая потребность. Обычно вы не должны этого делать, потому что вы только что скомпилировали вариант `generic`, который вы можете запустить с уже установленной средой выполнения .NET, которую вы только что использовали для компиляции, но на случай, если вы этого хотите:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 Разумеется, замените `linux-x64` на нужное вам сочетание ОС и архитектуры, например `win-x64`. Обновления этой сборки также будут отключены.
 
 ### .NET Framework
 
-В очень редком случае, когда вы захотите создать сборку `generic-netf`, вы можете изменить целевой фреймворк с `net6.0` на `net48`. Имейте в виду, что для компиляции в варианте `netf`, в дополнение к .NET SDK, вам потребуется соответствующий пакет **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)**, поэтому следующая команда сработает только под Windows:
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net7.0` to `net481`. Имейте в виду, что для компиляции в варианте `netf`, в дополнение к .NET SDK, вам потребуется соответствующий пакет **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)**, поэтому следующая команда сработает только под Windows:
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
+dotnet publish ArchiSteamFarm -c "Release" -f "net481" -o "out/generic-netf"
 ```
 
 В случае, если вы не можете установить .NET Framework или даже сам .NET SDK (например, из-за сборки в системе `linux-x86` под `mono`), вы можете вызвать `msbuild` напрямую. Вам понадобиться вручную указать `ASFNetFramework`, поскольку ASF по умолчанию деактивирует сборку варианта `netf` на платформах, отличных от Windows:
 
 ```shell
-msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
+msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net481 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
 ```
 
 ### ASF-ui
@@ -57,13 +57,13 @@ ASF-ui является частью дерева ASF в виде ** [ git submo
 In addition to the `cc.sh` script, we also attach the simplified build instructions below, refer to **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** for additional documentation. From ASF's source tree location, so as above, execute the following commands:
 
 ```shell
-rm -rf "ASF-ui/dist" # ASF-ui не очищается после старой сборки
+rm -rf "ASF-ui/dist" # ASF-ui doesn't clean itself after old build
 
 npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
-rm -rf "out/generic/www" # Убедитесь, что выходные данные сборки не содержат старых файлов.
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # Или соответственно то, что вам нужно, как указано выше
+rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic" # Or accordingly to what you need as per the above
 ```
 
 Теперь вы сможете найти файлы ASF-ui в папке `out/generic/www`. ASF сможет передать эти файлы вашему браузеру.

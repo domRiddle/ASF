@@ -22,7 +22,7 @@ Regardless of platform, you need full .NET SDK (not just runtime) in order to co
 
 <p spaces-before="0">Assuming you have .NET SDK operative and in appropriate version, simply navigate to source ASF directory (cloned or downloaded and unpacked ASF repo) and execute:</p>
 
-<pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic"
+<pre><code class="shell">dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic"
 `</pre> 
 
 If you're using Linux/macOS, you can instead use `cc.sh` script which will do the same, in a bit more complex manner.
@@ -38,7 +38,7 @@ You can also generate OS-specific .NET package if you have a specific need. In g
 
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/linux-x64" -r "linux-x64"
 ```
 
 
@@ -48,12 +48,12 @@ Bien sûr, remplacez ` linux-x64 ` par l'architecture du système d'exploitation
 
 ### .NET Framework 
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net6.0` to `net48`. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET SDK, so the below will work only on Windows:
+In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net7.0` to `net481`. Keep in mind that you'll need appropriate **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** developer pack for compiling `netf` variant, in addition to .NET SDK, so the below will work only on Windows:
 
 
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -f "net48" -o "out/generic-netf"
+dotnet publish ArchiSteamFarm -c "Release" -f "net481" -o "out/generic-netf"
 ```
 
 
@@ -62,7 +62,7 @@ In case of being unable to install .NET Framework or even .NET SDK itself (e.g. 
 
 
 ```shell
-msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net48 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
+msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net481 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
 ```
 
 
@@ -85,7 +85,7 @@ npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
 rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
-dotnet publish ArchiSteamFarm -c "Release" -f "net6.0" -o "out/generic" # Or accordingly to what you need as per the above
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic" # Or accordingly to what you need as per the above
 ```
 
 

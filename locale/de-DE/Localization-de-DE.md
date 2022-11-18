@@ -86,7 +86,7 @@ ASF wird die Sprache **so bald wie möglich** beinhalten, was bedeutet, dass sie
 
 Standardmäßig verfügt das ASF-Projekt nur Übersetzungen für die 30 meistgesprochenen Sprachen der Welt. Wenn du eine weitere (oder einen lokalen Dialekt zu einer existierenden) hinzufügen willst, **[lass es uns bitte wissen](https://crowdin.com/messages/create/13177432/240376)** und wir werden sie schnellstmöglichst hinzufügen. Wir wollen nicht mehrere hundert verschiedene Sprachen, wenn sie keiner übersetzt. Deshalb haben wir sie auf diese Anzahl reduziert. Bitte zögere nicht uns zu kontaktieren, wenn du eine nicht gelistete Sprache übersetzen willst. Für uns ist es sehr einfach eine weitere hinzuzufügen. Achte einfach darauf, dass du den tatsächlichen Willen und die Entschlossenheit hast ASF in Ihre Sprache zu übersetzen bevor du dich entscheidest mit uns Kontakt aufzunehmen.
 
-Für eine komplette Liste der verfügbaren Sprachen, in die ASF übersetzt werden kann, **[klicke hier](https://support.crowdin.com/api/language-codes)**.
+Für eine komplette Liste der verfügbaren Sprachen, in die ASF übersetzt werden kann, **[klicke hier](https://developer.crowdin.com/language-codes)**.
 
 ---
 
