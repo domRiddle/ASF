@@ -43,7 +43,7 @@ ASF目前擁有以下特定作業系統的變體版本：
 - `linux-x64`&#8203;支援64位元的GNU/Linux作業系統。 這包含Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu、OpenSUSE/SLES等很多作業系統，包含它們在當前和未來的版本中的衍生版本。
 - `osx-x64`&#8203;支援64位元基於ARM（Apple silicon）的macOS作業系統。 包含版本11及其更新版本。
 - `osx-x64`&#8203;支援64位元的macOS作業系統。 包含版本10.15及其更新版本。
-- `win-x64`&#8203;支援64位元的Windows作業系統。 This includes 10, 11, Server 2012+ as well as future versions.
+- `win-x64`&#8203;支援64位元的Windows作業系統。 包含10、11、Server 2012+及其更新版本。
 
 當然，即使沒有適合您作業系統及架構的特定作業系統套件，您也可以手動安裝適當的.NET Core執行環境並執行Generic ASF套件，這也是這個套件存在的主要原因。 Generic ASF套件與平台無關，可以在任何具有可用.NET Core執行環境的平台上執行。 需要注意：ASF需要的是.NET Core執行環境，而不是特定的作業系統或架構。 例如，如果您使用的是32位元Windows，但ASF沒有&#8203;`win-x86`&#8203;版本，您仍然可以安裝&#8203;`win-x86`&#8203;版本的.NET Core SDK，然後執行Generic版本的ASF。 我們無法為所有作業系統及架構組合都產生一份執行檔，所以我們為此畫下一道分隔線。 x86就是這條線的其中之一，因為這種架構從2004年開始就過時了。
 
@@ -57,6 +57,6 @@ ASF目前擁有以下特定作業系統的變體版本：
 
 但是，如果您嘗試執行&#8203;**Generic**&#8203; ASF套件，則必須確保您的.NET執行環境支援ASF所需的平台。
 
-ASF as a program is targeting **.NET 7.0** (`net7.0`) right now, but it may target newer platform in the future. `net7.0` is supported since 7.0.100 SDK (7.0.0 runtime), although ASF is configured to prefer **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. 若您的執行環境低於編譯期間指定的最低支援版本，Generic ASF變體版本可能會拒絕啟動。
+作為一個程式，ASF目前針對的是&#8203;**.NET 7.0**&#8203;（&#8203;`net7.0`&#8203;），但它可能在未來針對更新的平台。 從7.0.100 SDK（7.0.0執行環境）就開始支援&#8203;`net7.0`&#8203;，儘管ASF被設定成在編譯時偏好&#8203;**最新的執行環境**&#8203;，所以您應該確保你有&#8203;**[最新的SDK](https://dotnet.microsoft.com/download)**&#8203;（或最新的執行環境）可用於您的設備。 若您的執行環境低於編譯期間指定的最低支援版本，Generic ASF變體版本可能會拒絕啟動。
 
 如有疑問，您可以訪問我們用於編譯並在GitHub上部署新版本的&#8203;**[持續整合程序](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)**&#8203;。 作為.NET驗證步驟的一部分，您可以在每個建置版本中找到&#8203;`dotnet --info`&#8203;輸出。

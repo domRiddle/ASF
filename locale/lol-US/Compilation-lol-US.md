@@ -36,7 +36,7 @@ OV COURSE, REPLACE `linux-x64` WIF OS-ARCHITECCHUR DAT U WANTS 2 TARGET, SUCH AS
 
 ### .NET FRAMEWORK
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net7.0` to `net481`. KEEP IN MIND DAT ULL NED APPROPRIATE **[.NET FRAMEWORK](https://dotnet.microsoft.com/download/visual-studio-sdks)** DEVELOPR PACK 4 COMPILIN `netf` VARIANT, IN ADDISHUN 2 .NET SDK, SO TEH BELOW WILL WERK ONLY ON WINDOWS:
+IN VRY RARE CASE WHEN UD WANTS 2 BUILD `generic-netf` PACKAGE, U CAN CHANGE TARGET FRAMEWORK FRUM `net7.0` 2 `net481`. KEEP IN MIND DAT ULL NED APPROPRIATE **[.NET FRAMEWORK](https://dotnet.microsoft.com/download/visual-studio-sdks)** DEVELOPR PACK 4 COMPILIN `netf` VARIANT, IN ADDISHUN 2 .NET SDK, SO TEH BELOW WILL WERK ONLY ON WINDOWS:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net481" -o "out/generic-netf"
@@ -57,13 +57,13 @@ ASF-UI IZ PART OV ASFS SOURCE TREE AS **[GIT SUBMODULE](https://git-scm.com/book
 IN ADDISHUN 2 TEH `cc.sh` SCRIPT, WE ALSO ATTACH TEH SIMPLIFID BUILD INSTRUCSHUNS BELOW, REFR 2 **[ASF-UI REPO](https://github.com/JustArchiNET/ASF-ui)** 4 ADDISHUNAL DOCUMENTASHUN. FRUM ASFS SOURCE TREE LOCASHUN, SO AS ABOOV, EXECUTE TEH FOLLOWIN COMMANDZ:
 
 ```shell
-rm -rf "ASF-ui/dist" # ASF-ui doesn't clean itself after old build
+rm -rf "ASF-ui/dist" # ASF-UI DOESNT CLEAN ITSELF AFTR OLD BUILD
 
 npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
-rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
-dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic" # Or accordingly to what you need as per the above
+rm -rf "out/generic/www" # ENSURE DAT R BUILD OUTPUT IZ CLEAN OV TEH OLD FILEZ
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic" # OR ACCORDINGLY 2 WUT U NED AS PER TEH ABOOV
 ```
 
 U SHUD NAO BE ABLE 2 FIND TEH ASF-UI FILEZ IN UR `out/generic/www` FOLDR. ASF WILL BE ABLE 2 SERVE DOSE FILEZ 2 UR BROWSR.

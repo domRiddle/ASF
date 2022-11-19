@@ -1,12 +1,12 @@
 # 授權條款
 
-除另有說明，ASF基於&#8203;**[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**&#8203;授權條款所授權。 想要快速了解您能做與不能做什麼，可以閱讀&#8203;**[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**&#8203;。
+除另有說明，ASF是依據&#8203;**[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**&#8203;授權條款所授權。 想要快速了解您能與不能做什麼，可以閱讀&#8203;**[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**&#8203;。
 
 ASF授權條款是非常寬容的，它允許的範圍比標準GPL授權條款更大，包括允許您在商業性專案中使用ASF，且不需要開放原始碼。 簡而言之，正如tl;dr Legal中所述：
 
 > 只要您在專案中遵循開發人員的要求做出相關聲明，便可將此程式用作任意用途。 此授權條款授權包含來自程式碼貢獻者的專利許可。
 
-聲明：ASF是依據&#8203;**[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**&#8203;授權，我們指的&#8203;**僅包含**&#8203;主要專案及其原始碼，而不包含ASF所使用的其他任何專案項目（尤其是函式庫、工具、框架及前端，例如&#8203;**[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**&#8203;），這些項目通常會依不同條款授權。
+聲明：ASF是依據&#8203;**[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**&#8203;授權，我們所指的&#8203;**只包含**&#8203;ASF主要專案及其原始碼，而不包含ASF所使用的其他任何專案項目（特別是函式庫、工具、框架及前端，例如&#8203;**[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**&#8203;），這些項目通常會依不同條款授權。
 
 -----
 
@@ -16,7 +16,7 @@ ASF授權條款是非常寬容的，它允許的範圍比標準GPL授權條款�
 
 > 商標。 本授權條款不授予使用授權人的商號、商標、服務商標或產品名稱，除描述作品來源及複製NOTICE檔案內容時，才得以合理使用。
 
-我們不允許您在自己的軟體中直接使用ASF/ArchiSteamFarm產品名稱，但我們允許在一些慣用情景中使用它：
+我們不允許您在自己的軟體中直接使用ASF／ArchiSteamFarm產品名稱，但我們允許在一些慣用情景中使用它：
 
 您&#8203;**可以**&#8203;：
 - 聲明您的軟體／服務&#8203;**基於**&#8203;ASF（或其程式碼）

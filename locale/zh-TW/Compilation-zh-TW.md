@@ -36,7 +36,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/linux-x64" -r "li
 
 ### .NET Framework
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net7.0` to `net481`. 請注意，您需要適合的&#8203;**[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)**&#8203;開發人員套件與.NET SDK才能編譯&#8203;`netf`&#8203;變體版本，所以下列只適用於Windows：
+在極少見的情形下，若您想要建置&#8203;`generic-netf`&#8203;套件，您可以將目標框架從&#8203;`net7.0`&#8203;更改成&#8203;`net481`&#8203;。 請注意，您需要適合的&#8203;**[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)**&#8203;開發人員套件與.NET SDK才能編譯&#8203;`netf`&#8203;變體版本，所以下列只適用於Windows：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net481" -o "out/generic-netf"
@@ -57,13 +57,13 @@ ASF-ui作為&#8203;**[Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Su
 除了&#8203;`cc.sh`&#8203;腳本，我們也在下文附上簡明建置說明，請參閱&#8203;**[ASF-ui儲存庫](https://github.com/JustArchiNET/ASF-ui)**&#8203;以獲得更多說明文件。 從ASF的Source Tree位置，同上所述，執行以下命令：
 
 ```shell
-rm -rf "ASF-ui/dist" # ASF-ui doesn't clean itself after old build
+rm -rf "ASF-ui/dist" # ASF-ui不會自行清除舊建置版本
 
 npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
-rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
-dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic" # Or accordingly to what you need as per the above
+rm -rf "out/generic/www" # 確保我們的建置輸出不會含有舊檔案
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic" # 或依據上文選擇您所需的
 ```
 
 您現在應該可以在&#8203;`out/generic/www`&#8203;資料夾中找到ASF-ui檔案了。 ASF能向您的瀏覽器伺服這些檔案。
@@ -76,7 +76,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic" # Or acc
 
 若您想編輯ASF程式碼，您可以使用任何與.NET相容的IDE，但仍可以選擇不用這個，因為您也可以使用記事本來編輯，並使用上述的&#8203;`dotnet`&#8203;命令來編譯。 不過，對於Windows系統，我們建議使用&#8203;**[最新版本的Visual Studio](https://visualstudio.microsoft.com/downloads)**&#8203;（免費的社群版本即可）。
 
-若您想要在Linux/macOS上使用ASF程式碼，我們建議使用&#8203;**[最新版本的Visual Studio Code](https://code.visualstudio.com/download)**&#8203;。 它沒有經典版Visual Studio那麼豐富的功能，但也已足夠了。
+若您想要在Linux／macOS上使用ASF程式碼，我們建議使用&#8203;**[最新版本的Visual Studio Code](https://code.visualstudio.com/download)**&#8203;。 它沒有經典版Visual Studio那麼豐富的功能，但也已足夠了。
 
 當然，以上都只是建議，您可以使用您想用的任何工具，但最後您都會需要使用&#8203;`dotnet build`&#8203;命令來建置。 我們使用了&#8203;**[JetBrains Rider](https://www.jetbrains.com/rider)**&#8203;來開發ASF，但它並不是免費的。
 

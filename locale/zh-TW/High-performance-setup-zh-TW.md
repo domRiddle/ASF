@@ -18,7 +18,7 @@ ASF已經嘗試在一般的平衡性中考慮效能優先，因此您沒有很�
 
 ### [`gcServer`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection)
 
-> 設定應用程式是使用工作站垃圾回收還是伺服器垃圾回收。
+> 設定應用程式使用工作站垃圾回收或伺服器垃圾回收。
 
 您可以在&#8203;**[記憶體回收的基本概念](https://learn.microsoft.com/zh-tw/dotnet/standard/garbage-collection/fundamentals)**&#8203;中閱讀伺服器GC的詳細資訊。
 
