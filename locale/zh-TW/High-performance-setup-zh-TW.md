@@ -26,25 +26,25 @@ ASF預設使用工作站垃圾回收。 這主要是因為記憶體的使用與�
 
 但是如至今日我們通常擁有很多CPU核心，使ASF也因此受益，因為在每個CPU vCore中都能有一個專用的GC執行緒。 這可以大大地提高ASF執行繁重工作時的效能，例如剖析徽章頁面或物品庫，因為每個CPU vCore都可以提供協助，而不只是2個（主執行緒及GC）。 對於具有3個或更多CPU vCore的設備，建議使用伺服器GC；若您的設備只有1個CPU vCore，則會自動強制使用工作站GC；若您正好有2個，您可以考慮嘗試使用兩者（結果可能會不同）。
 
-伺服器GC本身不會因為只處於活動狀態而造成巨量的記憶體消耗，但它具有更大的生成大小，因此更不會把記憶體還給作業系統。 您可能會發現自己處於一個尷尬情形，伺服器GC能顯著提高效能，使您希望繼續使用它，但同時您無法承受使用它帶來的巨量記憶體消耗。 幸運的是，將&#8203;**[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gclatencylevel)**&#8203;組態設定設定成&#8203;`0`&#8203;，是個「兩全其美」的方法，它仍會啟用伺服器GC，但會限制生成大小並更關照記憶體的消耗。 或者您也許可以嘗試另外一個屬性，&#8203;**[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gcheaphardlimitpercent)**&#8203;，或同時啟用這兩個選項。
+伺服器GC本身不會因為只處於活動狀態而造成巨量的記憶體消耗，但它具有更大的生成大小，因此更不會把記憶體還給作業系統。 您可能會發現自己處於一個尷尬情形，伺服器GC能顯著提高效能，使您希望繼續使用它，但同時您又將無法承受使用它帶來的巨量記憶體消耗。 幸運的是，將&#8203;**[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gclatencylevel)**&#8203;組態設定設定成&#8203;`0`&#8203;，是個「兩全其美」的方法，它仍會啟用伺服器GC，但會限制生成大小並更在意記憶體的消耗。 或者，您也許可以嘗試另外一個屬性，&#8203;**[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gcheaphardlimitpercent)**&#8203;，或同時啟用這兩個選項。
 
 但是，如果記憶體對您來說不是問題（因為GC仍會依據您可用的記憶體來自行調整），那麼最好不要更改這些屬性，以達到最高效能。
 
 ### **[`DOTNET_TieredPGO`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/compilation#profile-guided-optimization)**
 
-> 這個設定在.NET 6及更高版本中啟用動態或分層特性指引最佳化（PGO）。
+> 這項設定可讓您在.NET 6和更新版本中（PGO），啟用動態或階層式特性指引優化。
 
 預設為停用。 簡而言之，這會使JIT使用更多時間來分析ASF的代碼及其模式，以便為您的典型使用方式來生成最佳化的上級程式碼。 若您想了解更多關於此設定的資訊，請造訪&#8203;**[Performance Improvements in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**&#8203;。
 
 ### **[`DOTNET_ReadyToRun`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/compilation#readytorun)**
 
-> 設定.NET Core執行環境是否對具有可用ReadyToRun資料的映象使用預編譯程式碼。 停用此選項會強制使執行環境對框架的程式碼進行JIT編譯。
+> 設定.NET Core執行時間是否針對具有可用ReadyToRun資料的映射使用預先編譯的程式碼。 停用此選項會強制執行時間以JIT編譯架構程式碼。
 
 預設為啟用。 停用這個選項但同時啟用&#8203;`DOTNET_TieredPGO`&#8203;可以使您將特性指引最佳化套用至整個.NET平台，而不只於ASF程式碼中。
 
 ### **[`DOTNET_TC_QuickJitForLoops`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
 
-> 設定JIT編譯器是否對包含迴圈的方法使用快速JIT。 為迴圈啟用快速JIT有可能提高啟動效能。 但是，在低最佳化的程式碼中，長時執行的迴圈可能會停滯較長時間。
+> 設定JIT編譯程式是否在包含迴圈的方法上使用快速JIT。 啟用快速JIT for迴圈可能會改善啟動效能。 不過，長時間執行的迴圈可能會停滯在較不優化的程式碼中長時間。
 
 預設為停用。 雖然描述並不清楚，但啟用此選項可以使包含迴圈的方法通過額外的編譯層，讓&#8203;`DOTNET_TieredPGO`&#8203;得以透過分析把使用數據處理得更好。
 
@@ -80,7 +80,7 @@ $Env:DOTNET_TC_QuickJitForLoops=1
 
 - 確保您使用的是&#8203;`OptimizationMode`&#8203;的預設值，為&#8203;`MaxPerformance`&#8203;。 這是到現在最重要的設定，因為使用&#8203;`MinMemoryUsage`&#8203;值會對效能產生重大影響。
 - 啟用伺服器GC。 與工作站GC相比，透過明顯的記憶體增加，可以一眼看出伺服器GC為活動狀態。 這將為您設備上的每個CPU執行緒生成一個GC執行緒，以在最高速度下平行執行GC運算。
-- 若您無法承擔伺服器GC所帶來的記憶體消耗，可以考慮調整&#8203;**[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gclatencylevel)**&#8203;和／或&#8203;**[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gcheaphardlimitpercent)**&#8203;來達成兩全。 但是，若您能承受這樣的記憶體消耗，那麼最好讓它維持預設狀態⸺伺服器GC在執行期間已自行調整，且足夠智慧在您的作業系統真正需要它時能使用更少的記憶體。
+- 若您無法承擔伺服器GC所帶來的記憶體消耗，可以考慮調整&#8203;**[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gclatencylevel)**&#8203;和／或&#8203;**[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gcheaphardlimitpercent)**&#8203;來達成兩全。 但是，若您能承受這樣的記憶體消耗，那麼最好讓它維持預設狀態⸺伺服器GC在執行期間已自行調整且足夠智慧，在您的作業系統真正需要它時，能使用更少的記憶體。
 - 您還可以考慮透過上述其他的&#8203;`DOTNET_`&#8203;屬性來進行額外調整，以增加最佳化來減少啟動時間。
 
-套用上述建議，可以使您擁有卓越的ASF效能，在即使啟用了成百上千個Bot後，也能保有快如閃電的效能。 CPU不再成為瓶頸，因為ASF能夠在需要時發揮您CPU的全部能力，將所需時間減少到最低限度。 再更進一步就只能升級CPU及RAM了。
+套用上述建議，可以使您擁有卓越的ASF效能，在即使啟用了成百上千個Bot後，也能保有快如閃電的效能。 CPU不再成為瓶頸，因為ASF能夠在需要時發揮您CPU的全部能力，將所需時間減少到最低限度。 若要再更進一步就只能升級CPU及RAM了。
