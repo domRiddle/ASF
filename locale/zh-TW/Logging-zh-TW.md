@@ -8,9 +8,9 @@ ASF允許您自訂執行期間使用的紀錄日誌模組。 您可以將叫做&
 
 預設情形下，ASF會記錄於&#8203;`ColoredConsole`&#8203;（標準輸出）及&#8203;`File`中。 `File`&#8203;紀錄包含在程式資料夾中的&#8203;`log.txt`&#8203;檔案及用於歸檔的&#8203;`logs`&#8203;資料夾中。
 
-使用自訂NLog設定會自動停用預設的ASF設定，您的設定會&#8203;**完全**&#8203;覆寫預設的ASF紀錄，這代表例如您想要保留我們的&#8203;`ColoredConsole`&#8203;目標，就必須&#8203;**自行定義**&#8203;。 This allows you to not only add **extra** logging targets, but also disable or modify **default** ones.
+使用自訂NLog設定會自動停用預設的ASF設定，您的設定會&#8203;**完全**&#8203;覆寫預設的ASF紀錄，這代表例如您想要保留我們的&#8203;`ColoredConsole`&#8203;目標，就必須&#8203;**自行定義**&#8203;。 這使您不只能夠新增&#8203;**額外的**&#8203;紀錄目標，還可以停用或修改&#8203;**預設的**&#8203;目標。
 
-If you want to use default ASF logging without any modifications, you don't need to do anything - you also don't need to define it in custom `NLog.config`. Don't use custom `NLog.config` if you don't want to modify default ASF logging. For reference though, equivalent of hardcoded ASF default logging would be:
+若您想要使用不受任何修改的預設ASF紀錄，就什麼也不需要做⸺您也不需要在自訂的&#8203;`NLog.config`&#8203;中定義它。 若您不想要修改預設ASF紀錄，就不要使用自訂的&#8203;`NLog.config`&#8203;。 不過做為參考，硬編碼的ASF預設紀錄等同於：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -53,25 +53,25 @@ If you want to use default ASF logging without any modifications, you don't need
 
 ## ASF 整合
 
-ASF includes some nice code tricks that enhance its integration with NLog, allowing you to catch specific messages more easily.
+ASF含有一些不錯的程式碼技巧，可以增強與NLog的整合，使您可以更輕鬆地抓取特定訊息。
 
-NLog-specific `${logger}` variable will always distinguish the source of the message - it will be either `BotName` of one of your bots, or `ASF` if message comes from ASF process directly. This way you can easily catch messages considering specific bot(s), or ASF process (only), instead of all of them, based on the name of the logger.
+NLog特定的&#8203;`${logger}`&#8203;變數將始終用來識別訊息來源⸺可以是您的Bot之一的&#8203;`BotName`&#8203;；若訊息直接來自ASF程序，也可以是&#8203;`ASF`&#8203;。 透過這種方式，您可以依據記錄器的名稱輕鬆抓取特定Bot或（只捕獲）ASF程序的訊息，而不是全部。
 
-ASF tries to mark messages appropriately based on NLog-provided logging levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them. Of course, logging level for specific message can't be customized, as it's ASF hardcoded decision how serious given message is, but you definitely can make ASF less/more silent, as you see fit.
+ASF會嘗試依據NLog提供的記錄級別適當地標示訊息，使您可以只抓取來自特定記錄級別的特定訊息，而不是全部。 當然，特定訊息的記錄級別無法自訂，因為這是ASF硬編碼所決定的訊息嚴重程度，但您仍絕對可以使ASF更加／更少的「沉默」，來符合您的需求。
 
-ASF logs extra info, such as user/chat messages on `Trace` logging level. Default ASF logging logs only `Debug` level and above, which hides that extra information, as it's not needed for majority of users, plus clutters output containing potentially more important messages. You can however make use of that information by re-enabling `Trace` logging level, especially in combination with logging only one specific bot of your choice, with particular event you're interested in.
+ASF也會記錄額外資訊，例如在&#8203;`Trace`&#8203;的記錄級別中就包含使用者使用者／聊天訊息。 預設的ASF紀錄只記錄了&#8203;`Debug`&#8203;級別及以上的訊息，它隱藏了額外訊息，因為大多數使用者並不需要它們，況且這些雜項輸出可能會掩蓋掉重要訊息。 但是您可以透過重新啟用&#8203;`Trace`&#8203;記錄級別來使用該訊息，特別是您只需要記錄某個特定Bot及您感興趣的特定事件的時候。
 
-In general, ASF tries to make it as easy and convenient for you as possible, to log only messages you want instead of forcing you to manually filter it through third-party tools such as `grep` and alike. Simply configure NLog properly as written below, and you should be able to specify even very complex logging rules with custom targets such as entire databases.
+一般來說，ASF試圖讓您盡可能地簡單且方便，只記錄您想要的訊息，而不是強迫您透過&#8203;`grep`&#8203;等第三方工具來手動過濾它。 只需依照下列說明正確地設定NLog，您就應該能夠使用自訂目標（例如整個資料庫）指定的非常複雜的記錄規則。
 
-Regarding versioning - ASF tries to always ship with most up-to-date version of NLog that is available on **[NuGet](https://www.nuget.org/packages/NLog)** at the time of ASF release. It should not be a problem to use any feature you can find on NLog wiki in ASF - just make sure you're also using up-to-date ASF.
+關於版本控制⸺ASF嘗試始終在發布時提供當時&#8203;**[NuGet](https://www.nuget.org/packages/NLog)**&#8203;上最新版的NLog。 您應該能夠使用所有您能在NLog Wiki上找到的ASF功能⸺只需要確保您也使用最新版的ASF。
 
-As part of ASF integration, ASF also includes support for additional ASF NLog logging targets, which will be explained below.
+作為ASF整合的一部份，ASF也支援包含其他ASF NLog紀錄的目標，這將在下列說明。
 
 ---
 
 ## 範例
 
-Let's start from something easy. We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
+讓我們從簡單的地方開始。 We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -184,13 +184,13 @@ ASF includes extended support for chat logging by not only recording all receive
 
 ### 事件屬性
 
-| 名稱          | 描述                                                                                                                                                                                                         |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Echo        | `bool` 類型。 This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.                                                                                               |
-| Message     | `string` 類型。 This is the actual sent/received message.                                                                                                                                                     |
-| ChatGroupID | `ulong` 類型。 This is the ID of the group chat for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                             |
-| ChatID      | `ulong` 類型。 This is the ID of the `ChatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                  |
-| SteamID     | `ulong` 類型。 This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat). |
+| 名稱          | 描述                                                                                                                                                                                                               |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Echo        | `bool`&#8203;型別。 This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.                                                                                               |
+| Message     | `string`&#8203;型別。 This is the actual sent/received message.                                                                                                                                                     |
+| ChatGroupID | `ulong`&#8203;型別。 This is the ID of the group chat for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                             |
+| ChatID      | `ulong`&#8203;型別。 This is the ID of the `ChatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                  |
+| SteamID     | `ulong`&#8203;型別。 This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat). |
 
 ### 範例
 
