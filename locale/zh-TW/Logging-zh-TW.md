@@ -55,7 +55,7 @@ ASF允許您自訂執行期間使用的紀錄日誌模組。 您可以將叫做&
 
 ASF含有一些不錯的程式碼技巧，可以增強與NLog的整合，使您可以更輕鬆地抓取特定訊息。
 
-NLog特定的&#8203;`${logger}`&#8203;變數將始終用來識別訊息來源⸺可以是您的Bot之一的&#8203;`BotName`&#8203;；若訊息直接來自ASF程序，也可以是&#8203;`ASF`&#8203;。 透過這種方式，您可以依據記錄器的名稱輕鬆抓取特定Bot或（只捕獲）ASF程序的訊息，而不是全部。
+NLog特定的&#8203;`${logger}`&#8203;變數將始終用來識別訊息來源⸺可以是您的Bot之一的&#8203;`BotName`&#8203;；若訊息直接來自ASF程序，也可以是&#8203;`ASF`&#8203;。 透過這種方式，您可以依據記錄器的名稱輕鬆抓取特定Bot或（只抓取）ASF程序的訊息，而不是全部。
 
 ASF會嘗試依據NLog提供的記錄級別適當地標示訊息，使您可以只抓取來自特定記錄級別的特定訊息，而不是全部。 當然，特定訊息的記錄級別無法自訂，因為這是ASF硬編碼所決定的訊息嚴重程度，但您仍絕對可以使ASF更加／更少的「沉默」，來符合您的需求。
 
@@ -71,7 +71,7 @@ ASF也會記錄額外資訊，例如在&#8203;`Trace`&#8203;的記錄級別中�
 
 ## 範例
 
-讓我們從簡單的地方開始。 We will use **[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)** target only. Our initial `NLog.config` will look like this:
+讓我們從簡單的地方開始。 我們先只使用&#8203;**[ColoredConsole](https://github.com/nlog/nlog/wiki/ColoredConsole-target)**&#8203;目標。 我們初始的&#8203;`NLog.config`&#8203;看起來像這樣：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -86,11 +86,11 @@ ASF也會記錄額外資訊，例如在&#8203;`Trace`&#8203;的記錄級別中�
 </nlog>
 ```
 
-The explanation of above config is rather simple - we define one **logging target**, which is `ColoredConsole`, then we redirect **all loggers** (`*`) of level `Debug` and higher to `ColoredConsole` target we defined earlier. That's it.
+上述設定的解釋十分簡單：我們定義一個&#8203;**記錄目標**&#8203;，為&#8203;`ColoredConsole`&#8203;，然後我們將&#8203;`Debug`&#8203;及更高級別的&#8203;**所有記錄器**&#8203;（&#8203;`*`&#8203;）重新導向至先前定義的&#8203;`ColoredConsole`&#8203;目標。 就是這樣。
 
-If you start ASF with above `NLog.config` now, only `ColoredConsole` target will be active, and ASF won't write to `File`, regardless of hardcoded ASF NLog configuration.
+若您現在以上述的&#8203;`NLog.config`&#8203;啟動ASF，只有&#8203;`ColoredConsole`&#8203;目標會被啟用，且不論ASF硬編碼的NLog設定為何，ASF都不會寫入&#8203;`File`&#8203;。
 
-Now let's say that we don't like default format of `${longdate}|${level:uppercase=true}|${logger}|${message}` and we want to log message only. We can do so by modifying **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** of our target.
+現在，假設我們不喜歡預設格式&#8203;`${longdate}|${level:uppercase=true}|${logger}|${message}`&#8203;，我們只想記錄訊息。 我們可以透過修改目標的&#8203;**[布局](https://github.com/nlog/nlog/wiki/Layouts)**&#8203;來做到。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -105,9 +105,9 @@ Now let's say that we don't like default format of `${longdate}|${level:uppercas
 </nlog>
 ```
 
-If you launch ASF now, you'll notice that date, level and logger name disappeared - leaving you only with ASF messages in format of `Function() Message`.
+若您現在啟動ASF，就會注意到日期、級別及記錄器名稱都消失了⸺只留下格式為&#8203;`Function() Message`&#8203;的ASF訊息。
 
-We can also modify the config to log to more than one target. Let's log to `ColoredConsole` and **[File](https://github.com/nlog/nlog/wiki/File-target)** at the same time.
+我們還可以修改設定以記錄多個目標。 讓我們同時記錄到&#8203;`ColoredConsole`&#8203;和&#8203;**[File](https://github.com/nlog/nlog/wiki/File-target)**&#8203;中。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -124,7 +124,7 @@ We can also modify the config to log to more than one target. Let's log to `Colo
 </nlog>
 ```
 
-And done, we'll now log everything to `ColoredConsole` and `File`. Did you notice that you can also specify custom `fileName` and extra options?
+現在，我們已將全部內容記錄到&#8203;`ColoredConsole`&#8203;和&#8203;`File`&#8203;中了。 您是否注意到您還可以指定自訂的&#8203;`fileName`&#8203;與額外選項呢？
 
 Finally, ASF uses various log levels, to make it easier for you to understand what is going on. We can use that information for modifying severity logging. Let's say that we want to log everything (`Trace`) to `File`, but only `Warning` and above **[log level](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** to the `ColoredConsole`. We can achieve that by modifying our `rules`:
 
