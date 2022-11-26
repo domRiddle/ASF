@@ -126,7 +126,7 @@ ASF也會記錄額外資訊，例如在&#8203;`Trace`&#8203;的記錄級別中�
 
 現在，我們已將全部內容記錄到&#8203;`ColoredConsole`&#8203;和&#8203;`File`&#8203;中了。 您是否注意到您還可以指定自訂的&#8203;`fileName`&#8203;與額外選項呢？
 
-最後，ASF使用著各種記錄級別，讓您更容易理解發生的事情。 We can use that information for modifying severity logging. Let's say that we want to log everything (`Trace`) to `File`, but only `Warning` and above **[log level](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** to the `ColoredConsole`. We can achieve that by modifying our `rules`:
+最後，ASF使用著各種記錄級別，讓您更容易理解發生的事情。 我們可以利用它，來修改紀錄的嚴重程度。 假設我們要將所有訊息（&#8203;`Trace`&#8203;）記錄至&#8203;`File`中，但只記錄&#8203;`Warning`&#8203;及更高的&#8203;**[訊息級別](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)**&#8203;至&#8203;`ColoredConsole`&#8203;。 我們可以修改&#8203;`rules`&#8203;來達成：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
