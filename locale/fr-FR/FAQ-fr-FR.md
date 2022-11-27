@@ -528,7 +528,7 @@ En bref, l’icône de l'obtention de cartes dans le magasin Steam ne veut rien 
 
 Second issue is less obvious, and it's the situation when you can see that your game indeed is available with card drops on your badge page, yet it's not being farmed by ASF right away. À moins que vous ne rencontriez un autre bug, tel qu'ASF ne pouvant pas vérifier les pages de badge (décrit ci-dessous), il s'agit simplement d'un effet de cache et du côté ASF, Steam continue de signaler des page de badges obsolètes. Ce problème devrait se résoudre tôt ou tard, lorsque le cache sera invalidé. Il n'y a également aucun moyen de régler ce problème de notre côté.
 
-Of course, all of that assumes that you're running ASF with default untouched settings, since you could also add this game to idling blacklist, use `FarmPriorityQueueOnly`, `SkipRefundableGames` and so on.
+Of course, all of that assumes that you're running ASF with default untouched settings, since you could also add this game to farming blacklist, use `FarmPriorityQueueOnly`, `SkipRefundableGames` and so on.
 
 
 

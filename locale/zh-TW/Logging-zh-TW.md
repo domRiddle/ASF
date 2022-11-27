@@ -143,9 +143,9 @@ ASF也會記錄額外資訊，例如在&#8203;`Trace`&#8203;的記錄級別中�
 </nlog>
 ```
 
-That's it, now our `ColoredConsole` will show only warnings and above, while still logging everything to `File`. You can further tweak it to log e.g. only `Info` and below, and so on.
+就是這樣，現在我們的&#8203;`ColoredConsole`&#8203;將只會顯示警告及更高級別的訊息，但同時仍將所有訊息記錄到&#8203;`File`&#8203;中。 您還可以進一步調整它，例如只記錄&#8203;`Info`&#8203;及更低級別等等。
 
-Lastly, let's do something a bit more advanced and log all messages to file, but only from bot named `LogBot`.
+最後，我們來做一些更進階的操作，將所有來自名為&#8203;`LogBot`&#8203;的Bot的訊息記錄至檔案中。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -162,13 +162,13 @@ Lastly, let's do something a bit more advanced and log all messages to file, but
 </nlog>
 ```
 
-You can see how we used ASF integration above and easily distinguished source of the message based on `${logger}` property.
+您可以看到我們如何使用上述的ASF整合，並依據&#8203;`${logger}`&#8203;屬性輕鬆區分訊息來源。
 
 ---
 
 ## 進階用法
 
-The examples above are rather simple and made to show you how easy it is to define your own logging rules that can be used with ASF. You can use NLog for various different things, including complex targets (such as keeping logs in `Database`), logs rotation (such as removing old `File` logs), using custom `Layout`s, declaring your own `<when>` logging filters and much more. I encourage you to read through entire **[NLog documentation](https://github.com/nlog/nlog/wiki/Configuration-file)** to learn about every option that is available to you, allowing you to fine-tune ASF logging module in the way you want. It's a really powerful tool and customizing ASF logging was never easier.
+上述範例非常簡單，向您展示了定義您自己的ASF日誌記錄規則是多麼的容易。 您可以使用NLog來做到各種不同的事情，包括複雜目標（例如將紀錄儲存至&#8203;`Database`&#8203;中）、紀錄輪替（例如移除舊的&#8203;`File`&#8203;紀錄）、使用自訂&#8203;`Layout`&#8203;、宣告您自己的&#8203;`<when>`&#8203;紀錄過濾器等等。 我建議您閱讀整個&#8203;**[NLog文件](https://github.com/nlog/nlog/wiki/Configuration-file)**&#8203;，了解每個可用選項，使您能夠以所需的方式來調整ASF紀錄日誌模組。 這是一個非常強大的工具，自訂ASF紀錄日誌從未如此簡單。
 
 ---
 

@@ -36,7 +36,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/linux-x64" -r "li
 
 ### .NET 框架
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net7.0` to `net481`. 请注意，您需要合适的 **[.NET 框架](https://dotnet.microsoft.com/download/visual-studio-sdks)**&#8203;开发者工具包和 .NET SDK 才能编译 `netf` 包，所以此命令仅适用于 Windows：
+在非常罕见的情况下，当您想要构建`通用netf包`时，您可以将目标框架从`net7.0`更改为`net481`。 请注意，您需要合适的 **[.NET 框架](https://dotnet.microsoft.com/download/visual-studio-sdks)**&#8203;开发者工具包和 .NET SDK 才能编译 `netf` 包，所以此命令仅适用于 Windows：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net481" -o "out/generic-netf"

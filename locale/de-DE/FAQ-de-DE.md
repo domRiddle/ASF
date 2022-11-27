@@ -453,7 +453,7 @@ Kurz gesagt, das Karten-Symbol im Steam-Shop bedeutet nichts, prüfe deine **[Ab
 
 Second issue is less obvious, and it's the situation when you can see that your game indeed is available with card drops on your badge page, yet it's not being farmed by ASF right away. Es sei denn, du triffst einen anderen Fehler, wie z.B. ASF, das nicht in der Lage ist, Abzeichen-Seiten zu überprüfen (siehe unten), es ist einfach ein Cache-Effekt und auf der ASF-Seite berichtet Steam immer noch über veraltete Abzeichen-Seiten. Dieses Problem sollte sich früher oder später lösen, wenn der Cache entwertet wird. Es gibt auch keine Möglichkeit, dies auf unserer Seite zu beheben.
 
-Of course, all of that assumes that you're running ASF with default untouched settings, since you could also add this game to idling blacklist, use `FarmPriorityQueueOnly`, `SkipRefundableGames` and so on.
+Of course, all of that assumes that you're running ASF with default untouched settings, since you could also add this game to farming blacklist, use `FarmPriorityQueueOnly`, `SkipRefundableGames` and so on.
 
 ---
 

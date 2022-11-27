@@ -453,7 +453,7 @@ Em suma, o ícone de Cartas Colecionáveis na Loja Steam não significa nada, ve
 
 Second issue is less obvious, and it's the situation when you can see that your game indeed is available with card drops on your badge page, yet it's not being farmed by ASF right away. A menos que você esteja se deparando com algum bug, tal como o ASF ser incapaz de verificar as páginas de insígnias (descritas abaixo), é simplesmente um efeito de cache e do lado do ASF o Steam ainda está mostrando a página de insígnias desatualizada. Esse problema deve resolver-se mais cedo ou mais tarde, quando o cache for invalidado. Também não dá para consertar isso do nosso lado.
 
-Claro, tudo isso pressupõe que você esteja executando o ASF com as configurações padrão intocadas, uma vez que você também pode ter adicionado este jogo à lista de bloqueio, usado `FarmPriorityQueueOnly`, `SkipRefundableGames` ou outra configuração.
+Of course, all of that assumes that you're running ASF with default untouched settings, since you could also add this game to farming blacklist, use `FarmPriorityQueueOnly`, `SkipRefundableGames` and so on.
 
 ---
 

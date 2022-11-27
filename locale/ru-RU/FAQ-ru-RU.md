@@ -453,7 +453,7 @@ ASF лицензирован по либеральной лицензии Apache
 
 Вторая причина менее очевидная, это ситуация, когда вы видите на странице значков что в игре есть доступные для выпадения карточки, но ASF не фармит её. Если вы не столкнулись с какой-то другой ошибкой, как например ситуацией когда ASF не может проверить страницу значков (описано ниже), то это просто эффект кеширования, и для ASF Steam всё ещё выдаёт устаревшую страницу со значками. Эта проблема должна рано или поздно решиться сама собой, когда кеш станет недействительным. Также, нет никакого способа исправить это на нашей стороне.
 
-Of course, all of that assumes that you're running ASF with default untouched settings, since you could also add this game to idling blacklist, use `FarmPriorityQueueOnly`, `SkipRefundableGames` and so on.
+Of course, all of that assumes that you're running ASF with default untouched settings, since you could also add this game to farming blacklist, use `FarmPriorityQueueOnly`, `SkipRefundableGames` and so on.
 
 ---
 

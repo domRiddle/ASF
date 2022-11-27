@@ -453,7 +453,7 @@ ASF 基于宽松的 Apache 2.0 许可证授权，允许其他开发者合法地�
 
 第二个原因不是很明显，有时您的徽章页面确实说明该游戏可以掉落卡牌，但是 ASF 没有马上为它挂卡。 除非您遇到了其他漏洞，例如 ASF 无法检查徽章页面（如下所述），否则这只是一种缓存效果，即 ASF 访问的 Steam 徽章页面是过时的版本。 等缓存过期后，此问题很快就会自行解决。 我们也没有办法解决这个问题。
 
-当然，上述说明都假设您以默认的配置运行 ASF，因为您可以通过配置来调整 ASF 的挂卡行为，包括将游戏加入挂卡黑名单，或设置 `FarmPriorityQueueOnly` 与 `SkipRefundableGames` 等等。
+Of course, all of that assumes that you're running ASF with default untouched settings, since you could also add this game to farming blacklist, use `FarmPriorityQueueOnly`, `SkipRefundableGames` and so on.
 
 ---
 
