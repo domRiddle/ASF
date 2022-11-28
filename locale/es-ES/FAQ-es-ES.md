@@ -453,7 +453,7 @@ En resumen, el icono de cromos obtenibles en la tienda de Steam no significa nad
 
 La segunda razón es menos obvia, y es la situación cuando puedes ver que tu juego ciertamente tiene cromos obtenibles en tu página de insignias, pero no es recolectado inmediatamente por ASF. A menos que hayas encontrado algún otro bug, tal como que ASF no pueda comprobar la página de insignias (descrito abajo), es simplemente un efecto de caché y en el lado de ASF Steam aún está reportado una página desactualizada de insignias. Este problema se debería resolver por sí solo tarde o temprano, cuando la caché sea invalidada. Tampoco hay forma de resolver esto desde nuestro lado.
 
-Of course, all of that assumes that you're running ASF with default untouched settings, since you could also add this game to farming blacklist, use `FarmPriorityQueueOnly`, `SkipRefundableGames` and so on.
+Por supuesto, esto asume que estás ejecutando ASF con los ajustes predeterminados, ya que también podrías haber añadido este juego a la lista negra de recolección, usando `FarmPriorityQueueOnly`, `SkipRefundableGames` y así por el estilo.
 
 ---
 

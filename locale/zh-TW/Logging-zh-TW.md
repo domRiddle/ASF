@@ -174,27 +174,27 @@ ASF也會記錄額外資訊，例如在&#8203;`Trace`&#8203;的記錄級別中�
 
 ## 限制
 
-ASF will temporarily disable **all** rules that include `ColoredConsole` or `Console` targets when expecting user input. Therefore, if you want to keep logging for other targets even when ASF expects user input, you should define those targets with their own rules, as shown in examples above, instead of putting many targets in `writeTo` of the same rule (unless this is your wanted behaviour). Temporary disable of console targets is done in order to keep console clean when waiting for user input.
+在需要使用者輸入時，ASF將暫時停用包含&#8203;`ColoredConsole`&#8203;或&#8203;`Console`&#8203;目標的&#8203;**所有**&#8203;規則。 因此，若您希望在ASF等待使用者輸入時繼續記錄其他目標，您應該使用自己的規則來定義這些目標，如上述範例所示，而不是將很多目標放在相同規則的&#8203;`writeTo`&#8203;中（除非這就是您想要的行為）。 臨時停用控制台目標是為了在等待使用者輸入時保持控制台乾淨。
 
 ---
 
 ## 聊天紀錄
 
-ASF includes extended support for chat logging by not only recording all received/sent messages on `Trace` logging level, but also exposing extra info related to them in **[event properties](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**. This is because we need to handle chat messages as commands anyway, so it doesn't cost us anything to log those events in order to make it possible for you to add extra logic (such as making ASF your personal Steam chatting archive).
+ASF包含對聊天紀錄的延伸支援，不只在&#8203;`Trace`&#8203;記錄級別中記錄所有發送／接收的訊息，還會在&#8203;**[事件屬性](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)**&#8203;中暴露與它們相關的額外資訊。 這是因為我們不論如何都需要將聊天訊息作為指令處理，因此記錄這些事件並不會增加任何處理成本，但您可以因此來加入額外的邏輯（例如將ASF當作您的個人Steam聊天存檔）。
 
 ### 事件屬性
 
-| 名稱          | 描述                                                                                                                                                                                                               |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Echo        | `bool`&#8203;型別。 This is set to `true` when message is being sent from us to the recipient, and `false` otherwise.                                                                                               |
-| Message     | `string`&#8203;型別。 This is the actual sent/received message.                                                                                                                                                     |
-| ChatGroupID | `ulong`&#8203;型別。 This is the ID of the group chat for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                             |
-| ChatID      | `ulong`&#8203;型別。 This is the ID of the `ChatGroupID` channel for sent/received messages. Will be `0` when no group chat is used for transmitting this message.                                                  |
-| SteamID     | `ulong`&#8203;型別。 This is the ID of the Steam user for sent/received messages. Can be `0` when no particular user is involved in the message transmission (e.g. when it's us sending a message to a group chat). |
+| 名稱          | 描述                                                                                             |
+| ----------- | ---------------------------------------------------------------------------------------------- |
+| Echo        | `bool`&#8203;型別。 當訊息由我們發送給收件人時設定為&#8203;`true`&#8203;，否則為&#8203;`false`&#8203;。                |
+| Message     | `string`&#8203;型別。 這是實際發送／接收的訊息。                                                               |
+| ChatGroupID | `ulong`&#8203;型別。 這是發送／接收訊息的群組聊天ID。 若訊息不是經由群組聊天傳輸則為&#8203;`0`&#8203;。                          |
+| ChatID      | `ulong`&#8203;型別。 這是發送／接收訊息的&#8203;`ChatGroupID`&#8203;頻道ID。 若訊息不是經由群組聊天傳輸則為&#8203;`0`&#8203;。 |
+| SteamID     | `ulong`&#8203;型別。 這是發送／接收訊息的Steam使用者ID。 在沒有特定使用者參與訊息傳輸時（例如我們傳送訊息給群組聊天），可為&#8203;`0`&#8203;。    |
 
 ### 範例
 
-This example is based on our `ColoredConsole` basic example above. Before trying to understand it, I strongly recommend to take a look **[above](#examples)** in order to learn about basics of NLog logging firstly.
+本範例基於上述的&#8203;`ColoredConsole`&#8203;基本範例。 在嘗試理解它之前，我強烈建議您先閱讀&#8203;**[上文](#範例)**&#8203;，來了解NLog紀錄的基礎。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -215,9 +215,9 @@ This example is based on our `ColoredConsole` basic example above. Before trying
 </nlog>
 ```
 
-We've started from our basic `ColoredConsole` example and extended it further. First and foremost, we've prepared a permanent chat log file per each group channel and Steam user - this is possible thanks to extra properties that ASF exposes to us in a fancy way. We've also decided to go with a custom layout that writes only current date, the message, sent/received info and Steam user itself. Lastly, we've enabled our chat logging rule only for `Trace` level, only for our `MainAccount` bot and only for functions related to chat logging (`OnIncoming*` which is used for receiving messages and echos, and `SendMessage*` for ASF messages sending).
+我們以基本的&#8203;`ColoredConsole`&#8203;為例，並在之後對其延伸。 首先，我們為每個群組頻道及Steam使用者準備了一個永久的聊天紀錄檔案⸺這要歸功於ASF向我們公開額外屬性。 我們還決定使用一種自訂布局，只寫入當前日期、訊息、發送／接收資訊及Steam使用者本身。 最後，我們啟用的聊天紀錄規則只適用於&#8203;`Trace`&#8203;級別、&#8203;`MainAccount`&#8203; Bot及聊天紀錄相關的函數（用於接收訊息的&#8203;`OnIncoming*`&#8203;與發送ASF訊息的&#8203;`SendMessage*`&#8203;）。
 
-The example above will generate `0-0-76561198069026042.txt` file when talking with **[ArchiBot](https://steamcommunity.com/profiles/76561198069026042)**:
+上述範例會在與&#8203;**[ArchiBot](https://steamcommunity.com/profiles/76561198069026042)**&#8203;交談時生成&#8203;`0-0-76561198069026042.txt`&#8203;檔案：
 
 ```text
 2018-07-26 01:38:38 how are you doing? -> 76561198069026042
