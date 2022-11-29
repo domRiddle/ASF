@@ -21,6 +21,8 @@ We'll do all below actions as `root`, so get to its shell with `su` or `sudo -i`
 
 Firstly it's a good idea to ensure that our folder still belongs to our `asf` user, `chown -hR asf:asf /home/asf/ArchiSteamFarm` executed once will do it. The permissions could be wrong e.g. if you've downloaded and/or unpacked the zip file as `root`.
 
+Secondly, if you're using generic variant of ASF, you need to ensure `dotnet` command is recognized and within one of the standard locations: `/usr/local/bin`, `/usr/bin` or `/bin`. This is required for our systemd service which executes `dotnet /path/to/ArchiSteamFarm.dll` command. Check if `dotnet --info` works for you, if yes, type `command -v dotnet` to find out where it's located. If you've used official installer, it should be in `/usr/bin/dotnet` or one of the two other locations, which is alright. If it's in custom location such as `/usr/share/dotnet/dotnet`, create a symlink for it using `ln -s "$(command -v dotnet)" /usr/bin/dotnet`. Now `command -v dotnet` should report `/usr/bin/dotnet`, which will also make our systemd unit work. If you're using OS-specific variant, you don't need to do anything in this regard.
+
 Next `cd /etc/systemd/system` και execute `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`, αυτό θα δημιουργήσει μια συμβολική σύνδεση με τη δήλωση υπηρεσίας μας και θα την καταχωρήσει στο `systemd`. Ο συμβολικός σύνδεσμος θα επιτρέψει στο ASF να ενημερώσει τη μονάδα `systemd` αυτόματα ως μέρος της ενημέρωσης ASF - ανάλογα με την κατάστασή σας, μπορεί να θέλετε να χρησιμοποιήσετε αυτή την προσέγγιση, ή απλά χρησιμοποιήστε `cp` στο αρχείο και διαχειριστείτε το μόνοι σας, όπως θέλετε.
 
 Afterwards, ensure that `systemd` recognizes our service:

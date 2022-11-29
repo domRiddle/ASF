@@ -61,7 +61,7 @@ ASF會嘗試依據NLog提供的記錄級別適當地標示訊息，使您可以�
 
 ASF也會記錄額外資訊，例如在&#8203;`Trace`&#8203;的記錄級別中就包含使用者使用者／聊天訊息。 預設的ASF紀錄只記錄了&#8203;`Debug`&#8203;級別及以上的訊息，它隱藏了額外訊息，因為大多數使用者並不需要它們，況且這些雜項輸出可能會掩蓋掉重要訊息。 但是您可以透過重新啟用&#8203;`Trace`&#8203;記錄級別來使用該訊息，特別是您只需要記錄某個特定Bot及您感興趣的特定事件的時候。
 
-一般來說，ASF試圖讓您盡可能地簡單且方便，只記錄您想要的訊息，而不是強迫您透過&#8203;`grep`&#8203;等第三方工具來手動過濾它。 只需依照下列說明正確地設定NLog，您就應該能夠使用自訂目標（例如整個資料庫）指定的非常複雜的記錄規則。
+一般來說，ASF試圖讓您盡可能地簡單且方便，只記錄您想要的訊息，而不是強迫您透過&#8203;`grep`&#8203;等第三方工具來手動篩選它。 只需依照下列說明正確地設定NLog，您就應該能夠使用自訂目標（例如整個資料庫）指定的非常複雜的記錄規則。
 
 關於版本控制⸺ASF嘗試始終在發布時提供當時&#8203;**[NuGet](https://www.nuget.org/packages/NLog)**&#8203;上最新版的NLog。 您應該能夠使用所有您能在NLog Wiki上找到的ASF功能⸺只需要確保您也使用最新版的ASF。
 
@@ -168,7 +168,7 @@ ASF也會記錄額外資訊，例如在&#8203;`Trace`&#8203;的記錄級別中�
 
 ## 進階用法
 
-上述範例非常簡單，向您展示了定義您自己的ASF日誌記錄規則是多麼的容易。 您可以使用NLog來做到各種不同的事情，包括複雜目標（例如將紀錄儲存至&#8203;`Database`&#8203;中）、紀錄輪替（例如移除舊的&#8203;`File`&#8203;紀錄）、使用自訂&#8203;`Layout`&#8203;、宣告您自己的&#8203;`<when>`&#8203;紀錄過濾器等等。 我建議您閱讀整個&#8203;**[NLog文件](https://github.com/nlog/nlog/wiki/Configuration-file)**&#8203;，了解每個可用選項，使您能夠以所需的方式來調整ASF紀錄日誌模組。 這是一個非常強大的工具，自訂ASF紀錄日誌從未如此簡單。
+上述範例非常簡單，向您展示了定義您自己的ASF日誌記錄規則是多麼的容易。 您可以使用NLog來做到各種不同的事情，包括複雜目標（例如將紀錄儲存至&#8203;`Database`&#8203;中）、紀錄輪替（例如移除舊的&#8203;`File`&#8203;紀錄）、使用自訂&#8203;`Layout`&#8203;、宣告您自己的&#8203;`<when>`&#8203;紀錄篩選器等等。 我建議您閱讀整個&#8203;**[NLog文件](https://github.com/nlog/nlog/wiki/Configuration-file)**&#8203;，了解每個可用選項，使您能夠以所需的方式來調整ASF紀錄日誌模組。 這是一個非常強大的工具，自訂ASF紀錄日誌從未如此簡單。
 
 ---
 
@@ -224,23 +224,23 @@ ASF包含對聊天紀錄的延伸支援，不只在&#8203;`Trace`&#8203;記錄�
 2018-07-26 01:38:38 I'm doing great, how about you? <- 76561198069026042
 ```
 
-Of course this is just a working example with a few nice layout tricks showed in practical manner. You can further expand this idea to your own needs, such as extra filtering, custom order, personal layout, recording only received messages and so on.
+當然，這只是一個可以使用的範例，以實際方式展示了一些不錯的布局技巧。 您可以將這個方法進一步延伸至您自己的需要，例如額外篩選器、自訂順序、個人布局、只記錄收到的訊息等。
 
 ---
 
 ## ASF 目標
 
-In addition to standard NLog logging targets (such as `ColoredConsole` and `File` explained above), you can also use custom ASF logging targets.
+除了標準的NLog記錄目標（例如上述解釋的&#8203;`ColoredConsole`&#8203;及&#8203;`File`&#8203;），您還可以使用自訂ASF記錄目標。
 
-For maximum completeness, definition of ASF targets will follow NLog documentation convention.
+為了最大程度的完整性，ASF目標將遵循NLog文件的約定。
 
 ---
 
 ### SteamTarget
 
-As you can guess, this target uses Steam chat messages for logging ASF messages. You can configure it to use either a group chat, or private chat. In addition to specifying a Steam target for your messages, you can also specify `botName` of the bot that is supposed to send those.
+正如您所猜到的，這個目標使用Steam聊天訊息來記錄ASF訊息。 您可以將它設定成使用群組聊天或私人聊天。 除了為您的訊息指定Steam目標以外，您還可以指定發送這些消息的Bot的&#8203;`botName`&#8203;。
 
-Supported in all environments used by ASF.
+在所有ASF使用的環境中支援。
 
 ---
 
@@ -256,25 +256,25 @@ Supported in all environments used by ASF.
 </targets>
 ```
 
-Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki/Configuration-file).
+閱讀有關使用&#8203;[設定檔](https://github.com/NLog/NLog/wiki/Configuration-file)的更多資訊。
 
 ---
 
 #### 參數
 
 ##### 一般選項
-_name_ - Name of the target.
+_name_&#8203;：目標的名稱。
 
 ---
 
 ##### 布局選項
-_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${level:uppercase=true}|${logger}|${message}`
+_layout_&#8203;：要呈現的本文。 必須為&#8203;[布局](https://github.com/NLog/NLog/wiki/Layouts)&#8203;。 預設值：&#8203;`${level:uppercase=true}|${logger}|${message}`
 
 ---
 
 ##### SteamTarget 選項
 
-_chatGroupID_ - ID of the group chat declared as 64-bit long unsigned integer. 非必要。 Defaults to `0` which will disable group chat functionality and use private chat instead. When enabled (set to non-zero value), `steamID` property below acts as `chatID` and specifies ID of the channel in this `chatGroupID` that the bot should send messages to.
+_chatGroupID_&#8203;：以64位元無號長整數宣告的群組聊天ID。 非必須項。 預設為&#8203;`0`&#8203;，這將停用群組聊天功能並改用私人聊天。 啟用時（設定成非0的值），下面的&#8203;`steamID`&#8203;屬性會表現成&#8203;`chatID`&#8203;，且Bot會向指定的&#8203;`chatGroupID`&#8203;頻道ID發送訊息。
 
 _steamID_ - SteamID declared as 64-bit long unsigned integer of target Steam user (like `SteamOwnerID`), or target `chatID` (when `chatGroupID` is set). Required. Defaults to `0` which disables logging target entirely.
 
