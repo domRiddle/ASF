@@ -1,6 +1,6 @@
 # 外掛程式
 
-Starting with ASF V4, the program includes support for custom plugins that can be loaded during runtime. Plugins allow you to customize ASF behaviour, for example by adding custom commands, custom trading logic or whole integration with third-party services and APIs.
+從ASF V4版本開始，程式支援可在執行期間載入的自訂外掛程式。 外掛程式使您能夠自訂ASF的行為，例如加入自訂指令、自訂交易邏輯，或與第三方服務及API進行整體整合。
 
 ---
 

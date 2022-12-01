@@ -1,16 +1,16 @@
 # Docker
 
-從 3.0.3.2 版本開始，ASF 現在也可用於 **[Docker 容器](https://www.docker.com/what-container)**中。 我們的 Docker 倉庫同時部署於 **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** 和 **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**。
+從3.0.3.2版本開始，ASF現在也可用於&#8203;**[Docker容器](https://www.docker.com/what-container)**&#8203;中。 我們的Docker倉庫同時部署於&#8203;**[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)**&#8203;及&#8203;**[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**&#8203;。
 
-It's important to note that running ASF in Docker container is considered **advanced setup**, which is **not needed** for vast majority of users, and typically gives **no advantages** over container-less setup. If you're considering Docker as a solution for running ASF as a service, then you should consider reading **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#systemd-service-for-linux)** section instead and set up a proper `systemd` service which will be **almost always** a better idea than running ASF in a Docker container.
+It's important to note that running ASF in Docker container is considered **advanced setup**, which is **not needed** for vast majority of users, and typically gives **no advantages** over container-less setup. If you're considering Docker as a solution for running ASF as a service, for example making it start automatically with your OS, then you should consider reading **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#systemd-service-for-linux)** section instead and set up a proper `systemd` service which will be **almost always** a better idea than running ASF in a Docker container.
 
-While running ASF in docker container typically has no advantages for casual users (and causing several new problems on top of it), there are still valid use cases for it in very complex setups, for example in regards to advanced networking setup or security beyond standard sandboxing that ASF comes with in `systemd` service (which already ensures basic process isolation through very advanced security mechanics). For those handful amount of people, this section explains better ASF concepts in regards to its Docker compatibility.
+Running ASF in Docker container usually involves **several new problems and issues** that you'll have to face and resolve yourself. This is why we **strongly** recommend you to avoid it unless you already have Docker knowledge and don't need help understanding its internals, about which we won't elaborate here on ASF wiki. This section is mostly for valid use cases of very complex setups, for example in regards to advanced networking or security beyond standard sandboxing that ASF comes with in `systemd` service (which already ensures superior process isolation through very advanced security mechanics). For those handful amount of people, here we explain better ASF concepts in regards to its Docker compatibility, and only that, you're assumed to have adequate Docker knowledge yourself if you decide to use it together with ASF.
 
 ---
 
 ## 標籤
 
-ASF 有4種主要類型的**[標籤](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**：
+ASF有4種主要類型的&#8203;**[標籤](https://hub.docker.com/r/justarchi/archisteamfarm/tags)**&#8203;：
 
 
 ### `main`

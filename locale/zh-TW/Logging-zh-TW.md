@@ -276,15 +276,15 @@ _layout_&#8203;：要呈現的本文。 必須為&#8203;[布局](https://github.
 
 _chatGroupID_&#8203;：以64位元無號長整數宣告的群組聊天ID。 非必須項。 預設為&#8203;`0`&#8203;，這將停用群組聊天功能並改用私人聊天。 啟用時（設定成非0的值），下面的&#8203;`steamID`&#8203;屬性會表現成&#8203;`chatID`&#8203;，且Bot會向指定的&#8203;`chatGroupID`&#8203;頻道ID發送訊息。
 
-_steamID_ - SteamID declared as 64-bit long unsigned integer of target Steam user (like `SteamOwnerID`), or target `chatID` (when `chatGroupID` is set). Required. Defaults to `0` which disables logging target entirely.
+_steamID_&#8203;：以64位元無號長整數宣告的SteamID，或目標&#8203;`chatID`&#8203;（在&#8203;`chatGroupID`&#8203;被設定時）。 必須項。 預設為&#8203;`0`&#8203;，這將完全停用記錄目標。
 
-_botName_ - Name of the bot (as it's recognized by ASF, case-sensitive) that will be sending messages to `steamID` declared above. 非必要。 Defaults to `null` which will automatically select **any** currently connected bot. It's recommended to set this value appropriately, as `SteamTarget` does not take into account many Steam limitations, such as the fact that you must have `steamID` of the target on your friendlist. This variable is defined as [layout](https://github.com/NLog/NLog/wiki/Layouts) type, therefore you can use special syntax in it, such as `${logger}` in order to use the bot that generated the message.
+_botName_&#8203;：Bot的名稱（提供ASF辨識，區分大小寫），會向上面宣告的&#8203;`steamID`&#8203;發送訊息。 非必須項。 預設為&#8203;`null`&#8203;，這將會自動選擇當前已連線的&#8203;**任意**&#8203;Bot。 建議適當地設定此值，因為&#8203;`SteamTarget`&#8203;沒有考慮很多Steam的限制，例如實際上目標的&#8203;`steamID`&#8203;必須在您的好友清單中。 此變數定義為&#8203;[布局](https://github.com/NLog/NLog/wiki/Layouts)&#8203;型別，因此您可以使用特殊的語法，例如使用&#8203;`${logger}`&#8203;來表示生成訊息的Bot。
 
 ---
 
 #### SteamTarget 範例
 
-In order to write all messages of `Debug` level and above, from bot named `MyBot` to steamID of `76561198006963719`, you should use `NLog.config` similar to below:
+為了讓名為&#8203;`MyBot`&#8203;的Bot將所有&#8203;`Debug`&#8203;及更高級別的訊息發送至steamID為&#8203;`76561198006963719`&#8203;的使用者，您應該使用與下列相似的&#8203;`NLog.config`&#8203;：
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -299,11 +299,11 @@ In order to write all messages of `Debug` level and above, from bot named `MyBot
 </nlog>
 ```
 
-**Notice:** Our `SteamTarget` is custom target, so you should make sure that you're declaring it as `type="Steam"`, NOT `xsi:type="Steam"`, as xsi is reserved for official targets supported by NLog.
+**注意：**&#8203;我們的&#8203;`SteamTarget`&#8203;是自訂目標，所以您應確保宣告的是&#8203;`type="Steam"`&#8203;，而不是&#8203;`xsi:type="Steam"`&#8203;，因為xsi是保留給NLog官方支援的目標。
 
-When you launch ASF with `NLog.config` similar to above, `MyBot` will start messaging `76561198006963719` Steam user with all usual ASF log messages. Keep in mind that `MyBot` must be connected in order to send messages, so all initial ASF messages that happened before our bot could connect to Steam network, won't be forwarded.
+當您使用與上述類似的&#8203;`NLog.config`&#8203;啟動ASF時，&#8203;`MyBot`&#8203;將會開始向Steam使用者&#8203;`76561198006963719`&#8203;發送日常的ASF紀錄訊息。 請注意，&#8203;`MyBot`&#8203;必須連接才能發送消息，因此在我們的Bot得以連接至Steam網路前發生的所有初始ASF訊息都無法被轉發。
 
-Of course, `SteamTarget` has all typical functions that you could expect from generic `TargetWithLayout`, so you can use it in conjunction with e.g. custom layouts, names or advanced logging rules. The example above is only the most basic one.
+當然，&#8203;`SteamTarget`&#8203;具有所有您能從通用的&#8203;`TargetWithLayout`&#8203;得到的典型功能，因此您可以將它與自訂布局、名稱或進階紀錄規則結合使用。 上述範例只是最基礎的一個。
 
 ---
 
@@ -315,9 +315,9 @@ Of course, `SteamTarget` has all typical functions that you could expect from ge
 
 ### HistoryTarget
 
-This target is used internally by ASF for providing fixed-size logging history in `/Api/NLog` endpoint of **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** that can be afterwards consumed by ASF-ui and other tools. In general you should define this target only if you're already using custom NLog config for other customizations and you also want the log to be exposed in ASF API, e.g. for ASF-ui. It can also be declared when you'd want to modify default layout or `maxCount` of saved messages.
+這個目標被ASF內部使用，為&#8203;**[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#asf-api)**&#8203;的&#8203;`/Api/NLog`端點提供固定大小的紀錄歷史，可以在以後被ASF-ui等其他工具使用。 一般而言，只有在您已經使用自訂NLog設定來進行其他自訂，且您還希望紀錄在ASF API（例如ASF-ui）中公開時，您才應該定義此目標。 或者當您想要修改預設布局或歷史訊息的&#8203;`maxCount`&#8203;時，也可以宣告它。
 
-Supported in all environments used by ASF.
+在所有ASF使用的環境中支援。
 
 ---
 
@@ -331,30 +331,30 @@ Supported in all environments used by ASF.
 </targets>
 ```
 
-Read more about using the [Configuration File](https://github.com/NLog/NLog/wiki/Configuration-file).
+閱讀有關使用&#8203;[設定檔](https://github.com/NLog/NLog/wiki/Configuration-file)的更多資訊。
 
 ---
 
 #### 參數
 
 ##### 一般選項
-_name_ - Name of the target.
+_name_&#8203;：目標的名稱。
 
 ---
 
 ##### 布局選項
-_layout_ - Text to be rendered. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Required. Default: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+_layout_&#8203;：要呈現的本文。 必須為&#8203;[布局](https://github.com/NLog/NLog/wiki/Layouts)&#8203;。 預設值：`${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 ---
 
 ##### HistoryTarget 選項
 
-_maxCount_ - Maximum amount of stored logs for on-demand history. 非必要。 Defaults to `20` which is a good balance for providing initial history, while still keeping in mind memory usage that comes out of storage requirements. Must be greater than `0`.
+_maxCount_&#8203;：紀錄的隨選歷史的最大儲存量。 非必須項。 預設為&#8203;`20`，這提供了適合的初始歷史記錄數量，同時也考慮了儲存紀錄所需的記憶體使用量。 必須大於&#8203;`0`&#8203;。
 
 ---
 
 ## 警語
 
-Be careful when you decide to combine `Debug` logging level or below in your `SteamTarget` with `steamID` that is taking part in the ASF process. This can lead to potential `StackOverflowException` because you'll create an infinite loop of ASF receiving given message, then logging it through Steam, resulting in another message that needs to be logged. Currently the only possibility for it to happen is to log `Trace` level (where ASF records its own chat messages), or `Debug` level while also running ASF in `Debug` mode (where ASF records all Steam packets).
+當您決定將&#8203;`SteamTarget`&#8203;中的&#8203;`Debug`&#8203;或更低的記錄級別，與參與ASF程序的&#8203;`steamID`&#8203;結合使用時，應當格外小心。 這可能會導致&#8203;`StackOverflowException`&#8203;，因為您將建立一個使ASF接收給定訊息的無限循環。是透過Steam記錄它，導致需要再記錄另一條訊息。 目前只有在記錄&#8203;`Trace`&#8203;級別（ASF記錄自己的聊天訊息）或&#8203;`Debug`級別，同時又在&#8203;`Debug`&#8203;模式下執行ASF（此時ASF會記錄所有Steam封包）時，才會發生這種情形。
 
-In short, if your `steamID` is taking part in the same ASF process, then the `minlevel` logging level of your `SteamTarget` should be `Info` (or `Debug` if you're also not running ASF in `Debug` mode) and above. Alternatively you can define your own `<when>` logging filters in order to avoid infinite logging loop, if modifying level is not appropriate for your case. This caveat also applies to group chats.
+簡而言之，若您的&#8203;`steamID`&#8203;屬於同一個ASF程序，則您的&#8203;`SteamTarget`&#8203;的&#8203;`minlevel`&#8203;記錄級別應為&#8203;`Info`&#8203;（如果不在&#8203;`Debug`&#8203;模式下執行ASF，則為&#8203;`Debug`&#8203;）或更高。 或者，如果修改級別不符合您的需求，您可以定義自己的&#8203;`<when>`&#8203;紀錄篩選器，以避免無限的紀錄循環。 這份警語也適用於群組聊天。
