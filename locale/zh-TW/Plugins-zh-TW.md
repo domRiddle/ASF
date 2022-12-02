@@ -1,26 +1,26 @@
 # 外掛程式
 
-從ASF V4版本開始，程式支援可在執行期間載入的自訂外掛程式。 外掛程式使您能夠自訂ASF的行為，例如加入自訂指令、自訂交易邏輯，或與第三方服務及API進行整體整合。
+從ASF V4版本開始，程式支援可在執行期間載入的自訂外掛程式。 外掛程式使您能夠自訂ASF的行為，例如加入自訂指令、自訂交易邏輯，或與第三方服務或是API進行整體整合。
 
 ---
 
 ## 給使用者
 
-ASF loads plugins from `plugins` directory located in your ASF folder. It's a recommended practice to maintain a dedicated directory for each plugin that you want to use, which can be based off its name, such as `MyPlugin`. Doing so will result in the final tree structure of `plugins/MyPlugin`. Finally, all binary files of the plugin should be put inside that dedicated folder, and ASF will properly discover and use your plugin after restart.
+ASF會從您的ASF資料夾中的&#8203;`plugins`&#8203;資料夾載入外掛程式。 建議為您使用的每個外掛程式提供一個專屬資料夾，該資料夾可以依據外掛程式的名稱命名，例如&#8203;`MyPlugin`&#8203;。 最終會產生&#8203;`plugins/MyPlugin`&#8203;的樹狀結構。 最後，外掛程式的所有二進制檔案都應該放在那個專屬資料夾中，ASF會在重新啟動後成功偵測並使用您的外掛程式。
 
-Usually plugin developers will publish their plugins in form of a `zip` file with already-prepared structure for you, so it's enough to unpack that zip archive into `plugins` directory, which will create the appropriate folder automatically.
+通常外掛程式的開發人員會以&#8203;`zip`&#8203檔的形式來發布他們的外掛程式，該檔案會具有已經為您準備好的檔案結構，因此只需將該.zip檔解壓縮至&#8203;`plugins`&#8203;資料夾中，就能自動建立適當的資料夾。
 
-If the plugin was loaded successfully, you'll see its name and version in your log. You should consult your plugin developers in case of questions, issues or usage related to the plugins that you've decided to use.
+若外掛程式被成功載入，您將會在紀錄中看到它的名稱及版本。 若遇到與您使用的外掛程式相關的問題、或對程式內容或使用方式有疑問時，您應諮詢相應的外掛程式開發人員。
 
-You can find some featured plugins in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
+您可以在我們的&#8203;**[第三方工具](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-zh-TW#asf-外掛程式)**&#8203;章節中找到一些精選的外掛程式。
 
-**Please note that ASF plugins could be malicious**. You should always ensure that you're using plugins made by developers that you can trust. ASF developers can no longer guarantee you usual ASF benefits (such as lack of malware or being VAC-free) if you decide to use any custom plugins. We're also unable to support setups that utilize custom plugins, since you're no longer running vanilla ASF code.
+**請注意，ASF外掛程式可能包含惡意功能**&#8203;。 您應始終確保您所使用的外掛程式來自您可以信任的開發人員。 若您決定使用任何自訂外掛程式，ASF開發人員將不再保證您正常的ASF權益（例如無惡意程式或不被VAC）。 我們亦無法支援使用自訂外掛程式的設定，因為您不再執行原版的ASF程式碼。
 
 ---
 
 ## 給開發人員
 
-Plugins are standard .NET libraries that inherit common `IPlugin` interface with ASF. You can develop plugins entirely independently of mainline ASF and reuse them in current and future ASF versions, as long as API remains compatible. Plugin system used in ASF is based on `System.Composition`, formerly known as **[Managed Extensibility Framework](https://docs.microsoft.com/dotnet/framework/mef)** which allows ASF to discover and load your libraries during runtime.
+外掛程式是標準的.NET函式庫，繼承了ASF的通用&#8203;`IPlugin`&#8203;介面。 You can develop plugins entirely independently of mainline ASF and reuse them in current and future ASF versions, as long as API remains compatible. Plugin system used in ASF is based on `System.Composition`, formerly known as **[Managed Extensibility Framework](https://docs.microsoft.com/dotnet/framework/mef)** which allows ASF to discover and load your libraries during runtime.
 
 ---
 
