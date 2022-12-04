@@ -21,7 +21,7 @@ useradd -m asf
 
 我们最好先确认一下我们的目录仍然属于 `asf` 用户，也就是执行一次 `chown -hR asf:asf /home/asf/ArchiSteamFarm` 命令。 因为如果您是以 `root` 用户下载或解压 zip 文件，权限可能是错误的。
 
-Secondly, if you're using generic variant of ASF, you need to ensure `dotnet` command is recognized and within one of the standard locations: `/usr/local/bin`, `/usr/bin` or `/bin`. This is required for our systemd service which executes `dotnet /path/to/ArchiSteamFarm.dll` command. Check if `dotnet --info` works for you, if yes, type `command -v dotnet` to find out where it's located. If you've used official installer, it should be in `/usr/bin/dotnet` or one of the two other locations, which is alright. If it's in custom location such as `/usr/share/dotnet/dotnet`, create a symlink for it using `ln -s "$(command -v dotnet)" /usr/bin/dotnet`. Now `command -v dotnet` should report `/usr/bin/dotnet`, which will also make our systemd unit work. If you're using OS-specific variant, you don't need to do anything in this regard.
+然后，如果您正在使用 ASF 的 Generic 版本，您还需要确认 `dotnet` 命令可以被识别到，并且在下列标准路径之一：`/usr/local/bin`、`/usr/bin` 或 `/bin`。 这是我们执行 `dotnet /path/to/ArchiSteamFarm.dll` 命令的 systemd 服务所必需的条件。 您需要检查 `dotnet --info` 是否正常，如果正常，则输入 `command -v dotnet` 命令获取它的位置。 如果您使用的是官方安装器，它应该在 `/usr/bin/dotnet` 或者另外两个位置，这不会有问题。 如果它在自定义位置，例如 `/usr/share/dotnet/dotnet`，则需要使用 `ln -s "$(command -v dotnet)" /usr/bin/dotnet` 命令创建一个符号链接。 现在 `command -v dotnet` 命令应该也输出 `/usr/bin/dotnet` 了，这能让我们的 systemd 单元正常工作。 如果您使用的是特定操作系统的版本，则不需要进行本段落的任何操作。
 
 接下来，`cd /etc/systemd/system` 并执行 `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`，这会为服务定义文件创建一个符号链接，并将它注册给 `systemd`。 使用符号链接是为了让 ASF 能在更新时自动更新您的 `systemd` 单元——取决于您的情况，您可能希望这样做，如果不希望，也可以直接使用 `cp` 命令复制文件并自行管理。
 

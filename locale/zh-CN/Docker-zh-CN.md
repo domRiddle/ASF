@@ -4,7 +4,7 @@
 
 重要的是，在 Docker 容器内运行 ASF 被认为是**进阶安装方式**，绝大多数用户是**不需要的**，与非容器方式相比，也没有明显优势。 如果您认为 Docker 是让 ASF 作为服务运行的一种方案，例如让它自动随操作系统一同启动，那么您可以考虑阅读[**管理**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-CN#linux-的-systemd-服务)章节，正确设置 `systemd` 服务来代替，这种方案**通常总是**比在 Docker 内运行 ASF 更好。
 
-Running ASF in Docker container usually involves **several new problems and issues** that you'll have to face and resolve yourself. This is why we **strongly** recommend you to avoid it unless you already have Docker knowledge and don't need help understanding its internals, about which we won't elaborate here on ASF wiki. This section is mostly for valid use cases of very complex setups, for example in regards to advanced networking or security beyond standard sandboxing that ASF comes with in `systemd` service (which already ensures superior process isolation through very advanced security mechanics). For those handful amount of people, here we explain better ASF concepts in regards to its Docker compatibility, and only that, you're assumed to have adequate Docker knowledge yourself if you decide to use it together with ASF.
+在 Docker 容器中运行 ASF 通常会带来**一些新问题**，您必须自己面对并解决。 因此我们**强烈**建议您避免这种部署方式，除非您已经有 Docker 相关知识并且不需要其他人帮助您了解内部细节，因为我们不会在 ASF Wiki 上详述这些内容。 这一章节主要针对非常复杂但合理的部署方式，例如需要高级网络设置，或者对安全性的要求超出了 ASF 在 `systemd` 服务中自带标准沙箱的能力（它已经通过非常先进的安全机制确保了优秀的进程隔离）。 对于这些为数不多的用户，在这里我们会着重解释 ASF 与 Docker 兼容性方面的概念，这样，如果您决定在 Docker 中部署 ASF，我们会假定您已经拥有足够的 Docker 知识。
 
 ---
 

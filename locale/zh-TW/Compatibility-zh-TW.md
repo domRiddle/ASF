@@ -18,7 +18,7 @@ ASF有兩種封裝方式：通用（Generic）套件與特定作業系統（OS-s
 
 ### Generic
 
-Generic套件與平台無關，所以它不包含任何給特定設備的程式碼。 這個版本需要您在作業系統中已安裝的&#8203;**適合版本**&#8203;的.NET執行環境。 我們都知道讓相依套件一直保持在最新是多麼麻煩的一件事，因此這個套件主要是為那些&#8203;**已在使用**&#8203;.NET，知道如何使用已安裝的程式，且不想為了ASF單獨複製執行環境的人提供的。 Generic套件還可以使您在&#8203;**任何可以獲得.NET執行環境的的地方**&#8203;執行ASF，無論是否存在適用於您的作業系統的ASF建置版本。
+Generic套件與平台無關，所以它不包含任何給特定設備的程式碼。 這個版本需要您在作業系統中已安裝的&#8203;**適合版本**&#8203;的.NET執行環境。 我們都知道讓相依套件一直保持在最新是多麼麻煩的一件事，因此這個套件主要是為那些&#8203;**已在使用**&#8203;.NET，知道如何使用已安裝的程式，且不想為了ASF單獨複製執行環境的人提供的。 Generic package also allows you to run ASF **anywhere, as long as you can obtain working implementation of .NET runtime**, regardless if there exists OS-specific ASF build for it, or not.
 
 對於一般或甚至是進階的使用者，如果只想執行ASF而不想鑽研.NET的技術細節，則不建議使用Generic版本。 也就是說，若您瞭解Generic套件，那您就能使用它，否則最好使用下面介紹的適用於特定作業系統的套件。
 

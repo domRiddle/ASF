@@ -18,7 +18,7 @@ ASF 有两种主要的打包方式——Generic 包以及 OS-specific 包（操�
 
 ### Generic
 
-Generic 包是一个与平台无关的版本，所以它不包含特定于计算机的代码。 所以使用这个包需要您的操作系统中已经安装有**合适版本**的 .NET 运行时环境。 我们都知道保证依赖始终是最新的这件事是十分令人烦恼的，所以这个包主要面向那些**已经在使用** .NET，不想为了 ASF 对已有环境做单独复制的人。 Generic 包还允许您将 ASF 运行在**任何可以获得正常工作的 .NET 环境的机器上**，不需要担心是否存在相应的 OS-specific 包。
+Generic 包是一个与平台无关的版本，所以它不包含特定于计算机的代码。 所以使用这个包需要您的操作系统中已经安装有**合适版本**的 .NET 运行时环境。 我们都知道保证依赖始终是最新的这件事是十分令人烦恼的，所以这个包主要面向那些**已经在使用** .NET，不想为了 ASF 对已有环境做单独复制的人。 Generic package also allows you to run ASF **anywhere, as long as you can obtain working implementation of .NET runtime**, regardless if there exists OS-specific ASF build for it, or not.
 
 对于一般用户甚至是高级用户，如果只是想要运行 ASF 而不想要深入了解 . NET 的技术细节，不推荐使用 Generic 包。 也就是说，如果您明白以上所讲的内容，那您就可以使用它，不然下面所介绍的 OS-specific 包才是最合适的。
 
