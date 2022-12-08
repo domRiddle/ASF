@@ -20,13 +20,13 @@ ASF會從您的ASF資料夾中的&#8203;`plugins`&#8203;資料夾載入外掛程
 
 ## 給開發人員
 
-外掛程式是標準的.NET函式庫，繼承了ASF的通用&#8203;`IPlugin`&#8203;介面。 You can develop plugins entirely independently of mainline ASF and reuse them in current and future ASF versions, as long as API remains compatible. Plugin system used in ASF is based on `System.Composition`, formerly known as **[Managed Extensibility Framework](https://docs.microsoft.com/dotnet/framework/mef)** which allows ASF to discover and load your libraries during runtime.
+外掛程式是標準的.NET函式庫，繼承了ASF的通用&#8203;`IPlugin`&#8203;介面。 只要API保持相容，您就可以完全獨立於主線ASF來開發外掛程式，並可以在現在及未來的ASF版本中重複使用它們。 ASF使用的外掛程式系統基於&#8203;`System.Composition`&#8203;，前稱&#8203;**[Managed Extensibility Framework](https://learn.microsoft.com/zh-tw/dotnet/framework/mef/)**&#8203;，可以使ASF在執行期間偵測並載入您的函式庫。
 
 ---
 
 ### 開始使用
 
-We've prepared **[ASF-PluginTemplate](https://github.com/JustArchiNET/ASF-PluginTemplate)** for you, which you can use as a base for your plugin project. Using the template is not a requirement (as you can do everything from scratch), but we heavily recommend to pick it up as it can drastically kickstart your development and cut on time required to get all things right. Simply check out the **[README](https://github.com/JustArchiNET/ASF-PluginTemplate/blob/main/README.md)** of the template and it'll guide you further. Regardless, we'll cover the basics below in case you wanted to start from scratch, or get to understand better the concepts used in the plugin template.
+我們為您準備了&#8203;**[ASF外掛程式模板](https://github.com/JustArchiNET/ASF-PluginTemplate)**&#8203;，您可以把它當作您外掛程式專案的基礎。 使用模板並非強制性（因為您可以從頭開始建立），但我們強烈建議使用，因為它能夠極大加速您的開發過程，節省各種事情所需的時間。 參閱模板的&#8203;**[README](https://github.com/JustArchiNET/ASF-PluginTemplate/blob/main/README.md)**&#8203;，來進一步了解詳細資訊。 不論如何，若您仍想從頭開始，或希望更理解外掛程式模板裡面所使用的概念，我們也會在接下來介紹相關基礎。
 
 Your project should be a standard .NET library targetting appropriate framework of your target ASF version, as specified in the **[compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**. We recommend you to target .NET (Core), but .NET Framework plugins are also available.
 
