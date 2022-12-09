@@ -20,7 +20,7 @@ ASF會從您的ASF資料夾中的&#8203;`plugins`&#8203;資料夾載入外掛程
 
 ## 給開發人員
 
-外掛程式是標準的.NET函式庫，繼承了ASF的通用&#8203;`IPlugin`&#8203;介面。 只要API保持相容，您就可以完全獨立於主線ASF來開發外掛程式，並可以在現在及未來的ASF版本中重複使用它們。 ASF使用的外掛程式系統基於&#8203;`System.Composition`&#8203;，前稱&#8203;**[Managed Extensibility Framework](https://learn.microsoft.com/zh-tw/dotnet/framework/mef/)**&#8203;，可以使ASF在執行期間偵測並載入您的函式庫。
+外掛程式是標準的.NET程式庫，繼承了ASF的通用&#8203;`IPlugin`&#8203;介面。 只要API保持相容，您就可以完全獨立於主線ASF來開發外掛程式，並可以在現在及未來的ASF版本中重複使用它們。 ASF使用的外掛程式系統基於&#8203;`System.Composition`&#8203;，前稱&#8203;**[Managed Extensibility Framework](https://learn.microsoft.com/zh-tw/dotnet/framework/mef/)**&#8203;，可以使ASF在執行期間偵測並載入您的函式庫。
 
 ---
 
@@ -28,11 +28,11 @@ ASF會從您的ASF資料夾中的&#8203;`plugins`&#8203;資料夾載入外掛程
 
 我們為您準備了&#8203;**[ASF外掛程式模板](https://github.com/JustArchiNET/ASF-PluginTemplate)**&#8203;，您可以把它當作您外掛程式專案的基礎。 使用模板並非強制性（因為您可以從頭開始建立），但我們強烈建議使用，因為它能夠極大加速您的開發過程，節省各種事情所需的時間。 參閱模板的&#8203;**[README](https://github.com/JustArchiNET/ASF-PluginTemplate/blob/main/README.md)**&#8203;，來進一步了解詳細資訊。 不論如何，若您仍想從頭開始，或希望更理解外掛程式模板裡面所使用的概念，我們也會在接下來介紹相關基礎。
 
-Your project should be a standard .NET library targetting appropriate framework of your target ASF version, as specified in the **[compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**. We recommend you to target .NET (Core), but .NET Framework plugins are also available.
+您的專案應該是一個標準.NET程式庫，以您想要的ASF版本為目標來選取適合的Framework，如&#8203;**[編譯](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-zh-TW)**&#8203;中所述。 我們建議您以.NET (Core)作為目標，但.NET Framework外掛程式也是可以使用的。
 
-The project must reference main `ArchiSteamFarm` assembly, either its prebuilt `ArchiSteamFarm.dll` library that you've downloaded as part of the release, or the source project (e.g. if you decided to add ASF tree as submodule). This will allow you to access and discover ASF structures, methods and properties, especially core `IPlugin` interface which you'll need to inherit from in the next step. The project must also reference `System.Composition.AttributedModel` at the minimum, which allows you to `[Export]` your `IPlugin` for ASF to use. In addition to that, you may want/need to reference other common libraries in order to interpret the data structures that are given to you in some interfaces, but unless you need them explicitly, that will be enough for now.
+專案必須引用&#8203;`ArchiSteamFarm`&#8203;主程式集，或您先前下載的發布中所包含的預建置&#8203;`ArchiSteamFarm.dll`&#8203;程式庫，或原始專案（例如您決定將ASF Tree作為子模組）。 這將使您可以存取與檢查ASF的結構、方法及屬性，特別是您接下來將需要繼承的&#8203;`IPlugin`&#8203;核心介面。 專案也必須至少引用&#8203;`System.Composition.AttributedModel`&#8203;，使您能夠&#8203;`[Export]`&#8203;您的&#8203;`IPlugin`&#8203;給ASF使用。 除此之外，您可能還希望／需要引用其他公開程式庫，來解譯在某些介面中提供給您的資料結構，但除非您確實需要它們，否則現在這樣就夠了。
 
-If you did everything properly, your `csproj` will be similar to below:
+若您所做一切正確，您的&#8203;`csproj`&#8203;應類似下列：
 
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
@@ -47,13 +47,13 @@ If you did everything properly, your `csproj` will be similar to below:
   <ItemGroup>
     <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
 
-    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
+    <!-- 若要作為ASF的Source Tree建置的一部份，使用這個來取代上面的<Reference> -->
     <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
 ```
 
-From the code side, your plugin class must inherit from `IPlugin` interface (either explicitly, or implicitly by inheriting from more specialized interface, such as `IASF`) and `[Export(typeof(IPlugin))]` in order to be recognized by ASF during runtime. The most bare example that achieves that would be the following:
+從程式碼方面來說，您的外掛程式類別必須繼承自&#8203;`IPlugin`&#8203;介面（顯式，或透過例如&#8203;`IASF`&#8203;等更專門的介面來做為隱式繼承）與&#8203;`[Export(typeof(IPlugin))]`&#8203;，使ASF能在執行期間進行辨識。 達成這一點最簡單的範例如下：
 
 ```csharp
 using System;
@@ -77,7 +77,7 @@ public sealed class YourPluginName : IPlugin {
 }
 ```
 
-In order to make use of your plugin, you must firstly compile it. You can do that either from your IDE, or from within the root directory of your project via a command:
+為了使用您的外掛程式，您必須先編譯它。 您可以使用您的IDE，或在您的專案的根目錄下執行此命令來編譯：
 
 ```shell
 # 若您的專案是獨立的（不需要定義它的名稱，因為它是唯一的）
@@ -87,21 +87,21 @@ dotnet publish -c "Release" -o "out"
 dotnet publish 您外掛程式的名稱 -c "Release" -o "out"
 ```
 
-Afterwards, your plugin is ready for deployment. It's up to you how exactly you want to distribute and publish your plugin, but we recommend creating a zip archive with a single folder named `YourNamespace.YourPluginName`, inside which you'll put your compiled plugin together with its **[dependencies](#plugin-dependencies)**. This way user will simply need to unpack your zip archive into his `plugins` directory and do nothing else.
+在這之後，您的外掛程式就已準備好部署。 如何轉發及發布外掛程式完全取決於您自己，但我們建議建立一個.zip壓縮檔，其中只含有一個名為&#8203;`您的命名空間.您的外掛程式名稱`&#8203;的資料夾，並在裡面放入您已編譯好的外掛程式及它的&#8203;**[相依程式](#外掛程式相依性)**&#8203;。 這樣，使用者只需要將您的.zip解壓縮至他的&#8203;`plugins`&#8203;資料夾中即可，而不需要進行其他動作。
 
-This is only the most basic scenario to get you started. We have **[`ExamplePlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)** project that shows you example interfaces and actions that you can do within your own plugin, including helpful comments. Feel free to take a look if you'd like to learn from a working code, or discover `ArchiSteamFarm.Plugins` namespace yourself and refer to the included documentation for all available options.
+這只是讓您入門的最基礎情境。 我們提供&#8203;**[`外掛程式範例`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.CustomPlugins.ExamplePlugin)**&#8203;專案，來向您展示您在自己的外掛程式中可以實作的介面與操作的範例，及實用的註解。 若您想從工作碼中學習，或自行探索&#8203;`ArchiSteamFarm.Plugins`&#8203;命名空間，可以隨意閱覽並參考所包含的文件，以了解所有可用的選項。
 
-If instead of example plugin you'd want to learn from real projects, there is **[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)** plugin developed by us, the one that is bundled together with ASF. In addition to that, there are also plugins developed by other developers, in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
+若您想從真實的專案而不是從範例外掛程式中學習，可以使用我們開發的&#8203;**[`SteamTokenDumper`](https://github.com/JustArchiNET/ArchiSteamFarm/tree/main/ArchiSteamFarm.OfficialPlugins.SteamTokenDumper)**&#8203;外掛程式，該外掛程式附隨在ASF中。 除此之外，還有其他開發者開發的外掛程式，列在我們的&#8203;**[第三方工具](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-zh-TW#asf-外掛程式)**&#8203;章節中。
 
 ---
 
 ### API 可用性
 
-ASF, apart from what you have access to in the interfaces themselves, exposes to you a lot of its internal APIs that you can make use of, in order to extend the functionality. For example, if you'd like to send some kind of new request to Steam web, then you do not need to implement everything from scratch, especially dealing with all the issues we've had to deal with before you. Simply use our `Bot.ArchiWebHandler` which already exposes a lot of `UrlWithSession()` methods for you to use, handling all the lower-level stuff such as authentication, session refresh or web limiting for you. Likewise, for sending web requests outside of Steam platform, you could use standard .NET `HttpClient` class, but it's much better idea to use `Bot.ArchiWebHandler.WebBrowser` that is available for you, which once again offers you a helpful hand, for example in regards to retrying failed requests.
+除了您可以在介面中存取的內容之外，ASF還向您公開了許多您可以使用的內部API，以便擴展功能。 舉例來說，若您想向Steam網站傳送某種新請求，您不需從頭開始實作所有內容，特別是處理我們先前已處理過的所有問題。 只需使用我們的&#8203;`Bot.ArchiWebHandler`&#8203;，它已經公開了許多&#8203;`UrlWithSession()`&#8203;方法以供您使用，並已為您完成了所有的底層工作，例如身分驗證、連線階段重新整理或處理網路限制等。 同樣地，若要向Steam平台以外傳送Web請求，您可以使用標準的.NET &#8203;`HttpClient`&#8203;類別，但最好還是使用我們提供給您的&#8203;`Bot.ArchiWebHandler.WebBrowser`&#8203;，它能為您提供許多幫助，例如重試失敗的請求。
 
-We have a very open policy in terms of our API availability, so if you'd like to make use of something that ASF code already includes, simply **[open an issue](https://github.com/JustArchiNET/ArchiSteamFarm/issues)** and explain in it your planned use case of our ASF's internal API. We most likely won't have anything against, as long as your use case makes sense. It's simply impossible for us to open everything that somebody would like to make use of, so we've opened what makes the most sense for us, and waiting for your requests in case you'd like to have access to something that isn't `public` yet. This also includes all suggestions in regards to new `IPlugin` interfaces that could make sense to be added in order to extend existing functionality.
+我們在API可用性的方面採取非常開放的政策，所以若您想使用ASF程式碼中已有的功能，請&#8203;**[提出一個Issue](https://github.com/JustArchiNET/ArchiSteamFarm/issues)**&#8203;，在裡面說明您需要使用的ASF內部API，並解釋您計劃使用的範例情境。 只要您的範例情境有意義，我們不太可能會反對。 我們根本不可能開放全部可以使用的東西，所以我們只能開放對我們來說最有意義的地方，然後等待著您的請求，來防止您需要存取尚未&#8203;`public`&#8203;的部分。 這也包含關於新的&#8203;`IPlugin`&#8203;介面的所有建議，只要用來擴展現有功能時加入它是有意義的。
 
-In fact, internal ASF's API is the only real limitation in terms of what your plugin can do. Nothing is stopping you from e.g. including `Discord.Net` library in your application and creating a bridge between your Discord bot and ASF commands, since your plugin can also have dependencies on its own. The possibilities are endless, and we made our best to give you as much freedom and flexibility as possible within your plugin, so there are no artificial limits on anything, just us not being completely sure which ASF parts are crucial for your plugin development (which you can solve by letting us know, and even without that you can always reimplement the functionality that you need).
+實際上，ASF的內部API是您外掛程式功能的唯一限制。 因為您的外掛程式也可以擁有自己的相依程式，所以沒有什麼能夠阻止您。例如您可以在您的應用程式中加入&#8203;`Discord.Net`&#8203;程式庫，並在您的Discord Bot及ASF指令間搭起一座橋梁。 The possibilities are endless, and we made our best to give you as much freedom and flexibility as possible within your plugin, so there are no artificial limits on anything, just us not being completely sure which ASF parts are crucial for your plugin development (which you can solve by letting us know, and even without that you can always reimplement the functionality that you need).
 
 ---
 
