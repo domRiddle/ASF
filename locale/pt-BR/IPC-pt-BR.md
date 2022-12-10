@@ -96,7 +96,7 @@ O arquivo de configuração baseia-se na seguinte estrutura JSON:
 
 `Endpoints` - Esta é uma coleção de endpoints, cada endpoint tendo seu próprio nome exclusivo (como `exemplo-http4`) e a propriedade `Url` que especifica o endereço de escuta `Protocol://Host:Port`. Por padrão, o ASF ouve nos endereços http IPv4 e IPv6, mas nós adicionamos exemplos http para você usar caso necessário. Você deve declarar apenas os endpoints que você precisa, nós incluímos os 4 exemplos acima para que você possa editá-los.
 
-`Host` aceita uma variedade de valores, incluindo `*` que liga o servidor http do ASF a todas as interfaces disponíveis. Seja extremamente cauteloso quando usar valores de `Host` que permitem acesso remoto. Fazer isso vai permitir o acesso a interface IPC do ASF de outros computadores, que pode causar um risco na segurança. Nós recomendamos fortemente usar **ao menos **`IPCPassword` (e de preferência seu firewall também) nesse caso.
+`Host` accepts either `localhost`, a fixed IP address of the interface it should listen on (IPv4/IPv6), or `*` value that binds ASF's http server to all available interfaces. Using other values like `mydomain.com` or `192.168.0.*` acts the same as `*`, there is no IP filtering implemented, therefore be extremely careful when you use `Host` values that allow remote access. Fazer isso vai permitir o acesso a interface IPC do ASF de outros computadores, que pode causar um risco na segurança. Nós recomendamos fortemente usar **ao menos **`IPCPassword` (e de preferência seu firewall também) nesse caso.
 
 `KnownNetworks` - Esta variável **opcional** especifica os endereços de rede que consideramos confiáveis. Por padrão, o ASF está configurado para confiar na interface de loopback (`localhost`, mesma máquina) **apenas**. Esta propriedade é usada de duas maneiras. Primeiramente, se você omitir `IPCPassword`, então permitiremos que apenas máquinas de redes conhecidas tenham acesso a API do ASF, e negaremos todas as outras como medida de segurança. Em segundo lugar, essa propriedade é crucial em relação aos proxies reversos que acessam o ASF, já que o ASF honrará seus cabeçalhos somente se o servidor de proxy reverso for de redes conhecidas. Honrar os cabeçalhos é crucial em relação ao mecanismo anti-bruteforce do ASF, pois ao invés de banir o proxy reverso em caso de um problema, ele irá banir o IP especificado pelo proxy reverso como fonte da mensagem original. Tenha muito cuidado com as redes que você especifica aqui, pois isso permite um potencial ataque de falsificação de IP e acesso não autorizado caso a máquina confiável esteja comprometida ou incorretamente configurada.
 
@@ -143,7 +143,7 @@ A configuração à seguir permite acesso remoto de todas as fontes, portanto vo
 }
 ```
 
-Se você não precisa de acesso de todas as fontes, mas, por exemplo, apenas da sua LAN, então é melhor usar algo como `192.168.0.0.0` ao invés de `*`. Adapte o endereço de rede adequadamente caso você use um diferente.
+If you do not require access from all sources, but for example your LAN only, then it's much better idea to check local IP address of the machine hosting ASF, for example `192.168.0.10` and use it instead of `*` in example config above.
 
 ---
 

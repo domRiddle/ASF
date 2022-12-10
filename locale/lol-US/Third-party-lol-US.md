@@ -2,7 +2,7 @@
 
 DIS SECSHUN INCLUDEZ VARIOUS THIRD-PARTY ADDISHUNS WRITTEN EXCLUSIVELY (OR MAINLY) 4 USAGE TOGETHR WIF ASF. THEY RANGE FRUM ASF PLUGINS, THRU SIMPLE WEB APPLICASHUNS AN INTERNAL LIBRARIEZ 4 INTEGRASHUN, ENDIN WIF FULLY-FEATURD BOTS 4 OTHR PLATFORMS. IF UD LIEK 2 ADD SOMETHIN 2 TEH LIST, LET US KNOE ON DISCORD OR ON R STEAM GROUP.
 
-PLZ NOWT DAT BELOW PROGRAMS R **NOT** MAINTAIND BY ASF DEVELOPERS AN THEREFORE **WE GIV NO GUARANTEE BOUT ANY OV THEM**, ESPECIALLY IN TERMS OV SECURITY, SAFETY OR STEAM TOS COMPLIANCE. DIS LIST IZ MAINTAIND 4 REFERENCE ONLY. U SHUD ALWAYS ENSURE DAT TEH THIRD-PARTY UTILITY URE BOUT 2 USE IZ LEGIT ENOUGH 4 U, AS URE USIN ALL OV THEM AT UR OWN RISK.
+PLZ NOWT DAT BELOW PROGRAMS R **NOT** MAINTAIND BY ASF DEVELOPERS AN THEREFORE **WE GIV NO GUARANTEE BOUT ANY OV THEM**, ESPECIALLY IN TERMS OV SECURITY, SAFETY OR STEAM TOS COMPLIANCE. DIS LIST IZ MAINTAIND 4 REFERENCE ONLY. You should always ensure that the third-party utility you're about to use is safe and legit enough for you, as you're using all of them at your own risk.
 
 ---
 
@@ -11,19 +11,20 @@ PLZ NOWT DAT BELOW PROGRAMS R **NOT** MAINTAIND BY ASF DEVELOPERS AN THEREFORE *
 ### **[RYZHEHVOST](https://github.com/Ryzhehvost)**
 
 - **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, PLUGIN 4 ASF DAT ALLOWS U 2 MANAGE STEAM ACHIEVEMENTS.
+- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, PLUGIN 4 ASF ADDIN FUNCSHUNALITY OV CREATIN BOOSTR PACKZ.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, PLUGIN 4 ASF 2 MAK BOT NAMEZ CASE-INSENSITIV.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, PLUGIN 4 ASF 2 RE-IMPLEMENT KEY REDEEMIN WITHOUT COMMAND.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, PLUGIN 4 ASF 2 AUTOMATICALLY ACCEPT TRADE REQUEST 4 CERTAIN TYPE(S) OV ITEMS.
 - **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, PLUGIN 4 ASF PROVIDIN ADVANCD `transfer` COMMAND 4 TRANZFERRIN STEAM ITEMS.
 
-### **[Vital7](https://github.com/Vital7)**
+### **[Vita](https://github.com/ezhevita)**
 
-- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, PLUGIN 4 ASF 2 AUTOMATICALLY ACCEPT ALL FREND INVITEZ.
-- **[GameRemover](https://github.com/Vital7/GameRemover)**, PLUGIN 4 ASF IMPLEMENTIN COMMAND 2 REMOOV STEAM LICENSEZ 4 SELECTD BOT INSTANCEZ.
-- **[GetEmail](https://github.com/Vital7/GetEmail)**, PLUGIN 4 ASF IMPLEMENTIN COMMAND 2 FETCH E-MAIL ADDRES OV GIVEN BOT INSTANCEZ DIRECTLY FRUM STEAM.
-- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, PLUGIN 4 ASF IMPLEMENTIN COMMAND 2 RESET API KEY 4 SELECTD BOT INSTANCEZ.
-- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, PLUGIN 4 ASF ALLOWIN PROXIFYIN WEBSOCKET CONNECSHUNS.
+- **[FriendAccepter](https://github.com/ezhevita/FriendAccepter)**, PLUGIN 4 ASF 2 AUTOMATICALLY ACCEPT ALL FREND INVITEZ.
+- **[GameRemover](https://github.com/ezhevita/GameRemover)**, PLUGIN 4 ASF IMPLEMENTIN COMMAND 2 REMOOV STEAM LICENSEZ 4 SELECTD BOT INSTANCEZ.
+- **[GetEmail](https://github.com/ezhevita/GetEmail)**, PLUGIN 4 ASF IMPLEMENTIN COMMAND 2 FETCH E-MAIL ADDRES OV GIVEN BOT INSTANCEZ DIRECTLY FRUM STEAM.
+- **[ResetAPIKey](https://github.com/ezhevita/ResetAPIKey)**, PLUGIN 4 ASF IMPLEMENTIN COMMAND 2 RESET API KEY 4 SELECTD BOT INSTANCEZ.
+- **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, PLUGIN 4 ASF ALLOWIN PROXIFYIN WEBSOCKET CONNECSHUNS.
 
 ### OTHR
 

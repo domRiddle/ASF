@@ -2,7 +2,7 @@
 
 本節包括專門（或主要）與 ASF 配合使用的各種第三方工具內容。 它們包括 ASF 外掛程式, 簡單的 Web 應用程式，用於集成的內部庫, 以及適用于各種平台的全能機械人。 如果您想在此清單中添加一些內容, 請在Discord 或我們的 Steam 群組上聯絡我們。
 
-Please note that below programs are **not** maintained by ASF developers and therefore **we give no guarantee about any of them**, especially in terms of security, safety or Steam ToS compliance. 此清單僅供參考。 You should always ensure that the third-party utility you're about to use is legit enough for you, as you're using all of them at your own risk.
+Please note that below programs are **not** maintained by ASF developers and therefore **we give no guarantee about any of them**, especially in terms of security, safety or Steam ToS compliance. 此清單僅供參考。 You should always ensure that the third-party utility you're about to use is safe and legit enough for you, as you're using all of them at your own risk.
 
 ---
 
@@ -11,19 +11,20 @@ Please note that below programs are **not** maintained by ASF developers and the
 ### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
 - **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
+- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin for ASF adding functionality of creating booster packs.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**，ASF外掛程式，使機械人名稱不必區分大小寫。
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, ASF 外掛程式, 重新實現免命令金鑰兌換。
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin for ASF to automatically accept trade request for certain type(s) of items.
 - **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
 
-### **[Vital7](https://github.com/Vital7)**
+### **[Vita](https://github.com/ezhevita)**
 
-- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
-- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
-- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
-- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
-- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin for ASF allowing proxifying WebSocket connections.
+- **[FriendAccepter](https://github.com/ezhevita/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
+- **[GameRemover](https://github.com/ezhevita/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
+- **[GetEmail](https://github.com/ezhevita/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
+- **[ResetAPIKey](https://github.com/ezhevita/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
+- **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, plugin for ASF allowing proxifying WebSocket connections.
 
 ### 其他
 

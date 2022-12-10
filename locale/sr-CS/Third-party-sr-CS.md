@@ -2,7 +2,7 @@
 
 Ova sekcija sadrži razne dodatke napravljenje od trećih strana koje su namijenjene prvobitno (ili najčešće) za korišćenje zajedno sa ASF-om. To su razni ASF dodaci, jednostavne web aplikacije i unutrašlje biblioteke za integraciju, i na kraju botovi sa raznim mogućnostima za ostale platforme. Ako želite da dodate nešto na listu, kažite nam na Discord-u ili na našoj Steam grupi.
 
-Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog toga **mi ne garantujemi ni za jedan od njih**, posedno o pitanju bezbjednosti, sigurnosti ili Steam ToS poštovanja. Ova lista je održavana samo za potrebe upućivanja. Vi morate uvijek provjeriti da li su alatke trećih strana, koje želite da koristite, dovoljno vjerodostojene za vas, zato što ih koristite na vaš rizik.
+Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog toga **mi ne garantujemi ni za jedan od njih**, posedno o pitanju bezbjednosti, sigurnosti ili Steam ToS poštovanja. Ova lista je održavana samo za potrebe upućivanja. You should always ensure that the third-party utility you're about to use is safe and legit enough for you, as you're using all of them at your own risk.
 
 ---
 
@@ -11,19 +11,20 @@ Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog 
 ### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
 - **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin za SF koji vam omogućava da upravljate vašim Steam dostignućima.
+- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, dodatak za ASF koji dodaje funkcionalnost za pravljenje booster pakova.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, dodatak za ASF koji ne mari da li su imena ASF botova velika ili mala.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, dodatak za ASF za re-implementaciju dodavanja ključeva bez komande.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, dodatak za ASF koji automatski prihvata zahtjeve za razmjenu za određene tipove item-a.
 - **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin za ASF koji obezbeđuje napredni `prenos` komandi za transferovanja Steam itema.
 
-### **[Vital7](https://github.com/Vital7)**
+### **[Vita](https://github.com/ezhevita)**
 
-- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin za ASF koji automatski prihvata sve zahteve za prijateljstvo.
-- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin za ASF koji implementira komandu za uklanjanje Steam licenci za izabrane botove.
-- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin za ASF koji implementira komandu za pribavljanje e-mail adrese datih instanci bota direktno sa Steama.
-- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin za ASF koji implementira komandu za uklanjanje API ključeva za izabrane botove.
-- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, dodatak za ASF koji omogućava korišćenje proxy-a u WebSocket konekcijama.
+- **[FriendAccepter](https://github.com/ezhevita/FriendAccepter)**, plugin za ASF koji automatski prihvata sve zahteve za prijateljstvo.
+- **[GameRemover](https://github.com/ezhevita/GameRemover)**, plugin za ASF koji implementira komandu za uklanjanje Steam licenci za izabrane botove.
+- **[GetEmail](https://github.com/ezhevita/GetEmail)**, plugin za ASF koji implementira komandu za pribavljanje e-mail adrese datih instanci bota direktno sa Steama.
+- **[ResetAPIKey](https://github.com/ezhevita/ResetAPIKey)**, plugin za ASF koji implementira komandu za uklanjanje API ključeva za izabrane botove.
+- **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, dodatak za ASF koji omogućava korišćenje proxy-a u WebSocket konekcijama.
 
 ### Ostalo
 

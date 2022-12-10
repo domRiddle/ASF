@@ -96,7 +96,7 @@ IPC 인터페이스는 추가 환경설정 파일을 지원합니다.`IPC.config
 
 `Endpoints` - 이것은 단말의 집합입니다. 모든 단말은 `example-http4`와 같은 유일한 이름을 가지고 있어야 하며, `Url` 속성값은 `Protocol://Host:Port` 수신주소를 특정합니다. 기본적으로 ASF는 IPv4와 IPv6 http 주소를 수신하지만, 필요할지 몰라 사용할 수 있는 https 예시를 추가해 두었습니다. 필요한 단말 만을 선언해야 합니다. 당신이 수정하기 쉽도록 위에 4개의 예시를 들어놓았습니다.
 
-`Host`는 ASF의 http 서버가 모든 가능한 인터페이스를 할당하는 `*` 값을 포함한 다양한 값을 허용합니다. 원격 접속을 허용하려고 `Host` 값을 사용할 때 매우 주의하십시오. 그렇게 하면 ASF IPC 인터페이스는 다른 기기에서의 접근을 허용하고, 보안 위험이 될 수 있습니다. 이 경우 **최소한** `IPCPassword`, 그리고 방화벽의 사용을 강력하게 권장합니다.
+`Host` accepts either `localhost`, a fixed IP address of the interface it should listen on (IPv4/IPv6), or `*` value that binds ASF's http server to all available interfaces. Using other values like `mydomain.com` or `192.168.0.*` acts the same as `*`, there is no IP filtering implemented, therefore be extremely careful when you use `Host` values that allow remote access. 그렇게 하면 ASF IPC 인터페이스는 다른 기기에서의 접근을 허용하고, 보안 위험이 될 수 있습니다. 이 경우 **최소한** `IPCPassword`, 그리고 방화벽의 사용을 강력하게 권장합니다.
 
 `KnownNetworks` - This **optional** variable specifies network addresses which we consider trustworthy. By default, ASF is configured to trust loopback interface (`localhost`, same machine) **only**. This property is used in two ways. Firstly, if you omit `IPCPassword`, then we'll allow only machines from known networks to access ASF's API, and deny everybody else as a security measure. Secondly, this property is crucial in regards to reverse-proxies accessing ASF, as ASF will honor its headers only if the reverse-proxy server is from within known networks. Honoring the headers is crucial in regards to ASF's anti-bruteforce mechanism, as instead of banning the reverse-proxy in case of a problem, it'll ban the IP specified by the reverse-proxy as the source of the original message. Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured.
 
@@ -143,7 +143,7 @@ The following config will allow remote access from all sources, therefore you sh
 }
 ```
 
-모든 곳으로 부터의 접속이 필요하지 않고 예를 들어 내부 LAN만 필요하다면, `*` 대신 `192.168.0.*`를 사용하는 것은 훨씬 좋은 생각입니다. 다른 주소를 사용한다면 적절한 네트워크 주소를 적용하십시오.
+If you do not require access from all sources, but for example your LAN only, then it's much better idea to check local IP address of the machine hosting ASF, for example `192.168.0.10` and use it instead of `*` in example config above.
 
 ---
 

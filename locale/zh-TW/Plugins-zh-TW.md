@@ -20,7 +20,7 @@ ASF會從您的ASF資料夾中的&#8203;`plugins`&#8203;資料夾載入外掛程
 
 ## 給開發人員
 
-外掛程式是標準的.NET程式庫，繼承了ASF的通用&#8203;`IPlugin`&#8203;介面。 只要API保持相容，您就可以完全獨立於主線ASF來開發外掛程式，並可以在現在及未來的ASF版本中重複使用它們。 ASF使用的外掛程式系統基於&#8203;`System.Composition`&#8203;，前稱&#8203;**[Managed Extensibility Framework](https://learn.microsoft.com/zh-tw/dotnet/framework/mef/)**&#8203;，可以使ASF在執行期間偵測並載入您的函式庫。
+外掛程式是標準的.NET程式庫，繼承了ASF的通用&#8203;`IPlugin`&#8203;介面。 只要API保持相容，您就可以完全獨立於主線ASF來開發外掛程式，並可以在現在及未來的ASF版本中重複使用它們。 ASF使用的外掛程式系統基於&#8203;`System.Composition`&#8203;，前稱&#8203;**[Managed Extensibility Framework](https://learn.microsoft.com/zh-tw/dotnet/framework/mef/)**&#8203;，可以使ASF在執行期間偵測並載入您的程式庫。
 
 ---
 
@@ -32,7 +32,7 @@ ASF會從您的ASF資料夾中的&#8203;`plugins`&#8203;資料夾載入外掛程
 
 專案必須引用&#8203;`ArchiSteamFarm`&#8203;主程式集，或您先前下載的發布中所包含的預建置&#8203;`ArchiSteamFarm.dll`&#8203;程式庫，或原始專案（例如您決定將ASF Tree作為子模組）。 這將使您可以存取與檢查ASF的結構、方法及屬性，特別是您接下來將需要繼承的&#8203;`IPlugin`&#8203;核心介面。 專案也必須至少引用&#8203;`System.Composition.AttributedModel`&#8203;，使您能夠&#8203;`[Export]`&#8203;您的&#8203;`IPlugin`&#8203;給ASF使用。 除此之外，您可能還希望／需要引用其他公開程式庫，來解譯在某些介面中提供給您的資料結構，但除非您確實需要它們，否則現在這樣就夠了。
 
-若您所做一切正確，您的&#8203;`csproj`&#8203;應類似下列：
+若您所做一切正確，您的&#8203;`csproj`&#8203;應類似於下面：
 
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
@@ -53,7 +53,7 @@ ASF會從您的ASF資料夾中的&#8203;`plugins`&#8203;資料夾載入外掛程
 </Project>
 ```
 
-從程式碼方面來說，您的外掛程式類別必須繼承自&#8203;`IPlugin`&#8203;介面（顯式，或透過例如&#8203;`IASF`&#8203;等更專門的介面來做為隱式繼承）與&#8203;`[Export(typeof(IPlugin))]`&#8203;，使ASF能在執行期間進行辨識。 達成這一點最簡單的範例如下：
+從程式碼方面來說，您的外掛程式類別必須繼承自&#8203;`IPlugin`&#8203;介面（顯式，或透過例如&#8203;`IASF`&#8203;等更專門的介面來進行隱式繼承）與&#8203;`[Export(typeof(IPlugin))]`&#8203;，使ASF能在執行期間進行辨識。 達成這一點最簡單的範例如下：
 
 ```csharp
 using System;

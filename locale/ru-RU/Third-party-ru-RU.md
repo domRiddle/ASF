@@ -2,7 +2,7 @@
 
 Этот раздел включает в себя различные дополнения сторонних разработчиков, разработанные специально (или в основном) для использования совместно с ASF. Они покрывают весь спектр начиная с плагинов для ASF, простых веб-приложений, включая простые веб-приложения и внутренние библиотеки для удобства дальнейшей интеграции, и заканчивая полнофункциональными ботами для других платформ. Если вы хотите добавить что-то в этот список - свяжитесь с нами на нашем сервере Discord или в нашей группе Steam.
 
-Пожалуйста, обратите внимание, что программы ниже **не** поддерживаются разработчиками ASF и поэтому **мы не даём никаких гарантий относительно них**, особенно в части безопасности, надёжности и соответствия соглашению подписчика Steam. Этот список поддерживается только для справок. Вы должны самостоятельно убедиться что сторонняя утилита, которую вы собираетесь использовать соответствует вашим требованиями, поскольку вы используете её на свой риск и страх.
+Пожалуйста, обратите внимание, что программы ниже **не** поддерживаются разработчиками ASF и поэтому **мы не даём никаких гарантий относительно них**, особенно в части безопасности, надёжности и соответствия соглашению подписчика Steam. Этот список поддерживается только для справок. You should always ensure that the third-party utility you're about to use is safe and legit enough for you, as you're using all of them at your own risk.
 
 ---
 
@@ -11,19 +11,20 @@
 ### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
 - **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, плагин для ASF, дающий возможность управлять достижениями Steam.
+- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, плагин для ASF, добавляющий функционал создания наборов карточек из самоцветов.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, плагин для ASF, который делает имена ботов регистронезависимыми.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, плагин, возвращающий в ASF возможность активации ключей без команды.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, плагин для ASF, позволяющий автоматически принимать предложения обмена, в которых у него запрашивают предметы заданного(ых) типа(ов).
 - **[ Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, плагин для ASF, предоставляющий расширение команды `transfer` для передачи предметов Steam.
 
-### **[Vital7](https://github.com/Vital7)**
+### **[Vita](https://github.com/ezhevita)**
 
-- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, плагин для ASF, позволяющий автоматически принимать все приглашения в друзья.
-- **[GameRemover](https://github.com/Vital7/GameRemover)**, плагин для ASF, реализующий команду удаления лицензий Steam для выбранных экземпляров ботов.
-- **[GetEmail](https://github.com/Vital7/GetEmail)**, плагин для ASF, реализующий команду для получения адресов электронной почты заданных экземпляров ботов непосредственно из Steam.
-- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, плагин для ASF, реализующий команду сброса ключа API для выбранных экземпляров ботов.
-- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, плагин для ASF, позволяющий направить соединения по WebSocket через прокси.
+- **[FriendAccepter](https://github.com/ezhevita/FriendAccepter)**, плагин для ASF, позволяющий автоматически принимать все приглашения в друзья.
+- **[GameRemover](https://github.com/ezhevita/GameRemover)**, плагин для ASF, реализующий команду удаления лицензий Steam для выбранных экземпляров ботов.
+- **[GetEmail](https://github.com/ezhevita/GetEmail)**, плагин для ASF, реализующий команду для получения адресов электронной почты заданных экземпляров ботов непосредственно из Steam.
+- **[ResetAPIKey](https://github.com/ezhevita/ResetAPIKey)**, плагин для ASF, реализующий команду сброса ключа API для выбранных экземпляров ботов.
+- **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, плагин для ASF, позволяющий направить соединения по WebSocket через прокси.
 
 ### Другое
 

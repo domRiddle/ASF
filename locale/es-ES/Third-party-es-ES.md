@@ -2,7 +2,7 @@
 
 Esta sección incluye varias adiciones de terceros escritas exclusivamente (o principalmente) para usarse junto con ASF. Varían desde plugins de ASF, pasando por aplicaciones web simples y bibliotecas internas para integración, terminando con bots para otras plataformas. Si deseas añadir algo a la lista, háznoslo saber en Discord o en nuestro grupo de Steam.
 
-Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por los desarrolladores de ASF y por consiguiente **no damos garantía para ninguno de ellos**, especialmente en términos de seguridad, certeza o cumplimiento de los Términos de Servicio de Steam. Esta lista solo se mantiene para referencia. Siempre debes asegurarte de que las utilidades de terceros que usarás son suficientemente legítimas para ti, ya que las usas bajo tu propio riesgo.
+Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por los desarrolladores de ASF y por consiguiente **no damos garantía para ninguno de ellos**, especialmente en términos de seguridad, certeza o cumplimiento de los Términos de Servicio de Steam. Esta lista solo se mantiene para referencia. You should always ensure that the third-party utility you're about to use is safe and legit enough for you, as you're using all of them at your own risk.
 
 ---
 
@@ -11,19 +11,20 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 ### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
 - **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin para ASF que permite gestionar los logros de Steam.
+- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin para ASF que añade la funcionalidad de crear packs de refuerzo.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin para ASF para hacer que los nombres de los bots no distingan mayúsculas y minúsculas.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin para ASF para reimplementar la activación de claves sin un comando.
+- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin de ASF para reimplementar la activación de claves sin un comando.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin de ASF para aceptar automáticamente solicitudes de intercambio para ciertos tipos de artículos.
 - **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin para ASF que proporciona un comando `transfer` avanzado para transferir artículos de Steam.
 
-### **[Vital7](https://github.com/Vital7)**
+### **[Vita](https://github.com/ezhevita)**
 
-- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, plugin de ASF para aceptar automáticamente todas las solicitudes de amistad.
-- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin para ASF que implementa un comando para eliminar licencias de Steam para las instancias de bot seleccionadas.
-- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin para ASF que implementa un comando para obtener directamente de Steam la dirección de correo electrónico de las instancias de bot especificadas.
-- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin para ASF que implementa un comando para restablecer la clave API de las instancias de bot seleccionadas.
-- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, plugin para ASF que permite usar proxy con conexiones WebSocket.
+- **[FriendAccepter](https://github.com/ezhevita/FriendAccepter)**, plugin de ASF para aceptar automáticamente todas las solicitudes de amistad.
+- **[GameRemover](https://github.com/ezhevita/GameRemover)**, plugin para ASF que implementa un comando para eliminar licencias de Steam para las instancias de bot seleccionadas.
+- **[GetEmail](https://github.com/ezhevita/GetEmail)**, plugin para ASF que implementa un comando para obtener directamente de Steam la dirección de correo electrónico de las instancias de bot especificadas.
+- **[ResetAPIKey](https://github.com/ezhevita/ResetAPIKey)**, plugin para ASF que implementa un comando para restablecer la clave API de las instancias de bot seleccionadas.
+- **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, plugin para ASF que permite usar proxy con conexiones WebSocket.
 
 ### Otros
 

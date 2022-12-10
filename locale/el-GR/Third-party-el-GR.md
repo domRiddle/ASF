@@ -2,7 +2,7 @@
 
 Η ενότητα αυτή περιλαμβάνει διάφορες προσθήκες τρίτων που έχουν γραφτεί αποκλειστικά (ή κυρίως) για χρήση μαζί με το ASF. Κυμαίνονται από ASF plugins, μέχρι απλών διαδικτυακών εφαρμογών και εσωτερικών βιβλιοθηκών για ενσωμάτωση, που τελειώνουν με πλήρη χαρακτηριστικά bots για άλλες πλατφόρμες. Αν θέλετε να προσθέσετε κάτι στη λίστα, ενημερώστε μας στο Discord ή στην ομάδα στο Steam.
 
-Λάβετε υπόψη ότι τα ακόλουθα προγράμματα **δεν** συντηρούνται από προγραμματιστές ASF και ως εκ τούτου **δεν δίνουμε καμία εγγύηση για κανένα**, ειδικά όσον αφορά τους όρους ασφάλειας, την ασφάλεια ή τη συμμόρφωση με το Steam ToS. Ο κατάλογος αυτός διατηρείται μόνο για αναφορά. Θα πρέπει πάντα να βεβαιωθείτε ότι το βοηθητικό πρόγραμμα τρίτων που είστε έτοιμος να χρησιμοποιήσετε είναι αρκετά νόμιμο για εσάς, όπως χρησιμοποιείτε όλα αυτά με δική σας ευθύνη.
+Λάβετε υπόψη ότι τα ακόλουθα προγράμματα **δεν** συντηρούνται από προγραμματιστές ASF και ως εκ τούτου **δεν δίνουμε καμία εγγύηση για κανένα**, ειδικά όσον αφορά τους όρους ασφάλειας, την ασφάλεια ή τη συμμόρφωση με το Steam ToS. Ο κατάλογος αυτός διατηρείται μόνο για αναφορά. You should always ensure that the third-party utility you're about to use is safe and legit enough for you, as you're using all of them at your own risk.
 
 ---
 
@@ -11,19 +11,20 @@
 ### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
 - **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin για το ASF που σας επιτρέπει να διαχειριστείτε τα Steam achievements.
+- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, πρόσθετο για την προσθήκη ASF λειτουργικότητας της δημιουργίας ενισχυτικών πακέτων.
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, πρόσθετο για το ASF για να μην ελέγχει κεφαλαία στα ονόματα IoT.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, πρόσθετο για το ASF για επαναφορά κλειδιού εξαργύρωσης χωρίς εντολή.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, πρόσθετο για ASF να δέχεται αυτόματα το αίτημα συναλλαγής για ορισμένο(ους) τύπο(ους) αντικειμένου(ων).
 - **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, πρόσθετο για ASF, παρέχει προχωρημένες `transfer` εντολές για μεταφορά αντικειμένων Steam.
 
-### **[Vital7](https://github.com/Vital7)**
+### **[Vita](https://github.com/ezhevita)**
 
-- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, πρόσθετο για ASF να αποδέχεται αυτόματα όλες τις προσκλήσεις φίλου.
-- **[GameRemover](https://github.com/Vital7/GameRemover)**, πρόσθετο για ASF εφαρμογή μιας εντολής για να αφαιρέσετε άδειες Steam για επιλεγμένες περιπτώσεις bot.
-- **[GetEmail](https://github.com/Vital7/GetEmail)**, πρόσθετο για ASF εφαρμογή μιας εντολής για τη λήψη της διεύθυνσης ηλεκτρονικού ταχυδρομείου των δοσμένων παρουσιών bot απευθείας από το Steam.
-- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, πρόσθετο για ASF, εντολή για να επαναφέρετε το κλειδί API για επιλεγμένες παρουσίες bot.
-- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, πρόσθετο για ASF που επιτρέπει proxifing συνδέσεις WebSocket.
+- **[FriendAccepter](https://github.com/ezhevita/FriendAccepter)**, πρόσθετο για ASF να αποδέχεται αυτόματα όλες τις προσκλήσεις φίλου.
+- **[GameRemover](https://github.com/ezhevita/GameRemover)**, πρόσθετο για ASF εφαρμογή μιας εντολής για να αφαιρέσετε άδειες Steam για επιλεγμένες περιπτώσεις bot.
+- **[GetEmail](https://github.com/ezhevita/GetEmail)**, πρόσθετο για ASF εφαρμογή μιας εντολής για τη λήψη της διεύθυνσης ηλεκτρονικού ταχυδρομείου των δοσμένων παρουσιών bot απευθείας από το Steam.
+- **[ResetAPIKey](https://github.com/ezhevita/ResetAPIKey)**, πρόσθετο για ASF, εντολή για να επαναφέρετε το κλειδί API για επιλεγμένες παρουσίες bot.
+- **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, πρόσθετο για ASF που επιτρέπει proxifing συνδέσεις WebSocket.
 
 ### Άλλο
 

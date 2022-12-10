@@ -2,7 +2,7 @@
 
 Bu bölüm, özel (veya esas) olarak ASF ile birlikte kullanım için yazılmış çeşitli üçüncü taraf eklentilerini içerir. ASF eklentilerini, basit web uygulamalarını, entegrasyon için gerekli dahili kütüphaneleri ve diğer platformlar için tam özellikli botları kapsar. Listeye eklemek istediğiniz bir şey varsa, Discord veya Steam grubumuzdan bize ulaşın.
 
-Lütfen aşağıdaki programların ASF geliştiricileri tarafından **sağlanmadığını** ve bu nedenle **hiçbiri hakkında garanti vermediğimizi** unutmayın, özellikle güvenlik, emniyet veya Steam Kullanım Şartları uyumluluğu açısından. Bu liste yalnızca referans amacıyla tutulur. Her zaman kullanmak üzere olduğunuz üçüncü parti eklentilerin sizin için yeterince yasal olduğundan emin olmalısınız, çünkü hepsi sizin sorumluluğunuzdadır.
+Lütfen aşağıdaki programların ASF geliştiricileri tarafından **sağlanmadığını** ve bu nedenle **hiçbiri hakkında garanti vermediğimizi** unutmayın, özellikle güvenlik, emniyet veya Steam Kullanım Şartları uyumluluğu açısından. Bu liste yalnızca referans amacıyla tutulur. You should always ensure that the third-party utility you're about to use is safe and legit enough for you, as you're using all of them at your own risk.
 
 ---
 
@@ -11,19 +11,20 @@ Lütfen aşağıdaki programların ASF geliştiricileri tarafından **sağlanmad
 ### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
 - **[ASF Başarım Yöneticisi](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, Steam başarımlarını yönetmenize izin veren ASF eklentisidir.
+- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, güçlendirici paketler oluşturma işlevini sağlayan ASF eklentisidir.
 - **[Case-Inresponsive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, bot adlarını büyük/küçük harfe duyarlı hale getiren ASF eklentisidir.
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, ürün kodunu komut girmeden uygulamanızı sağlayan ASF eklentisidir.
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, belirli tür(ler) için takas talebini otomatik olarak kabul etmesini sağlayan ASF eklentisidir.
 - **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
 
-### **[Vital7](https://github.com/Vital7)**
+### **[Vita](https://github.com/ezhevita)**
 
-- **[FriendAccepter](https://github.com/Vital7/FriendAccepter)**, Gelen tüm arkadaşlık isteklerini otomatik kabul eden ASF eklentisidir.
-- **[GameRemover](https://github.com/Vital7/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
-- **[GetEmail](https://github.com/Vital7/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
-- **[ResetAPIKey](https://github.com/Vital7/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
-- **[SteamKitProxyInjection](https://github.com/Vital7/SteamKitProxyInjection)**, WebSocket bağlantılarının proxy ile sağlanmasına izin veren ASF eklentisidir.
+- **[FriendAccepter](https://github.com/ezhevita/FriendAccepter)**, Gelen tüm arkadaşlık isteklerini otomatik kabul eden ASF eklentisidir.
+- **[GameRemover](https://github.com/ezhevita/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
+- **[GetEmail](https://github.com/ezhevita/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
+- **[ResetAPIKey](https://github.com/ezhevita/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
+- **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, WebSocket bağlantılarının proxy ile sağlanmasına izin veren ASF eklentisidir.
 
 ### Diğer
 
