@@ -28,7 +28,7 @@ Users are sorted according to their inventories (in descending order) - `MatchEv
 
 ASF STM listing only accepts ASF bots for time being. There is no way to list third-party bots on our listing for now (as we can't review their code easily and ensure they meet our entire trading logic).
 
-If you're looking for easy way to access our listing in programmatic way, we have a very simple **[/Api/Bots](https://asf-backend.justarchi.net/Api/Listing/Bots)** endpoint that you can use. This is also the endpoint that ASF uses internally for `MatchActively` users.
+If you're looking for easy way to access our listing in programmatic way, we have a very simple **[/Api/Listing/Bots](https://asf-backend.justarchi.net/Api/Listing/Bots)** endpoint that you can use. This is also the endpoint that ASF uses internally for `MatchActively` users.
 
 ### Privacy policy
 
