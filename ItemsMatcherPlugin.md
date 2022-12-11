@@ -12,7 +12,7 @@ This page is work-in-progress. For translators: you may want to wait a bit (unti
 
 ## `PublicListing`
 
-Our public ASF STM listing is located on **[our website](https://asf.justarchi.net/STM)** and used as a public service for both ASF users that make use of `MatchActively`, as well as ASF and non-ASF users for manual matching.
+Our public ASF STM listing is located on **[our website](https://asf-backend.justarchi.net/STM)** and used as a public service for both ASF users that make use of `MatchActively`, as well as ASF and non-ASF users for manual matching.
 
 Please note that you will **not** be displayed on the website if you do not meet all of the requirements. ASF won't even bother communicating with our server in this case, so this section is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes. Also public listing is compatible only with latest stable version of ASF and may refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
 
@@ -28,7 +28,7 @@ Users are sorted according to their inventories (in descending order) - `MatchEv
 
 ASF STM listing only accepts ASF bots for time being. There is no way to list third-party bots on our listing for now (as we can't review their code easily and ensure they meet our entire trading logic).
 
-If you're looking for easy way to access our listing in programmatic way, we have a very simple **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** endpoint that you can use. This is also the endpoint that ASF uses internally for `MatchActively` users.
+If you're looking for easy way to access our listing in programmatic way, we have a very simple **[/Api/Bots](https://asf-backend.justarchi.net/Api/Listing/Bots)** endpoint that you can use. This is also the endpoint that ASF uses internally for `MatchActively` users.
 
 ### Privacy policy
 
