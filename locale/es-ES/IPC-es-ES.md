@@ -96,7 +96,7 @@ El archivo de configuración se basa en la siguiente estructura JSON:
 
 `Endpoints` - Esta es una colección de endpoints, con cada endpoint con su propio nombre único (como `ejemplo-http4`) y la propiedad `Url` que especifica la dirección de escucha `Protocol://Host:Port`. Por defecto, ASF escucha en las direcciones http IPv4 y IPv6, pero hemos añadido ejemplos https para que uses, si es necesario. Solo debes declarar aquellos endpoints que necesitas, hemos incluido 4 ejemplos arriba para que puedas editarlos más fácilmente.
 
-`Host` accepts either `localhost`, a fixed IP address of the interface it should listen on (IPv4/IPv6), or `*` value that binds ASF's http server to all available interfaces. Using other values like `mydomain.com` or `192.168.0.*` acts the same as `*`, there is no IP filtering implemented, therefore be extremely careful when you use `Host` values that allow remote access. Si lo haces se habilitará el acceso a la interfaz IPC de ASF desde otras máquinas, lo que puede suponer un riesgo de seguridad. Recomendamos fuertemente usar `IPCPassword` (y de preferencia también tu propio cortafuegos) **como mínimo** en este caso.
+`Host` acepta tanto `localhost`, una dirección IP fija de la interfaz en la que debería escuchar (IPv4/IPv6), o el valor `*` que vincula el servidor http de ASF a todas las interfaces disponibles. Usar otros valores como `mydomain.com` o `192.168.0.*` actúa igual que `*`, no hay ningún filtro IP implementado, por lo tanto debes ser extremadamente cuidadoso al usar valores `Host` que permitan el acceso remoto. Si lo haces se habilitará el acceso a la interfaz IPC de ASF desde otras máquinas, lo que puede suponer un riesgo de seguridad. Recomendamos fuertemente usar `IPCPassword` (y de preferencia también tu propio cortafuegos) **como mínimo** en este caso.
 
 `KnownNetworks` - Esta variable **opcional** especifica las direcciones de red que consideramos confiables. Por defecto, ASF está configurado para confiar **solamente** en la interfaz loopback (`localhost`, misma máquina) Esta propiedad se utiliza de dos maneras. Primero, si omites `IPCPassword`, entonces solo permitiremos máquinas de redes conocidas para acceder a la IPC de ASF, y como medida de seguridad negaremos todo lo demás. En segundo lugar, esta propiedad es crucial en lo que se refiere a proxies inversos accediendo a ASF, ya que ASF respetará sus cabeceras solo si el servidor de proxy inverso está dentro de las redes conocidas. Respetar las cabeceras es crucial para el mecanismo anti fuerza bruta de ASF, ya que en lugar de prohibir el proxy inverso en caso de un problema, bloqueará la IP especificada por el proxy inverso como la fuente del mensaje original. Ten mucho cuidado con las redes que especificas aquí, ya que permite un posible ataque de falsificación de IP y acceso no autorizado en caso de que la máquina de confianza se vea comprometida o esté mal configurada.
 
@@ -143,7 +143,7 @@ La siguiente configuración permitirá el acceso remoto desde todas las fuentes,
 }
 ```
 
-If you do not require access from all sources, but for example your LAN only, then it's much better idea to check local IP address of the machine hosting ASF, for example `192.168.0.10` and use it instead of `*` in example config above.
+Si no requieres acceso desde todas las fuentes, sino solamente de tu LAN por ejemplo, entonces es mejor idea comprobar las direcciones IP de la máquina alojando ASF, por ejemplo `192.168.0.10` y usarlo en lugar de `*` mencionado en el ejemplo de configuración anterior.
 
 ---
 

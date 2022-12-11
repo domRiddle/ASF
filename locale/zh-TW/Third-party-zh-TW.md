@@ -2,7 +2,7 @@
 
 本章節包含專門（或主要）與ASF配合使用的各種第三方工具的內容。 它們包括ASF外掛程式、簡單的網路應用程式、用於一體化的內部函式庫，以及適用於各種平台的全能Bot。 若您想在此清單中新增內容，請在Discord或我們的Steam群組上聯絡我們。
 
-請注意，以下程式&#8203;**並非**&#8203;由ASF開發人員所維護，因此&#8203;**我們不提供任何保證**&#8203;，特別是它們的安全性及是否符合Steam服務條款。 此清單僅供參考。 You should always ensure that the third-party utility you're about to use is safe and legit enough for you, as you're using all of them at your own risk.
+請注意，以下程式&#8203;**並非**&#8203;由ASF開發人員所維護，因此&#8203;**我們不提供任何保證**&#8203;，特別是它們的安全性及是否符合Steam服務條款。 此清單僅供參考。 您應始終保證您欲使用的第三方工具對您來說足夠安全與合規，因為您需自行承擔使用它們的風險。
 
 ---
 
@@ -11,7 +11,7 @@
 ### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
 - **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**&#8203;：讓您能透過ASF來管理Steam成就。
-- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
+- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**&#8203;：ASF會接收生日祝福。
 - **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**&#8203;：使ASF具有製作擴充包的功能。
 - **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**&#8203;：ASF Bot的名稱將不再區分大小寫。
 - **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**&#8203;：使ASF無需指令，即可重新實現序號啟動。
