@@ -1,6 +1,6 @@
 # Note
 
-This page is work-in-progress. For translators: you may want to wait a bit (until stable release(, as the page is still being written and corrected.
+This page is work-in-progress. For translators: you may want to wait a bit (until stable release), as the page is still being written and corrected.
 
 ---
 
