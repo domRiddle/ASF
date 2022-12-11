@@ -40,6 +40,7 @@ Public info (exposed by Steam to every interested party) includes:
 - Your avatar (hash, for display purposes)
 
 Private info (selected data required for providing the functionality) includes:
+- Your **[inventory](https://steamcommunity.com/my/inventory/#753_6)** limited to item types that you've picked in `MatchableTypes`.
 - Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
 - Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
 - Your `MatchableTypes` (for display purposes and matching)
