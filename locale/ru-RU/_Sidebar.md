@@ -36,14 +36,15 @@
 * **[🤔 Расширенное ЧАВО](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-ru-RU)**
 * **[🚀 Конфигурация для высокой производительности](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-ru-RU)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ru-RU)**
-* **[🌐 Локализация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-ru-RU)**
-* **[📝 Журналирование](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-ru-RU)**
-* **[💾 Конфигурация для малого ОЗУ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-ru-RU)**
-* **[🔌 Плагины](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-ru-RU)**
-* **[🔐 Безопасность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ru-RU)**
-* **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin-ru-RU)**
-* **[📦 Сторонние разработки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-ru-RU)**
-* **[📵 Двухфакторная аутентификация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
+* **[🌐 Локализация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[📝 Журналирование](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[💾 Конфигурация для малого ОЗУ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[🔌 Плагины](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[🔐 Безопасность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[📦 Сторонние разработки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[📵 Двухфакторная аутентификация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 
 ## 👷 Для разработчиков

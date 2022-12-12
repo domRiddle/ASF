@@ -36,14 +36,15 @@
 * **[🤔 Erweitertes FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-de-DE)**
 * **[🚀 Hochperformantes Setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-de-DE)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)**
-* **[🌐 Übersetzung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-de-DE)**
-* **[📝 Protokollierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-de-DE)**
-* **[💾 Speichereffizientes Setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE)**
-* **[🔌 Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-de-DE)**
-* **[🔐 Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE)**
-* **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin-de-DE)**
-* **[📦 Drittanbieter](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-de-DE)**
-* **[📵 Zwei-Faktor-Authentifizierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
+* **[🌐 Übersetzung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[📝 Protokollierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[💾 Speichereffizientes Setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[🔌 Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[🔐 Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[📦 Drittanbieter](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[📵 Zwei-Faktor-Authentifizierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 
 ## 👷 Entwickler

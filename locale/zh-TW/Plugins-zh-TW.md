@@ -6,7 +6,7 @@
 
 ## 給使用者
 
-ASF會從您的ASF資料夾中的&#8203;`plugins`&#8203;資料夾載入外掛程式。 建議為您使用的每個外掛程式提供一個專屬資料夾，該資料夾可以依據外掛程式的名稱命名，例如&#8203;`MyPlugin`&#8203;。 最終會產生&#8203;`plugins/MyPlugin`&#8203;的樹狀結構。 最後，外掛程式的所有二進制檔案都應該放在那個專屬資料夾中，ASF會在重新啟動後成功偵測並使用您的外掛程式。
+ASF會從您的ASF資料夾中的&#8203;`plugins`&#8203;資料夾載入外掛程式。 建議為您使用的每個外掛程式提供一個專屬資料夾，該資料夾可以依據外掛程式的名稱命名，例如&#8203;`我的外掛程式`&#8203;。 最終會產生&#8203;`plugins/我的外掛程式`&#8203;的樹狀結構。 最後，外掛程式的所有二進制檔案都應該放在那個專屬資料夾中，ASF會在重新啟動後成功偵測並使用您的外掛程式。
 
 通常外掛程式的開發人員會以&#8203;`zip`&#8203;檔的形式來發布他們的外掛程式，該檔案會具有已經為您準備好的檔案結構，因此只需將該.zip檔解壓縮至&#8203;`plugins`&#8203;資料夾中，就能自動建立適當的資料夾。
 
@@ -101,13 +101,13 @@ dotnet publish 您外掛程式的名稱 -c "Release" -o "out"
 
 我們在API可用性的方面採取非常開放的政策，所以若您想使用ASF程式碼中已有的功能，請&#8203;**[提出一個Issue](https://github.com/JustArchiNET/ArchiSteamFarm/issues)**&#8203;，在裡面說明您需要使用的ASF內部API，並解釋您計劃使用的範例情境。 只要您的範例情境有意義，我們不太可能會反對。 我們根本不可能開放全部可以使用的東西，所以我們只能開放對我們來說最有意義的地方，然後等待著您的請求，來防止您需要存取尚未&#8203;`public`&#8203;的部分。 這也包含關於新的&#8203;`IPlugin`&#8203;介面的所有建議，只要用來擴展現有功能時加入它是有意義的。
 
-實際上，ASF的內部API是您外掛程式功能的唯一限制。 因為您的外掛程式也可以擁有自己的相依程式，所以沒有什麼能夠阻止您。例如您可以在您的應用程式中加入&#8203;`Discord.Net`&#8203;程式庫，並在您的Discord Bot及ASF指令間搭起一座橋梁。 外掛程式的可能性是無限的，我們會盡最大努力為您的外掛程式提供盡可能多的自由及靈活性，因此沒有給予任何人為限制。只是我們不能完全確定哪些ASF的部分是在您外掛程式開發中所必需的（您可以經由告訴我們來解決此問題，或是無須通知，您隨時都可以自行實作所需的功能）。
+實際上，ASF的內部API是您外掛程式功能的唯一限制。 因為您的外掛程式也可以擁有自己的相依程式，所以沒有什麼能夠阻止您。例如您可以在您的應用程式中加入&#8203;`Discord.Net`&#8203;程式庫，並在您的Discord Bot及ASF指令間搭起一座橋梁。 外掛程式的可能性是無限的，我們會盡最大努力為您的外掛程式提供盡可能多的自由及靈活性，因此沒有給予任何人為限制。只是我們不能完全確定哪些ASF的部分是在您外掛程式開發中所必需的（您可以經由告訴我們來解決此問題，或無須通知，您也隨時可以自行實作所需的功能）。
 
 ---
 
 ### API 相容性
 
-需要特別為您強調，ASF是一個使用者應用程式，而非一個您能無條件依賴具有穩定API介面的程式庫。 這代表您無法假定您的外掛程式一經編譯，就能夠在未來所有的ASF版本中持續運作。若您想進一步開發程式，這將是不可能的，我們無法只為了反向相容性，就放棄去適應不斷變化的Steam。 對您來說這應該合乎邏輯，但強調這一點事實很重要。
+需要特別為您強調，ASF是一個使用者應用程式，而非一個您能無條件依賴、具有穩定API介面的程式庫。 這代表您無法假定您的外掛程式一經編譯，就能夠在未來所有的ASF版本中持續運作。若您想進一步開發程式，這將是不可能的，我們無法只為了反向相容性，就放棄去適應不斷變化的Steam。 對您來說這應該合乎邏輯，但強調這一點事實很重要。
 
 我們會盡最大努力，保持ASF公開的部分能夠正常且穩定運作。但如果有足夠的理由，我們不會害怕去破壞相容性，並且在這個過程中，會遵循我們的&#8203;**[棄用](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-zh-TW)**&#8203;政策。 這對於作為ASF基礎架構的一部份公開給您的內部ASF結構來說特別重要，如上文所述（例如&#8203;`ArchiWebHandler`&#8203;），在未來某個版本中，它們可能會作為ASF增強的一部份而被改進（或因此而被重寫）。 我們將會盡最大努力在更新日誌中適當通知您，並在執行期間適時顯示與過時功能相關的警告。 我們不會故意為了重寫而重寫，因此您可以相信，下一個ASF次版更新不會只因為版本號碼增加，而讓您的外掛程式完全失效。但仍最好留意更新日誌，並偶爾驗證一切是否正常運作。
 
@@ -115,11 +115,11 @@ dotnet publish 您外掛程式的名稱 -c "Release" -o "out"
 
 ### 外掛程式相依性
 
-預設情形下，您的外掛程式會至少含有兩個相依程式，&#8203;`ArchiSteamFarm`&#8203;用於內部API，以及&#8203;`System.Composition.AttributedModel`&#8203;的&#8203;`PackageReference`&#8203;，這是被辨識成ASF外掛程式所必需的。 In addition to that, it may include more dependencies in regards to what you've decided to do in your plugin (e.g. `Discord.Net` library if you've decided to integrate with Discord).
+預設情形下，您的外掛程式會至少含有兩個相依套件，&#8203;`ArchiSteamFarm`&#8203;用於內部API，以及&#8203;`System.Composition.AttributedModel`&#8203;的&#8203;`PackageReference`&#8203;，這是被辨識成ASF外掛程式所必需的。 除此之外，依據您的外掛程式功能，它可能還需要更多的相依套件（例如若您決定與Discord整合，就需要&#8203;`Discord.Net`&#8203;程式庫）。
 
-The output of your build will include your core `YourPluginName.dll` library, as well as all the dependencies that you've referenced. Since you're developing a plugin to already-working program, you don't have to, and even **shouldn't** include dependencies that ASF already includes, for example `ArchiSteamFarm`, `SteamKit2` or `Newtonsoft.Json`. Stripping down your build off dependencies shared with ASF is not the absolute requirement for your plugin to work, but doing so will dramatically cut the memory footprint and the size of your plugin, together with increasing the performance, due to the fact that ASF will share its own dependencies with you, and will load only those libraries that it doesn't know about itself.
+建置的輸出將包含您的&#8203;`您的外掛程式名稱.dll`&#8203;核心程式庫，及所有您引用的相依套件。 因為您是為已在運作的程式開發外掛程式，所以您不必，也&#8203;**不應該**&#8203;包含ASF已含有的相依套件，例如&#8203;`ArchiSteamFarm`&#8203;、&#8203;`SteamKit2`&#8203;或&#8203;`Newtonsoft.Json`&#8203;。 精簡與ASF共用的相依套件並不是外掛程式運作的必要措施，但這樣能使記憶體使用及外掛程式大小顯著減少，同時增加效能，因為ASF會與您共用它自己的相依套件，並只載入那些它所不知道的程式庫。
 
-In general, it's a recommended practice to include only those libraries that ASF either doesn't include, or includes in the wrong/incompatible version. Examples of those would be obviously `YourPluginName.dll`, but for example also `Discord.Net.dll` if you decided to depend on it, as ASF doesn't include it itself. Bundling libraries that are shared with ASF can still make sense if you want to ensure API compatibility (e.g. being sure that `Newtonsoft.Json` which you depend on in your plugin will always be in version `X` and not the one that ASF ships with), but obviously doing that comes for a price of increased memory/size and worse performance, and therefore should be carefully evaluated.
+一般而言，建議是只封裝ASF不包含的，或與ASF包含版本不同／不相容的程式庫。 明顯的範例有&#8203;`您的外掛程式名稱.dll`&#8203;；另一個範例是&#8203;`Discord.Net.dll`&#8203;，若您決定整合Discord，因ASF並不含有它，故您也需要將它封裝在內。 Bundling libraries that are shared with ASF can still make sense if you want to ensure API compatibility (e.g. being sure that `Newtonsoft.Json` which you depend on in your plugin will always be in version `X` and not the one that ASF ships with), but obviously doing that comes for a price of increased memory/size and worse performance, and therefore should be carefully evaluated.
 
 If you know that the dependency which you need is included in ASF, you can mark it with `IncludeAssets="compile"` as we showed you in the example `csproj` above. This will tell the compiler to avoid publishing referenced library itself, as ASF already includes that one. Likewise, notice that we reference the ASF project with `ExcludeAssets="all" Private="false"` which works in a very similar way - telling the compiler to not produce any ASF files (as the user already has them). This applies only when referencing ASF project, since if you reference a `dll` library, then you're not producing ASF files as part of your plugin.
 

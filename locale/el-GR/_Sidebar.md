@@ -36,6 +36,7 @@
 * **[🤔 Εκτεταμένες Συχνές Ερωτήσεις](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[🚀 Ρύθμιση υψηλής απόδοσης](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[🌐 Μετάφραση](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Καταγραφή](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Ρύθμιση χαμηλής μνήμης](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**

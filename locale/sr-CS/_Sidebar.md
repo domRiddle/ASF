@@ -36,6 +36,7 @@
 * **[🤔 Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[🚀 Visoko-performansna podešavanja](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[🌐 Lokalizacija](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Evidentiranje](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**

@@ -36,14 +36,15 @@
 * **[🤔 Rozszerzone FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-pl-PL)**
 * **[🚀 Konfiguracja pod zwiększoną wydajność](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-pl-PL)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pl-PL)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[🌐 Tłumaczenia](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Logowanie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Konfiguracja pod zmniejszone zużycie pamięci](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[🔌 Wtyczki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-pl-PL)**
-* **[🔐 Zabezpieczenia](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-pl-PL)**
-* **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin-pl-PL)**
-* **[📦 Zasoby zewnętrzne](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-pl-PL)**
-* **[📵 Weryfikacja dwu-etapowa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pl-PL)**
+* **[🔌 Wtyczki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[🔐 Zabezpieczenia](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[📦 Zasoby zewnętrzne](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[📵 Weryfikacja dwu-etapowa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 
 ## 👷 Deweloperzy

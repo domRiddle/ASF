@@ -36,6 +36,7 @@
 * **[🤔 补充常见问题](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-zh-CN)**
 * **[🚀 高性能方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-zh-CN)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)**
+* **[🧩 物品匹配插件](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-CN)**
 * **[🌐 本地化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-zh-CN)**
 * **[📝 日志](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-zh-CN)**
 * **[💾 低内存方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN)**

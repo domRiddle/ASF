@@ -36,14 +36,15 @@
 * **[🤔 EXTENDD FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-lol-US)**
 * **[🚀 HIGH-PERFORMANCE SETUP](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-lol-US)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US)**
-* **[🌐 LOCALIZASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-lol-US)**
-* **[📝 LOGGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-lol-US)**
-* **[💾 LOW-MEMS SETUP](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-lol-US)**
-* **[🔌 PLUGINS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-lol-US)**
-* **[🔐 SECURITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-lol-US)**
-* **[🧩 STEAMTOKENDUMPERPLUGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin-lol-US)**
-* **[📦 THIRD-PARTY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-lol-US)**
-* **[📵 2-FACTOR AUTHENTICASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-lol-US)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
+* **[🌐 LOCALIZASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[📝 LOGGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[💾 LOW-MEMS SETUP](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[🔌 PLUGINS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[🔐 SECURITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[🧩 STEAMTOKENDUMPERPLUGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[📦 THIRD-PARTY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[📵 2-FACTOR AUTHENTICASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 
 ## 👷 DEVELOPERS

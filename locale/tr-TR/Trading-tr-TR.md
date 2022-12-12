@@ -46,28 +46,3 @@ Varsayılan olarak ASF kötü takasları reddeder - bu neredeyse her zaman bir k
 Seçtiğiniz `TradingPreferences` ne olursa olsun, bir işlemin ASF tarafından reddedilmiş olması, onu kendiniz kabul edemeyeceğiniz anlamına gelmez. `BotBehaviour`'un varsayılan değerini koruduysanız ki bu değer `RejectInvalidTrades`'e eşit değil, ASF bu işlemleri yok sayar - bu işlemlerle ilgilenip ilgilenmediğinize kendiniz karar vermenize olanak tanır. Aynı şey, `MatchableTypes` dışındaki ögelerle yapılan takaslar ve diğer her şey için de geçerlidir - modülün, neyin iyi olup neyin olmadığına karar vermek yerine STM işlemlerini otomatikleştirmenize yardımcı olması beklenir. The only exception from this rule is when talking about users that you blacklisted from trading module using `tbadd` command - trades from those users are immediately rejected regardless of `BotBehaviour` settings.
 
 Bu seçeneği etkinleştirdiğinizde, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**'nın kullanılması önemle tavsiye edilir. Eğer her işlemi manuel olarak onaylamaya karar verirseniz, bu işlev tüm potansiyelini kaybeder. `SteamTradeMatcher`, alım satımları onaylama yeteneği olmadan bile düzgün şekilde çalışacaktır, ancak bunları zamanında kabul etmezseniz, birikmiş onaylar oluşturabilir.
-
----
-
-### `MatchActively`
-
-`MatchActively` setting is active version of `SteamTradeMatcher` which includes interactive matching in which the bot will send trades to other people. It can work standalone, or together with `SteamTradeMatcher` setting.
-
-Bu seçeneği kullanmak için karşılamanız gereken bir dizi gereksiniminiz vardır. You have to be eligible for our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)**, with a bit relaxed requirements. At the minimum you must have **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active and at least one valid type in `MatchableTypes`, such as trading cards.
-
-Yukarıdaki gereksinimlerin tümünü karşılıyorsanız, ASF periyodik olarak **[herkese açık ASF STM listesi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** ile mevcut botları aktif olarak eşleştirmek için iletişim kuracaktır.
-
-- Her eşleştirme oturumu, tek bir eşleştirme oturumunda maksimum `10` tane olmak üzere "turlardan" oluşur.
-- Her turda ASF, eşleştirilebilecek `MatchableTypes` ögelerini bulmak için listelenmiş seçili botların envanterini ve senin envanterini alacaktır. Eğer eşleşme bulunursa, ASF takas teklifini otomatik olarak gönderecek ve onaylayacaktır.
-- Her set (appID'nin bileşimi, ögenin türü ve nadirliği) tek bir turda yalnızca bir kez eşleştirilebilir. Bu, "artık mevcut olmayan ögeleri" en aza indirmek ve tüm takasları göndermeden önce her bir botun tepki vermesini bekleme ihtiyacından kaçınmak için uygulanır. Eşleştirmenin devam eden bir süreçten değil, turlardan oluşmasının birincil nedeni de budur.
-- ASF, tek bir roundda tek bir kullanıcıya `255` öğeden ve tek bir kullanıcıya `5` takastan fazla göndermez. Bu, Steam limitlerinin yanı sıra kendi yük dengelememiz tarafından uygulanır.
-- Eğer eşleşmek için setlerin bitmesi nedeniyle daha önce iptal edilmezse, ASF'nin tek bir turda eşleştirilebilecek `40` benzersiz botluk sabit bir sınırı vardır. Eğer iptal edilirse, bir sonraki turda ASF, öncelikle henüz eşleşmeyen botları eşleştirmeye çalışacaktır.
-- ASF eşleşmenin devam etmesi gerektiğine karar verirse, bir sonraki tur, son turdan itibaren `5` dakika içinde başlar (biraz bekleme süresi eklemek ve tüm botların takaslara tepki vermesini sağlamak için), aksi takdirde eşleştirme oturumu biter ve `8` saat içinde kendini tekrar eder.
-
-Bu modülün şeffaf olması gerekiyor. Eşleştirme, ASF başladıktan yaklaşık `1` saat sonra başlayacak ve her `8` saatte bir (gerekirse) kendini tekrar edecektir. `MatchActively` özelliğinin, aktif olarak setlerin tamamlanmasına doğru ilerlediğimizden emin olmak için uzun vadeli, periyodik bir önlem olarak kullanılması hedefleniyor, ancak kısa vadeli zaman ve kaynak baskısı olmadan, bu bir komut olarak girilirse gerçekleşecek. Bu modülün hedef kullanıcıları, birincil hesaplar ve "stash" alt hesaplardır, ancak bu, `MatchEverything` olarak ayarlanmamış herhangi bir bot tarafından kullanılabilir.
-
-ASF, bu seçeneği kullanarak oluşturulan talep ve baskı miktarını en aza indirmek için elinden gelenin en iyisini yapar ve aynı zamanda üst sınıra eşleştirme verimliliğini en üst düzeye çıkarır. Botları eşleştirmenin ve süreci diğer türlü düzenlemek için kesin algoritması, ASF'nin uygulama detayıdır ve geri bildirim, durum ve gelecekteki olası fikirlere göre değişebilir.
-
-Algoritmanın mevcut sürümü, ASF'nin öncelikle `Herhangi bir` bota, özellikle de öğelerinin geldiği oyun çeşitliliği daha iyi olanlara öncelik vermesini sağlar. `Herhangi bir` bot tükendiğinde, ASF, aynı çeşitlilik kuralına göre adil olanlara geçecek ve aşırı sayıda öğeye sahip olanların, diğer botlara kıyasla olası envanterle ilgili sorunların olasılığı daha yüksek olduğu için öncelikleri daha da düşürülecek. Bundan bağımsız olarak, ASF olası bir ilerlemeyi kaçırmamamızı sağlamak için mevcut her botu en az bir kez eşleştirmeye çalışacaktır.
-
-`MatchActively` takes into account bots that you blacklisted from trading through `tbadd` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** and will not attempt to actively match them. Bu, kullanmamız için potansiyel kopyaları olsa bile, ASF'ye hangi botların asla eşleşmemesi gerektiğini söylemek için kullanılabilir.

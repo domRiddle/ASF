@@ -36,14 +36,15 @@
 * **[🤔 Perguntas frequentes adicionais](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-pt-BR)**
 * **[🚀 Configuração de alto desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-pt-BR)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR)**
-* **[🌐 Localização](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-pt-BR)**
-* **[📝 Registros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-pt-BR)**
-* **[💾 Configuração para baixo consumo de memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-pt-BR)**
-* **[🔌 Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-pt-BR)**
-* **[🔐 Segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-pt-BR)**
-* **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin-pt-BR)**
-* **[📦 Aplicativos de terceiros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-pt-BR)**
-* **[📵 Autenticação em duas etapas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
+* **[🌐 Localização](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[📝 Registros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[💾 Configuração para baixo consumo de memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[🔌 Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[🔐 Segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[📦 Aplicativos de terceiros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[📵 Autenticação em duas etapas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 
 ## 👷 Desenvolvedores

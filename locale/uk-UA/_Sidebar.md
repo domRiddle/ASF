@@ -36,14 +36,15 @@
 * **[🤔 Розширені ЧаПи](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-uk-UA)**
 * **[🚀 Налаштування високої продуктивності](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-uk-UA)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-uk-UA)**
-* **[🌐 Локалізація](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-uk-UA)**
-* **[📝 Ведення журналу](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-uk-UA)**
-* **[💾 Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)**
-* **[🔌 Плаґіни](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-uk-UA)**
-* **[🔐 Безпека](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-uk-UA)**
-* **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin-uk-UA)**
-* **[📦 Сторонні розробки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-uk-UA)**
-* **[📵 Двофакторна аутентифікація](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-uk-UA)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
+* **[🌐 Локалізація](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
+* **[📝 Ведення журналу](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[💾 Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[🔌 Плаґіни](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[🔐 Безпека](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
+* **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[📦 Сторонні розробки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[📵 Двофакторна аутентифікація](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 
 ## 👷 Розробникам

@@ -36,6 +36,7 @@
 * **[🤔 Kifejtett GYIK](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[🚀 Nagy teljesítményű beállítások](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[🌐 Nyelvek](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Naplózás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Beállítások kevés memóriához](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**

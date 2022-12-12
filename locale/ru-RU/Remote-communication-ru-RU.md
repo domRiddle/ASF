@@ -1,4 +1,4 @@
-# Remote communication
+# Удаленная связь
 
 This section elaborates on remote communication that ASF includes, including further explanation on how one can influence it. Хотя мы не считаем что-либо из приведенного ниже вредоносным или иным образом нежелательным, и мы не обязаны по закону раскрывать это, мы хотим, чтобы вы лучше понимали функциональные возможности программы, особенно в отношении вашей конфиденциальности и обмена данными.
 
@@ -30,46 +30,3 @@ As a security measure, it's not possible to disable checksum verification for AS
 You can decide to opt-out of being announced in the listing by disabling `PublicListing` flag in bot's **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** settings. This might be useful if you'd like to run `SteamTradeMatcher` bot without being announced at the same time.
 
 Downloading bots from our listing is mandatory for `MatchActively` setting, you'll need to disable that setting if you're unwilling to accept that.
-
----
-
-## Публичный список ASF STM
-
-Наш публичный каталог ASF STM расположен на **[нашем сайте](https://asf.justarchi.net/STM)** и используется как публичная служба как для пользователей ASF, использующих `MatchActively`, так и для всех пользователей, независимо от использования ASF, для ручного сопоставления.
-
-Пожалуйста, обратите внимание, что вы **не** будете показаны на сайте если не соответствуете всем критериям. ASF won't even bother communicating with our server in this case, so this section is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes. Также, публичный каталог совместим только с последней стабильной версией ASF, и может отказаться показывать ботов с устаревшей программой, особенно если у них отсутствует какая-нибудь базовая функциональность, доступная только в более новых версиях.
-
-### Как именно это работает
-
-ASF отправляет начальные данные один раз после входа, они содержат все свойства которые используются в публичном списке. После этого, каждые 10 минут ASF отправляет один очень маленький "heartbeat" запрос, который сообщает нашему серверу что бот всё ещё запущен. Если по какой-то причине "heartbeat" не был получен, например из-за проблем с сетью, ASF будет пытаться снова каждую минуту, пока сервер его не зарегистрирует.
-
-Это позволяет нашему сайту отслеживать, какие аккаунты могут быть использованы для поиска дубликатов, и активны ли они. Благодаря этому, наш веб-сайт может отображать все аккаунты с ASF, 2ФА и STM, которые были активны **в течение последних 15 минут**.
-
-Пользователи отсортированы согласно их инвентарю (по убыванию) - сначала боты с включенным `MatchEverything`, которые принимают любые обмены 1:1, со значком `Any`, затем по количеству уникальных игр из которых получены предметы, соответствующие `MatchableTypes`, и наконец по количеству предметов, соответствующих `MatchableTypes`.
-
-### API
-
-Каталог ASF STM на данный момент отображает только ботов на основе ASF. У нас на данный момент нет возможности отображать сторонних ботов в нашем каталоге (поскольку мы не можем легко проверить их код и убедиться что их логика обменов соответствует нашей).
-
-Если вы ищете удобный способ получить доступ к нашему каталогу из программы, у нас есть очень простая конечная точка **[/Api/Bots](https://asf.justarchi.net/Api/Bots)** как раз для этого случая. Именно эту конечную точку ASF использует для пользователей с включенным режимом `MatchActively`.
-
-### Политика конфиденциальности
-
-If you agree to being listed in our listing, by enabling `SteamTradeMatcher` and not refusing `PublicListing`, as specified above, we'll temporarily store some of your Steam account details on our server in order to provide the core functionality.
-
-Public info (exposed by Steam to every interested party) includes:
-- Ваш идентификатор Steam (в 64-разрядном формате, для создания ссылок)
-- Ваш никнейм (для отображения)
-- Ваш аватар (только хеш, для отображения)
-
-Private info (selected data required for providing the functionality) includes:
-- Ваш **[токен для обменов](https://steamcommunity.com/my/tradeoffers/privacy)** (чтобы люди, не состоящие в вашем списке друзей могли отправить вам обмен)
-- Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
-- Значение параметра `MatchableTypes` (для отображения и сопоставления)
-- Общее число предметов Steam, соответствующих `MatchableTypes` типов в вашем инвентаре (для отображения и сопоставления)
-- Общее число уникальных игр из которых указанные выше предметы Steam соответствующих `MatchableTypes` типов были получена (для отображения и сопоставления)
-- Value of `MatchEverything` in your **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** (for display purposes and matching)
-
-ASF server will **not** collect, store or otherwise process any other data not listed above, without prior important notice in the changelog, and a very good practical reason in the first place. We do not consider anything above to be a serious matter, and we mention it to let you know what precisely ASF does apart of what you configured it to do yourself, so people can better understand the process.
-
-Your data will be automatically hidden from general public in up to 15 minutes since the moment you stop using our listing, whether due to change of settings or not having ASF launched anymore. In addition to that, it'll be automatically deleted from our server (including all backup copies) in up to 7 days since the above happening.
