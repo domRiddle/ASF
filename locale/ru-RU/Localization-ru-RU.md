@@ -254,6 +254,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 | **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Испанский   |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Португальский (BR)  |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Китайский (CN)      |
+| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Chinese (TW)        |
 | **[LittleFreak](https://crowdin.com/profile/littlefreak)** | Немецкий            |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Русский, Украинский |
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, Немецкий    |

@@ -253,10 +253,11 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 | ---------------------------------------------------------- | ----------- |
 | **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT、西班牙语 |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | 葡萄牙语（巴西）    |
-| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | 汉语（中国大陆）    |
+| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | 汉语（中国）      |
+| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | 汉语（台湾地区）    |
 | **[LittleFreak](https://crowdin.com/profile/littlefreak)** | 德语          |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | 俄语、乌克兰语     |
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT、德语   |
-| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 汉语（中国香港）    |
+| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | 汉语（香港特别行政区） |
 
 感谢你们帮助提高 ASF 的本地化质量！

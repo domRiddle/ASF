@@ -254,6 +254,7 @@ When no HTML is present (second case), this is even easier since you can just go
 | **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Spanish         |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Португальська (BR)      |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Китайська (CN)          |
+| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Chinese (TW)            |
 | **[LittleFreak](https://crowdin.com/profile/littlefreak)** | Німецька                |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Українська та російська |
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, German          |

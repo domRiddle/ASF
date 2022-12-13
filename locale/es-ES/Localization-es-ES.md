@@ -254,6 +254,7 @@ Nos gustaría mostrar nuestra eterna gratitud a las personas que han dedicado un
 | **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Español |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portugués (BR)  |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chino (CN)      |
+| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Chinese (TW)    |
 | **[LittleFreak](https://crowdin.com/profile/littlefreak)** | Alemán          |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Ruso, Ucraniano |
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, Alemán  |

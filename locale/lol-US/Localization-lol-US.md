@@ -254,6 +254,7 @@ WED LIEK 2 SHOW R ETERNAL GRATITUDE 2 PEEPS DAT HAS SPENT SIGNIFICANT AMOUNT OV 
 | **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, SPANISH   |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | PORTUGUEES (BR)   |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | CHINEES (CN)      |
+| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Chinese (TW)      |
 | **[LittleFreak](https://crowdin.com/profile/littlefreak)** | GERMAN            |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | RUSIAN, UKRAINIAN |
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, GERMAN    |
