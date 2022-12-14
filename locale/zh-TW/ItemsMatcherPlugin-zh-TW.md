@@ -1,12 +1,12 @@
 # 注意
 
-本頁面尚未完成。 For translators: you may want to wait a bit (until stable release), as the page is still being written and corrected.
+本頁面尚未完成。 給翻譯人員：您可能需要暫時等待（直到穩定版本發布），因為本頁面仍在編寫和修正中。
 
 ---
 
 # 外掛程式
 
-`ItemsMatcherPlugin` is official ASF plugin that extends ASF with ASF STM listing features. In particular, this includes `PublicListing` in **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** and `MatchActively` in **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)**.
+`ItemsMatcherPlugin`&#8203;是ASF官方的外掛程式，透過ASF STM清單功能擴充ASF。 特別是，這包含了&#8203;**[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#remotecommunication)**&#8203;中的&#8203;`PublicListing`&#8203;，及&#8203;**[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#tradingpreferences)**&#8203;中的&#8203;`MatchActively`&#8203;。
 
 ---
 
@@ -28,7 +28,7 @@ ASF會在登入後發送一次初始資料，其中包含公開清單使用的�
 
 ASF STM清單暫時只接受ASF Bot。 目前無法在我們的清單中顯示第三方Bot（因為我們無法輕易地查看它們的程式碼，並保證它們符合我們的整個交易邏輯）。
 
-If you're looking for easy way to access our listing in programmatic way, we have a very simple **[`/Api/Listing/Bots`](https://asf-backend.justarchi.net/Api/Listing/Bots)** endpoint that you can use. 這也是ASF在內部為&#8203;`MatchActively`&#8203;使用者使用的端點。
+若您正尋找以程式設計的方式存取我們清單的簡易方法，我們有個非常簡單的&#8203;**[`/Api/Listing/Bots`](https://asf-backend.justarchi.net/Api/Listing/Bots)**&#8203;端點供您使用。 這也是ASF在內部為&#8203;`MatchActively`&#8203;使用者使用的端點。
 
 ### 隱私權政策
 
@@ -40,17 +40,17 @@ If you're looking for easy way to access our listing in programmatic way, we hav
 - 您的頭像（雜湊值，用於顯示）
 
 私人資訊（提供功能所需的特定資料）包括：
-- Your **[inventory](https://steamcommunity.com/my/inventory/#753_6)** limited to item types that you've picked in `MatchableTypes` (so people can use `MatchActively` against your items).
+- 您的&#8203;**[物品庫](https://steamcommunity.com/my/inventory/#753_6)**&#8203;，僅限於您在&#8203;`MatchableTypes`&#8203;中所選的物品類型（使其他人可以對您的物品使用&#8203;`MatchActively`&#8203;）。
 - 您的&#8203;**[交易權杖](https://steamcommunity.com/my/tradeoffers/privacy)**&#8203;（使非您好友的帳號能向您發起交易提案）
 - 您的&#8203;`MaxTradeHoldDuration`&#8203;（使其他人知道您是否願意接受他們的交易）
 - 您的&#8203;`MatchableTypes`&#8203;（用於顯示及匹配）
-- Total number of Steam items in your inventory (for display purposes and matching)
+- 您物品庫中的Steam物品總數（用於顯示及匹配）
 
 ---
 
 ## `MatchActively`
 
-`MatchActively` setting is active version of **[`SteamTradeMatcher`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** which includes interactive matching in which the bot will send trades to other people. 它可以單獨運作，亦可結合&#8203;`SteamTradeMatcher`&#8203;設定一起運作。 This feature requires `LicenseID` to be set, as it uses third-party server.
+`MatchActively`&#8203;設定是&#8203;**[`SteamTradeMatcher`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW#steamtradematcher)**&#8203;的主動版本，包含Bot發送交易給其他使用者的交互式匹配。 它可以單獨運作，亦可結合&#8203;`SteamTradeMatcher`&#8203;設定一起運作。 這個功能需要設定&#8203;`LicenseID`&#8203;，因為它使用了第三方伺服器。
 
 為了使用這個選項，您需要滿足一系列的需求。 您至少應保證帳號&#8203;**[不受限制](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**&#8203;、啟用&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW#asf-雙重驗證)**&#8203;，並在&#8203;`MatchableTypes`&#8203;中設定至少一種有效類型，例如交換卡片。
 
@@ -70,17 +70,17 @@ ASF會盡力將使用該選項產生的請求量及壓力降至最低，同時�
 
 ---
 
-### Why do I need a `LicenseID` to use the plugin? Wasn't `MatchActively` free before?
+### 為什麼我需要 `LicenseID` 才能使用外掛程式？ `MatchActively` 以前不是免費的嗎？
 
 ASF is, and remains, free and open-source, as it was established at the start of the project back in October 2015. Our program is also entirely non-commercial, we do not earn anything from contributions to it, building or publishing. Over those past 7+ years ASF has received tremendous amount of development, and it's still being improved and enhanced with every monthly stable release mostly by a single person, **[JustArchi](https://github.com/JustArchi)** - with no strings attached. The only funding we receive is from non-obligatory donations that come from our users.
 
 For a very long time, until October 2022, `MatchActively` feature was part of ASF core and available for everyone to use. In October 2022, Valve, the company behind Steam, has put very severe rate limits that rendered previous functionality entirely broken, with no solution available. The feature therefore has been removed from ASF core in version 5.4.1.0.
 
-`MatchActively` was resurrected as part of official `ItemsMatcher` plugin that further enhances ASF with active cards matching functionality. Resurrecting `MatchActively` feature required from us extraordinary amount of work to create ASF backend, entirely new service hosted on a server, with more than a thousand of proxies attached for resolving inventories, all exclusively to allow ASF clients to make use of `MatchActively` like before. Due to the amount of work involved, as well as resources that are not free and require to be paid on monthly basis by us (domain, server, proxies), we've decided to offer this plugin to our sponsors, that is, people that already support ASF project on monthly basis. Our goal isn't to profit from it, but rather, cover the **monthly costs** that are exclusively linked with offering this functionality - that's why we offer it basically for nothing, but we do have to charge a little for it as we can't pay hundreds of dollars from our own pockets just to make it available for you. We hope that you understand.
+`MatchActively` was resurrected as part of official `ItemsMatcher` plugin that further enhances ASF with active cards matching functionality. Resurrecting `MatchActively` feature required from us extraordinary amount of work to create ASF backend, entirely new service hosted on a server, with more than a thousand of proxies attached for resolving inventories, all exclusively to allow ASF clients to make use of `MatchActively` like before. Due to the amount of work involved, as well as resources that are not free and require to be paid on monthly basis by us (domain, server, proxies), we've decided to offer this plugin to our sponsors, that is, people that already support ASF project on monthly basis. Our goal isn't to profit from it, but rather, cover the **monthly costs** that are exclusively linked with offering this functionality - that's why we offer it basically for nothing, but we do have to charge a little for it as we can't pay hundreds of dollars from our own pockets just to make it available for you. 我們希望您能夠理解。
 
 ---
 
-### How can I get an access?
+### 我要如何獲得存取權限？
 
 `ItemsMatcher` is offered as part of $5+ sponsor tier on **[JustArchi's GitHub](https://github.com/sponsors/JustArchi)**. Simply become a sponsor of $5 tier (or higher), then click **[here](https://asf-backend.justarchi.net/user/status)** to obtain your `LicenseID`. You'll need to sign in with GitHub for confirming your identity.
 
