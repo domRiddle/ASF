@@ -70,7 +70,7 @@ The current version of the algorithm makes ASF prioritize `Any` bots first, espe
 
 ---
 
-### Why do I need a `LicenseID` to use the plugin? Wasn't `MatchActively` free before?
+### Why do I need a `LicenseID` to use `MatchActively`? Wasn't it free before?
 
 ASF is, and remains, free and open-source, as it was established at the start of the project back in October 2015. Our program is also entirely non-commercial, we do not earn anything from contributions to it, building or publishing. Over those past 7+ years ASF has received tremendous amount of development, and it's still being improved and enhanced with every monthly stable release mostly by a single person, **[JustArchi](https://github.com/JustArchi)** - with no strings attached. The only funding we receive is from non-obligatory donations that come from our users.
 
