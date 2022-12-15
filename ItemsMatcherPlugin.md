@@ -1,6 +1,6 @@
 # Note
 
-This page is work-in-progress. For translators: you may want to wait a bit (until stable release), as the page is still being written and corrected.
+This page is work-in-progress, as it relates to a pre-release version of ASF that is currently in testing. Please be patient while we write down information, fix bugs and elaborate on exact specifics of the new feature. For translators: you may want to wait a bit (until stable release), as the page is still being written and corrected.
 
 ---
 
