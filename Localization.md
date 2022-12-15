@@ -260,4 +260,4 @@ Contributor | Languages
 **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)** | LOLCAT, German
 **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinese (HK)
 
-Thank you all for improving our ASF localization quality!
+Thank you all for improving our ASF localization quality! As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
