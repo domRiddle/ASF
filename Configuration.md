@@ -75,6 +75,7 @@ Global config is located in `ASF.json` file and has following structure:
 	"IPC": true,
 	"IPCPassword": null,
 	"IPCPasswordFormat": 0,
+	"LicenseID": null,
 	"LoginLimiterDelay": 10,
 	"MaxFarmingTime": 10,
 	"MaxTradeHoldDuration": 15,
@@ -201,6 +202,12 @@ If you're running ASF on the server, you probably want to use this option togeth
 ### `IPCPasswordFormat`
 
 `byte` type with default value of `0`. This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. Unless you know what you're doing, you should keep it with default value of `0`.
+
+---
+
+### `LicenseID`
+
+`string` type with default value of `null`. This property allows our **[sponsors](https://github.com/sponsors/JustArchi)** to enhance ASF with optional features that require paid resources to work. For now, this allows you to make use of **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature in `ItemsMatcher` plugin. If you're ASF sponsor, you can obtain your license **[here](https://asf.justarchi.net/User/Status)**. Unless you want to enable extra ASF functionalities, there is no need for you to use one.
 
 ---
 
