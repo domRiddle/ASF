@@ -18,17 +18,15 @@ Please note that you will **not** be displayed on the website if you do not meet
 
 ### How it exactly works
 
-ASF sends initial data once after logging in, that contains all properties public listing makes use of. Then, every 10 minutes ASF sends one, very tiny "heartbeat" request that notifies our server that the bot is still up and running. If for some reason the heartbeat didn't arrive, for example due to networking issues, then ASF will retry sending it each minute, until server registers it.
+ASF sends initial data once after logging in, that contains all properties public listing makes use of. Then, every 10 minutes ASF sends one, very tiny "heartbeat" request that notifies our server that the bot is still up and running. If for some reason the heartbeat didn't arrive, for example due to networking issues, then ASF will retry sending it each minute, until server registers it. This way our server knows precisely which bots are still running and ready to accept trade offers. We display all ASF 2FA+STM accounts that were active in **last 15 minutes**.
 
-This allows our website to record which accounts can be used for matching, as well as if they're still active. Thanks to that, our website can show all ASF 2FA+STM accounts that were active in **last 15 minutes**.
-
-Users are sorted according to their inventories (in descending order) - `MatchEverything` bots with `Any` banner that accept all 1:1 trades, then `MatchableTypes` unique games count, and finally `MatchableTypes` items count.
+Users are sorted according to their relative usefulness - `MatchEverything` bots which are shown with `Any` banner that accept all 1:1 trades, then unique games count, and finally items count.
 
 ### API
 
 ASF STM listing only accepts ASF bots for time being. There is no way to list third-party bots on our listing for now (as we can't review their code easily and ensure they meet our entire trading logic).
 
-If you're looking for easy way to access our listing in programmatic way, we have a very simple **[`/Api/Listing/Bots`](https://asf.justarchi.net/Api/Listing/Bots)** endpoint that you can use. This is also the endpoint that ASF uses internally for `MatchActively` users.
+If you're looking for easy way to access our listing in programmatic way, we have a very simple **[`/Api/Listing/Bots`](https://asf.justarchi.net/Api/Listing/Bots)** endpoint that you can use. It includes all the data we have, apart from inventories of users which are part of `MatchActively` feature exclusively.
 
 ### Privacy policy
 
@@ -40,11 +38,11 @@ Public info (exposed by Steam to every interested party) includes:
 - Your avatar (hash, for display purposes)
 
 Private info (selected data required for providing the functionality) includes:
-- Your **[inventory](https://steamcommunity.com/my/inventory/#753_6)** limited to item types that you've picked in `MatchableTypes` (so people can use `MatchActively` against your items).
+- Your **[inventory](https://steamcommunity.com/my/inventory/#753_6)** (so people can use `MatchActively` against your items).
 - Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
-- Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
 - Your `MatchableTypes` (for display purposes and matching)
-- Total number of Steam items in your inventory (for display purposes and matching)
+- Your `MatchEverything` setting (for display purposes and matching)
+- Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
 
 ---
 
