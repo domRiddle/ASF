@@ -1,10 +1,4 @@
-# Note
-
-This page is work-in-progress, as it relates to a pre-release version of ASF that is currently in testing. Please be patient while we write down information, fix bugs and elaborate on exact specifics of the new feature. For translators: you may want to wait a bit (until stable release), as the page is still being written and corrected.
-
----
-
-# Plugin
+# ItemsMatcherPlugin
 
 `ItemsMatcherPlugin` is official ASF plugin that extends ASF with ASF STM listing features. In particular, this includes `PublicListing` in **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** and `MatchActively` in **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)**.
 
@@ -12,33 +6,35 @@ This page is work-in-progress, as it relates to a pre-release version of ASF tha
 
 ## `PublicListing`
 
-Our public ASF STM listing is located on **[our website](https://asf.justarchi.net/STM)** and used as a public service for both ASF users that make use of `MatchActively`, as well as ASF and non-ASF users for manual matching.
+Public listing, as the name implies, is listing of currently available ASF STM bots. It's located on **[our website](https://asf.justarchi.net/STM)**, managed automatically and used as a public service for both ASF users that make use of `MatchActively`, as well as ASF and non-ASF users for manual matching.
 
-Please note that you will **not** be displayed on the website if you do not meet all of the requirements. ASF won't even bother communicating with our server in this case, so this section is entirely skipped for you if you didn't intentionally enable `SteamTradeMatcher` in order to help yourself match dupes. Also public listing is compatible only with latest stable version of ASF and may refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
+While `PublicListing` is enabled by default, please note that you will **not** be displayed on the website if you do not meet all of the requirements, especially `SteamTradeMatcher`, which isn't enabled by default. For people that do not meet the criteria, even if they kept `PublicListing` enabled, ASF doesn't communicate with the server in any way. Public listing is also compatible only with latest stable version of ASF and may refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
 
 ### How it exactly works
 
-ASF sends initial data once after logging in, that contains all properties public listing makes use of. Then, every 10 minutes ASF sends one, very tiny "heartbeat" request that notifies our server that the bot is still up and running. If for some reason the heartbeat didn't arrive, for example due to networking issues, then ASF will retry sending it each minute, until server registers it. This way our server knows precisely which bots are still running and ready to accept trade offers. We display all ASF 2FA+STM accounts that were active in **last 15 minutes**.
+ASF sends initial data once after logging in, that contains all properties public listing makes use of. Then, every 10 minutes ASF sends one, very tiny "heartbeat" request that notifies our server that the bot is still up and running. If for some reason the heartbeat didn't arrive, for example due to networking issues, then ASF will retry sending it each minute, until server registers it. This way our server knows precisely which bots are still running and ready to accept trade offers. ASF will also send initial announcement on as-needed basis, for example if it detects that our inventory has changed since the previous one.
 
-Users are sorted according to their relative usefulness - `MatchEverything` bots which are shown with `Any` banner that accept all 1:1 trades, then unique games count, and finally items count.
+We display all ASF 2FA+STM accounts that were active in the **last 15 minutes**. Users are sorted according to their relative usefulness - `MatchEverything` bots which are shown with `Any` banner that accept all 1:1 trades, then unique games count, and finally items count.
 
 ### API
 
-ASF STM listing only accepts ASF bots for time being. There is no way to list third-party bots on our listing for now (as we can't review their code easily and ensure they meet our entire trading logic).
+ASF STM listing only accepts ASF bots for time being. There is no way to list third-party bots on our listing for now, as we can't review their code easily and ensure they meet our entire trading logic. Participation in the listing therefore requires latest stable ASF version, although it can run with custom **[plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**.
 
-If you're looking for easy way to access our listing in programmatic way, we have a very simple **[`/Api/Listing/Bots`](https://asf.justarchi.net/Api/Listing/Bots)** endpoint that you can use. It includes all the data we have, apart from inventories of users which are part of `MatchActively` feature exclusively.
+For consumers of the listing, we have a very simple **[`/Api/Listing/Bots`](https://asf.justarchi.net/Api/Listing/Bots)** endpoint that you can use. It includes all the data we have, apart from inventories of users which are part of `MatchActively` feature exclusively.
 
 ### Privacy policy
 
-If you agree to being listed in our listing, by enabling `SteamTradeMatcher` and not refusing `PublicListing`, as specified above, we'll temporarily store some of your Steam account details on our server in order to provide the core functionality.
+If you agree to being listed in our listing, by enabling `SteamTradeMatcher` and not refusing `PublicListing`, as specified above, we'll temporarily store some of your Steam account details on our server in order to provide the expected functionality.
 
 Public info (exposed by Steam to every interested party) includes:
 - Your Steam identificator (in 64-bit form, for generating links)
 - Your nickname (for display purposes)
 - Your avatar (hash, for display purposes)
 
-Private info (selected data required for providing the functionality) includes:
+Semi-public info (exposed by Steam to every interested party if you meet listing requirements) includes:
 - Your **[inventory](https://steamcommunity.com/my/inventory/#753_6)** (so people can use `MatchActively` against your items).
+
+Private info (selected data required for providing the functionality) includes:
 - Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
 - Your `MatchableTypes` (for display purposes and matching)
 - Your `MatchEverything` setting (for display purposes and matching)
