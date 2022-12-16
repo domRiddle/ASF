@@ -26,7 +26,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic"
 
 ### 適用於特定作業系統
 
-若您有需要，也可以生成適用於特定作業系統的.NET套件。 一般而言，不需要這樣做，因為您剛剛編譯了&#8203;`generic`&#8203;版本，您可以使用已安裝用於編譯的.NET執行環境來執行，但以防萬一您想要：
+若您有需要，也可以生成適用於特定作業系統的.NET套件。 在一般情形下，不需要這樣做，因為您剛剛編譯了&#8203;`generic`&#8203;版本，您可以使用已安裝用於編譯的.NET執行環境來執行，但以防萬一您想要：
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/linux-x64" -r "linux-x64"

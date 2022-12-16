@@ -4,15 +4,15 @@
 
 ---
 
-# Plugin
+# 插件
 
-`ItemsMatcherPlugin` is official ASF plugin that extends ASF with ASF STM listing features. In particular, this includes `PublicListing` in **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** and `MatchActively` in **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)**.
+`ItemsMatcherPlugin` 是 ASF 官方插件，为 ASF 带来 ASF STM 列表功能。 此插件主要包括 **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#remotecommunication)** 中的 `PublicListing` 和 **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#tradingpreferences)** 中的 `MatchActively`。
 
 ---
 
-## `PublicListing`
+## `PublicListing（公共列表）`
 
-我们的公共 ASF STM 列表位于&#8203;**[我们的网站](https://asf-backend.justarchi.net/STM)**，它是一项面向启用 `MatchActively` 的 ASF 用户的公开服务，同时也供 ASF 用户与非 ASF 用户进行手动匹配。
+我们的公共 ASF STM 列表位于[**我们的网站**](https://asf-backend.justarchi.net/STM)，它是一项面向启用 `MatchActively` 的 ASF 用户的公开服务，同时也供 ASF 用户与非 ASF 用户进行手动匹配。
 
 请注意，如果您没有满足所有要求，将**不会**被显示在网站上。 在这种情况下，ASF 甚至不会与我们的服务器通信，因此，如果您没有启用 `SteamTradeMatcher` 以帮助自己匹配交易，则这一小节会被完全跳过。 此外，公开列表仅与最新稳定版本的 ASF 兼容，并且可能拒绝显示过时的机器人，特别是如果它们缺少只能在较新版本中找到的核心功能。
 
@@ -28,7 +28,7 @@ ASF 会在登录后发送一次初始数据，其中包含公共列表使用的�
 
 ASF STM 列表暂时只接受 ASF 机器人。 目前无法在我们的列表中列出第三方机器人（因为我们无法轻松检查它们的代码，并确保它们符合我们的交易逻辑）。
 
-If you're looking for easy way to access our listing in programmatic way, we have a very simple **[`/Api/Listing/Bots`](https://asf-backend.justarchi.net/Api/Listing/Bots)** endpoint that you can use. 这也是 ASF 内部为 `MatchActively` 用户使用的端点。
+如果您正在寻找以编程方式访问我们的列表的方法，我们为您提供了一个简单的 **[`/Api/Listing/Bots`](https://asf-backend.justarchi.net/Api/Listing/Bots)** 端点。 这也是 ASF 内部为 `MatchActively` 用户使用的端点。
 
 ### 隐私政策
 
@@ -40,17 +40,17 @@ If you're looking for easy way to access our listing in programmatic way, we hav
 - 您的头像（经过哈希，用于显示目的）
 
 私密信息（提供功能所需的特定数据）包括：
-- Your **[inventory](https://steamcommunity.com/my/inventory/#753_6)** limited to item types that you've picked in `MatchableTypes` (so people can use `MatchActively` against your items).
-- 您的&#8203;**[交易令牌](https://steamcommunity.com/my/tradeoffers/privacy)**（使不是您好友的人可以向您发送交易报价）
+- 符合您设置的 `MatchableTypes` 类型的库存物品（使其他用户能够对您的物品使用 `MatchActively`）。
+- 您的[**交易令牌**](https://steamcommunity.com/my/tradeoffers/privacy)（使不是您好友的人可以向您发送交易报价）
 - 您的 `MaxTradeHoldDuration`（使其他人了解您是否愿意接受他们的交易）
 - 您的 `MatchableTypes`（用于显示和匹配目的）
-- Total number of Steam items in your inventory (for display purposes and matching)
+- 您库存中 Steam 物品的总数（用于显示和匹配目的）
 
 ---
 
-## `MatchActively`
+## `MatchActively（主动匹配）`
 
-`MatchActively` setting is active version of **[`SteamTradeMatcher`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** which includes interactive matching in which the bot will send trades to other people. 它可以单独运行，也可以与 `SteamTradeMatcher` 设置一起运行。 This feature requires `LicenseID` to be set, as it uses third-party server.
+`MatchActively`（主动匹配）是 **[`SteamTradeMatcher`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN#steamtradematcher)** 的主动版本，包括互动式匹配，机器人同时会向其他人发送交易报价。 它可以单独运行，也可以与 `SteamTradeMatcher` 设置一起运行。 此功能需要设置 `LicenseID`，因为它会使用第三方服务器。
 
 为了使用该选项，您需要满足一系列需求。 您至少应该保证帐户[**不受限**](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)、**[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN#asf-两步验证)** 启用，并且在 `MatchableTypes` 中设置了至少一种有效的类型，例如集换式卡牌。
 
@@ -66,11 +66,11 @@ ASF 会尽力减少由此选项带来的请求和压力，同时将匹配的效�
 
 当前版本的算法使 ASF 优先匹配有 `Any` 标记的机器人，特别是物品所属游戏数更多的机器人。 在耗尽 `Any` 机器人后，ASF 会按照相同的游戏数规则开始匹配平衡机器人，由于拥有过多物品的机器人更有可能出现库存问题，这些机器人会被进一步降低优先级。 无论如何，ASF 将尝试匹配每个可用的机器人至少一次，以确保我们不会错过可能的物品套组进度。
 
-`MatchActively` 支持交易黑名单，您可以通过 `tbadd` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;向其中添加机器人的帐户，您的机器人将不会尝试与黑名单中的机器人主动匹配。 这告诉 ASF 永远不匹配这些机器人，即使这些机器人有我们可能需要的卡牌。
+`MatchActively` 支持交易黑名单，您可以通过 `tbadd` [**命令**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)向其中添加机器人的帐户，您的机器人将不会尝试与黑名单中的机器人主动匹配。 这告诉 ASF 永远不匹配这些机器人，即使这些机器人有我们可能需要的卡牌。
 
 ---
 
-### Why do I need a `LicenseID` to use the plugin? Wasn't `MatchActively` free before?
+### 为什么我需要 `LicenseID` 才能使用此插件？ `MatchActively` 之前不是免费的吗？
 
 ASF is, and remains, free and open-source, as it was established at the start of the project back in October 2015. Our program is also entirely non-commercial, we do not earn anything from contributions to it, building or publishing. Over those past 7+ years ASF has received tremendous amount of development, and it's still being improved and enhanced with every monthly stable release mostly by a single person, **[JustArchi](https://github.com/JustArchi)** - with no strings attached. The only funding we receive is from non-obligatory donations that come from our users.
 
@@ -80,7 +80,7 @@ For a very long time, until October 2022, `MatchActively` feature was part of AS
 
 ---
 
-### How can I get an access?
+### 如何获取访问权限？
 
 `ItemsMatcher` is offered as part of $5+ sponsor tier on **[JustArchi's GitHub](https://github.com/sponsors/JustArchi)**. Simply become a sponsor of $5 tier (or higher), then click **[here](https://asf-backend.justarchi.net/user/status)** to obtain your `LicenseID`. You'll need to sign in with GitHub for confirming your identity.
 

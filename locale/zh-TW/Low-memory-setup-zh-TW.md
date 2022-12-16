@@ -10,74 +10,74 @@
 
 ASF經過非常好的最佳化，並會盡可能利用可以使用的資源。 ASF的高記憶體使用量不代表ASF主動&#8203;**使用**&#8203;這些記憶體，或&#8203;**需要它們**&#8203;。 通常ASF會保留分配的記憶體來作為未來行動的「空間」，因為如果我們在每次使用記憶體區塊時，都不需要向作業系統發出詢問，就可以大大地提高效能。 執行環境會在作業系統&#8203;**真正**&#8203;需要記憶體時，將ASF未使用的記憶體自動釋放回作業系統。 **[不使用的記憶體，就是被浪費掉的記憶體](https://www.howtogeek.com/128130/htg-explains-why-its-good-that-your-computers-ram-is-full)**&#8203;。 當您&#8203;**需要**&#8203;的記憶體大於可用的記憶體時，您可能會遇到問題，但這並不是因為ASF保留了一些額外分配的記憶體以加速稍後執行的功能。 當您的Linux核心由於OOM（記憶體不足）而結束ASF程序時才會遇到問題，而不是您在&#8203;`htop`&#8203;看到ASF程序是記憶體使用量大戶時。
 
-ASF使用的&#8203;**[垃圾回收](https://zh.wikipedia.org/zh-tw/垃圾回收_(計算機科學))**&#8203;程序是種非常複雜的機制，它足夠智慧，不只可以考慮ASF自身，也可以考慮到作業系統及其他程序。 當您擁有大量的空閒記憶體時，ASF將會要求任何能夠提高效能的資源。 這甚至能夠達到1GB（使用伺服器GC時）。 在您作業系統的記憶體接近用滿時ASF將會自動將其部分記憶體釋放回作業系統，以助其穩定，此時ASF的記憶體使用量可以低至50MB。 50MB與1GB間的差異巨大，但在小型的512 MB VPS與32 GB的大型專用伺服器間的差異也是如此。 若ASF能保證這些記憶體能夠發揮作用，且同時沒有其他程序需要它們，ASF會更願意保留這些記憶體，並依據過去執行的常式進行自我最佳化。 ASF使用的GC是自調諧的，程序執行時間越長，效果就越好。
+ASF使用的&#8203;**[垃圾回收](https://zh.wikipedia.org/zh-tw/垃圾回收_(計算機科學))**&#8203;程序是種非常複雜的機制，它足夠智慧，不只可以考慮ASF自身，也可以考慮到作業系統及其他程序。 當您擁有大量的空閒記憶體時，ASF將會要求任何能夠提高效能的資源。 這甚至能夠達到1GB（使用伺服器GC時）。 在您作業系統的記憶體接近用滿時，ASF將會自動將其部分記憶體釋放回作業系統，以助系統穩定，此時ASF的記憶體使用量可以低至50MB。 50MB與1GB間的差異巨大，但在小型的512 MB VPS與32 GB的大型專用伺服器間的差異也是如此。 若ASF能保證這些記憶體能夠發揮作用，且同時沒有其他程序需要它們，ASF會更願意保留這些記憶體，並依據過去執行的常式進行自我最佳化。 ASF使用的GC是自調諧的，程序執行時間越長，效果就越好。
 
-這也是ASF程序的記憶體使用量因設定而異的原因，因為ASF會竭盡所能地以&#8203;**最高效率的方式**&#8203;使用可用資源，而不是像Windows XP時代一樣，使用固定的資源。 ASF的實際（真實）記憶體使用量可以透過&#8203;`stats`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;查看。若Bot不多，通常只會使用4 MB左右，若您啟用&#8203;**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**&#8203;或其他進階功能，則可能高達至30 MB。 請注意，&#8203;`stats`&#8203;指令回傳的記憶體數值包含尚未被垃圾回收的閒置記憶體。 Everything else is shared runtime memory (around 40-50 MB) and room for execution (vary). This is also why the same ASF can use as little as 50 MB in low-memory VPS environment, while using even up to 1 GB on your desktop. ASF is actively adapting to your environment and will try to find optimal balance in order to neither put your OS under pressure, nor limit its own performance when you have a lot of unused memory that could be put in use.
+這也是ASF程序的記憶體使用量因設定而異的原因，因為ASF會竭盡所能地以&#8203;**最高效率的方式**&#8203;使用可用資源，而不是像Windows XP時代一樣，使用固定的資源。 ASF的實際（真實）記憶體使用量可以透過&#8203;`stats`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;查看。若Bot不多，通常只會使用4 MB左右，若您啟用&#8203;**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**&#8203;或其他進階功能，則可能高達至30 MB。 請注意，&#8203;`stats`&#8203;指令回傳的記憶體數值包含尚未被垃圾回收的閒置記憶體。 剩下的都是共用執行環境記憶體（約40～50 MB）和執行的空間（因人而異）。 這同樣也是為什麼同一個ASF能在低記憶體VPS環境中只使用50 MB，而在您的桌面環境能最大使用到1 GB的原因。 ASF會主動適應您的環境，並會嘗試找到最佳平衡，使您在擁有大量的空閒記憶體可供使用時，既不帶給您的作業系統壓力，也不會限制到自身的效能。
 
 ---
 
-Of course, there are a lot of ways how you can help point ASF at the right direction in terms of the memory you expect to use. In general if you don't need to do it, it's best to let garbage collector work in peace and do whatever it considers is best. But this is not always possible, for example if your Linux server is also hosting several websites, MySQL database and PHP workers, then you can't really afford ASF shrinking itself when you run close to OOM, as it's usually too late and performance degradation comes sooner. This is usually when you could be interested in further tuning, and therefore reading this page.
+當然，有很多方式可以幫助您，在您所期望的ASF記憶體使用方面指出正確的方向。 在一般情形下，若您不需要這樣做，就最好讓垃圾回收程序依照它所認為最好的方式去運作。 但這並不總是可行的，例如如果您的Linux伺服器還同時代管了多個網站、MySQL資料庫與PHP worker，那麼當您接近OOM時，您會無法承擔ASF自行回收的結果，因為通常發生的太晚，且效能下降會非常快。 此時您可能會對進一步調整感到興趣，並因而來閱讀本頁面。
 
-Below suggestions are divided into a few categories, with varied difficulty.
+以下建議分為數類，其難度各不相同。
 
 ---
 
 ## ASF 設定（簡單）
 
-Below tricks **do not affect performance negatively** and can be safely applied to all setups.
+下列技巧&#8203;**不會對效能產生負面影響**&#8203;，可以在所有設定下放心使用。
 
-- Never run more than one ASF instance. ASF is meant to handle unlimited number of bots all at once, and unless you're binding every ASF instance to different interface/IP address, you should have exactly **one** ASF process, with multiple bots (if needed).
-- Make use of `ShutdownOnFarmingFinished`. Active bot takes more resources than deactivated one. It's not a significant save, as the state of bot still needs to be kept, but you're saving some amount of resources, especially all resources related to networking, such as TCP sockets. You can always bring up other bots if needed.
-- Keep your bots number low. Not `Enabled` bot instance takes less resources, as ASF doesn't bother starting it. Also keep in mind that ASF has to create a bot for each of your configs, therefore if you don't need to `start` given bot and you want to save some extra memory, you can temporarily rename `Bot.json` to e.g. `Bot.json.bak` in order to avoid creating state for your disabled bot instance in ASF. This way you won't be able to `start` it without renaming it back, but ASF also won't bother keeping state of this bot in memory, leaving room for other things (very small save, in 99.9% cases you shouldn't bother with it, just keep your bots with `Enabled` of `false`).
-- Fine-tune your configs. Especially global ASF config has many variables to adjust, for example by increasing `LoginLimiterDelay` you'll bring up your bots slower, which will allow already started instance to fetch badges in the meantime, as opposed to bringing up your bots faster, which will take more resources as more bots will do major work (such as parsing badges) at the same time. The less work that has to be done at the same time - the less memory used.
+- 永遠不要執行多個ASF實例。 ASF可以同時處理無限個Bot，除非您需要將每個ASF實例連結至不同的介面／IP地址，否則您只應該擁有&#8203;**一個**&#8203;有多個Bot（如果需要）的ASF程序。
+- 善用&#8203;`ShutdownOnFarmingFinished`&#8203;。 啟用狀態的Bot比未啟用的還要消耗更多資源。 這裡的節省不明顯，因為需保留Bot的狀態，但仍可以節省些許資源，特別是與網路相關的資源，例如TCP Socket。 如果需要，您可以隨時調出其他Bot。
+- 不要擁有過多的Bot。 非&#8203;`Enabled`&#8203;的Bot實例消耗較少資源，因為ASF不會啟動它。 也請注意，ASF會對您的每個設定檔建立一個Bot，因此若您不需要&#8203;`start`&#8203;指定的Bot，且希望節省一些額外的記憶體空間，您可以暫時將&#8203;`Bot.json`&#8203;重新命名成例如&#8203;`Bot.json.bak`&#8203;的名稱，以避免ASF為被你停用的Bot實例建立狀態。 若不將它重新命名回去，您將會無法&#8203;`start`&#8203;它，且ASF也不會在記憶體中保留這個Bot的狀態，能為其他東西留出空間（只節省非常少的空間，在99.9%的情形下您無需這麼做，將您Bot的&#8203;`Enabled`&#8203;設定成&#8203;`false`&#8203;就已經夠了）。
+- 妥善調整設定檔。 特別是ASF全域設定中有很多變數可以調整，例如增加&#8203;`LoginLimiterDelay`&#8203;能使您Bot的啟動速度減慢，使已經啟動的實例能夠同時提取徽章頁面；如果是減少此值，就會使您的Bot盡快全數啟動，這將會消耗更多資源，因為更多Bot將同時執行主要工作（例如剖析徽章頁面）。 必須同時完成的工作越少⸺使用的記憶體就越少。
 
-Those are a few things you can keep in mind when dealing with memory usage. However, those things don't have any "crucial" matter on memory usage, because memory usage comes mostly from things ASF has to deal with, and not from internal structures used for cards farming.
+這些都是您在處理記憶體使用量相關問題時可以考慮的幾件事情。 但是，這些事都不是影響記憶體使用量的「關鍵點」，因為記憶體的使用主要來自ASF必須處理的事情上，而不是來自掛卡的內部結構。
 
-The most resources-heavy functions are:
-- Badge page parsing
-- Inventory parsing
+消耗資源最多的功能是：
+- 徽章頁面剖析
+- 物品庫剖析
 
-Which means that memory will spike the most when ASF is dealing with reading badge pages, and when it's dealing with its inventory (e.g. sending trade or working with STM). This is because ASF has to deal with really huge amount of data - the memory usage of your favourite browser launching those two pages will not be any lower than that. Sorry, that's how it works - decrease number of your badge pages, and keep number of your inventory items low, that can for sure help.
+這代表ASF在讀取徽章頁面及處理物品庫（例如發送交易提案，或STM相關操作）時，記憶體使用量將會達到峰值。 這是因為ASF必須處理非常大量的資料⸺您直接使用瀏覽器開啟這兩個頁面時的記憶體使用量也不會比這個低多少。 很抱歉，但它就是這麼運作的⸺減少您的徽章頁面數量，或將您的物品庫物品維持在較少的數量，都會對此有所幫助。
 
 ---
 
 ## 執行環境調整（進階）
 
-Below tricks **involve performance degradation** and should be used with caution.
+下列技巧&#8203;**涉及效能的下降**&#8203;，應謹慎使用。
 
-The recommended way of applying those settings is through `DOTNET_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
+套用這些設定的建議方法，是設定&#8203;`DOTNET_`&#8203;環境屬性。 當然，您也可以使用其他方法，例如&#8203;`runtimeconfig.json`&#8203;，但有些設定無法如此設定。除此之外，ASF會在每次更新時，將您的自訂&#8203;`runtimeconfig.json`&#8203;取代成自己的檔案，因此，我們建議使用環境屬性，這樣您在啟動程序前就可以輕鬆設定。
 
-.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs. We've documented below properties that are especially important in our opinion.
+.NET執行環境使您能夠以多種方法&#8203;**[調整垃圾回收](https://learn.microsoft.com/zh-tw/dotnet/core/runtime-config/garbage-collector)**&#8203;，依據您的需求高效微調垃圾回收（GC）程序。 我們記錄了下列我們認為特別重要的屬性。
 
 ### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
-> Specifies the allowable GC heap usage as a percentage of the total physical memory.
+> 指定允許的GC堆積使用量，以總實體記憶體的百分比表示。
 
-The "hard" memory limit for ASF process, this setting tunes GC to use only a subset of total memory and not all of it. It may become especially useful in various server-like situations where you can dedicate a fixed percentage of your server's memory for ASF, but never more than that. Be advised that limiting memory for ASF to use will not magically make all of those required memory allocations go away, therefore setting this value too low might result in running into out of memory scenarios, where ASF process will be forced to terminate.
+ASF程序的「硬性」記憶體限制，本設定會將GC調整為只使用總記憶體的一部分而不是全部。 It may become especially useful in various server-like situations where you can dedicate a fixed percentage of your server's memory for ASF, but never more than that. Be advised that limiting memory for ASF to use will not magically make all of those required memory allocations go away, therefore setting this value too low might result in running into out of memory scenarios, where ASF process will be forced to terminate.
 
 On the other hand, setting this value high enough is a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing the program to do its job as efficiently as possible.
 
 ### [`GCHighMemPercent`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 
-> Specifies the amount of memory used after which GC becomes more aggressive.
+> 指定在GC變得更積極後的記憶體使用量。
 
 This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
 
 ### **[`GCLatencyLevel`](https://github.com/dotnet/runtime/blob/4b90e803262cb5a045205d946d800f9b55f88571/src/coreclr/gc/gcpriv.h#L375-L398)**
 
-> Specifies the GC latency level that you want to optimize for.
+> 指定您要最佳化的GC延遲層級。
 
 This is undocumented property that turned out to work exceptionally well for ASF, by limiting size of GC generations and in result make GC purge them more frequently and more aggressively. Default (balanced) latency level is `1`, but you can use `0`, which will tune for memory usage.
 
 ### [`gcTrimCommitOnLowMemory`](https://docs.microsoft.com/zh-tw/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
 
-> When set we trim the committed space more aggressively for the ephemeral seg. This is used for running many instances of server processes where they want to keep as little memory committed as possible.
+> 設定後，我們會更積極為臨時段修整提交的空間。 這可用於執行多個伺服器程序實例，它們希望在這些實例中盡可能不要提交記憶體。
 
 This offers little improvement, but may make GC even more aggressive when system will be low on memory, especially for ASF which makes use of threadpool tasks heavily.
 
 ---
 
-You can enable selected properties by setting appropriate environment variables. For example, on Linux (shell):
+您可以透過設定適當的環境變數來啟用所選的屬性。 舉例來說，在Linux（Shell）上：
 
 ```shell
 # 若您打算使用它們，別忘了調整一下
@@ -90,7 +90,7 @@ export DOTNET_gcTrimCommitOnLowMemory=1
 ./ArchiSteamFarm # 適用於您的作業系統的建置版本
 ```
 
-或在 Windows 上（PowerShell）：
+或在Windows（PowerShell）上：
 
 ```powershell
 # 若您打算使用它們，別忘了調整一下
@@ -107,9 +107,9 @@ Especially `GCLatencyLevel` will come very useful as we verified that the runtim
 
 ---
 
-## ASF 調整（中等）
+## ASF 調整（終極）
 
-Below tricks **involve serious performance degradation** and should be used with caution.
+下列技巧&#8203;**涉及效能的嚴重下降**&#8203;，應謹慎使用。
 
 - As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this. Unless absolutely critical for your setup, we discourage using `MinMemoryUsage`, even in memory-constrained environments.
 
