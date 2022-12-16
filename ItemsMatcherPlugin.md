@@ -36,9 +36,9 @@ Semi-public info (exposed by Steam to every interested party if you meet listing
 
 Private info (selected data required for providing the functionality) includes:
 - Your **[trading token](https://steamcommunity.com/my/tradeoffers/privacy)** (so people outside of your friendlist can send you trades)
-- Your `MatchableTypes` (for display purposes and matching)
+- Your `MatchableTypes` setting (for display purposes and matching)
 - Your `MatchEverything` setting (for display purposes and matching)
-- Your `MaxTradeHoldDuration` (so other people know whether you're willing to accept their trades)
+- Your `MaxTradeHoldDuration` setting (so other people know whether you're willing to accept their trades)
 
 ---
 
