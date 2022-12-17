@@ -21,6 +21,7 @@
 * **[👥 Játék beváltás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Parancsok](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Kompatibilitás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Teljesítmény](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📡 Remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
@@ -36,7 +37,6 @@
 * **[🤔 Kifejtett GYIK](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[🚀 Nagy teljesítményű beállítások](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[🌐 Nyelvek](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Naplózás](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Beállítások kevés memóriához](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**

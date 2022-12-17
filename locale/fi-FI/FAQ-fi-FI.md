@@ -16,6 +16,7 @@ UKK-sivumme sisältää tavallisimpia kysymyksiä ja vastauksia. Vähemmän ylei
 
 ### Mikä on ASF?
 ### Why does the program claim that there is nothing to farm on my account?
+### Why ASF doesn't detect all of my games?
 ### Miksi tiliäni on rajoitettu?
 
 Ennen kuin yrität ymmärtää mikä ASF on, sinun tulee varmistaa, että ymmärrät mitä Steamin kortit ovat ja miten niitä hankitaan, josta kerrotaan hienosti virallisessa UKK:ssa **[täällä](https://steamcommunity.com/tradingcards/faq)**.

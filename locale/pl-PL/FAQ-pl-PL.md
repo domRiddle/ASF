@@ -16,6 +16,7 @@ Our basic FAQ covers standard questions and answers that you may have. Mniej typ
 
 ### What is ASF?
 ### Why does the program claim that there is nothing to farm on my account?
+### Why ASF doesn't detect all of my games?
 ### Why is my account limited?
 
 Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.

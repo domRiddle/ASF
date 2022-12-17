@@ -75,6 +75,7 @@ GLOBAL CONFIG IZ LOCATD IN `ASF.json` FILE AN HAS FOLLOWIN STRUCCHUR:
     "IPC": true,
     "IPCPassword": null,
     "IPCPasswordFormat": 0,
+    "LicenseID": null,
     "LoginLimiterDelay": 10,
     "MaxFarmingTime": 10,
     "MaxTradeHoldDuration": 15,
@@ -201,6 +202,18 @@ IF URE RUNNIN ASF ON TEH SERVR, U PROBABLY WANTS 2 USE DIS OPSHUN TOGETHR WIF `-
 ### `IPCPasswordFormat`
 
 `byte` TYPE WIF DEFAULT VALUE OV `0`. DIS PROPERTY DEFINEZ TEH FORMAT OV `IPCPassword` PROPERTY AN USEZ `EHashingMethod` AS UNDERLYIN TYPE. PLZ REFR 2 **[SECURITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-lol-US)** SECSHUN IF U WANTS 2 LERN MOAR, AS ULL NED 2 ENSURE DAT `IPCPassword` PROPERTY INDED INCLUDEZ PASWORD IN MATCHIN `IPCPasswordFormat`. IN OTHR WERDZ, WHEN U CHANGE `IPCPasswordFormat` DEN UR `IPCPassword` SHUD BE **ALREADY** IN DAT FORMAT, NOT JUS AIMIN 2 BE. UNLES U KNOE WUT URE DOIN, U SHUD KEEP IT WIF DEFAULT VALUE OV `0`.
+
+---
+
+### `LicenseID`
+
+`Guid?` type with default value of `null` (in JSON, written as `string`). This property allows our **[sponsors](https://github.com/sponsors/JustArchi)** to enhance ASF with optional features that require paid resources to work. For now, this allows you to make use of **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature in `ItemsMatcher` plugin.
+
+If you're ASF sponsor, you can obtain your license **[here](https://asf.justarchi.net/User/Status)**. You'll need to sign in with GitHub for confirming your identity, we ask only for read-only public information, which is your username. `LicenseID` is made out of 32 hexadecimal characters, such as `f6a0529813f74d119982eb4fe43a9a24`.
+
+**Ensure that you do not share your `LicenseID` with other people**. Since it's issued on personal basis, it might get revoked if it's leaked. If by any chance this happened to you accidentally, you can generate a new one from the same place.
+
+Unless you want to enable extra ASF functionalities, there is no need for you to use the license.
 
 ---
 

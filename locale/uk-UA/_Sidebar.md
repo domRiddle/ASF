@@ -21,6 +21,7 @@
 * **[👥 Активація ігор у фоновому режимі](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-uk-UA)**
 * **[📢 Команди](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-uk-UA)**
 * **[🛠️ Сумісність](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-uk-UA)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Продуктивність](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📡 Remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
@@ -36,7 +37,6 @@
 * **[🤔 Розширені ЧаПи](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-uk-UA)**
 * **[🚀 Налаштування високої продуктивності](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-uk-UA)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-uk-UA)**
-* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[🌐 Локалізація](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Ведення журналу](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**

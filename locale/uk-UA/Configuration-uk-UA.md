@@ -75,6 +75,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
     "IPC": true,
     "IPCPassword": null,
     "IPCPasswordFormat": 0,
+    "LicenseID": null,
     "LoginLimiterDelay": 10,
     "MaxFarmingTime": 10,
     "MaxTradeHoldDuration": 15,
@@ -204,6 +205,18 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ---
 
+### `LicenseID`
+
+`Guid?` type with default value of `null` (in JSON, written as `string`). This property allows our **[sponsors](https://github.com/sponsors/JustArchi)** to enhance ASF with optional features that require paid resources to work. For now, this allows you to make use of **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature in `ItemsMatcher` plugin.
+
+If you're ASF sponsor, you can obtain your license **[here](https://asf.justarchi.net/User/Status)**. You'll need to sign in with GitHub for confirming your identity, we ask only for read-only public information, which is your username. `LicenseID` is made out of 32 hexadecimal characters, such as `f6a0529813f74d119982eb4fe43a9a24`.
+
+**Ensure that you do not share your `LicenseID` with other people**. Since it's issued on personal basis, it might get revoked if it's leaked. If by any chance this happened to you accidentally, you can generate a new one from the same place.
+
+Unless you want to enable extra ASF functionalities, there is no need for you to use the license.
+
+---
+
 ### `LoginLimiterDelay`
 
 параметр типу `byte` зі значенням за замовчуванням `10`. ASF буде забезпечувати щоб між послідовними спробами підключитися пройшло щонайменше `LoginLimiterDelay` секунд, для того щоб уникнути активації обмеження на частоту запитів. Значення за замовчуванням `10` було обрано на базі підключення більш ніж 100 ботів, і має задовольнити більшість (якщо не усіх) користувачів. Однак ви можете захотіти збільшити/зменшити це значення, або навіть змінити його на `0` якщо в вас дуже мала кількість ботів, для того щоб ASF не зважало на затримки і підключалося до Steam значно швидше. Однак маємо вас попередити, що занадто низькі значення при великій кількості ботів **призведе** до тимчасового блокування вашого IP, і ви не зможете увійти до Steam **взагалі**, й отримаєте помилку `InvalidPassword/RateLimitExceeded` - і це також включає ваш звичайний клієнт Steam, а не тільки ASF. Так само, якщо у вас забагато ботів, особливо у поєднанні з іншими клієнтами/інструментами для Steam, які працюють з тієї ж IP-адреси, швидше за все вам знадобиться збільшити це значення, щоб рознести логіни на більший період часу.
@@ -262,7 +275,7 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
-By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ---
 
@@ -695,7 +708,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `SendTradePeriod`
 
-параметр типу `byte` зі значенням за замовчуванням `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
+`byte` type with default value of `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
 
 Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. If you're not sure how to set this property, leave it with default value of `0`.
 

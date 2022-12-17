@@ -75,6 +75,7 @@ ASF 采用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存储其配置�
     "IPC": true,
     "IPCPassword": null,
     "IPCPasswordFormat": 0,
+    "LicenseID": null,
     "LoginLimiterDelay": 10,
     "MaxFarmingTime": 10,
     "MaxTradeHoldDuration": 15,
@@ -204,6 +205,18 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ---
 
+### `LicenseID`
+
+这是一个默认值为 `null` 的 `Guid?` 类型属性（在 JSON 中以 `string` 表示）。 该属性允许我们的[**赞助者**](https://github.com/sponsors/JustArchi)启用需要付费资源的 ASF 可选功能，来增强其能力。 目前，您可以启用 `ItemsMatcher` 插件中的 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-CN#matchactively主动匹配)** 特性。
+
+如果您是 ASF 赞助者，您可以在[**这里**](https://asf.justarchi.net/User/Status)获取许可证。 您需要以 GitHub 登录来确认身份，我们只请求只读的公开信息，也就是您的用户名。 `LicenseID` 是 32 位的十六进制字符串，形如 `f6a0529813f74d119982eb4fe43a9a24`。
+
+**请确保您不会与其他人分享您的 `LicenseID`**。 因为它是针对个人发放的，如果泄露，就可能会被撤销。 如果您意外泄露了许可证，可以在相同的位置生成一个新的。
+
+除非您想要启用 ASF 的额外功能，否则您无需使用许可证。
+
+---
+
 ### `LoginLimiterDelay`
 
 这是一个默认值为 `10` 的 `byte` 类型属性。 ASF 会确保两个连续的连接尝试之间至少间隔 `LoginLimiterDelay` 秒，以免触发频率限制。 我们基于连接上百个机器人的数据设定了默认值 `10`，这个值应该满足绝大多数用户的需求。 如果您的机器人数量很少，可能希望增大或减小这个值甚至更改为 `0`，使 ASF 忽略延迟，更快地连接到 Steam。 但请注意，在有很多机器人的情况下，设置过低的值**将会**导致 Steam 临时封禁您的 IP，返回 `InvalidPassword/RateLimitExceeded` 错误，并且**彻底**阻止您继续登录——不仅 ASF，还包括您的 Steam 客户端。 同样，如果您运行大量机器人，特别是在同一 IP 内还有其他 Steam 客户端/工具运行的情况下，则很可能需要增大此值，将登录过程分配到更长的时间段内。
@@ -220,7 +233,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `MaxTradeHoldDuration`
 
-这是一个默认值为 `15` 的 `byte` 类型属性。 该属性定义我们能够接受的最长交易暂挂时间——ASF 将会拒绝暂挂时间超过 `MaxTradeHoldDuration` 天的交易，详见&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN)**&#8203;章节。 这个选项只对在 `TradingPreferences` 中开启了 `SteamTradeMatcher` 的机器人生效，并且不会影响来自 `Master`/`SteamOwnerID` 的交易，也不影响捐赠交易。 没有人真正愿意等待烦人的交易暂挂。 ASF 本着自由、平等交易的原则，无论对方是否有交易暂挂，都会处理交易——默认值也因此被设置为 `15`。 但是，如果您更愿意拒绝所有受交易暂挂影响的交易，可以将其设置为 `0`。 请注意，有时间限制的卡牌（例如特卖活动卡牌）不会受这一选项影响，ASF 会驳回任何有交易暂挂的交易者，如&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN)**&#8203;章节所述，所以您不需要仅仅因为这种情况驳回所有人。 除非您有理由编辑此属性，否则应将其保留为默认值。
+这是一个默认值为 `15` 的 `byte` 类型属性。 该属性定义我们能够接受的最长交易暂挂时间——ASF 将会拒绝暂挂时间超过 `MaxTradeHoldDuration` 天的交易，详见[**交易**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN)章节。 这个选项只对在 `TradingPreferences` 中开启了 `SteamTradeMatcher` 的机器人生效，并且不会影响来自 `Master`/`SteamOwnerID` 的交易，也不影响捐赠交易。 没有人真正愿意等待烦人的交易暂挂。 ASF 本着自由、平等交易的原则，无论对方是否有交易暂挂，都会处理交易——默认值也因此被设置为 `15`。 但是，如果您更愿意拒绝所有受交易暂挂影响的交易，可以将其设置为 `0`。 请注意，有时间限制的卡牌（例如特卖活动卡牌）不会受这一选项影响，ASF 会驳回任何有交易暂挂的交易者，如[**交易**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN)章节所述，所以您不需要仅仅因为这种情况驳回所有人。 除非您有理由编辑此属性，否则应将其保留为默认值。
 
 
 ---
@@ -233,7 +246,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `OptimizationMode`
 
-这是一个默认值为 `0` 的 `byte` 类型属性。 该属性定义 ASF 在运行时偏好的优化模式。 目前 ASF 支持两种模式——`0` 表示 `MaxPerformance`（最优性能），`1` 表示 `MinMemoryUsage`（最小内存占用）。 默认情况下，ASF 会尝试并行（同时）运行尽可能多的任务，并通过跨 CPU 内核、多 CPU 线程、多套接字以及多线程池之间的负载均衡来优化性能。 例如，ASF 在检查需挂卡游戏时将会查询您的徽章页面第一页，在该请求完成后， ASF 将会从中读取您实际的徽章页数，然后同时向所有徽章页面发送请求。 **在绝大多数情况下**，这正是您所期待的行为，因为这样做的开销通常是最小的，即使在单核 CPU 和功率严重受限的古老硬件上，ASF 的异步代码也有明显的优势。 但是，由于许多任务是并行处理的，ASF 运行时需要维护所有任务，例如保持套接字打开、保持线程处于活动状态以及保证任务被处理，这可能会经常导致内存开销增大，如果您的可用内存受到极端的限制，就可能需要将这个属性切换为 `1`（`MinMemoryUsage`），强制 ASF 减少任务数，并尽可能以同步方式运行原本的异步代码。 只有在您已阅读&#8203;**[低内存方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN)**，并且决定大量牺牲性能换取少量的内存节省的情况下，才应该考虑修改这一属性。 通常，与&#8203;**[低内存方案](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN)**&#8203;中所述的其他方式，例如限制 ASF 使用或者调优运行时环境的垃圾回收机制相比，这一选项的效果会**差得多**。 因此，如果您仍然不满意通过其他（更好的）选项进行调整的效果，则应该将 ` MinMemoryUsage` 作为重编译运行时环境之前的**最后手段**。 除非您有**充分的**理由编辑此属性，否则应将其保留为默认值。
+这是一个默认值为 `0` 的 `byte` 类型属性。 该属性定义 ASF 在运行时偏好的优化模式。 目前 ASF 支持两种模式——`0` 表示 `MaxPerformance`（最优性能），`1` 表示 `MinMemoryUsage`（最小内存占用）。 默认情况下，ASF 会尝试并行（同时）运行尽可能多的任务，并通过跨 CPU 内核、多 CPU 线程、多套接字以及多线程池之间的负载均衡来优化性能。 例如，ASF 在检查需挂卡游戏时将会查询您的徽章页面第一页，在该请求完成后， ASF 将会从中读取您实际的徽章页数，然后同时向所有徽章页面发送请求。 **在绝大多数情况下**，这正是您所期待的行为，因为这样做的开销通常是最小的，即使在单核 CPU 和功率严重受限的古老硬件上，ASF 的异步代码也有明显的优势。 但是，由于许多任务是并行处理的，ASF 运行时需要维护所有任务，例如保持套接字打开、保持线程处于活动状态以及保证任务被处理，这可能会经常导致内存开销增大，如果您的可用内存受到极端的限制，就可能需要将这个属性切换为 `1`（`MinMemoryUsage`），强制 ASF 减少任务数，并尽可能以同步方式运行原本的异步代码。 只有在您已阅读[**低内存方案**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN)，并且决定大量牺牲性能换取少量的内存节省的情况下，才应该考虑修改这一属性。 通常，与[**低内存方案**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-CN)中所述的其他方式，例如限制 ASF 使用或者调优运行时环境的垃圾回收机制相比，这一选项的效果会**差得多**。 因此，如果您仍然不满意通过其他（更好的）选项进行调整的效果，则应该将 ` MinMemoryUsage` 作为重编译运行时环境之前的**最后手段**。 除非您有**充分的**理由编辑此属性，否则应将其保留为默认值。
 
 ---
 
@@ -268,7 +281,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `UpdateChannel`
 
-这是一个默认值为 `1` 的 `byte` 类型属性。 该属性定义了 ASF 使用的更新通道，自动更新（`UpdatePeriod` 大于 `0` 时）和更新提醒（反之）功能都会用到这个属性。 目前 ASF 支持三个更新通道——`0` 表示 `None`（不更新），`1` 表示 `Stable`（稳定通道），`2` 表示 `Experimental`（实验通道）。 `Stable` 是默认的发布通道，适合大多数用户。 `Experimental` 不仅包含 `Stable`（稳定版）更新，还包括 **pre-releases**（预览版），供高级用户和其他开发者测试新特性、验证修复补丁或者对计划中的功能改进进行反馈。 **实验通道的版本通常包含未修复的漏洞、未完成的特性或者功能重写**。 如果您认为自己不属于高级用户，请保留该属性的默认值 `1`（稳定更新通道）。 `Experimental` 通道专门针对了解如何报告漏洞、处理问题、提交反馈的用户——我们不对此提供技术支持。 如果您想了解更多，请阅读&#8203;**[发布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)**。 如果您希望完全禁用版本检查，也可以将 `UpdateChannel` 设置为 `0`（`None`）。 设置 `UpdateChannel` 为 `0` 将会禁用一切与更新有关的功能，包括 `update` 命令。 **强烈不建议**您使用 `None` 通道，因为这会将您自己暴露在各种类型的问题下（见下文 `UpdatePeriod` 的说明）。
+这是一个默认值为 `1` 的 `byte` 类型属性。 该属性定义了 ASF 使用的更新通道，自动更新（`UpdatePeriod` 大于 `0` 时）和更新提醒（反之）功能都会用到这个属性。 目前 ASF 支持三个更新通道——`0` 表示 `None`（不更新），`1` 表示 `Stable`（稳定通道），`2` 表示 `Experimental`（实验通道）。 `Stable` 是默认的发布通道，适合大多数用户。 `Experimental` 不仅包含 `Stable`（稳定版）更新，还包括 **pre-releases**（预览版），供高级用户和其他开发者测试新特性、验证修复补丁或者对计划中的功能改进进行反馈。 **实验通道的版本通常包含未修复的漏洞、未完成的特性或者功能重写**。 如果您认为自己不属于高级用户，请保留该属性的默认值 `1`（稳定更新通道）。 `Experimental` 通道专门针对了解如何报告漏洞、处理问题、提交反馈的用户——我们不对此提供技术支持。 如果您想了解更多，请阅读[**发布周期**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-CN)。 如果您希望完全禁用版本检查，也可以将 `UpdateChannel` 设置为 `0`（`None`）。 设置 `UpdateChannel` 为 `0` 将会禁用一切与更新有关的功能，包括 `update` 命令。 **强烈不建议**您使用 `None` 通道，因为这会将您自己暴露在各种类型的问题下（见下文 `UpdatePeriod` 的说明）。
 
 **除非您明确知道自己在做什么**，否则我们**强烈**建议您将其保留为默认值。
 
@@ -306,7 +319,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 如果您的代理服务器需要身份验证，您还需要设置 `WebProxyUsername` 和/或 `WebProxyPassword` 属性。 如果不需要验证，就只需要设置此属性。
 
-目前，ASF 仅对 `HTTP` 和 `HTTPS` 请求使用代理，**不包括** ASF 内部 Steam 客户端进行的内部 Steam 网络通信。 目前我们没有计划支持这类通信，其主要原因是 **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** 缺少相关的功能。 如果您需要/希望 ASF 支持代理这部分通信，可以从了解 SK2 开始。
+目前，ASF 仅对 `HTTP` 和 `HTTPS` 请求使用代理，**不包括** ASF 内置 Steam 客户端进行的内部 Steam 网络通信。 目前我们没有计划支持这类通信，其主要原因是 **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** 缺少相关的功能。 如果您需要/希望 ASF 支持代理这部分通信，可以从了解 SK2 开始。
 
 除非您有理由编辑此属性，否则应将其保留为默认值。
 
@@ -330,9 +343,9 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 ## 机器人配置
 
-您应该已经了解，每个机器人都有自己的配置文件，其 JSON 结构如下： 首先，您需要决定机器人的名称（例如 `1.json`、`main.json`、`primary.json` 或者随便什么名字 `AnythingElse.json`，然后再开始配置。
+您应该已经了解，每个机器人都有自己的配置文件，其 JSON 结构如下文的示例。 首先，您需要决定机器人的名称（例如 `1.json`、`main.json`、`primary.json` 或者随便什么名字 `AnythingElse.json`，然后再开始配置。
 
-**注意：**&#8203;机器人不能被命名为 `ASF`（因为该关键字是留给全局配置文件的），ASF 也会忽略所有以点号开头的配置文件。
+**注意：** 机器人不能被命名为 `ASF`（因为该关键字是留给全局配置文件的），ASF 也会忽略所有以点号开头的配置文件。
 
 机器人配置文件有如下的结构：
 
@@ -388,7 +401,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 ### `AutoSteamSaleEvent`
 
-这是一个默认值为 `false` 的 `bool` 类型属性。 在 Steam 夏季/冬季特卖活动期间，您每天可以通过浏览探索队列或者其他活动事件获得额外的集换式卡牌。 启用此选项时，ASF 将会每隔 `8` 小时自动检查 Steam 探索队列（从程序启动一小时后开始），并且在需要时浏览完成这些探索队列。 如果您希望自己手动执行这些操作，则不建议使用此选项，通常情况下，该功能仅对于机器人帐户有意义。 此外，如果您希望收到这些卡牌，首先要确保您的帐户至少达到 `8` 级，这是 Steam 本身的限制。 如果您不确定是否要启用此功能，请保留默认值 `false`。
+这是一个默认值为 `false` 的 `bool` 类型属性。 在 Steam 夏季/冬季特卖活动期间，您每天可以通过浏览探索队列或者其他活动事件获得额外的集换式卡牌。 启用此选项时，ASF 将会每隔 `8` 小时自动检查 Steam 探索队列（从程序启动一小时后开始），并且在需要时浏览完成这些探索队列。 如果您希望自己手动执行这些操作，则不建议使用此选项，通常情况下，该功能仅对纯机器人帐户有意义。 此外，如果您希望收到这些卡牌，首先要确保您的帐户至少达到 `8` 级，这是 Steam 本身的限制。 如果您不确定是否要启用此功能，请保留默认值 `false`。
 
 请注意，由于 Valve 经常造成问题或变更，**我们无法保证此功能正常工作**，因此该选项是有可能**完全无效**的。 我们不接受**任何**与此有关的漏洞报告，也不支持关于此选项的请求。 该属性是在完全无保证的情况下提供的，您需要自行承担风险。
 
@@ -416,7 +429,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 
 无效的好友邀请指的是来自于没有 `FamilySharing` 或更高权限（在 `SteamUserPermissions` 中定义）的用户发来的好友邀请。 在标准模式下，ASF 会如您所期望的那样忽略这些邀请，您可以自行选择是否接受这些邀请。 `RejectInvalidFriendInvites` 会导致这些邀请被自动拒绝，这实际上阻止了其他人将您添加到好友列表（因为 ASF 会拒绝这些邀请，除非对方在您定义的 `SteamUserPermissions` 列表中）。 除非您想要完全拒绝所有好友邀请，否则不应该启用此选项。
 
-无效的交易报价指的是不被 ASF 内置交易模块接受的报价。 关于这一情况的更多信息，可以在&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN)**&#8203;章节中找到，这一章节明确定义了 ASF 将会自动接受何种类型的交易报价。 有效的交易报价也由其他属性定义，特别是 `TradingPreferences`。 `RejectInvalidTrades` 会导致所有无效的交易报价被拒绝而不是仅仅忽略。 除非您想要完全拒绝所有 ASF 未自动接受的交易报价，否则不应该启用此选项。
+无效的交易报价指的是不被 ASF 内置交易模块接受的报价。 关于这一情况的更多信息，可以在[**交易**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN)章节中找到，这一章节明确定义了 ASF 将会自动接受何种类型的交易报价。 有效的交易报价也由其他属性定义，特别是 `TradingPreferences`。 `RejectInvalidTrades` 会导致所有无效的交易报价被拒绝而不是仅仅忽略。 除非您想要完全拒绝所有 ASF 未自动接受的交易报价，否则不应该启用此选项。
 
 无效的群组邀请指的是来自 `SteamMasterClanID` 以外群组的邀请。 在标准模式下，ASF 会如您所期望的那样忽略这些群组邀请，您可以自行选择是否加入这些群组。 `RejectInvalidGroupInvites` 会导致这些群组邀请被自动拒绝，使 `SteamMasterClanID` 以外的任何群组都无法邀请您加入。 除非您想要完全拒绝所有群组邀请，否则不应该启用此选项。
 
@@ -494,15 +507,15 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 由于此属性是一个数组，因此您可以按不同优先级使用多种排序方式。 例如，您可以按顺序选择方式 `15`、`11` 和 `7`，首先按照卡牌能否出售排序，然后按照徽章等级排序，最后按照字母顺序排序。 您可能已经猜到，选项的顺序很重要，如果您反转该属性的选项（`7`、`11` 和 `15`），则结果会完全不同（先按字母顺序排序，由于游戏名称非常独特，此时其他两个选项几乎不会起作用）。 大多数用户可能只需要从中选择一种排序方式，但如果您想进一步调整挂卡顺序，也可以添加多种排序方式。
 
-需要注意的是上表中所有描述都含有词汇“尝试”——ASF 实际采用的顺序非常受所选的&#8203;**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**&#8203;影响，并且 ASF 只会在不影响性能的情况下尝试进行排序。 例如，在使用 `Simple` 算法时，当前挂卡会话将会严格按照您设置的 `FarmingOrders` 排序（因为每款游戏的性能值都相同），而在使用 `Complex` 算法时，实际的挂卡顺序首先受游戏小时数影响，然后才按照 `FarmingOrders` 排序。 这会导致不同的结果，因为已有游戏时间的游戏将会优于其他游戏，因此 ASF 会首先挂游戏时长已满足 `HoursUntilCardDrops` 要求的游戏，然后才按照您设置的 `FarmingOrders` 顺序挂其他游戏。 同样地，ASF 在挂完了所有时长达标的游戏之后，会将剩余的游戏按照游戏小时数排序（因为这能够减少将游戏时长挂到 `HoursUntilCardDrops` 所需的时间）。 因此，这个配置属性仅仅是为 ASF 提供的一个**建议**，ASF 会在不降低挂卡性能的情况下尽量遵守（在二者有冲突时，ASF 会优先考虑性能而不是 `FarmingOrders`）。
+需要注意的是上表中所有描述都含有词汇“尝试”——ASF 实际采用的顺序非常受所选的[**挂卡算法**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)影响，并且 ASF 只会在不影响性能的情况下尝试进行排序。 例如，在使用 `Simple` 算法时，当前挂卡会话将会严格按照您设置的 `FarmingOrders` 排序（因为每款游戏的性能值都相同），而在使用 `Complex` 算法时，实际的挂卡顺序首先受游戏小时数影响，然后才按照 `FarmingOrders` 排序。 这会导致不同的结果，因为已有游戏时间的游戏将会优于其他游戏，因此 ASF 会首先挂游戏时长已满足 `HoursUntilCardDrops` 要求的游戏，然后才按照您设置的 `FarmingOrders` 顺序挂其他游戏。 同样地，ASF 在挂完了所有时长达标的游戏之后，会将剩余的游戏按照游戏小时数排序（因为这能够减少将游戏时长挂到 `HoursUntilCardDrops` 所需的时间）。 因此，这个配置属性仅仅是为 ASF 提供的一个**建议**，ASF 会在不降低挂卡性能的情况下尽量遵守（在二者有冲突时，ASF 会优先考虑性能而不是 `FarmingOrders`）。
 
-此外，您可以通过 `fq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;访问“优先挂卡队列”。 如果使用这个队列，则实际的挂卡顺序首先由性能决定，其次受优先挂卡队列影响，最后才是 `FarmingOrders`。
+此外，您可以通过 `fq` [**命令**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)访问“优先挂卡队列”。 如果使用这个队列，则实际的挂卡顺序首先由性能决定，其次受优先挂卡队列影响，最后才是 `FarmingOrders`。
 
 ---
 
 ### `FarmPriorityQueueOnly`
 
-这是一个默认值为 `false` 的 `bool` 类型属性。 这个属性定义 ASF 是否应该仅自动挂您通过 `fq` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;添加到优先挂卡队列内的应用。 在启用此选项时，ASF 将会跳过所有不在队列中的 `appIDs`，使您可以选择性地忽略 ASF 自动挂卡的游戏。 请记住，如果您没有向队列中添加任何游戏，ASF 就会表现得像您的帐户中没有游戏可以挂卡。 如果您不确定是否要启用此功能，请保留默认值 `false`。
+这是一个默认值为 `false` 的 `bool` 类型属性。 这个属性定义 ASF 是否应该仅自动挂您通过 `fq` [**命令**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)添加到优先挂卡队列内的应用。 在启用此选项时，ASF 将会跳过所有不在队列中的 `appIDs`，使您可以选择性地忽略 ASF 自动挂卡的游戏。 请记住，如果您没有向队列中添加任何游戏，ASF 就会表现得像您的帐户中没有游戏可以挂卡。 如果您不确定是否要启用此功能，请保留默认值 `false`。
 
 ---
 
@@ -514,13 +527,13 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ### `HoursUntilCardDrops`
 
-这是一个默认值为 `3` 的 `byte` 类型属性。 该属性定义帐户是否卡牌掉落受限，并且如果受限，其初始掉卡时长是多少小时。 卡牌掉落受限意味着此帐户在运行指定游戏时，游戏时长必须达到 `HoursUntilCardDrops` 小时才会开始掉落卡牌。 但 ASF 没有自动检测该属性的魔法，所以只能由您来手动设置。 这个属性会影响对&#8203;**[挂卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)**&#8203;的选择。 正确设置此属性将会最大化您的收益，并且节约挂卡所需的时间。 请记住，您应该选择某个值还是另一个值，并没有明显的答案，因为这完全取决于您的帐户。 看起来从未退款的较早帐户不会受限，应该将值设置为 `0`，而曾经退款的新帐户会受限，通常应该设置为 `3`。 然而这只是一种理论，不应该将其当作规则。 该默认值是两害相权取其轻的结果，可以适用于大多数情况。
+这是一个默认值为 `3` 的 `byte` 类型属性。 该属性定义帐户是否卡牌掉落受限，并且如果受限，其初始掉卡时长是多少小时。 卡牌掉落受限意味着此帐户在运行指定游戏时，游戏时长必须达到 `HoursUntilCardDrops` 小时才会开始掉落卡牌。 但 ASF 没有自动检测该属性的魔法，所以只能由您来手动设置。 这个属性会影响对[**挂卡算法**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-CN)的选择。 正确设置此属性将会最大化您的收益，并且节约挂卡所需的时间。 请记住，您应该选择某个值还是另一个值，并没有明显的答案，因为这完全取决于您的帐户。 看起来从未退款的较早帐户不会受限，应该将值设置为 `0`，而曾经退款的新帐户会受限，通常应该设置为 `3`。 然而这只是一种理论，不应该将其当作规则。 该默认值是两害相权取其轻的结果，可以适用于大多数情况。
 
 ---
 
 ### `LootableTypes`
 
-这是一个默认值为 Steam 物品类型 `1, 3, 5` 的 `ImmutableHashSet<byte>` 类型属性。 这个属性定义 ASF 拾取操作的行为——这既包括通过&#8203;**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;触发的手动拾取，也包括通过各种配置属性设置的自动拾取。 ASF 会确保交易报价内只包含 `LootableTypes` 类型的物品，因此，这个属性使您可以选择您希望从交易报价中获得何种物品。
+这是一个默认值为 Steam 物品类型 `1, 3, 5` 的 `ImmutableHashSet<byte>` 类型属性。 这个属性定义 ASF 拾取操作的行为——这既包括通过[**命令**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)触发的手动拾取，也包括通过各种配置属性设置的自动拾取。 ASF 会确保交易报价内只包含 `LootableTypes` 类型的物品，因此，这个属性使您可以选择您希望从交易报价中获得何种物品。
 
 | 值  | 名称                    | 描述                        |
 | -- | --------------------- | ------------------------- |
@@ -627,13 +640,13 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ### `PasswordFormat`
 
-这是一个默认值为 `0`（`PlainText`）的 `byte` 类型属性。 该属性定义了 `SteamPassword` 的格式，目前支持的选项值详见&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节。 您应该跟随那里的步骤，因为您需要确保 `SteamPassword` 属性的确按照 `PasswordFormat` 指定的格式存储了密码。 换句话说，在您更改 `PasswordFormat` 时，必须确保您的 `SteamPassword` **已经**是您所选择的格式。 除非您明确了解自己在做什么，否则请将其保留为默认值 `0`。
+这是一个默认值为 `0`（`PlainText`）的 `byte` 类型属性。 该属性定义了 `SteamPassword` 的格式，目前支持的选项值详见[**安全性**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)章节。 您应该跟随那里的步骤，因为您需要确保 `SteamPassword` 属性的确按照 `PasswordFormat` 指定的格式存储了密码。 换句话说，在您更改 `PasswordFormat` 时，必须确保您的 `SteamPassword` **已经**是您所选择的格式。 除非您明确了解自己在做什么，否则请将其保留为默认值 `0`。
 
 ---
 
 ### `Paused`
 
-这是一个默认值为 `false` 的 `bool` 类型属性。 这个属性定义了机器人 `CardsFarmer` 模块的初始状态。 在使用默认值 `false` 时，机器人会在通过 `Enabled` 或 `start` 命令启动时自动开始挂卡。 只有您希望手动 `resume`（恢复）自动挂卡进程时，才应该将这个属性设置为 `true`。例如，您可能只使用 `play` 命令，从来都不用 `CardFarmer`（挂卡）模块——这一属性与发送 `pause` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;的效果完全相同。 如果您不确定是否要启用此功能，请保留默认值 `false`。
+这是一个默认值为 `false` 的 `bool` 类型属性。 这个属性定义了机器人 `CardsFarmer` 模块的初始状态。 在使用默认值 `false` 时，机器人会在通过 `Enabled` 或 `start` 命令启动时自动开始挂卡。 只有您希望手动 `resume`（恢复）自动挂卡进程时，才应该将这个属性设置为 `true`。例如，您可能只使用 `play` 命令，从来都不用 `CardFarmer`（挂卡）模块——这一属性与发送 `pause` [**命令**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)的效果完全相同。 如果您不确定是否要启用此功能，请保留默认值 `false`。
 
 ---
 
@@ -663,7 +676,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 激活时，机器人的顺序都是按照字母排列的，除了不可用的机器人（未连接、已停用或者其他情况）。 请记住，每个 IP 和每个帐户都有每小时激活次数的限制，并且每次激活结果不为 `OK` 都意味着激活失败。 ASF 会尽力减少 `AlreadyPurchased` 错误的次数，例如，避免向已拥有游戏的机器人转发序列号，但由于 Steam 处理游戏许可的方式，我们无法保证这种措施一定有效。 使用 `Forwarding` 或 `Distributing` 等激活选项，一定会增加您触发 `RateLimited` 的可能性。
 
-还需注意，您无法向您没有权限的机器人转发或分配序列号。 这应该是很显然的，但是您需要确保您至少对激活过程中的机器人拥有 `Operator` 权限，例如使用 `status ASF` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;检查。
+还需注意，您无法向您没有权限的机器人转发或分配序列号。 这应该是很显然的，但是您需要确保您至少对激活过程中的机器人拥有 `Operator` 权限，例如使用 `status ASF` [**命令**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)检查。
 
 ---
 
@@ -703,7 +716,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ### `ShutdownOnFarmingFinished`
 
-这是一个默认值为 `false` 的 `bool` 类型属性。 ASF 会在机器人激活期间始终“占用”帐户。 在指定帐户挂卡完成后，ASF 会定期（每隔 `IdleFarmingPeriod` 小时）检查帐户内是否有新游戏含有 Steam 卡牌，以便于在不重启进程的情况下恢复此帐户的挂卡过程。 这应该适合大多数人，因为 ASF 可以在需要时自动恢复挂卡。 但是，您可能希望在指定帐户挂卡完成后停止进程，这就需要将这个属性设置为 `true`。 在启用时，ASF 将会在挂卡完成之后注销帐户，这意味着此帐户将不再被定期检查或占用。 您应该自己决定，更希望 ASF 始终处理指定的机器人实例，还是在挂卡结束后停止。 如果所有帐户都停止运行，并且程序没有以 `--process-required` **[模式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)**&#8203;运行，则 ASF 本身也会关闭，让您的机器休息，您可以在获得最后一张卡牌之后为计算机安排睡眠或者关机等其他操作。
+这是一个默认值为 `false` 的 `bool` 类型属性。 ASF 会在机器人激活期间始终“占用”帐户。 在指定帐户挂卡完成后，ASF 会定期（每隔 `IdleFarmingPeriod` 小时）检查帐户内是否有新游戏含有 Steam 卡牌，以便于在不重启进程的情况下恢复此帐户的挂卡过程。 这应该适合大多数人，因为 ASF 可以在需要时自动恢复挂卡。 但是，您可能希望在指定帐户挂卡完成后停止进程，这就需要将这个属性设置为 `true`。 在启用时，ASF 将会在挂卡完成之后注销帐户，这意味着此帐户将不再被定期检查或占用。 您应该自己决定，更希望 ASF 始终处理指定的机器人实例，还是在挂卡结束后停止。 如果所有帐户都停止运行，并且程序没有以 `--process-required` [**模式**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-CN)运行，则 ASF 本身也会关闭，让您的机器休息，您可以在获得最后一张卡牌之后为计算机安排睡眠或者关机等其他操作。
 
 如果您不确定应该如何设置这个属性，请保留默认值 `false`。
 
@@ -723,7 +736,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ### `SteamMasterClanID`
 
-这是一个默认值为 `0` 的 `ulong` 类型属性。 该属性定义一个 Steam 群组 ID，机器人应该自动加入此群组及其聊天室。 要获取您的群组 ID，您可以访问群组的&#8203;**[主页](https://steamcommunity.com/groups/archiasf)**，然后在该页面的网址后面加上 `/memberslistxml?xml=1`，使网址看起来类似&#8203;**[这样](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**。 此时您可以在结果的 `<groupID64>` 标签内找到群组的 ID。 在本例中即为 `103582791440160998`。 机器人不仅会尝试主动加入指定的群组，还会自动接受来自此群组的邀请，使您可以手动邀请机器人加入私密群组。 如果您没有专门用于管理机器人的群组，就应该保留默认值 `0`。
+这是一个默认值为 `0` 的 `ulong` 类型属性。 该属性定义一个 Steam 群组 ID，机器人应该自动加入此群组及其聊天室。 要获取您的群组 ID，您可以访问群组的[**主页**](https://steamcommunity.com/groups/archiasf)，然后在该页面的网址后面加上 `/memberslistxml?xml=1`，使网址看起来类似[**这样**](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)。 此时您可以在结果的 `<groupID64>` 标签内找到群组的 ID。 在本例中即为 `103582791440160998`。 机器人不仅会尝试主动加入指定的群组，还会自动接受来自此群组的邀请，使您可以手动邀请机器人加入私密群组。 如果您没有专门用于管理机器人的群组，就应该保留默认值 `0`。
 
 ---
 
@@ -745,7 +758,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 这是一个默认值为 `null` 的 `string` 类型属性。 如果您的机器人在您的好友列表内，机器人就无需交易令牌，直接向您发起交易，因此您可以保留其默认值 `null`。 但如果机器人不在您的好友列表内，就需要为接收交易报价的用户生成交易令牌并填写至此。 换句话说，此属性应该填写**此**机器人实例在 `SteamUserPermissions` 中定义的 `Master` 权限用户的交易令牌。
 
-要找到交易令牌，您需要以 `Master` 权限用户登录，访问&#8203;**[此页面](https://steamcommunity.com/my/tradeoffers/privacy)**，找到您的交易 URL。 我们寻找的交易令牌有 8 个字符，就在您的交易 URL 中 `&token=` 的后面。 您应该复制这 8 个字符，粘贴到这里作为 `SteamTradeToken`。 请不要填写完整的交易 URL，也不要包含 `&token=` 文本，您仅需要填写 8 个字符的令牌本身。
+要找到交易令牌，您需要以 `Master` 权限用户登录，访问[**此页面**](https://steamcommunity.com/my/tradeoffers/privacy)，找到您的交易 URL。 我们寻找的交易令牌有 8 个字符，就在您的交易 URL 中 `&token=` 的后面。 您应该复制这 8 个字符，粘贴到这里作为 `SteamTradeToken`。 请不要填写完整的交易 URL，也不要包含 `&token=` 文本，您仅需要填写 8 个字符的令牌本身。
 
 ---
 
@@ -783,13 +796,13 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
 
-若要了解 ASF 的交易逻辑，以及对于每个 flag 的详细说明，请阅读&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN)**&#8203;章节。
+若要了解 ASF 的交易逻辑，以及对于每个 flag 的详细说明，请阅读[**交易**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN)章节。
 
 ---
 
 ### `TransferableTypes`
 
-这是一个默认值为 Steam 物品类型 `1, 3, 5` 的 `ImmutableHashSet<byte>` 类型属性。 这个属性定义了在使用 `transfer` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;时，机器人之间可转移 Steam 物品的类型。 ASF 会确保交易报价内只包含 `TransferableTypes` 类型的物品，因此，这个属性使您可以选择您希望从发往其他机器人的交易报价中获得何种物品。
+这是一个默认值为 Steam 物品类型 `1, 3, 5` 的 `ImmutableHashSet<byte>` 类型属性。 这个属性定义了在使用 `transfer` [**命令**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)时，机器人之间可转移 Steam 物品的类型。 ASF 会确保交易报价内只包含 `TransferableTypes` 类型的物品，因此，这个属性使您可以选择您希望从发往其他机器人的交易报价中获得何种物品。
 
 | 值  | 名称                    | 描述                        |
 | -- | --------------------- | ------------------------- |
@@ -862,7 +875,7 @@ ASF 采用这种很简单的文件结构：
 
 如果您需要将 ASF 迁移到其他位置，例如另一台 PC，则仅移动/复制 `config` 文件夹就足够了，并且这也是备份 ASF 数据的推荐方式，因为您随时可以从 GitHub 下载其余的（程序）文件，而无需承担因备份失败导致 ASF 内部文件损坏的风险。
 
-`log.txt` 文件保存您上次运行 ASF 时生成的日志。 此文件不包含任何敏感信息，并且在涉及问题、崩溃或仅提供上次运行 ASF 的信息时非常有用。 如果您遇到了问题或漏洞，我们会经常需要您提供此文件。 ASF 会自动管理这些文件，但如果您是一名高级用户，您可以进一步调整 ASF 的&#8203;**[日志](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-zh-CN)**&#8203;模块。
+`log.txt` 文件保存您上次运行 ASF 时生成的日志。 此文件不包含任何敏感信息，并且在涉及问题、崩溃或仅提供上次运行 ASF 的信息时非常有用。 如果您遇到了问题或漏洞，我们会经常需要您提供此文件。 ASF 会自动管理这些文件，但如果您是一名高级用户，您可以进一步调整 ASF 的[**日志**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-zh-CN)模块。
 
 `config` 文件夹是保存 ASF 及其所有机器人的配置文件的地方。
 
@@ -878,7 +891,7 @@ ASF 采用这种很简单的文件结构：
 
 `BotName.bin` 是给定机器人实例的一个特殊文件，用于存储 Steam Sentry Hash。 Sentry Hash 用于 `SteamGuard` 机制进行认证，非常类似于 Steam 的 `ssfn` 文件。 **您不应该编辑这个文件**。
 
-`BotName.keys` 是一个特殊文件，用于向&#8203;**[后台游戏激活器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-CN)**&#8203;中导入序列号。 此文件既非必须也非由 ASF 生成，ASF 会读取此文件。 此文件将会在序列号导入成功后被自动删除。
+`BotName.keys` 是一个特殊文件，用于向[**后台游戏激活器**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-CN)中导入序列号。 此文件既非必须也非由 ASF 生成，ASF 会读取此文件。 此文件将会在序列号导入成功后被自动删除。
 
 `BotName.maFile` 是一个特殊文件，用于导入 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN)**。 此文件既非必须也非由 ASF 生成，如果您的 `BotName` 机器人尚未启用 ASF 2FA，ASF 会读取此文件。 此文件将会在 ASF 2FA 导入成功后被自动删除。
 

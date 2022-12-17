@@ -16,6 +16,7 @@ La FAQ basique couvre les questions classiques et y répond. Pour une question p
 
 ### Qu'est-ce qu'ASF ?
 ### Pourquoi le programme affirme t-il qu'il n'y a rien à récolter sur mon compte?
+### Why ASF doesn't detect all of my games?
 ### Pourquoi mon compte est-il bloqué ?
 
 Avant d'essayer de comprendre ce qu'est ASF, vous devez vous assurer de bien comprendre ce que sont les cartes Steam et comment les obtenir, ce qui est décrit dans la FAQ officielle **[ici](https://steamcommunity.com/tradingcards/faq)**.

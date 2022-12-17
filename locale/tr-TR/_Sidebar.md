@@ -21,6 +21,7 @@
 * **[👥 Arkaplan oyun etkinleştirici](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Komutlar](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Uyumluluk](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[📋 Yönetim](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Performans](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📡 Uzaktan iletişim](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
@@ -36,7 +37,6 @@
 * **[🤔 Genişletilmiş SSS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[🚀 Yüksek performans kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[🌐 Yerelleştirme](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Günlük kaydı](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Düşük bellek kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**

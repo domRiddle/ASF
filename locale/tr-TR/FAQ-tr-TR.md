@@ -16,6 +16,7 @@ Our basic FAQ covers standard questions and answers that you may have. Az biline
 
 ### ASF nedir?
 ### Neden program hesabımda çalıştıracak hiçbir şey olmadığı söylüyor?
+### Why ASF doesn't detect all of my games?
 ### Hesabım neden kısıtlı?
 
 ASF'nin ne olduğunu anlamaya çalışmadan önce, lütfen resmi SSS **[sayfasında](https://steamcommunity.com/tradingcards/faq)** güzelce açıklanmış olan, Steam kartlarının ne olduğunu ve nasıl elde edildiğini anladığınızdan emin olun.

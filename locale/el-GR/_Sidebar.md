@@ -21,6 +21,7 @@
 * **[👥 Εξαργύρωση παιχνιδιών παρασκηνίου](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Εντολές](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Συμβατότητα](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[📋 Διαχείριση](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Επιδόσεις](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📡 Απομακρυσμένη επικοινωνία](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
@@ -36,7 +37,6 @@
 * **[🤔 Εκτεταμένες Συχνές Ερωτήσεις](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[🚀 Ρύθμιση υψηλής απόδοσης](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[🌐 Μετάφραση](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Καταγραφή](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Ρύθμιση χαμηλής μνήμης](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**

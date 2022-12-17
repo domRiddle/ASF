@@ -247,7 +247,7 @@ Si crees que algo inapropiado está incluido en un bloque de código, o que hay 
 
 ## Salón de la Fama
 
-Nos gustaría mostrar nuestra eterna gratitud a las personas que han dedicado una cantidad significativa de su tiempo y voluntad para mejorar la localización de ASF. Su esfuerzo es increíble, y puedes disfrutar de traducciones completas, incluyendo la wiki, principalmente gracias a ellos.
+Nos gustaría mostrar nuestra eterna gratitud a las personas que han dedicado una cantidad significativa de su tiempo y voluntad para mejorar la localización de ASF. Su esfuerzo es increíble, y puedes disfrutar de traducciones completas, incluyendo la wiki, principalmente gracias a ellos. As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
 
 | Colaborador                                                | Idiomas         |
 | ---------------------------------------------------------- | --------------- |

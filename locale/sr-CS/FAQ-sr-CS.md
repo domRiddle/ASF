@@ -16,6 +16,7 @@ Naš osnovni FAQ obuhvata standardna pitanja i odgovore koje možete imati. Za r
 
 ### Šta je ASF?
 ### Why does the program claim that there is nothing to farm on my account?
+### Why ASF doesn't detect all of my games?
 ### Zašto je moj nalog limitiran?
 
 Prije nego što pokušate da razumijete šta je ASF, trebate razumjeti šta su Steam kartice, i kako se dobijaju, što je lijepo objašnjeno u oficijalnom FAQ **[ovdje](https://steamcommunity.com/tradingcards/faq)**.

@@ -16,6 +16,7 @@ Nuestras preguntas frecuentes básicas cubren preguntas estándar y sus posibles
 
 ### ¿Qué es ASF?
 ### ¿Por qué el programa indica que no hay nada para recolectar en mi cuenta?
+### Why ASF doesn't detect all of my games?
 ### ¿Por qué mi cuenta está limitada?
 
 Antes de intentar entender lo que es ASF, debes asegurarte de que entiendes lo que son los cromos de Steam, y cómo obtenerlos, lo que se describe bastante bien en las preguntas frecuentes oficiales **[aquí](https://steamcommunity.com/tradingcards/faq)**.

@@ -247,7 +247,7 @@ Se você acredita que algo inapropriado foi incluso em um bloco de código, ou q
 
 ## Hall da Fama
 
-Gostaríamos de mostrar nossa eterna gratidão a pessoas que gastaram uma grande parte de seu tempo e esforço para melhorar a localização do ASF. Seus esforços foram incríveis e por isso você pode aproveitar traduções completas, incluindo a wiki, na maior parte graças a eles.
+Gostaríamos de mostrar nossa eterna gratidão a pessoas que gastaram uma grande parte de seu tempo e esforço para melhorar a localização do ASF. Seus esforços foram incríveis e por isso você pode aproveitar traduções completas, incluindo a wiki, na maior parte graças a eles. As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
 
 | Colaborador                                                | Idiomas          |
 | ---------------------------------------------------------- | ---------------- |

@@ -247,7 +247,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 ## Доска почёта
 
-Мы хотели бы выразить нашу бесконечную благодарность людям, которые потратили значительную часть личного времени в стремлении сделать локализацию ASF лучше. Их усилия невероятны, и вы можете наслаждаться полным переводом, включая wiki, в основном благодаря им.
+Мы хотели бы выразить нашу бесконечную благодарность людям, которые потратили значительную часть личного времени в стремлении сделать локализацию ASF лучше. Их усилия невероятны, и вы можете наслаждаться полным переводом, включая wiki, в основном благодаря им. As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
 
 | Участник                                                   | Языки               |
 | ---------------------------------------------------------- | ------------------- |

@@ -21,6 +21,7 @@
 * **[👥 Aktivace her v pozadí](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Příkazy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Kompatibilita](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[📋 Správa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Výkon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📡 Vzdálená komunikace](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
@@ -36,7 +37,6 @@
 * **[🤔 Rozšířené FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[🚀 Nastavení pro vysoký výkon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[🌐 Lokalizace](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Log záznamy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Nastavení pro nízký výkon](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**

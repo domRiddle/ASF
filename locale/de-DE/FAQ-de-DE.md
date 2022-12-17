@@ -16,6 +16,7 @@ Unser FAQ umfasst Standardfragen und Antworten, die Sie vielleicht haben. Für w
 
 ### Was ist ASF?
 ### Why does the program claim that there is nothing to farm on my account?
+### Why ASF doesn't detect all of my games?
 ### Warum ist mein Konto begrenzt?
 
 Bevor Sie versuchen herauszufinden, was ASF ist, sollten Sie sicherstellen, dass Sie verstehen, was Steam Sammelkarten sind und wie man sie erhält, was in der offiziellen FAQ **[hier](https://steamcommunity.com/tradingcards/faq)** gut beschrieben ist.
@@ -388,7 +389,7 @@ Das ASF-Team empfiehlt, bis zu **10 Bots insgesamt** laufen zu lassen (und zu **
 
 ---
 
-### Kann ich mehrere ASF-Instanzen ausführen?
+### Kann ich dann mehr ASF-Instanzen ausführen?
 
 Du kannst so viele ASF-Instanzen auf einem Computer ausführen, wie du willst, vorausgesetzt, jede Instanz hat ihr eigenes Verzeichnis und ihre eigenen Konfigurationen, und das in einer Instanz verwendete Konto wird in einer anderen nicht verwendet. Allerdings solltest du dich fragen, warum du das tun willst. ASF ist dazu optimiert, mehrere hundert Accounts gleichzeitig zu verwalten. Das Starten vieler Bots in ihren eigenen ASF-Instazen senkt die (Gesamt-)Leistung, verbraucht mehr Betriebssystem-Ressourcen (beispielsweise CPU, Arbeitsspeicher), und verursacht potentiell Probleme beim synchronisieren zwischen den einzelnen ASF-Instanzen, da ASF gezwungen ist, seine Limitierung (Limiters) mit den anderen Instanzen zu teilen.
 

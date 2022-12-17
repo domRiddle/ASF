@@ -247,7 +247,7 @@ When no HTML is present (second case), this is even easier since you can just go
 
 ## Зала слави
 
-Ми хочемо висловити нашу нескінченну подяку людям, які витратили значний обсяг свого часу намагаючись зробити локалізацію ASF краще. Їхні зусилля неймовірні, і ви можете насолоджуватися повним перекладом, включно з wiki, переважно завдяки їм.
+Ми хочемо висловити нашу нескінченну подяку людям, які витратили значний обсяг свого часу намагаючись зробити локалізацію ASF краще. Їхні зусилля неймовірні, і ви можете насолоджуватися повним перекладом, включно з wiki, переважно завдяки їм. As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
 
 | Співробітник                                               | Мови                    |
 | ---------------------------------------------------------- | ----------------------- |

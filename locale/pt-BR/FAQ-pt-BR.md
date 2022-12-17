@@ -16,6 +16,7 @@ A seção de perguntas frequentes cobre respostas a questões comuns que você p
 
 ### O que é o ASF?
 ### Por que o programa diz que não há nada para ser coletado na minha conta?
+### Why ASF doesn't detect all of my games?
 ### Por que minha conta está limitada?
 
 Antes de tentar entender o que é o ASF, certifique-se de que você entende o que são as cartas Colecionáveis Steam e como obtê-las, o que é muito bem descrito na seção oficial de perguntas frequentes **[aqui](https://steamcommunity.com/tradingcards/faq)**.
@@ -236,7 +237,7 @@ Porém, no fim, é sempre uma questão de confiança no(s) desenvolvedor(es) do 
 
 ---
 
-### Posso ser banido por isso?
+### Posso banido por isso?
 
 Para poder responder essa pergunta nós devemos dar uma olhada no **[Acordo de Assinatura do Steam](https://store.steampowered.com/subscriber_agreement)**. O Steam não proíbe o uso de várias contas, na verdade **[ela permite isso](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)** quando diz que você pode usar o mesmo autenticador móvel em mais de uma conta. O que ela não permite é compartilhar sua conta com outras pessoas, e isso nós não fazemos.
 
@@ -344,7 +345,7 @@ O ASF é um aplicativo de console, não há janela para ser minimizada pois as j
 
 ---
 
-### Usar o ASF me mantém elegível para receber pacotes de cartas?
+### Usar o ASF mantém a elegibilidade para receber pacotes de cartas?
 
 **Sim**. O ASF usa o mesmo método para se conectar a Rede Steam que o cliente oficial, então ele também preserva a habilidade de receber pacotes para as contas que estão sendo usadas no ASF. Além disso, preservar essa habilidade não requer nem entrar na Comunidade Steam, então você pode setar a configuração `OnlineStatus` para `Off-line` e se manter invisível sem medo.
 

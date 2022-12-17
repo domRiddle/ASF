@@ -21,6 +21,7 @@
 * **[👥 Công cụ kích hoạt game trong nền](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Lệnh](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Khả năng tương thích](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[📋 Quản lý](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Hiệu năng](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📡 Liên lạc từ xa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
@@ -36,7 +37,6 @@
 * **[🤔 Câu hỏi thường gặp Mở rộng](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[🚀 Thiết lập hiệu suất cao](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[🌐 Bản dịch](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Nhật ký](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Thiết lập bộ nhớ thấp](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**

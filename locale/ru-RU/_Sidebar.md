@@ -21,11 +21,12 @@
 * **[👥 Фоновая активация ключей](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-ru-RU)**
 * **[📢 Команды](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)**
 * **[🛠️ Совместимость](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU)**
-* **[📋 Управление](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-ru-RU)**
-* **[⏱️ Производительность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ru-RU)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
+* **[📋 Управление](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
+* **[⏱️ Производительность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📡 Удаленная связь](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
-* **[👪 Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing-ru-RU)**
-* **[🔄 Обмены](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-ru-RU)**
+* **[👪 Steam Family Sharing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[🔄 Обмены](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 
 ## 🧙 Дополнительно
@@ -36,7 +37,6 @@
 * **[🤔 Расширенное ЧАВО](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-ru-RU)**
 * **[🚀 Конфигурация для высокой производительности](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-ru-RU)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ru-RU)**
-* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[🌐 Локализация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Журналирование](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Конфигурация для малого ОЗУ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**

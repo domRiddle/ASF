@@ -16,6 +16,7 @@
 
 ### 什麼是 ASF？
 ### 為什麼程式提示我的帳號沒有卡片可以掛？
+### 為什麼 ASF 沒有偵測到我全部的遊戲？
 ### 為什麼我的帳號受到限制？
 
 在嘗試了解什麼是ASF之前，你應該先了解什麼是Steam交換卡片以及它的獲得方式，這在官方的&#8203;**[常見問題](https://steamcommunity.com/tradingcards/faq)**&#8203;中有詳細的說明。
@@ -226,7 +227,7 @@ However, keep in mind that Valve could still add ASF to the blacklist at some po
 
 ---
 
-### 它安全嗎？
+### 這個安全嗎？
 
 If you ask if ASF is safe as a software, which means that it won't cause any damage to your computer, won't steal your private data, install viruses or any other stuff like that - it is safe. ASF is free of malware, data stealing, cryptocurrency miners and any (and all) other doubtful behaviour that can be considered malicious or unwanted by the user. In addition to that we have a dedicated **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section which covers our privacy policy and ASF behaviour that goes beyond what you configured the program to do yourself.
 
@@ -236,7 +237,7 @@ In the end however, it's always a matter of trust to the developer(s) of your ap
 
 ---
 
-### 我會因為這個而被封鎖嗎？
+### 我會因為這個被封鎖嗎？
 
 In order to answer that question, we should take a closer look at **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. Steam doesn't prohibit using of multiple accounts, in fact, **[it allows it](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)** implying that you can use same mobile authenticator on more than one account. What it however doesn't allow is sharing accounts with other people, but we're not doing that here.
 
@@ -300,7 +301,7 @@ All of the incidents above have one thing in common - ASF is just a tool and it'
 
 ---
 
-### ASF 會公開哪些隱私信息？
+### ASF 會公開哪些隱私訊息？
 
 You can find detailed explanation in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. You should review it if you care about your privacy, e.g. if you're wondering why accounts being used in ASF are joining our Steam group. ASF doesn't collect any sensitive information, and doesn't share it with any third-parties.
 

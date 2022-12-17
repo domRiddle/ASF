@@ -247,7 +247,7 @@ When no HTML is present (second case), this is even easier since you can just go
 
 ## 명예의 전당
 
-더 나은 ASF 현지화를 위해 자신의 소중한 시간을 할애해준 사람들에게 영원한 감사를 전하고 싶습니다. 그들의 노력은 믿을 수 없는 것이고, 당신은 그들 덕에 위키를 포함한 완벽한 번역을 즐길 수 있습니다.
+더 나은 ASF 현지화를 위해 자신의 소중한 시간을 할애해준 사람들에게 영원한 감사를 전하고 싶습니다. 그들의 노력은 믿을 수 없는 것이고, 당신은 그들 덕에 위키를 포함한 완벽한 번역을 즐길 수 있습니다. As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
 
 | 기여자                                                        | 언어              |
 | ---------------------------------------------------------- | --------------- |

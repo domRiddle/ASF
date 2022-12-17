@@ -21,11 +21,12 @@
 * **[👥 BAKGROUND GAMEZ REDEEMR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-lol-US)**
 * **[📢 COMMANDZ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)**
 * **[🛠️ COMPATIBILITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US)**
-* **[📋 MANAGEMENT](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-lol-US)**
-* **[⏱️ PERFORMANCE](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-lol-US)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
+* **[📋 MANAGEMENT](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
+* **[⏱️ PERFORMANCE](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📡 REMOTE COMMUNICASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
-* **[👪 STEAM PPLZ SHARIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing-lol-US)**
-* **[🔄 TRADIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-lol-US)**
+* **[👪 STEAM PPLZ SHARIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[🔄 TRADIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 
 ## 🧙 ADVANCD
@@ -36,7 +37,6 @@
 * **[🤔 EXTENDD FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-lol-US)**
 * **[🚀 HIGH-PERFORMANCE SETUP](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-lol-US)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US)**
-* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[🌐 LOCALIZASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 LOGGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 LOW-MEMS SETUP](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**

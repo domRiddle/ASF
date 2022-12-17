@@ -21,6 +21,7 @@
 * **[👥 Aktywacja gier w tle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-pl-PL)**
 * **[📢 Komendy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pl-PL)**
 * **[🛠️ Kompatybilność](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pl-PL)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[📋 Zarządzanie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Wydajność](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[Zdalne połączenia](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
@@ -36,7 +37,6 @@
 * **[🤔 Rozszerzone FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-pl-PL)**
 * **[🚀 Konfiguracja pod zwiększoną wydajność](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-pl-PL)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pl-PL)**
-* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[🌐 Tłumaczenia](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Logowanie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Konfiguracja pod zmniejszone zużycie pamięci](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**

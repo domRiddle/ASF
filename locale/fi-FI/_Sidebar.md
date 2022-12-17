@@ -21,6 +21,7 @@
 * **[👥 Pelien lunastaminen taustalla](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Komennot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Yhteensopivuus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[📋 Hallinta](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Suorituskyky](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📡Etä kommunikaatio](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
@@ -36,7 +37,6 @@
 * **[🤔 Laajennettu UKK](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[🚀 Korkean suorituskyvyn asetukset](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
-* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[🌐 Lokalisointi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Lokiin kirjaus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾Alhaisen muistilla valmistaminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**

@@ -75,6 +75,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
     "IPC": true,
     "IPCPassword": null,
     "IPCPasswordFormat": 0,
+    "LicenseID": null,
     "LoginLimiterDelay": 10,
     "MaxFarmingTime": 10,
     "MaxTradeHoldDuration": 15,
@@ -201,6 +202,18 @@ If you're running ASF on the server, you probably want to use this option togeth
 ### `IPCPasswordFormat`
 
 `byte`&#8203;型別，預設值為&#8203;`0`&#8203;。 This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. Unless you know what you're doing, you should keep it with default value of `0`.
+
+---
+
+### `LicenseID`
+
+`Guid?`&#8203;型別，預設值為&#8203;`null`&#8203;（在JSON中為&#8203;`string`&#8203;）。 This property allows our **[sponsors](https://github.com/sponsors/JustArchi)** to enhance ASF with optional features that require paid resources to work. For now, this allows you to make use of **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature in `ItemsMatcher` plugin.
+
+If you're ASF sponsor, you can obtain your license **[here](https://asf.justarchi.net/User/Status)**. You'll need to sign in with GitHub for confirming your identity, we ask only for read-only public information, which is your username. `LicenseID` is made out of 32 hexadecimal characters, such as `f6a0529813f74d119982eb4fe43a9a24`.
+
+**Ensure that you do not share your `LicenseID` with other people**. Since it's issued on personal basis, it might get revoked if it's leaked. If by any chance this happened to you accidentally, you can generate a new one from the same place.
+
+Unless you want to enable extra ASF functionalities, there is no need for you to use the license.
 
 ---
 
@@ -376,7 +389,7 @@ The bot config has following structure:
 
 ---
 
-以下是對所有選項的解釋：
+所有選項解釋如下：
 
 ### `AcceptGifts`
 
@@ -463,7 +476,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 ---
 
-### `Enabled（啟用）`
+### `Enabled`
 
 `bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 This property defines if bot is enabled. Enabled bot instance (`true`) will automatically start on ASF run, while disabled bot instance (`false`) will need to be started manually. By default every bot is disabled, so you probably want to switch this property to `true` for all of your bots that should be started automatically.
 
@@ -508,13 +521,13 @@ There is also farming priority queue that is accessible through `fq` **[commands
 
 ### `GamesPlayedWhileIdle`
 
-`ImmutableHashSet<uint>`&#8203;型別，預設值為空。 If ASF has nothing to farm it can play your specified steam games (`appIDs`) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appIDs` total, therefore you can put only as many games in this property.
+<`ImmutableHashSet<uint>`&#8203;型別，預設值為空。 If ASF has nothing to farm it can play your specified steam games (`appIDs`) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appIDs` total, therefore you can put only as many games in this property.
 
 ---
 
 ### `HoursUntilCardDrops`
 
-`byte`&#8203;型別，預設值為&#8203;`3`&#8203;。 This property defines if account has card drops restricted, and if yes, for how many initial hours. Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least `HoursUntilCardDrops` hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is no obvious answer whether you should use one or another value, since it fully depends on your account. It seems that older accounts which never asked for refund have unrestricted card drops, so they should use a value of `0`, while new accounts and those who did ask for refund have restricted card drops with a value of `3`. 然而，這只是理論，不應將它視為規則。 The default value for this property was set based on "lesser evil" and majority of use cases.
+`byte`&#8203;型別，預設值為&#8203;`3`&#8203;。 This property defines if account has card drops restricted, and if yes, for how many initial hours. Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least `HoursUntilCardDrops` hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is no obvious answer whether you should use one or another value, since it fully depends on your account. It seems that older accounts which never asked for refund have unrestricted card drops, so they should use a value of `0`, while new accounts and those who did ask for refund have restricted card drops with a value of `3`. 但是，這只是理論，不應將它視為規則。 The default value for this property was set based on "lesser evil" and majority of use cases.
 
 ---
 
@@ -639,7 +652,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 ### `RedeemingPreferences`
 
-`byte flags`型別&#8203;，預設值為&#8203;`0`&#8203;。 This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
+`byte flags`&#8203;型別，預設值為&#8203;`0`&#8203;。 This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
 
 | 值 | 名稱                                 | 描述                                                                                                                              |
 | - | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |

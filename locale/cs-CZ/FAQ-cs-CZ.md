@@ -16,6 +16,7 @@ Toto FAQ obsahuje odpovědi na obyklé otázky. Pro méně obvyklé dotazy navš
 
 ### Co je ASF?
 ### Proč program tvrdí, že na mém účtu není nic k farmení?
+### Why ASF doesn't detect all of my games?
 ### Proč je můj účet omezený?
 
 Dříve než se pokusíte pochopit, co je ASF, měli byste se ujistit, že rozumíte tomu, co jsou Steam karty a jak je získat, což je dobře popsáno v oficiálním FAQ **[zde](https://steamcommunity.com/tradingcards/faq)**.

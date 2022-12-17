@@ -247,7 +247,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 ## 名人堂
 
-我们向花费大量时间与精力参与 ASF 本地化工作的人致以衷心的感谢。 他们的努力是惊人的，您能够获得完整的本地化体验，包括此 Wiki，主要归功于这些人。
+我们向花费大量时间与精力参与 ASF 本地化工作的人致以衷心的感谢。 他们的努力是惊人的，您能够获得完整的本地化体验，包括此 Wiki，主要归功于这些人。 作为答谢，此处列出的所有人都可以提出[**要求**](https://crowdin.com/messages/create/13177432/240376)，获取 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-CN#matchactively主动匹配)** 功能的免费访问权限。
 
 | 贡献者                                                        | 语言          |
 | ---------------------------------------------------------- | ----------- |

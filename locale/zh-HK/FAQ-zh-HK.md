@@ -16,6 +16,7 @@
 
 ### What is ASF?
 ### Why does the program claim that there is nothing to farm on my account?
+### Why ASF doesn't detect all of my games?
 ### Why is my account limited?
 
 在嘗試了解 ASF 之前，您應該先了解什麼是交換卡片以及如何得到它們，這在官方**[常見問題](https://steamcommunity.com/tradingcards/faq)**中有很好的說明。

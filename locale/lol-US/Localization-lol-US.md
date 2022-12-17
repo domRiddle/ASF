@@ -247,7 +247,7 @@ IF U BLEEV DAT SOMETHIN INAPPROPRIATE IZ INCLUDD IN CODE BLOCK, OR DAT THAR IZ T
 
 ## HALL OV FAME
 
-WED LIEK 2 SHOW R ETERNAL GRATITUDE 2 PEEPS DAT HAS SPENT SIGNIFICANT AMOUNT OV THEIR TIEM AN WILLINGS 2 MAK ASF LOCALIZASHUN BETTR. THEIR EFFORT IZ INCREDIBLE, AN U CAN ENJOY COMPLETE TRANZLASHUNS, INCLUDIN TEH WIKI, MOSTLY THX 2 THEM.
+WED LIEK 2 SHOW R ETERNAL GRATITUDE 2 PEEPS DAT HAS SPENT SIGNIFICANT AMOUNT OV THEIR TIEM AN WILLINGS 2 MAK ASF LOCALIZASHUN BETTR. THEIR EFFORT IZ INCREDIBLE, AN U CAN ENJOY COMPLETE TRANZLASHUNS, INCLUDIN TEH WIKI, MOSTLY THX 2 THEM. As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
 
 | CONTRIBUTOR                                                | LANGUAGEZ         |
 | ---------------------------------------------------------- | ----------------- |

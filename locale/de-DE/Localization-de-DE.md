@@ -247,7 +247,7 @@ Wenn du glaubst, dass etwas Unangemessenes in einem Codeblock enthalten ist oder
 
 ## Ruhmeshalle
 
-Wir möchten unseren ewigen Dank denjenigen Menschen zeigen, die sehr viel ihrer Zeit und Bereitschaft gegeben haben um die ASF Übersetzung zu verbessern. Ihr Aufwand ist unglaublich, und Sie können sich an kompletten Übersetzungen erfreuen, einschließlich des Wikis, hauptsächlich dank ihnen.
+Wir möchten unseren ewigen Dank denjenigen Menschen zeigen, die sehr viel ihrer Zeit und Bereitschaft gegeben haben um die ASF Übersetzung zu verbessern. Ihr Aufwand ist unglaublich, und Sie können sich an kompletten Übersetzungen erfreuen, einschließlich des Wikis, hauptsächlich dank ihnen. As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
 
 | Mitwirkender                                               | Sprachen             |
 | ---------------------------------------------------------- | -------------------- |
