@@ -61,6 +61,7 @@ export DOTNET_ReadyToRun=0
 export DOTNET_TC_QuickJitForLoops=1
 
 ./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm.sh # For generic build
 ```
 
 Or on Windows (powershell):
@@ -73,6 +74,7 @@ $Env:DOTNET_ReadyToRun=0
 $Env:DOTNET_TC_QuickJitForLoops=1
 
 .\ArchiSteamFarm.exe # For OS-specific build
+.\ArchiSteamFarm.cmd # For generic build
 ```
 
 ---
