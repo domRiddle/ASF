@@ -73,6 +73,7 @@ Command | Access | Description
 `mab [Bots]` | `Master` | Lists apps blacklisted from automatic trading in **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)**.
 `mabadd [Bots] <AppIDs>` | `Master` | Adds given `appIDs` to apps blacklisted from automatic trading in **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)**.
 `mabrm [Bots] <AppIDs>` | `Master` | Removes given `appIDs` from apps blacklisted from automatic trading in **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)**.
+`match [Bots]` | `Master` | Special command for **[`ItemsMatcherPlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** which triggers `MatchActively` routine immediately.
 `nickname [Bots] <Nickname>` | `Master` | Changes Steam nickname of given bot instances to given `nickname`.
 `owns [Bots] <Games>` | `Operator` | Checks if given bot instances already own given `games`, explained **[below](#owns-games)**.
 `pause [Bots]` | `Operator` | Permanently pauses automatic cards farming module of given bot instances. ASF will not attempt to farm current account in this session, unless you manually `resume` it, or restart the process.
