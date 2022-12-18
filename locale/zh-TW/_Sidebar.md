@@ -21,12 +21,12 @@
 * **[👥 背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**
 * **[📢 指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**
 * **[🛠️ 相容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW)**
-* **[🧩 Items Matcher 外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
-* **[📋 管理](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
-* **[⏱️ 效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📡 遠端通訊](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
-* **[👪 Steam 親友同享](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[🔄 交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+* **[🧩 Items Matcher 外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW)**
+* **[📋 管理](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-TW)**
+* **[⏱️ 效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**
+* **[📡 遠端通訊](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-TW)**
+* **[👪 Steam 親友同享](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing-zh-TW)**
+* **[🔄 交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW)**
 
 
 ## 🧙 進階
@@ -37,14 +37,14 @@
 * **[🤔 其他常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-zh-TW)**
 * **[🚀 高效能設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-zh-TW)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**
-* **[🌐 在地化翻譯](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[📝 紀錄日誌](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[💾 低記憶體設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[🔌 外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
-* **[🔐 安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[🧩 Steam Token 輸出外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
-* **[📦 第三方工具](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[📵 雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[🌐 在地化翻譯](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-zh-TW)**
+* **[📝 紀錄日誌](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-zh-TW)**
+* **[💾 低記憶體設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW)**
+* **[🔌 外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-TW)**
+* **[🔐 安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**
+* **[🧩 Steam Token 輸出外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin-zh-TW)**
+* **[📦 第三方工具](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-zh-TW)**
+* **[📵 雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**
 
 
 ## 👷 開發人員

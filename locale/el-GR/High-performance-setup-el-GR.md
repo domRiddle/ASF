@@ -1,4 +1,4 @@
-# High-performance setup
+# Ρύθμιση υψηλής απόδοσης
 
 This is exact opposite of **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and typically you want to follow those tips if you want to further increase ASF performance (in terms of CPU speed), for potential cost of increased memory usage.
 
@@ -60,6 +60,7 @@ export DOTNET_ReadyToRun=0
 export DOTNET_TC_QuickJitForLoops=1
 
 ./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm.sh # For generic build
 ```
 
 Ή στα Windows (powershell):
@@ -72,6 +73,7 @@ $Env:DOTNET_ReadyToRun=0
 $Env:DOTNET_TC_QuickJitForLoops=1
 
 .\ArchiSteamFarm.exe # For OS-specific build
+.\ArchiSteamFarm.cmd # For generic build
 ```
 
 ---

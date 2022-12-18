@@ -87,7 +87,8 @@ export DOTNET_GCHighMemPercent=0x50 # 80% as hex
 export DOTNET_GCLatencyLevel=0
 export DOTNET_gcTrimCommitOnLowMemory=1
 
-./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm # Para compilación de sistema operativo específico
+./ArchiSteamFarm.sh # Para compilación genérica
 ```
 
 O en Windows (powershell):
@@ -100,7 +101,8 @@ $Env:DOTNET_GCHighMemPercent=0x50 # 80% as hex
 $Env:DOTNET_GCLatencyLevel=0
 $Env:DOTNET_gcTrimCommitOnLowMemory=1
 
-.\ArchiSteamFarm.exe # For OS-specific build
+.\ArchiSteamFarm.exe # Para compilación de sistema operativo específico
+.\ArchiSteamFarm.cmd # Para compilación genérica
 ```
 
 En particular, `GCLatencyLevel` será muy útil, ya que hemos verificado que runtime realmente optimiza el código para la memoria y por lo tanto reduce significativamente el uso de memoria promedio, incluso con el recolector de basura de servidor. Es uno de los mejores trucos que puedes aplicar si quieres reducir significativamente el uso de memoria de ASF sin degradar demasiado el rendimiento con `OptimizationMode`.

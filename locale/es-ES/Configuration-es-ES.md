@@ -68,6 +68,7 @@ La configuración global se encuentra en el archivo `ASF.json` y tiene la siguie
     "CurrentCulture": null,
     "Debug": false,
     "FarmingDelay": 15,
+    "FilterBadBots": true,
     "GiftsLimiterDelay": 1,
     "Headless": false,
     "IdleFarmingPeriod": 8,
@@ -161,15 +162,21 @@ Tipo `byte` con valor predeterminado de `15`. A fin de que ASF funcione, comprob
 
 ---
 
+### `FilterBadBots`
+
+Tipo `bool` con valor predeterminado de `true`. Esta propiedad define si ASF declinará automáticamente las ofertas de intercambio recibidas de malhechores conocidos y marcados como tales. Para ello, ASF se comunicará con nuestro servidor según sea necesario para obtener una lista de los identificadores de Steam que se encuentran en la lista negra. Los bots listados son operados por personas clasificadas como perjudiciales para la iniciativa de ASF, tales como aquellos que violan nuestro **[código de conducta](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CODE_OF_CONDUCT.md)**, usan funciones y recursos provistos por nosotros tal como **[`PublicListing`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-es-ES#publiclisting)** para abusar y aprovecharse de otras personas, o realizan actividades criminales tal como lanzar ataques DDoS al servidor. Dado que ASF tiene una postura firme sobre la equidad, honestidad y cooperación entre sus usuarios para lograr que toda la comunidad prospere, esta propiedad esta habilitada por defecto, y por lo tanto ASF filtra de los servicios ofrecidos a los bots que hemos clasificado como dañinos. A menos que tengas una **buena** razón para editar esta propiedad, tal como no estar de acuerdo con nuestra declaración e intencionalmente desees permitir que esos bots operen (incluyendo aprovecharse de tus cuentas), deberías dejarla en su valor predeterminado.
+
+---
+
 ### `GiftsLimiterDelay`
 
-Tipo `byte` con valor predeterminado de `1`. ASF se asegurará de que haya por lo menos `GiftsLimiterDelay` segundos entre dos solicitudes de procesamiento (activación) de regalo/clave/licencia para evitar que se active el límite de intentos. Además, también será usado como limitador global para las solicitudes de listas de juegos, como la enviada por el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `owns`. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
+Tipo `byte` con valor predeterminado de `1`. ASF se asegurará de que haya por lo menos `GiftsLimiterDelay` segundos entre dos solicitudes de manejo de regalo/clave/licencia (activación) para evitar que se active el límite de tarifa. Además, también será usado como limitador global para las solicitudes de listas de juegos, como la enviada por el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `owns`. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
 ---
 
 ### `Headless`
 
-Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si el proceso debe ejecutarse en modo headless. En modo headless, ASf asume que se está ejecutando en un servidor o en otro ambiente no interactivo, por lo tanto no intentará leer ninguna información a través de la entrada de consola. Esto incluye detalles bajo demanda (credenciales de cuenta como el código 2FA, el código de SteamGuard, contraseña o cualquier otra variable requerida por ASF para funcionar) así como todas las demás entradas mediante consola (tal como la consola interactiva de comandos). En otras palabras, el modo `Headless` es equivalente a hacer la consola de ASF de solo lectura. Esta configuración es útil principalmente para usuarios que ejecutan ASF en sus servidores, ya que en vez de solicitar, por ejemplo, el código 2FA, ASF abortará la operación deteniendo la cuenta. A menos que estés ejecutando ASF en un servidor, y si previamente confirmaste que ASF es capaz de operar en modo no headless, debes dejar esta propiedad deshabilitada. Cualquier interacción del usuario será rechazada estando en modo headless, y tus cuentas no se ejecutarán si requieren **cualquier** entrada de consola durante el inicio. Esto es útil para servidores, ya que ASF puede abortar el intento de iniciar sesión cuando se soliciten credenciales, en lugar de esperar (infinitamente) a que el usuario las proporcione. Habilitar este modo también te permitirá usar el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `input` que funciona como un reemplazo para la entrada de consola estándar. Si no estás seguro de cómo establecer esta propiedad, déjala con su valor predeterminado de `false`.
+Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si el proceso debe ejecutarse en modo "headless". En modo headless, ASf asume que se está ejecutando en un servidor o en otro ambiente no interactivo, por lo tanto no intentará leer ninguna información a través de la entrada de consola. Esto incluye detalles bajo demanda (credenciales de cuenta como el código 2FA, el código de SteamGuard, contraseña o cualquier otra variable requerida por ASF para funcionar) así como todas las demás entradas mediante consola (tal como la consola interactiva de comandos). En otras palabras, el modo `Headless` es equivalente a hacer la consola de ASF de solo lectura. Esta configuración es útil principalmente para usuarios que ejecutan ASF en sus servidores, ya que en vez de solicitar, por ejemplo, el código 2FA, ASF abortará la operación deteniendo la cuenta. A menos que estés ejecutando ASF en un servidor, y si previamente confirmaste que ASF es capaz de operar en modo no headless, debes dejar esta propiedad deshabilitada. Cualquier interacción del usuario será rechazada estando en modo headless, y tus cuentas no se ejecutarán si requieren **cualquier** entrada de consola durante el inicio. Esto es útil para servidores, ya que ASF puede abortar al intentar iniciar sesión cuando se le soliciten credenciales, en lugar de esperar (infinitamente) a que el usuario las proporcione. Habilitar este modo también te permitirá usar el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `input` que funciona como un reemplazo para la entrada de consola estándar. Si no estás seguro de cómo establecer esta propiedad, déjala con su valor predeterminado de `false`.
 
 Si estás ejecutando ASF en un servidor, tal vez quieras usar esta opción junto con el **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-ES)** `--process-required`.
 
@@ -177,13 +184,13 @@ Si estás ejecutando ASF en un servidor, tal vez quieras usar esta opción junto
 
 ### `IdleFarmingPeriod`
 
-Tipo `byte` con valor predeterminado de `8`. Cuando ASF no tiene nada para recolectar, periódicamente comprobará cada `IdleFarmingPeriod` horas si la cuenta tiene nuevos juegos para recolectar. Esta característica no es necesaria cuando hablamos de nuevos juegos que obtenemos, ya que ASF es lo suficientemente inteligente para comprobar las páginas de insignias en este caso. `IdleFarmingPeriod` es principalmente para situaciones como cuando se le añaden cromos a juegos antiguos que ya teníamos. En este caso no hay ningún evento, por lo que ASF tiene que comprobar periódicamente las páginas de insignias si queremos tener cubierta esta situación. El valor `0` desactiva esta función. También revisa: `ShutdownOnFarmingFinished`.
+Tipo `byte` con valor predeterminado de `8`. Cuando ASF no tiene nada para "farmear", periódicamente comprobará cada `IdleFarmingPeriod` horas si la cuenta tiene nuevos juegos para "farmear". Esta característica no es necesaria cuando hablamos de nuevos juegos que obtenemos, ya que ASF es lo suficientemente inteligente para comprobar las páginas de insignias en este caso. `IdleFarmingPeriod` es principalmente para situaciones como cuando se le añaden cromos a juegos viejos que ya tenemos. En este caso no hay ningún evento, por lo que ASF tiene que comprobar periódicamente las páginas de insignias si queremos tener esto cubierto. El valor `0` desactiva esta función. También revisa: `ShutdownOnFarmingFinished`.
 
 ---
 
 ### `InventoryLimiterDelay`
 
-Tipo `byte` con valor predeterminado de `4`. ASF se asegurará de que haya por lo menos `InventoryLimiterDelay` segundos entre dos solicitudes consecutivas de inventario para evitar que se active el límite de intentos- estos son usados para obtener el inventario de Steam, especialmente durante tus propios comandos tal como `transfer`, y también en funciones como `MatchActively`. El valor predeterminado de `4` fue establecido basado en obtener el inventario de más de 100 instancias de bot consecutivas, y debería satisfacer a la mayoría (si no a todos) los usuarios. Sin embargo tal vez quieras reducirlo, o incluso cambiarlo a `0` si tienes una cantidad pequeña de bots, así ASF ignorará el retraso y procesará los inventarios de Steam mucho más rápido. Se advierte, sin embargo, que establecerlo muy bajo **resultará** en que Steam bloquee temporalmente tu IP, y eso impedirá obtener tu inventario por completo. También podría ser necesario que incrementes este valor si estás ejecutando muchos bots con muchas solicitudes de inventario, aunque en este caso tal vez debas tratar de limitar el número de esas solicitudes. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
+Tipo `byte` con valor predeterminado de `4`. ASF se asegurará de que haya por lo menos `InventoryLimiterDelay` segundos entre dos solicitudes consecutivas de inventario para evitar que se active el límite de tarifa - estos son usados para obtener el inventario de Steam, especialmente durante tus propios comandos tal como `transfer`, y también en funciones como `MatchActively`. El valor predeterminado de `4` fue establecido basado en obtener el inventario de más de 100 instancias de bot consecutivas, y debería satisfacer a la mayoría (si no a todos) los usuarios. Sin embargo tal vez quieras reducirlo, o incluso cambiarlo a `0` si tienes una poca cantidad de bots, así ASF ignorará el retraso y "looteará" los inventarios de Steam mucho más rápido. Se advierte, sin embargo, que establecerlo muy bajo **resultará** en que Steam bloquee temporalmente tu IP, y eso impedirá obtener tu inventario por completo. También podría ser necesario que incrementes este valor si estás ejecutando muchos bots con muchas solicitudes de inventario, aunque en este caso tal vez debas tratar de limitar el número de esas solicitudes. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
 ---
 
@@ -195,7 +202,7 @@ Tipo `bool` con valor predeterminado de `true`. Esta propiedad define si el serv
 
 ### `IPCPassword`
 
-Tipo `string` con valor predeterminado de `null`. Esta propiedad define la contraseña obligatoria para cada llamada API hecha vía IPC y sirve como una medida de seguridad adicional. Cuando se establece un valor no vacío, todas las solicitudes IPC requerirán adicionalmente la propiedad `password` establecida al valor especificado aquí. El valor predeterminado de `null` omitirá la necesidad de una contraseña, haciendo que ASF respete todas las consultas. Además de eso, activar esta opción también habilita un mecanismo integrado anti fuerza bruta que restringirá temporalmente determinada `IPAddress` dirección IP al enviar muchas solicitudes no autorizadas en un corto período de tiempo. A menos que tengas una razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
+Tipo `string` con valor predeterminado de `null`. Esta propiedad define la contraseña obligatoria para cada llamada API hecha vía IPC y sirve como una medida de seguridad adicional. Cuando se establece un valor no vacío, todas las solicitudes IPC requerirán adicionalmente la propiedad `password` establecida a la contraseña especificada aquí. El valor predeterminado de `null` omitirá la necesidad de una contraseña, haciendo que ASF respete todas las consultas. Además de eso, activar esta opción también habilita un mecanismo integrado anti fuerza bruta que restringirá temporalmente determinada `Dirección IP` al enviar muchas solicitudes no autorizadas en un corto período de tiempo. A menos que tengas una razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
 ---
 
@@ -207,13 +214,13 @@ Tipo `byte` con valor predeterminado de `0`. Esta propiedad define el formato de
 
 ### `LicenseID`
 
-`Guid?` type with default value of `null` (in JSON, written as `string`). This property allows our **[sponsors](https://github.com/sponsors/JustArchi)** to enhance ASF with optional features that require paid resources to work. For now, this allows you to make use of **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature in `ItemsMatcher` plugin.
+Tipo `Guid?` con valor predeterminado de `null` (en JSON, escrito como `string`). Esta propiedad permite a nuestros **[patrocinadores](https://github.com/sponsors/JustArchi)** mejorar ASF con funciones opcionales que requieren recursos pagados para funcionar. Por ahora, esto permite hacer uso de la función **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-es-ES#matchactively)** en el plugin `ItemsMatcher`.
 
-If you're ASF sponsor, you can obtain your license **[here](https://asf.justarchi.net/User/Status)**. You'll need to sign in with GitHub for confirming your identity, we ask only for read-only public information, which is your username. `LicenseID` is made out of 32 hexadecimal characters, such as `f6a0529813f74d119982eb4fe43a9a24`.
+Si eres patrocinador de ASF, puedes obtener tu licencia **[aquí](https://asf.justarchi.net/User/Status)**. Necesitarás iniciar sesión con GitHub para confirmar tu identidad, únicamente solicitamos información pública de solo lectura, que es tu nombre de usuario. `LicenseID` se compone de 32 caracteres hexadecimales, tal como `f6a0529813f74d119982eb4fe43a9a24`.
 
-**Ensure that you do not share your `LicenseID` with other people**. Since it's issued on personal basis, it might get revoked if it's leaked. If by any chance this happened to you accidentally, you can generate a new one from the same place.
+**Asegúrate de no compartir tu `LicenseID` con otras personas**. Dado que se emite a título personal, podría ser revocada si se filtra. Si esto te llegara a ocurrir por accidente, puedes generar uno nuevo desde el mismo lugar.
 
-Unless you want to enable extra ASF functionalities, there is no need for you to use the license.
+A menos que desees habilitar funciones adicionales de ASF, no es necesario que utilices la licencia.
 
 ---
 
@@ -684,11 +691,11 @@ También ten en cuenta que no puedes reenviar o distribuir claves a bots a los q
 
 Tipo `byte flags` con valor predeterminado de `3`. Esta propiedad define el comportamiento de ASF por cada bot cuando se trata de la comunicación con servicios remotos de terceros, y se describe a continuación:
 
-| Valor | Nombre        | Descripción                                                                                                                                                                                                                                                                                             |
-| ----- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None          | No se permite la comunicación de terceros, dejando inutilizables ciertas funciones de ASF.                                                                                                                                                                                                              |
-| 1     | SteamGroup    | Permite la comunicación con el **[grupo de ASF en Steam](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                                  |
-| 2     | PublicListing | Permite la comunicación con el  **[listado ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-es-ES#lista-p%C3%BAblica-asf-stm)** para poder ser mostrado, si el usuario también tiene habilitado `SteamTradeMatcher` en **[`TradingPreferences`](#tradingpreferences)** |
+| Valor | Nombre        | Descripción                                                                                                                                                                                                                                                                     |
+| ----- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | None          | No se permite la comunicación de terceros, dejando inutilizables ciertas funciones de ASF.                                                                                                                                                                                      |
+| 1     | SteamGroup    | Permite la comunicación con el **[grupo de ASF en Steam](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                          |
+| 2     | PublicListing | Permite la comunicación con la **[lista STM de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-es-ES#publiclisting)** para poder ser listado, si el usuario también habilitó `SteamTradeMatcher` en **[`TradingPreferences`](#tradingpreferences)** |
 
 Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
@@ -792,7 +799,7 @@ Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comp
 | 2     | SteamTradeMatcher   | Participa pasivamente en intercambios tipo **[STM](https://www.steamtradematcher.com)**. Visita la sección de **[intercambios](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-es-ES#steamtradematcher)** para más información |
 | 4     | MatchEverything     | Requiere que `SteamTradeMatcher` esté definido, y en combinación con este - también acepta intercambios malos además de los buenos y neutrales                                                                                             |
 | 8     | DontAcceptBotTrades | No acepta automáticamente intercambios `loot` de otras instancias de bot                                                                                                                                                                   |
-| 16    | MatchActively       | Participa activamente en intercambios tipo **[STM](https://www.steamtradematcher.com)**. Visita la sección de **[intercambios](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-es-ES#matchactively)** para más información     |
+| 16    | MatchActively       | Participa activamente en intercambios tipo **[STM](https://www.steamtradematcher.com)**. Visita **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-es-ES#matchactively)** para más información. |
 
 Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
@@ -953,7 +960,7 @@ Ejemplo para `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 
 ---
 
-`ImmutableDictionary<keyType, valueType>` - Diccionario (mapa) inmutable que mapea una clave única especificada en su `keyType`, al valor especificado en su `valueType`. En JSON, está definida como un objeto con pares clave-valor. Ten en cuenta que `keyType` siempre va entre comillas en este caso, incluso si es un tipo de valor, tal como `ulong`. También existe un requisito estricto de que la clave sea única en el mapa, esta vez también impuesto por JSON.
+`ImmutableDictionary<keyType, valueType>` - Array asociativo (mapa) inmutable que mapea una clave única especificada en su `keyType`, al valor especificado en su `valueType`. En JSON, está definida como un objeto con pares clave-valor. Ten en cuenta que `keyType` siempre va entre comillas en este caso, incluso si es un tipo de valor, tal como `ulong`. También existe un requisito estricto de que la clave sea única en el mapa, esta vez también impuesto por JSON.
 
 Ejemplo para `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 

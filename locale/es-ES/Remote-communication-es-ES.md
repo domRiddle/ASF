@@ -22,10 +22,13 @@ ASF se comunica con la **[API de GitHub](https://api.github.com)** para obtener 
 
 ASF se comunica con **[nuestro servidor](https://asf.justarchi.net)** para funcionalidades avanzadas. En particular, esto incluye:
 - Verificar las sumas de comprobación de las compilaciones de ASF descargadas de GitHub contra nuestra base de datos independiente para asegurar que todas las compilaciones descargadas sean legítimas (libres de malware, ataques de intermediario u otro tipo de manipulación)
+- Obtener la lista de bots malos para filtrado si mantienes habilitado `FilterBadBots` en la configuración global.
 - Anunciar tu bot en **[nuestra lista](https://asf.justarchi.net/STM)** si habilitaste `SteamTradeMatcher` en **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#tradingpreferences)** y cumples con otros criterios.
 - Descargar los bots disponibles para intercambiar de **[nuestra lista](https://asf.justarchi.net/STM)** si habilitaste `MatchActively` en **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#tradingpreferences)** y cumples con otros criterios.
 
 Como medida de seguridad, no es posible desactivar la suma de verificación para las compilaciones de ASF. Sin embargo, puedes desactivar las actualizaciones automáticas si deseas evitar esto, como se describió anteriormente en la sección GitHub.
+
+Puedes deshabilitar el ajuste `FilterBadBots` si quieres evitar obtener la lista del servidor.
 
 Puedes optar por no ser anunciado en la lista desactivando la bandera `PublicListing` en las opciones **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#remotecommunication)** del bot. Esto puede ser útil si quieres ejecutar un bot con `SteamTradeMatcher` sin ser anunciado al mismo tiempo.
 

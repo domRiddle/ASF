@@ -1,6 +1,6 @@
 # 遠端通訊
 
-本章節會詳細說明ASF所包含的遠端通訊，並進一步解釋您如何改變它。 雖然我們不認為以下任何內容是惡意或無用的，我們也沒有公開它的法律義務，但我們希望您能更好理解本程式功能，特別是在您的隱私及共享資料的方面。
+本章節會詳細說明ASF所包含的遠端通訊，並進一步解釋您如何改變它。 雖然我們不認為以下任何內容是惡意或無用的，我們也沒有公開它的法律義務，但我們希望您能更好理解本程式功能，特別是在您的隱私及共用資料的方面。
 
 ## Steam
 
@@ -22,10 +22,13 @@ ASF與&#8203;**[GitHub的API](https://api.github.com)**&#8203;通訊，獲取&#8
 
 ASF與&#8203;**[我們自己的伺服器](https://asf.justarchi.net)**&#8203;通訊，以提供進階功能。 特別包含了：
 - 依據我們自己的獨立資料庫，驗證從GitHub下載的ASF建置的核對和，以確保所有下載的建置檔案都是正規的（不含惡意程式、MITM攻擊或其他篡改破壞）
+- 如果您啟用了&#8203;`FilterBadBots`&#8203;全域設定，則會提取用於過濾不良Bot的清單。
 - 如果您在&#8203;**[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#tradingpreferences)**&#8203;中啟用&#8203;`SteamTradeMatcher`&#8203;並滿足其他準則，則會在&#8203;**[我們的清單](https://asf.justarchi.net/STM)**&#8203;中顯示您的Bot
 - 如果您在&#8203;**[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#tradingpreferences)**&#8203;中啟用&#8203;`MatchActively`&#8203;並滿足其他準則，則會從&#8203;**[我們的清單](https://asf.justarchi.net/STM)**&#8203;中下載當前可交易的Bot來進行交易
 
 作為一項安全措施，您無法停用ASF建置檔案核對和的驗證。 但如果您不想發生這種情形，如上文的GitHub章節中所述，您可以完全停用自動更新。
+
+如果您不想從伺服器提取清單，您可以停用&#8203;`FilterBadBots`&#8203;設定。
 
 您可以透過在Bot的&#8203;**[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#remotecommunication)**&#8203;設定中停用&#8203;`PublicListing`&#8203;旗標，來決定不顯示在清單中。 如果您想執行&#8203;`SteamTradeMatcher`&#8203; Bot且不被顯示，這可能會有幫助。
 

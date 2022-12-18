@@ -1,6 +1,6 @@
 # 常見問題
 
-常見問題包含了您可能會經常遇到的問題及它們的解答。 如果您的問題並不常見，請參閱&#8203;**[其他常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-zh-TW)**&#8203;。
+常見問題包含了您可能會經常遇到的問題及它們的解答。 如果您的問題較不常見，請參閱&#8203;**[其他常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-zh-TW)**&#8203;。
 
 # 目錄
 

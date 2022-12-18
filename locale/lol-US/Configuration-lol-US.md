@@ -68,6 +68,7 @@ GLOBAL CONFIG IZ LOCATD IN `ASF.json` FILE AN HAS FOLLOWIN STRUCCHUR:
     "CurrentCulture": null,
     "Debug": false,
     "FarmingDelay": 15,
+    "FilterBadBots": true,
     "GiftsLimiterDelay": 1,
     "Headless": false,
     "IdleFarmingPeriod": 8,
@@ -158,6 +159,12 @@ IN SHORT, DEFAULT VALUE SHUD BE DESENT 4 MOST CASEZ, BUT U CUD WANTS 2 INCREASE 
 ### `FarmingDelay`
 
 `byte` TYPE WIF DEFAULT VALUE OV `15`. IN ORDR 4 ASF 2 WERK, IT WILL CHECK CURRENTLY FARMD GAME EVRY `FarmingDelay` MINUTEZ, IF IT PERHAPS DROPPD ALL CARDZ ALREADY. SETTIN DIS PROPERTY 2 LOW CAN RESULT IN EXCESIV AMOUNT OV STEAM REQUESTS BEAN SENT, WHILE SETTIN IT 2 HIGH CAN RESULT IN ASF STILL "FARMIN" GIVEN TITLE 4 UP 2 `FarmingDelay` MINUTEZ AFTR IZ FULLY FARMD. DEFAULT VALUE SHUD BE AWSUM 4 MOST USERS, BUT IF U HAS LOTZ DA BOTS RUNNIN, U CUD CONSIDR INCREASIN IT 2 SOMETHIN LIEK `30` MINUTEZ IN ORDR 2 LIMIT STEAM REQUESTS BEAN SENT. IZ NICE 2 NOWT DAT ASF USEZ EVENT-BASD MECHANISM AN CHECKZ GAME BADGE PAEG ON EACH STEAM ITEM DROPPD, SO IN GENERAL **WE DOAN EVEN NED 2 CHECK IT IN FIXD TIEM INTERVALS**, BUT AS WE DOAN FULLY TRUST STEAM NETWORK - WE CHECK GAME BADGE PAEG ANYWAY, IF WE DIDNT CHECK IT THRU CARD BEAN DROPPD EVENT IN LAST `FarmingDelay` MINUTEZ (IN CASE STEAM NETWORK DIDNT INFORM US BOUT ITEM DROPPD OR STUFF LIEK DAT). ASSUMIN DAT STEAM NETWORK IZ WERKIN PROPERLY, DECREASIN DIS VALUE **WILL NOT IMPROOOV FARMIN EFFICIENCY IN ANY WAI**, WHILE **INCREASIN NETWORK OVERHEAD SIGNIFICANTLY** - IZ RECOMMENDD ONLY 2 INCREASE IT (IF NEEDD) FRUM DEFAULT OV `15` MINUTEZ. UNLES U HAS **STRONG** REASON 2 EDIT DIS PROPERTY, U SHUD KEEP IT AT DEFAULT.
+
+---
+
+### `FilterBadBots`
+
+`bool` TYPE WIF DEFAULT VALUE OV `true`. This property defines whether ASF will automatically decline trade offers that are received from known and marked bad actors. In order to do that, ASF will communicate with our server on as-needed basis to fetch a list of blacklisted Steam identificators. The bots listed are operated by people that are classified as harmful towards ASF initiative by us, such as those that violate our **[code of conduct](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CODE_OF_CONDUCT.md)**, use provided functionality and resources by us such as **[`PublicListing`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** in order to abuse and exploit other people, or are doing outright criminal activity such as launching DDoS attacks on the server. Since ASF has strong stance on overall fairness, honesty and cooperation between its users in order to make the whole community thrive, this property is enabled by default, and therefore ASF filters bots that we've classified as harmful from services offered. Unless you have a **strong** reason to edit this property, such as disagreeing with our statement and intentionally allowing those bots to operate (including exploiting your accounts), you should keep it at default.
 
 ---
 
@@ -684,11 +691,11 @@ ALSO KEEP IN MIND DAT U CANT FWD OR DISTRIBUTE KEYS 2 BOTS DAT U DO NOT HAS ACCE
 
 `byte flags` TYPE WIF DEFAULT VALUE OV `3`. DIS PROPERTY DEFINEZ PER-BOT ASF BEHAVIOUR WHEN IT COMEZ 2 COMMUNICASHUN WIF REMOTE, THIRD-PARTY SERVICEZ, AN IZ DEFIND AS BELOW:
 
-| VALUE | NAYM          | DESCRIPSHUN                                                                                                                                                                                                                                                          |
-| ----- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None          | NO ALLOWD THIRD-PARTY COMMUNICASHUN, RENDERIN SELECTD ASF FEATUREZ UNUSABLE                                                                                                                                                                                          |
-| 1     | SteamGroup    | ALLOWS COMMUNICASHUN WIF **[ASF'S STEAM GROUP](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                         |
-| 2     | PublicListing | ALLOWS COMMUNICASHUN WIF **[ASF'S STM LISTIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** IN ORDR 2 BEAN LISTD, IF USR HAS ALSO ENABLD `SteamTradeMatcher` IN **[`TradingPreferences`](#tradingpreferences)** |
+| VALUE | NAYM          | DESCRIPSHUN                                                                                                                                                                                                                                               |
+| ----- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | None          | NO ALLOWD THIRD-PARTY COMMUNICASHUN, RENDERIN SELECTD ASF FEATUREZ UNUSABLE                                                                                                                                                                               |
+| 1     | SteamGroup    | ALLOWS COMMUNICASHUN WIF **[ASF'S STEAM GROUP](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                              |
+| 2     | PublicListing | ALLOWS COMMUNICASHUN WIF **[ASF'S STM LISTIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** IN ORDR 2 BEAN LISTD, IF USR HAS ALSO ENABLD `SteamTradeMatcher` IN **[`TradingPreferences`](#tradingpreferences)** |
 
 PLZ NOTICE DAT DIS PROPERTY IZ `flags` FIELD, THEREFORE IZ POSIBLE 2 CHOOSE ANY COMBINASHUN OV AVAILABLE VALUEZ. CHECK OUT **[FLAGS MAPPIN](#json-mappin)** IF UD LIEK 2 LERN MOAR. NOT ENABLIN ANY OV FLAGS RESULTS IN `None` OPSHUN.
 
@@ -785,14 +792,14 @@ IZ NICE 2 NOWT DAT THAR IZ WAN MOAR EXTRA `Owner` PERMISHUN, WHICH IZ DECLARD AS
 
 `byte flags` TYPE WIF DEFAULT VALUE OV `0`. DIS PROPERTY DEFINEZ ASF BEHAVIOUR WHEN IN TRADIN, AN IZ DEFIND AS BELOW:
 
-| VALUE | NAYM                | DESCRIPSHUN                                                                                                                                                                                             |
-| ----- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None                | NO SPESHUL TRADIN PREFERENCEZ, DEFAULT                                                                                                                                                                  |
-| 1     | AcceptDonations     | ACCEPTS TRADEZ IN WHICH WERE NOT LOSIN ANYTHIN                                                                                                                                                          |
-| 2     | SteamTradeMatcher   | PASIVELY PARTICIPATEZ IN **[STM](https://www.steamtradematcher.com)**-LIEK TRADEZ. VISIT **[TRADIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-lol-US#steamtradematcher)** 4 MOAR INFO |
-| 4     | MatchEverything     | REQUIREZ `SteamTradeMatcher` 2 BE SET, AN IN COMBINASHUN WIF IT - ALSO ACCEPTS BAD TRADEZ IN ADDISHUN 2 GUD AN NEUTRAL ONEZ                                                                             |
-| 8     | DontAcceptBotTrades | DOESNT AUTOMATICALLY ACCEPT `loot` TRADEZ FRUM OTHR BOT INSTANCEZ                                                                                                                                       |
-| 16    | MatchActively       | ACTIVELY PARTICIPATEZ IN **[STM](https://www.steamtradematcher.com)**-LIEK TRADEZ. VISIT **[TRADIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-lol-US#matchactively)** 4 MOAR INFO     |
+| VALUE | NAYM                | DESCRIPSHUN                                                                                                                                                                                                           |
+| ----- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | None                | NO SPESHUL TRADIN PREFERENCEZ, DEFAULT                                                                                                                                                                                |
+| 1     | AcceptDonations     | ACCEPTS TRADEZ IN WHICH WERE NOT LOSIN ANYTHIN                                                                                                                                                                        |
+| 2     | SteamTradeMatcher   | PASIVELY PARTICIPATEZ IN **[STM](https://www.steamtradematcher.com)**-LIEK TRADEZ. VISIT **[TRADIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-lol-US#steamtradematcher)** 4 MOAR INFO               |
+| 4     | MatchEverything     | REQUIREZ `SteamTradeMatcher` 2 BE SET, AN IN COMBINASHUN WIF IT - ALSO ACCEPTS BAD TRADEZ IN ADDISHUN 2 GUD AN NEUTRAL ONEZ                                                                                           |
+| 8     | DontAcceptBotTrades | DOESNT AUTOMATICALLY ACCEPT `loot` TRADEZ FRUM OTHR BOT INSTANCEZ                                                                                                                                                     |
+| 16    | MatchActively       | ACTIVELY PARTICIPATEZ IN **[STM](https://www.steamtradematcher.com)**-LIEK TRADEZ. Visit **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** for more info |
 
 PLZ NOTICE DAT DIS PROPERTY IZ `flags` FIELD, THEREFORE IZ POSIBLE 2 CHOOSE ANY COMBINASHUN OV AVAILABLE VALUEZ. CHECK OUT **[FLAGS MAPPIN](#json-mappin)** IF UD LIEK 2 LERN MOAR. NOT ENABLIN ANY OV FLAGS RESULTS IN `None` OPSHUN.
 

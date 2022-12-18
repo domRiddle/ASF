@@ -59,7 +59,8 @@ export DOTNET_TieredPGO=1
 export DOTNET_ReadyToRun=0
 export DOTNET_TC_QuickJitForLoops=1
 
-./ArchiSteamFarm # Para la compilación de sistema operativo específico
+./ArchiSteamFarm # Para compilación de sistema operativo específico
+./ArchiSteamFarm.sh # Para compilación genérica
 ```
 
 O en Windows (powershell):
@@ -71,7 +72,8 @@ $Env:DOTNET_TieredPGO=1
 $Env:DOTNET_ReadyToRun=0
 $Env:DOTNET_TC_QuickJitForLoops=1
 
-.\ArchiSteamFarm.exe # Para la compilación de sistema operativo específico
+.\ArchiSteamFarm.exe # Para compilación de sistema operativo específico
+.\ArchiSteamFarm.cmd # Para compilación genérica
 ```
 
 ---

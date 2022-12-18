@@ -68,6 +68,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
     "CurrentCulture": null,
     "Debug": false,
     "FarmingDelay": 15,
+    "FilterBadBots": true,
     "GiftsLimiterDelay": 1,
     "Headless": false,
     "IdleFarmingPeriod": 8,
@@ -161,6 +162,12 @@ In short, default value should be decent for most cases, but you may want to inc
 
 ---
 
+### `FilterBadBots`
+
+`bool` 타입으로 기본값은 `true`입니다. This property defines whether ASF will automatically decline trade offers that are received from known and marked bad actors. In order to do that, ASF will communicate with our server on as-needed basis to fetch a list of blacklisted Steam identificators. The bots listed are operated by people that are classified as harmful towards ASF initiative by us, such as those that violate our **[code of conduct](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CODE_OF_CONDUCT.md)**, use provided functionality and resources by us such as **[`PublicListing`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** in order to abuse and exploit other people, or are doing outright criminal activity such as launching DDoS attacks on the server. Since ASF has strong stance on overall fairness, honesty and cooperation between its users in order to make the whole community thrive, this property is enabled by default, and therefore ASF filters bots that we've classified as harmful from services offered. Unless you have a **strong** reason to edit this property, such as disagreeing with our statement and intentionally allowing those bots to operate (including exploiting your accounts), you should keep it at default.
+
+---
+
 ### `GiftsLimiterDelay`
 
 `byte` 타입으로 기본값은 `1`입니다. ASF는 등록제한이 걸리는 것을 피하기 위해 두개의 연속된 선물/키/라이센스 처리(등록) 요청 사이에 적어도 `GiftsLimiterDelay`초의 간격을 둡니다. 추가로 `owns` **[명령어](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ko-KR)** 로 수행되는 게임 목록 요청에도 일반적 제한자로써 사용됩니다. 이 속성값을 변경해야 할 **명확한** 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
@@ -183,7 +190,7 @@ If you're running ASF on the server, you probably want to use this option togeth
 
 ### `InventoryLimiterDelay`
 
-`byte` type with default value of `4`. ASF는 등록제한이 걸리는 것을 피하기 위해 두개의 연속된 보관함 요청 사이에 적어도 `InventoryLimiterDelay`초의 간격을 둡니다. 이는 `transfer`와 같은 명령어 수행중이나 `MatchActively`와 같은 기능에서 Steam 보관함을 가져올 때 사용됩니다. Default value of `4` was set based on fetching inventories of over 100 consecutive bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and loot steam inventories much faster. Be warned though, as setting it too low **will** result in Steam temporarily banning your IP, and that will prevent you from fetching your inventory at all. You also may need to increase this value if you're running a lot of bots with a lot of inventory requests, although in this case you should probably try to limit number of those requests instead. 이 속성값을 변경해야 할 **명확한** 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
+`byte` 타입으로 기본값은 `4`입니다. ASF는 등록제한이 걸리는 것을 피하기 위해 두개의 연속된 보관함 요청 사이에 적어도 `InventoryLimiterDelay`초의 간격을 둡니다. 이는 `transfer`와 같은 명령어 수행중이나 `MatchActively`와 같은 기능에서 Steam 보관함을 가져올 때 사용됩니다. Default value of `4` was set based on fetching inventories of over 100 consecutive bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and loot steam inventories much faster. Be warned though, as setting it too low **will** result in Steam temporarily banning your IP, and that will prevent you from fetching your inventory at all. You also may need to increase this value if you're running a lot of bots with a lot of inventory requests, although in this case you should probably try to limit number of those requests instead. 이 속성값을 변경해야 할 **명확한** 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
 ---
 
@@ -281,7 +288,7 @@ By default ASF will use all available Steam protocols as a measure for fighting 
 
 ### `UpdateChannel`
 
-`byte` 타입으로 기본값은 `1`입니다. 이 속성값은 자동 업데이트(`UpdatePeriod` 가 `0`보다 큰 경우)나 업데이트 알림에서 사용할 업데이트 채널을 정의합니다. 현재 ASF는 3개의 업데이트 채널을 지원합니다. `0`은 `없음(None)`, `1`은 `안정(Stable)`, 그리고 `2`는 `실험(Experimental)`입니다. `안정(Stable)` 채널은 기본 릴리스 채널로, 대부분의 사용자가 사용해야 합니다. `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. 스스로 고급사용자라고 생각하지 않는다면 기본값 `1`인 안정(Stable) 채널을 유지하십시오. `실험(Experimental)` 채널은 버그를 제보하고, 이슈를 다루며 피드백을 주는 방법을 아는 사용자 용입니다. 기술지원은 제공되지 않습니다. Check out ASF **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)** if you'd like to learn more. 모든 버전확인을 완전히 제거하고 싶다면 `UpdateChannel`을 `0`(`없음(None)`)으로 설정할 수도 있습니다. `UpdateChannel`을 `0`으로 설정하면 `update` 명령을 포함한 업데이트와 관련된 모든 기능을 모두 비활성화합니다. Using `None` channel is **strongly discouraged** due to exposing yourself to all sort of problems (mentioned in `UpdatePeriod` description below).
+`byte` 타입으로 기본값은 `1`입니다. 이 속성값은 자동 업데이트(`UpdatePeriod` 가 `0`보다 큰 경우)나 업데이트 알림에서 사용할 업데이트 채널을 정의합니다. 현재 ASF는 3개의 업데이트 채널을 지원합니다. `0`은 `없음(None)`, `1`은 `안정(Stable)`, 그리고 `2`는 `실험(Experimental)`입니다. `안정(Stable)` 채널은 기본 릴리스 채널로, 대부분의 사용자가 사용해야 합니다. `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. 스스로 고급사용자라고 생각하지 않는다면 기본값 `1`인 안정(Stable) 채널을 유지하십시오. `실험(Experimental)` 채널은 버그를 제보하고, 이슈를 다루며 피드백을 주는 방법을 아는 사용자 용입니다. 기술지원은 제공되지 않습니다. 더 알고 싶다면 ASF의 **[릴리스 주기](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-ko-KR)** 를 참고하십시오. 모든 버전확인을 완전히 제거하고 싶다면 `UpdateChannel`을 `0`(`없음(None)`)으로 설정할 수도 있습니다. `UpdateChannel`을 `0`으로 설정하면 `update` 명령을 포함한 업데이트와 관련된 모든 기능을 모두 비활성화합니다. 아래의 `UpdatePeriod` 설명에서 언급하는 모든 종류의 문제에 노출되므로 `없음(None)` 채널은 **하지 않기를 강력하게 권고합니다**.
 
 **지금 하고 있는 것이 뭔지 알고 있지 않다면**, 기본값 그대로 두는 것을 **강력하게** 권장합니다.
 
@@ -684,11 +691,11 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 `byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
 
-| 값 | 이름            | 설명                                                                                                                                                                                                                                                                           |
-| - | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0 | 없음(None)      | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
-| 1 | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
-| 2 | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+| 값 | 이름            | 설명                                                                                                                                                                                                                                                                |
+| - | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | 없음(None)      | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                    |
+| 1 | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                     |
+| 2 | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
 
 이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
@@ -716,7 +723,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `ShutdownOnFarmingFinished`
 
-`bool` 타입으로 기본값은 `false`입니다. ASF는 활성화된 모든 시간동안 계정을 "점유하고" 있습니다. 해당 계정의 농사가 끝났다면, ASF는 주기적으로 매 `IdleFarmingPeriod` 시간마다 Steam 카드가 있는 새로운 게임이 그 사이에 추가되었는지를 확인하여 프로세스를 재시작할 필요없이 농사를 계속할 수 있도록 합니다. 이는 대부분의 사람들에게 유용한데, ASF는 필요하면 자동으로 농사를 이어서할 수 있기 때문입니다. 하지만 해당 계정이 완전히 농사가 끝난 다음에 프로세스를 실제로 멈추고 싶다면, 이 속성값을 `true`로 설정함으로써 그렇게 할 수 있습니다. 활성화되면 ASF는 계정의 농사가 완전히 끝나면 로그오프하여 더이상 주기적으로 체크하거나 점유하지 않게 합니다. ASF가 모든 시간을 봇 인스턴스에 사용하도록 하거나, 혹은 농사 프로세스가 끝나면 멈추게 할지를 스스로 정해야 합니다. When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well, putting your machine at rest and allowing you to schedule other actions, such as sleep or shutdown at the same moment of last card dropping.
+`bool` 타입으로 기본값은 `false`입니다. ASF는 활성화된 모든 시간동안 계정을 "점유하고" 있습니다. 해당 계정의 농사가 끝났다면, ASF는 주기적으로 매 `IdleFarmingPeriod` 시간마다 Steam 카드가 있는 새로운 게임이 그 사이에 추가되었는지를 확인하여 프로세스를 재시작할 필요없이 농사를 계속할 수 있도록 합니다. 이는 대부분의 사람들에게 유용한데, ASF는 필요하면 자동으로 농사를 이어서할 수 있기 때문입니다. 하지만 해당 계정이 완전히 농사가 끝난 다음에 프로세스를 실제로 멈추고 싶다면, 이 속성값을 `true`로 설정함으로써 그렇게 할 수 있습니다. 활성화되면 ASF는 계정의 농사가 완전히 끝나면 로그오프하여 더이상 주기적으로 체크하거나 점유하지 않게 합니다. ASF가 모든 시간을 봇 인스턴스에 사용하도록 하거나, 혹은 농사 프로세스가 끝나면 멈추게 할지를 스스로 정해야 합니다. 모든 계정이 멈추고 프로세스가 `--process-required` **[모드](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-ko-KR)** 에서 실행중이 아니면, ASF 또한 종료되고 기기도 쉴 수 있게 되며, 마지막 카드 획득 순간에 대기모드나 종료 등 다른 작업을 할 수 있도록 합니다.
 
 이 속성값을 어떻게 설정해야 할지 모르겠다면, 기본값인 `false`로 두십시오.
 
@@ -785,14 +792,14 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 
 `byte flags` 타입으로 기본값은 `0`입니다. 이 속성값은 거래에서 ASF 봇의 행동을 아래와 같이 정의합니다.
 
-| 값  | 이름                           | 설명                                                                                                                                                                                 |
-| -- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0  | 없음(None)                     | No special trading preferences, default                                                                                                                                            |
-| 1  | 기부 수락(AcceptDonations)       | 잃는 것이 없다면 거래를 수락합니다.                                                                                                                                                               |
-| 2  | SteamTradeMatcher            | **[STM](https://www.steamtradematcher.com)** 과 같은 거래에 수동적으로 참여합니다. 자세한 사항은 **[거래](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-ko-KR#steamtradematcher)** 를 참고하십시오. |
-| 4  | 전부 매칭(MatchEverything)       | `SteamTradeMatcher` 가 설정되어 있어야 합니다. 좋음, 중립, 나쁨 거래를 수락합니다.                                                                                                                          |
-| 8  | 봇거래수락안함(DontAcceptBotTrades) | 다른 봇의 `loot` 거래를 자동으로 수락하지 않습니다.                                                                                                                                                   |
-| 16 | 능동적 매칭(MatchActively)        | **[STM](https://www.steamtradematcher.com)** 과 같은 거래에 능동적으로 참여합니다. 자세한 사항은 **[거래](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-ko-KR#matchactively)** 를 참고하십시오.     |
+| 값  | 이름                           | 설명                                                                                                                                                                                                    |
+| -- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0  | 없음(None)                     | No special trading preferences, default                                                                                                                                                               |
+| 1  | 기부 수락(AcceptDonations)       | 잃는 것이 없다면 거래를 수락합니다.                                                                                                                                                                                  |
+| 2  | SteamTradeMatcher            | **[STM](https://www.steamtradematcher.com)** 과 같은 거래에 수동적으로 참여합니다. 자세한 사항은 **[거래](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-ko-KR#steamtradematcher)** 를 참고하십시오.                    |
+| 4  | 전부 매칭(MatchEverything)       | `SteamTradeMatcher` 가 설정되어 있어야 합니다. 좋음, 중립, 나쁨 거래를 수락합니다.                                                                                                                                             |
+| 8  | 봇거래수락안함(DontAcceptBotTrades) | 다른 봇의 `loot` 거래를 자동으로 수락하지 않습니다.                                                                                                                                                                      |
+| 16 | 능동적 매칭(MatchActively)        | **[STM](https://www.steamtradematcher.com)** 과 같은 거래에 능동적으로 참여합니다. Visit **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** for more info |
 
 이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 

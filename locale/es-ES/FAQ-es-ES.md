@@ -16,7 +16,7 @@ Nuestras preguntas frecuentes básicas cubren preguntas estándar y sus posibles
 
 ### ¿Qué es ASF?
 ### ¿Por qué el programa indica que no hay nada para recolectar en mi cuenta?
-### Why ASF doesn't detect all of my games?
+### ¿Por qué ASF no detecta todos mis juegos?
 ### ¿Por qué mi cuenta está limitada?
 
 Antes de intentar entender lo que es ASF, debes asegurarte de que entiendes lo que son los cromos de Steam, y cómo obtenerlos, lo que se describe bastante bien en las preguntas frecuentes oficiales **[aquí](https://steamcommunity.com/tradingcards/faq)**.
@@ -211,7 +211,7 @@ Ten en cuenta que la tasa de obtención de cromos al jugar múltiples juegos es 
 
 ---
 
-### ¿Puedo obtener ban VAC por usar esto?
+### ¿Puedo obtener VAC ban por usar esto?
 
 No, no es posible porque ASF (a diferencia de Idle Master o SAM) no interfiere de ninguna manera con el cliente de Steam ni sus procesos. Es físicamente imposible obtener ban VAC por usar ASF, incluso si juegas en servidores seguros mientras ASF se está ejecutando - esto es porque **ASF ni siquiera requiere que el Cliente de Steam esté instalado** para funcionar correctamente. ASF es el único programa de recolección que actualmente garantiza ser libre de VAC.
 

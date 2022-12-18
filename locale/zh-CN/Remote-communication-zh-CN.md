@@ -22,10 +22,13 @@ ASF 与 **[GitHub 的 API](https://api.github.com)** 通信来获取 **[ASF Rele
 
 ASF 与[**我们的服务器**](https://asf.justarchi.net)通信提供进阶功能。 特别包括：
 - 验证从 GitHub 下载的 ASF 构建符合我们独立数据库中的校验和，以确保所有下载的构建是安全的（不含恶意软件、中间人攻击或其他篡改）
+- Fetching list of bad bots for filtering if you've kept `FilterBadBots` global config setting enabled.
 - 如果您在 **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#tradingpreferences)** 中启用了 `SteamTradeMatcher`，并满足我们的要求，则会在[**我们的列表**](https://asf.justarchi.net/STM)中展示您的机器人
 - 如果您在 **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#tradingpreferences)** 中启用了 `MatchActively`，并满足我们的其他要求，则会从[**我们的列表**](https://asf.justarchi.net/STM)中下载当前可以交易的机器人
 
 作为安全措施，您无法禁用 ASF 构建的校验和验证。  但是，如上文 GitHub 小节所述，如果您想避免此类通信，可以完全禁用自动更新。
+
+You can disable `FilterBadBots` setting if you want to avoid fetching the list from the server.
 
 您可以选择不在列表中展示，只需要在机器人的 **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#remotecommunication)** 设置中关闭 `PublicListing` flag。 如果您想要运行 `SteamTradeMatcher` 机器人但不展示，就可以这样设置。
 

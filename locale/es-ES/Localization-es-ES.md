@@ -247,14 +247,14 @@ Si crees que algo inapropiado está incluido en un bloque de código, o que hay 
 
 ## Salón de la Fama
 
-Nos gustaría mostrar nuestra eterna gratitud a las personas que han dedicado una cantidad significativa de su tiempo y voluntad para mejorar la localización de ASF. Su esfuerzo es increíble, y puedes disfrutar de traducciones completas, incluyendo la wiki, principalmente gracias a ellos. As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
+Nos gustaría mostrar nuestra eterna gratitud a las personas que han dedicado una cantidad significativa de su tiempo y voluntad para mejorar la localización de ASF. Su esfuerzo es increíble, y puedes disfrutar de traducciones completas, incluyendo la wiki, principalmente gracias a ellos. Como muestra de agradecimiento, a todas las personas mencionadas aquí se les ofrece acceso gratuito a la función **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-es-ES#matchactively)** previa **[solicitud](https://crowdin.com/messages/create/13177432/240376)**.
 
 | Colaborador                                                | Idiomas         |
 | ---------------------------------------------------------- | --------------- |
 | **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Español |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portugués (BR)  |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chino (CN)      |
-| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Chinese (TW)    |
+| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Chino (TW)      |
 | **[LittleFreak](https://crowdin.com/profile/littlefreak)** | Alemán          |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Ruso, Ucraniano |
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, Alemán  |

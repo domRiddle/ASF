@@ -45,9 +45,9 @@ O que significa que a memória terá os maiores picos quando o ASF fizer a leitu
 
 As dicas abaixo **envolvem diminuição de performance** e devem ser usados com cautela.
 
-The recommended way of applying those settings is through `DOTNET_` environment properties. Claro, você também pode usar outros métodos, p. ex.: `runtimeconfig.json`, mas é impossível definir algumas configurações desta maneira e, além disso, o ASF substituirá o seu arquivo personalizado `runtimeconfig.json` pelo arquivo próprio do ASF, portanto recomendamos propriedades de ambiente que você possa definir facilmente antes de iniciar o processo.
+A maneira recomendada de aplicar estas configurações é por meio das propriedades de ambiente `DOTNET_`. Claro, você também pode usar outros métodos, p. ex.: `runtimeconfig.json`, mas é impossível definir algumas configurações desta maneira e, além disso, o ASF substituirá o seu arquivo personalizado `runtimeconfig.json` pelo arquivo próprio do ASF, portanto recomendamos propriedades de ambiente que você possa definir facilmente antes de iniciar o processo.
 
-.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs. We've documented below properties that are especially important in our opinion.
+O tempo de execução do .NET permite que você **[ajuste o coletor de lixo](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** de várias formas, melhorando-o efetivamente conforme as suas necessidades. Nós documentamos abaixo propriedades que são especialmente importantes em nossa opinião.
 
 ### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
@@ -61,7 +61,7 @@ Por outro lado, definir esse valor alto o suficiente é uma maneira perfeita par
 
 > Specifies the amount of memory used after which GC becomes more aggressive.
 
-Essa configuração ajusta o limite de memória de todo seu SO, fazendo com que o Coletor de Lixo se torne mais agressivo e tente ajudar o sistema operacional a reduzir a carga de memória executando um processo de coleta de lixo mais intenso e, em resultado disso, liberando mais memória livre de volta para o sistema operacional. É uma boa ideia definir essa propriedade para a quantidade máxima de memória (em porcentagem) que você considere "crítica" para o desempenho do SO. O padrão é 90% e vovê vai querer manter entre um intervalo de 80-97%, já que um valor muito baixo causará um agressão desnecessária do Coletor de Lixo e uma queda desnecessária de desempenho, enquanto um valor muito alto colocará uma carga desnecessária no seu SO, considerando que o ASF poderia liberar parte da memória para ajudar.
+This setting configures the memory threshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. É uma boa ideia definir essa propriedade para a quantidade máxima de memória (em porcentagem) que você considere "crítica" para o desempenho do SO. O padrão é 90% e vovê vai querer manter entre um intervalo de 80-97%, já que um valor muito baixo causará um agressão desnecessária do Coletor de Lixo e uma queda desnecessária de desempenho, enquanto um valor muito alto colocará uma carga desnecessária no seu SO, considerando que o ASF poderia liberar parte da memória para ajudar.
 
 ### **[`GCLatencyLevel`](https://github.com/dotnet/runtime/blob/4b90e803262cb5a045205d946d800f9b55f88571/src/coreclr/gc/gcpriv.h#L375-L398)**
 
@@ -77,7 +77,7 @@ Isso oferece pouca melhoria, mas pode tornar o coletor de lixo ainda mais agress
 
 ---
 
-You can enable selected properties by setting appropriate environment variables. Por exemplo, no linux (shell):
+Você pode habilitar propriedades selecionadas ao definir variáveis de ambiente apropriadas. Por exemplo, no linux (shell):
 
 ```shell
 # Don't forget to tune those if you're planning to make use of them
@@ -88,6 +88,7 @@ export DOTNET_GCLatencyLevel=0
 export DOTNET_gcTrimCommitOnLowMemory=1
 
 ./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm.sh # For generic build
 ```
 
 Ou no Windows (powershell):
@@ -101,6 +102,7 @@ $Env:DOTNET_GCLatencyLevel=0
 $Env:DOTNET_gcTrimCommitOnLowMemory=1
 
 .\ArchiSteamFarm.exe # For OS-specific build
+.\ArchiSteamFarm.cmd # For generic build
 ```
 
 `GCLatencyLevel` será especialmente útil, pois verificamos que o tempo de execução de fato otimiza o código para a memória e portanto diminui significativamente o uso de memória, mesmo com o coletor de lixo do servidor. Esse é uma das melhores dicas que você pode aplicar se você deseja diminuir significativamente o uso de memória pelo ASF sem degradar demais o desempenho com `OptimizationMode`.

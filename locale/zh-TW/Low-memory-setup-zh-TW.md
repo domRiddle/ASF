@@ -53,15 +53,15 @@ ASF使用的&#8203;**[垃圾回收](https://zh.wikipedia.org/zh-tw/垃圾回收_
 
 > 指定允許的GC堆積使用量，以總實體記憶體的百分比表示。
 
-ASF程序的「硬性」記憶體限制，本設定會將GC調整為只使用總記憶體的一部分而不是全部。 It may become especially useful in various server-like situations where you can dedicate a fixed percentage of your server's memory for ASF, but never more than that. Be advised that limiting memory for ASF to use will not magically make all of those required memory allocations go away, therefore setting this value too low might result in running into out of memory scenarios, where ASF process will be forced to terminate.
+ASF程序的「硬性」記憶體限制，本設定會將GC調整為只使用總記憶體的一部分而不是全部。 在使用各式伺服器的情形下，本設定可能會特別有用。您可以為ASF設定專屬的固定百分比的伺服器記憶體，使ASF無法使用超過此數值。 請注意，限制ASF能夠使用的記憶體並不會使這些必需分配的記憶體神奇地消失，因此，如果將此值設定得過低，就可能會出現記憶體不足的情形，ASF程序將會被強制終止。
 
-On the other hand, setting this value high enough is a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing the program to do its job as efficiently as possible.
+反之，將此值設定得夠高，是確保ASF永遠不會使用超出您實際承受範圍的記憶體的最佳方法，即使在高負載下，也能為您的設備提供一些喘息的空間，但同時仍然能使程式盡可能高效地完成工作。
 
 ### [`GCHighMemPercent`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 
 > 指定在GC變得更積極後的記憶體使用量。
 
-This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
+This setting configures the memory threshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
 
 ### **[`GCLatencyLevel`](https://github.com/dotnet/runtime/blob/4b90e803262cb5a045205d946d800f9b55f88571/src/coreclr/gc/gcpriv.h#L375-L398)**
 
@@ -80,27 +80,29 @@ This offers little improvement, but may make GC even more aggressive when system
 您可以透過設定適當的環境變數來啟用所選的屬性。 舉例來說，在Linux（Shell）上：
 
 ```shell
-# 若您打算使用它們，別忘了調整一下
+# Don't forget to tune those if you're planning to make use of them
 export DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
 export DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
 export DOTNET_GCLatencyLevel=0
 export DOTNET_gcTrimCommitOnLowMemory=1
 
-./ArchiSteamFarm # 適用於您的作業系統的建置版本
+./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm.sh # For generic build
 ```
 
 或在Windows（PowerShell）上：
 
 ```powershell
-# 若您打算使用它們，別忘了調整一下
+# Don't forget to tune those if you're planning to make use of them
 $Env:DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
 $Env:DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
 $Env:DOTNET_GCLatencyLevel=0
 $Env:DOTNET_gcTrimCommitOnLowMemory=1
 
-.\ArchiSteamFarm.exe # 適用於您的作業系統的建置版本
+.\ArchiSteamFarm.exe # For OS-specific build
+.\ArchiSteamFarm.cmd # For generic build
 ```
 
 Especially `GCLatencyLevel` will come very useful as we verified that the runtime indeed optimizes code for memory and therefore drops average memory usage significantly, even with server GC. It's one of the best tricks that you can apply if you want to significantly lower ASF memory usage while not degrading performance too much with `OptimizationMode`.

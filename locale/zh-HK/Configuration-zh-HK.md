@@ -68,6 +68,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
     "CurrentCulture": null,
     "Debug": false,
     "FarmingDelay": 15,
+    "FilterBadBots": true,
     "GiftsLimiterDelay": 1,
     "Headless": false,
     "IdleFarmingPeriod": 8,
@@ -161,6 +162,12 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ---
 
+### `FilterBadBots`
+
+預設值為 `true` 的 `bool` 類型。 This property defines whether ASF will automatically decline trade offers that are received from known and marked bad actors. In order to do that, ASF will communicate with our server on as-needed basis to fetch a list of blacklisted Steam identificators. The bots listed are operated by people that are classified as harmful towards ASF initiative by us, such as those that violate our **[code of conduct](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CODE_OF_CONDUCT.md)**, use provided functionality and resources by us such as **[`PublicListing`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** in order to abuse and exploit other people, or are doing outright criminal activity such as launching DDoS attacks on the server. Since ASF has strong stance on overall fairness, honesty and cooperation between its users in order to make the whole community thrive, this property is enabled by default, and therefore ASF filters bots that we've classified as harmful from services offered. Unless you have a **strong** reason to edit this property, such as disagreeing with our statement and intentionally allowing those bots to operate (including exploiting your accounts), you should keep it at default.
+
+---
+
 ### `GiftsLimiterDelay`
 
 這是一個預設值為`1` 的 `byte flags` 類型屬性。 ASF將確保每兩個連續的對遊戲/序號/許可證的處理（兌換）請求之間至少間隔`GiftsLimiterDelay`秒，以避免觸發速率限制。 除此之外，此預設值還將對遊戲清單查詢請求作全域限制，如`owns`**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**。 除非您有**強烈**的修改意願，否則應保持它為预設值。
@@ -169,7 +176,7 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ### `Headless`
 
-預設值為 `false` 的 `bool` 類型。 此屬性定義進程是否應在Headless模式下運行。 在 Headless 模式下，ASF 假定它在服務器或其他非交互式環境中運行，因此它不會嘗試通過控制台輸入讀取任何信息。 這包括需要的詳細信息（帳戶憑據，如 2FA 代碼，SteamGuard 代碼，密碼或 ASF 運行所需的任何其他變數）以及所有其他控制台輸入（如交互式命令控制台）。 換句話說，` Headless `模式等同於將 ASF 控制台設置為唯讀。 此設置主要用於在其服務器上運行 ASF 的用戶，當 ASF 需要與用戶交互，例如詢問 2FA 代碼時，ASF將通過停止帳戶以中止操作。 除非您在伺服器上運行ASF，並且您以前已確認ASF能夠在non-headless模式下運行，否則應禁用此屬性。 在無頭模式下，任何用戶交互都將被拒絕，如果您的帳戶在啟動過程中需要**任何**來自主控台的輸入，則ASF不會運行。 這對伺服器很有用，因為ASF可以在要求提供憑據時中止登錄帳戶的嘗試，而不是（無限）地等待用戶提供這些憑據。 啟用此模式還允許您使用`input`**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**替代標準主控台。 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
+預設值為 `false` 的 `bool` 類型。 此屬性定義進程是否應在偵錯模式下運行。 在 Headless 模式下，ASF 假定它在服務器或其他非交互式環境中運行，因此它不會嘗試通過控制台輸入讀取任何信息。 這包括需要的詳細信息（帳戶憑據，如 2FA 代碼，SteamGuard 代碼，密碼或 ASF 運行所需的任何其他變數）以及所有其他控制台輸入（如交互式命令控制台）。 換句話說，` Headless `模式等同於將 ASF 控制台設置為唯讀。 此設置主要用於在其服務器上運行 ASF 的用戶，當 ASF 需要與用戶交互，例如詢問 2FA 代碼時，ASF將通過停止帳戶以中止操作。 除非您在伺服器上運行ASF，並且您以前已確認ASF能夠在non-headless模式下運行，否則應禁用此屬性。 在無頭模式下，任何用戶交互都將被拒絕，如果您的帳戶在啟動過程中需要**任何**來自主控台的輸入，則ASF不會運行。 這對伺服器很有用，因為ASF可以在要求提供憑據時中止登錄帳戶的嘗試，而不是（無限）地等待用戶提供這些憑據。 啟用此模式還允許您使用`input`**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**替代標準主控台。 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
 
 如果您在伺服器上運行ASF，可能需要將此屬性與`--process-required`**[命令列參數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**配合使用。
 
@@ -183,7 +190,7 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ### `InventoryLimiterDelay`
 
-`byte` type with default value of `4`. ASF將確保每兩次連續的物品庫請求之間至少間隔`InventoryLimiterDelay`秒，以避免觸發頻率限制──在請求Steam物品庫資訊時，尤其是您使用`transfer`等命令，或啟用了`MatchActively`功能。 Default value of `4` was set based on fetching inventories of over 100 consecutive bot instances, and should satisfy most (if not all) of the users. 但是，如果您的機械人很少，可能希望減少此值，甚至將其更改為`0`，以讓ASF忽略延遲並加快拾取Steam庫存。 不過要注意的是，將此值設置得太低**將會**導致Steam暫時封禁您的IP以徹底防止您獲取您的庫存。 如果您運行大量的的機械人並有大量庫存請求，則可能還需要增加此值，不過在這種情況下，您可能更應該嘗試限制這些請求的數量。 除非您有**強烈**的修改意願，否則應保持它為预設值。
+這是一個預設值為`4`的`byte`類型屬性。 ASF將確保每兩次連續的物品庫請求之間至少間隔`InventoryLimiterDelay`秒，以避免觸發頻率限制──在請求Steam物品庫資訊時，尤其是您使用`transfer`等命令，或啟用了`MatchActively`功能。 預設值`4`基於連續獲取100多個機械人實例清單的數據設定，應該能滿足大多數 (如果不是全部) 用戶的需求。 但是，如果您的機械人很少，可能希望減少此值，甚至將其更改為`0`，以讓ASF忽略延遲並加快拾取Steam庫存。 不過要注意的是，將此值設置得太低**將會**導致Steam暫時封禁您的IP以徹底防止您獲取您的庫存。 如果您運行大量的的機械人並有大量庫存請求，則可能還需要增加此值，不過在這種情況下，您可能更應該嘗試限制這些請求的數量。 除非您有**強烈**的修改意願，否則應保持它為预設值。
 
 ---
 
@@ -195,7 +202,7 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ### `IPCPassword`
 
-預設值為 `null` 的 `string` 類型。 此屬性為通過IPC執行的每個API定義強制性密碼，作為額外的安全措施。 當此值非空時，所有IPC請求都需要將額外的`password`屬性設置為此處指定的密碼。 預設值為`null`將使ASF跳過密碼驗證而接受所有請求。 除此之外，啟用此選項還啟用了內置的IPC反暴力破解機制，該機制將在偵聽到某`IPAddress`在短時間內發送過多未經授權的請求後，暫時封禁它。 除非您有充分的修改理由，否則應保持它為預設值。
+預設值為 `null` 的 `string` 類型。 此屬性為通過IPC執行的每個API定義強制性密碼，作為額外的安全措施。 當此值非空時，所有IPC請求都需要將額外的`password`屬性設置為此處指定的密碼。 預設值為`null`將使ASF跳過密碼驗證而接受所有請求。 除此之外，啟用此選項還啟用了內置的IPC反暴力破解機制，該機制將在偵聽到某`IPAddress`在短時間內發送過多未經授權的請求後，暫時封禁它。 除非您有充分的修改理由，否則應保持它為默認值。
 
 ---
 
@@ -281,7 +288,7 @@ By default ASF will use all available Steam protocols as a measure for fighting 
 
 ### `UpdateChannel`
 
-這是一個預設值為`1` 的 `byte flags` 類型屬性。 此屬性定義正在使用的更新通道，用於自動更新（如果` UpdatePeriod `大於` 0 `），或收到更新通知時（其他情況）。 當前 ASF 支援三個更新通道──`0`，`無更新`；`1`，`穩定版`；`2`，`探索版`。 `穩定版`通道是預設值，適用於大多數用戶。 `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. 如果您不認為自己是高級用戶，請保留預設得 ` 1 `（穩定）更新通道。 `Experimental` 通道專門針對知道如何報告錯誤、處理問題和提供回饋的用戶——不會提供任何技術支援。 Check out ASF **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)** if you'd like to learn more. 如果要完全禁用所有版本更新，還可以將` UpdateChannel `設置為` 0 `（` None `）。 將 `UpdateChannel` 設置為 ` 0 ` 將完全禁用與更新相關的整個功能, 包括 `update` 命令。 Using `None` channel is **strongly discouraged** due to exposing yourself to all sort of problems (mentioned in `UpdatePeriod` description below).
+這是一個預設值為`1` 的 `byte flags` 類型屬性。 此屬性定義正在使用的更新通道，用於自動更新（如果` UpdatePeriod `大於` 0 `），或收到更新通知時（其他情況）。 當前 ASF 支援三個更新通道──`0`，`無更新`；`1`，`穩定版`；`2`，`探索版`。 `穩定版`通道是預設值，適用於大多數用戶。 `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. 如果您不認為自己是高級用戶，請保留預設得 ` 1 `（穩定）更新通道。 `Experimental` 通道專門針對知道如何報告錯誤、處理問題和提供回饋的用戶——不會提供任何技術支援。 如果您想了解更多資訊，請查看 ASF **[發布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**。 如果要完全禁用所有版本更新，還可以將` UpdateChannel `設置為` 0 `（` None `）。 將 `UpdateChannel` 設置為 ` 0 ` 將完全禁用與更新相關的整個功能, 包括 `update` 命令。 **強烈建議不要**使用`None`通道，因為您會遇到各種問題（在下面的` UpdatePeriod `說明中提到）。
 
 **除非您知道您在做什麼**，否則我們 **強烈** 建議保持它為預設值。
 
@@ -684,11 +691,11 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 `byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
 
-| 值 | 名稱            | 描述                                                                                                                                                                                                                                                                           |
-| - | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0 | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
-| 1 | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
-| 2 | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+| 值 | 名稱            | 描述                                                                                                                                                                                                                                                                |
+| - | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                    |
+| 1 | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                     |
+| 2 | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. 不啟用任何標誌會導致` None `選項。
 
@@ -716,7 +723,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 ### `ShutdownOnFarmingFinished`
 
-預設值為 `false` 的 `bool` 類型。 ASF 會在整個進程中「佔用」處於活動狀態的帳戶。 當給定帳戶完成掛卡之後，ASF 會定期（每個` IdleFarmingPeriod `小時）檢查帳戶狀態，如果在此期間新增了一些帶有 Steam 卡的新遊戲，那麼它可以在無需重啓的情況下恢復該帳戶的掛卡進程。 這對大多數人都很有用，因為 ASF 可以在需要時自動復原掛卡。 但是，您可能實際上希望在給定帳戶完全結束掛卡後停止該過程，您可以通過將此屬性設置為 `true` 來實現。 啟用後，ASF 將在帳戶完全結束掛卡後登出，這意味著 ASF 不會對此帳戶進行定期檢查或佔用。 您應該自己決定是否更喜歡ASF在整個時間內使用給定的機械人實例，或者ASF是否應該在掛卡過程完成時停止它。 When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well, putting your machine at rest and allowing you to schedule other actions, such as sleep or shutdown at the same moment of last card dropping.
+預設值為 `false` 的 `bool` 類型。 ASF 會在整個進程中「佔用」處於活動狀態的帳戶。 當給定帳戶完成掛卡之後，ASF 會定期（每個` IdleFarmingPeriod `小時）檢查帳戶狀態，如果在此期間新增了一些帶有 Steam 卡的新遊戲，那麼它可以在無需重啓的情況下恢復該帳戶的掛卡進程。 這對大多數人都很有用，因為 ASF 可以在需要時自動復原掛卡。 但是，您可能實際上希望在給定帳戶完全結束掛卡後停止該過程，您可以通過將此屬性設置為 `true` 來實現。 啟用後，ASF 將在帳戶完全結束掛卡後登出，這意味著 ASF 不會對此帳戶進行定期檢查或佔用。 您應該自己決定是否更喜歡ASF在整個時間內使用給定的機械人實例，或者ASF是否應該在掛卡過程完成時停止它。 當所有帳戶都停止並且進程未在 `--process-required` **[模式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**下運行時，ASF 也將關閉，讓您的機器處於休眠狀態，並允許您安排其他操作，例如在獲得最後一張掉落卡片之後進入睡眠或關機狀態。
 
 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
 
@@ -785,14 +792,14 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 
 這是一個預設值為`0` 的 `byte flags` 屬性。 此屬性定義ASF在交易中的行為，定義如下：
 
-| 值  | 名稱                  | 描述                                                                                                                                                     |
-| -- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0  | None                | 預設值，無特殊交易偏好                                                                                                                                            |
-| 1  | AcceptDonations     | 接受對我們無任何損失的交易                                                                                                                                          |
-| 2  | SteamTradeMatcher   | 被動參與 **[STM](https://www.steamtradematcher.com)**交易。 訪問 **[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** 了解更多資訊 |
-| 4  | 匹配所有物品              | 需要設置 `SteamTradeMatcher`, 並與其同時使用--除了對我們有利的和無損的交易外, 還接受不利交易                                                                                            |
-| 8  | DontAcceptBotTrades | 不自動接受來自其他機械人實例的 `loot` 交易                                                                                                                              |
-| 16 | MatchActively       | 主動參與 **[STM](https://www.steamtradematcher.com)**交易。 訪問 **[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** 了解更多資訊     |
+| 值  | 名稱                  | 描述                                                                                                                                                                                      |
+| -- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0  | None                | 預設值，無特殊交易偏好                                                                                                                                                                             |
+| 1  | AcceptDonations     | 接受對我們無任何損失的交易                                                                                                                                                                           |
+| 2  | SteamTradeMatcher   | 被動參與 **[STM](https://www.steamtradematcher.com)**交易。 訪問 **[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** 了解更多資訊                                  |
+| 4  | 匹配所有物品              | 需要設置 `SteamTradeMatcher`, 並與其同時使用--除了對我們有利的和無損的交易外, 還接受不利交易                                                                                                                             |
+| 8  | DontAcceptBotTrades | 不自動接受來自其他機械人實例的 `loot` 交易                                                                                                                                                               |
+| 16 | MatchActively       | 主動參與 **[STM](https://www.steamtradematcher.com)**交易。 Visit **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** for more info |
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項。
 

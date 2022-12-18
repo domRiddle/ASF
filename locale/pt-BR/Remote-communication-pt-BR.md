@@ -22,10 +22,13 @@ ASF communicates with **[GitHub's API](https://api.github.com)** in order to fet
 
 ASF communicates with **[our own server](https://asf.justarchi.net)** for more advanced functionality. In particular, this includes:
 - Verifying checksums of ASF builds downloaded from GitHub against our own independent database to ensure that all downloaded builds are legitimate (free of malware, MITM attacks or other tampering)
+- Fetching list of bad bots for filtering if you've kept `FilterBadBots` global config setting enabled.
 - Anunciando seu bot em **[nossa listagem](https://asf.justarchi.net/STM)** se você tiver habilitado `SteamTradeMatcher` em **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** e que atenda aos outros critérios
 - Baixando bots disponíveis para troca da **[nossa listagem](https://asf.justarchi.net/STM)** se você tiver habilitado `MatchActively` em **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** e que atenda aos outros critérios
 
 As a security measure, it's not possible to disable checksum verification for ASF builds. However, you can disable auto-updates entirely if you'd like to avoid this, as described above in the GitHub section.
+
+You can disable `FilterBadBots` setting if you want to avoid fetching the list from the server.
 
 You can decide to opt-out of being announced in the listing by disabling `PublicListing` flag in bot's **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** settings. This might be useful if you'd like to run `SteamTradeMatcher` bot without being announced at the same time.
 

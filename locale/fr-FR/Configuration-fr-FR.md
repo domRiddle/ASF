@@ -68,6 +68,7 @@ La configuration globale se trouve dans le fichier ASF.json et se présente dans
     "CurrentCulture": null,
     "Debug": false,
     "FarmingDelay": 15,
+    "FilterBadBots": true,
     "GiftsLimiterDelay": 1,
     "Headless": false,
     "IdleFarmingPeriod": 8,
@@ -161,6 +162,12 @@ En bref, la valeur par défaut devrait être convenable dans la plupart des cas,
 
 ---
 
+### `FilterBadBots`
+
+`bool` avec la valeur par défaut `true</ 0>. This property defines whether ASF will automatically decline trade offers that are received from known and marked bad actors. In order to do that, ASF will communicate with our server on as-needed basis to fetch a list of blacklisted Steam identificators. The bots listed are operated by people that are classified as harmful towards ASF initiative by us, such as those that violate our <strong x-id="1"><a href="https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CODE_OF_CONDUCT.md">code of conduct</a></strong>, use provided functionality and resources by us such as <strong x-id="1"><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting"><code>PublicListing`</a></strong> in order to abuse and exploit other people, or are doing outright criminal activity such as launching DDoS attacks on the server. Since ASF has strong stance on overall fairness, honesty and cooperation between its users in order to make the whole community thrive, this property is enabled by default, and therefore ASF filters bots that we've classified as harmful from services offered. Unless you have a **strong** reason to edit this property, such as disagreeing with our statement and intentionally allowing those bots to operate (including exploiting your accounts), you should keep it at default.
+
+---
+
 ### `GiftsLimiterDelay`
 
 `byte` avec la valeur par défaut `1`. ASF veillera à ce qu'il y ait au moins `GiftsLimiterDelay` deux secondes entre deux demandes consécutives de traitement cadeau / clé / licence (utilisation) afin d'éviter de déclencher une limite de débit. En plus de cela, il sera également utilisé comme limiteur global pour les demandes de liste de jeux, tel que celui émis par la **[commande](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `owns<0>. À moins que vous n'ayez une raison <strong x-id="1">forte</strong> de modifier cette fonction, vous devez la conserver par défaut.</p>
@@ -183,7 +190,7 @@ If you're running ASF on the server, you probably want to use this option togeth
 
 ### `InventoryLimiterDelay`
 
-`byte` type with default value of `4`. ASF will ensure that there will be at least `InventoryLimiterDelay` seconds in between of two consecutive inventory requests to avoid triggering rate-limit - those are being used for fetching Steam inventories, especially during your own commands such as `transfer`, as well as in features like `MatchActively`. Default value of `4` was set based on fetching inventories of over 100 consecutive bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and loot steam inventories much faster. Be warned though, as setting it too low **will** result in Steam temporarily banning your IP, and that will prevent you from fetching your inventory at all. You also may need to increase this value if you're running a lot of bots with a lot of inventory requests, although in this case you should probably try to limit number of those requests instead. À moins que vous n'ayez une raison **forte** de modifier cette fonction, vous devez la conserver par défaut.
+`byte` avec la valeur par défaut `4`. ASF will ensure that there will be at least `InventoryLimiterDelay` seconds in between of two consecutive inventory requests to avoid triggering rate-limit - those are being used for fetching Steam inventories, especially during your own commands such as `transfer`, as well as in features like `MatchActively`. Default value of `4` was set based on fetching inventories of over 100 consecutive bot instances, and should satisfy most (if not all) of the users. You may however want to decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and loot steam inventories much faster. Be warned though, as setting it too low **will** result in Steam temporarily banning your IP, and that will prevent you from fetching your inventory at all. You also may need to increase this value if you're running a lot of bots with a lot of inventory requests, although in this case you should probably try to limit number of those requests instead. À moins que vous n'ayez une raison **forte** de modifier cette fonction, vous devez la conserver par défaut.
 
 ---
 
@@ -685,11 +692,11 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 `byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
 
-| Valeur  | Nom           | Description                                                                                                                                                                                                                                                                  |
-| ------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0       | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                               |
-| 1       | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                                |
-| 2       | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+| Valeur  | Nom           | Description                                                                                                                                                                                                                                                       |
+| ------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0       | None          | No allowed third-party communication, rendering selected ASF features unusable                                                                                                                                                                                    |
+| 1       | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                     |
+| 2       | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
 
 Veuillez noter que cette  fonction est le champ `flags`, il est donc possible de choisir n’importe quelle combinaison de valeurs disponibles. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Si aucun indicateur n’est activé, l’option `None` est activée.
 
@@ -786,14 +793,14 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 
 `chaîne` avec la valeur par défaut `0`. This property defines ASF behaviour when in trading, and is defined as below:
 
-| Valeur  | Nom                 | Description                                                                                                                                                                                                     |
-| ------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0       | None                | No special trading preferences, default                                                                                                                                                                         |
-| 1       | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                               |
-| 2       | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Consultez **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** pour plus de détails |
-| 4       | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                               |
-| 8       | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                                                             |
-| 16      | MatchActively       | Actively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Consultez **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#matchactively)** pour plus de détails      |
+| Valeur  | Nom                 | Description                                                                                                                                                                                                           |
+| ------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0       | None                | No special trading preferences, default                                                                                                                                                                               |
+| 1       | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                                     |
+| 2       | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Consultez **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** pour plus de détails       |
+| 4       | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                                     |
+| 8       | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                                                                   |
+| 16      | MatchActively       | Actively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** for more info |
 
 Veuillez noter que cette  fonction est le champ `flags`, il est donc possible de choisir n’importe quelle combinaison de valeurs disponibles. Consultez **[le mapping des drapeaux](#json-mapping)** si vous souhaitez en savoir plus. Si aucun indicateur n’est activé, l’option `None` est activée.
 

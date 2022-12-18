@@ -59,7 +59,8 @@ export DOTNET_TieredPGO=1
 export DOTNET_ReadyToRun=0
 export DOTNET_TC_QuickJitForLoops=1
 
-./ArchiSteamFarm # 適用於您的作業系統的建置版本
+./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm.sh # For generic build
 ```
 
 或在Windows（PowerShell）上：
@@ -71,7 +72,8 @@ $Env:DOTNET_TieredPGO=1
 $Env:DOTNET_ReadyToRun=0
 $Env:DOTNET_TC_QuickJitForLoops=1
 
-.\ArchiSteamFarm.exe # 適用於您的作業系統的建置版本
+.\ArchiSteamFarm.exe # For OS-specific build
+.\ArchiSteamFarm.cmd # For generic build
 ```
 
 ---

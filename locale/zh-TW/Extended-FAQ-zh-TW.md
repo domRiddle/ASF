@@ -1,38 +1,38 @@
 # 其他常見問題
 
-Our extended FAQ covers a bit less common questions and answers that you may have. For a more common matters, please visit our **[basic FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)** instead.
+其他常見問題包含了您可能較不常遇到的問題及它們的解答。 如果您的問題非常常見，請參閱&#8203;**[常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-TW)**&#8203;。
 
 ---
 
 ### 是誰建立了 ASF？
 
-**[Archi](https://github.com/JustArchi)** 在2015年10月建立了 ASF。 In case you were wondering, I'm a **[Steam user](https://steamcommunity.com/profiles/76561198006963719)** just like you. Apart from playing games, I also love to put my skills and determination to use, which you can explore right now. There is no big company involved here, no team of developers and no $1M of budget to cover all of that - just me, fixing things that are not broken.
+ASF由&#8203;**[Archi](https://github.com/JustArchi)**&#8203; 在2015年10月建立。 如果您想知道，我跟您一樣，是一個&#8203;**[Steam使用者](https://steamcommunity.com/profiles/76561198006963719)**&#8203;。 除了玩遊戲，我也喜歡將我的專長與決心付諸實踐，正如您所看到的。 這裡沒有大公司的參與，沒有什麼開發團隊，也沒有$100萬美元的預算來提供支援⸺只有我自己，在維護這個專案。
 
-However, ASF is open-source project, and I can't express enough that I'm not behind everything that you can see here. We have a few **[other](https://github.com/JustArchiNET?q=ASF-)** ASF projects that are being developed almost exclusively by other developers. Even core ASF project has a lot of **[contributors](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)** that helped me to make all of this happen. On top of that, there are several third-party services supporting ASF development, especially **[GitHub](https://github.com)**, **[JetBrains](https://www.jetbrains.com)** and **[Crowdin](https://crowdin.com)**. You also can't forget about all the awesome libraries and tools that made ASF happen, such as **[Rider](https://www.jetbrains.com/rider)** that we use as IDE (we love **[ReSharper](https://www.jetbrains.com/resharper)** additions) and especially **[SteamKit2](https://github.com/SteamRE/SteamKit)** without which ASF would not exist in the first place. ASF also wouldn't be where it is today without my **[sponsors](https://github.com/sponsors/JustArchi)**, **[patrons](https://www.patreon.com/JustArchi)** and various donators, supporting me in everything that I'm doing here.
+然而，ASF是個開源專案，我無法向您表示您在這裡看到的一切都是出自我手。 我們還有一些&#8203;**[其他的](https://github.com/JustArchiNET?q=ASF-)**&#8203;ASF專案，幾乎完全是由其他的開發人員所開發。 即使是ASF核心專案，也有許多&#8203;**[貢獻者](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)**&#8203;幫助我實現這一切。 最重要的是，還有一些支援ASF開發的第三方服務，特別是&#8203;**[GitHub](https://github.com)**&#8203;、&#8203;**[JetBrains](https://www.jetbrains.com)**&#8203;與&#8203;**[Crowdin](https://crowdin.com)**&#8203;。 當然您也不能忘記所有幫助ASF實作的出色程式庫與工具，例如我們用作IDE的&#8203;**[Rider](https://www.jetbrains.com/rider)**&#8203;（我們也喜歡&#8203;**[ReSharper](https://www.jetbrains.com/resharper)**&#8203;的附加功能），特別是&#8203;**[SteamKit2](https://github.com/SteamRE/SteamKit)**，沒有它，ASF就不會存在。 如果沒有&#8203;**[Github](https://github.com/sponsors/JustArchi)**&#8203;、&#8203;**[Patreon](https://www.patreon.com/JustArchi)**&#8203;和各種贊助者支援我在這裡所做的一切，ASF也不會有今天的成就。
 
-Thank you all for helping in ASF development! You're awesome.
+感謝大家協助ASF開發！ 你們是最棒的！
 
 ---
 
-### 一開始為什麼要建立 ASF？
+### 建立 ASF 的初衷是？
 
-ASF was created with primary purpose of being fully automated Steam farming tool for Linux, without a need of any external dependencies (such as Steam client). In fact, this still remains its primary purpose and focus, because my concept of ASF didn't change since then and I'm still using it in exactly the same way as I used it back in 2015. Of course, there was really **a lot** of changes since then, and I'm very happy to see how far ASF has progressed, mostly thanks to its users, because I'd never code even half of the features if it was for myself only.
+建立ASF的主要目標是成為Linux全自動的Steam掛機工具，且不需要任何外部相依程式（例如Steam用戶端）。 實際上，這仍然是它的主要目標及專注的重點，因為我對ASF的理念從那時起就從未改變，我仍然能以與2015年完全相同的方式來使用它。 當然，從那時起的確發生了&#8203;**許多**&#8203;變化，我很高興看到ASF取得了如此大的進展，這主要歸功於它的使用者們，因為如果只是為了我自己的使用，我甚至永遠不會編寫出現在一半的功能。
 
-It's nice to note that ASF was never made to compete with other, similar programs, especially **[Idle Master](https://www.steamidlemaster.com)**, because ASF was never designed to be a desktop/user app, and it still isn't today. If you analyze primary purpose of ASF described above, then you'll see how Idle master is **the exact opposite** of all of that. While you can most definitely find similar to ASF programs today, nothing was good enough for me back then (and still isn't today), so I created my own software, the way I wanted it. Over time users have migrated to ASF mainly due to robustness, stability and security, but also all the features that I've developed across all those years. Today, ASF is better than ever before.
+值得一提的是，ASF從未與其他相似的程式競爭，特別是&#8203;**[Idle Master](https://www.steamidlemaster.com)**&#8203;，因為ASF從未被設計成桌面／使用者應用程式，時至今日。 若您分析上述的ASF主要目標，您就會發現Idle Master與此&#8203;**截然相反**&#8203;。 雖然在今天您絕對可以找到與ASF相似的程式，但對我來說，當時沒有足夠好到能用的（現在仍然沒有），所以我依照自己想要的方式建立了自己的軟體。 隨著時間的推移，用戶使用者遷移至ASF上主要是因為它的健壯性、穩定性及安全性，還有我多年來所開發的所有功能。 如今，ASF是最棒的。
 
 ---
 
 ### 那麼，代價是什麼？ 分享 ASF 為你帶來了什麼？
 
-There is no catch, I created ASF **for myself** and shared it with the rest of the community in hope that it'll come useful. Exactly the same thing happened back in 1991, when Linus Torvalds **[shared his first Linux kernel](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)** with the rest of the world. There is no hidden malware, data mining, crypto mining or any other activity that would generate any monetary benefit for me. ASF project is supported entirely by non-obligatory donations sent by happy users such as you. You can use ASF in exactly the same way how I'm using it, and if you like it, you can always buy me a coffee, showing your gratitude for what I'm doing.
+您不需任何代價，我是&#8203;**為自己**&#8203;建立了ASF，並分享給社群的其他人，希望它能對其他人來說有用。 在1991年發生過相同的事情，Linus Torvalds將他的&#8203;**[第一個Linux核心](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)**分享給全世界。 這裡沒有隱藏惡意程式、資料探勘、加密挖礦或其他任何能為我帶來金錢利益的行為。 ASF專案完全是由像您這樣的自願使用者給予的非強制性的捐款所支援。 您可以像我一樣自由地使用ASF，如果您喜歡它，您隨時可以請我喝杯咖啡，來表達您對我所做的事情的感激之情。
 
-I'm also using ASF as a perfect example of a modern C# project that always strikes for perfection and best practices, be it with technology, project management or the code itself. It's my definition of "things done right", so if by any chance you manage to learn something useful from my project, then that will make me only more happy.
+我還將ASF當作現代C#專案的完美範例，該專案始終追求完美與最佳範例，不論是技術、專案管理還是程式碼本身。 這是我對「做對的事情」的定義，所以如果你有機會從我的專案中學到一些有用的東西，那只會讓我更開心。
 
 ---
 
 ### 在啟動 ASF 後，我遺失了我所有帳號／物品／好友……等！
 
-Statistically speaking, regardless how sad it is, it's guaranteed that shortly after launching ASF there will be at least one guy who will die in a car accident. The difference is that nobody sane will blame ASF for causing it, but for some reason there are people who will accuse ASF of the same just because it happened to their Steam accounts instead. Of course we can understand the reasoning for that, after all ASF operates within Steam platform, so naturally people will accuse ASF of everything that happened to their Steam-related property regardless of lack of any evidence that the software they ran is even remotely connected with that whatsoever.
+從統計上來說，不管有多悲哀，在ASF啟動後不久，一定至少會有一個人死於車禍。 不同之處在於，一般人不會因為這種情形指責ASF，但出於某些原因，有些人卻會因為他們的Steam帳號出現了相同問題，而指責是ASF造成的。 當然，我們可以理解其中的原因，畢竟ASF是在Steam平台下運作，所以人們自然會因為他們Steam財產上發生的任何事情而指責ASF，而不管沒有證據表明，他們執行的軟體與此情形有任何關聯。
 
 ASF, as stated in **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#is-it-safe)** as well as **[question above](#ok-where-is-the-catch-what-do-you-gain-from-sharing-asf)**, is free of malware, spyware, data mining and any other potentially unwanted activity, **especially** submission of your sensitive Steam details or taking over your digital property. If something like this has happened to you, we can only say that we're sorry for your loss and recommend you to contact **[Steam support](https://help.steampowered.com)** which hopefully will assist you in the recovery process - because we're not responsible for what happened to you in any way and our conscience is clear. If you believe otherwise, that's your decision, it's pointless to elaborate further, if the above resources providing objective and verifiable ways to confirm our statement didn't convince you, then it's not like anything we write here will anyway.
 
@@ -163,4 +163,4 @@ Congratulations, you've verified that nobody has tampered with the release you'v
 
 ### 在 4 月 1 日時，ASF 的語言變成了奇怪的東西，這是怎麼回事？
 
-CONGRATULASHUNS ON DISCOVERIN R APRIL FOOLS EASTR EGG! If you didn't set custom `CurrentCulture` option, then ASF on April the 1st will actually use **[LOLcat](https://en.wikipedia.org/wiki/Lolcat)** language instead of your system language. If by any chance you'd like to disable that behaviour, you can simply set `CurrentCulture` to the locale that you'd like to use instead. It's also nice to note that you can enable our easter egg unconditionally, by setting your `CurrentCulture` to `qps-Ploc` value.
+喵嗚～恭喜您發現了愚人節彩蛋的喵！ 若您沒有設定&#8203;`CurrentCulture`&#8203;自訂選項，那麼ASF在4月1日時將會使用&#8203;**[LOLcat](https://zh.wikipedia.org/zh-tw/Lolcat)**&#8203;語言，而非您的系統語言。 若您想要停用這個行為，您可以直接將&#8203;`CurrentCulture`&#8203;設定成您想要使用的語言。 值得一提的是，您可以透過將&#8203;`CurrentCulture`&#8203;的值設定成&#8203;`qps-Ploc`&#8203;，來無條件啟用這個彩蛋。

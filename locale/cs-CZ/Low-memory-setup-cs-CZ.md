@@ -61,7 +61,7 @@ On the other hand, setting this value high enough is a perfect way to ensure tha
 
 > Specifies the amount of memory used after which GC becomes more aggressive.
 
-This setting configures the memory treshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
+This setting configures the memory threshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
 
 ### **[`GCLatencyLevel`](https://github.com/dotnet/runtime/blob/4b90e803262cb5a045205d946d800f9b55f88571/src/coreclr/gc/gcpriv.h#L375-L398)**
 
@@ -88,9 +88,10 @@ export DOTNET_GCLatencyLevel=0
 export DOTNET_gcTrimCommitOnLowMemory=1
 
 ./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm.sh # For generic build
 ```
 
-Or on Windows (powershell):
+Nebo na Windows (powershell):
 
 ```powershell
 # Don't forget to tune those if you're planning to make use of them
@@ -101,6 +102,7 @@ $Env:DOTNET_GCLatencyLevel=0
 $Env:DOTNET_gcTrimCommitOnLowMemory=1
 
 .\ArchiSteamFarm.exe # For OS-specific build
+.\ArchiSteamFarm.cmd # For generic build
 ```
 
 Especially `GCLatencyLevel` will come very useful as we verified that the runtime indeed optimizes code for memory and therefore drops average memory usage significantly, even with server GC. It's one of the best tricks that you can apply if you want to significantly lower ASF memory usage while not degrading performance too much with `OptimizationMode`.

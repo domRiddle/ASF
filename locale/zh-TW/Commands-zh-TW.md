@@ -27,7 +27,7 @@ ASF支援各種指令，以此來控制程序及Bot實例的行為。
 
 ![擷圖](https://i.imgur.com/IvFRJ5S.png)
 
-同樣，您也可以使用指定的Steam群組聊天。 請注意，使用這個方法需要您正確設定&#8203;`SteamMasterClanID`&#8203;屬性，使Bot也會同時監聽（並加入）指定群組聊天中的指令。 這與私人聊天不同，因為這個方式不需要專用的Bot帳號，所以可以「和自己交談」。 您只需將&#8203;`SteamMasterClanID`&#8203;屬性設成您新建立的群組，然後透過設定Bot的&#8203;`SteamOwnerID`&#8203;或&#8203;`SteamUserPermissions`&#8203;來給您自己存取權限。 這樣，ASF Bot（即您自己的帳號）就會加入這個群組及它的群組聊天室，並開始監聽您發送的指令。 您可以進入同一個群組聊天室，以便向自己發送指令（因為即使界面上顯示只有您自己在聊天室，在您向聊天室發送指令時，同樣在聊天室內的ASF實例也會收到指令）。
+同樣，您也可以使用指定的Steam群組聊天。 請注意，使用這個方法需要您正確設定&#8203;`SteamMasterClanID`&#8203;屬性，使Bot也會同時監聽（並加入）指定群組聊天中的指令。 這與私人聊天不同，因為這個方式不需要專用的Bot帳號，所以可以「和自己交談」。 您只需將&#8203;`SteamMasterClanID`&#8203;屬性設成您新建立的群組，然後透過設定Bot的&#8203;`SteamOwnerID`&#8203;或&#8203;`SteamUserPermissions`&#8203;來給您自己存取權限。 這樣，ASF Bot（即您自己的帳號）就會加入這個群組及它的群組聊天室，並開始監聽您發送的指令。 您可以進入同一個群組聊天室，以便向自己傳送指令（因為即使界面上顯示只有您自己在聊天室，在您向聊天室傳送指令時，同樣在聊天室內的ASF實例也會收到指令）。
 
 請注意，傳送指令到群組聊天就像是一個中繼。 如果您向一個含有3個Bot的群組聊天傳送&#8203;`redeem X`&#8203;指令，這個效果跟分別向每個Bot私人聊天發送&#8203;`redeem X`&#8203;指令是一樣的。 在大多數情形下，&#8203;**這並非是您想要的效果**&#8203;。您應該像之前&#8203;**與單個Bot交談**&#8203;時一樣，使用&#8203;`特定Bot名稱`&#8203;的指令形式。 ASF支援群組聊天，是因為在多數情形下，它是一種與您唯一的Bot通訊的有效方式。但若您的群組中有多個ASF Bot，就最好不要在這裡執行指令，除非您完全理解ASF的相關行為，並且確實想讓所有Bot都執行相同的指令。
 
@@ -70,9 +70,10 @@ ASF支援各種指令，以此來控制程序及Bot實例的行為。
 | `loot@ [Bots] <AppIDs>`                                        | `Master`        | 將指定Bot實例中，所有符合&#8203;`AppIDs`&#8203;的&#8203;`LootableTypes`&#8203; Steam社群物品，交易給其&#8203;`SteamUserPermissions`&#8203;屬性中設定的&#8203;`Master`&#8203;使用者（如有多個，則取steamID最小者）。 這是與&#8203;`loot%`&#8203;相反的指令。                             |
 | `loot% [Bots] <AppIDs>`                                        | `Master`        | 將指定Bot實例中，除符合&#8203;`AppIDs`&#8203;以外的所有&#8203;`LootableTypes`&#8203; Steam社群物品，交易給其&#8203;`SteamUserPermissions`&#8203;屬性中設定的&#8203;`Master`&#8203;使用者（如有多個，則取steamID最小者）。 這是與&#8203;`loot@`&#8203;相反的指令。                          |
 | `loot^ [Bots] <AppID> <ContextID>`                       | `Master`        | 將指定Bot實例的&#8203;`ContextID`&#8203;物品庫分類中，所有符合給定&#8203;`AppID`&#8203;的&#8203;`LootableTypes`&#8203; Steam社群物品，交易給其&#8203;`SteamUserPermissions`&#8203;屬性中設定的&#8203;<0>Master</0>&#8203;使用者（如有多個，則取steamID最小者）。                       |
-| `mab [Bots]`                                                         | `Master`        | 列出&#8203;**[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW#matchactively)**&#8203;中的應用程式自動交易黑名單。                                                                                                |
-| `mabadd [Bots] <AppIDs>`                                       | `Master`        | 將給定的&#8203;`AppIDs`&#8203;加入至&#8203;**[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW#matchactively)**&#8203;的應用程式自動交易黑名單中。                                                                     |
-| `mabrm [Bots] <AppIDs>`                                        | `Master`        | 將給定的&#8203;`AppIDs`&#8203;從&#8203;**[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW#matchactively)**&#8203;的應用程式自動交易黑名單中移除。                                                                     |
+| `mab [Bots]`                                                         | `Master`        | 列出&#8203;**[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW#matchactively)**&#8203;中的應用程式自動交易黑名單。                                                                                     |
+| `mabadd [Bots] <AppIDs>`                                       | `Master`        | 將給定的&#8203;`AppIDs`&#8203;加入至&#8203;**[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW#matchactively)**&#8203;的應用程式自動交易黑名單中。                                                          |
+| `mabrm [Bots] <AppIDs>`                                        | `Master`        | 將給定的&#8203;`AppIDs`&#8203;從&#8203;**[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW#matchactively)**&#8203;的應用程式自動交易黑名單中移除。                                                          |
+| `match [Bots]`                                                       | `Master`        | 用於控制&#8203;**[`ItemsMatcherPlugin`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW)**&#8203;的特殊指令，用於立即觸發&#8203;`MatchActively`&#8203;常式。                                                              |
 | `nickname [Bots] <Nickname>`                                   | `Master`        | 將指定Bot實例的Steam暱稱，更改為給定的&#8203;`Nickname`&#8203;。                                                                                                                                                                                    |
 | `owns [Bots] <Games>`                                          | `Operator`      | 檢查指定的Bot實例是否已擁有給定的&#8203;`Games`&#8203;，請參閱&#8203;**[下文](#owns-指令中的-games-引數)**&#8203;的說明。                                                                                                                                          |
 | `pause [Bots]`                                                       | `Operator`      | 停止指定Bot實例的自動掛卡模組。 ASF在本次階段中，將不會再次嘗試對此帳號進行掛卡，除非您手動&#8203;`resume`&#8203;，或者重新啟動ASF程序。                                                                                                                                                |
@@ -108,11 +109,11 @@ ASF支援各種指令，以此來控制程序及Bot實例的行為。
 
 所有的指令都不區分大小寫，但它們的引數（例如Bot的名稱）通常需要區分大小寫。
 
-`[Bots]`&#8203;引數在所有指令中，都是可省略的。 當指定該引數時，指令會在指定的Bot上執行。 但省略時，指令會在當前接收到指令的所有Bot上執行。 也就是說，向Bot &#8203;`B`&#8203;發送&#8203;`status A`&#8203;，等於直接向Bot &#8203;`A`&#8203;發送 `status`&#8203;指令。在這種情形下，Bot &#8203;`B`&#8203;只被作為一個代理Bot。 這也可用於向無法使用的Bot傳送指令，例如啟動已終止的Bot，或者在（您用於執行指令的）主要帳號上執行動作。
+`[Bots]`&#8203;引數在所有指令中，都是可省略的。 當指定該引數時，指令會在指定的Bot上執行。 但省略時，指令會在當前接收到指令的所有Bot上執行。 也就是說，向Bot &#8203;`B`&#8203;傳送&#8203;`status A`&#8203;，等於直接向Bot &#8203;`A`&#8203;傳送&#8203;`status`&#8203;指令。在這種情形下，Bot &#8203;`B`&#8203;只被作為一個代理Bot。 這也可用於向無法使用的Bot傳送指令，例如啟動已終止的Bot，或者在（您用於執行指令的）主要帳號上執行動作。
 
 指令的&#8203;**存取權限**&#8203;定義了執行此指令所需的&#8203;**最低**&#8203;權限，即&#8203;`SteamUserPermissions`&#8203;中定義的&#8203;`EPermission`&#8203;。但有個例外，&#8203;`Owner`&#8203;是指全域設定檔中定義的&#8203;`SteamOwnerID`&#8203;使用者（擁有最高權限）。
 
-複數引數，例如&#8203;`[Bots]`&#8203;、&#8203;`<Keys>`&#8203;或&#8203;`<AppIDs>`&#8203;，代表該引數支援多個由逗號分隔的相同類型數值。 舉例來說，&#8203;`status [Bots]`&#8203;可以輸入成&#8203;`status MyBot,MyOtherBot,Primary`&#8203;。 這樣，該指令會在&#8203;**所有的目標Bot**&#8203;上執行，效果等同於向所有的Bot分別發送&#8203;`status`&#8203;指令。 需要注意的是，「&#8203;`,`&#8203;」後面不能有空格。
+複數引數，例如&#8203;`[Bots]`&#8203;、&#8203;`<Keys>`&#8203;或&#8203;`<AppIDs>`&#8203;，代表該引數支援多個由逗號分隔的相同類型數值。 舉例來說，&#8203;`status [Bots]`&#8203;可以輸入成&#8203;`status MyBot,MyOtherBot,Primary`&#8203;。 這樣，該指令會在&#8203;**所有的目標Bot**&#8203;上執行，效果等同於向所有的Bot分別傳送&#8203;`status`&#8203;指令。 需要注意的是，「&#8203;`,`&#8203;」後面不能有空格。
 
 ASF使用所有的空白字元作為指令的定界符，例如空格和換行字元。 這代表您不僅可以使用空格來分隔引數，還可以使用任何其他空白字元（例如Tab及換行）。
 
@@ -138,7 +139,7 @@ ASF會將超出指令範圍的多餘引數「連接」至符合語法的最後�
 
 `[Bots]`&#8203;是複數引數的一個特殊變體，除了能夠接收多個值以外，它還具有額外的功能。
 
-首先，您可以使用特殊關鍵字&#8203;`ASF`&#8203;來表示「程序中的所有Bot」。因此&#8203;`status ASF`&#8203;指令等同於&#8203;`status 您,在此,列出的,所有,Bot`&#8203;。 這也可以方便地辨識您有權操作哪些 Bot，因為儘管關鍵字 `ASF` 的目標是所有 Bot，但只有您實際能夠傳送指令的 Bot 才會作出回應。
+首先，您可以使用特殊關鍵字&#8203;`ASF`&#8203;來表示「程序中的所有Bot」。因此&#8203;`status ASF`&#8203;指令等同於&#8203;`status 您,在此,列出的,所有,Bot`&#8203;。 這也可以方便地辨識您有權操作哪些Bot，因為儘管關鍵字&#8203;`ASF`&#8203;的目標是所有 Bot，但只有您實際能夠傳送指令的Bot才會作出回應。
 
 `[Bots]`&#8203;引數支援特殊的「範圍」語法，這可以讓您更容易選擇特定範圍的Bot。 在這種情形下，&#8203;`[Bots]`&#8203;的一般語法是&#8203;`firstBot..lastBot`&#8203;。 舉例來說，假設您有名為&#8203;`A, B, C, D, E, F`&#8203;的Bot，若您執行&#8203;`status B..E`&#8203;，等同於執行&#8203;`status B,C,D,E`&#8203;。 在使用此語法時，ASF將會以字母排序來決定哪些Bot在指定範圍內。 `firstBot`&#8203;及&#8203;`lastBot`&#8203;必須皆是ASF能夠辨識的有效Bot名稱，否則範圍語法將不會生效。
 
@@ -305,7 +306,7 @@ owns ASF app/292030,name/Witcher
 
 為此，我們需要執行以下指令：
 
-`start MySteamGuardBot`&#8203; -> Bot將嘗試登入，但會因為缺少驗證碼而登入失敗，然後因為ASF處於&#8203;`Headless`&#8203;模式，Bot會停止執行。 我們做這一步的目的，是讓Steam網路透過電子郵件向我們發送驗證碼⸺若不需要，我們可以直接跳過此步驟。
+`start MySteamGuardBot`&#8203; -> Bot將嘗試登入，但會因為缺少驗證碼而登入失敗，然後因為ASF處於&#8203;`Headless`&#8203;模式，Bot會停止執行。 我們做這一步的目的，是讓Steam網路透過電子郵件向我們傳送驗證碼⸺若不需要，我們可以直接跳過此步驟。
 
 `input MySteamGuardBot SteamGuard ABCDE`&#8203; -> 我們將&#8203;`MySteamGuardBot`&#8203; Bot 的&#8203;`SteamGuard`&#8203;輸入設定成&#8203;`ABCDE`&#8203;。 當然在這種情形下，&#8203;`ABCDE`&#8203;就是我們從電子郵件中獲得的驗證碼。
 
