@@ -21,12 +21,12 @@
 * **[👥 BAKGROUND GAMEZ REDEEMR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-lol-US)**
 * **[📢 COMMANDZ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)**
 * **[🛠️ COMPATIBILITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US)**
-* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
-* **[📋 MANAGEMENT](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
-* **[⏱️ PERFORMANCE](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📡 REMOTE COMMUNICASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
-* **[👪 STEAM PPLZ SHARIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[🔄 TRADIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+* **[🧩 ITEMSMATCHERPLUGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-lol-US)**
+* **[📋 MANAGEMENT](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-lol-US)**
+* **[⏱️ PERFORMANCE](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-lol-US)**
+* **[📡 REMOTE COMMUNICASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-lol-US)**
+* **[👪 STEAM PPLZ SHARIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing-lol-US)**
+* **[🔄 TRADIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-lol-US)**
 
 
 ## 🧙 ADVANCD
@@ -37,14 +37,14 @@
 * **[🤔 EXTENDD FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-lol-US)**
 * **[🚀 HIGH-PERFORMANCE SETUP](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-lol-US)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US)**
-* **[🌐 LOCALIZASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[📝 LOGGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[💾 LOW-MEMS SETUP](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[🔌 PLUGINS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
-* **[🔐 SECURITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[🧩 STEAMTOKENDUMPERPLUGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
-* **[📦 THIRD-PARTY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[📵 2-FACTOR AUTHENTICASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[🌐 LOCALIZASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-lol-US)**
+* **[📝 LOGGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-lol-US)**
+* **[💾 LOW-MEMS SETUP](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-lol-US)**
+* **[🔌 PLUGINS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-lol-US)**
+* **[🔐 SECURITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-lol-US)**
+* **[🧩 STEAMTOKENDUMPERPLUGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin-lol-US)**
+* **[📦 THIRD-PARTY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-lol-US)**
+* **[📵 2-FACTOR AUTHENTICASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-lol-US)**
 
 
 ## 👷 DEVELOPERS

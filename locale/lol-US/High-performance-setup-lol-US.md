@@ -59,8 +59,8 @@ export DOTNET_TieredPGO=1
 export DOTNET_ReadyToRun=0
 export DOTNET_TC_QuickJitForLoops=1
 
-./ArchiSteamFarm # For OS-specific build
-./ArchiSteamFarm.sh # For generic build
+./ArchiSteamFarm # 4 OS-SPECIFIC BUILD
+./ArchiSteamFarm.sh # 4 GENERIC BUILD
 ```
 
 OR ON WINDOWS (POWERSHELL):
@@ -72,8 +72,8 @@ $Env:DOTNET_TieredPGO=1
 $Env:DOTNET_ReadyToRun=0
 $Env:DOTNET_TC_QuickJitForLoops=1
 
-.\ArchiSteamFarm.exe # For OS-specific build
-.\ArchiSteamFarm.cmd # For generic build
+.\ArchiSteamFarm.exe # 4 OS-SPECIFIC BUILD
+.\ArchiSteamFarm.cmd # 4 GENERIC BUILD
 ```
 
 ---

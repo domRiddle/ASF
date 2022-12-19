@@ -247,14 +247,14 @@ IF U BLEEV DAT SOMETHIN INAPPROPRIATE IZ INCLUDD IN CODE BLOCK, OR DAT THAR IZ T
 
 ## HALL OV FAME
 
-WED LIEK 2 SHOW R ETERNAL GRATITUDE 2 PEEPS DAT HAS SPENT SIGNIFICANT AMOUNT OV THEIR TIEM AN WILLINGS 2 MAK ASF LOCALIZASHUN BETTR. THEIR EFFORT IZ INCREDIBLE, AN U CAN ENJOY COMPLETE TRANZLASHUNS, INCLUDIN TEH WIKI, MOSTLY THX 2 THEM. As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
+WED LIEK 2 SHOW R ETERNAL GRATITUDE 2 PEEPS DAT HAS SPENT SIGNIFICANT AMOUNT OV THEIR TIEM AN WILLINGS 2 MAK ASF LOCALIZASHUN BETTR. THEIR EFFORT IZ INCREDIBLE, AN U CAN ENJOY COMPLETE TRANZLASHUNS, INCLUDIN TEH WIKI, MOSTLY THX 2 THEM. AS TOKEN OV APPRECIASHUN, ALL PEEPS LISTD HER R OFFERD FREE ACCES 2 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-es-ES#matchactively)** FEACHUR UPON **[REQUEST](https://crowdin.com/messages/create/13177432/240376)**.
 
 | CONTRIBUTOR                                                | LANGUAGEZ         |
 | ---------------------------------------------------------- | ----------------- |
 | **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, SPANISH   |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | PORTUGUEES (BR)   |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | CHINEES (CN)      |
-| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Chinese (TW)      |
+| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | CHINEES (TW)      |
 | **[LittleFreak](https://crowdin.com/profile/littlefreak)** | GERMAN            |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | RUSIAN, UKRAINIAN |
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, GERMAN    |

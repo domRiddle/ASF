@@ -22,13 +22,13 @@ ASF SPEEKZ WIF **[GITHUB'S API](https://api.github.com)** IN ORDR 2 FETCH **[ASF
 
 ASF SPEEKZ WIF **[R OWN SERVR](https://asf.justarchi.net)** 4 MOAR ADVANCD FUNCSHUNALITY. IN PARTICULAR, DIS INCLUDEZ:
 - VERIFYIN CHECKSUMS OV ASF BUILDZ DOWNLOADD FRUM GITHUB AGAINST R OWN INDEPENDENT DATABASE 2 ENSURE DAT ALL DOWNLOADD BUILDZ R LEGITIMATE (FREE OV MALWARE, MITM ATTACKZ OR OTHR TAMPERIN)
-- Fetching list of bad bots for filtering if you've kept `FilterBadBots` global config setting enabled.
+- FETCHIN LIST OV BAD BOTS 4 FILTERIN IF UVE KEPT `FilterBadBots` GLOBAL CONFIG SETTIN ENABLD.
 - ANNOUNCIN UR BOT IN **[R LISTIN](https://asf.justarchi.net/STM)** IF UVE ENABLD `SteamTradeMatcher` IN **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#tradingpreferences)** AN MEET OTHR CRITERIA
 - DOWNLOADIN CURRENTLY AVAILABLE BOTS 2 TRADE FRUM **[R LISTIN](https://asf.justarchi.net/STM)** IF UVE ENABLD `MatchActively` IN **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#tradingpreferences)** AN MEET OTHR CRITERIA
 
 AS SECURITY MEASURE, IZ NOT POSIBLE 2 DISABLE CHECKSUM VERIFICASHUN 4 ASF BUILDZ. HOWEVR, U CAN DISABLE AUTO-UPDATEZ ENTIRELY IF UD LIEK 2 AVOID DIS, AS DESCRIBD ABOOV IN DA GITHUB SECSHUN.
 
-You can disable `FilterBadBots` setting if you want to avoid fetching the list from the server.
+U CAN DISABLE `FilterBadBots` SETTIN IF U WANTS 2 AVOID FETCHIN TEH LIST FRUM TEH SERVR.
 
 U CAN DECIDE 2 OPT-OUT OV BEAN ANNOUNCD IN DA LISTIN BY DISABLIN `PublicListing` FLAG IN BOTS **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#remotecommunication)** SETTINGS. DIS MITE BE USEFUL IF UD LIEK 2 RUN `SteamTradeMatcher` BOT WITHOUT BEAN ANNOUNCD AT TEH SAME TIEM.
 

@@ -164,7 +164,7 @@ IN SHORT, DEFAULT VALUE SHUD BE DESENT 4 MOST CASEZ, BUT U CUD WANTS 2 INCREASE 
 
 ### `FilterBadBots`
 
-`bool` TYPE WIF DEFAULT VALUE OV `true`. This property defines whether ASF will automatically decline trade offers that are received from known and marked bad actors. In order to do that, ASF will communicate with our server on as-needed basis to fetch a list of blacklisted Steam identificators. The bots listed are operated by people that are classified as harmful towards ASF initiative by us, such as those that violate our **[code of conduct](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CODE_OF_CONDUCT.md)**, use provided functionality and resources by us such as **[`PublicListing`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** in order to abuse and exploit other people, or are doing outright criminal activity such as launching DDoS attacks on the server. Since ASF has strong stance on overall fairness, honesty and cooperation between its users in order to make the whole community thrive, this property is enabled by default, and therefore ASF filters bots that we've classified as harmful from services offered. Unless you have a **strong** reason to edit this property, such as disagreeing with our statement and intentionally allowing those bots to operate (including exploiting your accounts), you should keep it at default.
+`bool` TYPE WIF DEFAULT VALUE OV `true`. DIS PROPERTY DEFINEZ WHETHR ASF WILL AUTOMATICALLY DECLINE TRADE OFFERS DAT R RECEIVD FRUM KNOWN AN MARKD BAD ACTORS. IN ORDR 2 DO DAT, ASF WILL SPEEK WIF R SERVR ON AS-NEEDD BASIS 2 FETCH LIST OV BLACKLISTD STEAM IDENTIFICATORS. TEH BOTS LISTD R OPERATD BY PEEPS DAT R CLASIFID AS HARMFUL TOWARDZ ASF INITIATIV BY US, SUCH AS DOSE DAT VIOLATE R **[CODE OV CONDUCT](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CODE_OF_CONDUCT.md)**, USE PROVIDD FUNCSHUNALITY AN RESOURCEZ BY US SUCH AS **[`PublicListing`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-lol-US#publiclisting)** IN ORDR 2 ABUSE AN EXPLOIT OTHR PEEPS, OR R DOIN OUTRIGHT CRIMINAL ACTIVITY SUCH AS LAUNCHIN DDOS ATTACKZ ON TEH SERVR. SINCE ASF HAS STRONG STANCE ON OVERALL FAIRNES, HONESTY AN COOPERASHUN TWEEN ITZ USERS IN ORDR 2 MAK TEH WHOLE COMMUNITY THRIV, DIS PROPERTY IZ ENABLD BY DEFAULT, AN THEREFORE ASF FILTERS BOTS DAT WEVE CLASIFID AS HARMFUL FRUM SERVICEZ OFFERD. UNLES U HAS **STRONG** REASON 2 EDIT DIS PROPERTY, SUCH AS DISAGREEIN WIF R STATEMENT AN INTENSHUNALLY ALLOWIN DOSE BOTS 2 OPERATE (INCLUDIN EXPLOITIN UR ACCOUNTS), U SHUD KEEP IT AT DEFAULT.
 
 ---
 
@@ -214,13 +214,13 @@ IF URE RUNNIN ASF ON TEH SERVR, U PROBABLY WANTS 2 USE DIS OPSHUN TOGETHR WIF `-
 
 ### `LicenseID`
 
-`Guid?` type with default value of `null` (in JSON, written as `string`). This property allows our **[sponsors](https://github.com/sponsors/JustArchi)** to enhance ASF with optional features that require paid resources to work. For now, this allows you to make use of **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature in `ItemsMatcher` plugin.
+`Guid?` TYPE WIF DEFAULT VALUE OV `null` (IN JSON, WRITTEN AS `string`). DIS PROPERTY ALLOWS R **[SPONSORS](https://github.com/sponsors/JustArchi)** 2 ENHANCE ASF WIF OPSHUNAL FEATUREZ DAT REQUIRE PAID RESOURCEZ 2 WERK. 4 NAO, DIS ALLOWS U 2 MAK USE OV **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-lol-US#matchactively)** FEACHUR IN `ItemsMatcher` PLUGIN.
 
-If you're ASF sponsor, you can obtain your license **[here](https://asf.justarchi.net/User/Status)**. You'll need to sign in with GitHub for confirming your identity, we ask only for read-only public information, which is your username. `LicenseID` is made out of 32 hexadecimal characters, such as `f6a0529813f74d119982eb4fe43a9a24`.
+IF URE ASF SPONSOR, U CAN OBTAIN UR LICENSE **[HER](https://asf.justarchi.net/User/Status)**. ULL NED 2 SIGN IN WIF GITHUB 4 CONFIRMIN UR IDENTITY, WE ASK ONLY 4 READ-ONLY PUBLIC INFORMASHUN, WHICH IZ UR USERNAME. `LicenseID` IZ MADE OUT OV 32 HEXADECIMAL CHARACTERS, SUCH AS `f6a0529813f74d119982eb4fe43a9a24`.
 
-**Ensure that you do not share your `LicenseID` with other people**. Since it's issued on personal basis, it might get revoked if it's leaked. If by any chance this happened to you accidentally, you can generate a new one from the same place.
+**ENSURE DAT U DO NOT SHARE UR `LicenseID` WIF OTHR PEEPS**. SINCE IZ ISSUD ON PERSONAL BASIS, IT MITE GIT REVOKD IF IZ LEAKD. IF BY ANY CHANCE DIS HAPPEND 2 U ACCIDENTALLY, U CAN GENERATE NEW WAN FRUM TEH SAME PLACE.
 
-Unless you want to enable extra ASF functionalities, there is no need for you to use the license.
+UNLES U WANTS 2 ENABLE EXTRA ASF FUNCSHUNALITIEZ, THAR IZ NO NED 4 U 2 USE TEH LICENSE.
 
 ---
 
@@ -792,14 +792,14 @@ IZ NICE 2 NOWT DAT THAR IZ WAN MOAR EXTRA `Owner` PERMISHUN, WHICH IZ DECLARD AS
 
 `byte flags` TYPE WIF DEFAULT VALUE OV `0`. DIS PROPERTY DEFINEZ ASF BEHAVIOUR WHEN IN TRADIN, AN IZ DEFIND AS BELOW:
 
-| VALUE | NAYM                | DESCRIPSHUN                                                                                                                                                                                                           |
-| ----- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | None                | NO SPESHUL TRADIN PREFERENCEZ, DEFAULT                                                                                                                                                                                |
-| 1     | AcceptDonations     | ACCEPTS TRADEZ IN WHICH WERE NOT LOSIN ANYTHIN                                                                                                                                                                        |
-| 2     | SteamTradeMatcher   | PASIVELY PARTICIPATEZ IN **[STM](https://www.steamtradematcher.com)**-LIEK TRADEZ. VISIT **[TRADIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-lol-US#steamtradematcher)** 4 MOAR INFO               |
-| 4     | MatchEverything     | REQUIREZ `SteamTradeMatcher` 2 BE SET, AN IN COMBINASHUN WIF IT - ALSO ACCEPTS BAD TRADEZ IN ADDISHUN 2 GUD AN NEUTRAL ONEZ                                                                                           |
-| 8     | DontAcceptBotTrades | DOESNT AUTOMATICALLY ACCEPT `loot` TRADEZ FRUM OTHR BOT INSTANCEZ                                                                                                                                                     |
-| 16    | MatchActively       | ACTIVELY PARTICIPATEZ IN **[STM](https://www.steamtradematcher.com)**-LIEK TRADEZ. Visit **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** for more info |
+| VALUE | NAYM                | DESCRIPSHUN                                                                                                                                                                                                                |
+| ----- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | None                | NO SPESHUL TRADIN PREFERENCEZ, DEFAULT                                                                                                                                                                                     |
+| 1     | AcceptDonations     | ACCEPTS TRADEZ IN WHICH WERE NOT LOSIN ANYTHIN                                                                                                                                                                             |
+| 2     | SteamTradeMatcher   | PASIVELY PARTICIPATEZ IN **[STM](https://www.steamtradematcher.com)**-LIEK TRADEZ. VISIT **[TRADIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-lol-US#steamtradematcher)** 4 MOAR INFO                    |
+| 4     | MatchEverything     | REQUIREZ `SteamTradeMatcher` 2 BE SET, AN IN COMBINASHUN WIF IT - ALSO ACCEPTS BAD TRADEZ IN ADDISHUN 2 GUD AN NEUTRAL ONEZ                                                                                                |
+| 8     | DontAcceptBotTrades | DOESNT AUTOMATICALLY ACCEPT `loot` TRADEZ FRUM OTHR BOT INSTANCEZ                                                                                                                                                          |
+| 16    | MatchActively       | ACTIVELY PARTICIPATEZ IN **[STM](https://www.steamtradematcher.com)**-LIEK TRADEZ. VISIT **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-lol-US#matchactively)** 4 MOAR INFO |
 
 PLZ NOTICE DAT DIS PROPERTY IZ `flags` FIELD, THEREFORE IZ POSIBLE 2 CHOOSE ANY COMBINASHUN OV AVAILABLE VALUEZ. CHECK OUT **[FLAGS MAPPIN](#json-mappin)** IF UD LIEK 2 LERN MOAR. NOT ENABLIN ANY OV FLAGS RESULTS IN `None` OPSHUN.
 
