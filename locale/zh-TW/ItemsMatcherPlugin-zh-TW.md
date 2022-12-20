@@ -6,7 +6,7 @@
 
 ## `PublicListing`
 
-顧名思義，公開清單是當前可供使用的ASF STM Bot的清單。 它位於&#8203;**[我們的網站](https://asf.justarchi.net/STM)**上，進行自動管理並作為一項公共服務，提供使用&#8203;`MatchActively`&#8203;的ASF使用者及手動匹配的ASF與非ASF使用者使用。
+顧名思義，公開清單是當前可供使用的ASF STM Bot的清單。 它位於&#8203;**[我們的網站](https://asf.justarchi.net/STM)**&#8203;上，進行自動管理並作為一項公共服務，提供使用&#8203;`MatchActively`&#8203;的ASF使用者及手動匹配的ASF與非ASF使用者使用。
 
 雖然&#8203;`PublicListing`&#8203;預設為啟用，但請注意，如果您不滿足所有要求，您將&#8203;**不會**&#8203;被顯示在網站上，特別是&#8203;`SteamTradeMatcher`&#8203;，它在預設情形下並未啟用。 對於不滿足條件的人，即使他們保持啟用&#8203;`PublicListing`&#8203;，ASF也不會以任何方式與伺服器通訊。 公開清單也只會與ASF最新的穩定版相容，並可能拒絕顯示過時的Bot，特別是如果它們缺少只能在新版本中找到的核心功能。
 
@@ -74,7 +74,7 @@ ASF是也仍是免費且開源的，它是在2015年10月專案開始時建立�
 
 ---
 
-### 我要如何獲得存取權限？
+### 我要如何獲得使用權限？
 
 `ItemsMatcher`&#8203;在JustArchi的GitHub上作為$5美元或以上贊助階級的一部分提供。 只需成為$5美元（或更高）階級的贊助者，然後閱讀&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#licenseid)**&#8203;章節，以獲得並填寫&#8203;`LicenseID`&#8203;。
 

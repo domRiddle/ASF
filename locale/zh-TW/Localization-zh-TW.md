@@ -247,7 +247,7 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 ## 名人堂
 
-我們要向那些花費大量時間，並願意讓ASF在地化翻譯變得更好的人們致以衷心的感謝。 他們的努力令人驚嘆，您可以享受包含Wiki在內的完整翻譯，都主要歸功於這些貢獻者。 As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
+我們要向那些花費大量時間，並願意讓ASF在地化翻譯變得更好的人們致以衷心的感謝。 他們的努力令人驚嘆，您可以享受包含Wiki在內的完整翻譯，都主要歸功於這些貢獻者。 作為答謝，這裡列出的所有貢獻者都可以&#8203;**[提出請求](https://crowdin.com/messages/create/13177432/240376)**&#8203;，來免費獲得&#8203;**[MatchActively</code>](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW#matchactively)**&#8203;功能的使用權限。
 
 | 貢獻者                                                        | 語言          |
 | ---------------------------------------------------------- | ----------- |

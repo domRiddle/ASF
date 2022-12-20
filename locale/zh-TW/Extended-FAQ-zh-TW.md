@@ -40,17 +40,17 @@ ASF由&#8203;**[Archi](https://github.com/JustArchi)**&#8203;在2015年10月建�
 
 您PC的安全也是一樣。 是的，您PC上的惡意程式會從每個方面破壞ASF的安全性，因為它可以從ASF設定檔或程序的記憶體中讀取敏感資訊，甚至影響程式，執行它本不會執行的操作。 不，您從可疑來源取得的最新破解程式並不像某些人告訴您的那樣是個「誤報」，它是控制其他人PC的最有效方法之一，被入侵的這傢伙會感染自己，甚至還會依照指示進行操作，真有趣。
 
-那麼，使用ASF是不是就完全安全且無任何風險了呢？ 非也。如果我們這麼說，那就是偽善，因為&#8203;**每個**&#8203;軟體都有其安全導向的問題。 與許多公司正在做的事情相反，我們在我們的&#8203;**[安全建議](https://github.com/JustArchiNET/ArchiSteamFarm/security/advisories)**&#8203;中盡可能透明，且我們一旦發現從安全性的角度來看，若ASF可能以任何方式出現不應發生的情形，即使&#8203;*是個假設*&#8203;，我們也會立即公布。 This is what happened with **[CVE-2021-32794](https://github.com/JustArchiNET/ArchiSteamFarm/security/advisories/GHSA-wxx4-66c2-vj2v)** for example, even though ASF didn't have any security flaw per-se, but rather a bug that could lead to user accidentally creating one.
+那麼，使用ASF是不是就完全安全且無任何風險了呢？ 非也。如果我們這麼說，那就是偽善，因為&#8203;**每個**&#8203;軟體都有其安全導向的問題。 與許多公司正在做的事情相反，我們在我們的&#8203;**[安全建議](https://github.com/JustArchiNET/ArchiSteamFarm/security/advisories)**&#8203;中盡可能透明，且我們一旦發現從安全性的角度來看，若ASF可能以任何方式出現不應發生的情形，即使&#8203;*是個假設*&#8203;，我們也會立即公布。 例如，&#8203;**[CVE-2021-32794](https://github.com/JustArchiNET/ArchiSteamFarm/security/advisories/GHSA-wxx4-66c2-vj2v)**&#8203;就是這樣，雖然ASF本身並沒有任何安全缺陷，但這是個可能導致使用者造成意外的錯誤。
 
-As of today, there are no known, unpatched security flaws in ASF, and as the program is used by more and more people out of which both **[white hats](https://en.wikipedia.org/wiki/White_hat_(computer_security))** as well as **[black hats](https://en.wikipedia.org/wiki/Black_hat_(computer_security))** analyze its source code, the overall trust factor only increases with time, as the number of security flaws to find out is finite, and ASF as a program that focuses first and foremost on its security, definitely isn't making it easy for finding one. Regardless of our best intentions, we still recommend to stay cool-headed and always be wary of potential security threats, ones coming from ASF usage as well.
+時至今日，ASF中已沒有已知的、未修補的安全缺陷，隨著越來越多的人使用本程式，&#8203;**[白帽駭客](https://zh.wikipedia.org/zh-tw/白帽黑客)**&#8203;與&#8203;**[黑帽駭客](https://zh.wikipedia.org/zh-tw/黑帽駭客)**&#8203;分析了其原始碼，整體的信任度只會隨著時間的推移而增加 ，因為能找出的安全漏洞數量是有限的，且ASF作為一個首要關注安全性的程式，當然並不容易被找到一個。 不論我們的初衷是什麼，我們仍建議保持冷靜，並永遠都要警惕潛在的安全威脅，包含來自使用ASF的威脅。
 
 ---
 
 ### 我要如何驗證下載的檔案是否為正版？
 
-As part of our releases on GitHub, we utilize a very similar verification process as the one used by **[Debian](https://www.debian.org/CD/verify)**. In every official release starting with ASF V5.1.3.3, in addition to `zip` files you can find `SHA512SUMS` and `SHA512SUMS.sign` files. Download them for verification purposes together with the `zip` files of your choice.
+作為我們在GitHub上發布的一部分，我們使用與&#8203;**[Debian](https://www.debian.org/CD/verify)**&#8203;非常相似的驗證過程。 從ASF V5.1.3.3版本開始的每個正式版本中，除了&#8203;`zip`&#8203;檔案外，您還可以找到&#8203;`SHA512SUMS`&#8203;及&#8203;`SHA512SUMS.sign`&#8203;檔案。 將它們與您所選的&#8203;`zip`&#8203;檔案一起下載，用於驗證。
 
-Firstly, you should use `SHA512SUMS` file in order to verify that `SHA-512` checksum of the selected `zip` files matches the one we calculated ourselves. On Linux, you can use `sha512sum` utility for that purpose.
+首先，您應該使用&#8203;`SHA512SUMS`&#8203;檔案來驗證所選&#8203;`zip`&#8203;檔案的&#8203;`SHA-512`&#8203;核對和是否與我們自己計算的相符。 在Linux上，您可以使用&#8203;`sha512sum`&#8203;工具來達成。
 
 
 ```
@@ -58,7 +58,7 @@ $ sha512sum -c --ignore-missing SHA512SUMS
 ASF-linux-x64.zip: OK
 ```
 
-On Windows, we can do that from powershell, although you have to manually verify with `SHA512SUMS`:
+在Windows上，我們可以在Powershell中執行，但您需要手動確認&#8203;`SHA512SUMS`&#8203;：
 
 ```
 PS > Get-Content SHA512SUMS | Select-String -Pattern ASF-linux-x64.zip
@@ -73,7 +73,7 @@ Algorithm       Hash                                                            
 SHA512          F605E573CC5E044DD6FADBC44F6643829D11360A2C6E4915B0C0B8F5227BC2A2575... ASF-linux-x64.zip
 ```
 
-This way we ensured that whatever was written to `SHA512SUMS` matches the resulting files and they weren't tampered with. However, it doesn't prove yet that `SHA512SUMS` file you checked against really comes from us. For that, we'll use `SHA512SUMS.sign` file, which holds digital PGP signature proving the authenticity of `SHA512SUMS`. We can use `gpg` utility for that purpose, both on **[Linux](https://gnupg.org/download/index.html)** and **[Windows](https://gpg4win.org)** (change `gpg` command into `gpg.exe` on Windows).
+透過這種方式，我們確保&#8203;`SHA512SUMS`&#8203;的內容與生成的檔案相符，且它們未被篡改。 但是，這還無法證明您使用的&#8203;`SHA512SUMS`&#8203;檔案真的來自我們。 為此，我們使用了&#8203;`SHA512SUMS.sign`&#8203;檔案，包含了證明&#8203;`SHA512SUMS`&#8203;真實性的數位PGP簽章。 我們可以在Linux及Windows上使用&#8203;`gpg`&#8203;工具（在Windows上，需將&#8203;`gpg`&#8203;命令改成&#8203;`gpg.exe`&#8203;）。
 
 ```
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
@@ -82,7 +82,7 @@ gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg: Can't check signature: No public key
 ```
 
-As you can see, the file indeed holds a valid signature, but of unknown origin. You'll need to import ArchiBot's **[public key](https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc)** that we sign the `SHA-512` sums with for full validation.
+如您所見，該檔案的確擁有一個有效簽章，但來源不明。 您需要匯入我們用於簽署&#8203;`SHA-512`&#8203;核對和的ArchiBot&#8203;**[公鑰](https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc)**&#8203;來進行完整的驗證。
 
 ```
 $ curl https://raw.githubusercontent.com/JustArchi-ArchiBot/JustArchi-ArchiBot/main/ArchiBot_public.asc -o ArchiBot_public.asc
@@ -94,7 +94,7 @@ gpg:               imported: 1
 
 ```
 
-Finally, you can verify the `SHA512SUMS` file again:
+最後，您可以再次驗證&#8203;`SHA512SUMS`&#8203;檔案：
 
 ```
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
@@ -106,11 +106,11 @@ gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 224D A6DB 47A3 935B DCC3  BE17 A3D1 81DF 2D55 4CCF
 ```
 
-This has verified that the `SHA512SUMS.sign` holds a valid signature of our `224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF` key for `SHA512SUMS` file that you've verified against.
+這驗證了&#8203;`SHA512SUMS.sign`&#8203;擁有我們&#8203;`224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF`&#8203;金鑰的有效簽章，對應您已驗證過的&#8203;`SHA512SUMS`&#8203;檔案。
 
-You could be wondering where the last warning comes from. You've successfully imported our key, but didn't decide to trust it just yet. While this is not mandatory, we can cover it as well. Normally this includes verifying through different channel (e.g. phone call, SMS) that the key is valid, then signing the key with your own to trust it. For this example, you can consider this wiki entry as such (very weak) different channel, since the original key comes from **[ArchiBot's profile](https://github.com/JustArchi-ArchiBot)**. In any case we'll assume that you have enough of confidence as it is.
+您可能想知道最後一個警告是從哪來的。 您已經成功匯入我們的金鑰，但還未決定要信任它。 雖然這不是強制性的，但我們也可以說明一下它。 通常您需要透過另一個管道（例如電話或簡訊）來驗證該金鑰是有效的，然後使用您自己的金鑰作為簽章來信任它。 在本範例中，您可以認為本Wiki條目視為另一個（非常弱）的管道，因為原始金鑰來自&#8203;**[ArchiBot的個人檔案](https://github.com/JustArchi-ArchiBot)**&#8203;。 不論如何，我們都假設您有足夠的信心信任它。
 
-Firstly, **[generate private key for yourself](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Generating_an_OpenPGP_Key)**, if you don't have one just yet. We'll use `--quick-gen-key` as a quick example.
+首先，若您尚未擁有自己的私鑰，請先&#8203;**[生成一個](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Generating_an_OpenPGP_Key)**&#8203;。 我們使用&#8203;`--quick-gen-key`&#8203;作為一個簡單的範例。
 
 ```
 $ gpg --batch --passphrase '' --quick-gen-key "$(whoami)"
@@ -120,7 +120,7 @@ gpg: directory '/home/archi/.gnupg/openpgp-revocs.d' created
 gpg: revocation certificate stored as '/home/archi/.gnupg/openpgp-revocs.d/8E5D685F423A584569686675E4E763905FAD148B.rev'
 ```
 
-Now you can sign our key with yours in order to trust it:
+現在您可以使用您自己的金鑰為我們的金鑰簽章來信任它：
 
 ```
 $ gpg --sign-key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
@@ -146,7 +146,7 @@ key "archi" (E4E763905FAD148B)
 Really sign? (y/N) y
 ```
 
-And done, after trusting our key, `gpg` should no longer display the warning when verifying:
+完成信任我們的金鑰後，&#8203;`gpg`&#8203;在驗證時應不再會顯示警告了：
 
 ```
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
@@ -155,9 +155,9 @@ gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [full]
 ```
 
-Notice the `[unknown]` trust indicator changing into `[full]` once you signed our key with yours.
+注意，一旦您使用了自己的金鑰簽署後，&#8203;`[unknown]`&#8203;信任狀態會變成&#8203;`[full]`&#8203;。
 
-Congratulations, you've verified that nobody has tampered with the release you've downloaded! 👍
+恭喜，您已驗證了您下載的檔案版本並未經過任何人竄改！ 👍
 
 ---
 

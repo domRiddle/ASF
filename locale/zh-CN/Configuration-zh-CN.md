@@ -164,21 +164,21 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `FilterBadBots`
 
-这是一个默认值为 `true` 的 `bool` 类型属性。 This property defines whether ASF will automatically decline trade offers that are received from known and marked bad actors. In order to do that, ASF will communicate with our server on as-needed basis to fetch a list of blacklisted Steam identificators. The bots listed are operated by people that are classified as harmful towards ASF initiative by us, such as those that violate our **[code of conduct](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CODE_OF_CONDUCT.md)**, use provided functionality and resources by us such as **[`PublicListing`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** in order to abuse and exploit other people, or are doing outright criminal activity such as launching DDoS attacks on the server. Since ASF has strong stance on overall fairness, honesty and cooperation between its users in order to make the whole community thrive, this property is enabled by default, and therefore ASF filters bots that we've classified as harmful from services offered. Unless you have a **strong** reason to edit this property, such as disagreeing with our statement and intentionally allowing those bots to operate (including exploiting your accounts), you should keep it at default.
+这是一个默认值为 `true` 的 `bool` 类型属性。 该属性定义 ASF 是否会自动拒绝已知及已被标记的不良行为者的交易报价。 为此，ASF 会在需要时与我们的服务器通信，以拉取 Steam ID 黑名单列表。 列表内的机器人由我们认为对 ASF 积极性有害的人所运行，这些行为包括违反我们的[**行为守则**](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CODE_OF_CONDUCT.md)、滥用我们提供的资源例如 [**`PublicListing`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-CN#publiclisting公共列表) 从他人处获利、或者进行对服务器发起 DDoS 攻击等直接的犯罪活动。 因为 ASF 对用户整体的公平、诚信与合作有坚定的立场，以使整个社区健康发展，此属性默认为启用，因此 ASF 将会过滤掉我们认为对服务有害的机器人。 除非您有**充分的**理由编辑此属性，例如不同意我们的声明并有意允许这些机器人操作（包括利用您的帐户），否则应将其保留为默认值。
 
 ---
 
 ### `GiftsLimiterDelay`
 
-这是一个默认值为 `1` 的 `byte` 类型属性。 处理（激活）礼物/序列号/许可时，ASF 会确保两个连续的请求之间至少间隔 `GiftsLimiterDelay` 秒，以免触发频率限制。 此外，在请求游戏列表时（例如执行 `owns` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;时），也会以这个值作为全局限制。 除非您有**充分的**理由编辑此属性，否则应将其保留为默认值。
+这是一个默认值为 `1` 的 `byte` 类型属性。 处理（激活）礼物/序列号/许可时，ASF 会确保两个连续的请求之间至少间隔 `GiftsLimiterDelay` 秒，以免触发频率限制。 此外，在请求游戏列表时（例如执行 `owns` [**命令**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)时），也会以这个值作为全局限制。 除非您有**充分的**理由编辑此属性，否则应将其保留为默认值。
 
 ---
 
 ### `Headless`
 
-这是一个默认值为 `false` 的 `bool` 类型属性。 该属性定义是否要在 Headless 模式下运行进程。 在 Headless 模式下，ASF 会假定自己运行于服务器或者其他非交互式环境，因此它将不会尝试在控制台输入中读取任何信息。 这包括程序请求的细节（帐户的关键凭据，如两步验证代码、Steam 令牌验证码、密码或者其他 ASF 操作所需的任何变量），以及所有其他控制台输入（例如交互式命令控制台）。 换句话说，`Headless` 模式意味着 ASF 的控制台是只读的。 此设置主要面向在服务器上运行 ASF 的用户，因为在需要向用户询问信息（例如两步验证代码）时，ASF 将会直接停用相关的帐户以中止操作。 除非您在服务器上运行 ASF，并且您已经确认 ASF 能够在非 Headless 模式下正常运行，否则应该禁用此属性。 在 Headless 模式下，任何用户交互都将被拒绝，如果您的帐户需要在启动时输入**任何**信息，则它们将不会启动。 这对于服务器来说很有用，因为 ASF 可以在要求提供凭据时中止帐户登录的尝试，而不是无限地等待用户提供凭据。 启用这一模式将允许您使用 `input` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**&#8203;作为标准控制台输入的替代。 如果您不确定应该如何设置这个属性，请保留默认值 `false`。
+这是一个默认值为 `false` 的 `bool` 类型属性。 该属性定义是否要在 Headless 模式下运行进程。 在 Headless 模式下，ASF 会假定自己运行于服务器或者其他非交互式环境，因此它将不会尝试在控制台输入中读取任何信息。 这包括程序请求的细节（帐户的关键凭据，如两步验证代码、Steam 令牌验证码、密码或者其他 ASF 操作所需的任何变量），以及所有其他控制台输入（例如交互式命令控制台）。 换句话说，`Headless` 模式意味着 ASF 的控制台是只读的。 此设置主要面向在服务器上运行 ASF 的用户，因为在需要向用户询问信息（例如两步验证代码）时，ASF 将会直接停用相关的帐户以中止操作。 除非您在服务器上运行 ASF，并且您已经确认 ASF 能够在非 Headless 模式下正常运行，否则应该禁用此属性。 在 Headless 模式下，任何用户交互都将被拒绝，如果您的帐户需要在启动时输入**任何**信息，则它们将不会启动。 这对于服务器来说很有用，因为 ASF 可以在要求提供凭据时中止帐户登录的尝试，而不是无限地等待用户提供凭据。 启用这一模式将允许您使用 `input` [**命令**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)作为标准控制台输入的替代。 如果您不确定应该如何设置这个属性，请保留默认值 `false`。
 
-如果您在服务器上运行 ASF，您可能需要将这个属性与 `--process-required` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)**&#8203;配合使用。
+如果您在服务器上运行 ASF，您可能需要将这个属性与 `--process-required` [**命令行参数**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN)配合使用。
 
 ---
 
@@ -208,7 +208,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `IPCPasswordFormat`
 
-这是一个默认值为 `0` 的 `byte` 类型属性。 该属性用于定义 `IPCPassword` 属性的格式，其底层类型为 `EHashingMethod`。 如果您需要了解更多，请参考&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节，确保 `IPCPassword` 属性的值确实符合 `IPCPasswordFormat` 定义的格式。 换句话说，在您更改 `IPCPasswordFormat` 时，必须确保您的 `IPCPassword` **已经**是您所选择的格式。 除非您明确了解自己在做什么，否则请将其保留为默认值 `0`。
+这是一个默认值为 `0` 的 `byte` 类型属性。 该属性用于定义 `IPCPassword` 属性的格式，其底层类型为 `EHashingMethod`。 如果您需要了解更多，请参考[**安全性**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)章节，确保 `IPCPassword` 属性的值确实符合 `IPCPasswordFormat` 定义的格式。 换句话说，在您更改 `IPCPasswordFormat` 时，必须确保您的 `IPCPassword` **已经**是您所选择的格式。 除非您明确了解自己在做什么，否则请将其保留为默认值 `0`。
 
 ---
 
@@ -691,11 +691,11 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 这是一个默认值为 `3` 的 `byte flags` 类型属性。 该属性为每个机器人定义 ASF 与以下第三方服务进行远程通信的行为：
 
-| 值 | 名称            | 描述                                                                                                                                                                                                                                                                |
-| - | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0 | None          | 不允许与第三方通信，指定的 ASF 功能将不可用                                                                                                                                                                                                                                          |
-| 1 | SteamGroup    | 允许与 [**ASF 的 Steam 组**](https://steamcommunity.com/groups/archiasf)通信                                                                                                                                                                                             |
-| 2 | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
+| 值 | 名称            | 描述                                                                                                                                                                                                             |
+| - | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | None          | 不允许与第三方通信，指定的 ASF 功能将不可用                                                                                                                                                                                       |
+| 1 | SteamGroup    | 允许与 [**ASF 的 Steam 组**](https://steamcommunity.com/groups/archiasf)通信                                                                                                                                          |
+| 2 | PublicListing | 如果用户还启用了 **[`TradingPreferences`](#tradingpreferences)** 中的 `SteamTradeMatcher`，则允许与 [**ASF STM 列表**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-CN#publiclisting公共列表)通信以展示在列表上 |
 
 请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
 
@@ -792,14 +792,14 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 这是一个默认值为 `0` 的 `byte flags` 类型属性。 该属性定义 ASF 在交易时的行为，可选项如下：
 
-| 值  | 名称                  | 描述                                                                                                                                                                                          |
-| -- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0  | None                | 无特殊交易偏好，默认值                                                                                                                                                                                 |
-| 1  | AcceptDonations     | 接受我们不付出任何物品的交易                                                                                                                                                                              |
-| 2  | SteamTradeMatcher   | 以被动方式参与 **[STM](https://www.steamtradematcher.com)** 交易。 访问&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN#steamtradematcher)**&#8203;获得更多信息                |
-| 4  | MatchEverything     | 需要先设置 `SteamTradeMatcher`，将二者结合使用——除了有利交易和平衡交易，还接受不利交易                                                                                                                                      |
-| 8  | DontAcceptBotTrades | 不自动接受来自其他机器人的 `loot` 交易                                                                                                                                                                     |
-| 16 | MatchActively       | 以主动方式参与 **[STM](https://www.steamtradematcher.com)** 交易。 Visit **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** for more info |
+| 值  | 名称                  | 描述                                                                                                                                                                            |
+| -- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0  | None                | 无特殊交易偏好，默认值                                                                                                                                                                   |
+| 1  | AcceptDonations     | 接受我们不付出任何物品的交易                                                                                                                                                                |
+| 2  | SteamTradeMatcher   | 以被动方式参与 **[STM](https://www.steamtradematcher.com)** 交易。 访问&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN#steamtradematcher)**&#8203;获得更多信息  |
+| 4  | MatchEverything     | 需要先设置 `SteamTradeMatcher`，将二者结合使用——除了有利交易和平衡交易，还接受不利交易                                                                                                                        |
+| 8  | DontAcceptBotTrades | 不自动接受来自其他机器人的 `loot` 交易                                                                                                                                                       |
+| 16 | MatchActively       | 以主动方式参与 **[STM](https://www.steamtradematcher.com)** 交易。 访问[**物品匹配插件**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-CN#matchactively主动匹配)了解更多信息 |
 
 请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
 

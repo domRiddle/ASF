@@ -61,7 +61,7 @@ ASF 中使用的&#8203;**[垃圾收集](https://en.wikipedia.org/wiki/Garbage_co
 
 > 指定在 GC 更积极后的内存使用量。
 
-This setting configures the memory threshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. 推荐将此属性设置为您认为将会严重影响操作系统性能的最大内存占用（百分比形式）。 默认值为 90%，通常您会希望保持其在 80-97% 范围内，因为过低的值会造成不必要的激进 GC 并降低性能，而过高的值可能会导致操作系统负担过重，应该让 ASF 释放一些内存以缓解。
+此选项设置您整个操作系统可供使用的内存上限，设置后，GC 将会更加积极，更频繁地运行 GC 进程，借此向操作系统释放更多空闲内存，以尝试帮助操作系统降低内存负载。 推荐将此属性设置为您认为将会严重影响操作系统性能的最大内存占用（百分比形式）。 默认值为 90%，通常您会希望保持其在 80-97% 范围内，因为过低的值会造成不必要的激进 GC 并降低性能，而过高的值可能会导致操作系统负担过重，应该让 ASF 释放一些内存以缓解。
 
 ### **[`GCLatencyLevel`](https://github.com/dotnet/runtime/blob/4b90e803262cb5a045205d946d800f9b55f88571/src/coreclr/gc/gcpriv.h#L375-L398)**
 
@@ -80,29 +80,29 @@ This setting configures the memory threshold of your whole OS, which once passed
 您可以通过环境变量启用指定的 GC 选项。 例如，在 Linux 上（Shell）：
 
 ```shell
-# Don't forget to tune those if you're planning to make use of them
-export DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
-export DOTNET_GCHighMemPercent=0x50 # 80% as hex
+# 如要使用此功能，不要忘记调整此数值
+export DOTNET_GCHeapHardLimitPercent=0x4B # 75% 的十六进制表示
+export DOTNET_GCHighMemPercent=0x50 # 80% 的十六进制表示
 
 export DOTNET_GCLatencyLevel=0
 export DOTNET_gcTrimCommitOnLowMemory=1
 
-./ArchiSteamFarm # For OS-specific build
-./ArchiSteamFarm.sh # For generic build
+./ArchiSteamFarm # 针对操作系统包
+./ArchiSteamFarm.sh # 针对 Generic 包
 ```
 
 或者在 Windows 上（Powershell）：
 
 ```powershell
-# Don't forget to tune those if you're planning to make use of them
-$Env:DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
-$Env:DOTNET_GCHighMemPercent=0x50 # 80% as hex
+# 如要使用此功能，不要忘记调整此数值
+$Env:DOTNET_GCHeapHardLimitPercent=0x4B # 75% 的十六进制表示
+$Env:DOTNET_GCHighMemPercent=0x50 # 80% 的十六进制表示
 
 $Env:DOTNET_GCLatencyLevel=0
 $Env:DOTNET_gcTrimCommitOnLowMemory=1
 
-.\ArchiSteamFarm.exe # For OS-specific build
-.\ArchiSteamFarm.cmd # For generic build
+.\ArchiSteamFarm.exe # 针对操作系统包
+.\ArchiSteamFarm.cmd # 针对 Generic 包
 ```
 
 其中 `GCLatencyLevel` 将非常有用，因为我们可以验证运行时环境确实为内存优化了代码，因此即使采用服务器 GC 也会显著降低平均内存使用量。 如果您希望显著降低 ASF 的内存用量，但不希望 `OptimizationMode` 造成严重的性能下降，那么这是您可以选择的最佳技巧之一。
