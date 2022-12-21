@@ -85,7 +85,7 @@ For example, we'll assume that your ASF config folder is in `/home/archi/ASF/con
 docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Og det er det, nu bruger din ASF-dockercontainer delt mappe med din lokale maskine i læse-skrivningstilstand, hvilket er alt hvad du har brug for til at konfigurere ASF. På lignende måde kan du montere andre volumener, som du gerne vil dele med ASF, såsom `/app/logs` eller `/app/plugins`.
+Og det er det, nu bruger din ASF-dockercontainer delt mappe med din lokale maskine i læse-skrivningstilstand, hvilket er alt hvad du har brug for til at konfigurere ASF. In similar way you can mount other volumes that you'd like to share with ASF, such as `/app/logs` or `/app/plugins/MyCustomPluginDirectory`.
 
 Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF docker container. We're only covering basic usage in this guide.
 

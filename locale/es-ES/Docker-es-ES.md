@@ -85,7 +85,7 @@ Por ejemplo, supongamos que tu carpeta de configuraciones de ASF está en el dir
 docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Y eso es todo, ahora el contenedor docker ASF usará el directorio compartido con tu máquina local en modo lectura-escritura, que es todo lo que necesitas para configurar ASF. De forma similar puedes montar otros volúmenes que te gustaría compartir con ASF, tal como `/app/logs` o `/app/plugins`.
+Y eso es todo, ahora el contenedor docker ASF usará el directorio compartido con tu máquina local en modo lectura-escritura, que es todo lo que necesitas para configurar ASF. De igual manera puedes montar otros volúmenes que quieras compartir con ASF, tal como `/app/logs` o `/app/plugins/MyCustomPluginDirectory`.
 
 Por supuesto, esta solo es una forma específica de lograr lo que queremos, nada te impide, por ejemplo, crear tu propio `Dockerfile` que copiará tus archivos de configuración en el directorio `/app/config` dentro del contenedor docker ASF. Solo estamos cubriendo el uso básico en esta guía.
 

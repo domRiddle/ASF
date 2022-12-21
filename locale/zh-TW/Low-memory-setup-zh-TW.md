@@ -61,19 +61,19 @@ ASF程序的「硬性」記憶體限制，本設定會將GC調整為只使用總
 
 > 指定在GC變得更積極後的記憶體使用量。
 
-本設定是設定整個作業系統的記憶體閾值，一旦超過，GC將會變得更加積極，並嘗試透過執行更密集的GC程序來幫助作業系統降低記憶體負荷，來將更多的閒置記憶體釋放給作業系統。 It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
+本設定是設定整個作業系統的記憶體閾值，一旦超過，GC將會變得更加積極，並嘗試透過執行更密集的GC程序來幫助作業系統降低記憶體負荷，來將更多的閒置記憶體釋放給作業系統。 最好將本屬性設定成您認為整個作業系統「臨界」效能的最大記憶體使用量（百分率）。 預設值為90%，通常您希望將它維持在80～97%的範圍內，因為太低的值會使GC產生不必要的積極並使效能無故下降，而太高的值會給您的作業系統帶來不必要的負載，應該讓ASF釋放一些記憶體來緩解。
 
 ### **[`GCLatencyLevel`](https://github.com/dotnet/runtime/blob/4b90e803262cb5a045205d946d800f9b55f88571/src/coreclr/gc/gcpriv.h#L375-L398)**
 
 > 指定您要最佳化的GC延遲層級。
 
-This is undocumented property that turned out to work exceptionally well for ASF, by limiting size of GC generations and in result make GC purge them more frequently and more aggressively. Default (balanced) latency level is `1`, but you can use `0`, which will tune for memory usage.
+這是一個未記錄的屬性，證明對ASF非常有效，透過限制GC產生的大小，來使GC更頻繁、更積極地清除它們。 預設值（平衡）為&#8203;`1`&#8203;，但您可以使用&#8203;`0`&#8203;，這將會針對記憶體使用量來進行調整。
 
 ### [`gcTrimCommitOnLowMemory`](https://docs.microsoft.com/zh-tw/dotnet/standard/garbage-collection/optimization-for-shared-web-hosting)
 
 > 設定後，我們會更積極為臨時段修整提交的空間。 這可用於執行多個伺服器程序實例，它們希望在這些實例中盡可能不要提交記憶體。
 
-This offers little improvement, but may make GC even more aggressive when system will be low on memory, especially for ASF which makes use of threadpool tasks heavily.
+這幾乎無法改善，但當系統記憶體不足時，可能會使GC變得更加積極，特別是對於大量使用執行緒集區工作的ASF來說。
 
 ---
 
@@ -105,7 +105,7 @@ $Env:DOTNET_gcTrimCommitOnLowMemory=1
 .\ArchiSteamFarm.cmd # For generic build
 ```
 
-Especially `GCLatencyLevel` will come very useful as we verified that the runtime indeed optimizes code for memory and therefore drops average memory usage significantly, even with server GC. It's one of the best tricks that you can apply if you want to significantly lower ASF memory usage while not degrading performance too much with `OptimizationMode`.
+特別是&#8203;`GCLatencyLevel`&#8203;非常有用，我們驗證了執行環境確實能最佳化記憶體中的程式碼，因此即使使用伺服器GC，也能顯著降低了平均記憶體使用量。 若您希望使用&#8203;`OptimizationMode`&#8203;顯著降低ASF記憶體使用量的同時又不會過多降低效能，那麼這是您可以使用的最佳技巧之一。
 
 ---
 
@@ -113,7 +113,7 @@ Especially `GCLatencyLevel` will come very useful as we verified that the runtim
 
 下列技巧&#8203;**涉及效能的嚴重下降**&#8203;，應謹慎使用。
 
-- As a last resort, you can tune ASF for `MinMemoryUsage` through `OptimizationMode` **[global config property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**. Read carefully its purpose, as this is serious performance degradation for nearly no memory benefits. This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this. Unless absolutely critical for your setup, we discourage using `MinMemoryUsage`, even in memory-constrained environments.
+- 作為最後的手段，您可以透過&#8203;`OptimizationMode`&#8203;**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#全域設定檔)**&#8203;來調整ASF。 請仔細閱讀它的作用，因為會使效能嚴重下降，且幾乎沒有記憶體方面的改進。 This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this. Unless absolutely critical for your setup, we discourage using `MinMemoryUsage`, even in memory-constrained environments.
 
 ---
 

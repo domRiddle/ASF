@@ -85,7 +85,7 @@ For example, we'll assume that your ASF config folder is in `/home/archi/ASF/con
 docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Şi asta e tot, acum containerul pentru andocare ASF va folosi folderul partajat cu maşina locală în modul de citire-scriere. care este tot ce ai nevoie pentru configurarea ASF. În mod similar poți monta alte volume pe care dorești să le împarți cu ASF, cum ar fi `/app/logs` sau `/app/plugins`.
+Şi asta e tot, acum containerul pentru andocare ASF va folosi folderul partajat cu maşina locală în modul de citire-scriere. care este tot ce ai nevoie pentru configurarea ASF. In similar way you can mount other volumes that you'd like to share with ASF, such as `/app/logs` or `/app/plugins/MyCustomPluginDirectory`.
 
 Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF docker container. We're only covering basic usage in this guide.
 
