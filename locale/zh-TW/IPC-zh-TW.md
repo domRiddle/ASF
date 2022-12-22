@@ -1,8 +1,8 @@
 # IPC
 
-ASF含有自己獨特的IPC介面，可以用來與程序進一步交互。 IPC stands for **[inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication)** and in the most simple definition this is "ASF web interface" based on **[Kestrel HTTP server](https://github.com/aspnet/KestrelHttpServer)** that can be used for further integration with the process, both as a frontend for end-user (ASF-ui), and backend for third-party integrations (ASF API).
+ASF含有自己獨特的IPC介面，可以用來與程序進一步交互。 IPC代表&#8203;**[行程間通訊](https://zh.wikipedia.org/zh-tw/行程間通訊)**&#8203;，在最簡單的定義中，這是基於&#8203;**[Kestrel HTTP伺服器](https://github.com/aspnet/KestrelHttpServer)**&#8203;的「ASF Web界面」，可用於與程序間的進一步整合，既作為終端使用者的前端（ASF-ui）， 也做為第三方整合的後端（ASF API）。
 
-IPC can be used for a lot of different things, depending on your needs and skills. For example, you can use it for fetching status of ASF and all bots, sending ASF commands, fetching and editing global/bot configs, adding new bots, deleting existing bots, submitting keys for **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** or accessing ASF's log file. All of those actions are exposed by our API, which means that you can code your own tools and scripts that will be able to communicate with ASF and influence it during runtime. In addition to that, selected actions (such as sending commands) are also implemented by our ASF-ui which allows you to easily access them through a friendly web interface.
+IPC可以用來做很多不同的事情，這取決於您的需求與能力。 For example, you can use it for fetching status of ASF and all bots, sending ASF commands, fetching and editing global/bot configs, adding new bots, deleting existing bots, submitting keys for **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** or accessing ASF's log file. All of those actions are exposed by our API, which means that you can code your own tools and scripts that will be able to communicate with ASF and influence it during runtime. In addition to that, selected actions (such as sending commands) are also implemented by our ASF-ui which allows you to easily access them through a friendly web interface.
 
 ---
 

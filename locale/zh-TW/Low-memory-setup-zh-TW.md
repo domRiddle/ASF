@@ -87,8 +87,8 @@ export DOTNET_GCHighMemPercent=0x50 # 80% as hex
 export DOTNET_GCLatencyLevel=0
 export DOTNET_gcTrimCommitOnLowMemory=1
 
-./ArchiSteamFarm # For OS-specific build
-./ArchiSteamFarm.sh # For generic build
+./ArchiSteamFarm # 用於特定作業系統的建置版本
+./ArchiSteamFarm.sh # 用於Generic建置版本
 ```
 
 或在Windows（PowerShell）上：
@@ -101,8 +101,8 @@ $Env:DOTNET_GCHighMemPercent=0x50 # 80% as hex
 $Env:DOTNET_GCLatencyLevel=0
 $Env:DOTNET_gcTrimCommitOnLowMemory=1
 
-.\ArchiSteamFarm.exe # For OS-specific build
-.\ArchiSteamFarm.cmd # For generic build
+.\ArchiSteamFarm.exe # 用於特定作業系統的建置版本
+.\ArchiSteamFarm.cmd # 用於Generic建置版本
 ```
 
 特別是&#8203;`GCLatencyLevel`&#8203;非常有用，我們驗證了執行環境確實能最佳化記憶體中的程式碼，因此即使使用伺服器GC，也能顯著降低了平均記憶體使用量。 若您希望使用&#8203;`OptimizationMode`&#8203;顯著降低ASF記憶體使用量的同時又不會過多降低效能，那麼這是您可以使用的最佳技巧之一。
@@ -113,14 +113,14 @@ $Env:DOTNET_gcTrimCommitOnLowMemory=1
 
 下列技巧&#8203;**涉及效能的嚴重下降**&#8203;，應謹慎使用。
 
-- 作為最後的手段，您可以透過&#8203;`OptimizationMode`&#8203;**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#全域設定檔)**&#8203;來調整ASF。 請仔細閱讀它的作用，因為會使效能嚴重下降，且幾乎沒有記憶體方面的改進。 This is typically **the last thing you want to do**, long after you go through **[runtime tuning](#runtime-tuning-advanced)** to ensure that you're forced to do this. Unless absolutely critical for your setup, we discourage using `MinMemoryUsage`, even in memory-constrained environments.
+- 作為最後的手段，您可以透過&#8203;`OptimizationMode`&#8203;**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#全域設定檔)**&#8203;來調整ASF。 請仔細閱讀它的作用，因為會使效能嚴重下降，且幾乎沒有記憶體方面的改進。 這通常是&#8203;**您最不想做的事**&#8203;，確保只有在您&#8203;**[執行環境調整](#執行環境調整進階)**&#8203;之後才被迫這樣做。 除非對您的設定至關重要，否則我們不建議使用&#8203;`MinMemoryUsage`&#8203;，即使在記憶體受限制的環境中也是如此。
 
 ---
 
 ## 最佳化建議
 
-- Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
-- If it's still not enough, enable all configuration properties listed above by setting appropriate `DOTNET_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.
-- If even that didn't help, as a last resort enable `MinMemoryUsage` `OptimizationMode`. This forces ASF to execute almost everything in synchronous matter, making it work much slower but also not relying on thread pool to balance things out when it comes to parallel execution.
+- 從簡單的ASF設定技巧開始，或許您只是用了錯誤的方法使用ASF，例如為您所有的Bot啟動多個程序，或在您只需要自動啟動一兩個Bot的情形下，讓所有Bot都啟動。
+- 若仍然不夠，請透過設定適當的&#8203;`DOTNET_`&#8203;環境變數來啟用上述的所有設定屬性。 特別是&#8203;`GCLatencyLevel`&#8203;能在只犧牲極小效能的情形下明顯改善執行環境。
+- 若仍沒有幫助，作為最後的手段，啟用&#8203;`OptimizationMode`&#8203;的&#8203;`MinMemoryUsage`&#8203;。 這會強迫ASF同步執行幾乎所有東西，使它的運作速度變慢許多，且在平行執行時也不再依賴執行緒集區來平衡。
 
-It's physically impossible to decrease memory even further, your ASF is already heavily degraded in terms of performance and you depleted all your possibilities, both code-wise and runtime-wise. Consider adding some extra memory for ASF to use, even 128 MB would make a great difference.
+在物理上已無法進一步減少記憶體使用量，您的ASF的效能已經嚴重退化，且不論是程式碼或執行環境方面，您都已耗盡了所有的可能性。 請考慮加入一些額外的記憶體來提供ASF使用，即使只有128 MB，也會有很大的不同。
