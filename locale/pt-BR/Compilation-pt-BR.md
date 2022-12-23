@@ -36,7 +36,7 @@ Claro, troque `linux-x64` pela arquitetura de SO que você quer atender, tal com
 
 ### .NET framework
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net7.0` to `net481`. Tenha em mente que você vai precisar do pacote de desenvolvedor **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** apropriado para compilar a variante `netf`, além do SDK do .NET, então a instrução abaixo funcionará apenas no Windows:
+Em casos muito raros em que você quiser compilar um pacote `generic-netf`, você pode mudar a estrutura desejada de `net7.0` para `net481`. Tenha em mente que você vai precisar do pacote de desenvolvedor **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)** apropriado para compilar a variante `netf`, além do SDK do .NET, então a instrução abaixo funcionará apenas no Windows:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net481" -o "out/generic-netf"
@@ -57,13 +57,13 @@ A ASF-ui é parte da árvore raíz do ASF como um **[submódulo git](https://git
 Além do script `cc.sh`, também anexamos as instruções de compilação simplificadas abaixo, consulte o **[repositório ASF-ui](https://github.com/JustArchiNET/ASF-ui)** para documentação adicional. Da árvore raíz do ASF, como antes, execute os seguintes comandos:
 
 ```shell
-rm -rf "ASF-ui/dist" # ASF-ui doesn't clean itself after old build
+rm -rf "ASF-ui/dist" # O ASF-ui não apaga os arquivos antigos após atualização
 
 npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
-rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
-dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic" # Or accordingly to what you need as per the above
+rm -rf "out/generic/www" # Garante que a saída da compilação está limpa de qualquer arquivo antigo
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic" # Ou de acordo com sua necessidade segundo anteriormente
 ```
 
 Agora você deve encontrar os arquivos da ASF-ui na pasta `out/generic/www`. O ASF será capaz de enviar esses arquivos para o seu navegador.

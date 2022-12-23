@@ -8,7 +8,7 @@
 
 ASF由&#8203;**[Archi](https://github.com/JustArchi)**&#8203;在2015年10月建立。 如果您想知道，我跟您一樣，是一個&#8203;**[Steam使用者](https://steamcommunity.com/profiles/76561198006963719)**&#8203;。 除了玩遊戲，我也喜歡將我的專長與決心付諸實踐，正如您所看到的。 這裡沒有大公司的參與，沒有什麼開發團隊，也沒有$100萬美元的預算來提供支援⸺只有我自己，在維護這個專案。
 
-然而，ASF是個開源專案，我無法向您表示您在這裡看到的一切都是出自我手。 我們還有一些&#8203;**[其他的](https://github.com/JustArchiNET?q=ASF-)**&#8203;ASF專案，幾乎完全是由其他的開發人員所開發。 即使是ASF核心專案，也有許多&#8203;**[貢獻者](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)**&#8203;幫助我實現這一切。 最重要的是，還有一些支援ASF開發的第三方服務，特別是&#8203;**[GitHub](https://github.com)**&#8203;、&#8203;**[JetBrains](https://www.jetbrains.com)**&#8203;與&#8203;**[Crowdin](https://crowdin.com)**&#8203;。 當然您也不能忘記所有幫助ASF實作的出色程式庫與工具，例如我們用作IDE的&#8203;**[Rider](https://www.jetbrains.com/rider)**&#8203;（我們也喜歡&#8203;**[ReSharper](https://www.jetbrains.com/resharper)**&#8203;的附加功能），特別是&#8203;**[SteamKit2](https://github.com/SteamRE/SteamKit)**，沒有它，ASF就不會存在。 如果沒有&#8203;**[Github](https://github.com/sponsors/JustArchi)**&#8203;、&#8203;**[Patreon](https://www.patreon.com/JustArchi)**&#8203;和各種贊助者支援我在這裡所做的一切，ASF也不會有今天的成就。
+然而，ASF是個開源專案，我無法向您表示您在這裡看到的一切都是出自我手。 我們還有一些&#8203;**[其他的](https://github.com/JustArchiNET?q=ASF-)**&#8203;ASF專案，幾乎完全是由其他的開發人員所開發。 即使是ASF核心專案，也有許多&#8203;**[貢獻者](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)**&#8203;幫助我實現這一切。 最重要的是，還有一些支援ASF開發的第三方服務，特別是&#8203;**[GitHub](https://github.com)**&#8203;、&#8203;**[JetBrains](https://www.jetbrains.com)**&#8203;與&#8203;**[Crowdin](https://crowdin.com)**&#8203;。 當然您也不能忘記所有幫助ASF實作的出色程式庫與工具，例如我們用作IDE的&#8203;**[Rider](https://www.jetbrains.com/rider)**&#8203;（我們也喜歡&#8203;**[ReSharper](https://www.jetbrains.com/resharper)**&#8203;的附加功能），特別是&#8203;**[SteamKit2](https://github.com/SteamRE/SteamKit)**，沒有它，ASF就不會存在。 如果沒有&#8203;**[Github](https://github.com/sponsors/JustArchi)**&#8203;、&#8203;**[Patreon](https://www.patreon.com/JustArchi)**&#8203;和各種贊助者支持我在這裡所做的一切，ASF也不會有今天的成就。
 
 感謝大家協助ASF開發！ 你們是最棒的！
 
@@ -24,7 +24,7 @@ ASF由&#8203;**[Archi](https://github.com/JustArchi)**&#8203;在2015年10月建�
 
 ### 那麼，代價是什麼？ 分享 ASF 為你帶來了什麼？
 
-您不需任何代價，我是&#8203;**為自己**&#8203;建立了ASF，並分享給社群的其他人，希望它能對其他人來說有用。 在1991年發生過相同的事情，Linus Torvalds將他的&#8203;**[第一個Linux核心](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)**&#8203;分享給了全世界。 這裡沒有隱藏惡意程式、資料探勘、加密挖礦或其他任何能為我帶來金錢利益的行為。 ASF專案完全是由像您這樣的自願使用者給予的非強制性的捐款所支援。 您可以像我一樣自由地使用ASF，如果您喜歡它，您隨時可以請我喝杯咖啡，來表達您對我所做的事情的感激之情。
+您不需任何代價，我是&#8203;**為自己**&#8203;建立了ASF，並分享給社群的其他人，希望它能對其他人來說有用。 在1991年發生過相同的事情，Linus Torvalds將他的&#8203;**[第一個Linux核心](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)**&#8203;分享給了全世界。 這裡沒有隱藏惡意程式、資料探勘、加密挖礦或其他任何能為我帶來金錢利益的行為。 ASF專案完全是由像您這樣的自願使用者給予的非強制性的捐款所支持。 您可以像我一樣自由地使用ASF，如果您喜歡它，您隨時可以請我喝杯咖啡，來表達您對我所做的事情的感激之情。
 
 我還將ASF當作現代C#專案的完美範例，該專案始終追求完美與最佳範例，不論是技術、專案管理還是程式碼本身。 這是我對「做對的事情」的定義，所以如果你有機會從我的專案中學到一些有用的東西，那只會讓我更開心。
 
