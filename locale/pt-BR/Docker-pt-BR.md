@@ -2,9 +2,9 @@
 
 A partir da versão 3.0.3.2, o ASF também está disponível como um **[container docker](https://www.docker.com/what-container)**. Nossos pacotes docker estão disponíveis atualmente no **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** e no **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
-É importante notar que executar o ASF em um contêiner Docker é considerado uma **configuração avançada**, o que **não é necessário** para a grande maioria dos usuários, e normalmente não dá **nenhuma vantagem** sobre a configuração sem contêiner. If you're considering Docker as a solution for running ASF as a service, for example making it start automatically with your OS, then you should consider reading **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#systemd-service-for-linux)** section instead and set up a proper `systemd` service which will be **almost always** a better idea than running ASF in a Docker container.
+É importante notar que executar o ASF em um contêiner Docker é considerado uma **configuração avançada**, o que **não é necessário** para a grande maioria dos usuários, e normalmente não dá **nenhuma vantagem** sobre a configuração sem contêiner. Se você está considerando o Docker como uma solução para executar o ASF como serviço, por exemplo, fazendo com que ele inicie automaticamente junto com seu sistema operacional, então você deve considerar ler a seção de **[gerenciamento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-pt-BR#systemd-service-for-linux)** e configurar um serviço `systemd` adequado, o que será **quase sempre** uma ideia melhor que rodar o ASF em um contêiner Docker.
 
-Running ASF in Docker container usually involves **several new problems and issues** that you'll have to face and resolve yourself. This is why we **strongly** recommend you to avoid it unless you already have Docker knowledge and don't need help understanding its internals, about which we won't elaborate here on ASF wiki. This section is mostly for valid use cases of very complex setups, for example in regards to advanced networking or security beyond standard sandboxing that ASF comes with in `systemd` service (which already ensures superior process isolation through very advanced security mechanics). For those handful amount of people, here we explain better ASF concepts in regards to its Docker compatibility, and only that, you're assumed to have adequate Docker knowledge yourself if you decide to use it together with ASF.
+Executar o ASF em um contêiner Docker geralmente envolve **vários novos problemas ** que você terá que enfrentar e resolver por sua conta. É por isso que nós recomendamos **fortemente** que você evite isso, a menos que você já tenha conhecimento Docker e não precise de ajuda para entender seu funcionamento, sobre o que não vamos descrever aqui na wiki do ASF. Essa seção é principalmente para casos válidos de uso em setups muito complexos, por exemplo, no que diz respeito a configuração de rede avançada ou segurança além do pacote padrão que o ASF traz no serviço `systemd` (que já garante o isolamento de processo básico através de mecânicas de segurança muito avançadas). Para essa meia dúzia de pessoas explicamos melhor agora os conceitos do ASF em relação à sua compatibilidade com o Docker, e só isso, presume-se que você tem conhecimento adequado do Docker se você decidir usá-lo juntamente com o ASF.
 
 ---
 
@@ -20,7 +20,7 @@ Esse marcador aponta para a compilação do ASF no "commit" mais recente do ramo
 
 ### `released`
 
-Muito semelhante ao anterior, esse marcador sempre aponta para a **[versão](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** mais recente do ASF, incluindo pré-lançamentos. Comparado ao marcador `main`, essa imagem é atualizada toda vez que um novo marcador é criado no GitHub. Dedicado a usuários avançados que gostam de viver no limite do que pode ser considerado estável e mais novo ao mesmo tempo. Esse é o marcador que recomendamos se você não quer usar o `latest`. In practice, it works the same as rolling tag pointing to the most recent `A.B.C.D` release at the time of pulling. Observe que usar esse marcador é igual a usar o **[pre-lançamentos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**.
+Muito semelhante ao anterior, esse marcador sempre aponta para a **[versão](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** mais recente do ASF, incluindo pré-lançamentos. Comparado ao marcador `main`, essa imagem é atualizada toda vez que um novo marcador é criado no GitHub. Dedicado a usuários avançados que gostam de viver no limite do que pode ser considerado estável e mais novo ao mesmo tempo. Esse é o marcador que recomendamos se você não quer usar o `latest`. Na prática, esta versão é equivalente àquela que aponta para a versão `A.B.C.D` mais recente no momento da solicitação. Observe que usar esse marcador é igual a usar o **[pre-lançamentos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**.
 
 
 ### `latest`
@@ -85,7 +85,7 @@ Por exemplo, assumiremos que sua pasta config do ASF está no diretório `/home/
 docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-É isso, agora nosso contêiner docker do ASF usará a pasta compartilhada com nosso computador local em modo de leitura e gravação, isso é tudo o que você precisa para configurar o ASF. In similar way you can mount other volumes that you'd like to share with ASF, such as `/app/logs` or `/app/plugins/MyCustomPluginDirectory`.
+É isso, agora nosso contêiner docker do ASF usará a pasta compartilhada com nosso computador local em modo de leitura e gravação, isso é tudo o que você precisa para configurar o ASF. Da mesma forma, você pode montar outros volumes que você gostaria de compartilhar com o ASF, tais como `/app/logs` ou `/app/plugins/MyCustomPluginDirectory`.
 
 Claro, essa é apenas uma forma específica de alcançar o resultado que queremos, nada te impede de, por exemplo, criar seu próprio `Dockerfile` que copie seus arquivos de configuração para a pasta `/app/config` dentro do contêiner docker do ASF. Estamos cobrindo apenas o uso básico nesse guia.
 
@@ -107,15 +107,15 @@ docker exec -u root asf chown -hR 1001:1001 /app
 
 Isso só tem que ser feito uma vez depois que você criou seu contêiner com `docker run`, e somente se você decidiu usar um usuário personalizada para o processo do ASF. Também não se esqueça de alterar o argumento `1001:1001` em ambos os comandos acima para o `uid` e `gid` sob o qual você deseja executar o ASF.
 
-### Volume with SELinux
+### Volume com SELinux
 
-If you're using SELinux in enforced state on your OS, which is the default for example on RHEL-based distros, then you should mount the volume appending `:Z` option, which will set correct SELinux context for it.
+Se você estiver usando o SELinux no seu sistema operacional, que é padrão, por exemplo, em distribuições baseadas em RHEL, então você deve montar o volume anexando a opção `:Z`, que definirá o contexto correto do SELinux para isso.
 
 ```
 docker run -it -v /home/archi/ASF/config:/app/config:Z --name asf --pull always justarchi/archisteamfarm
 ```
 
-This will allow ASF to create files targetting the volume while inside docker container.
+Isso permitirá que o ASF crie arquivos para o volume enquanto estiver dentro do contêiner do docker.
 
 ---
 

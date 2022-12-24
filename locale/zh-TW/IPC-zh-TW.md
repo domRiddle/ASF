@@ -8,11 +8,11 @@ IPC可以用來做很多不同的事情，這取決於您的需求與能力。 �
 
 # 使用方法
 
-除非您透過&#8203;`IPC`&#8203;**[全域組態設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**&#8203;手動停用IPC，否則預設情形下，它是啟用的。 ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
+除非您透過&#8203;`IPC`&#8203;**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#全域設定檔)**&#8203;手動停用IPC，否則預設情形下，它是啟用的。 ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
 
 ```text
-INFO|ASF|Start() Starting IPC server...
-INFO|ASF|Start() IPC server ready!
+INFO|ASF|Start() 正在啟動 IPC 伺服器…
+INFO|ASF|Start() IPC 伺服器已就緒！
 ```
 
 ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, from the same machine as the one running ASF process.
