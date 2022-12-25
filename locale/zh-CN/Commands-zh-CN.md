@@ -100,7 +100,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 | `transfer% [Bots] <AppIDs> <TargetBot>`                  | `Master`        | 将指定机器人的所有不符合给定 `AppIDs` 的 `TransferableTypes` 社区物品转移到一个目标机器人。 此命令与 `transfer@` 相反。                                                                             |
 | `transfer^ [Bots] <AppID> <ContextID> <TargetBot>` | `Master`        | 将指定机器人的 `ContextID` 库存分类中符合给定 `AppID` 的物品转移到一个目标机器人。                                                                                                           |
 | `unpack [Bots]`                                                      | `Master`        | 拆开指定机器人库存中的所有补充包。                                                                                                                                              |
-| `update`                                                             | `Owner`         | 检查 GitHub 上的 ASF 更新（每隔 `UpdatePeriod` 就会自动执行一次）。                                                                                                               |
+| `update [Channel]`                                                   | `Owner`         | 在 GitHub 上检查 ASF 新版本，如果可用则更新。 通常这会每隔 `UpdatePeriod` 自动执行一次。 可选的 `Channel` 参数指定 `UpdateChannel`，如果未提供，则默认使用全局设置中的值。                                             |
 | `version`                                                            | `FamilySharing` | 显示 ASF 的版本号。                                                                                                                                                   |
 
 ---

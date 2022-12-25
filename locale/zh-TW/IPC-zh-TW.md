@@ -8,18 +8,18 @@ IPC可以用來做很多不同的事情，這取決於您的需求與能力。 �
 
 # 使用方法
 
-除非您透過&#8203;`IPC`&#8203;**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#全域設定檔)**&#8203;手動停用IPC，否則預設情形下，它是啟用的。 ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
+除非您透過&#8203;`IPC`&#8203;**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#全域設定檔)**&#8203;手動停用IPC，否則預設情形下，它是啟用的。 ASF會在紀錄中說明IPC的啟動，您可以以此來驗證IPC介面是否已正常啟動：
 
 ```text
 INFO|ASF|Start() 正在啟動 IPC 伺服器…
 INFO|ASF|Start() IPC 伺服器已就緒！
 ```
 
-ASF's http server is now listening on selected endpoints. If you didn't provide a custom configuration file for IPC, those will be IPv4-based **[127.0.0.1](http://127.0.0.1:1242)** and IPv6-based **[[::1]](http://[::1]:1242)** on default `1242` port. You can access our IPC interface by above links, from the same machine as the one running ASF process.
+ASF的http伺服器現在已在監聽指定的端點。 若您沒有為IPC提供自訂設定檔，預設會是基於IPv4的&#8203;**[127.0.0.1](http://127.0.0.1:1242)**&#8203;及基於IPv6的&#8203;**[[::1]](http://[::1]:1242)**&#8203; &#8203;`1242`&#8203;連接埠。 在執行ASF程序的同一台設備上，您可以透過上述連結存取我們的IPC介面。
 
-ASF's IPC interface exposes three different ways to access it, depending on your planned usage.
+依據您的需求，ASF的IPC介面提供了三種不同的存取方法。
 
-On the lowest level there is **[ASF API](#asf-api)** that is the core of our IPC interface and allows everything else to operate. This is what you want to use in your own tools, utilities and projects in order to communicate with ASF directly.
+最低階的方式是&#8203;**[ASF API](#asf-api)**&#8203;，這是我們IPC介面的核心，允許其他所有操作。 This is what you want to use in your own tools, utilities and projects in order to communicate with ASF directly.
 
 On the medium ground there is our **[Swagger documentation](#swagger-documentation)** which acts as a frontend to ASF API. It features a complete documentation of ASF API and also allows you to access it more easily. This is what you want to check if you're planning on writing a tool, utility or other projects that are supposed to communicate with ASF through its API.
 
