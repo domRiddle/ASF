@@ -19,9 +19,9 @@ ASF的http伺服器現在已在監聽指定的端點。 若您沒有為IPC提供
 
 依據您的需求，ASF的IPC介面提供了三種不同的存取方法。
 
-最低階的方式是&#8203;**[ASF API](#asf-api)**&#8203;，這是我們IPC介面的核心，允許其他所有操作。 This is what you want to use in your own tools, utilities and projects in order to communicate with ASF directly.
+最低階的方式是&#8203;**[ASF API](#asf-api)**&#8203;，這是我們IPC介面的核心，允許其他所有操作。 這能在您自己的工具、實用程式及專案中使用，可以與ASF直接進行通訊。
 
-On the medium ground there is our **[Swagger documentation](#swagger-documentation)** which acts as a frontend to ASF API. It features a complete documentation of ASF API and also allows you to access it more easily. This is what you want to check if you're planning on writing a tool, utility or other projects that are supposed to communicate with ASF through its API.
+中階的方式是使用我們的&#8203;**[Swagger文件](#swagger-文件)**&#8203;&#8203;作為ASF API的前端。 它具有完整的ASF API文件，並使您能夠更輕鬆地存取它。 This is what you want to check if you're planning on writing a tool, utility or other projects that are supposed to communicate with ASF through its API.
 
 On the highest level there is **[ASF-ui](#asf-ui)** which is based on our ASF API and provides user-friendly way to execute various ASF actions. This is our default IPC interface designed for end-users, and a perfect example of what you can build with ASF API. If you'd like, you can use your own custom web UI to use with ASF, by specifying `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** and using custom `www` directory located there.
 
