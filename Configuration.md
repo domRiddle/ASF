@@ -1026,3 +1026,5 @@ Starting with ASF V2.1.6.2+, the program is now aware of configs being modified 
 All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
 
 In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
+
+You can disable this behaviour with `--no-config-watch` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** if you have a specific reason, for example you don't want from ASF to react to file changes in `config` folder.
