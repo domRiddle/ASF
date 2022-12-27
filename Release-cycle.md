@@ -12,7 +12,7 @@ Depending on amount of changes in the cycle, usually there will be a single `C` 
 
 Version bump | Semver | Example of changes
 --- | --- | ---
-A | | Major .NET runtime changes, foundation changes, breaking changes that are beyond ASF's codebase
+A | | Major .NET runtime changes, foundation changes, breaking changes that are beyond ASF's codebase, stuff that might eat your cat
 B | Major | Minor .NET runtime changes, breaking changes in ASF codebase, major code edits that go beyond minor classification
 C | Minor | New monthly cycles, usually introducing new functionalities, commands, configuration properties or other changes that do not break the existing setups
 D | Patch | New pre-releases that are part of existing cycle (indicated by more significant number), critical bugfixes to existing stable releases that introduce no code changes beyond necessary
