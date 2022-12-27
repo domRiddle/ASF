@@ -220,7 +220,7 @@ If you're ASF sponsor, you can obtain your license **[here](https://asf.justarch
 
 **Ensure that you do not share your `LicenseID` with other people**. Since it's issued on personal basis, it might get revoked if it's leaked. If by any chance this happened to you accidentally, you can generate a new one from the same place.
 
-Unless you want to enable extra ASF functionalities, there is no need for you to use the license.
+Unless you want to enable extra ASF functionalities, there is no need for you to provide the license.
 
 ---
 
