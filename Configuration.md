@@ -989,11 +989,11 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 - `None -> 0`
 - `A -> 1`
 - `B -> 2`
-- `A+B -> 3`
+- `A + B -> 3`
 - `C -> 4`
-- `A+C -> 5`
-- `B+C -> 6`
-- `A+B+C -> 7`
+- `A + C -> 5`
+- `B + C -> 6`
+- `A + B + C -> 7`
 
 Example: `"SteamProtocols": 7`
 
