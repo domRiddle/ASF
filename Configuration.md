@@ -922,7 +922,7 @@ Example: `"Enabled": true`
 
 `byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
 
-Example: `"ConnectionTimeout": 60`
+Example: `"ConnectionTimeout": 90`
 
 ---
 
