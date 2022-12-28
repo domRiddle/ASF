@@ -23,15 +23,15 @@
 
 ### .NET 需求套件
 
-首要步驟，是確保您的作業系統可以正確地啟動ASF。 ASF是用C#語言編寫的，基於.NET平台，並可能需要您平台上尚未擁有的原生函式庫。 取決您使用的是Windows、Linux還是macOS，您將有不同的系統需求。所有要求都列在您應遵循的&#8203;**[.NET需求套件](https://docs.microsoft.com/dotnet/core/install)**&#8203;文件中。 這是我們應當使用的參考資料，但為了簡單起見，我們在下面額外列出需要的所有軟體套件。因此您無需閱讀完整的文件。
+首要步驟，是確保您的作業系統可以正確地啟動ASF。 ASF是用C#語言編寫的，基於.NET平台，並可能需要您平台上尚未擁有的原生函式庫。 取決您使用的是Windows、Linux還是macOS，您將有不同的系統需求，所有要求都列在您應遵循的&#8203;**[.NET需求套件](https://docs.microsoft.com/dotnet/core/install)**&#8203;文件中。 這是我們應當使用的參考資料，但為了簡單起見，我們在下面額外列出需要的所有軟體套件。因此您無需閱讀完整的文件。
 
-若您已安裝並使用了其他第三方軟體，一些（甚至全部）相依性套件已存在於您的作業系統上，是很正常的。 不過，您仍應在作業系統上執行適合的安裝程式，來確保這些軟體確實已被安裝⸺缺少這些相依套件，ASF將完全無法啟動。
+若您已安裝並使用了其他第三方軟體，一些（甚至全部）相依性套件已存在於您的作業系統上，是很正常的。 不過您仍應在作業系統上執行適合的安裝程式，來確保這些軟體確實已被安裝⸺缺少這些相依套件，ASF將完全無法啟動。
 
-請注意，您不需要特地為作業系統的建置版本做其他任何事情，特別是.NET SDK的安裝或執行環境，因為它們已包含於作業系統套件中。 您只需要安裝必要的.NET相依需求套件，即可執行ASF裡面自帶的.NET執行環境。
+請注意，您不需要特地為特定作業系統的建置版本做其他任何事情，特別是.NET SDK的安裝或執行環境，因為它們已包含於作業系統套件中。 您只需要安裝必要的.NET相依需求套件，即可執行ASF裡面自帶的.NET執行環境。
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**&#8203;：
 - **[Microsoft Visual C++可轉散發套件更新](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)**&#8203;（&#8203;**[x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)**&#8203;適用於64位元Windows；&#8203;**[x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)**&#8203;適用於32位元Windows）
-- 強烈建議您，務必確保已安裝所有的Windows更新。 您至少需要安裝&#8203;**[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**&#8203;、&#8203;**[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**&#8203;，但仍可能需要更多的更新。 如果您的Windows已更新至最新版，則上述更新補丁都已安裝。 在安裝Visual C++套件前，請確保滿足上述需求。
+- 強烈建議您，務必確保已安裝所有的Windows更新。 您至少需要安裝&#8203;**[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**&#8203;、&#8203;**[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**&#8203;，但仍可能需要更多的更新。 如果您的Windows已更新至最新版，則上述更新補丁皆已安裝。 在安裝Visual C++套件前，請確保滿足上述需求。
 
 #### **[Linux](https://docs.microsoft.com/dotnet/core/install/linux)**&#8203;：
 套件名稱取決於您使用的Linux發行版本，我們列出了最常見的套件名稱。 您可以使用本機中的套件管理系統，為您的作業系統取得全部套件（例如適用於Debian的&#8203;`apt`&#8203;，或適用於CentOS的&#8203;`yum`&#8203;）。
@@ -58,9 +58,9 @@
 
 ![資源檔案](https://i.imgur.com/Ym2xPE5.png)
 
-下載完成後，請先解壓縮.zip檔至一個資料夾中。 我們建議使用&#8203;**[7-zip](https://www.7-zip.org)**&#8203;，但所有標準工具（例如Linux/macOS中的&#8203;`unzip`&#8203;工具）應該也可以正常運作。
+下載完成後，請先解壓縮.zip檔至一個資料夾中。 我們建議使用&#8203;**[7-zip](https://www.7-zip.org)**&#8203;，不過應該所有的標準工具（例如Linux/macOS中的&#8203;`unzip`&#8203;工具）使用上也沒有問題。
 
-並建議將ASF解壓縮到&#8203;**獨立資料夾**&#8203;中，而不是包含其他檔案的資料夾中：ASF的自動更新功能，會在升級時刪除所有舊的或無關的檔案，並可能導致您遺失儲存於ASF資料夾中的其餘檔案。 若您有任何額外用於ASF的腳本或檔案，請將它們存放於ASF的上層資料夾。
+我們也建議將ASF解壓縮到&#8203;**獨立資料夾**&#8203;中，而不是包含其他檔案的資料夾中：ASF的自動更新功能會在升級時刪除所有舊的或無關的檔案，並可能導致您遺失儲存於ASF資料夾中的其餘檔案。 若您有任何額外用於ASF的腳本或檔案，請將它們存放於ASF的上層資料夾。
 
 一個檔案結構範例，看起來會像是這樣：
 
@@ -89,7 +89,7 @@ C:\ASF（可存放您自己的東西）
 
 您可以透過至少三種方式來設定ASF：設定檔生成器網頁工具、ASF-ui或是手動設定。 這在&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;章節中有深入的解釋，若您想要取得更多詳細資訊，請參閱此部分。 我們先以設定檔生成器網頁工具為例。
 
-使用您常用的瀏覽器造訪我們的&#8203;**[設定檔生成器](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;網頁工具，若您手動停用了JavaScript，您需要重新啟用它。 我們建議使用Chrome或Firefox，但它應能在大部分的主流瀏覽器上運作。
+使用您常用的瀏覽器造訪我們的&#8203;**[設定檔生成器](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;網頁工具，若您手動停用了JavaScript，您需要重新啟用它。 我們建議使用Chrome或Firefox，但它應該也能在大部分的主流瀏覽器上運作。
 
 開啟頁面後，切換到「Bot」分頁。 您應該會看見類似於下圖的頁面：
 
@@ -129,7 +129,7 @@ ASF需要您的登入憑證，因為它是透過內建的Steam用戶端來實現
 
 現在您已經準備好第一次啟動程式了。 只需雙擊ASF資料夾中的&#8203;`ArchiSteamFarm`&#8203;二進制執行檔即可。 您也可以使用控制台來開啟它。
 
-開啟後，若您在第一步正確地安裝了所有需要的相依性套件，ASF應該會正常啟動。如果您沒忘記把生成的設定檔存放至&#8203;`config`&#8203;資料夾中，就可以看到ASF正嘗試登入您的第一個Bot：
+開啟後，若您在第一步正確安裝了所有需要的相依性套件，ASF應該會正常啟動。如果您沒忘記把生成的設定檔存放至&#8203;`config`&#8203;資料夾中，就可以看到ASF正嘗試登入您的第一個Bot：
 
 ![ASF](https://i.imgur.com/u5hrSFz.png)
 
@@ -162,7 +162,7 @@ ASF支援一個帳號以上的同時掛卡，這也是它的主要功能。 您�
 
 #### 修改設定
 
-您可以透過相同的方式來修改現有的設定：生成一個新的設定檔。 若您還沒有關閉設定檔生成器網頁工具，按一下「開啟／關閉進階設定」然後看看裡面有些什麼。 在本篇教學中，我們會修改&#8203;`CustomGamePlayedWhileFarming`&#8203;選項，這個選項可以使ASF在掛卡時，顯示自訂名稱，而不是實際上的遊戲名稱。
+您可以透過相同的方式來修改現有的設定：生成一個新的設定檔。 若您還沒有關閉設定檔生成器網頁工具，按一下「開啟／關閉進階設定」然後看看裡面有些什麼。 在本篇教學中，我們會修改&#8203;`CustomGamePlayedWhileFarming`&#8203;選項，這個選項可以使ASF在掛卡時顯示自訂名稱，而不是實際上的遊戲名稱。
 
 讓我們現在開始教學。如果您執行了ASF並開始掛卡，在預設情形下，您會看到您的Steam帳號正在遊戲中：
 
@@ -178,7 +178,7 @@ ASF支援一個帳號以上的同時掛卡，這也是它的主要功能。 您�
 
 ![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
-這證明了您已成功修改您的設定。 您也可以使用相同的方法來修改ASF全域屬性，切換至「ASF」分頁，下載生成的&#8203;`ASF.json`&#8203;設定檔，並放到&#8203;`config`&#8203;資料夾中。
+這證明了您已成功修改您的設定。 您也可以使用相同的方法來修改ASF全域屬性，切換至「ASF」分頁，下載生成出來的&#8203;`ASF.json`&#8203;設定檔，並放到&#8203;`config`&#8203;資料夾中。
 
 使用我們的ASF-ui前端，可以更輕鬆地編輯您的ASF設定，我們之後會有更深入的說明。
 
@@ -186,13 +186,13 @@ ASF支援一個帳號以上的同時掛卡，這也是它的主要功能。 您�
 
 #### 使用 ASF-ui
 
-ASF是一個沒有圖形使用者介面的控制台應用程式。 然而，我們正積極開發IPC介面的&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#ASF-ui)**&#8203;前端，能夠存取各種ASF功能，是個非常方便的使用者友好方式。
+ASF是一個沒有圖形使用者介面的控制台應用程式。 但是，我們也積極開發使用IPC介面的&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#ASF-ui)**&#8203;前端，它能夠存取各種ASF功能，是個非常方便的使用者友好方式。
 
 要使用ASF-ui，您需要啟用&#8203;`IPC`&#8203;，它在ASF V5.1.0.0版本開始已預設成啟用。 啟動ASF之後，您應該能夠看到它正確地自動開啟IPC介面：
 
 ![IPC](https://i.imgur.com/ZmkO8pk.png)
 
-只要ASF在執行中，您就可以在同一台設備上透過&#8203;**[這個連結](http://localhost:1242)**&#8203;，來存取ASF的IPC介面。 您可以使用ASF-ui來進行各種操作，例如直接編輯設定檔，或是傳送&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;。 您可以隨意瀏覽，來發現ASF-ui的全部功能。
+只要ASF在執行中，您就可以在同一台設備上透過&#8203;**[這個連結](http://localhost:1242)**&#8203;來存取ASF的IPC介面。 您可以使用ASF-ui來進行各種操作，例如直接編輯設定檔，或是傳送&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;。 您可以隨意瀏覽它，來發現ASF-ui的全部功能。
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
@@ -200,13 +200,13 @@ ASF是一個沒有圖形使用者介面的控制台應用程式。 然而，我�
 
 ### 總結
 
-您已成功設定了ASF，讓它使用您的Steam帳號，並根據您的喜好進行了客製化。 若您按照我們的整個指南進行操作，那麼您應已成功地透過ASF-ui介面來調整ASF，並發現ASF實際上具有某種GUI。 您現在可以閱讀完整的&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;章節，來了解您之前看到不同的選項有何用途，以及ASF都有哪些功能。 如果您遇到問題或有疑問，請閱讀我們的&#8203;**[常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-TW)**&#8203;，它應該涵蓋了所有，或至少絕大多數您可能會遇到的問題。 如果您想了解關於ASF的一切資訊，及它如何讓您掛卡事半功倍，請閱讀&#8203;**[ASF Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-TW)**&#8203;的剩餘部分。 若您認為我們的程式很有用，並且您願意慷慨解囊，您也可以考慮捐款幫助我們的專案。 無論如何，祝您使用愉快！
+您已成功設定了ASF，讓它使用您的Steam帳號，並依據您的喜好進行了客製化。 若您按照我們的整個指南進行操作，那麼您應已成功地透過ASF-ui介面來調整ASF，並發現ASF實際上也具有某種GUI。 您現在可以閱讀完整的&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;章節，來了解您之前看到的不同選項有何用途，以及ASF都有哪些功能。 如果您遇到問題或有疑問，請閱讀我們的&#8203;**[常見問題](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-TW)**&#8203;，它應該涵蓋了所有，或至少絕大多數您可能會遇到的問題。 如果您想了解關於ASF的一切資訊，及它如何讓您的掛卡事半功倍，請閱讀&#8203;**[ASF Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-TW)**&#8203;的剩餘部分。 若您認為我們的程式很有用，並且您願意慷慨解囊，您也可以考慮捐款幫助我們的專案。 無論如何，祝您使用愉快！
 
 ---
 
 ## 安裝 Generic 版本套件
 
-這部分是為想要安裝ASF &#8203;**[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#Generic)**&#8203;變體版本的進階使用者所準備的。 若您可以使用&#8203;**[適用於您的作業系統的套件](#適用於您的作業系統的設定)**&#8203;，我們不建議安裝您安裝 Generic（通用）套件。
+這部分是為想要安裝ASF &#8203;**[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#Generic)**&#8203;變體版本的進階使用者所準備的。 若您可以使用&#8203;**[適用於您的作業系統的套件](#適用於您的作業系統的設定)**&#8203;，我們不建議安裝您安裝Generic（通用）套件。
 
 您可能會在這些情形下選擇使用&#8203;`Generic`&#8203;變體版本（當然也可以沒有任何原因）：
 - 當套件的建置版本沒有適用於您的作業系統時（例如32位元Windows）
@@ -226,4 +226,4 @@ ASF是一個沒有圖形使用者介面的控制台應用程式。 然而，我�
 - **[設定ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;。
 - 透過輔助腳本或是手動在Shell中執行&#8203;`dotnet /路徑/至/ArchiSteamFarm.dll`&#8203;指令來啟動ASF。
 
-輔助腳本（例如用於Windows的&#8203;`ArchiSteamFarm.cmd`&#8203;及用於Linux/macOS的&#8203;`ArchiSteamFarm.sh`&#8203;）與&#8203;`ArchiSteamFarm.dll`&#8203;二進制檔案，這些檔案都是&#8203;`Generic`&#8203;變體版本獨有的。 若您不想手動執行&#8203;`dotnet`&#8203;指令，您可以使用輔助腳本。 當然，如果您沒有安裝.NET SDK，或您的&#8203;`PATH`&#8203;中沒有可用的&#8203;`dotnet`&#8203;執行檔，則輔助腳本將無法運作。 輔助腳本並不是必要的，您一直都能透過手動執行&#8203;`dotnet /路徑/至/ArchiSteamFarm.dll`&#8203;指令來開啟ASF。
+輔助腳本（例如用於Windows的&#8203;`ArchiSteamFarm.cmd`&#8203;及用於Linux/macOS的&#8203;`ArchiSteamFarm.sh`&#8203;）與&#8203;`ArchiSteamFarm.dll`&#8203;二進制檔案都是&#8203;`Generic`&#8203;變體版本獨有的。 若您不想手動執行&#8203;`dotnet`&#8203;指令，您可以使用輔助腳本。 當然，如果您沒有安裝.NET SDK，或您的&#8203;`PATH`&#8203;中沒有可用的&#8203;`dotnet`&#8203;執行檔，則輔助腳本會無法運作。 輔助腳本並不是必要的，您一直都能透過手動執行&#8203;`dotnet /路徑/至/ArchiSteamFarm.dll`&#8203;指令來開啟ASF。

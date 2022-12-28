@@ -15,7 +15,7 @@ INFO|ASF|Start() 正在啟動 IPC 伺服器…
 INFO|ASF|Start() IPC 伺服器已就緒！
 ```
 
-ASF的http伺服器現在已在監聽指定的端點。 若您沒有為IPC提供自訂設定檔，預設會是基於IPv4的&#8203;**[127.0.0.1](http://127.0.0.1:1242)**&#8203;及基於IPv6的&#8203;**[[::1]](http://[::1]:1242)**&#8203; &#8203;`1242`&#8203;連接埠。 在執行ASF程序的同一台設備上，您可以透過上述連結存取我們的IPC介面。
+ASF的http伺服器現在已在監聽指定的端點。 若您沒有為IPC提供自訂設定檔，預設是使用基於IPv4的&#8203;**[127.0.0.1](http://127.0.0.1:1242)**&#8203;及基於IPv6的&#8203;**[[::1]](http://[::1]:1242)**&#8203; &#8203;`1242`&#8203;連接埠。 在執行ASF程序的同一台設備上，您可以透過上述連結存取我們的IPC介面。
 
 依據您的需求，ASF的IPC介面提供了三種不同的存取方法。
 
@@ -274,6 +274,14 @@ Example Apache configuration can be found below. Please refer to **[apache docum
 **Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
 
 Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. This way is recommended if you're not running any other web server and don't want to run one exclusively for ASF. Otherwise, it's much easier to achieve a satisfying setup by using a reverse proxy mechanism.
+
+---
+
+### During startup of IPC I'm getting an error: `System.IO.IOException: Failed to bind to address, An attempt was made to access a socket in a way forbidden by its access permissions`
+
+This error indicates that something else on your machine is either already using that port, or reserved it for future use. This could be you if you're attempting to run second ASF instance on the same machine, but most often that's Windows excluding port `1242` from your usage, therefore you'll have to move ASF to another port. In order to do that, follow **[example config](#changing-default-port)** above, and simply try to pick another port, such as `12420`.
+
+Of course you could also try to find out what is blocking port `1242` from ASF usage, and remove that, but that's usually far more troublesome than simply instructing ASF to use another port, so we'll skip elaborating further on that here.
 
 ---
 

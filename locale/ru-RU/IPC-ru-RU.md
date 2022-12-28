@@ -277,6 +277,14 @@ Second way includes specifying a **[custom config](#custom-configuration)** for 
 
 ---
 
+### During startup of IPC I'm getting an error: `System.IO.IOException: Failed to bind to address, An attempt was made to access a socket in a way forbidden by its access permissions`
+
+This error indicates that something else on your machine is either already using that port, or reserved it for future use. This could be you if you're attempting to run second ASF instance on the same machine, but most often that's Windows excluding port `1242` from your usage, therefore you'll have to move ASF to another port. In order to do that, follow **[example config](#changing-default-port)** above, and simply try to pick another port, such as `12420`.
+
+Of course you could also try to find out what is blocking port `1242` from ASF usage, and remove that, but that's usually far more troublesome than simply instructing ASF to use another port, so we'll skip elaborating further on that here.
+
+---
+
 ### Почему я получаю `403 Forbidden` ошибку когда не использую `IPCPassword`?
 
 Начиная с ASF V5.1.2.1, мы добавили дополнительную меру безопасности, которая по умолчанию позволяет только интерфейсу обратной связи (`localhost`, ваш собственный компьютер) обращаться к ASF API без `IPCPassword` установленному в config. Это связано с тем, что использование `IPCPassword` должно быть **минимальной** мерой безопасности, установленной каждым, кто решит использовать интерфейс ASF в дальнейшем. Вы по-прежнему можете отменить это решение, указав сети, которым вы доверяете соединяться с ASF, без указания `IPCPassword`, вы можете установить их в свойстве `KnownNetworks` в пользовательской конфигурации. Однако, если вы **действительно** не знаете, что делаете, и не понимаете риски, вам следует вместо этого использовать `IPCPassword` как объявление `KnownNetworks`, которое позволит всем из этих сетей безоговорочно получить доступ к ASF API.

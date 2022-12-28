@@ -110,7 +110,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
 
 параметр типу `ImmutableHashSet<uint>` з пустим значенням за замовчуванням. As the name suggests, this global config property defines appIDs (games) that will be entirely ignored by automatic ASF farming process. Нажаль, Steam полюбляє відмітити значки літнього/зимового розпродажу як "Ще може випасти карток: X", що заважає процесу ASF, змушуючи його вважати що це дійсно гра, яку треба фармити. Якби не було ніякого чорного списку, ASF би "зависав" намагаючись фармити гру, що насправді не є грою, і чекав би довіку поки з неї випадуть картки, а цього б ніколи не сталося. Чорний список ASF має на меті маркування таких значків як недоступних для фарму, щоб їх можна було тихо ігнорувати при виявленні ігор для фарму, і не потрапляти до цієї пастки.
 
-ASF за замовчуванням має два чорні списки - `GlobalBlacklist`, який жорстко запрограмовано у коді ASF, і який неможливо змінити, та звичайний `Blacklist`, який тут описано. `GlobalBlacklist` оновлюється разом з новою версією ASF, і зазвичай вже має усі "погані" appID, відомі на час випуску, тому, якщо ви користуєтесь останньою версією ASF вам немає потреби підтримувати власний `Blacklist`, який тут описано. Основною метою цього параметру є надати можливість додавати до чорного списку нові, невідомі на час випуску ASF appID, які не треба фармити. Записаний у коді `GlobalBlacklist` оновлюється якнайшвидше, тому вам немає потреби оновлювати власний `Blacklist`, якщо ви користуєтесь останньою версією ASF, але без наявності `Blacklist` ви були б змушені оновлювати ASF щоб він міг працювати, кожен раз коли Valve випускає новий значок розпродажу - а я не хочу змушувати вас користуватися лише останньою версією ASF, тому цей параметр дає вам можливість "відремонтувати" ASF самостійно, якщо через якісь підстави ви не хочете, чи не можете, оновитися до нового `GlobalBlacklist` у випуску ASF, але хочете щоб ваша стара версія ASF продовжувала працювати. Unless you have a **strong** reason to edit this property, you should keep it at default.
+ASF includes two blacklists by default - `SalesBlacklist`, which is hardcoded into the ASF code and not possible to edit, and normal `Blacklist`, which is defined here. `SalesBlacklist` is updated together with ASF version and typically includes all "bad" appIDs at the time of release, so if you're using up-to-date ASF then you do not need to maintain your own `Blacklist` defined here. Основною метою цього параметру є надати можливість додавати до чорного списку нові, невідомі на час випуску ASF appID, які не треба фармити. Hardcoded `SalesBlacklist` is being updated as fast as possible, therefore you're not required to update your own `Blacklist` if you're using latest ASF version, but without `Blacklist` you'd be forced to update ASF in order to "keep running" when Valve releases new sale badge - I don't want to force you to use latest ASF code, therefore this property is here to allow you "fixing" ASF yourself if you for some reason don't want to, or can't, update to new hardcoded `SalesBlacklist` in new ASF release, yet you want to keep your old ASF running. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` and `fbrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
 
@@ -118,13 +118,13 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ### `CommandPrefix`
 
-параметр типу `string` зі значенням за замовчуванням `!`. This property specifies **case-sensitive** prefix used for ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Інакше кажучи, це те, що вам потрібно додавати перед кожною командою ASF для того, щоб ASF вас послухався. Цей параметр можна поставити рівним `null`, чи порожньому рядку, для того щоб ASF не використовував префікси команд, тоді ви зможете вводити команди просто за їх ідентифікатором. Однак, якщо ви це зробите - це може знизити продуктивність роботи ASF, тому що ASF оптимізовано не обробляти повідомлення, які не починаються з `CommandPrefix` - якщо ви навмисно вирішите не користуватися ним, ASF буде змушеним читати усі повідомлення і відповідати на них, навіть якщо вони не є командами ASF. Тому ми радимо користуватися якимось `CommandPrefix`, наприклад `/`, якщо вам не подобається префікс `!`, заданий за замовчуванням. Для однаковості, `CommandPrefix` впливає на увесь процес ASF. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+параметр типу `string` зі значенням за замовчуванням `!`. Цей параметр задає **чутливий до регістру** префікс, який використовується для **[команд](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-uk-UA)** ASF. Інакше кажучи, це те, що вам потрібно додавати перед кожною командою ASF для того, щоб ASF вас послухався. Цей параметр можна поставити рівним `null`, чи порожньому рядку, для того щоб ASF не використовував префікси команд, тоді ви зможете вводити команди просто за їх ідентифікатором. Однак, якщо ви це зробите - це може знизити продуктивність роботи ASF, тому що ASF оптимізовано не обробляти повідомлення, які не починаються з `CommandPrefix` - якщо ви навмисно вирішите не користуватися ним, ASF буде змушеним читати усі повідомлення і відповідати на них, навіть якщо вони не є командами ASF. Тому ми радимо користуватися якимось `CommandPrefix`, наприклад `/`, якщо вам не подобається префікс `!`, заданий за замовчуванням. Для однаковості, `CommandPrefix` впливає на увесь процес ASF. Якщо у вас немає підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 ---
 
 ### `ConfirmationsLimiterDelay`
 
-параметр типу `byte` зі значенням за замовчуванням `10`. ASF will ensure that there will be at least `ConfirmationsLimiterDelay` seconds in between of two consecutive 2FA confirmations fetching requests to avoid triggering rate-limit - those are being used by **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** during e.g. `2faok` command, as well as on as-needed basis when performing various trading-related operations. Значення за замовчуванням встановлено на основі наших випробувань, і не повинно бути зменшено якщо ви бажаєте уникнати проблем. Unless you have a **strong** reason to edit this property, you should keep it at default.
+параметр типу `byte` зі значенням за замовчуванням `10`. ASF буде забезпечувати щоб між двома послідовними запитами на підтвердження за допомогою ASF пройшло щонайменше `ConfirmationsLimiterDelay` секунд, щоб уникнути активації обмеження на частоту запитів - такі запроси використовуються **[2ФА ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-uk-UA)** під час, наприклад, команди `2faok`, а також по мірі необхідності під час виконання різноманітних операцій, пов'язаних з обмінами. Значення за замовчуванням встановлено на основі наших випробувань, і не повинно бути зменшено якщо ви бажаєте уникнати проблем. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 ---
 
@@ -190,7 +190,7 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ### `InventoryLimiterDelay`
 
-параметр типу `byte` зі значенням за замовчуванням `4`. ASF буде забезпечувати що між двома послідовними запитами до інвентарю пройде щонайменше `InventoryLimiterDelay` секунд, щоб уникнути активації обмеження на частоту запитів - такі запити використовуються для отримання переліків предметів у інвентарях Steam, особливо під час виконання ваших власних команд, таких як `transfer`, а також у таких функціях як `MatchActively`. Значення за замовчуванням `4` було обрано на базі отримання інвентарів більш ніж 100 ботів поспіль, і має задовольнити більшість (якщо не усіх) користувачів. Однак ви можете захотіти зменшити це значення, або навіть змінити його на `0` якщо в вас дуже мала кількість ботів, для того щоб ASF не зважало на затримки і обробляло інвентарі steam значно швидше. Однак майте на увазі, що занадто низке значення **обов'язково** призведе до тимчасового бану вашого IP з боку Steam, і ви взагалі не матимете доступу до інвентарів. Також вам може бути потрібно збільшити це значення якщо ви використовуєте багато ботів у яких багато запитів до інвентарю, хоча у цьому випадку вам мабуть варто замість цього зменшити кількість таких запитів. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+параметр типу `byte` зі значенням за замовчуванням `4`. ASF will ensure that there will be at least `InventoryLimiterDelay` seconds in between of two consecutive inventory requests to avoid triggering rate-limit - those are being used for fetching Steam inventories, especially during your own commands such as `loot` or `transfer`. Значення за замовчуванням `4` було обрано на базі отримання інвентарів більш ніж 100 ботів поспіль, і має задовольнити більшість (якщо не усіх) користувачів. Однак ви можете захотіти зменшити це значення, або навіть змінити його на `0` якщо в вас дуже мала кількість ботів, для того щоб ASF не зважало на затримки і обробляло інвентарі steam значно швидше. Однак майте на увазі, що занадто низке значення **обов'язково** призведе до тимчасового бану вашого IP з боку Steam, і ви взагалі не матимете доступу до інвентарів. Також вам може бути потрібно збільшити це значення якщо ви використовуєте багато ботів у яких багато запитів до інвентарю, хоча у цьому випадку вам мабуть варто замість цього зменшити кількість таких запитів. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 ---
 
@@ -214,13 +214,13 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ### `LicenseID`
 
-`Guid?` type with default value of `null` (in JSON, written as `string`). This property allows our **[sponsors](https://github.com/sponsors/JustArchi)** to enhance ASF with optional features that require paid resources to work. For now, this allows you to make use of **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature in `ItemsMatcher` plugin.
+`Guid?` type with default value of `null`. This property allows our **[sponsors](https://github.com/sponsors/JustArchi)** to enhance ASF with optional features that require paid resources to work. For now, this allows you to make use of **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature in `ItemsMatcher` plugin.
 
 If you're ASF sponsor, you can obtain your license **[here](https://asf.justarchi.net/User/Status)**. You'll need to sign in with GitHub for confirming your identity, we ask only for read-only public information, which is your username. `LicenseID` is made out of 32 hexadecimal characters, such as `f6a0529813f74d119982eb4fe43a9a24`.
 
 **Ensure that you do not share your `LicenseID` with other people**. Since it's issued on personal basis, it might get revoked if it's leaked. If by any chance this happened to you accidentally, you can generate a new one from the same place.
 
-Unless you want to enable extra ASF functionalities, there is no need for you to use the license.
+Unless you want to enable extra ASF functionalities, there is no need for you to provide the license.
 
 ---
 
@@ -234,7 +234,7 @@ Unless you want to enable extra ASF functionalities, there is no need for you to
 
 ### `MaxFarmingTime`
 
-параметр типу `byte` зі значенням за замовчуванням `10`. Як ви маєте знати, Steam не завжди працює належним чином, іноді стаються дивні ситуації, як наприклад Steam може не записувати час, проведений у грі, навіть коли ви насправді граєте. ASF буде фармити одну гру у соло-режимі максимум `MaxFarmingTime` годин, а після цього періоду вважатиме, що фарм для неї завершений. Це необхідно щоб процес фарма не застряг у разі якихось дивних ситуацій, а також на випадок, коли Steam випустив значок, який заважає ASF працювати далі (дивись також: `Blacklist`). Значення за замовчуванням у `10` годин має бути достатньо для отримання усіх карток з однієї гри. Занадто низьке значення може призвести до пропуску дійсних ігор (так, бувають ігри у яких фарм займає до 9 годин), а занадто високе значення призведе до застрягання фарму на довгий час. Зверніть увагу, що цей параметр впливає лише на поодиноку гру у одній сесії фарму (тож після обробки всієї черги ASF повернеться до цієї гри), а також він базується не на загальному часу у грі, а на внутрішньому часі фарму в ASF, тому ASF також повернеться до цієї гри після перезапуску. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
+параметр типу `byte` зі значенням за замовчуванням `10`. As you should know, Steam is not always working properly, sometimes weird situations can happen such as our playtime not being recorded, despite of, in fact, playing a game. ASF буде фармити одну гру у соло-режимі максимум `MaxFarmingTime` годин, а після цього періоду вважатиме, що фарм для неї завершений. Це необхідно щоб процес фарма не застряг у разі якихось дивних ситуацій, а також на випадок, коли Steam випустив значок, який заважає ASF працювати далі (дивись також: `Blacklist`). Значення за замовчуванням у `10` годин має бути достатньо для отримання усіх карток з однієї гри. Занадто низьке значення може призвести до пропуску дійсних ігор (так, бувають ігри у яких фарм займає до 9 годин), а занадто високе значення призведе до застрягання фарму на довгий час. Зверніть увагу, що цей параметр впливає лише на поодиноку гру у одній сесії фарму (тож після обробки всієї черги ASF повернеться до цієї гри), а також він базується не на загальному часу у грі, а на внутрішньому часі фарму в ASF, тому ASF також повернеться до цієї гри після перезапуску. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 ---
 
@@ -253,7 +253,7 @@ Unless you want to enable extra ASF functionalities, there is no need for you to
 
 ### `OptimizationMode`
 
-параметр типу `byte` зі значенням за замовчуванням `0`. Цей параметр визначає режим оптимізації, якого дотримується ASF протягом роботи. Наразі ASF підтримує два режими - `0` під назвою `MaxPerformance` (максимальна продуктивність), та `1` під назвою `MinMemoryUsage` (мінімальне вживання пам'яті). За замовчуванням ASF намагається робити якнайбільше задач паралельно (одночасно), що підвищує продуктивність через балансування навантаження на усіх ядрах ЦП, декількох потоках ЦП, декількох сокетах та декількох задачах пула потоків. For example, ASF will ask for your first badge page when checking for games to farm, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. Це саме те що вам потрібно **у більшості випадків**, тому що накладні витрати мінімальні а переваги від асинхронного коду ASF помітні навіть на дуже старому обладнанні з єдиним ядром ЦП та обмеженою потужністю. Однак, при роботі багатьох процесів паралельно, ASF має займатися їх підтримкою, тобто, підтримувати відкриті сокети, живі потоки та задачі, що іноді може призвести до збільшення вживання пам'яті, тож якщо ви надзвичайно обмежені обсягом пам'яті у наявності, ви можете змінити значення цього параметра на `1` (`MinMemoryUsage`), щоб змусити ASF використовувати якнайменше задач, і виконувати асинхронний код, який зазвичай виконується паралельно, у синхронний манір. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
+параметр типу `byte` зі значенням за замовчуванням `0`. Цей параметр визначає режим оптимізації, якого дотримується ASF протягом роботи. Наразі ASF підтримує два режими - `0` під назвою `MaxPerformance` (максимальна продуктивність), та `1` під назвою `MinMemoryUsage` (мінімальне вживання пам'яті). За замовчуванням ASF намагається робити якнайбільше задач паралельно (одночасно), що підвищує продуктивність через балансування навантаження на усіх ядрах ЦП, декількох потоках ЦП, декількох сокетах та декількох задачах пула потоків. For example, ASF will ask for your first badge page when checking for games to farm, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. Це саме те що вам потрібно **у більшості випадків**, тому що накладні витрати мінімальні а переваги від асинхронного коду ASF помітні навіть на дуже старому обладнанні з єдиним ядром ЦП та обмеженою потужністю. Однак, при роботі багатьох процесів паралельно, ASF має займатися їх підтримкою, тобто, підтримувати відкриті сокети, живі потоки та задачі, що іноді може призвести до збільшення вживання пам'яті, тож якщо ви надзвичайно обмежені обсягом пам'яті у наявності, ви можете змінити значення цього параметра на `1` (`MinMemoryUsage`), щоб змусити ASF використовувати якнайменше задач, і виконувати асинхронний код, який зазвичай виконується паралельно, у синхронний манір. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Зазвичай цей параметр **значно гірший** ніж те, що ви можете досягти іншими методами, такими як обмеження використання ASF або налаштування збирача сміття, як описано у розділі **[Налаштування з низьким споживанням пам'яті](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-uk-UA)**. Тому, вам варто використовувати `MinMemoryUsage` як **останній засіб**, перед перекомпіляцією середовища виконання, якщо ви не змогли досягти задовільних результатів іншими (значно кращими) способами. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 ---
 
@@ -265,7 +265,7 @@ Unless you want to enable extra ASF functionalities, there is no need for you to
 
 ### `SteamOwnerID`
 
-`ulong` type with default value of `0`. This property defines Steam ID in 64-bit form of ASF process owner, and is very similar to `Master` permission of given bot instance (but global instead). You almost always want to set this property to ID of your own main Steam account. `Master` permission includes full control over his bot instance, but global commands such as `exit`, `restart` or `update` are reserved for `SteamOwnerID` only. This is convenient, as you may want to run bots for your friends, while not allowing them to control ASF process, such as exiting it via `exit` command. Default value of `0` specifies that there is no owner of ASF process, which means that nobody will be able to issue global ASF commands. Keep in mind that **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** commands work with `SteamOwnerID`, so if you want to use them, then you must provide a valid value here.
+`ulong` type with default value of `0`. This property defines Steam ID in 64-bit form of ASF process owner, and is very similar to `Master` permission of given bot instance (but global instead). You almost always want to set this property to ID of your own main Steam account. `Master` permission includes full control over his bot instance, but global commands such as `exit`, `restart` or `update` are reserved for `SteamOwnerID` only. This is convenient, as you may want to run bots for your friends, while not allowing them to control ASF process, such as exiting it via `exit` command. Default value of `0` specifies that there is no owner of ASF process, which means that nobody will be able to issue global ASF commands. Keep in mind that this property applies to Steam chat exclusively, **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**, as well as interactive console, will still allow you to execute `Owner` commands even if this property is not set.
 
 ---
 
@@ -282,7 +282,7 @@ Unless you want to enable extra ASF functionalities, there is no need for you to
 
 Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
 
-By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
+By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Якщо у вас немає **вагомих** підстав змінювати цей параметр, вам варто залишити йому значення за замовчуванням.
 
 ---
 
@@ -782,7 +782,7 @@ In order to find your token, as logged in user with `Master` permission, navigat
 
 In short, this property allows you to handle permissions for given users. Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you may want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. Thanks to that you can easily assign permissions to given users and let them use your bot to some specified by you degree.
 
-We recommend to set exactly one user as `Master`, and any amount you wish as `Operators` and below. While it's technically possible to set multiple `Masters` and ASF will work correctly with them, for example by accepting all of their trades sent to the bot, ASF will use only one of them (with lowest steam ID) for every action that requires a single target, for example a `loot` request, so also properties like `SendOnFarmingFinished` or `SendTradePeriod`. If you perfectly understand those limitations, especially the fact that `loot` request will always send items to the `Master` with lowest steam ID, regardless of the `Master` that actually executed the command, then you can define multiple users with `Master` permission here, but we still recommend a single master scheme - multiple masters scheme is discouraged setup that is not supported.
+We recommend to set exactly one user as `Master`, and any amount you wish as `Operators` and below. While it's technically possible to set multiple `Masters` and ASF will work correctly with them, for example by accepting all of their trades sent to the bot, ASF will use only one of them (with lowest steam ID) for every action that requires a single target, for example a `loot` request, so also properties like `SendOnFarmingFinished` or `SendTradePeriod`. If you perfectly understand those limitations, especially the fact that `loot` request will always send items to the `Master` with lowest steam ID, regardless of the `Master` that actually executed the command, then you can define multiple users with `Master` permission here, but we still recommend a single master scheme.
 
 It's nice to note that there is one more extra `Owner` permission, which is declared as `SteamOwnerID` global config property. You can't assign `Owner` permission to anybody here, as `SteamUserPermissions` property defines only permissions that are related to the bot instance, and not ASF as a process. For bot-related tasks, `SteamOwnerID` is treated the same as `Master`, so defining your `SteamOwnerID` here is not necessary.
 
@@ -809,7 +809,7 @@ For further explanation of ASF trading logic, and description of every available
 
 ### `TransferableTypes`
 
-`ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines which Steam item types will be considered for transferring between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
+`ImmutableHashSet<byte>` type with default value of `1, 3, 5` steam item types. This property defines which Steam item types will be considered for transfering between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
 
 | Value | Ім'я                  | Description                                                   |
 | ----- | --------------------- | ------------------------------------------------------------- |
@@ -922,7 +922,7 @@ Example: `"Enabled": true`
 
 `byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
 
-Example: `"ConnectionTimeout": 60`
+Example: `"ConnectionTimeout": 90`
 
 ---
 
@@ -945,6 +945,12 @@ Example: `"SteamMasterClanID": 103582791440160998`
 `string` - String type, accepting any sequence of characters, including empty sequence `""` and `null`. Empty sequence and `null` value are treated the same by ASF, so it's up to your preference which one you want to use (we stick with `null`).
 
 Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
+
+---
+
+`Guid?` - Nullable UUID type, in JSON encoded as string. UUID is made out of 32 hexadecimal characters, in range from `0` to `9` and `a` to `f`. ASF accepts variety of valid formats - lowercase, uppercase, with and without dashes. In addition to valid UUID, since this property is nullable, a special value of `null` is accepted to indicate lack of UUID to provide.
+
+Examples: `"LicenseID": null`, `"LicenseID": "f6a0529813f74d119982eb4fe43a9a24"`
 
 ---
 
@@ -983,11 +989,11 @@ So as you can see, in above example we have 3 available flags to switch on/off (
 - `None -> 0`
 - `A -> 1`
 - `B -> 2`
-- `A+B -> 3`
+- `A + B -> 3`
 - `C -> 4`
-- `A+C -> 5`
-- `B+C -> 6`
-- `A+B+C -> 7`
+- `A + C -> 5`
+- `B + C -> 6`
+- `A + B + C -> 7`
 
 Example: `"SteamProtocols": 7`
 
@@ -1001,7 +1007,11 @@ Due to JavaScript limitations of being unable to properly serialize simple `ulon
 
 ## Сумісність конфігурацій
 
-It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs. We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself (e.g. `WebLimiterDelay`).
+It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs.
+
+We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself (e.g. `WebLimiterDelay`).
+
+Due to above, ASF will automatically migrate/optimize your configs by reformatting them and removing fields that hold default value. You can disable this behaviour with `--no-config-migrate` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** if you have a specific reason, for example you're providing read-only config files and you don't want ASF to modify them.
 
 ---
 
@@ -1016,3 +1026,5 @@ Starting with ASF V2.1.6.2+, the program is now aware of configs being modified 
 All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
 
 In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
+
+You can disable this behaviour with `--no-config-watch` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** if you have a specific reason, for example you don't want from ASF to react to file changes in `config` folder.

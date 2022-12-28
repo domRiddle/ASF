@@ -110,7 +110,7 @@ ASF 采用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存储其配置�
 
 这是一个默认值为空的 `ImmutableHashSet<uint>` 类型属性。 顾名思义，这个全局配置属性定义了 ASF 自动挂卡过程完全忽略的 AppID（游戏）。 不幸的是，Steam 喜欢将夏季/冬季特卖徽章标记为“可掉落卡牌”，使 ASF 认为这是一个可挂卡的游戏。 如果没有这种黑名单，ASF 的挂卡进程将会卡在这里挂一个不是游戏的“游戏”，并且无限期地等待不存在的卡牌掉落。 ASF 黑名单的目的是将这些徽章标记为无法挂卡，这样我们就可以在挂卡时直接忽略它们，不落入 Steam 的陷阱。
 
-ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法修改，而 `Blacklist` 则是由此属性定义的普通黑名单。 `GlobalBlacklist` 随 ASF 一起更新，通常包括 ASF 发布时的所有无效 AppID，所以如果您始终使用最新版 ASF，就不需要在这里手动管理 `Blacklist`。 此属性的主要目的是允许您将新的、ASF 发布时未知的不可挂卡 AppID 添加到黑名单。 内置的 `GlobalBlacklist` 黑名单总是会尽快更新，因此如果您使用最新版 ASF 就不需要自己设置 `Blacklist`，但如果没有 `Blacklist` 属性，您就必须在出现新的特卖徽章时更新 ASF 以保证它能够正常运行——我不想强制您使用最新版 ASF，因此如果您不想或不能更新 ASF 的 `GlobalBlacklist`，可以设置这个属性临时修复 ASF。 除非您有**充分的**理由编辑此属性，否则应将其保留为默认值。
+ASF 默认有两个黑名单——`SalesBlacklist` 是内置黑名单，无法修改，而 `Blacklist` 则是由此属性定义的普通黑名单。 `SalesBlacklist` 随 ASF 一起更新，通常包括 ASF 发布时的所有无效 AppID，所以如果您始终使用最新版 ASF，就不需要在这里手动管理 `Blacklist`。 此属性的主要目的是允许您将新的、ASF 发布时未知的不可挂卡 AppID 添加到黑名单。 内置的 `SalesBlacklist` 黑名单总是会尽快更新，因此如果您使用最新版 ASF 就不需要自己设置 `Blacklist`，但如果没有 `Blacklist` 属性，您就必须在出现新的特卖徽章时更新 ASF 以保证它能够正常运行——我不想强制您使用最新版 ASF，因此如果您不想或不能更新 ASF 的 `SalesBlacklist`，可以设置这个属性临时修复 ASF。 除非您有**充分的**理由编辑此属性，否则应将其保留为默认值。
 
 如果您需要基于机器人设置的黑名单，请查看 `fb`、`fbadd` 和 `fbrm` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。
 
@@ -190,7 +190,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `InventoryLimiterDelay`
 
-这是一个默认值为 `4` 的 `byte` 类型属性。 ASF 会确保连续两个库存请求之间至少间隔 `InventoryLimiterDelay` 秒，以避免触发频率限制——这主要发生在获取 Steam 库存时，特别是在您执行 `transfer` 等命令或者启用 `MatchActively` 等功能时。 我们基于连续获取上百个机器人库存的数据设定了默认值 `4`，这个值应该满足绝大多数用户的需求。 如果您的机器人数量很少，可能希望减小这个值甚至更改为 `0`，使 ASF 忽略延迟，更快地获取库存物品。 但请注意，设置过低的值**将会**导致 Steam 临时封禁您的 IP，彻底阻止您在这段时间内继续获取库存。 如果您有大量机器人，并且发送大量请求，则可能还需要增大此值，不过在这种情况下您可能需要考虑设法限制请求的数量。 除非您有**充分的**理由编辑此属性，否则应将其保留为默认值。
+这是一个默认值为 `4` 的 `byte` 类型属性。 ASF 会确保连续两个库存请求之间至少间隔 `InventoryLimiterDelay` 秒，以避免触发频率限制——这主要发生在获取 Steam 库存时，特别是在您执行 `loot` 或 `transfer` 等命令时。 我们基于连续获取上百个机器人库存的数据设定了默认值 `4`，这个值应该满足绝大多数用户的需求。 如果您的机器人数量很少，可能希望减小这个值甚至更改为 `0`，使 ASF 忽略延迟，更快地获取库存物品。 但请注意，设置过低的值**将会**导致 Steam 临时封禁您的 IP，彻底阻止您在这段时间内继续获取库存。 如果您有大量机器人，并且发送大量请求，则可能还需要增大此值，不过在这种情况下您可能需要考虑设法限制请求的数量。 除非您有**充分的**理由编辑此属性，否则应将其保留为默认值。
 
 ---
 
@@ -214,13 +214,13 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `LicenseID`
 
-这是一个默认值为 `null` 的 `Guid?` 类型属性（在 JSON 中以 `string` 表示）。 该属性允许我们的[**赞助者**](https://github.com/sponsors/JustArchi)启用需要付费资源的 ASF 可选功能，来增强其能力。 目前，您可以启用 `ItemsMatcher` 插件中的 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-CN#matchactively主动匹配)** 特性。
+这是一个默认值为 `null` 的 `Guid?` 类型属性。 该属性允许我们的[**赞助者**](https://github.com/sponsors/JustArchi)启用需要付费资源的 ASF 可选功能，来增强其能力。 目前，您可以启用 `ItemsMatcher` 插件中的 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-CN#matchactively主动匹配)** 特性。
 
 如果您是 ASF 赞助者，您可以在[**这里**](https://asf.justarchi.net/User/Status)获取许可证。 您需要以 GitHub 登录来确认身份，我们只请求只读的公开信息，也就是您的用户名。 `LicenseID` 是 32 位的十六进制字符串，形如 `f6a0529813f74d119982eb4fe43a9a24`。
 
 **请确保您不会与其他人分享您的 `LicenseID`**。 因为它是针对个人发放的，如果泄露，就可能会被撤销。 如果您意外泄露了许可证，可以在相同的位置生成一个新的。
 
-除非您想要启用 ASF 的额外功能，否则您无需使用许可证。
+除非您想要启用 ASF 的额外功能，否则您无需提供许可证。
 
 ---
 
@@ -265,7 +265,7 @@ ASF 默认有两个黑名单——`GlobalBlacklist` 是内置黑名单，无法�
 
 ### `SteamOwnerID`
 
-这是一个默认值为 `0` 的 `ulong` 类型属性。 该属性定义 ASF 进程所有者的 64 位 Steam ID，所有者（Owner）权限类似于机器人实例的 `Master` 权限，但所有者是全局的。 通常，您总是应该将这个属性设置为您的 Steam 主帐户 ID。 `Master` 权限可以完全控制给定的机器人实例，但是 `exit`、`restart` 或 `update` 等全局命令只能由 `SteamOwnerID` 用户执行。 这很方便，因为您可能需要为您的朋友运行机器人，但不允许他们控制 ASF 进程，例如发送 `exit` 退出命令。 默认值 `0` 表示 ASF 进程没有所有者，这意味着没有任何人可以发出全局 ASF 命令。 请注意，**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 命令需要以 `SteamOwnerID` 身份执行，所以您必须为该属性设置有效的值才能使用这些功能。
+这是一个默认值为 `0` 的 `ulong` 类型属性。 该属性定义 ASF 进程所有者的 64 位 Steam ID，所有者（Owner）权限类似于机器人实例的 `Master` 权限，但所有者是全局的。 通常，您总是应该将这个属性设置为您的 Steam 主帐户 ID。 `Master` 权限可以完全控制给定的机器人实例，但是 `exit`、`restart` 或 `update` 等全局命令只能由 `SteamOwnerID` 用户执行。 这很方便，因为您可能需要为您的朋友运行机器人，但不允许他们控制 ASF 进程，例如发送 `exit` 退出命令。 默认值 `0` 表示 ASF 进程没有所有者，这意味着没有任何人可以发出全局 ASF 命令。 请注意此属性仅用于 Steam 聊天，即使没有设置此属性，您仍然可以使用 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-CN)** 和交互式控制台执行 `Owner` 权限的命令。
 
 ---
 
@@ -782,7 +782,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 简而言之，此属性允许您设定指定用户操作此机器人的权限。 权限主要用于访问 ASF **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**，但也用于启用很多其他 ASF 功能，例如接受交易报价。 例如，您可能希望将自己的帐户设置为 `Master`，然后为您的两三位朋友设置 `Operator` 权限，使他们可以简单地通过 ASF 为您的机器人激活游戏序列号，但又**无法**执行停止机器人等操作。 因此，您可以轻松将权限分配给指定的用户，使他们能够在您设定的限制下操作您的机器人。
 
-我们建议您只设置一名用户为 `Master`，然后设定其他用户为较低权限的 `Operators`。 但从技术上来讲，您可以为机器人设定多名 `Master` 用户，并且 ASF 仍然可以正常工作，接受来自其中每名用户的交易报价，如果操作的目标用户只能有一名，例如 `loot` 请求、`SendOnFarmingFinished` 属性或 `SendTradePeriod` 属性，ASF 就会选择这些用户中 Steam ID 数字最小的一个。 如果您完全理解这些限制，特别是无论实际执行命令的 `Master` 用户是谁，`loot` 请求总是会将物品发送给 Steam ID 数字最小的那名 `Master` 用户，那么您就可以在这里设置多名 `Master` 权限用户，但仍然建议您选择单 Master 方案，我们既不鼓励也不支持您选择多 Master 方案。
+我们建议您只设置一名用户为 `Master`，然后设定其他用户为较低权限的 `Operators`。 但从技术上来讲，您可以为机器人设定多名 `Master` 用户，并且 ASF 仍然可以正常工作，接受来自其中每名用户的交易报价，如果操作的目标用户只能有一名，例如 `loot` 请求、`SendOnFarmingFinished` 属性或 `SendTradePeriod` 属性，ASF 就会选择这些用户中 Steam ID 数字最小的一个。 如果您完全理解这些限制，特别是无论实际执行命令的 `Master` 用户是谁，`loot` 请求总是会将物品发送给 Steam ID 数字最小的那名 `Master` 用户，那么您就可以在这里设置多名 `Master` 权限用户，但仍然建议您选择单 Master 方案。
 
 值得注意的是，还有一个额外的 `Owner` 权限，此权限由全局配置属性 `SteamOwnerID` 设置。 您无法在这里将 `Owner` 权限授予任何人，因为 `SteamUserPermissions` 属性仅能定义与此机器人实例相关，而非 ASF 进程相关的权限。 对于机器人相关的任务，`SteamOwnerID` 被视为与 `Master` 相同，因此也没有必要在此设置 `SteamOwnerID`。
 
@@ -922,7 +922,7 @@ ASF 使用原生的 C# 类型系统，包括：
 
 `byte` ——无符号字节类型，只接受从 `0` 到 `255` 之间（含边界值）的整数。
 
-示例：`"ConnectionTimeout": 60`
+示例：`"ConnectionTimeout": 90`
 
 ---
 
@@ -948,13 +948,19 @@ ASF 使用原生的 C# 类型系统，包括：
 
 ---
 
+`Guid?`——可为 Null 的 UUID 类型，在 JSON 中被编码为字符串。 UUID 由 32 位十六进制字符组成，范围包括 `0` 到 `9` 与 `a` 到 `f`。 ASF 接受各种有效的格式——小写、大写、有无连字符皆可。 除了有效的 UUID 以外，因为此属性可为 Null，特殊值 `null` 也被接受，表示未提供 UUID。
+
+示例：`"LicenseID": null`、`"LicenseID": "f6a0529813f74d119982eb4fe43a9a24"`
+
+---
+
 `ImmutableList<valueType>`——给定 `valueType` 类型值的不可变容器（列表）。 在 JSON 中，这被定义为给定 `valueType` 类型元素的数组。 ASF 使用 `List` 来表示给定属性支持多个值，并且其顺序有意义。
 
 `ImmutableList<byte>` 的示例：`"FarmingOrders": [15, 11, 7]`
 
 ---
 
-`ImmutableHashSet<valueType>`——给定 `valueType` 类型唯一值的不可变集合（列表）。 在 JSON 中，这被定义为给定 `valueType` 类型元素的数组。 ASF 使用 `HashSet` 来表示给定属性的值必须唯一才有意义，并且其顺序不重要，因此它会在解析过程中忽略任何重复的值（假如您不小心提供了重复的值）。
+`ImmutableHashSet<valueType>`——给定 `valueType` 类型唯一值的不可变容器（集合）。 在 JSON 中，这被定义为给定 `valueType` 类型元素的数组。 ASF 使用 `HashSet` 来表示给定属性的值必须唯一才有意义，并且其顺序不重要，因此它会在解析过程中忽略任何重复的值（假如您不小心提供了重复的值）。
 
 `ImmutableHashSet<uint>` 的示例：`"Blacklist": [267420, 303700, 335590]`
 
@@ -983,11 +989,11 @@ ASF 使用原生的 C# 类型系统，包括：
 - `None -> 0`
 - `A -> 1`
 - `B -> 2`
-- `A+B -> 3`
+- `A + B -> 3`
 - `C -> 4`
-- `A+C -> 5`
-- `B+C -> 6`
-- `A+B+C -> 7`
+- `A + C -> 5`
+- `B + C -> 6`
+- `A + B + C -> 7`
 
 示例：`"SteamProtocols": 7`
 
@@ -1001,7 +1007,11 @@ ASF 使用原生的 C# 类型系统，包括：
 
 ## 配置兼容性
 
-兼容旧配置文件是 ASF 的首要任务。 您应该已经知道，缺失的配置文件属性相当于使用其**默认值**。 因此，如果新版本 ASF 带来了新的配置文件属性，您的配置文件仍然**兼容**新版本，ASF 将会把这些新属性的值视为**默认值**。 您可以随时按需增加、删除或者编辑配置文件属性。 我们建议您仅指定需要修改的配置文件属性，使其他属性自动继承其默认值，这不仅保持您的配置文件足够简洁，还可以在我们决定修改属性默认值的时候增强它的兼容性，您就无需手动进行更新（例如，我们曾经修改过 `WebLimiterDelay` 的默认值）。
+兼容旧配置文件是 ASF 的首要任务。 您应该已经知道，缺失的配置文件属性相当于使用其**默认值**。 因此，如果新版本 ASF 带来了新的配置文件属性，您的配置文件仍然**兼容**新版本，ASF 将会把这些新属性的值视为**默认值**。 您可以随时按需增加、删除或者编辑配置文件属性。
+
+我们建议您仅指定需要修改的配置文件属性，使其他属性自动继承其默认值，这不仅保持您的配置文件足够简洁，还可以在我们决定修改属性默认值的时候增强它的兼容性，您就无需手动进行更新（例如，我们曾经修改过 `WebLimiterDelay` 的默认值）。
+
+由于上述情况，ASF 会自动迁移/优化您的配置，将其重新格式化并删除具有默认值的字段。  如果您有特定的理由，例如您可能提供不希望 ASF 修改的只读配置文件，则可以通过 `--no-config-migrate` [**命令行参数**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN#参数)禁用此行为。
 
 ---
 
@@ -1016,3 +1026,5 @@ ASF 使用原生的 C# 类型系统，包括：
 以上操作都是透明的，您无需重新启动程序或者停止无关机器人实例，就可以由 ASF 自动完成。
 
 此外，如果您修改了核心的 `ASF.json` 配置文件，ASF 也会重新启动自身（如果 `AutoRestart` 属性允许）。 同样地，如果您重命名或者删除这个文件，程序就会退出。
+
+如果您有特定的理由，例如您不希望 ASF 检测 `config` 目录内的文件变化，则可以通过 `--no-config-watch` [**命令行参数**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN#参数)禁用此行为。

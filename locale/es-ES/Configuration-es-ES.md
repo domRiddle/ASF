@@ -110,7 +110,7 @@ Si ese es el caso, esta propiedad es especialmente para ti y la puedes establece
 
 Tipo `ImmutableHashSet<uint>` con valor predeterminado estando vacío. Como su nombre lo indica, esta propiedad de configuración global define las appIDs (juegos) que serán completamente ignorados por el proceso recolección automática de ASF. Desafortunadamente a Steam le encanta etiquetar las insignias de las ofertas de verano/invierno como "con cromos obtenibles", lo que confunde al proceso de ASF haciéndole creer que es un juego válido que debería ser recolectado. Si no hubiera ningún tipo de lista negra, ASF acabaría por "estancarse" recolectando un juego que en realidad no es un juego, y esperaría infinitamente para obtener cromos, lo que no va a suceder. La lista negra de ASF sirve al propósito de marcar esas insignias como no disponibles para recolectar, para que podamos ignorarlas silenciosamente al momento de decidir qué recolectar, y no caer en la trampa.
 
-ASF incluye dos listas negras por defecto - la `GlobalBlacklist`, que está codificada en el código de ASF y no es posible editarla, y la `Blacklist` normal, que se define aquí. La `GlobalBlacklist` se actualiza junto con ASF y generalmente incluye todas las appIDs "malas" al momento del lanzamiento, así que si usas la versión más reciente de ASF no necesitas mantener tu propia `Blacklist` definida aquí. El objetivo principal de esta propiedad es permitirte poner en la lista negra appIDs nuevas, no conocidas al momento del lanzamiento de ASF, las cuales no deben ser recolectadas. La `GlobalBlacklist` se actualiza tan rápido como es posible, por lo tanto no es necesario que actualices tu propia `Blacklist` si estás usando la última versión de ASF, pero sin la `Blacklist` te verías obligado a actualizar ASF para que pueda "seguir funcionando" cuando Valve libere una nueva insignia de ofertas - no quiero obligarte a usar el último código de ASF, por lo tanto esta propiedad está aquí para permitirte "arreglar" ASF por ti mismo si por alguna razón no quieres, o no puedes, actualizar la `GlobalBlacklist` a través de la nueva versión de ASF, pero quieres mantener funcionando tu viejo ASF. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
+ASF incluye dos listas negras por defecto - la `SalesBlacklist`, que viene incorporada en el código de ASF y no es posible editarla, y la `Blacklist` normal, que se define en esta propiedad. La `SalesBlacklist` se actualiza junto con ASF y generalmente incluye todas las appIDs "malas" al momento del lanzamiento, así que si usas la versión más reciente de ASF no necesitas mantener tu propia `Blacklist` definida aquí. El objetivo principal de esta propiedad es permitirte poner en la lista negra appIDs nuevas, no conocidas al momento del lanzamiento de ASF, las cuales no deben ser recolectadas. La `SalesBlacklist` se actualiza tan rápido como es posible, por lo tanto no es necesario que actualices tu propia `Blacklist` si estás usando la última versión de ASF, pero sin la `Blacklist` te verías obligado a actualizar ASF para que pueda "seguir funcionando" cuando Valve libere una nueva insignia de ofertas - no quiero obligarte a usar el último código de ASF, por lo tanto esta propiedad está aquí para permitirte "arreglar" ASF por ti mismo si por alguna razón no quieres, o no puedes actualizar la `SalesBlacklist` a través de la nueva versión de ASF, pero quieres mantener funcionando tu viejo ASF. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
 Si en cambio lo que buscas es una lista negra basada en los bots, echa un vistazo a los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `fb`, `fbadd` y `fbrm`.
 
@@ -190,7 +190,7 @@ Tipo `byte` con valor predeterminado de `8`. Cuando ASF no tiene nada para recol
 
 ### `InventoryLimiterDelay`
 
-Tipo `byte` con valor predeterminado de `4`. ASF se asegurará de que haya por lo menos `InventoryLimiterDelay` segundos entre dos solicitudes consecutivas de inventario para evitar que se alcance el límite de solicitudes - estos son usados para obtener el inventario de Steam, especialmente durante tus propios comandos tal como `transfer`, y también en funciones como `MatchActively`. El valor predeterminado de `4` fue establecido basado en obtener el inventario de más de 100 instancias de bot consecutivas, y debería satisfacer a la mayoría (si no a todos) de usuarios. Sin embargo tal vez quieras reducirlo, o incluso cambiarlo a `0` si tienes una cantidad pequeña de bots, así ASF ignorará el retraso y procesará los inventarios de Steam mucho más rápido. Se advierte, sin embargo, que establecerlo muy bajo **resultará** en que Steam bloquee temporalmente tu IP, y eso impedirá obtener tu inventario por completo. También podría ser necesario que incrementes este valor si estás ejecutando muchos bots con muchas solicitudes de inventario, aunque en este caso tal vez debas tratar de limitar el número de esas solicitudes. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
+Tipo `byte` con valor predeterminado de `4`. ASF se asegurará de que haya al menos `InventoryLimiterDelay` segundos entre dos solicitudes de inventario consecutivas para evitar que se alcance el límite de solicitudes - estas son utilizadas para obtener el inventario de Steam, especialmente durante comandos tales como `loot` o `transfer`. El valor predeterminado de `4` fue establecido basado en obtener el inventario de más de 100 instancias de bot consecutivas, y debería satisfacer a la mayoría (si no a todos) de usuarios. Sin embargo tal vez quieras reducirlo, o incluso cambiarlo a `0` si tienes una cantidad pequeña de bots, así ASF ignorará el retraso y procesará los inventarios de Steam mucho más rápido. Se advierte, sin embargo, que establecerlo muy bajo **resultará** en que Steam bloquee temporalmente tu IP, y eso impedirá obtener tu inventario por completo. También podría ser necesario que incrementes este valor si estás ejecutando muchos bots con muchas solicitudes de inventario, aunque en este caso tal vez debas tratar de limitar el número de esas solicitudes. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
 ---
 
@@ -214,13 +214,13 @@ Tipo `byte` con valor predeterminado de `0`. Esta propiedad define el formato de
 
 ### `LicenseID`
 
-Tipo `Guid?` con valor predeterminado de `null` (en JSON, escrito como `string`). Esta propiedad permite a nuestros **[patrocinadores](https://github.com/sponsors/JustArchi)** mejorar ASF con funciones opcionales que requieren recursos pagados para funcionar. Por ahora, esto permite hacer uso de la función **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-es-ES#matchactively)** en el plugin `ItemsMatcher`.
+Tipo `Guid?` con valor predeterminado de `null`. Esta propiedad permite a nuestros **[patrocinadores](https://github.com/sponsors/JustArchi)** mejorar ASF con funciones opcionales que requieren recursos pagados para funcionar. Por ahora, esto permite hacer uso de la función **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-es-ES#matchactively)** en el plugin `ItemsMatcher`.
 
 Si eres patrocinador de ASF, puedes obtener tu licencia **[aquí](https://asf.justarchi.net/User/Status)**. Necesitarás iniciar sesión con GitHub para confirmar tu identidad, únicamente solicitamos información pública de solo lectura, que es tu nombre de usuario. `LicenseID` se compone de 32 caracteres hexadecimales, tal como `f6a0529813f74d119982eb4fe43a9a24`.
 
 **Asegúrate de no compartir tu `LicenseID` con otras personas**. Dado que se emite a título personal, podría ser revocada si se filtra. Si esto te llegara a ocurrir por accidente, puedes generar uno nuevo desde el mismo lugar.
 
-A menos que desees habilitar funciones adicionales de ASF, no es necesario que utilices la licencia.
+A menos que desees habilitar las funciones adicionales de ASF, no es necesario que proporciones la licencia.
 
 ---
 
@@ -234,7 +234,7 @@ Como nota, este valor también es usado como un regulador del balance de carga e
 
 ### `MaxFarmingTime`
 
-Tipo `byte` con valor predeterminado de `10`. Como debes saber, Steam no siempre funciona correctamente, algunas veces pueden suceder situaciones extrañas como que Steam no registre tu tiempo de juego, a pesar de en efecto estar jugando. ASF permitirá recolectar un solo juego en modo individual por un máximo de `MaxFarmingTime` horas, y lo considerará como completamente recolectado después de ese período. Esto es necesario para no congelar el proceso de recolección en caso de que suceda alguna situación extraña, pero también si por alguna razón Steam liberara una nueva insignia que impida que ASF siga funcionando (véase: `Blacklist`). El valor predeterminado de `10` horas debería ser suficiente para obtener todos los cromos de un juego. Establecer esta propiedad muy bajo puede resultar en que juegos válidos sean omitidos (y sí, hay juegos válidos que pueden tomar hasta 9 horas para recolectar), mientras que establecerlo muy alto puede resultar en que se congele el proceso de recolección. Ten en cuenta que esta propiedad solo afecta a un juego en una sesión de recolección (por lo que después de completar toda la lista ASF regresará a ese título), además no está basado en el tiempo de juego total sino en el tiempo interno de ASF, por lo que ASF también regresará a ese título después de un reinicio. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
+Tipo `byte` con valor predeterminado de `10`. Como debes saber, Steam no siempre funciona correctamente, algunas veces pueden suceder situaciones extrañas, como que no se registre tu tiempo de juego, a pesar de en efecto estar jugando. ASF permitirá recolectar un solo juego en modo individual por un máximo de `MaxFarmingTime` horas, y lo considerará como completamente recolectado después de ese período. Esto es necesario para no congelar el proceso de recolección en caso de que suceda alguna situación extraña, pero también si por alguna razón Steam liberara una nueva insignia que impida que ASF siga funcionando (véase: `Blacklist`). El valor predeterminado de `10` horas debería ser suficiente para obtener todos los cromos de un juego. Establecer esta propiedad muy bajo puede resultar en que juegos válidos sean omitidos (y sí, hay juegos válidos que pueden tomar hasta 9 horas para recolectar), mientras que establecerlo muy alto puede resultar en que se congele el proceso de recolección. Ten en cuenta que esta propiedad solo afecta a un juego en una sesión de recolección (por lo que después de completar toda la lista ASF regresará a ese título), además no está basado en el tiempo de juego total sino en el tiempo interno de ASF, por lo que ASF también regresará a ese título después de un reinicio. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
 ---
 
@@ -265,7 +265,7 @@ Tipo `string` con valor predeterminado de `"/me "`. Esta propiedad define un pre
 
 ### `SteamOwnerID`
 
-Tipo `ulong` con valor predeterminado de `0`. Esta propiedad define el Steam ID en forma de 64 bits del propietario del proceso ASF, y es muy similar al permiso `Master` de una determinada instancia de bot (pero de manera global). Casi siempre querrás establecer esta propiedad al ID de tu cuenta principal de Steam. Los permisos `Master` incluyen control total sobre tu instancia de bot, pero los comandos globales como `exit`, `restart` o `update` están reservados solamente para `SteamOwnerID`. Esto es conveniente, ya que puedes querer ejecutar bots para tus amigos, sin permitirles controlar el proceso de ASF, tal como salir a través del comando `exit`. El valor predeterminado de `0` especifica que el proceso de ASF no tiene propietario, lo que significa que nadie podrá enviar comandos globales de ASF. Ten en cuenta que los comandos **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES)** funcionan con `SteamOwnerID`, así que si quieres usarlos, debes proporcionar un valor válido aquí.
+Tipo `ulong` con valor predeterminado de `0`. Esta propiedad define el Steam ID en forma de 64 bits del propietario del proceso ASF, y es muy similar al permiso `Master` de una determinada instancia de bot (pero de manera global). Casi siempre querrás establecer esta propiedad al ID de tu cuenta principal de Steam. Los permisos `Master` incluyen control total sobre tu instancia de bot, pero los comandos globales como `exit`, `restart` o `update` están reservados solamente para `SteamOwnerID`. Esto es conveniente, ya que puedes querer ejecutar bots para tus amigos, sin permitirles controlar el proceso de ASF, tal como salir a través del comando `exit`. El valor predeterminado de `0` especifica que el proceso de ASF no tiene propietario, lo que significa que nadie podrá enviar comandos globales de ASF. Ten en cuenta que esta propiedad aplica exclusivamente para el chat de Steam; **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES)**, así como la consola interactiva, seguirán permitiendo ejecutar comandos `Owner` incluso si esta propiedad no está configurada.
 
 ---
 
@@ -782,7 +782,7 @@ Tipo `ImmutableDictionary<ulong, byte>` con valor predeterminado estando vacío.
 
 En resumen, esta propiedad te permite manejar los permisos para determinados usuarios. Los permisos son importantes principalmente para acceder a los **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** de ASF, pero también para habilitar varias características de ASF, tal como aceptar intercambios. Por ejemplo, puede que quieras establecer tu propia cuenta como `Master`, y darle acceso de `Operator` a 2-3 de tus amigos para que puedan activar claves para tu bot con ASF, mientras que **no** son elegibles, por ejemplo, para detenerlo. Gracias a eso puedes asignar permisos a ciertos usuarios y dejarlos usar tu bot en un grado especificado por ti.
 
-Recomendamos establecer exactamente un usuario como `Master`, y cualquier cantidad que quieras como `Operators` e inferior. Aunque es técnicamente posible establecer múltiples `Masters` y ASF funcionará correctamente con ellos, por ejemplo, aceptando todos sus intercambios enviados al bot, ASF solo usará uno de ellos (con el ID de Steam más bajo) para cada acción que requiera un solo objetivo, por ejemplo una solicitud de `loot`, y en propiedades tales como `SendOnFarmingFinished` o `SendTradePeriod`. Si entiendes perfectamente esas limitaciones, especialmente el hecho de que la solicitud de `loot` siempre enviará los artículos al `Master` con el ID de Steam más bajo, independientemente del `Master` que haya ejecutado el comando, entonces puedes definir múltiples usuarios con permisos `Master`, pero aún así recomendamos el esquema con un solo master - el esquema con múltiples master es una configuración no recomendada y no se le da soporte.
+Recomendamos establecer exactamente un usuario como `Master`, y cualquier cantidad que quieras como `Operators` e inferior. Aunque es técnicamente posible establecer múltiples `Masters` y ASF funcionará correctamente con ellos, por ejemplo, aceptando todos sus intercambios enviados al bot, ASF solo usará uno de ellos (con el ID de Steam más bajo) para cada acción que requiera un solo objetivo, por ejemplo una solicitud de `loot`, y en propiedades tales como `SendOnFarmingFinished` o `SendTradePeriod`. Si entiendes perfectamente estas limitaciones, especialmente el hecho de que las solicitudes de `loot` siempre enviarán los artículos al `Master` con el Steam ID más bajo, independientemente del `Master` que haya ejecutado el comando, entonces puedes establecer múltiples usuarios con permiso `Master`, pero aún así recomendamos el esquema con un solo master.
 
 Es bueno notar que hay un permiso `Owner` adicional, que se declara como la propiedad `SteamOwnerID` en la configuración global. Aquí no puedes asignar el permiso `Owner` a nadie, ya que la propiedad `SteamUserPermissions` solo define permisos relacionados con la instancia de bot, y no con ASF como proceso. Para tareas relacionadas con el bot, `SteamOwnerID` se trata igual que `Master`, así que definir aquí tu `SteamOwnerID` no es necesario.
 
@@ -922,7 +922,7 @@ Ejemplo: `"Enabled": true`
 
 `byte` - Tipo byte sin signo, solo acepta números enteros desde `0` hasta `255` (inclusive).
 
-Ejemplo: `"ConnectionTimeout": 60`
+Ejemplo: `"ConnectionTimeout": 90`
 
 ---
 
@@ -945,6 +945,12 @@ Ejemplo: `"SteamMasterClanID": 103582791440160998`
 `string` - Tipo cadena de caracteres, acepta cualquier secuencia de caracteres, incluyendo una secuencia vacía `""` y `null`. Una secuencia vacía y `null` son tratados igual por ASF, depende de tu preferencia cuál quieres usar (nosotros preferimos `null`).
 
 Ejemplos: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
+
+---
+
+`Guid?` - Tipo UUID anulable, en JSON codificado como una cadena de caracteres. UUID está compuesto por 32 caracteres hexadecimales, en el rango de `0` a `9` y de `a` hasta `f`. ASF acepta diversos formatos válidos - minúsculas, mayúsculas, con y sin guiones. Además de un UUID válido, ya que esta propiedad es anulable, también acepta un valor especial de `null` para indicar la falta de un UUID para proporcionar.
+
+Ejemplos: `"LicenseID": null`, `"LicenseID": "f6a0529813f74d119982eb4fe43a9a24"`
 
 ---
 
@@ -983,11 +989,11 @@ Como puedes ver, en el ejemplo anterior tenemos 3 banderas disponibles para acti
 - `None -> 0`
 - `A -> 1`
 - `B -> 2`
-- `A+B -> 3`
+- `A + B -> 3`
 - `C -> 4`
-- `A+C -> 5`
-- `B+C -> 6`
-- `A+B+C -> 7`
+- `A + C -> 5`
+- `B + C -> 6`
+- `A + B + C -> 7`
 
 Ejemplo: `"SteamProtocols": 7`
 
@@ -1001,7 +1007,11 @@ Debido a las limitaciones de JavaScript de ser incapaz de serializar correctamen
 
 ## Compatibilidad de configuraciones
 
-Es de prioridad alta para ASF permanecer compatible con configuraciones antiguas. Como ya debes saber, las propiedades de configuración faltantes son tratadas del mismo modo como si estuvieran definidas en sus **valores predeterminados**. Por lo tanto, si una nueva propiedad de configuración es introducida en una nueva versión de ASF, todas tus configuraciones permanecerán **compatibles** con la nueva versión, y ASF tratará esa nueva propiedad como si estuviera definida en su **valor predeterminado**. Siempre puedes añadir, eliminar o editar las propiedades de configuración de acuerdo a tus necesidades. Recomendamos limitar las propiedades de configuración definidas solo a aquellas que quieres cambiar, ya que de esta manera automáticamente se adquieren los valores por defecto para todas las demás, no solo manteniendo limpia tu configuración sino además aumentando la compatibilidad en caso de que decidamos cambiar el valor por defecto de una propiedad que no quieras establecer explícitamente tú mismo (por ejemplo, `WebLimiterDelay`).
+Es de prioridad alta para ASF permanecer compatible con configuraciones antiguas. Como ya debes saber, las propiedades de configuración faltantes son tratadas del mismo modo como si estuvieran definidas en sus **valores predeterminados**. Por lo tanto, si una nueva propiedad de configuración es introducida en una nueva versión de ASF, todas tus configuraciones permanecerán **compatibles** con la nueva versión, y ASF tratará esa nueva propiedad como si estuviera definida en su **valor predeterminado**. Siempre puedes añadir, eliminar o editar las propiedades de configuración de acuerdo a tus necesidades.
+
+Recomendamos limitar las propiedades de configuración definidas solo a aquellas que quieres cambiar, ya que de esta manera automáticamente se adquieren los valores por defecto para todas las demás, no solo manteniendo limpia tu configuración sino además aumentando la compatibilidad en caso de que decidamos cambiar el valor por defecto de una propiedad que no quieras establecer explícitamente tú mismo (por ejemplo, `WebLimiterDelay`).
+
+Debido a lo anterior, ASF automáticamente migrará/optimizará tus configuraciones dándoles formato y eliminando los campos que tengan el valor predeterminado. Puedes deshabilitar este comportamiento con el **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-ES#argumentos)** `--no-config-migrate` si tienes una razón específica, por ejemplo, que proporciones archivos de configuración de solo lectura y no quieres que ASF los modifique.
 
 ---
 
@@ -1016,3 +1026,5 @@ A partir de ASF V2.1.6.2+, el programa es consciente de configuraciones siendo m
 Todo lo anterior es transparente y se hará automáticamente sin necesidad de reiniciar el programa, o detener otras instancias de bot (no afectadas).
 
 Además, ASF también se reiniciará a sí mismo (si `AutoRestart` lo permite) si modificas el archivo de configuración principal de ASF `ASF.json`. Del mismo modo, el programa se cerrará si eliminas o renombras este archivo.
+
+Puedes deshabilitar este comportamiento con **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-ES#argumentos)** `--no-config-watch` si tienes una razón específica, por ejemplo, que no quieras que ASF reaccione a cambios en los archivos de la carpeta `config`.

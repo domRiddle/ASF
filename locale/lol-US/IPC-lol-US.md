@@ -277,6 +277,14 @@ SECOND WAI INCLUDEZ SPECIFYIN **[CUSTOM CONFIG](#custom-configurashun)** 4 ASFS 
 
 ---
 
+### During startup of IPC I'm getting an error: `System.IO.IOException: Failed to bind to address, An attempt was made to access a socket in a way forbidden by its access permissions`
+
+This error indicates that something else on your machine is either already using that port, or reserved it for future use. This could be you if you're attempting to run second ASF instance on the same machine, but most often that's Windows excluding port `1242` from your usage, therefore you'll have to move ASF to another port. In order to do that, follow **[example config](#changing-default-port)** above, and simply try to pick another port, such as `12420`.
+
+Of course you could also try to find out what is blocking port `1242` from ASF usage, and remove that, but that's usually far more troublesome than simply instructing ASF to use another port, so we'll skip elaborating further on that here.
+
+---
+
 ### Y IZ I GETTIN `403 Forbidden` ERROR WHEN NOT USIN `IPCPassword`?
 
 STARTIN WIF ASF V5.1.2.1, WEVE ADDD ADDISHUNAL SECURITY MEASURE DAT, BY DEFAULT, ALLOWS ONLY LOOPBACK INTERFACE (`localhost`, UR OWN MACHINE) 2 ACCES ASF API WITHOUT `IPCPassword` SET IN DA CONFIG. DIS AR TEH CUZ USIN `IPCPassword` SHUD BE **MINIMUM** SECURITY MEASURE SET BY EVRYBODY HOO DECIDEZ 2 EXPOSE ASF INTERFACE FURTHR. URE STILL ABLE 2 OVERRIDE DIS DECISHUN BY SPECIFYIN TEH NETWORKZ WHICH U TRUST 2 REACH ASF WITHOUT <`IPCPassword` SPECIFID, U CAN SET DOSE IN `KnownNetworks` PROPERTY IN CUSTOM CONFIG. HOWEVR, UNLES U **RLY** KNOE WUT URE DOIN AN FULLY UNDERSTAND TEH RISKZ, U SHUD INSTEAD USE `IPCPassword` AS DECLARIN `KnownNetworks` WILL ALLOW EVRYBODY FRUM DOSE NETWORKZ 2 ACCES ASF API UNCONDISHUNALLY.

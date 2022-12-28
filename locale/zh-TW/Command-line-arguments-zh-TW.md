@@ -8,7 +8,7 @@ ASF支援一些能夠影響程式執行的命令列引數。 進階使用者可�
 
 使用方法取決於您的作業系統以及ASF的版本。
 
-通用：
+Generic版本：
 
 ```shell
 dotnet ArchiSteamFarm.dll --引數 --另一個引數
@@ -44,7 +44,7 @@ Linux/macOS：
 
 ## 引數
 
-`--cryptkey<key>`&#8203;或&#8203;`--cryptkey=<key>`&#8203;⸺將以自訂金鑰&#8203;`<key>`&#8203;啟動ASF。 此選項將會影響&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;，並使ASF使用您的自訂金鑰&#8203;`<key>`&#8203;，而不是程式中硬碼的預設值。 因為此屬性會影響預設加密鍵（用於加密）及&#8203;**[鹽](https://zh.wikipedia.org/zh-tw/%E7%9B%90_(%E5%AF%86%E7%A0%81%E5%AD%A6))**&#8203;（用於雜湊），請注意使用此金鑰加密／雜湊出的一切，ASF在每次執行時都需要給入相同的值。
+`--cryptkey<key>`&#8203;或&#8203;`--cryptkey=<key>`&#8203;⸺將以自訂金鑰&#8203;`<key>`&#8203;啟動ASF。 此選項將會影響&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;，並使ASF使用您的自訂金鑰&#8203;`<key>`&#8203;，而不是程式中硬編碼的預設值。 因為此屬性會影響預設加密鍵（用於加密）及&#8203;**[鹽](https://zh.wikipedia.org/zh-tw/%E7%9B%90_(%E5%AF%86%E7%A0%81%E5%AD%A6))**&#8203;（用於雜湊），請注意使用此金鑰加密／雜湊出的一切，ASF在每次執行時都需要給入相同的值。
 
 需要再提一點，還有另外兩種方法可以提供此詳細資料：&#8203;`--cryptkey-file`&#8203;與&#8203;`--input-cryptkey`&#8203;。
 
@@ -76,7 +76,7 @@ Linux/macOS：
 
 ---
 
-`--no-config-watch`&#8203;⸺在預設情形下，ASF會在您的&#8203;`config`&#8203;資料夾中設定&#8203;`FileSystemWatcher`&#8203;，以監聽更動檔案的事件 ，因此才能夠動態地適應這些改動。 例如，在刪除設定檔後停止Bot，修改設定後重新啟動Bot，或在您將序號加入至config資料夾後，載入至&#8203;**[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**&#8203;中。 這個開關使您能夠停用此行為，使ASF完全忽略&#8203;`config`&#8203;資料夾中的所有變更。若情形需要，您必須手動執行此操作。 一般而言，我們建議保留啟用設定檔監聽，但如果您有特定的理由停用它，並希望ASF不監聽事件，您可以使用此開關來達成。
+`--no-config-watch`&#8203;⸺在預設情形下，ASF會在您的&#8203;`config`&#8203;資料夾中設定&#8203;`FileSystemWatcher`&#8203;，以監聽更動檔案的事件 ，因此才能夠動態地適應這些改動。 例如，在刪除設定檔後停止Bot，修改設定後重新啟動Bot，或在您將序號加入至config資料夾後，載入至&#8203;**[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**&#8203;中。 This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate (which usually means restarting the process). We recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
 
 ---
 
