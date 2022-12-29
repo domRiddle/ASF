@@ -91,6 +91,14 @@ Restart=always
 ### /etc/systemd/system/ArchiSteamFarm@asf.service
 # [Install]
 # WantedBy=multi-user.target
+# 
+# [Service]
+# EnvironmentFile=-/etc/asf/%i
+# ExecStart=dotnet /home/%i/ArchiSteamFarm/ArchiSteamFarm.dll --no-restart --process-required --service --system-required
+# Restart=on-success
+# RestartSec=1s
+# SyslogIdentifier=asf-%i
+# User=%i
 # (...)
 ```
 
