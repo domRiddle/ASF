@@ -142,7 +142,7 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ### `CurrentCulture`
 
-預設值為 `null` 的 `string` 類型。 預設情況下，ASF將嘗試使用您的操作系統語言，並且更願意使用該語言中的翻譯字串（如果可用）。 這應感謝我們的社區成員，他們致力於推動ASF在各種主流語言中的**[本土化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**進程。 如果由於某種原因您不想使用本機語言，則可以使用此配置屬性選擇要使用的任何有效語言。 有關所有可用語系的清單，請訪問 **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)**並查找`語言標籤`。 很高興告訴您，ASF支援兩種語言代碼格式，特定區域的`en-GB`和廣泛區域的`en`。 指定當前語系還可能會影響其他依賴於語系的行為，如貨幣/日期格式等。 請注意，如果您選擇非本機語言，則可能需要額外的字體/語言包來正確顯示所選語言的字元。 通常，如果您更喜歡讓ASF使用英語而不是您的母語，則需使用此配置屬性。
+預設值為 `null` 的 `string` 類型。 預設情況下，ASF將嘗試使用您的操作系統語言，並且更願意使用該語言中的翻譯字串（如果可用）。 這應感謝我們的社區成員，他們致力於推動ASF在各種主流語言中的**[本土化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**進程。 如果由於某種原因您不想使用本機語言，則可以使用此配置屬性選擇要使用的任何有效語言。 有關所有可用語系的清單，請訪問 **[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)**並查找`語言標籤`。 It's nice to note that ASF accepts both specific cultures, such as `"en-GB"`, but also neutral ones, such as `"en"`. 指定當前語系還可能會影響其他依賴於語系的行為，如貨幣/日期格式等。 請注意，如果您選擇非本機語言，則可能需要額外的字體/語言包來正確顯示所選語言的字元。 通常，如果您更喜歡讓ASF使用英語而不是您的母語，則需使用此配置屬性。
 
 ---
 

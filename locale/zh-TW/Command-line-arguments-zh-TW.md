@@ -76,7 +76,7 @@ Linux/macOS：
 
 ---
 
-`--no-config-watch`&#8203;⸺在預設情形下，ASF會在您的&#8203;`config`&#8203;資料夾中設定&#8203;`FileSystemWatcher`&#8203;，以監聽更動檔案的事件 ，因此才能夠動態地適應這些改動。 例如，在刪除設定檔後停止Bot，修改設定後重新啟動Bot，或在您將序號加入至config資料夾後，載入至&#8203;**[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**&#8203;中。 This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate (which usually means restarting the process). We recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-config-watch`&#8203;⸺在預設情形下，ASF會在您的&#8203;`config`&#8203;資料夾中設定&#8203;`FileSystemWatcher`&#8203;，以監聽更動檔案的事件 ，因此才能夠動態適應這些改動。 舉例來說，在刪除設定檔後停止Bot，修改設定後重新啟動Bot，或在您將序號加入至config資料夾後，載入至&#8203;**[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**&#8203;中。 這個開關允許您停用這個行為，使ASF完全忽略&#8203;`config`&#8203;資料夾中的任何更改，您需要在適合的時機手動執行相關操作（通常是重新啟動程序）。 我們建議保持啟用config事件監聽，但如果您有特殊原因停用它，並希望ASF不這樣做，就可以使用此開關來達成。
 
 ---
 

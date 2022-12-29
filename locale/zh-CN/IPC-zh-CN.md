@@ -277,14 +277,18 @@ server {
 
 ---
 
-### During startup of IPC I'm getting an error: `System.IO.IOException: Failed to bind to address, An attempt was made to access a socket in a way forbidden by its access permissions`
+### 在 IPC 启动过程中，我遇到错误：`System.IO.IOException: Failed to bind to address, An attempt was made to access a socket in a way forbidden by its access permissions`
 
-This error indicates that something else on your machine is either already using that port, or reserved it for future use. This could be you if you're attempting to run second ASF instance on the same machine, but most often that's Windows excluding port `1242` from your usage, therefore you'll have to move ASF to another port. In order to do that, follow **[example config](#changing-default-port)** above, and simply try to pick another port, such as `12420`.
+这个错误表示您机器上的其他程序正在使用此端口，或者已保留用于以后使用。 一种可能是您正在尝试在同一台机器上运行第二个 ASF 实例，但大多数情况下，是 Windows 阻止了您使用 `1242` 端口，因此您必须让 ASF 使用其他端口。 要做到这一点，请按照上述[**示例配置**](#更改默认端口)操作，并修改为其他端口，例如 `12420`。
 
-Of course you could also try to find out what is blocking port `1242` from ASF usage, and remove that, but that's usually far more troublesome than simply instructing ASF to use another port, so we'll skip elaborating further on that here.
+当然，您也可以尝试找到是什么阻止了 ASF 使用 `1242` 端口，并删除它，但通常这比直接更改 ASF 端口更麻烦，所以我们不会在这里做进一步的说明。
 
 ---
 
 ### 为什么我如果不使用 `IPCPassword`，就会出现 `403 Forbidden` 错误？
 
-从 ASF V5.1.2.1 版本开始，我们添加了额外的安全措施，默认只允许环回接口（`localhost`，即本机）在不设置 `IPCPassword` 的情况下访问 ASF API。 这是因为，如果任何人决定进一步暴露 ASF 接口，那么设置 `IPCPassword` 就是一项必须的**最低**限度安全措施。 您仍然可以强行禁用这项措施，只需要修改自定义配置文件中的 `KnownNetworks` 属性，指定在不设置 `IPCPassword` 的情况下，ASF 需要信任哪些网段。 但是，除非您**的确**需要这样做，并且完全了解其风险，否则就应该转而使用 `IPCPassword`，因为设置 `KnownNetworks` 将允许网段内的任何人无条件地访问 ASF API。
+从 ASF V5.1.2.1 版本开始，我们添加了额外的安全措施，默认只允许环回接口（`localhost`，即本机）在不设置 `IPCPassword` 的情况下访问 ASF API。 这是因为，如果任何人决定进一步暴露 ASF 接口，那么设置 `IPCPassword` 就是一项必须的**最低**限度安全措施。
+
+造成这一变化的原因是，很多不知情用户部署的大量公开 ASF 实例被恶意入侵，通常这会导致他们失去自己的帐户和物品。 尽管我们可以说“他们应该在向全世界暴露 ASF 之前阅读此页面”，但默认不允许 ASF 的危险部署方式则更为合理，并且如果用户仍然明确希望允许，则需要用户手动操作，如下文所述。
+
+实际上，您可以强行阻止我们的决定，只需要修改自定义配置文件中的 `KnownNetworks` 属性，指定在不设置 `IPCPassword` 的情况下，ASF 需要信任哪些网段。 但是，除非您**的确**需要这样做，并且完全了解其风险，否则就应该转而使用 `IPCPassword`，因为设置 `KnownNetworks` 将允许网段内的任何人无条件地访问 ASF API。 我们没有在开玩笑，人们已经试过相信他们的反向代理和 iptables 规则是安全的，但实际并非如此，`IPCPassword` 是第一道防线，有时甚至是最后防线，如果您决定放弃这个简单、有效且安全的机制，您就必须为自己的行为负责。
