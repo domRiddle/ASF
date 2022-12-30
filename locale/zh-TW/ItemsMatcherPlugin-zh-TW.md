@@ -1,12 +1,14 @@
 # Items Matcher 外掛程式
 
-`ItemsMatcherPlugin`&#8203;是ASF官方&#8203;**[外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-TW)**&#8203;，使用ASF STM清單來擴充ASF功能。 這特別包含了&#8203;**[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#remotecommunication)**&#8203;中的&#8203;`PublicListing`&#8203;，及&#8203;**[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#tradingpreferences)**&#8203;中的&#8203;`MatchActively`&#8203;。 ASF發行版本附隨了&#8203;`ItemsMatcherPlugin`&#8203;，因此能夠立即使用。
+`ItemsMatcherPlugin`&#8203;是ASF官方的&#8203;**[外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-TW)**&#8203;，使用ASF STM清單來擴充ASF的功能。 這特別是包含了&#8203;**[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#remotecommunication)**&#8203;中的&#8203;`PublicListing`&#8203;，及&#8203;**[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#tradingpreferences)**&#8203;中的&#8203;`MatchActively`&#8203;。 ASF發行版本附隨了&#8203;`ItemsMatcherPlugin`&#8203;，因此能夠立即使用。
 
 ---
 
 ## `PublicListing`
 
 顧名思義，公開清單是當前可供使用的ASF STM Bot的清單。 它位於&#8203;**[我們的網站](https://asf.justarchi.net/STM)**&#8203;上，進行自動管理並作為一項公共服務，提供使用&#8203;`MatchActively`&#8203;的ASF使用者及手動匹配的ASF與非ASF使用者使用。
+
+In order to be listed, you have a set of requirements to meet. At the minimum you must have allowed `PublicListing` in `RemoteCommunication` (default setting), `SteamTradeMatcher` enabled in `TradingPreferences`, **[public inventory](https://steamcommunity.com/my/edit/settings)** privacy settings, **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active and at least `100` items from specified `MatchableTypes`, such as trading cards.
 
 雖然&#8203;`PublicListing`&#8203;預設為啟用，但請注意，如果您不滿足所有要求，您將&#8203;**不會**&#8203;被顯示在網站上，特別是&#8203;`SteamTradeMatcher`&#8203;，它在預設情形下並未啟用。 對於不滿足條件的人，即使他們保持啟用&#8203;`PublicListing`&#8203;，ASF也不會以任何方式與伺服器通訊。 公開清單也只會與ASF最新的穩定版相容，並可能拒絕顯示過時的Bot，特別是如果它們缺少只能在新版本中找到的核心功能。
 
@@ -50,11 +52,9 @@ ASF STM清單暫時只接受ASF Bot。 目前無法在我們的清單中顯示�
 
 若您滿足了上述需求，ASF將會定期與我們的&#8203;**[公開的ASF STM清單](#publiclisting)**&#8203;通訊，以主動匹配當前可用的Bot。
 
-- 每輪中，ASF 都會擷取我們的物品庫，並列出所有可用Bot的物品庫，以便找到可以匹配的&#8203;`MatchableTypes`&#8203;物品。 由於直接與我們的伺服器通訊，這個過程只需一個請求，我們就可以立即了解是否有任何可用的Bot能夠提供我們感興趣的東西⸺如果找到匹配物品，ASF將自動發送並確認交易提案。
-- 每套物品（具相同appID、類型及稀有度）在一輪中只能匹配一次。 這是為了盡可能減少「物品不再能用」的情形，無需在發送所有交易之前，等待每個Bot做出回應。 這也是為什麼以輪次來匹配，而不是持續進行的主要原因。
-- ASF不會在單次交易中送出超過&#8203;`255`&#8203;個物品，且每個輪次中不會向單個使用者送出超過&#8203;`5`&#8203;個交易提案。 這是由Steam的限制，及我們自己的負載平衡所加上的。
+匹配將在ASF啟動後約&#8203;`1`&#8203;個小時後開始，並且每&#8203;`8`&#8203;個小時重複一次（如果需要）。 During matching, ASF bot will fetch its own inventory, then communicate with our server with it to find all possible `MatchableTypes` matches from other, currently available bots. 由於直接與我們的伺服器通訊，這個過程只需一個請求，我們就可以立即了解是否有任何可用的Bot能夠提供我們感興趣的東西⸺如果找到匹配物品，ASF將自動發送並確認交易提案。
 
-這個模組應是透明的。 匹配將在ASF啟動後約&#8203;`1`&#8203;個小時後開始，並且每&#8203;`8`&#8203;個小時重複一次（如果需要）。 `MatchActively`&#8203;功能旨在作為一項長期的定期措施，以確保我們積極地向收集完成的方向前進，但若將此作為指令使用，就會造成短期的時間及資源壓力。 這個模組的目標使用者是主要帳號及「用於存放物品的」備用帳號，但亦可被任何未設定成&#8203;`MatchEverything`&#8203;的Bot使用。
+這個模組應是透明的。 匹配將在ASF啟動後約&#8203;`1`&#8203;個小時後開始，並且每&#8203;`8`&#8203;個小時重複一次（如果需要）。 `MatchActively` feature is aimed to be used as a long-run, periodical measure to ensure that we're actively heading towards sets completion, but without a short-term time and resources pressure that would happen if this was offered only as a command. 這個模組的目標使用者是主要帳號及「用於存放物品的」備用帳號，但亦可被任何未設定成&#8203;`MatchEverything`&#8203;的Bot使用。
 
 ASF會盡力將使用該選項產生的請求量及壓力降至最低，同時盡可能提高匹配效率。 匹配Bot及組織整個流程的演算法是ASF的實作細節，並且可以依據回饋、實際情形及未來的想法而改變。
 
@@ -68,7 +68,7 @@ ASF會盡力將使用該選項產生的請求量及壓力降至最低，同時�
 
 ASF是也仍是免費且開源的，它是在2015年10月專案開始時建立的。 我們的程式也完全是非商業性的，我們不會從對其的貢獻、建置或發布的檔案中獲取任何收益。 在過去7年多的時間裡，ASF得到了巨大的發展，且在每個月的穩定版本中仍不斷地改進與增強，這主要由一個人⸺**[JustArchi](https://github.com/JustArchi)**&#8203;⸺來完成的，無償付出。 我們唯一的資金來源來自於使用者的非強制性捐贈。
 
-在很長的一段時間內，直到2022年10月，&#8203;`MatchActively`&#8203;功能一直是ASF核心的一部分，來提供所有人使用。 在2022年10月時，Steam背後的公司Valve設定了非常嚴格的速率限制，使得原先的功能完全崩潰，且沒有任何可行的解決方案。 因此，該功能必須從5.4.1.0版本的ASF核心中刪除。
+在很長的一段時間內，直到2022年10月，&#8203;`MatchActively`&#8203;功能一直是ASF核心的一部分，來提供所有人使用。 In October 2022, Valve, the company behind Steam, has put very severe rate limits on fetching inventories of other bots - which rendered previous functionality entirely broken, with no solution available. 因此，該功能必須從5.4.1.0版本的ASF核心中刪除。
 
 `MatchActively`&#8203;作為官方&#8203;`ItemsMatcher`&#8203;外掛程式的一部分涅槃重生，該外掛程式進一步增強了ASF的交換卡片主動匹配功能。 恢復&#8203;`MatchActively`&#8203;功能需要我們&#8203;**大量的工作**&#8203;來建立ASF後端，這是代管在伺服器上的全新服務，加入了超過一千個用於解析物品庫的代理節點，而所有的這些都是為了讓ASF用戶端能像以前一樣使用&#8203;`MatchActively`&#8203;。 因為涉及的工作量過大，且所用資源並不是免費的，需要我們每月付款（網域、伺服器、網路代理），我們決定只向我們的贊助者提供此功能，也就是說，那些已在每個月支援ASF專案的人。 我們的目標並不是從中獲利，而是支付本功能相關的&#8203;**月費**&#8203;⸺這就是為什麼我們基本上免費提供它，但我們仍需為此收取一點費用的原因，因為我們無法自掏腰包支付數百美元，只是為了讓您可以使用它。 我們希望您能夠理解。
 

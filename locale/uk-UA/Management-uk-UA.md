@@ -73,6 +73,39 @@ ASF_NETWORK_GROUP="my_network_group"
 # And any other ones you're interested in
 ```
 
+### Overriding part of the service unit
+
+Thanks to the flexibility of `systemd`, it's possible to overwrite part of ASF unit while still preserving the original unit file and allowing ASF to update it for example as part of auto-updates.
+
+In this example, we'd like to modify default ASF `systemd` unit behaviour from restarting only on success, to restarting also on fatal crashes. In order to do so, we'll override `Restart` property under `[Service]` from default of `on-success` to `always`. Simply execute `systemctl edit ArchiSteamFarm@asf`, naturally replacing `asf` with the target user of your service. Then add your changes as indicated by `systemd` in proper section:
+
+```sh
+### Editing /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
+### Anything between here and the comment below will become the new contents of the file
+
+[Service]
+Restart=always
+
+### Lines below this comment will be discarded
+
+### /etc/systemd/system/ArchiSteamFarm@asf.service
+# [Install]
+# WantedBy=multi-user.target
+# 
+# [Service]
+# EnvironmentFile=-/etc/asf/%i
+# ExecStart=dotnet /home/%i/ArchiSteamFarm/ArchiSteamFarm.dll --no-restart --process-required --service --system-required
+# Restart=on-success
+# RestartSec=1s
+# SyslogIdentifier=asf-%i
+# User=%i
+# (...)
+```
+
+And that's it, now your unit acts the same as if it had only `Restart=always` under `[Service]`.
+
+Of course, alternative is to `cp` the file and manage it yourself, but this allows you for flexible changes even if you decided to keep original ASF unit, for example with a symlink.
+
 ---
 
 ## Never run ASF as administrator!

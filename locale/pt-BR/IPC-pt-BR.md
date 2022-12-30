@@ -108,7 +108,7 @@ A menos que você realmente precise especificar um caminho base personalizado, �
 
 ### Changing default port
 
-The following config simply changes default ASF listening port from `1242` to `1337`. You can pick any port you like, but we recommend `1024-32767` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
+A configuração a seguir muda a porta padrão do ASF que escuta de `1242` para `1337`. Você pode escolher qualquer porta que você quiser, mas nós recomendamos o intervalo entre `1024-32767`, pois as outras portas normalmente já são **[registradas](https://en.wikipedia.org/wiki/Registered_port)**, e podem por exemplo, exigir acesso `root` no Linux.
 
 ```json
 {
@@ -127,7 +127,7 @@ The following config simply changes default ASF listening port from `1242` to `1
 
 ---
 
-### Enabling access from all IPs
+### Habilitando acesso de todos os IPs
 
 A configuração à seguir permite acesso remoto de todas as fontes, portanto você **deve se certificar que leu e entendeu nosso aviso de segurança sobre isso**, disponível acima.
 
@@ -143,7 +143,7 @@ A configuração à seguir permite acesso remoto de todas as fontes, portanto vo
 }
 ```
 
-If you do not require access from all sources, but for example your LAN only, then it's much better idea to check local IP address of the machine hosting ASF, for example `192.168.0.10` and use it instead of `*` in example config above.
+Se você não precisa de acesso vindo de todos os locais, mas apenas de sua LAN, por exemplo, é uma ideia muito melhor verificar o endereço IP local da máquina que hospeda o ASF, por exemplo `192.168.0.10` e usá-lo em vez de `*` no exemplo de configuração acima.
 
 ---
 
@@ -191,7 +191,7 @@ Sim, é para isso que a API do ASF foi desenvolvida e você pode usar qualquer c
 
 ### Posso acessar o IPC do ASF remotamente, de outro computador por exemplo?
 
-Sim, recomendamos usar um proxy reverso para isso. Dessa forma você pode acessar seu servidor web como de costume, o qual então acessará o IPC do ASF no mesmo computador. Como alternativa, se você não quiser executar um proxy reverso, você pode usar uma **[configuração personalizada](#configuração-personalizada)** com uma URL personalizada. For example, if your machine is in a VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
+Sim, recomendamos usar um proxy reverso para isso. Dessa forma você pode acessar seu servidor web como de costume, o qual então acessará o IPC do ASF no mesmo computador. Como alternativa, se você não quiser executar um proxy reverso, você pode usar uma **[configuração personalizada](#configuração-personalizada)** com uma URL personalizada. Por exemplo, se seu computador estiver em uma VPN com o endereço `10.8.0.1`, então você pode configurar `http://10.8.0.1:1242` como URL de escuta na configuração do IPC, o que habilitaria o acesso IPC de dentro da sua VPN privada, mas não de outro lugar.
 
 ### Posso usar o IPC do ASF atrás de um proxy reverso como Apache ou Nginx?
 

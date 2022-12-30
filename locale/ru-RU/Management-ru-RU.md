@@ -73,6 +73,39 @@ ASF_NETWORK_GROUP="my_network_group"
 # И любые другие интересующие вас
 ```
 
+### Overriding part of the service unit
+
+Thanks to the flexibility of `systemd`, it's possible to overwrite part of ASF unit while still preserving the original unit file and allowing ASF to update it for example as part of auto-updates.
+
+In this example, we'd like to modify default ASF `systemd` unit behaviour from restarting only on success, to restarting also on fatal crashes. In order to do so, we'll override `Restart` property under `[Service]` from default of `on-success` to `always`. Simply execute `systemctl edit ArchiSteamFarm@asf`, naturally replacing `asf` with the target user of your service. Then add your changes as indicated by `systemd` in proper section:
+
+```sh
+### Editing /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
+### Anything between here and the comment below will become the new contents of the file
+
+[Service]
+Restart=always
+
+### Lines below this comment will be discarded
+
+### /etc/systemd/system/ArchiSteamFarm@asf.service
+# [Install]
+# WantedBy=multi-user.target
+# 
+# [Service]
+# EnvironmentFile=-/etc/asf/%i
+# ExecStart=dotnet /home/%i/ArchiSteamFarm/ArchiSteamFarm.dll --no-restart --process-required --service --system-required
+# Restart=on-success
+# RestartSec=1s
+# SyslogIdentifier=asf-%i
+# User=%i
+# (...)
+```
+
+And that's it, now your unit acts the same as if it had only `Restart=always` under `[Service]`.
+
+Of course, alternative is to `cp` the file and manage it yourself, but this allows you for flexible changes even if you decided to keep original ASF unit, for example with a symlink.
+
 ---
 
 ## Никогда не запускайте ASF от имени администратора!
@@ -106,14 +139,14 @@ As of V5.2.0.10, ASF no longer stops you from doing so, only displays a warning 
 
 ## Запуск нескольких экземпляров
 
-ASF поддерживает запуск нескольких экземпляров программы на одной и той же машине. Эти экземпляры могут быть полностью независимы или запущены из одного и того же исполняемого файла (в этом случае вам надо запускать их с разным **[аргументом командной строки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU)** `--path`).
+ASF поддерживает запуск нескольких экземпляров программы на одной и той же машине. The instances can be completely standalone or derived from the same binary location (in which case, you want to run them with different `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**).
 
 При использовании нескольких одновременно работающих копий одного исполняемого файла имейте в виду, что в этом случае обычно стоит отключать авто-обновления во всех конфигурационных файлах, поскольку обновление не будет синхронизировано между копиями. Если вы хотите оставить авто-обновление включенным, мы рекомендуем отдельные копии файлов, но вы можете всё равно добиться работы обновлений, если сможете обеспечить чтобы все остальные экземпляры ASF были закрыты.
 
-ASF будет по возможности использовать минимум обще-системных, меж-процессных взаимодействий с другими экземплярами ASF. Сюда входит проверка рабочей директории с конфигурационными файлами в сравнении с другими экземплярами, а также общие ограничители уровня процесса ядра заданные параметрами `*LimiterDelay` **[глобальной конфигурации](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ru-RU#user-config-Файл-глобальной-конфигурации)**, что обеспечит что несколько одновременно запущенных экземпляров ASF не приведут к ситуации срабатывания ограничения на частоту запросов. Что касается технической реализации — все платформы используют наш специальный механизм блокировок ASF, основанный на блокировках файлов во временной директории, в качестве которой используется `C:\Users\<ВашеИмяПользователя>\AppData\Local\Temp\ASF` под Windows, и `/tmp/ASF` под Unix.
+ASF будет по возможности использовать минимум обще-системных, меж-процессных взаимодействий с другими экземплярами ASF. This includes ASF checking its configuration directory against other instances, as well as sharing core process-wide limiters configured with `*LimiterDelay` **[global config properties](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, ensuring that running multiple ASF instances will not cause a possibility to run into a rate-limiting issue. Что касается технической реализации — все платформы используют наш специальный механизм блокировок ASF, основанный на блокировках файлов во временной директории, в качестве которой используется `C:\Users\<ВашеИмяПользователя>\AppData\Local\Temp\ASF` под Windows, и `/tmp/ASF` под Unix.
 
 Использование одинаковых параметров `*LimiterDelay` для всех запущенных экземпляров не является обязательным, они могут использовать различные значение, поскольку каждый экземпляр ASF будет добавлять собственную, заданную в конфигурационном файле, задержку до освобождения файла после его захвата. Если параметр `*LimiterDelay` задан равным `0`, этот экземпляр ASF будет полностью игнорировать ожидание блокировки заданных ресурсов, разделяемых с другими экземплярами (которые могут потенциально поддерживать общую блокировку между собой). При установке любых других значений, ASF будет правильно синхронизироваться с любыми другими экземплярами ASF и будет ждать своей очереди, а затем снимать блокировку после заданной задержки, позволяя другим экземплярам продолжить работу.
 
-ASF учитывает настройки `WebProxy` для принятия решения об использовании блокировок, то есть два экземпляра ASF, использующих разную настройку `WebProxy` не будут иметь общей блокировки между собой. Это сделано чтоб позволить конфигурациям с использованием `WebProxy` работать без излишних задержек, как ожидается от разных сетевых интерфейсов. Этого должно быть достаточно для большинства вариантов использования, однако, если ваша конфигурация специфична, например вы перенаправляете запросы самостоятельно каким-то другим образом, вы можете задать сетевую группу сами с помощью **[аргумента командной строки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU)** `--network-group`, позволяющего вам указывать группу ASF которая будет синхронизироваться с данным экземпляром. Имейте в виду, что пользовательские сетевые группы переопределяют внутреннюю группировку, а значит ASF больше не будет учитывать значение `WebProxy` для определения правильной группы, так как в этом случае вы полностью отвечаете за группировку.
+ASF учитывает настройки `WebProxy` для принятия решения об использовании блокировок, то есть два экземпляра ASF, использующих разную настройку `WebProxy` не будут иметь общей блокировки между собой. Это сделано чтоб позволить конфигурациям с использованием `WebProxy` работать без излишних задержек, как ожидается от разных сетевых интерфейсов. This should be good enough for majority of use cases, however, if you have a specific custom setup in which you're e.g. routing requests yourself in a different way, you can specify network group yourself through `--network-group` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**, which will allow you to declare ASF group that will be synchronized with this instance. Имейте в виду, что пользовательские сетевые группы переопределяют внутреннюю группировку, а значит ASF больше не будет учитывать значение `WebProxy` для определения правильной группы, так как в этом случае вы полностью отвечаете за группировку.
 
 If you'd like to utilize our **[`systemd` service](#systemd-service-for-linux)** explained above for multiple ASF instances, it's very simple, just use another user for our `ArchiSteamFarm@` service declaration and follow with the rest of the steps. This will be equivalent of running multiple ASF instances with distinct binaries, so they can also auto-update and operate independently of each other.
