@@ -73,20 +73,20 @@ ASF_NETWORK_GROUP="mi_grupo_de_red"
 # Y cualquier otro que te interese
 ```
 
-### Overriding part of the service unit
+### Anular parte de la unidad de servicio
 
-Thanks to the flexibility of `systemd`, it's possible to overwrite part of ASF unit while still preserving the original unit file and allowing ASF to update it for example as part of auto-updates.
+Gracias a la flexibilidad de `systemd`, es posible anular parte de la unidad de ASF mientras conservamos el archivo de la unidad original y permitiendo que ASF lo actualice, por ejemplo, como parte de las actualizaciones automáticas.
 
-In this example, we'd like to modify default ASF `systemd` unit behaviour from restarting only on success, to restarting also on fatal crashes. In order to do so, we'll override `Restart` property under `[Service]` from default of `on-success` to `always`. Simply execute `systemctl edit ArchiSteamFarm@asf`, naturally replacing `asf` with the target user of your service. Then add your changes as indicated by `systemd` in proper section:
+En este ejemplo, queremos modificar el comportamiento predeterminado de la unidad `systemd` de ASF, de reiniciarse solo en casos exitosos, a reiniciarse también en caso de errores fatales. Para ello, anularemos la propiedad `Restart` en `[Service]` del predeterminado `on-success` a `always`. Simplemente ejecuta `systemctl edit ArchiSteamFarm@asf`, reemplazando `asf` con el usuario objetivo de tu servicio. Luego añade tus cambios como indica `systemd` en la sección apropiada:
 
 ```sh
-### Editing /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
-### Anything between here and the comment below will become the new contents of the file
+### Editando /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
+### Todo entre esta línea y el comentario siguiente será el nuevo contenido del archivo
 
 [Service]
 Restart=always
 
-### Lines below this comment will be discarded
+### Las líneas debajo de este comentario serán descartadas
 
 ### /etc/systemd/system/ArchiSteamFarm@asf.service
 # [Install]
@@ -102,9 +102,9 @@ Restart=always
 # (...)
 ```
 
-And that's it, now your unit acts the same as if it had only `Restart=always` under `[Service]`.
+Y eso es todo, ahora tu unidad actúa como si solo tuviera `Restart=always` en `[Service]`.
 
-Of course, alternative is to `cp` the file and manage it yourself, but this allows you for flexible changes even if you decided to keep original ASF unit, for example with a symlink.
+La alternativa es usar el comando `cp` en el archivo y administrarlo tú mismo, pero esto te permite cambios flexibles incluso si decides conservar la unidad original de ASF, por ejemplo con un symlink.
 
 ---
 
@@ -139,14 +139,14 @@ A partir de V5.2.0.10, ASF ya no te lo impedirá, solo mostrará una advertencia
 
 ## Múltiples instancias
 
-ASF es compatible con ejecutar múltiples instancias del proceso en la misma máquina. Las instancias pueden ser completamente independientes o derivadas de la ubicación del mismo ejecutable (en cuyo caso, querrás ejecutarlas con un **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-es)** `--path` diferente).
+ASF es compatible con ejecutar múltiples instancias del proceso en la misma máquina. Las instancias pueden ser completamente independientes o derivadas de la ubicación del mismo ejecutable (en cuyo caso, querrás ejecutarlas con un **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-ES)** `--path` diferente).
 
 Al ejecutar múltiples instancias del mismo ejecutable, ten en cuenta que normalmente debes deshabilitar las actualizaciones automáticas en todas sus configuraciones, ya que no hay sincronización entre ellas en lo que se refiere a las actualizaciones automáticas. Si quieres dejar las actualizaciones automáticas activadas, recomendamos instancias independientes, pero aún puedes hacer que las actualizaciones funcionen, siempre y cuando te asegures de que todas las demás instancias de ASF están cerradas.
 
-ASF hará lo posible para mantener una cantidad mínima de comunicación entre procesos en todo el sistema operativo con otras instancias de ASF. Esto incluye que ASF compruebe su directorio de configuración contra otras instancias, así como compartir limitadores en el proceso configurados con la **[propiedad de configuración global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es#configuraci%C3%B3n-global)** `*LimiterDelay`, asegurando que ejecutar múltiples instancias de ASF no causará tener problemas por alcanzar el límite de solicitudes. En lo que respecta a los aspectos técnicos, todas las plataformas utilizan nuestro mecanismo dedicado de bloqueos basado en archivos creados en un directorio temporal, que en Windows es `C:\Users\<YourUser>\AppData\Local\Temp\ASF`, y en Unix es `/tmp/ASF`.
+ASF hará lo posible para mantener una cantidad mínima de comunicación entre procesos en todo el sistema operativo con otras instancias de ASF. Esto incluye que ASF compruebe su directorio de configuración contra otras instancias, así como compartir limitadores en el proceso configurados con la **[propiedad de configuración global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#configuraci%C3%B3n-global)** `*LimiterDelay`, asegurando que ejecutar múltiples instancias de ASF no causará tener problemas por alcanzar el límite de solicitudes. En lo que respecta a los aspectos técnicos, todas las plataformas utilizan nuestro mecanismo dedicado de bloqueos basado en archivos creados en un directorio temporal, que en Windows es `C:\Users\<YourUser>\AppData\Local\Temp\ASF`, y en Unix es `/tmp/ASF`.
 
 No es necesario que las instancias de ASF compartan las mismas propiedades `*LimiterDelay`, pueden usar diferentes valores, ya que cada ASF añadirá su propio atraso configurado al tiempo de liberación después de adquirir el bloqueo. Si el `*LimiterDelay` configurado se establece en `0`, la instancia de ASF omitirá esperar para el bloqueo de un recurso determinado que se comparte con otras instancias (que potencialmente aún podrían mantener un bloqueo compartido entre sí). Cuando se establece en cualquier otro valor, ASF se sincronizará correctamente con otras instancias y esperará su turno, luego libera el bloqueo después del retraso configurado, permitiendo que otras instancias continúen.
 
-ASF toma en cuenta la configuración de `WebProxy` al decidir sobre el ámbito compartido, lo que significa que dos instancias de ASF que usan diferentes configuraciones `WebProxy` no compartirán sus limitadores entre sí. Esto se implementa para permitir que las configuraciones `WebProxy` funcionen sin retrasos excesivos, como se espera de diferentes interfaces de red. Esto debería ser suficiente para la mayoría de los casos de uso, sin embargo, si tienes una configuración personalizada en la que, por ejemplo, estés enrutando solicitudes de forma distinta, puedes especificar el grupo de red a través del **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-es)** `--network-group`, lo que te permitirá declarar el grupo de ASF que se sincronizará con esta instancia. Ten en cuenta que los grupos de red personalizados se utilizan exclusivamente, lo que significa que ASF ya no usará `WebProxy` para determinar el grupo correcto, ya que tú eres responsable del agrupamiento en este caso.
+ASF toma en cuenta la configuración de `WebProxy` al decidir sobre el ámbito compartido, lo que significa que dos instancias de ASF que usan diferentes configuraciones `WebProxy` no compartirán sus limitadores entre sí. Esto se implementa para permitir que las configuraciones `WebProxy` funcionen sin retrasos excesivos, como se espera de diferentes interfaces de red. Esto debería ser suficiente para la mayoría de los casos de uso, sin embargo, si tienes una configuración personalizada en la que, por ejemplo, estés enrutando solicitudes de forma distinta, puedes especificar el grupo de red a través del **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-ES)** `--network-group`, lo que te permitirá declarar el grupo de ASF que se sincronizará con esta instancia. Ten en cuenta que los grupos de red personalizados se utilizan exclusivamente, lo que significa que ASF ya no usará `WebProxy` para determinar el grupo correcto, ya que tú eres responsable del agrupamiento en este caso.
 
 Si deseas usar nuestro **[servicio `systemd`](#servicio-systemd-para-linux)** explicado anteriormente para múltiples instancias de ASF, es muy simple, solamente usa otro usuario para nuestra declaración de servicio `ArchiSteamFarm@` y sigue el resto de los pasos. Esto será equivalente a ejecutar múltiples instancias de ASF con distintos ejecutables, así también podrán autoactualizarse y operar de forma independiente entre sí.

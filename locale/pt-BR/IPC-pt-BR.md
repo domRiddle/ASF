@@ -108,7 +108,7 @@ A menos que você realmente precise especificar um caminho base personalizado, �
 
 ### Changing default port
 
-A configuração a seguir muda a porta padrão do ASF que escuta de `1242` para `1337`. Você pode escolher qualquer porta que você quiser, mas nós recomendamos o intervalo entre `1024-32767`, pois as outras portas normalmente já são **[registradas](https://en.wikipedia.org/wiki/Registered_port)**, e podem por exemplo, exigir acesso `root` no Linux.
+A configuração a seguir muda a porta padrão de escuta do ASF de `1242` para `1337`. Você pode escolher qualquer porta que você quiser, mas nós recomendamos o intervalo entre `1024-32767`, pois as outras portas normalmente já são **[registradas](https://en.wikipedia.org/wiki/Registered_port)**, e podem por exemplo, exigir acesso `root` no Linux.
 
 ```json
 {

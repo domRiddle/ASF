@@ -73,20 +73,20 @@ ASF_NETWORK_GROUP="my_network_group"
 # 以及任何其他您要使用的变量
 ```
 
-### Overriding part of the service unit
+### 覆盖服务单元的部分配置
 
-Thanks to the flexibility of `systemd`, it's possible to overwrite part of ASF unit while still preserving the original unit file and allowing ASF to update it for example as part of auto-updates.
+得益于 `systemd` 的灵活性，我们可以覆盖 ASF 单元的一部分，同时仍然保留原始单元文件，允许 ASF 在自动更新时将其一并更新。
 
-In this example, we'd like to modify default ASF `systemd` unit behaviour from restarting only on success, to restarting also on fatal crashes. In order to do so, we'll override `Restart` property under `[Service]` from default of `on-success` to `always`. Simply execute `systemctl edit ArchiSteamFarm@asf`, naturally replacing `asf` with the target user of your service. Then add your changes as indicated by `systemd` in proper section:
+在本示例中，我们要修改默认的 ASF `systemd` 单元的行为，将“仅在成功退出时重启服务”修改为“致命崩溃时也重启服务”。 要做到这一点，我们会覆盖 `[Service]` 下的 `Restart` 属性，将 `on-success` 改为 `always`。 只需执行 `systemctl edit ArchiSteamFarm@asf`，注意将 `asf` 替换为您服务实际使用的目标用户。 然后在正确的 `systemd` 分段中添加您的修改：
 
 ```sh
-### Editing /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
-### Anything between here and the comment below will become the new contents of the file
+### 编辑 /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
+### 此处与下面注释之间的所有内容都会被添加到文件中
 
 [Service]
 Restart=always
 
-### Lines below this comment will be discarded
+### 此行注释后的内容会被丢弃
 
 ### /etc/systemd/system/ArchiSteamFarm@asf.service
 # [Install]
@@ -102,9 +102,9 @@ Restart=always
 # (...)
 ```
 
-And that's it, now your unit acts the same as if it had only `Restart=always` under `[Service]`.
+这就完成了，现在您的单元行为等同于只在 `[Service]` 下修改了 `Restart=always`。
 
-Of course, alternative is to `cp` the file and manage it yourself, but this allows you for flexible changes even if you decided to keep original ASF unit, for example with a symlink.
+当然，您也可以 `cp` 单元文件并自己手动管理，但覆盖的方法让您能做到更灵活的修改，同时仍然保留原始的或符号链接过的 ASF 单元文件。
 
 ---
 

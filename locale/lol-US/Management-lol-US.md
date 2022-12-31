@@ -73,20 +73,20 @@ ASF_NETWORK_GROUP="my_network_group"
 # AN ANY OTHR ONEZ URE INTERESTD IN
 ```
 
-### Overriding part of the service unit
+### OVERRIDIN PART OV TEH SERVICE UNIT
 
-Thanks to the flexibility of `systemd`, it's possible to overwrite part of ASF unit while still preserving the original unit file and allowing ASF to update it for example as part of auto-updates.
+THX 2 TEH FLEXIBILITY OV `systemd`, IZ POSIBLE 2 OVERWRITE PART OV ASF UNIT WHILE STILL PRESERVIN TEH ORIGINAL UNIT FILE AN ALLOWIN ASF 2 UPDATE IT 4 EXAMPLE AS PART OV AUTO-UPDATEZ.
 
-In this example, we'd like to modify default ASF `systemd` unit behaviour from restarting only on success, to restarting also on fatal crashes. In order to do so, we'll override `Restart` property under `[Service]` from default of `on-success` to `always`. Simply execute `systemctl edit ArchiSteamFarm@asf`, naturally replacing `asf` with the target user of your service. Then add your changes as indicated by `systemd` in proper section:
+IN DIS EXAMPLE, WED LIEK 2 MODIFY DEFAULT ASF `systemd` UNIT BEHAVIOUR FRUM RESTARTIN ONLY ON SUCCES, 2 RESTARTIN ALSO ON FATAL CRASHEZ. IN ORDR 2 DO SO, WELL OVERRIDE `Restart` PROPERTY UNDR `[Service]` FRUM DEFAULT OV `on-success` 2 `always`. SIMPLY EXECUTE `systemctl edit ArchiSteamFarm@asf`, NATURALLY REPLACIN `asf` WIF TEH TARGET USR OV UR SERVICE. DEN ADD UR CHANGEZ AS INDICATD BY `systemd` IN PROPR SECSHUN:
 
 ```sh
-### Editing /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
-### Anything between here and the comment below will become the new contents of the file
+### EDITIN /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
+### ANYTHIN TWEEN HER AN TEH COMMENT BELOW WILL BECOME TEH NEW CONTENTS OV TEH FILE
 
 [Service]
 Restart=always
 
-### Lines below this comment will be discarded
+### LINEZ BELOW DIS COMMENT WILL BE DISCARDD
 
 ### /etc/systemd/system/ArchiSteamFarm@asf.service
 # [Install]
@@ -102,9 +102,9 @@ Restart=always
 # (...)
 ```
 
-And that's it, now your unit acts the same as if it had only `Restart=always` under `[Service]`.
+AN THAZ IT, NAO UR UNIT ACTS TEH SAME AS IF IT HAD ONLY `Restart=always` UNDR `[Service]`.
 
-Of course, alternative is to `cp` the file and manage it yourself, but this allows you for flexible changes even if you decided to keep original ASF unit, for example with a symlink.
+OV COURSE, ALTERNATIV IZ 2 `cp` TEH FILE AN MANAGE IT YOURSELF, BUT DIS ALLOWS U 4 FLEXIBLE CHANGEZ EVEN IF U DECIDD 2 KEEP ORIGINAL ASF UNIT, 4 EXAMPLE WIF SYMLINK.
 
 ---
 

@@ -15,7 +15,7 @@ Steam sohbeti aracılığıyla yürütülen komutlar, varsayılan olarak `!` ola
 
 ### Etkileşimli konsol
 
-Starting with V4.0.0.9, ASF has support for interactive console, as long as you're not running in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Simply press `c` button in order to enable command mode, type your command and confirm with enter.
+ASF, V4.0.0.9 sürümünden itibaren [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) modunda çalışmadığınız sürece etkileşimli konsol desteği sunar. Komut modunu etkinleştirmek için `c` tuşuna basıp komutunuzu yazmanız ve enter ile onaylamanız yeterlidir.
 
 ![Ekran Görüntüsü](https://i.imgur.com/bH5Gtjq.png)
 
