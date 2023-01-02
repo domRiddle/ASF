@@ -191,7 +191,7 @@ Yes, this is what ASF API was designed for and you can use anything capable of s
 
 ### Can I access ASF's IPC remotely, e.g. from another machine?
 
-Yes, we recommend to use a reverse proxy for that. This way you can access your web server in typical way, which will then access ASF's IPC on the same machine. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that. For example, if your machine is in a VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
+Yes, we recommend to use a reverse proxy for that. This way you can access your web server in typical way, which will then access ASF's IPC on the same machine. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that. Keep in mind to set up appropriate security for your machine if you decide to expose ASF's IPC interface outside of `localhost`.
 
 ### Can I use ASF's IPC behind a reverse proxy such as Apache or Nginx?
 
