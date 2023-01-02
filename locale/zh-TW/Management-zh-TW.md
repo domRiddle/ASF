@@ -73,20 +73,20 @@ ASF_NETWORK_GROUP="my_network_group"
 # 及其他任何您想要使用的變數
 ```
 
-### Overriding part of the service unit
+### 複寫部分服務單元
 
-Thanks to the flexibility of `systemd`, it's possible to overwrite part of ASF unit while still preserving the original unit file and allowing ASF to update it for example as part of auto-updates.
+由於&#8203;`systemd`&#8203;的靈活性，我們可以複寫部分的ASF單元，同時仍然保留原始單元檔案，並允許ASF對其進行更新，例如作為自動更新的一部分。
 
-In this example, we'd like to modify default ASF `systemd` unit behaviour from restarting only on success, to restarting also on fatal crashes. In order to do so, we'll override `Restart` property under `[Service]` from default of `on-success` to `always`. Simply execute `systemctl edit ArchiSteamFarm@asf`, naturally replacing `asf` with the target user of your service. Then add your changes as indicated by `systemd` in proper section:
+在本範例中，我們要修改ASF預設的&#8203;`systemd`&#8203;單元的行為，從只在成功時重新啟動，改成在致命崩潰時也重新啟動。 為此，我們將會複寫&#8203;`[Service]`&#8203;下的&#8203;`Restart`&#8203;屬性，從預設的&#8203;`on-success`&#8203;改成&#8203;`always`&#8203;。 只需執行&#8203;`systemctl edit ArchiSteamFarm@asf`&#8203;，將&#8203;`asf`&#8203;取代成您服務實際使用的目標使用者即可。 然後依&#8203;`systemd`&#8203;中的指示，在正確的段落中加入您的改動：
 
 ```sh
-### Editing /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
-### Anything between here and the comment below will become the new contents of the file
+### 編輯 /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
+### 本處至下方註解間的所有內容，都會加入至檔案中
 
 [Service]
 Restart=always
 
-### Lines below this comment will be discarded
+### 本條註解下方的內容將被捨棄
 
 ### /etc/systemd/system/ArchiSteamFarm@asf.service
 # [Install]
@@ -102,9 +102,9 @@ Restart=always
 # (...)
 ```
 
-And that's it, now your unit acts the same as if it had only `Restart=always` under `[Service]`.
+這樣就完成了，現在您單元的行為就等同於&#8203;`[Service]`&#8203;下只有&#8203;`Restart=always`&#8203;。
 
-Of course, alternative is to `cp` the file and manage it yourself, but this allows you for flexible changes even if you decided to keep original ASF unit, for example with a symlink.
+當然，另一種方式是&#8203;`cp`&#8203;檔案並自行管理，但這允許您進行靈活的改動，不論您決定保留原始ASF單元，例如使用符號連接。
 
 ---
 
@@ -116,7 +116,7 @@ ASF含有邏輯，驗證自身是否以系統管理員（&#8203;`root`&#8203;）
 
 ### 我使用 `root` 執行，因為 ASF 無法寫入它自己的檔案
 
-這代表您錯誤設定了ASF試圖存取的檔案的權限。 您應使用&#8203;`root`&#8203;帳號（使用&#8203;`su`&#8203;或&#8203;`sudo -i`），然後執行&#8203;`chown -hR asf:asf /path/to/ASF`&#8203;命令&#8203;**更正**&#8203;權限。其中，您需將&#8203;`asf:asf`&#8203;取代成實際執行ASF的使用者，&#8203;`/path/to/ASF`&#8203;取代成ASF的實際路徑。 若您使用自訂&#8203;`--path`&#8203;，讓ASF使用者使用不同的資料夾，您還需為此路徑執行一次上述命令。
+這代表您錯誤設定了ASF試圖存取的檔案的權限。 您應使用&#8203;`root`&#8203;帳號（使用&#8203;`su`&#8203;或&#8203;`sudo -i`），然後執行&#8203;`chown -hR asf:asf /路徑/至/ASF`&#8203;命令&#8203;**更正**&#8203;權限。其中，您需將&#8203;`asf:asf`&#8203;取代成實際執行ASF的使用者，&#8203;`/路徑/至/ASF`&#8203;取代成ASF的實際路徑。 若您使用自訂&#8203;`--path`&#8203;，讓ASF使用者使用不同的資料夾，您還需為此路徑執行一次上述命令。
 
 完成本操作後，您應該不會再遇到任何與ASF無法寫入自己的檔案類似的問題，因為您剛剛已將ASF所需檔案的擁有者改成實際執行ASF的使用者。
 
@@ -125,8 +125,8 @@ ASF含有邏輯，驗證自身是否以系統管理員（&#8203;`root`&#8203;）
 ```sh
 su # 或是 sudo -i
 useradd -m asf
-chown -hR asf:asf /path/to/ASF
-su asf -c /path/to/ASF/ArchiSteamFarm # 或是 sudo -u asf /path/to/ASF/ArchiSteamFarm
+chown -hR asf:asf /路徑/至/ASF
+su asf -c /路徑/至/ASF/ArchiSteamFarm # 或是 sudo -u asf /路徑/至/ASF/ArchiSteamFarm
 ```
 
 這些是手動啟動，但使用我們上述說明的&#8203;**[`systemd`&#8203;服務](#linux-的-systemd-服務)**&#8203;會更加輕鬆。
@@ -147,6 +147,6 @@ ASF會盡量減少與其他ASF實例產生作業系統層面的跨程序通訊�
 
 執行ASF實例不需要共用相同的&#8203;`*LimiterDelay`&#8203;屬性，它們可為不同值，因為每個ASF會在獲得鎖後，將自身的設定延遲加入至釋放時間中。 若設定中的&#8203;`*LimiterDelay`&#8203;設定成&#8203;`0`&#8203;，ASF實例會完全跳過等待其他實例釋放共用資源的鎖（但仍可能會保有一個共用鎖）。 當設定成其他任意值時，ASF會與其他ASF實例同步並等候輪到自身，然後在達到延遲設定後釋放鎖，使其他實例能夠繼續運作。
 
-ASF在決定共用範圍時會考慮&#8203;`WebProxy`&#8203;設定，這代表使用不同&#8203;`WebProxy`&#8203;設定的兩個ASF實例，不會互相共用它們的限制器。 這是為了使&#8203;`WebProxy`&#8203;設定可以在沒有過多延遲的情形下運作，就像使用不同網路介面所期望的那樣。 對於大多數情形來說這就應該夠了，但是，若您有特殊的自訂設定，例如經由其他方式的路由請求，您可以使用&#8203;`--network-group`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW)**&#8203;指定網路群組，使您能夠宣告要與此實例同步的ASF群組。 請注意，自訂網路群組是專用的，也就是說ASF不再依據&#8203;`WebProxy`&#8203;來判斷群組，因為此時已經是由您自己所管理。
+當設定成其他任意值時，ASF會與其他ASF實例同步並等候輪到自身，然後在達到延遲設定後釋放鎖，使其他實例能夠繼續運作。 這是為了使&#8203;`WebProxy`&#8203;設定可以在沒有過多延遲的情形下運作，就像使用不同網路介面所期望的那樣。 對於大多數情形來說這就應該夠了，但是，若您有特殊的自訂設定，例如經由其他方式的路由請求，您可以使用&#8203;`--network-group`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW)**&#8203;指定網路群組，使您能夠宣告要與此實例同步的ASF群組。 請注意，自訂網路群組是專用的，也就是說ASF不再依據&#8203;`WebProxy`&#8203;來判斷群組，因為此時已經是由您自己所管理。
 
 若您想使用我們上述的&#8203;**[`systemd`&#8203;服務](#linux-的-systemd-服務)**&#8203;使用多個實例，這也非常簡單，只需在服務聲明&#8203;`ArchiSteamFarm@`&#8203;裡面使用另外一個使用者，然後再次進行其餘步驟即可。 這等同於使用不同的二進制檔案執行多個ASF實例，因此它們也能夠自動更新，並彼此獨立運作。

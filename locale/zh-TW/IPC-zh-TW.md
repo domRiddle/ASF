@@ -21,19 +21,19 @@ ASF的http伺服器現在已在監聽指定的端點。 若您沒有為IPC提供
 
 最低階的方式是&#8203;**[ASF API](#asf-api)**&#8203;，這是我們IPC介面的核心，允許其他所有操作。 這能在您自己的工具、實用程式及專案中使用，可以與ASF直接進行通訊。
 
-中階的方式是使用我們的&#8203;**[Swagger文件](#swagger-文件)**&#8203;&#8203;作為ASF API的前端。 它具有完整的ASF API文件，並使您能夠更輕鬆地存取它。 This is what you want to check if you're planning on writing a tool, utility or other projects that are supposed to communicate with ASF through its API.
+中階的方式是使用我們的&#8203;**[Swagger文件](#swagger-文件)**&#8203;&#8203;作為ASF API的前端。 它具有完整的ASF API文件，並使您能夠更輕鬆地存取它。 若您計畫開發使用API與ASF通訊的工具、實用程式或專案，就需要查閱它。
 
-On the highest level there is **[ASF-ui](#asf-ui)** which is based on our ASF API and provides user-friendly way to execute various ASF actions. This is our default IPC interface designed for end-users, and a perfect example of what you can build with ASF API. If you'd like, you can use your own custom web UI to use with ASF, by specifying `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** and using custom `www` directory located there.
+在最高階，&#8203;**[ASF-ui](#asf-ui)**&#8203;基於我們的ASF API，並提供使用者友善的方式來執行各種ASF操作。 這是我們為最終使用者設計的預設IPC介面，也是您可以使用ASF API建置的完美範例。 若您願意，您可以與您自己的自訂Web UI一同使用，方法是指定&#8203;`--path`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW#引數)**&#8203;，使用該處的自訂&#8203;`www`&#8203;資料夾。
 
 ---
 
 # ASF-ui
 
-ASF-ui is a community project that aims to create user-friendly graphical web interface for end-users. In order to achieve that, it acts as a frontend to our **[ASF API](#asf-api)**, allowing you to do various actions with ease. This is the default UI that ASF comes with.
+ASF-ui是一個社群專案，旨在為最終使用者建立使用者友善的圖形Web介面。 為了實現這一點，它被作為我們&#8203;**[ASF API](#asf-api)**&#8203;的前端，使您能夠輕鬆執行各種操作。 這是ASF自帶的預設UI。
 
-As stated above, ASF-ui is a community project that isn't maintained by core ASF developers. It follows its own flow in **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** which should be used for all related questions, issues, bug reports and suggestions.
+如上所述，ASF-ui是一個社群專案，並非由ASF核心開發人員所維護。 它在&#8203;**[ASF-ui儲存庫](https://github.com/JustArchiNET/ASF-ui)**&#8203;中遵循自身的流程，適用於所有的相關問題、討論、錯誤回報及建議。
 
-You can use ASF-ui for general management of ASF process. It allows for example to manage bots, modify settings, send commands, and achieve selected other functionality normally available through ASF.
+您可以使用ASF-ui對ASF程序進行一般管理。 舉例來說，它使您能夠管理Bot、修改設定、傳送指令，及使用ASF提供的其他各種功能。
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
@@ -41,11 +41,11 @@ You can use ASF-ui for general management of ASF process. It allows for example 
 
 # ASF API
 
-Our ASF API is typical **[RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)** web API that is based on JSON as its primary data format. We're doing our best to precisely describe response, using both HTTP status codes (where appropriate), as well as a response you can parse yourself in order to know whether the request succeeded, and if not, then why.
+我們的ASF API是典型的&#8203;**[RESTful](https://zh.wikipedia.org/zh-tw/表现层状态转换)**&#8203; Web API，基於JSON作為其主要的資料格式。 我們盡最大努力準確描述回應，不只透過（在適當的情形下）使用HTTP狀態碼，您也可以自行剖析回應來了解請求是否成功，以及如果不成功的原因。
 
-Our ASF API can be accessed by sending appropriate requests to appropriate `/Api` endpoints. You can use those API endpoints to make your own helper scripts, tools, GUIs and alike. This is exactly what our ASF-ui achieves under the hood, and every other tool can achieve the same. ASF API is officially supported and maintained by core ASF team.
+您可以透過向適當的&#8203;`/Api`&#8203;端點傳送適當的請求來存取我們的ASF API。 您可以使用這些API端點來製作您自己的輔助腳本、工具、GUI等。 這正是我們的ASF-ui在幕後所實現的目標，而其他所有工具都可以實現相同目標。 ASF API由ASF核心開發團隊所支援與維護。
 
-For complete documentation of available endpoints, descriptions, requests, responses, http status codes and everything else considering ASF API, please refer to our **[swagger documentation](#swagger-documentation)**.
+有關可用端點、描述、請求、回應、HTTP狀態碼及所有關於ASF API的完整文件，請參閱我們的&#8203;**[Swagger 文件](#swagger-文件)**&#8203;。
 
 ![ASF API](https://i.imgur.com/yggjf5v.png)
 
@@ -53,11 +53,11 @@ For complete documentation of available endpoints, descriptions, requests, respo
 
 # 自訂組態
 
-Our IPC interface supports extra config file, `IPC.config` that should be put in standard ASF's `config` directory.
+我們的IPC介面支援額外的設定檔&#8203;`IPC.config`&#8203;，應該放置於ASF的&#8203;`config`&#8203;資料夾中。
 
-When available, this file specifies advanced configuration of ASF's Kestrel http server, together with other IPC-related tuning. Unless you have a particular need, there is no reason for you to use this file, as ASF is already using sensible defaults in this case.
+如果可用，本檔案將指定ASF的Kestrel http伺服器的進階設定，以及其他與IPC相關的調整。 除非您有特殊需求，否則沒有理由使用此檔案，因為ASF在這個情形下已經使用了合理的預設值。
 
-The configuration file is based on following JSON structure:
+設定檔基於以下JSON結構：
 
 ```json
 {
@@ -94,11 +94,11 @@ The configuration file is based on following JSON structure:
 }
 ```
 
-`Endpoints` - This is a collection of endpoints, each endpoint having its own unique name (like `example-http4`) and `Url` property that specifies `Protocol://Host:Port` listening address. By default, ASF listens on IPv4 and IPv6 http addresses, but we've added https examples for you to use, if needed. You should declare only those endpoints that you need, we've included 4 example ones above so you can edit them easier.
+`Endpoints`&#8203;：這是端點的集合，每個端點都有自己的唯一名稱（像是&#8203;`example-http4`&#8203;）與&#8203;`Protocol://Host:Port`&#8203;指定監聽地址的&#8203;`Url`&#8203;屬性。 預設情形下，ASF監聽IPv4與IPv6的HTTP位址，但如果需要，我們加入了HTTP範例以供您使用。 您應只宣告您所需的端點，我們在上面包含了4個範例端點，讓您能夠輕鬆地編輯它們。
 
-`Host` accepts either `localhost`, a fixed IP address of the interface it should listen on (IPv4/IPv6), or `*` value that binds ASF's http server to all available interfaces. Using other values like `mydomain.com` or `192.168.0.*` acts the same as `*`, there is no IP filtering implemented, therefore be extremely careful when you use `Host` values that allow remote access. Doing so will enable access to ASF's IPC interface from other machines, which may pose a security risk. We strongly recommend to use `IPCPassword` (and preferably your own firewall too) **at a minimum** in this case.
+`Host`&#8203;接受&#8203;`localhost`&#8203;、監聽介面的固定IP位址（IPv4/IPv6），或將ASF的HTTP伺服器綁定至所有可用介面的&#8203;`*`&#8203;值。 使用其他值，像是&#8203;`mydomain.com`&#8203;或&#8203;`192.168.0.*`&#8203;的作用與&#8203;`*`&#8203;相同，沒有實現IP篩選，因此當您使用允許遠端存取的&#8203;`Host`&#8203;值時應格外小心。 這樣將會允許其他設備存取ASF的IPC介面，並可能會帶來安全風險。 在這種情形下，我們強烈建議您&#8203;**至少**&#8203;使用&#8203;`IPCPassword`&#8203;（最好也使用您自己的防火牆）。
 
-`KnownNetworks` - This **optional** variable specifies network addresses which we consider trustworthy. By default, ASF is configured to trust loopback interface (`localhost`, same machine) **only**. This property is used in two ways. Firstly, if you omit `IPCPassword`, then we'll allow only machines from known networks to access ASF's API, and deny everybody else as a security measure. Secondly, this property is crucial in regards to reverse-proxies accessing ASF, as ASF will honor its headers only if the reverse-proxy server is from within known networks. Honoring the headers is crucial in regards to ASF's anti-bruteforce mechanism, as instead of banning the reverse-proxy in case of a problem, it'll ban the IP specified by the reverse-proxy as the source of the original message. Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured.
+`KnownNetworks`&#8203;：本&#8203;**選擇性**&#8203;變數指定我們能夠信任的網路位址。 預設情形下，ASF被設定成&#8203;**只**&#8203;信任回送介面（&#8203;`localhost`&#8203;，同一台設備上）。 這個屬性有兩種用途。 第一，若您省略了&#8203;`IPCPassword`&#8203;，那麼我們將只允許來自已知網路的設備存取ASF的API，並拒絕其他所有設備，以作為一項安全措施。 第二，此屬性對於存取ASF的反向代理至關重要，因為只有當反向代理伺服器來自已知網路時，ASF才會遵守其表頭資料。 遵守表頭資料對於ASF的反暴力破解機制至關重要，因為它不會在出現問題時封鎖反向代理，而是封鎖反向代理原始訊息來源指定的IP。 Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured.
 
 `PathBase` - This is **optional** base path that will be used by IPC interface. Defaults to `/` and shouldn't be required to modify for majority of use cases. By changing this property you'll host entire IPC interface on a custom prefix, for example `http://localhost:1242/MyPrefix` instead of `http://localhost:1242` alone. Using custom `PathBase` may be wanted in combination with specific setup of a reverse proxy where you'd like to proxy a specific URL only, for example `mydomain.com/ASF` instead of entire `mydomain.com` domain. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
 
