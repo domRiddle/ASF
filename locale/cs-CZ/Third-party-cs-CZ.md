@@ -21,8 +21,8 @@ Vezměte prosím na vědomí, že níže uvedené programy nejsou **** udržová
 ### **[Vita](https://github.com/ezhevita)**
 
 - **[FriendAccepter](https://github.com/ezhevita/FriendAccepter)**, plugin pro ASF, automaticky přijímá všechny pozvánky přátel.
-- **[GameRemover](https://github.com/ezhevita/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
-- **[GetEmail](https://github.com/ezhevita/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
+- **[GameRemover](https://github.com/ezhevita/GameRemover)**, plugin pro ASF implementaci příkazu pro odstranění Steam licencí pro vybrané instance botů.
+- **[GetEmail](https://github.com/ezhevita/GetEmail)**, plugin pro ASF implementaci příkazu k načtení e-mailové adresy instancí daného bota přímo ze Steamu.
 - **[ResetAPIKey](https://github.com/ezhevita/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
 - **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, plugin for ASF allowing proxifying WebSocket connections.
 
