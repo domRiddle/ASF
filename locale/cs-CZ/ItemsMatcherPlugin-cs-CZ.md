@@ -78,4 +78,4 @@ For a very long time, until October 2022, `MatchActively` feature was part of AS
 
 `ItemsMatcher` is offered as part of $5+ sponsor tier on **[JustArchi's GitHub](https://github.com/sponsors/JustArchi)**. Simply become a sponsor of $5 tier (or higher), then read **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#licenseid)** section to obtain and fill `LicenseID`.
 
-The license allows you to send limited amount of requests to the server. $5 tier allows you to use `MatchActively` for one account, which should be suitable for majority of people. $10 tier allows you to use it on three accounts. If you require more resources, **[let us know](mailto:ASF@JustArchi.net)**.
+The license allows you to send limited amount of requests to the server. $5 úroveň umožňuje používat `MatchActively` pro jeden účet, který by měl být vhodný pro většinu lidí. $10 tier vám umožňuje jej použít na třech účtech. Pokud potřebujete více zdrojů, **[dejte nám vědět](mailto:ASF@JustArchi.net)**.

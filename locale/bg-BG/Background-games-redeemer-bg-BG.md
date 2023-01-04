@@ -6,9 +6,9 @@
 
 ---
 
-## Import
+## Импортиране
 
-Процесът на внедряване може да се извърши по два начина - или чрез ползването на файл, или чрез процеса на вътрешна комуникация.
+Процесът на импортиране може да се извърши по два начина - чрез използване на файл или IPC.
 
 ### Файл
 
@@ -46,7 +46,7 @@ If during the process our account hits `RateLimited` status, the queue is tempor
 
 ---
 
-## Example
+## Пример
 
 Да предположим, че имате списък със 100 ключа. Firstly you should create a new `BotName.keys.new` file in ASF `config` directory. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
 

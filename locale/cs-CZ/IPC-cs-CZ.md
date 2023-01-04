@@ -157,7 +157,7 @@ Authentication can be done through two separate ways.
 
 In general you should use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword'` as a parameter. This way authentication is passed in the headers of the request, where it in fact should take place.
 
-## `password` parameter in query string
+## `heslo` parametr v řetězci dotazu
 
 Alternatively you can append `password` parameter to the end of the URL you're about to call, for example by calling `/Api/ASF?password=MyPassword` instead of `/Api/ASF` alone. This approach is good enough, but obviously it exposes password in the open, which is not necessarily always appropriate. In addition to that it's extra argument in the query string, which complicates the look of the URL and makes it feel like it's URL-specific, while password applies to entire ASF API communication.
 
@@ -167,19 +167,19 @@ Both ways are supported and it's totally up to you which one you want to choose.
 
 ---
 
-# Swagger documentation
+# Dokumentace Swaggeru
 
 Our IPC interface, in additon to ASF API and ASF-ui also includes swagger documentation, which is available under `/swagger` **[URL](http://localhost:1242/swagger)**. Swagger documentation serves as a middle-man between our API implementation and other tools using it (e.g. ASF-ui). It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed by other projects, allowing you to write and test ASF API with ease.
 
 Apart from using our swagger documentation as a complete specification of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger documentation is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the API endpoints that your version of ASF includes.
 
-![Swagger documentation](https://i.imgur.com/mLpd5e4.png)
+![Dokumentace Swaggeru](https://i.imgur.com/mLpd5e4.png)
 
 ---
 
 # Často kladené otázky
 
-### Is ASF's IPC interface secure and safe to use?
+### Je IPC rozhraní ASF bezpečné?
 
 ASF by default listens only on `localhost` addresses, which means that accessing ASF IPC from any other machine but your own **is impossible**. Unless you modify default endpoints, attacker would need a direct access to your own machine in order to access ASF's IPC, therefore it's as secure as it can be and there is no possibility of anybody else accessing it, even from your own LAN.
 
@@ -187,7 +187,7 @@ However, if you decide to change default `localhost` bind addresses to something
 
 ### Can I access ASF API through my own tools or userscripts?
 
-Yes, this is what ASF API was designed for and you can use anything capable of sending a HTTP request to access it. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins for them (`*`), as long as `IPCPassword` is set, as an extra security measure. This allows you to execute various authenticated ASF API requests, without allowing potentially malicious scripts to do that automatically (as they'd need to know your `IPCPassword` to do that).
+Ano, pro toto bylo navrženo ASF API a můžete použít cokoliv, co může poslat HTTP požadavek pro přístup k němu. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins for them (`*`), as long as `IPCPassword` is set, as an extra security measure. This allows you to execute various authenticated ASF API requests, without allowing potentially malicious scripts to do that automatically (as they'd need to know your `IPCPassword` to do that).
 
 ### Can I access ASF's IPC remotely, e.g. from another machine?
 

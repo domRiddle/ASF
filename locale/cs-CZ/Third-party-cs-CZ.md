@@ -23,26 +23,26 @@ Vezměte prosím na vědomí, že níže uvedené programy nejsou **** udržová
 - **[FriendAccepter](https://github.com/ezhevita/FriendAccepter)**, plugin pro ASF, automaticky přijímá všechny pozvánky přátel.
 - **[GameRemover](https://github.com/ezhevita/GameRemover)**, plugin pro ASF implementaci příkazu pro odstranění Steam licencí pro vybrané instance botů.
 - **[GetEmail](https://github.com/ezhevita/GetEmail)**, plugin pro ASF implementaci příkazu k načtení e-mailové adresy instancí daného bota přímo ze Steamu.
-- **[ResetAPIKey](https://github.com/ezhevita/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
-- **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, plugin for ASF allowing proxifying WebSocket connections.
+- **[ResetAPIKey](https://github.com/ezhevita/ResetAPIKey)**, plugin pro ASF implementaci příkazu pro resetování API klíče pro vybrané instance botů.
+- **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, plugin pro ASF umožňující proxy připojení k WebSocket.
 
 ### Jiné
 
-- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin pro ASF vylepšení s různými novými funkcemi, zejména příkazy.
 
 ---
 
 ## Integrace
 
-- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (minimal) telegram bot written in python featuring ASF integration.
+- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot napsaný v pythonu s integrací ASF.
+- **[ASF STM uživatelé](https://greasyfork.org/en/scripts/404754-asf-stm)**, pro ty, kteří chtějí prostřednictvím webového prohlížeče posílat botům nabídky automatizovaného obchodu na našem **[seznamu aplikací STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** bez použití `MatchActively` funkce poskytované ASF.
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, další (minimální) telegram bot napsaný v pythonu s funkcí ASF integrace.
 
 ---
 
 ## Knihovny
 
-- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
+- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, Python knihovna pro další integraci s ASF IPC rozhraním.
 
 ---
 
@@ -65,4 +65,4 @@ Vezměte prosím na vědomí, že níže uvedené programy nejsou **** udržová
 
 ## Chcete najít více?
 
-We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** topic on GitHub for all projects that integrate with ASF.
+Doporučujeme **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** na GitHubu pro všechny projekty, které se integrují s ASF.

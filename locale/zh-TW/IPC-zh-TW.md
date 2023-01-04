@@ -45,7 +45,7 @@ ASF-ui是一個社群專案，旨在為最終使用者建立使用者友善的�
 
 您可以透過向適當的&#8203;`/Api`&#8203;端點傳送適當的請求來存取我們的ASF API。 您可以使用這些API端點來製作您自己的輔助腳本、工具、GUI等。 這正是我們的ASF-ui在幕後所實現的目標，而其他所有工具都可以實現相同目標。 ASF API由ASF核心開發團隊所支援與維護。
 
-有關可用端點、描述、請求、回應、HTTP狀態碼及所有關於ASF API的完整文件，請參閱我們的&#8203;**[Swagger 文件](#swagger-文件)**&#8203;。
+有關可用端點、描述、請求、回應、HTTP狀態碼及所有關於ASF API的完整文件，請參閱我們的&#8203;**[Swagger文件](#swagger-文件)**&#8203;。
 
 ![ASF API](https://i.imgur.com/yggjf5v.png)
 
@@ -100,15 +100,15 @@ ASF-ui是一個社群專案，旨在為最終使用者建立使用者友善的�
 
 `KnownNetworks`&#8203;：本&#8203;**選擇性**&#8203;變數指定我們能夠信任的網路位址。 預設情形下，ASF被設定成&#8203;**只**&#8203;信任回送介面（&#8203;`localhost`&#8203;，同一台設備上）。 這個屬性有兩種用途。 第一，若您省略了&#8203;`IPCPassword`&#8203;，那麼我們將只允許來自已知網路的設備存取ASF的API，並拒絕其他所有設備，以作為一項安全措施。 第二，此屬性對於存取ASF的反向代理至關重要，因為只有當反向代理伺服器來自已知網路時，ASF才會遵守其表頭資料。 遵守表頭資料對於ASF的反暴力破解機制至關重要，因為它不會在出現問題時封鎖反向代理，而是封鎖反向代理原始訊息來源指定的IP。 需格外小心您在此處指定的網路，因為一旦受信任的設備被破解或被錯誤設定，就可能導致欺騙攻擊或未授權的存取。
 
-`PathBase`&#8203;：本&#8203;**選擇性**&#8203;基本路徑將在IPC介面中使用。 預設是&#8203;`/`&#8203;，且在大多數情形下不需修改。 透過修改此屬性，您可以使用自訂前綴代管整個IPC介面，例如使用&#8203;`http://localhost:1242/MyPrefix`&#8203;代替&#8203;`http://localhost:1242`&#8203;。 若您只想代理特定的URL，使用自訂&#8203;`PathBase`&#8203;可能還需要結合特定設定的反向代理，例如代理&#8203;`mydomain.com/ASF`&#8203;而不是整個&#8203;`mydomain.com`&#8203;網域。 Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
+`PathBase`&#8203;：本&#8203;**選擇性**&#8203;基底路徑將在IPC介面中使用。 預設是&#8203;`/`&#8203;，且在大多數情形下不需修改。 透過修改此屬性，您可以使用自訂前綴代管整個IPC介面，例如使用&#8203;`http://localhost:1242/MyPrefix`&#8203;代替&#8203;`http://localhost:1242`&#8203;。 若您只想代理特定的URL，使用自訂&#8203;`PathBase`&#8203;可能還需要結合特定設定的反向代理，例如代理&#8203;`mydomain.com/ASF`&#8203;而不是整個&#8203;`mydomain.com`&#8203;網域。 通常您需要為您的Web伺服器編寫一個重寫規則，映射&#8203;`mydomain.com/ASF/Api/X`&#8203; -> &#8203;`localhost:1242/Api/X`&#8203;；但您可以定義&#8203;`/ASF`&#8203;的自訂&#8203;`PathBase`&#8203;，來更輕鬆地設定&#8203;`mydomain.com/ASF/Api/X`&#8203; -> &#8203;`localhost:1242/ASF/Api/X`&#8203;。
 
-Unless you truly need to specify a custom base path, it's best to leave it at default.
+除非您確實需要指定自訂基底路徑，否則最好保留預設值。
 
 ## 設定範例
 
 ### 更改預設連接埠
 
-The following config simply changes default ASF listening port from `1242` to `1337`. You can pick any port you like, but we recommend `1024-32767` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
+以下設定只是將ASF預設的監聽通訊埠從&#8203;`1242`&#8203;改成&#8203;`1337`&#8203;。 您可以使用任何想要的埠號，但我們的建議範圍是&#8203;`1024-32767`&#8203;，因為其他埠號通常是&#8203;**[註冊的](https://en.wikipedia.org/wiki/Registered_port)**&#8203;，且例如在Linux上可能需要&#8203;`root`&#8203;權限。
 
 ```json
 {
@@ -129,7 +129,7 @@ The following config simply changes default ASF listening port from `1242` to `1
 
 ### 允許所有 IP 存取
 
-The following config will allow remote access from all sources, therefore you should **ensure that you read and understood our security notice about that**, available above.
+以下設定將允許任何來源的遠端存取，因此您應&#8203;**確保您已閱讀並理解我們關於這些的安全須知**&#8203;，見上文。
 
 ```json
 {
@@ -143,23 +143,23 @@ The following config will allow remote access from all sources, therefore you sh
 }
 ```
 
-If you do not require access from all sources, but for example your LAN only, then it's much better idea to check local IP address of the machine hosting ASF, for example `192.168.0.10` and use it instead of `*` in example config above.
+若您不需從所有來源存取，例如只需您的LAN，那麼最好是檢查代管ASF設備的本機IP位址，例如使用&#8203;`192.168.0.10`&#8203;來代替上述範例設定的&#8203;`*`&#8203;。
 
 ---
 
 # 身分驗證
 
-ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF's API requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. After 5 failed authentication attempts (wrong password), you'll get temporarily blocked with `403 - Forbidden` error.
+預設情形下，ASF IPC介面不需要任何形式的身分驗證，因為&#8203;`IPCPassword`&#8203;設定成&#8203;`null`&#8203;。 但是，如果&#8203;`IPCPassword`&#8203;被設定成任意非空值來啟用，每個ASF的API呼叫都需要匹配&#8203;`IPCPassword`&#8203;的密碼。 若您省略了認證資訊或輸入了錯誤的密碼，您將會收到&#8203;`401 - Unauthorized`&#8203;錯誤。 在5次身分驗證的嘗試失敗後（密碼錯誤），您將收到&#8203;`403 - Forbidden`&#8203;錯誤並會被暫時封鎖。
 
 Authentication can be done through two separate ways.
 
-## `Authentication` 標頭
+## `Authentication` 表頭資料
 
-In general you should use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword'` as a parameter. This way authentication is passed in the headers of the request, where it in fact should take place.
+在一般情形下，您應使用HTTP請求頭欄位，將您的密碼設定成&#8203;`Authentication`&#8203;欄位的值。 具體方式取決於您用於存取ASF的IPC介面的實際工具，例如假設您使用&#8203;`curl`&#8203;，那麼您應加入&#8203;`-H 'Authentication: MyPassword'< /code>&#8203;作為參數。 這種方式的驗證資訊會在請求的頭欄位中傳遞，這也是它應該在的地方。</p>
 
-## Query 字串中的 `password` 參數
+<h2 spaces-before="0">Query 字串中的 <code>password` 參數</h2>
 
-Alternatively you can append `password` parameter to the end of the URL you're about to call, for example by calling `/Api/ASF?password=MyPassword` instead of `/Api/ASF` alone. This approach is good enough, but obviously it exposes password in the open, which is not necessarily always appropriate. In addition to that it's extra argument in the query string, which complicates the look of the URL and makes it feel like it's URL-specific, while password applies to entire ASF API communication.
+另一種方式，您可以將&#8203;`password`&#8203;參數附加到您要呼叫的URL的尾端，例如呼叫&#8203;`/Api/ASF?password=MyPassword`&#8203;來取代&#8203;`/Api/ASF`&#8203;。 This approach is good enough, but obviously it exposes password in the open, which is not necessarily always appropriate. In addition to that it's extra argument in the query string, which complicates the look of the URL and makes it feel like it's URL-specific, while password applies to entire ASF API communication.
 
 ---
 

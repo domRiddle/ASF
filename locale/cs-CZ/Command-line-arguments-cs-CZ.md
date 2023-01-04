@@ -1,12 +1,12 @@
 # Argumenty příkazového řádku
 
-ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF obsahuje podporu pro několik argumentů příkazové řádky, které mohou ovlivnit běh programu. Ty mohou být použity pokročilými uživateli pro upřesnění způsobu běhu programu. Ve srovnání s výchozím způsobem konfigurace `ASF.json` se argumenty příkazové řádky používají pro inicializaci jádra (např. `--path`), nastavení specifické na platformě (např. `--system-required`) nebo citlivá data (např. `--cryptkey`).
 
 ---
 
 ## Použití
 
-Usage depends on your OS and ASF flavour.
+Použití závisí na vaší preferenci OS a ASF.
 
 Obecné:
 
@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+Argumenty příkazového řádku jsou také podporovány v generických pomocných skriptech, jako je `ArchiSteamFarm.cmd` nebo `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
 
 If your argument includes spaces, don't forget to quote it. Tyto dvě věci jsou špatně:
 
