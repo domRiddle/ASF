@@ -42,12 +42,6 @@ Disabled by default. In a nutshell, this will cause JIT to spend more time analy
 
 Enabled by default. Disabling this in combination with enabling `DOTNET_TieredPGO` allows you to extend tiered profile-guided optimization to the whole .NET platform, and not just ASF code.
 
-### **[`DOTNET_TC_QuickJitForLoops`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
-
-> Configures whether the JIT compiler uses quick JIT on methods that contain loops. Enabling quick JIT for loops may improve startup performance. However, long-running loops can get stuck in less-optimized code for long periods.
-
-Disabled by default. While the description doesn't make it obvious, enabling this will allow methods with loops to go through additional compilation tier, which will allow `DOTNET_TieredPGO` to do a better job by analyzing its usage data.
-
 ---
 
 You can enable selected properties by setting appropriate environment variables. Pavyzdžiui, tarp Linux (shell):
@@ -57,7 +51,6 @@ export DOTNET_gcServer=1
 
 export DOTNET_TieredPGO=1
 export DOTNET_ReadyToRun=0
-export DOTNET_TC_QuickJitForLoops=1
 
 ./ArchiSteamFarm # For OS-specific build
 ./ArchiSteamFarm.sh # For generic build
@@ -70,7 +63,6 @@ $Env:DOTNET_gcServer=1
 
 $Env:DOTNET_TieredPGO=1
 $Env:DOTNET_ReadyToRun=0
-$Env:DOTNET_TC_QuickJitForLoops=1
 
 .\ArchiSteamFarm.exe # For OS-specific build
 .\ArchiSteamFarm.cmd # For generic build

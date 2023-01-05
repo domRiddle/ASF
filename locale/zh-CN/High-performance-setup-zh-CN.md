@@ -42,12 +42,6 @@ ASF 默认使用工作站 GC。 这主要是因为其在内存消耗和性能之
 
 默认启用。 如果禁用此选项同时启用 `DOTNET_TieredPGO`，您可以将分层按配置优化应用到整个 .NET 平台，而不仅仅是 ASF 的代码。
 
-### **[`DOTNET_TC_QuickJitForLoops`](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
-
-> 配置 JIT 编译器是否对包含循环的方法使用快速 JIT。 启用适用于循环的快速 JIT 可以提高启动性能。 不过，在优化程度较低的代码中，长时间运行的循环可能会停滞较长时间。
-
-默认禁用。 虽然描述不是很明显，但启用此选项将允许包含循环的方法经过额外的编译层，使 `DOTNET_TieredPGO` 能够通过分析使用数据做得更好。
-
 ---
 
 您可以通过设置环境变量启用指定的属性。 例如，在 Linux 上（Shell）：
@@ -57,10 +51,9 @@ export DOTNET_gcServer=1
 
 export DOTNET_TieredPGO=1
 export DOTNET_ReadyToRun=0
-export DOTNET_TC_QuickJitForLoops=1
 
-./ArchiSteamFarm # 针对操作系统包
-./ArchiSteamFarm.sh # 针对 Generic 包
+./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm.sh # For generic build
 ```
 
 或者在 Windows 上（Powershell）：
@@ -70,10 +63,9 @@ $Env:DOTNET_gcServer=1
 
 $Env:DOTNET_TieredPGO=1
 $Env:DOTNET_ReadyToRun=0
-$Env:DOTNET_TC_QuickJitForLoops=1
 
-.\ArchiSteamFarm.exe # 针对操作系统包
-.\ArchiSteamFarm.cmd # 针对 Generic 包
+.\ArchiSteamFarm.exe # For OS-specific build
+.\ArchiSteamFarm.cmd # For generic build
 ```
 
 ---

@@ -42,12 +42,6 @@ Desativado por padrão. Resumidamente, isso fará com que o JIT passe mais tempo
 
 Ativado por padrão. Desativando isso junto com a ativação de `DOTNET_TieredPGO` permite que você extenda a otimização guiada por perfil em camadas para toda a plataforma .NET, e não apenas para o código ASF.
 
-### **[`DOTNET_TC_QuickJitForLoops`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
-
-> Configura se o compilador JIT usa JIT rápido em métodos que contém loops. Ativando o JIT rápido para loops pode melhorar o desempenho de inicialização. Contudo, loops de longa duração podem ficar presos em códigos menos otimizados por maiores períodos.
-
-Desativado por padrão. Embora a descrição não seja óbvia, habilitar isso permitirá que métodos com loops passem por uma camada de compilação adicional, tornando possível que `DOTNET_TieredPGO` execute um trabalho melhor ao analisar seus dados de uso.
-
 ---
 
 Você pode habilitar propriedades selecionadas ao definir variáveis de ambiente apropriadas. Por exemplo, no Linux (shell):
@@ -57,7 +51,6 @@ export DOTNET_gcServer=1
 
 export DOTNET_TieredPGO=1
 export DOTNET_ReadyToRun=0
-export DOTNET_TC_QuickJitForLoops=1
 
 ./ArchiSteamFarm # For OS-specific build
 ./ArchiSteamFarm.sh # For generic build
@@ -70,7 +63,6 @@ $Env:DOTNET_gcServer=1
 
 $Env:DOTNET_TieredPGO=1
 $Env:DOTNET_ReadyToRun=0
-$Env:DOTNET_TC_QuickJitForLoops=1
 
 .\ArchiSteamFarm.exe # For OS-specific build
 .\ArchiSteamFarm.cmd # For generic build
@@ -85,4 +77,4 @@ $Env:DOTNET_TC_QuickJitForLoops=1
 - Se você não puder arcar com o aumento de memória devido a coleta de lixo do servidor, considere ajustar **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-pt-BR#gclatencylevel)** e/ou **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-pt-BR#gcheaphardlimitpercent)** para aproveitar "o melhor dos dois mundos". No entanto, se sua memória não aguenta é melhor manter tudo nos valores padrão; o coletor de lixo de servidor se auto-ajusta durante o tempo de execução e é inteligente o bastante para usar menos memória quando seu sistema operacional necessita dela.
 - Você também pode considerar uma maior otimização para um tempo de inicialização mais longo com ajustes adicionais através das outras propriedades `DOTNET_` explicadas acima.
 
-Usando as recomendações acima permite que você tenha um desempenho superior para o ASF que deverá ficar muito mais rápido mesmo com centenas ou milhares de bots habilitados. O CPU não deverá ter mais gargalo, já que o ASF pode usar todo o desempenho do seu CPU caso necessário, reduzindo o tempo necessário ao mínimo possível. O próximo passo seria um upgrade em sua CPU e memória RAM.
+Usando as recomendações acima permite que você tenha um desempenho superior para o ASF que deverá ficar muito mais rápido mesmo com centenas ou milhares de bots habilitados. O CPU não deverá mais ser um gargalo, já que o ASF pode usar todo o desempenho do seu CPU caso necessário, reduzindo o tempo necessário ao mínimo possível. O próximo passo seria um upgrade em sua CPU e memória RAM.

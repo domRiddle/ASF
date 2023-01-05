@@ -42,12 +42,6 @@ Deshabilitado por defecto. En resumen, esto causará que la compilación en tiem
 
 Habilitado por defecto. Deshabilitar esto en combinación con habilitar `DOTNET_TieredPGO` te permite extender la optimización guiada por perfil escalonada a toda la plataforma .NET, y no solo al código de ASF.
 
-### **[`DOTNET_TC_QuickJitForLoops`](https://docs.microsoft.com/es-es/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
-
-> Configura si el compilador en tiempo de ejecución usa compilación en tiempo de ejecución rápida en métodos que contienen bucles. Habilitar la compilación en tiempo de ejecución rápida puede mejorar el rendimiento de arranque. Sin embargo, los bucles de larga duración pueden quedar atascados en código menos optimizado durante períodos largos.
-
-Deshabilitado por defecto. Aunque la descripción no lo hace obvio, habilitar esto permitirá a los métodos con bucles pasar por un nivel compilación adicional, lo que permitirá a `DOTNET_TieredPGO` hacer un mejor trabajo al analizar sus datos de uso.
-
 ---
 
 Puedes habilitar las propiedades seleccionadas configurando las variables de entorno apropiadas. Por ejemplo, en Linux (shell):
@@ -57,10 +51,9 @@ export DOTNET_gcServer=1
 
 export DOTNET_TieredPGO=1
 export DOTNET_ReadyToRun=0
-export DOTNET_TC_QuickJitForLoops=1
 
-./ArchiSteamFarm # Para compilación de sistema operativo específico
-./ArchiSteamFarm.sh # Para compilación genérica
+./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm.sh # For generic build
 ```
 
 O en Windows (powershell):
@@ -70,10 +63,9 @@ $Env:DOTNET_gcServer=1
 
 $Env:DOTNET_TieredPGO=1
 $Env:DOTNET_ReadyToRun=0
-$Env:DOTNET_TC_QuickJitForLoops=1
 
-.\ArchiSteamFarm.exe # Para compilación de sistema operativo específico
-.\ArchiSteamFarm.cmd # Para compilación genérica
+.\ArchiSteamFarm.exe # For OS-specific build
+.\ArchiSteamFarm.cmd # For generic build
 ```
 
 ---

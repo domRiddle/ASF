@@ -42,12 +42,6 @@ ASF預設使用工作站垃圾回收。 這主要是因為記憶體的使用與�
 
 預設為啟用。 停用這個選項但同時啟用&#8203;`DOTNET_TieredPGO`&#8203;可以使您將特性指引最佳化套用至整個.NET平台，而不只於ASF程式碼中。
 
-### **[`DOTNET_TC_QuickJitForLoops`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/compilation#quick-jit-for-loops)**
-
-> 設定JIT編譯程式是否在包含迴圈的方法上使用快速JIT。 啟用快速JIT for迴圈可能會改善啟動效能。 不過，長時間執行的迴圈可能會停滯在較不優化的程式碼中長時間。
-
-預設為停用。 雖然描述並不清楚，但啟用此選項可以使包含迴圈的方法通過額外的編譯層，讓&#8203;`DOTNET_TieredPGO`&#8203;得以透過分析把使用數據處理得更好。
-
 ---
 
 您可以透過設定適當的環境變數來啟用所選的屬性。 舉例來說，在Linux（Shell）上：
@@ -57,10 +51,9 @@ export DOTNET_gcServer=1
 
 export DOTNET_TieredPGO=1
 export DOTNET_ReadyToRun=0
-export DOTNET_TC_QuickJitForLoops=1
 
-./ArchiSteamFarm # 用於特定作業系統的建置版本
-./ArchiSteamFarm.sh # 用於Generic建置版本
+./ArchiSteamFarm # For OS-specific build
+./ArchiSteamFarm.sh # For generic build
 ```
 
 或在Windows（PowerShell）上：
@@ -70,10 +63,9 @@ $Env:DOTNET_gcServer=1
 
 $Env:DOTNET_TieredPGO=1
 $Env:DOTNET_ReadyToRun=0
-$Env:DOTNET_TC_QuickJitForLoops=1
 
-.\ArchiSteamFarm.exe # 用於特定作業系統的建置版本
-.\ArchiSteamFarm.cmd # 用於Generic建置版本
+.\ArchiSteamFarm.exe # For OS-specific build
+.\ArchiSteamFarm.cmd # For generic build
 ```
 
 ---

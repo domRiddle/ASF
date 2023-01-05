@@ -155,21 +155,21 @@ Authentication can be done through two separate ways.
 
 ## `Authentication` 表頭資料
 
-在一般情形下，您應使用HTTP請求頭欄位，將您的密碼設定成&#8203;`Authentication`&#8203;欄位的值。 具體方式取決於您用於存取ASF的IPC介面的實際工具，例如假設您使用&#8203;`curl`&#8203;，那麼您應加入&#8203;`-H 'Authentication: MyPassword'< /code>&#8203;作為參數。 這種方式的驗證資訊會在請求的頭欄位中傳遞，這也是它應該在的地方。</p>
+在一般情形下，您應使用HTTP請求頭欄位，將您的密碼設定成&#8203;`Authentication`&#8203;欄位的值。 具體方式取決於您用於存取ASF的IPC介面的實際工具，例如假設您使用&#8203;`curl`&#8203;，那麼您應加入&#8203;`-H 'Authentication: MyPassword'`&#8203;作為參數。 這種方式的驗證資訊會在請求的頭欄位中傳遞，這也是它應該在的地方。
 
-<h2 spaces-before="0">Query 字串中的 <code>password` 參數</h2>
+## Query 字串中的 `password` 參數
 
-另一種方式，您可以將&#8203;`password`&#8203;參數附加到您要呼叫的URL的尾端，例如呼叫&#8203;`/Api/ASF?password=MyPassword`&#8203;來取代&#8203;`/Api/ASF`&#8203;。 This approach is good enough, but obviously it exposes password in the open, which is not necessarily always appropriate. In addition to that it's extra argument in the query string, which complicates the look of the URL and makes it feel like it's URL-specific, while password applies to entire ASF API communication.
+另一種方式，您可以將&#8203;`password`&#8203;參數附加到您要呼叫的URL的尾端，例如呼叫&#8203;`/Api/ASF?password=MyPassword`&#8203;來取代&#8203;`/Api/ASF`&#8203;。 這種方式夠好用，但顯然它會公開密碼，這在一些情形下並不適合。 除此之外，它是Query字串中的額外引數，這使URL看起來更加複雜，並讓人感覺它是特定的URL，但實際上這個密碼適用於整個ASF API通訊。
 
 ---
 
-Both ways are supported and it's totally up to you which one you want to choose. We recommend to use HTTP headers everywhere where you can, as usage-wise it's more appropriate than query string. However, we support query string as well, mainly because of various limitations related to request headers. A good example includes lack of custom headers while initiating a websocket connection in javascript (even though it's completely valid according to the RFC). In this situation query string is the only way to authenticate.
+兩種方式都受到支援，您可以選擇使用其中一種。 我們建議盡可能使用HTTP頭欄位，因為從使用方面它比Query字串更適合。 但是，我們也支援Query字串，主要的原因是請求頭欄位有各種相關限制。 一個很好的範例是在Javascript中初始化Websocket連線時，缺少自訂的表頭資料（即使這完全符合RFC）。 在這種情形下，Query字串是進行身分驗證的唯一方式。
 
 ---
 
 # Swagger 文件
 
-Our IPC interface, in additon to ASF API and ASF-ui also includes swagger documentation, which is available under `/swagger` **[URL](http://localhost:1242/swagger)**. Swagger documentation serves as a middle-man between our API implementation and other tools using it (e.g. ASF-ui). It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed by other projects, allowing you to write and test ASF API with ease.
+除了ASF API及ASF-ui以外，我們的IPC介面還包含了Swagger文件，可以在&#8203;`/swagger`&#8203; &#8203;**[URL](http://localhost:1242/swagger)**&#8203;下找到。 Swagger文件充當我們的API實施及使用它的其他工具（例如ASF-ui）之間的中間人。 It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed by other projects, allowing you to write and test ASF API with ease.
 
 Apart from using our swagger documentation as a complete specification of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger documentation is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the API endpoints that your version of ASF includes.
 
