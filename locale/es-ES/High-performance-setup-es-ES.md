@@ -52,8 +52,8 @@ export DOTNET_gcServer=1
 export DOTNET_TieredPGO=1
 export DOTNET_ReadyToRun=0
 
-./ArchiSteamFarm # For OS-specific build
-./ArchiSteamFarm.sh # For generic build
+./ArchiSteamFarm # Para compilación de sistema operativo específico
+./ArchiSteamFarm.sh # Para compilación genérica
 ```
 
 O en Windows (powershell):
@@ -64,8 +64,8 @@ $Env:DOTNET_gcServer=1
 $Env:DOTNET_TieredPGO=1
 $Env:DOTNET_ReadyToRun=0
 
-.\ArchiSteamFarm.exe # For OS-specific build
-.\ArchiSteamFarm.cmd # For generic build
+.\ArchiSteamFarm.exe # Para compilación de sistema operativo específico
+.\ArchiSteamFarm.cmd # Para compilación genérica
 ```
 
 ---

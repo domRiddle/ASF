@@ -10,7 +10,7 @@ No es posible desactivar ninguna de las comunicaciones mencionadas, ya que es lo
 
 ## Grupo de Steam
 
-ASF se comunica con nuestro **[grupo de Steam](https://steamcommunity.com/groups/archiasf)**. El grupo te proporciona anuncios, especialmente de versiones nuevas, problemas críticas, problemas de Steam y otras cosas que son importantes para mantener actualizada a la comunidad. También te permite usar nuestro soporte técnico, haciendo preguntas, resolviendo problemas, reportando problemas o sugiriendo mejoras. Por defecto, las cuentas usadas en ASF se unirán automáticamente al grupo al iniciar sesión.
+ASF se comunica con nuestro **[grupo de Steam](https://steamcommunity.com/groups/archiasf)**. El grupo te proporciona anuncios, especialmente de versiones nuevas, problemas críticos, problemas de Steam y otras cosas que son importantes para mantener actualizada a la comunidad. También te permite usar nuestro soporte técnico, haciendo preguntas, resolviendo problemas, reportando problemas o sugiriendo mejoras. Por defecto, las cuentas usadas en ASF se unirán automáticamente al grupo al iniciar sesión.
 
 Puedes optar por no unirte al grupo desactivando la bandera `SteamGroup` en las opciones **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#remotecommunication)** del bot.
 
@@ -30,6 +30,6 @@ Como medida de seguridad, no es posible desactivar la suma de verificación para
 
 Puedes deshabilitar el ajuste `FilterBadBots` si quieres evitar obtener la lista del servidor.
 
-Puedes optar por no ser anunciado en la lista desactivando la bandera `PublicListing` en las opciones **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#remotecommunication)** del bot. Esto puede ser útil si quieres ejecutar un bot con `SteamTradeMatcher` sin ser anunciado al mismo tiempo.
+Puedes optar por no ser anunciado en la lista desactivando la bandera `PublicListing` en las opciones **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#remotecommunication)** del bot. Esto puede ser útil si quieres ejecutar un bot con `SteamTradeMatcher` pero sin ser anunciado en la lista.
 
 Descargar los bots de nuestro listado es obligatorio para la opción `MatchActively`, necesitarás deshabilitar dicha opción si no deseas aceptar eso.

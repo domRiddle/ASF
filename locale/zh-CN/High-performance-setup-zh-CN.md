@@ -52,8 +52,8 @@ export DOTNET_gcServer=1
 export DOTNET_TieredPGO=1
 export DOTNET_ReadyToRun=0
 
-./ArchiSteamFarm # For OS-specific build
-./ArchiSteamFarm.sh # For generic build
+./ArchiSteamFarm # 针对操作系统包
+./ArchiSteamFarm.sh # 针对 Generic 包
 ```
 
 或者在 Windows 上（Powershell）：
@@ -64,8 +64,8 @@ $Env:DOTNET_gcServer=1
 $Env:DOTNET_TieredPGO=1
 $Env:DOTNET_ReadyToRun=0
 
-.\ArchiSteamFarm.exe # For OS-specific build
-.\ArchiSteamFarm.cmd # For generic build
+.\ArchiSteamFarm.exe # 针对操作系统包
+.\ArchiSteamFarm.cmd # 针对 Generic 包
 ```
 
 ---
