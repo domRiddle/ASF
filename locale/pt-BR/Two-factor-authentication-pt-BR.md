@@ -74,9 +74,9 @@ Para perguntas/problemas, por favor visite **[problemas](https://github.com/Cait
 
 ### SteamDesktopAuthenticator
 
-Se você estiver usando seu autenticador no SDA, você deve ter notado que há um arquivo chamado `steamID.maFile` na pasta `maFiles`. Copie esse arquivo para a pasta `config` do ASF. Certifique-se de que `.maFile` está em formato não-criptografado, pois o ASF não pode descriptografar arquivos SDA - um arquivo com conteúdo descriptografado deve começar com o caractere `{`.
+Se você estiver usando seu autenticador no SDA, você deve ter notado que há um arquivo chamado `steamID.maFile` na pasta `maFiles`. Make sure that `maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` and end with `}` character. If needed, you can remove the encryption from SDA settings first, and enable it again when you're done. Once the file is in unencrypted form, copy it to `config` directory of ASF.
 
-Agora você deve renomear o arquivo `steamID.maFile` para `NomeDoBot.maFile` na pasta config do ASF, onde `NomeDoBot` é o nome do bot para o qual você está adicionando o ASF 2FA. Como alternativa, você pode deixá-lo como está, o ASF vai selecioná-lo automaticamente após o login. Ajudar o ASF torna possível usar o ASF 2FA antes de fazer o login, se você não ajudar o ASF, então o arquivo poderá ser selecionado apenas depois que o ASF logar com sucesso (já que o ASF não sabe qual a `steamID` da sua conta antes de realmente logar).
+You can now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Como alternativa, você pode deixá-lo como está, o ASF vai selecioná-lo automaticamente após o login. Renaming the file helps ASF by making it possible to use ASF 2FA before logging in, if you don't do that, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
 
 Se você fez tudo corretamente, abra o ASF e você deverá notar:
 

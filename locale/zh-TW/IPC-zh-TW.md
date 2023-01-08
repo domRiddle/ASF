@@ -169,7 +169,7 @@ Authentication can be done through two separate ways.
 
 # Swagger 文件
 
-除了ASF API及ASF-ui以外，我們的IPC介面還包含了Swagger文件，可以在&#8203;`/swagger`&#8203; &#8203;**[URL](http://localhost:1242/swagger)**&#8203;下找到。 Swagger文件充當我們的API實施及使用它的其他工具（例如ASF-ui）之間的中間人。 It provides a complete documentation and availability of all API endpoints in **[OpenAPI](https://swagger.io/resources/open-api)** specification that can be easily consumed by other projects, allowing you to write and test ASF API with ease.
+除了ASF API及ASF-ui以外，我們的IPC介面還包含了Swagger文件，可以在&#8203;`/swagger`&#8203; &#8203;**[URL](http://localhost:1242/swagger)**&#8203;下找到。 Swagger文件充當我們的API實施及使用它的其他工具（例如ASF-ui）之間的中間人。 它提供了&#8203;**[OpenAPI](https://swagger.io/resources/open-api)**&#8203;規範中所有API端點的完整文件與功能，其他專案可以輕鬆使用這些端點，使您能夠輕鬆編寫及測試ASF API。
 
 Apart from using our swagger documentation as a complete specification of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger documentation is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the API endpoints that your version of ASF includes.
 

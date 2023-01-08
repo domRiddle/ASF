@@ -41,7 +41,7 @@ ASF將拒絕任何來自交易模組黑名單中的用戶（對master無效）�
 
 STM 的運行規則僅會匹配對我們有利的交易，這意味著將 STM 用於匹配冗餘卡片的用戶總會發起對我們有利的交易。 然而，ASF 更加包容，它也接受中立的交易 ，因為在這些交易中，我們實際上並沒有任何損失，所以沒有必要拒絕它們。 這對朋友間的交易特別有用，因為他們可以在不使用 STM 的情況下交換您的冗餘卡片，而不會影響您的卡牌收集進度。
 
-預設情況下，ASF 將拒絕不利交易——作為一個用戶，這恰恰正是您想要的。 但是，您也可以選擇在`TradingPreferences`中啟用 `MatchEverything`，以讓ASF接受所有的冗餘物品交易，包括**不利交易**。 只有當您想要在您的帳戶下運行 1:1 交易機械人時，這一特性才有用，因為您瞭解 **ASF 將不再帮您完成徽章進度，反而可能會使您因 N 張相同卡片而損失收集進度**。 除非您有意運行一個交易機械人，該機械人**並不**期待集齊卡片，否則您不應啟用此選項。
+預設情況下，ASF 將拒絕不利交易——作為一個用戶，這恰恰正是您想要的。 但是，您也可以選擇在`TradingPreferences`中啟用 `MatchEverything`，以讓ASF接受所有的冗餘物品交易，包括**不利交易**。 只有當您想要在您的帳戶下運行 1:1 交易機械人時，這一特性才有用，因為您瞭解 **ASF 將不再帮您完成徽章進度，反而可能會使您因 N 張相同卡片而損失收集進度**。 If you want to intentionally run a trade bot that is **never** supposed to finish any set, and should offer its whole inventory to every interested user, then you can enable that option.
 
 無論您選擇哪種 `TradingPreferences`，交易被 ASF 拒絕並不意味著您自己無法手動接受它。 如果您保留 `BotBehaviour` 的預設值（並未啟用 `RejectInvalidTrades`），ASF 將忽略這些交易，允許您自行決定。 同樣適用于一切 `MatchableTypes` 之外的物品交易，該模組僅幫助您自動化 STM 交易，而不會決定什麼是好的交易，什麼不是。 The only exception from this rule is when talking about users that you blacklisted from trading module using `tbadd` command - trades from those users are immediately rejected regardless of `BotBehaviour` settings.
 

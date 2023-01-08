@@ -74,9 +74,9 @@ HEAD OVAR 2 **[LATEST RELEASE](https://github.com/CaitSith2/ios-steamguard-extra
 
 ### STEAMDESKTOPAUTHENTICATOR
 
-IF U HAS UR AUTHENTICATOR RUNNIN IN SDA ALREADY, U SHUD NOTICE DAT THAR IZ `steamID.maFile` FILE AVAILABLE IN `maFiles` FOLDR. COPY DAT FILE 2 `config` DIRECTORY OV ASF. MAK SURE DAT `.maFile` IZ IN UNENCRYPTD FORM, AS ASF CANT DECRYPT SDA FILEZ - UNENCRYPTD FILE CONTENT SHUD START WIF `{` CHARACTR.
+IF U HAS UR AUTHENTICATOR RUNNIN IN SDA ALREADY, U SHUD NOTICE DAT THAR IZ `steamID.maFile` FILE AVAILABLE IN `maFiles` FOLDR. Make sure that `maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` and end with `}` character. If needed, you can remove the encryption from SDA settings first, and enable it again when you're done. Once the file is in unencrypted form, copy it to `config` directory of ASF.
 
-U SHUD NAO RENAME `steamID.maFile` 2 `BotName.maFile` IN ASF CONFIG DIRECTORY, WER `BotName` IZ TEH NAYM OV UR BOT URE ADDIN ASF 2FA 2. ALTERNATIVELY U CAN LEEF IT AS IT IZ, ASF WILL DEN PICK IT AUTOMATICALLY AFTR LOGGIN IN. HELPIN ASF MAKEZ IT POSIBLE 2 USE ASF 2FA BEFORE LOGGIN IN, IF U WONT HALP ASF, DEN TEH FILE CAN BE PICKD ONLY AFTR ASF SUCCESFULLY LOGS IN (AS ASF DOESNT KNOE `steamID` OV UR AKOWNT BEFORE IN FACT LOGGIN IN).
+You can now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. ALTERNATIVELY U CAN LEEF IT AS IT IZ, ASF WILL DEN PICK IT AUTOMATICALLY AFTR LOGGIN IN. Renaming the file helps ASF by making it possible to use ASF 2FA before logging in, if you don't do that, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
 
 IF U DID EVRYTHIN RITE, LAUNCH ASF, AN U SHUD NOTICE:
 

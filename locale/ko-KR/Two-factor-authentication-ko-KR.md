@@ -74,9 +74,9 @@ iOS에서는 **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steam
 
 ### SteamDesktopAuthenticator
 
-이미 SDA에서 실행되는 인증기가 있다면 `maFiles` 폴더에 `steamID.maFile` 파일이 있음을 알것입니다. 이 파일을 ASF의 `config`로 복사하십시오. 이 `.maFile`이 암호화되지 않은 형태인지 확인하십시오. ASF는 SDA 파일을 복호화할 수 없으며 암호화되지 않은 파일의 내용은 `{` 문자로 시작해야 합니다.
+이미 SDA에서 실행되는 인증기가 있다면 `maFiles` 폴더에 `steamID.maFile` 파일이 있음을 알것입니다. Make sure that `maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` and end with `}` character. If needed, you can remove the encryption from SDA settings first, and enable it again when you're done. Once the file is in unencrypted form, copy it to `config` directory of ASF.
 
-ASF 환경설정 디렉토리의 `steamID.maFile` 파일을 `봇이름.maFile` 로 이름을 바꿔야 합니다. `봇이름`은 ASF 2단계 인증을 추가하려는 봇의 이름입니다. 또는 그대로 둘 수도 있습니다. ASF는 로그인 후 자동으로 선택할 것입니다. ASF를 도와주면 ASF가 로그인 전에 ASF 2단계 인증을 사용할 수 있습니다. ASF를 도와주지 않으면, ASF가 성공적으로 로그인 한 후에 파일을 선택할 수 있습니다. ASF는 로그인 전에는 당신 계정의 `steamID`를 모르기 때문입니다.
+You can now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. 또는 그대로 둘 수도 있습니다. ASF는 로그인 후 자동으로 선택할 것입니다. Renaming the file helps ASF by making it possible to use ASF 2FA before logging in, if you don't do that, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
 
 모든 것을 정확하게 했다면 ASF를 실행하고 다음화면을 보게 됩니다.
 

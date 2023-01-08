@@ -80,15 +80,19 @@ Pour les questions / problèmes, consultez la page ** questions </ 0>.</p>
 
 ### SteamDesktopAuthenticator
 
-Si vous avez votre authentificateur  SDA déjà en fonctionnement, vous devriez remarquer que le fichier `steamID.maFile`  est disponible dans le dossier `maFiles`. Copiez ce fichier dans le répertoire ` config </ 0> de ASF. Assurez-vous que <code>.maFile` est sous forme non cryptée, comme ASF ne peut pas déchiffrer les fichiers SDA - le contenu non chiffrée du fichier doit commencer par `{`.
+Si vous avez votre authentificateur  SDA déjà en fonctionnement, vous devriez remarquer que le fichier `steamID.maFile`  est disponible dans le dossier `maFiles`. Make sure that `maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` and end with `}` character. If needed, you can remove the encryption from SDA settings first, and enable it again when you're done. Once the file is in unencrypted form, copy it to `config` directory of ASF.
 
-Une fois que votre fichier est sur votre PC, saisissez-le sous la forme `BotName.maFile</ 0> dans le répertoire de configuration ASF, où <code>BotName</ 0> correspond au nom de votre bot auquel vous ajoutez ASF 2FA. Sinon, vous pouvez le laisser tel quel, ASF le sélectionnera automatiquement après vous être connecté. Aider ASF permet d’utiliser ASF 2FA avant la connexion. Si vous ne voulez pas aider ASF, le fichier ne peut être sélectionné qu’après que ASF s’est connecté (car ASF ne connaît pas <code> steamID </ 0> de votre compte avant de vous connecter).</p>
+You can now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Sinon, vous pouvez le laisser tel quel, ASF le sélectionnera automatiquement après vous être connecté. Renaming the file helps ASF by making it possible to use ASF 2FA before logging in, if you don't do that, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
 
-<p spaces-before="0">Si vous avez tout fait correctement, lancez ASF, et vous devriez remarquer:</p>
+Si vous avez tout fait correctement, lancez ASF, et vous devriez remarquer:
 
-<pre><code class="text">[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
+
+
+```text
+[*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
 [*] INFO: ImportAuthenticator() <1> Successfully finished importing mobile authenticator!
-`</pre> 
+```
+
 
 Votre ASF 2FA devrait désormais être opérationnel pour ce compte.
 

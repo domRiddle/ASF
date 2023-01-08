@@ -74,9 +74,9 @@ Für Fragen/Probleme besuche bitte **[issues](https://github.com/CaitSith2/ios-s
 
 ### SteamDesktopAuthenticator
 
-Wenn du deinen Authentifikator bereits in SDA laufen hast, solltest du beachten, dass es eine `steamID.maFile` Datei im Ordner `maFiles` gibt. Kopiere diese Datei in das Verzeichnis `config` von ASF. Vergewissere dich, dass `.maFile` in unverschlüsselter Form vorliegt, da ASF diese SDA-Dateien nicht entschlüsseln kann - unverschlüsselte Dateiinhalte sollten mit `{` Zeichen beginnen.
+Wenn du deinen Authentifikator bereits in SDA laufen hast, solltest du beachten, dass es eine `steamID.maFile` Datei im Ordner `maFiles` gibt. Make sure that `maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` and end with `}` character. If needed, you can remove the encryption from SDA settings first, and enable it again when you're done. Once the file is in unencrypted form, copy it to `config` directory of ASF.
 
-Du solltest nun `steamID.maFile` in `BotName.maFile` im ASF-Konfigurationsverzeichnis umbenennen, wobei `BotName` der Name deines Bot ist, dem du ASF 2FA hinzufügst. Alternativ kannst du es so lassen wie es ist, ASF wird es dann nach dem Einloggen automatisch auswählen. ASF zu helfen macht es möglich, ASF 2FA vor dem Einloggen zu verwenden, wenn du ASF nicht helfen willst, dann kann die Datei erst ausgewählt werden, wenn ASF sich erfolgreich einloggt hat (da ASF `steamID` deines Kontos nicht kennt, bevor du dich tatsächlich einloggst).
+You can now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Alternativ kannst du es so lassen wie es ist, ASF wird es dann nach dem Einloggen automatisch auswählen. Renaming the file helps ASF by making it possible to use ASF 2FA before logging in, if you don't do that, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
 
 Wenn du alles richtig gemacht hast, starte ASF und du solltest es merken:
 

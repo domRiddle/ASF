@@ -74,9 +74,9 @@ Sorularınız/sorunlarınız için lütfen **[sorunları](https://github.com/Cai
 
 ### SteamDesktopAuthenticator
 
-Kimlik doğrulayıcınız zaten SDA'da çalışıyorsa, `maFiles` klasörü içersinde `steamID.maFile` dosyası olduğunu göreceksiniz. Bu dosyayı ASF'nin `config` dizinine kopyalayın. ASF, SDA dosyalarının şifresini çözemediğinden `.maFile` dosyasının şifrelenmemiş biçimde olduğundan emin olun. Şifrelenmemiş dosya içeriği `{` karakteri ile başlamalıdır.
+Kimlik doğrulayıcınız zaten SDA'da çalışıyorsa, `maFiles` klasörü içersinde `steamID.maFile` dosyası olduğunu göreceksiniz. Make sure that `maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` and end with `}` character. If needed, you can remove the encryption from SDA settings first, and enable it again when you're done. Once the file is in unencrypted form, copy it to `config` directory of ASF.
 
-Şimdi, ASF'nin "config" dizininde `steamID.maFile` dosyasını `BotName.maFile` olarak yeniden adlandırmalısınız; burada ki `BotName`, ASF 2AD'yı eklediğiniz botunuzun adıdır. Alternatif bir adım olarak, olduğu gibi bırakabilirsiniz, ASF, oturum açtıktan sonra otomatik olarak seçecektir. ASF, oturum açmadan önce ASF 2AD'nin kullanılmasını mümkün kılar, ASF'ye yardımcı olmazsanız, dosya yalnızca ASF'de başarıyla oturum açtıktan sonra (ASF gerçekte oturum açmadan önce hesabınızın `steamID`'sini bilmediği için) çalışır.
+You can now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Alternatif bir adım olarak, olduğu gibi bırakabilirsiniz, ASF, oturum açtıktan sonra otomatik olarak seçecektir. Renaming the file helps ASF by making it possible to use ASF 2FA before logging in, if you don't do that, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
 
 Her şeyi doğru yaptıysanız, ASF'yi başlatın ve şunu fark etmelisiniz:
 

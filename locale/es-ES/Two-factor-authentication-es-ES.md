@@ -74,9 +74,9 @@ Para preguntas/problemas, por favor visita **[problemas](https://github.com/Cait
 
 ### SteamDesktopAuthenticator
 
-Si ya tienes tu autenticador en SDA, debes notar que el archivo `steamID.maFile` está disponible en la carpeta `maFiles`. Copia ese archivo al directorio `config` de ASF. Asegúrate de que el archivo `.maFile` está en formato no cifrado, ya que ASF no puede descifrar los archivos de SDA - el contenido de un archivo no cifrado debe empezar con el carácter `{`.
+Si ya tienes tu autenticador en SDA, debes notar que el archivo `steamID.maFile` está disponible en la carpeta `maFiles`. Asegúrate de que el archivo `maFile` está en formato no cifrado, ya que ASF no puede descifrar los archivos de SDA - el contenido de un archivo no cifrado debería comenzar con el carácter `{` y terminar con `}`. Si es necesario, primero puedes eliminar el cifrado desde las opciones de SDA, y habilitarlo de nuevo cuando hayas terminado. Una vez que el archivo esté en formato no cifrado, cópialo al directorio `config` de ASF.
 
-Ahora debes renombrar el archivo `steamID.maFile` a `BotName.maFile` en el directorio config de ASF, donde `BotName` es el nombre del bot al que estás añadiendo ASF 2FA. Alternativamente, puedes dejarlo como está, ASF lo seleccionará automáticamente después de iniciar sesión. Ayudar a ASF permite usar ASF 2FA antes de iniciar sesión, si no ayudas a ASF, entonces el archivo solo puede ser seleccionado después de que ASF inicie sesión exitosamente (ya que ASF no sabe el `steamID` de tu cuenta antes de iniciar sesión).
+Ahora puedes renombrar el archivo `steamID.maFile` a `BotName.maFile` en el directorio config de ASF, donde `BotName` es el nombre del bot al que estás añadiendo ASF 2FA. Alternativamente, puedes dejarlo como está, ASF lo seleccionará automáticamente después de iniciar sesión. Renombrar el archivo ayuda a ASF haciendo posible usar ASF 2FA antes de iniciar sesión, si no lo haces, entonces el archivo solo puede ser seleccionado después de que ASF haya iniciado sesión exitosamente (ya que ASF no sabe el `steamID` de tu cuenta antes de iniciar sesión).
 
 Si hiciste todo correctamente, ejecuta ASF, y deberías ver:
 

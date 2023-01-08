@@ -74,9 +74,9 @@ Head over to **[latest release](https://github.com/CaitSith2/ios-steamguard-extr
 
 ### Steam桌面驗證器
 
-如果您的身份驗證器已經在SDA中運行，您應該注意到` maFiles `資料夾中存在` steamID.maFile `文件。 將該檔複製到ASF的` config `目錄。 Make sure that `.maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` character.
+如果您的身份驗證器已經在SDA中運行，您應該注意到` maFiles `資料夾中存在` steamID.maFile `文件。 Make sure that `maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` and end with `}` character. If needed, you can remove the encryption from SDA settings first, and enable it again when you're done. Once the file is in unencrypted form, copy it to `config` directory of ASF.
 
-You should now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. 或者您可以保持原樣，ASF會在登錄後自動識別它。 Helping ASF makes it possible to use ASF 2FA before logging in, if you won't help ASF, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
+You can now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. 或者您可以保持原樣，ASF會在登錄後自動識別它。 Renaming the file helps ASF by making it possible to use ASF 2FA before logging in, if you don't do that, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
 
 如果您正確執行了所有操作，請啟動ASF，您應該注意到：
 

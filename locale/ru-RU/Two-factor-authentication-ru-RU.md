@@ -74,9 +74,9 @@
 
 ### SteamDesktopAuthenticator
 
-Если у вас уже есть аутентифицатор, работающий в SDA, вы можете заметить что у вас уже есть файл `steamID.maFile` в папке `maFiles`. Скопируйте этот файл в папку `config` вашего ASF. Убедитесь, что этот `.maFile` в незашифрованном виде, поскольку ASF не умеет расшифровывать файлы SDA - незашифрованный файл должен начинаться с символа `{`.
+Если у вас уже есть аутентифицатор, работающий в SDA, вы можете заметить что у вас уже есть файл `steamID.maFile` в папке `maFiles`. Make sure that `maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` and end with `}` character. If needed, you can remove the encryption from SDA settings first, and enable it again when you're done. Once the file is in unencrypted form, copy it to `config` directory of ASF.
 
-Теперь вам надо переименовать файл из `steamID.maFile` в `BotName.maFile` в вашей папке `config`, где `BotName` - имя бота для которого вы хотите добавить 2ФА ASF. Вы можете оставить всё как есть, ASF обнаружит этот файл автоматически после входа в Steam. Если вы поможете ASF, переименовав файл, ASF сможет использовать 2ФА ASF ещё до входа, а если нет - файл будет импортирован только после того как ASF успешно войдёт (поскольку ASF не знает `steamID` вашего аккаунта до того как войдёт).
+You can now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Вы можете оставить всё как есть, ASF обнаружит этот файл автоматически после входа в Steam. Renaming the file helps ASF by making it possible to use ASF 2FA before logging in, if you don't do that, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
 
 Если вы всё сделали правильно, запустите ASF, вы должны увидеть:
 
