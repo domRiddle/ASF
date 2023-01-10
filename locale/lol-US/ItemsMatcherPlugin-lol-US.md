@@ -80,4 +80,4 @@ R GOAL ISNT 2 PROFIT FRUM IT, BUT RATHR, COVR TEH **monthly costs** DAT R EXCLUS
 
 `ItemsMatcher` IZ OFFERD AS PART OV $5+ SPONSOR TIR ON **[JustArchi's GitHub](https://github.com/sponsors/JustArchi)**. SIMPLY BECOME SPONSOR OV $5 TIR (OR HIGHR), DEN READ **[CONFIGURASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#licenseid)** SECSHUN 2 OBTAIN AN FILL `LicenseID`. WE UNDERSTAND DAT IZ NOT 4 EVRYBODY, AN WE HOPE DAT U ALSO UNDERSTAND Y WE CANT OFFR IT 4 FREE.
 
-TEH LICENSE ALLOWS U 2 SEND LIMITD AMOUNT OV REQUESTS 2 TEH SERVR. $5 TIR ALLOWS U 2 USE `MatchActively` 4 WAN AKOWNT, WHICH SHUD BE SUITABLE 4 MAJORITY OV PEEPS. $10 TIR ALLOWS U 2 USE IT ON 3 ACCOUNTS. IF U REQUIRE MOAR RESOURCEZ, **[LET US KNOE](mailto:ASF@JustArchi.net)**.
+TEH LICENSE ALLOWS U 2 SEND LIMITD AMOUNT OV REQUESTS 2 TEH SERVR. $5 tier allows you to use `MatchActively` for one bot account (4 requests daily), and every additional $5 adds two more bot accounts (8 requests daily).

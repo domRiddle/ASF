@@ -80,4 +80,4 @@ Our goal isn't to profit from it, but rather, cover the **monthly costs** that a
 
 `ItemsMatcher` is offered as part of $5+ sponsor tier on **[JustArchi's GitHub](https://github.com/sponsors/JustArchi)**. Simply become a sponsor of $5 tier (or higher), then read **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#licenseid)** section to obtain and fill `LicenseID`. Afterwards, simply enable `MatchActively` in `TradingPreferences` of your chosen bot.
 
-The license allows you to send limited amount of requests to the server. $5 úroveň umožňuje používat `MatchActively` pro jeden účet, který by měl být vhodný pro většinu lidí. $10 tier vám umožňuje jej použít na třech účtech. Pokud potřebujete více zdrojů, **[dejte nám vědět](mailto:ASF@JustArchi.net)**.
+The license allows you to send limited amount of requests to the server. $5 tier allows you to use `MatchActively` for one bot account (4 requests daily), and every additional $5 adds two more bot accounts (8 requests daily).

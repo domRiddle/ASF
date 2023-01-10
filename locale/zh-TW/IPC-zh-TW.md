@@ -171,7 +171,7 @@ Authentication can be done through two separate ways.
 
 除了ASF API及ASF-ui以外，我們的IPC介面還包含了Swagger文件，可以在&#8203;`/swagger`&#8203; &#8203;**[URL](http://localhost:1242/swagger)**&#8203;下找到。 Swagger文件充當我們的API實施及使用它的其他工具（例如ASF-ui）之間的中間人。 它提供了&#8203;**[OpenAPI](https://swagger.io/resources/open-api)**&#8203;規範中所有API端點的完整文件與功能，其他專案可以輕鬆使用這些端點，使您能夠輕鬆編寫及測試ASF API。
 
-除了將我們的Swagger文件作為ASF API的完整規範以外，您還可以將它當作使用者友善的方式來執行各種API端點，特別主要是那些ASF-ui未實作的端點。 Since our swagger documentation is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the API endpoints that your version of ASF includes.
+除了將我們的Swagger文件作為ASF API的完整規範以外，您還可以將它當作使用者友善的方式來執行各種API端點，特別主要是那些ASF-ui未實作的端點。 由於我們的Swagger文件是由ASF程式碼自動產生的，因此可以保證文件總是會與您ASF版本中包含的API端點同步至最新。
 
 ![Swagger 文件](https://i.imgur.com/mLpd5e4.png)
 
@@ -181,7 +181,7 @@ Authentication can be done through two separate ways.
 
 ### ASF 的 IPC 介面安全嗎？
 
-ASF by default listens only on `localhost` addresses, which means that accessing ASF IPC from any other machine but your own **is impossible**. Unless you modify default endpoints, attacker would need a direct access to your own machine in order to access ASF's IPC, therefore it's as secure as it can be and there is no possibility of anybody else accessing it, even from your own LAN.
+預設情形下，ASF只會在&#8203;`localhost`&#8203;位址上監聽，這代表您自己之外的設備是&#8203;**不可能**&#8203;存取ASF IPC的。 除非您修改了預設的端點，否則攻擊者需要能直接存取您的設備才能存取ASF的IPC，因此這足夠安全，且其他人皆無法存取它，即使是從您的LAN中。
 
 However, if you decide to change default `localhost` bind addresses to something else, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF's IPC interface. In addition to doing that, you will need to set up `IPCPassword`, as ASF will refuse to let other machines access ASF API without one, which adds another layer of extra security. You may also want to run ASF's IPC interface behind a reverse proxy in this case, which is further explained below.
 
