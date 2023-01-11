@@ -183,21 +183,21 @@ Authentication can be done through two separate ways.
 
 預設情形下，ASF只會在&#8203;`localhost`&#8203;位址上監聽，這代表您自己之外的設備是&#8203;**不可能**&#8203;存取ASF IPC的。 除非您修改了預設的端點，否則攻擊者需要能直接存取您的設備才能存取ASF的IPC，因此這足夠安全，且其他人皆無法存取它，即使是從您的LAN中。
 
-However, if you decide to change default `localhost` bind addresses to something else, then you're supposed to set proper firewall rules **yourself** in order to allow only authorized IPs to access ASF's IPC interface. In addition to doing that, you will need to set up `IPCPassword`, as ASF will refuse to let other machines access ASF API without one, which adds another layer of extra security. You may also want to run ASF's IPC interface behind a reverse proxy in this case, which is further explained below.
+但是，如果您決定將預設的&#8203;`localhost`&#8203;連結位址更改成其他位址，那麼您就應&#8203;**自行**&#8203;設定適合的防火牆規則，來讓只有被授權的IP能存取ASF的IPC介面。 除此之外，您還需要設定&#8203;`IPCPassword`&#8203;，因為在沒有密碼的情形下，ASF會拒絕其他設備存取ASF API，這多增加了一層額外的安全性。 在這種情形下，您可能還想在反向代理後面執行ASF的IPC介面，這會在下面進一步說明。
 
 ### 我可以使用自己的工具或腳本存取 ASF API 嗎？
 
-Yes, this is what ASF API was designed for and you can use anything capable of sending a HTTP request to access it. Local userscripts follow **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** logic, and we allow access from all origins for them (`*`), as long as `IPCPassword` is set, as an extra security measure. This allows you to execute various authenticated ASF API requests, without allowing potentially malicious scripts to do that automatically (as they'd need to know your `IPCPassword` to do that).
+可以，這就是ASF API的設計目的，您可以使用任何能夠傳送HTTP請求的工具來存取它。 本機使用者腳本遵循著&#8203;**[CORS](https://zh.wikipedia.org/zh-tw/跨來源資源共享)**&#8203;邏輯，只要設定了&#8203;`IPCPassword`&#8203;作為額外的安全措施，我們就允許任意來源（&#8203;`*`&#8203;）的存取。 這允許您執行各種經身分驗證的ASF API請求，而不允許可能存在的惡意腳本自動執行此操作（因為它們需要知道您的&#8203;`IPCPassword`&#8203;才能執行操作）。
 
 ### 我可以遠端存取 ASF 的 IPC 嗎？例如從另一台設備上？
 
-Yes, we recommend to use a reverse proxy for that. This way you can access your web server in typical way, which will then access ASF's IPC on the same machine. Alternatively, if you don't want to run with a reverse proxy, you can use **[custom configuration](#custom-configuration)** with appropriate URL for that. For example, if your machine is in a VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
+可以，我們建議您為此使用反向代理。 這樣您就可以使用標準的方式存取您的Web伺服器，然後存取同一台設備上ASF的IPC。 或者，假如您不想使用反向代理來執行，您也可以使用&#8203;**[自訂組態](#自訂組態)**&#8203;中適合的URL。 舉例來說，若您的設備使用VPN且位址為&#8203;`10.8.0.1`&#8203;，那麼您可以在IPC設定中設定監聽URL為&#8203;`http://10.8.0.1:1242`&#8203;，這將會允許您從您的私人VPN啟用IPC存取，且無法從其他地方存取。
 
 ### 我可以在 Apache 或 Nginx 等反向代理後使用 ASF 的 IPC 嗎？
 
-**Yes**, our IPC is fully compatible with such setup, so you're free to host it also in front of your own tools for extra security and compatibility, if you'd like to. In general ASF's Kestrel http server is very secure and possesses no risk when being connected directly to the internet, but putting it behind a reverse-proxy such as Apache or Nginx could provide extra functionality that wouldn't be possible to achieve otherwise, such as securing ASF's interface with a **[basic auth](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
+**可以**&#8203;，我們的IPC與這類方法完全相容，因此如果您願意，您也可以在自己的工具前自由代管它，以獲得額外的安全性與相容性。 在一般情形下，ASF的Kestrel HTTP伺服器非常安全，即使直接連線至網際網路也沒有什麼風險，但將其部署在例如Apache或Nginx的反向代理後面，能夠提供一些其他方式無法達成的功能，例如使用&#8203;**[HTTP基本認證](https://zh.wikipedia.org/zh-tw/HTTP基本认证)**&#8203;來保護ASF的介面。
 
-Example Nginx configuration can be found below. We've included full `server` block, although you're interested mainly in `location` ones. Please refer to **[nginx documentation](https://nginx.org/en/docs)** if you need further explanation.
+下列是Nginx的設定範例。 我們包含了完整的&#8203;`server`&#8203;區塊，但您可能對&#8203;`location`&#8203;區塊更感興趣。 若您需要進一步說明，請參閱&#8203;**[Nginx文件](https://nginx.org/en/docs)**&#8203;。
 
 ```nginx
 server {
@@ -209,21 +209,21 @@ server {
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
 
-        # Only if you need to override default host
+        # 只有當您需要複寫預設的Host時
 #       proxy_set_header Host 127.0.0.1;
 
-        # X-headers should always be specified when proxying requests to ASF
-        # They're crucial for proper identification of original IP, allowing ASF to e.g. ban the actual offenders instead of your nginx server
-        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
-        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service on the same machine as ASF, you most likely want to set KnownNetworks appropriately in addition to those
+        # 將請求代理到ASF時，應始終指定X-頭欄位
+        # 這對於正確識別原始IP特別重要，使ASF能夠封鎖真正的攻擊者而不是你的Nginx伺服器
+        # 指定它們使ASF能夠正確解析發出請求的使用者IP位址⸺使Nginx成為反向代理
+        # 不指定它們會使ASF將您的Nginx視為用戶端⸺在這種情形下Nginx將作為普通代理
+        # 若您無法在與ASF相同的設備上代管Nginx服務，除了上述之外，您很可能還想適當地設定KnownNetworks
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
 
-        # We add those 3 extra options for websockets proxying, see https://nginx.org/en/docs/http/websocket.html
+        # 我們加入了下列3個額外選項用於Websocket代理，詳見https://nginx.org/en/docs/http/websocket.html
         proxy_http_version 1.1;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Upgrade $http_upgrade;
@@ -232,14 +232,14 @@ server {
     location / {
         proxy_pass http://127.0.0.1:1242;
 
-        # Only if you need to override default host
+        # 只有當您需要複寫預設的Host時
 #       proxy_set_header Host 127.0.0.1;
 
-        # X-headers should always be specified when proxying requests to ASF
-        # They're crucial for proper identification of original IP, allowing ASF to e.g. ban the actual offenders instead of your nginx server
-        # Specifying them allows ASF to properly resolve IP addresses of users making requests - making nginx work as a reverse proxy
-        # Not specifying them will cause ASF to treat your nginx as the client - nginx will act as a traditional proxy in this case
-        # If you're unable to host nginx service on the same machine as ASF, you most likely want to set KnownNetworks appropriately in addition to those
+        # 將請求代理到ASF時，應始終指定X-頭欄位
+        # 這對於正確識別原始IP特別重要，使ASF能夠封鎖真正的攻擊者而不是你的Nginx伺服器
+        # 指定它們使ASF能夠正確解析發出請求的使用者IP位址⸺使Nginx成為反向代理
+        # 不指定它們會使ASF將您的Nginx視為用戶端⸺在這種情形下Nginx將作為普通代理
+        # 若您無法在與ASF相同的設備上代管Nginx服務，除了上述之外，您很可能還想適當地設定KnownNetworks
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -249,7 +249,7 @@ server {
 }
 ```
 
-Example Apache configuration can be found below. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
+下列是Apache的設定範例。 若您需要進一步說明，請參閱&#8203;**[Apache文件](https://httpd.apache.org/docs)**&#8203;。
 
 ```apache
 <IfModule mod_ssl.c>
@@ -260,7 +260,7 @@ Example Apache configuration can be found below. Please refer to **[apache docum
         SSLCertificateFile /path/to/your/fullchain.pem
         SSLCertificateKeyFile /path/to/your/privkey.pem
 
-        # TODO: Apache can't do case-insensitive matching properly, so we hardcode two most commonly used cases
+        # TODO: Apache無法正確進行不區分大小寫的匹配，因此我們硬編碼了兩種最常使用的情形
         ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
         ProxyPass "/Api/NLog" "ws://127.0.0.1:1242/Api/NLog"
 
@@ -271,15 +271,15 @@ Example Apache configuration can be found below. Please refer to **[apache docum
 
 ### 我可以透過 HTTPS 協定存取 IPC 介面嗎？
 
-**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. This way your traffic is fully encrypted and you don't need to modify IPC in any way to support such setup.
+**可以**&#8203;，您可以透過兩種不同的方式來達成。 建議的方式是為此使用反向代理，您可以像平常一樣透過HTTPS來存取您的Web伺服器，且透過它來連接同一台設備上的ASF IPC介面。 這樣您的流量將完全被加密，且您無需修改IPC來支援這樣的設定。
 
-Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. This way is recommended if you're not running any other web server and don't want to run one exclusively for ASF. Otherwise, it's much easier to achieve a satisfying setup by using a reverse proxy mechanism.
+第二種方式是為ASF的IPC介面指定&#8203;**[自訂組態](#自訂組態)**&#8203;，您可以在裡面啟用THHPS端點，並直接向我們的 Kestrel HTTP伺服器提供適合的憑證。 若您沒有執行任何其他Web伺服器，且也不想專門為ASF執行Web伺服器，則建議使用這種方法。 否則，透過反向代理機制來達成想要的設定會容易得多。
 
 ---
 
-### During startup of IPC I'm getting an error: `System.IO.IOException: Failed to bind to address, An attempt was made to access a socket in a way forbidden by its access permissions`
+### 在 IPC 的啟動期間，我遇到了錯誤：`System.IO.IOException: Failed to bind to address, An attempt was made to access a socket in a way forbidden by its access permissions`
 
-This error indicates that something else on your machine is either already using that port, or reserved it for future use. This could be you if you're attempting to run second ASF instance on the same machine, but most often that's Windows excluding port `1242` from your usage, therefore you'll have to move ASF to another port. In order to do that, follow **[example config](#changing-default-port)** above, and simply try to pick another port, such as `12420`.
+這個錯誤代表您設備上的其他程式正在使用該連接埠，或者保留於將來使用。 這也可能是您在嘗試於同一台設備上執行第二個ASF實例所導致的，但大多數情形下，這是Windows將&#8203;`1242`&#8203;連接埠從您能使用的範圍排除，因此您需要將ASF移至另一個連接埠上。 為此，請依上述&#8203;**[設定範例](#更改預設連接埠)**&#8203;操作，嘗試選擇另一個連接埠，例如&#8203;`12420`&#8203;。
 
 Of course you could also try to find out what is blocking port `1242` from ASF usage, and remove that, but that's usually far more troublesome than simply instructing ASF to use another port, so we'll skip elaborating further on that here.
 
