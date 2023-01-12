@@ -91,9 +91,9 @@ ASF雙重驗證是一個內建模組，負責為ASF程序提供雙重驗證功�
 
 ### WinAuth
 
-首先，在ASF的config資料夾中新增一個空的&#8203;`BotName.maFile`&#8203;，其中&#8203;`BotName`&#8203;是您要加入ASF雙重驗證的Bot名稱。 記住，檔案名稱應為&#8203;`BotName.maFile`&#8203;，而不是&#8203;`BotName.maFile.txt`&#8203;，Windows預設會隱藏副檔名。 若您提供錯誤的檔名，ASF將無法偵測到。
+首先，在ASF的config資料夾中新增一個空的&#8203;`BotName.maFile`&#8203;，其中&#8203;`BotName`&#8203;是您要加入ASF雙重驗證的Bot名稱。 記住，檔案名稱應為&#8203;`BotName.maFile`&#8203;，而不是&#8203;`BotName.maFile.txt`&#8203;，Windows預設會隱藏副檔名。 若您提供錯誤的檔名，ASF將無法偵測到它。
 
-現在像平常一樣啟動WinAuth。 右鍵點擊Steam圖示，然後選擇「顯示Steam Guard與恢復代碼」。 然後選擇「允許複製」。 您應該能在視窗底部發現以&#8203;`{`&#8203;開頭的JSON結構。 複製整個本文到上一步您所建立的&#8203;`BotName.maFile`&#8203;檔案中。
+現在像平常一樣啟動WinAuth。 右鍵點擊Steam圖示，然後選擇「Show SteamGuard and Recovery Code」。 然後選擇「Allow copy」。 您應該能在視窗底部發現以&#8203;`{`&#8203;開頭的JSON結構。 複製整個本文到上一步您所建立的&#8203;`BotName.maFile`&#8203;檔案中。
 
 若您做的完全正確，啟動ASF，您應該會看到：
 

@@ -78,6 +78,6 @@ ASF 是并且现在仍然是免费、开放源代码的，一如在 2015 年 10 
 
 ### 如何获取访问权限？
 
-`ItemsMatcher` 在 **[JustArchi 的 GitHub](https://github.com/sponsors/JustArchi)** 作为 $5+ 赞助者等级的奖励提供。 您只需要成为 $5 或更高等级的赞助者，然后阅读[**配置**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#licenseid)章节来获取和填写 `LicenseID`。 然后，只需要在您要启用的机器人的 `TradingPreferences` 配置中启用 `MatchActively` 即可。
+`ItemsMatcher` 在 **[JustArchi 的 GitHub](https://github.com/sponsors/JustArchi)** 作为每月 $5+ 赞助者等级的奖励提供。 作为一次性赞助者也可以，但在这种情况下，许可证的有效期只有一个月（有可能以相同方式延期）。 您只需要成为 $5 或更高等级的赞助者，然后阅读[**配置**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#licenseid)章节来获取和填写 `LicenseID`。 然后，只需要在您要启用的机器人的 `TradingPreferences` 配置中启用 `MatchActively` 即可。
 
-此许可证允许您向服务器发送有限数量的请求。 $5 等级允许您为一个机器人帐户启用 `MatchActively`（每天 4 次请求），每追加 $5 增加两个额外的机器人帐户（每天 8 次请求）。
+此许可证允许您向服务器发送有限数量的请求。 $5 等级允许您为一个机器人帐户启用 `MatchActively`（每天 4 次请求），每追加 $5 增加两个额外的机器人帐户（每天 8 次请求）。 例如，如果您想在三个账户上运行，$10 或者更高等级就可以满足需求。

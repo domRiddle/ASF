@@ -151,7 +151,7 @@ ASF-ui是一個社群專案，旨在為最終使用者建立使用者友善的�
 
 預設情形下，ASF IPC介面不需要任何形式的身分驗證，因為&#8203;`IPCPassword`&#8203;設定成&#8203;`null`&#8203;。 但是，如果&#8203;`IPCPassword`&#8203;被設定成任意非空值來啟用，每個ASF的API呼叫都需要匹配&#8203;`IPCPassword`&#8203;的密碼。 若您省略了認證資訊或輸入了錯誤的密碼，您將會收到&#8203;`401 - Unauthorized`&#8203;錯誤。 在5次身分驗證的嘗試失敗後（密碼錯誤），您將收到&#8203;`403 - Forbidden`&#8203;錯誤並會被暫時封鎖。
 
-Authentication can be done through two separate ways.
+可以經由兩種方式進行身分驗證。
 
 ## `Authentication` 表頭資料
 
@@ -279,16 +279,16 @@ server {
 
 ### 在 IPC 的啟動期間，我遇到了錯誤：`System.IO.IOException: Failed to bind to address, An attempt was made to access a socket in a way forbidden by its access permissions`
 
-這個錯誤代表您設備上的其他程式正在使用該連接埠，或者保留於將來使用。 這也可能是您在嘗試於同一台設備上執行第二個ASF實例所導致的，但大多數情形下，這是Windows將&#8203;`1242`&#8203;連接埠從您能使用的範圍排除，因此您需要將ASF移至另一個連接埠上。 為此，請依上述&#8203;**[設定範例](#更改預設連接埠)**&#8203;操作，嘗試選擇另一個連接埠，例如&#8203;`12420`&#8203;。
+這個錯誤代表您設備上的其他程式正在使用該連接埠，或者保留於將來使用。 這也可能是您嘗試在同一台設備上執行第二個ASF實例所導致的，但大多數情形下，這是Windows將&#8203;`1242`&#8203;連接埠從您能使用的範圍排除，因此您需要將ASF移至另一個連接埠上。 為此，請依上述&#8203;**[設定範例](#更改預設連接埠)**&#8203;操作，嘗試選擇另一個連接埠，例如&#8203;`12420`&#8203;。
 
-Of course you could also try to find out what is blocking port `1242` from ASF usage, and remove that, but that's usually far more troublesome than simply instructing ASF to use another port, so we'll skip elaborating further on that here.
+當然，您也可以嘗試找出是什麼阻止ASF使用&#8203;`1242`&#8203;連接埠，並移除它，但這通常比直接讓ASF使用另一個連接埠來的麻煩得多，因此我們在這裡將跳過進一步的詳細說明。
 
 ---
 
 ### 為什麼我在不使用 `IPCPassword` 時，收到 `403 Forbidden` 錯誤？
 
-Starting with ASF V5.1.2.1, we've added additional security measure that, by default, allows only loopback interface (`localhost`, your own machine) to access ASF API without `IPCPassword` set in the config. This is because using `IPCPassword` should be a **minimum** security measure set by everybody who decides to expose ASF interface further.
+ASF從V5.1.2.1版本開始，我們加入了額外的安全措施。在預設情形下，只允許回送介面（&#8203;`localhost`&#8203;，您自己的設備）在不設定&#8203;`IPCPassword`&#8203;的情形下存取ASF API。 這是因為使用&#8203;`IPCPassword`&#8203;應該是每個決定進一步公開ASF介面的人所需的&#8203;**最低限度**&#8203;安全措施。
 
-The change was dictated by the fact that massive amount of ASFs hosted globally by unaware users were being taken over for malicious intents, usually leaving people without accounts and without items on them. Now we could say "they could read this page before opening ASF to the entire world", but instead it makes more sense to disallow insecure ASF setups by default, and require from users an action if they explicitly want to allow it, which we elaborate about below.
+之所以做出這個改動，是因為大量不知情的使用者代管的ASF被惡意接管，通常會導致他們失去自己的帳號及物品。 雖然我們可以說「他們應當在向全世界公開ASF之前閱讀本頁面」，但預設成不允許不安全的ASF設定則更為合理，且使用者確切想要允許它時，就需要使用者執行操作，我們在下列有詳細的說明。
 
-In particular, you're able to override our decision by specifying the networks which you trust to reach ASF without `IPCPassword` specified, you can set those in `KnownNetworks` property in custom config. However, unless you **really** know what you're doing and fully understand the risks, you should instead use `IPCPassword` as declaring `KnownNetworks` will allow everybody from those networks to access ASF API unconditionally. We're serious, people were already shooting themselves in the foot believing their reverse proxies and iptables rules were secure, but they weren't, `IPCPassword` is the first and sometimes the last guardian, if you decide to opt out of this simple, yet very effective and secure mechanism, you'll have only yourself to blame.
+特別是您可以透過指定您信任的網路來複寫我們的決定，在未指定&#8203;`IPCPassword`&#8203;的情形下存取ASF，您可以在自訂設定中的&#8203;`KnownNetworks`&#8203;屬性中設定它們。 但是，除非您&#8203;**確實**&#8203;知道您在做什麼，且完全了解風險，否則您應該使用&#8203;`IPCPassword`&#8203;，因為宣告&#8203;`KnownNetworks`&#8203;會允許這些網路中的每個人無條件能存取ASF API。 我們非常認真地說，人們已在自作自受，相信他們的反向代理及iptable規則是安全的，但實際上並非如此，&#8203;`IPCPassword`&#8203;是第一道防線，有時也是最後一道，如果您決定退出這種簡單但非常有效的安全機制，那只能自行負責。
