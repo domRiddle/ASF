@@ -33,7 +33,7 @@ Public info (exposed by Steam to every interested party) includes:
 - Your nickname (for display purposes)
 - Your avatar (hash, for display purposes)
 
-Semi-public info (exposed by Steam to every interested party if you meet listing requirements) includes:
+Conditionally public info (exposed by Steam to every interested party if you meet listing requirements) includes:
 - Your **[inventory](https://steamcommunity.com/my/inventory/#753_6)** (so people can use `MatchActively` against your items).
 
 Private info (selected data required for providing the functionality) includes:
