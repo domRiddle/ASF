@@ -15,59 +15,59 @@ ASF有4種主要類型的&#8203;**[標籤](https://hub.docker.com/r/justarchi/ar
 
 ### `main`
 
-本標籤始終指向在&#8203;`main`&#8203;分支中ASF所提交的最新建置版本，其運作原理等同於直接從我們的&#8203;**[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)**&#8203;管線中抓取最新產生的版本。 通常您應避免使用此標籤，因為它是以開發為目的，專為開發人員及進階使用者的軟體，含有大量的錯誤。 該映像會隨著GitHub的&#8203;`main`&#8203;分支每次提交而更新，因此您可以預期它會頻繁更新（且經常損壞）。 這是我們用來標示ASF專案的當前狀態，不一定能保證穩定或經過測試，就像在我們的發布週期中所說明的那樣。 此標籤不應在任何生產環境中使用。
+本標籤始終指向在&#8203;`main`&#8203;分支中ASF所提交的最新建置版本，其運作原理等同於直接從我們的&#8203;**[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)**&#8203;管線中抓取最新產生的版本。 通常您應避免使用此標籤，因為它是以開發為目的，專為開發人員及進階使用者的軟體，含有大量的錯誤。 該映像檔會隨著GitHub的&#8203;`main`&#8203;分支每次提交而更新，因此您可以預期它會頻繁更新（且經常損壞）。 這是我們用來標示ASF專案的當前狀態，不一定能保證穩定或經過測試，就像在我們的發布週期中所說明的那樣。 此標籤不應在任何生產環境中使用。
 
 
 ### `released`
 
-與上述標籤非常相似，本標籤始終指向ASF&#8203;**[最新發布](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;的版本，包含預覽版本。 與&#8203;`main`&#8203;標籤不同，此映像會在每次推播新的GitHub標籤時更新。 為喜歡冒險、敢於嘗試新事物但又可能穩定的進階使用者所準備。 若您不想使用&#8203;`latest`&#8203;標籤，我們建議您使用此標籤。 實際上，它的運作方式與滾動標籤在推進時指向最新&#8203;`A.B.C.D`&#8203;版本的方式相同。 請注意，使用此標籤與使用我們的&#8203;**[預覽版本](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-TW)**&#8203;是相同的。
+與上述標籤非常相似，本標籤始終指向ASF&#8203;**[最新發布](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;的版本，包含預覽版本。 與&#8203;`main`&#8203;標籤不同，此映像檔會在每次推播新的GitHub標籤時更新。 為喜歡冒險、敢於嘗試新事物但又可能穩定的進階使用者所準備。 若您不想使用&#8203;`latest`&#8203;標籤，我們建議您使用此標籤。 實際上，它的運作方式與滾動標籤在拉取時指向最新&#8203;`A.B.C.D`&#8203;版本的方式相同。 請注意，使用此標籤與使用我們的&#8203;**[預覽版本](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-TW)**&#8203;是相同的。
 
 
 ### `latest`
 
-與其他標籤相比，只有本標籤包含了ASF的自動更新功能，且指向ASF最新的&#8203;**[穩定版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;。 此標籤的目的是提供一個預設的合理Docker容器，能執行適用於特定作業系統的ASF建置版本的自動更新。 Because of that, the image doesn't have to be updated as often as possible, as included ASF version will always be capable of updating itself if needed. Of course, `UpdatePeriod` can be safely turned off (set to `0`), but in this case you should probably use frozen `A.B.C.D` release instead. Likewise, you can modify default `UpdateChannel` in order to make auto-updating `released` tag instead.
+與其他標籤相比，只有本標籤包含了ASF的自動更新功能，且指向ASF最新的&#8203;**[穩定版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;。 此標籤的目的是提供一個預設的合理Docker容器，能執行適用於特定作業系統的ASF建置版本的自動更新。 因此，此映像檔不需要經常更新，因為所包含的ASF版本將會在需要時進行自動更新。 當然，可以安全關閉&#8203;`UpdatePeriod`&#8203;（設定成&#8203;`0`&#8203;），但在這種情形下，您可能更應使用固定的&#8203;`A.B.C.D`&#8203;版本。 同樣地，您可以修改預設的&#8203;`UpdateChannel`&#8203;，以改為自動更新&#8203;`released`&#8203;標籤。
 
-Due to the fact that the `latest` image comes with capability of auto-updates, it includes bare OS with OS-specific `linux` ASF version, contrary to all other tags that include OS with .NET runtime and `generic` ASF version. This is because newer (updated) ASF version might also require newer runtime than the one the image could possibly be built with, which would otherwise require image to be re-built from scratch, nullifying the planned use-case.
+由於&#8203;`latest`&#8203;映像檔具有自動更新功能，它具有&#8203;`linux`&#8203;作業系統特定的裸作業系統ASF版本，與所有其他標籤相反，包含含有.NET作業系統執行環境及&#8203;`generic`&#8203;的ASF版本。 這是因為較新（更新後）的ASF版本可能會需要比映像檔內建還要新的執行環境，這將需要從頭開始重新建置映像檔，並使使用計畫無效。
 
 ### `A.B.C.D`
 
-In comparison with above tags, this tag is completely frozen, which means that the image won't be updated once published. This works similar to our GitHub releases that are never touched after the initial release, which guarantees you stable and frozen environment. Typically you should use this tag when you want to use some specific ASF release and you don't want to use any kind of auto-updates (e.g. those offered in `latest` tag).
+與上述的標籤相比，本標籤是固定的，這代表映像檔一經發布就不再會更新。 這個運作方式與我們GitHub發布版本相似，在最初的版本發布後就不會變動，這將保證您的環境穩定。 通常，當您想使用特定的ASF版本，且不想使用任何類型的自動更新（例如&#8203;`latest`&#8203;標籤所提供的）時，您就應該使用此標籤。
 
 ---
 
 ## 哪個標籤最適合我？
 
-That depends on what you're looking for. For majority of users, `latest` tag should be the best one as it offers exactly what desktop ASF does, just in special Docker container as a service. People that are rebuilding their images quite often and would instead prefer full control with ASF version tied to given release are welcome to use `released` tag. If you instead want to use some specific frozen ASF version that will never change without your clear intention, `A.B.C.D` releases are available for you as fixed ASF milestones you can always fall back to.
+這取決於您的需求。 對於大多數使用者來說，&#8203;`latest`&#8203;標籤應該是最好的，因為它提供了桌面執行ASF時所有的一切，區別只是作為服務執行在特殊的Docker容器中。 而那些經常重新建立映像檔，或想要自己完全控制ASF版本的人來說，可能會更喜歡&#8203;`released`&#8203;標籤。 若您想要使用某個固定的ASF版本，或在您沒有打算時永遠不會變更版本，&#8203;`A.B.C.D`&#8203;版本可供您使用，作為ASF固定的里程碑，隨時都可以回溯至此。
 
-We generally discourage trying `main` builds, as those are here for us to mark current state of ASF project. Nothing guarantees that such state will work properly, but of course you're more than welcome to give them a try if you're interested in ASF development.
+一般來說我們不建議使用&#8203;`main`&#8203;建置版本，因為這只是用來標示ASF專案當前狀態的。 這種狀態無法保證能正常運作，但是如果您對ASF的開發感興趣，非常歡迎您去嘗試。
 
 ---
 
 ## 架構
 
-ASF docker image is currently built on `linux` platform targetting 3 architectures - `x64`, `arm` and `arm64`. You can read more about them in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section.
+ASF Docker映像檔目前建立於&#8203;`linux`&#8203;平台上，針對3種架構：&#8203;`x64`&#8203;、&#8203;`arm`&#8203;及&#8203;`arm64`&#8203;。 您可以在&#8203;**[相容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW)**&#8203;章節中了解更多。
 
-Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker run`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
+從ASF V5.0.2.2版本開始，我們的標籤使用多平台清單，這代表安裝在您設備上的Docker會在拉取時自動選擇適合的映像檔。 若您需要拉取不符合您當前執行平台的特定映像檔，您可以透過適當的Docker命令&#8203;`--platform`&#8203;切換，例如&#8203;`docker run`&#8203;。 查看關於&#8203;**[映像檔清單](https://docs.docker.com/registry/spec/manifest-v2-2)**&#8203;的Docker文件以了解更多。
 
 ---
 
 ## 使用方法
 
-For complete reference you should use **[official docker documentation](https://docs.docker.com/engine/reference/commandline/docker)**, we'll cover only basic usage in this guide, you're more than welcome to dig deeper.
+若需完整資料，請使用&#8203;**[Docker官方文件](https://docs.docker.com/engine/reference/commandline/docker)**&#8203;，我們在本指南中只會介紹基本用法，歡迎您去更深入的挖掘。
 
 ### 你好，ASF！
 
-Firstly we should verify if our docker is even working correctly, this will serve as our ASF "hello world":
+首先，我們應該驗證Docker是否運作正常，作為我們ASF的「Hello World」：
 
 ```shell
 docker run -it --name asf --pull always --rm justarchi/archisteamfarm
 ```
 
-`docker run` creates a new ASF docker container for you and runs it in the foreground (`-it`). `--pull always` ensures that up-to-date image will be pulled first, and `--rm` ensures that our container will be purged once stopped, since we're just testing if everything works fine for now.
+`docker run`&#8203;會為您建立一個新的ASF Docker容器，並在前景中執行（&#8203;`-it`&#8203;）。 `--pull always`&#8203;確保會最先拉取最新的映像檔，而&#8203;`--rm`&#8203;確保我們的容器在停止之後會被清除，因為我們現在只是測試一切是否運作正常。
 
-If everything ended successfully, after pulling all layers and starting container, you should notice that ASF properly started and informed us that there are no defined bots, which is good - we verified that ASF in docker works properly. Hit `CTRL+P` then `CTRL+Q` in order to quit foreground docker container, then stop ASF container with `docker stop asf`.
+若一切運作正常，在拉取所有層並啟動容器後，您應該會注意到ASF已正確啟動，並通知我們目前沒有定義任何Bot，這很好⸺我們驗證了ASF在Docker中運作正常。 先按&#8203;`CTRL+P`&#8203;，再按&#8203;`CTRL+Q`&#8203;來退出Docker容器前景，然後使用&#8203;`docker stop asf`&#8203;停止ASF容器。
 
-If you take a closer look at the command then you'll notice that we didn't declare any tag, which automatically defaulted to `latest` one. If you want to use other tag than `latest`, for example `released`, then you should declare it explicitly:
+若仔細查看該命令，您會注意到我們沒有宣告任何標籤，它會自動預設成&#8203;`latest`&#8203;。 如果您想要使用與&#8203;`latest`&#8203;不同的標籤，例如&#8203;`released`&#8203;，那麼您應該顯性宣告：
 
 ```shell
 docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
