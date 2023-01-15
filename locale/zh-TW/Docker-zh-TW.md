@@ -53,7 +53,7 @@ ASF Docker映像檔目前建立於&#8203;`linux`&#8203;平台上，針對3種架
 
 ## 使用方法
 
-若需完整資料，請使用&#8203;**[Docker官方文件](https://docs.docker.com/engine/reference/commandline/docker)**&#8203;，我們在本指南中只會介紹基本用法，歡迎您去更深入的挖掘。
+若需完整資料，請使用&#8203;**[Docker官方文件](https://docs.docker.com/engine/reference/commandline/docker)**&#8203;，我們在本指南中只會介紹基礎用法，歡迎您去更深入的挖掘。
 
 ### 你好，ASF！
 
@@ -77,45 +77,45 @@ docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 
 ## 使用卷
 
-If you're using ASF in docker container then obviously you need to configure the program itself. You can do it in various different ways, but the recommended one would be to create ASF `config` directory on local machine, then mount it as a shared volume in ASF docker container.
+若您在Docker容器中使用ASF，那麼很明顯您需要設定程式自身。 您可以透過不同方式做到，但建議是在本機電腦中建立&#8203;`config`&#8203;資料夾，然後在ASF Docker容器中掛載它作為共用卷。
 
-For example, we'll assume that your ASF config folder is in `/home/archi/ASF/config` directory. This directory contains core `ASF.json` as well as bots that we want to run. Now all we need to do is simply attaching that directory as shared volume in our docker container, where ASF expects its config directory (`/app/config`).
+舉例來說，我們假設您的ASF設定資料夾位於&#8203;`/home/archi/ASF/config`&#8203;資料夾中。 這個資料夾包含&#8203;`ASF.json`&#8203;核心與我們想要執行的Bot。 現在我們只需要將這個資料夾當作共用卷附加至Docker容器中，也就是ASF的設定資料夾（&#8203;`/app/config`&#8203;）。
 
 ```shell
 docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-And that's it, now your ASF docker container will use shared directory with your local machine in read-write mode, which is everything you need for configuring ASF. In similar way you can mount other volumes that you'd like to share with ASF, such as `/app/logs` or `/app/plugins/MyCustomPluginDirectory`.
+就是這樣，現在您的ASF Docker容器將會以讀寫模式使用您本機電腦的共用資料夾，這是設定ASF的一切。 您可以使用相同的方式掛載您想要與ASF共用的其他卷，例如&#8203;`/app/logs`&#8203;或&#8203;`/app/plugins/MyCustomPluginDirectory`&#8203;。
 
-Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF docker container. We're only covering basic usage in this guide.
+當然，這只是達成我們目標的一種特定方式，沒有什麼阻止您，例如建立您自己的&#8203;`Dockerfile`&#8203;將您的設定檔複製至ASF Docker容器中的&#8203;`/app/config`&#8203;資料夾中。 本指南只會涵蓋基礎用法。
 
 ### 卷的權限
 
-ASF container by default is initialized with default `root` user, which allows it to handle the internal permissions stuff and then eventually switch to `asf` (UID `1000`) user for the remaining part of the main process. While this should be satisfying for the vast majority of users, it does affect the shared volume as newly-generated files will be normally owned by `asf` user, which may not be desired situation if you'd like some other user for your shared volume.
+ASF容器預設是以預設的&#8203;`root`&#8203;使用者初始化，這使容器能夠處理內部權限問題，然後再切換成&#8203;`asf`&#8203;（UID &#8203;`1000`&#8203;）使用者來處理主程序的剩餘部分。 雖然這對絕大多數使用者來說應該能夠接受，但它確實會影響共用卷，因為新建立的檔案擁有者會是&#8203;`asf`&#8203;使用者，如果您想讓其他使用者使用您的共用卷，這可能就不是很理想了。
 
-Docker allows you to pass `--user` **[flag](https://docs.docker.com/engine/reference/run/#user)** to `docker run` command which will define default user that ASF will run under. You can check your `uid` and `gid` for example with `id` command, then pass it to the rest of the command. For example, if your target user has `uid` and `gid` of 1001:
+Docker允許您向&#8203;`docker run`&#8203;命令傳遞&#8203;`--user`&#8203;**[旗標](https://docs.docker.com/engine/reference/run/#user)**&#8203;，定義執行ASF的預設使用者。 您可以透過例如&#8203;`id`&#8203;之類的命令來查詢您的&#8203;`uid`&#8203;及&#8203;`gid`&#8203;，然後把它傳遞給剩餘的命令。 舉例來說，假設您的目標使用者的&#8203;`uid`&#8203;及&#8203;`gid`&#8203;皆為1001：
 
 ```shell
 docker run -it -u 1001:1001 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Remember that by default `/app` directory used by ASF is still owned by `asf`. If you run ASF under custom user, then your ASF process won't have write access to its own files. This access is not mandatory for operation, but it is crucial e.g. for auto-updates feature. In order to fix this, it's enough to change ownership of all ASF files from default `asf` to your new custom user.
+記住，預設情形下，ASF使用的&#8203;`/app`&#8203;資料夾仍為&#8203;`asf`&#8203;所擁有。 若您使用自訂使用者執行ASF，那麼您的ASF程序不會擁有寫入自身檔案的權限。 這個權限並非操作所必需的，但對於某些功能來說相當重要，例如自動更新功能。 若要解決此問題，只需將ASF的所有檔案擁有者從預設的&#8203;`asf`&#8203;改成您新增的使用者即可。
 
 ```shell
 docker exec -u root asf chown -hR 1001:1001 /app
 ```
 
-This has to be done only once after you created your container with `docker run`, and only if you decided to use custom user for ASF process. Also don't forget to change `1001:1001` argument in both commands above to the `uid` and `gid` you actually want to run ASF under.
+在您使用&#8203;`docker run`&#8203;建立您的容器以後，只需執行一次，且只有在您決定為ASF程序使用自訂使用者時才需執行。 也不要忘記將上述命令中的&#8203;`1001:1001`&#8203;引數更改成您實際想要執行ASF的&#8203;`uid`&#8203;及&#8203;`gid`&#8203;。
 
 ### 在 SELinux 使用卷
 
-If you're using SELinux in enforced state on your OS, which is the default for example on RHEL-based distros, then you should mount the volume appending `:Z` option, which will set correct SELinux context for it.
+若您在作業系統上以強制狀態使用SELinux，這是例如基於RHEL發行版的預設設定，那麼您應該在掛載卷時附加&#8203;`:Z`&#8203;選項，這才會正確設定SELinux的上下文。
 
 ```
 docker run -it -v /home/archi/ASF/config:/app/config:Z --name asf --pull always justarchi/archisteamfarm
 ```
 
-This will allow ASF to create files targetting the volume while inside docker container.
+這會允許ASF在Docker容器中建立以卷為目標的檔案。
 
 ---
 
