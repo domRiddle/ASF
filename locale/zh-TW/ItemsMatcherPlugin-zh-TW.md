@@ -8,7 +8,7 @@
 
 顧名思義，公開清單是當前可供使用的ASF STM Bot的清單。 它位於&#8203;**[我們的網站](https://asf.justarchi.net/STM)**&#8203;上，進行自動管理並作為一項公共服務，提供使用&#8203;`MatchActively`&#8203;的ASF使用者及手動匹配的ASF與非ASF使用者使用。
 
-為了被列出來，您需要滿足一系列的需求。 您必須至少在&#8203;`RemoteCommunication`&#8203;中允許&#8203;`PublicListing`&#8203;（預設設定）、在&#8203;`TradingPreferences`&#8203;中啟用&#8203;`SteamTradeMatcher`&#8203;、隱私設定成&#8203;**[公開物品庫](https://steamcommunity.com/my/edit/settings)**&#8203;、&#8203;**[不受限制的](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**&#8203;帳號、啟用&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW#asf-雙重驗證)**&#8203;，且至少擁有&#8203;`100`&#8203;件符合&#8203;`MatchableTypes`&#8203;的物品，例如交換卡片。
+為了被列出來，您需要滿足一系列的需求。 您必須至少在&#8203;`RemoteCommunication`&#8203;中允許&#8203;`PublicListing`&#8203;（預設設定）、在&#8203;`TradingPreferences`&#8203;中啟用&#8203;`SteamTradeMatcher`&#8203;、隱私設定成&#8203;**[公開物品庫](https://steamcommunity.com/my/edit/settings)**&#8203;、&#8203;**[不受限制的](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**&#8203;帳號，且啟用&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW#asf-雙重驗證)**&#8203;。 當然，您需要至少擁有一件符合&#8203;`MatchableTypes`&#8203;的物品，例如交換卡片。
 
 雖然&#8203;`PublicListing`&#8203;預設為啟用，但請注意，如果您不滿足所有要求，您將&#8203;**不會**&#8203;被顯示在網站上，特別是&#8203;`SteamTradeMatcher`&#8203;，它在預設情形下並未啟用。 對於不滿足條件的人，即使他們保持啟用&#8203;`PublicListing`&#8203;，ASF也不會以任何方式與伺服器通訊。 公開清單也只會與ASF最新的穩定版相容，並可能拒絕顯示過時的Bot，特別是如果它們缺少只能在新版本中找到的核心功能。
 
@@ -33,7 +33,7 @@ ASF STM清單暫時只接受ASF Bot。 目前無法在我們的清單中顯示�
 - 您的暱稱（用於顯示）
 - 您的頭像（雜湊值，用於顯示）
 
-半公開資訊（Steam向所有符合清單需求相關者公開的）包括：
+有條件的公開資訊（Steam向所有符合清單需求相關者公開的）包括：
 - 您的&#8203;**[物品庫](https://steamcommunity.com/my/inventory/#753_6)**&#8203;（使其他人可以對您的物品使用&#8203;`MatchActively`&#8203;）。
 
 私人資訊（提供功能所需的特定資料）包括：
@@ -41,6 +41,8 @@ ASF STM清單暫時只接受ASF Bot。 目前無法在我們的清單中顯示�
 - 您的&#8203;`MatchableTypes`&#8203;設定（用於顯示及匹配）
 - 您的&#8203;`MatchEverything`&#8203;設定（用於顯示及匹配）
 - 您的&#8203;`MaxTradeHoldDuration`&#8203;設定（使其他人知道您是否願意接受他們的交易）
+
+從您停止使用（停止顯示於）我們的清單後，您的資料最多儲存一周，且在其間後自動刪除。
 
 ---
 
@@ -70,14 +72,16 @@ ASF是也仍是免費且開源的，它是在2015年10月專案開始時建立�
 
 在很長的一段時間內，直到2022年10月，&#8203;`MatchActively`&#8203;功能一直是ASF核心的一部分，來提供所有人使用。 在2022年10月時，Steam背後的公司Valve對提取其他Bot的物品庫設定了非常嚴格的速率限制，使得原先的功能完全崩潰，且沒有任何可行的解決方案。 因此，由於該功能已完全失效且無法修復，作為過時功能，已在5.4.1.0版本從ASF核心中移除。
 
-`MatchActively`&#8203;作為官方&#8203;`ItemsMatcher`&#8203;外掛程式的一部分涅槃重生，該外掛程式進一步增強了ASF的交換卡片主動匹配功能。 恢復&#8203;`MatchActively`&#8203;功能需要我們&#8203;**大量的工作**&#8203;來建立ASF後端，這是代管在伺服器上的全新服務，加入了超過一千個用於解析物品庫的代理節點，而所有的這些都是為了讓ASF用戶端能像以前一樣使用&#8203;`MatchActively`&#8203;。 因為涉及的工作量過大，且所用資源並不是免費的，需要我們每月付款（網域、伺服器、網路代理），我們決定只向我們的贊助者提供此功能，也就是說，那些已在每個月支援ASF專案的人。
+`MatchActively`&#8203;作為官方&#8203;`ItemsMatcher`&#8203;外掛程式的一部分涅槃重生，該外掛程式進一步增強了ASF的交換卡片主動匹配功能。 恢復&#8203;`MatchActively`&#8203;功能需要我們&#8203;**大量的工作**&#8203;來建立ASF後端，這是代管在伺服器上的全新服務，加入了超過一百個用於解析物品庫的代理節點，而所有的這些都是為了讓ASF用戶端能像以前一樣使用&#8203;`MatchActively`&#8203;。 因為涉及的工作量過大，且所用資源並不是免費的，需要我們每月付款（網域、伺服器、網路代理），我們決定只向我們的贊助者提供此功能，也就是說，那些已在每個月支援ASF專案的人。
 
-我們的目標並不是從中獲利，而是支付本功能相關的&#8203;**月費**&#8203;⸺這就是為什麼我們基本上免費提供它，但我們仍需為此收取一點費用的原因，因為我們無法自掏腰包支付數百美元，只是為了讓您可以使用它。 另一種選擇是根本完全不使用這項功能，如果您出於任何原因，無法決定依據上述條件來使用它，就適用於這個情形。 我們了解不是每個人都支持這樣做，且我們希望您也能了解為什麼我們無法免費提供它。
+我們的目標並不是從中獲利，而是支付本功能相關的&#8203;**月費**&#8203;⸺這就是為什麼我們基本上免費提供它，但我們仍需為此收取一點費用的原因，因為我們無法自掏腰包支付數百美元，只是為了讓您可以使用它。 We're not really in a position to discuss the price either, it's Valve that forced those costs upon us, and the alternative is to not have such feature available at all, which of course applies if you decide, for whatever reason, that you can't justify using our plugin on those terms.
+
+不論如何，我們了解不是每個人都支持&#8203;`MatchActively`&#8203;，且我們希望您也能了解為什麼我們無法免費提供它。
 
 ---
 
 ### 我要如何獲得使用權限？
 
-`ItemsMatcher`&#8203;在JustArchi的GitHub上作為每月$5美元或以上贊助階級的一部分提供。 您也可以成為一次性贊助者，但在這種情形下，授權的有效期限只有一個月（可以用相同的方式延期）。 只需成為$5美元（或更高）階級的贊助者，然後閱讀&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#licenseid)**&#8203;章節，以獲得並填寫&#8203;`LicenseID`&#8203;。 之後，只需在您所選Bot的&#8203;`TradingPreferences`&#8203;中啟用&#8203;`MatchActively`&#8203;即可。
+`ItemsMatcher`&#8203;在JustArchi的GitHub上作為每月$5美元或以上贊助階級的一部分提供。 您也可以成為一次性贊助者，但在這種情形下，授權的有效期限只有一個月（可以用相同的方式延期）。 只要成為$5美元（或更高）階級的贊助者，閱讀&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#licenseid)**&#8203;章節，以獲得並填寫&#8203;`LicenseID`&#8203;。 之後，您只需在您所選Bot的&#8203;`TradingPreferences`&#8203;中啟用&#8203;`MatchActively`&#8203;即可。
 
 授權碼允許您向伺服器傳送有限數量的請求。 $5美元的階級允許您為一個Bot帳號使用&#8203;`MatchActively`&#8203;（每天4個請求），且每增加$5美元就能增加兩個Bot帳號（每天8個請求）。 舉例來說，若您想要在三個帳號上使用它，就必需使用$10美元或以上的階級。

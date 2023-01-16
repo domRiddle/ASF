@@ -8,7 +8,7 @@
 
 Public listing, as the name implies, is listing of currently available ASF STM bots. It's located on **[our website](https://asf.justarchi.net/STM)**, managed automatically and used as a public service for both ASF users that make use of `MatchActively`, as well as ASF and non-ASF users for manual matching.
 
-In order to be listed, you have a set of requirements to meet. At the minimum you must have allowed `PublicListing` in `RemoteCommunication` (default setting), `SteamTradeMatcher` enabled in `TradingPreferences`, **[public inventory](https://steamcommunity.com/my/edit/settings)** privacy settings, **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active and at least `100` items from specified `MatchableTypes`, such as trading cards.
+In order to be listed, you have a set of requirements to meet. At the minimum you must have allowed `PublicListing` in `RemoteCommunication` (default setting), `SteamTradeMatcher` enabled in `TradingPreferences`, **[public inventory](https://steamcommunity.com/my/edit/settings)** privacy settings, **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account and **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active. Naturally, you must also have at least one item from your specified `MatchableTypes`, such as trading cards.
 
 While `PublicListing` is enabled by default, please note that you will **not** be displayed on the website if you do not meet all of the requirements, especially `SteamTradeMatcher`, which isn't enabled by default. For people that do not meet the criteria, even if they kept `PublicListing` enabled, ASF doesn't communicate with the server in any way. Public listing is also compatible only with latest stable version of ASF and may refuse to display outdated bots, especially if they're missing core functionality that can be found only in newer versions.
 
@@ -33,7 +33,7 @@ Public info (exposed by Steam to every interested party) includes:
 - Votre pseudo (pour l'affichage)
 - Votre avatar (hash, pour l'affichage)
 
-Semi-public info (exposed by Steam to every interested party if you meet listing requirements) includes:
+Conditionally public info (exposed by Steam to every interested party if you meet listing requirements) includes:
 - Your **[inventory](https://steamcommunity.com/my/inventory/#753_6)** (so people can use `MatchActively` against your items).
 
 Private info (selected data required for providing the functionality) includes:
@@ -44,6 +44,8 @@ Private info (selected data required for providing the functionality) includes:
   - Your `MatchableTypes` setting (for display purposes and matching)
 - Your `MatchEverything` setting (for display purposes and matching)
 - Your `MaxTradeHoldDuration` setting (so other people know whether you're willing to accept their trades)</ul> 
+
+Your data is stored for maximum of a week since you stop using (announcing on) our listing, and automatically deleted after that period.
 
 
 
@@ -81,9 +83,11 @@ ASF is, and remains, free and open-source, as it was established at the start of
 
 For a very long time, until October 2022, `MatchActively` feature was part of ASF core and available for everyone to use. In October 2022, Valve, the company behind Steam, has put very severe rate limits on fetching inventories of other bots - which rendered previous functionality entirely broken, with no possibility of a solution to resolve this problem. Therefore, due to the fact that the feature has became entirely defunct with no chance of being fixed, it had to be removed from ASF core in version 5.4.1.0 as obsolete.
 
-`MatchActively` was resurrected as part of official `ItemsMatcher` plugin that further enhances ASF with active cards matching functionality. Resurrecting `MatchActively` feature required from us **extraordinary amount of work** to create ASF backend, entirely new service hosted on a server, with more than a thousand of proxies attached for resolving inventories, all exclusively to allow ASF clients to make use of `MatchActively` like before. Due to the amount of work involved, as well as resources that are not free and require to be paid on monthly basis by us (domain, server, proxies), we've decided to offer this functionality to our sponsors, that is, people that already support ASF project on monthly basis.
+`MatchActively` was resurrected as part of official `ItemsMatcher` plugin that further enhances ASF with active cards matching functionality. Resurrecting `MatchActively` feature required from us **extraordinary amount of work** to create ASF backend, entirely new service hosted on a server, with more than a hundred of proxies attached for resolving inventories, all exclusively to allow ASF clients to make use of `MatchActively` like before. Due to the amount of work involved, as well as resources that are not free and require to be paid on monthly basis by us (domain, server, proxies), we've decided to offer this functionality to our sponsors, that is, people that already support ASF project on monthly basis.
 
-Our goal isn't to profit from it, but rather, cover the **monthly costs** that are exclusively linked with offering this option - that's why we offer it basically for nothing, but we do have to charge a little for it as we can't pay hundreds of dollars from our own pockets each month, just to make it available for you. The alternative would be to not have such feature available at all, which of course applies if you decide, for whatever reason, that you can't justify using it on those terms. We understand that it's not for everybody, and we hope that you also understand why we can't offer it for free.
+Our goal isn't to profit from it, but rather, cover the **monthly costs** that are exclusively linked with offering this option - that's why we offer it basically for nothing, but we do have to charge a little for it as we can't pay hundreds of dollars from our own pockets each month, just to make it available for you. We're not really in a position to discuss the price either, it's Valve that forced those costs upon us, and the alternative is to not have such feature available at all, which of course applies if you decide, for whatever reason, that you can't justify using our plugin on those terms.
+
+In any case, we understand that `MatchActively` is not for everybody, and we hope that you also understand why we can't offer it for free.
 
 
 
@@ -93,6 +97,6 @@ Our goal isn't to profit from it, but rather, cover the **monthly costs** that a
 
 ### How can I get an access?
 
-`ItemsMatcher` is offered as part of monthly $5+ sponsor tier on **[JustArchi's GitHub](https://github.com/sponsors/JustArchi)**. It's also possible to become one-time sponsor, although in this case the license will be valid only for a month (with possibility of extension in the same way). Simply become a sponsor of $5 tier (or higher), then read **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#licenseid)** section to obtain and fill `LicenseID`. Afterwards, simply enable `MatchActively` in `TradingPreferences` of your chosen bot.
+`ItemsMatcher` is offered as part of monthly $5+ sponsor tier on **[JustArchi's GitHub](https://github.com/sponsors/JustArchi)**. It's also possible to become one-time sponsor, although in this case the license will be valid only for a month (with possibility of extension in the same way). Once you become a sponsor of $5 tier (or higher), read **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#licenseid)** section to obtain and fill `LicenseID`. Afterwards, you only need to enable `MatchActively` in `TradingPreferences` of your chosen bot.
 
 The license allows you to send limited amount of requests to the server. $5 tier allows you to use `MatchActively` for one bot account (4 requests daily), and every additional $5 adds two more bot accounts (8 requests daily). For example, if you want to run it on three accounts, that'll be covered by $10 tier and higher.

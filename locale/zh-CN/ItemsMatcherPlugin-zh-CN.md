@@ -8,7 +8,7 @@
 
 公共列表，顾名思义，是列出当前可用 ASF STM 机器人的列表。 它位于[**我们的网站**](https://asf.justarchi.net/STM)，它是一项面向启用 `MatchActively` 的 ASF 用户的全自动公开服务，同时也供 ASF 用户与非 ASF 用户进行手动匹配。
 
-要出现在列表中，您需要满足一系列需求。 最低要求是在 `RemoteCommunication` 中允许 `PublicListing`（默认设置）、在 `TradingPreferences` 中启用 `SteamTradeMatcher`、[**公开库存**](https://steamcommunity.com/my/edit/settings)、帐户[**不受限**](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)、启用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN#asf-两步验证)**，并且至少拥有 `100` 件物品符合 `MatchableTypes`，例如集换式卡牌。
+要出现在列表中，您需要满足一系列需求。 最低要求是在 `RemoteCommunication` 中允许 `PublicListing`（默认设置）、在 `TradingPreferences` 中启用 `SteamTradeMatcher`、[**公开库存**](https://steamcommunity.com/my/edit/settings)、帐户[**不受限**](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)，并且启用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN#asf-两步验证)**。 很自然地，您还必须拥有至少一个符合您设定的 `MatchableTypes` 的物品，例如集换式卡牌。
 
 尽管 `PublicListing` 默认启用，但请注意，如果您没有满足所有要求，特别是默认禁用的 `SteamTradeMatcher`，您将**不会**被显示在网站上。 对于未满足要求的用户，即使他们保持 `PublicListing` 启用，ASF 也不会以任何方式与服务器通信。 公开列表也仅与最新稳定版本的 ASF 兼容，并且可能拒绝显示过时的机器人，特别是如果它们缺少只能在较新版本中找到的核心功能。
 
@@ -33,7 +33,7 @@ ASF STM 列表暂时只接受 ASF 机器人。 目前无法在我们的列表中
 - 您的昵称（用于显示目的）
 - 您的头像（经过哈希，用于显示目的）
 
-半公开信息（由 Steam 暴露给任何感兴趣并满足条件的人 ）包括：
+有条件公开信息（由 Steam 暴露给任何感兴趣并满足条件的人 ）包括：
 - 您的库存（使其他用户能够对您的物品使用 `MatchActively`）
 
 私密信息（提供功能所需的特定数据）包括：
@@ -41,6 +41,8 @@ ASF STM 列表暂时只接受 ASF 机器人。 目前无法在我们的列表中
 - 您的 `MatchableTypes` 设置（用于显示和匹配目的）
 - 您的 `MatchEverything` 设置（用于显示和匹配目的）
 - 您的 `MaxTradeHoldDuration` 设置（使其他人了解您是否愿意接受他们的交易）
+
+如果您停止使用（通报给）我们的列表，则您的数据最多继续存储一星期，之后则会被自动删除。
 
 ---
 
@@ -70,14 +72,16 @@ ASF 是并且现在仍然是免费、开放源代码的，一如在 2015 年 10 
 
 在 2022 年 10 月以前的很长一段时间里，`MatchActively` 功能都是 ASF 核心的一部分，供所有人使用。 在 2022 年 10 月，Steam 背后的公司 Valve 对拉取其他机器人的库存实施了非常严格的速率限制，使之前的功能几乎完全失效，没有可能的办法解决该问题。 因此，由于此功能已经完全失效并且无法修复的事实，自 5.4.1.0 版本起，因为已经过时，它必须从 ASF 核心功能中删除。
 
-`MatchActively` 以官方 `ItemsMatcher` 插件的形式复活，使 ASF 仍然有能力进行主动卡片匹配。 复活的 `MatchActively` 功能需要我们在 ASF 后端进行**巨量的工作**，包括全新的托管服务器和上千个用于解析库存的代理，一切都专门用来让 ASF 客户端能像以前一样使用 `MatchActively`。 由于涉及的工作量非常大，并且相关资源（域名、服务器、代理）并非免费，而是需要我们每月付费，我们决定仅将此功能提供给我们的赞助者，也就是已经每月支持 ASF 项目的人。
+`MatchActively` 以官方 `ItemsMatcher` 插件的形式复活，使 ASF 仍然有能力进行主动卡片匹配。 复活的 `MatchActively` 功能需要我们在 ASF 后端进行**巨量的工作**，包括全新的托管服务器和上百个用于解析库存的代理，一切都专门用来让 ASF 客户端能像以前一样使用 `MatchActively`。 由于涉及的工作量非常大，并且相关资源（域名、服务器、代理）并非免费，而是需要我们每月付费，我们决定仅将此功能提供给我们的赞助者，也就是已经每月支持 ASF 项目的人。
 
-我们的目标不是从中获益，而是为了能负担起专门提供这一选项所带来的**月度费用**——因此我们基本上无条件提供功能，但确实必须从中收取一些费用，因为我们不可能仅仅为了此功能可以正常运行就每月自掏腰包支付数百美元。 如果您出于任何原因决定不能在上述条件下使用它，那么当然可以完全不使用此功能。 我们理解不是每个人都支持这种方案，并且我们希望您也能够理解为什么我们无法免费提供它。
+我们的目标不是从中获益，而是为了能负担起专门提供这一选项所带来的**月度费用**——因此我们基本上无条件提供功能，但确实必须从中收取一些费用，因为我们不可能仅仅为了此功能可以正常运行就每月自掏腰包支付数百美元。 We're not really in a position to discuss the price either, it's Valve that forced those costs upon us, and the alternative is to not have such feature available at all, which of course applies if you decide, for whatever reason, that you can't justify using our plugin on those terms.
+
+In any case, we understand that `MatchActively` is not for everybody, and we hope that you also understand why we can't offer it for free.
 
 ---
 
 ### 如何获取访问权限？
 
-`ItemsMatcher` 在 **[JustArchi 的 GitHub](https://github.com/sponsors/JustArchi)** 作为每月 $5+ 赞助者等级的奖励提供。 作为一次性赞助者也可以，但在这种情况下，许可证的有效期只有一个月（有可能以相同方式延期）。 您只需要成为 $5 或更高等级的赞助者，然后阅读[**配置**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#licenseid)章节来获取和填写 `LicenseID`。 然后，只需要在您要启用的机器人的 `TradingPreferences` 配置中启用 `MatchActively` 即可。
+`ItemsMatcher` 在 **[JustArchi 的 GitHub](https://github.com/sponsors/JustArchi)** 作为每月 $5+ 赞助者等级的奖励提供。 作为一次性赞助者也可以，但在这种情况下，许可证的有效期只有一个月（有可能以相同方式延期）。 Once you become a sponsor of $5 tier (or higher), read **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#licenseid)** section to obtain and fill `LicenseID`. Afterwards, you only need to enable `MatchActively` in `TradingPreferences` of your chosen bot.
 
 此许可证允许您向服务器发送有限数量的请求。 $5 等级允许您为一个机器人帐户启用 `MatchActively`（每天 4 次请求），每追加 $5 增加两个额外的机器人帐户（每天 8 次请求）。 例如，如果您想在三个账户上运行，$10 或者更高等级就可以满足需求。

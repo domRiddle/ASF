@@ -109,7 +109,7 @@ docker exec -u root asf chown -hR 1001:1001 /app
 
 ### 在 SELinux 使用卷
 
-若您在作業系統上以強制狀態使用SELinux，這是例如基於RHEL發行版的預設設定，那麼您應該在掛載卷時附加&#8203;`:Z`&#8203;選項，這才會正確設定SELinux的上下文。
+若您在作業系統上以強制狀態使用SELinux，這是例如基於RHEL發行版的預設設定，那麼您應該在掛載卷時附加&#8203;`:Z`&#8203;選項，才能正確設定SELinux的上下文。
 
 ```
 docker run -it -v /home/archi/ASF/config:/app/config:Z --name asf --pull always justarchi/archisteamfarm

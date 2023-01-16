@@ -8,7 +8,7 @@
 
 La lista pública, como su nombre implica , es un listado de los bots ASF STM disponibles actualmente. Se ubica en **[nuestro sitio web](https://asf.justarchi.net/STM)**, es administrada automáticamente y usada como un servicio público tanto para usuarios de ASF que hacen uso de `MatchActively`, así como para usuarios y no usuarios de ASF para emparejamiento manual.
 
-Para ser listado, tienes que cumplir algunos requisitos. Por lo menos debes permitir `PublicListing` en `RemoteCommunication` (configuración predeterminada), `SteamTradeMatcher` habilitado en `TradingPreferences`, **[inventario público](https://steamcommunity.com/my/edit/settings)** en los ajustes de privacidad, una cuenta **[no limitada](https://help.steampowered.com/es/faqs/view/71D3-35C2-AD96-AA3A)**, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-ES#asf-2fa)** activo y al menos `100` artículos de los `MatchableTypes` especificados, tal como los cromos.
+Para ser listado, tienes que cumplir algunos requisitos. Por lo menos debes haber permitido `PublicListing` en `RemoteCommunication` (configuración por defecto), `SteamTradeMatcher` habilitado en `TradingPreferences`, tener el **[inventario público](https://steamcommunity.com/my/edit/settings)** en los ajustes de privacidad, tener una cuenta **[no limitada](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** y **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-ES#asf-2fa)** activo. Naturalmente, también debes tener al menos un artículo de los especificados en `MatchableTypes`, tal como los cromos.
 
 Mientras que `PublicListing` está habilitado por defecto, ten en cuenta que **no** serás mostrado en el sitio web si no cumples todos los requisitos, especialmente `SteamTradeMatcher`, el cual no está habilitado por defecto. Para las personas que no cumplen los criterios, incluso si mantienen `PublicListing`  habilitado, ASF no se comunica con el servidor de ninguna manera. Además, la lista pública solo es compatible con la última versión estable de ASF y podría negarse a mostrar bots desactualizados, especialmente si carecen de alguna funcionalidad crucial que solo se encuentra en las versiones más recientes.
 
@@ -33,7 +33,7 @@ La información pública (expuesta por Steam a todas las partes interesadas) inc
 - Tu nickname (para fines de visualización)
 - Tu avatar (para fines de visualización)
 
-La información semipública (expuesta por Steam a todos los interesados si cumples los requisitos de listado) incluye:
+La información pública condicional (expuesta por Steam a todos los interesados si cumples los requisitos para ser listado) incluye:
 - Tu **[inventario](https://steamcommunity.com/my/inventory/#753_6)** (para que otros puedan usar `MatchActively` con tus artículos).
 
 La información privada (datos seleccionados necesarios para proporcionar la funcionalidad) incluye:
@@ -41,6 +41,8 @@ La información privada (datos seleccionados necesarios para proporcionar la fun
 - Tu configuración de `MatchableTypes` (para fines de visualización y emparejamiento)
 - Tu configuración de `MatchEverything` (para fines de visualización y emparejamiento)
 - Tu configuración de `MaxTradeHoldDuration` (para que otros sepan si estás dispuesto a aceptar sus intercambios)
+
+Tus datos se almacenan hasta por una semana desde que dejas de usar (anunciarte) nuestro listado, y se borra automáticamente después de ese tiempo.
 
 ---
 
@@ -70,14 +72,16 @@ ASF es, y sigue siendo gratuito y de código abierto, tal como se estableció al
 
 Durante mucho tiempo, hasta octubre de 2022, la función `MatchActively` era parte del núcleo de ASF y estaba disponible para todos. En octubre de 2022, Valve, la compañía detrás de Steam, estableció un límite de solicitudes muy estricto para analizar el inventario de otros bots - lo que causó que la funcionalidad anterior se rompiera por completo, sin posibilidad de una solución para este problema. Por lo tanto, debido a que la función se volvió extinta y sin ninguna posibilidad de ser reparada, tuvo que ser eliminada del núcleo de ASF en la versión 5.4.1.0 como obsoleta.
 
-`MatchActively` fue resucitado como parte del plugin oficial `ItemsMatcher` que mejora ASF aún más con la funcionalidad de emparejamiento activo de cromos. Traer de vuelta la función `MatchActively` requirió una **extraordinaria cantidad de trabajo** para crear el backend de ASF, un servicio completamente nuevo hospedado en un servidor, con más de mil proxies para analizar los inventarios, todo ello exclusivamente para permitir que los clientes de ASF puedan usar `MatchActively` como antes. Debido a la cantidad de trabajo involucrado, así como al uso de recursos que no son gratuitos y requieren ser pagados mensualmente(dominio, servidor, proxies), hemos decidido ofrecer esta funcionalidad a nuestros patrocinadores, es decir, las personas que ya apoyan el proyecto ASF de forma mensual.
+`MatchActively` fue resucitado como parte del plugin oficial `ItemsMatcher` que mejora ASF aún más con la funcionalidad de emparejamiento activo de cromos. Traer de vuelta la función `MatchActively` requirió una **extraordinaria cantidad de trabajo** para crear el backend de ASF, un servicio completamente nuevo hospedado en un servidor, con más de cien proxies para analizar los inventarios, todo ello exclusivamente para permitir que los clientes de ASF puedan usar `MatchActively` como antes. Debido a la cantidad de trabajo involucrado, así como al uso de recursos que no son gratuitos y requieren ser pagados mensualmente(dominio, servidor, proxies), hemos decidido ofrecer esta funcionalidad a nuestros patrocinadores, es decir, las personas que ya apoyan el proyecto ASF de forma mensual.
 
-Nuestro objetivo no es beneficiarnos de ello, sino cubrir los **costos mensuales** vinculados exclusivamente con ofrecer esta opción - por eso la ofrecemos por básicamente nada, pero tenemos que cobrar un poco ya que no podemos pagar cientos de dólares de nuestros propios bolsillos cada mes, solo para que la tengas disponible. La alternativa sería no tener dicha característica disponible, lo que aplica si decides, por cualquier razón, que no puedes justificar usarla en esos términos. Entendemos que no es para todos, y esperamos que también entiendas por qué no podemos ofrecerla gratuitamente.
+Nuestro objetivo no es beneficiarnos de ello, sino cubrir los **costos mensuales** vinculados exclusivamente con ofrecer esta opción - por eso la ofrecemos por básicamente nada, pero tenemos que cobrar un poco ya que no podemos pagar cientos de dólares de nuestros propios bolsillos cada mes, solo para que la tengas disponible. Tampoco estamos en posición de discutir el precio, fue Valve quien nos forzó a cubrir esos costos, y la alternativa es no tener dicha característica disponible, lo que aplica si decides, por cualquier razón, que no puedes justificar usar nuestro plugin en esos términos.
+
+En cualquier caso, entendemos que `MatchActively` no es para todos, y esperamos que también entiendas por qué no podemos ofrecerla gratuitamente
 
 ---
 
 ### ¿Cómo puedo obtener acceso?
 
-`ItemsMatcher` se ofrece como parte del nivel de patrocinio mensual de $5+ en el **[GitHub de JustArchi](https://github.com/sponsors/JustArchi)**. También es posible ser patrocinador por una ocasión, aunque en este caso la licencia solo será válida durante un mes (con posibilidad de ampliación de la misma manera). Simplemente conviértete en patrocinador de nivel $5 (o superior), luego lee la sección de **[configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#licenseid)** para obtener y establecer `LicenseID`. Después, simplemente habilita `MatchActively` en la propiedad `TradingPreferences` de tu bot elegido.
+`ItemsMatcher` se ofrece como parte del nivel de patrocinio mensual de $5+ en el **[GitHub de JustArchi](https://github.com/sponsors/JustArchi)**. También es posible ser patrocinador por una ocasión, aunque en este caso la licencia solo será válida durante un mes (con posibilidad de ampliación de la misma manera). Una vez que seas patrocinador de nivel $5 (o superior), lee la sección de **[configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#licenseid)** para obtener y establecer `LicenseID`. Posteriormente, solo necesitas habilitar `MatchActively` en `TradingPreferences` de tu bot elegido.
 
 La licencia te permite enviar una cantidad limitada de solicitudes al servidor. El nivel de $5 te permite usar `MatchActively` para una cuenta boy (4 solicitudes diarias), y cada $5 adicionales añaden dos cuentas más (8 solicitudes diarias). Por ejemplo, si quieres ejecutarlo en tres cuentas, eso lo cubrirá el nivel de $10 y superiores.

@@ -8,9 +8,9 @@
 
 ASF由&#8203;**[Archi](https://github.com/JustArchi)**&#8203;在2015年10月建立。 如果您想知道，我跟您一樣，是一個&#8203;**[Steam使用者](https://steamcommunity.com/profiles/76561198006963719)**&#8203;。 除了玩遊戲，我也喜歡將我的專長與決心付諸實踐，正如您所看到的。 這裡沒有大公司的參與，沒有什麼開發團隊，也沒有$100萬美元的預算來提供支援⸺只有我自己，在維護這個專案。
 
-然而，ASF是個開源專案，我無法向您表示您在這裡看到的一切都是出自我手。 我們還有一些&#8203;**[其他的](https://github.com/JustArchiNET?q=ASF-)**&#8203;ASF專案，幾乎完全是由其他的開發人員所開發。 即使是ASF核心專案，也有許多&#8203;**[貢獻者](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)**&#8203;幫助我實現這一切。 最重要的是，還有一些支援ASF開發的第三方服務，特別是&#8203;**[GitHub](https://github.com)**&#8203;、&#8203;**[JetBrains](https://www.jetbrains.com)**&#8203;與&#8203;**[Crowdin](https://crowdin.com)**&#8203;。 當然您也不能忘記所有幫助ASF實作的出色程式庫與工具，例如我們用作IDE的&#8203;**[Rider](https://www.jetbrains.com/rider)**&#8203;（我們也喜歡&#8203;**[ReSharper](https://www.jetbrains.com/resharper)**&#8203;的附加功能），特別是&#8203;**[SteamKit2](https://github.com/SteamRE/SteamKit)**，沒有它，ASF就不會存在。 如果沒有&#8203;**[Github](https://github.com/sponsors/JustArchi)**&#8203;、&#8203;**[Patreon](https://www.patreon.com/JustArchi)**&#8203;和各種贊助者支持我在這裡所做的一切，ASF也不會有今天的成就。
+然而，ASF是個開源專案，我無法向您表示您在這裡看到的一切都是出自我手。 我們還有一些&#8203;**[其他的](https://github.com/JustArchiNET?q=ASF-)**&#8203;ASF專案，幾乎完全是由其他的開發人員所開發。 即使是ASF核心專案，也有許多&#8203;**[貢獻者](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)**&#8203;幫助我實現這一切。 最重要的是，還有一些支援ASF開發的第三方服務，特別是&#8203;**[GitHub](https://github.com)**&#8203;、&#8203;**[JetBrains](https://www.jetbrains.com)**&#8203;與&#8203;**[Crowdin](https://crowdin.com)**&#8203;。 當然您也不能忘記所有幫助ASF實作的出色程式庫與工具，例如我們用作IDE的&#8203;**[Rider](https://www.jetbrains.com/rider)**&#8203;（我們也喜歡&#8203;**[ReSharper](https://www.jetbrains.com/resharper)**&#8203;的附加功能），特別是&#8203;**[SteamKit2](https://github.com/SteamRE/SteamKit)**，沒有它，ASF就不會存在。 如果沒有&#8203;**[Github](https://github.com/sponsors/JustArchi)**&#8203;和各種贊助者支持我在這裡所做的一切，ASF也不會有今天的成就。
 
-感謝大家協助ASF開發！ 你們是最棒的！
+感謝大家協助ASF開發！ 您是最棒的:heart:。
 
 ---
 
