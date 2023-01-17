@@ -121,7 +121,7 @@ This will allow ASF to create files targetting the volume while inside docker co
 
 ## Synchronisation mehrerer Instanzen
 
-ASF unterstützt die Synchronisation mehrerer Instanzen, wie im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#mehrere-instanzen)**. Beim Ausführen von ASF im Docker-Container können Sie optional "opt-in" in den Prozess einschalten für den Fall, dass Sie mehrere Container mit ASF (synchronisiert) verwenden möchten.
+ASF includes support for multiple instances synchronization, as stated in **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** section. Beim Ausführen von ASF im Docker-Container können Sie optional "opt-in" in den Prozess einschalten für den Fall, dass Sie mehrere Container mit ASF (synchronisiert) verwenden möchten.
 
 Standardmäßig ist jeder ASF in einem eigenständigen Docker-Container und das bedeutet, dass keine Synchronisation stattfindet. Um die Synchronisation zwischen ihnen zu aktivieren, müssen Sie den Pfad `/tmp/ASF` in jedem ASF Container, den Sie synchronisieren möchten, zu einem gemeinsamen Pfad (im Lese-Schreib-Modus) auf dem Docker-Host einbinden. Dies wird genauso wie bei der Bindung eines Volumens erreicht, das oben beschrieben wurde, nur mit verschiedenen Pfaden:
 

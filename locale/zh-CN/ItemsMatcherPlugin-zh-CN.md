@@ -74,14 +74,14 @@ ASF 是并且现在仍然是免费、开放源代码的，一如在 2015 年 10 
 
 `MatchActively` 以官方 `ItemsMatcher` 插件的形式复活，使 ASF 仍然有能力进行主动卡片匹配。 复活的 `MatchActively` 功能需要我们在 ASF 后端进行**巨量的工作**，包括全新的托管服务器和上百个用于解析库存的代理，一切都专门用来让 ASF 客户端能像以前一样使用 `MatchActively`。 由于涉及的工作量非常大，并且相关资源（域名、服务器、代理）并非免费，而是需要我们每月付费，我们决定仅将此功能提供给我们的赞助者，也就是已经每月支持 ASF 项目的人。
 
-我们的目标不是从中获益，而是为了能负担起专门提供这一选项所带来的**月度费用**——因此我们基本上无条件提供功能，但确实必须从中收取一些费用，因为我们不可能仅仅为了此功能可以正常运行就每月自掏腰包支付数百美元。 We're not really in a position to discuss the price either, it's Valve that forced those costs upon us, and the alternative is to not have such feature available at all, which of course applies if you decide, for whatever reason, that you can't justify using our plugin on those terms.
+我们的目标不是从中获益，而是为了能负担起专门提供这一选项所带来的**月度费用**——因此我们基本上无条件提供功能，但确实必须从中收取一些费用，因为我们不可能仅仅为了此功能可以正常运行就每月自掏腰包支付数百美元。 我们也没有资格讨价还价，这部分成本是 Valve 强加给我们的，如果您出于任何原因决定不能在上述条件下使用我们的插件，那么当然可以完全不使用此功能。
 
-In any case, we understand that `MatchActively` is not for everybody, and we hope that you also understand why we can't offer it for free.
+不管怎么说，我们理解不是每个人都能使用 `MatchActively`，并且我们希望您也能够理解为什么我们无法免费提供它。
 
 ---
 
 ### 如何获取访问权限？
 
-`ItemsMatcher` 在 **[JustArchi 的 GitHub](https://github.com/sponsors/JustArchi)** 作为每月 $5+ 赞助者等级的奖励提供。 作为一次性赞助者也可以，但在这种情况下，许可证的有效期只有一个月（有可能以相同方式延期）。 Once you become a sponsor of $5 tier (or higher), read **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#licenseid)** section to obtain and fill `LicenseID`. Afterwards, you only need to enable `MatchActively` in `TradingPreferences` of your chosen bot.
+`ItemsMatcher` 在 **[JustArchi 的 GitHub](https://github.com/sponsors/JustArchi)** 作为每月 $5+ 赞助者等级的奖励提供。 作为一次性赞助者也可以，但在这种情况下，许可证的有效期只有一个月（有可能以相同方式延期）。 一旦您成为 $5 或更高等级的赞助者，就可以阅读[**配置**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#licenseid)章节来获取和填写 `LicenseID`。 然后，只需要在您要启用的机器人的 `TradingPreferences` 配置中启用 `MatchActively` 即可。
 
 此许可证允许您向服务器发送有限数量的请求。 $5 等级允许您为一个机器人帐户启用 `MatchActively`（每天 4 次请求），每追加 $5 增加两个额外的机器人帐户（每天 8 次请求）。 例如，如果您想在三个账户上运行，$10 或者更高等级就可以满足需求。

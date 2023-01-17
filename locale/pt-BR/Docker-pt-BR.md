@@ -121,7 +121,7 @@ Isso permitirá que o ASF crie arquivos para o volume enquanto estiver dentro do
 
 ## Sincronização de múltiplas instâncias
 
-O ASF inclui suporte para sincronização de múltiplas instâncias, como indicado na seção de **[compatibilidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR#m%C3%BAltiplas-inst%C3%A2ncias)**. Ao executar o ASF no contêiner docker, você pode opcionalmente "ligá-lo" ao processo caso você esteja executando vários contêineres com o ASF e você gostaria que eles sincronizassem um com o outro.
+ASF includes support for multiple instances synchronization, as stated in **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** section. Ao executar o ASF no contêiner docker, você pode opcionalmente "ligá-lo" ao processo caso você esteja executando vários contêineres com o ASF e você gostaria que eles sincronizassem um com o outro.
 
 Por padrão, cada ASF rodando dentro de um contêiner docker é independente, o que significa que não há sincronização. Para ativar a sincronização entre eles você deve vincular o caminho `/tmp/ASF` em cada contêiner ASF que você deseja sincronizar, para um caminho compartilhado no seu host docker, em modo de leitura-escrita. Isto é feito exatamente da mesma forma que vincular um volume, como foi descrito acima, apenas com caminhos diferentes:
 

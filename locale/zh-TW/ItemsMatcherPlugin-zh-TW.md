@@ -74,7 +74,7 @@ ASF是也仍是免費且開源的，它是在2015年10月專案開始時建立�
 
 `MatchActively`&#8203;作為官方&#8203;`ItemsMatcher`&#8203;外掛程式的一部分涅槃重生，該外掛程式進一步增強了ASF的交換卡片主動匹配功能。 恢復&#8203;`MatchActively`&#8203;功能需要我們&#8203;**大量的工作**&#8203;來建立ASF後端，這是代管在伺服器上的全新服務，加入了超過一百個用於解析物品庫的代理節點，而所有的這些都是為了讓ASF用戶端能像以前一樣使用&#8203;`MatchActively`&#8203;。 因為涉及的工作量過大，且所用資源並不是免費的，需要我們每月付款（網域、伺服器、網路代理），我們決定只向我們的贊助者提供此功能，也就是說，那些已在每個月支援ASF專案的人。
 
-我們的目標並不是從中獲利，而是支付本功能相關的&#8203;**月費**&#8203;⸺這就是為什麼我們基本上免費提供它，但我們仍需為此收取一點費用的原因，因為我們無法自掏腰包支付數百美元，只是為了讓您可以使用它。 We're not really in a position to discuss the price either, it's Valve that forced those costs upon us, and the alternative is to not have such feature available at all, which of course applies if you decide, for whatever reason, that you can't justify using our plugin on those terms.
+我們的目標並不是從中獲利，而是支付本功能相關的&#8203;**月費**&#8203;⸺這就是為什麼我們基本上免費提供它，但我們仍需為此收取一點費用的原因，因為我們無法自掏腰包支付數百美元，只是為了讓您可以使用它。 我們並不是真的在討論售價，而是因為Valve把這些成本強加於我們之上，另一種選擇是根本完全不使用這項功能，如果您出於任何原因，無法認為我們插件的使用條款是合理的，就適用於這個情形，
 
 不論如何，我們了解不是每個人都支持&#8203;`MatchActively`&#8203;，且我們希望您也能了解為什麼我們無法免費提供它。
 

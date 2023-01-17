@@ -121,7 +121,7 @@ Esto permitirá a ASF crear archivos que tengan como objetivo el volumen dentro 
 
 ## Sincronización de múltiples instancias
 
-ASF incluye soporte para la sincronización de múltiples instancias, como se menciona en la sección de **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#m%C3%BAltiples-instancias)**. Al ejecutar ASF en el contenedor docker, opcionalmente puedes "participar" en el proceso, en caso de que estés ejecutando múltiples contenedores con ASF y quieres que se sincronicen entre sí.
+ASF incluye soporte para la sincronización de múltiples instancias, como se menciona en la sección de **[gestión](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-es-ES#m%C3%BAltiples-instancias)**. Al ejecutar ASF en el contenedor docker, opcionalmente puedes "participar" en el proceso, en caso de que estés ejecutando múltiples contenedores con ASF y quieres que se sincronicen entre sí.
 
 Por defecto, cada ASF ejecutándose dentro de un contenedor es independiente, lo que significa que no hay sincronización alguna. Para habilitar la sincronización entre ellos, debes enlazar la ruta `/tmp/ASF` en cada contenedor de ASF que quieras que se sincronice, a una ruta compartida en tu host docker, en modo lectura-escritura. Esto se logra exactamente igual que enlazar un volumen, lo que se describió anteriormente, solo que con diferentes rutas:
 
