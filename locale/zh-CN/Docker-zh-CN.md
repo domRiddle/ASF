@@ -121,7 +121,7 @@ docker run -it -v /home/archi/ASF/config:/app/config:Z --name asf --pull always 
 
 ## 多实例同步
 
-ASF includes support for multiple instances synchronization, as stated in **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** section. 在 Docker 容器内运行 ASF 时，如果您需要多个 ASF 容器互相同步，可以手动选择启用此功能。
+ASF 支持多实例同步，如[**管理**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-CN#多实例)章节所述。 在 Docker 容器内运行 ASF 时，如果您需要多个 ASF 容器互相同步，可以手动选择启用此功能。
 
 默认情况下，每个运行在 Docker 容器内的 ASF 都是独立的，这意味着不会有任何同步。 要启用它们之间的同步，您必须将每个需要同步的 ASF 容器内的 `/tmp/ASF` 路径以读写模式绑定到宿主机上的共享目录。 实现方式与上文所述的绑定数据卷完全相同，只有路径有区别：
 

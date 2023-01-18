@@ -121,9 +121,9 @@ docker run -it -v /home/archi/ASF/config:/app/config:Z --name asf --pull always 
 
 ## 多個實例同步
 
-ASF includes support for multiple instances synchronization, as stated in **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** section. When running ASF in docker container, you can optionally "opt-in" into the process, in case you're running multiple containers with ASF and you'd like for them to synchronize with each other.
+ASF也包含了支援多個實例的同步，正如&#8203;**[管理](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-TW#多個實例)**&#8203;章節所述。 當在Docker容器中執行ASF時，若您使用多個容器且希望它們同步，可以手動選擇「加入程序」。
 
-By default, each ASF running inside a docker container is standalone, which means that no synchronization takes place. In order to enable synchronization between them, you must bind `/tmp/ASF` path in every ASF container that you want to synchronize, to one, shared path on your docker host, in read-write mode. This is achieved exactly the same as binding a volume which was described above, just with different paths:
+預設情形下，每個在Docker容器執行的ASF都是獨立的，這代表同步不會發生。 為了在它們之間啟用同步，您必須將每個ASF容器中的&#8203;`/tmp/ASF`&#8203;路徑以讀寫模式連結至您想要同步的代管Docker的共用路徑上。 這與上述連結卷的方式完全相同，只是路徑不同：
 
 ```shell
 mkdir -p /tmp/ASF-g1
@@ -132,33 +132,33 @@ docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name a
 # 以此類推，所有 ASF 容器現在相互同步
 ```
 
-We recommend to bind ASF's `/tmp/ASF` directory also to a temporary `/tmp` directory on your machine, but of course you're free to choose any other one that satisfies your usage. Each ASF container that is expected to be synchronized should have its `/tmp/ASF` directory shared with other containers that are taking part in the same synchronization process.
+我們建議將ASF的&#8203;`/tmp/ASF`&#8203;資料夾也連結至您設備上的&#8203;`/tmp`&#8203;臨時檔資料夾，當然，您也可以自由選擇連結至需要的其他路徑。 每個預期同步的ASF容器都應有與其他容器共用的&#8203;`/tmp/ASF`&#8203;資料夾，會參與同一個同步程序。
 
-As you've probably guessed from example above, it's also possible to create two or more "synchronization groups", by binding different docker host paths into ASF's `/tmp/ASF`.
+可能您已經從上述猜出，您也可以透過連結不同的Docker代管路徑至ASF的&#8203;`/tmp/ASF`&#8203;，來建立兩個或多個「同步群組」。
 
-Mounting `/tmp/ASF` is completely optional and actually not recommended, unless you explicitly want to synchronize two or more ASF containers. We do not recommend mounting `/tmp/ASF` for single-container usage, as it brings absolutely no benefits if you expect to run just one ASF container, and it might actually cause issues that could otherwise be avoided.
+掛載&#8203;`/tmp/ASF`&#8203;完全屬於選擇性功能，且實際上並不建議使用，除非您明確需要同步兩個或多個ASF容器。 我們不建議在使用單個容器時掛載&#8203;`/tmp/ASF`&#8203;，因為如果您只執行單一的ASF容器，這個操作不會有任何正面作用，反而可能會帶來本應能避免的其他問題。
 
 ---
 
 ## 命令列引數
 
-ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** in docker container through environment variables. You should use specific environment variables for supported switches, and `ASF_ARGS` for the rest. This can be achieved with `-e` switch added to `docker run`, for example:
+ASF允許您透過環境變數向Docker容器傳遞&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW)**&#8203;。 對於受支援的開關，您應使用特定的環境變數；其餘開關則使用&#8203;`ASF_ARGS`&#8203;。 這可以向&#8203;`docker run`&#8203;加入&#8203;`-e`&#8203;開關來達成，例如：
 
 ```shell
 docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --name asf --pull always justarchi/archisteamfarm
 ```
 
-This will properly pass your `--cryptkey` argument to ASF process being run inside docker container, as well as other args. Of course, if you're advanced user then you can also modify `ENTRYPOINT` or add `CMD` and pass your custom arguments yourself.
+這會正確地把您的&#8203;`--cryptkey`&#8203;及其他引數傳遞給Docker容器中執行的ASF程序。 當然，如果您是進階使用者，那麼您也可以修改&#8203;`ENTRYPOINT`&#8203;，或是加入&#8203;`CMD`&#8203;來手動傳遞自訂引數。
 
-Unless you want to provide custom encryption key or other advanced options, usually you don't need to include any special environment variables, as our docker containers are already configured to run with a sane expected default options of `--no-restart` `--process-required` `--system-required`, so those flags do not need to be specified explicitly in `ASF_ARGS`.
+除非您想要提供自訂加密鍵或其他進階選項，否則通常您不需要任何特殊的環境變數，因為我們的Docker容器已經設定成使用&#8203;`--no-restart`&#8203; &#8203;`--process-required`&#8203; &#8203;`--system-required`&#8203;合理的預設選項執行，因此就不需要在&#8203;`ASF_ARGS`&#8203;中指定這些旗標。
 
 ---
 
 ## IPC
 
-Assuming you didn't change the default value for `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's already enabled. However, you must do two additional things for IPC to work in Docker container. Firstly, you must use `IPCPassword` or modify default `KnownNetworks` in custom `IPC.config` to allow you to connect from the outside without using one. Unless you really know what you're doing, just use `IPCPassword`. Secondly, you have to modify default listening address of `localhost`, as docker can't route outside traffic to loopback interface. An example of a setting that will listen on all interfaces would be `http://*:1242`. Of course, you can also use more restrictive bindings, such as local LAN or VPN network only, but it has to be a route accessible from the outside - `localhost` won't do, as the route is entirely within guest machine.
+假設您並未變更&#8203;`IPC`&#8203;**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#全域設定檔)**&#8203;的預設值，它是啟用的。 但是，您必須額外做兩件事情，才能使IPC在Docker容器中正常運作。 首先，您必須使用&#8203;`IPCPassword`&#8203;，或在自訂的`IPC.config`&#8203;中更改預設的&#8203;`KnownNetworks`&#8203;，使您能夠在不使用的情形下連線。 除非您真的知道您在做什麼，否則請直接使用&#8203;`IPCPassword`&#8203;。 其次，您還需要更改&#8203;`localhost`&#8203;預設的監聽位址，因為Docker無法將外部流量路由至回送介面。 `http://*:1242`&#8203;是一個監聽所有介面的設定範例。 當然，您也可以使用更加嚴格的連結，例如只使用區域網路LAN或VPN網路，但它必須是可從外部存取的路由⸺而&#8203;`localhost`&#8203;就不是，因為該路由完全在客戶機內部。
 
-For doing the above you should use **[custom IPC config](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#custom-configuration)** such as the one below:
+為了執行上述操作，您需要使用&#8203;**[自訂IPC組態](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#自訂組態)**&#8203;如下列所示：
 
 ```json
 {
@@ -172,27 +172,27 @@ For doing the above you should use **[custom IPC config](https://github.com/Just
 }
 ```
 
-Once we set up IPC on non-loopback interface, we need to tell docker to map ASF's `1242/tcp` port either with `-P` or `-p` switch.
+在非回送介面上設定IPC後，我們需要使用&#8203;`-P`&#8203;或&#8203;`-p`&#8203;開關來告訴Docker映射至ASF的&#8203;`1242/tcp`&#8203;連接埠上。
 
-For example, this command would expose ASF IPC interface to host machine (only):
+舉例來說，本命令（只）會將ASF IPC介面公開給主機：
 
 ```shell
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull always justarchi/archisteamfarm
 ```
 
-If you set everything properly, `docker run` command above will make **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface work from your host machine, on standard `localhost:1242` route that is now properly redirected to your guest machine. It's also nice to note that we do not expose this route further, so connection can be done only within docker host, and therefore keeping it secure. Of course, you can expose the route further if you know what you're doing and ensure appropriate security measures.
+若您一切都設定正確，上述的&#8203;`docker run`&#8203;命令將會使&#8203;**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**介面在您的主機運作，標準的&#8203;`localhost:1242`&#8203;路由現在已正確地重定向至您的客戶機上。 值得注意的是，我們沒有進一步公開此路由，因此只能在Docker主機內完成連線，從而保持了安全。 當然，如果您知道您在做什麼，且確保擁有適合的安全措施，您也可以進一步公開此路由。
 
 ---
 
 ### 完整的範例
 
-Combining whole knowledge above, an example of a complete setup would look like this:
+綜上所述，完整設定的範例如下所示：
 
 ```shell
 docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-這假設您將使用單個 ASF 容器，並且所有 ASF 配置文件都位於 `/home/archi/ASF/config` 中。 You should modify the config path to the one that matches your machine. This setup is also ready for optional IPC usage if you've decided to include `IPC.config` in your config directory with a content like below:
+這假定您將使用單一ASF容器，且所有ASF設定檔都位於&#8203;`/home/archi/ASF/config`&#8203;中。 您應該將設定的路徑更改為與您設備匹配的路徑。 若您決定將&#8203;`IPC.config`&#8203;包含在您的設定資料夾中，此設定也可以用於IPC，內容如下所示：
 
 ```json
 {
@@ -210,7 +210,7 @@ docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/
 
 ## 專業小技巧
 
-When you already have your ASF docker container ready, you don't have to use `docker run` every time. You can easily stop/start ASF docker container with `docker stop asf` and `docker start asf`. Keep in mind that if you're not using `latest` tag then using up-to-date ASF will still require from you to `docker stop`, `docker rm` and `docker run` again. This is because you must rebuild your container from fresh ASF docker image every time you want to use ASF version included in that image. In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it's still a good idea to do it from time to time in order to use fresh .NET runtime dependencies and the underlying OS).
+當您準備好ASF的Docker容器後，您就不必每次都使用&#8203;`docker run`&#8203;了。 You can easily stop/start ASF docker container with `docker stop asf` and `docker start asf`. Keep in mind that if you're not using `latest` tag then using up-to-date ASF will still require from you to `docker stop`, `docker rm` and `docker run` again. This is because you must rebuild your container from fresh ASF docker image every time you want to use ASF version included in that image. In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it's still a good idea to do it from time to time in order to use fresh .NET runtime dependencies and the underlying OS).
 
 As hinted by above, ASF in tag other than `latest` won't automatically update itself, which means that **you** are in charge of using up-to-date `justarchi/archisteamfarm` repo. This has many advantages as typically the app should not touch its own code when being run, but we also understand convenience that comes from not having to worry about ASF version in your docker container. If you care about good practices and proper docker usage, `released` tag is what we'd suggest instead of `latest`, but if you can't be bothered with it and you just want to make ASF both work and auto-update itself, then `latest` will do.
 
