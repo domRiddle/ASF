@@ -1,35 +1,35 @@
 # Удаленная связь
 
-This section elaborates on remote communication that ASF includes, including further explanation on how one can influence it. Хотя мы не считаем что-либо из приведенного ниже вредоносным или иным образом нежелательным, и мы не обязаны по закону раскрывать это, мы хотим, чтобы вы лучше понимали функциональные возможности программы, особенно в отношении вашей конфиденциальности и обмена данными.
+Этот раздел посвящен удалённой связи (remote communication), которую включает в себя ASF, включая более подробное объяснение того, как это влияет на ASF. Хотя мы не считаем что-либо из приведенного ниже вредоносным или иным образом нежелательным, и мы не обязаны по закону раскрывать это, мы хотим, чтобы вы лучше понимали функциональные возможности программы, особенно в отношении вашей конфиденциальности и обмена данными.
 
 ## Steam
 
-ASF communicates with Steam network (**[CM servers](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), as well as **[Steam API](https://steamcommunity.com/dev)**, **[Steam store](https://store.steampowered.com)** and **[Steam community](https://steamcommunity.com)**.
+ASF взаимодействует с сетью Steam (**[CM серверов](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**), а также **[Steam API](https://steamcommunity.com/dev)**, **[Магазином Steam](https://store.steampowered.com)** и **[Steam Community](https://steamcommunity.com)**.
 
-It's not possible to disable any of the above communication, as it's the core foundation ASF is based on in order to provide its basic functionality. You'll need to refrain from using ASF if you're not comfortable with the above.
+Невозможно отключить любое из перечисленных выше сообщений, так как это ядро ASF базируется на обеспечении его базовой функциональности. Вам нужно воздерживаться от использования ASF, если вы не довольны вышеуказанными условиями.
 
 ## Группа Steam
 
 ASF связывается с нашей **[группой Steam](https://steamcommunity.com/groups/archiasf)**. Группа предоставляет вам объявления, в частности о новых версиях, критических проблемах, проблемах Steam и других вещах, которые важны участникам сообщества. Это также позволяет вам использовать нашу техническую поддержку, задавая вопросы, решая проблемы, сообщая о проблемах или предлагая улучшения. По умолчанию учетные записи, используемые в ASF, автоматически присоединяются к группе при входе в систему.
 
-You can decide to opt-out of joining the group by disabling `SteamGroup` flag in bot's **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** settings.
+Вы можете отказаться от вступления в группу, отключив флаг `SteamGroup` в настройке **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** бота.
 
 ## GitHub
 
-ASF communicates with **[GitHub's API](https://api.github.com)** in order to fetch **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** for the update functionality. This is done as part of auto-updates (if you've kept **[`UpdatePeriod`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updateperiod)** enabled), as well as `update` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. You can influence ASF's communication with GitHub through **[`UpdateChannel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updatechannel)** property - setting it to `None` will result in disabling entire update functionality, including GitHub communication in this regard.
+ASF взаимодействует с **[GitHub API](https://api.github.com)**, чтобы получить **[новые релизы ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** для обновления функциональности. Это делается как при автообновлении (если вы оставляете **[`UpdatePeriod`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updateperiod)** включеным), так и при использовании **[команды](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** `update`. Вы можете влиять на связь ASF с GitHub через свойство **[`UpdateChannel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#updatechannel)** - установка на `None` приведет к полному отключению функций обновления, включая связь с GitHub в этом отношении.
 
 ## ASF сервер
 
-ASF communicates with **[our own server](https://asf.justarchi.net)** for more advanced functionality. In particular, this includes:
-- Verifying checksums of ASF builds downloaded from GitHub against our own independent database to ensure that all downloaded builds are legitimate (free of malware, MITM attacks or other tampering)
-- Fetching list of bad bots for filtering if you've kept `FilterBadBots` global config setting enabled.
-- Announcing your bot in **[our listing](https://asf.justarchi.net/STM)** if you've enabled `SteamTradeMatcher` in **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** and meet other criteria
-- Downloading currently available bots to trade from **[our listing](https://asf.justarchi.net/STM)** if you've enabled `MatchActively` in **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** and meet other criteria
+ASF взаимодействует с **[нашим собственным сервером](https://asf.justarchi.net)** для более продвинутой функциональности. В частности, это включает:
+- Проверка контрольных сумм сборок ASF, загруженных из GitHub, по нашей собственной независимой базе данных, чтобы убедиться, что все загруженные сборки являются оригинальными и легитимными(без вредоносного ПО, атаки MITM или других подделок).
+- Получение списка "плохих ботов" для фильтрации, если настройка `FilterBadBots` в глобальной конфигурации осталась включена.
+- Размещение вашего бота в **[наш список](https://asf.justarchi.net/STM)** если вы включили `SteamTradeMatcher` в **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** и удовлетворяете другим критериям.
+- Запрос доступных на данный момент ботов для торговли с **[нашего листинга](https://asf.justarchi.net/STM)** если вы включили `MatchActively` в **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)** и удовлетворяете другим критериям.
 
-As a security measure, it's not possible to disable checksum verification for ASF builds. However, you can disable auto-updates entirely if you'd like to avoid this, as described above in the GitHub section.
+В качестве меры безопасности, отключить проверку контрольных сумм для сборок ASF невозможно. Тем не менее, вы можете полностью отключить автообновления, если вы хотите избежать этого, как описано выше в разделе GitHub.
 
-You can disable `FilterBadBots` setting if you want to avoid fetching the list from the server.
+Вы можете отключить настройку `FilterBadBots`, если вы хотите не получить список "плохих ботов" с сервера.
 
-You can decide to opt-out of being announced in the listing by disabling `PublicListing` flag in bot's **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** settings. This might be useful if you'd like to run `SteamTradeMatcher` bot without being announced at the same time.
+Вы можете отказаться от вступления в группу, отключив флаг `PublicListing` в настройке **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** бота. Это может быть полезно, если вы хотите запустить `SteamTradeMatcher` бота без объявления.
 
-Downloading bots from our listing is mandatory for `MatchActively` setting, you'll need to disable that setting if you're unwilling to accept that.
+Загрузка ботов из нашего списка является обязательным для настройки `MatchActively`, вам нужно отключить эту настройку, если вы не хотите с этим соглашаться.

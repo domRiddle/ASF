@@ -2,7 +2,7 @@
 
 Начиная с версии 3.0.3.2, ASF также доступен в формате **[контейнера docker](https://www.docker.com/what-container)**. Наши Docker-пакеты доступны на **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** а также **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
-Важно отметить, что запуск ASF в Docker-контейнере считается **расширенной установкой**,что **не требуется** для подавляющего большинства пользователей и обычно **не дает никаких преимуществ** по сравнению с установкой без контейнеров. If you're considering Docker as a solution for running ASF as a service, for example making it start automatically with your OS, then you should consider reading **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#systemd-service-for-linux)** section instead and set up a proper `systemd` service which will be **almost always** a better idea than running ASF in a Docker container.
+Важно отметить, что запуск ASF в Docker-контейнере считается **расширенной установкой**,что **не требуется** для подавляющего большинства пользователей и обычно **не дает никаких преимуществ** по сравнению с установкой без контейнеров. Если вы рассматриваете Docker в качестве решения для запуска ASF в качестве службы, например заставляя его автоматически запускаться с вашей ОС, то вы должны подумать над чтением раздела **[управления](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-ru-RU#systemd-service-for-linux)** и установкой соответствующего `сервиса`, который будет **почти всегда** лучшей идеей, чем запуск ASF в контейнере Docker.
 
 Running ASF in Docker container usually involves **several new problems and issues** that you'll have to face and resolve yourself. This is why we **strongly** recommend you to avoid it unless you already have Docker knowledge and don't need help understanding its internals, about which we won't elaborate here on ASF wiki. This section is mostly for valid use cases of very complex setups, for example in regards to advanced networking or security beyond standard sandboxing that ASF comes with in `systemd` service (which already ensures superior process isolation through very advanced security mechanics). For those handful amount of people, here we explain better ASF concepts in regards to its Docker compatibility, and only that, you're assumed to have adequate Docker knowledge yourself if you decide to use it together with ASF.
 
@@ -121,7 +121,7 @@ This will allow ASF to create files targetting the volume while inside docker co
 
 ## Синхронизация нескольких экземпляров
 
-ASF includes support for multiple instances synchronization, as stated in **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** section. Если вы запускаете ASF в контейнере docker, у вас также есть возможность "включиться" в этот процесс, в случае если у вас несколько контейнеров с ASF и вам нужно синхронизировать их между собой.
+ASF включает поддержку синхронизации нескольких экземпляров, как указано в разделе **[управления](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-ru-RU#multiple-instances)**. Если вы запускаете ASF в контейнере docker, у вас также есть возможность "включиться" в этот процесс, в случае если у вас несколько контейнеров с ASF и вам нужно синхронизировать их между собой.
 
 По умолчанию каждый ASF, запущенный внутри контейнера docker, автономен, а значит никакая синхронизация не происходит. Чтобы включить синхронизацию между ними, вы должны привязать путь `/tmp/ASF` в каждом контейнере ASF, который вы хотите синхронизировать, к одному общему пути хост-машины, в режиме чтения-записи. Это делается точно так же, как привязка томов, описанная выше, только с другими путями:
 
@@ -129,7 +129,7 @@ ASF includes support for multiple instances synchronization, as stated in **[man
 mkdir -p /tmp/ASF-g1
 docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/archi/ASF/config:/app/config --name asf1 --pull always justarchi/archisteamfarm
 docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name asf2 --pull always justarchi/archisteamfarm
-# And so on, all ASF containers are now synchronized with each other
+# И так далее, все контейнеры ASF теперь синхронизированы друг с другом.
 ```
 
 Мы рекомендуем привязывать папку `/tmp/ASF` вашего ASF тоже к временной папке `/tmp` на вашей машине, но конечно же вы вольны выбрать любую другую, удовлетворяющую вашим потребностям. Каждый контейнер ASF, который вы хотите синхронизировать, должен делить общую папку `/tmp/ASF` с другими контейнерами, также участвующими в процессе синхронизации.
@@ -150,13 +150,13 @@ docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --
 
 Этот пример корректно передаст ваш аргумент `--cryptkey` процессу ASF, запущенному внутри контейнера docker, а также передаст остальные аргументы. Разумеется, если вы продвинутый пользователь, вы также можете изменить `ENTRYPOINT` или добваить `CMD` и передавать нужные аргументы командной строки самостоятельно.
 
-Unless you want to provide custom encryption key or other advanced options, usually you don't need to include any special environment variables, as our docker containers are already configured to run with a sane expected default options of `--no-restart` `--process-required` `--system-required`, so those flags do not need to be specified explicitly in `ASF_ARGS`.
+Если вы не хотите предоставлять пользовательский ключ шифрования или другие расширенные опции, обычно вам не нужно включать никаких специальных переменных среды, так как наши контейнеры docker уже настроены на запуск с ожидаемыми параметрами по умолчанию `--no-restart` `--process-required` `--system-required`, так что эти флаги не должны быть чётко указаны в `ASF_ARGS`.
 
 ---
 
 ## IPC
 
-Assuming you didn't change the default value for `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's already enabled. However, you must do two additional things for IPC to work in Docker container. Firstly, you must use `IPCPassword` or modify default `KnownNetworks` in custom `IPC.config` to allow you to connect from the outside without using one. Unless you really know what you're doing, just use `IPCPassword`. Secondly, you have to modify default listening address of `localhost`, as docker can't route outside traffic to loopback interface. Пример настройки, при которой запросы будут ожидаться со всех интерфейсов - `http://*:1242`. Разумеется, вы можете указать также более строгие настройки, такие как только приём запросов только от внутренней сети, или сети VPN, но это должен быть маршрут, доступный извне - `localhost` не подходит, поскольку этот маршрут полностью находится внутри гостевой машины.
+Если вы не изменили значение по умолчанию для **[глобального файла конфигурации](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ru-RU#global-config)** `IPC`, то он уже включен. Однако, для работы в Docker контейнере необходимо выполнить еще две вещи. Во-первых, вы должны использовать `IPCPassword` или изменить значение по умолчанию `KnownNetworks` в пользовательских `IPC.config`, чтобы позволить вам подключаться снаружи без использования его. Если вы не знаете, что вы делаете, просто используйте `IPCPassword`. Во-вторых, вы должны изменить адрес прослушивания `localhost`, так как Docker не может маршрутизировать внешний трафик до loopback-интерфейса. Пример настройки, при которой запросы будут ожидаться со всех интерфейсов - `http://*:1242`. Разумеется, вы можете указать также более строгие настройки, такие как только приём запросов только от внутренней сети, или сети VPN, но это должен быть маршрут, доступный извне - `localhost` не подходит, поскольку этот маршрут полностью находится внутри гостевой машины.
 
 Чтобы сделать описанное выше, вам нужно использовать **[пользовательскую конфигурацию IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ru-RU#user-content-Пользовательская-конфигурация)**, аналогичную приведенной ниже:
 
@@ -192,7 +192,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull alway
 docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-This assumes that you'll use a single ASF container, with all ASF config files in `/home/archi/ASF/config`. Вам нужно изменить путь к конфигурационным файлам на соответствующий вашей машине. Эта конфигурация также готова к использованию IPC если вы решите включить в вашу папку конфигурации файл `IPC.config` со следующим содержимым:
+Предполагается, что вы будете использовать один ASF контейнер со всеми конфигурационными файлами ASF в `/home/archi/ASF/config`. Вам нужно изменить путь к конфигурационным файлам на соответствующий вашей машине. Эта конфигурация также готова к использованию IPC если вы решите включить в вашу папку конфигурации файл `IPC.config` со следующим содержимым:
 
 ```json
 {
@@ -210,7 +210,7 @@ This assumes that you'll use a single ASF container, with all ASF config files i
 
 ## Советы профессионалов
 
-Когда ваш контейнер docker с ASF уже готов, вам не нужно каждый раз использовать команду `docker run`. Вы можете легко запускать/останавливать контейнер docker с ASF командами `docker stop asf` и `docker start asf`. Keep in mind that if you're not using `latest` tag then using up-to-date ASF will still require from you to `docker stop`, `docker rm` and `docker run` again. Это связано с тем, что вам нужно пересобирать ваш контейнер из свежего образа ASF каждый раз когда вы хотите использовать версию ASF, включенную в этот образ. In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it's still a good idea to do it from time to time in order to use fresh .NET runtime dependencies and the underlying OS).
+Когда ваш контейнер docker с ASF уже готов, вам не нужно каждый раз использовать команду `docker run`. Вы можете легко запускать/останавливать контейнер docker с ASF командами `docker stop asf` и `docker start asf`. Помните, что если вы не пользуетесь тегом `latest`, то обновление ASF потребует от вас снова выполнить `docker stop`, `docker rm`, `docker pull` и `docker run`. Это связано с тем, что вам нужно пересобирать ваш контейнер из свежего образа ASF каждый раз когда вы хотите использовать версию ASF, включенную в этот образ. В теге `latest` ASF включил возможность автоматического обновления, так что перекомпиляция образа не является необходимым для использования актуальной версии ASF (но время от времени это будет хорошей идеей, чтобы использовать свежие версии зависимостей .NET runtime и основной ОС).
 
 Как сказано выше, ASF c тегами отличными от `latest` не будут обновляться автоматически, а это значит что **вы** отвечаете за использование последней версии репозитория `justarchi/archisteamfarm`. Это имеет много преимуществ, потому что обычно приложение не должно изменять свой код во время работы, но мы также понимаем удобство того факта что вам не нужно беспокоиться о версии ASF в контейнере docker. Если вас заботят хорошие практики и правильное использование docker, мы рекомендуем использовать тег `released` вместо `latest`, но если вы не хотите заботиться о нём и просто хотите чтобы ASF работало и обновлялось автоматически, тег `latest` тоже подойдёт.
 

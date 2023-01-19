@@ -247,17 +247,17 @@ Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[p
 
 ## Доска почёта
 
-Мы хотели бы выразить нашу бесконечную благодарность людям, которые потратили значительную часть личного времени в стремлении сделать локализацию ASF лучше. Их усилия невероятны, и вы можете наслаждаться полным переводом, включая wiki, в основном благодаря им. As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
+Мы хотели бы выразить нашу бесконечную благодарность людям, которые потратили значительную часть личного времени в стремлении сделать локализацию ASF лучше. Их усилия невероятны, и вы можете наслаждаться полным переводом, включая wiki, в основном благодаря им. Как знак признательности, всем перечисленным здесь людям предоставляется бесплатный доступ к **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** после **[запроса](https://crowdin.com/messages/create/13177432/240376)**.
 
-| Участник                                                   | Языки               |
-| ---------------------------------------------------------- | ------------------- |
-| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Испанский   |
-| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Португальский (BR)  |
-| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Китайский (CN)      |
-| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Chinese (TW)        |
-| **[LittleFreak](https://crowdin.com/profile/littlefreak)** | Немецкий            |
-| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Русский, Украинский |
-| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, Немецкий    |
-| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Китайский (HK)      |
+| Участник                                                   | Языки                   |
+| ---------------------------------------------------------- | ----------------------- |
+| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Испанский       |
+| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Португальский (BR)      |
+| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Китайский (CN)          |
+| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Китайский (Тайваньский) |
+| **[LittleFreak](https://crowdin.com/profile/littlefreak)** | Немецкий                |
+| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Русский, Украинский     |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, Немецкий        |
+| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Китайский (HK)          |
 
 Спасибо вам всем за улучшение качества локализации ASF!

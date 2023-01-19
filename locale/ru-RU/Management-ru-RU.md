@@ -1,31 +1,31 @@
-# Management
+# Управление
 
-This section covers subjects related to managing the ASF process in optimal way. While not strictly mandatory for usage, it includes bunch of tips, tricks and good practices that we'd like to share, especially for system administrators, people packaging the ASF for usage in third-party repositories, as well as advanced users and alike.
+В этом разделе рассматриваются вопросы, связанные с оптимальным управлением процессом ASF. Хотя это не является обязательным для использования, он включает в себя несколько советов, трюков и передовой практики, которые мы хотели бы поделиться, специально для системных администраторов, люди упаковывают ASF для использования в сторонних репозиториях, а также опытных пользователей и других.
 
 ---
 
 ## `systemd` служба для Linux
 
-In `generic` and `linux` variants, ASF comes with `ArchiSteamFarm@.service` file, which is a configuration file of the service for **[`systemd`](https://systemd.io)**. If you'd like to run ASF as a service, for example in order to launch it automatically after startup of your machine, then a proper `systemd` service is arguably the best way to do it, therefore we highly recommend it instead of managing it on your own through `nohup`, `screen` or alike.
+В вариантах `generic` и `linux` ASF поставляется с файлом `ArchiSteamFarm@.service`, который является конфигурационным файлом службы **[`systemd`](https://systemd.io)**. Если вы хотите запустить ASF в качестве службы, например для того, чтобы запустить его автоматически после запуска машины, тогда служба `systemd`, скорее всего, лучший способ сделать это, поэтому мы настоятельно рекомендуем вместо того, чтобы управлять им самостоятельно через `nohup`, `screen` или другое.
 
-Firstly, create the account for the user you want to run ASF under, assuming it doesn't exist yet. We'll use `asf` user for this example, if you decided to use a different one, you'll need to substitute `asf` user in all of our examples below with your selected one. Our service does not allow you to run ASF as `root`, since it's considered a **[bad practice](#never-run-asf-as-administrator)**.
+Во-первых, создайте учетную запись для пользователя, под которым вы хотите запустить ASF, при условии, что она еще не существует. Мы будем использовать пользователя `asf` для этого примера, если вы решили использовать другое имя, то вам нужно заменить `asf` пользователя во всех наших примерах ниже своим выбранным. Наш сервис не позволяет вам запускать ASF в `root`, так как это считается **[ очень плохой практикой](#never-run-asf-as-administrator)**.
 
 ```sh
 su # or sudo -i
 useradd -m asf
 ```
 
-Next, unpack ASF to `/home/asf/ArchiSteamFarm` folder. The folder structure is important for our service unit, it should be `ArchiSteamFarm` folder in your `$HOME`, so `/home/<user>`. If you did everything correctly, there will be `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` file existing. If you're using `linux` variant and didn't unpack the file on Linux, but for example used file transfer from Windows, then you'll also need to `chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm`.
+Далее, распакуйте ASF в папку `/home/asf/ArchiSteamFarm`. Структура папок важна для нашего сервисного узла, папка `ArchiSteamFarm` должна быть в вашей `$HOME`, или `/home/<user>`. Если вы сделали все правильно, будет существовать файл `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service`. Если вы используете вариант `linux` и не распаковываете файл в Linux, но, к примеру, использовали передачу файлов из Windows, тогда вам также понадобится `chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm`.
 
-We'll do all below actions as `root`, so get to its shell with `su` or `sudo -i`.
+Все действия ниже будут выполнены в виде `root`, так что дойдите до его оболочки с `su` или `sudo -i`.
 
-Firstly it's a good idea to ensure that our folder still belongs to our `asf` user, `chown -hR asf:asf /home/asf/ArchiSteamFarm` executed once will do it. The permissions could be wrong e.g. if you've downloaded and/or unpacked the zip file as `root`.
+Во-первых, стоит убедиться в том, что наша папка по-прежнему принадлежит нашему пользователю `asf`, `chown -hR asf:asf /home/asf/ArchiSteamFarm` выполнен, как только это будет сделано. Разрешения могут быть неправильными, например, если вы загрузили и/или распаковали zip-файл в качестве `root`.
 
-Secondly, if you're using generic variant of ASF, you need to ensure `dotnet` command is recognized and within one of the standard locations: `/usr/local/bin`, `/usr/bin` or `/bin`. This is required for our systemd service which executes `dotnet /path/to/ArchiSteamFarm.dll` command. Check if `dotnet --info` works for you, if yes, type `command -v dotnet` to find out where it's located. If you've used official installer, it should be in `/usr/bin/dotnet` or one of the two other locations, which is alright. If it's in custom location such as `/usr/share/dotnet/dotnet`, create a symlink for it using `ln -s "$(command -v dotnet)" /usr/bin/dotnet`. Now `command -v dotnet` should report `/usr/bin/dotnet`, which will also make our systemd unit work. If you're using OS-specific variant, you don't need to do anything in this regard.
+Во-вторых, если вы используете generic вариант ASF, вы должны убедиться, что команда `dotnet` распознана и находится в одном из стандартных мест: `/usr/local/bin`, `/usr/bin` или `/bin`. Это необходимо для нашей службы systemd, которая выполняет команду `dotnet /path/to/ArchiSteamFarm.dll`. Проверьте, работает ли `dotnet --info` у вас: если да, введите `command -v dotnet`, чтобы узнать, где она находится. Если вы использовали официальный установщик, то она должна находиться в `/usr/bin/dotnet` или одном из двух других мест, что является правом. Если это находится в пользовательском местоположении, например `/usr/share/dotnet/dotnet`, создайте для него символьную ссылку, используя `ln -s "$(command -v dotnet)" /usr/bin/dotnet`. Теперь `command -v dotnet` должна сообщать о `/usr/bin/dotnet`, что также приведет к работе systemd. Если вы используете платформо-специфичный вариант, то вам не нужно ничего делать в этом отношении.
 
-Next, `cd /etc/systemd/system` and execute `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`, this will create a symbolic link to our service declaration and register it in `systemd`. Symbolic link will allow ASF to update your `systemd` unit automatically as part of ASF update - depending on your situation, you may want to use that approach, or simply `cp` the file and manage it yourself however you'd like.
+Далее `cd /etc/systemd/system` и запустите `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`, это создаст символическую ссылку на наше служебное объявление и зарегистрирует его в `systemd`. Символьная ссылка позволит ASF автоматически обновлять ваш `systemd` в рамках обновления ASF - в зависимости от вашей ситуации, вы можете использовать этот подход, или просто `cp` файл и управлять им самостоятельно.
 
-Afterwards, ensure that `systemd` recognizes our service:
+После этого убедитесь, что `systemd` распознает наш сервис:
 
 ```
 systemctl status ArchiSteamFarm@asf
@@ -36,9 +36,9 @@ systemctl status ArchiSteamFarm@asf
        Docs: https://github.com/JustArchiNET/ArchiSteamFarm/wiki
 ```
 
-Pay special attention to the user we declare after `@`, it's `asf` in our case. Our systemd service unit expects from you to declare the user, as it influences the exact place of the binary `/home/<user>/ArchiSteamFarm`, as well as the actual user systemd will spawn the process as.
+Уделите особое внимание заявленному пользователю после `@` (это `asf` в нашем случае). systemd ожидает от вас объявление пользователя, так как это влияет на точное место двоичного файла `/home/<user>/ArchiSteamFarm`, а также фактическая user systemd создаст процесс как таковой.
 
-If systemd returned output similar to above, everything is in order, and we're almost done. Now all that is left is actually starting our service as our chosen user: `systemctl start ArchiSteamFarm@asf`. Wait a second or two, and you can check the status again:
+Если systemd выдала нечто, похожее на написанное выше, то все в порядке, и мы почти закончили. Теперь всё, что осталось - это запустить нашу службу от имени выбранного пользователя: `systemctl start ArchiSteamFarm@asf`. Подождите пару мгновений, и вы можете проверить статус снова:
 
 ```
 systemctl status ArchiSteamFarm@asf
@@ -51,19 +51,19 @@ systemctl status ArchiSteamFarm@asf
 (...)
 ```
 
-If `systemd` states `active (running)`, it means everything went well, and you can verify that ASF process should be up and running, for example with `journalctl -r`, as ASF by default also writes to its console output, which is recorded by `systemd`. If you're satisfied with the setup you have right now, you can tell `systemd` to automatically start your service during boot, by executing `systemctl enable ArchiSteamFarm@asf` command. That's all.
+Если состояние `systemd` - `active (running)`, это означает, что все прошло успешно, и вы можете проверить, что ASF процесс должен быть запущен, например, с `journalctl -r`, так как ASF по умолчанию также записывает в свой вывод консоли, который записан `systemd`. Если вы довольны установкой прямо сейчас, вы можете попросить`systemd` автоматически запускать службу во время загрузки, выполнив `systemctl enable ArchiSteamFarm@asf`. На этом всё!
 
-If by any chance you'd like to stop the process, simply execute `systemctl stop ArchiSteamFarm@asf`. Likewise, if you want to disable ASF from being started automatically on boot, `systemctl disable ArchiSteamFarm@asf` will do that for you, it's very simple.
+Если вдруг вы хотите остановить процесс, просто выполните `systemctl stop ArchiSteamFarm@asf`. Аналогично, если вы хотите, чтобы ASF запускался автоматически при загрузке, `systemctl disable ArchiSteamFarm@asf` сделает это за вас, это очень просто.
 
-Please note that, as there is no standard input enabled for our `systemd` service, you won't be able to input your details through the console in usual way. Running through `systemd` is equivalent to specifying **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** setting and comes with all its implications. Fortunately for you, it's very easy to manage your ASF through **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, which we recommend in case you need to supply additional details during login or otherwise manage your ASF process further.
+Пожалуйста, обратите внимание, что из-за отсутствия стандартных входных данных для нашей службы `systemd` вы не сможете вводить данные через консоль обычным способом. Прохождение через `systemd` эквивалентно заданию **[`headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** устанавливается и поставляется со всеми вытекающими последствиями. К счастью для вас, ASF очень легко управлять через **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-ru-RU#asf-ui)**, который мы рекомендуем в случае, если вам необходимо предоставить дополнительные данные во время входа в систему или иным образом управлять вашим процессом ASF.
 
 ### Переменные среды
 
-It's possible to supply additional environment variables to our `systemd` service, which you'll be interested in doing in case you want to for example use a custom `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**, therefore specifying `ASF_CRYPTKEY` environment variable.
+Возможна поставка дополнительных переменных среды в наш `systemd`, которая будет интересна в том случае, если вы хотите использовать пользовательский `--cryptkey` **[аргумент командной строки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**, поэтому задайте переменную окружения `ASF_CRYPTKEY`.
 
-In order to provide custom environment variables, create `/etc/asf` folder (in case it doesn't exist), `mkdir -p /etc/asf`. We recommend to `chmod 700 /etc/asf` to ensure that only `root` user has access to read those files, because they might contain sensitive properties such as `ASF_CRYPTKEY`. Afterwards, write to a `/etc/asf/<user>` file, where `<user>` is the user you're running the service under (`asf` in our example above, so `/etc/asf/asf`).
+Чтобы предоставить пользовательские переменные окружения, создайте папку `/etc/asf` (в случае, если она не существует), `mkdir -p /etc/asf`. Мы рекомендуем `chmod 700 /etc/asf`, чтобы убедиться, что только `root` пользователь имеет доступ к чтению этих файлов, потому что они могут содержать конфиденциальные свойства, такие как `ASF_CRYPTKEY`. После этого напишите в файл `/etc/asf/<user>`, где `<user>` - это пользователь, под которым вы запускаете службу (`asf` в нашем примере выше, поэтому у нас `/etc/asf/asf`).
 
-The file should contain all environment variables that you'd like to provide to the process:
+Файл должен содержать все переменные среды, которые вы хотели бы предоставить процессу:
 
 ```sh
 # Объявите только то что вам нужно
@@ -73,20 +73,20 @@ ASF_NETWORK_GROUP="my_network_group"
 # И любые другие интересующие вас
 ```
 
-### Overriding part of the service unit
+### Переопределение части сервисного юнита
 
-Thanks to the flexibility of `systemd`, it's possible to overwrite part of ASF unit while still preserving the original unit file and allowing ASF to update it for example as part of auto-updates.
+Благодаря гибкости `systemd`, можно переписать часть блока ASF, сохраняя исходный файл и позволяя ASF обновлять его, например, в качестве части автоматического обновления.
 
-In this example, we'd like to modify default ASF `systemd` unit behaviour from restarting only on success, to restarting also on fatal crashes. In order to do so, we'll override `Restart` property under `[Service]` from default of `on-success` to `always`. Simply execute `systemctl edit ArchiSteamFarm@asf`, naturally replacing `asf` with the target user of your service. Then add your changes as indicated by `systemd` in proper section:
+В этом примере мы хотели бы изменить поведение юнита `systemd` ASF не только после перезапуска при успешном завершении, а также и при фатальных сбоях. Для этого мы переопределим свойство `Restart` в разделе `[Service]` с `on-success` по умолчанию на `always`. Просто запустите `systemctl edit ArchiSteamFarm@asf`, естественно, заменив `asf` целевым пользователем вашего сервиса. Затем добавьте ваши изменения, как указано `systemd` в нужном разделе:
 
 ```sh
-### Editing /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
-### Anything between here and the comment below will become the new contents of the file
+### Редактирование /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
+### Всё отсюда и до комментария ниже станет новым содержимым файла
 
 [Service]
 Restart=always
 
-### Lines below this comment will be discarded
+### Строки ниже этого комментария будут удалены
 
 ### /etc/systemd/system/ArchiSteamFarm@asf.service
 # [Install]
@@ -102,51 +102,51 @@ Restart=always
 # (...)
 ```
 
-And that's it, now your unit acts the same as if it had only `Restart=always` under `[Service]`.
+И вот теперь ваш юнит действует так же, как если бы она имела только `Restart=always` под `[Service]`.
 
-Of course, alternative is to `cp` the file and manage it yourself, but this allows you for flexible changes even if you decided to keep original ASF unit, for example with a symlink.
+Конечно, альтернативой `cp` файла и управление им самостоятельно, но это позволяет вам при гибких изменениях, даже если вы решили сохранить оригинальный юнит ASF, например с символьной ссылкой.
 
 ---
 
 ## Никогда не запускайте ASF от имени администратора!
 
-ASF includes its own validation whether the process is being run as administrator (`root`) or not. Running as root is **not** required for any kind of operation done by the ASF process, assuming properly configured environment it's operating in, and therefore should be regarded as a **bad practice**. This means that on Windows, ASF should never be executed with "run as administrator" setting, and on Unix ASF should have a dedicated user account for itself, or re-use your own in case of a desktop system.
+ASF включает в себя собственную проверку того, запускается ли процесс с правами администратора (`root`) или нет. Запуск с правами суперпользователя **не требуется** для любых операций, выполняемых процессом ASF, при правильной настройке окружения, в которой она работает, и поэтому следует рассматривать как **очень дурную практику**. Это означает, что в Windows, ASF никогда не должен выполняться с настройкой "запустить как администратор", и на Unix ASF должен иметь специальную учетную запись пользователя, или используйте свою собственную в случае настольной системы.
 
-For further elaboration on *why* we discourage running ASF as root, refer to **[superuser](https://superuser.com/questions/218379/why-is-it-bad-to-run-as-root)** and other resources. If you're still not convinced, ask yourself what would happen to your machine if ASF process executed `rm -rf /*` command right after its launch.
+Для дальнейшей проработки *почему* мы не поощряем ASF как root, зайдите на **[Хабр](https://qna.habr.com/q/573998)** или другие ресурсы. Если вы все еще не убедились, спросите себя, что будет с вашей машиной, если ASF процесс выполнит команду `rm -rf /*` сразу после запуска (комментарий переводчика: трындец вашей операционке!).
 
 ### Я запустил ASF через `root` потому что он не может записывать файлы
 
-This means that you have wrongly configured permissions of the files ASF is trying to access. You should login as `root` account (either with `su` or `sudo -i`) and then **correct** the permissions by issuing `chown -hR asf:asf /path/to/ASF` command, substituting `asf:asf` with the user that you'll run ASF under, and `/path/to/ASF` accordingly. If by any chance you're using custom `--path` telling ASF user to use the different directory, you should execute the same command again for that path as well.
+Это означает, что вы неправильно настроили разрешения файлов, к которым ASF пытается получить доступ. Вы должны войти в систему под учёткой `root` (либо с помощью `su`, либо `sudo -i`), а затем **исправить** разрешения, введя команду `chown -hR asf:asf /path/to/ASF`, заменив `asf:asf` пользователем, под которым вы будете запускать ASF, и `/path/to/ASF` соответственно. Если вдруг вы используете пользовательские `--path`, говорящие пользователю ASF использовать другие директории, вы также должны выполнить ту же команду для этого пути.
 
-After doing that, you should no longer get any kind of issue related to ASF not being able to write over its own files, as you've just changed the owner of everything ASF is interested in to the user the ASF process will actually run under.
+После этого вы больше не должны сталкиваться с проблемами, связанными с тем, что ASF не может перезаписывать свои собственные файлы, так как вы только что изменили владельца всего, что интересует ASF, на пользователя, от имени которого фактически будет выполняться процесс ASF.
 
-### I run as `root` because I don't know how to do it otherwise
+### Я запускаю как `root`, потому что не знаю, как это сделать иначе
 
 ```sh
-su # or sudo -i
+su # или sudo -i
 useradd -m asf
 chown -hR asf:asf /path/to/ASF
-su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
+su asf -c /path/to/ASF/ArchiSteamFarm # или sudo -u asf /path/to/ASF/ArchiSteamFarm
 ```
 
-That would be doing it manually, it's much easier to use our **[`systemd` service](#systemd-service-for-linux)** explained above.
+Это будет сделано вручную, гораздо проще использовать наш **[`systemd`сервис](#systemd-service-for-linux)**, как описано выше.
 
-### I know better and I still want to run as `root`
+### Я знаю лучше, и я все еще хочу запустить как `root`, БЕ!
 
-As of V5.2.0.10, ASF no longer stops you from doing so, only displays a warning with a short notice. Just don't be shocked if one day due to a bug in the program it'll blow up your whole OS with complete data loss - you've been warned.
+Начиная с версии V5.2.0.10, ASF больше не останавливает вас делать это, только показывает предупреждение с коротким уведомлением. Просто не удивляйтесь, если в один день из-за ошибки в программе он взорвет всю вашу ОС с полной потерей данных - вы были предупреждены. Развлекайтесь XD
 
 ---
 
 ## Запуск нескольких экземпляров
 
-ASF поддерживает запуск нескольких экземпляров программы на одной и той же машине. The instances can be completely standalone or derived from the same binary location (in which case, you want to run them with different `--path` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**).
+ASF поддерживает запуск нескольких экземпляров программы на одной и той же машине. Экземпляры могут быть полностью автономными или получены из одного двоичного местоположения (в этом случае вы хотите запустить их с помощью другого`--path` **[аргумента командной строки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU)**).
 
 При использовании нескольких одновременно работающих копий одного исполняемого файла имейте в виду, что в этом случае обычно стоит отключать авто-обновления во всех конфигурационных файлах, поскольку обновление не будет синхронизировано между копиями. Если вы хотите оставить авто-обновление включенным, мы рекомендуем отдельные копии файлов, но вы можете всё равно добиться работы обновлений, если сможете обеспечить чтобы все остальные экземпляры ASF были закрыты.
 
-ASF будет по возможности использовать минимум обще-системных, меж-процессных взаимодействий с другими экземплярами ASF. This includes ASF checking its configuration directory against other instances, as well as sharing core process-wide limiters configured with `*LimiterDelay` **[global config properties](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, ensuring that running multiple ASF instances will not cause a possibility to run into a rate-limiting issue. Что касается технической реализации — все платформы используют наш специальный механизм блокировок ASF, основанный на блокировках файлов во временной директории, в качестве которой используется `C:\Users\<ВашеИмяПользователя>\AppData\Local\Temp\ASF` под Windows, и `/tmp/ASF` под Unix.
+ASF будет по возможности использовать минимум обще-системных, меж-процессных взаимодействий с другими экземплярами ASF. Сюда входит проверка ASF каталога конфигурации на другие случаи, а также обмен ограничениями ядра процессов, сконфигурированных с `*LimiterDelay` **[в глобальной конфигурации](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-ru-RU#global-config)**, убедитесь, что запуск нескольких ASF экземпляров не приведет к возникновению проблемы ограничения скорости. Что касается технической реализации — все платформы используют наш специальный механизм блокировок ASF, основанный на блокировках файлов во временной директории, в качестве которой используется `C:\Users\<ВашеИмяПользователя>\AppData\Local\Temp\ASF` под Windows, и `/tmp/ASF` под Unix.
 
 Использование одинаковых параметров `*LimiterDelay` для всех запущенных экземпляров не является обязательным, они могут использовать различные значение, поскольку каждый экземпляр ASF будет добавлять собственную, заданную в конфигурационном файле, задержку до освобождения файла после его захвата. Если параметр `*LimiterDelay` задан равным `0`, этот экземпляр ASF будет полностью игнорировать ожидание блокировки заданных ресурсов, разделяемых с другими экземплярами (которые могут потенциально поддерживать общую блокировку между собой). При установке любых других значений, ASF будет правильно синхронизироваться с любыми другими экземплярами ASF и будет ждать своей очереди, а затем снимать блокировку после заданной задержки, позволяя другим экземплярам продолжить работу.
 
-ASF учитывает настройки `WebProxy` для принятия решения об использовании блокировок, то есть два экземпляра ASF, использующих разную настройку `WebProxy` не будут иметь общей блокировки между собой. Это сделано чтоб позволить конфигурациям с использованием `WebProxy` работать без излишних задержек, как ожидается от разных сетевых интерфейсов. This should be good enough for majority of use cases, however, if you have a specific custom setup in which you're e.g. routing requests yourself in a different way, you can specify network group yourself through `--network-group` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**, which will allow you to declare ASF group that will be synchronized with this instance. Имейте в виду, что пользовательские сетевые группы переопределяют внутреннюю группировку, а значит ASF больше не будет учитывать значение `WebProxy` для определения правильной группы, так как в этом случае вы полностью отвечаете за группировку.
+ASF учитывает настройки `WebProxy` для принятия решения об использовании блокировок, то есть два экземпляра ASF, использующих разную настройку `WebProxy` не будут иметь общей блокировки между собой. Это сделано чтоб позволить конфигурациям с использованием `WebProxy` работать без излишних задержек, как ожидается от разных сетевых интерфейсов. Этого должно быть достаточно для большинства вариантов использования, однако, если у вас есть специальная настройка, в которой вы, например, будете маршрутизировать запросы самостоятельно другим способом, можно указать группу сети самостоятельно через **[аргумент командной строки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-ru-RU)** `--network-group`, который позволит вам объявить группу ASF, которая будет синхронизирована с этим экземпляром. Имейте в виду, что пользовательские сетевые группы переопределяют внутреннюю группировку, а значит ASF больше не будет учитывать значение `WebProxy` для определения правильной группы, так как в этом случае вы полностью отвечаете за группировку.
 
-If you'd like to utilize our **[`systemd` service](#systemd-service-for-linux)** explained above for multiple ASF instances, it's very simple, just use another user for our `ArchiSteamFarm@` service declaration and follow with the rest of the steps. This will be equivalent of running multiple ASF instances with distinct binaries, so they can also auto-update and operate independently of each other.
+Если вы хотите использовать наш **[`systemd` сервис](#systemd-service-for-linux)**, описанный выше для нескольких экземпляров ASF, то это очень просто, просто используйте другого пользоватея для нашего `ArchiSteamFarm@` сервиса и следуйте остальным шагам. Это будет эквивалентно запуску нескольких ASF экземпляров с отдельными двоичными файлами, так что они могут также автоматически обновляться и работать независимо друг от друга.

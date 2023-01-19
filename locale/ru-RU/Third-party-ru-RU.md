@@ -18,7 +18,7 @@
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, плагин для ASF, позволяющий автоматически принимать предложения обмена, в которых у него запрашивают предметы заданного(ых) типа(ов).
 - **[ Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, плагин для ASF, предоставляющий расширение команды `transfer` для передачи предметов Steam.
 
-### **[Vita](https://github.com/ezhevita)**
+### **[VITA](https://github.com/ezhevita)**
 
 - **[FriendAccepter](https://github.com/ezhevita/FriendAccepter)**, плагин для ASF, позволяющий автоматически принимать все приглашения в друзья.
 - **[GameRemover](https://github.com/ezhevita/GameRemover)**, плагин для ASF, реализующий команду удаления лицензий Steam для выбранных экземпляров ботов.

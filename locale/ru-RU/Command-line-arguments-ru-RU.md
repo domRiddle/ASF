@@ -76,7 +76,7 @@ Linux/macOS:
 
 ---
 
-`--no-config-watch` - по умолчанию ASF устанавливает `FileSystemWatcher` в вашем каталоге `config`, чтобы отслеживать события, связанные с изменениями файлов, поэтому он может интерактивно адаптироваться к ним. Например, это включает в себя остановку ботов при удалении конфигурации, перезапуск бота при изменении конфигурации или загрузку ключей в **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-ru-RU)** после того, как вы поместите их в каталог `config`. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate (which usually means restarting the process). We recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-config-watch` - по умолчанию ASF устанавливает `FileSystemWatcher` в вашем каталоге `config`, чтобы отслеживать события, связанные с изменениями файлов, поэтому он может интерактивно адаптироваться к ним. Например, это включает в себя остановку ботов при удалении конфигурации, перезапуск бота при изменении конфигурации или загрузку ключей в **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-ru-RU)** после того, как вы поместите их в каталог `config`. Этот переключатель позволяет вам отключить такое поведение, которое заставит ASF полностью игнорировать все изменения в каталоге `config`, требуя от вас выполнения таких действий вручную, если вы сочтете нужным (что обычно означает перезапуск процесса). Мы рекомендуем оставить config events включенными, но если у вас есть особая причина для их отключения и вместо этого вы предпочитаете, чтобы ASF не делал этого, вы можете использовать этот переключатель для достижения этой цели.
 
 ---
 
@@ -92,7 +92,7 @@ Linux/macOS:
 
 Из-за природы этого параметра также есть возможность задавать необходимый путь с помощью задания переменной среды `ASF_PATH`, это может оказаться более подходящим для людей, которые хотели бы избежать наличия конфиденциальной информации в аргументах процесса.
 
-If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[management page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** on this manner.
+Если вы планируете использовать этот аргумент командной строки для запуска нескольких копий ASF, мы рекомендуем вам также раздел, посвященный этому, на странице, посвященной **[совместимости](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU#user-content-Запуск-нескольких-экземпляров)**.
 
 Примеры:
 

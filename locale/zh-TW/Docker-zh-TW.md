@@ -180,7 +180,7 @@ docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull always justarchi/archisteamfarm
 ```
 
-若您一切都設定正確，上述的&#8203;`docker run`&#8203;命令將會使&#8203;**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**介面在您的主機運作，標準的&#8203;`localhost:1242`&#8203;路由現在已正確地重定向至您的客戶機上。 值得注意的是，我們沒有進一步公開此路由，因此只能在Docker主機內完成連線，從而保持了安全。 當然，如果您知道您在做什麼，且確保擁有適合的安全措施，您也可以進一步公開此路由。
+若您一切都設定正確，上述的&#8203;`docker run`&#8203;命令將會使&#8203;**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**&#8203;介面在您的主機運作，標準的&#8203;`localhost:1242`&#8203;路由現在已正確地重定向至您的客戶機上。 值得注意的是，我們沒有進一步公開此路由，因此只能在Docker主機內完成連線，從而保持了安全。 當然，如果您知道您在做什麼，且確保擁有適合的安全措施，您也可以進一步公開此路由。
 
 ---
 
@@ -210,8 +210,8 @@ docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/
 
 ## 專業小技巧
 
-當您準備好ASF的Docker容器後，您就不必每次都使用&#8203;`docker run`&#8203;了。 You can easily stop/start ASF docker container with `docker stop asf` and `docker start asf`. Keep in mind that if you're not using `latest` tag then using up-to-date ASF will still require from you to `docker stop`, `docker rm` and `docker run` again. This is because you must rebuild your container from fresh ASF docker image every time you want to use ASF version included in that image. In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it's still a good idea to do it from time to time in order to use fresh .NET runtime dependencies and the underlying OS).
+當您準備好ASF的Docker容器後，您就不必每次都使用&#8203;`docker run`&#8203;了。 您可以透過&#8203;`docker stop asf`&#8203;及&#8203;`docker start asf`&#8203;簡單地停止／啟動ASF Docker容器。 請注意，如果您使用的不是&#8203;`latest`&#8203;標籤，那麼使用最新版本的ASF仍然需要您再次執行&#8203;`docker stop`&#8203;、&#8203;`docker rm`&#8203;及&#8203;`docker run`&#8203;。 這是因為每次您想要使用包含在映像檔中的ASF版本時，您都必須由新的ASF Docker映像檔重建您的容器。 在&#8203;`latest`&#8203;標籤中，ASF已包含自我更新的能力，因此使用最新版本的ASF不需要重建映像檔（但偶爾這樣做仍有好處，可以使用新的.NET相依執行環境及底層作業系統）。
 
-As hinted by above, ASF in tag other than `latest` won't automatically update itself, which means that **you** are in charge of using up-to-date `justarchi/archisteamfarm` repo. This has many advantages as typically the app should not touch its own code when being run, but we also understand convenience that comes from not having to worry about ASF version in your docker container. If you care about good practices and proper docker usage, `released` tag is what we'd suggest instead of `latest`, but if you can't be bothered with it and you just want to make ASF both work and auto-update itself, then `latest` will do.
+如上所述，&#8203;`latest`&#8203;以外標籤的ASF不會自動更新，這代表&#8203;**您**&#8203;必須負責使用最新的&#8203;`justarchi/archisteamfarm`&#8203;儲存庫。 這有很多優點，因為通常應用程式在執行時不應觸及自己的程式碼，但我們也理解不必擔心Docker容器中ASF的版本所帶來的便利。 If you care about good practices and proper docker usage, `released` tag is what we'd suggest instead of `latest`, but if you can't be bothered with it and you just want to make ASF both work and auto-update itself, then `latest` will do.
 
 You should typically run ASF in docker container with `Headless: true` global setting. This will clearly tell ASF that you're not here to provide missing details and it should not ask for those. Of course, for initial setup you should consider leaving that option at `false` so you can easily set up things, but in long-run you're typically not attached to ASF console, therefore it'd make sense to inform ASF about that and use `input` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** if need arises. This way ASF won't have to wait infinitely for user input that will not happen (and waste resources while doing so). It will also allow ASF to run in non-interactive mode inside container, which is crucial e.g. in regards to forwarding signals, making it possible for ASF to gracefully close on `docker stop asf` request.

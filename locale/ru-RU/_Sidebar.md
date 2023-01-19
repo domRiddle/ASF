@@ -21,7 +21,7 @@
 * **[👥 Фоновая активация ключей](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-ru-RU)**
 * **[📢 Команды](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)**
 * **[🛠️ Совместимость](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU)**
-* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
+* **[🧩 Плагин ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[📋 Управление](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Производительность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📡 Удаленная связь](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
