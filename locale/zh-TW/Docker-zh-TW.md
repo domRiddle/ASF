@@ -2,9 +2,9 @@
 
 從3.0.3.2版本開始，ASF現在也可用於&#8203;**[Docker容器](https://www.docker.com/what-container)**&#8203;中。 我們的Docker倉庫同時部署於&#8203;**[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)**&#8203;及&#8203;**[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**&#8203;。
 
-重要的是，需注意在Docker容器中執行ASF被視為&#8203;**進階設定**&#8203;，對於絕大多數使用者來說是&#8203;**不需要的**&#8203;，且通常與非容器設定相比&#8203;**並無優勢**&#8203;。 若您考慮Docker當作執行ASF作為服務的一種解決方案，例如使它隨著您的作業系統自動啟動，那麼您應考慮閱讀&#8203;**[管理](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-TW#linux-的-systemd-服務)**&#8203;章節，並適當設定&#8203;`systemd`&#8203;服務，這&#8203;**幾乎總比**&#8203;在Docker容器中執行ASF還要更好。
+重要的是，需注意在Docker容器中執行ASF會被視為&#8203;**進階設定**&#8203;，對於絕大多數使用者來說是&#8203;**不需要的**&#8203;，且通常與非容器設定相比&#8203;**並無優勢**&#8203;。 若您考慮將Docker作為把ASF當作服務執行的一種解決方案，例如使它隨著您的作業系統自動啟動，那麼您應考慮閱讀&#8203;**[管理](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-TW#linux-的-systemd-服務)**&#8203;章節，並適當設定&#8203;`systemd`&#8203;服務，這&#8203;**幾乎總比**&#8203;在Docker容器中執行ASF還要更好。
 
-在Docker容器中執行ASF通常會涉及&#8203;**一些新問題及狀況**&#8203;，您必須自行面對並解決這些問題。 這就是為什麼我們&#8203;**強烈**&#8203;建議您避免使用它，除非您已經具備Docker的相關知識，且不需要其他人幫助您了解其內部結構，因為我們不會在ASF Wiki詳細說明這些。 本章節主要提供了非常複雜設定的有效範例，例如關於進階網路的設定，或安全性超過ASF在&#8203;`systemd`&#8203;服務中所附帶的標準沙盒（它已經透過非常先進的安全機制來確保卓越的程序隔離）。 對於那些少數人，在這裡我們著重解釋了關於ASF與Docker相容性的概念，僅此而已。若您決定將ASF與Docker一起使用，我們會假定您已擁有足夠的Docker知識。
+在Docker容器中執行ASF通常會涉及&#8203;**一些新問題及狀況**&#8203;，您必須自行面對並解決這些問題。 這就是為什麼我們&#8203;**強烈**&#8203;建議您避免使用Docker，除非您已經具備相關知識，且不需要其他人幫助您了解其內部結構。此外，我們也不會在ASF Wiki詳細說明這些。 本章節主要提供了非常複雜設定的有效使用範例，例如關於進階網路的設定，或安全性超過ASF在&#8203;`systemd`&#8203;服務中所附帶的標準沙盒（它已經透過非常先進的安全機制來確保卓越的程序隔離）。 對於那些少數人，在這裡我們著重解釋了關於ASF與Docker相容性的概念，僅此而已。若您決定將ASF與Docker一起使用，我們會假定您已擁有足夠的Docker知識。
 
 ---
 
@@ -15,17 +15,17 @@ ASF有4種主要類型的&#8203;**[標籤](https://hub.docker.com/r/justarchi/ar
 
 ### `main`
 
-本標籤始終指向在&#8203;`main`&#8203;分支中ASF所提交的最新建置版本，其運作原理等同於直接從我們的&#8203;**[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)**&#8203;管線中抓取最新產生的版本。 通常您應避免使用此標籤，因為它是以開發為目的，專為開發人員及進階使用者的軟體，含有大量的錯誤。 該映像檔會隨著GitHub的&#8203;`main`&#8203;分支每次提交而更新，因此您可以預期它會頻繁更新（且經常損壞）。 這是我們用來標示ASF專案的當前狀態，不一定能保證穩定或經過測試，就像在我們的發布週期中所說明的那樣。 此標籤不應在任何生產環境中使用。
+本標籤始終指向在&#8203;`main`&#8203;分支中ASF所提交的最新建置版本，運作原理與直接從我們的&#8203;**[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)**&#8203;管線中抓取最新產生的版本相同。 通常您應避免使用此標籤，因為它是以開發為目的，專為開發人員及進階使用者的軟體，含有大量的錯誤。 該映像檔會隨著GitHub的&#8203;`main`&#8203;分支每次提交而更新，因此您可以預期它會頻繁更新（且經常損壞）。 這是我們用來標示ASF專案的當前狀態，不一定能保證穩定或經過測試，就像在我們的發布週期中所說明的那樣。 此標籤不應在任何生產環境中使用。
 
 
 ### `released`
 
-與上述標籤非常相似，本標籤始終指向ASF&#8203;**[最新發布](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;的版本，包含預覽版本。 與&#8203;`main`&#8203;標籤不同，此映像檔會在每次推播新的GitHub標籤時更新。 為喜歡冒險、敢於嘗試新事物但又可能穩定的進階使用者所準備。 若您不想使用&#8203;`latest`&#8203;標籤，我們建議您使用此標籤。 實際上，它的運作方式與滾動標籤在拉取時指向最新&#8203;`A.B.C.D`&#8203;版本的方式相同。 請注意，使用此標籤與使用我們的&#8203;**[預覽版本](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-TW)**&#8203;是相同的。
+與上述標籤非常相似，本標籤始終指向ASF&#8203;**[最新發布](https://github.com/JustArchiNET/ArchiSteamFarm/releases)**&#8203;的版本，包含預覽版本。 與&#8203;`main`&#8203;標籤不同，此映像檔會在每次推播新的GitHub標籤時更新。 為喜歡冒險、敢於嘗試新事物但又可能考慮相對穩定的進階使用者所準備。 若您不想使用&#8203;`latest`&#8203;標籤，我們建議您使用此標籤。 實際上，它的運作方式與滾動標籤在拉取時指向最新&#8203;`A.B.C.D`&#8203;版本的方式相同。 請注意，使用此標籤與使用我們的&#8203;**[預覽版本](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-TW)**&#8203;是相同的。
 
 
 ### `latest`
 
-與其他標籤相比，只有本標籤包含了ASF的自動更新功能，且指向ASF最新的&#8203;**[穩定版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;。 此標籤的目的是提供一個預設的合理Docker容器，能執行適用於特定作業系統的ASF建置版本的自動更新。 因此，此映像檔不需要經常更新，因為所包含的ASF版本將會在需要時進行自動更新。 當然，可以安全關閉&#8203;`UpdatePeriod`&#8203;（設定成&#8203;`0`&#8203;），但在這種情形下，您可能更應使用固定的&#8203;`A.B.C.D`&#8203;版本。 同樣地，您可以修改預設的&#8203;`UpdateChannel`&#8203;，以改為自動更新&#8203;`released`&#8203;標籤。
+與其他標籤相比，只有本標籤包含了ASF的自動更新功能，且指向ASF最新的&#8203;**[穩定版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;。 此標籤的目的是提供一個預設的合理Docker容器，能執行適用於特定作業系統的ASF建置版本的自動更新。 因此，此映像檔不需要經常更新，因為所包含的ASF版本將會在需要時進行自動更新。 當然，可以安全關閉&#8203;`UpdatePeriod`&#8203;（設定成&#8203;`0`&#8203;），但在這種情形下，您可能更應使用固定的&#8203;`A.B.C.D`&#8203;版本。 同理，您也可以修改預設的&#8203;`UpdateChannel`&#8203;，以改為自動更新&#8203;`released`&#8203;標籤。
 
 由於&#8203;`latest`&#8203;映像檔具有自動更新功能，它具有&#8203;`linux`&#8203;作業系統特定的裸作業系統ASF版本，與所有其他標籤相反，包含含有.NET作業系統執行環境及&#8203;`generic`&#8203;的ASF版本。 這是因為較新（更新後）的ASF版本可能會需要比映像檔內建還要新的執行環境，這將需要從頭開始重新建置映像檔，並使使用計畫無效。
 
@@ -47,7 +47,7 @@ ASF有4種主要類型的&#8203;**[標籤](https://hub.docker.com/r/justarchi/ar
 
 ASF Docker映像檔目前建立於&#8203;`linux`&#8203;平台上，針對3種架構：&#8203;`x64`&#8203;、&#8203;`arm`&#8203;及&#8203;`arm64`&#8203;。 您可以在&#8203;**[相容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW)**&#8203;章節中了解更多。
 
-從ASF V5.0.2.2版本開始，我們的標籤使用多平台清單，這代表安裝在您設備上的Docker會在拉取時自動選擇適合的映像檔。 若您需要拉取不符合您當前執行平台的特定映像檔，您可以透過適當的Docker命令&#8203;`--platform`&#8203;切換，例如&#8203;`docker run`&#8203;。 查看關於&#8203;**[映像檔清單](https://docs.docker.com/registry/spec/manifest-v2-2)**&#8203;的Docker文件以了解更多。
+從ASF V5.0.2.2版本開始，我們的標籤使用多平台清單，這代表安裝在您設備上的Docker會在拉取時自動選擇適合的映像檔。 若您需要拉取不符合您當前執行平台的特定映像檔，您可以透過適當的Docker命令&#8203;`--platform`&#8203;來切換，例如&#8203;`docker run`&#8203;。 查看關於&#8203;**[映像檔清單](https://docs.docker.com/registry/spec/manifest-v2-2)**&#8203;的Docker文件以了解更多。
 
 ---
 
@@ -212,6 +212,6 @@ docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/
 
 當您準備好ASF的Docker容器後，您就不必每次都使用&#8203;`docker run`&#8203;了。 您可以透過&#8203;`docker stop asf`&#8203;及&#8203;`docker start asf`&#8203;簡單地停止／啟動ASF Docker容器。 請注意，如果您使用的不是&#8203;`latest`&#8203;標籤，那麼使用最新版本的ASF仍然需要您再次執行&#8203;`docker stop`&#8203;、&#8203;`docker rm`&#8203;及&#8203;`docker run`&#8203;。 這是因為每次您想要使用包含在映像檔中的ASF版本時，您都必須由新的ASF Docker映像檔重建您的容器。 在&#8203;`latest`&#8203;標籤中，ASF已包含自我更新的能力，因此使用最新版本的ASF不需要重建映像檔（但偶爾這樣做仍有好處，可以使用新的.NET相依執行環境及底層作業系統）。
 
-如上所述，&#8203;`latest`&#8203;以外標籤的ASF不會自動更新，這代表&#8203;**您**&#8203;必須負責使用最新的&#8203;`justarchi/archisteamfarm`&#8203;儲存庫。 這有很多優點，因為通常應用程式在執行時不應觸及自己的程式碼，但我們也理解不必擔心Docker容器中ASF的版本所帶來的便利。 If you care about good practices and proper docker usage, `released` tag is what we'd suggest instead of `latest`, but if you can't be bothered with it and you just want to make ASF both work and auto-update itself, then `latest` will do.
+如上所述，&#8203;`latest`&#8203;以外標籤的ASF不會自動更新，這代表&#8203;**您**&#8203;必須負責使用最新的&#8203;`justarchi/archisteamfarm`&#8203;儲存庫。 這有很多優點，因為通常應用程式在執行時不應動到自己的程式碼，但我們也理解不用擔心Docker容器內ASF的版本所帶來的便利。 若您需要一個良好的實際範例且有正確的Docker用法，我們建議使用&#8203;`released`&#8203;標籤，而不是&#8203;`latest`&#8203;。但如果您不介意，只想讓ASF正常運作並自動更新，那麼&#8203;`latest`&#8203;即可。
 
-You should typically run ASF in docker container with `Headless: true` global setting. This will clearly tell ASF that you're not here to provide missing details and it should not ask for those. Of course, for initial setup you should consider leaving that option at `false` so you can easily set up things, but in long-run you're typically not attached to ASF console, therefore it'd make sense to inform ASF about that and use `input` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** if need arises. This way ASF won't have to wait infinitely for user input that will not happen (and waste resources while doing so). It will also allow ASF to run in non-interactive mode inside container, which is crucial e.g. in regards to forwarding signals, making it possible for ASF to gracefully close on `docker stop asf` request.
+通常您應該要在具有&#8203;`Headless: true`&#8203;全域設定的Docker容器內執行ASF。 這會明確告訴ASF您不會提供缺少的資料，且它也不應詢問這些。 當然，對於初次設定，您應該讓這個選項維持&#8203;`false`&#8203;，這樣您就可以方便設定；但對於長期來說，您通常不會需要連線至ASF控制台，因此這樣告知是合理的。如果需要，使用&#8203;`input`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;即可。 這樣ASF就不會無限期等待不存在的使用者輸入（不然這樣做的時候也是在浪費資源）。 這也使ASF能夠在容器內以非互動模式執行，這非常重要，例如在轉送訊號時，可以使ASF在收到&#8203;`docker stop asf`&#8203;請求時正常關閉。
