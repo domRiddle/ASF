@@ -57,7 +57,7 @@ ASF Docker映像檔目前建立於&#8203;`linux`&#8203;平台上，針對3種架
 
 ### 你好，ASF！
 
-首先，我們應該驗證Docker是否運作正常，作為我們ASF的「Hello World」：
+首先，我們應該驗證Docker是否運作正常，以這來作為我們ASF的「Hello World」：
 
 ```shell
 docker run -it --name asf --pull always --rm justarchi/archisteamfarm
@@ -67,7 +67,7 @@ docker run -it --name asf --pull always --rm justarchi/archisteamfarm
 
 若一切運作正常，在拉取所有層並啟動容器後，您應該會注意到ASF已正確啟動，並通知我們目前沒有定義任何Bot，這很好⸺我們驗證了ASF在Docker中運作正常。 先按&#8203;`CTRL+P`&#8203;，再按&#8203;`CTRL+Q`&#8203;來退出Docker容器前景，然後使用&#8203;`docker stop asf`&#8203;停止ASF容器。
 
-若仔細查看該命令，您會注意到我們沒有宣告任何標籤，它會自動預設成&#8203;`latest`&#8203;。 如果您想要使用與&#8203;`latest`&#8203;不同的標籤，例如&#8203;`released`&#8203;，那麼您應該顯性宣告：
+若仔細查看該命令，您會注意到我們沒有宣告任何標籤，而它會自動預設成&#8203;`latest`&#8203;。 如果您想要使用與&#8203;`latest`&#8203;不同的標籤，例如&#8203;`released`&#8203;，那麼您應該顯性宣告：
 
 ```shell
 docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
@@ -87,7 +87,7 @@ docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always ju
 
 就是這樣，現在您的ASF Docker容器將會以讀寫模式使用您本機電腦的共用資料夾，這是設定ASF的一切。 您可以使用相同的方式掛載您想要與ASF共用的其他卷，例如&#8203;`/app/logs`&#8203;或&#8203;`/app/plugins/MyCustomPluginDirectory`&#8203;。
 
-當然，這只是達成我們目標的一種特定方式，沒有什麼阻止您，例如建立您自己的&#8203;`Dockerfile`&#8203;將您的設定檔複製至ASF Docker容器中的&#8203;`/app/config`&#8203;資料夾中。 本指南只會涵蓋基礎用法。
+當然，這只是達成我們目標的一種特定方式，沒有什麼阻止您使用其他方法，例如建立您自己的&#8203;`Dockerfile`&#8203;將您的設定檔複製至ASF Docker容器中的&#8203;`/app/config`&#8203;資料夾中。 本指南只會涵蓋基礎用法。
 
 ### 卷的權限
 
@@ -109,7 +109,7 @@ docker exec -u root asf chown -hR 1001:1001 /app
 
 ### 在 SELinux 使用卷
 
-若您在作業系統上以強制狀態使用SELinux，這是例如基於RHEL發行版的預設設定，那麼您應該在掛載卷時附加&#8203;`:Z`&#8203;選項，才能正確設定SELinux的上下文。
+若您在作業系統上以強制狀態使用SELinux，這是基於例如RHEL發行版的預設設定，那麼您應該在掛載卷時附加&#8203;`:Z`&#8203;選項，才能正確設定SELinux的上下文。
 
 ```
 docker run -it -v /home/archi/ASF/config:/app/config:Z --name asf --pull always justarchi/archisteamfarm
@@ -132,7 +132,7 @@ docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name a
 # 以此類推，所有 ASF 容器現在相互同步
 ```
 
-我們建議將ASF的&#8203;`/tmp/ASF`&#8203;資料夾也連結至您設備上的&#8203;`/tmp`&#8203;臨時檔資料夾，當然，您也可以自由選擇連結至需要的其他路徑。 每個預期同步的ASF容器都應有與其他容器共用的&#8203;`/tmp/ASF`&#8203;資料夾，會參與同一個同步程序。
+我們建議將ASF的&#8203;`/tmp/ASF`&#8203;資料夾也連結至您設備上的&#8203;`/tmp`&#8203;暫存檔資料夾，當然，您也可以自由選擇連結至需要的其他路徑。 每個預期同步的ASF容器都應有與其他容器共用的&#8203;`/tmp/ASF`&#8203;資料夾，會參與同一個同步程序。
 
 可能您已經從上述猜出，您也可以透過連結不同的Docker代管路徑至ASF的&#8203;`/tmp/ASF`&#8203;，來建立兩個或多個「同步群組」。
 
@@ -148,7 +148,7 @@ ASF允許您透過環境變數向Docker容器傳遞&#8203;**[命令列引數](ht
 docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --name asf --pull always justarchi/archisteamfarm
 ```
 
-這會正確地把您的&#8203;`--cryptkey`&#8203;及其他引數傳遞給Docker容器中執行的ASF程序。 當然，如果您是進階使用者，那麼您也可以修改&#8203;`ENTRYPOINT`&#8203;，或是加入&#8203;`CMD`&#8203;來手動傳遞自訂引數。
+這會正確把您的&#8203;`--cryptkey`&#8203;及其他引數傳遞給Docker容器中執行的ASF程序。 當然，如果您是進階使用者，那麼您也可以修改&#8203;`ENTRYPOINT`&#8203;，或是加入&#8203;`CMD`&#8203;來手動傳遞自訂引數。
 
 除非您想要提供自訂加密鍵或其他進階選項，否則通常您不需要任何特殊的環境變數，因為我們的Docker容器已經設定成使用&#8203;`--no-restart`&#8203; &#8203;`--process-required`&#8203; &#8203;`--system-required`&#8203;合理的預設選項執行，因此就不需要在&#8203;`ASF_ARGS`&#8203;中指定這些旗標。
 
@@ -156,7 +156,7 @@ docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --
 
 ## IPC
 
-假設您並未變更&#8203;`IPC`&#8203;**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#全域設定檔)**&#8203;的預設值，它是啟用的。 但是，您必須額外做兩件事情，才能使IPC在Docker容器中正常運作。 首先，您必須使用&#8203;`IPCPassword`&#8203;，或在自訂的`IPC.config`&#8203;中更改預設的&#8203;`KnownNetworks`&#8203;，使您能夠在不使用的情形下連線。 除非您真的知道您在做什麼，否則請直接使用&#8203;`IPCPassword`&#8203;。 其次，您還需要更改&#8203;`localhost`&#8203;預設的監聽位址，因為Docker無法將外部流量路由至回送介面。 `http://*:1242`&#8203;是一個監聽所有介面的設定範例。 當然，您也可以使用更加嚴格的連結，例如只使用區域網路LAN或VPN網路，但它必須是可從外部存取的路由⸺而&#8203;`localhost`&#8203;就不是，因為該路由完全在客戶機內部。
+假設您並未修改&#8203;`IPC`&#8203;**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#全域設定檔)**&#8203;的預設值，那麼它已是啟用的。 但是，您必須額外做兩件事情，才能使IPC在Docker容器中正常運作。 首先，您必須使用&#8203;`IPCPassword`&#8203;，或在自訂的`IPC.config`&#8203;中更改預設的&#8203;`KnownNetworks`&#8203;，使您能夠在不使用的情形下連線。 除非您真的知道您在做什麼，否則請直接使用&#8203;`IPCPassword`&#8203;。 其次，您還需要更改&#8203;`localhost`&#8203;預設的監聽位址，因為Docker無法將外部流量路由至回送介面。 `http://*:1242`&#8203;是一個監聽所有介面的設定範例。 當然，您也可以使用更加嚴格的連結，例如只使用區域網路LAN或VPN網路，但它必須是可從外部存取的路由⸺而&#8203;`localhost`&#8203;就不是，因為該路由完全在客戶機內部。
 
 為了執行上述操作，您需要使用&#8203;**[自訂IPC組態](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#自訂組態)**&#8203;如下列所示：
 
@@ -180,7 +180,7 @@ docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull always justarchi/archisteamfarm
 ```
 
-若您一切都設定正確，上述的&#8203;`docker run`&#8203;命令將會使&#8203;**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**&#8203;介面在您的主機運作，標準的&#8203;`localhost:1242`&#8203;路由現在已正確地重定向至您的客戶機上。 值得注意的是，我們沒有進一步公開此路由，因此只能在Docker主機內完成連線，從而保持了安全。 當然，如果您知道您在做什麼，且確保擁有適合的安全措施，您也可以進一步公開此路由。
+若您一切都設定正確，上述的&#8203;`docker run`&#8203;命令將會使&#8203;**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**&#8203;介面在您的主機運作，標準的&#8203;`localhost:1242`&#8203;路由現在已正確重定向至您的客戶機上。 值得注意的是，我們沒有進一步公開此路由，因此只能在Docker主機內完成連線，從而保持了安全。 當然，如果您知道您在做什麼，且確保擁有適合的安全措施，您也可以進一步公開此路由。
 
 ---
 
@@ -192,7 +192,7 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull alway
 docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-這假定您將使用單一ASF容器，且所有ASF設定檔都位於&#8203;`/home/archi/ASF/config`&#8203;中。 您應該將設定的路徑更改為與您設備匹配的路徑。 若您決定將&#8203;`IPC.config`&#8203;包含在您的設定資料夾中，此設定也可以用於IPC，內容如下所示：
+這假定您將使用單一ASF容器，且所有ASF設定檔都位於&#8203;`/home/archi/ASF/config`&#8203;中。 您應該將設定的路徑更改成與您設備匹配的路徑。 若您決定將&#8203;`IPC.config`&#8203;包含在您的設定資料夾中，此設定也可以用於IPC，內容如下所示：
 
 ```json
 {
@@ -212,6 +212,6 @@ docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/
 
 當您準備好ASF的Docker容器後，您就不必每次都使用&#8203;`docker run`&#8203;了。 您可以透過&#8203;`docker stop asf`&#8203;及&#8203;`docker start asf`&#8203;簡單地停止／啟動ASF Docker容器。 請注意，如果您使用的不是&#8203;`latest`&#8203;標籤，那麼使用最新版本的ASF仍然需要您再次執行&#8203;`docker stop`&#8203;、&#8203;`docker rm`&#8203;及&#8203;`docker run`&#8203;。 這是因為每次您想要使用包含在映像檔中的ASF版本時，您都必須由新的ASF Docker映像檔重建您的容器。 在&#8203;`latest`&#8203;標籤中，ASF已包含自我更新的能力，因此使用最新版本的ASF不需要重建映像檔（但偶爾這樣做仍有好處，可以使用新的.NET相依執行環境及底層作業系統）。
 
-如上所述，&#8203;`latest`&#8203;以外標籤的ASF不會自動更新，這代表&#8203;**您**&#8203;必須負責使用最新的&#8203;`justarchi/archisteamfarm`&#8203;儲存庫。 這有很多優點，因為通常應用程式在執行時不應動到自己的程式碼，但我們也理解不用擔心Docker容器內ASF的版本所帶來的便利。 若您需要一個良好的實際範例且有正確的Docker用法，我們建議使用&#8203;`released`&#8203;標籤，而不是&#8203;`latest`&#8203;。但如果您不介意，只想讓ASF正常運作並自動更新，那麼&#8203;`latest`&#8203;即可。
+如上所述，&#8203;`latest`&#8203;以外標籤的ASF不會自動更新，這代表&#8203;**您**&#8203;必須負責使用最新的&#8203;`justarchi/archisteamfarm`&#8203;儲存庫。 這有很多優點，因為通常應用程式在執行時不應動到自身的程式碼，但我們也理解不用擔心Docker容器內ASF的版本所帶來的便利。 若您需要一個良好的實際範例且正確的Docker用法，我們建議使用&#8203;`released`&#8203;標籤，而不是&#8203;`latest`&#8203;。但如果您不介意，只想讓ASF正常運作並自動更新，那麼&#8203;`latest`&#8203;即可。
 
-通常您應該要在具有&#8203;`Headless: true`&#8203;全域設定的Docker容器內執行ASF。 這會明確告訴ASF您不會提供缺少的資料，且它也不應詢問這些。 當然，對於初次設定，您應該讓這個選項維持&#8203;`false`&#8203;，這樣您就可以方便設定；但對於長期來說，您通常不會需要連線至ASF控制台，因此這樣告知是合理的。如果需要，使用&#8203;`input`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;即可。 這樣ASF就不會無限期等待不存在的使用者輸入（不然這樣做的時候也是在浪費資源）。 這也使ASF能夠在容器內以非互動模式執行，這非常重要，例如在轉送訊號時，可以使ASF在收到&#8203;`docker stop asf`&#8203;請求時正常關閉。
+通常您應該要在具有&#8203;`Headless: true`&#8203;全域設定的Docker容器內執行ASF。 這會明確告訴ASF您不會提供缺少的資料，且它也不應詢問這些。 當然，對於初次設定，您應該讓這個選項維持在&#8203;`false`&#8203;，這樣您就可以方便設定；但對於長期來說，您通常不會需要連線至ASF控制台，因此這樣告知是合理的。如果需要，使用&#8203;`input`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;即可。 這樣ASF就不會無限期等待不存在的使用者輸入（不然這樣做的時候也是在浪費資源）。 這也使ASF能夠在容器內以非互動模式執行，這非常重要，例如在轉送訊號時，可以使ASF在收到&#8203;`docker stop asf`&#8203;請求時正常關閉。
