@@ -33,7 +33,7 @@ Ensure that your authenticator works by checking if above actions work - if they
 
 ---
 
-### Android phone
+### Android телефони
 
 **The below instructions apply to Steam app in version `2.X`, there are currently no resources on extracting required details from version `3.0` onwards. We'll update this section once generally-available method is found. As of today, a workaround would be to intentionally install older version of Steam app, register 2FA and extract the required details first, after which it's possible to update the application to latest version - existing authenticator will continue to work.**
 

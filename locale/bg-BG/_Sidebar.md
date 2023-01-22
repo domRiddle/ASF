@@ -8,7 +8,7 @@
 
 ***
 
-## 👨‍🏫 Base
+## 👨‍🏫 Базови
 
 * **[🏡 Начало](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[🔧 Настройка](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
@@ -16,40 +16,40 @@
 * **[⚙️ Начални настройки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(започнете от тук)**
 
 
-## 👨‍🎓️ Main
+## 👨‍🎓️ Основни
 
 * **[👥 Активатор на игри на заден фон](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Команди](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Съвместимост](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
-* **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
+* **[📋Управление](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Производителност](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📡 Remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
+* **[📡Дистанционна комуникация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
 * **[👪 Steam Семейно споделяне](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[🔄 Trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+* **[🔄 Търговия / Размени](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 
 ## 🧙 Разширени
 
 * **[⌨️ Command-line arguments](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[🚧 Deprecation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[🚧 Отхвърлени](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[🐳 Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
-* **[🤔 Extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
+* **[🤔 Разширени често задавани въпроси](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[🚀 Настройки за по-висока производителност](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
-* **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
+* **[🔗 Процеси на вътрешна комуникация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[🌐 Локализация](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[📝 Logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[💾 Low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[📝 Логване](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[💾 Настройки за ползване на възможно най-малко памет](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[🔌 Плъгини](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[🔐 Защита](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[🧩 Плъгин за въвеждане на Steam Token](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
-* **[📦 Third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[📦 От трета страна](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[📵 Двуфакторно удостоверяване](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 
-## 👷 Developers
+## 👷 Разработчици
 
-* **[🏗️ Compilation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
+* **[🏗️ Компилиране](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
 * **[🤝 Основни насоки за принос](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
-* **[⚖️ License](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
-* **[🏭 Release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**
+* **[⚖️ Лиценз](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
+* **[🏭 Цикъл на въвеждане на нови версии](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

@@ -32,7 +32,7 @@ ZXCVB-ASDFG-QWERT
 
 Независимо кой формат сте решили да ползвате, ASF ще внедри вашия `keys` файл или при стартиране на бота, или по време на работа. After successful parse of your file and eventual omit of invalid entries, all properly detected games will be added to the background queue, and the `BotName.keys` file itself will be removed from `config` directory.
 
-### IPC
+### Процеси на вътрешна комуникация
 
 In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemInBackground` **[ASF API endpoint](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-api)** which can be executed by any IPC tool, including our ASF-ui. Using IPC could be more powerful, as you can do appropriate parsing yourself, such as using a custom delimiter instead of being forced to a tab character, or even introducing your entirely own customized keys structure.
 

@@ -1,6 +1,6 @@
 # 組態設定
 
-此頁面專門用於 ASF 設定。 提供關於 `config` 目錄的完整文件，允許您依照您的需求調整 ASF。
+本頁面專門用於說明ASF的設定。 這是一份關於&#8203;`config`&#8203;資料夾的完整文件，使您能夠依照您的需求調整ASF。
 
 * **[簡介](#簡介)**
 * **[設定檔生成器網頁工具](#設定檔生成器網頁工具)**
@@ -18,39 +18,39 @@
 
 ## 簡介
 
-ASF 設定檔分為兩個主要部分——全域（行程）設定檔，以及每一個 BOT 的設定檔。 每個 BOT 都有名為 `BotName.json` 的 BOT 設定檔（`BotName` 為 BOT 名稱），而全域 ASF（行程）設定檔是一個名為 `ASF.json` 的檔案。
+ASF的設定分為兩個主要部分⸺全域（程序）設定與每個Bot的設定。 每個Bot都有自己一個名為&#8203;`BotName.json`&#8203;的Bot設定檔（&#8203;`BotName`&#8203;為Bot的名稱），而全域ASF（程序）設定是一個名為&#8203;`ASF.json`&#8203;的檔案。
 
-每個 BOT 都是一個在 ASF 行程中執行的 Steam 帳戶。 為了能夠正常工作，ASF 需要定義**至少一個**BOT 執行個體。 BOT 執行個體沒有強制限制行程數量，所以您可以使用任意數量的 BOT（Steam 帳戶）。
+每個Bot都是一個在ASF程序中執行的獨立Steam帳號。 為了能夠正常運作，ASF需要定義&#8203;**至少一個**&#8203;Bot實例。 程序不會強制限制Bot實例的數量，所以您可以依據您的需求使用任意數量的Bot（Steam帳號）。
 
-ASF 使用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式儲存其設定檔。 這是人性化、可讀性高且非常通用的格式，您可以在其中設定程式。 不過不用擔心，您不需要為了設定 ASF 去專門瞭解 JSON。 我提到它只是考慮到您可能會想要使用一些 Bash 腳本批次建立大量 ASF 設定檔。
+ASF使用&#8203;**[JSON](https://zh.wikipedia.org/zh-tw/JSON)**&#8203;格式來儲存自身的設定檔。 這是個人性化、可讀性高且非常通用的格式，您可以在裡面設定程式。 不過不用擔心，您不需要為了設定ASF去專門了解JSON。 我提到它只是考慮到您可能會想要使用一些Bash腳本批次建立大量的ASF設定檔。
 
-Configuration can be done in several ways. You can use our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)**, which is a local app independent of ASF. You can use our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC frontend for configuration done directly in ASF. Lastly, you can always generate config files manually, as they follow fixed JSON structure specified below. We'll explain shortly the available options.
+您可以經由幾種方式來完成設定。 您可以使用我們的&#8203;**[設定檔生成器網頁工具](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;，這是一個獨立於ASF的本機應用程式。 您也可以使用我們的IPC前端&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**&#8203;來直接設定ASF。 最後，您也隨時能夠依照下文指定的固定JSON結構，手動生成設定檔。 我們將簡明地解釋這些可用方式。
 
 ---
 
 ## 設定檔生成器網頁工具
 
-The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/ASF-WebConfigGenerator)** is to provide you with a friendly frontend that is used for generating ASF configuration files. 設定檔生成器也是基於用戶端的網頁工具，也就是說，您輸入的任何資訊都不會被上傳，而只在本機中進行處理。 這保證了安全性和可靠性，因為如果您願意下載所有相關檔案，併在您喜愛的瀏覽器中打開其中的 `index.html`，它甚至可以​**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**​運行。
+我們的&#8203;**[設定檔生成器網頁工具](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;的目標是提供您一個用於生成ASF設定檔的友善前端。 設定檔生成器也是基於用戶端的網頁工具，也就是說，您輸入的任何資訊都不會被上傳，而只會在本機中進行處理。 這保證了安全性與可靠性，因為如果您願意下載了所有相關檔案，然後在您偏好的瀏覽器中打開&#8203;`index.html`&#8203;，它甚至可以&#8203;**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**&#8203;執行。
 
 設定檔生成器網頁工具在Chrome與Firefox上經過驗證能夠正常執行，且它應該也能在所有支援JavaScript的主流瀏覽器中正常執行。
 
-它的用法非常簡單——切換到正確的標籤來選取要產生 `ASF` 設定檔還是 `BOT` 設定檔，確保所選設定檔的版本與您的 ASF 版本相符，然後輸入所有詳細資訊並點選「下載」按鈕。 將此檔案移動到 ASF 的 `config` 資料夾，如果需要的話，覆蓋掉已經存在的檔案。 如果要繼續設定，則重複以上操作，並參考本頁的其他部分以瞭解所有可設定的選項。
+它的用法非常簡單：切換到適當的分頁來選擇要生成&#8203;`ASF`&#8203;設定檔還是&#8203;`Bot`&#8203;設定檔，確保所選設定檔的版本與您的ASF版本相符，然後輸入所有詳細資訊，並點擊「下載」按鈕。 最後將這個檔案移動到ASF的&#8203;`config`&#8203;資料夾中，如果需要的話，覆蓋掉已經存在的檔案。 若要繼續設定，則重複以上操作，並參考本章節的其他部分來了解所有可設定的選項。
 
 ---
 
 ## ASF-ui 設定
 
-Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
+我們的&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#asf-ui)**&#8203; IPC介面也允許您設定ASF，且這是在生成初始設定檔後修改設定的最佳方式，因為與設定檔生成器網頁工具總是生成新的檔案不同，這可以在原地直接編輯設定檔。
 
-In order to use ASF-ui, you must have our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface enabled itself. `IPC` is enabled by default starting with ASF V5.1.0.0, therefore you can access it right away, as long as you didn't disable it yourself.
+為了使用ASF-ui，您必須先啟用&#8203;**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**&#8203;介面自身。 從ASF V5.1.0.0版本開始，&#8203;`IPC`&#8203;預設為啟用，因此只要您沒有把它停用，就可以直接存取它。
 
-After launching the program, simply navigate to ASF's **[IPC address](http://localhost:1242)**. If everything worked properly, you can change ASF configuration from there as well.
+在啟動程式後，直接前往ASF的&#8203;**[IPC位址](http://localhost:1242)**&#8203;。 若一切運作正常，您可以在這裡修改ASF設定。
 
 ---
 
 ## 手動設定
 
-In general we strongly recommend using either our ConfigGenerator or ASF-ui, as it's much easier and ensures you won't make a mistake in the JSON structure, but if for some reason you don't want to, then you can also create proper configs manually. Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using any of our frontends, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Even if it's a valid JSON, you also have to ensure that all the properties have the proper type, as required by ASF. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and our documentation below.
+在一般情形下，我們強烈建議使用我們的設定檔生成器或ASF-ui，因為這樣更簡單，且能確保您不會不小心造成JSON結構錯誤。但如果您出於某些原因不想使用它們，那麼您也可以自行建立正確的設定檔。 Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using any of our frontends, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Even if it's a valid JSON, you also have to ensure that all the properties have the proper type, as required by ASF. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and our documentation below.
 
 ---
 
