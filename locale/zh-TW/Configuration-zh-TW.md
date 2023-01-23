@@ -30,7 +30,7 @@ ASF使用&#8203;**[JSON](https://zh.wikipedia.org/zh-tw/JSON)**&#8203;格式來�
 
 ## 設定檔生成器網頁工具
 
-我們的&#8203;**[設定檔生成器網頁工具](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;的目標是提供您一個用於生成ASF設定檔的友善前端。 設定檔生成器也是基於用戶端的網頁工具，也就是說，您輸入的任何資訊都不會被上傳，而只會在本機中進行處理。 這保證了安全性與可靠性，因為如果您願意下載了所有相關檔案，然後在您偏好的瀏覽器中打開&#8203;`index.html`&#8203;，它甚至可以&#8203;**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**&#8203;執行。
+我們的&#8203;**[設定檔生成器網頁工具](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;的目標是提供您一個用於生成ASF設定檔的友善前端。 設定檔生成器也是基於用戶端的網頁工具，也就是說，您輸入的任何資訊都不會被上傳，而只會在本機中進行處理。 這保證了安全性與可靠性，因為如果您願意下載所有相關檔案，然後在您偏好的瀏覽器中打開&#8203;`index.html`&#8203;，它甚至可以&#8203;**[離線](https://github.com/JustArchiNET/ASF-WebConfigGenerator/tree/main/docs)**&#8203;執行。
 
 設定檔生成器網頁工具在Chrome與Firefox上經過驗證能夠正常執行，且它應該也能在所有支援JavaScript的主流瀏覽器中正常執行。
 
@@ -50,13 +50,13 @@ ASF使用&#8203;**[JSON](https://zh.wikipedia.org/zh-tw/JSON)**&#8203;格式來�
 
 ## 手動設定
 
-在一般情形下，我們強烈建議使用我們的設定檔生成器或ASF-ui，因為這樣更簡單，且能確保您不會不小心造成JSON結構錯誤。但如果您出於某些原因不想使用它們，那麼您也可以自行建立正確的設定檔。 Check JSON examples below for a good start in proper structure, you can copy the content into a file and use it as a base for your config. Since you're not using any of our frontends, ensure that your config is **[valid](https://jsonlint.com)**, as ASF will refuse to load it if it can't be parsed. Even if it's a valid JSON, you also have to ensure that all the properties have the proper type, as required by ASF. For proper JSON structure of all available fields, refer to **[JSON mapping](#json-mapping)** section and our documentation below.
+在一般情形下，我們強烈建議使用我們的設定檔生成器或ASF-ui，因為這樣更簡單，且能確保您不會不小心造成JSON結構錯誤。但如果您出於某些原因不想使用它們，那麼您也可以自行建立正確的設定檔。 參考以下的JSON範例，有個好的開始來了解正確的結構。您可以將內容複製到檔案中，並把它當作設定檔的基礎內容。 由於您沒有使用任何我們的前端，請確保您的設定檔&#8203;**[是有效的](https://jsonlint.com)**&#8203;，因為如果無法剖析，ASF會拒絕載入。 即使它屬於有效的JSON，您也必須確保所有屬性都有正確的型別，就像ASF所要求的。 關於所有可使用欄位正確的JSON結構，請參閱&#8203;**[JSON映射](#json-映射)**&#8203;及我們下方的文件。
 
 ---
 
 ## 全域設定檔
 
-全域設定存放於 `ASF.json 檔案中`，其結構如下：
+全域設定位於&#8203;`ASF.json`&#8203;檔案中，具有下列結構：
 
 ```json
 {
@@ -96,11 +96,11 @@ ASF使用&#8203;**[JSON](https://zh.wikipedia.org/zh-tw/JSON)**&#8203;格式來�
 
 ---
 
-以下是對所有選項的解釋：
+所有選項的解釋如下：
 
 ### `AutoRestart（自動重新啟動）`
 
-`bool`&#8203;型別，預設值為&#8203;`true`&#8203;。 這項屬性定義了當需要時是否允許 ASF 自行重新啟動。 一些事件將會要求 ASF 自行重新啟動，例如 ASF 更新（完成於 `UpdatePeriod` 或 `update` 指令）以及編輯 `ASF.json` 設定檔、`restart` 指令和類似事件。 重新啟動通常包括兩部分——建立新的行程和結束當前行程。 大多數使用者對此應該沒有問題並保持這項屬性使用預設值 `true`，然而——如果你正在透過自己的指令碼及/或 `dotnet` 執行 ASF，你可能會想完全控制行程，並避免某些情況像是有新（重新啟動）的 ASF 行程在背景與舊的行程同時執行，而且不在指令碼前景。 This is especially important considering the fact that new process will no longer be your direct child, which would make you unable e.g. to use standard console input for it.
+`bool`&#8203;型別，預設值為&#8203;`true`&#8203;。 本屬性定義是否允許ASF在需要時自行重新啟動。 有些事件會要求ASF自行重新啟動，例如ASF更新（經由&#8203;`UpdatePeriod`&#8203;或&#8203;`update`&#8203;指令來達成），編輯&#8203;`ASF.json`&#8203;設定檔、&#8203;`restart`&#8203;指令或類似事件。 通常重新啟動包含兩個部分⸺建立新的程序及結束當前程序。 大多數使用者對此應該沒有問題並保持這項屬性使用預設值 `true`，然而——如果你正在透過自己的指令碼及/或 `dotnet` 執行 ASF，你可能會想完全控制行程，並避免某些情況像是有新（重新啟動）的 ASF 行程在背景與舊的行程同時執行，而且不在指令碼前景。 This is especially important considering the fact that new process will no longer be your direct child, which would make you unable e.g. to use standard console input for it.
 
 If that's the case, this property if specially for you and you can set it to `false`. However, keep in mind that in such case **you** are responsible for restarting the process. This is somehow important as ASF will only exit instead of spawning new process (e.g. after update), so if there is no logic added by you, it'll simply stop working until you start it again. ASF always exits with proper error code indicating success (zero) or non-success (non-zero), this way you're able to add proper logic in your script which should avoid auto-restarting ASF in case of failure, or at least make a local copy of `log.txt` for further analysis. Also keep in mind that `restart` command will always restart ASF regardless of how this property is set, as this property defines default behaviour, while `restart` command always restarts the process. Unless you have a reason to disable this feature, you should keep it enabled.
 
