@@ -15,7 +15,7 @@ INFO|ASF|Start() 正在啟動 IPC 伺服器…
 INFO|ASF|Start() IPC 伺服器已就緒！
 ```
 
-ASF的http伺服器現在已在監聽指定的端點。 若您沒有為IPC提供自訂設定檔，預設是使用基於IPv4的&#8203;**[127.0.0.1](http://127.0.0.1:1242)**&#8203;及基於IPv6的&#8203;**[[::1]](http://[::1]:1242)**&#8203; &#8203;`1242`&#8203;連接埠。 在執行ASF程序的同一台設備上，您可以透過上述連結存取我們的IPC介面。
+ASF的HTTP伺服器現在已在監聽指定的端點。 若您沒有為IPC提供自訂設定檔，預設是使用基於IPv4的&#8203;**[127.0.0.1](http://127.0.0.1:1242)**&#8203;及基於IPv6的&#8203;**[[::1]](http://[::1]:1242)**&#8203; &#8203;`1242`&#8203;連接埠。 在執行ASF程序的同一台設備上，您可以透過上述連結存取我們的IPC介面。
 
 依據您的需求，ASF的IPC介面提供了三種不同的存取方法。
 
@@ -55,7 +55,7 @@ ASF-ui是一個社群專案，旨在為最終使用者建立使用者友善的�
 
 我們的IPC介面支援額外的設定檔&#8203;`IPC.config`&#8203;，應該放置於ASF的&#8203;`config`&#8203;資料夾中。
 
-如果可用，本檔案將指定ASF的Kestrel http伺服器的進階設定，以及其他與IPC相關的調整。 除非您有特殊需求，否則沒有理由使用此檔案，因為ASF在這個情形下已經使用了合理的預設值。
+如果可用，本檔案將指定ASF的Kestrel HTTP伺服器的進階設定，以及其他與IPC相關的調整。 除非您有特殊需求，否則沒有理由使用此檔案，因為ASF在這個情形下已經使用了合理的預設值。
 
 設定檔基於以下JSON結構：
 
@@ -72,14 +72,14 @@ ASF-ui是一個社群專案，旨在為最終使用者建立使用者友善的�
             "example-https4": {
                 "Url": "https://127.0.0.1:1242",
                 "Certificate": {
-                    "Path": "/path/to/certificate.pfx",
+                    "Path": "/路徑/至/certificate.pfx",
                     "Password": "passwordToPfxFileAbove"
                 }
             },
             "example-https6": {
                 "Url": "https://[::1]:1242",
                 "Certificate": {
-                    "Path": "/path/to/certificate.pfx",
+                    "Path": "/路徑/至/certificate.pfx",
                     "Password": "passwordToPfxFileAbove"
                 }
             }
@@ -108,7 +108,7 @@ ASF-ui是一個社群專案，旨在為最終使用者建立使用者友善的�
 
 ### 更改預設連接埠
 
-以下設定只是將ASF預設的監聽通訊埠從&#8203;`1242`&#8203;改成&#8203;`1337`&#8203;。 您可以使用任何想要的埠號，但我們的建議範圍是&#8203;`1024-32767`&#8203;，因為其他埠號通常是&#8203;**[註冊的](https://en.wikipedia.org/wiki/Registered_port)**&#8203;，且例如在Linux上可能需要&#8203;`root`&#8203;權限。
+以下設定只是將ASF預設的監聽通訊埠從&#8203;`1242`&#8203;改成&#8203;`1337`&#8203;。 您可以使用任何想要的埠號，但我們的建議範圍是&#8203;`1024-32767`&#8203;，因為其他埠號通常是&#8203;**[註冊的](https://en.wikipedia.org/wiki/Registered_port)**&#8203;，且例如在Linux上可能會需要&#8203;`root`&#8203;權限。
 
 ```json
 {
@@ -181,7 +181,7 @@ ASF-ui是一個社群專案，旨在為最終使用者建立使用者友善的�
 
 ### ASF 的 IPC 介面安全嗎？
 
-預設情形下，ASF只會在&#8203;`localhost`&#8203;位址上監聽，這代表您自己之外的設備是&#8203;**不可能**&#8203;存取ASF IPC的。 除非您修改了預設的端點，否則攻擊者需要能直接存取您的設備才能存取ASF的IPC，因此這足夠安全，且其他人皆無法存取它，即使是從您的LAN中。
+預設情形下，ASF只會在&#8203;`localhost`&#8203;位址上監聽，這代表您自己之外的設備是&#8203;**不可能**&#8203;存取ASF IPC的。 除非您修改了預設的端點，否則攻擊者需要能直接存取您的設備才能存取ASF的IPC，因此這足夠安全，且其他人皆無法存取它，即便是從您的LAN中。
 
 但是，如果您決定將預設的&#8203;`localhost`&#8203;連結位址更改成其他位址，那麼您就應&#8203;**自行**&#8203;設定適合的防火牆規則，來讓只有被授權的IP能存取ASF的IPC介面。 除此之外，您還需要設定&#8203;`IPCPassword`&#8203;，因為在沒有密碼的情形下，ASF會拒絕其他設備存取ASF API，這多增加了一層額外的安全性。 在這種情形下，您可能還想在反向代理後面執行ASF的IPC介面，這會在下面進一步說明。
 
@@ -209,21 +209,21 @@ server {
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
 
-        # 只有當您需要複寫預設的Host時
+        # 只有當您需要複寫預設的 Host 時
 #       proxy_set_header Host 127.0.0.1;
 
-        # 將請求代理到ASF時，應始終指定X-頭欄位
-        # 這對於正確識別原始IP特別重要，使ASF能夠封鎖真正的攻擊者而不是你的Nginx伺服器
-        # 指定它們使ASF能夠正確解析發出請求的使用者IP位址⸺使Nginx成為反向代理
-        # 不指定它們會使ASF將您的Nginx視為用戶端⸺在這種情形下Nginx將作為普通代理
-        # 若您無法在與ASF相同的設備上代管Nginx服務，除了上述之外，您很可能還想適當地設定KnownNetworks
+        # 將請求代理到 ASF 時，應始終指定 X- 頭欄位
+        # 這對於正確識別原始 IP 特別重要，使 ASF 能夠封鎖真正的攻擊者而不是你的 Nginx 伺服器
+        # 指定它們使 ASF 能夠正確解析發出請求的使用者 IP 位址⸺使 Nginx 成為反向代理
+        # 不指定它們會使 ASF 將您的 Nginx 視為用戶端⸺在這種情形下 Nginx 將作為普通代理
+        # 若您無法在與 ASF 相同的設備上代管 Nginx 服務，除了上述之外，您很可能還想適當地設定 KnownNetworks
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Real-IP $remote_addr;
 
-        # 我們加入了下列3個額外選項用於Websocket代理，詳見https://nginx.org/en/docs/http/websocket.html
+        # 我們加入了下列 3 個額外選項用於 Websocket 代理，詳見 https://nginx.org/en/docs/http/websocket.html
         proxy_http_version 1.1;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Upgrade $http_upgrade;
@@ -232,14 +232,14 @@ server {
     location / {
         proxy_pass http://127.0.0.1:1242;
 
-        # 只有當您需要複寫預設的Host時
+        # 只有當您需要複寫預設的 Host 時
 #       proxy_set_header Host 127.0.0.1;
 
-        # 將請求代理到ASF時，應始終指定X-頭欄位
-        # 這對於正確識別原始IP特別重要，使ASF能夠封鎖真正的攻擊者而不是你的Nginx伺服器
-        # 指定它們使ASF能夠正確解析發出請求的使用者IP位址⸺使Nginx成為反向代理
-        # 不指定它們會使ASF將您的Nginx視為用戶端⸺在這種情形下Nginx將作為普通代理
-        # 若您無法在與ASF相同的設備上代管Nginx服務，除了上述之外，您很可能還想適當地設定KnownNetworks
+        # 將請求代理到 ASF 時，應始終指定 X- 頭欄位
+        # 這對於正確識別原始 IP 特別重要，使 ASF 能夠封鎖真正的攻擊者而不是你的 Nginx 伺服器
+        # 指定它們使 ASF 能夠正確解析發出請求的使用者 IP 位址⸺使 Nginx 成為反向代理
+        # 不指定它們會使 ASF 將您的 Nginx 視為用戶端⸺在這種情形下 Nginx 將作為普通代理
+        # 若您無法在與 ASF 相同的設備上代管 Nginx 服務，除了上述之外，您很可能還想適當地設定 KnownNetworks
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Host $host:$server_port;
         proxy_set_header X-Forwarded-Proto $scheme;
@@ -260,7 +260,7 @@ server {
         SSLCertificateFile /path/to/your/fullchain.pem
         SSLCertificateKeyFile /path/to/your/privkey.pem
 
-        # TODO: Apache無法正確進行不區分大小寫的匹配，因此我們硬編碼了兩種最常使用的情形
+        # TODO: Apache 無法正確進行不區分大小寫的匹配，因此我們硬編碼了兩種最常使用的情形
         ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
         ProxyPass "/Api/NLog" "ws://127.0.0.1:1242/Api/NLog"
 
@@ -273,7 +273,7 @@ server {
 
 **可以**&#8203;，您可以透過兩種不同的方式來達成。 建議的方式是為此使用反向代理，您可以像平常一樣透過HTTPS來存取您的Web伺服器，且透過它來連接同一台設備上的ASF IPC介面。 這樣您的流量將完全被加密，且您無需修改IPC來支援這樣的設定。
 
-第二種方式是為ASF的IPC介面指定&#8203;**[自訂組態](#自訂組態)**&#8203;，您可以在裡面啟用THHPS端點，並直接向我們的 Kestrel HTTP伺服器提供適合的憑證。 若您沒有執行任何其他Web伺服器，且也不想專門為ASF執行Web伺服器，則建議使用這種方法。 否則，透過反向代理機制來達成想要的設定會容易得多。
+第二種方式是為ASF的IPC介面指定&#8203;**[自訂組態](#自訂組態)**&#8203;，您可以在裡面啟用HTTPS端點，並直接向我們的Kestrel HTTP伺服器提供適合的憑證。 若您沒有執行任何其他Web伺服器，且也不想專門為ASF執行Web伺服器，則建議使用這種方法。 否則，透過反向代理機制來達成想要的設定會容易得多。
 
 ---
 
