@@ -203,8 +203,8 @@ ASF-ui是一個社群專案，旨在為最終使用者建立使用者友善的�
 server {
     listen *:443 ssl;
     server_name asf.mydomain.com;
-    ssl_certificate /path/to/your/certificate.crt;
-    ssl_certificate_key /path/to/your/certificate.key;
+    ssl_certificate /路徑/至/您的/certificate.crt;
+    ssl_certificate_key /路徑/至/您的/certificate.key;
 
     location ~* /Api/NLog {
         proxy_pass http://127.0.0.1:1242;
@@ -257,8 +257,8 @@ server {
         ServerName asf.mydomain.com
 
         SSLEngine On
-        SSLCertificateFile /path/to/your/fullchain.pem
-        SSLCertificateKeyFile /path/to/your/privkey.pem
+        SSLCertificateFile /路徑/至/您的/fullchain.pem
+        SSLCertificateKeyFile /路徑/至/您的/privkey.pem
 
         # TODO: Apache 無法正確進行不區分大小寫的匹配，因此我們硬編碼了兩種最常使用的情形
         ProxyPass "/api/nlog" "ws://127.0.0.1:1242/api/nlog"
