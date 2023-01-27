@@ -100,7 +100,7 @@ ASF使用&#8203;**[JSON](https://zh.wikipedia.org/zh-tw/JSON)**&#8203;格式來�
 
 ### `AutoRestart（自動重新啟動）`
 
-`bool`&#8203;型別，預設值為&#8203;`true`&#8203;。 本屬性定義了是否允許ASF在需要時自行重新啟動。 有些事件會要求ASF自行重新啟動，例如ASF更新（經由&#8203;`UpdatePeriod`&#8203;或&#8203;`update`&#8203;指令來達成），編輯&#8203;`ASF.json`&#8203;設定檔、&#8203;`restart`&#8203;指令或類似事件。 通常重新啟動包含兩個部分⸺建立新的程序及結束當前程序。 大多數使用者對此應該沒有問題，且應維持本屬性為預設值&#8203;`true`&#8203;，但是⸺若您正在透過自己的腳本並／或經由&#8203;`dotnet`&#8203;執行ASF，您可能會想完全控制程序並避免某些情形，例如有新（重新啟動）的ASF程序在背景沉靜執行，而不是在腳本前景與舊的ASF程序一同退出。 考慮到新的程序將不再是您原有程序的直接子程序，這一點特別重要，因為這可能會使您無法為其使用標準控制台輸入。
+`bool`&#8203;型別，預設值為&#8203;`true`&#8203;。 本屬性定義了是否允許ASF在需要時自行重新啟動。 有些事件會要求ASF自行重新啟動，例如ASF更新（經由&#8203;`UpdatePeriod`&#8203;或&#8203;`update`&#8203;指令來達成），編輯&#8203;`ASF.json`&#8203;設定檔、&#8203;`restart`&#8203;指令或類似事件。 通常重新啟動包含兩個部分⸺建立新的程序及結束當前程序。 大多數使用者對此應該沒有問題，且應維持本屬性為預設值&#8203;`true`&#8203;，但是⸺若您正在透過自己的腳本並／或經由&#8203;`dotnet`&#8203;執行ASF，您可能會想完全控制程序並避免某些情形，例如有新（重新啟動）的ASF程序在背景沉靜執行，而不是在腳本前景與舊的ASF程序一起退出。 考慮到新的程序將不再是您原有程序的直接子程序，這一點特別重要，因為這可能會使您無法為其使用標準控制台輸入。
 
 如果有這樣的情形，那麼本屬性就是為您所準備的，您可以把它設定成&#8203;`false`&#8203;。 但是，請注意，在這種情形下&#8203;**您**&#8203;需要負責自行重新啟動程序。 這在某種程度上很重要，因為ASF將只會退出，而不會生成新程序（例如在更新後）。因此，若您沒有加入任何邏輯，它將會停止運作直到您再次啟動它。 ASF總是會以正確的錯誤碼退出，指示出成功（零）或不成功（非零）。這樣您就能在腳本中加入正確的邏輯，以避免在故障時自動重新啟動，或至少製作一份本機副本&#8203;`log.txt`&#8203;來提供進一步分析。 也請注意，不論如何設定本屬性，&#8203;`restart`&#8203;指令總是會重新啟動ASF，因為此屬性只用於定義預設行為，而&#8203;`restart`&#8203;指令總能重新啟動程序。 除非您有停用此功能的理由，否則您應維持啟用它。
 
@@ -148,7 +148,7 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 ### `Debug（除錯模式）`
 
-`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 本屬性定義了程序是否以除錯模式執行。 在除錯模式中，ASF會在&#8203;`config`&#8203;旁建立一個特殊的&#8203;`debug`&#8203;資料夾，用於追蹤ASF及Steam伺服器間的所有通訊。 除錯資訊有助於發現與網路及一般ASF工作流程相關的棘手問題。 除此之外，某些程式常式會更加詳細，例如&#8203;`WebBrowser`&#8203;會說明某些請求失敗的確切原因⸺這些條目會被寫入至一般的ASF紀錄日誌中。 **除非開發人員要求，否則您不應在除錯模式下執行ASF**&#8203;。 以除錯模式執行ASF會&#8203;**降低效能**&#8203;、&#8203;**減少穩定性**&#8203;，且會&#8203;**生成過量除錯訊息**&#8203;，因此&#8203;**只應**&#8203;在需要時短暫使用，用於除錯特定問題、重現錯誤或獲得關於失敗請求的更多資訊，但&#8203;**不應**&#8203;用於一般的程式執行階段。 您將會看到&#8203;**非常大量的**&#8203;新錯誤、問題及異常狀況⸺若您決定自行分析這些資訊，請確保您對ASF、Steam及其特點有著充分的了解，因為並不是所有資訊皆與問題相關。
+`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 本屬性定義了程序是否以除錯模式執行。 在除錯模式中，ASF會在&#8203;`config`&#8203;旁建立一個特殊的&#8203;`debug`&#8203;資料夾，用於追蹤ASF與Steam伺服器間的所有通訊。 除錯資訊有助於發現與網路及一般ASF工作流程相關的棘手問題。 除此之外，某些程式常式會更加詳細，例如&#8203;`WebBrowser`&#8203;會說明某些請求失敗的確切原因⸺這些條目會被寫入至一般的ASF紀錄日誌中。 **除非開發人員要求，否則您不應在除錯模式下執行ASF**&#8203;。 以除錯模式執行ASF會&#8203;**降低效能**&#8203;、&#8203;**減少穩定性**&#8203;，且會&#8203;**生成過量除錯訊息**&#8203;，因此&#8203;**只應**&#8203;在需要時短暫使用，用於除錯特定問題、重現錯誤或獲得關於失敗請求的更多資訊，但&#8203;**不應**&#8203;用於一般的程式執行階段。 您將會看到&#8203;**非常大量的**&#8203;新錯誤、問題及異常狀況⸺若您決定自行分析這些資訊，請確保您對ASF、Steam及其特點有著充分的了解，因為並不是所有資訊皆與問題相關。
 
 **警告：**&#8203;啟用本模式會在紀錄日誌中記錄&#8203;**可能敏感**&#8203;的資訊，例如您登入至Steam的帳號及密碼（因網路日誌所記錄）。 這些資料會同時寫入至&#8203;`debug`&#8203;資料夾及標準的&#8203;`log.txt`&#8203;（現在是故意詳細記錄本資訊）中。 您不應在任何公開位置張貼ASF生成的除錯內容，且ASF開發人員總是會提醒您應經由電子郵件或其他安全位置傳送它。 我們不會儲存或利用這些敏感資訊，它們只是做為除錯常式的一部份而寫入，因為它們或許會與您遇到的問題有關。 我們希望您不以任何方式修改ASF紀錄日誌，但如果您擔心，您還是依然能適當編輯這些敏感資訊。
 
@@ -178,7 +178,7 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 `bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 本屬性定義了程序是否以無頭模式執行。 在無頭模式中，ASF會假定它在伺服器或其他非互動式環境下執行，因此它不會嘗試在控制台輸入中讀取任何資訊。 這包含了隨選詳細資料（帳號憑證，例如雙重驗證代碼、Steam Guard代碼、密碼，或ASF操作所需的其他任何變數），及其他所有控制台輸入（例如互動式指令控制台）。 也就是說，&#8203;`Headless`&#8203;模式等同於將ASF控制台變成唯讀。 本設定主要給在伺服器上執行ASF的使用者使用，在需要使用者輸入（例如雙重驗證代碼）時，ASF將會直接停止使用該帳號以中止輸入操作。 除非您在伺服器上執行ASF，且您先前已確認ASF能夠在非無頭模式中執行，否則您應維持停用它。 在無頭模式下，任何使用者互動行為皆會被拒絕，如果您的帳號在啟動過程中需要&#8203;**任何**&#8203;控制台輸入，則帳號不會啟動。 這對伺服器來說非常有用，因為ASF可以在要求提供憑證時嘗試中止帳號登入，而不是（無限）等待使用者提供這些憑證。 啟用此模式也會允許您能夠使用&#8203;`input`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;，來作為標準控制台輸入的替代方式。 若您不確定如何設定本屬性，請保留預設值&#8203;`false`&#8203;。
 
-若您在伺服器上執行ASF，您可能會需要將本選項與&#8203;`--process-required`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW)**&#8203;一同配合使用。
+若您在伺服器上執行ASF，您可能會需要將本選項與&#8203;`--process-required`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW)**&#8203;一起配合使用。
 
 ---
 
@@ -188,45 +188,45 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 ---
 
-### `InventoryLimiterDelay`
+### `InventoryLimiterDelay（物品庫限制延時）`
 
-`byte`&#8203;型別，預設值為&#8203;`4`&#8203;。 ASF會確保在兩次連續的物品庫請求間至少間隔&#8203;`InventoryLimiterDelay`&#8203;秒，以避免觸發速率限制⸺這被使用在提取Steam物品庫時，特別是在您自己的指令中，例如&#8203;`loot`&#8203;或&#8203;`transfer`&#8203;。 預設值&#8203;`4`&#8203;是依據連續提取超過100個Bot實例的物品庫所設定的，應該能滿足大部分（可能不是全部）的使用者需求。 但是，如果您的Bot數量很少，您可能會想要減少它，或甚至把它更改成&#8203;`0`&#8203;，使ASF忽略延時並加快獲得Steam物品庫。 但請注意，設定過低的值&#8203;**將會**&#8203;導致Steam暫時封鎖您的IP，並完全阻止您提取您的物品庫。 You also may need to increase this value if you're running a lot of bots with a lot of inventory requests, although in this case you should probably try to limit number of those requests instead. Unless you have a **strong** reason to edit this property, you should keep it at default.
-
----
-
-### `IPC`
-
-`bool`&#8203;型別，預設值為&#8203;`true`&#8203;。 This property defines if ASF's **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** server should start together with the process. IPC allows for inter-process communication, including usage of **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, by booting a local HTTP server. If you do not intend to use any third-party IPC integration with ASF, including our ASF-ui, you can safely disable this option. Otherwise, it's a good idea to keep it enabled (default option).
+`byte`&#8203;型別，預設值為&#8203;`4`&#8203;。 ASF會確保在兩次連續的物品庫請求間至少間隔&#8203;`InventoryLimiterDelay`&#8203;秒，以避免觸發速率限制⸺這被使用在提取Steam物品庫時，特別是在您自己的指令中，例如&#8203;`loot`&#8203;或&#8203;`transfer`&#8203;。 預設值&#8203;`4`&#8203;是依據連續提取超過100個Bot實例的物品庫所設定的，應該能滿足大部分（可能不是全部）的使用者需求。 但是，如果您的Bot數量很少，您可能會想要減少它，或甚至把它更改成&#8203;`0`&#8203;，使ASF忽略延時並加快獲得Steam物品庫。 但請注意，設定過低的值&#8203;**將會**&#8203;導致Steam暫時封鎖您的IP，並完全阻止您提取您的物品庫。 若您執行了很多需要大量物品庫請求的Bot，您可能還會需要增加此值，但在這種情形下，您可能更應該去限制這些請求的數量。 除非您有&#8203;**充分的**&#8203;理由編輯此屬性，否則您應維持它為預設值。
 
 ---
 
-### `IPCPassword`
+### `IPC（行程間通訊）`
 
-`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 This property defines mandatory password for every API call done via IPC and serves as an extra security measure. When set to non-empty value, all IPC requests will require extra `password` property set to the password specified here. Default value of `null` will skip a need of the password, making ASF respect all queries. In addition to that, enabling this option also enables built-in IPC anti-bruteforce mechanism which will temporarily ban given `IPAddress` after sending too many unauthorized requests in a very short time. Unless you have a reason to edit this property, you should keep it at default.
-
----
-
-### `IPCPasswordFormat`
-
-`byte`&#8203;型別，預設值為&#8203;`0`&#8203;。 This property defines the format of `IPCPassword` property and uses `EHashingMethod` as underlying type. Please refer to **[Security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section if you want to learn more, as you'll need to ensure that `IPCPassword` property indeed includes password in matching `IPCPasswordFormat`. In other words, when you change `IPCPasswordFormat` then your `IPCPassword` should be **already** in that format, not just aiming to be. Unless you know what you're doing, you should keep it with default value of `0`.
+`bool`&#8203;型別，預設值為&#8203;`true`&#8203;。 本屬性定義了ASF的&#8203;**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**&#8203;伺服器是否與主程序一同啟動。 IPC允許行程間通訊，包含透過啟動本機HTTP伺服器使用&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#asf-ui)**&#8203;。 若您不打算使用任何ASF的第三方IPC整合工具，包含我們的ASF-ui的話，您就可以安全地停用這個選項。 否則，最好保持啟用狀態（預設狀態）。
 
 ---
 
-### `LicenseID`
+### `IPCPassword（IPC 密碼）`
 
-`Guid?`&#8203;型別，預設值為&#8203;`null`&#8203;。 This property allows our **[sponsors](https://github.com/sponsors/JustArchi)** to enhance ASF with optional features that require paid resources to work. For now, this allows you to make use of **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature in `ItemsMatcher` plugin.
-
-If you're ASF sponsor, you can obtain your license **[here](https://asf.justarchi.net/User/Status)**. You'll need to sign in with GitHub for confirming your identity, we ask only for read-only public information, which is your username. `LicenseID` is made out of 32 hexadecimal characters, such as `f6a0529813f74d119982eb4fe43a9a24`.
-
-**Ensure that you do not share your `LicenseID` with other people**. Since it's issued on personal basis, it might get revoked if it's leaked. If by any chance this happened to you accidentally, you can generate a new one from the same place.
-
-Unless you want to enable extra ASF functionalities, there is no need for you to provide the license.
+`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 本屬性定義了每個經由IPC執行的API呼叫的強制性密碼，作為一項額外的安全措施。 當設定成非空值時，所有的IPC請求都會需要額外的&#8203;`password`&#8203;屬性，為此處指定的密碼。 預設值&#8203;`null`&#8203;將會跳過要求密碼，並使ASF接受所有請求。 除此之外，啟用此選項也會啟用內建的IPC反暴力破解機制，一個&#8203;`IPAddress`&#8203;在非常短的時間內傳送過多未授權的請求時，將會被暫時封鎖。 除非您有理由編輯此屬性，否則您應維持它為預設值。
 
 ---
 
-### `LoginLimiterDelay`
+### `IPCPasswordFormat（IPC 密碼格式）`
 
-`byte`&#8203;型別，預設值為&#8203;`10`&#8203;。 ASF will ensure that there will be at least `LoginLimiterDelay` seconds in between of two consecutive connection attempts to avoid triggering rate-limit. Default value of `10` was set based on connecting over 100 bot instances, and should satisfy most (if not all) of the users. You may however want to increase/decrease it, or even change to `0` if you have very low amount of bots, so ASF will ignore the delay and connect to Steam much faster. Be warned though, as setting it too low while having too many bots **will** result in Steam temporarily banning your IP, and that will prevent you from logging in **at all**, with `InvalidPassword/RateLimitExceeded` error - and that also includes your normal Steam client, not only ASF. Likewise, if you're running excessive number of bots, especially together with other Steam clients/tools using the same IP address, most likely you'll need to increase this value in order to spread logins across longer period of time.
+`byte`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性定義了&#8203;`IPCPassword`&#8203;屬性的格式，使用&#8203;`EHashingMethod`&#8203;作為基本類型。 若需了解更多，請參閱&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;章節，因為您需要確保&#8203;`IPCPassword`&#8203;屬性確實包含匹配`IPCPasswordFormat`&#8203;的密碼。 也就是說，在您更改&#8203;`IPCPasswordFormat`&#8203;的時候，您的&#8203;`IPCPassword`&#8203;就必須&#8203;**已經**&#8203;是您所選的格式了，而不是在更改完成後才是。 除非您知道您在做什麼，否則請保留預設值&#8203;`0`&#8203;。
+
+---
+
+### `LicenseID（授權 ID）`
+
+`Guid?`&#8203;型別，預設值為&#8203;`null`&#8203;。 本屬性允許我們的&#8203;**[贊助者](https://github.com/sponsors/JustArchi)**&#8203;使用付費的選擇性功能來增強ASF的運作能力。 在目前，這允許您使用&#8203;`ItemsMatcher`&#8203;外掛程式中的&#8203;**[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW#matchactively)**&#8203;功能。
+
+若您是ASF贊助者，您可以在&#8203;**[這裡](https://asf.justarchi.net/User/Status)**&#8203;獲得您的授權碼。 您會需要以GitHub登入來確認您的身分，我們只會請求您的公開唯讀資訊，也就是您的使用者名稱。 `LicenseID`&#8203;由32個十六進制字元組成，例如&#8203;`f6a0529813f74d119982eb4fe43a9a24`&#8203;。
+
+**請確保您沒有與其他人共用您的&#8203;`LicenseID`**&#8203;。 因為它是給個人使用的，如果洩漏出去就有可能被撤銷。 如果不幸您意外洩漏了授權碼，您可以在相同地方生成一個新的。
+
+除非您想要啟用ASF的額外功能，否則您沒有必要在此提供授權碼。
+
+---
+
+### `LoginLimiterDelay（登入限制延時）`
+
+`byte`&#8203;型別，預設值為&#8203;`10`&#8203;。 在兩個連續的連線嘗試間，ASF會確保至少間隔&#8203;`LoginLimiterDelay`&#8203;秒，以避免觸發速率限制。 預設值&#8203;`10`&#8203;是依據超過100個Bot實例的連線所設定的，應該能滿足大部分（可能不是全部）的使用者需求。 但是，如果您的Bot數量很少，您可能會想要增加／減少它，或甚至把更改成&#8203;`0`&#8203;，使ASF忽略延時並加快連線至Steam。 但請注意，在有很多Bot的情形下&#8203;**將會**&#8203;導致Steam暫時封鎖您的IP，觸發&#8203;`InvalidPassword/RateLimitExceeded`&#8203;錯誤，並&#8203;**完全**&#8203;阻止您登入⸺不只是在ASF，也包含您的Steam用戶端那邊。 Likewise, if you're running excessive number of bots, especially together with other Steam clients/tools using the same IP address, most likely you'll need to increase this value in order to spread logins across longer period of time.
 
 As a side note, this value is also used as load-balancing buffer in all ASF-scheduled actions, such as trades in `SendTradePeriod`. Unless you have a **strong** reason to edit this property, you should keep it at default.
 

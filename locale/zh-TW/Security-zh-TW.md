@@ -14,7 +14,7 @@ ASF目前支援以下加密方式，作為&#8203;`ECryptoMethod`&#8203;的定義
 
 以下提供了它們的詳細說明及比較。
 
-要生成加密的密碼，例如在&#8203;`SteamPassword`&#8203;中使用，您可以執行&#8203;`encrypt`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;，並加上您所選的適當的加密方式及您密碼的原始純文字。 然後，將您獲得的加密字串輸入&#8203;`SteamPassword`&#8203;Bot設定屬性，並修改&#8203;`PasswordFormat`&#8203;對應至您所選的加密方法。 某些格式不需要&#8203;`encrypt`指令，例如&#8203;`EnvironmentVariable`&#8203;或&#8203;`File`&#8203;，只需給予適合的路徑。
+要生成加密的密碼，例如在&#8203;`SteamPassword`&#8203;中使用，您可以執行&#8203;`encrypt`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;，並加上您所選的適當的加密方式及您密碼的原始純文字。 然後，將您獲得的加密字串輸入&#8203;`SteamPassword`&#8203; Bot設定屬性，並修改&#8203;`PasswordFormat`&#8203;對應至您所選的加密方法。 某些格式不需要&#8203;`encrypt`指令，例如&#8203;`EnvironmentVariable`&#8203;或&#8203;`File`&#8203;，只需給予適合的路徑。
 
 ---
 
@@ -84,7 +84,7 @@ ASF目前支援的雜湊方法&#8203;`EHashingMethod`&#8203;定義如下：
 
 以下提供了它們的詳細說明及比較。
 
-若要生成雜湊，如在&#8203;`IPCPassword`&#8203;中使用，您應執行&#8203;`hash`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;，並選擇適合您的雜湊方法及原始的純文字密碼。 之後將雜湊字串放入&#8203;`IPCPassword`&#8203;ASF設定屬性，最後修改&#8203;`IPCPasswordFormat`&#8203;對應至您選擇的雜湊方法。
+若要生成雜湊，如在&#8203;`IPCPassword`&#8203;中使用，您應執行&#8203;`hash`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;，並選擇適合您的雜湊方法及原始的純文字密碼。 之後將雜湊字串放入&#8203;`IPCPassword`&#8203; ASF設定屬性，最後修改&#8203;`IPCPasswordFormat`&#8203;對應至您選擇的雜湊方法。
 
 ---
 
