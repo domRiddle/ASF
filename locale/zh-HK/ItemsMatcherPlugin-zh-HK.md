@@ -64,6 +64,8 @@ The current version of the algorithm makes ASF prioritize `Any` bots first, espe
 
 `MatchActively` takes into account bots that you blacklisted from trading through `tbadd` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** and will not attempt to actively match them. 這可以用來告訴 ASF 它永遠不應該匹配哪些機械人，即使它們有潛在的匹配物品可供我們使用。
 
+ASF will also do its best to ensure that the trade offers are going through. On the next run, which normally happens in 6 hours, ASF will cancel any pending trade offers that still weren't accepted, and deprioritize steamIDs taking part in them to hopefully prefer more active bots first.
+
 ---
 
 ### Why do I need a `LicenseID` to use `MatchActively`? Wasn't it free before?

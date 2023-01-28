@@ -64,6 +64,8 @@ ASF будет делать все возможное чтобы сократи�
 
 `MatchActively` учитывает ботов, которых вы внесли в черный список для торговли через `tbadd` **[ команду](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** и не будет пытаться активно сопоставлять их. Это можно использовать чтобы указать ASF ботов, с которыми никогда не следует сопоставлять наборов, даже если они имеют потенциальные дубликаты которые можно использовать.
 
+ASF will also do its best to ensure that the trade offers are going through. On the next run, which normally happens in 6 hours, ASF will cancel any pending trade offers that still weren't accepted, and deprioritize steamIDs taking part in them to hopefully prefer more active bots first.
+
 ---
 
 ### Почему мне нужен `LicenseID` для использования `MatchActively`? Разве это раньше не было бесплатно?

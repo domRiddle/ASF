@@ -64,6 +64,8 @@ TEH CURRENT VERSHUN OV TEH ALGORITHM MAKEZ ASF PRIORITIZE `Any` BOTS FURST, ESPE
 
 `MatchActively` TAKEZ INTO AKOWNT BOTS DAT U BLACKLISTD FRUM TRADIN THRU `tbadd` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)** AN WILL NOT ATTEMPT 2 ACTIVELY MATCH THEM. DIS CAN BE USD 4 TELLIN ASF WHICH BOTS IT SHUD NEVR MATCH, EVEN IF THEYD HAS POTENTIAL DUPEZ 4 US 2 USE.
 
+ASF will also do its best to ensure that the trade offers are going through. On the next run, which normally happens in 6 hours, ASF will cancel any pending trade offers that still weren't accepted, and deprioritize steamIDs taking part in them to hopefully prefer more active bots first.
+
 ---
 
 ### Y DO NEEDZ `LicenseID` 2 USE `MatchActively`? WUZ NOT IT FREE BEFORE?

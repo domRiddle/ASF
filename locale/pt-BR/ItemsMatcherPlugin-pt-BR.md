@@ -64,6 +64,8 @@ A versão atual do algoritmo faz com que o ASF priorize os bots `Any`, especialm
 
 O `MatchActively` leva em conta os bots que você pôs na lista negra de trocas através do **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)** `tbadd` e não vai tentar trocas com eles. Pode ser usado para dizer ao ASF quais bots nunca devem ser combinados, mesmo se eles tiverem potenciais duplicatas que poderíamos usar.
 
+ASF will also do its best to ensure that the trade offers are going through. On the next run, which normally happens in 6 hours, ASF will cancel any pending trade offers that still weren't accepted, and deprioritize steamIDs taking part in them to hopefully prefer more active bots first.
+
 ---
 
 ### Why do I need a `LicenseID` to use `MatchActively`? Wasn't it free before?

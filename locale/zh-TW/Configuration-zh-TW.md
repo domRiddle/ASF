@@ -226,28 +226,28 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 ### `LoginLimiterDelay（登入限制延時）`
 
-`byte`&#8203;型別，預設值為&#8203;`10`&#8203;。 在兩個連續的連線嘗試間，ASF會確保至少間隔&#8203;`LoginLimiterDelay`&#8203;秒，以避免觸發速率限制。 預設值&#8203;`10`&#8203;是依據超過100個Bot實例的連線所設定的，應該能滿足大部分（可能不是全部）的使用者需求。 但是，如果您的Bot數量很少，您可能會想要增加／減少它，或甚至把更改成&#8203;`0`&#8203;，使ASF忽略延時並加快連線至Steam。 但請注意，在有很多Bot的情形下&#8203;**將會**&#8203;導致Steam暫時封鎖您的IP，觸發&#8203;`InvalidPassword/RateLimitExceeded`&#8203;錯誤，並&#8203;**完全**&#8203;阻止您登入⸺不只是在ASF，也包含您的Steam用戶端那邊。 Likewise, if you're running excessive number of bots, especially together with other Steam clients/tools using the same IP address, most likely you'll need to increase this value in order to spread logins across longer period of time.
+`byte`&#8203;型別，預設值為&#8203;`10`&#8203;。 在兩個連續的連線嘗試間，ASF會確保至少間隔&#8203;`LoginLimiterDelay`&#8203;秒，以避免觸發速率限制。 預設值&#8203;`10`&#8203;是依據超過100個Bot實例的連線所設定的，應該能滿足大部分（可能不是全部）的使用者需求。 但是，如果您的Bot數量很少，您可能會想要增加／減少它，或甚至把更改成&#8203;`0`&#8203;，使ASF忽略延時並加快連線至Steam。 但請注意，在有很多Bot的情形下&#8203;**將會**&#8203;導致Steam暫時封鎖您的IP，觸發&#8203;`InvalidPassword/RateLimitExceeded`&#8203;錯誤，並&#8203;**完全**&#8203;阻止您登入⸺不只是在ASF，也包含您的Steam用戶端那邊。 同理，如果您執行大量Bot，特別是在同一IP位址內一起使用其他Steam用戶端／工具，您可能還會需要增加此值，以將登入請求分散至更長的時間段。
 
-As a side note, this value is also used as load-balancing buffer in all ASF-scheduled actions, such as trades in `SendTradePeriod`. Unless you have a **strong** reason to edit this property, you should keep it at default.
-
----
-
-### `MaxFarmingTime`
-
-`byte`&#8203;型別，預設值為&#8203;`10`&#8203;。 As you should know, Steam is not always working properly, sometimes weird situations can happen such as our playtime not being recorded, despite of, in fact, playing a game. ASF will allow farming a single game in solo mode for maximum of `MaxFarmingTime` hours, and consider it fully farmed after that period. This is required to not freeze farming process in case of weird situations happening, but also if for some reason Steam released a new badge that would stop ASF from progressing further (see: `Blacklist`). Default value of `10` hours should be enough for dropping all steam cards from one game. Setting this property too low can result in valid games being skipped (and yes, there are valid games taking even up to 9 hours to farm), while setting it too high can result in farming process being frozen. Please note that this property affects only a single game in a single farming session (so after going through entire queue ASF will return to that title), also it's not based on total playtime but internal ASF farming time, so ASF will also return to that title after a restart. Unless you have a **strong** reason to edit this property, you should keep it at default.
+另外說明一下，此值還會用於所有ASF計畫任務的附載平衡緩衝，例如在&#8203;`SendTradePeriod`&#8203;中的交易。 除非您有&#8203;**充分的**&#8203;理由編輯此屬性，否則您應維持它為預設值。
 
 ---
 
-### `MaxTradeHoldDuration`
+### `MaxFarmingTime（掛卡最大時數）`
 
-`byte`&#8203;型別，預設值為&#8203;`15`&#8203;。 This property defines maximum duration of trade hold in days that we're willing to accept - ASF will reject trades that are being held for more than `MaxTradeHoldDuration` days, as defined in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section. This option makes sense only for bots with `TradingPreferences` of `SteamTradeMatcher`, as it doesn't affect `Master`/`SteamOwnerID` trades, neither donations. Trade holds are annoying for everyone, and nobody really wants to deal with them. ASF is supposed to work on liberal rules and help everyone, regardless if on trade hold or not - that's why this option is set to `15` by default. However, if you'd instead prefer to reject all trades affected by trade holds, you can specify `0` here. Please consider the fact that cards with short lifespan are not affected by this option and automatically rejected for people with trade holds, as described in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section, so there is no need to globally reject everybody only because of that. Unless you have a reason to edit this property, you should keep it at default.
+`byte`&#8203;型別，預設值為&#8203;`10`&#8203;。 如您所知，Steam並不總是能正常運作，有時候會發生奇怪的狀況，例如雖然我們正在遊玩，但沒有到紀錄我們的遊玩時數上。 ASF允許一個遊戲在單一遊戲模式下最多掛卡&#8203;`MaxFarmingTime`&#8203;小時，並在此之後認為該遊戲已完成掛卡。 這是為了在發生怪異情形時不會使掛卡程序卡住所必需的，也可能Steam因為某種原因釋出了一個新的徽章，而使ASF卡住掛卡進度（參見：&#8203;`Blacklist`&#8203;）。 預設值&#8203;`10`&#8203;小時應該足以使一個遊戲掉落全部的交換卡片。 將此屬性設定過低可能會使ASF跳過有效的遊戲（是的，有些遊戲甚至需要長達9小時卡片才能全部掉完），設定過高則可能會導致掛卡程序卡住過久。 請注意，本屬性只會影響單次掛卡期間的單一遊戲（在完成整個佇列後，ASF將會重新計時），此外，此屬性並非依據遊玩時數，而是ASF內部的掛卡時數，因此ASF也會在重新啟動後重新計時。 除非您有&#8203;**充分的**&#8203;理由編輯此屬性，否則您應維持它為預設值。
+
+---
+
+### `MaxTradeHoldDuration（交易託管最大期間）`
+
+`byte`&#8203;型別，預設值為&#8203;`15`&#8203;。 本屬性定義了我們願意接受的交易託管最大天數⸺ASF會拒絕保留超過&#8203;`MaxTradeHoldDuration`&#8203;天的交易，如&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW)**&#8203;章節所述。 此選項只會作用於在&#8203;`TradingPreferences`&#8203;中啟用了&#8203;`SteamTradeMatcher`&#8203;的Bot，而不會影響來自&#8203;`Master`&#8203;／&#8203;`SteamOwnerID`&#8203;的交易，也不影響贈禮。 對每個人來說，交易託管是非常惱人的，沒有人想被它打擾。 ASF應在自由的原則下幫助每個人使用，不論是否有交易託管⸺這就是為什麼本選項的預設值為&#8203;`15`&#8203;。 但是，如果您想要拒絕所有具交易託管的交易，您可以在此處設定成&#8203;`0`&#8203;。 請注意以下說明：有時間限制的交換卡片不受此選項影響，且ASF會自動拒絕具有交易託管的交易，如&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW)**&#8203;章節所述，所以沒有必要只因為這個原因而拒絕所有人。 除非您有理由編輯此屬性，否則您應維持它為預設值。
 
 
 ---
 
 ### `MinFarmingDelayAfterBlock`
 
-`byte`&#8203;型別，預設值為&#8203;`60`&#8203;。 This property defines minimum amount of time, in seconds, which ASF will wait before resuming cards farming if it got previously disconnected with `LoggedInElsewhere`, which happens when you decide to forcefully disconnect currently-farming ASF by launching a game. This delay exists mainly for convenience and overhead reasons, for example it allows you to restart the game without having to fight with ASF occupying your account again only because playing lock was available for a split second. Due to the fact that reclaiming the session causes `LoggedInElsewhere` disconnect, ASF has to go through whole reconnect procedure, which puts additional pressure on the machine and Steam network, therefore avoiding additional disconnects, if possible, is preferable. By default, this is configured at `60` seconds, which should be enough to allow you restart the game without much hassle. However, there are scenarios when you could be interested in increasing it, for example if your network disconnects often and ASF is taking over too soon, which causes being forced to go through the reconnect process yourself. We allow a maximum value of `255` for this property, which should be enough for all common scenarios. In addition to the above, it's also possible to decrease the delay, or even remove it entirely with a value of `0`, although that is usually not recommended due to reasons stated above. Unless you have a reason to edit this property, you should keep it at default.
+`byte`&#8203;型別，預設值為&#8203;`60`&#8203;。 本屬性定義了以秒為單位的最小時間，如果ASF先前因為&#8203;`LoggedInElsewhere`&#8203;而失去連線，則在等待這段時間後才會再次恢復掛卡：如果您決定以執行遊戲來強制使當前掛卡的ASF斷線，就會產生這種情形。 這種延遲存在的原因主要是為了方便並節省開銷，例如它使您能夠重新啟動遊戲，不必因為那一兩秒鐘的空檔，去跟ASF爭奪帳號的使用權。 由於重新獲得連線階段會使&#8203;`LoggedInElsewhere`&#8203;失去連線，ASF就必須執行整個重新連線的流程，這會使設備及Steam網路增加額外的壓力，因此能夠的話，避免掉所有不必要的斷線。 By default, this is configured at `60` seconds, which should be enough to allow you restart the game without much hassle. However, there are scenarios when you could be interested in increasing it, for example if your network disconnects often and ASF is taking over too soon, which causes being forced to go through the reconnect process yourself. We allow a maximum value of `255` for this property, which should be enough for all common scenarios. In addition to the above, it's also possible to decrease the delay, or even remove it entirely with a value of `0`, although that is usually not recommended due to reasons stated above. Unless you have a reason to edit this property, you should keep it at default.
 
 ---
 

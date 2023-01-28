@@ -64,6 +64,8 @@ ASF會盡力將使用該選項產生的請求量及壓力降至最低，同時�
 
 `MatchActively`&#8203;會考慮您使用交易&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;`tbadd`&#8203;加入黑名單的Bot帳號，且不會嘗試匹配它們。 這能用來告訴ASF它不該匹配哪些Bot，即使它們可能有重複物品能提供我們使用。
 
+ASF will also do its best to ensure that the trade offers are going through. On the next run, which normally happens in 6 hours, ASF will cancel any pending trade offers that still weren't accepted, and deprioritize steamIDs taking part in them to hopefully prefer more active bots first.
+
 ---
 
 ### 為什麼我需要 `LicenseID` 才能使用 `MatchActively`？ 這之前不是免費的嗎？

@@ -26,9 +26,9 @@ Linux/macOS:
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Argumenty příkazového řádku jsou také podporovány v generických pomocných skriptech, jako je `ArchiSteamFarm.cmd` nebo `ArchiSteamFarm.sh`. In addition to that, when using helper scripts you can also use `ASF_ARGS` environment property, like stated in our **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** section.
+Argumenty příkazového řádku jsou také podporovány v generických pomocných skriptech, jako je `ArchiSteamFarm.cmd` nebo `ArchiSteamFarm.sh`. Kromě toho můžete při použití pomocných skriptů také použít `ASF_ARGS` vlastnosti prostředí, jak je uvedeno v naší **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sekci.
 
-If your argument includes spaces, don't forget to quote it. Tyto dvě věci jsou špatně:
+Pokud váš argument obsahuje mezery, nezapomeňte jej ocitovat. Tyto dvě věci jsou špatně:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
@@ -44,29 +44,29 @@ Nicméně, dvě jsou zcela v pořádku:
 
 ## Parametry
 
-`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
+`--cryptkey <key>` nebo `--cryptkey=<key>` - spustí ASF s vlastním kryptografickým klíčem s hodnotou `<key>`. Tato volba ovlivní **[bezpečnost](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** a způsobí, že ASF bude používat vlastní zadaný klíč `<key>`, namísto výchozího klíče, který je pevně nakódováný v programu. Protože tato vlastnost ovlivňuje výchozí šifrovací klíč (pro účely šifrování) i "sůl" (pro účely hashování), mějte na paměti, že vše, co je šifrováno/hashováno tímto klíčem, bude vyžadovat jeho předání při každém spuštění ASF.
 
-It's nice to mention that there are also two other ways to provide this detail: `--cryptkey-file` and `--input-cryptkey`.
+Je dobré zmínit, že existují také dva další způsoby, jak tento detail poskytnout: `--cryptkey-file` a `--input-cryptkey`.
 
-Due to the nature of this property, it's also possible to set cryptkey by declaring `ASF_CRYPTKEY` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
-
----
-
-`--cryptkey-file <path>` or `--cryptkey-file=<path>` - will start ASF with custom cryptographic key read from `<path>` file. This serves the same purpose as `--cryptkey <key>` explained above, only the mechanism differs, as this property will read `<key>` from provided `<path>` instead.
-
-Due to the nature of this property, it's also possible to set cryptkey file by declaring `ASF_CRYPTKEY_FILE` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+Vzhledem k povaze této vlastnosti je také možné nastavit cryptkey deklarací proměnné prostředí `ASF_CRYPTKEY`, což může být vhodnější pro ty, kteří se chtějí vyhnout citlivým údajům v argumentech procesu.
 
 ---
 
-`--ignore-unsupported-environment` - will cause ASF to ignore problems related to running in unsupported environment, which normally is signalized with an error and a forced exit. Unsupported environment includes for example running .NET Framework build on platform that could be running .NET (Core) build instead. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. As of today, **all** of the unsupported environment scenarios can be corrected, such as running `generic` build instead of `generic-netf`. We strongly recommend to fix the outstanding problems instead of declaring this argument.
+`--cryptkey-file <path>` nebo `--cryptkey-file=<path>` - spustí ASF s vlastním kryptografickým klíčem načteným ze souboru `<path>`. Slouží ke stejnému účelu jako `--cryptkey <key>` vysvětlený výše, liší se pouze mechanismem, protože tato vlastnost bude místo toho číst `<key>` z poskytnutého `<path>`.
+
+Vzhledem k povaze této vlastnosti je také možné nastavit soubor šifrovacího klíče deklarací proměnné prostředí `ASF_CRYPTKEY_FILE`, což může být vhodnější pro ty, kteří se chtějí vyhnout citlivým údajům v argumentech procesu.
 
 ---
 
-`--input-cryptkey` - will make ASF ask about the `--cryptkey` during startup. This option might be useful for you if instead of providing cryptkey, whether in environment variables or a file, you'd prefer to not have it saved anywhere and instead input it manually on each ASF run.
+`--ignore-unsupported-environment` - způsobí, že ASF bude ignorovat problémy spojené se spuštěním v nepodporovaném prostředí, což je obvykle signalizováno chybou a vynuceným ukončením. Nepodporované prostředí zahrnuje například spuštění .NET Framework buildu na platformě, na které by místo toho mohl být spuštěn .NET (Core) build. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. Od dnešního dne lze opravit **všechny** nepodporovaná prostředí, například spuštěním `generic` buildu místo `generic-netf`. Rozhodně doporučujeme raději opravit nevyřešené problémy namísto nastavování tohoto argumentu.
 
 ---
 
-`--network-group <group>` or `--network-group=<group>` - will cause ASF to init its limiters with a custom network group of `<group>` value. This option affects running ASF in **[multiple instances](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** by signalizing that given instance is dependent only on instances sharing the same network group, and independent of the rest. Typically you want to use this property only if you're routing ASF requests through custom mechanism (e.g. different IP addresses) and you want to set networking groups yourself, without relying on ASF to do it automatically (which currently includes taking into account `WebProxy` only). Keep in mind that when using a custom network group, this is unique identifier within the local machine, and ASF will not take into account any other details, such as `WebProxy` value, allowing you to e.g. start two instances with different `WebProxy` values which are still dependent on each other.
+`--input-cryptkey` - způsobí, že se ASF při spuštění zeptá na `--cryptkey`. Tato možnost by pro vás mohla být užitečná, pokud byste místo zadávání šifrovacího klíče, ať už v proměnných prostředí nebo v souboru, raději neměli šifrovací klíč nikde uložený a místo toho jej zadávali ručně při každém spuštění ASF.
+
+---
+
+`--network-group <group>` nebo `--network-group=<group>` - způsobí, že ASF inicializuje své omezovače s vlastní síťovou skupinou o hodnotě `<group>`. Tato možnost ovlivňuje běh ASF ve **[více instancích](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** tím, že signalizuje, že daná instance je závislá pouze na sdílené síťové skupině, a nezávislá na ostatních. Obvykle chcete tuto vlastnost použít pouze v případě, že směrujete požadavky ASF prostřednictvím vlastního mechanismu (např. různé IP adresy) a chcete sami nastavit síťové skupiny, aniž byste se spoléhali na to, že to ASF udělá automaticky (což v současné době zahrnuje pouze zohlednění `WebProxy`). Keep in mind that when using a custom network group, this is unique identifier within the local machine, and ASF will not take into account any other details, such as `WebProxy` value, allowing you to e.g. start two instances with different `WebProxy` values which are still dependent on each other.
 
 Due to the nature of this property, it's also possible to set the value by declaring `ASF_NETWORK_GROUP` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
