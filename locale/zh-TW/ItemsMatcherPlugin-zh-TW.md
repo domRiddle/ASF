@@ -64,7 +64,7 @@ ASF會盡力將使用該選項產生的請求量及壓力降至最低，同時�
 
 `MatchActively`&#8203;會考慮您使用交易&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;`tbadd`&#8203;加入黑名單的Bot帳號，且不會嘗試匹配它們。 這能用來告訴ASF它不該匹配哪些Bot，即使它們可能有重複物品能提供我們使用。
 
-ASF will also do its best to ensure that the trade offers are going through. On the next run, which normally happens in 6 hours, ASF will cancel any pending trade offers that still weren't accepted, and deprioritize steamIDs taking part in them to hopefully prefer more active bots first.
+ASF也會盡力使交易提案順利完成。 在下一輪匹配中（通常在6小時內），ASF將會取消任何尚未被接受的交易提案，並降低對方的Steam ID優先級，在之後會優先選擇更活躍的Bot。
 
 ---
 

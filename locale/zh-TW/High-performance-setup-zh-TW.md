@@ -28,7 +28,7 @@ ASF預設使用工作站垃圾回收。 這主要是因為記憶體的使用與�
 
 伺服器GC本身不會因為只處於活動狀態而造成巨量的記憶體消耗，但它具有更大的生成大小，因此更不會把記憶體還給作業系統。 您可能會發現自己處於一個尷尬情形，伺服器GC能顯著提高效能，使您希望繼續使用它，但同時您又將無法承受使用它帶來的巨量記憶體消耗。 幸運的是，將&#8203;**[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gclatencylevel)**&#8203;組態設定設定成&#8203;`0`&#8203;，是個「兩全其美」的方法，它仍會啟用伺服器GC，但會限制生成大小並更在意記憶體的消耗。 或者，您也許可以嘗試另外一個屬性，&#8203;**[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW#gcheaphardlimitpercent)**&#8203;，或同時啟用這兩個選項。
 
-但是，如果記憶體對您來說不是問題（因為GC仍會依據您可用的記憶體來自行調整），那麼最好不要更改這些屬性，以達到最高效能。
+但是，如果記憶體對您來說不是問題（因為GC仍會依據您的可用記憶體來自行調整），那麼最好不要更改這些屬性，以達到最高效能。
 
 ### **[`DOTNET_TieredPGO`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/compilation#profile-guided-optimization)**
 

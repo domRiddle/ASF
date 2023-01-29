@@ -245,72 +245,72 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 ---
 
-### `MinFarmingDelayAfterBlock`
+### `MinFarmingDelayAfterBlock（停止後重新掛卡最小延時）`
 
-`byte`&#8203;型別，預設值為&#8203;`60`&#8203;。 本屬性定義了以秒為單位的最小時間，如果ASF先前因為&#8203;`LoggedInElsewhere`&#8203;而失去連線，則在等待這段時間後才會再次恢復掛卡：如果您決定以執行遊戲來強制使當前掛卡的ASF斷線，就會產生這種情形。 這種延遲存在的原因主要是為了方便並節省開銷，例如它使您能夠重新啟動遊戲，不必因為那一兩秒鐘的空檔，去跟ASF爭奪帳號的使用權。 由於重新獲得連線階段會使&#8203;`LoggedInElsewhere`&#8203;失去連線，ASF就必須執行整個重新連線的流程，這會使設備及Steam網路增加額外的壓力，因此能夠的話，避免掉所有不必要的斷線。 By default, this is configured at `60` seconds, which should be enough to allow you restart the game without much hassle. However, there are scenarios when you could be interested in increasing it, for example if your network disconnects often and ASF is taking over too soon, which causes being forced to go through the reconnect process yourself. We allow a maximum value of `255` for this property, which should be enough for all common scenarios. In addition to the above, it's also possible to decrease the delay, or even remove it entirely with a value of `0`, although that is usually not recommended due to reasons stated above. Unless you have a reason to edit this property, you should keep it at default.
-
----
-
-### `OptimizationMode`
-
-`byte`&#8203;型別，預設值為&#8203;`0`&#8203;。 This property defines optimization mode which ASF will prefer during runtime. Currently ASF supports two modes - `0` which is called `MaxPerformance`, and `1` which is called `MinMemoryUsage`. By default ASF prefers to run as many things in parallel (concurrently) as possible, which enhances performance by load-balancing work across all CPU cores, multiple CPU threads, multiple sockets and multiple threadpool tasks. For example, ASF will ask for your first badge page when checking for games to farm, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. This is what you should want **almost always**, as the overhead in most cases is minimal and benefits from asynchronous ASF code can be seen even on the oldest hardware with a single CPU core and heavily limited power. However, with many tasks being processed in parallel, ASF runtime is responsible for their maintenance, e.g. keeping sockets open, threads alive and tasks being processed, which can result in increased memory usage from time to time, and if you're extremely constrained by available memory, you may want to switch this property to `1` (`MinMemoryUsage`) in order to force ASF into using as little tasks as possible, and typically running possible-to-parallel asynchronous code in a synchronous manner. You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`byte`&#8203;型別，預設值為&#8203;`60`&#8203;。 本屬性定義了以秒為單位的最小時間，如果ASF先前因為&#8203;`LoggedInElsewhere`&#8203;而失去連線，則在等待這段時間後才會再次恢復掛卡：如果您決定以執行遊戲來強制使當前掛卡的ASF斷線，就會產生這種情形。 這種延遲存在的原因主要是為了方便並節省負擔，例如它使您能夠重新啟動遊戲，不必因為那一兩秒鐘的空檔，去跟ASF爭奪帳號的使用權。 由於重新獲得連線階段會使&#8203;`LoggedInElsewhere`&#8203;失去連線，ASF就必須執行整個重新連線的流程，這會使設備及Steam網路增加額外的壓力，因此能夠的話，避免掉所有不必要的斷線。 預設情形下，本屬性設定成&#8203;`60`&#8203;秒，這應該足以讓您輕鬆重新啟動遊戲了。 但是，在某些情境中您可能會希望增加此值，例如您的網路經常失去連線，且ASF會太快接管，這會導致您被迫自行重新連線。 此屬性的最大允許值為&#8203;`255`&#8203;，這應該足以應付所有常見情境。 除了上述情形外，您也可以減少甚至設定成&#8203;`0`&#8203;來完全取消本延遲，但因上述原因，我們通常不建議這樣做。 除非您有理由編輯此屬性，否則您應維持它為預設值。
 
 ---
 
-### `SteamMessagePrefix`
+### `OptimizationMode（最佳化模式）`
 
-`string`&#8203;型別，預設值為&#8203;`"/me "`&#8203;。 This property defines a prefix that will be prepended to all Steam messages being sent by ASF. By default ASF uses `"/me "` prefix in order to distinguish bot messages more easily by showing them in different color on Steam chat. Another worthy mention is `"/pre "` prefix which achieves similar result, but uses different formatting. You can also set this property to empty string or `null` in order to disable using prefix entirely and output all ASF messages in a traditional way. It's nice to note that this property affects Steam messages only - responses returned through other channels (such as IPC) are not affected. Unless you want to customize standard ASF behaviour, it's a good idea to leave it at default.
-
----
-
-### `SteamOwnerID`
-
-`ulong`&#8203;型別，預設值為&#8203;`0`&#8203;。 This property defines Steam ID in 64-bit form of ASF process owner, and is very similar to `Master` permission of given bot instance (but global instead). You almost always want to set this property to ID of your own main Steam account. `Master` permission includes full control over his bot instance, but global commands such as `exit`, `restart` or `update` are reserved for `SteamOwnerID` only. This is convenient, as you may want to run bots for your friends, while not allowing them to control ASF process, such as exiting it via `exit` command. Default value of `0` specifies that there is no owner of ASF process, which means that nobody will be able to issue global ASF commands. Keep in mind that this property applies to Steam chat exclusively, **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**, as well as interactive console, will still allow you to execute `Owner` commands even if this property is not set.
+`byte`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性定義了ASF在執行期間偏好的最佳化模式。 目前，ASF支援兩種模式：&#8203;`0`&#8203;為&#8203;`MaxPerformance`&#8203;；&#8203;`1`&#8203;為&#8203;`MinMemoryUsage`&#8203;。 預設情形下，ASF會盡可能地平行（並行）執行越多的工作，以跨CPU核心、多個CPU執行緒、多個網路插座及多個執行緒集區工作來增強效能。 舉例來說，ASF會在檢查需要掛卡的時查詢您的第一頁徽章頁面，在請求完成後，ASF會從中讀取您實際的徽章頁數，然後同時向所有剩餘頁面傳送請求。 這&#8203;**基本上**&#8203;就是您所想要的，因為在大多數情形下負擔是最小的，即使在單個CPU核心和非常有限功率的老舊硬體上，也能看到ASF異步程式碼的好處。 但是，由於許多工作是平行處理的，因此ASF需要在執行期間負責維護它們，例如維持網路插座開啟、執行緒處於活動狀態及工作有被處理，這可能會導致記憶體使用量不時增加。若您的可用記憶體嚴重受限，您可能會想要切換本屬性為&#8203;`1`&#8203;（&#8203;`MinMemoryUsage`&#8203;）來強制ASF處理盡可能少的工作，並盡量以同步方式執行可平行處理的異步程式碼。 只有在您已詳閱&#8203;**[低記憶體設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW)**&#8203;後，且決定想要犧牲大量效能以獲得節省極少量的記憶體負擔時，才應考慮開啟此屬性。 通常本選項比您能夠使用的其他方式達成的成效還來得&#8203;**差得多**&#8203;，例如經由限制您的ASF使用，或調整執行環境的垃圾收集器，如&#8203;**[低記憶體設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-zh-TW)**&#8203;所述。 因此，如果您無法經由其他（更好的）方式獲得滿意的結果，則應將&#8203;`MinMemoryUsage`&#8203;作為重新編譯執行環境前的&#8203;**最後手段**&#8203;。 除非您有&#8203;**充分的**&#8203;理由編輯此屬性，否則您應維持它為預設值。
 
 ---
 
-### `SteamProtocols`
+### `SteamMessagePrefix（Steam 訊息前綴）`
 
-`byte flags`&#8203;型別，預設值為&#8203;`7`&#8203;。 此屬性定義了 ASF 在連接 Steam 伺服器時使用的網路協議，其定義如下：
-
-| 值 | 名稱        | 描述                                                                                                            |
-| - | --------- | ------------------------------------------------------------------------------------------------------------- |
-| 0 | 無         | 無協議                                                                                                           |
-| 1 | TCP       | **[傳輸控制協議](https://zh.wikipedia.org/zh-tw/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE)**           |
-| 2 | UDP       | **[用戶資料包協定](https://zh.wikipedia.org/zh-tw/%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%8D%8F%E8%AE%AE)** |
-| 4 | WebSocket | **[WebSocket](https://zh.wikipedia.org/zh-tw/WebSocket)**                                                     |
-
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option, and that option is invalid by itself.
-
-By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols instead of all available ones. Such measure could be needed if you're e.g. enabling only TCP traffic on your firewall and you do not want ASF to try connecting via UDP. However, unless you're debugging particular problem or issue, you almost always want to ensure that ASF is free to use any protocol that is currently supported and not just one or two. Unless you have a **strong** reason to edit this property, you should keep it at default.
+`string`&#8203;型別，預設值為&#8203;`"/me "`&#8203;。 本屬性定義了加入至ASF送出的所有Steam訊息最開頭的前綴。 預設情形下，ASF使用&#8203;`"/me "`&#8203;為前綴，使Steam聊天以不同顏色顯示Bot訊息，以便更容易區分它們。 另一個值得提及的前綴是&#8203;`"/pre "`&#8203;，它有相似的結果，但有著不同的格式。 您也可以將本屬性設定成空值或&#8203;`null`&#8203;來完全停用前綴，並以傳統的方式輸出所有ASF訊息。 值得一提的是，本屬性只會影響Steam訊息⸺以其他通道（例如IPC）回傳的回應不會受到影響。 除非您想要自訂標準的ASF行為，否則最好維持它為預設值。
 
 ---
 
-### `UpdateChannel（更新頻道）`
+### `SteamOwnerID（擁有者的 Steam ID）`
 
-`byte`&#8203;型別，預設值為&#8203;`1`&#8203;。 This property defines update channel which is being used, either for auto-updates (if `UpdatePeriod` is greater than `0`), or update notifications (otherwise). Currently ASF supports three update channels - `0` which is called `None`, `1`, which is called `Stable`, and `2`, which is called `Experimental`. `Stable` channel is the default release channel, which should be used by majority of users. `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. If you don't consider yourself advanced user, please stay with default `1` (Stable) update channel. `Experimental` channel is dedicated to users who know how to report bugs, deal with issues and give feedback - no technical support will be given. Check out ASF **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)** if you'd like to learn more. You can also set `UpdateChannel` to `0` (`None`), if you want to completely remove all version checks. Setting `UpdateChannel` to `0` will entirely disable entire functionality related to updates, including `update` command. Using `None` channel is **strongly discouraged** due to exposing yourself to all sort of problems (mentioned in `UpdatePeriod` description below).
-
-**Unless you know what you're doing**, we **strongly** recommend to keep it at default.
+`ulong`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性定義了ASF程序擁有者的64位元Steam ID，與指定Bot實例的&#8203;`Master`&#8203;權限非常相似（但作用於全域）。 基本上您會想要將本屬性設定成您自己的Steam主帳號的ID。 `Master`&#8203;權限包含對該Bot實例的完全控制，但是全域指令例如&#8203;`exit`&#8203;、&#8203;`restart`&#8203;或&#8203;`update`&#8203;則只能由&#8203;`SteamOwnerID`&#8203;使用。 這很方便，因為您可能想要為您的朋友執行Bot，但同時不允許他們控制ASF程序，例如使用&#8203;`exit`&#8203;指令退出程序。 預設值&#8203;`0`&#8203;代表ASF程序沒有擁有者，這代表沒有人能使用全域ASF指令。 請注意此屬性只適用於Steam聊天，即使沒有設定本屬性，&#8203;**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**&#8203;與互動式控制台仍會允許您執行&#8203;`Owner`&#8203;指令。
 
 ---
 
-### `UpdatePeriod`
+### `SteamProtocols（Steam 網際網路協定）`
 
-`ushort`&#8203;型別，預設值為&#8203;`300`&#8203;。 This property defines how often ASF should check for auto-updates. Updates are crucial not only to receive new features and critical security patches, but also to receive bugfixes, performance enhancements, stability improvements and more. When a value greater than `0` is set, ASF will automatically download, replace, and restart itself (if `AutoRestart` permits) when new update is available. In order to achieve this, ASF will check every `UpdatePeriod` hours if new update is available on our GitHub repo. A value of `0` disables auto-updates, but still allows you to execute `update` command manually. You may also be interested in setting appropriate `UpdateChannel` that `UpdatePeriod` should follow.
+`byte flags`&#8203;型別，預設值為&#8203;`7`&#8203;。 本屬性定義了ASF在連線Steam伺服器時使用的Steam網際網路協定，其定義如下：
 
-Update process of ASF involves update of entire folder structure that ASF is using, but without touching your own configs or databases located in `config` directory - this means that any extra files unrelated to ASF in its directory can be lost during update. Default value of `24` is a good balance between unnecessary checks, and ASF that is fresh enough.
+| 值 | 名稱        | 描述                                                                                                             |
+| - | --------- | -------------------------------------------------------------------------------------------------------------- |
+| 0 | 無         | 無協定                                                                                                            |
+| 1 | TCP       | **[傳輸控制協定](https://zh.wikipedia.org/zh-tw/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE)**            |
+| 2 | UDP       | **[使用者資料報協定](https://zh.wikipedia.org/zh-tw/%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%8D%8F%E8%AE%AE)** |
+| 4 | WebSocket | **[WebSocket](https://zh.wikipedia.org/zh-tw/WebSocket)**                                                      |
 
-Unless you have a **strong** reason to disable this feature, you should keep auto-updates enabled within reasonable `UpdatePeriod` **for your own good**. This is not only because we don't support anything but latest stable ASF release, but also because **we give our security guarantee only for latest version**. If you're using outdated ASF version then you're intentionally exposing yourself to all kind of issues, from small bugs, through broken functionality, ending with **[permanent Steam account suspensions](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#did-somebody-get-banned-for-it)**, so we **strongly recommend**, for your own good, to always ensure that your ASF version is up to date. Auto-updates allow us to react quickly to all kind of issues by disabling or patching problematic code before it can escalate - if you opt out of it, you lose all of our security guarantees and risk consequences from running code that could be potentially harmful, not only to Steam network, but also (by definition) to your own Steam account.
+請注意，本屬性為&#8203;`flags`&#8203;欄位，因此可以使用所有可用值任意組合。 若您想了解更多，請參閱&#8203;**[旗標映射](#json-映射)**&#8203;。 不啟用任何旗標即為&#8203;`None`&#8203;選項，且該選項本身無效。
+
+預設情形下，ASF會使用所有可以使用的Steam協定，作為應對當機期間及其他相似的Steam問題的措施。 通常若您想限制ASF使用一個或兩個指定的協定，而不是所有可用的協定時，您會想要修改此屬性。 例如若您在防火牆中啟用只啟用了TCP的流量，且您不希望ASF嘗試透過UDP連線，就可能會需要這樣的措施。 但是，除非您在除錯特定問題，否則您基本上會希望確保ASF能夠自由使用當前支援的所有協定，而不是只有一兩個。 除非您有&#8203;**充分的**&#8203;理由編輯此屬性，否則您應維持它為預設值。
 
 ---
 
-### `WebLimiterDelay`
+### `UpdateChannel（更新通道）`
 
-`ushort`&#8203;型別，預設值為&#8203;`300`&#8203;。 This property defines, in miliseconds, the minimum amount of delay between sending two consecutive requests to the same Steam web-service. Such delay is required as **[AkamaiGhost](https://www.akamai.com)** service that Steam uses internally includes rate-limiting based on global number of requests sent across given time period. In normal circumstances akamai block is rather hard to achieve, but under very heavy workloads with a huge ongoing queue of requests, it's possible to trigger it if we keep sending too many requests across too short time period.
+`byte`&#8203;型別，預設值為&#8203;`1`&#8203;。 本屬性定義了ASF使用的更新通道，用於自動更新（如果&#8203;`UpdatePeriod`&#8203;大於&#8203;`0`&#8203;時），或更新通知（&#8203;`UpdatePeriod`&#8203;為&#8203;`0`&#8203;時）。 目前ASF支援三個更新通道：&#8203;`0`&#8203;為&#8203;`None`&#8203;；&#8203;`1`&#8203;為&#8203;`Stable`&#8203;；而&#8203;`2`&#8203;為&#8203;`Experimental`&#8203;。 `Stable`&#8203;通道是預設的發布通道，這適合大多數的使用者。 `Experimental`&#8203;除了&#8203;`Stable`&#8203;版本以外，也包含了專門提供進階使用者及其他開發人員測試新功能、確認錯誤修復或提供相關增強計畫回饋的&#8203;**pre-releases**&#8203;。 **實驗性版本通常包含了尚未修補的錯誤、未完成或重寫的功能**&#8203;。 若您任為您並非進階使用者，請保留預設值&#8203;`1`&#8203;（穩定的）更新通道。 `Experimental`&#8203;通道是專門提供給知道如何回報錯誤、處理問題並給予回饋的使用者所使用⸺我們不會提供任何技術支援。 若您想了解更多，請參閱&#8203;**[發布週期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-TW)**&#8203;。 若您想完全停用所有版本檢查，您也可以將&#8203;`UpdateChannel`&#8203;設定成&#8203;`0`&#8203;（&#8203;`None`&#8203;）。 將&#8203;`UpdateChannel`&#8203;設定成&#8203;`0`&#8203;會完全停用與更新相關的功能，包含&#8203;`update`&#8203;指令。 **強烈反對**&#8203;您使用&#8203;`None`&#8203;通道，因為這會使您自己面臨各種問題（在下文&#8203;`UpdatePeriod`&#8203;的說明中有提到）。
 
-Default value was set based on assumption that ASF is the only tool accessing Steam web-services, in particular `steamcommunity.com`, `api.steampowered.com` and `store.steampowered.com`. If you're using other tools sending requests to the same web-services then you should make sure that your tool includes similar functionality of `WebLimiterDelay` and set both to double of default value, which would be `600`. This guarantees that under no circumstance you'll exceed sending more than 1 request per `300` ms.
+**除非您知道您在做什麼**，否則我們&#8203;**強烈**&#8203;建議維持它為預設值。
 
-In general, lowering `WebLimiterDelay` under default value is **strongly discouraged** as it could lead to various IP-related blocks, some of which are possible to be permanent. Default value is good enough for running a single ASF instance on the server, as well as using ASF in normal scenario along with original Steam client. It should be correct for majority of usages, and you should only increase it (never lower it), if - apart from using ASF, you're also using another tool that may send excessive number of requests to the same web-services that ASF is making use of. In short, global number of all requests sent from a single IP to a single Steam domain should never exceed more than 1 request per `300` ms.
+---
+
+### `UpdatePeriod（更新週期）`
+
+`ushort`&#8203;型別，預設值為&#8203;`300`&#8203;。 本屬性定義了ASF每隔多久會檢查一次自動更新。 更新是非常重要的，不僅能獲得新功能及重要安全補丁，也能修復錯誤、獲得效能增加及提高穩定性等。 當設定的值大於&#8203;`0`&#8203;時，ASF會在有新版本可供使用的時候自動下載、取代並重新啟動自身（如果&#8203;`AutoRestart`&#8203;允許）。 為了達到上述功能，ASF會每&#8203;`UpdatePeriod`&#8203;小時檢查一次我們的GitHub儲存庫上是否有新版本可供使用。 值為&#8203;`0`&#8203;會停用自動更新，但您仍能夠手動執行&#8203;`update`&#8203;指令。 您可能還會對&#8203;`UpdatePeriod`&#8203;需要設定的正確的&#8203;`UpdateChannel`&#8203;感興趣。
+
+ASF的更新過程涉及到更新整個ASF所使用的資料夾結構，但不會動到位於&#8203;`config`&#8203;資料夾中您自己的設定檔或資料庫⸺這代表在ASF資料夾中的所有無關檔案都會在更新過程中遺失。 預設值&#8203;`24`&#8203;能在不必要的檢查與維持ASF足夠新之間取得不錯的平衡。
+
+除非您有&#8203;**充分的**&#8203;理由停用此屬性，否則您應維持使用合理的&#8203;`UpdatePeriod`&#8203;來啟用自動更新，&#8203;**這是為了你好**&#8203;。 這不只是因為我們只支援最新的穩定版ASF，也因為&#8203;**我們只對最新版本提供安全保證**&#8203;。 若您使用過時的ASF版本，您就是故意讓您自己暴露於各種問題下，從小型錯誤、損壞的功能，到&#8203;**[Steam帳號永久停權](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-zh-TW#有人因為它被封鎖嗎)**&#8203;，所以我們&#8203;**強烈建議**&#8203;，為了你好，請始終確保您的ASF版本是最新的。 自動更新使我們能夠對任何問題快速反應，在造成後果之前能停用或修補有問題的程式碼⸺若您選擇停用，您會失去我們所有的安全保證，並需承擔執行可能的有害程式碼的風險後果，不只是對Steam網路，也包含您自己的Steam帳號。
+
+---
+
+### `WebLimiterDelay（網路限制延時）`
+
+`ushort`&#8203;型別，預設值為&#8203;`300`&#8203;。 本屬性定義了向同一個Steam Web服務傳送兩個連續請求間的最小延遲，以毫秒為單位。 這種延遲是必需的，因為Steam內部使用的&#8203;**[AkamaiGhost](https://www.akamai.com)**&#8203;服務包含了依據指定時間段內傳送請求總數的速率限制。 在正常情形下很難處發Akamai的限制，但如果我們在極短的時間內持續傳送過多的請求，導致異常繁重的工作負載及大量的持續佇列請求，就有可能觸發它。
+
+預設值是依據假設ASF是存取Steam Web服務的唯一工具所設定的，特別是&#8203;`steamcommunity.com`&#8203;、&#8203;`api.steampowered.com`&#8203;及&#8203;`store.steampowered.com`&#8203;。 若您使用了其他工具向同一Web服務傳送請求，那麼您應確保您的工具也包含類似&#8203;`WebLimiterDelay`&#8203;的功能，並將兩者都設為預設值的兩倍，也就是&#8203;`600`&#8203;。 這能保證在任何情形下，您都不會在每個&#8203;`300`&#8203;毫秒中傳送超過1個請求。
+
+在一般情形下，將&#8203;`WebLimiterDelay`&#8203;減少至預設值以下是&#8203;**強烈反對這麼做的**&#8203;，因為它可能會導致各種IP相關的封鎖，有可能會是永久的。 預設值足以在伺服器上執行單一ASF實例，或在一般情境下與原版的Steam用戶端一起使用ASF。 對於大多數用法來說這應該是正確的值，且您應該只能增加它（永遠不要減少），除非⸺除了ASF之外，您還使用了另一個可能會向ASF所使用的Web服務傳送大量請求的工具。 In short, global number of all requests sent from a single IP to a single Steam domain should never exceed more than 1 request per `300` ms.
 
 Unless you have a reason to edit this property, you should keep it at default.
 

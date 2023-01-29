@@ -64,7 +64,7 @@ La versión actual del algoritmo hace que ASF dé prioridad a bots `Any`, especi
 
 `MatchActively` toma en cuenta los bots que bloqueaste del intercambio a través del **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `tbadd` y no intentará emparejar activamente con ellos. Esto puede ser usado para decirle a ASF con qué bots nunca debería emparejar, incluso si tienen posibles duplicados que nos pudieran servir.
 
-ASF will also do its best to ensure that the trade offers are going through. On the next run, which normally happens in 6 hours, ASF will cancel any pending trade offers that still weren't accepted, and deprioritize steamIDs taking part in them to hopefully prefer more active bots first.
+ASF también hará lo posible para asegurar que las ofertas de intercambio sean exitosas. En la siguiente ejecución, lo que normalmente ocurre en 6 horas, ASF cancelará cualquiera oferta de intercambio pendiente que todavía no haya sido aceptada, y le quitará prioridad a los steamIDs que participen en ellas para preferir bots más activos.
 
 ---
 
