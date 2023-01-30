@@ -4,14 +4,14 @@
 
 * **[簡介](#簡介)**
 * **[設定檔生成器網頁工具](#設定檔生成器網頁工具)**
-* **[ASF-ui 設定](#asf-ui-組態設定)**
+* **[ASF-ui 設定](#asf-ui-設定)**
 * **[手動設定](#手動設定)**
 * **[全域設定檔](#全域設定檔)**
 * **[Bot 設定檔](#bot-設定檔)**
 * **[檔案結構](#檔案結構)**
 * **[JSON 映射](#json-映射)**
 * **[相容性映射](#相容性映射)**
-* **[設定相容性](設定相容性)**
+* **[設定檔相容性](#設定相容性)**
 * **[自動重新載入](#自動重新載入)**
 
 ---
@@ -24,7 +24,7 @@ ASF的設定分為兩個主要部分⸺全域（程序）設定與每個Bot的�
 
 ASF使用&#8203;**[JSON](https://zh.wikipedia.org/zh-tw/JSON)**&#8203;格式來儲存自身的設定檔。 這是個人性化、可讀性高且非常通用的格式，您可以在裡面設定程式。 不過不用擔心，您不需要為了設定ASF去專門了解JSON。 我提到它只是考慮到您可能會想要使用一些Bash腳本批次建立大量的ASF設定檔。
 
-您可以經由幾種方式來完成設定。 您可以使用我們的&#8203;**[設定檔生成器網頁工具](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;，這是一個獨立於ASF的本機應用程式。 您也可以使用我們的IPC前端&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**&#8203;來直接設定ASF。 最後，您也隨時能夠依照下文指定的固定JSON結構，手動生成設定檔。 我們將簡明地解釋這些可用方式。
+您可以經由幾種方式來完成設定。 您可以使用我們的&#8203;**[設定檔生成器網頁工具](https://justarchinet.github.io/ASF-WebConfigGenerator)**&#8203;，這是一個獨立於ASF的本機應用程式。 您也可以使用我們的IPC前端&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#asf-ui)**&#8203;來直接設定ASF。 最後，您也隨時能夠依照下文指定的固定JSON結構，手動生成設定檔。 我們將簡明地解釋這些可用方式。
 
 ---
 
@@ -142,7 +142,7 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 ### `CurrentCulture（所在語言地區）`
 
-`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 預設情形下，ASF會嘗試使用您的作業系統語言，且如果可以，會優先使用該語言的翻譯字串。 這要感謝我們的社群，他們致力於將ASF&#8203;**[在地化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**&#8203;成各類主流語言。 若出於某種原因，您不想使用您的作業系統原生語言，您可以使用此設定屬性來選擇任意一種您想使用的有效語言。 如需所有可以使用的語言，請造訪&#8203;**[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)**&#8203;來查詢&#8203;`語言編碼`&#8203;。 值得一提的是，ASF接受包含特定國家或地區的編碼，例如&#8203;`"en-GB"`&#8203;，也接受編碼，例如&#8203;`"en"`&#8203;。 指定當前語系還可能會影響與地區相關的行為，例如貨幣／日期格式等。 請注意，若您選擇非本機原生語言，您可能會需要額外的字型／語言套件才能正確顯示特定語言的字元。 通常在您偏好以英文而非您的母語使用ASF時，會需要使用這個設定屬性。
+`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 預設情形下，ASF會嘗試使用您的作業系統語言，且如果可以，會優先使用該語言的翻譯字串。 這要感謝我們的社群，他們致力於將ASF&#8203;**[在地化](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-zh-TW)**&#8203;成各類主流語言。 若出於某種原因，您不想使用您的作業系統原生語言，您可以使用此設定屬性來選擇任意一種您想使用的有效語言。 如需所有可以使用的語言，請造訪&#8203;**[MSDN](https://msdn.microsoft.com/en-us/library/cc233982.aspx)**&#8203;來查詢&#8203;`語言編碼`&#8203;。 值得一提的是，ASF接受包含特定國家或地區的編碼，例如&#8203;`"en-GB"`&#8203;，也接受通用編碼，例如&#8203;`"en"`&#8203;。 指定當前語系還可能會影響與地區相關的行為，例如貨幣／日期格式等。 請注意，若您選擇非本機原生語言，您可能會需要額外的字型／語言套件才能正確顯示特定語言的字元。 通常在您偏好以英文而非您的母語使用ASF時，會需要使用這個設定屬性。
 
 ---
 
@@ -288,7 +288,7 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 ### `UpdateChannel（更新通道）`
 
-`byte`&#8203;型別，預設值為&#8203;`1`&#8203;。 本屬性定義了ASF使用的更新通道，用於自動更新（如果&#8203;`UpdatePeriod`&#8203;大於&#8203;`0`&#8203;時），或更新通知（&#8203;`UpdatePeriod`&#8203;為&#8203;`0`&#8203;時）。 目前ASF支援三個更新通道：&#8203;`0`&#8203;為&#8203;`None`&#8203;；&#8203;`1`&#8203;為&#8203;`Stable`&#8203;；而&#8203;`2`&#8203;為&#8203;`Experimental`&#8203;。 `Stable`&#8203;通道是預設的發布通道，這適合大多數的使用者。 `Experimental`&#8203;除了&#8203;`Stable`&#8203;版本以外，也包含了專門提供進階使用者及其他開發人員測試新功能、確認錯誤修復或提供相關增強計畫回饋的&#8203;**pre-releases**&#8203;。 **實驗性版本通常包含了尚未修補的錯誤、未完成或重寫的功能**&#8203;。 若您任為您並非進階使用者，請保留預設值&#8203;`1`&#8203;（穩定的）更新通道。 `Experimental`&#8203;通道是專門提供給知道如何回報錯誤、處理問題並給予回饋的使用者所使用⸺我們不會提供任何技術支援。 若您想了解更多，請參閱&#8203;**[發布週期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-TW)**&#8203;。 若您想完全停用所有版本檢查，您也可以將&#8203;`UpdateChannel`&#8203;設定成&#8203;`0`&#8203;（&#8203;`None`&#8203;）。 將&#8203;`UpdateChannel`&#8203;設定成&#8203;`0`&#8203;會完全停用與更新相關的功能，包含&#8203;`update`&#8203;指令。 **強烈反對**&#8203;您使用&#8203;`None`&#8203;通道，因為這會使您自己面臨各種問題（在下文&#8203;`UpdatePeriod`&#8203;的說明中有提到）。
+`byte`&#8203;型別，預設值為&#8203;`1`&#8203;。 本屬性定義了ASF使用的更新通道，用於自動更新（如果&#8203;`UpdatePeriod`&#8203;大於&#8203;`0`&#8203;時），或更新通知（&#8203;`UpdatePeriod`&#8203;為&#8203;`0`&#8203;時）。 目前ASF支援三個更新通道：&#8203;`0`&#8203;為&#8203;`None`&#8203;；&#8203;`1`&#8203;為&#8203;`Stable`&#8203;；而&#8203;`2`&#8203;為&#8203;`Experimental`&#8203;。 `Stable`&#8203;通道是預設的發布通道，這適合大多數的使用者。 `Experimental`&#8203;除了&#8203;`Stable`&#8203;版本以外，也包含了專門提供進階使用者及其他開發人員測試新功能、確認錯誤修復或提供相關增強計畫回饋的&#8203;**預覽版本**&#8203;。 **實驗性版本通常包含了尚未修補的錯誤、未完成或重寫的功能**&#8203;。 若您任為您並非進階使用者，請保留預設值&#8203;`1`&#8203;（穩定的）更新通道。 `Experimental`&#8203;通道是專門提供給知道如何回報錯誤、處理問題並給予回饋的使用者所使用⸺我們不會提供任何技術支援。 若您想了解更多，請參閱&#8203;**[發布週期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-zh-TW)**&#8203;。 若您想完全停用所有版本檢查，您也可以將&#8203;`UpdateChannel`&#8203;設定成&#8203;`0`&#8203;（&#8203;`None`&#8203;）。 將&#8203;`UpdateChannel`&#8203;設定成&#8203;`0`&#8203;會完全停用與更新相關的功能，包含&#8203;`update`&#8203;指令。 **強烈反對**&#8203;您使用&#8203;`None`&#8203;通道，因為這會使您自己面臨各種問題（在下文&#8203;`UpdatePeriod`&#8203;的說明中有提到）。
 
 **除非您知道您在做什麼**，否則我們&#8203;**強烈**&#8203;建議維持它為預設值。
 
@@ -310,51 +310,51 @@ ASF的更新過程涉及到更新整個ASF所使用的資料夾結構，但不�
 
 預設值是依據假設ASF是存取Steam Web服務的唯一工具所設定的，特別是&#8203;`steamcommunity.com`&#8203;、&#8203;`api.steampowered.com`&#8203;及&#8203;`store.steampowered.com`&#8203;。 若您使用了其他工具向同一Web服務傳送請求，那麼您應確保您的工具也包含類似&#8203;`WebLimiterDelay`&#8203;的功能，並將兩者都設為預設值的兩倍，也就是&#8203;`600`&#8203;。 這能保證在任何情形下，您都不會在每個&#8203;`300`&#8203;毫秒中傳送超過1個請求。
 
-在一般情形下，將&#8203;`WebLimiterDelay`&#8203;減少至預設值以下是&#8203;**強烈反對這麼做的**&#8203;，因為它可能會導致各種IP相關的封鎖，有可能會是永久的。 預設值足以在伺服器上執行單一ASF實例，或在一般情境下與原版的Steam用戶端一起使用ASF。 對於大多數用法來說這應該是正確的值，且您應該只能增加它（永遠不要減少），除非⸺除了ASF之外，您還使用了另一個可能會向ASF所使用的Web服務傳送大量請求的工具。 In short, global number of all requests sent from a single IP to a single Steam domain should never exceed more than 1 request per `300` ms.
+在一般情形下，將&#8203;`WebLimiterDelay`&#8203;減少至預設值以下是&#8203;**強烈反對這麼做的**&#8203;，因為它可能會導致各種IP相關的封鎖，有可能會是永久的。 預設值足以在伺服器上執行單一ASF實例，或在一般情境下與原版的Steam用戶端一起使用ASF。 對於大多數用法來說這應該是正確的值，且您應該只能增加它（永遠不要減少），除非⸺除了ASF之外，您還使用了另一個可能會向ASF所使用的Web服務傳送大量請求的工具。 簡而言之，由單一IP傳送至單個Steam網域的請求總量每&#8203;`300`&#8203;毫秒不應大於1個請求。
 
-Unless you have a reason to edit this property, you should keep it at default.
-
----
-
-### `WebProxy`
-
-`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 This property defines a web proxy address that will be used for all internal http and https requests sent by ASF's `HttpClient`, especially to services such as `github.com`, `steamcommunity.com` and `store.steampowered.com`. Proxying ASF requests in general has no advantages, but it's exceptionally useful for bypassing various kinds of firewalls, especially the great firewall in China.
-
-This property is defined as uri string:
-
-> A URI string is composed of a scheme (supported: http/https/socks4/socks4a/socks5), a host, and an optional port. An example of a complete uri string is `"http://contoso.com:8080"`.
-
-If your proxy requires user authentication, you will also need to set up `WebProxyUsername` and/or `WebProxyPassword`. If there is no such need, setting up this property alone is sufficient.
-
-Right now ASF uses web proxy only for `http` and `https` requests, which **do not** include internal Steam network communication done within ASF's internal Steam client. There are currently no plans for supporting that, mainly due to missing **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)** functionality. If you need/want it to happen, I'd suggest starting from there.
-
-Unless you have a reason to edit this property, you should keep it at default.
+除非您有理由編輯此屬性，否則您應維持它為預設值。
 
 ---
 
-### `WebProxyPassword`
+### `WebProxy（網頁代理）`
 
-`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 This property defines password field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
+`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 本屬性定義了網頁代理位址，用於ASF的&#8203;`HttpClient`&#8203;傳送的所有HTTP及HTTPS請求，特別是例如&#8203;`github.com`&#8203;、&#8203;`steamcommunity.com`&#8203;及&#8203;`store.steampowered.com`&#8203;服務。 在一般情形下，代理ASF請求並沒有好處，但它對於繞過各式各樣的防火牆來說特別有用，特別是中國的長城防火牆。
 
-Unless you have a reason to edit this property, you should keep it at default.
+本屬性定義為URI本文：
+
+> URI字串由協定名稱（支援：http/https/socks4/socks4a/socks5）、主機名稱及選擇性的連接埠所組成。 一個完整URI字串的範例是&#8203;`"http://contoso.com:8080"`&#8203;。
+
+若您的代理需要使用者身分驗證，您還需要設定&#8203;`WebProxyUsername`&#8203;與／或&#8203;`WebProxyPassword`&#8203;。 若不需要，則僅設定本屬性即可。
+
+目前ASF只對&#8203;`HTTP`&#8203;及&#8203;`HTTPS`&#8203;請求使用網際網路代理，&#8203;**不包含**&#8203;在ASF內部Steam用戶端完成的內部Steam網路通訊。 目前並無支援該功能的計畫，其主要原因是缺少了&#8203;**[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)**&#8203;功能。 若您需要／希望支援此功能，我建議可以先從此處了解。
+
+除非您有理由編輯此屬性，否則您應維持它為預設值。
 
 ---
 
-### `WebProxyUsername`
+### `WebProxyPassword（網頁代理密碼）`
 
-`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 This property defines username field used in basic, digest, NTLM, and Kerberos authentication that is supported by a target `WebProxy` machine providing proxy functionality. If your proxy doesn't require user credentials, there is no need for you to input anything here. Using this option makes sense only if `WebProxy` is used as well, as it has no effect otherwise.
+`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 本屬性定義了要提供代理功能的目標&#8203;`WebProxy`&#8203;設備支援的Basic、Digest、NTLM或Kerberos身分驗證所使用的密碼欄位。 若您的代理不需要使用者憑證，您就不需要再此處輸入任何內容。 本選項只有在使用了&#8203;`WebProxy`&#8203;的情形下才有用處，否則它沒有任何效果。
 
-Unless you have a reason to edit this property, you should keep it at default.
+除非您有理由編輯此屬性，否則您應維持它為預設值。
+
+---
+
+### `WebProxyUsername（網頁代理使用者名稱）`
+
+`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 本屬性定義了要提供代理功能的目標&#8203;`WebProxy`&#8203;設備支援的Basic、Digest、NTLM或Kerberos身分驗證所使用的使用者名稱欄位。 若您的代理不需要使用者憑證，您就不需要再此處輸入任何內容。 本選項只有在使用了&#8203;`WebProxy`&#8203;的情形下才有用處，否則它沒有任何效果。
+
+除非您有理由編輯此屬性，否則您應維持它為預設值。
 
 ---
 
 ## Bot 設定檔
 
-As you should know already, every bot should have its own config based on example JSON structure below. Start from deciding how you want to name your bot (e.g. `1.json`, `main.json`, `primary.json` or `AnythingElse.json`) and head over to configuration.
+如您所已知的，每個Bot都有自己的設定檔，使用基於下列範例的JSON結構： 首先您需要決定您的Bot的名稱（例如&#8203;`1.json`&#8203;、&#8203;`main.json`&#8203;、&#8203;`primary.json`&#8203;或&#8203;`AnythingElse.json`&#8203;），然後再開始設定。
 
-**Notice:** Bot can't be named `ASF` (as that keyword is reserved for global config), ASF will also ignore all configuration files starting with a dot.
+**注意：**&#8203;Bot無法被命名為&#8203;`ASF`&#8203;（因為該關鍵字保留為全域設定），ASF也會忽略所有以點為開頭的設定檔。
 
-The bot config has following structure:
+Bot設定檔具有以下結構：
 
 ```json
 {
@@ -396,45 +396,45 @@ The bot config has following structure:
 
 ---
 
-所有選項解釋如下：
+所有選項的解釋如下：
 
-### `AcceptGifts`
+### `AcceptGifts（接受贈禮）`
 
-`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 When enabled, ASF will automatically accept and redeem all steam gifts (including wallet gift cards) sent to the bot. This includes also gifts sent from users other than those defined in `SteamUserPermissions`. Keep in mind that gifts sent to e-mail address are not directly forwarded to the client, so ASF won't accept those without your help.
+`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 啟用時，ASF會自動接受並兌換所有發送給Bot的Steam禮物（包含錢包禮物卡）。 這也包含了不在&#8203;`SteamUserPermissions`&#8203;中定義的使用者所發送的禮物。 請注意，發送到電子郵件的禮物不會直接轉發給用戶端，所以ASF無法在沒有您幫助的情形下接受這些禮物。
 
-This option is recommended only for alt accounts, as it's very likely that you don't want to automatically redeem all gifts sent to your primary account. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
-
----
-
-### `AutoSteamSaleEvent`
-
-`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 During Steam summer/winter sale events Steam is known for providing you extra cards for browsing discovery queue each day, as well as through other event-specific activities. When this option is enabled, ASF will automatically check Steam discovery queue each `8` hours (starting in one hour since program start), and clear it if needed. This option is not recommended if you want to do that action yourself, and typically it should make sense only on bot accounts. Moreover, you need to ensure that your account is at least of level `8` if you expect to receive those cards in the first place, which comes directly as Steam requirement. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
-
-Please note that due to constant Valve issues, changes and problems, **we give no guarantee whether this function will work properly**, therefore it's entirely possible that this option **will not work at all**. We do not accept **any** bug reports, neither support requests for this option. It's offered with absolutely no guarantees, you're using it at your own risk.
+本選項建議只在小號上使用，因為您很有可能不希望在主要帳號上自動兌換所有發送過來的禮物。 若您不確定您是否想要啟用本功能，請保留預設值&#8203;`false`&#8203;。
 
 ---
 
-### `BotBehaviour`
+### `AutoSteamSaleEvent（自動完成 Steam 特賣活動）`
 
-`byte flags`&#8203;型別，預設值為&#8203;`0`&#8203;。 This property defines ASF bot-like behaviour during various events, and is defined as below:
+`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 眾所周知，在Steam夏季／冬季特賣活動期間，Steam透過每日瀏覽探索佇列或其他活動特定事件來提供您額外的交換卡片。 啟用本選項時，ASF會每隔&#8203;`8`&#8203;小時自動檢查Steam探索佇列（從程式啟動一小時內開始），並在需要時完成它。 若您想自己執行該行為，則不建議使用本選項，因為在一般情形下本選項只對Bot帳號有意義。 此外，若您想要收到這些交換卡片，您需要確保您的帳號等級至少&#8203;`8`&#8203;等，這是Steam本身的限制。 若您不確定您是否想要啟用本功能，請保留預設值&#8203;`false`&#8203;。
 
-| 值  | 名稱                            | 描述                                                                                                       |
-| -- | ----------------------------- | -------------------------------------------------------------------------------------------------------- |
-| 0  | 無                             | No special bot behaviour, the least invasive mode, default                                               |
-| 1  | RejectInvalidFriendInvites    | Will cause ASF to reject (instead of ignoring) invalid friend invites                                    |
-| 2  | RejectInvalidTrades           | Will cause ASF to reject (instead of ignoring) invalid trade offers                                      |
-| 4  | RejectInvalidGroupInvites     | Will cause ASF to reject (instead of ignoring) invalid group invites                                     |
-| 8  | DismissInventoryNotifications | Will cause ASF to automatically dismiss all inventory notifications                                      |
-| 16 | MarkReceivedMessagesAsRead    | Will cause ASF to automatically mark all received messages as read                                       |
-| 32 | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) as read |
+請注意，由於Valve經常產生問題或改動，&#8203;**我們無法保證本功能是否能運作正常**&#8203;，因此本選項是很有可能&#8203;**完全無效**&#8203;的。 我們不接受&#8203;**任何**&#8203;相關的錯誤報告，也不支援關於本選項的請求。 這是在沒有任何保證的情形下所提供的，您需要自行承擔風險。
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+---
 
-In general you want to modify this property if you expect from ASF to do certain amount of automation related to its activity, as it'd be expected from a bot account, but not a primary account used in ASF. Therefore, changing this property makes sense mainly for alt accounts, although you're free to use selected options for main accounts as well.
+### `BotBehaviour（Bot 行為）`
 
-Normal (`None`) ASF behaviour is to only automate things that user wants (e.g. cards farming or `SteamTradeMatcher` offers, if set in `TradingPreferences`). This is the least invasive mode, and it's beneficial to majority of users since you remain in full control over your account and you can decide yourself whether to allow certain out-of-scope interactions, or not.
+`byte flags`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性定義了在各種事件中ASF的自動化行為，定義項如下：
 
-Invalid friend invite is an invite that doesn't come from user with `FamilySharing` permission (defined in `SteamUserPermissions`) or above. ASF in normal mode ignores those invites, as you'd expect, giving you free choice whether to accept them, or not. `RejectInvalidFriendInvites` will cause those invites to be automatically rejected, which will practically disable option for other people to add you to their friend list (as ASF will deny all such requests, apart from people defined in `SteamUserPermissions`). Unless you want to outright deny all friend invites, you shouldn't enable this option.
+| 值  | 名稱                            | 描述                                     |
+| -- | ----------------------------- | -------------------------------------- |
+| 0  | 無                             | 無特殊Bot行為，帳號控制最少，預設值                    |
+| 1  | RejectInvalidFriendInvites    | 使ASF拒絕（而非忽略）無效的好友邀請                    |
+| 2  | RejectInvalidTrades           | 使ASF拒絕（而非忽略）無效的交易提案                    |
+| 4  | RejectInvalidGroupInvites     | 使ASF拒絕（而非忽略）無效的群組邀請                    |
+| 8  | DismissInventoryNotifications | 使ASF自動取消所有物品庫通知                        |
+| 16 | MarkReceivedMessagesAsRead    | 使ASF自動將所有收到的訊息標示成已讀                    |
+| 32 | MarkBotMessagesAsRead         | 使ASF自動將所有從其他（執行於同一實例中的）ASF Bot的訊息標示成已讀 |
+
+請注意，本屬性為&#8203;`flags`&#8203;欄位，因此可以使用所有可用值任意組合。 若您想了解更多，請參閱&#8203;**[旗標映射](#json-映射)**&#8203;。 不啟用任何旗標即為&#8203;`None`&#8203;選項。
+
+在一般情形下，若您想要ASF有一定的自動化行為，像使用Bot帳號，而不是ASF主要帳號的那樣，就需要更改本屬性。 因此，本屬性主要用於小號，但您仍可在主要帳號上使用所選選項。
+
+一般（&#8203;`None`&#8203;）模式的ASF行為只是將使用者所想要的自動化（例如自動掛卡或&#8203;`SteamTradeMatcher`&#8203;交易，如果在&#8203;`TradingPreferences`&#8203;中有設定）。 這是對帳號控制最少的模式，並對大多數使用者來說都不錯，因為您可以完全控制您的帳號，且能自行決定是否允許某些超出範圍的交互。
+
+無效的好友邀請是指由不具&#8203;`FamilySharing`&#8203;或更高權限（定義於&#8203;`SteamUserPermissions`&#8203;）的使用者所發出的好友邀請。 在如您所預期，一般模式下的ASF會忽略這些邀請，給予您自由選擇是否接受邀請的空間。 `RejectInvalidFriendInvites`&#8203;會使這些邀請被自動拒絕，實際上這會阻止其他人將您加入至他們的好友清單中（因為ASF會拒絕所有這類請求，除非他們在&#8203;`SteamUserPermissions`&#8203;中有被定義）。 除非您想要徹底拒絕所有好友邀請，否則您不應啟用本選項。
 
 Invalid trade offer is an offer that isn't accepted through built-in ASF module. More on this matter can be found in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section which explicitly defines what types of trade ASF is willing to accept automatically. Valid trades are also defined by other settings, especially `TradingPreferences`. `RejectInvalidTrades` will cause all invalid trade offers to be rejected, instead of being ignored. Unless you want to outright deny all trade offers that aren't automatically accepted by ASF, you shouldn't enable this option.
 
@@ -1005,7 +1005,7 @@ Due to JavaScript limitations of being unable to properly serialize simple `ulon
 
 ---
 
-## 設定相容性
+## 設定檔相容性
 
 It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs.
 
