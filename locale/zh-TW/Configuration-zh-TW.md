@@ -259,7 +259,7 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 ### `SteamMessagePrefix（Steam 訊息前綴）`
 
-`string`&#8203;型別，預設值為&#8203;`"/me "`&#8203;。 本屬性定義了加入至ASF送出的所有Steam訊息最開頭的前綴。 預設情形下，ASF使用&#8203;`"/me "`&#8203;為前綴，使Steam聊天以不同顏色顯示Bot訊息，以便更容易區分它們。 另一個值得提及的前綴是&#8203;`"/pre "`&#8203;，它有相似的結果，但有著不同的格式。 您也可以將本屬性設定成空值或&#8203;`null`&#8203;來完全停用前綴，並以傳統的方式輸出所有ASF訊息。 值得一提的是，本屬性只會影響Steam訊息⸺以其他通道（例如IPC）回傳的回應不會受到影響。 除非您想要自訂標準的ASF行為，否則最好維持它為預設值。
+`string`&#8203;型別，預設值為&#8203;`"/me "`&#8203;。 本屬性定義了加入至ASF送出的所有Steam訊息最開頭的前綴。 預設情形下，ASF使用&#8203;`"/me "`&#8203;為前綴，使Steam聊天以不同顏色顯示Bot訊息，以便更容易區分它們。 另一個值得提及的前綴是&#8203;`"/pre "`&#8203;，它有相似的結果，但有著不同的格式。 您也可以將本屬性設定成空值或&#8203;`null`&#8203;來完全停用前綴，並以傳統的方式輸出所有ASF訊息。 值得一提的是，本屬性只會影響Steam訊息⸺以其他通道（例如IPC）回傳的回應不會受到影響。 除非您想要自訂標準的ASF行為，否則最好保留預設值。
 
 ---
 
@@ -432,36 +432,36 @@ Bot設定檔具有以下結構：
 
 在一般情形下，若您想要ASF有一定的自動化行為，像使用Bot帳號，而不是ASF主要帳號的那樣，就需要更改本屬性。 因此，本屬性主要用於小號，但您仍可在主要帳號上使用所選選項。
 
-一般（&#8203;`None`&#8203;）模式的ASF行為只是將使用者所想要的自動化（例如自動掛卡或&#8203;`SteamTradeMatcher`&#8203;交易，如果在&#8203;`TradingPreferences`&#8203;中有設定）。 這是對帳號控制最少的模式，並對大多數使用者來說都不錯，因為您可以完全控制您的帳號，且能自行決定是否允許某些超出範圍的交互。
+一般（&#8203;`None`&#8203;）模式的ASF行為只是將使用者所想要的自動化（例如自動掛卡或&#8203;`SteamTradeMatcher`&#8203;交易，如果在&#8203;`TradingPreferences`&#8203;中有設定）。 這是對帳號控制最少的模式，並對大多數使用者來說都不錯，因為您可以完全控制您的帳號，且能自行決定是否允許某些超出範圍的交互行為。
 
-無效的好友邀請是指由不具&#8203;`FamilySharing`&#8203;或更高權限（定義於&#8203;`SteamUserPermissions`&#8203;）的使用者所發出的好友邀請。 在如您所預期，一般模式下的ASF會忽略這些邀請，給予您自由選擇是否接受邀請的空間。 `RejectInvalidFriendInvites`&#8203;會使這些邀請被自動拒絕，實際上這會阻止其他人將您加入至他們的好友清單中（因為ASF會拒絕所有這類請求，除非他們在&#8203;`SteamUserPermissions`&#8203;中有被定義）。 除非您想要徹底拒絕所有好友邀請，否則您不應啟用本選項。
+無效的好友邀請是指由不具&#8203;`FamilySharing`&#8203;或更高權限（定義於&#8203;`SteamUserPermissions`&#8203;）的使用者所發出的好友邀請。 如您所預期的那樣，一般模式下的ASF會忽略這些邀請，給予您自由選擇是否接受邀請的空間。 `RejectInvalidFriendInvites`&#8203;會使這些邀請被自動拒絕，實際上這會阻止其他人將您加入至他們的好友清單中（因為ASF會拒絕所有這類請求，除非他們在&#8203;`SteamUserPermissions`&#8203;中有被定義）。 除非您想要徹底拒絕所有好友邀請，否則您不應啟用本選項。
 
-Invalid trade offer is an offer that isn't accepted through built-in ASF module. More on this matter can be found in **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section which explicitly defines what types of trade ASF is willing to accept automatically. Valid trades are also defined by other settings, especially `TradingPreferences`. `RejectInvalidTrades` will cause all invalid trade offers to be rejected, instead of being ignored. Unless you want to outright deny all trade offers that aren't automatically accepted by ASF, you shouldn't enable this option.
+無效的交易提案是指不被ASF內建模組接受的交易。 關於本問題的更多資訊，可以在&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW)**&#8203;章節中找到，其中明確定義了ASF願意自動接受哪些類型的交易。 有效的交易還會被其他設定所定義，特別是&#8203;`TradingPreferences`&#8203;。 `RejectInvalidTrades`&#8203;會使所有無效的交易提案被拒絕，而不是被忽略。 除非您想要直接拒絕所有ASF未自動接受的交易提案，否則您不應啟用本選項。
 
-Invalid group invite is an invite that doesn't come from `SteamMasterClanID` group. ASF in normal mode ignores those group invites, as you'd expect, allowing you to decide yourself if you want to join particular Steam group or not. `RejectInvalidGroupInvites` will cause all those group invites to be automatically rejected, effectively making it impossible to invite you to any other group than `SteamMasterClanID`. Unless you want to outright deny all group invites, you shouldn't enable this option.
+無效的群組邀請是指來自&#8203;`SteamMasterClanID`&#8203;群組以外的邀請。 如您所預期的那樣，一般模式下的ASF會忽略這些邀請，使您可以自行決定是否要加入特定的群組。 `RejectInvalidGroupInvites`&#8203;會使這些群組邀請被拒絕，使您無法加入&#8203;`SteamMasterClanID`&#8203;以外的其他任何群組。 除非您想要徹底拒絕所有群組邀請，否則您不應啟用本選項。
 
-`DismissInventoryNotifications` is extremely useful when you start getting annoyed by constant Steam notification about receiving new items. ASF can't get rid of the notification itself, as that's built-in into your Steam client, but it's able to automatically clear the notification after receiving it, which will no longer leave "new items in inventory" notification hanging around. If you expect to evaluate yourself all received items (especially cards farmed with ASF), then naturally you shouldn't enable this option. When you start going crazy, remember this is offered as an option.
+若您開始對收到新物品的通知感到厭煩時，&#8203;`DismissInventoryNotifications`&#8203;會是一個相當有用的功能。 ASF無法去除通知本身，因為它是您Steam用戶端內建的功能，但它能在收到通知後自動清除通知，這樣就不會留有「新物品在您的物品庫」的通知了。 若您希望自行評估所收到的物品（特別是ASF掛到的卡片），那麼很明顯您不應該啟用本選項。 但如果您快要開始被煩到抓狂了，切記這裡有個選項可以使用。
 
-`MarkReceivedMessagesAsRead` will automatically mark **all** messages being received by the account on which ASF is running, both private and group, as read. This typically should be used by alt accounts only in order to clear "new message" notification coming e.g. from you during executing ASF commands. We do not recommend this option for primary accounts, unless you want to cut yourself from any kind of new messages notifications, **including** those that happened while you were offline, assuming that ASF was still left open dismissing it.
+`MarkReceivedMessagesAsRead`&#8203;會自動將ASF執行的帳號所收到的&#8203;**所有**&#8203;訊息標示成已讀，包含私人及群組聊天。 這通常只應由小號所使用，以清除例如在執行ASF指令期間來自您的「新訊息」通知。 我們不建議在主要帳號上使用本選項，除非您希望能隔絕所有種類的訊息通知，&#8203;**包含**&#8203;在您離線時的通知，ASF仍會清除它們。
 
-`MarkBotMessagesAsRead` works in a similar manner by marking only bot messages as read. However, keep in mind that when using that option on group chats with your bots and other people, Steam implementation of acknowledging chat message **also** acknowledges all messages that happened **before** the one you decided to mark, so if by any chance you don't want to miss unrelated message that happened in-between, you typically want to avoid using this feature. Obviously, it's also risky when you have multiple primary accounts (e.g. from different users) running in the same ASF instance, as you can also miss their normal out-of-ASF messages.
+`MarkBotMessagesAsRead`&#8203;以類似的方式運作，但只會將Bot的訊息標示成已讀。 但請注意，在使用本選項時，若您的Bot與其他人都在群組聊天中，已知Steam在將聊天訊息標示成已讀時，&#8203;**也**&#8203;會將&#8203;**該訊息前的**&#8203;訊息標示成已讀，所以如果您不想要錯過在這期間的其他訊息，就應該避免使用本功能。 很顯然，當您在同一個ASF實例上執行多個主要帳號（例如其他使用者的帳號）時也是有風險的，因為您可能會錯過正常的無關ASF的訊息。
 
-If you're unsure how to configure this option, it's best to leave it at default.
+若您不確定如何設定本選項，最好保留預設值。
 
 ---
 
-### `CompleteTypesToSend`
+### `CompleteTypesToSend（傳送的完成種類）`
 
-`ImmutableHashSet<byte>`&#8203;型別，預設值為空。 When ASF is done with completing a given set of item types specified here, it can automatically send steam trade with all finished sets to the user with `Master` permission, which is very convenient if you'd like to utilize given bot account for e.g. STM matching, while moving finished sets to some other account. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place.
+`ImmutableHashSet<byte>`&#8203;型別，預設值為空。 在ASF完成收集一套此處設定的物品類型時，它可以透過Steam交易傳送所有收集完成的物品套組自動傳送給具有&#8203;`Master`&#8203;權限的使用者，如果您想將指定的Bot帳號用於例如TM匹配等需求，同時將收集完成的套組移動至另一個帳號上，這將會非常方便。 本選項與&#8203;`loot`&#8203;指令作用相同，因此請注意，首先它需要您有帳號的交易合法權限，且使用者具有&#8203;`Master`&#8203;權限，而您可能也要有有效的&#8203;`SteamTradeToken`&#8203;。
 
-As of today, the following item types are supported in this setting:
+目前，在本設定中支援下列物品類型：
 
-| 值 | 名稱              | 描述                                                            |
-| - | --------------- | ------------------------------------------------------------- |
-| 3 | FoilTradingCard | Foil variant of `TradingCard`                                 |
-| 5 | TradingCard     | Steam trading card, being used for crafting badges (non-foil) |
+| 值 | 名稱              | 描述                               |
+| - | --------------- | -------------------------------- |
+| 3 | FoilTradingCard | 閃亮版本的&#8203;`TradingCard`&#8203; |
+| 5 | TradingCard     | Steam交換卡片，用於合成徽章（非閃亮卡片）          |
 
-Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
+請注意，不論上述如何設定，ASF都只會處理Steam分類（&#8203;`appID`&#8203;為753）中的社群物品（&#8203;`contextID`&#8203;為6），因此依據定義所有遊戲物品、禮物等物品都會被排除在交易提案之外。
 
 Due to additional overhead of using this option, it's recommended to use it only on bot accounts that have a realistic chance of finishing sets on their own - for example, it makes no sense to activate if you're already using `SendOnFarmingFinished`, `SendTradePeriod` or `loot` command on usual basis.
 
