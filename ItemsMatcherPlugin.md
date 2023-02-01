@@ -42,7 +42,7 @@ Private info (selected data required for providing the functionality) includes:
 - Your `MatchEverything` setting (for display purposes and matching)
 - Your `MaxTradeHoldDuration` setting (so other people know whether you're willing to accept their trades)
 
-Your data is stored for maximum of a week since you stop using (announcing on) our listing, and automatically deleted after that period.
+Your data is stored for maximum of two weeks since you stop using (announcing on) our listing, and automatically deleted after that period.
 
 ---
 
