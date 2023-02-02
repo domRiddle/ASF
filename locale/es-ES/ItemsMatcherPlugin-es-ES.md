@@ -42,7 +42,7 @@ La información privada (datos seleccionados necesarios para proporcionar la fun
 - Tu configuración de `MatchEverything` (para fines de visualización y emparejamiento)
 - Tu configuración de `MaxTradeHoldDuration` (para que otros sepan si estás dispuesto a aceptar sus intercambios)
 
-Tus datos se almacenan hasta por una semana desde que dejas de usar (anunciarte) nuestro listado, y se borra automáticamente después de ese tiempo.
+Tus datos se almacenan durante un máximo de dos semanas desde que dejas de usar (anunciarte) nuestro listado, y se borra automáticamente después de ese tiempo.
 
 ---
 
@@ -54,7 +54,7 @@ Para usar esa opción, tienes que cumplir ciertos requisitos. Como mínimo debes
 
 Si cumples todos los requisitios mencionados anteriormente, ASF se comunicará periódicamente con nuestra **[lista pública ASF STM](#publiclisting)** para emparejar activamente con los bots que estén disponibles actualmente.
 
-El emparejamiento comenzará en aproximadamente `1` hora desde el inicio de ASF, y se repetirá cada `6` horas (si es necesario). Durante el emparejamiento, el bot de ASF obtendrá su propio inventario, luego se comunicará con nuestro servidor para encontrar todas las coincidencias posibles de los `MatchableTypes`, con otros bots disponibles actualmente. Gracias a la comunicación directa con nuestro servidor, este proceso requiere una sola solicitud e inmediatamente tenemos información sobre si hay algún bot disponible que pueda proporcionar algo que nos interese - si se encuentra una coincidencia, ASF enviará y confirmará la oferta de intercambio automáticamente.
+Durante el emparejamiento, el bot de ASF obtendrá su propio inventario, luego se comunicará con nuestro servidor para encontrar todas las coincidencias posibles de los `MatchableTypes`, con otros bots disponibles actualmente. Gracias a la comunicación directa con nuestro servidor, este proceso requiere una sola solicitud e inmediatamente tenemos información sobre si hay algún bot disponible que pueda proporcionar algo que nos interese - si se encuentra una coincidencia, ASF enviará y confirmará la oferta de intercambio automáticamente.
 
 Este módulo debe ser transparente. El emparejamiento comenzará en aproximadamente `1` hora desde el inicio de ASF, y se repetirá cada `6` horas (si es necesario). `MatchActively` está diseñado para usarse como una medida periódica y a largo plazo para asegurar que estamos avanzando activamente hacia completar sets, sin embargo, las personas que no ejecuten ASF 24/7 pueden considerar el uso del **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `match`. Los usuarios objetivo de este módulo son cuentas principales y cuentas alternas usadas para "almacenar", aunque puede ser usado por cualquier bot que no esté configurado a `MatchEverything`.
 
@@ -64,7 +64,7 @@ La versión actual del algoritmo hace que ASF dé prioridad a bots `Any`, especi
 
 `MatchActively` toma en cuenta los bots que bloqueaste del intercambio a través del **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `tbadd` y no intentará emparejar activamente con ellos. Esto puede ser usado para decirle a ASF con qué bots nunca debería emparejar, incluso si tienen posibles duplicados que nos pudieran servir.
 
-ASF también hará lo posible para asegurar que las ofertas de intercambio sean exitosas. En la siguiente ejecución, lo que normalmente ocurre en 6 horas, ASF cancelará cualquiera oferta de intercambio pendiente que todavía no haya sido aceptada, y le quitará prioridad a los steamIDs que participen en ellas para preferir bots más activos.
+ASF también hará lo posible para asegurar que las ofertas de intercambio sean exitosas. En la siguiente ejecución, lo que normalmente ocurre en 6 horas, ASF cancelará cualquiera oferta de intercambio pendiente que todavía no haya sido aceptada, y le quitará prioridad a los steamIDs que participen en ellas para preferir bots más activos. Aún así, si los bots despriorizados son los últimos que tienen el artículo que necesitamos, intentaremos emparejar con ellos (nuevamente).
 
 ---
 

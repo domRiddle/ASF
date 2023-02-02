@@ -45,7 +45,7 @@ Private info (selected data required for providing the functionality) includes:
 - Your `MatchEverything` setting (for display purposes and matching)
 - Your `MaxTradeHoldDuration` setting (so other people know whether you're willing to accept their trades)</ul> 
 
-Your data is stored for maximum of a week since you stop using (announcing on) our listing, and automatically deleted after that period.
+Your data is stored for maximum of two weeks since you stop using (announcing on) our listing, and automatically deleted after that period.
 
 
 
@@ -61,7 +61,7 @@ In order to make use of that option, you have a set of requirements to meet. At 
 
 If you meet all of the requirements above, ASF will periodically communicate with our **[public ASF STM listing](#publiclisting)** in order to actively match bots that are currently available.
 
-Matching will start in approximately `1` hour since ASF start, and will repeat itself each `6` hours (if needed). During matching, ASF bot will fetch its own inventory, then communicate with our server with it to find all possible `MatchableTypes` matches from other, currently available bots. Thanks to communicating directly with our server, this process requires a single request and we have immediate information whether any available bot offers something interesting for us - if match is found, ASF will send and confirm trade offer automatically.
+During matching, ASF bot will fetch its own inventory, then communicate with our server with it to find all possible `MatchableTypes` matches from other, currently available bots. Thanks to communicating directly with our server, this process requires a single request and we have immediate information whether any available bot offers something interesting for us - if match is found, ASF will send and confirm trade offer automatically.
 
 This module is supposed to be transparent. Matching will start in approximately `1` hour since ASF start, and will repeat itself each `6` hours (if needed). `MatchActively` feature is aimed to be used as a long-run, periodical measure to ensure that we're actively heading towards sets completion, however, people that are not running ASF 24/7 may also consider using a `match` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. The target users of this module are primary accounts and "stash" alt accounts, although it can be used by any bot that is not set to `MatchEverything`.
 
@@ -71,7 +71,7 @@ The current version of the algorithm makes ASF prioritize `Any` bots first, espe
 
 `MatchActively` takes into account bots that you blacklisted from trading through `tbadd` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** and will not attempt to actively match them. This can be used for telling ASF which bots it should never match, even if they'd have potential dupes for us to use.
 
-ASF will also do its best to ensure that the trade offers are going through. On the next run, which normally happens in 6 hours, ASF will cancel any pending trade offers that still weren't accepted, and deprioritize steamIDs taking part in them to hopefully prefer more active bots first.
+ASF will also do its best to ensure that the trade offers are going through. On the next run, which normally happens in 6 hours, ASF will cancel any pending trade offers that still weren't accepted, and deprioritize steamIDs taking part in them to hopefully prefer more active bots first. Still, if deprioritized bots are the last ones that have the match we need, we'll still attempt to match them (again).
 
 
 

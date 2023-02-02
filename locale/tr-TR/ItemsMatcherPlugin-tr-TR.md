@@ -42,7 +42,7 @@ Private info (selected data required for providing the functionality) includes:
 - Your `MatchEverything` setting (for display purposes and matching)
 - Your `MaxTradeHoldDuration` setting (so other people know whether you're willing to accept their trades)
 
-Your data is stored for maximum of a week since you stop using (announcing on) our listing, and automatically deleted after that period.
+Your data is stored for maximum of two weeks since you stop using (announcing on) our listing, and automatically deleted after that period.
 
 ---
 
@@ -54,7 +54,7 @@ Bu seçeneği kullanmak için karşılamanız gereken bir dizi gereksiniminiz va
 
 Yukarıdaki gereksinimlerin tümünü karşılıyorsanız, ASF periyodik olarak **[herkese açık ASF STM listesi](#publiclisting)** ile mevcut botları aktif olarak eşleştirmek için iletişim kuracaktır.
 
-Eşleştirme, ASF başladıktan yaklaşık `1` saat sonra başlayacak ve her `6` saatte bir (gerekirse) kendini tekrar edecektir. During matching, ASF bot will fetch its own inventory, then communicate with our server with it to find all possible `MatchableTypes` matches from other, currently available bots. Thanks to communicating directly with our server, this process requires a single request and we have immediate information whether any available bot offers something interesting for us - if match is found, ASF will send and confirm trade offer automatically.
+During matching, ASF bot will fetch its own inventory, then communicate with our server with it to find all possible `MatchableTypes` matches from other, currently available bots. Thanks to communicating directly with our server, this process requires a single request and we have immediate information whether any available bot offers something interesting for us - if match is found, ASF will send and confirm trade offer automatically.
 
 Bu modülün şeffaf olması gerekiyor. Eşleştirme, ASF başladıktan yaklaşık `1` saat sonra başlayacak ve her `6` saatte bir (gerekirse) kendini tekrar edecektir. `MatchActively` feature is aimed to be used as a long-run, periodical measure to ensure that we're actively heading towards sets completion, however, people that are not running ASF 24/7 may also consider using a `match` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Bu modülün hedef kullanıcıları, birincil hesaplar ve "stash" alt hesaplardır, ancak bu, `MatchEverything` olarak ayarlanmamış herhangi bir bot tarafından kullanılabilir.
 
@@ -64,7 +64,7 @@ Algoritmanın mevcut sürümü, ASF'nin öncelikle `Herhangi bir` bota, özellik
 
 `MatchActively` takes into account bots that you blacklisted from trading through `tbadd` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** and will not attempt to actively match them. Bu, kullanmamız için potansiyel kopyaları olsa bile, ASF'ye hangi botların asla eşleşmemesi gerektiğini söylemek için kullanılabilir.
 
-ASF will also do its best to ensure that the trade offers are going through. On the next run, which normally happens in 6 hours, ASF will cancel any pending trade offers that still weren't accepted, and deprioritize steamIDs taking part in them to hopefully prefer more active bots first.
+ASF will also do its best to ensure that the trade offers are going through. On the next run, which normally happens in 6 hours, ASF will cancel any pending trade offers that still weren't accepted, and deprioritize steamIDs taking part in them to hopefully prefer more active bots first. Still, if deprioritized bots are the last ones that have the match we need, we'll still attempt to match them (again).
 
 ---
 

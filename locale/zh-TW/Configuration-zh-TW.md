@@ -463,60 +463,60 @@ Bot設定檔具有以下結構：
 
 請注意，不論上述如何設定，ASF都只會處理Steam分類（&#8203;`appID`&#8203;為753）中的社群物品（&#8203;`contextID`&#8203;為6），因此依據定義所有遊戲物品、禮物等物品都會被排除在交易提案之外。
 
-Due to additional overhead of using this option, it's recommended to use it only on bot accounts that have a realistic chance of finishing sets on their own - for example, it makes no sense to activate if you're already using `SendOnFarmingFinished`, `SendTradePeriod` or `loot` command on usual basis.
+由於使用本選項會造成額外負擔，我們建議您只在有機會收集完成物品的Bot帳號上使用⸺舉例來說，若您平常已在使用&#8203;`SendOnFarmingFinished`&#8203;、&#8203;`SendTradePeriod`&#8203;或&#8203;`loot`&#8203;指令，就沒有必要使用本選項。
 
-If you're unsure how to configure this option, it's best to leave it at default.
+若您不確定如何設定本選項，最好保留預設值。
 
 ---
 
 ### `CustomGamePlayedWhileFarming（掛卡時顯示自訂遊戲名稱）`
 
-`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 When ASF is farming, it can display itself as "Playing non-steam game: `CustomGamePlayedWhileFarming`" instead of currently farmed game. This can be useful if you would like to let your friends know that you're farming, yet you don't want to use `OnlineStatus` of `Offline`. Please note that ASF cannot guarantee the actual display order of Steam network, therefore this is only a suggestion that may, or may not, display properly. In particular, custom name will not display in `Complex` farming algorithm if ASF fills all `32` slots with games requiring hours to be bumped. Default value of `null` disables this feature.
+`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 在ASF掛卡時，可以顯示「非Steam遊戲中：&#8203;`CustomGamePlayedWhileFarming`&#8203;」而非正在掛卡的遊戲名稱。 若您想讓您的朋友知道您正在掛卡，卻又不想使用&#8203;`Offline`&#8203;的&#8203;`OnlineStatus`&#8203;時，這就非常有用。 請注意，ASF無法保證Steam網路的實際顯示順序，因此這只能為一個建議值，可能會正確顯示，也可能不會。 特別是，如果ASF需要使用很長一段時間來完成已滿的&#8203;`32`&#8203;個遊戲欄位，自訂名稱就無法顯示在&#8203;`Complex`&#8203;的掛卡演算法中。 預設值&#8203;`null`&#8203;會停用本功能。
 
-ASF provides a few special variables that you can optionally use in your text. `{0}` will be replaced by ASF with `AppID` of currently farmed game(s), while `{1}` will be replaced by ASF with `GameName` of currently farmed game(s).
+ASF提供了數種您能在本文中使用的特殊變數。 `{0}`&#8203;會被取代成ASF正在掛卡的遊戲的&#8203;`AppID`&#8203;；而&#8203;`{1}`&#8203;會被取代成ASF正在掛卡的遊戲的&#8203;`GameName`&#8203;。
 
 ---
 
 ### `CustomGamePlayedWhileIdle（閒置時顯示自訂遊戲名稱）`
 
-`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 Similar to `CustomGamePlayedWhileFarming`, but for the situation when ASF has nothing to do (as account is fully farmed). Please note that ASF cannot guarantee the actual display order of Steam network, therefore this is only a suggestion that may, or may not, display properly. If you're using `GamesPlayedWhileIdle` together with this option, then keep in mind that `GamesPlayedWhileIdle` get priority, therefore you can't declare more than `31` of them, as otherwise `CustomGamePlayedWhileIdle` will not be able to occupy the slot for custom name. Default value of `null` disables this feature.
+`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 與&#8203;`CustomGamePlayedWhileFarming`&#8203;類似，但是是用於ASF閒置的時候（因為帳號已掛卡完成）。 請注意，ASF無法保證Steam網路的實際顯示順序，因此這只能為一個建議值，可能會正確顯示，也可能不會。 若您與本選項同時使用&#8203;`GamesPlayedWhileIdle`&#8203;，那麼請注意，&#8203;`GamesPlayedWhileIdle`&#8203;的優先級更高，因此您不可以宣告超過&#8203;`31`&#8203;個遊戲，否則&#8203;`CustomGamePlayedWhileIdle`&#8203;會無法占用遊戲欄位來顯示自訂名稱。 預設值&#8203;`null`&#8203;會停用本功能。
 
 ---
 
-### `Enabled`
+### `Enabled（自動啟用 Bot）`
 
-`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 This property defines if bot is enabled. Enabled bot instance (`true`) will automatically start on ASF run, while disabled bot instance (`false`) will need to be started manually. By default every bot is disabled, so you probably want to switch this property to `true` for all of your bots that should be started automatically.
+`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 本屬性定義了是否啟用Bot。 啟用Bot實例（&#8203;`true`&#8203;）會自動在ASF執行後開啟，而停用Bot實例（&#8203;`false`&#8203;）就需要您手動開啟。 預設情形下，每個Bot都是停用的，因此您可能希望將需要自動啟動的Bot切換本屬性至&#8203;`true`&#8203;。
 
 ---
 
-### `FarmingOrders`
+### `FarmingOrders（掛卡順序）`
 
-`ImmutableList<byte>`&#8203;型別，預設值為空。 This property defines the **preferred** farming order used by ASF for given bot account. Currently there are following farming orders available:
+`ImmutableList<byte>`&#8203;型別，預設值為空。 本屬性定義了指定Bot帳號的&#8203;**首選**&#8203;掛卡順序。 目前有以下可供使用的掛卡順序：
 
-| 值  | 名稱                        | 描述                                                                               |
-| -- | ------------------------- | -------------------------------------------------------------------------------- |
-| 0  | Unordered                 | No sorting, slightly improving CPU performance                                   |
-| 1  | AppIDsAscending           | Try to farm games with lowest `appIDs` first                                     |
-| 2  | AppIDsDescending          | Try to farm games with highest `appIDs` first                                    |
-| 3  | CardDropsAscending        | Try to farm games with lowest number of card drops remaining first               |
-| 4  | CardDropsDescending       | Try to farm games with highest number of card drops remaining first              |
-| 5  | HoursAscending            | Try to farm games with lowest number of hours played first                       |
-| 6  | HoursDescending           | Try to farm games with highest number of hours played first                      |
-| 7  | NamesAscending            | Try to farm games in alphabetical order, starting from A                         |
-| 8  | NamesDescending           | Try to farm games in reverse alphabetical order, starting from Z                 |
-| 9  | Random（隨機）                | Try to farm games in totally random order (different on each run of the program) |
-| 10 | BadgeLevelsAscending      | Try to farm games with lowest badge levels first                                 |
-| 11 | BadgeLevelsDescending     | Try to farm games with highest badge levels first                                |
-| 12 | RedeemDateTimesAscending  | Try to farm oldest games on our account first                                    |
-| 13 | RedeemDateTimesDescending | Try to farm newest games on our account first                                    |
-| 14 | MarketableAscending       | Try to farm games with unmarketable card drops first                             |
-| 15 | MarketableDescending      | Try to farm games with marketable card drops first                               |
+| 值  | 名稱                        | 描述                                 |
+| -- | ------------------------- | ---------------------------------- |
+| 0  | Unordered                 | 無序，略微提升cpu效能                       |
+| 1  | AppIDsAscending           | 嘗試由最小的遊戲&#8203;`appIDs`&#8203;開始掛卡 |
+| 2  | AppIDsDescending          | 嘗試由最大的遊戲&#8203;`appIDs`&#8203;開始掛卡 |
+| 3  | CardDropsAscending        | 嘗試由最少剩餘卡片的遊戲開始掛卡                   |
+| 4  | CardDropsDescending       | 嘗試由最多剩餘卡片的遊戲開始掛卡                   |
+| 5  | HoursAscending            | 嘗試由最少遊玩時數的遊戲開始掛卡                   |
+| 6  | HoursDescending           | 嘗試由最高遊玩時數的遊戲開始掛卡                   |
+| 7  | NamesAscending            | 嘗試以字母順序掛卡，從A開始                     |
+| 8  | NamesDescending           | 嘗試以逆字母順序掛卡，從Z開始                    |
+| 9  | Random                    | 嘗試以完全隨機順序掛卡（每次執行程式都不同）             |
+| 10 | BadgeLevelsAscending      | 嘗試由最低的遊戲徽章等級開始掛卡                   |
+| 11 | BadgeLevelsDescending     | 嘗試由最高的遊戲徽章等級開始掛卡                   |
+| 12 | RedeemDateTimesAscending  | 嘗試由帳號內最舊的遊戲開始掛卡                    |
+| 13 | RedeemDateTimesDescending | 嘗試由帳號內最新的遊戲開始掛卡                    |
+| 14 | MarketableAscending       | 嘗試由掉落不可交易交換卡片的遊戲開始掛卡               |
+| 15 | MarketableDescending      | 嘗試由掉落可交易交換卡片的遊戲開始掛卡                |
 
-Since this property is an array, it allows you to use several different settings in your fixed order. For example, you can include values of `15`, `11` and `7` in order to sort by marketable games first, then by those with highest badge level, and finally alphabetically. As you can guess, the order actually matters, as reverse one (`7`, `11` and `15`) achieves something entirely different (sorts games alphabetically first, and due to game names being unique, the other two are effectively useless). Majority of people will probably use just one order out of all of them, but in case you want to, you can also sort further by extra parameters.
+由於本屬性為一個陣列，因此它允許您以多個設定值來設定您的掛卡順序。 舉例來說，您可以依序設定數值&#8203;`15`&#8203;、&#8203;`11`&#8203;及&#8203;`7`&#8203;，來先以掉落可交易卡片的遊戲排序，然後再以最高徽章等級排序，最後才以字母順序排序。 正如您所猜測的，實際上順序非常重要，因為反向的排序（&#8203;`7`&#8203;、&#8203;`11`&#8203;及&#8203;`15`&#8203;）會造成截然不同的結果（首先由字母順序排序，但由於遊戲名稱是唯一的，其他兩個排序實際上是無作用的）。 大多數的人可能只會使用其中一個順序，但如果您想要，您也可以透過額外的參數來進一步排序。
 
-Also notice the word "try" in all above descriptions - the actual ASF order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. For example, in `Simple` algorithm, selected `FarmingOrders` should be entirely respected in current farming session (as every game has the same performance value), while in `Complex` algorithm actual order is affected by hours first, and then sorted according to chosen `FarmingOrders`. This will lead to different results, as games with existing playtime will have a priority over others, so effectively ASF will prefer games that already passed required `HoursUntilCardDrops` firstly, and only then sorting those games further by your chosen `FarmingOrders`. Likewise, once ASF runs out of already-bumped games, it'll sort remaining queue by hours first (as that will decrease time required for bumping any of remaining titles to `HoursUntilCardDrops`). Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer farming performance over `FarmingOrders`).
+另請注意，在上述所有描述中都有字詞「嘗試」⸺ASF實際的排序受&#8203;**[交換卡片掛卡演算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;的嚴重影響，且排序只能影響ASF認為效能相同的結果。 舉例來說，在&#8203;`Simple`&#8203;演算法中，選擇&#8203;`FarmingOrders`&#8203;能影響全部的當前掛卡階段（因為每個遊戲都具有相同的效能值），但在&#8203;`Complex`&#8203;演算法中，實際的掛卡順序會先受遊玩時數所影響，然後才依所選的&#8203;`FarmingOrders`&#8203;排序。 這將產生不同的結果，因為具有遊玩時數的遊戲會優先於其他的，因此ASF會優先選擇已滿足&#8203;`HoursUntilCardDrops`&#8203;要求的遊戲，然後才會依您選擇的&#8203;`FarmingOrders`&#8203;進一步排序那些遊戲。 同樣，一旦ASF完成高優先遊戲的掛卡，它將會先依遊玩時數對佇列進行排列（因為這能減少將任何遊戲掛至&#8203;`HoursUntilCardDrops`&#8203;所需的時間）。 因此，本設定屬性只是給ASF參考的一個&#8203;**建議**&#8203;，只要它不會對效能產生負面影響（若有負面影響，ASF則總是會在掛卡時優先考慮效能，其次才是&#8203;`FarmingOrders`&#8203;）。
 
-There is also farming priority queue that is accessible through `fq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If it's used, actual farming order is sorted firstly by performance, then by farming queue, and finally by your `FarmingOrders`.
+另外，您還可透過&#8203;`fq`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;來存取掛卡優先佇列。 If it's used, actual farming order is sorted firstly by performance, then by farming queue, and finally by your `FarmingOrders`.
 
 ---
 

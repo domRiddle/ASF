@@ -42,7 +42,7 @@ PRIVATE INFO (SELECTD DATA REQUIRD 4 PROVIDIN TEH FUNCSHUNALITY) INCLUDEZ:
 - UR `MatchEverything` SETTIN (4 DISPLAY PURPOSEZ AN MATCHIN)
 - UR `MaxTradeHoldDuration` SETTIN (SO OTHR PEEPS KNOE WHETHR URE WILLIN 2 ACCEPT THEIR TRADEZ)
 
-Your data is stored for maximum of a week since you stop using (announcing on) our listing, and automatically deleted after that period.
+Your data is stored for maximum of two weeks since you stop using (announcing on) our listing, and automatically deleted after that period.
 
 ---
 
@@ -54,7 +54,7 @@ IN ORDR 2 MAK USE OV DAT OPSHUN, U HAS SET OV REQUIREMENTS 2 MEET. AT TEH MINIMU
 
 IF U MEET ALL OV TEH REQUIREMENTS ABOOV, ASF WILL PERIODICALLY SPEEK WIF R **[PUBLIC ASF STM LISTIN](#publiclisting)** IN ORDR 2 ACTIVELY MATCH BOTS DAT R CURRENTLY AVAILABLE.
 
-MATCHIN WILL START IN APPROXIMATELY `1` HOUR SINCE ASF START, AN WILL REPEAT ITSELF EACH `6` HOURS (IF NEEDD). DURIN MATCHIN, ASF BOT WILL FETCH ITZ OWN INVENTORY, DEN SPEEK WIF R SERVR WIF IT 2 FIND ALL POSIBLE `MatchableTypes` MATCHEZ FRUM OTHR, CURRENTLY AVAILABLE BOTS. THX 2 COMMUNICATIN DIRECTLY WIF R SERVR, DIS PROCES REQUIREZ SINGLE REQUEST AN WE HAS IMMEDIATE INFORMASHUN WHETHR ANY AVAILABLE BOT OFFERS SOMETHIN INTERESTIN 4 US - IF MATCH IZ FINDZ, ASF WILL SEND AN CONFIRM TRADE OFFR AUTOMATICALLY.
+DURIN MATCHIN, ASF BOT WILL FETCH ITZ OWN INVENTORY, DEN SPEEK WIF R SERVR WIF IT 2 FIND ALL POSIBLE `MatchableTypes` MATCHEZ FRUM OTHR, CURRENTLY AVAILABLE BOTS. THX 2 COMMUNICATIN DIRECTLY WIF R SERVR, DIS PROCES REQUIREZ SINGLE REQUEST AN WE HAS IMMEDIATE INFORMASHUN WHETHR ANY AVAILABLE BOT OFFERS SOMETHIN INTERESTIN 4 US - IF MATCH IZ FINDZ, ASF WILL SEND AN CONFIRM TRADE OFFR AUTOMATICALLY.
 
 DIS MODULE IZ SUPPOSD 2 BE TRANZPARENT. MATCHIN WILL START IN APPROXIMATELY `1` HOUR SINCE ASF START, AN WILL REPEAT ITSELF EACH `6` HOURS (IF NEEDD). `MatchActively` FEACHUR IZ AIMD 2 BE USD AS LONG-RUN, PERIODICAL MEASURE 2 ENSURE DAT WERE ACTIVELY HEADIN TOWARDZ SETS COMPLESHUN, HOWEVR, PEEPS DAT R NOT RUNNIN ASF 24/7 CUD ALSO CONSIDR USIN `match`**[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)**. TEH TARGET USERS OV DIS MODULE R PRIMARY ACCOUNTS AN "STASH" ALT ACCOUNTS, ALTHOUGH IT CAN BE USD BY ANY BOT DAT IZ NOT SET 2 `MatchEverything`.
 
@@ -64,7 +64,7 @@ TEH CURRENT VERSHUN OV TEH ALGORITHM MAKEZ ASF PRIORITIZE `Any` BOTS FURST, ESPE
 
 `MatchActively` TAKEZ INTO AKOWNT BOTS DAT U BLACKLISTD FRUM TRADIN THRU `tbadd` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)** AN WILL NOT ATTEMPT 2 ACTIVELY MATCH THEM. DIS CAN BE USD 4 TELLIN ASF WHICH BOTS IT SHUD NEVR MATCH, EVEN IF THEYD HAS POTENTIAL DUPEZ 4 US 2 USE.
 
-ASF will also do its best to ensure that the trade offers are going through. On the next run, which normally happens in 6 hours, ASF will cancel any pending trade offers that still weren't accepted, and deprioritize steamIDs taking part in them to hopefully prefer more active bots first.
+ASF will also do its best to ensure that the trade offers are going through. On the next run, which normally happens in 6 hours, ASF will cancel any pending trade offers that still weren't accepted, and deprioritize steamIDs taking part in them to hopefully prefer more active bots first. Still, if deprioritized bots are the last ones that have the match we need, we'll still attempt to match them (again).
 
 ---
 
