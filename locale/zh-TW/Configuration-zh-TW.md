@@ -495,7 +495,7 @@ ASF提供了數種您能在本文中使用的特殊變數。 `{0}`&#8203;會被�
 
 | 值  | 名稱                        | 描述                                 |
 | -- | ------------------------- | ---------------------------------- |
-| 0  | Unordered                 | 無序，略微提升cpu效能                       |
+| 0  | Unordered                 | 無序，略微提升CPU效能                       |
 | 1  | AppIDsAscending           | 嘗試由最小的遊戲&#8203;`appIDs`&#8203;開始掛卡 |
 | 2  | AppIDsDescending          | 嘗試由最大的遊戲&#8203;`appIDs`&#8203;開始掛卡 |
 | 3  | CardDropsAscending        | 嘗試由最少剩餘卡片的遊戲開始掛卡                   |
@@ -516,25 +516,25 @@ ASF提供了數種您能在本文中使用的特殊變數。 `{0}`&#8203;會被�
 
 另請注意，在上述所有描述中都有字詞「嘗試」⸺ASF實際的排序受&#8203;**[交換卡片掛卡演算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;的嚴重影響，且排序只能影響ASF認為效能相同的結果。 舉例來說，在&#8203;`Simple`&#8203;演算法中，選擇&#8203;`FarmingOrders`&#8203;能影響全部的當前掛卡階段（因為每個遊戲都具有相同的效能值），但在&#8203;`Complex`&#8203;演算法中，實際的掛卡順序會先受遊玩時數所影響，然後才依所選的&#8203;`FarmingOrders`&#8203;排序。 這將產生不同的結果，因為具有遊玩時數的遊戲會優先於其他的，因此ASF會優先選擇已滿足&#8203;`HoursUntilCardDrops`&#8203;要求的遊戲，然後才會依您選擇的&#8203;`FarmingOrders`&#8203;進一步排序那些遊戲。 同樣，一旦ASF完成高優先遊戲的掛卡，它將會先依遊玩時數對佇列進行排列（因為這能減少將任何遊戲掛至&#8203;`HoursUntilCardDrops`&#8203;所需的時間）。 因此，本設定屬性只是給ASF參考的一個&#8203;**建議**&#8203;，只要它不會對效能產生負面影響（若有負面影響，ASF則總是會在掛卡時優先考慮效能，其次才是&#8203;`FarmingOrders`&#8203;）。
 
-另外，您還可透過&#8203;`fq`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;來存取掛卡優先佇列。 If it's used, actual farming order is sorted firstly by performance, then by farming queue, and finally by your `FarmingOrders`.
+另外，您還可透過&#8203;`fq`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;來存取掛卡優先佇列。 若使用優先佇列，則實際的掛卡順序首先由效能排序，然後是掛卡佇列，最後才是您的&#8203;`FarmingOrders`&#8203;。
 
 ---
 
-### `FarmPriorityQueueOnly`
+### `FarmPriorityQueueOnly（只掛卡優先佇列）`
 
-`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 This property defines if ASF should consider for automatic farming only apps that you added yourself to priority farming queue available with `fq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. When this option is enabled, ASF will skip all `appIDs` that are missing on the list, effectively allowing you to cherry-pick games for automatic ASF farming. Keep in mind that if you didn't add any games to the queue then ASF will act as if there is nothing to farm on your account. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
-
----
-
-### `GamesPlayedWhileIdle`
-
-<`ImmutableHashSet<uint>`&#8203;型別，預設值為空。 If ASF has nothing to farm it can play your specified steam games (`appIDs`) instead. Playing games in such manner increases your "hours played" of those games, but nothing else apart of it. In order for this feature to work properly, your Steam account **must** own a valid license to all the `appIDs` that you specify here, this includes F2P games as well. This feature can be enabled at the same time with `CustomGamePlayedWhileIdle` in order to play your selected games while showing custom status in Steam network, but in this case, like in `CustomGamePlayedWhileFarming` case, the actual display order is not guaranteed. Please note that Steam allows ASF to play only up to `32` `appIDs` total, therefore you can put only as many games in this property.
+`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 本屬性定義了ASF是否只自動掛卡您使用&#8203;`fq`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;加入至優先掛卡佇列中的應用程式。 在啟用本選項時，ASF將會跳過所有不在清單中的&#8203;`appIDs`&#8203;，使您能夠挑選您想要ASF自動掛卡的遊戲。 請注意，若您沒有在佇列中加入任何遊戲，ASF會表現得像您帳號中沒有任何遊戲可以掛卡一樣。 若您不確定您是否想要啟用本功能，請保留預設值&#8203;`false`&#8203;。
 
 ---
 
-### `HoursUntilCardDrops`
+### `GamesPlayedWhileIdle（閒置時掛卡的遊戲）`
 
-`byte`&#8203;型別，預設值為&#8203;`3`&#8203;。 This property defines if account has card drops restricted, and if yes, for how many initial hours. Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least `HoursUntilCardDrops` hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is no obvious answer whether you should use one or another value, since it fully depends on your account. It seems that older accounts which never asked for refund have unrestricted card drops, so they should use a value of `0`, while new accounts and those who did ask for refund have restricted card drops with a value of `3`. 但是，這只是理論，不應將它視為規則。 The default value for this property was set based on "lesser evil" and majority of use cases.
+`ImmutableHashSet<uint>`&#8203;型別，預設值為空。 若ASF沒有遊戲可供掛卡，它可以遊玩您所指定的Steam遊戲（&#8203;`appIDs`&#8203;）。 以這種方式遊玩遊戲會增加您的「遊玩時數」，除此之外，別無他用。 若要使此功能正常運作，您的Steam帳號&#8203;**必須**&#8203;擁有您指定的所有&#8203;`AppIDs`&#8203;的有效許可，包含免費遊戲。 本功能可以與&#8203;`CustomGamePlayedWhileIdle`&#8203;同時啟用，能在遊玩您所指定的遊戲的同時在Steam網路中顯示自訂狀態。但在這種情形下，如同&#8203;`CustomGamePlayedWhileFarming`&#8203;一樣，我們無法保證實際的顯示順序。 請注意，Steam只允許ASF最多同時遊玩&#8203;`32`&#8203;個&#8203;`appIDs`&#8203;，因此您也只能在本屬性中設定最多這個數量的遊戲。
+
+---
+
+### `HoursUntilCardDrops（小時數直到卡片開始掉落）`
+
+`byte`&#8203;型別，預設值為&#8203;`3`&#8203;。 本屬性定義了帳號是否受到掉卡限制，若有，則定義初始小時數。 Restricted card drops means that account is not receiving any card drops from given game until the game is played for at least `HoursUntilCardDrops` hours. Unfortunately there is no magical way to detect that, so ASF relies on you. This property affects **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** that will be used. Setting this property properly will maximize profits and minimize time required for cards to be farmed. Remember that there is no obvious answer whether you should use one or another value, since it fully depends on your account. It seems that older accounts which never asked for refund have unrestricted card drops, so they should use a value of `0`, while new accounts and those who did ask for refund have restricted card drops with a value of `3`. 但是，這只是理論，不應將它視為規則。 The default value for this property was set based on "lesser evil" and majority of use cases.
 
 ---
 
