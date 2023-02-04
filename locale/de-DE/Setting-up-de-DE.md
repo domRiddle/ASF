@@ -58,7 +58,7 @@ Da wir nun alle benötigten Abhängigkeiten installiert haben, ist der nächste 
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-Beginne nach dem Download damit, die Zip-Datei in einen eigenen Ordner zu entpacken. Wir empfehlen die Verwendung von **[7-zip](https://www.7-zip.de)**, aber alle Standard-Programme wie etwa `unzip` für Linux/macOS sollten ebenso problemlos funktionieren.
+Beginne nach dem Download damit, die Zip-Datei in einen eigenen Ordner zu entpacken. If you require specific tool for that, **[7-zip](https://www.7-zip.org)** will do it, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
 
 Stelle bitte sicher, dass du ASF in **einen eigenen Ordner** entpackst und nicht in einen bereits existenten, der für etwas anderes verwendet wird - ASFs automatische Aktualisierungen werden alle alten Dateien in diesem Ordner löschen, was möglicherweise dazu führen könnte, dass du Dateien verlierst, die nichts mit ASF zu tun haben aber im selben Ordner sind. Solltest du zusätzliche Skripte oder Dateien haben, die du mit ASF verwenden willst, solltest du sie in den Ordner darüber tun.
 
@@ -135,7 +135,7 @@ Nach diesem Schritt, vorausgesetzt, du hast alle erforderlichen Abhängigkeiten 
 
 Wenn du `SteamLogin` und `SteamPassword` für ASF angegeben hast, wirst du nur nach deinem SteamGuard-Code gefragt (E-Mail, 2FA oder keine, abhängig von deinen Steam-Einstellungen). Wenn du es nicht getan hast, wirst du auch nach deinem Steam-Login und Passwort gefragt.
 
-Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name.
+Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name, such as joining our Steam group.
 
 After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start farming using default settings that you didn't change as of now:
 

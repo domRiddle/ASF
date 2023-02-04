@@ -58,7 +58,7 @@ Ya que tengamos todas las dependencias requeridas, el siguiente paso es descarga
 
 ![Recursos](https://i.imgur.com/Ym2xPE5.png)
 
-Después de la descarga, empieza extrayendo el archivo zip en su propia carpeta. Recomendamos usar **[7-zip](https://www.7-zip.org)**, pero todas las utilidades estándar como `unzip` de Linux/macOS también deberían funcionar sin problemas.
+Después de la descarga, empieza extrayendo el archivo zip en su propia carpeta. Si necesitas una herramienta específica para eso, **[7-zip](https://www.7-zip.org)** funcionará, pero todas las utilidades estándar como `unzip` para Linux/macOS también deberían funcionar sin problemas.
 
 Se recomienda desempaquetar ASF en **su propio directorio** y no en algún directorio existente que ya estés usando para algo más - la función de actualizaciones automáticas de ASF eliminará todos los archivos antiguos y no relacionados cuando se actualice, lo que podría resultar en la pérdida de cualquier cosa no relacionada que pongas en el directorio de ASF. Si tienes algún script o archivo adicional que quieras usar con ASF, colócalo en una carpeta superior.
 
@@ -135,7 +135,7 @@ Posteriormente, asumiendo que instalaste todas las dependencias necesarias en el
 
 Si proporcionaste `SteamLogin` y `SteamPassword` para que utilice ASF, se te pedirá solamente tu código de SteamGuard (correo electrónico, 2FA o ninguno, dependiendo de los ajustes de tu cuenta de Steam). Si no lo hiciste, también se te pedirá tu nombre de usuario y contraseña.
 
-Ahora sería un buen momento para revisar nuestra sección de **[comunicación remota](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-es-ES)** si te preocupa lo que ASF está programado para hacer, incluyendo acciones que realizará en tu nombre.
+Ahora sería un buen momento para revisar nuestra sección de **[comunicación remota](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-es-ES)** si te preocupa lo que ASF está programado para hacer, incluyendo acciones que realizará por ti, tal como unirse a nuestro grupo de Steam.
 
 Después de la etapa de conexión, asumiendo que tus datos son correctos, iniciarás sesión con éxito, y ASF comenzará a recolectar cromos usando la configuración predeterminada:
 

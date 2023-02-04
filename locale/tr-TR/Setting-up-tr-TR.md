@@ -58,7 +58,7 @@ Gerekli tüm bağımlılıklara zaten sahip olduğumuzdan, bir sonraki adım **[
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-İndirdikten sonra, zip dosyasını kendi klasörüne çıkarmaya başlayın. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
+İndirdikten sonra, zip dosyasını kendi klasörüne çıkarmaya başlayın. If you require specific tool for that, **[7-zip](https://www.7-zip.org)** will do it, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
 
 ASF'yi başka bir şey için kullanmakta olduğunuz mevcut herhangi bir dizine değil, **kendi dizinine** açmanız tavsiye edilir - ASF'nin otomatik güncelleme özelliği tüm eski ve alakasız dosyaları siler yükseltme yaparken, ASF dizinine koyduğunuz ilgisiz herhangi bir şeyi kaybetmenize neden olabilir. ASF ile kullanmak istediğiniz fazladan komut dosyalarınız veya dosyalarınız varsa, bunları yukarıdaki bir klasöre koyun.
 
@@ -135,7 +135,7 @@ After doing so, assuming you installed all required dependencies in the first st
 
 If you supplied `SteamLogin` and `SteamPassword` for ASF to use, you'll be asked for your SteamGuard token only (e-mail, 2FA or none, depending on your Steam settings). If you didn't, you'll also be asked for your Steam login and password.
 
-Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name.
+Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name, such as joining our Steam group.
 
 After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start farming using default settings that you didn't change as of now:
 

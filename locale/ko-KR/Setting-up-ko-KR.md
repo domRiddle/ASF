@@ -58,7 +58,7 @@ At least a majority of those should be already natively available on your system
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-다운로드 후에 zip 파일의 압축을 폴더에 푸는 것부터 시작하십시오. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
+다운로드 후에 zip 파일의 압축을 폴더에 푸는 것부터 시작하십시오. If you require specific tool for that, **[7-zip](https://www.7-zip.org)** will do it, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
 
 ASF를 기존에 다른 무언가로 쓰고있던 디렉토리가 아닌 **새 디렉토리**에 압축을 푸는 것을 권장합니다. ASF의 자동업데이트 기능은 업그레이드할때 모든 오래되고 관련이 없는 파일들을 삭제합니다. 만약 ASF디렉토리에 관련이 없는 뭔가가 있다면 없어질 것입니다. ASF와 함께 사용하고 싶은 추가 스크립트나 파일이 있다면 한단계 상위 폴더에 넣으십시오.
 
@@ -135,7 +135,7 @@ After doing so, assuming you installed all required dependencies in the first st
 
 If you supplied `SteamLogin` and `SteamPassword` for ASF to use, you'll be asked for your SteamGuard token only (e-mail, 2FA or none, depending on your Steam settings). If you didn't, you'll also be asked for your Steam login and password.
 
-Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name.
+Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name, such as joining our Steam group.
 
 After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start farming using default settings that you didn't change as of now:
 

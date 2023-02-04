@@ -58,7 +58,7 @@ Sada kada imate sve zahtjeve ispunjene, sledeći korak je da preuzmete **[posled
 
 ![Sredstva](https://i.imgur.com/Ym2xPE5.png)
 
-Nakon preuzimanja, ekstraktujte zip fajl u novom folderu. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
+Nakon preuzimanja, ekstraktujte zip fajl u novom folderu. If you require specific tool for that, **[7-zip](https://www.7-zip.org)** will do it, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
 
 ASF je potrebno ekstraktovati u **svom novom direktorijumu** a ne u nekom postojećem direktorijumu koji koristite za nešto drugo - ASF će izbrisati sve fajlove koje ne prepoznaje ili mu nisu više potrebni nakon ažuriranja, što može dovesti do brisanja vaših fajlova ako ih smjestite u istom ASF folderu. Ako imate neki script ili fajl koji želite da koristite sa ASF-om, stavite ih u folder iznad.
 
@@ -135,7 +135,7 @@ Nakon toga, ako ste instalirali sve potrebno u prvom koraku, ASF bi trebao da se
 
 Ako ste ispunili `SteamLogin` i `SteamPassword` polje koje ASF koristi, tražiće vam se SteamGuard token (e-mail, 2FA ili ništa, u zavisnosti od vaših Steam podešavanja). Ako niste dali Steam kredencijale, onda će vam se ovdje tražiti isti.
 
-Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name.
+Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name, such as joining our Steam group.
 
 After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start farming using default settings that you didn't change as of now:
 

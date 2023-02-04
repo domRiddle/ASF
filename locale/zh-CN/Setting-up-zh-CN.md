@@ -58,7 +58,7 @@
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-下载之后，首先将 zip 文件解压到一个文件夹中。 我们建议使用 **[7-zip](https://www.7-zip.org)**，但 Linux/macOS 提供的 `unzip` 等标准工具也应该没有任何问题。
+下载之后，首先将 zip 文件解压到一个文件夹中。 如果您不知道该用什么工具，可以使用 **[7-zip](https://www.7-zip.org)**，但 Linux/macOS 提供的 `unzip` 等标准工具也应该没有任何问题。
 
 您应该将 ASF 解压到一个**独立的文件夹**中，而不是已有文件的文件夹——ASF 会在自动更新时删除文件夹中任何过时或无关的文件，您在 ASF 文件夹中存放的其他文件可能会因此丢失。 如果您需要一些与 ASF 相关的额外脚本或文件，请将它们放到上层文件夹。
 
@@ -135,7 +135,7 @@ ASF 需要您的帐户凭据，因为它包含自己的 Steam 客户端实现，
 
 如果您之前已经填好了 `SteamLogin` 和 `SteamPassword`，ASF 就只会向您询问 Steam 令牌代码（电子邮件、手机验证器或者无令牌，取决于您的 Steam 设置）。 如果没有填写，ASF 就会向您询问 Steam 用户名和密码。
 
-如果担心 ASF 接下来的行为，例如以您的身份执行一些操作，现在您可以审查我们的[**远程通信**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-CN)章节。
+如果担心 ASF 接下来的行为，包括以您的身份执行哪些操作，例如加入我们的 Steam 组，现在您可以审查我们的[**远程通信**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-CN)章节。
 
 假设填写的信息全部正确无误，您将会成功登录，ASF 将会以默认设置开始挂卡：
 

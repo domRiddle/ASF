@@ -58,7 +58,7 @@ Ora che abbiamo i requisiti necessari, il prossimo passo sarà scaricare **[l'ul
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-Dopo il download, inizia estraendo i file dell'archivio in cartella dedicata. We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
+Dopo il download, inizia estraendo i file dell'archivio in cartella dedicata. If you require specific tool for that, **[7-zip](https://www.7-zip.org)** will do it, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
 
 Assicurati di estrarre ASF **in una cartella ad esso destinata** e non in una che stai già usando per qualcos'altro - gli aggiornamenti automatici di ASF elimineranno ogni altro file già presente e non necessario al programma, il che significa perdere qualsiasi file non associato ad ASF. Se hai script aggiuntivi o file che vuoi usare con ASF, mettili in una cartella superiore.
 
@@ -137,7 +137,7 @@ Dopo aver fatto tutto ciò, se hai installato tutte le dipendenze richieste nell
 
 Se hai fornito `SteamLogin` e `SteamPassword` ad ASF, ti sarà solamente chiesto il token per SteamGuard (e-mail, 2FA o nessuno, a seconda delle tue impostazioni di Steam). Se non lo hai fatto, ti sarà chiesto anche di inserire il nome utente e la password di Steam.
 
-Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name.
+Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name, such as joining our Steam group.
 
 After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start farming using default settings that you didn't change as of now:
 

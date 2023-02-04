@@ -58,7 +58,7 @@ At least a majority of those should be already natively available on your system
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-ダウンロードしたら、まずは zip ファイルをお好きなフォルダに解凍して下さい。 We recommend using **[7-zip](https://www.7-zip.org)**, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
+ダウンロードしたら、まずは zip ファイルをお好きなフォルダに解凍して下さい。 If you require specific tool for that, **[7-zip](https://www.7-zip.org)** will do it, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
 
 ASF を&#8203;**ほかに何も入っていないディレクトリ**&#8203;に解凍することをお勧めします。ASF の自動更新機能はアップグレード時に古いファイルや関係のないファイルをすべて削除するようになっているので、ASF ディレクトリにある関係のないファイルが削除される可能性があります。 ASFで使用するほかのスクリプトやファイルは、親ディレクトリに入れてください。
 
@@ -135,7 +135,7 @@ ASF には Steam クライアントの独自の実装が含まれているため
 
 `SteamLogin` と `SteamPassword` を記入していたら、ASF は設定により Steamガード（メール、２ファクタ認証若しくはなし）だけを要求してくる。 それを記入していない場合、パスワードも要求してきます。
 
-Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name.
+Now would be a good time to review our **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section if you're concerned about stuff ASF is programmed to do, including actions it'll take in your name, such as joining our Steam group.
 
 After passing through initial login gate, assuming your details are correct, you'll successfully log in, and ASF will start farming using default settings that you didn't change as of now:
 

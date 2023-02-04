@@ -58,7 +58,7 @@
 
 ![資源檔案](https://i.imgur.com/Ym2xPE5.png)
 
-下載完成後，請先解壓縮.zip檔至一個資料夾中。 我們建議使用&#8203;**[7-zip](https://www.7-zip.org)**&#8203;，不過應該所有的標準工具（例如Linux/macOS中的&#8203;`unzip`&#8203;工具）使用上也沒有問題。
+下載完成後，請先解壓縮.zip檔至一個資料夾中。 若您需要特定的工具，&#8203;**[7-zip](https://www.7-zip.org)**&#8203;即可做到，不過應該所有的標準工具（例如Linux/macOS中的&#8203;`unzip`&#8203;工具）使用上也沒有問題。
 
 我們也建議將ASF解壓縮到&#8203;**獨立資料夾**&#8203;中，而不是包含其他檔案的資料夾中：ASF的自動更新功能會在升級時刪除所有舊的或無關的檔案，並可能導致您遺失儲存於ASF資料夾中的其餘檔案。 若您有任何額外用於ASF的腳本或檔案，請將它們存放於ASF的上層資料夾。
 
@@ -135,7 +135,7 @@ ASF需要您的登入憑證，因為它是透過內建的Steam用戶端來實現
 
 若您在設定檔中提供了&#8203;`SteamLogin`&#8203;和&#8203;`SteamPassword`&#8203;給ASF使用，ASF就只會詢問您的Steam Guard權杖（電子郵件、雙重驗證或未設定，取決於您的Steam設定）。 若您並未提供，ASF也會同時詢問您的Steam帳號名稱及密碼。
 
-如果您對ASF有任何的擔心，例如以您的身分進行操作，現在可以到&#8203;[**遠端通訊**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-TW)&#8203;章節閱讀。
+如果您對ASF有任何的擔心，例如以您的身分進行操作，或是被加入我們的Steam群組，現在可以到&#8203;[**遠端通訊**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-TW)&#8203;章節閱讀。
 
 在輸入資訊後，假設您填寫的資訊無誤，您會成功地登入，而 ASF 將使用您目前尚未更改的預設設定來開始掛卡：
 

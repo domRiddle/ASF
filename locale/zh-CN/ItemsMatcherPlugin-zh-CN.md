@@ -64,7 +64,7 @@ ASF 会尽力减少由此选项带来的请求和压力，同时将匹配的效�
 
 `MatchActively` 支持交易黑名单，您可以通过 `tbadd` [**命令**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)向其中添加机器人的帐户，您的机器人将不会尝试与黑名单中的机器人主动匹配。 这告诉 ASF 永远不匹配这些机器人，即使这些机器人有我们可能需要的卡牌。
 
-ASF 也会尽力确保交易报价完成。 在大约 6 小时后的下一轮匹配中，ASF 将会取消任何仍然未被接受的交易报价，并降低对方 Steam ID 的优先级，以后更可能选择活跃的机器人。 Still, if deprioritized bots are the last ones that have the match we need, we'll still attempt to match them (again).
+ASF 也会尽力确保交易报价完成。 在大约 6 小时后的下一轮匹配中，ASF 将会取消任何仍然未被接受的交易报价，并降低对方 Steam ID 的优先级，以后更可能选择活跃的机器人。 然而，如果只有被降级的机器人符合我们的匹配，我们仍然会（再次）尝试匹配它们。
 
 ---
 
