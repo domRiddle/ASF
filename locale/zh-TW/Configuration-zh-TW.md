@@ -148,7 +148,7 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 ### `Debug（除錯模式）`
 
-`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 本屬性定義了程序是否以除錯模式執行。 在除錯模式中，ASF會在&#8203;`config`&#8203;旁建立一個特殊的&#8203;`debug`&#8203;資料夾，用於追蹤ASF與Steam伺服器間的所有通訊。 除錯資訊有助於發現與網路及一般ASF工作流程相關的棘手問題。 除此之外，某些程式常式會更加詳細，例如&#8203;`WebBrowser`&#8203;會說明某些請求失敗的確切原因⸺這些條目會被寫入至一般的ASF紀錄日誌中。 **除非開發人員要求，否則您不應在除錯模式下執行ASF**&#8203;。 以除錯模式執行ASF會&#8203;**降低效能**&#8203;、&#8203;**減少穩定性**&#8203;，且會&#8203;**生成過量除錯訊息**&#8203;，因此&#8203;**只應**&#8203;在需要時短暫使用，用於除錯特定問題、重現錯誤或獲得關於失敗請求的更多資訊，但&#8203;**不應**&#8203;用於一般的程式執行階段。 您將會看到&#8203;**非常大量的**&#8203;新錯誤、問題及異常狀況⸺若您決定自行分析這些資訊，請確保您對ASF、Steam及其特點有著充分的了解，因為並不是所有資訊皆與問題相關。
+`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 本屬性定義了程序是否以除錯模式執行。 在除錯模式中，ASF會在&#8203;`config`&#8203;旁建立一個特殊的&#8203;`debug`&#8203;資料夾，用於追蹤ASF與Steam伺服器間的所有通訊。 除錯資訊有助於發現與網路及一般ASF工作流程相關的棘手問題。 除此之外，某些程式常式會更加詳細，例如&#8203;`WebBrowser`&#8203;會說明某些請求失敗的確切原因⸺這些條目會被寫入至一般的ASF紀錄日誌中。 **除非開發人員要求，否則您不應在除錯模式下執行ASF**&#8203;。 以除錯模式執行ASF會&#8203;**降低效能**&#8203;、&#8203;**減少穩定性**&#8203;，且會&#8203;**生成過量除錯訊息**&#8203;，因此&#8203;**只應**&#8203;在需要時短暫使用，用於除錯特定問題、重現錯誤或獲得關於失敗請求的更多資訊，但&#8203;**不應**&#8203;用於日常的程式執行階段。 您將會看到&#8203;**非常大量的**&#8203;新錯誤、問題及異常狀況⸺若您決定自行分析這些資訊，請確保您對ASF、Steam及其特點有著充分的了解，因為並不是所有資訊皆與問題相關。
 
 **警告：**&#8203;啟用本模式會在紀錄日誌中記錄&#8203;**可能敏感**&#8203;的資訊，例如您登入至Steam的帳號及密碼（因網路日誌所記錄）。 這些資料會同時寫入至&#8203;`debug`&#8203;資料夾及標準的&#8203;`log.txt`&#8203;（現在是故意詳細記錄本資訊）中。 您不應在任何公開位置張貼ASF生成的除錯內容，且ASF開發人員總是會提醒您應經由電子郵件或其他安全位置傳送它。 我們不會儲存或利用這些敏感資訊，它們只是做為除錯常式的一部份而寫入，因為它們或許會與您遇到的問題有關。 我們希望您不以任何方式修改ASF紀錄日誌，但如果您擔心，您還是依然能適當編輯這些敏感資訊。
 
@@ -310,7 +310,7 @@ ASF的更新過程涉及到更新整個ASF所使用的資料夾結構，但不�
 
 預設值是依據假設ASF是存取Steam Web服務的唯一工具所設定的，特別是&#8203;`steamcommunity.com`&#8203;、&#8203;`api.steampowered.com`&#8203;及&#8203;`store.steampowered.com`&#8203;。 若您使用了其他工具向同一Web服務傳送請求，那麼您應確保您的工具也包含類似&#8203;`WebLimiterDelay`&#8203;的功能，並將兩者都設為預設值的兩倍，也就是&#8203;`600`&#8203;。 這能保證在任何情形下，您都不會在每個&#8203;`300`&#8203;毫秒中傳送超過1個請求。
 
-在一般情形下，將&#8203;`WebLimiterDelay`&#8203;減少至預設值以下是&#8203;**強烈反對這麼做的**&#8203;，因為它可能會導致各種IP相關的封鎖，有可能會是永久的。 預設值足以在伺服器上執行單一ASF實例，或在一般情境下與原版的Steam用戶端一起使用ASF。 對於大多數用法來說這應該是正確的值，且您應該只能增加它（永遠不要減少），除非⸺除了ASF之外，您還使用了另一個可能會向ASF所使用的Web服務傳送大量請求的工具。 簡而言之，由單一IP傳送至單個Steam網域的請求總量每&#8203;`300`&#8203;毫秒不應大於1個請求。
+在一般情形下，將&#8203;`WebLimiterDelay`&#8203;減少至預設值以下是&#8203;**強烈反對這麼做的**&#8203;，因為它可能會導致各種IP相關的封鎖，有可能會是永久的。 預設值足以在伺服器上執行單一ASF實例，或在普通情境下與原版的Steam用戶端一起使用ASF。 對於大多數用法來說這應該是正確的值，且您應該只能增加它（永遠不要減少），除非⸺除了ASF之外，您還使用了另一個可能會向ASF所使用的Web服務傳送大量請求的工具。 簡而言之，由單一IP傳送至單個Steam網域的請求總量每&#8203;`300`&#8203;毫秒不應大於1個請求。
 
 除非您有理由編輯此屬性，否則您應維持它為預設值。
 
@@ -418,15 +418,15 @@ Bot設定檔具有以下結構：
 
 `byte flags`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性定義了在各種事件中ASF的自動化行為，定義項如下：
 
-| 值  | 名稱                            | 描述                                     |
-| -- | ----------------------------- | -------------------------------------- |
-| 0  | 無                             | 無特殊Bot行為，帳號控制最少，預設值                    |
-| 1  | RejectInvalidFriendInvites    | 使ASF拒絕（而非忽略）無效的好友邀請                    |
-| 2  | RejectInvalidTrades           | 使ASF拒絕（而非忽略）無效的交易提案                    |
-| 4  | RejectInvalidGroupInvites     | 使ASF拒絕（而非忽略）無效的群組邀請                    |
-| 8  | DismissInventoryNotifications | 使ASF自動取消所有物品庫通知                        |
-| 16 | MarkReceivedMessagesAsRead    | 使ASF自動將所有收到的訊息標示成已讀                    |
-| 32 | MarkBotMessagesAsRead         | 使ASF自動將所有從其他（執行於同一實例中的）ASF Bot的訊息標示成已讀 |
+| 值  | 名稱                                     | 描述                                     |
+| -- | -------------------------------------- | -------------------------------------- |
+| 0  | 無                                      | 無特殊Bot行為，帳號控制最少，預設值                    |
+| 1  | RejectInvalidFriendInvites（拒絕無效好友邀請）   | 使ASF拒絕（而非忽略）無效的好友邀請                    |
+| 2  | RejectInvalidTrades（拒絕無效交易提案）          | 使ASF拒絕（而非忽略）無效的交易提案                    |
+| 4  | RejectInvalidGroupInvites（拒絕無效群組邀請）    | 使ASF拒絕（而非忽略）無效的群組邀請                    |
+| 8  | DismissInventoryNotifications（取消物品庫通知） | 使ASF自動取消所有物品庫通知                        |
+| 16 | MarkReceivedMessagesAsRead（將收到的訊息已讀）   | 使ASF自動將所有收到的訊息標示成已讀                    |
+| 32 | MarkBotMessagesAsRead（將Bot訊息已讀）        | 使ASF自動將所有從其他（執行於同一實例中的）ASF Bot的訊息標示成已讀 |
 
 請注意，本屬性為&#8203;`flags`&#8203;欄位，因此可以使用所有可用值任意組合。 若您想了解更多，請參閱&#8203;**[旗標映射](#json-映射)**&#8203;。 不啟用任何旗標即為&#8203;`None`&#8203;選項。
 
@@ -456,10 +456,10 @@ Bot設定檔具有以下結構：
 
 目前，在本設定中支援下列物品類型：
 
-| 值 | 名稱              | 描述                               |
-| - | --------------- | -------------------------------- |
-| 3 | FoilTradingCard | 閃亮版本的&#8203;`TradingCard`&#8203; |
-| 5 | TradingCard     | Steam交換卡片，用於合成徽章（非閃亮卡片）          |
+| 值 | 名稱                      | 描述                               |
+| - | ----------------------- | -------------------------------- |
+| 3 | FoilTradingCard（閃亮交換卡片） | 閃亮版本的&#8203;`TradingCard`&#8203; |
+| 5 | TradingCard（交換卡片）       | Steam交換卡片，用於合成徽章（非閃亮卡片）          |
 
 請注意，不論上述如何設定，ASF都只會處理Steam分類（&#8203;`appID`&#8203;為753）中的社群物品（&#8203;`contextID`&#8203;為6），因此依據定義所有遊戲物品、禮物等物品都會被排除在交易提案之外。
 
@@ -493,24 +493,24 @@ ASF提供了數種您能在本文中使用的特殊變數。 `{0}`&#8203;會被�
 
 `ImmutableList<byte>`&#8203;型別，預設值為空。 本屬性定義了指定Bot帳號的&#8203;**首選**&#8203;掛卡順序。 目前有以下可供使用的掛卡順序：
 
-| 值  | 名稱                        | 描述                                 |
-| -- | ------------------------- | ---------------------------------- |
-| 0  | Unordered                 | 無序，略微提升CPU效能                       |
-| 1  | AppIDsAscending           | 嘗試由最小的遊戲&#8203;`appIDs`&#8203;開始掛卡 |
-| 2  | AppIDsDescending          | 嘗試由最大的遊戲&#8203;`appIDs`&#8203;開始掛卡 |
-| 3  | CardDropsAscending        | 嘗試由最少剩餘卡片的遊戲開始掛卡                   |
-| 4  | CardDropsDescending       | 嘗試由最多剩餘卡片的遊戲開始掛卡                   |
-| 5  | HoursAscending            | 嘗試由最少遊玩時數的遊戲開始掛卡                   |
-| 6  | HoursDescending           | 嘗試由最高遊玩時數的遊戲開始掛卡                   |
-| 7  | NamesAscending            | 嘗試以字母順序掛卡，從A開始                     |
-| 8  | NamesDescending           | 嘗試以逆字母順序掛卡，從Z開始                    |
-| 9  | Random                    | 嘗試以完全隨機順序掛卡（每次執行程式都不同）             |
-| 10 | BadgeLevelsAscending      | 嘗試由最低的遊戲徽章等級開始掛卡                   |
-| 11 | BadgeLevelsDescending     | 嘗試由最高的遊戲徽章等級開始掛卡                   |
-| 12 | RedeemDateTimesAscending  | 嘗試由帳號內最舊的遊戲開始掛卡                    |
-| 13 | RedeemDateTimesDescending | 嘗試由帳號內最新的遊戲開始掛卡                    |
-| 14 | MarketableAscending       | 嘗試由掉落不可交易交換卡片的遊戲開始掛卡               |
-| 15 | MarketableDescending      | 嘗試由掉落可交易交換卡片的遊戲開始掛卡                |
+| 值  | 名稱                                  | 描述                                 |
+| -- | ----------------------------------- | ---------------------------------- |
+| 0  | Unordered（無序）                       | 無序，略微提升CPU效能                       |
+| 1  | AppIDsAscending（AppID升序）            | 嘗試由最小的遊戲&#8203;`appIDs`&#8203;開始掛卡 |
+| 2  | AppIDsDescending（AppID降序）           | 嘗試由最大的遊戲&#8203;`appIDs`&#8203;開始掛卡 |
+| 3  | CardDropsAscending（交換卡片掉落升序）        | 嘗試由最少剩餘卡片的遊戲開始掛卡                   |
+| 4  | CardDropsDescending（交換卡片掉落降序）       | 嘗試由最多剩餘卡片的遊戲開始掛卡                   |
+| 5  | HoursAscending（遊玩時數升序）              | 嘗試由最少遊玩時數的遊戲開始掛卡                   |
+| 6  | HoursDescending（遊玩時數降序）             | 嘗試由最高遊玩時數的遊戲開始掛卡                   |
+| 7  | NamesAscending（遊戲名稱升序）              | 嘗試以字母順序掛卡，從A開始                     |
+| 8  | NamesDescending（遊戲名稱降序）             | 嘗試以逆字母順序掛卡，從Z開始                    |
+| 9  | Random（隨機）                          | 嘗試以完全隨機順序掛卡（每次執行程式都不同）             |
+| 10 | BadgeLevelsAscending（徽章等級升序）        | 嘗試由最低的遊戲徽章等級開始掛卡                   |
+| 11 | BadgeLevelsDescending（徽章等級降序）       | 嘗試由最高的遊戲徽章等級開始掛卡                   |
+| 12 | RedeemDateTimesAscending（遊戲啟用日期升序）  | 嘗試由帳號內最舊的遊戲開始掛卡                    |
+| 13 | RedeemDateTimesDescending（遊戲啟用日期降序） | 嘗試由帳號內最新的遊戲開始掛卡                    |
+| 14 | MarketableAscending（可交易升序）          | 嘗試由掉落不可交易交換卡片的遊戲開始掛卡               |
+| 15 | MarketableDescending（可交易降序）         | 嘗試由掉落可交易交換卡片的遊戲開始掛卡                |
 
 由於本屬性為一個陣列，因此它允許您以多個設定值來設定您的掛卡順序。 舉例來說，您可以依序設定數值&#8203;`15`&#8203;、&#8203;`11`&#8203;及&#8203;`7`&#8203;，來先以掉落可交易卡片的遊戲排序，然後再以最高徽章等級排序，最後才以字母順序排序。 正如您所猜測的，實際上順序非常重要，因為反向的排序（&#8203;`7`&#8203;、&#8203;`11`&#8203;及&#8203;`15`&#8203;）會造成截然不同的結果（首先由字母順序排序，但由於遊戲名稱是唯一的，其他兩個排序實際上是無作用的）。 大多數的人可能只會使用其中一個順序，但如果您想要，您也可以透過額外的參數來進一步排序。
 
@@ -534,36 +534,36 @@ ASF提供了數種您能在本文中使用的特殊變數。 `{0}`&#8203;會被�
 
 ### `HoursUntilCardDrops（小時數直到卡片開始掉落）`
 
-`byte`&#8203;型別，預設值為&#8203;`3`&#8203;。 本屬性定義了帳號是否受到掉卡限制，若有，則定義初始小時數。 掉卡受限制代表該帳號在遊戲的遊玩時數在到達&#8203;`HoursUntilCardDrops`&#8203;小時後才會開始掉卡。 但ASF沒有自動偵測它的魔法，所以只能靠您手動設定。 本屬性會影響您所使用的&#8203;**[掛卡演算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;。 正確設定本屬性會最大化您的效益，並將掛卡所需的時間減至最少。 記住，您應該選擇何值並沒有確切的答案，因為這完全取決於您的帳號。 看起來，從未要求退款的老帳號掉卡不受限制，因此應用&#8203;`0`&#8203;的值；而曾經要求退款的新帳號則會受限制，應使用&#8203;`3`&#8203;的值。 但是，這只是理論，不應將它視為規則。 The default value for this property was set based on "lesser evil" and majority of use cases.
+`byte`&#8203;型別，預設值為&#8203;`3`&#8203;。 本屬性定義了帳號是否受到掉卡限制，若有，則定義初始小時數。 掉卡受限制代表該帳號在遊戲的遊玩時數在到達&#8203;`HoursUntilCardDrops`&#8203;小時後才會開始掉卡。 但ASF沒有自動偵測它的魔法，所以只能靠您手動設定。 本屬性會影響您所使用的&#8203;**[掛卡演算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;。 正確設定本屬性會最大化您的效益，並將掛卡所需的時間減至最少。 記住，您應該選擇何值並沒有確切的答案，因為這完全取決於您的帳號。 看起來，從未要求退款的老帳號掉卡不受限制，因此應用&#8203;`0`&#8203;的值；而曾經要求退款的新帳號則會受限制，應使用&#8203;`3`&#8203;的值。 但是，這只是理論，不應將它視為規則。 本屬性的預設值是依據「兩害相權取其輕」及大多數使用情形所設定的。
 
 ---
 
-### `LootableTypes`
+### `LootableTypes（獲得物品的種類）`
 
-`ImmutableHashSet<byte>`&#8203;型別，預設值為&#8203;`1, 3, 5`&#8203;的Steam物品類型。 This property defines ASF behaviour when looting - both manual, using a **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, as well as automatic one, through one or more configuration properties. ASF will ensure that only items from `LootableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to you.
+`ImmutableHashSet<byte>`&#8203;型別，預設值為&#8203;`1, 3, 5`&#8203;的Steam物品類型。 本屬性定義了ASF在獲得物品時的行為⸺這可以是手動使用&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;，也可以透過一個或多個設定屬性來自動獲得。 ASF會確保只有在&#8203;`LootableTypes`&#8203;中的物品才會包含在交易提案中，因此本屬性使您能夠選擇您想要在交易提案中收到的物品種類。
 
-| 值  | 名稱                    | 描述                                                            |
-| -- | --------------------- | ------------------------------------------------------------- |
-| 0  | Unknown               | Every type that doesn't fit in any of the below               |
-| 1  | BoosterPack           | Booster pack containing 3 random cards from a game            |
-| 2  | Emoticon              | Emoticon to use in Steam Chat                                 |
-| 3  | FoilTradingCard       | Foil variant of `TradingCard`                                 |
-| 4  | ProfileBackground     | Profile background to use on your Steam profile               |
-| 5  | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
-| 6  | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
-| 7  | SaleItem              | Special items awarded during Steam sales                      |
-| 8  | Consumable            | Special consumable items that disappear after being used      |
-| 9  | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10 | Sticker               | 可用在 Steam 聊天中的特殊物品                                            |
-| 11 | ChatEffect            | 可用在 Steam 聊天中的特殊物品                                            |
-| 12 | MiniProfileBackground | Special background for Steam profile                          |
-| 13 | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
-| 14 | AnimatedAvatar        | Special animated avatar for Steam profile                     |
-| 15 | KeyboardSkin          | Steam Deck 的特別鍵盤造型                                            |
+| 值  | 名稱                              | 描述                               |
+| -- | ------------------------------- | -------------------------------- |
+| 0  | Unknown（未知）                     | 不符合下列任一項類型的物品                    |
+| 1  | BoosterPack（擴充包）                | 包含三張來自同一遊戲交換卡片的擴充包               |
+| 2  | Emoticon（表情符號）                  | 在Steam聊天中使用的表情符號                 |
+| 3  | FoilTradingCard（閃亮交換卡片）         | 閃亮版本的&#8203;`TradingCard`&#8203; |
+| 4  | ProfileBackground（個人檔案背景）       | 在您Steam個人檔案中使用的個人檔案背景            |
+| 5  | TradingCard（交換卡片）               | Steam交換卡片，用於合成徽章（非閃亮卡片）          |
+| 6  | SteamGems（寶石）                   | 用於合成擴充包的Steam寶石，包含一袋寶石           |
+| 7  | SaleItem（特賣物品）                  | Steam特賣期間獲得的特殊物品                 |
+| 8  | Consumable（消耗品）                 | 在使用後會消失的特殊消耗品                    |
+| 9  | ProfileModifier（個人檔案修改器）        | 可以修改Steam個人檔案外觀的特殊物品             |
+| 10 | Sticker（貼紙）                     | 在Steam聊天中使用的特殊物品                 |
+| 11 | ChatEffect（聊天效果）                | 在Steam聊天中使用的特殊物品                 |
+| 12 | MiniProfileBackground（迷你個人檔案背景） | Steam個人檔案的特殊背景                   |
+| 13 | AvatarProfileFrame（個人檔案圖示邊框）    | Steam個人檔案的特殊圖示邊框                 |
+| 14 | AnimatedAvatar（動畫個人圖示）          | Steam個人檔案的特殊動畫個人圖示               |
+| 15 | KeyboardSkin（Steam Deck鍵盤）      | Steam Deck的特殊鍵盤外觀                |
 
-Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
+請注意，不論上述如何設定，ASF都只會處理Steam分類（&#8203;`appID`&#8203;為753）中的社群物品（&#8203;`contextID`&#8203;為6），因此依據定義所有遊戲物品、禮物等物品都會被排除在交易提案之外。
 
-Default ASF setting is based on the most common usage of the bot, with looting only booster packs, and trading cards (including foils). The property defined here allows you to alter that behaviour in whatever way that satisfies you. Please keep in mind that all types not defined above will show as `Unknown` type, which is especially important when Valve releases some new Steam item, that will be marked as `Unknown` by ASF as well, until it's added here (in the future release). That's why in general it's not recommended to include `Unknown` type in your `LootableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `LootableTypes`, even if you expect to loot everything (else).
+ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交換卡片（包含閃亮卡片）。 本處定義的屬性使您能夠依自己所需自訂該行為。 請注意，上述所有未定義的類型都會顯示成&#8203;`Unknown`&#8203;類型，特別是在Valve發布一些新的Steam物品時，ASF也會將它們標示成&#8203;`Unknown`&#8203;，直到它們（在未來的版本中）被加入於本表格中。 這也是在一般情形下不建議在&#8203;`LootableTypes`&#8203;中選擇&#8203;`Unknown`&#8203;類型的原因，除非您知道自己正在做什麼，且您也了解萬一Steam網路再次損毀時，會將您的所有物品標示成&#8203;`Unknown`&#8203;，並在交易提案中發送出您物品庫中的所有物品。 我強烈建議即使您希望獲得所有（其他的）物品，也不要在&#8203;`LootableTypes`&#8203;中選擇&#8203;`Unknown`&#8203;類型。
 
 ---
 

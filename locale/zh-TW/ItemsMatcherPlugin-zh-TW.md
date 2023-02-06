@@ -1,39 +1,39 @@
 # Items Matcher 外掛程式
 
-`ItemsMatcherPlugin`&#8203;是ASF官方的&#8203;**[外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-TW)**&#8203;，使用ASF STM清單來擴充ASF的功能。 這特別是包含了&#8203;**[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#remotecommunication)**&#8203;中的&#8203;`PublicListing`&#8203;，及&#8203;**[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#tradingpreferences)**&#8203;中的&#8203;`MatchActively`&#8203;。 ASF發行版本附隨了&#8203;`ItemsMatcherPlugin`&#8203;，因此能夠立即使用。
+`ItemsMatcherPlugin`&#8203;是ASF官方的&#8203;**[外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-TW)**&#8203;，使用ASF STM名單來擴充ASF的功能。 這特別是包含了&#8203;**[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#remotecommunication)**&#8203;中的&#8203;`PublicListing`&#8203;，及&#8203;**[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#tradingpreferences)**&#8203;中的&#8203;`MatchActively`&#8203;。 ASF發行版本附隨了&#8203;`ItemsMatcherPlugin`&#8203;，因此能夠立即使用。
 
 ---
 
 ## `PublicListing`
 
-顧名思義，公開清單是當前可供使用的ASF STM Bot的清單。 它位於&#8203;**[我們的網站](https://asf.justarchi.net/STM)**&#8203;上，進行自動管理並作為一項公共服務，提供使用&#8203;`MatchActively`&#8203;的ASF使用者及手動匹配的ASF與非ASF使用者使用。
+顧名思義，公開名單是當前可供使用的ASF STM Bot的名單。 它位於&#8203;**[我們的網站](https://asf.justarchi.net/STM)**&#8203;上，進行自動管理並作為一項公共服務，提供使用&#8203;`MatchActively`&#8203;的ASF使用者及手動匹配的ASF與非ASF使用者使用。
 
 為了被列出來，您需要滿足一系列的需求。 您必須至少在&#8203;`RemoteCommunication`&#8203;中允許&#8203;`PublicListing`&#8203;（預設設定）、在&#8203;`TradingPreferences`&#8203;中啟用&#8203;`SteamTradeMatcher`&#8203;、隱私設定成&#8203;**[公開物品庫](https://steamcommunity.com/my/edit/settings)**&#8203;、&#8203;**[不受限制的](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**&#8203;帳號，且啟用&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW#asf-雙重驗證)**&#8203;。 當然，您需要至少擁有一件符合&#8203;`MatchableTypes`&#8203;的物品，例如交換卡片。
 
-雖然&#8203;`PublicListing`&#8203;預設為啟用，但請注意，如果您不滿足所有要求，您將&#8203;**不會**&#8203;被顯示在網站上，特別是&#8203;`SteamTradeMatcher`&#8203;，它在預設情形下並未啟用。 對於不滿足條件的人，即使他們保持啟用&#8203;`PublicListing`&#8203;，ASF也不會以任何方式與伺服器通訊。 公開清單也只會與ASF最新的穩定版相容，並可能拒絕顯示過時的Bot，特別是如果它們缺少只能在新版本中找到的核心功能。
+雖然&#8203;`PublicListing`&#8203;預設為啟用，但請注意，如果您不滿足所有要求，您將&#8203;**不會**&#8203;被顯示在網站上，特別是&#8203;`SteamTradeMatcher`&#8203;，它在預設情形下並未啟用。 對於不滿足條件的人，即使他們保持啟用&#8203;`PublicListing`&#8203;，ASF也不會以任何方式與伺服器通訊。 公開名單也只會與ASF最新的穩定版相容，並可能拒絕顯示過時的Bot，特別是如果它們缺少只能在新版本中找到的核心功能。
 
 ### 確切的運作方式
 
-ASF會在登入後傳送一次初始資料，其中包含公開清單使用的所有屬性。 然後每隔10分鐘，ASF會傳送一個非常微小的「心跳」請求，來通知我們的伺服器該Bot仍在執行。 如果由於某種原因該心跳未能送達，例如網路問題，那麼ASF將每分鐘重新傳送一次，直到被伺服器記錄。 透過這種方式，我們的伺服器可以準確知道哪些Bot仍在執行，並準備好接受交易提案。 ASF還會依據需要傳送初始發布，例如它偵測到我們的物品庫自上個紀錄以來發生了變化時。
+ASF會在登入後傳送一次初始資料，其中包含公開名單使用的所有屬性。 然後每隔10分鐘，ASF會傳送一個非常微小的「心跳」請求，來通知我們的伺服器該Bot仍在執行。 如果由於某種原因該心跳未能送達，例如網路問題，那麼ASF將每分鐘重新傳送一次，直到被伺服器記錄。 透過這種方式，我們的伺服器可以準確知道哪些Bot仍在執行，並準備好接受交易提案。 ASF還會依據需要傳送初始發布，例如它偵測到我們的物品庫自上個紀錄以來發生了變化時。
 
 我們顯示在&#8203;**過去15分鐘**&#8203;內，所有啟用ASF雙重驗證及STM的活躍帳號。 使用者會依他們的相對有用性排序：首先是顯示帶有&#8203;`Any`&#8203;標題，接受所有1:1交易的&#8203;`MatchEverything`&#8203; Bot，然後依遊戲數量，最後依物品數量排序。
 
 ### API
 
-ASF STM清單暫時只接受ASF Bot。 目前無法在我們的清單中顯示第三方Bot，因為我們無法輕易查看它們的程式碼，並確保它們符合我們的整個交易邏輯。 所以，參與清單需要最新的ASF穩定版本，雖然它仍可以使用自訂&#8203;**[外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-TW)**&#8203;執行。
+ASF STM名單暫時只接受ASF Bot。 目前無法在我們的名單中顯示第三方Bot，因為我們無法輕易查看它們的程式碼，並確保它們符合我們的整個交易邏輯。 所以，參與名單需要最新的ASF穩定版本，雖然它仍可以使用自訂&#8203;**[外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-TW)**&#8203;執行。
 
-對於清單的消費者，我們有個非常簡單的&#8203;**[`/Api/Listing/Bots`](https://asf.justarchi.net/Api/Listing/Bots)**&#8203;端點供您使用。 它包含了我們擁有的所有資料，但不包含作為&#8203;`MatchActively`&#8203;功能一部分的使用者物品庫。
+對於名單的消費者，我們有個非常簡單的&#8203;**[`/Api/Listing/Bots`](https://asf.justarchi.net/Api/Listing/Bots)**&#8203;端點供您使用。 它包含了我們擁有的所有資料，但不包含作為&#8203;`MatchActively`&#8203;功能一部分的使用者物品庫。
 
 ### 隱私權政策
 
-若您同意顯示於我們的清單中，即如上所述，啟用&#8203;`SteamTradeMatcher`&#8203;且不拒絕&#8203;`PublicListing`&#8203;，我們將在我們的伺服器上臨時儲存一些您的Steam帳號詳細資料，用以提供所需功能。
+若您同意顯示於我們的名單中，即如上所述，啟用&#8203;`SteamTradeMatcher`&#8203;且不拒絕&#8203;`PublicListing`&#8203;，我們將在我們的伺服器上臨時儲存一些您的Steam帳號詳細資料，用以提供所需功能。
 
 公開資訊（Steam向所有相關者公開的）包括：
 - 您的Steam ID（64位元形式，用於生成連結）
 - 您的暱稱（用於顯示）
 - 您的頭像（雜湊值，用於顯示）
 
-有條件的公開資訊（Steam向所有符合清單需求相關者公開的）包括：
+有條件的公開資訊（Steam向所有符合名單需求相關者公開的）包括：
 - 您的&#8203;**[物品庫](https://steamcommunity.com/my/inventory/#753_6)**&#8203;（使其他人可以對您的物品使用&#8203;`MatchActively`&#8203;）。
 
 私人資訊（提供功能所需的特定資料）包括：
@@ -42,7 +42,7 @@ ASF STM清單暫時只接受ASF Bot。 目前無法在我們的清單中顯示�
 - 您的&#8203;`MatchEverything`&#8203;設定（用於顯示及匹配）
 - 您的&#8203;`MaxTradeHoldDuration`&#8203;設定（使其他人知道您是否願意接受他們的交易）
 
-從您停止使用（停止顯示於）我們的清單後，您的資料最多儲存兩周，且在該段時間後自動刪除。
+從您停止使用（停止顯示於）我們的名單後，您的資料最多儲存兩周，且在該段時間後自動刪除。
 
 ---
 
@@ -52,7 +52,7 @@ ASF STM清單暫時只接受ASF Bot。 目前無法在我們的清單中顯示�
 
 為了使用這個選項，您需要滿足一系列的需求。 您至少應保證帳號&#8203;**[不受限制](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**&#8203;、啟用&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW#asf-雙重驗證)**&#8203;，並在&#8203;`MatchableTypes`&#8203;中設定至少一種有效類型，例如交換卡片。
 
-若您滿足了上述需求，ASF將會定期與我們的&#8203;**[公開的ASF STM清單](#publiclisting)**&#8203;通訊，以主動匹配當前可用的Bot。
+若您滿足了上述需求，ASF將會定期與我們的&#8203;**[ASF STM公開名單](#publiclisting)**&#8203;通訊，以主動匹配當前可用的Bot。
 
 在匹配期間，ASF Bot將會提取自己的物品庫，然後與我們的伺服器通訊，來從其他當前可用的Bot中找到所有可能的&#8203;`MatchableTypes`&#8203;匹配。 由於直接與我們的伺服器通訊，這個過程只需一個請求，我們就可以立即了解是否有任何可用的Bot能夠提供我們感興趣的東西⸺如果找到匹配物品，ASF將自動發送並確認交易提案。
 
