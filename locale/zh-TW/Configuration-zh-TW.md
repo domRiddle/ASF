@@ -418,15 +418,15 @@ Bot設定檔具有以下結構：
 
 `byte flags`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性定義了在各種事件中ASF的自動化行為，定義項如下：
 
-| 值  | 名稱                                     | 描述                                     |
-| -- | -------------------------------------- | -------------------------------------- |
-| 0  | 無                                      | 無特殊Bot行為，帳號控制最少，預設值                    |
-| 1  | RejectInvalidFriendInvites（拒絕無效好友邀請）   | 使ASF拒絕（而非忽略）無效的好友邀請                    |
-| 2  | RejectInvalidTrades（拒絕無效交易提案）          | 使ASF拒絕（而非忽略）無效的交易提案                    |
-| 4  | RejectInvalidGroupInvites（拒絕無效群組邀請）    | 使ASF拒絕（而非忽略）無效的群組邀請                    |
-| 8  | DismissInventoryNotifications（取消物品庫通知） | 使ASF自動取消所有物品庫通知                        |
-| 16 | MarkReceivedMessagesAsRead（將收到的訊息已讀）   | 使ASF自動將所有收到的訊息標示成已讀                    |
-| 32 | MarkBotMessagesAsRead（將Bot訊息已讀）        | 使ASF自動將所有從其他（執行於同一實例中的）ASF Bot的訊息標示成已讀 |
+| 值  | 名稱                                      | 描述                                     |
+| -- | --------------------------------------- | -------------------------------------- |
+| 0  | 無                                       | 無特殊Bot行為，帳號控制最少，預設值                    |
+| 1  | RejectInvalidFriendInvites （拒絕無效好友邀請）   | 使ASF拒絕（而非忽略）無效的好友邀請                    |
+| 2  | RejectInvalidTrades （拒絕無效交易提案）          | 使ASF拒絕（而非忽略）無效的交易提案                    |
+| 4  | RejectInvalidGroupInvites （拒絕無效群組邀請）    | 使ASF拒絕（而非忽略）無效的群組邀請                    |
+| 8  | DismissInventoryNotifications （取消物品庫通知） | 使ASF自動取消所有物品庫通知                        |
+| 16 | MarkReceivedMessagesAsRead （將收到的訊息已讀）   | 使ASF自動將所有收到的訊息標示成已讀                    |
+| 32 | MarkBotMessagesAsRead （將Bot訊息已讀）        | 使ASF自動將所有從其他（執行於同一實例中的）ASF Bot的訊息標示成已讀 |
 
 請注意，本屬性為&#8203;`flags`&#8203;欄位，因此可以使用所有可用值任意組合。 若您想了解更多，請參閱&#8203;**[旗標映射](#json-映射)**&#8203;。 不啟用任何旗標即為&#8203;`None`&#8203;選項。
 
