@@ -20,7 +20,7 @@ You can verify whether your bot account is using ASF 2FA already by executing `2
 
 ## Creation
 
-In general we strongly recommend to duplicate your existing authenticator, as after all, that's the main purpose ASF 2FA was designed for. However, ASF comes with official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which further extends ASF 2FA allowing you to link completely new authenticator as well.
+In general we strongly recommend to **[duplicate](#import)** your existing authenticator, as after all, that's the main purpose ASF 2FA was designed for. However, ASF comes with official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which further extends ASF 2FA allowing you to link completely new authenticator as well.
 
 In order to assign new 2FA and automatically import it as ASF 2FA, you should do the following steps:
 
