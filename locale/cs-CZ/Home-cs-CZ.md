@@ -1,6 +1,6 @@
 # Domovská stránka
 
-Welcome to ASF wiki. Wiki is an online help that covers many different subjects such as frequently asked questions, possible issues, usage, setting up, and many more. This is what you should follow if you want to learn how ASF works, especially how to install, configure, and use it.
+Vítejte v ASF wiki. Wiki is an online help that covers many different subjects such as frequently asked questions, possible issues, usage, setting up, and many more. This is what you should follow if you want to learn how ASF works, especially how to install, configure, and use it.
 
 You can change wiki language by adding `-locale` string to any visited page. For example, instead of visiting **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**, you can visit **[Home-ru-RU](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU)** that contains home page translated into Russian (if available). Languages that are localized by our community in 90% or more will also be available on our wiki sidebar (on the right) for easy access.
 
