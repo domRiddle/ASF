@@ -39,7 +39,7 @@ The authenticator details are not operative yet, however, you can review the gen
 
 Assuming everything worked properly, previously generated `<Bot>.maFile.PENDING` file was renamed to `<Bot>.maFile.NEW`. This indicates that your 2FA credentials are now valid and active. We recommend you to create a copy of that file and keep it in **secure and safe location**. In addition to that, we recommend you to open it (it's a text file) and write down `revocation_code` which will allow you, as the name implies, to revoke the authenticator in case you lose it.
 
-In regards to technical details, the generated `maFile` includes all details that we have received from Steam server during linking authenticator, and in addition to that `device_id` field which may be needed for other authenticators. The file follows and is fully compatible with SDA for import.
+In regards to technical details, the generated `maFile` includes all details that we have received from Steam server during linking authenticator, and in addition to that `device_id` field which may be needed for other authenticators. The file follows and is fully compatible with **[SDA](#steamdesktopauthenticator)** for import.
 
 ASF automatically imports your authenticator once the procedure is done, therefore `2fa` and other related commands should now be operative for the bot account you linked the authenticator to.
 
