@@ -24,7 +24,7 @@ In general we strongly recommend to **[duplicate](#import)** your existing authe
 
 In order to assign new 2FA and automatically import it as ASF 2FA, you should do the following steps:
 
-1. Create ASF bot for the target account, which you probably already did.
+1. Create ASF bot for the target account, start it and log in, which you probably already did.
 2. Assign working and operative phone number to the account used by the bot **[here](https://store.steampowered.com/phone/manage)**. Phone number is absolutely required, there is no way to add 2FA without it.
 3. Execute `2fainit <Bot>` command, replacing `<Bot>` with your bot's name.
 
