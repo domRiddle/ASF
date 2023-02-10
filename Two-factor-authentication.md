@@ -26,7 +26,7 @@ In order to assign new 2FA and automatically import it as ASF 2FA, you should do
 
 1. Create ASF bot for the target account, start it and log in, which you probably already did.
 2. Assign working and operative phone number to the account used by the bot **[here](https://store.steampowered.com/phone/manage)**. Phone number is absolutely required, there is no way to add 2FA without it.
-3. Execute `2fainit <Bot>` command, replacing `<Bot>` with your bot's name.
+3. Execute `2fainit [Bot]` command, replacing `[Bot]` with your bot's name.
 
 Assuming you got a successful reply, the following two things have happened:
 
@@ -35,7 +35,7 @@ Assuming you got a successful reply, the following two things have happened:
 
 The authenticator details are not operative yet, however, you can review the generated file if you'd like to. If you want to be double safe, you can for example already write down revocation code, which is normally explained further below.
 
-4. Once satisfied, execute `2fafinalize <Bot> <ActivationCode>` command, replacing `<Bot>` with your bot's name and `<ActivationCode>` with the code you've received through SMS.
+4. Once satisfied, execute `2fafinalize [Bot] <ActivationCode>` command, replacing `[Bot]` with your bot's name and `<ActivationCode>` with the code you've received through SMS.
 
 Assuming everything worked properly, previously generated `<Bot>.maFile.PENDING` file was renamed to `<Bot>.maFile.NEW`. This indicates that your 2FA credentials are now valid and active. We recommend you to create a copy of that file and keep it in **secure and safe location**. In addition to that, we recommend you to open it (it's a text file) and write down `revocation_code` which will allow you, as the name implies, to revoke the authenticator in case you lose it.
 
