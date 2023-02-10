@@ -48,7 +48,7 @@ The most advanced and flexible way of executing commands, perfect for user inter
 Command | Access | Description
 --- | --- | ---
 `2fa [Bots]` | `Master` | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.
-`2fafinalize <ActivationCode> [Bots]` | `Master` | Finalizes process of assigning new **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#creation)** credentials for given bot instances.
+`2fafinalize [Bots] <ActivationCode>` | `Master` | Finalizes process of assigning new **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#creation)** credentials for given bot instances.
 `2fainit [Bots]` | `Master` | Starts process of assigning new **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#creation)** credentials for given bot instances.
 `2fano [Bots]` | `Master` | Denies all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.
 `2faok [Bots]` | `Master` | Accepts all pending **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** confirmations for given bot instances.
