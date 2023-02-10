@@ -66,7 +66,11 @@ Linux/macOS：
 
 ---
 
-`--network-group <group>`&#8203;或&#8203;`--network-group=<group>`&#8203;⸺使ASF使用&#8203;`<group>`&#8203;值的自訂網路群組來初始化其限制器。 這個選項會影響執行&#8203;**[多個實例](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-TW#多個實例)**&#8203;的ASF，使用此選項指定的實例只會與相同網路群組的實例相互分享資訊，而與其他實例獨立。 通常只有在您透過自訂機制（如不同的IP位址）來設定ASF的路由請求時，才需要使用本選項來設定網路群組，不再依ASF自動執行此操作（目前只包含&#8203;`WebProxy`&#8203;）。 請注意，在使用自訂網路群組時，這是本機電腦中的唯一識別碼，ASF將不考慮任何其他細節。例如&#8203;`WebProxy`&#8203;的值，您可以使用不同的&#8203;`WebProxy`&#8203;值來執行兩個實例，但它們仍會互相影響。
+`--minimized` - will make ASF console window minimize shortly after start. Useful mainly in auto-start scenarios, but can also be used outside of those. Currently this switch has effect only on Windows machines.
+
+---
+
+`--network-group <group>`&#8203;或&#8203;`--network-group=<group>`&#8203;⸺使ASF使用&#8203;`<group>`&#8203;值的自訂網路群組來初始化其限制器。 這個選項會影響執行&#8203;**[多個實例](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-TW#多個實例)**&#8203;的ASF，使用此選項指定的實例只會與相同網路群組的實例相互分享資訊，而與其他實例獨立。 這個選項會影響執行&#8203;**[多個實例](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-TW#多個實例)**&#8203;的ASF，使用此選項指定的實例只會與相同網路群組的實例相互分享資訊，而與其他實例獨立。 請注意，在使用自訂網路群組時，這是本機電腦中的唯一識別碼，ASF將不考慮任何其他細節。例如&#8203;`WebProxy`&#8203;的值，您可以使用不同的&#8203;`WebProxy`&#8203;值來執行兩個實例，但它們仍會互相影響。
 
 由於此屬性的性質，它還能透過宣告&#8203;`ASF_NETWORK_GROUP`&#8203;環境變數來設定其值，這更適合希望在程序引數中，不包含敏感資訊的使用者。
 

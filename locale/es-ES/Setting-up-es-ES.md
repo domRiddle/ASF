@@ -14,7 +14,7 @@ En general, aquí está lo que haremos los próximos minutos:
 - Instalar los **[prerrequisitos .NET](#prerrequisitos-de-net)**.
 - Descargar la **[última versión de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** en su apropiada variante de sistema operativo específico.
 - Extraer el archivo en una nueva ubicación.
-- **[Configurar ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es)**.
+- **[Configurar ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES)**.
 - Ejecutar ASF y ver la magia.
 
 Suena bastante simple, ¿cierto? Así que hagámoslo.
@@ -54,7 +54,7 @@ Al menos la mayoría de estas deberían estar disponibles nativamente en tu sist
 
 ### Descargando
 
-Ya que tengamos todas las dependencias requeridas, el siguiente paso es descargar la **[última versión de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF está disponible en diversas variantes, pero te interesa el paquete que concuerde con tu sistema operativo y arquitectura. Por ejemplo, si usas `Win`dows de `64`-bits, entonces necesitas el paquete `ASF-win-x64`. Para más información acerca de las variantes disponibles, visita la sección de **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es)**. ASF también es capaz de ejecutarse en sistemas operativos para los que no compilamos un paquete de sistema operativo específico, tal como **Windows de 32-bits**, dirígete a la **[configuración genérica](#configuración-genérica)** para eso.
+Ya que tengamos todas las dependencias requeridas, el siguiente paso es descargar la **[última versión de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**. ASF está disponible en diversas variantes, pero te interesa el paquete que concuerde con tu sistema operativo y arquitectura. Por ejemplo, si usas `Win`dows de `64`-bits, entonces necesitas el paquete `ASF-win-x64`. Para más información acerca de las variantes disponibles, visita la sección de **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-ES)**. ASF también es capaz de ejecutarse en sistemas operativos para los que no compilamos un paquete de sistema operativo específico, tal como **Windows de 32-bits**, dirígete a la **[configuración genérica](#configuración-genérica)** para eso.
 
 ![Recursos](https://i.imgur.com/Ym2xPE5.png)
 
@@ -85,9 +85,9 @@ C:\ASF (donde pones tus propias cosas)
 
 Ahora estamos listos para hacer el último paso, la configuración. Este es por mucho el paso más difícil, ya que involucra mucha información nueva con la que todavía no estás familiarizado, así que intentaremos proporcionar ejemplos fáciles de entender y una explicación simplificada.
 
-Primero y más importante, hay una página de **[configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es)** que explica **todo** lo que se relaciona con la configuración, pero es una enorme cantidad de información nueva, mucha de la cual no necesitamos saber ahora mismo. En cambio, te enseñaremos cómo obtener la información que realmente necesitas.
+Primero y más importante, hay una página de **[configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES)** que explica **todo** lo que se relaciona con la configuración, pero es una enorme cantidad de información nueva, mucha de la cual no necesitamos saber ahora mismo. En cambio, te enseñaremos cómo obtener la información que realmente necesitas.
 
-La configuración de ASF se puede hacer de al menos tres maneras - a través de nuestro generador de configuración web, ASF-ui o manualmente. Esto se explica a detalle en la sección de **[configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es)**, así que consúltala si quieres información más detallada. Usaremos el generador de configuración web como punto de partida.
+La configuración de ASF se puede hacer de al menos tres maneras - a través de nuestro generador de configuración web, ASF-ui o manualmente. Esto se explica a detalle en la sección de **[configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES)**, así que consúltala si quieres información más detallada. Usaremos el generador de configuración web como punto de partida.
 
 Dirígete a la página de nuestro **[generador de configuración web](https://justarchinet.github.io/ASF-WebConfigGenerator)** con tu navegador preferido, necesitas tener javascript activado en caso de que lo hayas desactivado manualmente. Recomendamos Chrome o Firefox, pero debería funcionar en todos los navegadores más populares.
 
@@ -141,7 +141,7 @@ Después de la etapa de conexión, asumiendo que tus datos son correctos, inicia
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-Esto prueba que ASF está haciendo su trabajo con éxito en tu cuenta, ahora puedes minimizar el programa y hacer algo más. Después del suficiente tiempo (dependiendo del **[rendimiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-es)**) verás que poco a poco recibes cromos de Steam. Por supuesto, para que eso suceda debes tener juegos válidos para recolectar, mostrado como "puedes obtener X cromos más jugando este juego" en tu **[página de insignias](https://steamcommunity.com/my/badges)** - si no hay juegos para recolectar, entonces ASF indicará que no hay nada qué hacer, como se expresa en nuestras **[preguntas frecuentes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-es#qu%C3%A9-es-asf)**.
+Esto prueba que ASF está haciendo su trabajo con éxito en tu cuenta, ahora puedes minimizar el programa y hacer algo más. Después del suficiente tiempo (dependiendo del **[rendimiento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-es-ES)**) verás que poco a poco recibes cromos de Steam. Por supuesto, para que eso suceda debes tener juegos válidos para recolectar, mostrado como "puedes obtener X cromos más jugando este juego" en tu **[página de insignias](https://steamcommunity.com/my/badges)** - si no hay juegos para recolectar, entonces ASF indicará que no hay nada qué hacer, como se expresa en nuestras **[preguntas frecuentes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-ES#qu%C3%A9-es-asf)**.
 
 Esto concluye nuestra guía de configuración básica. Ahora puedes decidir si quieres seguir configurando ASF, o dejarlo hacer su trabajo con la configuración predeterminada. Abarcaremos algunos detalles básicos más, y luego dejaremos toda la wiki para que descubras.
 
@@ -186,13 +186,13 @@ Editar tus configuraciones de ASF se puede hacer más fácilmente usando nuestro
 
 #### Usando ASF-ui
 
-ASF es una aplicación de consola y no incluye una interfaz gráfica de usuario. Sin embargo, estamos trabajando en el frontend **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es#asf-ui)** para nuestra interfaz IPC, la cual puede ser una manera muy decente y amigable para acceder a varias funciones de ASF.
+ASF es una aplicación de consola y no incluye una interfaz gráfica de usuario. Sin embargo, estamos trabajando en el frontend **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES#asf-ui)** para nuestra interfaz IPC, la cual puede ser una manera muy decente y amigable para acceder a varias funciones de ASF.
 
 Para poder usar ASF-ui, necesitas tener `IPC` habilitado, lo que es la opción predeterminada a partir de ASF V5.1.0.0. Una vez que inicies ASF, deberías poder comprobar que inició automáticamente de forma correcta la interfaz IPC:
 
 ![IPC](https://i.imgur.com/ZmkO8pk.png)
 
-Puedes acceder a la interfaz IPC de ASF en **[este](http://localhost:1242)** enlace, siempre y cuando ASF se esté ejecutando, desde la misma máquina. Puedes usar ASF-ui para varios propósitos, por ejemplo, editar los archivos de configuración o enviar **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)**. No dudes en echar un vistazo para descubrir todas las funcionalidades de la interfaz de usuario de ASF.
+Puedes acceder a la interfaz IPC de ASF en **[este](http://localhost:1242)** enlace, siempre y cuando ASF se esté ejecutando, desde la misma máquina. Puedes usar ASF-ui para varios propósitos, por ejemplo, editar los archivos de configuración o enviar **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)**. No dudes en echar un vistazo para descubrir todas las funcionalidades de la interfaz de usuario de ASF.
 
 ![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
@@ -200,19 +200,19 @@ Puedes acceder a la interfaz IPC de ASF en **[este](http://localhost:1242)** enl
 
 ### Sumario
 
-Has configurado ASF con éxito para usar tus cuentas de Steam y ya lo has personalizado un poco a tu gusto. Si seguiste nuestra guía, entonces también lograste modificar ASF a través de nuestra interfaz ASF-ui y descubriste que ASF en realidad tiene una interfaz gráfica de algún tipo. Ahora es un buen momento para leer toda nuestra sección de **[configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es)** para aprender qué hacen los diferentes ajustes que viste, y lo que ASF tiene para ofrecer. Si te has encontrado con algún problema o tienes alguna pregunta genérica, lee nuestras **[preguntas frecuentes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-es)**, lo que debería cubrir todo, o al menos la gran mayoría de las preguntas que puedas tener. Si quieres aprender todo acerca de ASF y de cómo puede hacer tu vida más fácil, dirígete al resto de **[nuestra wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-es-es)**. Si nuestro programa te resulta útil y te sientes generoso, también puedes considerar hacer una donación a nuestro proyecto. En cualquier caso, ¡diviértete!
+Has configurado ASF con éxito para usar tus cuentas de Steam y ya lo has personalizado un poco a tu gusto. Si seguiste nuestra guía, entonces también lograste modificar ASF a través de nuestra interfaz ASF-ui y descubriste que ASF en realidad tiene una interfaz gráfica de algún tipo. Ahora es un buen momento para leer toda nuestra sección de **[configuración](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES)** para aprender qué hacen los diferentes ajustes que viste, y lo que ASF tiene para ofrecer. Si te has encontrado con algún problema o tienes alguna pregunta genérica, lee nuestras **[preguntas frecuentes](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-ES)**, lo que debería cubrir todo, o al menos la gran mayoría de las preguntas que puedas tener. Si quieres aprender todo acerca de ASF y de cómo puede hacer tu vida más fácil, dirígete al resto de **[nuestra wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-es-ES)**. Si nuestro programa te resulta útil y te sientes generoso, también puedes considerar hacer una donación a nuestro proyecto. En cualquier caso, ¡diviértete!
 
 ---
 
 ## Configuración genérica
 
-Esta configuración es para usuarios avanzados que quieren establecer ASF para ejecutarlo en su variante **[genérica](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#gen%C3%A9rico)**. No se recomienda para personas que pueden usar la **[configuración de sistema operativo específico](#configuración-de-sistema-operativo-específico)**.
+Esta configuración es para usuarios avanzados que quieren establecer ASF para ejecutarlo en su variante **[genérica](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-ES#gen%C3%A9rico)**. No se recomienda para personas que pueden usar la **[configuración de sistema operativo específico](#configuración-de-sistema-operativo-específico)**.
 
 Querrás usar la variante `generic` principalmente en esas situaciones (pero puedes usarla de todos modos):
 - Cuando usas un sistema operativo para el cual no compilamos un paquete de sistema operativo específico (tal como Windows de 32-bits)
 - Cuando ya tienes .NET Runtime/SDK, o quieres instalar y usar uno
 - Cuando quieres minimizar el tamaño de la estructura de ASF manejando los requerimientos de runtime por ti mismo
-- Cuando quieras usar un **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-es-es)** personalizado que requiera una configuración `generic` de ASF para ejecutarse correctamente (debido a dependencias nativas faltantes)
+- Cuando quieras usar un **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-es-ES)** personalizado que requiera una configuración `generic` de ASF para ejecutarse correctamente (debido a dependencias nativas faltantes)
 
 Sin embargo, ten en cuenta que tú eres responsable del .NET runtime en este caso. Esto significa que si tu .NET SDK (runtime) no está disponible, está desactualizado o roto, ASF no funcionará. Es por eso que no recomendamos esta configuración para usuarios casuales, ya que ahora necesitas asegurarte de que tu .NET SDK (runtime) coincida con los requerimientos de ASF y puede ejecutarlo, en contraposición a que **nosotros** nos aseguremos de que nuestro .NET runtime en conjunto con ASF puede hacerlo.
 
@@ -220,10 +220,10 @@ Para el paquete `generic`, puedes seguir la guía de sistema operativo específi
 
 Con pasos adicionales:
 - Instalar los **[prerrequisitos .NET](#prerrequisitos-de-net)**.
-- Instalar el **[.NET SDK](https://www.microsoft.com/net/download)** (o por lo menos ASP.NET Core runtime) apropiado para tu sistema operativo. Probablemente querrás usar un instalador. Dirígete a **[requisitos de runtime](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es#requisitos-de-runtime)** si no estás seguro de qué versión instalar.
+- Instalar el **[.NET SDK](https://www.microsoft.com/net/download)** (o por lo menos ASP.NET Core runtime) apropiado para tu sistema operativo. Probablemente querrás usar un instalador. Dirígete a **[requisitos de runtime](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-ES#requisitos-de-runtime)** si no estás seguro de qué versión instalar.
 - Descarga la **[última versión de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** en su variante `generic`.
 - Extraer el archivo en una nueva ubicación.
-- **[Configurar ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es)**.
+- **[Configurar ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES)**.
 - Ejecuta ASF ya sea usando un script auxiliar o ejecutando `dotnet /path/to/ArchiSteamFarm.dll` manualmente desde tu shell favorito.
 
 Los scripts auxiliares (tal como `ArchiSteamFarm.cmd` para Windows y `ArchiSteamFarm.sh` para Linux/macOS) están ubicados junto al binario `ArchiSteamFarm.dll` - estos solo están incluidos en la variante `generic`. Puedes usarlos si no quieres ejecutar manualmente el comando `dotnet`. Obviamente los scripts auxiliares no funcionarán si no instalaste .NET SDK y no tienes el ejecutable `dotnet` disponible en tu `PATH`. Los scripts auxiliares son completamente opcionales, siempre puedes usar manualmente `dotnet /path/to/ArchiSteamFarm.dll`.

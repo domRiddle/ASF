@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argumento --otroArgumento
 ```
 
-Los argumentos de la línea de comandos también están soportados en scripts auxiliares genéricos tal como `ArchiSteamFarm.cmd` o `ArchiSteamFarm.sh`. Además, al usar scripts auxiliares también puedes emplear la propiedad de entorno `ASF_ARGS`, tal como se explica en la sección **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-es-es#argumentos-de-la-l%C3%ADnea-de-comandos)**.
+Los argumentos de la línea de comandos también están soportados en scripts auxiliares genéricos tal como `ArchiSteamFarm.cmd` o `ArchiSteamFarm.sh`. Además, al usar scripts auxiliares también puedes emplear la propiedad de entorno `ASF_ARGS`, tal como se explica en la sección **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-es-ES#argumentos-de-la-l%C3%ADnea-de-comandos)**.
 
 Si tu argumento incluye espacios, no olvides ponerlo entre comillas. Estos dos son incorrectos:
 
@@ -44,7 +44,7 @@ Sin embargo, estos dos están completamente bien:
 
 ## Argumentos
 
-`--cryptkey <key>` o `--cryptkey=<key>` - lanzará ASF con una clave criptográfica personalizada de valor `<key>`. Esta opción afecta a la **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-es)** y hará que ASF use la clave personalizada `<key>` que hayas proporcionado, en lugar de la que está establecida por defecto en el ejecutable. Dado que esta propiedad afecta la clave de cifrado predeterminada (para propósitos de cifrado) así como la sal (para propósitos de hashing), ten en cuenta que todo lo cifrado/hasheado con esta clave requerirá ser pasado en cada ejecución de ASF.
+`--cryptkey <key>` o `--cryptkey=<key>` - lanzará ASF con una clave criptográfica personalizada de valor `<key>`. Esta opción afecta a la **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-ES)** y hará que ASF use la clave personalizada `<key>` que hayas proporcionado, en lugar de la que está establecida por defecto en el ejecutable. Dado que esta propiedad afecta la clave de cifrado predeterminada (para propósitos de cifrado) así como la sal (para propósitos de hashing), ten en cuenta que todo lo cifrado/hasheado con esta clave requerirá ser pasado en cada ejecución de ASF.
 
 Es bueno mencionar que hay otras dos formas de proporcionar este detalle: `--cryptkey-file` y `--input-cryptkey`.
 
@@ -66,6 +66,10 @@ Debido a la naturaleza de esta propiedad, también es posible establecer el arch
 
 ---
 
+`--minimized` - causará que la ventana de la consola de ASF se minimice poco después de iniciar. Útil principalmente en escenarios de autoinicio, pero también puede ser usado fuera de ellos. Actualmente esta opción solo tiene efecto en máquinas con Windows.
+
+---
+
 `--network-group <group>` o `--network-group=<group>` - causará que ASF inicialice sus limitadores con un grupo de red personalizado con el valor `<group>`. Esta opción afecta a ASF ejecutándose en **[múltiples instancias](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-es-ES#m%C3%BAltiples-instancias)** señalizando que una instancia determinada es dependiente solo de instancias que compartan el mismo grupo de red, e independiente del resto. Normalmente quieres usar esta propiedad solo si estás enrutando solicitudes de ASF a través de un mecanismo personalizado (por ejemplo, diferentes direcciones IP) y quieres establecer grupos de red, sin depender de ASF para hacerlo automáticamente (lo que actualmente incluye tomar en cuenta solo `WebProxy`). Ten en cuenta que al usar un grupo de red personalizado, este es un identificador único dentro de la misma máquina, y ASF no tendrá en cuenta ningún otro detalle, tal como el valor `WebProxy`, permitiéndote, por ejemplo, iniciar dos instancias con diferentes valores `WebProxy` que siguen siendo dependientes entre sí.
 
 Debido a la naturaleza de esta propiedad, también es posible establecer el valor declarando la variable de entorno `ASF_NETWORK_GROUP`, lo que podría ser más apropiado para las personas que quieran evitar información confidencial en los argumentos del proceso.
@@ -76,11 +80,11 @@ Debido a la naturaleza de esta propiedad, también es posible establecer el valo
 
 ---
 
-`--no-config-watch` - por defecto ASF configura un `FileSystemWatcher` en tu directorio `config` para escuchar eventos relacionados con la modificación de archivos, y así poder adaptarse de forma interactiva a ellos. Por ejemplo, esto incluye detener bots al borrar su configuración, reiniciar bots al modificar su configuración, o cargar claves de producto (keys) en el **[activador de juegos en segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-es-es)** una vez que las pongas en el directorio `config`. Este modificador te permite deshabilitar dicho comportamiento, lo que hará que ASF ignore completamente todos los cambios en el directorio `config`, requiriendo que realices dichas acciones manualmente, si lo consideras apropiado (lo que normalmente significa reiniciar el proceso). Recomendamos mantener los eventos de configuración activados, pero si tienes una razón en particular para desactivarlos y prefieres que ASF no los detecte, puedes usar este modificador para lograr ese propósito.
+`--no-config-watch` - por defecto ASF configura un `FileSystemWatcher` en tu directorio `config` para escuchar eventos relacionados con la modificación de archivos, y así poder adaptarse de forma interactiva a ellos. Por ejemplo, esto incluye detener bots al borrar su configuración, reiniciar bots al modificar su configuración, o cargar claves de producto (keys) en el **[activador de juegos en segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-es-ES)** una vez que las pongas en el directorio `config`. Este modificador te permite deshabilitar dicho comportamiento, lo que hará que ASF ignore completamente todos los cambios en el directorio `config`, requiriendo que realices dichas acciones manualmente, si lo consideras apropiado (lo que normalmente significa reiniciar el proceso). Recomendamos mantener los eventos de configuración activados, pero si tienes una razón en particular para desactivarlos y prefieres que ASF no los detecte, puedes usar este modificador para lograr ese propósito.
 
 ---
 
-`--no-restart` - esta opción se usa principlamente para nuestros contenedores **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-es-es)** y fuerza `AutoRestart` al valor `false`. A menos que tengas una necesidad particular, en lugar de usar esta opción deberías configurar la propiedad `AutoRestart` directamente en tu configuración. Esta opción existe para que nuestro script docker no necesite modificar tu configuración global para adaptarla a su propio entorno. Por supuesto, si estás ejecutando ASF a través de un script, también puedes utilizar esta opción (si no, es preferible usar la propiedad de configuración global).
+`--no-restart` - esta opción se usa principlamente para nuestros contenedores **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-es-ES)** y fuerza `AutoRestart` al valor `false`. A menos que tengas una necesidad particular, en lugar de usar esta opción deberías configurar la propiedad `AutoRestart` directamente en tu configuración. Esta opción existe para que nuestro script docker no necesite modificar tu configuración global para adaptarla a su propio entorno. Por supuesto, si estás ejecutando ASF a través de un script, también puedes utilizar esta opción (si no, es preferible usar la propiedad de configuración global).
 
 ---
 
@@ -119,13 +123,13 @@ ASF_PATH=/opt/TargetDirectory dotnet /opt/ASF/ArchiSteamFarm.dll # Igual que la 
 
 ---
 
-`--process-required` - declarar esto desactivará el comportamiento predeterminado de ASF de cerrarse cuando no hay bots en ejecución. El comportamiento de no cerrarse automáticamente es especialmente útil en combinación con **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es)** donde la mayoría de usuarios esperarían que su servicio web se ejecute independientemente de la cantidad de bots activos. Si estás usando la opción IPC o necesitas que el proceso de ASF se ejecute todo el tiempo hasta que lo cierres, esta es la opción correcta.
+`--process-required` - declarar esto desactivará el comportamiento predeterminado de ASF de cerrarse cuando no hay bots en ejecución. El comportamiento de no cerrarse automáticamente es especialmente útil en combinación con **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES)** donde la mayoría de usuarios esperarían que su servicio web se ejecute independientemente de la cantidad de bots activos. Si estás usando la opción IPC o necesitas que el proceso de ASF se ejecute todo el tiempo hasta que lo cierres, esta es la opción correcta.
 
 Si no pretendes usar IPC, esta opción será inútil para ti, ya que puedes solamente iniciar el proceso de nuevo cuando lo necesites (contrario al servidor web de ASF donde requieres que esté escuchando todo el tiempo para enviar comandos).
 
 ---
 
-`--service` - esta opción es usada principalmente por nuestro servicio `systemd` y fuerza la configuración `Headless` al valor `true`. A menos que tengas una necesidad particular, deberías establecer la propiedad `Headless` directamente en tu configuración. Esta opción está aquí para que nuestro servicio `systemd` no necesite tocar tu configuración global para adaptarla a su propio entorno. Por supuesto, si tienes una necesidad similar también puedes usar esta opción (de lo contrario es mejor con la propiedad de configuración global).
+`--service` - esta opción es usada principalmente por nuestro servicio `systemd` y fuerza la configuración `Headless` al valor `true`. A menos que tengas una necesidad particular, deberías establecer la propiedad `Headless` directamente en tu configuración. Esta opción está disponible para que nuestro servicio `systemd` no necesite tocar tu configuración global para adaptarla a su propio entorno. Por supuesto, si tienes una necesidad similar también puedes usar esta opción (de lo contrario es mejor con la propiedad de configuración global).
 
 ---
 
