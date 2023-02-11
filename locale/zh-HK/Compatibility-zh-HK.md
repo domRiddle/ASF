@@ -4,7 +4,7 @@ ASF is a C# application that is running on .NET platform. 這意味著 ASF 並�
 
 This approach has gigantic amount of advantages, as CIL is platform-independent, which is why ASF can run natively on many available OSes, especially Windows, Linux and macOS. There is not only no emulation needed, but also support for all platform-related and hardware-related optimizations, such as CPU SSE instructions. 因此，ASF可以實現卓越的性能和優化，同時仍然提供完美的兼容性和可靠性。
 
-這也意味著運行 ASF **沒有特定的操作系統要求**，因為它需要的只是系統上的**運行環境**而非系統本身。 As long as that runtime is executing ASF code properly, it does not matter whether underlying OS is Windows, Linux, macOS, BSD, Sony Playstation 4, Nintendo Wii or your toaster - as long as there is **[.NET for it](https://dotnet.microsoft.com/download/dotnet)**, there is **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** for it.
+這也意味著運行 ASF **沒有特定的操作系統要求**，因為它需要的只是系統上的**運行環境**而非系統本身。 As long as that runtime is executing ASF code properly, it does not matter whether underlying OS is Windows, Linux, macOS, BSD, Sony Playstation 4, Nintendo Wii or your toaster - as long as there is **[.NET for it](https://dotnet.microsoft.com/download/dotnet)**, there is **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** for it (in generic variant).
 
 However, regardless of where you run ASF, you must ensure that your target platform has **[.NET prerequisites](https://github.com/dotnet/core/blob/main/Documentation/prereqs.md)** installed. 這些都是確保運行環境功能正常的底層庫，也是確保 ASF 能夠第一時間工作的絕對核心。 很有可能您已經安裝了其中的一些 (甚至全部)。
 
@@ -38,12 +38,13 @@ As the time goes on with more platforms being supported by .NET and less compati
 
 ASF當前可用於以下操作系統 ：
 
-- `linux-arm`適用於基於 ARM（ARMv7+）的32位GNU/Linux 操作系統。 This includes platforms such as Raspberry Pi 2 (and newer) with all GNU/Linux OSes available for them (such as Raspberry Pi OS), in current and future versions. This variant will **not** work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
-- `linux-arm64` works on 64-bit ARM-based (ARMv8+) GNU/Linux OSes. This includes platforms such as Raspberry Pi 3 (and newer) with all AArch64 GNU/Linux OSes available for them (such as Debian), in current and future versions. This variant will **not** work with 32-bit OSes that do not have required 64-bit libraries available (such as Raspberry Pi OS), it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
-- `linux-x64` 適用於64 位 GNU/Linux 操作系統。 This includes Alpine, CentOS/Fedora/RHEL, Debian/Ubuntu, OpenSUSE/SLES and many other ones, including their derivatives, in current and future versions.
-- `osx-arm64` works on 64-bit ARM-based (Apple silicon) macOS OSes. This includes version 11, as well as future ones.
-- `osx-x64` works on 64-bit macOS OSes. This includes version 10.15, as well as future ones.
-- `win-x64` 支援 64 位 Windows 操作系統。 This includes 10, 11, Server 2012+ as well as future versions.
+- `linux-arm` works on 32-bit ARM-based (ARMv7+) GNU/Linux OSes with glibc 2.27 and newer. This variant covers platforms such as Raspberry Pi 2 (and newer), it will **not** work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
+- `linux-arm64` works on 64-bit ARM-based (ARMv8+) GNU/Linux OSes with glibc 2.23/musl 1.2.2 and newer. This variant covers platforms such as Raspberry Pi 3 (and newer), it will **not** work with 32-bit OSes that do not have required 64-bit libraries available (such as 32-bit Raspberry Pi OS), it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
+- `linux-x64` works on 64-bit GNU/Linux OSes with glibc 2.17/musl 1.2.2 and newer.
+- `osx-arm64` works on 64-bit ARM-based (Apple silicon) macOS OSes in version 11 and newer.
+- `osx-x64` works on 64-bit macOS OSes in version 10.15 and newer.
+- `win-arm64` works on 64-bit ARM-based (ARMv8+) Windows OSes in version 10, 11 and newer.
+- `win-x64` works on 64-bit Windows OSes in version 10, 11, Server 2012+ and newer.
 
 Of course, even if you don't have OS-specific package available for your OS-architecture combination, you can always install appropriate .NET runtime yourself and run generic ASF flavour, which is also the main reason why it exists in the first place. Generic ASF build is platform-agnostic and will run on any platform that has a working .NET runtime. This is important to note - ASF requires .NET runtime, not some specific OS or architecture. For example, if you're running 32-bit Windows then despite of no dedicated `win-x86` ASF version, you can still install .NET SDK in `win-x86` version and run generic ASF just fine. 我們無法為所有操作系統和架構組合都提供一份可執行档案，為此我們要在某處劃清界限。 x86 就是這條線的範例之一，因為它的體系結構至少自 2004 年開始就已過時了。
 

@@ -4,7 +4,7 @@ ASF是一個在.NET Core平台上執行的C#應用程式。 這代表ASF並不�
 
 這種方法具有巨大的優勢，因為CIL獨立於平台，這就是為什麼ASF天生就能夠在許多作業系統上執行的原因，特別是Windows、Linux與macOS上。 不僅不需要模擬，同時也支援所有平台相關及硬體相關的最佳化，例如CPU SSE指令。 因此，ASF在表現卓越的效能及最佳化時，同時仍能提供完美的相容性與可靠性。
 
-這也代表執行ASF&#8203;**沒有特定的作業系統需求**&#8203;，因為它需要的只是執行於作業系統上的&#8203;**執行環境**&#8203;，而非作業系統本身。 只要在執行期間正確執行ASF程式碼，底層的作業系統不論是Windows、Linux、macOS、BSD、Sony Playstation 4、Nintendo Wii，或是您的烤麵包機上，都無所謂。只要有相應的&#8203;**[.NET](https://dotnet.microsoft.com/download/dotnet)**&#8203;，就能執行&#8203;**[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;。
+這也代表執行ASF&#8203;**沒有特定的作業系統需求**&#8203;，因為它需要的只是執行於作業系統上的&#8203;**執行環境**&#8203;，而非作業系統本身。 As long as that runtime is executing ASF code properly, it does not matter whether underlying OS is Windows, Linux, macOS, BSD, Sony Playstation 4, Nintendo Wii or your toaster - as long as there is **[.NET for it](https://dotnet.microsoft.com/download/dotnet)**, there is **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** for it (in generic variant).
 
 然而，不論您想要在哪個平台上執行ASF，您都需要確保該平台安裝了&#8203;**[.NET需求套件](https://github.com/dotnet/core/blob/main/Documentation/prereqs.md)**&#8203;。 這些都是確保執行環境功能正常所需的底層函式庫，也是ASF第一時間運作的絕對核心。 很有可能您已安裝了其中的一些（甚至全部）。
 
@@ -38,12 +38,13 @@ Generic套件與平台無關，所以它不包含任何給特定設備使用的�
 
 ASF目前擁有以下特定作業系統的變體版本：
 
-- `linux-arm`&#8203;支援32位元基於ARM（ARMv7+）的GNU/Linux作業系統。 這包含例如Raspberry Pi 2（或較新版本）等的平台，以及所有在當前和未來版本中可用的GNU/Linux作業系統（例如Raspberry Pi OS）。 這個變體版本&#8203;**並不**&#8203;支援較舊的ARM架構，例如Raspberry Pi 0中的ARMv6 & 1，它也不適用於未實作所需GNU/Linux環境的作業系統（例如Android）。
-- `linux-arm64`&#8203;支援64 位元基於ARM（ARMv8+）的GNU/Linux作業系統。 這包含例如Raspberry Pi 3（或較新版本）等的平台，以及所有在當前和未來版本中可用的AArch64 GNU/Linux作業系統（例如Debian）。 這個變體版本&#8203;**並不**&#8203;支援未具備所需64位元函式庫的32位元作業系統（例如Raspberry Pi OS），它也不適用於未實作所需GNU/Linux環境的作業系統（例如Android）。
-- `linux-x64`&#8203;支援64位元的GNU/Linux作業系統。 這包含Alpine、CentOS/Fedora/RHEL、Debian/Ubuntu、OpenSUSE/SLES等的很多作業系統，包含它們在當前和未來的版本中的衍生版本。
-- `osx-x64`&#8203;支援64位元基於ARM（Apple silicon）的macOS作業系統。 包含版本11及其更新版本。
-- `osx-x64`&#8203;支援64位元的macOS作業系統。 包含版本10.15及其更新版本。
-- `win-x64`&#8203;支援64位元的Windows作業系統。 包含10、11、Server 2012+及其更新版本。
+- `linux-arm` works on 32-bit ARM-based (ARMv7+) GNU/Linux OSes with glibc 2.27 and newer. This variant covers platforms such as Raspberry Pi 2 (and newer), it will **not** work with older ARM architectures, such as ARMv6 found in Raspberry Pi 0 & 1, it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
+- `linux-arm64` works on 64-bit ARM-based (ARMv8+) GNU/Linux OSes with glibc 2.23/musl 1.2.2 and newer. This variant covers platforms such as Raspberry Pi 3 (and newer), it will **not** work with 32-bit OSes that do not have required 64-bit libraries available (such as 32-bit Raspberry Pi OS), it will also not work with OSes that do not implement required GNU/Linux environment (such as Android).
+- `linux-x64` works on 64-bit GNU/Linux OSes with glibc 2.17/musl 1.2.2 and newer.
+- `osx-arm64` works on 64-bit ARM-based (Apple silicon) macOS OSes in version 11 and newer.
+- `osx-x64` works on 64-bit macOS OSes in version 10.15 and newer.
+- `win-arm64` works on 64-bit ARM-based (ARMv8+) Windows OSes in version 10, 11 and newer.
+- `win-x64` works on 64-bit Windows OSes in version 10, 11, Server 2012+ and newer.
 
 當然，即使沒有適合您作業系統及架構的特定作業系統套件，您也可以手動安裝適當的.NET Core執行環境並執行Generic ASF套件，這也是這個套件存在的主要原因。 Generic ASF套件與平台無關，可以在任何具有可用.NET Core執行環境的平台上執行。 需要注意：ASF需要的是.NET Core執行環境，而不是特定的作業系統或架構。 例如，如果您使用的是32位元Windows，但ASF沒有&#8203;`win-x86`&#8203;版本，您仍然可以安裝&#8203;`win-x86`&#8203;版本的.NET Core SDK，然後執行Generic版本的ASF。 我們無法為所有作業系統及架構組合都產生一份執行檔，所以我們為此畫下一道分隔線。 x86就是這條線的其中之一，因為這種架構從2004年開始就已經過時了。
 

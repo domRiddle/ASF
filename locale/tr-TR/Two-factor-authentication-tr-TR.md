@@ -1,28 +1,53 @@
 # İki aşamalı kimlik doğrulaması
 
-Valve bir süre önce "Escow" ismiyle bilinen ve hesapla ilgili çeşitli etkinlikler için ekstra kimlik doğrulayıcı gerektiren bir sistem tanıttı. **[Buradan](https://support.steampowered.com/kb_article.php?ref=1284-WTKB-4729)** ve **[buradan](https://support.steampowered.com/kb_article.php?ref=8078-TPHC-6195)** daha fazlasını okuyabilirsiniz. ASF 2FA' nın arkasındaki mantığı anlamaya çalışmadan önce 2FA sistemini anlamak çok önemlidir.
-
-Gördüğünüz gibi tüm takas işlemlerinin 15 güne kadar bekletilmesi; söz konusu ASF olduğunda büyük bir sorun olmaktan çıkıyor, ama özellikle tam otomasyon isteyenler için hala can sıkıcı olabiliyor. Neyse ki ASF bu soruna ASF 2FA adı verilen bir çözüm içeriyor.
+Steam includes two-factor authentication system known as "Escrow" that requires extra details for various account-related activity. **[Buradan](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)** ve **[buradan](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)** daha fazlasını okuyabilirsiniz. This page considers that 2FA system as well as our solution that integrates with it, called ASF 2FA.
 
 ---
 
 # ASF Mantığı
 
-Aşağıda açıklanan ASF 2FA' yı kullansanız da kullanmasanız da, ASF uygun mantığı içerir ve standart 2FA ile korunan hesapların tamamen farkındadır. İhtiyaç olduğunda sizden gerekli ayrıntıları isteyecektir.(oturum açma sırasında olduğu gibi). Eğer ASF 2FA kullanıyorsanız, uygulama bu istekleri atlayabilecek ve otomatik olarak gerekli tokenları oluşturabilecek, sizi güçlükten kurtaracak ve ekstra işlevsellik sağlayacak.(aşağıda açıklanan).
+Regardless if you use ASF 2FA or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. İhtiyaç olduğunda sizden gerekli ayrıntıları isteyecektir.(oturum açma sırasında olduğu gibi). However, those requests can be automated by using ASF 2FA, which will automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
 
 ---
 
 # ASF 2FA
 
-ASF 2AD, ASF sürecine belirteç oluşturma ve onayları kabul etme gibi 2AD özellikleri sağlamaktan sorumlu dahili bir modüldür. Mevcut kimlik doğrulayıcınızı çoğaltır, böylece geçerli kimlik doğrulayıcınızı ve ASF 2AD'yi aynı anda kullanabilirsiniz.
+ASF 2FA is a built-in module responsible for providing 2FA features to the ASF process, such as generating tokens and accepting confirmations. It works by duplicating your existing authenticator details, so that you can use your current authenticator and ASF 2FA at the same time.
 
-Bot hesabınızın ASF 2AD'yi zaten kullandığını `2ad` **[komutlarını](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** yürüterek doğrulayabilirsiniz. Kimlik doğrulayıcınızı ASF 2AD olarak almadıysanız, 2ad komutlarının tümü çalışmayacaktır, yani hesabınız ASF 2AD kullanmaz, bu nedenle modülün çalışır durumda olmasını gerektiren gelişmiş ASF özellikleri için de kullanılamaz.
+Bot hesabınızın ASF 2AD'yi zaten kullandığını `2ad` **[komutlarını](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** yürüterek doğrulayabilirsiniz. Unless you've already imported your authenticator as ASF 2FA, all standard `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
 
 ---
 
-## İçe aktarma
+## Creation
 
-ASF 2AD'yi kullanmak için, ASF tarafından desteklenen bağlantı kurulmuş ve çalışan kimlik doğrulayıcıya sahip olmanız gerekir. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth, on top of manual method which allows you to provide required credentials yourself. If you don't have any authenticator yet, you need to choose one of available apps and set it up firstly. Hangisini seçeceğinizi iyi bilmiyorsanız, WinAuth'u öneririz, ancak talimatları uyguladığınızı varsayarsak yukarıdakilerden herhangi biri işinizi görecektir.
+In general we strongly recommend to **[duplicate](#import)** your existing authenticator, as after all, that's the main purpose ASF 2FA was designed for. However, ASF comes with official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which further extends ASF 2FA allowing you to link completely new authenticator as well. This can be useful in case you're unable or unwilling to use other tools and you do not mind ASF 2FA to become your main (and maybe only) authenticator.
+
+In order to assign new 2FA and automatically import it as ASF 2FA, you should do the following steps:
+
+1. Create ASF bot for the target account, start it and log in, which you probably already did.
+2. Assign working and operative phone number to the account used by the bot **[here](https://store.steampowered.com/phone/manage)**. Phone number is absolutely required, there is no way to add 2FA without it.
+3. Execute `2fainit [Bot]` command, replacing `[Bot]` with your bot's name.
+
+Assuming you got a successful reply, the following two things have happened:
+
+- A new `<Bot>.maFile.PENDING` file was generated by ASF in your `config` directory.
+- SMS was sent from Steam to the phone number you have assigned for the account above.
+
+The authenticator details are not operative yet, however, you can review the generated file if you'd like to. If you want to be double safe, you can for example already write down revocation code, which is normally explained further below.
+
+4. Once satisfied, execute `2fafinalize [Bot] <ActivationCode>` command, replacing `[Bot]` with your bot's name and `<ActivationCode>` with the code you've received through SMS.
+
+Assuming everything worked properly, previously generated `<Bot>.maFile.PENDING` file was renamed to `<Bot>.maFile.NEW`. This indicates that your 2FA credentials are now valid and active. We recommend you to create a copy of that file and keep it in **secure and safe location**. In addition to that, we recommend you to open it (it's a text file) and write down `revocation_code` which will allow you, as the name implies, to revoke the authenticator in case you lose it.
+
+In regards to technical details, the generated `maFile` includes all details that we have received from Steam server during linking authenticator, and in addition to that `device_id` field which may be needed for other authenticators. The file follows and is fully compatible with **[SDA](#steamdesktopauthenticator)** for import.
+
+ASF automatically imports your authenticator once the procedure is done, therefore `2fa` and other related commands should now be operative for the bot account you linked the authenticator to.
+
+---
+
+## İçe Aktarma
+
+Import process requires already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth, on top of manual method which allows you to provide required credentials yourself. If you don't have any authenticator yet, you need to choose one of available apps and set it up firstly. Hangisini seçeceğinizi iyi bilmiyorsanız, WinAuth'u öneririz, ancak talimatları uyguladığınızı varsayarsak yukarıdakilerden herhangi biri işinizi görecektir.
 
 Aşağıdaki tüm rehberin, belirli bir araç/uygulama ile birlikte düzgün çalışan bir kimlik doğrulayıcısına ihtiyacı vardır. Geçersiz verileri içe aktarırsanız ASF 2AD düzgün çalışmaz, bu nedenle içe aktarmayı denemeden önce kimlik doğrulayıcınızın düzgün çalıştığından emin olun. Bu, aşağıdaki kimlik doğrulayıcı işlevlerinin düzgün çalışıp çalışmadığını test etmeyi ve doğrulamayı içerir:
 - You can generate tokens and those tokens are accepted by Steam network
@@ -110,7 +135,7 @@ Her şeyi doğru yaptıysanız, ASF'yi başlatın ve şunu fark etmelisiniz:
 
 Bu andan itibaren, tüm `2ad` komutları, klasik 2AD cihazınızda çağrıldıkları gibi çalışacaktır. Belirteç oluşturmak ve onayları kabul etmek için hem ASF 2AD'yı hem de seçtiğiniz kimlik doğrulayıcınızı (Android, iOS, SDA veya WinAuth) kullanabilirsiniz.
 
-Telefonunuzda kimlik doğrulayıcı varsa, isteğe bağlı olarak SteamDesktopAuthenticator ve/veya WinAuth'u kaldırabilirsiniz, çünkü artık ihtiyacımız olmayacak. Ancak, her ihtimale karşı saklamanızı öneririm, normal Steam doğrulayıcıdan daha kullanışlı olduğundan bahsetmiyorum bile. ASF 2AD'nın genel amaçlı bir kimlik doğrulayıcı **OLMADIĞINI** ve kimlik doğrulayıcının sahip olması gereken tüm verileri içermediği için, kullandığınız tek kimlik doğrulayıcı **olmaması ** gerektiğini unutmayın. ASF 2AD'yı orijinal kimlik doğrulayıcıya geri dönüştürmek mümkün değildir, bu nedenle WinAuth/SDA gibi başka bir yerde veya telefonunuzda genel amaçlı kimlik doğrulayıcınız olduğundan her zaman emin olun.
+Telefonunuzda kimlik doğrulayıcı varsa, isteğe bağlı olarak SteamDesktopAuthenticator ve/veya WinAuth'u kaldırabilirsiniz, çünkü artık ihtiyacımız olmayacak. Ancak, her ihtimale karşı saklamanızı öneririm, normal Steam doğrulayıcıdan daha kullanışlı olduğundan bahsetmiyorum bile. Just keep in mind that ASF 2FA is **NOT** a general purpose authenticator, it doesn't include all data that authenticator should have, but limited subset of original `maFile`. It's not possible to convert ASF 2FA back to original authenticator, therefore always make sure that you have general-purpose authenticator or `maFile` in other place, such as in WinAuth/SDA, or on your phone.
 
 ---
 
