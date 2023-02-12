@@ -66,7 +66,7 @@ DUE 2 TEH NACHUR OV DIS PROPERTY, IZ ALSO POSIBLE 2 SET CRYPTKEY FILE BY DECLARI
 
 ---
 
-`--minimized` - will make ASF console window minimize shortly after start. Useful mainly in auto-start scenarios, but can also be used outside of those. Currently this switch has effect only on Windows machines.
+`--minimized` - WILL MAK ASF CONSOLE WINDOW MINIMIZE SHORTLY AFTR START. USEFUL MAINLY IN AUTO-START SCENARIOS, BUT CAN ALSO BE USD OUTSIDE OV DOSE. CURRENTLY DIS SWITCH HAS EFFECT ONLY ON WINDOWS MACHINEZ.
 
 ---
 

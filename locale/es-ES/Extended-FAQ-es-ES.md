@@ -1,6 +1,6 @@
 # Preguntas frecuentes adicionales
 
-Nuestras preguntas frecuentes adicionales cubren preguntas menos comunes y sus respuestas. Para asuntos más comunes, por favor visita nuestras **[preguntas frecuentes básicas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-es)**.
+Nuestras preguntas frecuentes adicionales cubren preguntas menos comunes y sus respuestas. Para asuntos más comunes, por favor visita nuestras **[preguntas frecuentes básicas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-ES)**.
 
 ---
 

@@ -14,7 +14,7 @@ Independientemente de si usas ASF 2FA o no, ASF incluye la lógica apropiada y e
 
 ASF 2FA es un módulo integrado responsable de proveer características 2FA al proceso de ASF, tal como generar códigos y aceptar confirmaciones. Funciona duplicando los detalles de tu autenticador existente, para que puedas usar tu autenticador actual y ASF 2FA al mismo tiempo.
 
-Puedes verificar si tu cuenta bot ya está usando ASF 2FA ejecutando **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `2fa`. A menos que ya hayas importado tu autenticador como ASF 2FA, todos los comandos `2fa` estándar no serán funcionales, lo que significa que tu cuenta no está usando ASF 2FA, por lo tanto tampoco está disponible para las características avanzadas de ASF que requieren que el módulo esté operativo.
+Puedes verificar si tu cuenta bot ya está usando ASF 2FA ejecutando **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `2fa`. A menos que ya hayas importado tu autenticador como ASF 2FA, todos los comandos `2fa` estándar no serán funcionales, lo que significa que tu cuenta no está usando ASF 2FA, por lo tanto tampoco está disponible para las características avanzadas de ASF que requieren que el módulo esté operativo.
 
 ---
 
@@ -33,7 +33,7 @@ Suponiendo que tengas una respuesta exitosa, las siguientes dos cosas deben habe
 - Un nuevo archivo `<Bot>.maFile.PENDING` fue generado por ASF en tu directorio `config`.
 - Un SMS fue enviado por Steam al número de teléfono que asignaste para la cuenta.
 
-Los detalles del autenticador todavía no son funcionales, sin embargo, puedes revisar el archivo generado si lo deseas. Si quieres estar doblemente seguro, puedes anotar el código de revocación, explicado más adelante.
+Los detalles del autenticador todavía no son funcionales, sin embargo, puedes revisar el archivo generado si lo deseas. Si quieres estar doblemente seguro, puedes anotar el código de revocación.
 
 4. Una vez terminado, ejecuta el comando `2fafinalize [Bot] <ActivationCode>`, reemplazando `[Bot]` con el nombre de tu bot y `<ActivationCode>` con el código que recibiste por SMS.
 

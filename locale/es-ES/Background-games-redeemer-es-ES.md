@@ -1,6 +1,6 @@
 # Activador de juegos en segundo plano
 
-El activador de juegos en segundo plano es una función especial de ASF que permite importar una lista de claves de producto (junto con sus nombres) para ser activados en segundo plano. Esto es especialmente útil si tienes una gran cantidad de claves para activar y es seguro que alcanzarás el **[estatus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-es#cuál-es-el-significado-del-estatus-al-activar-una-clave)** `RateLimited` antes de que se termine de activar el lote de claves.
+El activador de juegos en segundo plano es una función especial de ASF que permite importar una lista de claves de producto (junto con sus nombres) para ser activados en segundo plano. Esto es especialmente útil si tienes una gran cantidad de claves para activar y es seguro que alcanzarás el **[estatus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-es-ES#cuál-es-el-significado-del-estatus-al-activar-una-clave)** `RateLimited` antes de que se termine de activar el lote de claves.
 
 El activador de juegos en segundo plano está hecho para usarse en un solo bot, lo que significa que no hace uso de `RedeemingPreferences`. Esta función puede usarse junto con (o en vez de) el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `redeem`, de ser necesario.
 

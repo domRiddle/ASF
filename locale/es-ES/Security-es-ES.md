@@ -14,7 +14,7 @@ Actualmente ASF soporta los siguientes métodos de cifrado como una definición 
 
 La descripción exacta y comparación de las mismas están disponibles a continuación.
 
-Para generar una contraseña cifrada, por ejemplo, para uso de `SteamPassword`, debes ejecutar el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `encrypt` con el cifrado que elegiste y tu contraseña en texto plano. Posteriormente, introduce la cadena de caracteres cifrada obtenida en la propiedad de configuración del bot `SteamPassword`, y finalmente cambia `PasswordFormat` al que corresponda con el método de cifrado elegido. Algunos formatos no requieren el comando `encrypt`, por ejemplo, `EnvironmentVariable` o `File`, solo poner la ruta apropiada para estos.
+Para generar una contraseña cifrada, por ejemplo, para uso de `SteamPassword`, debes ejecutar el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `encrypt` con el cifrado que elegiste y tu contraseña en texto plano. Posteriormente, introduce la cadena de caracteres cifrada obtenida en la propiedad de configuración del bot `SteamPassword`, y finalmente cambia `PasswordFormat` al que corresponda con el método de cifrado elegido. Algunos formatos no requieren el comando `encrypt`, por ejemplo, `EnvironmentVariable` o `File`, solo poner la ruta apropiada para estos.
 
 ---
 
@@ -28,7 +28,7 @@ Esta es la forma más sencilla e insegura de almacenar una contraseña, definida
 
 Considerado seguro para los estándares actuales, la forma **[AES](https://es.wikipedia.org/wiki/Advanced_Encryption_Standard)** de almacenar la contraseña es definida como `ECryptoMethod` de `1`. ASF espera que la cadena sea una secuencia de caracteres **[base64-encoded](https://es.wikipedia.org/wiki/Base64)** resultante en un array de bytes cifrado en AES después de la traducción, que luego debe ser descifrado usando el **[vector de inicialización](https://es.wikipedia.org/wiki/Vector_de_inicializaci%C3%B3n)** incluido y la clave de cifrado de ASF.
 
-El método anterior garantiza la seguridad siempre que el atacante no conozca la clave de cifrado de ASF, la cual es usada tanto para el descifrado como para el cifrado de contraseñas. ASF te permite especificar la clave a través del **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-es-es)** `--cryptkey`, el cual deberías usar para máxima seguridad. Si decides omitirlo, ASF usará su propia clave que es **conocida** y está en el código de la aplicación, lo que significa que cualquiera puede revertir el cifrado de ASF y obtener la contraseña descifrada. Requiere algo de esfuerzo y no es tan fácil de hacer, pero es posible, por eso casi siempre debes usar el cifrado `AES` con tu propia `--cryptkey` mantenida en secreto. El método AES usado en ASF proporciona una seguridad que debería ser satisfactoria y tiene un balance entre la simplicidad de `PlainText` y la complejidad de `ProtectedDataForCurrentUser`, pero se recomienda mucho usarlo con una `--cryptkey` personalizada. Si se utiliza correctamente, garantiza una seguridad adecuada para un almacenamiento seguro.
+El método anterior garantiza la seguridad siempre que el atacante no conozca la clave de cifrado de ASF, la cual es usada tanto para el descifrado como para el cifrado de contraseñas. ASF te permite especificar la clave a través del **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-es-ES)** `--cryptkey`, el cual deberías usar para máxima seguridad. Si decides omitirlo, ASF usará su propia clave que es **conocida** y está en el código de la aplicación, lo que significa que cualquiera puede revertir el cifrado de ASF y obtener la contraseña descifrada. Requiere algo de esfuerzo y no es tan fácil de hacer, pero es posible, por eso casi siempre debes usar el cifrado `AES` con tu propia `--cryptkey` mantenida en secreto. El método AES usado en ASF proporciona una seguridad que debería ser satisfactoria y tiene un balance entre la simplicidad de `PlainText` y la complejidad de `ProtectedDataForCurrentUser`, pero se recomienda mucho usarlo con una `--cryptkey` personalizada. Si se utiliza correctamente, garantiza una seguridad adecuada para un almacenamiento seguro.
 
 ---
 
@@ -84,7 +84,7 @@ Actualmente ASF soporta los siguientes métodos de hashing como una definición 
 
 La descripción exacta y comparación de las mismas están disponibles a continuación.
 
-Para generar un hash, por ejemplo, para uso de `IPCPassword`, debes ejecutar el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `hash` con el método de hash que elegiste y tu contraseña en texto plano. Posteriormente, introduce la cadena de caracteres con hash obtenida en la propiedad de configuración de ASF `IPCPassword`, y finalmente cambia `IPCPasswordFormat` al que corresponda con el método de hash elegido.
+Para generar un hash, por ejemplo, para uso de `IPCPassword`, debes ejecutar el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `hash` con el método de hash que elegiste y tu contraseña en texto plano. Posteriormente, introduce la cadena de caracteres con hash obtenida en la propiedad de configuración de ASF `IPCPassword`, y finalmente cambia `IPCPasswordFormat` al que corresponda con el método de hash elegido.
 
 ---
 
@@ -98,7 +98,7 @@ Esta es la forma más sencilla e insegura de aplicarle hash a una contraseña, d
 
 Considerado seguro para los estándares actuales, el método **[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** de aplicar hash a la contraseña es definido como `EHashingMethod` de `1`. ASF usará la implementación de `SCrypt` utilizando `8` bloques, `8192` iteraciones, longitud de hash de `32` y la clave de cifrado como sal para generar el array de bytes. Los bytes resultantes serán codificados como una cadena de caracteres **[base64](https://es.wikipedia.org/wiki/Base64)**.
 
-ASF te permite especificar la sal para este método a través del **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-es-es)** `--cryptkey`, el cual deberías usar para máxima seguridad. Si decides omitirlo, ASF usará su propia clave que es **conocida** y está en el código de la aplicación, lo que significa que el hash será menos seguro. Si se utiliza correctamente, garantiza una seguridad adecuada para un almacenamiento seguro.
+ASF te permite especificar la sal para este método a través del **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-es-ES)** `--cryptkey`, el cual deberías usar para máxima seguridad. Si decides omitirlo, ASF usará su propia clave que es **conocida** y está en el código de la aplicación, lo que significa que el hash será menos seguro. Si se utiliza correctamente, garantiza una seguridad adecuada para un almacenamiento seguro.
 
 ---
 
@@ -106,7 +106,7 @@ ASF te permite especificar la sal para este método a través del **[argumento d
 
 Considerado débil para los estándares actuales, el método **[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** de aplicar hash a la contraseña es definido como `EHashingMethod` de `2`. ASF usará la implementación de `Pbkdf2` utilizando `10000` iteraciones, longitud de hash de `32` y la clave de cifrado como sal, con `SHA-256` como algoritmo hmac para generar el array de bytes. Los bytes resultantes serán codificados como una cadena de caracteres **[base64](https://es.wikipedia.org/wiki/Base64)**.
 
-ASF te permite especificar la sal para este método a través del **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-es-es)** `--cryptkey`, el cual deberías usar para máxima seguridad. Si decides omitirlo, ASF usará su propia clave que es **conocida** y está en el código de la aplicación, lo que significa que el hash será menos seguro.
+ASF te permite especificar la sal para este método a través del **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-es-ES)** `--cryptkey`, el cual deberías usar para máxima seguridad. Si decides omitirlo, ASF usará su propia clave que es **conocida** y está en el código de la aplicación, lo que significa que el hash será menos seguro.
 
 ---
 

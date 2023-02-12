@@ -315,7 +315,7 @@ Por supuesto, `SteamTarget` tiene todas las funciones típicas que podrías espe
 
 ### HistoryTarget
 
-Este objetivo es usado internamente por ASF para proporcionar un historial de registro de tamaño fijo en el endpoint `/Api/NLog` de **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es#asf-api)** que posteriormente puede ser usado por ASF-ui y otras herramientas. En general, debes definir este objetivo solo si ya estás usando una configuración personalizada de NLog para otras personalizaciones y también quieres que el registro se exponga en la API de ASF, por ejemplo, para ASF-ui. También puede ser declarado cuando quieres modificar el layout predeterminado o `maxCount` la cantidad máxima de mensajes guardados.
+Este objetivo es usado internamente por ASF para proporcionar un historial de registro de tamaño fijo en el endpoint `/Api/NLog` de **[ASF API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES#asf-api)** que posteriormente puede ser usado por ASF-ui y otras herramientas. En general, debes definir este objetivo solo si ya estás usando una configuración personalizada de NLog para otras personalizaciones y también quieres que el registro se exponga en la API de ASF, por ejemplo, para ASF-ui. También puede ser declarado cuando quieres modificar el layout predeterminado o `maxCount` la cantidad máxima de mensajes guardados.
 
 Soportado en todos los entornos utilizados por ASF.
 

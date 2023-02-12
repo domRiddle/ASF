@@ -66,7 +66,7 @@ Linux/macOS：
 
 ---
 
-`--minimized` - will make ASF console window minimize shortly after start. Useful mainly in auto-start scenarios, but can also be used outside of those. Currently this switch has effect only on Windows machines.
+`--minimized`&#8203;⸺使ASF在啟動後立刻最小化控制台視窗。 主要是在自動啟動的情境中非常好用，但仍可用於其他地方。 此開關目前只在Windows設備中有效。
 
 ---
 

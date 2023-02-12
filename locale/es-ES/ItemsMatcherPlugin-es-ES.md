@@ -50,7 +50,7 @@ Tus datos se almacenan durante un máximo de dos semanas desde que dejas de usar
 
 La configuración `MatchActively` es la versión activa de **[`SteamTradeMatcher`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-es-ES#steamtradematcher)** la cual incluye emparejamiento interactivo donde el bot enviará intercambios a otras personas. Puede funcionar solo, o junto con el ajuste `SteamTradeMatcher`. Esta función requiere que se configure `LicenseID`, ya que utiliza servidores de terceros y recursos de pago para funcionar.
 
-Para usar esa opción, tienes que cumplir ciertos requisitos. Como mínimo debes tener una cuenta **[deslimitada](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-es#asf-2fa)** activo y por lo menos un tipo válido en `MatchableTypes`, tal como los cromos.
+Para usar esa opción, tienes que cumplir ciertos requisitos. Como mínimo debes tener una cuenta **[deslimitada](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-ES#asf-2fa)** activo y por lo menos un tipo válido en `MatchableTypes`, tal como los cromos.
 
 Si cumples todos los requisitios mencionados anteriormente, ASF se comunicará periódicamente con nuestra **[lista pública ASF STM](#publiclisting)** para emparejar activamente con los bots que estén disponibles actualmente.
 
@@ -62,7 +62,7 @@ ASF hace todo lo posible para minimizar la cantidad de solicitudes y presión ge
 
 La versión actual del algoritmo hace que ASF dé prioridad a bots `Any`, especialmente aquellos con mejor diversidad de juegos de los que provienen sus artículos. Si se agotan los bots `Any`, ASF pasará a los `Fair` bajo la misma regla de diversidad. ASF intentará emparejar con todos los bots disponibles al menos una vez, para asegurar que no perdemos un posible progreso en algún set de cromos, emoticons, etc.
 
-`MatchActively` toma en cuenta los bots que bloqueaste del intercambio a través del **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `tbadd` y no intentará emparejar activamente con ellos. Esto puede ser usado para decirle a ASF con qué bots nunca debería emparejar, incluso si tienen posibles duplicados que nos pudieran servir.
+`MatchActively` toma en cuenta los bots que bloqueaste del intercambio a través del **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `tbadd` y no intentará emparejar activamente con ellos. Esto puede ser usado para decirle a ASF con qué bots nunca debería emparejar, incluso si tienen posibles duplicados que nos pudieran servir.
 
 ASF también hará lo posible para asegurar que las ofertas de intercambio sean exitosas. En la siguiente ejecución, lo que normalmente ocurre en 6 horas, ASF cancelará cualquiera oferta de intercambio pendiente que todavía no haya sido aceptada, y le quitará prioridad a los steamIDs que participen en ellas para preferir bots más activos. Aún así, si los bots despriorizados son los últimos que tienen el artículo que necesitamos, intentaremos emparejar con ellos (nuevamente).
 

@@ -567,32 +567,32 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 
 ---
 
-### `MatchableTypes`
+### `MatchableTypes（可匹配的種類）`
 
-`ImmutableHashSet<byte>`&#8203;型別，預設值為&#8203;`5`&#8203;的Steam物品類型。 This property defines which Steam item types are permitted to be matched when `SteamTradeMatcher` option in `TradingPreferences` is enabled. Types are defined as below:
+`ImmutableHashSet<byte>`&#8203;型別，預設值為&#8203;`5`&#8203;的Steam物品類型。 本屬性定義了在您啟用&#8203;`TradingPreferences`&#8203;中的&#8203;`SteamTradeMatcher`&#8203;選項時，允許用於匹配的Steam物品類型。 類型定義如下：
 
-| 值  | 名稱                    | 描述                                                            |
-| -- | --------------------- | ------------------------------------------------------------- |
-| 0  | Unknown               | Every type that doesn't fit in any of the below               |
-| 1  | BoosterPack           | Booster pack containing 3 random cards from a game            |
-| 2  | Emoticon              | Emoticon to use in Steam Chat                                 |
-| 3  | FoilTradingCard       | Foil variant of `TradingCard`                                 |
-| 4  | ProfileBackground     | Profile background to use on your Steam profile               |
-| 5  | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
-| 6  | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
-| 7  | SaleItem              | Special items awarded during Steam sales                      |
-| 8  | Consumable            | Special consumable items that disappear after being used      |
-| 9  | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10 | Sticker               | 可用在 Steam 聊天中的特殊物品                                            |
-| 11 | ChatEffect            | 可用在 Steam 聊天中的特殊物品                                            |
-| 12 | MiniProfileBackground | Special background for Steam profile                          |
-| 13 | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
-| 14 | AnimatedAvatar        | Special animated avatar for Steam profile                     |
-| 15 | KeyboardSkin          | Steam Deck 的特別鍵盤造型                                            |
+| 值  | 名稱                              | 描述                               |
+| -- | ------------------------------- | -------------------------------- |
+| 0  | Unknown（未知）                     | 不符合下列任一項類型的物品                    |
+| 1  | BoosterPack（擴充包）                | 包含三張來自同一遊戲交換卡片的擴充包               |
+| 2  | Emoticon（表情符號）                  | 在Steam聊天中使用的表情符號                 |
+| 3  | FoilTradingCard（閃亮交換卡片）         | 閃亮版本的&#8203;`TradingCard`&#8203; |
+| 4  | ProfileBackground（個人檔案背景）       | 在您Steam個人檔案中使用的個人檔案背景            |
+| 5  | TradingCard（交換卡片）               | Steam交換卡片，用於合成徽章（非閃亮卡片）          |
+| 6  | SteamGems（寶石）                   | 用於合成擴充包的Steam寶石，包含一袋寶石           |
+| 7  | SaleItem（特賣物品）                  | Steam特賣期間獲得的特殊物品                 |
+| 8  | Consumable（消耗品）                 | 在使用後會消失的特殊消耗品                    |
+| 9  | ProfileModifier（個人檔案修改器）        | 可以修改Steam個人檔案外觀的特殊物品             |
+| 10 | Sticker（貼紙）                     | 在Steam聊天中使用的特殊物品                 |
+| 11 | ChatEffect（聊天效果）                | 在Steam聊天中使用的特殊物品                 |
+| 12 | MiniProfileBackground（迷你個人檔案背景） | Steam個人檔案的特殊背景                   |
+| 13 | AvatarProfileFrame（個人檔案圖示邊框）    | Steam個人檔案的特殊圖示邊框                 |
+| 14 | AnimatedAvatar（動畫個人圖示）          | Steam個人檔案的特殊動畫個人圖示               |
+| 15 | KeyboardSkin（Steam Deck鍵盤）      | Steam Deck的特殊鍵盤外觀                |
 
-Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. ASF includes proper logic for discovering rarity of the items, therefore it's also safe to match emoticons or backgrounds, as ASF will properly consider fair only those items from the same game and type, that also share the same rarity.
+當然，您通常在本屬性只應選擇&#8203;`2`&#8203;、&#8203;`3`&#8203;、&#8203;`4`&#8203;及&#8203;`5`&#8203;，因為STM只支援這些類型。 ASF擁有能夠判斷物品稀有度的正確邏輯，因此匹配表情符號或背景也會是安全的，因為ASF只會將來自同一個遊戲、相同類型及稀有度的物品視為相等的。
 
-Please note that **ASF is not a trading bot** and **will NOT care about the market price**. If you don't consider items of the same rarity from the same set to be the same price-wise, then this option is NOT for you. Please evaluate twice if you understand and agree with this statement before you decide to change this setting.
+請注意，&#8203;**ASF並非交易機器人**&#8203;，且&#8203;**不會考慮物品的市場價格**&#8203;。 If you don't consider items of the same rarity from the same set to be the same price-wise, then this option is NOT for you. Please evaluate twice if you understand and agree with this statement before you decide to change this setting.
 
 Unless you know what you're doing, you should keep it with default value of `5`.
 

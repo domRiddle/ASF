@@ -50,7 +50,7 @@ Por defecto, ASF asume que `HoursUntilCardDrops` es `3`, ya que el efecto negati
 
 En este momento los dos algoritmos mencionados son suficientes para todos los escenarios de cuenta actualmente posibles, para recolectar lo más eficazmente posible, por lo tanto no se planea añadir otros.
 
-Es bueno notar que ASF también incluye un modo de recolección manual que puede activarse con el comando `play`. Puedes leer más al respecto en **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)**.
+Es bueno notar que ASF también incluye un modo de recolección manual que puede activarse con el comando `play`. Puedes leer más al respecto en **[comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)**.
 
 ---
 
@@ -82,4 +82,4 @@ No importa si puedes activar el glitch con otros programas (como IM), y tampoco 
 
 ASF **nunca** tomará ventaja de los exploits, abusos, hacks o cualquier otra actividad que consideremos **ilegal o no deseada** de acuerdo a los Términos de Servicio de Steam, las Normas de Conducta Online de Steam o cualquier fuente de confianza que pueda indicar que la actividad de ASF es no deseada por la red de Steam, como se indica en la sección **[pautas de contribución](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**.
 
-Si quieres arriesgar tu cuenta de Steam por obtener cromos de unos cuantos centavos más rápido de lo normal, entonces ASF nunca ofrecerá algo así en modo automático, aunque aún tienes el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `play` que puede usarse como una herramienta para hacer lo que quieras en términos de interacción con la red de Steam. No recomendamos aprovechar los glitches de Steam y explotarlos para tu propio beneficio - no solo con ASF, sino también con cualquier otra herramienta. Sin embargo, al final es tu cuenta, y tu decisión lo que quieras hacer con ella - solo ten en cuenta que te avisamos.
+Si quieres arriesgar tu cuenta de Steam por obtener cromos de unos cuantos centavos más rápido de lo normal, entonces ASF nunca ofrecerá algo así en modo automático, aunque aún tienes el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `play` que puede usarse como una herramienta para hacer lo que quieras en términos de interacción con la red de Steam. No recomendamos aprovechar los glitches de Steam y explotarlos para tu propio beneficio - no solo con ASF, sino también con cualquier otra herramienta. Sin embargo, al final es tu cuenta, y tu decisión lo que quieras hacer con ella - solo ten en cuenta que te avisamos.

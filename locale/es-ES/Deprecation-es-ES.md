@@ -30,7 +30,7 @@ La etapa 2 está programada después de que la etapa 1 se produzca y sea publica
 
 ## Sumario
 
-Tienes más o menos un **mes completo** para hacer el cambio correspondiente, lo que debe ser más que suficiente incluso si eres un usuario casual. Después de ese período, ASF ya no garantiza que los ajustes antiguos tengan algún efecto (etapa 2), haciendo que ciertas características dejen de funcionar sin que te des cuenta. Si estás iniciando ASF después de más de un mes de inactividad, se te recomienda **[empezar de cero](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-es-es)** nuevamente, o leer todos los registros de cambios que te hayas perdido y adaptar manualmente tu uso al actual.
+Tienes más o menos un **mes completo** para hacer el cambio correspondiente, lo que debe ser más que suficiente incluso si eres un usuario casual. Después de ese período, ASF ya no garantiza que los ajustes antiguos tengan algún efecto (etapa 2), haciendo que ciertas características dejen de funcionar sin que te des cuenta. Si estás iniciando ASF después de más de un mes de inactividad, se te recomienda **[empezar de cero](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-es-ES)** nuevamente, o leer todos los registros de cambios que te hayas perdido y adaptar manualmente tu uso al actual.
 
 En la mayoría de los casos, ignorar la advertencia de obsolescencia no hará que la funcionalidad general de ASF se vuelva inutilizable, sino más bien regresará al comportamiento por defecto (lo que puede o no coincidir con tus preferencias personales).
 
@@ -38,7 +38,7 @@ En la mayoría de los casos, ignorar la advertencia de obsolescencia no hará qu
 
 ## Ejemplo
 
-Previo a la V3.1.2.2 movimos el **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-es)** `--server` a la **[propiedad de configuración global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-es#configuración-global)** `IPC`.
+Previo a la V3.1.2.2 movimos el **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-ES)** `--server` a la **[propiedad de configuración global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#configuración-global)** `IPC`.
 
 ### Etapa 1
 

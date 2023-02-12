@@ -1,53 +1,53 @@
 # 2-FACTOR AUTHENTICASHUN
 
-Steam includes two-factor authentication system known as "Escrow" that requires extra details for various account-related activity. U CAN READ MOAR BOUT IT **[HER](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)** AN **[HER](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)**. This page considers that 2FA system as well as our solution that integrates with it, called ASF 2FA.
+STEAM INCLUDEZ 2-FACTOR AUTHENTICASHUN SISTEM KNOWN AS "ESCROW" DAT REQUIREZ EXTRA DETAILS 4 VARIOUS AKOWNT-RELATD ACTIVITY. U CAN READ MOAR BOUT IT **[HER](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)** AN **[HER](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)**. DIS PAEG CONSIDERS DAT 2FA SISTEM AS WELL AS R SOLUSHUN DAT INTEGRATEZ WIF IT, CALLD ASF 2FA.
 
 ---
 
 # ASF LOGIC
 
-Regardless if you use ASF 2FA or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. IT WILL ASK U 4 REQUIRD DETAILS WHEN THEYRE NEEDD (SUCH AS DURIN LOGGIN IN). However, those requests can be automated by using ASF 2FA, which will automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+REGARDLES IF U USE ASF 2FA OR NOT, ASF INCLUDEZ PROPR LOGIC AN IZ FULLY AWARE OV ACCOUNTS PROTECTD BY STANDARD 2FA. IT WILL ASK U 4 REQUIRD DETAILS WHEN THEYRE NEEDD (SUCH AS DURIN LOGGIN IN). HOWEVR, DOSE REQUESTS CAN BE AUTOMATD BY USIN ASF 2FA, WHICH WILL AUTOMATICALLY GENERATE REQUIRD TOKENS, SAVIN U HASLE AN ENABLIN EXTRA FUNCSHUNALITY (DESCRIBD BELOW).
 
 ---
 
 # ASF 2FA
 
-ASF 2FA is a built-in module responsible for providing 2FA features to the ASF process, such as generating tokens and accepting confirmations. It works by duplicating your existing authenticator details, so that you can use your current authenticator and ASF 2FA at the same time.
+ASF 2FA IZ BUILT-IN MODULE RESPONSIBLE 4 PROVIDIN 2FA FEATUREZ 2 TEH ASF PROCES, SUCH AS GENERATIN TOKENS AN ACCEPTIN CONFIRMASHUNS. IT WERKZ BY DUPLICATIN UR EXISTIN AUTHENTICATOR DETAILS, SO DAT U CAN USE UR CURRENT AUTHENTICATOR AN ASF 2FA AT TEH SAME TIEM.
 
-U CAN VERIFY WHETHR UR BOT AKOWNT IZ USIN ASF 2FA ALREADY BY EXECUTIN `2fa` **[COMMANDZ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)**. Unless you've already imported your authenticator as ASF 2FA, all standard `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
+U CAN VERIFY WHETHR UR BOT AKOWNT IZ USIN ASF 2FA ALREADY BY EXECUTIN `2fa` **[COMMANDZ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)**. UNLES UVE ALREADY IMPORTD UR AUTHENTICATOR AS ASF 2FA, ALL STANDARD `2fa` COMMANDZ WILL BE NON-OPERATIV, WHICH MEANZ DAT UR AKOWNT IZ NOT USIN ASF 2FA, THEREFORE IZ ALSO UNAVAILABLE 4 ADVANCD ASF FEATUREZ DAT REQUIRE TEH MODULE 2 BE OPERATIV.
 
 ---
 
-## Creation
+## CREASHUN
 
-In general we strongly recommend to **[duplicate](#import)** your existing authenticator, as after all, that's the main purpose ASF 2FA was designed for. However, ASF comes with official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which further extends ASF 2FA allowing you to link completely new authenticator as well. This can be useful in case you're unable or unwilling to use other tools and you do not mind ASF 2FA to become your main (and maybe only) authenticator.
+IN GENERAL WE STRONGLY RECOMMEND 2 **[DUPLICATE](#import)** UR EXISTIN AUTHENTICATOR, AS AFTR ALL, THAZ TEH MAIN PURPOSE ASF 2FA WUZ DESIGND 4. HOWEVR, ASF COMEZ WIF OFFISHUL `MobileAuthenticator` **[PLUGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-lol-US)** WHICH FURTHR EXTENDZ ASF 2FA ALLOWIN U 2 LINK COMPLETELY NEW AUTHENTICATOR AS WELL. DIS CAN BE USEFUL IN CASE URE UNABLE OR UNWILLIN 2 USE OTHR TOOLS AN U DO NOT MIND ASF 2FA 2 BECOME UR MAIN (AN MAYBE ONLY) AUTHENTICATOR.
 
-In order to assign new 2FA and automatically import it as ASF 2FA, you should do the following steps:
+IN ORDR 2 ASSIGN NEW 2FA AN AUTOMATICALLY IMPORT IT AS ASF 2FA, U SHUD DO TEH FOLLOWIN STEPS:
 
-1. Create ASF bot for the target account, start it and log in, which you probably already did.
-2. Assign working and operative phone number to the account used by the bot **[here](https://store.steampowered.com/phone/manage)**. Phone number is absolutely required, there is no way to add 2FA without it.
-3. Execute `2fainit [Bot]` command, replacing `[Bot]` with your bot's name.
+1. CREATE ASF BOT 4 DA TARGET AKOWNT, START IT AN LOG IN, WHICH U PROBABLY ALREADY DID.
+2. ASSIGN WERKIN AN OPERATIV FONE NUMBR 2 TEH AKOWNT USD BY TEH BOT **[HER](https://store.steampowered.com/phone/manage)**. FONE NUMBR IZ ABSOLUTELY REQUIRD, THAR IZ NOWAI 2 ADD 2FA WITHOUT IT.
+3. EXECUTE `2fainit [Bot]` COMMAND, REPLACIN `[Bot]` WIF UR BOTS NAYM.
 
-Assuming you got a successful reply, the following two things have happened:
+ASSUMIN U GOT SUCCESFUL REPLY, TEH FOLLOWIN 2 THINGS HAS HAPPEND:
 
-- A new `<Bot>.maFile.PENDING` file was generated by ASF in your `config` directory.
-- SMS was sent from Steam to the phone number you have assigned for the account above.
+- A NEW `<Bot>.maFile.PENDING` FILE WUZ GENERATD BY ASF IN UR `config` DIRECTORY.
+- SMS WUZ SENT FRUM STEAM 2 TEH FONE NUMBR U HAS ASSIGND 4 DA AKOWNT ABOOV.
 
-The authenticator details are not operative yet, however, you can review the generated file if you'd like to. If you want to be double safe, you can for example already write down revocation code, which is normally explained further below.
+TEH AUTHENTICATOR DETAILS R NOT OPERATIV YET, HOWEVR, U CAN REVIEW TEH GENERATD FILE IF UD LIEK 2. IF U WANTS 2 BE DOUBLE SAFE, U CAN 4 EXAMPLE ALREADY RITE DOWN REVOCASHUN CODE.
 
-4. Once satisfied, execute `2fafinalize [Bot] <ActivationCode>` command, replacing `[Bot]` with your bot's name and `<ActivationCode>` with the code you've received through SMS.
+4. ONCE SATISFID, EXECUTE `2fafinalize [Bot] <ActivationCode>` COMMAND, REPLACIN `[Bot]` WIF UR BOTS NAYM AN `<ActivationCode>` WIF TEH CODE UVE RECEIVD THRU SMS.
 
-Assuming everything worked properly, previously generated `<Bot>.maFile.PENDING` file was renamed to `<Bot>.maFile.NEW`. This indicates that your 2FA credentials are now valid and active. We recommend you to create a copy of that file and keep it in **secure and safe location**. In addition to that, we recommend you to open it (it's a text file) and write down `revocation_code` which will allow you, as the name implies, to revoke the authenticator in case you lose it.
+ASSUMIN EVRYTHIN WERKD PROPERLY, PREVIOUSLY GENERATD `<Bot>.maFile.PENDING` FILE WUZ RENAMD 2 `<Bot>.maFile.NEW`. DIS INDICATEZ DAT UR 2FA CREDENTIALS R NAO VALID AN ACTIV. WE RECOMMEND U 2 CREATE COPY OV DAT FILE AN KEEP IT IN **SECURE AN SAFE LOCASHUN**. IN ADDISHUN 2 DAT, WE RECOMMEND U 2 OPEN IT (IT BE TEXT FILE) AN RITE DOWN `revocation_code` WHICH WILL ALLOW U, AS TEH NAYM IMPLIEZ, 2 REVOKE TEH AUTHENTICATOR IN CASE U LOSE IT.
 
-In regards to technical details, the generated `maFile` includes all details that we have received from Steam server during linking authenticator, and in addition to that `device_id` field which may be needed for other authenticators. The file follows and is fully compatible with **[SDA](#steamdesktopauthenticator)** for import.
+IN REGARDZ 2 TECHNICAL DETAILS, TEH GENERATD `maFile` INCLUDEZ ALL DETAILS DAT WE HAS RECEIVD FRUM STEAM SERVR DURIN LINKIN AUTHENTICATOR, AN IN ADDISHUN 2 DAT `device_id` FIELD WHICH CUD BE NEEDD 4 OTHR AUTHENTICATORS. TEH FILE FOLLOWS AN IZ FULLY COMPATIBLE WIF **[SDA](#steamdesktopauthenticator)** 4 IMPORT.
 
-ASF automatically imports your authenticator once the procedure is done, therefore `2fa` and other related commands should now be operative for the bot account you linked the authenticator to.
+ASF AUTOMATICALLY IMPORTS UR AUTHENTICATOR ONCE TEH PROCEDURE IZ DUN, THEREFORE `2fa` AN OTHR RELATD COMMANDZ SHUD NAO BE OPERATIV 4 DA BOT AKOWNT U LINKD TEH AUTHENTICATOR 2.
 
 ---
 
 ## IMPORT
 
-Import process requires already linked and operational authenticator that is supported by ASF. ASF CURRENTLY SUPPORTS FEW DIFFERENT OFFISHUL AN UNOFFISHUL SOURCEZ OV 2FA - ANDROID, IOS, STEAMDESKTOPAUTHENTICATOR AN WINAUTH, ON TOP OV MANUAL METHOD WHICH ALLOWS U 2 PROVIDE REQUIRD CREDENTIALS YOURSELF. IF U DOAN HAS ANY AUTHENTICATOR YET, U NED 2 CHOOSE WAN OV AVAILABLE APPS AN SET IT UP FIRSTLY. IF U DOAN KNOE BETTR WHICH WAN 2 PICK, WE RECOMMEND WINAUTH, BUT ANY OV TEH ABOOV WILL WERK FINE ASSUMIN U FOLLOW TEH INSTRUCSHUNS.
+IMPORT PROCES REQUIREZ ALREADY LINKD AN OPERASHUNAL AUTHENTICATOR DAT IZ SUPPORTD BY ASF. ASF CURRENTLY SUPPORTS FEW DIFFERENT OFFISHUL AN UNOFFISHUL SOURCEZ OV 2FA - ANDROID, IOS, STEAMDESKTOPAUTHENTICATOR AN WINAUTH, ON TOP OV MANUAL METHOD WHICH ALLOWS U 2 PROVIDE REQUIRD CREDENTIALS YOURSELF. IF U DOAN HAS ANY AUTHENTICATOR YET, U NED 2 CHOOSE WAN OV AVAILABLE APPS AN SET IT UP FIRSTLY. IF U DOAN KNOE BETTR WHICH WAN 2 PICK, WE RECOMMEND WINAUTH, BUT ANY OV TEH ABOOV WILL WERK FINE ASSUMIN U FOLLOW TEH INSTRUCSHUNS.
 
 ALL FOLLOWIN GUIDEZ REQUIRE FRUM U 2 ALREADY HAS **WERKIN AN OPERASHUNAL** AUTHENTICATOR BEAN USD WIF GIVEN TOOL/APPLICASHUN. ASF 2FA WILL NOT OPERATE PROPERLY IF U IMPORT INVALID DATA, THEREFORE MAK SURE DAT UR AUTHENTICATOR WERKZ PROPERLY BEFORE ATTEMPTIN 2 IMPORT IT. DIS DOEZ INCLUDE TESTIN AN VERIFYIN DAT FOLLOWIN AUTHENTICATOR FUNCSHUNS WERK PROPERLY:
 - U CAN GENERATE TOKENS AN DOSE TOKENS R ACCEPTD BY STEAM NETWORK
@@ -99,9 +99,9 @@ HEAD OVAR 2 **[LATEST RELEASE](https://github.com/CaitSith2/ios-steamguard-extra
 
 ### STEAMDESKTOPAUTHENTICATOR
 
-IF U HAS UR AUTHENTICATOR RUNNIN IN SDA ALREADY, U SHUD NOTICE DAT THAR IZ `steamID.maFile` FILE AVAILABLE IN `maFiles` FOLDR. Make sure that `maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` and end with `}` character. If needed, you can remove the encryption from SDA settings first, and enable it again when you're done. Once the file is in unencrypted form, copy it to `config` directory of ASF.
+IF U HAS UR AUTHENTICATOR RUNNIN IN SDA ALREADY, U SHUD NOTICE DAT THAR IZ `steamID.maFile` FILE AVAILABLE IN `maFiles` FOLDR. MAK SURE DAT `maFile` IZ IN UNENCRYPTD FORM, AS ASF CANT DECRYPT SDA FILEZ - UNENCRYPTD FILE CONTENT SHUD START WIF `{` AN END WIF `}` CHARACTR. IF NEEDD, U CAN REMOOV TEH ENCRYPSHUN FRUM SDA SETTINGS FURST, AN ENABLE IT AGAIN WHEN URE DUN. ONCE TEH FILE IZ IN UNENCRYPTD FORM, COPY IT 2 `config` DIRECTORY OV ASF.
 
-You can now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. ALTERNATIVELY U CAN LEEF IT AS IT IZ, ASF WILL DEN PICK IT AUTOMATICALLY AFTR LOGGIN IN. Renaming the file helps ASF by making it possible to use ASF 2FA before logging in, if you don't do that, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
+U CAN NAO RENAME `steamID.maFile` 2 `BotName.maFile` IN ASF CONFIG DIRECTORY, WER `BotName` IZ TEH NAYM OV UR BOT URE ADDIN ASF 2FA 2. ALTERNATIVELY U CAN LEEF IT AS IT IZ, ASF WILL DEN PICK IT AUTOMATICALLY AFTR LOGGIN IN. RENAMIN TEH FILE HELPS ASF BY MAKIN IT POSIBLE 2 USE ASF 2FA BEFORE LOGGIN IN, IF U DOAN DO DAT, DEN TEH FILE CAN BE PICKD ONLY AFTR ASF SUCCESFULLY LOGS IN (AS ASF DOESNT KNOE `steamID` OV UR AKOWNT BEFORE IN FACT LOGGIN IN).
 
 IF U DID EVRYTHIN RITE, LAUNCH ASF, AN U SHUD NOTICE:
 
@@ -135,7 +135,7 @@ FRUM NAO ON, UR ASF 2FA SHUD BE OPERASHUNAL 4 DIS AKOWNT.
 
 FRUM DIS MOMENT, ALL `2fa` COMMANDZ WILL WERK AS THEYD BE CALLD ON UR CLASIC 2FA DEVICE. U CAN USE BOTH ASF 2FA AN UR AUTHENTICATOR OV CHOICE (ANDROID, IOS, SDA OR WINAUTH) 2 GENERATE TOKENS AN ACCEPT CONFIRMASHUNS.
 
-IF U HAS AUTHENTICATOR ON UR FONE, U CAN OPSHUNALLY REMOOV STEAMDESKTOPAUTHENTICATOR AN/OR WINAUTH, AS WE WONT NED IT NOMORE. HOWEVR, I SUGGEST 2 KEEP IT JUS IN CASE, NOT 2 MENSHUN DAT IZ MOAR HANDY THAN NORMAL STEAM AUTHENTICATOR. Just keep in mind that ASF 2FA is **NOT** a general purpose authenticator, it doesn't include all data that authenticator should have, but limited subset of original `maFile`. It's not possible to convert ASF 2FA back to original authenticator, therefore always make sure that you have general-purpose authenticator or `maFile` in other place, such as in WinAuth/SDA, or on your phone.
+IF U HAS AUTHENTICATOR ON UR FONE, U CAN OPSHUNALLY REMOOV STEAMDESKTOPAUTHENTICATOR AN/OR WINAUTH, AS WE WONT NED IT NOMORE. HOWEVR, I SUGGEST 2 KEEP IT JUS IN CASE, NOT 2 MENSHUN DAT IZ MOAR HANDY THAN NORMAL STEAM AUTHENTICATOR. JUS KEEP IN MIND DAT ASF 2FA IZ **NOT** GENERAL PURPOSE AUTHENTICATOR, IT DOESNT INCLUDE ALL DATA DAT AUTHENTICATOR SHUD HAS, BUT LIMITD SUBSET OV ORIGINAL `maFile`. IZ NOT POSIBLE 2 CONVERT ASF 2FA BAK 2 ORIGINAL AUTHENTICATOR, THEREFORE ALWAYS MAK SURE DAT U HAS GENERAL-PURPOSE AUTHENTICATOR OR `maFile` IN OTHR PLACE, SUCH AS IN WINAUTH/SDA, OR ON UR FONE.
 
 ---
 

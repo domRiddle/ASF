@@ -6,7 +6,7 @@
 
 ASF與Steam網路（&#8203;**[CM伺服器](https://api.steampowered.com/ISteamDirectory/GetCMList/v1?cellid=0)**&#8203;）、 &#8203;**[Steam API](https://steamcommunity.com/dev)**&#8203;、&#8203;**[Steam商店](https://store.steampowered.com)**&#8203;及&#8203;**[Steam社群](https://steamcommunity.com)**&#8203;通訊。
 
-停用上述通訊是不可能的，因為它是ASF提供基本功能的核心基礎。 如果您對上述內容不滿意，請勿使用ASF。
+停用上述通訊是不可能的，因為它是ASF提供基本功能的核心基礎。 如果您不滿意上述的任何內容，請勿使用ASF。
 
 ## Steam 群組
 
@@ -30,6 +30,6 @@ ASF與&#8203;**[我們自己的伺服器](https://asf.justarchi.net)**&#8203;通
 
 如果您不想從伺服器提取清單，您可以停用&#8203;`FilterBadBots`&#8203;設定。
 
-您可以透過在Bot的&#8203;**[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#remotecommunication)**&#8203;設定中停用&#8203;`PublicListing`&#8203;旗標，來決定不顯示在清單中。 如果您想執行&#8203;`SteamTradeMatcher`&#8203; Bot且不被顯示，這可能會有幫助。
+您可以透過在Bot的&#8203;**[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#remotecommunication)**&#8203;設定中停用&#8203;`PublicListing`&#8203;旗標，來決定不被顯示在名單中。 如果您想執行&#8203;`SteamTradeMatcher`&#8203; Bot且不被顯示，這可能會有幫助。
 
 `MatchActively`&#8203;設定必定會從我們的名單中下載Bot，如果您不願下載，請停用該設定。

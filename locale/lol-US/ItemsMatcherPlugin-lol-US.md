@@ -8,7 +8,7 @@
 
 PUBLIC LISTIN, AS TEH NAYM IMPLIEZ, IZ LISTIN OV CURRENTLY AVAILABLE ASF STM BOTS. IZ LOCATD ON **[R WEBSIET](https://asf.justarchi.net/STM)**, MANAGD AUTOMATICALLY AN USD AS PUBLIC SERVICE 4 BOTH ASF USERS DAT MAK USE OV `MatchActively`, AS WELL AS ASF AN NON-ASF USERS 4 MANUAL MATCHIN.
 
-IN ORDR 2 BE LISTD, U HAS SET OV REQUIREMENTS 2 MEET. At the minimum you must have allowed `PublicListing` in `RemoteCommunication` (default setting), `SteamTradeMatcher` enabled in `TradingPreferences`, **[public inventory](https://steamcommunity.com/my/edit/settings)** privacy settings, **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account and **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active. Naturally, you must also have at least one item from your specified `MatchableTypes`, such as trading cards.
+IN ORDR 2 BE LISTD, U HAS SET OV REQUIREMENTS 2 MEET. AT TEH MINIMUM U MUST HAS ALLOWD `PublicListing` IN `RemoteCommunication` (DEFAULT SETTIN), `SteamTradeMatcher` ENABLD IN `TradingPreferences`, **[PUBLIC INVENTORY](https://steamcommunity.com/my/edit/settings)** PRIVACY SETTINGS, **[UNRESTRICTD](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** AKOWNT AN **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-lol-US#asf-2fa)** ACTIV. NATURALLY, U MUST ALSO HAS AT LEAST WAN ITEM FRUM UR SPECIFID `MatchableTypes`, SUCH AS TRADIN CARDZ.
 
 WHILE `PublicListing` IZ ENABLD BY DEFAULT, PLZ NOWT DAT U WILL **NOT** BE DISPLAYD ON TEH WEBSIET IF U DO NOT MEET ALL OV TEH REQUIREMENTS, ESPECIALLY `SteamTradeMatcher`, WHICH ISNT ENABLD BY DEFAULT. 4 PEEPS DAT DO NOT MEET TEH CRITERIA, EVEN IF THEY KEPT `PublicListing` ENABLD, ASF DOESNT SPEEK WIF TEH SERVR IN ANY WAI. PUBLIC LISTIN IZ ALSO COMPATIBLE ONLY WIF LATEST STABLE VERSHUN OV ASF AN CUD REFUSE 2 DISPLAY OUTDATD BOTS, ESPECIALLY IF THEYRE MISIN CORE FUNCSHUNALITY DAT CAN BE FINDZ ONLY IN NEWR VERSHUNS.
 
@@ -33,7 +33,7 @@ PUBLIC INFO (EXPOSD BY STEAM 2 EVRY INTERESTD PARTY) INCLUDEZ:
 - UR NICKNAME (4 DISPLAY PURPOSEZ)
 - UR AVATAR (HASH, 4 DISPLAY PURPOSEZ)
 
-Conditionally public info (exposed by Steam to every interested party if you meet listing requirements) includes:
+CONDISHUNALLY PUBLIC INFO (EXPOSD BY STEAM 2 EVRY INTERESTD PARTY IF U MEET LISTIN REQUIREMENTS) INCLUDEZ:
 - UR **[INVENTORY](https://steamcommunity.com/my/inventory/#753_6)** (SO PEEPS CAN USE `MatchActively` AGAINST UR ITEMS).
 
 PRIVATE INFO (SELECTD DATA REQUIRD 4 PROVIDIN TEH FUNCSHUNALITY) INCLUDEZ:
@@ -42,7 +42,7 @@ PRIVATE INFO (SELECTD DATA REQUIRD 4 PROVIDIN TEH FUNCSHUNALITY) INCLUDEZ:
 - UR `MatchEverything` SETTIN (4 DISPLAY PURPOSEZ AN MATCHIN)
 - UR `MaxTradeHoldDuration` SETTIN (SO OTHR PEEPS KNOE WHETHR URE WILLIN 2 ACCEPT THEIR TRADEZ)
 
-Your data is stored for maximum of two weeks since you stop using (announcing on) our listing, and automatically deleted after that period.
+UR DATA IZ STORD 4 MAXIMUM OV 2 WEEKZ SINCE U STOP USIN (ANNOUNCIN ON) R LISTIN, AN AUTOMATICALLY DELETD AFTR DAT PERIOD.
 
 ---
 
@@ -64,7 +64,7 @@ TEH CURRENT VERSHUN OV TEH ALGORITHM MAKEZ ASF PRIORITIZE `Any` BOTS FURST, ESPE
 
 `MatchActively` TAKEZ INTO AKOWNT BOTS DAT U BLACKLISTD FRUM TRADIN THRU `tbadd` **[COMMAND](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-lol-US)** AN WILL NOT ATTEMPT 2 ACTIVELY MATCH THEM. DIS CAN BE USD 4 TELLIN ASF WHICH BOTS IT SHUD NEVR MATCH, EVEN IF THEYD HAS POTENTIAL DUPEZ 4 US 2 USE.
 
-ASF will also do its best to ensure that the trade offers are going through. On the next run, which normally happens in 6 hours, ASF will cancel any pending trade offers that still weren't accepted, and deprioritize steamIDs taking part in them to hopefully prefer more active bots first. Still, if deprioritized bots are the last ones that have the match we need, we'll still attempt to match them (again).
+ASF WILL ALSO DO ITZ BEST 2 ENSURE DAT TEH TRADE OFFERS R GOIN THRU. ON TEH NEXT RUN, WHICH NORMALLY HAPPENS IN 6 HOURS, ASF WILL CANCEL ANY PENDIN TRADE OFFERS DAT STILL WUZ NOT ACCEPTD, AN DEPRIORITIZE STEAMIDZ TAKIN PART IN THEM 2 HOPEFULLY PREFR MOAR ACTIV BOTS FURST. STILL, IF DEPRIORITIZD BOTS R TEH LAST ONEZ DAT HAS TEH MATCH WE NED, WELL STILL ATTEMPT 2 MATCH THEM (AGAIN).
 
 ---
 
@@ -74,16 +74,16 @@ ASF IZ, AN REMAINS, FREE AN OPEN-SOURCE, AS IT WUZ ESTABLISHD AT TEH START OV TE
 
 4 VRY LONG TIEM, TIL OCTOBR 2022, `MatchActively` FEACHUR WUZ PART OV ASF CORE AN AVAILABLE 4 EVRYONE 2 USE. IN OCTOBR 2022, VALVE, TEH COMPANY BEHIND STEAM, HAS PUT VRY SEVERE RATE LIMITS ON FETCHIN INVENTORIEZ OV OTHR BOTS - WHICH RENDERD PREVIOUS FUNCSHUNALITY ENTIRELY BROKD, WIF NO POSIBILITY OV SOLUSHUN 2 RESOLVE DIS PROBLEM. THEREFORE, DUE 2 TEH FACT DAT TEH FEACHUR HAS BECAME ENTIRELY DEFUNCT WIF NO CHANCE OV BEAN FIXD, IT HAD 2 BE REMOVD FRUM ASF CORE IN VERSHUN 5.4.1.0 AS OBSOLETE.
 
-`MatchActively` WUZ RESURRECTD AS PART OV OFFISHUL `ItemsMatcher` PLUGIN DAT FURTHR ENHANCEZ ASF WIF ACTIV CARDZ MATCHIN FUNCSHUNALITY. Resurrecting `MatchActively` feature required from us **extraordinary amount of work** to create ASF backend, entirely new service hosted on a server, with more than a hundred of proxies attached for resolving inventories, all exclusively to allow ASF clients to make use of `MatchActively` like before. Due to the amount of work involved, as well as resources that are not free and require to be paid on monthly basis by us (domain, server, proxies), we've decided to offer this functionality to our sponsors, that is, people that already support ASF project on monthly basis, thanks to whom we can make those paid resources available.
+`MatchActively` WUZ RESURRECTD AS PART OV OFFISHUL `ItemsMatcher` PLUGIN DAT FURTHR ENHANCEZ ASF WIF ACTIV CARDZ MATCHIN FUNCSHUNALITY. RESURRECTIN `MatchActively` FEACHUR REQUIRD FRUM US **EXTRAORDINARY AMOUNT OV WERK** 2 CREATE ASF BAKEND, ENTIRELY NEW SERVICE HOSTD ON SERVR, WIF MOAR THAN HUNDRD OV PROXIEZ ATTACHD 4 RESOLVIN INVENTORIEZ, ALL EXCLUSIVELY 2 ALLOW ASF CLIENTS 2 MAK USE OV `MatchActively` LIEK BEFORE. DUE 2 TEH AMOUNT OV WERK INVOLVD, AS WELL AS RESOURCEZ DAT R NOT FREE AN REQUIRE 2 BE PAID ON MONTHLY BASIS BY US (DOMAIN, SERVR, PROXIEZ), WEVE DECIDD 2 OFFR DIS FUNCSHUNALITY 2 R SPONSORS, DAT IZ, PEEPS DAT ALREADY SUPPORT ASF PROJECT ON MONTHLY BASIS, THX 2 WHOM WE CAN MAK DOSE PAID RESOURCEZ AVAILABLE.
 
-R GOAL ISNT 2 PROFIT FRUM IT, BUT RATHR, COVR TEH **monthly costs** DAT R EXCLUSIVELY LINKD WIF OFFERIN DIS OPSHUN - THAZ Y WE OFFR IT BASICALLY 4 NOTHIN, BUT WE DO HAS 2 CHARGE LIL 4 IT AS WE CANT PAI HUNDREDZ OV DOLLARS FRUM R OWN POCKETS EACH MONTH, JUS 2 MAK IT AVAILABLE 4 U. We're not really in a position to discuss the price either, it's Valve that forced those costs upon us, and the alternative is to not have such feature available at all, which of course applies if you decide, for whatever reason, that you can't justify using our plugin on those terms.
+R GOAL ISNT 2 PROFIT FRUM IT, BUT RATHR, COVR TEH **monthly costs** DAT R EXCLUSIVELY LINKD WIF OFFERIN DIS OPSHUN - THAZ Y WE OFFR IT BASICALLY 4 NOTHIN, BUT WE DO HAS 2 CHARGE LIL 4 IT AS WE CANT PAI HUNDREDZ OV DOLLARS FRUM R OWN POCKETS EACH MONTH, JUS 2 MAK IT AVAILABLE 4 U. WERE NOT RLY IN POSISHUN 2 DISCUS TEH PRICE EITHR, IZ VALVE DAT FORCD DOSE COSTS UPON US, AN TEH ALTERNATIV IZ 2 NOT HAS SUCH FEACHUR AVAILABLE AT ALL, WHICH OV COURSE APPLIEZ IF U DECIDE, 4 WHATEVR REASON, DAT U CANT JUSTIFY USIN R PLUGIN ON DOSE TERMS.
 
-In any case, we understand that `MatchActively` is not for everybody, and we hope that you also understand why we can't offer it for free.
+IN ANY CASE, WE UNDERSTAND DAT `MatchActively` IZ NOT 4 EVRYBODY, AN WE HOPE DAT U ALSO UNDERSTAND Y WE CANT OFFR IT 4 FREE.
 
 ---
 
 ### HOW I CAN GIT AN ACCES?
 
-`ItemsMatcher` is offered as part of monthly $5+ sponsor tier on **[JustArchi's GitHub](https://github.com/sponsors/JustArchi)**. It's also possible to become one-time sponsor, although in this case the license will be valid only for a month (with possibility of extension in the same way). Once you become a sponsor of $5 tier (or higher), read **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#licenseid)** section to obtain and fill `LicenseID`. Afterwards, you only need to enable `MatchActively` in `TradingPreferences` of your chosen bot.
+`ItemsMatcher` IZ OFFERD AS PART OV MONTHLY $5+ SPONSOR TIR ON **[JustArchi's GitHub](https://github.com/sponsors/JustArchi)**. IZ ALSO POSIBLE 2 BECOME WAN-TIEM SPONSOR, ALTHOUGH IN DIS CASE TEH LICENSE WILL BE VALID ONLY 4 MONTH (WIF POSIBILITY OV EXTENSHUN IN DA SAME WAI). ONCE U BECOME SPONSOR OV $5 TIR (OR HIGHR), READ **[CONFIGURASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-lol-US#licenseid)** SECSHUN 2 OBTAIN AN FILL `LicenseID`. AFTERWARDZ, U ONLY NED 2 ENABLE `MatchActively` IN `TradingPreferences` OV UR CHOSEN BOT.
 
-TEH LICENSE ALLOWS U 2 SEND LIMITD AMOUNT OV REQUESTS 2 TEH SERVR. $5 tier allows you to use `MatchActively` for one bot account (4 requests daily), and every additional $5 adds two more bot accounts (8 requests daily). For example, if you want to run it on three accounts, that'll be covered by $10 tier and higher.
+TEH LICENSE ALLOWS U 2 SEND LIMITD AMOUNT OV REQUESTS 2 TEH SERVR. $5 TIR ALLOWS U 2 USE `MatchActively` 4 WAN BOT AKOWNT (4 REQUESTS DAILY), AN EVRY ADDISHUNAL $5 ADDZ 2 MOAR BOT ACCOUNTS (8 REQUESTS DAILY). 4 EXAMPLE, IF U WANTS 2 RUN IT ON 3 ACCOUNTS, DATLL BE COVERD BY $10 TIR AN HIGHR.

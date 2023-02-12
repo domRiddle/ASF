@@ -20,7 +20,7 @@ Esta etiqueta siempre apunta al ASF compilado a partir del último commit en la 
 
 ### `released`
 
-Muy similar a la anterior, esta etiqueta siempre apunta a la última versión **[publicada](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** de ASF, incluyendo prelanzamientos. Comparado con la etiqueta `main`, esta imagen se actualiza cada vez que se envía una nueva etiqueta de GitHub. Dedicado a usuarios avanzados que les encanta vivir al límite de lo que se puede considerar estable y fresco al mismo tiempo. Esta es la que recomendamos si no quieres usar la etiqueta `latest`. En la práctica funciona igual que usar la etiqueta apuntando a la versión `A.B.C.D` más reciente al momento de la solicitud. Por favor, ten en cuenta que usar esta etiqueta es igual a usar nuestros **[prelanzamientos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-es-es)**.
+Muy similar a la anterior, esta etiqueta siempre apunta a la última versión **[publicada](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** de ASF, incluyendo prelanzamientos. Comparado con la etiqueta `main`, esta imagen se actualiza cada vez que se envía una nueva etiqueta de GitHub. Dedicado a usuarios avanzados que les encanta vivir al límite de lo que se puede considerar estable y fresco al mismo tiempo. Esta es la que recomendamos si no quieres usar la etiqueta `latest`. En la práctica funciona igual que usar la etiqueta apuntando a la versión `A.B.C.D` más reciente al momento de la solicitud. Por favor, ten en cuenta que usar esta etiqueta es igual a usar nuestros **[prelanzamientos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-es-ES)**.
 
 
 ### `latest`
@@ -45,7 +45,7 @@ Generalmente no recomendamos probar las compilaciones `main`, ya que estas son p
 
 ## Arquitecturas
 
-La imagen docker ASF se compila actualmente en la plataforma `linux` teniendo como objetivo tres arquitecturas - `x64`, `arm` y `arm64`. Puedes leer más acerca de ellas en la sección de **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-es)**.
+La imagen docker ASF se compila actualmente en la plataforma `linux` teniendo como objetivo tres arquitecturas - `x64`, `arm` y `arm64`. Puedes leer más acerca de ellas en la sección de **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-ES)**.
 
 Desde la versión V5.0.2.2 de ASF, nuestras etiquetas utilizan un manifiesto multiplataforma, lo que significa que el Docker instalado en tu máquina seleccionará automáticamente la imagen adecuada para tu plataforma al extraer la imagen. Si por algún motivo deseas extraer una imagen de plataforma específica que no coincida con la que estás ejecutando, puedes hacerlo mediante el modificador `--platform` con los comandos docker apropiados, tal como `docker run`. Para más información revisa la documentación docker en **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)**.
 
@@ -142,7 +142,7 @@ Montar `/tmp/ASF` es completamente opcional y no recomendable, a menos que expl�
 
 ## Argumentos de la línea de comandos
 
-ASF permite pasar **[argumentos de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-es)** en el contenedor docker a través de variables de entorno. Debes usar variables de entorno específicas para los parámetros soportados, y `ASF_ARGS` para el resto. Esto se puede lograr con el parámetro `-e` añadido a `docker run`, por ejemplo:
+ASF permite pasar **[argumentos de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-ES)** en el contenedor docker a través de variables de entorno. Debes usar variables de entorno específicas para los parámetros soportados, y `ASF_ARGS` para el resto. Esto se puede lograr con el parámetro `-e` añadido a `docker run`, por ejemplo:
 
 ```shell
 docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --name asf --pull always justarchi/archisteamfarm
@@ -158,7 +158,7 @@ A menos que desees proporcionar una clave de cifrado personalizada u otras opcio
 
 Suponiendo que no cambiaste el valor predeterminado de la **[propiedad de configuración global](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#configuraci%C3%B3n-global)** `IPC`, esta ya se encuentra habilitada. Sin embargo, debes hacer dos cosas adicionales para que la IPC funcione en el contenedor Docker. Primero, debes usar `IPCPassword` o modificar `KnownNetworks` predeterminado mediante una configuración personalizada en `IPC.config` para permitir que te conectes desde el exterior sin usar una contraseña. A menos que realmente sepas lo que estás haciendo, solo usa `IPCPassword`. Segundo, tienes que modificar la dirección de escucha predeterminada de `localhost`, ya que docker no puede enrutar el tráfico externo a la interfaz loopback. Un ejemplo de configuración que escuchará en todas las interfaces sería: `http://*:1242`. Claro, también puedes usar enlaces más restrictivos, como solo LAN local o red VPN, pero tiene que ser una ruta accesible desde el exterior - `localhost` no funcionará, ya que la ruta está enteramente en la máquina huésped.
 
-Para hacer lo anterior debes usar una **[configuración IPC personalizada](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es#configuraci%C3%B3n-personalizada)** como la siguiente:
+Para hacer lo anterior debes usar una **[configuración IPC personalizada](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES#configuraci%C3%B3n-personalizada)** como la siguiente:
 
 ```json
 {
@@ -180,7 +180,7 @@ Por ejemplo, este comando expondría la interfaz IPC de ASF a la máquina anfitr
 docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull always justarchi/archisteamfarm
 ```
 
-Si estableciste todo correctamente, el comando `docker run` hará que la interfaz **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es)** funcione desde tu máquina anfitrión, en la ruta estándar `localhost:1242` que ahora está redirigida correctamente a tu máquina huésped. También es bueno notar que no exponemos de más esta ruta, así la conexión se puede hacer solo dentro del húesped docker, y por lo tanto mantenerla segura. Por supuesto, puedes exponer la ruta aún más si sabes lo que haces y aplicas las medidas de seguridad apropiadas.
+Si estableciste todo correctamente, el comando `docker run` hará que la interfaz **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES)** funcione desde tu máquina anfitrión, en la ruta estándar `localhost:1242` que ahora está redirigida correctamente a tu máquina huésped. También es bueno notar que no exponemos de más esta ruta, así la conexión se puede hacer solo dentro del húesped docker, y por lo tanto mantenerla segura. Por supuesto, puedes exponer la ruta aún más si sabes lo que haces y aplicas las medidas de seguridad apropiadas.
 
 ---
 
@@ -214,4 +214,4 @@ Cuando ya tengas listo tu contenedor docker ASF, no tienes que usar `docker run`
 
 Como se ha mencionado arriba, ASF en una etiqueta diferente de `latest` no se actualizará automáticamente, lo que significa que **tú** eres responsable de usar un repositorio `justarchi/archisteamfarm` actualizado. Esto tiene muchas ventajas, ya que normalmente la aplicación no debe tocar su propio código cuando se ejecuta, pero también entendemos la conveniencia que viene de no tener que preocuparse por la versión de ASF en tu contenedor docker. Si te importan las buenas prácticas y un uso adecuado del docker, sugerimos usar la etiqueta `released` en lugar de `latest`, pero si no quieres molestarte con eso y solo quieres hacer que ASF funcione y se actualice automáticamente, entonces la etiqueta `latest` servirá.
 
-Normalmente deberías ejecutar ASF en el contenedor docker con la configuración global `Headless: true`. Esto claramente le dirá a ASF que no podrás proporcionar los datos faltantes y que no debe pedirlos. Por supuesto, para la configuración inicial debes considerar dejar esa opción en `false` para que puedas configurar las cosas fácilmente, pero a largo plazo normalmente no estás atado a la consola de ASF, por lo tanto tendría sentido informar a ASF sobre eso y usar el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-es)** `input` si surge la necesidad. De esta forma ASF no tendrá que esperar infinitamente una interacción del usuario que nunca sucederá (y desperdiciar recursos mientras tanto). También permitirá que ASF se ejecute en modo no interactivo dentro del contenedor, lo que es crucial, por ejemplo, en lo que respecta al reenvío de señales, haciendo posible que ASF se cierre adecuadamente con la solicitud `docker stop asf`.
+Normalmente deberías ejecutar ASF en el contenedor docker con la configuración global `Headless: true`. Esto claramente le dirá a ASF que no podrás proporcionar los datos faltantes y que no debe pedirlos. Por supuesto, para la configuración inicial debes considerar dejar esa opción en `false` para que puedas configurar las cosas fácilmente, pero a largo plazo normalmente no estás atado a la consola de ASF, por lo tanto tendría sentido informar a ASF sobre eso y usar el **[comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-es-ES)** `input` si surge la necesidad. De esta forma ASF no tendrá que esperar infinitamente una interacción del usuario que nunca sucederá (y desperdiciar recursos mientras tanto). También permitirá que ASF se ejecute en modo no interactivo dentro del contenedor, lo que es crucial, por ejemplo, en lo que respecta al reenvío de señales, haciendo posible que ASF se cierre adecuadamente con la solicitud `docker stop asf`.
