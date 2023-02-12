@@ -111,7 +111,7 @@ Command | Access | Description
 
 All commands are case-insensitive, but their arguments (such as bot names) are usually case-sensitive.
 
-Arguments follow UNIX philosophy, square brackets `[optional]` indicate that given argument is optional, while angle brackets `<mandatory>` indicate that given argument is mandatory. You should omit the brackets when typing an argument.
+Arguments follow UNIX philosophy, square brackets `[Optional]` indicate that given argument is optional, while angle brackets `<Mandatory>` indicate that given argument is mandatory. You should omit the brackets when typing an argument.
 
 `[Bots]` argument, as indicated by the brackets, is optional in all commands. When specified, command is executed on given bots. When omitted, command is executed on current bot that receives the command. In other words, `status A` sent to bot `B` is the same as sending `status` to bot `A`, bot `B` in this case acts only as a proxy. This can also be used for sending commands to bots that are unavailable otherwise, for example starting stopped bots, or executing actions on your main account (that you're using for executing the commands).
 
