@@ -127,7 +127,7 @@ As you've read above, a space character is being used as a delimiter for a comma
 
 ---
 
-Some commands are also available with their aliases, to save you on typing:
+Some commands are also available with their aliases, mostly to save you on typing or account for different dialects:
 
 Command | Alias
 --- | ---
