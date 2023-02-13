@@ -592,25 +592,25 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 
 當然，您通常在本屬性只應選擇&#8203;`2`&#8203;、&#8203;`3`&#8203;、&#8203;`4`&#8203;及&#8203;`5`&#8203;，因為STM只支援這些類型。 ASF擁有能夠判斷物品稀有度的正確邏輯，因此匹配表情符號或背景也會是安全的，因為ASF只會將來自同一個遊戲、相同類型及稀有度的物品視為相等的。
 
-請注意，&#8203;**ASF並非交易機器人**&#8203;，且&#8203;**不會考慮物品的市場價格**&#8203;。 If you don't consider items of the same rarity from the same set to be the same price-wise, then this option is NOT for you. Please evaluate twice if you understand and agree with this statement before you decide to change this setting.
+請注意，&#8203;**ASF並非交易機器人**&#8203;，且&#8203;**不會考慮物品的市場價格**&#8203;。 若您不認為在同一組中稀有度相同的物品是等價的，那麼這個選項並不適合您使用。 如果您決定更改本設定，請先理解並同意此聲明，並再次評估風險。
 
-Unless you know what you're doing, you should keep it with default value of `5`.
+除非您知道您在做什麼，否則請保留預設值&#8253;`5`&#8203;。
 
 ---
 
-### `OnlineFlags`
+### `OnlineFlags（在線旗標）`
 
-`ushort flags`&#8203;型別，預設值為&#8203;`0`&#8203;。 This property works as supplement to **[`OnlineStatus`](#onlinestatus)** and specifies additional online presence features announced to Steam network. Requires **[`OnlineStatus`](#onlinestatus)** other than `Offline`, and is defined as below:
+`ushort flags`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性可以當作&#8203;**[`OnlineStatus`](#onlinestatus)**&#8203;的補充功能，指定向Steam網路發布額外的在線狀態。 需要&#8203;**[`OnlineStatus`](#onlinestatus)**&#8203;不為&#8203;`Offline`&#8203;，定義如下：
 
-| 值    | 名稱                | 描述                                        |
-| ---- | ----------------- | ----------------------------------------- |
-| 0    | 無                 | No special online presence flags, default |
-| 256  | ClientTypeWeb     | Client is using web interface             |
-| 512  | ClientTypeMobile  | Client is using mobile app                |
-| 1024 | ClientTypeTenfoot | Client is using big picture               |
-| 2048 | ClientTypeVR      | Client is using VR headset                |
+| 值    | 名稱                                  | 描述                 |
+| ---- | ----------------------------------- | ------------------ |
+| 0    | 無                                   | 無特殊在線狀態旗標，預設值      |
+| 256  | ClientTypeWeb（用戶端網頁類型）              | 用戶端使用Web介面         |
+| 512  | ClientTypeMobile（行動裝置用戶端類型）         | 用戶端使用行動裝置應用程式      |
+| 1024 | ClientTypeTenfoot（Big Picture用戶端類型） | 用戶端使用Big Picture模式 |
+| 2048 | ClientTypeVR（SteamVR用戶端類型）          | 用戶端使用SteamVR頭戴式裝置  |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+請注意，本屬性為&#8203;`flags`&#8203;欄位，因此可以使用所有可用值任意組合。 若您想了解更多，請參閱&#8203;**[旗標映射](#json-映射)**&#8203;。 不啟用任何旗標即為&#8203;`None`&#8203;選項。
 
 The underlying `EPersonaStateFlag` type that this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
 

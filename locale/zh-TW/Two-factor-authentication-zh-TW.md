@@ -1,26 +1,26 @@
 # 雙重驗證
 
-Steam includes two-factor authentication system known as "Escrow" that requires extra details for various account-related activity. 您可以在&#8203;**[這裡](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)**&#8203;以及&#8203;**[這裡](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)**&#8203;閱讀來了解更多相關資訊。 This page considers that 2FA system as well as our solution that integrates with it, called ASF 2FA.
+Steam含有被稱為「Escrow」的雙重驗證系統，在執行帳號相關的行為時，需要額外的確認資料。 您可以在&#8203;**[這裡](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)**&#8203;以及&#8203;**[這裡](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)**&#8203;閱讀來了解更多相關資訊。 本頁面主要介紹雙重驗證系統，與我們對它的整合方案，即ASF雙重驗證。
 
 ---
 
 # ASF 邏輯
 
-Regardless if you use ASF 2FA or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. 它會在需要時，向您請求所需的詳細資訊（例如在登入期間）。 However, those requests can be automated by using ASF 2FA, which will automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+不論您是否使用ASF雙重驗證，ASF都包含正確的邏輯，且完全了解受標準雙重驗證保護的帳號。 它會在需要時，向您請求所需的詳細資訊（例如在登入期間）。 但是，這些請求可以使用ASF雙重驗證自動生成所需權杖，為您省去麻煩並啟用額外功能（見下文所述）。
 
 ---
 
 # ASF 雙重驗證
 
-ASF 2FA is a built-in module responsible for providing 2FA features to the ASF process, such as generating tokens and accepting confirmations. It works by duplicating your existing authenticator details, so that you can use your current authenticator and ASF 2FA at the same time.
+ASF雙重驗證是一個內建模組，負責為ASF程序提供雙重驗證功能，例如生成權杖及接受交易確認。 它的運作方式是複製您現有驗證器內的詳細資訊，所以您可以同時使用原有的驗證器與ASF雙重驗證。
 
-您可以執行&#8203;`2fa`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;來驗證您的Bot帳號是否已啟用ASF雙重驗證。 Unless you've already imported your authenticator as ASF 2FA, all standard `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
+您可以執行&#8203;`2fa`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;來驗證您的Bot帳號是否已啟用ASF雙重驗證。 除非您已將驗證器匯入成ASF雙重驗證，否則所有標準&#8203;`2fa`&#8203;指令都沒有作用，也就是說，您的帳號未啟用ASF雙重驗證，因此對於需要此模組的進階功能也無法運作。
 
 ---
 
-## Creation
+## 建立
 
-In general we strongly recommend to **[duplicate](#import)** your existing authenticator, as after all, that's the main purpose ASF 2FA was designed for. However, ASF comes with official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which further extends ASF 2FA allowing you to link completely new authenticator as well. This can be useful in case you're unable or unwilling to use other tools and you do not mind ASF 2FA to become your main (and maybe only) authenticator.
+在一般情形下，我們強烈建議&#8203;**[複製](#匯入)**&#8203;您現有的驗證器，畢竟這就是設計ASF雙重驗證的主要目的。 但是，ASF提供了官方&#8203;`MobileAuthenticator`&#8203;**[外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-TW)**&#8203;，進一步擴充ASF雙重驗證的功能，使您可以完全重新開始連結一個新的驗證器。 若您無法或不願意使用其他工具，且不介意將ASF雙重驗證做為您的主要（也可能是唯一）的驗證器，這可能會對您很有幫助。
 
 In order to assign new 2FA and automatically import it as ASF 2FA, you should do the following steps:
 

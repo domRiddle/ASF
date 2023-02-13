@@ -111,7 +111,9 @@ A forma mais avançada e flexível de executar comandos, perfeito para interaç�
 
 Todos os comandos não diferenciam maiúsculas de minúsculas, mas seus argumentos (tais como nomes dos bots) geralmente sim.
 
-O argumento `[Bots]` é opcional em todos os comandos. Quando especificado, o comando é executado nesse bot. Quando omitido, o comando é executado no bot que recebe o comando. Em outras palavras, `status A` enviado para o bot `B` é o mesmo que enviar `status` para o bot `A`, nesse caso o bot `B` funciona apenas como um proxy. Isso também pode ser usado para enviar comandos para bots que estejam indisponíveis de outra forma, por exempo, para iniciar bots parados, ou executar ações na sua conta principal (que você está utilizando para executar os comandos).
+Arguments follow UNIX philosophy, square brackets `[Optional]` indicate that given argument is optional, while angle brackets `<Mandatory>` indicate that given argument is mandatory. You should replace the arguments that you want to declare, such as `[Bots]` or `<Nickname>` with actual values that you want to issue the command with, omitting the braces.
+
+`[Bots]` argument, as indicated by the brackets, is optional in all commands. Quando especificado, o comando é executado no bot indicado. Quando omitido, o comando é executado no bot que recebe o comando. Em outras palavras, `status A` enviado para o bot `B` é o mesmo que enviar `status` para o bot `A`, nesse caso o bot `B` funciona apenas como um proxy. Isso também pode ser usado para enviar comandos para bots que estejam indisponíveis de outra forma, por exempo, para iniciar bots parados, ou executar ações na sua conta principal (que você está utilizando para executar os comandos).
 
 O **acesso** aos comandos se define com, no **mínimo**, `EPermission` em `SteamUserPermissions`, com exceção do `Owner` que tem a `SteamOwnerID` definida no arquivo de configuração global (e é a maior permissão possível).
 
@@ -119,13 +121,13 @@ Múltiplos argumentos, tais como `[Bots]`, `<Keys>` ou `<AppIDs>` significam que
 
 O ASF usa todos os caracteres em branco, como espaço e quebras de linha, como possíveis delimitadores para um comando. Isto significa que você não precisa usar o espaço para delimitar seus argumentos, você pode usar qualquer outro caractere de espaço em branco (tal como tab ou quebra de linha).
 
-O ASF "combina" os argumentos extras como sendo do tipo múltiplo do último argumento válido. Isso significa que `redeem bot key1 key2 key3` para `redeem [Bots] <Keys>` funcionará exatamente da mesma forma que `redeem bot key1,key2,key3`. Junto com o fato de aceitar a quebra de linha como comando delimitador, isso torna possível que você escreva `redeem bot` e então cole uma lista de keys separadas por qualquer caractere delimitador aceitável (tal qual a quebra de linha), ou o delimitador padrão do ASF `,`. Tenha em mente que esse truque só pode ser usado nas variantes de comando que usam um grande número de argumentos (então especificar os `[Bots]` é obrigatório nesse caso).
+O ASF "combina" os argumentos extras como sendo do tipo múltiplo do último argumento válido. Isso significa que `redeem bot key1 key2 key3` para `redeem [Bots] <Keys>` funcionará exatamente da mesma forma que `redeem bot key1,key2,key3`. Junto com o fato de aceitar a quebra de linha como comando delimitador, isso torna possível que você escreva `redeem bot` e então cole uma lista de códigos de protudos separados por qualquer caractere delimitador aceitável (tal qual a quebra de linha), ou o delimitador padrão do ASF `,`. Tenha em mente que esse truque só pode ser usado nas variantes de comando que usam um grande número de argumentos (então especificar os `[Bots]` é obrigatório nesse caso).
 
 Como você leu acima, um caractere de espaço está sendo usado como um delimitador para um comando, portanto não pode ser usado nos argumentos. No entanto, também como mencionado acima, o ASF pode combinar parâmetros redundantes, o que significa que você pode usar um espaço nos últimos parâmetros definidos para esse comando. Por exemplo, `nickname bob Great Bob` irá definir corretamente o apelido do bot `bob` como "Great Bob". De forma semelhante, você pode verificar nomes que contenham espaços no comando `owns`.
 
 ---
 
-Alguns comandos também estão disponíveis com seus pseudônimos, para facilitar a digitação:
+Some commands are also available with their aliases, mostly to save you on typing or account for different dialects:
 
 | Comando      | Apelido      |
 | ------------ | ------------ |
@@ -141,11 +143,11 @@ Alguns comandos também estão disponíveis com seus pseudônimos, para facilita
 
 O argumento `[Bots]` é uma variante especial de múltiplos argumentos, além de aceitar diversos valores ele também oferece funcionalidades extras.
 
-Primeiro e acima de tudo, há uma palavra-chave especial do `ASF` que atua como "todos os bots no processo", então o comando `status ASF` é igual a `status de todos,os,seus,bots,listados,aqui`. Isso também pode ser usado para identificar facilmente os bots que você tem acesso, já que a palavra-chave `ASF`, apesar de se dirigir a todos os bots, resultará em resposta apenas daqueles bots para os quais você pode, de fato, enviar comandos.
+Em primeiro lugar e mais importante, há uma palavra-chave especial do `ASF` que atua como "todos os bots no processo", então o comando `status ASF` é igual a `status de todos,os,seus,bots,listados,aqui`. Isso também pode ser usado para identificar facilmente os bots que você tem acesso, já que a palavra-chave `ASF`, apesar de se dirigir a todos os bots, resultará em resposta apenas daqueles bots para os quais você pode, de fato, enviar comandos.
 
-O argumento `[Bots]` suporta uma sintaxe de "classe" especial, o que te permite escolher uma série de bots mais facilmente. A sintaxe geral para `[Bots]`, nesse caso, é `PrimeiroBot...ÚltimoBot`. Por exemplo, se você tem bots chamados `A, B, C, D, E, F`, você pode executar `status B..E`, que é igual a `status B, C, D, E`, neste caso. Ao usar essa sintaxe, o ASF usará a ordem alfabética a fim de determinar quais bots estão na classe especificada. Tanto o `PrimeiroBot` quanto o `ÚltimoBot` devem ser nomes válidos de bots reconhecidos por ASF, caso contrário a sintaxe é totalmente ignorada.
+O argumento `[Bots]` suporta uma sintaxe de "classe" especial, o que te permite escolher uma série de bots mais facilmente. The general syntax for `[Bots]` in this case is `<FirstBot>..<LastBot>`. Por exemplo, se você tem bots chamados `A, B, C, D, E, F`, você pode executar `status B..E`, que é igual a `status B, C, D, E`, neste caso. Ao usar essa sintaxe, o ASF usará a ordem alfabética a fim de determinar quais bots estão na classe especificada. `FirstBot` and `LastBot` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
 
-Além de sintaxe de classe descrita acima, o argumento `[Bots]` também suporta correspondência de **[expressão regular](https://pt.wikipedia.org/wiki/Express%C3%A3o_regular)**. Você pode ativar o padrão de expressão regular usando `r!<pattern>` como um nome de bot, onde `r!` é o ativador ASF para correspondência de expressão regular e `<pattern>` é o seu padrão de expressão regular. Um exemplo de comando de bot baseado em expressão regular seria `status r! \d{3}` que enviará o comando `status` para bots que tenham o nome composto por 3 dígitos (por exemplo: `123` e `981`). Sinta-se a vontade para dar uma olhada nos **[documentos](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** para mais explicações e mais exemplos de padrões de expressão regular disponíveis.
+Além de sintaxe de classe descrita acima, o argumento `[Bots]` também suporta correspondência de **[expressão regular](https://pt.wikipedia.org/wiki/Express%C3%A3o_regular)**. Você pode ativar o padrão de expressão regular usando `r!<Pattern>` como um nome de bot, onde `r!` é o ativador ASF para correspondência de expressão regular e `<Pattern>` é o seu padrão de expressão regular. Um exemplo de comando de bot baseado em expressão regular seria `status r! \d{3}` que enviará o comando `status` para bots que tenham o nome composto por 3 dígitos (por exemplo: `123` e `981`). Sinta-se a vontade para dar uma olhada nos **[documentos](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** para mais explicações e mais exemplos de padrões de expressão regular disponíveis.
 
 ---
 
@@ -212,7 +214,7 @@ O comando `addlicense` suporte dois tipos diferentes de licenças:
 | `app` | `a`     | `app/292030` | `appID` do jogo desejado.                                      |
 | `sub` | `s`     | `sub/47807`  | Pacote contendo um ou mais jogos, determinado por sua `subID`. |
 
-A diferenciação é importante pois o ASF vai usar a Rede Steam para ativar apps, e a Loja Steam para ativar pacotes. Esses dois tipos são incompatíveis, normalmente você usará apps para jogos que ficam gratuitos durante o fim de semana e/ou permanentemente, e pacotes de outra forma.
+A diferenciação é importante pois o ASF vai usar a rede Steam para ativar apps, e a loja Steam para ativar pacotes. Esses dois tipos são incompatíveis, normalmente você usará apps para jogos que ficam gratuitos durante o fim de semana e/ou permanentemente, e pacotes de outra forma.
 
 Recomendamos definir explicitamente o tipo de cada entrada para evitar resultados ambíguos, mas por conta da retrocompatibilidade, se você fornecer um tipo inválido ou omiti-lo completamente, o ASF irá supor que você solicitou pelo `sub`. Você também pode consultar uma ou mais licenças ao mesmo tempo, usando o delimitador padrão do ASF `,`.
 
@@ -247,7 +249,7 @@ owns ASF app/292030,name/Witcher
 
 ## Métodos `redeem^`
 
-O comando `redeem^`permite que você ajuste os métodos que serão usados em um cenário individual de resgate. Ele funciona como uma substituição temporária do **[parâmetro de configuração do bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-do-bot)** `RedeemingPreferences`.
+O comando `redeem^` permite que você ajuste os métodos que serão usados em um cenário individual de ativação de códigos de produto. Ele funciona como uma substituição temporária do **[parâmetro de configuração do bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-do-bot)** `RedeemingPreferences`.
 
 O argumento `<Modes>` aceita vários valores de métodos, como de costume separados por uma vírgula. Valores disponíveis de métodos são especificados abaixo:
 
@@ -264,7 +266,7 @@ O argumento `<Modes>` aceita vários valores de métodos, como de costume separa
 | SKMG  | SkipKeepMissingGames  | Força a desativação da preferência de resgate `KeepMissingGames`                         |
 | V     | Validate              | Valida a formatação correta dos códigos de produto e ignora automaticamente os inválidos |
 
-Por exemplo, gostaríamos de resgatar 3 chaves em qualquer um dos nossos bots que ainda não possuem os jogos, mas não nosso bot `primário`. Para isso nós podemos usar:
+Por exemplo, digamos que queremos resgatar 3 códigos de produto em qualquer um dos nossos bots que ainda não possuem os jogos, mas não no nosso bot `primary`. Para isso nós podemos usar:
 
 `redeem^ primary FF,SI key1,key2,key3`
 
@@ -308,7 +310,7 @@ Digamos que temos um bot que é protegido pelo SteamGuard no modo não-2FA. Nós
 
 Para fazer isso, precisamos executar o seguintes comandos:
 
-`start MySteamGuardBot`-> O bot irá tentar logar, falhar devido a necessidade do AuthCode, e, em seguida, parar devido à execução em modo `Headless`. Precisamos disso para fazer a Rede Steam nos enviar o código de autenticação no e-mail - se não houvesse necessidade disso, pularíamos essa etapa inteiramente.
+`start MySteamGuardBot`-> O bot irá tentar logar, falhar devido a necessidade do AuthCode, e, em seguida, parar devido à execução em modo `Headless`. Precisamos disso para fazer a rede Steam nos enviar o código de autenticação no e-mail - se não houvesse necessidade disso, pularíamos essa etapa inteiramente.
 
 `input MySteamGuardBot SteamGuard ABCDE` -> Definimos a entrada `SteamGuard` do bot `MySteamGuardBot` para `ABCDE`. Claro, `ABCDE` neste caso é o código de autenticação que recebemos no nosso e-mail.
 

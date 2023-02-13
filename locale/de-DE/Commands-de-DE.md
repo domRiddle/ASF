@@ -111,21 +111,23 @@ Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeig
 
 Bei Befehlen selbst ist die Groß- und Kleinschreibung egal, aber bei deren Argumenten (wie zum Beispiel Bot-Namen) muss die Groß- und Kleinschreibung beachtet werden.
 
-Das `[Bots]` Argument ist in allen Befehlen optional. Wenn verwendet, wird der Befehl auf den angegebenen Bots ausgeführt. Ohne diese Angabe wird der Befehl auf dem Bot ausgeführt, der den Befehl erhält. Mit anderen Worten: Wenn `status A` an Bot `B` gesendet wird ist es dasselbe wie wenn `status` an Bot `A` gesendet wird. Bot `B` dient in diesem Fall nur als Proxy. Dies kann auch zum Senden von Befehlen an Bots verwendet werden, die andernfalls nicht verfügbar sind. Zum Beispiel das Starten angehaltener Bots oder die Ausführung von Aktionen auf Ihrem Hauptkonto (welches Sie für die Ausführung der Befehle verwenden).
+Arguments follow UNIX philosophy, square brackets `[Optional]` indicate that given argument is optional, while angle brackets `<Mandatory>` indicate that given argument is mandatory. You should replace the arguments that you want to declare, such as `[Bots]` or `<Nickname>` with actual values that you want to issue the command with, omitting the braces.
+
+`[Bots]` argument, as indicated by the brackets, is optional in all commands. Wenn verwendet, wird der Befehl auf den angegebenen Bots ausgeführt. Ohne diese Angabe wird der Befehl auf dem Bot ausgeführt, der den Befehl erhält. Mit anderen Worten: Wenn `status A` an Bot `B` gesendet wird ist es dasselbe wie wenn `status` an Bot `A` gesendet wird. Bot `B` dient in diesem Fall nur als Proxy. Dies kann auch zum Senden von Befehlen an Bots verwendet werden, die andernfalls nicht verfügbar sind. Zum Beispiel das Starten angehaltener Bots oder die Ausführung von Aktionen auf Ihrem Hauptkonto (welches Sie für die Ausführung der Befehle verwenden).
 
 **Zugriff** eines Befehls definiert die **minimale** `EPermission` von `SteamUserPermissions`, die für die Verwendung des Befehls erforderlich ist - mit Ausnahme von `Owner` der als `SteamOwnerID` in der globalen Konfigurationsdatei (und damit höchste verfügbare Berechtigung) definiert ist.
 
-Mehrere Argumente, wie `[Bots]`, `<Keys>` oder `<AppIDs>` bedeuten, dass der Befehl mehrere, mit Komma getrennte, Argumente eines gegebenen Typs unterstützt. `status [Bots]` kann zum Beispiel als `status MyBot,MyOtherBot,Primär` verwendet werden. Dies führt dazu, dass der angegebene Befehl auf **alle Ziel-Bots** auf die gleiche Weise ausgeführt wird, wie wenn du `status` an jeden Bot in einem separaten Chat-Fenster senden würdest. Bitte beachte, dass nach `,` kein Leerzeichen steht.
+Mehrere Argumente, wie `[Bots]`, `<Keys>` oder `<AppIDs>` bedeuten, dass der Befehl mehrere, mit Komma getrennte, Argumente eines gegebenen Typs unterstützt. `status [Bots]` kann zum Beispiel als `status MyBot,MyOtherBot,Primär` verwendet werden. Dies führt dazu, dass der angegebene Befehl auf **alle Ziel-Bots** auf die gleiche Weise ausgeführt wird, wie wenn du `status` an jeden Bot in einem separaten Chat-Fenster senden würdest. Bitte beachten Sie, dass nach `,` kein Leerzeichen steht.
 
-ASF verwendet alle Whitespace-Zeichen als mögliche Trennzeichen für einen Befehl, wie Leerzeichen und Zeilenumbrüche. Das bedeutet, dass du zur Begrenzungen deiner Argumente keine Leerzeichen verwenden musst, du kannst auch jedes andere Whitespace-Zeichen (z.B. Tabulator oder Zeilenumbruch) verwenden.
+ASF verwendet alle Whitespace-Zeichen als mögliche Trennzeichen für einen Befehl, wie Leerzeichen und Zeilenumbrüche. Das bedeutet, dass Sie zur Begrenzungen der Argumente keine Leerzeichen verwenden müssen. Sie können auch jedes andere Whitespace-Zeichen (z. B. Tabulator oder Zeilenumbruch) verwenden.
 
-ASF wird zusätzliche "Out-of-Range"-Argumente mit dem Plural-Typ des letzten "In-Range"-Arguments "verbinden". Dies bedeutet, dass `redeem bot key1 key2 key3` für `redeem [Bots] <Keys>` genauso funktionieren wird, wie `redeem bot key1,key2,key3`. Da ein Zeilenumbruch als Trennzeichen verwendet werden kann ermöglicht dir dies, `redeem bot` zu schreiben und dann eine Liste von Produktschlüsseln einzufügen, die durch ein beliebiges zulässiges Trennzeichen (z.B. Zeilenumbruch) oder dem Standard `,` ASF-Trennzeichen getrennt sind. Bedenken Sie, dass dieser Trick nur für eine Befehlsvariante verwendet werden kann, die die meiste Anzahl von Argumenten verwendet (daher ist die Angabe von `[Bots]` in diesem Fall notwendig).
+ASF wird zusätzliche "Out-of-Range"-Argumente mit dem Plural-Typ des letzten "In-Range"-Arguments "verbinden". Dies bedeutet, dass `redeem bot key1 key2 key3` für `redeem [Bots] <Keys>` genauso funktionieren wird, wie `redeem bot key1,key2,key3`. Da ein Zeilenumbruch als Trennzeichen verwendet werden kann ermöglicht Ihnen dies, `redeem bot` zu schreiben und dann eine Liste von Produktschlüsseln einzufügen, die durch ein beliebiges zulässiges Trennzeichen (z. B. Zeilenumbruch) oder dem Standard `,` ASF-Trennzeichen getrennt sind. Bedenken Sie, dass dieser Trick nur für eine Befehlsvariante verwendet werden kann, die die meiste Anzahl von Argumenten verwendet (daher ist die Angabe von `[Bots]` in diesem Fall notwendig).
 
-Wie du oben gelesen hast, wird ein Leerzeichen als Trennzeichen für einen Befehl verwendet, daher kann es nicht in Argumenten verwendet werden. Allerdings kann ASF auch, wie oben erwähnt, "Out-of-Range"-Argumente verbinden, was bedeutet, dass du tatsächlich ein Leerzeichen in Argumenten verwenden kannst, das als letztes für den angegebenen Befehl definiert ist. Zum Beispiel, `nickname bob Great Bob` wird den Benutzernamen des Bots `bob` richtig auf "Great Bob" setzen. Auf die gleiche Weise kannst du Namen, die Leerzeichen enthalten, im Befehl `owns` überprüfen.
+Wie Sie oben gelesen haben, wird ein Leerzeichen als Trennzeichen für einen Befehl verwendet, daher kann es nicht in Argumenten verwendet werden. Allerdings kann ASF auch, wie oben erwähnt, "Out-of-Range"-Argumente verbinden, was bedeutet, dass Sie tatsächlich ein Leerzeichen in Argumenten verwenden könnten, das als letztes für den angegebenen Befehl definiert ist. Zum Beispiel, `nickname bob Great Bob` wird den Benutzernamen des Bots `bob` richtig auf "Great Bob" setzen. Auf die gleiche Weise können Sie Namen, die Leerzeichen enthalten, im Befehl `owns` überprüfen.
 
 ---
 
-Für einige Befehle sind auch Aliase verfügbar, um dir Zeit beim tippen zu sparen:
+Some commands are also available with their aliases, mostly to save you on typing or account for different dialects:
 
 | Befehl       | Alias        |
 | ------------ | ------------ |
@@ -141,11 +143,11 @@ Für einige Befehle sind auch Aliase verfügbar, um dir Zeit beim tippen zu spar
 
 `[Bots]` Argument ist eine spezielle Variante des Plural Arguments, da es neben der Annahme mehrerer Werte auch zusätzliche Funktionalität bietet.
 
-Es gibt zunächst ein spezielles Schlüsselwort `ASF`, das als "alle Bots im Prozess" fungiert, so dass der Befehl `status ASF` gleich `status all,your,bots,listed,here` ist. Dies kann auch verwendet werden, um die Bots zu identifizieren, auf die du Zugriff hast, da das `ASF` Schlüsselwort, trotz der Ausrichtung auf alle Bots, nur von den Bots eine Antwort generiert, an die du den Befehl tatsächlich senden kannst.
+Es gibt zunächst ein spezielles Schlüsselwort `ASF`, das als "alle Bots im Prozess" fungiert, sodass der Befehl `status ASF` gleich `status all,your,bots,listed,here` ist. Dies kann auch verwendet werden, um die Bots zu identifizieren, auf die Sie Zugriff haben, da das `ASF`-Schlüsselwort, trotz der Ausrichtung auf alle Bots, nur von den Bots eine Antwort generiert, an die Sie den Befehl tatsächlich senden können.
 
-Das Argument `[Bots]` unterstützt eine speziellen "range"-Syntax, der es ermöglicht, einen Reihe von Bots einfacher auszuwählen. Der allgemeine Syntax für `[Bots]` ist in diesem Fall `ersterBot..letzterBot`. Wenn du zum Beispiel Bots mit den Namen `A, B, C, D, E, F` hast, kannst du `status B..E` ausführen, was in diesem Fall gleich `status B,C,D,E` ist. Bei Verwendung dieser Syntax verwendet ASF die alphabetische Sortierung, um festzustellen, welche Bots sich in dem von dir angegebenen Bereich befinden. Sowohl `ersterBot` als auch `letzterBot` müssen gültige Bot-Namen sein, die von ASF erkannt werden, da sonst die Bereichs-Syntax vollständig übersprungen wird.
+Das Argument `[Bots]` unterstützt eine speziellen "range"-Syntax, der es ermöglicht, einen Reihe von Bots einfacher auszuwählen. The general syntax for `[Bots]` in this case is `<FirstBot>..<LastBot>`. Wenn Sie zum Beispiel Bots mit den Namen `A, B, C, D, E, F` haben, können Sie `status B..E` ausführen, was in diesem Fall gleich `status B,C,D,E` ist. Bei Verwendung dieser Syntax verwendet ASF die alphabetische Sortierung, um festzustellen, welche Bots sich in dem von Ihnen angegebenen Bereich befinden. `FirstBot` and `LastBot` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
 
-Zusätzlich zum obigen range-syntax unterstützt das `[Bots]` Argument auch **[regex](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck)** Übereinstimmung. Du kannst Regex Muster aktivieren, indem du `r!<pattern>` als Bot-Namen verwendest, wobei `r!` der ASF-Aktivator für den Regex Abgleich ist, und `<pattern>` dein Regex-Muster ist. An example of a regex-based bot command would be `status r!^\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). Zögere nicht einen Blick auf die **[Dokumentation](https://docs.microsoft.com/de-de/dotnet/standard/base-types/regular-expression-language-quick-reference)** zu werfen, um weitere Erklärungen und Beispiele für verfügbare Regex-Muster zu erhalten.
+Zusätzlich zum obigen range-syntax unterstützt das `[Bots]` Argument auch **[regex](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck)** Übereinstimmung. Du kannst Regex Muster aktivieren, indem du `r!<Pattern>` als Bot-Namen verwendest, wobei `r!` der ASF-Aktivator für den Regex Abgleich ist, und `<Pattern>` dein Regex-Muster ist. An example of a regex-based bot command would be `status r!^\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). Zögere nicht einen Blick auf die **[Dokumentation](https://docs.microsoft.com/de-de/dotnet/standard/base-types/regular-expression-language-quick-reference)** zu werfen, um weitere Erklärungen und Beispiele für verfügbare Regex-Muster zu erhalten.
 
 ---
 
@@ -173,7 +175,7 @@ Für alle Argumente sind folgende Werte gültig:
 | 2    | `FriendsOnly` |
 | 3    | `Public`      |
 
-Du kannst entweder den case-insensitiven Namen oder den numerischen Wert verwenden. Argumente, die weggelassen wurden, werden standardmäßig auf `Private` gesetzt. Es ist wichtig, die Beziehung zwischen Kind und Eltern von oben genannten Argumenten zu beachten, da das Kind nie mehr offene Berechtigung haben kann als sein Elternteil. Zum Beispiel kannst du Spiele im Besitz **nicht** auf `Public` haben, während dein Profil auf `Private` steht.
+Sie können entweder den case-insensitiven Namen oder den numerischen Wert verwenden. Argumente, die weggelassen wurden, werden standardmäßig auf `Private` gesetzt. Es ist wichtig, die Beziehung zwischen Untergruppe (Kind) und Hauptgruppe (Eltern) von oben genannten Argumenten zu beachten, da das Kind nie mehr Berechtigung haben kann als sein Elternteil. Zum Beispiel kannst du Spiele im Besitz **nicht** auf `Public` haben, während dein Profil auf `Private` steht.
 
 ### Beispiel
 
@@ -184,14 +186,14 @@ privacy Main 1
 privacy Main Private
 ```
 
-Dies liegt daran, dass ASF automatisch alle anderen Einstellungen als `Private` ansieht, so dass es nicht notwendig ist, sie anzugeben. Wenn du dagegen alle Privatsphäre-Einstellungen auf `Public` setzen möchtest, dann musst du eine der folgenden Optionen verwenden:
+Dies liegt daran, dass ASF automatisch alle anderen Einstellungen als `Private` ansieht, sodass es nicht notwendig ist, sie anzugeben. Wenn Sie stattdessen alle Privatsphäre-Einstellungen auf `Public` setzen möchten, dann muss eine der folgenden Optionen verwendet werden:
 
 ```text
 privacy Main 3,3,3,3,3,3,3
 privacy Main Public,Public,Public,Public,Public,Public,Public
 ```
 
-Auf diese Weise kannst du auch einzelne Einstellungen so vornehmen, wie du willst:
+Auf diese Weise können Sie auch einzelne Einstellungen so vornehmen, wie Sie möchten:
 
 ```text
 privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
@@ -199,7 +201,7 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 Das oben genannte wird das Profil auf öffentlich setzen, eigene Spiele auf nur für Freunde, Spielzeit auf privat, Freundesliste auf öffentlich, Inventar auf öffentlich, Inventar Geschenke auf privat und Profil-Kommentare auf öffentlich. Das Gleiche kann man mit numerischen Werten erreichen, wenn man dies möchte.
 
-Bedenke, dass ein Kind nie mehr offene Berechtigungen haben kann als sein Elternteil. Siehe hierzu die Argumentationsbeziehung für die verfügbaren Optionen.
+Bedenken Sie, dass ein Kind nie mehr offene Berechtigungen haben kann als sein Elternteil. Schauen Sie sich hierzu die Argumentationsbeziehung für die verfügbaren Optionen an.
 
 ---
 
@@ -247,7 +249,7 @@ owns ASF app/292030,name/Witcher
 
 ## `redeem^` Modi
 
-Der Befehl `redeem^` ermöglicht es dir, die Modi zu optimieren, die für ein einzelnes Einlöse-Szenario verwendet werden. Dazu wird temporär die `RedeemingPreferences` **[Bot-Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#redeemingpreferences)** überschrieben.
+Der Befehl `redeem^` ermöglicht es Ihnen, die Modi zu optimieren, die für ein einzelnes Einlöse-Szenario verwendet werden. Dazu wird temporär die `RedeemingPreferences` **[Bot-Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#redeemingpreferences)** überschrieben.
 
 `<Modes>` Argument akzeptiert mehrere Modus-Werte, die, wie üblich, durch ein Komma getrennt werden. Die verfügbaren Modus-Werte sind im Folgenden aufgeführt:
 
@@ -304,13 +306,13 @@ Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
 
 ### Beispiel
 
-Lass uns annehmen, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. We want to launch that bot with `Headless` set to `true`.
+Nehmen wir an, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. We want to launch that bot with `Headless` set to `true`.
 
-Um das zu tun müssen wir folgende Befehle ausführen:
+Um das zu tun, müssen wir folgende Befehle ausführen:
 
 `start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. Wir brauchen dies, damit das Steam-Netzwerk uns den Authentisierungscode an unsere E-Mail sendet - wenn es keinen Bedarf dafür gibt, würden wir diesen Schritt komplett überspringen.
 
-`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Natürlich sollte `ABCDE` der Code sein, den du in deiner E-Mail erhalten hast.
+`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Natürlich sollte `ABCDE` der Code sein, den Sie in Ihrer E-Mail erhalten haben.
 
 `start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
 

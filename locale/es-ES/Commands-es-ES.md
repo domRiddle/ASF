@@ -111,7 +111,9 @@ La forma más avanzada y flexible de ejecutar comandos, perfecta para la interac
 
 Ningún comando es sensible a mayúsculas y minúsculas, pero sus argumentos (como nombres de bots) sí suelen diferenciarlas.
 
-El argumento `[Bots]` es opcional en todos los comandos. Cuando se especifica, el comando se ejecuta en los bots indicados. Cuando se omite, el comando se ejecuta en el bot actual que reciba el comando. En otras palabras, `status A` enviado al bot `B` es lo mismo que enviar `status` al bot `A`, pero el bot `B` en este caso actúa solo como un proxy. Esto también se puede usar para enviar comandos a bots que de otro modo no están disponibles, por ejemplo, iniciar bots detenidos, o ejecutar acciones en tu cuenta principal (que estás usando para ejecutar comandos).
+Arguments follow UNIX philosophy, square brackets `[Optional]` indicate that given argument is optional, while angle brackets `<Mandatory>` indicate that given argument is mandatory. You should replace the arguments that you want to declare, such as `[Bots]` or `<Nickname>` with actual values that you want to issue the command with, omitting the braces.
+
+`[Bots]` argument, as indicated by the brackets, is optional in all commands. Cuando se especifica, el comando se ejecuta en los bots indicados. Cuando se omite, el comando se ejecuta en el bot actual que reciba el comando. En otras palabras, `status A` enviado al bot `B` es lo mismo que enviar `status` al bot `A`, pero el bot `B` en este caso actúa solo como un proxy. Esto también se puede usar para enviar comandos a bots que de otro modo no están disponibles, por ejemplo, iniciar bots detenidos, o ejecutar acciones en tu cuenta principal (que estás usando para ejecutar comandos).
 
 El **acceso** del comando define el `EPermission` permiso **mínimo** de `SteamUserPermissions` que se requiere para usar el comando, con la excepción de `Owner` propietario que se define en `SteamOwnerID` en el archivo de configuración global (y que es el permiso más alto disponible).
 
@@ -125,7 +127,7 @@ Como leíste arriba, se usa un carácter de espacio como delimitador para un com
 
 ---
 
-Algunos comandos también están disponibles con sus alias, para ahorrarte la escritura:
+Some commands are also available with their aliases, mostly to save you on typing or account for different dialects:
 
 | Comando      | Alias        |
 | ------------ | ------------ |
@@ -143,9 +145,9 @@ El argumento `[Bots]` es una variante especial de los argumentos plurales, ya qu
 
 En primer lugar, hay una palabra clave `ASF` que actúa como "todos los bots en el proceso", así que el comando `status ASF` es igual a `status todos,tus,bots,enlistados,aquí`. Esto también puede utilizarse para identificar fácilmente los bots a los que tienes acceso, ya que la palabra clave `ASF`, a pesar de dirigirse a todos los bots, solo tendrá respuesta de aquellos bots a los que realmente puedes enviar el comando.
 
-El argumento `[Bots]` soporta una sintaxis especial de "rango", que te permite elegir un rango de bots más fácilmente. La sintaxis general para `[Bots]` en este caso es `primerBot..últimoBot`. Por ejemplo, si tienes bots llamados `A, B, C, D, E, F`, puedes ejecutar `status B..E`, lo que es igual a `status B,C,D,E` en este caso. Al usar esta sintaxis, ASF usará el orden alfabético para determinar qué bots están en tu rango especificado. Tanto `primerBot` como `últimoBot` deben ser nombres válidos de bots reconocidos por ASF, de lo contrario la sintaxis de rango se omite completamente.
+El argumento `[Bots]` soporta una sintaxis especial de "rango", que te permite elegir un rango de bots más fácilmente. The general syntax for `[Bots]` in this case is `<FirstBot>..<LastBot>`. Por ejemplo, si tienes bots llamados `A, B, C, D, E, F`, puedes ejecutar `status B..E`, lo que es igual a `status B,C,D,E` en este caso. Al usar esta sintaxis, ASF usará el orden alfabético para determinar qué bots están en tu rango especificado. `FirstBot` and `LastBot` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
 
-Además de la sintaxis de rango, el argumento `[Bots]` también soporta la coincidencia de **[expresión regular](https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular)**. Puedes activar el patrón de expresión regular usando `r!<pattern>` como nombre de bot, donde `r!` es el activador de ASF para la coincidencia de expresión regular, y `<pattern>` es tu patrón de expresión regular. Un ejemplo de comando basado en expresión regular sería `status r!^\d{3}` que enviará el comando `status` a los bots que tengan un nombre formado por 3 dígitos (por ejemplo `123` y `981`). No dudes en echar un vistazo a la **[documentación](https://docs.microsoft.com/es-es/dotnet/standard/base-types/regular-expression-language-quick-reference)** para mayor información y más ejemplos de patrones de expresión regular disponibles.
+Además de la sintaxis de rango, el argumento `[Bots]` también soporta la coincidencia de **[expresión regular](https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular)**. Puedes activar el patrón de expresión regular usando `r!<Pattern>` como nombre de bot, donde `r!` es el activador de ASF para la coincidencia de expresión regular, y `<Pattern>` es tu patrón de expresión regular. Un ejemplo de comando basado en expresión regular sería `status r!^\d{3}` que enviará el comando `status` a los bots que tengan un nombre formado por 3 dígitos (por ejemplo `123` y `981`). No dudes en echar un vistazo a la **[documentación](https://docs.microsoft.com/es-es/dotnet/standard/base-types/regular-expression-language-quick-reference)** para mayor información y más ejemplos de patrones de expresión regular disponibles.
 
 ---
 
@@ -173,7 +175,7 @@ Mientras que los valores válidos para todos ellos son:
 | 2     | `FriendsOnly` |
 | 3     | `Public`      |
 
-Puedes usar un nombre, sin distinción de mayúsculas y minúsculas, o un valor numérico. Los argumentos omitidos por defecto se establecerán a `Private` privado. Es importante tener en cuenta la relación entre padre e hijo de los argumentos especificados anteriormente, ya que el hijo nunca puede tener permisos más abiertos que el padre. Por ejemplo, **no** puedes tener juegos poseídos en `Public` público teniendo el perfil en `Private` privado.
+Puedes usar un nombre, que no distingue mayúsculas y minúsculas, o un valor numérico. Los argumentos omitidos por defecto se establecerán a `Private` privado. Es importante tener en cuenta la relación entre padre e hijo de los argumentos especificados anteriormente, ya que el hijo nunca puede tener permisos más abiertos que el padre. Por ejemplo, **no** puedes tener juegos poseídos en `Public` público teniendo el perfil en `Private` privado.
 
 ### Ejemplo
 
@@ -274,19 +276,19 @@ Es importante notar que la activación avanzada solo anula las `RedeemingPrefere
 
 ## Comando `encrypt`
 
-El comando `encrypt` te permite cifrar cadenas de caracteres usando los métodos de cifrado de ASF. `<encryptionMethod>` debe ser uno de los métodos de cifrado especificados y explicados en la sección **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-ES)**. Recomendamos usar este comando a través de canales seguros (consola de ASF o la interfaz IPC, que también tienen un API endpoint dedicado para ello), ya que de lo contrario los detalles confidenciales podrían ser registrados por terceros (tal como mensajes de chat registrados por los servidores de Steam).
+El comando `encrypt` te permite cifrar cadenas de caracteres usando los métodos de cifrado de ASF. `<encryptionMethod>` debe ser uno de los métodos de cifrado especificados y explicados en la sección **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-es)**. Recomendamos usar este comando a través de canales seguros (consola de ASF o la interfaz IPC, que también tienen un API endpoint dedicado para ello), ya que de lo contrario los detalles confidenciales podrían ser registrados por terceros (tal como mensajes de chat registrados por los servidores de Steam).
 
 ---
 
 ## Comando `hash`
 
-El comando `hash` te permite generar hashes de cadenas arbitrarias usando los métodos de hash de ASF. `<hashingMethod>` debe ser uno de los métodos de hash especificados y explicados en la sección **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-ES)**. Recomendamos usar este comando a través de canales seguros (consola de ASF o la interfaz IPC, que también tienen un API endpoint dedicado para ello), ya que de lo contrario los detalles confidenciales podrían ser registrados por terceros (tal como mensajes de chat registrados por los servidores de Steam).
+El comando `hash` te permite generar hashes de cadenas arbitrarias usando los métodos de hash de ASF. `<hashingMethod>` debe ser uno de los métodos de hash especificados y explicados en la sección **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-es)**. Recomendamos usar este comando a través de canales seguros (consola de ASF o la interfaz IPC, que también tienen un API endpoint dedicado para ello), ya que de lo contrario los detalles confidenciales podrían ser registrados por terceros (tal como mensajes de chat registrados por los servidores de Steam).
 
 ---
 
 ## Comando `input`
 
-El comando `input` solo puede usarse en modo `Headless`, para introducir determinados datos a través de **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES)** o del chat de Steam cuando ASF se está ejecutando sin soporte para interacción del usuario.
+El comando `input` solo puede usarse en modo `Headless`, para introducir determinados datos a través de **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-es)** o del chat de Steam cuando ASF se está ejecutando sin soporte para interacción del usuario.
 
 La sintaxis general es `input [Bots] <Type> <Value>`.
 

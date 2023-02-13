@@ -115,7 +115,9 @@ La manière la plus avancée et la plus souple d’exécution de commandes, idé
 
 Toutes les commandes sont sensibles à la case, mais leurs arguments (tels que les noms de bot) sont généralement sensibles à la case.
 
-`[Bots]` argument is optional in all commands. Lorsque spécifié, la commande est exécutée sur des bots. Lorsqu'elle est omise, la commande est exécutée sur le bot actuel qui reçoit la commande. En d'autres termes, ` statut A ` envoyé au bot ` B ` correspond à l'envoi de ` statut ` au bot ` A `, le bot ` B ` agit ici comme un proxy. This can also be used for sending commands to bots that are unavailable otherwise, for example starting stopped bots, or executing actions on your main account (that you're using for executing the commands).
+Arguments follow UNIX philosophy, square brackets `[Optional]` indicate that given argument is optional, while angle brackets `<Mandatory>` indicate that given argument is mandatory. You should replace the arguments that you want to declare, such as `[Bots]` or `<Nickname>` with actual values that you want to issue the command with, omitting the braces.
+
+`[Bots]` argument, as indicated by the brackets, is optional in all commands. Lorsque spécifié, la commande est exécutée sur des bots. Lorsqu'elle est omise, la commande est exécutée sur le bot actuel qui reçoit la commande. En d'autres termes, ` statut A ` envoyé au bot ` B ` correspond à l'envoi de ` statut ` au bot ` A `, le bot ` B ` agit ici comme un proxy. This can also be used for sending commands to bots that are unavailable otherwise, for example starting stopped bots, or executing actions on your main account (that you're using for executing the commands).
 
 **Access** de la commande définit ** minimum** ` EPermission` sur `SteamUserPermissions` requis pour utiliser la commande, à l'exception de `Owner` qui est `SteamOwnerID` défini dans le fichier de configuration global (et la permission la plus élevée disponible).
 
@@ -129,7 +131,7 @@ Comme vous l'avez lu plus haut, un caractère d'espacement est utilisé comme d�
 
 ---
 
-Certaines commandes sont également disponibles avec leurs alias, pour vous éviter de taper:
+Some commands are also available with their aliases, mostly to save you on typing or account for different dialects:
 
 | Commande     | Alias        |
 | ------------ | ------------ |
@@ -147,9 +149,9 @@ Certaines commandes sont également disponibles avec leurs alias, pour vous évi
 
 Tout d’abord, il y a le mot-clé `ASF` spécial qui sert pour « tous les bots dans le processus », donc la commande `status ASF` est égal à `État de tous vos bots répertoriés ici`. Cela peut également être utilisé pour identifier facilement les bots auxquels vous avez accès. En tant que mot clé ` ASF `, malgré le ciblage de tous les bots, seuls les bots auxquels vous pouvez envoyer la commande ne répondent.
 
-`[Bots]` argument supports special "range" syntax, which allows you to choose a range of bots more easily. The general syntax for `[Bots]` in this case is `firstBot..lastBot`. Par exemple, si vous avez des robots nommés ` A, B, C, D, E, F `, vous pouvez exécuter ` le statut B..E`, ce qui correspond à `. statut B, C, D, E ` dans ce cas. En utilisant cette syntaxe, ASF utilisera un tri alphabétique afin de déterminer les bots qui se trouvent dans la plage spécifiée. `firstBot` et `lastBot` doivent être des noms de bot valides reconnus par ASF, sinon la syntaxe de la plage est entièrement ignorée.
+`[Bots]` argument supports special "range" syntax, which allows you to choose a range of bots more easily. The general syntax for `[Bots]` in this case is `<FirstBot>..<LastBot>`. Par exemple, si vous avez des robots nommés ` A, B, C, D, E, F `, vous pouvez exécuter ` le statut B..E`, ce qui correspond à `. statut B, C, D, E ` dans ce cas. En utilisant cette syntaxe, ASF utilisera un tri alphabétique afin de déterminer les bots qui se trouvent dans la plage spécifiée. `FirstBot` and `LastBot` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
 
-In addition to range syntax above, `[Bots]` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. Vous pouvez activer le motif de regex en utilisant `r!<pattern>` comme nom de bot, où `r!` est un activateur ASF pour la correspondance de regex et `<pattern>` votre motif de regex. An example of a regex-based bot command would be `status r!^\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). N’hésitez pas à jeter un oeil à la **[documentation](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** pour plus d’explications et plus d’exemples de modèles regex disponibles.
+In addition to range syntax above, `[Bots]` argument also supports **[regex](https://en.wikipedia.org/wiki/Regular_expression)** matching. Vous pouvez activer le motif de regex en utilisant `r!<Pattern>` comme nom de bot, où `r!` est un activateur ASF pour la correspondance de regex et `<Pattern>` votre motif de regex. An example of a regex-based bot command would be `status r!^\d{3}` which will send `status` command to bots that have a name made out of 3 digits (e.g. `123` and `981`). N’hésitez pas à jeter un oeil à la **[documentation](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)** pour plus d’explications et plus d’exemples de modèles regex disponibles.
 
 ---
 

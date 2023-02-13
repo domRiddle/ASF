@@ -111,7 +111,9 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 所有的命令都不区分大小写，但它们的参数（例如机器人名称）通常是区分大小写的。
 
-在所有命令中，`[Bots]` 参数都是可选的。 当指定该参数时，命令会在指定的机器人上执行。 但省略时，命令会在接收命令的机器人上执行。 换句话说，向机器人 `B` 发送 `status A` 命令等价于向机器人 `A` 发送 `status` 命令，此时机器人 `B` 仅仅充当一个代理人的角色。 这也可以用于向无法使用的机器人发送命令，例如启动已停止的机器人，或者在主帐户（您发送命令的帐户）上执行操作。
+Arguments follow UNIX philosophy, square brackets `[Optional]` indicate that given argument is optional, while angle brackets `<Mandatory>` indicate that given argument is mandatory. You should replace the arguments that you want to declare, such as `[Bots]` or `<Nickname>` with actual values that you want to issue the command with, omitting the braces.
+
+`[Bots]` argument, as indicated by the brackets, is optional in all commands. 当指定该参数时，命令会在指定的机器人上执行。 但省略时，命令会在接收命令的机器人上执行。 换句话说，向机器人 `B` 发送 `status A` 命令等价于向机器人 `A` 发送 `status` 命令，此时机器人 `B` 仅仅充当一个代理人的角色。 这也可以用于向无法使用的机器人发送命令，例如启动已停止的机器人，或者在主帐户（您发送命令的帐户）上执行操作。
 
 命令的**权限**定义了需要执行此命令所需的**最低**权限，即 `SteamUserPermissions` 中定义的 `EPermission`，例外情况是 `Owner` 指全局配置文件中定义的 `SteamOwnerID` 用户（拥有最高权限）。
 
@@ -125,7 +127,7 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 ---
 
-一些命令有较短的别名可用，用来减少键入的次数：
+Some commands are also available with their aliases, mostly to save you on typing or account for different dialects:
 
 | 命令           | 别名           |
 | ------------ | ------------ |
@@ -143,9 +145,9 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 首先，您可以使用特殊的关键字 `ASF` 来表示“所有机器人”，所以 `status ASF` 命令与列出所有机器人的命令 `status all,your,bots,listed,here` 是相同的。 这也可以方便地识别您有权操作哪些机器人，因为尽管 `ASF` 关键字的目标是所有机器人，但只有您能够实际发送命令的机器人才会作出响应。
 
-`[Bots]` 参数支持范围语法，您可以很容易地选择一定范围的机器人。 这种情况下，`[Bots]` 的一般语法为 `firstBot..lastBot`。 例如，假设您有机器人 `A, B, C, D, E, F`，如果您执行 `status B..E`，效果与执行 `status B,C,D,E` 是相同的。 在使用此语法时，ASF 将会以字母顺序为机器人排序，以决定哪些机器人在指定范围内。 `firstBot` 和 `lastBot` 必须是 ASF 能够识别的有效机器人名称，否则范围语法将不会生效。
+`[Bots]` 参数支持范围语法，您可以很容易地选择一定范围的机器人。 The general syntax for `[Bots]` in this case is `<FirstBot>..<LastBot>`. 例如，假设您有机器人 `A, B, C, D, E, F`，如果您执行 `status B..E`，效果与执行 `status B,C,D,E` 是相同的。 在使用此语法时，ASF 将会以字母顺序为机器人排序，以决定哪些机器人在指定范围内。 `FirstBot` and `LastBot` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
 
-除了上述的范围语法，`[Bots]` 参数还支持[**正则表达式**](https://en.wikipedia.org/wiki/Regular_expression)匹配。 您可以使用 `r!<pattern>` 作为机器人名称，其中 `r!` 告诉 ASF 使用正则表达式匹配，而 `<pattern>` 则是正则表达式。 一个使用正则表达式的例子为 `status r!^\d{3}` 命令，它会向所有名称为 3 个数字的机器人（例如 `123` 和 `981`）发送 `status` 命令。 您可以阅读这份[**文档**](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)，进一步了解正则表达式的解释和示例。
+除了上述的范围语法，`[Bots]` 参数还支持&#8203;**[正则表达式](https://en.wikipedia.org/wiki/Regular_expression)**&#8203;匹配。 您可以使用 `r!<Pattern>` 作为机器人名称，其中 `r!` 告诉 ASF 使用正则表达式匹配，而 `<Pattern>` 则是正则表达式。 一个使用正则表达式的例子为 `status r!^\d{3}` 命令，它会向所有名称为 3 个数字的机器人（例如 `123` 和 `981`）发送 `status` 命令。 您可以阅读这份&#8203;**[文档](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)**，进一步了解正则表达式的解释和示例。
 
 ---
 
@@ -274,13 +276,13 @@ owns ASF app/292030,name/Witcher
 
 ## `encrypt` 命令
 
-`encrypt` 命令使您能够使用 ASF 的加密方式加密任意字符串。 加密方式 `<encryptionMethod>` 必须是[**安全性**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)章节所述方式之一。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
+`encrypt` 命令使您能够使用 ASF 的加密方式加密任意字符串。 加密方式 `<encryptionMethod>` 必须是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节所述方式之一。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
 
 ---
 
 ## `hash` 命令
 
-`hash` 命令使您能够使用 ASF 的哈希方式生成任意字符串的哈希值。 哈希方式 `<hashingMethod>` 必须是[**安全性**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)章节所述方式之一。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
+`hash` 命令使您能够使用 ASF 的哈希方式生成任意字符串的哈希值。 哈希方式 `<hashingMethod>` 必须是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)**&#8203;章节所述方式之一。 我们建议通过安全的渠道（ASF 控制台、ASF-ui 或 IPC 提供的专用 API 端点）使用此命令，否则可能有敏感信息被第三方记录（例如 Steam 服务器的聊天记录）。
 
 ---
 
