@@ -111,19 +111,19 @@ ASF支援各種指令，以此來控制程序及Bot實例的行為。
 
 所有的指令都不區分大小寫，但它們的引數（例如Bot的名稱）通常需要區分大小寫。
 
-Arguments follow UNIX philosophy, square brackets `[Optional]` indicate that given argument is optional, while angle brackets `<Mandatory>` indicate that given argument is mandatory. You should replace the arguments that you want to declare, such as `[Bots]` or `<Nickname>` with actual values that you want to issue the command with, omitting the braces.
+引數遵循著Unix哲學，方括號&#8203;`[Optional]`&#8203;代表給定的引數是選擇性的；而角括號&#8203;`<Mandatory>`&#8203;代表給定的引數是強制性的。 您應將要宣告的引數取代成您執行指令所需的實際值，例如&#8203;`[Bots]`&#8203;或&#8203;`<Nickname>`&#8203;，並一併省略括號。
 
-`[Bots]` argument, as indicated by the brackets, is optional in all commands. 當指定該參數時，指令會在指定的 BOT 上執行。 但省略時，指令會在當前接收指令的 BOT 上執行。 換句話說，向 BOT `B` 發送 `status A` 指令等於向 BOT `A` 發送 `status` 指令，在這種情況下 BOT `B` 只是作為一個代理 BOT。 這也可用於向不可用的 BOT 傳送指令，例如啟動已停止的 BOT，或者在（您用於執行指令的）主要帳戶上執行動作。
+`[Bots]`&#8203;引數，如括號所代表的，在所有指令中皆為選擇性的引數。 當指定該引數時，指令會在指定的Bot上執行。 但省略時，指令會在當前接收到指令的所有Bot上執行。 也就是說，向Bot &#8203;`B`&#8203;傳送&#8203;`status A`&#8203;，等於直接向Bot &#8203;`A`&#8203;傳送&#8203;`status`&#8203;指令。在這種情形下，Bot &#8203;`B`&#8203;只被作為一個代理Bot。 這也可用於向無法使用的Bot傳送指令，例如啟動已終止的Bot，或者在（您用於執行指令的）主要帳號上執行動作。
 
 指令的&#8203;**存取權限**&#8203;定義了執行此指令所需的&#8203;**最低**&#8203;權限，即&#8203;`SteamUserPermissions`&#8203;中定義的&#8203;`EPermission`&#8203;。但有個例外，&#8203;`Owner`&#8203;是指全域設定檔中定義的&#8203;`SteamOwnerID`&#8203;使用者（擁有最高權限）。
 
-複數參數，例如 `[Bots]`、`<Keys>`或`<AppIDs>`意味著該參數支援多個由逗號分隔的同類型值。 例如，`status [Bots]` 可以用為 `status MyBot,MyOtherBot,Primary`。 這樣，該指令會在&#8203;**所有的目標Bot**&#8203;上執行，效果等同於向所有的Bot分別傳送&#8203;`status`&#8203;指令。 需要注意的是「`,`」後面不能有空格。
+複數引數，例如&#8203;`[Bots]`&#8203;、&#8203;`<Keys>`&#8203;或&#8203;`<AppIDs>`&#8203;，代表該引數支援多個由逗號分隔的相同類型數值。 舉例來說，&#8203;`status [Bots]`&#8203;可以輸入成&#8203;`status MyBot,MyOtherBot,Primary`&#8203;。 這樣，該指令會在&#8203;**所有的目標Bot**&#8203;上執行，效果等同於向所有的Bot分別傳送&#8203;`status`&#8203;指令。 需要注意的是，「&#8203;`,`&#8203;」後面不能有空格。
 
 ASF使用所有的空白字元作為指令的定界符，例如空格和換行字元。 這代表您不僅可以使用空格來分隔引數，還可以使用任何其他空白字元（例如Tab及換行）。
 
-ASF 會將指令末尾超出規定範圍的多餘參數「連接」到符合語法規定的最後一個複數參數上。 這表示對於 `redeem [Bots] <Keys>`指令，`redeem bot key1 key2 key3` 跟 `redeem bot key1,key2,key3` 的作用完全一樣。 再加上您可以使用換行符作為指令分隔符，這樣您就可以先寫 `redeem bot`，然後在其後貼上一個產品序號列表，其中每一項可以由任意空白字元（例如換行符）或者 ASF 標準的`,`分隔。 請注意，要使用這一技巧，您必須採用該指令參數數量最多的形式（所以在這種情況下，您必須指定 `[Bots]` 參數）。
+ASF會將超出指令範圍的多餘引數「連接」至符合語法的最後一個複數引數上。 這代表對於&#8203;`redeem [Bots] <Keys>`&#8203;指令而言，&#8203;`redeem bot key1 key2 key3`&#8203;與&#8203;`redeem bot key1,key2,key3`&#8203;的作用完全相同。 再加上您可以使用換行作為指令定界符，這樣您就可以先輸入&#8203;`redeem bot`&#8203;，然後再貼上產品序號清單，其中的每一項可以由任意空白字元（例如換行字元）或者ASF的標準&#8203;`,`&#8203;作為定界。 請注意，若要使用這一技巧，您必須採用該指令引數數量最多的形式（因此在這種情形下，您就必須指定&#8203;`[Bots]`&#8203;引數）。
 
-如上所述，空白字元被用於分隔指令參數，所以參數內部無法再使用空白字元。 但同樣如上所述，ASF可以連接超出範圍的引數。這代表您可以在指令的最後一個引數中，使用空白字元。 例如，`nickname bob Great Bob` 指令能夠正確地將 BOT `bob` 的暱稱變更為「Great Bob」。 同理，您也可以使用&#8203;`owns`&#8203;指令來檢查帶有空格的名稱。
+如上所述，空白字元被用於分隔指令參數，所以參數內部無法再使用空白字元。 但同樣如上所述，ASF可以連接超出範圍的引數。這代表您可以在指令的最後一個引數中，使用空白字元。 舉例來說，&#8203;`nickname bob Great Bob`&#8203;指令能夠將Bot &#8203;`bob`&#8203;的暱稱正確設定成「Great Bob」。 同理，您也可以使用&#8203;`owns`&#8203;指令來檢查帶有空格的名稱。
 
 ---
 
@@ -141,13 +141,13 @@ Some commands are also available with their aliases, mostly to save you on typin
 
 ### `[Bots]` 引數
 
-`[Bots]` 是複數參數的一個特殊變體，除了接受多個值以外，它還有額外的功能。
+`[Bots]`&#8203;是複數引數的一個特殊變體，除了能夠接收多個值以外，它還具有額外的功能。
 
-首要的是，您可以使用特殊的關鍵字 `ASF` 來表示「所有 BOT」，因此 `status ASF` 指令等同於 `status all,your,bots,listed,here`。 這也可以方便地辨識您有權操作哪些 BOT，因為儘管 `ASF` 關鍵字的目標是所有 BOT，但只有您能夠實際發送指令的 BOT 才會作出回應。
+首先，您可以使用特殊關鍵字&#8203;`ASF`&#8203;來表示「程序中的所有Bot」。因此&#8203;`status ASF`&#8203;指令等同於&#8203;`status 您,在此,列出的,所有,Bot`&#8203;。 這也可以方便地辨識您有權操作哪些Bot，因為儘管關鍵字&#8203;`ASF`&#8203;的目標是所有Bot，但只有您實際能夠傳送指令到的Bot才會作出回應。
 
-`[Bots]` 參數支援特殊的「範圍」語法，這可以讓您更容易地選擇特定範圍的 BOT。 The general syntax for `[Bots]` in this case is `<FirstBot>..<LastBot>`. 例如，假設您有 BOT `A, B, C, D, E, F`，如果您執行 `status B..E`，效果等同于執行 `status B,C,D,E`。 在使用此語法時，ASF 將會以字母排序以決定哪些 BOT 在指定範圍內。 `FirstBot` and `LastBot` must be valid bot names recognized by ASF, otherwise range syntax is entirely skipped.
+`[Bots]`&#8203;引數支援特殊的「範圍」語法，這可以讓您更容易選擇特定範圍的Bot。 在這種情形下，&#8203;`[Bots]`&#8203;的一般語法是&#8203;`<FirstBot>..<LastBot>`&#8203;。 舉例來說，假設您有名為&#8203;`A, B, C, D, E, F`&#8203;的Bot，若您執行&#8203;`status B..E`&#8203;，等同於執行&#8203;`status B,C,D,E`&#8203;。 在使用此語法時，ASF將會以字母排序來決定哪些Bot在指定範圍內。 `FirstBot`&#8203;及&#8203;`LastBot`&#8203;必須皆是ASF能夠辨識的有效Bot名稱，否則範圍語法將不會生效。
 
-除了上述的範圍語法，&#8203;`[Bots]`&#8203;引數還支援&#8203;**[正規表示式](https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F)**&#8203;的檢索符合規則。 您可以使用&#8203;`r!<Pattern>`&#8203;作為Bot的名稱，來使用正規表示式。其中&#8203;`r!`&#8203;是ASF用於進入正規表示式檢索行為的啟動指令，而&#8203;`<Pattern>`&#8203;是您的正規表示式。 一個正規表示式的Bot指令範例：&#8203;`status r!^\d{3}`&#8203;，它會向所有名稱為3位數字的Bot（例如&#8203;`123`&#8203;及&#8203;`981`&#8203;）傳送&#8203;`status`&#8203;指令。 您可以閱讀這份&#8203;**[檔案說明](https://docs.microsoft.com/zh-tw/dotnet/standard/base-types/regular-expression-language-quick-reference)**&#8203;，來進一步了解更多說明及範例。
+除了上述的範圍語法，&#8203;`[Bots]`&#8203;引數還支援&#8203;**[正規表示式](https://zh.wikipedia.org/wiki/正则表达式)**&#8203;的檢索符合規則。 您可以使用&#8203;`r!<Pattern>`&#8203;作為Bot的名稱，來使用正規表示式。其中&#8203;`r!`&#8203;是ASF用於進入正規表示式檢索行為的啟動指令，而&#8203;`<Pattern>`&#8203;是您的正規表示式。 一個正規表示式的Bot指令範例：&#8203;`status r!^\d{3}`&#8203;，它會向所有名稱為3位數字的Bot（例如&#8203;`123`&#8203;及&#8203;`981`&#8203;）傳送&#8203;`status`&#8203;指令。 您可以閱讀這份&#8203;**[檔案說明](https://docs.microsoft.com/zh-tw/dotnet/standard/base-types/regular-expression-language-quick-reference)**&#8203;，來進一步了解更多說明及範例。
 
 ---
 
@@ -175,7 +175,7 @@ Some commands are also available with their aliases, mostly to save you on typin
 | 2 | `FriendsOnly（僅限好友）` |
 | 3 | `Public（公開）`        |
 
-您可以使用它們的名稱（不區分大小寫）或數值。 未賦值的參數將會被設定為預設值 `Private`。 特別注意，上述引數的從屬關係非常重要，因為子選項無法擁有比父選項還高的權限。 舉例來說，若您將個人檔案設為&#8203;`Private`&#8203;，就&#8203;**無法**&#8203;再將遊戲資料設定成&#8203;`Public`&#8203;。
+您可以使用它們的名稱（不區分大小寫）或數值。 未賦值的引數將會被設為預設值&#8203;`Private`&#8203;。 特別注意，上述引數的從屬關係非常重要，因為子選項無法擁有比父選項還高的權限。 舉例來說，若您將個人檔案設為&#8203;`Private`&#8203;，就&#8203;**無法**&#8203;再將遊戲資料設定成&#8203;`Public`&#8203;。
 
 ### 範例
 
@@ -186,37 +186,37 @@ privacy Main 1
 privacy Main Private
 ```
 
-這是因為ASF會將所有未賦值的選項設為&#8203;`Private`&#8203;，所以您無需將它們全部列出來。 另一方面，如果您希望設定所有選項為 `Public`，可以使用以下任一指令：
+這是因為ASF會將所有未賦值的選項設為&#8203;`Private`&#8203;，所以您無需將它們全部列出來。 反之，若您希望將所有選項設為&#8203;`Public`&#8203;，則可以使用以下任一指令：
 
 ```text
 privacy Main 3,3,3,3,3,3,3
 privacy Main Public,Public,Public,Public,Public,Public,Public
 ```
 
-也可以為每個選項設定不同的值：
+使用這種方式，您也可以為每個選項設定不同的值：
 
 ```text
 privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 ```
 
-上述指令將會設定個人檔案為公開、遊戲資料為僅限好友、總遊玩時數為私人、好友名單為公開、物品庫為公開、物品庫禮物為私密、留言為私人。 若有需要，您也可以使用數值來實現相同效果。
+上述指令會將個人檔案設為公開、遊戲資料設為僅限好友、總遊玩時數為私人、好友名單為公開、物品庫為公開、物品庫禮物為私密、個人檔案留言為私人。 若有需要，您也可以使用數值來實現相同效果。
 
-記住，子選項的權限無法高於父選項。 有關可用選項，請參閱參數關係。
+記住，子選項的權限無法高於父選項。 您可以參閱上述引數選項的子選項關係。
 
 ---
 
 ## `addlicense` 指令中的 Licenses 引數
 
-`addlicense` 指令支援兩種不同的授權類型：
+`addlicense`&#8203;指令支援兩種不同的授權類型：
 
 | 類型    | 別名  | 範例           | 描述                                            |
 | ----- | --- | ------------ | --------------------------------------------- |
 | `app` | `a` | `app/292030` | 透過遊戲的唯一&#8203;`appID`&#8203;授權。               |
 | `sub` | `s` | `sub/47807`  | 透過遊戲組合包的唯一&#8203;`subID`&#8203;授權，包含一款或以上的遊戲。 |
 
-其中的區別很重要，因為 ASF 將對 app 類型使用 Steam 網路激活，對sub 類型使用 Steam 商店激活。 兩者互不相容，通常您將會對免費週末和永久免費遊玩遊戲使用 app 類型，而對其他遊戲使用 sub。
+需要注意這兩者的區別，因為以ASF來說，對於應用程式將會使用Steam網路來啟動，而對遊戲組合包則使用Steam商店來啟動。 這兩者互不相容。一般而言，您會對免費週末及永久免費遊玩的遊戲使用app類型，而對遊戲組合包使用sub。
 
-我們建議您明確定義每一個項目的類型，以避免引起歧義的的結果，但為了向後相容性，在您提供了無效的類型或省略了類型的情況下，ASF 將會假設您想要使用 `sub` 類型。 您也可以使用 ASF 標準的分隔符「`,`」來同時啟用多個許可。
+我們建議您明確定義每一個項目的類型，以避免歧義。但為了反向相容性，在您提供了無效或省略的類型的情形下，ASF將會預設您想要使用&#8203;`sub`&#8203;類型。 您也可以使用ASF的標準定界符「&#8203;`,`&#8203;」來同時啟用多個授權。
 
 完整的指令範例：
 
@@ -228,7 +228,7 @@ addlicense ASF app/292030,sub/47807
 
 ## `owns` 指令中的 Games 引數
 
-`owns` 指令支援幾種不同的 `<games>` 遊戲參數類型，分別是：
+`owns`&#8203;指令支援數種不同的&#8203;`<games>`&#8203;引數類型：
 
 | 類型      | 別名  | 範例               | 描述                                                                                                                                                                                                                                   |
 | ------- | --- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -237,7 +237,7 @@ addlicense ASF app/292030,sub/47807
 | `regex` | `r` | `regex/^\d{4}:` | 使用&#8203;**[正規表示式](https://zh.wikipedia.org/zh-tw/正则表达式)**&#8203;來表示遊戲名稱，區分大小寫。 請參閱&#8203;**[檔案說明](https://learn.microsoft.com/zh-tw/dotnet/standard/base-types/regular-expression-language-quick-reference)**&#8203;，來進一步了解完整語法及範例。 |
 | `name`  | `n` | `name/Witcher`   | 遊戲的部分名稱，不區分大小寫。                                                                                                                                                                                                                      |
 
-我們建議您明確定義每一個項目的類型，以避免引起歧義的的結果，但為了向後相容性，在您提供了無效的類型或省略了類型的情況下，如果您填入了數字，ASF 將會假設您想要使用 `app` 類型，如果不是數字則視為 `name` 類型。 您也可以使用 ASF 標準的分隔符「`,`」來同時查詢多個遊戲。
+我們建議您明確定義每一個項目的類型，以避免歧義。但為了反向相容性，在您提供了無效或省略的類型的情形下，若您填入了數字，ASF將會預設您想要使用&#8203;`app`&#8203;類型，若為其他值則為&#8203;`name`&#8203;類型。 您也可以使用ASF的標準定界符「&#8203;`,`&#8203;」來同時查詢多個遊戲。
 
 完整的指令範例：
 
@@ -249,9 +249,9 @@ owns ASF app/292030,name/Witcher
 
 ## `redeem^` 指令中的 Modes 引數
 
-`redeem^` 指令允許您微調用於單個兌換場景的模式。 此指令會臨時覆蓋&#8203;`RedeemingPreferences`&#8203; &#8203;**[Bot設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#Bot-設定檔)**&#8203;。
+`redeem^`&#8203;指令使您能夠微調使用於兌換單個產品序號情境的模式。 此指令會臨時覆蓋&#8203;`RedeemingPreferences`&#8203; &#8203;**[Bot設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#Bot-設定檔)**&#8203;。
 
-`<Modes>` 參數接受多個模式值，通常用逗號分隔。 可用的模式值如下所示：
+`<Modes>` 參數接受多個模式值，通常用逗號分隔。 可用的模式值如下：
 
 | 值    | 名稱                    | 描述                                                            |
 | ---- | --------------------- | ------------------------------------------------------------- |
@@ -266,29 +266,29 @@ owns ASF app/292030,name/Witcher
 | SKMG | SkipKeepMissingGames  | 強制停用&#8203;`KeepMissingGames`&#8203;兌換偏好設定。                   |
 | V    | Validate              | 檢查序號格式，自動跳過無效的產品序號。                                           |
 
-例如，我們打算為尚未擁有遊戲的 BOT 兌換 3 個產品序號，但不包括 `primary` BOT。 為此，我們需要執行指令：
+舉例來說，我們打算為任何尚未擁有遊戲的Bot兌換3個產品序號，但不包含&#8203;`primary`&#8203; Bot。 為此，我們需要執行指令：
 
 `redeem^ primary FF,SI key1,key2,key3`
 
-需要注意的是，進階兌換模式只會替換您&#8203;**在指令中指定**&#8203;的&#8203;`RedeemingPreferences`&#8203;選項。 例如，如果您在`RedeemingPreferences` 中啟用了 `Distributing`，那麼無論是否使用 `FD` 模式，都不會有任何區別，因為您已經在 `RedeemingPreferences` 中兌換了 Distributing。 這就是為什麼每個可強制啟用的模式也有一個可強制停用的選項，您可以決定自己是希望在啟用的情況下強制覆蓋，反之亦然。
+需要注意的是，進階兌換模式只會替換您&#8203;**在指令中指定**&#8203;的&#8203;`RedeemingPreferences`&#8203;選項。 舉例來說，若您在&#8203;`RedeemingPreferences`&#8203;中啟用了&#8203;`Distributing`&#8203;，那麼無論是否使用&#8203;`FD`&#8203;模式，都不會有任何區別，因為您已經在&#8203;`RedeemingPreferences`&#8203;中啟用了它。 這就是為什麼每個可強制啟用的模式也有一個可強制停用的選項，您可以決定自己是希望在啟用的情況下強制覆蓋，反之亦然。
 
 ---
 
 ## `encrypt` 指令
 
-`encrypt` 指令使您能夠使用 ASF 的加密方式加密任意字串。 加密方式 `<encryptionMethod>` 必須是​**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**​章節所述方式之一。 我們建議透過安全的通道（ASF控制台、ASF-ui或IPC提供的專用API端點）使用此指令，否則敏感資訊可能會被第三方記錄（例如聊天訊息會被Steam伺服器記錄）。
+`encrypt`&#8203;指令使您能夠使用ASF的加密方式加密任意字串。 加密方式&#8203;`<encryptionMethod>`&#8203;必須是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;章節所述方式之一。 我們建議透過安全的通道（ASF控制台、ASF-ui或IPC提供的專用API端點）使用此指令，否則敏感資訊可能會被第三方記錄（例如聊天訊息會被Steam伺服器記錄）。
 
 ---
 
 ## `hash` 指令
 
-`hash` 指令使您能夠使用 ASF 的雜湊方式產生任意字串的雜湊值。 雜湊方式 `<hashingMethod>` 必須是​**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**​章節所述方式之一。 我們建議透過安全的頻道 (ASF 控制台、ASF-ui 或 IPC 提供的專用 API 端點) 使用此命令，否則可能有敏感資訊被第三方記錄 (例如 Steam 伺服器的聊天記錄)。
+`hash`&#8203;指令使您能夠使用ASF的雜湊方式，產生任意字串的雜湊值。 雜湊方式&#8203;`<hashingMethod>`&#8203;必須是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;章節所述方式之一。 我們建議透過安全的通道（ASF控制台、ASF-ui或IPC提供的專用API端點）使用本指令，否則敏感性資訊可能會被第三方記錄（例如聊天訊息會被Steam伺服器記錄）。
 
 ---
 
 ## `input` 指令
 
-`input` 指令僅可用於 `Headless` 模式，用來在 ASF 無法接受使用者輸入的情況下，透過 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 或者 Steam 聊天輸入一些資料。
+`input`&#8203;指令僅可在&#8203;`Headless`&#8203;模式下使用。在ASF無法接受使用者輸入的情形下，透過&#8203;**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**&#8203;或Steam聊天來輸入資料。
 
 基本語法為&#8203;`input [Bots] <Type> <Value>`&#8203;。
 
@@ -306,14 +306,14 @@ owns ASF app/292030,name/Witcher
 
 ### 範例
 
-假設我們有一個未啟用雙重驗證，僅由Steam Guard保護的Bot。 我們希望在 `Headless` 為 `true` 的情況下啟動這個 BOT。
+假設我們有一個未啟用雙重驗證，僅由Steam Guard保護的Bot。 我們希望在&#8203;`Headless`&#8203;為&#8203;`true`&#8203;的情形下啟動這個Bot。
 
 為此，我們需要執行以下指令：
 
-`start MySteamGuardBot` -> BOT 會嘗試登錄，但因為缺少驗證碼而登錄失敗，然後因為 ASF 處於 `Headless` 模式，BOT 會停止執行。 我們做這一步的目的，是讓Steam網路透過電子郵件向我們傳送驗證碼⸺若不需要，我們可以直接跳過此步驟。
+`start MySteamGuardBot`&#8203; -> Bot將嘗試登入，但會因為缺少驗證碼而登入失敗，然後因為ASF處於&#8203;`Headless`&#8203;模式，Bot會停止執行。 我們做這一步的目的，是讓Steam網路透過電子郵件向我們傳送驗證碼⸺若不需要，我們可以直接跳過此步驟。
 
-`input MySteamGuardBot SteamGuard ABCDE` -> 我們將 `MySteamGuardBot` BOT 的 `SteamGuard` 輸入設定為 `ABCDE`。 當然在這種情形下，&#8203;`ABCDE`&#8203;就是我們從電子郵件中獲得的驗證碼。
+`input MySteamGuardBot SteamGuard ABCDE`&#8203; -> 我們將&#8203;`MySteamGuardBot`&#8203; Bot的&#8203;`SteamGuard`&#8203;輸入設定成&#8203;`ABCDE`&#8203;。 當然在這種情形下，&#8203;`ABCDE`&#8203;就是我們從電子郵件中獲得的驗證碼。
 
-`start MySteamGuardBot` -> 我們重新啟動已停止的 BOT，這一次會自動使用我們在上一步中設定的驗證碼，登錄將會成功，並且之前的驗證碼輸入會被清除。
+`start MySteamGuardBot`&#8203; -> 我們重新啟動已停止的Bot。這一次，會自動使用我們在上個步驟中設定的驗證碼，登入將會成功，且之前輸入的驗證碼會被清除。
 
 以同樣的方式，我們可以存取受雙重驗證保護的Bot（如果它們不使用ASF雙重驗證），只需在執行時設定其他必需屬性即可。
