@@ -216,7 +216,9 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 `Guid?`&#8203;型別，預設值為&#8203;`null`&#8203;。 本屬性允許我們的&#8203;**[贊助者](https://github.com/sponsors/JustArchi)**&#8203;使用付費的選擇性功能來增強ASF的運作能力。 在目前，這允許您使用&#8203;`ItemsMatcher`&#8203;外掛程式中的&#8203;**[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW#matchactively)**&#8203;功能。
 
-若您是ASF贊助者，您可以在&#8203;**[這裡](https://asf.justarchi.net/User/Status)**&#8203;獲得您的授權碼。 您會需要以GitHub登入來確認您的身分，我們只會請求您的公開唯讀資訊，也就是您的使用者名稱。 `LicenseID`&#8203;由32個十六進制字元組成，例如&#8203;`f6a0529813f74d119982eb4fe43a9a24`&#8203;。
+While we recommend you to utilize GitHub since it offers monthly and one-time tiers, as well as allows full automation and gives you immediate access, we **also** support all other currently-available **[donation options](https://github.com/JustArchiNET/ArchiSteamFarm#archisteamfarm)**. See **[this post](https://github.com/JustArchiNET/ArchiSteamFarm/discussions/2780#discussioncomment-4486091)** for instructions on how to donate using other methods in order to get a manual license valid for given period.
+
+Regardless of the method used, if you're ASF sponsor, you can obtain your license **[here](https://asf.justarchi.net/User/Status)**. 您會需要以GitHub登入來確認您的身分，我們只會請求您的公開唯讀資訊，也就是您的使用者名稱。 `LicenseID`&#8203;由32個十六進制字元組成，例如&#8203;`f6a0529813f74d119982eb4fe43a9a24`&#8203;。
 
 **請確保您沒有與其他人共用您的&#8203;`LicenseID`**&#8203;。 因為它是給個人使用的，如果洩漏出去就有可能被撤銷。 如果不幸您意外洩漏了授權碼，您可以在相同地方生成一個新的。
 
@@ -416,7 +418,7 @@ Bot設定檔具有以下結構：
 
 ### `BotBehaviour（Bot 行為）`
 
-`byte flags`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性定義了在各種事件中ASF的自動化行為，定義項如下：
+`byte flags`型別&#8203;，預設值為&#8203;`0`&#8203;。 本屬性定義了在各種事件中ASF的自動化行為，定義項如下：
 
 | 值  | 名稱                                     | 描述                                     |
 | -- | -------------------------------------- | -------------------------------------- |
@@ -528,7 +530,7 @@ ASF提供了數種您能在本文中使用的特殊變數。 `{0}`&#8203;會被�
 
 ### `GamesPlayedWhileIdle（閒置時掛卡的遊戲）`
 
-`ImmutableHashSet<uint>`&#8203;型別，預設值為空。 若ASF沒有遊戲可供掛卡，它可以遊玩您所指定的Steam遊戲（&#8203;`appIDs`&#8203;）。 以這種方式遊玩遊戲會增加您的「遊玩時數」，除此之外，別無他用。 若要使此功能正常運作，您的Steam帳號&#8203;**必須**&#8203;擁有您指定的所有&#8203;`AppIDs`&#8203;的有效許可，包含免費遊戲。 本功能可以與&#8203;`CustomGamePlayedWhileIdle`&#8203;同時啟用，能在遊玩您所指定的遊戲的同時在Steam網路中顯示自訂狀態。但在這種情形下，如同&#8203;`CustomGamePlayedWhileFarming`&#8203;一樣，我們無法保證實際的顯示順序。 請注意，Steam只允許ASF最多同時遊玩&#8203;`32`&#8203;個&#8203;`appIDs`&#8203;，因此您也只能在本屬性中設定最多這個數量的遊戲。
+<`ImmutableHashSet<uint>`&#8203;型別，預設值為空。 若ASF沒有遊戲可供掛卡，它可以遊玩您所指定的Steam遊戲（&#8203;`appIDs`&#8203;）。 以這種方式遊玩遊戲會增加您的「遊玩時數」，除此之外，別無他用。 若要使此功能正常運作，您的Steam帳號&#8203;**必須**&#8203;擁有您指定的所有&#8203;`AppIDs`&#8203;的有效許可，包含免費遊戲。 本功能可以與&#8203;`CustomGamePlayedWhileIdle`&#8203;同時啟用，能在遊玩您所指定的遊戲的同時在Steam網路中顯示自訂狀態。但在這種情形下，如同&#8203;`CustomGamePlayedWhileFarming`&#8203;一樣，我們無法保證實際的顯示順序。 請注意，Steam只允許ASF最多同時遊玩&#8203;`32`&#8203;個&#8203;`appIDs`&#8203;，因此您也只能在本屬性中設定最多這個數量的遊戲。
 
 ---
 
@@ -647,13 +649,13 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 ### `PasswordFormat（密碼格式）`
 
-`byte`&#8203;型別，預設值為&#8203;`0`&#8203;（&#8203;`PlainText`&#8203;）。 This property defines the format of `SteamPassword` property, and currently supports values specified in the **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. You should follow the instructions specified there, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. In other words, when you change `PasswordFormat` then your `SteamPassword` should be **already** in that format, not just aiming to be. Unless you know what you're doing, you should keep it with default value of `0`.
+`byte`&#8203;型別，預設值為&#8203;`0`&#8203;（&#8203;`PlainText`&#8203;）。 This property defines the format of `SteamPassword` property, and currently supports values specified in the **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** section. You should follow the instructions specified there, as you'll need to ensure that `SteamPassword` property indeed includes password in matching `PasswordFormat`. In other words, when you change `PasswordFormat` then your `SteamPassword` should be **already** in that format, not just aiming to be. 除非您知道您在做什麼，否則請保留預設值&#8203;`0`&#8203;。
 
 ---
 
 ### `Paused（暫停）`
 
-`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 This property defines initial state of `CardsFarmer` module. With default value of `false`, bot will automatically start farming when it's started, either because of `Enabled` or `start` command. Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 This property defines initial state of `CardsFarmer` module. With default value of `false`, bot will automatically start farming when it's started, either because of `Enabled` or `start` command. Switching this property to `true` should be done only if you want to manually `resume` automatic farming process, for example because you want to use `play` all the time and never use automatic `CardsFarmer` module - this works exactly the same as `pause` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. 若您不確定您是否想要啟用本功能，請保留預設值&#8203;`false`&#8203;。
 
 ---
 
@@ -669,7 +671,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 | 4 | KeepMissingGames                   | Keep keys for (potentially) missing games when forwarding, leaving them unused                                                  |
 | 8 | AssumeWalletKeyOnBadActivationCode | Assume that `BadActivationCode` keys are equal to `CannotRedeemCodeFromClient`, and therefore try to redeem them as wallet keys |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+請注意，本屬性為&#8203;`flags`&#8203;欄位，因此可以使用所有可用值任意組合。 若您想了解更多，請參閱&#8203;**[旗標映射](#json-映射)**&#8203;。 不啟用任何旗標即為&#8203;`None`&#8203;選項。
 
 `Forwarding` will cause bot to forward a key that is not possible to redeem, to another connected and logged on bot that is missing that particular game (if possible to check). The most common situation is forwarding `AlreadyPurchased` game to another bot that is missing that particular game, but this option also covers other scenarios, such as `DoesNotOwnRequiredApp`, `RateLimited` or `RestrictedCountry`.
 
@@ -697,19 +699,19 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 | 1 | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                     |
 | 2 | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+請注意，本屬性為&#8203;`flags`&#8203;欄位，因此可以使用所有可用值任意組合。 若您想了解更多，請參閱&#8203;**[旗標映射](#json-映射)**&#8203;。 不啟用任何旗標即為&#8203;`None`&#8203;選項。
 
 This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
 
-Further explanation on this subject is available in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. Unless you have a reason to edit this property, you should keep it at default.
+Further explanation on this subject is available in **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section. 除非您有理由編輯此屬性，否則您應維持它為預設值。
 
 ---
 
 ### `SendOnFarmingFinished`
 
-`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with `Master` permission, which is very convenient if you don't want to bother with trades yourself. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place. In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account.
+`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with `Master` permission, which is very convenient if you don't want to bother with trades yourself. 本選項與&#8203;`loot`&#8203;指令作用相同，因此請注意，首先它需要您有帳號的交易合法權限，且使用者具有&#8203;`Master`&#8203;權限，而您可能也要有有效的&#8203;`SteamTradeToken`&#8203;。 In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account.
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. If you're not sure how to set this property, leave it with default value of `false`.
+Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 若您不確定如何設定本屬性，請保留預設值&#8203;`false`&#8203;。
 
 ---
 
@@ -725,13 +727,13 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 `bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 ASF is "occupying" an account for the whole time of process being active. When given account is done with farming, ASF periodically checks it (every `IdleFarmingPeriod` hours), if perhaps some new games with steam cards were added in the meantime, so it can resume farming of that account without a need to restart the process. This is useful for majority of people, as ASF can automatically resume farming when needed. However, you may actually want to stop the process when given account is fully farmed, you can achieve that by setting this property to `true`. When enabled, ASF will proceed with logging off when account is fully farmed, which means that it won't be periodically checked or occupied anymore. You should decide yourself if you prefer ASF to work on given bot instance for the whole time, or if perhaps ASF should stop it when farming process is done. When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well, putting your machine at rest and allowing you to schedule other actions, such as sleep or shutdown at the same moment of last card dropping.
 
-If you're not sure how to set this property, leave it with default value of `false`.
+若您不確定如何設定本屬性，請保留預設值&#8203;`false`&#8203;。
 
 ---
 
 ### `SkipRefundableGames`
 
-`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 This property defines if ASF is permitted to farm games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. If you're unsure whether you want this feature enabled or not, keep it with default value of `false`.
+`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 This property defines if ASF is permitted to farm games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. 若您不確定您是否想要啟用本功能，請保留預設值&#8203;`false`&#8203;。
 
 ---
 
@@ -801,7 +803,7 @@ It's nice to note that there is one more extra `Owner` permission, which is decl
 | 8  | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                                                                   |
 | 16 | MatchActively       | Actively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** for more info |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. Not enabling any of flags results in `None` option.
+請注意，本屬性為&#8203;`flags`&#8203;欄位，因此可以使用所有可用值任意組合。 若您想了解更多，請參閱&#8203;**[旗標映射](#json-映射)**&#8203;。 不啟用任何旗標即為&#8203;`None`&#8203;選項。
 
 For further explanation of ASF trading logic, and description of every available flag, please visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section.
 
@@ -811,28 +813,28 @@ For further explanation of ASF trading logic, and description of every available
 
 `ImmutableHashSet<byte>`&#8203;型別，預設值為&#8203;`1, 3, 5`&#8203;的Steam物品類型。 This property defines which Steam item types will be considered for transfering between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
 
-| 值  | 名稱                    | 描述                                                            |
-| -- | --------------------- | ------------------------------------------------------------- |
-| 0  | Unknown               | Every type that doesn't fit in any of the below               |
-| 1  | BoosterPack           | Booster pack containing 3 random cards from a game            |
-| 2  | Emoticon              | Emoticon to use in Steam Chat                                 |
-| 3  | FoilTradingCard       | Foil variant of `TradingCard`                                 |
-| 4  | ProfileBackground     | Profile background to use on your Steam profile               |
-| 5  | TradingCard           | Steam trading card, being used for crafting badges (non-foil) |
-| 6  | SteamGems             | Steam gems being used for crafting boosters, sacks included   |
-| 7  | SaleItem              | Special items awarded during Steam sales                      |
-| 8  | Consumable            | Special consumable items that disappear after being used      |
-| 9  | ProfileModifier       | Special items that can modify Steam profile appearance        |
-| 10 | Sticker               | 可用在 Steam 聊天中的特殊物品                                            |
-| 11 | ChatEffect            | 可用在 Steam 聊天中的特殊物品                                            |
-| 12 | MiniProfileBackground | Special background for Steam profile                          |
-| 13 | AvatarProfileFrame    | Special avatar frame for Steam profile                        |
-| 14 | AnimatedAvatar        | Special animated avatar for Steam profile                     |
-| 15 | KeyboardSkin          | Steam Deck 的特別鍵盤造型                                            |
+| 值  | 名稱                              | 描述                               |
+| -- | ------------------------------- | -------------------------------- |
+| 0  | Unknown                         | 不符合下列任一項類型的物品                    |
+| 1  | BoosterPack（擴充包）                | 包含三張來自同一遊戲交換卡片的擴充包               |
+| 2  | Emoticon（表情符號）                  | 在Steam聊天中使用的表情符號                 |
+| 3  | FoilTradingCard（閃亮交換卡片）         | 閃亮版本的&#8203;`TradingCard`&#8203; |
+| 4  | ProfileBackground（個人檔案背景）       | 在您Steam個人檔案中使用的個人檔案背景            |
+| 5  | TradingCard（交換卡片）               | Steam交換卡片，用於合成徽章（非閃亮卡片）          |
+| 6  | SteamGems（寶石）                   | 用於合成擴充包的Steam寶石，包含一袋寶石           |
+| 7  | SaleItem（特賣物品）                  | Steam特賣期間獲得的特殊物品                 |
+| 8  | Consumable（消耗品）                 | 在使用後會消失的特殊消耗品                    |
+| 9  | ProfileModifier（個人檔案修改器）        | 可以修改Steam個人檔案外觀的特殊物品             |
+| 10 | Sticker（貼紙）                     | 可用在 Steam 聊天中的特殊物品               |
+| 11 | ChatEffect（聊天效果）                | 可用在 Steam 聊天中的特殊物品               |
+| 12 | MiniProfileBackground（迷你個人檔案背景） | Steam個人檔案的特殊背景                   |
+| 13 | AvatarProfileFrame（個人檔案圖示邊框）    | Steam個人檔案的特殊圖示邊框                 |
+| 14 | AnimatedAvatar（動畫個人圖示）          | Steam個人檔案的特殊動畫個人圖示               |
+| 15 | KeyboardSkin                    | Steam Deck 的特別鍵盤造型               |
 
-Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
+請注意，不論上述如何設定，ASF都只會處理Steam分類（&#8203;`appID`&#8203;為753）中的社群物品（&#8203;`contextID`&#8203;為6），因此依據定義所有遊戲物品、禮物等物品都會被排除在交易提案之外。
 
-Default ASF setting is based on the most common usage of the bot, with transfering only booster packs, and trading cards (including foils). The property defined here allows you to alter that behaviour in whatever way that satisfies you. Please keep in mind that all types not defined above will show as `Unknown` type, which is especially important when Valve releases some new Steam item, that will be marked as `Unknown` by ASF as well, until it's added here (in the future release). That's why in general it's not recommended to include `Unknown` type in your `TransferableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `TransferableTypes`, even if you expect to transfer everything.
+Default ASF setting is based on the most common usage of the bot, with transfering only booster packs, and trading cards (including foils). 本處定義的屬性使您能夠依自己所需自訂該行為。 請注意，上述所有未定義的類型都會顯示成&#8203;`Unknown`&#8203;類型，特別是在Valve發布一些新的Steam物品時，ASF也會將它們標示成&#8203;`Unknown`&#8203;，直到它們（在未來的版本中）被加入於本表格中。 That's why in general it's not recommended to include `Unknown` type in your `TransferableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `TransferableTypes`, even if you expect to transfer everything.
 
 ---
 

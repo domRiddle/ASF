@@ -216,7 +216,9 @@ IF URE RUNNIN ASF ON TEH SERVR, U PROBABLY WANTS 2 USE DIS OPSHUN TOGETHR WIF `-
 
 `Guid?` TYPE WIF DEFAULT VALUE OV `null`. DIS PROPERTY ALLOWS R **[SPONSORS](https://github.com/sponsors/JustArchi)** 2 ENHANCE ASF WIF OPSHUNAL FEATUREZ DAT REQUIRE PAID RESOURCEZ 2 WERK. 4 NAO, DIS ALLOWS U 2 MAK USE OV **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-lol-US#matchactively)** FEACHUR IN `ItemsMatcher` PLUGIN.
 
-IF URE ASF SPONSOR, U CAN OBTAIN UR LICENSE **[HER](https://asf.justarchi.net/User/Status)**. ULL NED 2 SIGN IN WIF GITHUB 4 CONFIRMIN UR IDENTITY, WE ASK ONLY 4 READ-ONLY PUBLIC INFORMASHUN, WHICH IZ UR USERNAME. `LicenseID` IZ MADE OUT OV 32 HEXADECIMAL CHARACTERS, SUCH AS `f6a0529813f74d119982eb4fe43a9a24`.
+While we recommend you to utilize GitHub since it offers monthly and one-time tiers, as well as allows full automation and gives you immediate access, we **also** support all other currently-available **[donation options](https://github.com/JustArchiNET/ArchiSteamFarm#archisteamfarm)**. See **[this post](https://github.com/JustArchiNET/ArchiSteamFarm/discussions/2780#discussioncomment-4486091)** for instructions on how to donate using other methods in order to get a manual license valid for given period.
+
+Regardless of the method used, if you're ASF sponsor, you can obtain your license **[here](https://asf.justarchi.net/User/Status)**. ULL NED 2 SIGN IN WIF GITHUB 4 CONFIRMIN UR IDENTITY, WE ASK ONLY 4 READ-ONLY PUBLIC INFORMASHUN, WHICH IZ UR USERNAME. `LicenseID` IZ MADE OUT OV 32 HEXADECIMAL CHARACTERS, SUCH AS `f6a0529813f74d119982eb4fe43a9a24`.
 
 **ENSURE DAT U DO NOT SHARE UR `LicenseID` WIF OTHR PEEPS**. SINCE IZ ISSUD ON PERSONAL BASIS, IT MITE GIT REVOKD IF IZ LEAKD. IF BY ANY CHANCE DIS HAPPEND 2 U ACCIDENTALLY, U CAN GENERATE NEW WAN FRUM TEH SAME PLACE.
 

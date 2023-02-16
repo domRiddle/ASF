@@ -216,7 +216,9 @@ ASF 默认有两个黑名单——`SalesBlacklist` 是内置黑名单，无法�
 
 这是一个默认值为 `null` 的 `Guid?` 类型属性。 该属性允许我们的[**赞助者**](https://github.com/sponsors/JustArchi)启用需要付费资源的 ASF 可选功能，来增强其能力。 目前，您可以启用 `ItemsMatcher` 插件中的 **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-CN#matchactively主动匹配)** 特性。
 
-如果您是 ASF 赞助者，您可以在[**这里**](https://asf.justarchi.net/User/Status)获取许可证。 您需要以 GitHub 登录来确认身份，我们只请求只读的公开信息，也就是您的用户名。 `LicenseID` 是 32 位的十六进制字符串，形如 `f6a0529813f74d119982eb4fe43a9a24`。
+我们推荐您通过 GitHub 捐赠，因为它提供了月度和一次性等级，并且支持自动即时解锁访问权限，但我们**也同样**支持所有其他可用的[**捐赠方式**](https://github.com/JustArchiNET/ArchiSteamFarm#archisteamfarm)。 阅读[**这篇帖子**](https://github.com/JustArchiNET/ArchiSteamFarm/discussions/2780#discussioncomment-4486091)，了解如何通过其他方式捐赠并获得一定时长的手动许可。
+
+无论通过哪种渠道，只要您是 ASF 赞助者，就可以在[**这里**](https://asf.justarchi.net/User/Status)获取许可证。 您需要以 GitHub 登录来确认身份，我们只请求只读的公开信息，也就是您的用户名。 `LicenseID` 是 32 位的十六进制字符串，形如 `f6a0529813f74d119982eb4fe43a9a24`。
 
 **请确保您不会与其他人分享您的 `LicenseID`**。 因为它是针对个人发放的，如果泄露，就可能会被撤销。 如果您意外泄露了许可证，可以在相同的位置生成一个新的。
 

@@ -216,7 +216,9 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 `Guid?` type with default value of `null`. This property allows our **[sponsors](https://github.com/sponsors/JustArchi)** to enhance ASF with optional features that require paid resources to work. For now, this allows you to make use of **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature in `ItemsMatcher` plugin.
 
-If you're ASF sponsor, you can obtain your license **[here](https://asf.justarchi.net/User/Status)**. You'll need to sign in with GitHub for confirming your identity, we ask only for read-only public information, which is your username. `LicenseID` is made out of 32 hexadecimal characters, such as `f6a0529813f74d119982eb4fe43a9a24`.
+While we recommend you to utilize GitHub since it offers monthly and one-time tiers, as well as allows full automation and gives you immediate access, we **also** support all other currently-available **[donation options](https://github.com/JustArchiNET/ArchiSteamFarm#archisteamfarm)**. See **[this post](https://github.com/JustArchiNET/ArchiSteamFarm/discussions/2780#discussioncomment-4486091)** for instructions on how to donate using other methods in order to get a manual license valid for given period.
+
+Regardless of the method used, if you're ASF sponsor, you can obtain your license **[here](https://asf.justarchi.net/User/Status)**. You'll need to sign in with GitHub for confirming your identity, we ask only for read-only public information, which is your username. `LicenseID` is made out of 32 hexadecimal characters, such as `f6a0529813f74d119982eb4fe43a9a24`.
 
 **Ensure that you do not share your `LicenseID` with other people**. Since it's issued on personal basis, it might get revoked if it's leaked. If by any chance this happened to you accidentally, you can generate a new one from the same place.
 
@@ -253,7 +255,7 @@ Unless you want to enable extra ASF functionalities, there is no need for you to
 
 ### `OptimizationMode`
 
-這是一個預設值為`0` 的 `byte flags` 類型。 此屬性定義 ASF 在運行時偏好的優化模式。 當前 ASF 支援兩種模式——`0`，即`MaxPerformance`；`1`，即`MinMemoryUsage`。 預設情況下，ASF希望盡可能多地並行（同時）運行，這通過跨所有 CPU 內核、多個 CPU 執行緒、多個通訊端和多個執行緒池任務的負載平衡工作來提高性能。 For example, ASF will ask for your first badge page when checking for games to farm, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. 這**應該總是**您想想要的，因為它在大多數情況下能使開銷最小化，甚至在單個 CPu 內核和功耗極大的最舊硬體上也能看到異步 ASF 代碼的好處。 但是，由於許多任務是並行處理的，因此 ASF 運行時負責維護它們，例如， 保持套接字打開，線程處於活動狀態並處理正在處理的任務，這可能會不時增加記憶體使用量，如果您受可用記憶體的限制，可能需要將此屬性切換為` 1 ` （` MinMemoryUsage `）以強制 ASF 盡可能少地使用任務，並且通常以同步方式運行可能的並行異步代碼。 You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. 通常，此選項**絕無可能**比使用其他可能方式實現的更強，例如通過限制 ASF 使用或調整運行時的垃圾收集器，如 **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**中所述。 因此，如果您無法通過其他（更優）選項獲得令人滿意的結果，則應使用 `MinMemoryUsage` 作為 **最後手段**。 除非您有**強烈**的修改意願，否則應保持它為预設值。
+這是一個預設值為`0` 的 `byte flags` 類型。 此屬性定義 ASF 在運行時偏好的優化模式。 當前 ASF 支援兩種模式——`0`，即`MaxPerformance`；`1`，即`MinMemoryUsage`。 預設情況下，ASF希望盡可能多地並行（同時）運行，這通過跨所有 CPU 內核、多個 CPU 執行緒、多個通訊端和多個執行緒池任務的負載平衡工作來提高性能。 For example, ASF will ask for your first badge page when checking for games to farm, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. 這**應該總是**您想想要的，因為它在大多數情況下能使開銷最小化，甚至在單個 CPu 內核和功耗極大的最舊硬體上也能看到異步 ASF 代碼的好處。 但是，由於許多任務是並行處理的，因此 ASF 運行時負責維護它們，例如， 保持套接字打開，線程處於活動狀態並處理正在處理的任務，這可能會不時增加記憶體使用量，如果您受可用記憶體的限制，可能需要將此屬性切換為` 1 ` （` MinMemoryUsage `）以強制 ASF 盡可能少地使用任務，並且通常以同步方式運行可能的並行異步代碼。 You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ---
 
@@ -280,17 +282,17 @@ Unless you want to enable extra ASF functionalities, there is no need for you to
 | 2 | UDP        | **[用戶數據報協議](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**       |
 | 4 | WebSockets | **[WebSockets](https://en.wikipedia.org/wiki/WebSocket)**                 |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項被啟用，並且該選項本身未曾指定有效值。
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. 不啟用任何標誌會導致` None `選項被啟用，並且該選項本身未曾指定有效值。
 
-By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. 通常，如果要將 ASF 限制為僅使用一個或兩個特定協議而不是所有可用協議，則需要更改此屬性。 如果您只在防火牆上啟用 TCP 流量，並且不希望 ASF 嘗試通過 UDP 進行連接，則可能需要這樣的措施。 但是，除非您正在調試特定問題或漏洞，否則您幾乎總是希望確保 ASF 可以自由使用當前支持的任何協議，而不僅僅是一個或兩個。 除非您有**強烈**的修改意願，否則應保持它為预設值。
+By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. 通常，如果要將 ASF 限制為僅使用一個或兩個特定協議而不是所有可用協議，則需要更改此屬性。 如果您只在防火牆上啟用 TCP 流量，並且不希望 ASF 嘗試通過 UDP 進行連接，則可能需要這樣的措施。 但是，除非您正在調試特定問題或漏洞，否則您幾乎總是希望確保 ASF 可以自由使用當前支持的任何協議，而不僅僅是一個或兩個。 Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ---
 
 ### `UpdateChannel`
 
-這是一個預設值為`1` 的 `byte flags` 類型屬性。 此屬性定義正在使用的更新通道，用於自動更新（如果` UpdatePeriod `大於` 0 `），或收到更新通知時（其他情況）。 當前 ASF 支援三個更新通道──`0`，`無更新`；`1`，`穩定版`；`2`，`探索版`。 `穩定版`通道是預設值，適用於大多數用戶。 `探索版`通道除了`穩定版`，還包括**預發行版本**， 專用於高級用戶和其他開發人員，以測試新功能、確認錯誤修復或提出增強功能。 **探索版通常包含未修補的漏洞、正在測試的工作功能或某些重寫的實現**。 如果您不認為自己是高級用戶，請保留預設得 ` 1 `（穩定）更新通道。 `Experimental` 通道專門針對知道如何報告錯誤、處理問題和提供回饋的用戶——不會提供任何技術支援。 如果您想了解更多資訊，請查看 ASF **[發布周期](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**。 如果要完全禁用所有版本更新，還可以將` UpdateChannel `設置為` 0 `（` None `）。 將 `UpdateChannel` 設置為 ` 0 ` 將完全禁用與更新相關的整個功能, 包括 `update` 命令。 **強烈建議不要**使用`None`通道，因為您會遇到各種問題（在下面的` UpdatePeriod `說明中提到）。
+這是一個預設值為`1` 的 `byte flags` 類型屬性。 此屬性定義正在使用的更新通道，用於自動更新（如果` UpdatePeriod `大於` 0 `），或收到更新通知時（其他情況）。 當前 ASF 支援三個更新通道──`0`，`無更新`；`1`，`穩定版`；`2`，`探索版`。 `穩定版`通道是預設值，適用於大多數用戶。 `Experimental` channel in addition to `Stable` releases, also includes **pre-releases** dedicated for advanced users and other developers in order to test new features, confirm bugfixes or give feedback about planned enhancements. **Experimental versions often contain unpatched bugs, work-in-progress features or rewritten implementations**. 如果您不認為自己是高級用戶，請保留預設得 ` 1 `（穩定）更新通道。 `Experimental` 通道專門針對知道如何報告錯誤、處理問題和提供回饋的用戶——不會提供任何技術支援。 Check out ASF **[release cycle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)** if you'd like to learn more. 如果要完全禁用所有版本更新，還可以將` UpdateChannel `設置為` 0 `（` None `）。 將 `UpdateChannel` 設置為 ` 0 ` 將完全禁用與更新相關的整個功能, 包括 `update` 命令。 Using `None` channel is **strongly discouraged** due to exposing yourself to all sort of problems (mentioned in `UpdatePeriod` description below).
 
-**除非您知道您在做什麼**，否則我們 **強烈** 建議保持它為預設值。
+**Unless you know what you're doing**, we **strongly** recommend to keep it at default.
 
 ---
 
@@ -709,7 +711,7 @@ Further explanation on this subject is available in **[remote communication](htt
 
 預設值為 `false` 的 `bool` 類型。 當 ASF 完成對給定帳戶的掛卡之後，它可以自動向擁有` Master `權限的用戶發送至今為止的掛卡所得，如果您不想自己發起交易提案，這將帶來便利。 此選項與` loot `命令的作用相同，因此請謹記，首先您需要有效的` SteamTradeToken `， 並使用實際有資格進行交易的帳戶，且只有` Master `權限集的用戶才能執行。 此選項處於活動狀態時，ASF除了在完成掛卡後執行` loot `之外，還（ 總是）會在收到每個新物品通知（不掛卡時）或完成每次交易之後執行` loot `。 這對於將從別處收到的物品「轉發」到我們的帳戶特別有用。
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
+通常情況下，您需要將此功能與 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**配合使用，但如果您打算手動確認，則 ASF 2FA並非必需。 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
 
 ---
 
@@ -717,7 +719,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 這是一個預設值為`0` 的 `byte flags` 類型。 這個屬性與` SendOnFarmingFinished `屬性非常相似，只有一個區別——當掛卡完成時，我們也可以每隔` SendTradePeriod `小時發送一次交易提案，而考慮我們有多少尚未完成掛卡的遊戲。 如果您想隨時從您的小號處 `拾取` 掛卡所得，而不必等待它完成掛卡，這將會很有幫助。 預設值 `0` 將禁用此功能，如果您想讓您的機器人向您發送交易，例如每天，您應該將此值設置為` 24 `。
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 如果您不確定該如何設置此屬性，請將其保留為預設值`0`。
+通常情況下，您需要將此功能與 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**配合使用，但如果您打算手動確認，則 ASF 2FA並非必需。 如果您不確定該如何設置此屬性，請將其保留為預設值`0`。
 
 ---
 
@@ -922,7 +924,7 @@ ASF 使用的類型是本機 C＃類型，如下所示：
 
 `byte`——無符號字節類型，取值範圍為從` 0 `到` 255 `（包括）的整數。
 
-Example: `"ConnectionTimeout": 90`
+範例：`"ConnectionTimeout": 90`
 
 ---
 
