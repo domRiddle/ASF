@@ -614,28 +614,28 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 
 請注意，本屬性為&#8203;`flags`&#8203;欄位，因此可以使用所有可用值任意組合。 若您想了解更多，請參閱&#8203;**[旗標映射](#json-映射)**&#8203;。 不啟用任何旗標即為&#8203;`None`&#8203;選項。
 
-The underlying `EPersonaStateFlag` type that this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+本屬性依據的基本&#8203;`EPersonaStateFlag`&#8203;型別包含了更多可供使用的旗標，但據我們所知，直到目前它們還仍無任何效果，因此為了可見性將它們刪除了。
 
-If you're not sure how to set this property, leave it with default value of `0`.
+若您不確定如何設定本屬性，請保留預設值&#8203;`0`&#8203;。
 
 ---
 
-### `OnlineStatus（線上狀態）`
+### `OnlineStatus（在線狀態）`
 
-`byte`&#8203;型別，預設值為&#8203;`1`&#8203;。 This property specifies Steam community status that the bot will be announced with after logging in to Steam network. 目前您可以選擇以下狀態之一：
+`byte`&#8203;型別，預設值為&#8203;`1`&#8203;。 本屬性指定了Bot在登入Steam網路後，要顯示的Steam社群狀態。 目前您可以選擇下列狀態之一：
 
 | 值 | 名稱                     |
 | - | ---------------------- |
 | 0 | Offline（離線）            |
 | 1 | Online（線上）             |
-| 2 | Busy（忙碌）               |
+| 2 | Busy（請勿打擾）             |
 | 3 | Away（離開）               |
 | 4 | Snooze（打盹）             |
 | 5 | LookingToTrade（尋找交易對象） |
 | 6 | LookingToPlay（尋找遊戲對象）  |
 | 7 | Invisible（隱藏）          |
 
-`Offline` status is extremely useful for primary accounts. As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Using `Offline` status solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, connected to Steam network, but without announcing our online presence at all. Keep in mind that played games using offline status will still count towards your playtime, and show as "recently played" on your profile.
+`Offline`&#8203;狀態對於主要帳號來說非常有用。 As you should know, farming a game actually shows your steam status as "Playing game: XXX", which can be misleading to your friends, confusing them that you're playing a game while actually you're only farming it. Using `Offline` status solves that issue - your account will never be shown as "in-game" when you're farming steam cards with ASF. This is possible thanks to the fact that ASF does not have to sign in into Steam Community in order to work properly, so we're in fact playing those games, connected to Steam network, but without announcing our online presence at all. Keep in mind that played games using offline status will still count towards your playtime, and show as "recently played" on your profile.
 
 In addition to that, this feature is also important if you want to receive notifications and unread messages when ASF is running, while not keeping Steam client open at the same time. This is because ASF acts as a Steam client itself, and whether ASF would like it or not, Steam broadcasts all those messages and other events to it. This is not a problem if you have both ASF and your own Steam client running, as both clients receive exactly the same events. However, if just ASF is running, Steam network could mark certain events and messages as "delivered", despite of your traditional Steam client not receiving it due to not being present. Offline status also solves this problem, as ASF is never considered for any community events in this case, so all unread messages and other events will be properly marked as unread when you come back.
 
