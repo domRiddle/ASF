@@ -1,6 +1,6 @@
 # Обміни
 
-ASF includes support for Steam non-interactive (offline) trades. Both receiving (accepting/declining) as well as sending trades is available right away and doesn't require special configuration, but obviously requires unrestricted Steam account (the one that spent 5$ in the store already). Trading module is unavailable for restricted accounts.
+ASF включає підтримку неінтерактивних (офлайн) обмінів Steam. Як отримання (прийняття/відхилення) так і відправлення обмінів працюють не вимагаючи додаткового налаштування, проте, вочевидь, вимагають обліковий запис Steam без обмежень (такий, на якому витрачено більше ніж 5$ в еквіваленті). Модуль обмінів недоступний для облікових записів з обмеженим доступом.
 
 ---
 
