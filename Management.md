@@ -67,6 +67,7 @@ The file should contain all environment variables that you'd like to provide to 
 
 ```sh
 # Declare only those that you actually need
+ASF_ARGS="--no-config-migrate --no-config-watch"
 ASF_CRYPTKEY="my_super_important_secret_cryptkey"
 ASF_NETWORK_GROUP="my_network_group"
 
