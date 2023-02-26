@@ -4,11 +4,11 @@ ASF включає підтримку неінтерактивних (офлай
 
 ---
 
-## Logic
+## Логіка
 
-ASF will always accept all trades, regardless of items, sent from user with `Master` (or higher) access to the bot. This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
+ASF завжди буде приймати всі пропозиції обмінів, незалежно від предметів, відправлених від користувача з доступом `Master` (або вище) до бота. Це дозволяє не тільки легко збирати карти steam, створені екземпляром бота, але і дозволяє легко керувати предметами Steam, які бот зберігає в інвентарі, в тому числі з інших ігор (таких як CS:GO).
 
-ASF will reject trade offer, regardless of content, from any (non-master) user that is blacklisted from trading module. Blacklist is stored in standard `BotName.db` database, and can be managed via `tb`, `tbadd` and `tbrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. This should work as an alternative to standard user block offered by Steam - use with caution.
+ASF відхилить пропозицію обміну, незалежно від вмісту, від будь-якого користувача (non-master), який знаходиться в чорному списку торгового модуля. Чорний список зберігається в стандартній `BotName.db` базі даних, і ним можна керувати через `tb`, `tbadd` і `tbrm` **[команди](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Це повинно працювати як альтернатива стандартному користувацькому блоку, який пропонує Steam - використовуйте з обережністю.
 
 ASF will accept all `loot`-like trades being sent across bots, unless `DontAcceptBotTrades` is specified in `TradingPreferences`. In short, default `TradingPreferences` of `None` will cause ASF to automatically accept trades from user with `Master` access to the bot (explained above), as well as all donation trades from other bots that are taking part in ASF process. If you want to disable donation trades from other bots, then that's what `DontAcceptBotTrades` in your `TradingPreferences` is for.
 
