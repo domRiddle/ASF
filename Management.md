@@ -11,7 +11,7 @@ In `generic` and `linux` variants, ASF comes with `ArchiSteamFarm@.service` file
 Firstly, create the account for the user you want to run ASF under, assuming it doesn't exist yet. We'll use `asf` user for this example, if you decided to use a different one, you'll need to substitute `asf` user in all of our examples below with your selected one. Our service does not allow you to run ASF as `root`, since it's considered a **[bad practice](#never-run-asf-as-administrator)**.
 
 ```sh
-su # Or sudo -i
+su # Or sudo -i, to get into root shell
 useradd -m asf # Create account you intend to run ASF under
 ```
 
