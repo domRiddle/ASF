@@ -124,10 +124,10 @@ After doing that, you should no longer get any kind of issue related to ASF not 
 ### I run as `root` because I don't know how to do it otherwise
 
 ```sh
-su # or sudo -i
-useradd -m asf
-chown -hR asf:asf /path/to/ASF
-su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
+su # or sudo -i, to get into root shell
+useradd -m asf # Create account you intend to run ASF under
+chown -hR asf:asf /path/to/ASF # Ensure your new user has access to the ASF directory
+su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm, to actually start the program under your user
 ```
 
 That would be doing it manually, it's much easier to use our **[`systemd` service](#systemd-service-for-linux)** explained above.
