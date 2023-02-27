@@ -61,12 +61,13 @@ systemctl status ArchiSteamFarm@asf
 
 可以為我們的&#8203;`systemd`&#8203;服務提供額外的環境變數，例如您想要使用自訂的&#8203;`--cryptkey`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW#引數)**&#8203;，就要指定&#8203;`ASF_CRYPTKEY`&#8203;環境變數。
 
-若要提供自訂環境變數，使用&#8203;`mkdir -p /etc/asf`&#8203;來建立&#8203;`/etc/asf`資料夾（如果不存在）。 我們建議使用&#8203;`chmod 700 /etc/asf`&#8203;，來確保只有&#8203;`root`&#8203;使用者能夠存取這些檔案，因為它們可能含有機密屬性，例如&#8203;`ASF_CRYPTKEY`&#8203;。 然後，編輯&#8203;`/etc/asf/<使用者名稱>`&#8203;檔案，其中&#8203;`<使用者名稱>`&#8203;代表您要執行服務的使用者（在上述範例中是&#8203;`asf`&#8203;，因此是&#8203;`/etc/asf/asf`&#8203;）。
+若要提供自訂環境變數，使用&#8203;`mkdir -p /etc/asf`&#8203;來建立&#8203;`/etc/asf`資料夾（如果不存在）。 我們建議使用&#8203;`chown -hR root:root /etc/asf && chmod 700 /etc/asf`&#8203;，來確保只有&#8203;`root`&#8203;使用者能夠存取這些檔案，因為它們可能含有機密屬性，例如&#8203;`ASF_CRYPTKEY`&#8203;。 然後，編輯&#8203;`/etc/asf/<使用者名稱>`&#8203;檔案，其中&#8203;`<使用者名稱>`&#8203;代表您要執行服務的使用者（在上述範例中是&#8203;`asf`&#8203;，因此是&#8203;`/etc/asf/asf`&#8203;）。
 
-這個檔案應該含有所有您要提供給程序的環境變數：
+這個檔案應該含有所有您要提供給程序的環境變數。 對於那些沒有專屬環境變數的，可以在&#8203;`ASF_ARGS`&#8203;中宣告：
 
 ```sh
 # 只宣告您實際所需的變數
+ASF_ARGS="--no-config-migrate --no-config-watch"
 ASF_CRYPTKEY="my_super_important_secret_cryptkey"
 ASF_NETWORK_GROUP="my_network_group"
 

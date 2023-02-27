@@ -61,16 +61,17 @@ systemctl status ArchiSteamFarm@asf
 
 `systemd` 服务允许提供额外的环境变量，例如您希望使用自定义的 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN#参数)**，就需要指定 `ASF_CRYPTKEY` 环境变量。
 
-若要提供自定义环境变量，则运行命令 `mkdir -p /etc/asf` 创建 `/etc/asf` 目录（如果不存在）。 我们建议运行 `chmod 700 /etc/asf`，确保只有 `root` 用户有权限读取这些文件，因为其中可能包含 `ASF_CRYPTKEY` 等敏感属性。 然后，您可以编辑 `/etc/asf/<user>` 文件，其中 `<user>` 表示您运行服务的用户（在本例中是 `asf`，即编辑 `/etc/asf/asf`）。
+若要提供自定义环境变量，则运行命令 `mkdir -p /etc/asf` 创建 `/etc/asf` 目录（如果不存在）。 We recommend to `chown -hR root:root /etc/asf && chmod 700 /etc/asf` to ensure that only `root` user has access to read those files, because they might contain sensitive properties such as `ASF_CRYPTKEY`. 然后，您可以编辑 `/etc/asf/<user>` 文件，其中 `<user>` 表示您运行服务的用户（在本例中是 `asf`，即编辑 `/etc/asf/asf`）。
 
-此文件应该包含所有您要提供给进程的环境变量：
+The file should contain all environment variables that you'd like to provide to the process. Those that do not have a dedicated environment variable, can be declared in `ASF_ARGS`:
 
 ```sh
-# 仅声明您实际需要的变量
+# Declare only those that you actually need
+ASF_ARGS="--no-config-migrate --no-config-watch"
 ASF_CRYPTKEY="my_super_important_secret_cryptkey"
 ASF_NETWORK_GROUP="my_network_group"
 
-# 以及任何其他您要使用的变量
+# And any other ones you're interested in
 ```
 
 ### 覆盖服务单元的部分配置

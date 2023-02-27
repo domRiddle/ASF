@@ -61,16 +61,17 @@ PLZ NOWT DAT, AS THAR IZ NO STANDARD INPUT ENABLD 4 R `systemd` SERVICE, U WONT 
 
 IZ POSIBLE 2 SUPPLY ADDISHUNAL ENVIRONMENT VARIABLEZ 2 R `systemd` SERVICE, WHICH ULL BE INTERESTD IN DOIN IN CASE U WANTS 2 4 EXAMPLE USE CUSTOM `--cryptkey` **[COMMAND-LINE ARGUMENT](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-lol-US#arguments)**, THEREFORE SPECIFYIN `ASF_CRYPTKEY` ENVIRONMENT VARIABLE.
 
-IN ORDR 2 PROVIDE CUSTOM ENVIRONMENT VARIABLEZ, CREATE `/etc/asf` FOLDR (IN CASE IT DOESNT EXIST), `mkdir -p /etc/asf`. WE RECOMMEND 2 `chmod 700 /etc/asf` 2 ENSURE DAT ONLY `root` USR HAS ACCES 2 READ DOSE FILEZ, CUZ THEY MITE CONTAIN SENSITIV PROPERTIEZ SUCH AS `ASF_CRYPTKEY`. AFTERWARDZ, RITE 2 `/etc/asf/<user>` FILE, WER `<user>` IZ TEH USR URE RUNNIN TEH SERVICE UNDR (`asf` IN R EXAMPLE ABOOV, SO `/etc/asf/asf`).
+IN ORDR 2 PROVIDE CUSTOM ENVIRONMENT VARIABLEZ, CREATE `/etc/asf` FOLDR (IN CASE IT DOESNT EXIST), `mkdir -p /etc/asf`. We recommend to `chown -hR root:root /etc/asf && chmod 700 /etc/asf` to ensure that only `root` user has access to read those files, because they might contain sensitive properties such as `ASF_CRYPTKEY`. AFTERWARDZ, RITE 2 `/etc/asf/<user>` FILE, WER `<user>` IZ TEH USR URE RUNNIN TEH SERVICE UNDR (`asf` IN R EXAMPLE ABOOV, SO `/etc/asf/asf`).
 
-TEH FILE SHUD CONTAIN ALL ENVIRONMENT VARIABLEZ DAT UD LIEK 2 PROVIDE 2 TEH PROCES:
+The file should contain all environment variables that you'd like to provide to the process. Those that do not have a dedicated environment variable, can be declared in `ASF_ARGS`:
 
 ```sh
-# DECLARE ONLY DOSE DAT U AKSHULLY NED
+# Declare only those that you actually need
+ASF_ARGS="--no-config-migrate --no-config-watch"
 ASF_CRYPTKEY="my_super_important_secret_cryptkey"
 ASF_NETWORK_GROUP="my_network_group"
 
-# AN ANY OTHR ONEZ URE INTERESTD IN
+# And any other ones you're interested in
 ```
 
 ### OVERRIDIN PART OV TEH SERVICE UNIT

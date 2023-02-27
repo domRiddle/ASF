@@ -61,16 +61,17 @@ Ten en cuenta que como no hay una entrada estándar habilitada para nuestro serv
 
 Es posible proporcionar variables de entorno adicionales a nuestro servicio `systemd`, lo que te interesa en caso de que quieras usar un **[argumento de la línea de comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-es-ES#argumentos)** `--cryptkey` personalizado, y por lo tanto especificar la variable de entorno `ASF_CRYPTKEY`.
 
-Para proporcionar variables de entorno personalizadas, crea la carpeta `/etc/asf` (en caso de que no exista), `mkdir -p /etc/asf`. Recomendamos `chmod 700 /etc/asf` para asegurar que solo el usuario `root` tiene acceso de lectura para esos archivos, porque podrían contener propiedades cofidenciales tal como `ASF_CRYPTKEY`. Posterioremente, escribe a un archivo `/etc/asf/<user>`, donde `<user>` es el usuario con el que ejecutas el servicio (`asf` en nuestro ejemplo anterior, así que `/etc/asf/asf`).
+Para proporcionar variables de entorno personalizadas, crea la carpeta `/etc/asf` (en caso de que no exista), `mkdir -p /etc/asf`. Recomendamos usar `chown -hR root:root /etc/asf && chmod 700 /etc/asf` para asegurar que solo el usuario `root` tenga acceso para leer esos archivos, ya que podrían contener propiedades confidenciales tal como `ASF_CRYPTKEY`. Posterioremente, escribe a un archivo `/etc/asf/<user>`, donde `<user>` es el usuario con el que ejecutas el servicio (`asf` en nuestro ejemplo anterior, así que `/etc/asf/asf`).
 
-El archivo debería contener todas las variables de entorno que quieras proporcionar al proceso:
+El archivo debería contener todas las variables de entorno que deseas proporcionar al proceso. Aquellas que no tengan una variable de entorno dedicada, pueden declararse en `ASF_ARGS`:
 
 ```sh
-# Declara solo aquellos que realmente necesitas
+# Declara solamente aquellas que realmente necesites
+ASF_ARGS="--no-config-migrate --no-config-watch"
 ASF_CRYPTKEY="mi_cryptkey_secreta_super_importante"
 ASF_NETWORK_GROUP="mi_grupo_de_red"
 
-# Y cualquier otro que te interese
+# Y cualquier otra que te interese
 ```
 
 ### Anular parte de la unidad de servicio

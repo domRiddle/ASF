@@ -61,16 +61,17 @@ systemctl status ArchiSteamFarm@asf
 
 Возможна поставка дополнительных переменных среды в наш `systemd`, которая будет интересна в том случае, если вы хотите использовать пользовательский `--cryptkey` **[аргумент командной строки](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)**, поэтому задайте переменную окружения `ASF_CRYPTKEY`.
 
-Чтобы предоставить пользовательские переменные окружения, создайте папку `/etc/asf` (в случае, если она не существует), `mkdir -p /etc/asf`. Мы рекомендуем `chmod 700 /etc/asf`, чтобы убедиться, что только `root` пользователь имеет доступ к чтению этих файлов, потому что они могут содержать конфиденциальные свойства, такие как `ASF_CRYPTKEY`. После этого напишите в файл `/etc/asf/<user>`, где `<user>` - это пользователь, под которым вы запускаете службу (`asf` в нашем примере выше, поэтому у нас `/etc/asf/asf`).
+Чтобы предоставить пользовательские переменные окружения, создайте папку `/etc/asf` (в случае, если она не существует), `mkdir -p /etc/asf`. We recommend to `chown -hR root:root /etc/asf && chmod 700 /etc/asf` to ensure that only `root` user has access to read those files, because they might contain sensitive properties such as `ASF_CRYPTKEY`. После этого напишите в файл `/etc/asf/<user>`, где `<user>` - это пользователь, под которым вы запускаете службу (`asf` в нашем примере выше, поэтому у нас `/etc/asf/asf`).
 
-Файл должен содержать все переменные среды, которые вы хотели бы предоставить процессу:
+The file should contain all environment variables that you'd like to provide to the process. Those that do not have a dedicated environment variable, can be declared in `ASF_ARGS`:
 
 ```sh
-# Объявите только то что вам нужно
+# Declare only those that you actually need
+ASF_ARGS="--no-config-migrate --no-config-watch"
 ASF_CRYPTKEY="my_super_important_secret_cryptkey"
 ASF_NETWORK_GROUP="my_network_group"
 
-# И любые другие интересующие вас
+# And any other ones you're interested in
 ```
 
 ### Переопределение части сервисного юнита
