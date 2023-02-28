@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Argumenty příkazového řádku jsou také podporovány v generických pomocných skriptech, jako je `ArchiSteamFarm.cmd` nebo `ArchiSteamFarm.sh`. Kromě toho můžete při použití pomocných skriptů také použít `ASF_ARGS` vlastnosti prostředí, jak je uvedeno v naší **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sekci.
+Argumenty příkazového řádku jsou také podporovány v generických pomocných skriptech, jako je `ArchiSteamFarm.cmd` nebo `ArchiSteamFarm.sh`. In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
 
 Pokud váš argument obsahuje mezery, nezapomeňte jej ocitovat. Tyto dvě věci jsou špatně:
 

@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Argumenty wiersza polecenia są również obsługiwane w ogólnych skryptach pomocniczych, takich jak `ArchiSteamFarm.cmd` lub `ArchiSteamFarm.sh`. Oprócz tego, gdy używasz skryptów pomocniczych, możesz również użyć własność środowiska `ASF_ARGS`, jak podano w naszej sekcji **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)**.
+Argumenty wiersza polecenia są również obsługiwane w ogólnych skryptach pomocniczych, takich jak `ArchiSteamFarm.cmd` lub `ArchiSteamFarm.sh`. In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
 
 Jeśli argument zawiera spacje, nie zapomnij go uwzględnić. Te dwa są złe:
 

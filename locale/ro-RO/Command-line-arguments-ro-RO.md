@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argument --altArgument
 ```
 
-Argumentele din linie de comandă sunt de asemenea acceptate în script-uri generice de ajutor cum ar fi `ArchiSteamFarm.cmd` sau `ArchiSteamFarm.sh`. În plus, atunci când utilizezi scripturi ajutătoare, poți de asemenea să folosești proprietatea de mediu `ASF_ARGS`, ca în secţiunea noastră **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)**.
+Argumentele din linie de comandă sunt de asemenea acceptate în script-uri generice de ajutor cum ar fi `ArchiSteamFarm.cmd` sau `ArchiSteamFarm.sh`. In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
 
 Dacă argumentul tău include spații, nu uita să folosești ghilimele. Aceste două sunt greșite:
 

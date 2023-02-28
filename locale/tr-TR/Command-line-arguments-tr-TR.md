@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argüman --başkaArgüman
 ```
 
-Komut satırı argümanları `ArchiSteamFarm.cmd` veya `ArchiSteamFarm.sh` gibi genel yardımcı betik dosyalarında da kullanılır. Ek olarak yardımcı betikler ile, **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** bölümünde bahsedildiği gibi `ASF_ARGS` ortam değişkenini de kullanabilirsiniz.
+Komut satırı argümanları `ArchiSteamFarm.cmd` veya `ArchiSteamFarm.sh` gibi genel yardımcı betik dosyalarında da kullanılır. In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
 
 Eğer argümanınızda boşluklar varsa tırnak içinde kullanmayı unutmayın. Şu ikisi hatalıdır:
 

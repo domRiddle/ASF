@@ -26,13 +26,14 @@ Linux/macOS:
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Les arguments de ligne de commande sont également pris en charge dans les scripts d'assistance génériques tels que ` ArchiSteamFarm.cmd </ 0> ou <code> ArchiSteamFarm.sh </ 0>. De plus, lorsque vous utilisez des scripts d'assistance, vous pouvez également utiliser la propriété d'environnement <code> ASF_ARGS </ 0>, comme indiqué dans notre section <strong x-id="1"><a href="https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments">docker</ 1>.</p>
+Les arguments de ligne de commande sont également pris en charge dans les scripts d'assistance génériques tels que ` ArchiSteamFarm.cmd </ 0> ou <code> ArchiSteamFarm.sh </ 0>. In addition to that, you can also use <code>ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
 
-<p spaces-before="0">Si votre argument comprend des espaces, n'oubliez pas de le citer. Ces deux exemples sont faux:</p>
+Si votre argument comprend des espaces, n'oubliez pas de le citer. Ces deux exemples sont faux:
 
-<pre><code class="shell">./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad
+```shell
+./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad
 ./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
-`</pre>
+```
 
 Cependant, ces deux la sont complètement valides:
 

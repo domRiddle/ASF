@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Komandinės eilutės argumentai taip pat palaikomi ir bendruose pagalbos skriptuose, kaip kad`ArchiSteamFarm.cmd` arba `ArchiSteamFarm.sh`. Taip pat, naudojant papildomus skriptus galima naudoti `ASF_ARGS`, kaip nurodoma **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sekcijoje.
+Komandinės eilutės argumentai taip pat palaikomi ir bendruose pagalbos skriptuose, kaip kad`ArchiSteamFarm.cmd` arba `ArchiSteamFarm.sh`. In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
 
 Jei argumentai turi tarpus, nepamirškite kabučių. Šie du blogi:
 

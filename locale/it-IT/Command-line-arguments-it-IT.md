@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Gli argomenti della linea di comando sono anche supportati negli script di aiuto generici come `ArchiSteamFarm.cmd` o `ArchiSteamFarm.sh`. Inoltre, quando usi gli script d'aiuto puoi anche usare la proprietà ambientale di `ASF_ARGS`, come indicato nella nostra sezione **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)**.
+Gli argomenti della linea di comando sono anche supportati negli script di aiuto generici come `ArchiSteamFarm.cmd` o `ArchiSteamFarm.sh`. In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
 
 Se il tuo argomento include spazi, non dimenticarti di citarlo. Questi due sono sbagliati:
 

@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argumentum --másikArgumentum
 ```
 
-A parancsori argumentumok az általános segítő szkriptekben is támogatottak, mint például `ArchiSteamFarm.cmd`, vagy `ArchiSteamFarm.sh`. A segítő szkriptekkel egyidejűleg az `ASF_ARGS` környezeti változót is használhatod, ahogy az a **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** szekcióban le van írva.
+A parancsori argumentumok az általános segítő szkriptekben is támogatottak, mint például `ArchiSteamFarm.cmd`, vagy `ArchiSteamFarm.sh`. In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
 
 Ha az argumentumod szóközt is tartalmaz, ne felejts el idézőjelet használni. Ez a két sor hibás:
 

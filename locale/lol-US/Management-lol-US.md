@@ -11,8 +11,8 @@ IN `generic` AN `linux` VARIANTS, ASF COMEZ WIF `ArchiSteamFarm@.service` FILE, 
 FIRSTLY, CREATE TEH AKOWNT 4 DA USR U WANTS 2 RUN ASF UNDR, ASSUMIN IT DOESNT EXIST YET. WELL USE `asf` USR 4 DIS EXAMPLE, IF U DECIDD 2 USE DIFFERENT WAN, ULL NED 2 SUBSTITUTE `asf` USR IN ALL OV R EXAMPLEZ BELOW WIF UR SELECTD WAN. R SERVICE DOEZ NOT ALLOW U 2 RUN ASF AS `root`, SINCE IZ CONSIDERD **[BAD PRACTICE](#nevr-run-asf-as-administrator)**.
 
 ```sh
-su # or sudo -i
-useradd -m asf
+su # Or sudo -i, to get into root shell
+useradd -m asf # Create account you intend to run ASF under
 ```
 
 NEXT, UNPACK ASF 2 `/home/asf/ArchiSteamFarm` FOLDR. TEH FOLDR STRUCCHUR IZ IMPORTANT 4 R SERVICE UNIT, IT SHUD BE `ArchiSteamFarm` FOLDR IN UR `$HOME`, SO `/home/<user>`. IF U DID EVRYTHIN RITE, THAR WILL BE `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` FILE EXISTIN. IF URE USIN `linux` VARIANT AN DIDNT UNPACK TEH FILE ON LINUX, BUT 4 EXAMPLE USD FILE TRANZFR FRUM WINDOWS, DEN ULL ALSO NED 2 `chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm`.
@@ -124,10 +124,10 @@ AFTR DOIN DAT, U SHUD NO LONGR GIT ANY KIND OV ISSUE RELATD 2 ASF NOT BEAN ABLE 
 ### I RUN AS `root` CUZ I DOAN KNOE HOW 2 DO IT OTHERWIZE
 
 ```sh
-su # or sudo -i
-useradd -m asf
-chown -hR asf:asf /path/to/ASF
-su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
+su # Or sudo -i, to get into root shell
+useradd -m asf # Create account you intend to run ASF under
+chown -hR asf:asf /path/to/ASF # Ensure your new user has access to the ASF directory
+su asf -c /path/to/ASF/ArchiSteamFarm # Or sudo -u asf /path/to/ASF/ArchiSteamFarm, to actually start the program under your user
 ```
 
 DAT WUD BE DOIN IT MANUALLY, IZ MUTCH EASIR 2 USE R **[`systemd` SERVICE](#systemd-service-4-linux)** EXPLAIND ABOOV.

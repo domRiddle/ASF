@@ -11,8 +11,8 @@ En las variantes `generic` y `linux`, ASF viene con el archivo `ArchiSteamFarm@.
 Primero, crea la cuenta para el usuario con el que quieres ejecutar ASF, suponiendo que aún no existe. Usaremos el usuario `asf` para este ejemplo, si decidiste usar uno diferente, necesitarás cambiar el usuario `asf` en todos nuestros ejemplos con el que hayas seleccionado. Nuestro servicio no te permite ejecutar ASF como `root`, ya que es considerado una **[mala práctica](#nunca-ejecutes-asf-como-administrador)**.
 
 ```sh
-su # or sudo -i
-useradd -m asf
+su # Or sudo -i, para dirigirte a root shell
+useradd -m asf # Create account you intend to run ASF under
 ```
 
 A continuación, descomprime ASF en la carpeta `/home/asf/ArchiSteamFarm`. La estructura de carpetas es importante para nuestra unidad de servicio, debería ser la carpeta `ArchiSteamFarm` en `$HOME`, por lo tanto `/home/<user>`.  Si hiciste todo correctamente, habrá un archivo `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service`. Si estás usando la variante `linux` y no desempaquetaste el archivo en Linux, pero por ejemplo usaste la transferencia de archivos desde Windows, entonces también necesitarás usar `chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm`.
@@ -124,10 +124,10 @@ Después de eso, ya no deberías tener ningún tipo de problema relacionado con 
 ### Ejecuto como `root` porque no sé cómo hacerlo de otro modo
 
 ```sh
-su # or sudo -i
-useradd -m asf
-chown -hR asf:asf /path/to/ASF
-su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
+su # O sudo -i, para dirigirte a root shell
+useradd -m asf # Crea la cuenta con la que pretendes ejecutar ASF
+chown -hR asf:asf /path/to/ASF # Asegúrate de que tu nuevo usuario tiene acceso al directorio de ASF
+su asf -c /path/to/ASF/ArchiSteamFarm # Or sudo -u asf /path/to/ASF/ArchiSteamFarm, para iniciar el programa con tu usuario
 ```
 
 Eso sería hacerlo manualmente, es mucho más fácil usar nuestro **servicio [`systemd`](#servicio-systemd-para-linux)** explicado anteriormente.

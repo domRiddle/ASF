@@ -11,8 +11,8 @@
 首先，创建用来运行 ASF 的用户，假设它还不存在。 我们在此以 `asf` 用户为例，如果您决定用另一个用户，就需要在下面所有示例中把 `asf` 替换为您选择的用户名。 我们的服务不允许 ASF 以 `root` 用户运行，因为这被认为是&#8203;**[错误实践](#不要以管理员身份运行-ASF)**。
 
 ```sh
-su # 或者 sudo -i
-useradd -m asf
+su # Or sudo -i, to get into root shell
+useradd -m asf # Create account you intend to run ASF under
 ```
 
 接下来，解压 ASF 到 `/home/asf/ArchiSteamFarm` 目录。 目录结构对于我们的服务单元非常重要，它应该是您 `$HOME` 目录，也就是 `/home/<user>` 下的 `ArchiSteamFarm` 目录。 如果您的操作完全正确，则现在应该存在 `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` 文件。 如果您正在使用 `linux` 版本，但文件不是在 Linux 环境中解压的，而是传输自 Windows 系统等情况，则您也需要执行 `chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm` 设置权限。
@@ -61,17 +61,17 @@ systemctl status ArchiSteamFarm@asf
 
 `systemd` 服务允许提供额外的环境变量，例如您希望使用自定义的 `--cryptkey` **[命令行参数](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN#参数)**，就需要指定 `ASF_CRYPTKEY` 环境变量。
 
-若要提供自定义环境变量，则运行命令 `mkdir -p /etc/asf` 创建 `/etc/asf` 目录（如果不存在）。 We recommend to `chown -hR root:root /etc/asf && chmod 700 /etc/asf` to ensure that only `root` user has access to read those files, because they might contain sensitive properties such as `ASF_CRYPTKEY`. 然后，您可以编辑 `/etc/asf/<user>` 文件，其中 `<user>` 表示您运行服务的用户（在本例中是 `asf`，即编辑 `/etc/asf/asf`）。
+若要提供自定义环境变量，则运行命令 `mkdir -p /etc/asf` 创建 `/etc/asf` 目录（如果不存在）。 我们建议运行 `chown -hR root:root /etc/asf && chmod 700 /etc/asf`，确保只有 `root` 用户有权限读取这些文件，因为其中可能包含 `ASF_CRYPTKEY` 等敏感属性。 然后，您可以编辑 `/etc/asf/<user>` 文件，其中 `<user>` 表示您运行服务的用户（在本例中是 `asf`，即编辑 `/etc/asf/asf`）。
 
-The file should contain all environment variables that you'd like to provide to the process. Those that do not have a dedicated environment variable, can be declared in `ASF_ARGS`:
+此文件应该包含所有您要提供给进程的环境变量。 一些参数没有专门的环境变量，但可以通过 `ASF_ARGS` 来声明：
 
 ```sh
-# Declare only those that you actually need
+# 仅声明您实际需要的变量
 ASF_ARGS="--no-config-migrate --no-config-watch"
 ASF_CRYPTKEY="my_super_important_secret_cryptkey"
 ASF_NETWORK_GROUP="my_network_group"
 
-# And any other ones you're interested in
+# 以及任何其他您要使用的变量
 ```
 
 ### 覆盖服务单元的部分配置
@@ -124,10 +124,10 @@ ASF 有自己的逻辑，验证自身是否以管理员用户（`root`）运行�
 ### 我用 `root` 运行是因为我不知道应该怎样做
 
 ```sh
-su # 或者 sudo -i
-useradd -m asf
-chown -hR asf:asf /path/to/ASF
-su asf -c /path/to/ASF/ArchiSteamFarm # 或者 sudo -u asf /path/to/ASF/ArchiSteamFarm
+su # Or sudo -i, to get into root shell
+useradd -m asf # Create account you intend to run ASF under
+chown -hR asf:asf /path/to/ASF # Ensure your new user has access to the ASF directory
+su asf -c /path/to/ASF/ArchiSteamFarm # Or sudo -u asf /path/to/ASF/ArchiSteamFarm, to actually start the program under your user
 ```
 
 这些步骤会手动启动 ASF，但使用我们上述的 [**`systemd` 服务**](#linux-的-systemd-服务)会更容易。

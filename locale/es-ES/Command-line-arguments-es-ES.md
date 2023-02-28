@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argumento --otroArgumento
 ```
 
-Los argumentos de la línea de comandos también están soportados en scripts auxiliares genéricos tal como `ArchiSteamFarm.cmd` o `ArchiSteamFarm.sh`. Además, al usar scripts auxiliares también puedes emplear la propiedad de entorno `ASF_ARGS`, tal como se explica en la sección **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-es-ES#argumentos-de-la-l%C3%ADnea-de-comandos)**.
+Los argumentos de la línea de comandos también están soportados en scripts auxiliares genéricos tal como `ArchiSteamFarm.cmd` o `ArchiSteamFarm.sh`. Además de eso, también puedes usar la propiedad de entorno `ASF_ARGS`, como se indica en las secciones de **[gestión](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-es-ES#variables-de-entorno)** y **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-es-ES#argumentos-de-la-l%C3%ADnea-de-comandos)**.
 
 Si tu argumento incluye espacios, no olvides ponerlo entre comillas. Estos dos son incorrectos:
 

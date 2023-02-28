@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --參數--另一個參數
 ```
 
-命令列參數也可用於通用助手腳本中，例如`ArchiSteamFarm.cmd`或`ArchiSteamFarm.sh`。 除此之外, 如我們的**[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)**&#8203;部分中所述，在使用助手腳本時, 您還可以使用 `ASF_ARGS` 環境屬性,。
+命令列參數也可用於通用助手腳本中，例如`ArchiSteamFarm.cmd`或`ArchiSteamFarm.sh`。 In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
 
 若您的參數包含空格，請務必使用引號將其括住。 兩個錯誤示例：
 

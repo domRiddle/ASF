@@ -11,8 +11,8 @@
 首先，若您還尚未建立用來執行ASF的使用者，請先建立它。 我們在此以&#8203;`asf`&#8203;使用者作為範例，若您想使用其他的使用者，您就必須將下列範例中的&#8203;`asf`&#8203;使用者取代成您想使用的使用者名稱。 我們的服務不允許您使用&#8203;`root`&#8203;來執行ASF，因為這被認為是&#8203;**[糟糕的方法](#永遠不要以系統管理員身分執行-asf)**&#8203;。
 
 ```sh
-su # 或是 sudo -i
-useradd -m asf
+su # Or sudo -i, to get into root shell
+useradd -m asf # Create account you intend to run ASF under
 ```
 
 下一步，將ASF解壓縮至&#8203;`/home/asf/ArchiSteamFarm`&#8203;資料夾中。 資料夾的結構對我們的服務單元來說非常重要，它應在您的&#8203;`$HOME`&#8203;裡面，也就是說&#8203;`ArchiSteamFarm`&#8203;資料夾需要放在&#8203;`/home/<使用者名稱>`&#8203;中。 若您的操作完全正確，則現在應存在&#8203;`/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service`&#8203;檔案。 若您使用&#8203;`linux`變體版本，且檔案不在Linux中解壓縮，而是例如從Windows傳輸過來，那麼您需額外執行&#8203;`chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm`&#8203;。
@@ -124,10 +124,10 @@ ASF含有邏輯以驗證自身是否以系統管理員（&#8203;`root`&#8203;）
 ### 我使用 `root` 執行，因為我不知道該怎麼做
 
 ```sh
-su # 或是 sudo -i
-useradd -m asf
-chown -hR asf:asf /路徑/至/ASF
-su asf -c /路徑/至/ASF/ArchiSteamFarm # 或是 sudo -u asf /路徑/至/ASF/ArchiSteamFarm
+su # Or sudo -i, to get into root shell
+useradd -m asf # Create account you intend to run ASF under
+chown -hR asf:asf /path/to/ASF # Ensure your new user has access to the ASF directory
+su asf -c /path/to/ASF/ArchiSteamFarm # Or sudo -u asf /path/to/ASF/ArchiSteamFarm, to actually start the program under your user
 ```
 
 這些是手動啟動，但使用我們上述說明的&#8203;**[`systemd`&#8203;服務](#linux-的-systemd-服務)**&#8203;會更加輕鬆。

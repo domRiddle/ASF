@@ -11,8 +11,8 @@ In `generic` and `linux` variants, ASF comes with `ArchiSteamFarm@.service` file
 Firstly, create the account for the user you want to run ASF under, assuming it doesn't exist yet. We'll use `asf` user for this example, if you decided to use a different one, you'll need to substitute `asf` user in all of our examples below with your selected one. Our service does not allow you to run ASF as `root`, since it's considered a **[bad practice](#never-run-asf-as-administrator)**.
 
 ```sh
-su # or sudo -i
-useradd -m asf
+su # Or sudo -i, to get into root shell
+useradd -m asf # Create account you intend to run ASF under
 ```
 
 Next, unpack ASF to `/home/asf/ArchiSteamFarm` folder. The folder structure is important for our service unit, it should be `ArchiSteamFarm` folder in your `$HOME`, so `/home/<user>`. If you did everything correctly, there will be `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` file existing. If you're using `linux` variant and didn't unpack the file on Linux, but for example used file transfer from Windows, then you'll also need to `chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm`.
@@ -124,10 +124,10 @@ After doing that, you should no longer get any kind of issue related to ASF not 
 ### I run as `root` because I don't know how to do it otherwise
 
 ```sh
-su # or sudo -i
-useradd -m asf
-chown -hR asf:asf /path/to/ASF
-su asf -c /path/to/ASF/ArchiSteamFarm # or sudo -u asf /path/to/ASF/ArchiSteamFarm
+su # Or sudo -i, to get into root shell
+useradd -m asf # Create account you intend to run ASF under
+chown -hR asf:asf /path/to/ASF # Ensure your new user has access to the ASF directory
+su asf -c /path/to/ASF/ArchiSteamFarm # Or sudo -u asf /path/to/ASF/ArchiSteamFarm, to actually start the program under your user
 ```
 
 That would be doing it manually, it's much easier to use our **[`systemd` service](#systemd-service-for-linux)** explained above.
