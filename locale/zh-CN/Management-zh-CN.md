@@ -11,8 +11,8 @@
 首先，创建用来运行 ASF 的用户，假设它还不存在。 我们在此以 `asf` 用户为例，如果您决定用另一个用户，就需要在下面所有示例中把 `asf` 替换为您选择的用户名。 我们的服务不允许 ASF 以 `root` 用户运行，因为这被认为是&#8203;**[错误实践](#不要以管理员身份运行-ASF)**。
 
 ```sh
-su # Or sudo -i, to get into root shell
-useradd -m asf # Create account you intend to run ASF under
+su # 或 sudo -i，用来进入 root shell
+useradd -m asf # 创建您要用来运行 ASF 的用户
 ```
 
 接下来，解压 ASF 到 `/home/asf/ArchiSteamFarm` 目录。 目录结构对于我们的服务单元非常重要，它应该是您 `$HOME` 目录，也就是 `/home/<user>` 下的 `ArchiSteamFarm` 目录。 如果您的操作完全正确，则现在应该存在 `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` 文件。 如果您正在使用 `linux` 版本，但文件不是在 Linux 环境中解压的，而是传输自 Windows 系统等情况，则您也需要执行 `chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm` 设置权限。
@@ -124,10 +124,10 @@ ASF 有自己的逻辑，验证自身是否以管理员用户（`root`）运行�
 ### 我用 `root` 运行是因为我不知道应该怎样做
 
 ```sh
-su # Or sudo -i, to get into root shell
-useradd -m asf # Create account you intend to run ASF under
-chown -hR asf:asf /path/to/ASF # Ensure your new user has access to the ASF directory
-su asf -c /path/to/ASF/ArchiSteamFarm # Or sudo -u asf /path/to/ASF/ArchiSteamFarm, to actually start the program under your user
+su # 或 sudo -i，用来进入 root shell
+useradd -m asf # 创建您要用来运行 ASF 的用户
+chown -hR asf:asf /path/to/ASF # 确保新用户有权访问 ASF 目录
+su asf -c /path/to/ASF/ArchiSteamFarm # 或 sudo -u asf /path/to/ASF/ArchiSteamFarm，用来在指定用户下启动程序
 ```
 
 这些步骤会手动启动 ASF，但使用我们上述的 [**`systemd` 服务**](#linux-的-systemd-服务)会更容易。

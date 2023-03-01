@@ -26,7 +26,7 @@ Linux/macOS：
 ./ArchiSteamFarm --引數 --另一個引數
 ```
 
-命令列引數也可用於通用輔助腳本中，例如&#8203;`ArchiSteamFarm.cmd`&#8203;或&#8203;`ArchiSteamFarm.sh`&#8203;。 In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
+命令列引數也可用於通用輔助腳本中，例如&#8203;`ArchiSteamFarm.cmd`&#8203;或&#8203;`ArchiSteamFarm.sh`&#8203;。 除此之外，如我們的&#8203;**[管理](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-TW#環境變數)**&#8203;及&#8203;**[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-zh-TW#命令列引數)**&#8203;章節中所述，您也可使用&#8203;`ASF_ARGS`&#8203;環境屬性。
 
 若您的引數中存在空格，別忘了使用引號將其括住。 兩個錯誤的範例：
 

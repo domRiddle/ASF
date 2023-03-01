@@ -26,7 +26,7 @@ Linux/macOS：
 ./ArchiSteamFarm --参数 --另一个参数
 ```
 
-`ArchiSteamFarm.cmd` 或 `ArchiSteamFarm.sh` 的这样的助手脚本也可使用命令行参数。 In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
+`ArchiSteamFarm.cmd` 或 `ArchiSteamFarm.sh` 的这样的助手脚本也可使用命令行参数。 除此之外，您也可以使用 `ASF_ARGS` 环境变量，如[**管理**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-CN#环境变量)和 **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-zh-CN#命令行参数)** 两节所示。
 
 若您参数包括空格，请记得要使用引号将其括住。 下面是两个错误示例：
 
