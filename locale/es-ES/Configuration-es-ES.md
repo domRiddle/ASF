@@ -328,7 +328,7 @@ Esta propiedad está definida como una cadena uri:
 
 Si tu proxy requiere autenticación de usuario, también necesitarás configurar `WebProxyUsername` y/o `WebProxyPassword`. Si no hay tal necesidad, configurar solo esta propiedad es suficiente.
 
-Ahora mismo ASF usa proxy web solo para solicitudes `http` y `https`, las cuales **no** incluyen la comunicación interna de la red de Steam hecha en el cliente de Steam integrado en ASF. Actualmente no hay planes para soportar eso, principalmente debido a la falta de la funcionalidad **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)**. Si necesitas/quieres que ocurra, te sugiero empezar por ahí.
+Ahora mismo ASF usa proxy web solo para solicitudes `http` y `https`, las cuales **no** incluyen la comunicación interna de la red de Steam hecha en el cliente de Steam integrado en ASF. Actualmente no hay planes para dar soporte a eso, principalmente debido a la falta de la funcionalidad **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)**. Si necesitas/quieres que ocurra, te sugiero empezar por ahí.
 
 A menos que tengas una razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
@@ -430,7 +430,7 @@ Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comp
 | 16    | MarkReceivedMessagesAsRead    | Causará que ASF automáticamente marque como leídos todos los mensajes recibidos                                           |
 | 32    | MarkBotMessagesAsRead         | Causará que ASF automáticamente marque como leídos los mensajes de otros bots de ASF (ejecutándose en la misma instancia) |
 
-Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 En general, querrás modificar esta propiedad si esperas que ASF tenga cierta cantidad de automatización relacionada con su actividad, como se esperaría de una cuenta bot, pero no de una cuenta principal usada en ASF. Por lo tanto, cambiar esta propiedad tiene sentido principalmente para cuentas alternas, aunque también eres libre de usarla para cuentas principales.
 
