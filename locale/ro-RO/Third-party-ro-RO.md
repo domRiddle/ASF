@@ -6,7 +6,7 @@ Te rugăm să reții că programele de mai jos **nu sunt** menținute de către 
 
 ---
 
-## ASF plugins
+## Plugin-uri ASF
 
 ### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
