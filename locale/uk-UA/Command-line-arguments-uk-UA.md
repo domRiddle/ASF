@@ -4,11 +4,11 @@ ASF includes support for several command-line arguments that can affect the prog
 
 ---
 
-## Usage
+## Використання
 
 Usage depends on your OS and ASF flavour.
 
-Generic:
+Загальні:
 
 ```shell
 dotnet ArchiSteamFarm.dll --argument --otherOne
@@ -28,7 +28,7 @@ Linux/macOS:
 
 Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+If your argument includes spaces, don't forget to quote it. Обидва помиляються:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!

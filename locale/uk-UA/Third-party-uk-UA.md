@@ -18,7 +18,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 - **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin for ASF to automatically accept trade request for certain type(s) of items.
 - **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
 
-### **[Vita](https://github.com/ezhevita)**
+### **[Віта](https://github.com/ezhevita)**
 
 - **[FriendAccepter](https://github.com/ezhevita/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
 - **[GameRemover](https://github.com/ezhevita/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
@@ -32,15 +32,15 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ---
 
-## Integrations
+## Інтеграції
 
-- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
+- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, Telegram бот написаний на Python з інтеграцією ASF.
 - **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (minimal) telegram bot written in python featuring ASF integration.
 
 ---
 
-## Libraries
+## Бібліотеки
 
 - **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
 
