@@ -560,8 +560,9 @@ Value | Name | Description
 11 | ChatEffect | Special items that can be used on Steam chat
 12 | MiniProfileBackground | Special background for Steam profile
 13 | AvatarProfileFrame | Special avatar frame for Steam profile
-14 | AnimatedAvatar| Special animated avatar for Steam profile
-15 | KeyboardSkin| Special keyboard skin for Steam deck
+14 | AnimatedAvatar | Special animated avatar for Steam profile
+15 | KeyboardSkin | Special keyboard skin for Steam deck
+16 | StartupVideo | Special startup video for Steam deck
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
@@ -589,8 +590,9 @@ Value | Name | Description
 11 | ChatEffect | Special items that can be used on Steam chat
 12 | MiniProfileBackground | Special background for Steam profile
 13 | AvatarProfileFrame | Special avatar frame for Steam profile
-14 | AnimatedAvatar| Special animated avatar for Steam profile
-15 | KeyboardSkin| Special keyboard skin for Steam deck
+14 | AnimatedAvatar | Special animated avatar for Steam profile
+15 | KeyboardSkin | Special keyboard skin for Steam deck
+16 | StartupVideo | Special startup video for Steam deck
 
 Of course, types that you should use for this property typically include only `2`, `3`, `4` and `5`, as only those types are supported by STM. ASF includes proper logic for discovering rarity of the items, therefore it's also safe to match emoticons or backgrounds, as ASF will properly consider fair only those items from the same game and type, that also share the same rarity.
 
@@ -829,8 +831,9 @@ Value | Name | Description
 11 | ChatEffect | Special items that can be used on Steam chat
 12 | MiniProfileBackground | Special background for Steam profile
 13 | AvatarProfileFrame | Special avatar frame for Steam profile
-14 | AnimatedAvatar| Special animated avatar for Steam profile
-15 | KeyboardSkin| Special keyboard skin for Steam deck
+14 | AnimatedAvatar | Special animated avatar for Steam profile
+15 | KeyboardSkin | Special keyboard skin for Steam deck
+16 | StartupVideo | Special startup video for Steam deck
 
 Please note that regardless of the settings above, ASF will only ask for Steam (`appID` of 753) community (`contextID` of 6) items, so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
