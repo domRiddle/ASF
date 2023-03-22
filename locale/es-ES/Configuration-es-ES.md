@@ -454,7 +454,7 @@ Si no estás seguro de cómo configurar esta opción, es mejor dejarla en su val
 
 ### `CompleteTypesToSend`
 
-Tipo `ImmutableHashSet<byte>` con valor predeterminado estando vacío. Cuando ASF termine de completar un set determinado del tipo de artículo especificado aquí, puede enviar automáticamente un intercambio con todos los sets terminados al usuario con permiso `Master`, lo que es conveniente si quieres usar un bot determinado para, por ejemplo, emparejamiento con STM, y al mismo tiempo mover los sets terminados a alguna otra cuenta. Esta opción funciona igual que el comando `loot`, por lo tanto, ten en cuenta que requiere establecer un usuario con permiso `Master`, también es posible que necesites un `SteamTradeToken` válido, así como usar una cuenta que sea elegible para intercambios en primer lugar.
+Tipo `ImmutableHashSet<byte>` con valor predeterminado estando vacío. Cuando ASF termine de completar un set determinado del tipo de artículo especificado aquí, puede enviar automáticamente un intercambio con todos los sets terminados al usuario con permiso `Master`, lo que es conveniente si quieres usar un bot para emparejamiento con STM, y al mismo tiempo mover los sets terminados a alguna otra cuenta. Esta opción funciona igual que el comando `loot`, por lo tanto, ten en cuenta que requiere establecer un usuario con permiso `Master`, también es posible que necesites un `SteamTradeToken` válido, así como usar una cuenta que sea elegible para intercambios en primer lugar.
 
 A día de hoy, los siguientes tipos de artículos están soportados en esta configuración:
 
@@ -463,7 +463,7 @@ A día de hoy, los siguientes tipos de artículos están soportados en esta conf
 | 3     | FoilTradingCard | Variante reflectante de `TradingCard`                          |
 | 5     | TradingCard     | Cromo de Steam, usado para fabricar insignias (no reflectante) |
 
-Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
+Ten en cuenta que independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 
 Debido a la sobrecarga adicional por el uso de esta opción, se recomienda usarla solamente en cuentas bot que tienen una posibilidad realista de completar sets - por ejemplo, no tiene sentido activarla si ya estás usando `SendOnFarmingFinished`, `SendTradePeriod` o el comando `loot` de forma habitual.
 
@@ -473,15 +473,15 @@ Si no estás seguro de cómo configurar esta opción, es mejor dejarla en su val
 
 ### `CustomGamePlayedWhileFarming`
 
-Tipo `string` con valor predeterminado de `null`. Cuando ASF está recolectando, puede mostrarse como "En un juego que no es de Steam: `CustomGamePlayedWhileFarming`" en lugar del juego que está siendo recolectado actualmente. Esto puede ser útil si quieres hacerle saber a tus amigos que estás recolectando, pero no quieres usar el `OnlineStatus` de `Offline`. Por favor, ten en cuenta que ASF no puede garantizar el orden de visualización real de la red de Steam, por lo tanto esta solo es una sugerencia que podría, o no, mostrarse correctamente. En particular, el nombre personalizado no se mostrará en el algoritmo de recolección `Complex` si ASF ocupa todas las `32` ranuras con juegos que requieren aumentar sus horas. El valor predeterminado de `null` desactiva esta función.
+Tipo `string` con valor predeterminado de `null`. Cuando ASF está recolectando, puede mostrarse como "En un juego que no es de Steam: `CustomGamePlayedWhileFarming`" en lugar del juego que está siendo recolectado actualmente. Esto puede ser útil si quieres hacerle saber a tus amigos que estás recolectando, pero no quieres usar el `OnlineStatus` de `Offline`. Ten en cuenta que ASF no puede garantizar el orden de visualización real de la red de Steam, por lo tanto esta solo es una sugerencia que podría, o no, mostrarse correctamente. En particular, el nombre personalizado no se mostrará en el algoritmo de recolección `Complex` si ASF ocupa todas las `32` ranuras con juegos que requieren aumentar sus horas. El valor predeterminado de `null` desactiva esta función.
 
-ASF proporciona algunas variables especiales que puedes usar opcionalmente en tu texto. `{0}` sera reemplazado por ASF con la `AppID` del juego o los juegos siendo recolectados actualmente, mientras que `{1}` será reemplazado por ASF con `GameName` el nombre del juego o los juegos siendo recolectados actualmente.
+ASF proporciona algunas variables especiales que puedes usar opcionalmente en tu texto. `{0}` será reemplazado por ASF con la `AppID` del juego o los juegos siendo recolectados actualmente, mientras que `{1}` será reemplazado por ASF con `GameName` el nombre del juego o los juegos siendo recolectados actualmente.
 
 ---
 
 ### `CustomGamePlayedWhileIdle`
 
-Tipo `string` con valor predeterminado de `null`. Similar a `CustomGamePlayedWhileFarming`, pero para la situación cuando ASF no tiene nada para hacer (como cuando la cuenta está completamente recolectada). Por favor, ten en cuenta que ASF no puede garantizar el orden de visualización real de la red de Steam, por lo tanto esta solo es una sugerencia que podría, o no, mostrarse correctamente. Si estás usando `GamesPlayedWhileIdle` junto con esta opción, ten en cuenta que `GamesPlayedWhileIdle` tiene prioridad, por lo tanto no puedes declarar más de `31` de ellos, ya que de lo contrario `CustomGamePlayedWhileIdle` no podrá ocupar la ranura para el nombre personalizado. El valor predeterminado de `null` desactiva esta función.
+Tipo `string` con valor predeterminado de `null`. Similar a `CustomGamePlayedWhileFarming`, pero para la situación cuando ASF no tiene nada para hacer (como cuando la cuenta está completamente recolectada). Ten en cuenta que ASF no puede garantizar el orden de visualización real de la red de Steam, por lo tanto esta solo es una sugerencia que podría, o no, mostrarse correctamente. Si estás usando `GamesPlayedWhileIdle` junto con esta opción, ten en cuenta que `GamesPlayedWhileIdle` tiene prioridad, por lo tanto no puedes declarar más de `31` de ellos, ya que de lo contrario `CustomGamePlayedWhileIdle` no podrá ocupar la ranura para el nombre personalizado. El valor predeterminado de `null` desactiva esta función.
 
 ---
 
@@ -562,6 +562,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5`. Esta propie
 | 13    | AvatarProfileFrame    | Marco de avatar especial para el perfil de Steam                                    |
 | 14    | AnimatedAvatar        | Avatar animado especial para el perfil de Steam                                     |
 | 15    | KeyboardSkin          | Apariencia del teclado para Steam Deck                                              |
+| 16    | StartupVideo          | Video de inicio para Steam Deck                                                     |
 
 Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 
@@ -591,6 +592,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `5`. Esta propiedad de
 | 13    | AvatarProfileFrame    | Marco de avatar especial para el perfil de Steam                                    |
 | 14    | AnimatedAvatar        | Avatar animado especial para el perfil de Steam                                     |
 | 15    | KeyboardSkin          | Apariencia del teclado para Steam Deck                                              |
+| 16    | StartupVideo          | Video de inicio para Steam Deck                                                     |
 
 Por supuesto, los tipos que normalmente debes usar para esta propiedad solo incluyen `2`, `3`, `4` y `5`, ya que solo esos tipos son soportados por STM. ASF incluye la lógica adecuada para descubrir la rareza de los artículos, por lo tanto también es seguro para emparejar emoticonos o fondos de perfil, dado que ASF solo considerará como justos aquellos artículos del mismo juego y tipo, que también compartan la misma rareza.
 
@@ -831,6 +833,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5`. Esta propie
 | 13    | AvatarProfileFrame    | Marco de avatar especial para el perfil de Steam                                    |
 | 14    | AnimatedAvatar        | Avatar animado especial para el perfil de Steam                                     |
 | 15    | KeyboardSkin          | Apariencia del teclado para Steam Deck                                              |
+| 16    | StartupVideo          | Video de inicio para Steam Deck                                                     |
 
 Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 

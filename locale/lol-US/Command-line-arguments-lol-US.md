@@ -26,7 +26,7 @@ LINUX/MACOS:
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-COMMAND-LINE ARGUMENTS R ALSO SUPPORTD IN GENERIC HELPR SCRIPTS SUCH AS `ArchiSteamFarm.cmd` OR `ArchiSteamFarm.sh`. In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
+COMMAND-LINE ARGUMENTS R ALSO SUPPORTD IN GENERIC HELPR SCRIPTS SUCH AS `ArchiSteamFarm.cmd` OR `ArchiSteamFarm.sh`. IN ADDISHUN 2 DAT, U CAN ALSO USE `ASF_ARGS` ENVIRONMENT PROPERTY, LIEK STATD IN R **[MANAGEMENT](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-lol-US#environment-variablez)** AN **[DOCKR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-lol-US#command-line-arguments)** SECSHUNS.
 
 IF UR ARGUMENT INCLUDEZ SPACEZ, DOAN FORGET 2 QUOTE IT. DOSE 2 R WRONG:
 
