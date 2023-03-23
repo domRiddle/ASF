@@ -4,7 +4,7 @@
 
 Важно отметить, что запуск ASF в Docker-контейнере считается **расширенной установкой**,что **не требуется** для подавляющего большинства пользователей и обычно **не дает никаких преимуществ** по сравнению с установкой без контейнеров. Если вы рассматриваете Docker в качестве решения для запуска ASF в качестве службы, например заставляя его автоматически запускаться с вашей ОС, то вы должны подумать над чтением раздела **[управления](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-ru-RU#systemd-service-for-linux)** и установкой соответствующего `сервиса`, который будет **почти всегда** лучшей идеей, чем запуск ASF в контейнере Docker.
 
-Запуск ASF в контейнере Docker обычно включает в себя **новых проблем и проблем**, с которыми вам придется столкнуться и решить. This is why we **strongly** recommend you to avoid it unless you already have Docker knowledge and don't need help understanding its internals, about which we won't elaborate here on ASF wiki. This section is mostly for valid use cases of very complex setups, for example in regards to advanced networking or security beyond standard sandboxing that ASF comes with in `systemd` service (which already ensures superior process isolation through very advanced security mechanics). For those handful amount of people, here we explain better ASF concepts in regards to its Docker compatibility, and only that, you're assumed to have adequate Docker knowledge yourself if you decide to use it together with ASF.
+Запуск ASF в контейнере Docker обычно включает в себя **новых проблем и проблем**, с которыми вам придется столкнуться и решить. Именно поэтому мы **сильно** рекомендуем вам избегать этого, если только вы не обладаете знаниями о Docker и не нуждаетесь в помощи в понимании его внутренностей, о которых мы не будем подробно рассказывать здесь, на ASF вики. This section is mostly for valid use cases of very complex setups, for example in regards to advanced networking or security beyond standard sandboxing that ASF comes with in `systemd` service (which already ensures superior process isolation through very advanced security mechanics). For those handful amount of people, here we explain better ASF concepts in regards to its Docker compatibility, and only that, you're assumed to have adequate Docker knowledge yourself if you decide to use it together with ASF.
 
 ---
 
@@ -47,7 +47,7 @@ We generally discourage trying `main` builds, as those are here for us to mark c
 
 ASF docker image is currently built on `linux` platform targetting 3 architectures - `x64`, `arm` and `arm64`. Вы можете прочитать больше об этом в разделе **[Совместимость](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-ru-RU)**.
 
-Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker run`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
+Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker run`. Смотрите документацию docker на **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** для получения дополнительной информации.
 
 ---
 
@@ -67,7 +67,7 @@ docker run -it --name asf --pull always --rm justarchi/archisteamfarm
 
 Если всё завершилось успешно, после получения всех слоев и запуска контейнера вы должны увидеть что ASF успешно запустился и сообщил вам что в нём не задано ботов, это хорошо - мы проверили что ASF корректно работает в docker. Нажмите `CTRL+P` а затем `CTRL+Q` чтобы выйти контейнера docker на переднем плане, а затем остановите контейнер с ASF командой `docker stop asf`.
 
-Если вы внимательно посмотрите на команды выше, вы заметите что мы не задали тег, и поэтому по умолчанию автоматически используется тег `latest`. If you want to use other tag than `latest`, for example `released`, then you should declare it explicitly:
+Если вы внимательно посмотрите на команды выше, вы заметите что мы не задали тег, и поэтому по умолчанию автоматически используется тег `latest`. Если вы хотите использовать тег, отличный от `latest`, например `latest-arm`, тогда его нужно задать в явном виде:
 
 ```shell
 docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
@@ -85,7 +85,7 @@ docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Вот и всё, теперь ваш контейнер docker с ASF будет использовать общую папку с вашей локальной машины в режиме чтения и записи, а это всё что вам нужно для конфигурирования ASF. In similar way you can mount other volumes that you'd like to share with ASF, such as `/app/logs` or `/app/plugins/MyCustomPluginDirectory`.
+Вот и всё, теперь ваш контейнер docker с ASF будет использовать общую папку с вашей локальной машины в режиме чтения и записи, а это всё что вам нужно для конфигурирования ASF. Аналогичным образом вы можете смонтировать другие тома, которые вы хотите сделать общими с ASF, например `/app/logs` или `/app/plugins/MyCustomPluginDirectory`.
 
 Разумеется, это только один из возможных способов получить желаемое, никто не мешает вам, к примеру, создать свой собственный `Dockerfile` который будет копировать файлы конфигурации в папку `/app/config` в контейнере docker с ASF. В этой инструкции мы описываем только основы использования.
 
@@ -115,7 +115,7 @@ If you're using SELinux in enforced state on your OS, which is the default for e
 docker run -it -v /home/archi/ASF/config:/app/config:Z --name asf --pull always justarchi/archisteamfarm
 ```
 
-This will allow ASF to create files targetting the volume while inside docker container.
+Это позволит ASF создавать файлы, нацеленные на данный том, будучи внутри контейнера docker.
 
 ---
 
