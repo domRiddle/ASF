@@ -294,13 +294,14 @@ General syntax is `input [Bots] <Type> <Value>`.
 
 `<Type>` 不區分大小寫，並定義由ASF識別的輸入類型。 當前，ASF可識別以下類型：
 
-| 類型                      | 描述                                        |
-| ----------------------- | ----------------------------------------- |
-| Login                   | `SteamLogin`機械人配置屬性，在設定檔缺失這個值時使用。         |
-| Password                | `SteamPassword` 機械人配置屬性，在設定檔缺失這個值時使用。     |
-| SteamGuard              | 如果您未啟用2FA，驗證代碼將以電子郵件的方式發送。                |
-| SteamParentalCode       | `SteamParentalCode` 機械人配置屬性，在設定檔缺失這個值時使用。 |
-| TwoFactorAuthentication | 如果您使用的是2FA, 但未使用 ASF 2FA, 則從您的手機生成2FA代碼 。 |
+| 類型                      | 描述                                                           |
+| ----------------------- | ------------------------------------------------------------ |
+| Login                   | `SteamLogin`機械人配置屬性，在設定檔缺失這個值時使用。                            |
+| Password                | `SteamPassword` 機械人配置屬性，在設定檔缺失這個值時使用。                        |
+| SteamGuard              | 如果您未啟用2FA，驗證代碼將以電子郵件的方式發送。                                   |
+| SteamParentalCode       | `SteamParentalCode` 機械人配置屬性，在設定檔缺失這個值時使用。                    |
+| TwoFactorAuthentication | 如果您使用的是2FA, 但未使用 ASF 2FA, 則從您的手機生成2FA代碼 。                    |
+| DeviceConfirmation      | Determines whether confirmation popup for login was accepted |
 
 `<Value>` 是為給定類型設置的值。 當前，所有值都是字串。
 

@@ -1,20 +1,20 @@
 # Двухфакторная аутентификация
 
-Steam includes two-factor authentication system known as "Escrow" that requires extra details for various account-related activity. Вы можете прочесть об этом подробнее **[тут](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)** и **[тут](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)**. This page considers that 2FA system as well as our solution that integrates with it, called ASF 2FA.
+Steam использует двухфакторную систему аутентификации, известную как "Escrow", которая требует дополнительных сведений для различных действий, связанных с аккаунтом. Вы можете прочесть об этом подробнее **[тут](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)** и **[тут](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)**. Далее в тексте будем называть 2ФА систему и наше решение, которое интегрируется с ней - ASF 2FA.
 
 ---
 
 # Логика работы ASF
 
-Regardless if you use ASF 2FA or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. У вас будут запрашивать необходимые данные когда они нужны (как например при входе). However, those requests can be automated by using ASF 2FA, which will automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+Независимо от того, используете ли вы ASF 2FA или нет, ASF включает в себя всю нужную логику и способен определять учетные записи, защищенные стандартом 2ФА. У вас будут запрашивать необходимые данные когда они нужны (как например при входе). Тем не менее эти запросы могут быть автоматизированы с помощью 2ФА ASF, которая будет автоматически генерировать необходимые токены, освобождая вас от лишних действий и добавляя дополнительную функциональность (описано ниже).
 
 ---
 
-# 2ФА ASF
+# ASF 2FA
 
-ASF 2FA is a built-in module responsible for providing 2FA features to the ASF process, such as generating tokens and accepting confirmations. It works by duplicating your existing authenticator details, so that you can use your current authenticator and ASF 2FA at the same time.
+ASF 2FA это встроенный модуль, отвечающий за реализацию функций 2ФА для ASF, таких, как генерация кодов и принятие подтверждений. Он работает путем дублирования ваших существующих данных аутентификации, так что вы можете использовать ваш текущий аутентификатор и ASF 2FA одновременно.
 
-Вы можете проверить, используется ли на боте 2ФА ASF путём исполнения **[команд](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)** `2fa`. Unless you've already imported your authenticator as ASF 2FA, all standard `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
+Вы можете проверить, используется ли на боте ASF 2FA путём исполнения **[команд](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-ru-RU)** `2fa`. Если вы ещё не импортировали ваш аутентификатор в ASF 2FA, команды `2fa` не будут работать, а это означает что ваш аккаунт не использует ASF 2FA, и, следовательно, не может использовать некоторые расширенные функций ASF, которым этот модуль требуется для работы.
 
 ---
 

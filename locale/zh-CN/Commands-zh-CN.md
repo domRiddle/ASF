@@ -301,6 +301,7 @@ owns ASF app/292030,name/Witcher
 | SteamGuard              | 通过电子邮件发送的验证码，在您未启用 2FA 时使用。                |
 | SteamParentalCode       | `SteamParentalCode` 机器人配置属性，在配置文件缺少这个值时使用。 |
 | TwoFactorAuthentication | 手机生成的 2FA 令牌，在您启用 2FA 但未启用 ASF 2FA 时使用。    |
+| DeviceConfirmation      | 确定登录确认请求是否已被批准                             |
 
 `<Value>` 是要为指定类型设置的值。 目前所有的值都是字符串。
 

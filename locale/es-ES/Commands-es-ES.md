@@ -301,6 +301,7 @@ La sintaxis general es `input [Bots] <Type> <Value>`.
 | SteamGuard              | Código de autenticación enviado a tu correo electrónico si no usas 2FA.                      |
 | SteamParentalCode       | Propiedad de configuración del bot `SteamParentalCode`, si está ausente en la configuración. |
 | TwoFactorAuthentication | Código 2FA generado desde tu móvil, si usas 2FA pero no ASF 2FA.                             |
+| DeviceConfirmation      | Determina si la ventana emergente de confirmación para iniciar sesión fue aceptada           |
 
 `<Value>` es el valor establecido para cada tipo. Actualmente todos los valores son cadenas de caracteres.
 

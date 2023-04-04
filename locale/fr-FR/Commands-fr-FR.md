@@ -305,6 +305,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 | SteamGuard              | Code d'authentification envoyé sur votre courrier électronique si vous n'utilisez pas 2FA. |
 | SteamParentalCode       | `SteamParentalCode` propriété de config bot, si absente de config.                         |
 | TwoFactorAuthentication | Jeton 2FA généré à partir de votre mobile, si vous utilisez 2FA mais pas ASF 2FA.          |
+| DeviceConfirmation      | Determines whether confirmation popup for login was accepted                               |
 
 `<Value>` est la valeur définie pour le type donné. Actuellement, toutes les valeurs sont des chaînes.
 

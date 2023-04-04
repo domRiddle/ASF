@@ -301,6 +301,7 @@ GENERAL SYNTAX IZ `input [Bots] <Type> <Value>`.
 | SteamGuard              | AUTH CODE SENT ON UR E-MAIL IF URE NOT USIN 2FA.                    |
 | SteamParentalCode       | `SteamParentalCode` BOT CONFIG PROPERTY, IF MISIN FRUM CONFIG.      |
 | TwoFactorAuthentication | 2FA TOKEN GENERATD FRUM UR MOBILE, IF URE USIN 2FA BUT NOT ASF 2FA. |
+| DeviceConfirmation      | Determines whether confirmation popup for login was accepted        |
 
 `<Value>` IZ VALUE SET 4 GIVEN TYPE. CURRENTLY ALL VALUEZ R STRINGS.
 

@@ -301,6 +301,7 @@ General syntax is `input [Bots] <Type> <Value>`.
 | Snimak еkrana           | Auth code sent on your e-mail if you're not using 2FA.                     |
 | SteamParentalCode       | `SteamParentalCode` bot config property, if missing from config.           |
 | TwoFactorAuthentication | 2FA token generated from your mobile, if you're using 2FA but not ASF 2FA. |
+| DeviceConfirmation      | Determines whether confirmation popup for login was accepted               |
 
 `<Value>` je vrijednost postavljena za dati tip. Trenutno su sve vrijednosti stringovi.
 

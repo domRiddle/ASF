@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argumento --segundoArgumento
 ```
 
-Argumentos de linha de comando também são suportados em códigos auxiliares genéricos como `ArchiSteamFarm.cmd` ou `ArchiSteamFarm.sh`. In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
+Argumentos de linha de comando também são suportados em códigos auxiliares genéricos como `ArchiSteamFarm.cmd` ou `ArchiSteamFarm.sh`. Além disso, você também pode usar a propriedade de ambiente `ASF_ARGS`, como descrito em nossas seções **[gerenciamento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** e **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-pt-BR#argumentos-de-linha-de-comando)**.
 
 Se seu argumento inclui espaços, não se esqueça de colocar entre aspas. Esses dois estão errados:
 
@@ -66,7 +66,7 @@ Devido à natureza desta propriedade, também é possível definir ao arquivo cr
 
 ---
 
-`--minimized` - will make ASF console window minimize shortly after start. Useful mainly in auto-start scenarios, but can also be used outside of those. Currently this switch has effect only on Windows machines.
+`--minimized` - fará a janela de console do ASF minimizar logo após a inicialização. Útil principalmente quando o programa iniciar automaticamente, mas também pode ser usado em outras situações. Atualmente essa opção só tem efeito no Windows.
 
 ---
 

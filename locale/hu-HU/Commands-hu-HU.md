@@ -301,6 +301,7 @@ A `<Type>` kis- és nagybetű érzékeny és meghatározza az input típust, ami
 | SteamGuard              | Engedélyező kód, amit az e-mail címedre küldenek, ha nem használsz 2FA-t.        |
 | SteamParentalCode       | `SteamParentalCode` bot konfigurációs beállítás, ha hiányozna a konfigurációból. |
 | TwoFactorAuthentication | 2FA token, amit a telefonod generált, ha használod a 2FA-t, de nem az ASF 2FA-t. |
+| DeviceConfirmation      | Determines whether confirmation popup for login was accepted                     |
 
 A `<Value>` a megadott típushoz lesz beállítva. Jelenleg minden érték string.
 

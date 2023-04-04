@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Аргументы командной строки также поддерживаются во вспомогательных скриптах, таких как `ArchiSteamFarm.cmd` или `ArchiSteamFarm.sh`. In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
+Аргументы командной строки также поддерживаются во вспомогательных скриптах, таких как `ArchiSteamFarm.cmd` или `ArchiSteamFarm.sh`. Кроме того, можно использовать переменную окружения `ASF_ARGS`, так как это показано в секциях **[Управление](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** и **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)**.
 
 Если ваш аргумент содержит пробелы, не забудьте заключить его в кавычки. Эти два примера неправильные:
 

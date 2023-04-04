@@ -36,7 +36,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/linux-x64" -r "li
 
 ### .NET Framework
 
-In a very rare case when you'd want to build `generic-netf` package, you can change target framework from `net7.0` to `net481`. Имейте в виду, что для компиляции в варианте `netf`, в дополнение к .NET SDK, вам потребуется соответствующий пакет **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)**, поэтому следующая команда сработает только под Windows:
+В очень редком случае, когда вы захотите создать сборку `generic-netf`, вы можете изменить целевой фреймворк с `net7.0` на `net481`. Имейте в виду, что для компиляции в варианте `netf`, в дополнение к .NET SDK, вам потребуется соответствующий пакет **[.NET Framework](https://dotnet.microsoft.com/download/visual-studio-sdks)**, поэтому следующая команда сработает только под Windows:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -f "net481" -o "out/generic-netf"
@@ -50,20 +50,20 @@ msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net481 /p:P
 
 ### ASF-ui
 
-While the above steps are everything that is required to have a fully working build of ASF, you may *also* be interested in building **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, our graphical web interface. From ASF side, all you need to do is dropping ASF-ui build output in standard `ASF-ui/dist` location, then building ASF with it (again, if needed).
+Хотя вышеперечисленные шаги являются всем, что требуется для полной рабочей сборки ASF, вы также *возможно* захотите собрать **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, наш графический веб-интерфейс. Все, что вам нужно с ASF, это скопировать результат сборки ASF-ui в стандартную директорию `ASF-ui/dist`, а потом собрать ASF (опять-таки, если это необходимо).
 
-ASF-ui является частью дерева ASF в виде ** [ git submodule ](https://git-scm.com/book/en/v2/Git-Tools-Submodules) **, убедитесь, что вы клонировали репозиторий с помощью ` git clone --recursive `, иначе у вас не будет необходимых файлов. Вам также понадобится рабочий NPM, с ним поставляется ** [ Node.js ](https://nodejs.org) **. If you're using Linux/macOS, we recommend our `cc.sh` script, which will automatically cover building and shipping ASF-ui (if possible, that is, if you're meeting the requirements we've just mentioned).
+ASF-ui является частью дерева ASF в виде ** [ git submodule ](https://git-scm.com/book/en/v2/Git-Tools-Submodules) **, убедитесь, что вы клонировали репозиторий с помощью ` git clone --recursive `, иначе у вас не будет необходимых файлов. Вам также понадобится рабочий NPM, с ним поставляется ** [ Node.js ](https://nodejs.org) **. Если вы используете Linux/macOS, мы рекомендуем наш скрипт `cc.sh`, который автоматически соберет и установит ASF-ui (если всё соответствует требованиям, которые мы только что упомянули).
 
-In addition to the `cc.sh` script, we also attach the simplified build instructions below, refer to **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** for additional documentation. From ASF's source tree location, so as above, execute the following commands:
+В дополнение к скрипту `cc.sh`, мы также приложим упрощенные инструкции по сборке ниже, см. **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** для дополнительной документации. Из корневой директории ASF выполните следующие команды:
 
 ```shell
-rm -rf "ASF-ui/dist" # ASF-ui doesn't clean itself after old build
+rm -rf "ASF-ui/dist" # ASF-ui не удаялется после старой сборки
 
 npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
-rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
-dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic" # Or accordingly to what you need as per the above
+rm -rf "out/generic/www" # Убедитесь, что выходные данные сборки не содержат старых файлов
+dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic" # Или то что вам нужно, из указаного выше
 ```
 
 Теперь вы сможете найти файлы ASF-ui в папке `out/generic/www`. ASF сможет передать эти файлы вашему браузеру.
@@ -76,7 +76,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic" # Or acc
 
 Если вы хотите изменить код ASF, для этой цели вы можете использовать любую совместимую с .NET IDE, хотя даже это необязательно, поскольку вы также можете редактировать код с помощью блокнота и компилировать его командой `dotnet`, как описано выше. Тем не менее, для Windows мы рекомендуем **[последнюю версию Visual Studio](https://visualstudio.microsoft.com/downloads)** (бесплатной community version более чем достаточно).
 
-If you'd like to work with ASF code on Linux/macOS instead, we recommend **[latest Visual Studio Code](https://code.visualstudio.com/download)**. Оно не обладает такими возможностями как классическая Visual Studio, но и этого вполне достаточно.
+Если вы хотите работать с кодом ASF на Linux/macOS, мы рекомендуем **[последнюю версию Visual Studio Code](https://code.visualstudio.com/download)**. Оно не обладает такими возможностями как классическая Visual Studio, но и этого вполне достаточно.
 
 Разумеется, всё предложенное выше это только наши рекоммендации, вы можете использовать что угодно, всё равно это в конце концов сводится к команде `dotnet build`. Мы используем **[JetBrains Rider](https://www.jetbrains.com/rider)** для разработки ASF, хотя это не бесплатное решение.
 

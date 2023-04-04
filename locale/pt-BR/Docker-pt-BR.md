@@ -121,7 +121,7 @@ Isso permitirá que o ASF crie arquivos para o volume enquanto estiver dentro do
 
 ## Sincronização de múltiplas instâncias
 
-ASF includes support for multiple instances synchronization, as stated in **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** section. Ao executar o ASF no contêiner docker, você pode opcionalmente "ligá-lo" ao processo caso você esteja executando vários contêineres com o ASF e você gostaria que eles sincronizassem um com o outro.
+O ASF inclui suporte para sincronização de múltiplas instâncias, como indicado na seção de **[gerenciamento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)**. Ao executar o ASF no contêiner docker, você pode opcionalmente "ligá-lo" ao processo caso você esteja executando vários contêineres com o ASF e você gostaria que eles sincronizassem um com o outro.
 
 Por padrão, cada ASF rodando dentro de um contêiner docker é independente, o que significa que não há sincronização. Para ativar a sincronização entre eles você deve vincular o caminho `/tmp/ASF` em cada contêiner ASF que você deseja sincronizar, para um caminho compartilhado no seu host docker, em modo de leitura-escrita. Isto é feito exatamente da mesma forma que vincular um volume, como foi descrito acima, apenas com caminhos diferentes:
 
@@ -140,7 +140,7 @@ Montar a pasta `/tmp/ASF` é completamente opcional e na verdade não é recomen
 
 ---
 
-## Argumentos da linha de comando
+## Argumentos de linha de comando
 
 O ASF te permite passar **[argumentos de linha de comando](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-pt-BR)** no contêiner docker através de variáveis de ambiente. Você deve usar variáveis de ambiente específicas para os switches suportados, e `ASF_ARGS` para o resto. Isso pode ser feito com o switch `-e` adicionado ao `docker run`, por exemplo:
 

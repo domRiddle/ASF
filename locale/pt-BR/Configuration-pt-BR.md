@@ -216,9 +216,9 @@ Tipo `byte` com o valor padrão `0`. Esta propriedade define o formato da propri
 
 Tipo `Guid?` com o valor padrão `null`. Essa propriedade permite que nossos **[patrocinadores](https://github.com/sponsors/JustArchi)** melhorem o ASF com recursos opcionais pagos. Por enquanto, isso permite que você use o **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** do plugin `ItemsMatcher`.
 
-While we recommend you to utilize GitHub since it offers monthly and one-time tiers, as well as allows full automation and gives you immediate access, we **also** support all other currently-available **[donation options](https://github.com/JustArchiNET/ArchiSteamFarm#archisteamfarm)**. See **[this post](https://github.com/JustArchiNET/ArchiSteamFarm/discussions/2780#discussioncomment-4486091)** for instructions on how to donate using other methods in order to get a manual license valid for given period.
+Apesar de recomendarmos que você utilize o GitHubuma vez que ele oferece tanto opções mensais quanto únicas, bem como permite uma automação completa e acesso imediato nós **também** aceitamos todas as outras **[opções de doação](https://github.com/JustArchiNET/ArchiSteamFarm#archisteamfarm)** atualmente disponíveis. Veja **[esta postagem](https://github.com/JustArchiNET/ArchiSteamFarm/discussions/2780#discussioncomment-4486091)** para instruções de como doar usando outros métodos e conseguir uma licença manual válida por um determinado período.
 
-Regardless of the method used, if you're ASF sponsor, you can obtain your license **[here](https://asf.justarchi.net/User/Status)**. Você precisará entrar com o GitHub para confirmar sua identidade, pedimos apenas informações públicas que são somente leitura, que é o seu nome de usuário. `A licença` é composta por 32 caracteres hexadecimais, como `f6a0529813f74d119982eb4fe43a9a24`.
+Independente do método escolhido, se você é um patrocinador do ASF, você pode obter sua licença **[aqui](https://asf.justarchi.net/User/Status)**. Você precisará entrar com o GitHub para confirmar sua identidade, pedimos apenas informações públicas que são somente leitura, que é o seu nome de usuário. `A licença` é composta por 32 caracteres hexadecimais, como `f6a0529813f74d119982eb4fe43a9a24`.
 
 **Certifique-se de não compartilhar sua `LicenseID` com outras pessoas**. Como ela é emitida individualmente ela pode ser revogada se for compartilhada. Se por acaso isto aconteceu com você acidentalmente, você pode gerar uma nova no mesmo lugar.
 
@@ -290,9 +290,9 @@ Por padrão o ASF vai usar todos os protocolos Steam disponíveis como medida pa
 
 ### `UpdateChannel`
 
-Tipo `byte` com o valor padrão `1`. Essa propriedade define o canal de atualização que está sendo usado, tanto para atualizações automáticas (se `UpdatePeriod` for maior que `0`), ou (caso contrário) para atualizar notificações. Atualmente, o ASF suporta três canais de atualização - `0`, que é chamado de `Nenhum`, `1`, que é chamado de `Estável` e `2`, que é chamado de `Experimental`. O canal `Estável` é o canal de lançamento padrão, que deve ser usado pela maioria dos usuários. O canal `Experimental`, além das versões `Stable`, também inclui versões de **pré-lançamento** dedicado a usuários avançados e outros desenvolvedores para teste de novas funcionalidades, confirmação de correções de bugs ou dar feedback sobre melhorias planejadas. **Versões experimentais frequentemente contém erros sem correção, trabalhos em andamento ou implementações reescritas**. Se você não se considera um usuário avançado, por favor, fique com o canal de atualização padrão `1` (Estável). O canal `Experimental` dedica-se aos usuários que sabem como relatar bugs, lidar com questões e dar feedback - nenhum suporte técnico será dado. Confira o **[ciclo de lançamento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-pt-BR)** do ASF se você quiser aprender mais. Você também pode definir `UpdateChannel` como `0` (`Nenhum`), se você quiser remover completamente todas as verificações de versão. Definir `UpdateChannel` como `0` desativará inteiramente toda funcionalidade relacionada às atualizações, incluindo o comando `update`. Using `None` channel is **strongly discouraged** due to exposing yourself to all sort of problems (mentioned in `UpdatePeriod` description below).
+Tipo `byte` com o valor padrão `1`. Essa propriedade define o canal de atualização que está sendo usado, tanto para atualizações automáticas (se `UpdatePeriod` for maior que `0`), ou (caso contrário) para atualizar notificações. Atualmente, o ASF suporta três canais de atualização - `0`, que é chamado de `Nenhum`, `1`, que é chamado de `Estável` e `2`, que é chamado de `Experimental`. O canal `Estável` é o canal de lançamento padrão, que deve ser usado pela maioria dos usuários. O canal `Experimental`, além das versões `Stable`, também inclui versões de **pré-lançamento** dedicado a usuários avançados e outros desenvolvedores para teste de novas funcionalidades, confirmação de correções de bugs ou dar feedback sobre melhorias planejadas. **Versões experimentais frequentemente contém erros sem correção, trabalhos em andamento ou implementações reescritas**. Se você não se considera um usuário avançado, por favor, fique com o canal de atualização padrão `1` (Estável). O canal `Experimental` dedica-se aos usuários que sabem como relatar bugs, lidar com questões e dar feedback - nenhum suporte técnico será dado. Confira o **[ciclo de lançamento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-pt-BR)** do ASF se você quiser aprender mais. Você também pode definir `UpdateChannel` como `0` (`Nenhum`), se você quiser remover completamente todas as verificações de versão. Definir `UpdateChannel` como `0` desativará inteiramente toda funcionalidade relacionada às atualizações, incluindo o comando `update`. Usar o canal `None` é **fortemente desencorajado** devido ao fato de te expor a todo tipo de problemas (mencionados na descrição da configuração `UpdatePeriod` logo abaixo).
 
-**Unless you know what you're doing**, we **strongly** recommend to keep it at default.
+**A não ser que você saiba o que está fazendo**, nós recomendamos **fortemente** que você mantenha o valor padrão.
 
 ---
 
@@ -562,7 +562,7 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | 13    | AvatarProfileFrame    | Moldura do avatar especial para o Perfil Steam                              |
 | 14    | AnimatedAvatar        | Avatar animado especial para o Perfil Steam                                 |
 | 15    | KeyboardSkin          | Skin especial de teclado para Steam deck                                    |
-| 16    | StartupVideo          | Special startup video for Steam deck                                        |
+| 16    | StartupVideo          | Vídeo de inicialização especial para o Steam deck                           |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 
@@ -592,7 +592,7 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `5`. Es
 | 13    | AvatarProfileFrame    | Moldura do avatar especial para o Perfil Steam                                    |
 | 14    | AnimatedAvatar        | Avatar animado especial para o Perfil Steam                                       |
 | 15    | KeyboardSkin          | Skin especial de teclado para Steam deck                                          |
-| 16    | StartupVideo          | Special startup video for Steam deck                                              |
+| 16    | StartupVideo          | Vídeo de inicialização especial para o Steam deck                                 |
 
 É claro, os tipos de itens que você deve usar para essa propriedade normalmente incluem apenas `2`, `3`, `4` e `5`, já que apenas esses tipos são suportados pelo STM. O ASF inclui uma lógica própria para descobrir a raridade dos itens, portanto também é seguro combinar emoticons ou planos de fundo, uma vez que o ASF vai considerar justo apenas os itens do mesmo jogo e tipo, que também compartilhem a mesma raridade.
 
@@ -833,7 +833,7 @@ Tipo `ImmutableHashSet <byte>` com valor padrão de tipos de itens Steam `1, 3, 
 | 13    | AvatarProfileFrame    | Moldura do avatar especial para o Perfil Steam                                    |
 | 14    | AnimatedAvatar        | Avatar animado especial para o Perfil Steam                                       |
 | 15    | KeyboardSkin          | Skin especial de teclado para Steam deck                                          |
-| 16    | StartupVideo          | Special startup video for Steam deck                                              |
+| 16    | StartupVideo          | Vídeo de inicialização especial para o Steam deck                                 |
 
 Observe que, independentemente das configurações acima, o ASF só pedirá por itens da comunidade (`contextID` de 6) Steam (`appID` de 753), então todos os itens de jogos, presentes e semelhantes, são excluídos da oferta de troca por definição.
 
