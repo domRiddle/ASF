@@ -389,6 +389,7 @@ La configuración del bot tiene la siguiente estructura:
     "SteamPassword": null,
     "SteamTradeToken": null,
     "SteamUserPermissions": {},
+    "TradeCheckPeriod": 60,
     "TradingPreferences": 0,
     "TransferableTypes": [1, 3, 5],
     "UseLoginKeys": true,
@@ -792,6 +793,12 @@ Es bueno notar que hay un permiso `Owner` adicional, que se declara como la prop
 
 ---
 
+### `TradeCheckPeriod`
+
+Tipo `byte` con valor predeterminado de `60`. Normalmente ASF maneja las ofertas de intercambio entrantes después de recibir la notificación respectiva, pero a veces no puede hacerlo en ese momento debido a errores de Steam, y dichas ofertas quedan ignoradas hasta la siguiente notificación de intercambio o reinicio del bot, lo que puede resultar en intercambios cancelados o en artículos no disponibles en ese momento posterior. Si este parámetro se establece en un valor distinto a cero, ASF comprobará adicionalmente los intercambios pendientes cada `TradeCheckPeriod` minutos. El valor predeterminado se seleccionó teniendo en cuenta un balance entre solicitudes adicionales a los servidores de Steam y la pérdida de intercambios entrantes. Sin embargo, si solo usas ASF para recolectar cromos, y no planeas procesar automáticamente ningún intercambio entrante, puedes establecerlo a `0` para deshabilitar esta función. Por otra parte, si tu bot participa en la [lista pública STM de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-es-ES#publiclisting) o proporciona otros servicios automatizados como bot de intercambio, tal vez quieras reducir este parámetro `15` minutos más o menos, para procesar todos los intercambios de manera oportuna.
+
+---
+
 ### `TradingPreferences`
 
 Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comportamiento de ASF al intercambiar, y se describe a continuación:
@@ -805,7 +812,7 @@ Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comp
 | 8     | DontAcceptBotTrades | No acepta automáticamente intercambios `loot` de otras instancias de bot                                                                                                                                                                   |
 | 16    | MatchActively       | Participa activamente en intercambios tipo **[STM](https://www.steamtradematcher.com)**. Visita **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-es-ES#matchactively)** para más información. |
 
-Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 Para más información sobre la lógica de intercambios de ASF, y descripción de cada bandera disponible, por favor, visita la sección de **[intercambios](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-es-ES)**.
 
@@ -835,9 +842,9 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5`. Esta propie
 | 15    | KeyboardSkin          | Apariencia del teclado para Steam Deck                                              |
 | 16    | StartupVideo          | Video de inicio para Steam Deck                                                     |
 
-Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
+Ten en cuenta que independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 
-La configuración por defecto de ASF está basada en el uso más común de un bot, solo transfiriendo packs de refuerzo y cromos (incluyendo los reflectantes). Esta propiedad te permite alterar ese comportamiento de cualquier modo que gustes. Por favor, ten en cuenta que todos los tipos no definidos arriba se mostrarán como tipo `Unknown`, lo que es especialmente importante cuando Valve lanza un nuevo artículo de Steam, el cual también será marcado por ASF como `Unknown`, hasta que sea añadido aquí (en futuras versiones). Es por eso que en general no se recomienda incluir el tipo `Unknown` en `TransferableTypes`, a menos que sepas lo que haces, y entiendes que ASF enviará todo tu inventario en una oferta de intercambio si la red de Steam se desconfigura de nuevo y marca todos tus artículos como `Unknown`. Mi recomendación es no incluir el tipo `Unknown` en `TransferableTypes`, incluso si esperas transferir todo.
+La configuración por defecto de ASF está basada en el uso más común de un bot, solo transfiriendo packs de refuerzo y cromos (incluyendo los reflectantes). Esta propiedad te permite alterar ese comportamiento de cualquier modo que gustes. Ten en cuenta que todos los tipos no definidos arriba se mostrarán como tipo `Unknown`, lo que es especialmente importante cuando Valve lanza un nuevo artículo de Steam, el cual también será marcado por ASF como `Unknown`, hasta que sea añadido aquí (en futuras versiones). Es por eso que en general no se recomienda incluir el tipo `Unknown` en `TransferableTypes`, a menos que sepas lo que haces, y entiendes que ASF enviará todo tu inventario en una oferta de intercambio si la red de Steam se desconfigura de nuevo y marca todos tus artículos como `Unknown`. Mi recomendación es no incluir el tipo `Unknown` en `TransferableTypes`, incluso si esperas transferir todo.
 
 ---
 
@@ -847,7 +854,7 @@ Tipo `bool` con valor predeterminado de `true`. Esta propiedad define si ASF deb
 
 Las claves de acceso se usan por defecto para tu comodidad, para que no tengas que introducir `SteamPassword`, SteamGuard o código 2FA (cuando no se está usando **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-ES)**) en cada inicio de sesión. También es una alternativa superior ya que la clave de acceso solo puede ser utilizada una vez y no revela de ninguna manera tu contraseña original. Exactamente el mismo método es usado por el cliente de Steam, que guarda el nombre de tu cuenta y la clave de acceso para el siguiente intento de inicio de sesión, siendo lo mismo que usar en ASF `SteamLogin` con `UseLoginKeys` y dejar vacío `SteamPassword`.
 
-Sin embargo, algunas personas podrían preocuparse incluso por este pequeño detalle, por lo tanto esta opción está disponible si quieres asegurarte que ASF no almacenará ningún tipo de token que permita reanudar sesiones previas después de cerrarlo, lo que dará como resultado que la autenticación completa sea obligatoria en cada intento de inicio de sesión. Deshabilitar esta opción funcionará exactamente igual que no marcar "recordarme" en el cliente oficial de Steam. A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de `true`.
+Sin embargo, algunas personas podrían preocuparse incluso por este pequeño detalle, por lo tanto esta opción está disponible si quieres asegurarte de que ASF no almacenará ningún tipo de token que permita reanudar sesiones previas después de cerrarlo, lo que dará como resultado que la autenticación completa sea obligatoria en cada intento de inicio de sesión. Deshabilitar esta opción funcionará exactamente igual que no marcar "recordarme" en el cliente oficial de Steam. A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de `true`.
 
 ---
 

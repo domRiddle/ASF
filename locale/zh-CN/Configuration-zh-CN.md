@@ -389,6 +389,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
     "SteamPassword": null,
     "SteamTradeToken": null,
     "SteamUserPermissions": {},
+    "TradeCheckPeriod": 60,
     "TradingPreferences": 0,
     "TransferableTypes": [1, 3, 5],
     "UseLoginKeys": true,
@@ -789,6 +790,12 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 我们建议您只设置一名用户为 `Master`，然后设定其他用户为较低权限的 `Operators`。 但从技术上来讲，您可以为机器人设定多名 `Master` 用户，并且 ASF 仍然可以正常工作，接受来自其中每名用户的交易报价，如果操作的目标用户只能有一名，例如 `loot` 请求、`SendOnFarmingFinished` 属性或 `SendTradePeriod` 属性，ASF 就会选择这些用户中 Steam ID 数字最小的一个。 如果您完全理解这些限制，特别是无论实际执行命令的 `Master` 用户是谁，`loot` 请求总是会将物品发送给 Steam ID 数字最小的那名 `Master` 用户，那么您就可以在这里设置多名 `Master` 权限用户，但仍然建议您选择单 Master 方案。
 
 值得注意的是，还有一个额外的 `Owner` 权限，此权限由全局配置属性 `SteamOwnerID` 设置。 您无法在这里将 `Owner` 权限授予任何人，因为 `SteamUserPermissions` 属性仅能定义与此机器人实例相关，而非 ASF 进程相关的权限。 对于机器人相关的任务，`SteamOwnerID` 被视为与 `Master` 相同，因此也没有必要在此设置 `SteamOwnerID`。
+
+---
+
+### `TradeCheckPeriod`
+
+这是一个默认值为 `60` 的 `byte` 类型属性。 Normally ASF handles incoming trade offers right after receiving notification about one, but sometimes because of Steam glitches it can't do it at that time, and such trade offers remain ignored until next trade notification or bot restart occurs, which may lead to trades being cancelled or items not available at that later time. If this parameter is set to a non-zero value, ASF will additionally check for such outstanding trades every `TradeCheckPeriod` minutes. Default value is selected with balance between additional requests to steam servers and losing incoming trades in mind. However, if you are just using ASF to farm cards, and don't plan to automatically process any incoming trades, you may set it to `0` to disable this feature completely. On the other hand, if your bot participates in public [ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting) or provides other automated services as a trade bot, you may want to decrease this parameter to `15` minutes or so, to process all trades in a timely manner.
 
 ---
 

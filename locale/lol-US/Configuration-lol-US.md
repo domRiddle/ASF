@@ -389,6 +389,7 @@ TEH BOT CONFIG HAS FOLLOWIN STRUCCHUR:
     "SteamPassword": null,
     "SteamTradeToken": null,
     "SteamUserPermissions": {},
+    "TradeCheckPeriod": 60,
     "TradingPreferences": 0,
     "TransferableTypes": [1, 3, 5],
     "UseLoginKeys": true,
@@ -789,6 +790,12 @@ IN SHORT, DIS PROPERTY ALLOWS U 2 HANDLE PERMISHUNS 4 GIVEN USERS. PERMISHUNS R 
 WE RECOMMEND 2 SET EGSAKTLY WAN USR AS `Master`, AN ANY AMOUNT U WISH AS `Operators` AN BELOW. WHILE IZ TECHNICALLY POSIBLE 2 SET MULTIPLE `Masters` AN ASF WILL WERK RITE WIF THEM, 4 EXAMPLE BY ACCEPTIN ALL OV THEIR TRADEZ SENT 2 TEH BOT, ASF WILL USE ONLY WAN OV THEM (WIF LOWEST STEAM ID) 4 EVRY ACSHUN DAT REQUIREZ SINGLE TARGET, 4 EXAMPLE `loot` REQUEST, SO ALSO PROPERTIEZ LIEK `SendOnFarmingFinished` OR `SendTradePeriod`. IF U PERFECTLY UNDERSTAND DOSE LIMITASHUNS, ESPECIALLY TEH FACT DAT `loot` REQUEST WILL ALWAYS SEND ITEMS 2 TEH `Master` WIF LOWEST STEAM ID, REGARDLES OV TEH `Master` DAT AKSHULLY EXECUTD TEH COMMAND, DEN U CAN DEFINE MULTIPLE USERS WIF `Master` PERMISHUN HER, BUT WE STILL RECOMMEND SINGLE MASTAH SCHEME.
 
 IZ NICE 2 NOWT DAT THAR IZ WAN MOAR EXTRA `Owner` PERMISHUN, WHICH IZ DECLARD AS `SteamOwnerID` GLOBAL CONFIG PROPERTY. U CANT ASSIGN `Owner` PERMISHUN 2 ANYBODY HER, AS `SteamUserPermissions` PROPERTY DEFINEZ ONLY PERMISHUNS DAT R RELATD 2 TEH BOT INSTANCE, AN NOT ASF AS PROCES. 4 BOT-RELATD TASKZ, `SteamOwnerID` IZ TREATD TEH SAME AS `Master`, SO DEFININ UR `SteamOwnerID` HER IZ NOT NECESARY.
+
+---
+
+### `TradeCheckPeriod`
+
+`byte` TYPE WIF DEFAULT VALUE OV `60`. Normally ASF handles incoming trade offers right after receiving notification about one, but sometimes because of Steam glitches it can't do it at that time, and such trade offers remain ignored until next trade notification or bot restart occurs, which may lead to trades being cancelled or items not available at that later time. If this parameter is set to a non-zero value, ASF will additionally check for such outstanding trades every `TradeCheckPeriod` minutes. Default value is selected with balance between additional requests to steam servers and losing incoming trades in mind. However, if you are just using ASF to farm cards, and don't plan to automatically process any incoming trades, you may set it to `0` to disable this feature completely. On the other hand, if your bot participates in public [ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting) or provides other automated services as a trade bot, you may want to decrease this parameter to `15` minutes or so, to process all trades in a timely manner.
 
 ---
 
