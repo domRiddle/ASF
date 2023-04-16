@@ -795,7 +795,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 
 ### `TradeCheckPeriod`
 
-这是一个默认值为 `60` 的 `byte` 类型属性。 Normally ASF handles incoming trade offers right after receiving notification about one, but sometimes because of Steam glitches it can't do it at that time, and such trade offers remain ignored until next trade notification or bot restart occurs, which may lead to trades being cancelled or items not available at that later time. If this parameter is set to a non-zero value, ASF will additionally check for such outstanding trades every `TradeCheckPeriod` minutes. Default value is selected with balance between additional requests to steam servers and losing incoming trades in mind. However, if you are just using ASF to farm cards, and don't plan to automatically process any incoming trades, you may set it to `0` to disable this feature completely. On the other hand, if your bot participates in public [ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting) or provides other automated services as a trade bot, you may want to decrease this parameter to `15` minutes or so, to process all trades in a timely manner.
+这是一个默认值为 `60` 的 `byte` 类型属性。 通常情况下，ASF 会在收到通知后处理收到的交易报价，但有时因为 Steam 的错误无法做到，此时交易报价会被忽略，直到下一条交易通知或机器人重启，这可能会导致交易被取消或者物品不可用。 如果此参数设置为非零值，ASF 将会额外每隔 `TradeCheckPeriod` 分钟检查此类交易。 我们选择的默认值考虑了对 Steam 发送额外请求和丢失交易报价二者之间的平衡。 但是，如果您只是用 ASF 挂卡，不打算自动处理任何交易，则可以设置为 `0` 完全禁用此功能。 另一方面，如果您的机器人加入了公开的 [ASF STM 列表](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-CN#publiclisting公共列表)，或者通过其他方式提供自动交易服务，则可能会希望将此参数降到 `15` 之类的值，以便及时处理交易。
 
 ---
 
@@ -1023,7 +1023,7 @@ ASF 使用原生的 C# 类型系统，包括：
 
 我们建议您仅指定需要修改的配置文件属性，使其他属性自动继承其默认值，这不仅保持您的配置文件足够简洁，还可以在我们决定修改属性默认值的时候增强它的兼容性，您就无需手动进行更新（例如，我们曾经修改过 `WebLimiterDelay` 的默认值）。
 
-由于上述情况，ASF 会自动迁移/优化您的配置，将其重新格式化并删除具有默认值的字段。  如果您有特定的理由，例如您可能提供不希望 ASF 修改的只读配置文件，则可以通过 `--no-config-migrate` [**命令行参数**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN#参数)禁用此行为。
+由于上述情况，ASF 会自动迁移/优化您的配置，将其重新格式化并删除具有默认值的字段。 如果您有特定的理由，例如您可能提供不希望 ASF 修改的只读配置文件，则可以通过 `--no-config-migrate` [**命令行参数**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-CN#参数)禁用此行为。
 
 ---
 
