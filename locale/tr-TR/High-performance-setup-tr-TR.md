@@ -8,7 +8,7 @@ ASF already tries to prefer performance when it comes to general balanced tuning
 
 ---
 
-## Runtime tuning (advanced)
+## Çalışma zaman ayarı (gelişmiş)
 
 Below tricks **involve serious memory and startup time increase** and should therefore be used with caution.
 
@@ -34,7 +34,7 @@ However, if memory is not a problem for you (as GC still takes into account your
 
 > This setting enables dynamic or tiered profile-guided optimization (PGO) in .NET 6 and later versions.
 
-Disabled by default. In a nutshell, this will cause JIT to spend more time analyzing ASF's code and its patterns in order to generate superior code optimized for your typical usage. If you want to learn more about this setting, visit **[performance improvements in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**.
+Varsayılan olarak devre dışı. In a nutshell, this will cause JIT to spend more time analyzing ASF's code and its patterns in order to generate superior code optimized for your typical usage. If you want to learn more about this setting, visit **[performance improvements in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**.
 
 ### **[`DOTNET_ReadyToRun`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#readytorun)**
 
@@ -73,7 +73,7 @@ $Env:DOTNET_ReadyToRun=0
 ## Recommended optimization
 
 - Ensure that you're using default value of `OptimizationMode` which is `MaxPerformance`. This is by far the most important setting, as using `MinMemoryUsage` value has dramatic effects on performance.
-- Enable server GC. Server GC can be immediately seen as being active by significant memory increase compared to workstation GC. This will spawn a GC thread for every CPU thread your machine has in order to perform GC operations in parallel with maximum speed.
+- Sunucu GC'sini etkinleştirin. Server GC can be immediately seen as being active by significant memory increase compared to workstation GC. This will spawn a GC thread for every CPU thread your machine has in order to perform GC operations in parallel with maximum speed.
 - If you can't afford memory increase due to server GC, consider tweaking **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** and/or **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gcheaphardlimitpercent)** to achieve "the best of both worlds". However, if your memory can afford it, then it's better to keep it at default - server GC already tweaks itself during runtime and is smart enough to use less memory when your OS will truly need it.
 - You can also consider increased optimization for longer startup time with additional tweaking through other `DOTNET_` properties explained above.
 

@@ -104,9 +104,9 @@ The configuration file is based on following JSON structure:
 
 Unless you truly need to specify a custom base path, it's best to leave it at default.
 
-## Example configs
+## Örnek yapılandırmalar
 
-### Changing default port
+### Varsayılan bağlantı noktasını değiştirme
 
 The following config simply changes default ASF listening port from `1242` to `1337`. You can pick any port you like, but we recommend `1024-32767` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
 
@@ -157,7 +157,7 @@ Authentication can be done through two separate ways.
 
 In general you should use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword'` as a parameter. This way authentication is passed in the headers of the request, where it in fact should take place.
 
-## `password` parameter in query string
+## Sorgu dizesinde `password` parametresi
 
 Alternatively you can append `password` parameter to the end of the URL you're about to call, for example by calling `/Api/ASF?password=MyPassword` instead of `/Api/ASF` alone. This approach is good enough, but obviously it exposes password in the open, which is not necessarily always appropriate. In addition to that it's extra argument in the query string, which complicates the look of the URL and makes it feel like it's URL-specific, while password applies to entire ASF API communication.
 
@@ -173,7 +173,7 @@ Our IPC interface, in additon to ASF API and ASF-ui also includes swagger docume
 
 Apart from using our swagger documentation as a complete specification of ASF API, you can also use it as user-friendly way to execute various API endpoints, mainly those that are not implemented by ASF-ui. Since our swagger documentation is generated automatically from ASF code, you have a guarantee that the documentation will always be up-to-date with the API endpoints that your version of ASF includes.
 
-![Swagger documentation](https://i.imgur.com/mLpd5e4.png)
+![Swagger dokümantasyonu](https://i.imgur.com/mLpd5e4.png)
 
 ---
 

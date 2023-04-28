@@ -34,7 +34,7 @@ Veya:
 
 > {0} is the number of games to farm.
 
-The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.
+The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). Bu, genel çeviri kalitesini artırır.
 
 ---
 
@@ -90,7 +90,7 @@ For a complete list of all available languages that ASF can be translated to, **
 
 ---
 
-## Pluralization
+## Çoğullaştırma
 
 Every language has its own rules in regards to pluralization. Those rules can be found on **[CLDR](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html)** which specifies their number and exact language conditions.
 
@@ -249,15 +249,15 @@ If you believe that something inappropriate is included in a code block, or that
 
 We'd like to show our eternal gratitude to people that have spent a significant amount of their time and willings to make ASF localization better. Their effort is incredible, and you can enjoy complete translations, including the wiki, mostly thanks to them. As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
 
-| Contributor                                                | Languages          |
+| Katkıda Bulunan                                            | Diller             |
 | ---------------------------------------------------------- | ------------------ |
-| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Spanish    |
-| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portuguese (BR)    |
-| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinese (CN)       |
-| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Chinese (TW)       |
-| **[LittleFreak](https://crowdin.com/profile/littlefreak)** | German             |
-| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russian, Ukrainian |
-| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, German     |
-| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinese (HK)       |
+| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, İspanyolca |
+| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portekizce (BR)    |
+| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Çince (CN)         |
+| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Çince (TW)         |
+| **[LittleFreak](https://crowdin.com/profile/littlefreak)** | Almanca            |
+| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Rusça, Ukraynaca   |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, Almanca    |
+| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Çince (HK)         |
 
-Thank you all for improving our ASF localization quality!
+ASF yerelleştirme kalitemizi iyileştirdiğiniz için hepinize teşekkür ederiz!
