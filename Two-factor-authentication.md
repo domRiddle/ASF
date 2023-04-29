@@ -22,7 +22,7 @@ You can verify whether your bot account is using ASF 2FA already by executing `2
 
 There are a lot of ways to make ASF 2FA operative, here we include our recommendations based on your current situation:
 
-- If you're already using SteamDesktopAuthenticator, WinAuth or any other third-party app that allows you to extract 2FA details with ease, just **[duplicating](#import)** those to ASF.
+- If you're already using SteamDesktopAuthenticator, WinAuth or any other third-party app that allows you to extract 2FA details with ease, just **[import](#import)** those to ASF.
 - If you're using official app and you don't mind resetting your 2FA credentials, the best way is to disable 2FA, then use **[joint authenticator](#joint-authenticator)** which will allow you to use official app and ASF 2FA, this method doesn't require root or advanced knowledge, barely following instructions.
 - If you're using official app and don't want to recreate your 2FA credentials, your options are very limited, typically you'll need root and extra fiddling around to extract those details, and even with that it might be impossible.
 - If you're not using 2FA yet and don't care, you can use ASF 2FA with **[standalone authenticator](#standalone-authenticator)**, third-party app **[duplicating](#imported)** to ASF, or **[joint authenticator](#joint-authenticator)** with official app.
