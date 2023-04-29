@@ -18,6 +18,17 @@ You can verify whether your bot account is using ASF 2FA already by executing `2
 
 ---
 
+## Recommendations
+
+There are a lot of ways to make ASF 2FA operative, here we include our recommendations based on your current situation:
+
+- If you're already using SteamDesktopAuthenticator, WinAuth or any other third-party app that allows you to extract 2FA details with ease, just import those to ASF.
+- If you're using official app and you don't mind resetting your 2FA credentials, the best way is to disable 2FA, then use joint authenticator which will allow you to use official app and ASF 2FA, this method doesn't require root or advanced knowledge, barely following instructions.
+- If you're using official app and don't want to recreate your 2FA credentials, your options are very limited, typically you'll need root and extra fiddling around to extract those details, and even with that it might be impossible.
+- If you're not using 2FA yet and don't care, you can use ASF 2FA in standalone mode, third-party app imported to ASF, or joint authenticator with official app.
+
+---
+
 ## Creation
 
 In general, we strongly recommend **[duplicating](#import)** your existing authenticator, since that's the main purpose ASF 2FA was designed for. However, ASF comes with an official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** that further extends ASF 2FA, allowing you to link a completely new authenticator as well. This can be useful in case you're unable or unwilling to use other tools and do not mind ASF 2FA becoming your main (and maybe only) authenticator.
