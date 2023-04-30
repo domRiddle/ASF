@@ -18,30 +18,64 @@ ASF雙重驗證是一個內建模組，負責為ASF程序提供雙重驗證功�
 
 ---
 
+# Recommendations
+
+There are a lot of ways to make ASF 2FA operative, here we include our recommendations based on your current situation:
+
+- If you're already using SteamDesktopAuthenticator, WinAuth or any other third-party app that allows you to extract 2FA details with ease, just **[import](#import)** those to ASF.
+- If you're using official app and you don't mind resetting your 2FA credentials, the best way is to disable 2FA, then **[create](#creation)** new 2FA credentials by using **[joint authenticator](#joint-authenticator)**, which will allow you to use official app and ASF 2FA. This method doesn't require root or advanced knowledge, barely following instructions.
+- If you're using official app and don't want to recreate your 2FA credentials, your options are very limited, typically you'll need root and extra fiddling around to **[import](#import)** those details, and even with that it might be impossible.
+- If you're not using 2FA yet and don't care, you can use ASF 2FA with **[standalone authenticator](#standalone-authenticator)**, third-party app **[duplicating](#import)** to ASF, or **[joint authenticator](#joint-authenticator)** with official app.
+
+Below we discuss all possible options and known to us methods.
+
+---
+
 ## 建立
 
-在一般情形下，我們強烈建議&#8203;**[複製](#匯入)**&#8203;您現有的驗證器，畢竟這就是設計ASF雙重驗證的主要目的。 但是，ASF提供了官方&#8203;`MobileAuthenticator`&#8203;**[外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-TW)**&#8203;，進一步擴充ASF雙重驗證的功能，使您可以完全重新開始連結一個新的驗證器。 若您無法或不願意使用其他工具，且不介意將ASF雙重驗證做為您的主要（也可能是唯一）的驗證器，這可能會對您很有幫助。
+In general, we strongly recommend **[duplicating](#import)** your existing authenticator, since that's the main purpose ASF 2FA was designed for. However, ASF comes with an official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** that further extends ASF 2FA, allowing you to link a completely new authenticator as well. This can be useful in case you're unable or unwilling to use other tools and do not mind ASF 2FA becoming your main (and maybe only) authenticator.
 
-要綁定新的雙重驗證並自動匯入成ASF雙重驗證，您應該遵循下列步驟：
+There are two possible scenarios for adding a two-factor authenticator with the `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**: standalone or joint with the official Steam mobile app. In the second scenario, you will end up with the same authenticator on both the ASF and mobile app; both will generate the same codes, and both will be able to confirm trade offers, Steam Community Market transactions, etc.
 
-1. 為目標帳號建立ASF Bot，啟動並登入它，您可能已經先完成了。
-2. 在&#8203;**[這裡](https://store.steampowered.com/phone/manage)**&#8203;將能夠正常使用的手機號碼綁定至該帳號上。 手機號碼是絕對必需的，沒有它就無法使用雙重驗證。
-3. 執行&#8203;`2fainit [Bot]`&#8203;指令，將&#8203;`[Bot]`&#8203;取代成您的Bot的名稱。
+### Common steps for both scenarios
+
+No matter if you plan to use ASF as the standalone authenticator or want the same authenticator on the official Steam mobile app, you need to do those initialization steps:
+
+1. Create an ASF bot for the target account, start it, and log in, which you probably already did.
+2. Assign a working and operational phone number to the account **[here](https://store.steampowered.com/phone/manage)** to be used by the bot. A phone number is absolutely required, as there is no way to add 2FA without it.
+3. Ensure you're not using 2FA yet for your account, if you do, disable it first.
+4. Execute the `2fainit [Bot]` command, replacing `[Bot]` with your bot's name.
 
 假設您得到成功的回應，就會發生下列兩件事：
 
 - ASF會在您的&#8203;`config`&#8203;資料夾中生成一個新的&#8203;`<Bot>.maFile.PENDING`&#8203;檔案。
 - Steam會向您為上述帳號綁定的手機號碼傳送一封簡訊。
 
-驗證器的詳細資料還尚未生效，但如果您願意，您可以查看生成的檔案。 若您希望有個雙重保險，您可以在此時記下恢復代碼。
+The authenticator details are not operational yet, however, you can review the generated file if you'd like to. If you want to be double safe, you can, for example, already write down the revocation code. The next steps will depend on your selected scenario.
 
-4. 完成後，執行&#8203;`2fafinalize [Bot] <ActivationCode>`&#8203;指令，將&#8203;`[Bot]`&#8203;取代成您的Bot的名稱；&#8203;`<ActivationCode>`&#8203;取代成您經由簡訊收到的驗證碼。
+### Standalone authenticator
 
-假設一切運作正常，先前生成的&#8203;`<Bot>.maFile.PENDING`&#8203;檔案會被重新命名成&#8203;`<Bot>.maFile.NEW`&#8203;。 這代表您的雙重驗證憑證現在是有效且正確的了。 我們建議您建立一份備份檔，並儲存在&#8203;**安全的地方**&#8203;。 除此之外，我們建議您打開它（是個文字檔）並記下&#8203;`revocation_code`&#8203;。顧名思義，這能使您可以在遺失驗證器時把它撤銷。
+If you want to use ASF as your main (or even only) authenticator, now you need to do the finalization step:
 
-關於其中的技術細節，生成的&#8203;`maFile`&#8203;包含了我們在連結驗證器時從Steam伺服器接收到的所有資料，以及其他驗證器可能需要使用的&#8203;`device_id`&#8203;欄位。 該檔案遵循並完全相容&#8203;**[SDA](#steamdesktopauthenticator)**&#8203;，可用來匯入。
+5. Execute the `2fafinalize [Bot] <ActivationCode>` command, replacing `[Bot]` with your bot's name and `<ActivationCode>` with the code you've received through SMS in the previous step.
 
-一旦完成上述流程，ASF就會自動匯入您的驗證器。至此&#8203;`2fa`&#8203;等其他相關指令，現應已對您將驗證器連結到的Bot生效。
+### Joint authenticator
+
+If you want to have the same authenticator in both ASF and the official Steam mobile app, now you need to do the next steps:
+
+5. Ignore the SMS that you received after the previous step.
+6. Install the Steam mobile app if it's not installed yet, and open it. Navigate to the Steam Guard tab and add a new authenticator by following the app's instructions.
+7. After your authenticator in the mobile app is added and working, return to ASF. You now need to tell ASF that finalization is done with the help of one of the two commands below:
+ - Wait until the next 2fa code is shown in the Steam mobile app, and use the command `2fafinalized [Bot] <2fa_code_from_app>` replacing `[Bot]` with your bot's name and `<2fa_code_from_app>` with the code you currently see in the Steam mobile app. If the code generated by ASF and the code you provided are the same, ASF assumes that an authenticator was added correctly and proceeds with importing your newly created authenticator.
+ - We strongly recommend to do the above in order to ensure that your credentials are valid. However, if you don't want to (or can't) check if codes are the same and you know what you're doing, you can instead use the command `2fafinalizedforce [Bot]`, replacing `[Bot]` with your bot's name. ASF will assume that the authenticator was added correctly and proceed with importing your newly created authenticator.
+
+### After finalization
+
+Assuming everything worked properly, the previously generated `<Bot>.maFile.PENDING` file was renamed to `<Bot>.maFile.NEW`. 這代表您的雙重驗證憑證現在是有效且正確的了。 We recommend that you create a copy of that file and keep it in **a secure and safe location**. In addition to that, we recommend you open the file in your editor of choice and write down the `revocation_code`, which will allow you to, as the name implies, revoke the authenticator in case you lose it.
+
+In regard to technical details, the generated `maFile` includes all details that we have received from the Steam server during linking the authenticator, and in addition to that, the `device_id` field, which may be needed for other authenticators. The file is fully compatible with **[SDA](#steamdesktopauthenticator)** for import.
+
+ASF automatically imports your authenticator once the procedure is done, and therefore `2fa` and other related commands should now be operational for the bot account you linked the authenticator to.
 
 ---
 
@@ -60,7 +94,7 @@ ASF雙重驗證是一個內建模組，負責為ASF程序提供雙重驗證功�
 
 ### Android 手機
 
-**以下說明適用於&#8203;`2.X`&#8203;版本的Steam應用程式，目前還未有從&#8203;`3.0`&#8203;及以上版本提取所需資源的方法。 一旦找到普遍可用的方法，我們將更新本章節。 至今為止，暫時的解決方法是故意安裝舊版的Steam應用程式，註冊雙重驗證，提取所需資訊，最後再將應用程式更新到最新版本⸺原有的驗證器將繼續運作。**
+**The below instructions apply to Steam app in version `2.X`, there are currently limited **[resources](https://github.com/JustArchiNET/ArchiSteamFarm/discussions/2786)** on extracting required details from version `3.0` onwards. 一旦找到普遍可用的方法，我們將更新本章節。 As of today, a workaround would be to intentionally install older version of Steam app, register 2FA and extract the required details first, after which it's possible to update the application to latest version - existing authenticator will continue to work.**
 
 在一般情形下，若要從您的Android手機匯入驗證器，您需要擁有&#8203;**[Root](https://zh.wikipedia.org/zh-tw/Root_(Android))**&#8203;權限。 不同的設備具有不同的Root方法，所以無法告訴您如何Root您的設備。 可以造訪&#8203;**[XDA](https://www.xda-developers.com/root)**&#8203;查詢相關指南，以及與Root相關的一般資訊。 若您找不到適用於您設備的指南，請在Google中搜尋。
 

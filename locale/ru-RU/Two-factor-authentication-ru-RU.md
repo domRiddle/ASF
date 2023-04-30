@@ -18,30 +18,64 @@ ASF 2FA это встроенный модуль, отвечающий за ре
 
 ---
 
+# Recommendations
+
+There are a lot of ways to make ASF 2FA operative, here we include our recommendations based on your current situation:
+
+- If you're already using SteamDesktopAuthenticator, WinAuth or any other third-party app that allows you to extract 2FA details with ease, just **[import](#import)** those to ASF.
+- If you're using official app and you don't mind resetting your 2FA credentials, the best way is to disable 2FA, then **[create](#creation)** new 2FA credentials by using **[joint authenticator](#joint-authenticator)**, which will allow you to use official app and ASF 2FA. This method doesn't require root or advanced knowledge, barely following instructions.
+- If you're using official app and don't want to recreate your 2FA credentials, your options are very limited, typically you'll need root and extra fiddling around to **[import](#import)** those details, and even with that it might be impossible.
+- If you're not using 2FA yet and don't care, you can use ASF 2FA with **[standalone authenticator](#standalone-authenticator)**, third-party app **[duplicating](#import)** to ASF, or **[joint authenticator](#joint-authenticator)** with official app.
+
+Below we discuss all possible options and known to us methods.
+
+---
+
 ## Создание
 
-В целом мы настоятельно рекомендуем **[дублировать](#import)** ваш существующий аутентификатор, так как, в конце концов, это главная цель 2FA ASF. Тем не менее ASF поставляется с официальным **[плагином](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** `MobileAuthenticator`, который расширяет ASF 2FA и позволяет привязать абсолютно новый аутентификатор. Это может быть полезно, если вы не можете или не желаете использовать другие аутентификаторы, и вы не против, чтобы ASF 2FA стал вашим главным (и, возможно, единственным) аутентификатором.
+In general, we strongly recommend **[duplicating](#import)** your existing authenticator, since that's the main purpose ASF 2FA was designed for. However, ASF comes with an official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** that further extends ASF 2FA, allowing you to link a completely new authenticator as well. This can be useful in case you're unable or unwilling to use other tools and do not mind ASF 2FA becoming your main (and maybe only) authenticator.
 
-Чтобы назначить новый 2ФА и автоматически импортировать его как 2FA ASF, необходимо сделать следующие шаги:
+There are two possible scenarios for adding a two-factor authenticator with the `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**: standalone or joint with the official Steam mobile app. In the second scenario, you will end up with the same authenticator on both the ASF and mobile app; both will generate the same codes, and both will be able to confirm trade offers, Steam Community Market transactions, etc.
 
-1. Создайте бота ASF для нужного аккаунта, запустите его и войдите в систему, что вы, вероятно, уже сделали.
-2. Назначьте рабочий и актуальный номер телефона учетной записи, используемой ботом **[здесь](https://store.steampowered.com/phone/manage)**. Номер телефона абсолютно необходим, нельзя добавить 2ФА без него.
-3. Выполните команду `2fainit [Bot]`, заменив `[Bot]` именем вашего бота.
+### Common steps for both scenarios
+
+No matter if you plan to use ASF as the standalone authenticator or want the same authenticator on the official Steam mobile app, you need to do those initialization steps:
+
+1. Create an ASF bot for the target account, start it, and log in, which you probably already did.
+2. Assign a working and operational phone number to the account **[here](https://store.steampowered.com/phone/manage)** to be used by the bot. A phone number is absolutely required, as there is no way to add 2FA without it.
+3. Ensure you're not using 2FA yet for your account, if you do, disable it first.
+4. Execute the `2fainit [Bot]` command, replacing `[Bot]` with your bot's name.
 
 Если вы получили успешный ответ, то произошли две следующие вещи:
 
 - Новый `<Bot>.maFile.PENDING` файл был сгенерирован ASF в директории `config`.
 - SMS было отправлено из Steam на номер телефона, который вы указали выше.
 
-Подробные детали аутентификатора еще не используются, но вы можете просмотреть сгенерированный файл, если вы хотите. Если вы хотите быть вдвойне уверены, вы уже можете записать код отзыва аутентификатора.
+The authenticator details are not operational yet, however, you can review the generated file if you'd like to. If you want to be double safe, you can, for example, already write down the revocation code. The next steps will depend on your selected scenario.
 
-4. Удовлетворившись, выполните команду `2fafinalize [Bot] <ActivationCode>`, заменив `[Bot]` именем вашего бота и `<ActivationCode>` кодом, который вы получили через SMS.
+### Standalone authenticator
 
-Если все работало правильно, ранее сгенерированный `<Bot>.maFile.PENDING` файл должен быть переименован в `<Bot>.maFile.NEW`. Это означает, что учетные данные 2ФА действительны и активны. Мы рекомендуем вам создать копию этого файла и сохранить его в **безопасном и надежном месте**. Кроме того, мы рекомендуем вам открыть его (это текстовый файл) и записать `revocation_code`, который позволит вам, что следует из названия, отозвать аутентификатор в случае, если вы его потеряете.
+If you want to use ASF as your main (or even only) authenticator, now you need to do the finalization step:
 
-Что касается технических деталей, то сгенерированный `maFile` включает в себя все подробности, которые мы получили от сервера Steam во время привязки аутентификатора, а так же `device_id` поле, которое может быть необходимо для других аутентификаторов. Файл так же полностью совместим с **[SDA](#steamdesktopauthenticator)** для импорта.
+5. Execute the `2fafinalize [Bot] <ActivationCode>` command, replacing `[Bot]` with your bot's name and `<ActivationCode>` with the code you've received through SMS in the previous step.
 
-ASF автоматически импортирует ваш аутентификатор после завершения процедуры, поэтому `2fa` и другие связанные команды теперь должны работать для аккаунта бота, к которому вы привязали аутентификатор.
+### Joint authenticator
+
+If you want to have the same authenticator in both ASF and the official Steam mobile app, now you need to do the next steps:
+
+5. Ignore the SMS that you received after the previous step.
+6. Install the Steam mobile app if it's not installed yet, and open it. Navigate to the Steam Guard tab and add a new authenticator by following the app's instructions.
+7. After your authenticator in the mobile app is added and working, return to ASF. You now need to tell ASF that finalization is done with the help of one of the two commands below:
+ - Wait until the next 2fa code is shown in the Steam mobile app, and use the command `2fafinalized [Bot] <2fa_code_from_app>` replacing `[Bot]` with your bot's name and `<2fa_code_from_app>` with the code you currently see in the Steam mobile app. If the code generated by ASF and the code you provided are the same, ASF assumes that an authenticator was added correctly and proceeds with importing your newly created authenticator.
+ - We strongly recommend to do the above in order to ensure that your credentials are valid. However, if you don't want to (or can't) check if codes are the same and you know what you're doing, you can instead use the command `2fafinalizedforce [Bot]`, replacing `[Bot]` with your bot's name. ASF will assume that the authenticator was added correctly and proceed with importing your newly created authenticator.
+
+### After finalization
+
+Assuming everything worked properly, the previously generated `<Bot>.maFile.PENDING` file was renamed to `<Bot>.maFile.NEW`. Это означает, что учетные данные 2ФА действительны и активны. We recommend that you create a copy of that file and keep it in **a secure and safe location**. In addition to that, we recommend you open the file in your editor of choice and write down the `revocation_code`, which will allow you to, as the name implies, revoke the authenticator in case you lose it.
+
+In regard to technical details, the generated `maFile` includes all details that we have received from the Steam server during linking the authenticator, and in addition to that, the `device_id` field, which may be needed for other authenticators. The file is fully compatible with **[SDA](#steamdesktopauthenticator)** for import.
+
+ASF automatically imports your authenticator once the procedure is done, and therefore `2fa` and other related commands should now be operational for the bot account you linked the authenticator to.
 
 ---
 
@@ -60,7 +94,7 @@ ASF автоматически импортирует ваш аутентифи�
 
 ### Android-смартфон
 
-**Приведенные ниже инструкции относятся к приложению Steam версии `2.X`, в настоящее время нет ресурсов по извлечению необходимых данных, начиная с версии `3.0`. Мы будем обновлять этот раздел сразу же, как только будет найден общедоступный метод. На сегодняшний день обходным решением является намеренная установка старой версии приложения Steam, регистрация 2FA и извлечение необходимых данных, после чего можно обновить приложение до последней версии - существующий аутентификатор продолжит работать.**
+**The below instructions apply to Steam app in version `2.X`, there are currently limited **[resources](https://github.com/JustArchiNET/ArchiSteamFarm/discussions/2786)** on extracting required details from version `3.0` onwards. Мы будем обновлять этот раздел сразу же, как только будет найден общедоступный метод. На сегодняшний день обходным решением является намеренная установка старой версии приложения Steam, регистрация 2FA и извлечение необходимых данных, после чего можно обновить приложение до последней версии - существующий аутентификатор продолжит работать.**
 
 В общем случае для импорта аутентификатора с телефона Android вам потребуется **[root](https://en.wikipedia.org/wiki/Rooting_(Android_OS))**доступ. Рутинг отличается на разных устройствах, поэтому мы не можем сказать вам как получить root на вашем устройстве. Посетите **[форум 4PDA](https://4pda.ru/forum/)** и найдите руководство для вашего устройства, а также общую о получении root-доступа. Если вы не смогли найти там руководство для вашего устройства, попробуйте поискать в google.
 
