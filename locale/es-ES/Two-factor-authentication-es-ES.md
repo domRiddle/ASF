@@ -18,22 +18,22 @@ Puedes verificar si tu cuenta bot ya está usando ASF 2FA ejecutando **[comandos
 
 ---
 
-# Recommendations
+# Recomendaciones
 
-There are a lot of ways to make ASF 2FA operative, here we include our recommendations based on your current situation:
+Hay varias maneras de hacer ASF 2FA sea operativo, aquí incluimos nuestras recomendaciones dependiendo de tu situación:
 
-- If you're already using SteamDesktopAuthenticator, WinAuth or any other third-party app that allows you to extract 2FA details with ease, just **[import](#import)** those to ASF.
-- If you're using official app and you don't mind resetting your 2FA credentials, the best way is to disable 2FA, then **[create](#creation)** new 2FA credentials by using **[joint authenticator](#joint-authenticator)**, which will allow you to use official app and ASF 2FA. This method doesn't require root or advanced knowledge, barely following instructions.
-- If you're using official app and don't want to recreate your 2FA credentials, your options are very limited, typically you'll need root and extra fiddling around to **[import](#import)** those details, and even with that it might be impossible.
-- If you're not using 2FA yet and don't care, you can use ASF 2FA with **[standalone authenticator](#standalone-authenticator)**, third-party app **[duplicating](#import)** to ASF, or **[joint authenticator](#joint-authenticator)** with official app.
+- Si ya estás usando SteamDesktopAuthenticator, WinAuth o cualquier otra aplicación de terceros que te permita extraer los detalles 2FA con facilidad, solo **[importa](#importar)** esos a ASF.
+- Si estás usando la aplicación oficial y no te importa restablecer tus credenciales 2FA, la mejor manera es desactivar 2FA, luego **[crear](#creación)** nuevas credenciales 2FA usando **[autenticador conjunto](#autenticador-conjunto)**, lo que te permitirá usar la aplicación oficial y ASF 2FA. Este método no requiere hacer root o conocimientos avanzados, solo seguir las instrucciones.
+- Si estás usando la aplicación oficial y no quieres restablecer tus credenciales 2FA, tus opciones son muy limitadas, normalmente necesitarías hacer root y pasos adicionales para **[importar](#importar)** esos detalles, e incluso con eso podría ser imposible.
+- Si todavía no estás usando 2FA y no te importa, puedes usar ASF 2FA con **[autenticador independiente](#autenticador-independiente)**, una aplicación de terceros **[duplicada](#importar)** en ASF, o **[autenticador conjunto](#autenticador-conjunto)** con la aplicación oficial.
 
-Below we discuss all possible options and known to us methods.
+A continuación discutimos todas las opciones posibles y los métodos que conocemos.
 
 ---
 
 ## Creación
 
-In general, we strongly recommend **[duplicating](#import)** your existing authenticator, since that's the main purpose ASF 2FA was designed for. However, ASF comes with an official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** that further extends ASF 2FA, allowing you to link a completely new authenticator as well. This can be useful in case you're unable or unwilling to use other tools and do not mind ASF 2FA becoming your main (and maybe only) authenticator.
+En general, recomendamos **[duplicar](#importar)** tu autenticador existente, ya que ese es el propósito principal para el que ASF 2FA fue diseñado. Sin embargo, ASF viene con el **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-es-ES)** oficial `MobileAuthenticator` que amplía ASF 2FA permitiéndote también vincular un autenticador completamente nuevo. Esto puede ser útil en caso de que no puedas o no quieras usar otras herramientas y no te importe que ASF 2FA se convierta en tu principal (y tal vez único) autenticador.
 
 There are two possible scenarios for adding a two-factor authenticator with the `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**: standalone or joint with the official Steam mobile app. In the second scenario, you will end up with the same authenticator on both the ASF and mobile app; both will generate the same codes, and both will be able to confirm trade offers, Steam Community Market transactions, etc.
 
@@ -53,13 +53,13 @@ Suponiendo que tengas una respuesta exitosa, las siguientes dos cosas deben habe
 
 The authenticator details are not operational yet, however, you can review the generated file if you'd like to. If you want to be double safe, you can, for example, already write down the revocation code. The next steps will depend on your selected scenario.
 
-### Standalone authenticator
+### Autenticador independiente
 
 If you want to use ASF as your main (or even only) authenticator, now you need to do the finalization step:
 
 5. Execute the `2fafinalize [Bot] <ActivationCode>` command, replacing `[Bot]` with your bot's name and `<ActivationCode>` with the code you've received through SMS in the previous step.
 
-### Joint authenticator
+### Autenticador conjunto
 
 If you want to have the same authenticator in both ASF and the official Steam mobile app, now you need to do the next steps:
 
