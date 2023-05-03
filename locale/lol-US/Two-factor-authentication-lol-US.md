@@ -18,70 +18,70 @@ U CAN VERIFY WHETHR UR BOT AKOWNT IZ USIN ASF 2FA ALREADY BY EXECUTIN `2fa` **[C
 
 ---
 
-# Recommendations
+# RECOMMENDASHUNS
 
-There are a lot of ways to make ASF 2FA operative, here we include our recommendations based on your current situation:
+THAR R LOT OV WAYS 2 MAK ASF 2FA OPERATIV, HER WE INCLUDE R RECOMMENDASHUNS BASD ON UR CURRENT SITUASHUN:
 
-- If you're already using SteamDesktopAuthenticator, WinAuth or any other third-party app that allows you to extract 2FA details with ease, just **[import](#import)** those to ASF.
-- If you're using official app and you don't mind resetting your 2FA credentials, the best way is to disable 2FA, then **[create](#creation)** new 2FA credentials by using **[joint authenticator](#joint-authenticator)**, which will allow you to use official app and ASF 2FA. This method doesn't require root or advanced knowledge, barely following instructions.
-- If you're using official app and don't want to recreate your 2FA credentials, your options are very limited, typically you'll need root and extra fiddling around to **[import](#import)** those details, and even with that it might be impossible.
-- If you're not using 2FA yet and don't care, you can use ASF 2FA with **[standalone authenticator](#standalone-authenticator)**, third-party app **[duplicating](#import)** to ASF, or **[joint authenticator](#joint-authenticator)** with official app.
+- IF URE ALREADY USIN SteamDesktopAuthenticator, WinAuth OR ANY OTHR THIRD-PARTY APP DAT ALLOWS U 2 EXTRACT 2FA DETAILS WIF EASE, JUS  **[IMPORT](#import)** DOSE 2 ASF.
+- IF URE USIN OFFISHUL APP AN U DOAN MIND RESETTIN UR 2FA CREDENTIALS, TEH BEST WAI IZ 2 DISABLE 2FA, DEN **[CREATE](#creashun)** NEW 2FA CREDENTIALS BY USIN **[JOINT AUTHENTICATOR](#joint-authenticator)**, WHICH WILL ALLOW U 2 USE OFFISHUL APP AN ASF 2FA. DIS METHOD DOESNT REQUIRE ROOT OR ADVANCD KNOWLEDGE, BARELY FOLLOWIN INSTRUCSHUNS.
+- IF URE USIN OFFISHUL APP AN DOAN WANTS 2 RECREATE UR 2FA CREDENTIALS, UR OPSHUNS R VRY LIMITD, TYPICALLY ULL NED ROOT AN EXTRA FIDDLIN AROUND 2  **[IMPORT](#import)** DOSE DETAILS, AN EVEN WID DAT IT MITE BE IMPOSIBLE.
+- IF URE NOT USIN 2FA YET AN DOAN CARE, U CAN USE ASF 2FA WIF **[STANDALONE AUTHENTICATOR](#standalone-authenticator)**, THIRD-PARTY APP **[DUPLICATIN](#import)** 2 ASF, OR **[JOINT AUTHENTICATOR](#joint-authenticator)** WIF OFFISHUL APP.
 
-Below we discuss all possible options and known to us methods.
+BELOW WE DISCUS ALL POSIBLE OPSHUNS AN KNOWN 2 US METHODZ.
 
 ---
 
 ## CREASHUN
 
-In general, we strongly recommend **[duplicating](#import)** your existing authenticator, since that's the main purpose ASF 2FA was designed for. However, ASF comes with an official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** that further extends ASF 2FA, allowing you to link a completely new authenticator as well. This can be useful in case you're unable or unwilling to use other tools and do not mind ASF 2FA becoming your main (and maybe only) authenticator.
+IN GENERAL, WE STRONGLY RECOMMEND **[DUPLICATIN](#import)** UR EXISTIN AUTHENTICATOR, SINCE THAZ TEH MAIN PURPOSE ASF 2FA WUZ DESIGND 4. HOWEVR, ASF COMEZ WIF AN OFFISHUL `MobileAuthenticator` **[PLUGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-LOL-us)** DAT FURTHR EXTENDZ ASF 2FA, ALLOWIN U 2 LINK COMPLETELY NEW AUTHENTICATOR AS WELL. DIS CAN BE USEFUL IN CASE URE UNABLE OR UNWILLIN 2 USE OTHR TOOLS AN DO NOT MIND ASF 2FA BECOMIN UR MAIN (AN MAYBE ONLY) AUTHENTICATOR.
 
-There are two possible scenarios for adding a two-factor authenticator with the `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**: standalone or joint with the official Steam mobile app. In the second scenario, you will end up with the same authenticator on both the ASF and mobile app; both will generate the same codes, and both will be able to confirm trade offers, Steam Community Market transactions, etc.
+THAR R 2 POSIBLE SCENARIOS 4 ADDIN 2-FACTOR AUTHENTICATOR WIF TEH `MobileAuthenticator` **[PLUGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-LOL-us)**: STANDALONE OR JOINT WIF TEH OFFISHUL STEAM MOBILE APP. IN DA SECOND SCENARIO, U WILL END UP WIF TEH SAME AUTHENTICATOR ON BOTH TEH ASF AN MOBILE APP; BOTH WILL GENERATE TEH SAME CODEZ, AN BOTH WILL BE ABLE 2 CONFIRM TRADE OFFERS, STEAM COMMUNITY MARKIT TRANZACSHUNS, ETC.
 
-### Common steps for both scenarios
+### COMMON STEPS 4 BOTH SCENARIOS
 
-No matter if you plan to use ASF as the standalone authenticator or want the same authenticator on the official Steam mobile app, you need to do those initialization steps:
+NO MATTR IF U PLAN 2 USE ASF AS TEH STANDALONE AUTHENTICATOR OR WANTS TEH SAME AUTHENTICATOR ON TEH OFFISHUL STEAM MOBILE APP, U NED 2 DO DOSE INITIALIZASHUN STEPS:
 
-1. Create an ASF bot for the target account, start it, and log in, which you probably already did.
-2. Assign a working and operational phone number to the account **[here](https://store.steampowered.com/phone/manage)** to be used by the bot. A phone number is absolutely required, as there is no way to add 2FA without it.
-3. Ensure you're not using 2FA yet for your account, if you do, disable it first.
-4. Execute the `2fainit [Bot]` command, replacing `[Bot]` with your bot's name.
+1. CREATE AN ASF BOT 4 DA TARGET AKOWNT, START IT, AN LOG IN, WHICH U PROBABLY ALREADY DID.
+2. ASSIGN WERKIN AN OPERASHUNAL FONE NUMBR 2 TEH AKOWNT **[HER](https://store.steampowered.com/phone/manage)** 2 BE USD BY TEH BOT. A FONE NUMBR IZ ABSOLUTELY REQUIRD, AS THAR IZ NOWAI 2 ADD 2FA WITHOUT IT.
+3. ENSURE URE NOT USIN 2FA YET 4 UR AKOWNT, IF U DO, DISABLE IT FURST.
+4. EXECUTE TEH `2fainit [Bot]` COMMAND, REPLACIN `[Bot]` WIF UR BOTS NAYM.
 
 ASSUMIN U GOT SUCCESFUL REPLY, TEH FOLLOWIN 2 THINGS HAS HAPPEND:
 
 - A NEW `<Bot>.maFile.PENDING` FILE WUZ GENERATD BY ASF IN UR `config` DIRECTORY.
 - SMS WUZ SENT FRUM STEAM 2 TEH FONE NUMBR U HAS ASSIGND 4 DA AKOWNT ABOOV.
 
-The authenticator details are not operational yet, however, you can review the generated file if you'd like to. If you want to be double safe, you can, for example, already write down the revocation code. The next steps will depend on your selected scenario.
+TEH AUTHENTICATOR DETAILS R NOT OPERASHUNAL YET, HOWEVR, U CAN REVIEW TEH GENERATD FILE IF UD LIEK 2. IF U WANTS 2 BE DOUBLE SAFE, U CAN, 4 EXAMPLE, ALREADY RITE DOWN TEH REVOCASHUN CODE. TEH NEXT STEPS WILL DEPEND ON UR SELECTD SCENARIO.
 
-### Standalone authenticator
+### STANDALONE AUTHENTICATOR
 
-If you want to use ASF as your main (or even only) authenticator, now you need to do the finalization step:
+IF U WANTS 2 USE ASF AS UR MAIN (OR EVEN ONLY) AUTHENTICATOR, NAO U NED 2 DO TEH FINALIZASHUN STEP:
 
-5. Execute the `2fafinalize [Bot] <ActivationCode>` command, replacing `[Bot]` with your bot's name and `<ActivationCode>` with the code you've received through SMS in the previous step.
+5. EXECUTE TEH `2fafinalize [Bot] <ActivationCode>` COMMAND, REPLACIN `[Bot]` WIF UR BOTS NAYM AN `<ActivationCode>` WIF TEH CODE UVE RECEIVD THRU SMS IN DA PREVIOUS STEP.
 
-### Joint authenticator
+### JOINT AUTHENTICATOR
 
-If you want to have the same authenticator in both ASF and the official Steam mobile app, now you need to do the next steps:
+IF U WANTS 2 HAS TEH SAME AUTHENTICATOR IN BOTH ASF AN TEH OFFISHUL STEAM MOBILE APP, NAO U NED 2 DO TEH NEXT STEPS:
 
-5. Ignore the SMS that you received after the previous step.
-6. Install the Steam mobile app if it's not installed yet, and open it. Navigate to the Steam Guard tab and add a new authenticator by following the app's instructions.
-7. After your authenticator in the mobile app is added and working, return to ASF. You now need to tell ASF that finalization is done with the help of one of the two commands below:
- - Wait until the next 2fa code is shown in the Steam mobile app, and use the command `2fafinalized [Bot] <2fa_code_from_app>` replacing `[Bot]` with your bot's name and `<2fa_code_from_app>` with the code you currently see in the Steam mobile app. If the code generated by ASF and the code you provided are the same, ASF assumes that an authenticator was added correctly and proceeds with importing your newly created authenticator.
- - We strongly recommend to do the above in order to ensure that your credentials are valid. However, if you don't want to (or can't) check if codes are the same and you know what you're doing, you can instead use the command `2fafinalizedforce [Bot]`, replacing `[Bot]` with your bot's name. ASF will assume that the authenticator was added correctly and proceed with importing your newly created authenticator.
+5. IGNORE TEH SMS DAT U RECEIVD AFTR TEH PREVIOUS STEP.
+6. INSTALL TEH STEAM MOBILE APP IF IZ NOT INSTALLD YET, AN OPEN IT. NAVIGATE 2 TEH STEAM GUARD TAB AN ADD NEW AUTHENTICATOR BY FOLLOWIN TEH APPS INSTRUCSHUNS.
+7. AFTR UR AUTHENTICATOR IN DA MOBILE APP IZ ADDD AN WERKIN, RETURN 2 ASF. U NAO NED 2 TELL ASF DAT FINALIZASHUN IZ DUN WIF TEH HALP OV WAN OV TEH 2 COMMANDZ BELOW:
+ - WAIT TIL TEH NEXT 2FA CODE IZ SHOWN IN DA STEAM MOBILE APP, AN USE TEH COMMAND `2fafinalized [Bot] <2fa_code_from_app>` REPLACIN `[Bot]` WIF UR BOTS NAYM AN `<2fa_code_from_app>` WIF TEH CODE U CURRENTLY C IN DA STEAM MOBILE APP. IF TEH CODE GENERATD BY ASF AN TEH CODE U PROVIDD R TEH SAME, ASF ASSUMEZ DAT AN AUTHENTICATOR WUZ ADDD RITE AN PROCEEDZ WIF IMPORTIN UR NEWLY CREATD AUTHENTICATOR.
+ - WE STRONGLY RECOMMEND 2 DO TEH ABOOV IN ORDR 2 ENSURE DAT UR CREDENTIALS R VALID. HOWEVR, IF U DOAN WANTS 2 (OR CANT) CHECK IF CODEZ R TEH SAME AN U KNOE WUT URE DOIN, U CAN INSTEAD USE TEH COMMAND `2fafinalizedforce [Bot]`, REPLACIN `[Bot]` WIF UR BOTS NAYM. ASF WILL ASSUME DAT TEH AUTHENTICATOR WUZ ADDD RITE AN PROCED WIF IMPORTIN UR NEWLY CREATD AUTHENTICATOR.
 
-### After finalization
+### AFTR FINALIZASHUN
 
-Assuming everything worked properly, the previously generated `<Bot>.maFile.PENDING` file was renamed to `<Bot>.maFile.NEW`. DIS INDICATEZ DAT UR 2FA CREDENTIALS R NAO VALID AN ACTIV. We recommend that you create a copy of that file and keep it in **a secure and safe location**. In addition to that, we recommend you open the file in your editor of choice and write down the `revocation_code`, which will allow you to, as the name implies, revoke the authenticator in case you lose it.
+ASSUMIN EVRYTHIN WERKD PROPERLY, TEH PREVIOUSLY GENERATD `<Bot>.maFile.PENDING` FILE WUZ RENAMD 2 `<Bot>.maFile.NEW`. DIS INDICATEZ DAT UR 2FA CREDENTIALS R NAO VALID AN ACTIV. WE RECOMMEND DAT U CREATE COPY OV DAT FILE AN KEEP IT IN **A SECURE AN SAFE LOCASHUN**. IN ADDISHUN 2 DAT, WE RECOMMEND U OPEN TEH FILE IN UR EDITOR OV CHOICE AN RITE DOWN TEH `revocation_code`, WHICH WILL ALLOW U 2, AS TEH NAYM IMPLIEZ, REVOKE TEH AUTHENTICATOR IN CASE U LOSE IT.
 
-In regard to technical details, the generated `maFile` includes all details that we have received from the Steam server during linking the authenticator, and in addition to that, the `device_id` field, which may be needed for other authenticators. The file is fully compatible with **[SDA](#steamdesktopauthenticator)** for import.
+IN REGARD 2 TECHNICAL DETAILS, TEH GENERATD `maFile` INCLUDEZ ALL DETAILS DAT WE HAS RECEIVD FRUM TEH STEAM SERVR DURIN LINKIN TEH AUTHENTICATOR, AN IN ADDISHUN 2 DAT, TEH `device_id` FIELD, WHICH CUD BE NEEDD 4 OTHR AUTHENTICATORS. TEH FILE IZ FULLY COMPATIBLE WIF **[SDA](#steamdesktopauthenticator)** 4 IMPORT.
 
-ASF automatically imports your authenticator once the procedure is done, and therefore `2fa` and other related commands should now be operational for the bot account you linked the authenticator to.
+ASF AUTOMATICALLY IMPORTS UR AUTHENTICATOR ONCE TEH PROCEDURE IZ DUN, AN THEREFORE `2fa` AN OTHR RELATD COMMANDZ SHUD NAO BE OPERASHUNAL 4 DA BOT AKOWNT U LINKD TEH AUTHENTICATOR 2.
 
 ---
 
 ## IMPORT
 
-IMPORT PROCES REQUIREZ ALREADY LINKD AN OPERASHUNAL AUTHENTICATOR DAT IZ SUPPORTD BY ASF. ASF CURRENTLY SUPPORTS FEW DIFFERENT OFFISHUL AN UNOFFISHUL SOURCEZ OV 2FA - ANDROID, IOS, STEAMDESKTOPAUTHENTICATOR AN WINAUTH, ON TOP OV MANUAL METHOD WHICH ALLOWS U 2 PROVIDE REQUIRD CREDENTIALS YOURSELF. IF U DOAN HAS ANY AUTHENTICATOR YET, U NED 2 CHOOSE WAN OV AVAILABLE APPS AN SET IT UP FIRSTLY. IF U DOAN KNOE BETTR WHICH WAN 2 PICK, WE RECOMMEND WINAUTH, BUT ANY OV TEH ABOOV WILL WERK FINE ASSUMIN U FOLLOW TEH INSTRUCSHUNS.
+IMPORT PROCES REQUIREZ ALREADY LINKD AN OPERASHUNAL AUTHENTICATOR DAT IZ SUPPORTD BY ASF. ASF CURRENTLY SUPPORTS FEW DIFFERENT OFFISHUL AN UNOFFISHUL SOURCEZ OV 2FA - ANDROID, IOS, SteamDesktopAuthenticator AN WinAuth, ON TOP OV MANUAL METHOD WHICH ALLOWS U 2 PROVIDE REQUIRD CREDENTIALS YOURSELF. IF U DOAN HAS ANY AUTHENTICATOR YET, U NED 2 CHOOSE WAN OV AVAILABLE APPS AN SET IT UP FIRSTLY. IF U DOAN KNOE BETTR WHICH WAN 2 PICK, WE RECOMMEND WinAuth, BUT ANY OV TEH ABOOV WILL WERK FINE ASSUMIN U FOLLOW TEH INSTRUCSHUNS.
 
 ALL FOLLOWIN GUIDEZ REQUIRE FRUM U 2 ALREADY HAS **WERKIN AN OPERASHUNAL** AUTHENTICATOR BEAN USD WIF GIVEN TOOL/APPLICASHUN. ASF 2FA WILL NOT OPERATE PROPERLY IF U IMPORT INVALID DATA, THEREFORE MAK SURE DAT UR AUTHENTICATOR WERKZ PROPERLY BEFORE ATTEMPTIN 2 IMPORT IT. DIS DOEZ INCLUDE TESTIN AN VERIFYIN DAT FOLLOWIN AUTHENTICATOR FUNCSHUNS WERK PROPERLY:
 - U CAN GENERATE TOKENS AN DOSE TOKENS R ACCEPTD BY STEAM NETWORK
@@ -94,7 +94,7 @@ ENSURE DAT UR AUTHENTICATOR WERKZ BY CHECKIN IF ABOOV ACSHUNS WERK - IF THEY DOA
 
 ### ANDROID FONE
 
-**The below instructions apply to Steam app in version `2.X`, there are currently limited **[resources](https://github.com/JustArchiNET/ArchiSteamFarm/discussions/2786)** on extracting required details from version `3.0` onwards. WELL UPDATE DIS SECSHUN ONCE GENERALLY-AVAILABLE METHOD IZ FINDZ. AS OV TODAI, WERKAROUND WUD BE 2 INTENSHUNALLY INSTALL OLDR VERSHUN OV STEAM APP, REGISTR 2FA AN EXTRACT TEH REQUIRD DETAILS FURST, AFTR WHICH IZ POSIBLE 2 UPDATE TEH APPLICASHUN 2 LATEST VERSHUN - EXISTIN AUTHENTICATOR WILL CONTINUE 2 WERK.**
+**TEH BELOW INSTRUCSHUNS APPLY 2 STEAM APP IN VERSHUN `2.X`, THAR R CURRENTLY LIMITD **[RESOURCEZ](https://github.com/JustArchiNET/ArchiSteamFarm/discussions/2786)** ON EXTRACTIN REQUIRD DETAILS FRUM VERSHUN `3.0` ONWARDZ. WELL UPDATE DIS SECSHUN ONCE GENERALLY-AVAILABLE METHOD IZ FINDZ. AS OV TODAI, WERKAROUND WUD BE 2 INTENSHUNALLY INSTALL OLDR VERSHUN OV STEAM APP, REGISTR 2FA AN EXTRACT TEH REQUIRD DETAILS FURST, AFTR WHICH IZ POSIBLE 2 UPDATE TEH APPLICASHUN 2 LATEST VERSHUN - EXISTIN AUTHENTICATOR WILL CONTINUE 2 WERK.**
 
 IN GENERAL 4 IMPORTIN AUTHENTICATOR FRUM UR ANDROID FONE U WILL NED  **[ROOT](https://en.wikipedia.org/wiki/Rooting_(Android_OS))** ACCES. ROOTIN VARIEZ FRUM DEVICE 2 DEVICE, SO I WONT TELL U HOW 2 ROOT UR DEVICE. VISIT **[XDA](https://www.xda-developers.com/root)** 4 AWSUM GUIDEZ ON HOW 2 DO DAT, AS WELL AS GENERAL INFORMASHUN ON ROOTIN IN GENERAL. IF U CANT FIND UR DEVICE OR TEH GUIDE DAT U NED, TRY 2 FIND IT ON GOOGLE SECOND.
 
@@ -106,9 +106,9 @@ ASSUMIN DAT UVE SUCCESFULLY ROOTD UR FONE, U SHUD AFTERWARDZ DOWNLOAD ANY ROOT E
 
 ONCE U OPEND UR ROOT EXPLORR, NAVIGATE 2 `/data/data` FOLDR. KEEP IN MIND DAT `/data/data` DIRECTORY IZ PROTECTD AN U WONT BE ABLE 2 ACCES IT WITHOUT ROOT ACCES. ONCE THAR, FIND `com.valvesoftware.android.steam.community` FOLDR AN COPY IT 2 UR `/sdcard`, WHICH POINTS 2 UR BUILT-IN INTERNAL STORAGE. AFTERWARDZ, U SHUD BE ABLE 2 PLUG UR FONE 2 UR PC AN COPY TEH FOLDR FRUM UR INTERNAL STORAGE LIEK USUAL. IF BY ANY CHANCE TEH FOLDR WONT BE VISIBLE DESPITE U BEAN SURE DAT U COPID IT 2 TEH RITE PLACE, TRY RESTARTIN UR FONE FURST.
 
-NAO, U CAN CHOOSE IF U WANTS 2 IMPORT UR AUTHENTICATOR 2 WINAUTH FURST, DEN 2 ASF, OR 2 ASF RITE AWAY. FURST OPSHUN IZ MOAR FRIENDLY AN ALLOWS U 2 DUPLICATE UR AUTHENTICATOR ALSO ON UR PC, ALLOWIN U 2 MAK CONFIRMASHUNS AN GENERATE TOKENS FRUM 3 DIFFERENT PLACEZ - UR FONE, UR PC AN ASF. IF U WANTS 2 DO DAT, SIMPLY OPEN WINAUTH, ADD NEW STEAM AUTHENTICATOR AN CHOOSE IMPORTIN FRUM ANDROID OPSHUN, DEN FOLLOW INSTRUCSHUNS BY ACCESIN TEH FILEZ DAT UVE OBTAIND ABOOV. WHEN DUN, U CAN DEN IMPORT DIS AUTHENTICATOR FRUM WINAUTH 2 ASF, WHICH IZ EXPLAIND IN DEDICATD WINAUTH SECSHUN BELOW.
+NAO, U CAN CHOOSE IF U WANTS 2 IMPORT UR AUTHENTICATOR 2 WinAuth FURST, DEN 2 ASF, OR 2 ASF RITE AWAY. FURST OPSHUN IZ MOAR FRIENDLY AN ALLOWS U 2 DUPLICATE UR AUTHENTICATOR ALSO ON UR PC, ALLOWIN U 2 MAK CONFIRMASHUNS AN GENERATE TOKENS FRUM 3 DIFFERENT PLACEZ - UR FONE, UR PC AN ASF. IF U WANTS 2 DO DAT, SIMPLY OPEN WinAuth, ADD NEW STEAM AUTHENTICATOR AN CHOOSE IMPORTIN FRUM ANDROID OPSHUN, DEN FOLLOW INSTRUCSHUNS BY ACCESIN TEH FILEZ DAT UVE OBTAIND ABOOV. WHEN DUN, U CAN DEN IMPORT DIS AUTHENTICATOR FRUM WINAUTH 2 ASF, WHICH IZ EXPLAIND IN DEDICATD WINAUTH SECSHUN BELOW.
 
-IF U DOAN WANTS 2 OR DOAN NED 2 GO THRU WINAUTH, DEN SIMPLY COPY `files/Steamguard-<SteamID>` FILE FRUM R PROTECTD DIRECTORY, WER `SteamID` IZ UR 64-BIT STEAM IDENTIFICATOR OV TEH AKOWNT DAT U WANTS 2 ADD (IF MOAR THAN WAN, CUZ IF U HAS ONLY WAN AKOWNT DEN DIS WILL BE TEH ONLY FILE). U NED 2 PLACE DAT FILE IN ASFS `config` DIRECTORY. ONCE U DO DAT, RENAME TEH FILE 2 `BotName.maFile`, WER `BotName` IZ TEH NAYM OV UR BOT URE ADDIN ASF 2FA 2. AFTR DIS STEP, LAUNCH ASF - IT SHUD NOTICE TEH `.maFile` AN IMPORT IT.
+IF U DOAN WANTS 2 OR DOAN NED 2 GO THRU WinAuth, DEN SIMPLY COPY `files/Steamguard-<SteamID>` FILE FRUM R PROTECTD DIRECTORY, WER `SteamID` IZ UR 64-BIT STEAM IDENTIFICATOR OV TEH AKOWNT DAT U WANTS 2 ADD (IF MOAR THAN WAN, CUZ IF U HAS ONLY WAN AKOWNT DEN DIS WILL BE TEH ONLY FILE). U NED 2 PLACE DAT FILE IN ASFS `config` DIRECTORY. ONCE U DO DAT, RENAME TEH FILE 2 `BotName.maFile`, WER `BotName` IZ TEH NAYM OV UR BOT URE ADDIN ASF 2FA 2. AFTR DIS STEP, LAUNCH ASF - IT SHUD NOTICE TEH `.maFile` AN IMPORT IT.
 
 ```text
 [*] INFO: ImportAuthenticator() <1> Converting .maFile into ASF format...
@@ -131,7 +131,7 @@ HEAD OVAR 2 **[LATEST RELEASE](https://github.com/CaitSith2/ios-steamguard-extra
 
 ---
 
-### STEAMDESKTOPAUTHENTICATOR
+### SteamDesktopAuthenticator
 
 IF U HAS UR AUTHENTICATOR RUNNIN IN SDA ALREADY, U SHUD NOTICE DAT THAR IZ `steamID.maFile` FILE AVAILABLE IN `maFiles` FOLDR. MAK SURE DAT `maFile` IZ IN UNENCRYPTD FORM, AS ASF CANT DECRYPT SDA FILEZ - UNENCRYPTD FILE CONTENT SHUD START WIF `{` AN END WIF `}` CHARACTR. IF NEEDD, U CAN REMOOV TEH ENCRYPSHUN FRUM SDA SETTINGS FURST, AN ENABLE IT AGAIN WHEN URE DUN. ONCE TEH FILE IZ IN UNENCRYPTD FORM, COPY IT 2 `config` DIRECTORY OV ASF.
 
@@ -148,7 +148,7 @@ FRUM NAO ON, UR ASF 2FA SHUD BE OPERASHUNAL 4 DIS AKOWNT.
 
 ---
 
-### WINAUTH
+### WinAuth
 
 FIRSTLY CREATE NEW EMPTY `BotName.maFile` IN ASF CONFIG DIRECTORY, WER `BotName` IZ TEH NAYM OV UR BOT URE ADDIN ASF 2FA 2. REMEMBR DAT IT SHUD BE `BotName.maFile` AN NOT `BotName.maFile.txt`, WINDOWS LIKEZ 2 HIDE KNOWN EXTENSHUNS BY DEFAULT. IF U PROVIDE INCORRECT NAYM, IT WONT BE PICKD BY ASF.
 

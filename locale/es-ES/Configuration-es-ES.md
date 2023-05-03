@@ -597,7 +597,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `5`. Esta propiedad de
 
 Por supuesto, los tipos que normalmente debes usar para esta propiedad solo incluyen `2`, `3`, `4` y `5`, ya que solo esos tipos son soportados por STM. ASF incluye la lógica adecuada para descubrir la rareza de los artículos, por lo tanto también es seguro para emparejar emoticonos o fondos de perfil, dado que ASF solo considerará como justos aquellos artículos del mismo juego y tipo, que también compartan la misma rareza.
 
-Por favor, ten en cuenta que **ASF no es un bot de intercambio** y **NO le importará el precio del mercado**. Si no consideras que los artículos de la misma rareza y del mismo set son iguales en cuanto a precio, entonces esta opción NO es para ti. Por favor, considera detenidamente si entiendes y estás de acuerdo con esta declaración antes de decidir cambiar esta configuración.
+Ten en cuenta que **ASF no es un bot de intercambio** y **NO le importará el precio del mercado**. Si no consideras que los artículos de la misma rareza y del mismo set son iguales en cuanto a precio, entonces esta opción NO es para ti. Considera detenidamente si entiendes y estás de acuerdo con esta declaración antes de decidir cambiar esta configuración.
 
 A menos que sepas lo que haces, deberías dejarlo con el valor predeterminado de `5`.
 
@@ -615,7 +615,7 @@ Tipo `ushort flags` con valor predeterminado de `0`. Esta propiedad funciona com
 | 1024  | ClientTypeTenfoot | El cliente está usando Big Picture                  |
 | 2048  | ClientTypeVR      | El cliente está usando un casco de realidad virtual |
 
-Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 El tipo `EPersonaStateFlag` subyacente en el que se basa esta propiedad incluye más banderas disponibles, sin embargo, hasta donde sabemos no tienen ningún efecto actualmente, por lo que fueron omitidas.
 
