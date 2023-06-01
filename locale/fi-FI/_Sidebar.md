@@ -42,7 +42,7 @@
 * **[💾Alhaisen muistilla valmistaminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[🔌 Laajennukset](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[🔐 Turvallisuus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[🧩 SteamTokenDumperLaajennus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
+* **[🧩 SteamTokenDumperPlugin -laajennus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[📦 Kolmannes osapuoli](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
 * **[📵 Kaksivaiheinen tunnistautuminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
