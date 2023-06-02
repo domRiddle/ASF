@@ -8,7 +8,7 @@
 
 公共列表，顾名思义，是列出当前可用 ASF STM 机器人的列表。 它位于[**我们的网站**](https://asf.justarchi.net/STM)，它是一项面向启用 `MatchActively` 的 ASF 用户的全自动公开服务，同时也供 ASF 用户与非 ASF 用户进行手动匹配。
 
-要出现在列表中，您需要满足一系列需求。 最低要求是在 `RemoteCommunication` 中允许 `PublicListing`（默认设置）、在 `TradingPreferences` 中启用 `SteamTradeMatcher`、[**公开库存**](https://steamcommunity.com/my/edit/settings)、帐户[**不受限**](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)，并且启用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN#asf-两步验证)**。 很自然地，您还必须拥有至少一个符合您设定的 `MatchableTypes` 的物品，例如集换式卡牌。 In addition to that, bots with more than `500000` items are not accepted due to excessive overhead, we recommend to split your inventory across several accounts in this case.
+要出现在列表中，您需要满足一系列需求。 最低要求是在 `RemoteCommunication` 中允许 `PublicListing`（默认设置）、在 `TradingPreferences` 中启用 `SteamTradeMatcher`、[**公开库存**](https://steamcommunity.com/my/edit/settings)、帐户[**不受限**](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)，并且启用 **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-CN#asf-两步验证)**。 很自然地，您还必须拥有至少一个符合您设定的 `MatchableTypes` 的物品，例如集换式卡牌。 除此之外，由于开销过大，我们不接受拥有超过 `500000`  件物品的机器人，我们建议在这种情况下将库存分散到多个帐户下。
 
 尽管 `PublicListing` 默认启用，但请注意，如果您没有满足所有要求，特别是默认禁用的 `SteamTradeMatcher`，您将**不会**被显示在网站上。 对于未满足要求的用户，即使他们保持 `PublicListing` 启用，ASF 也不会以任何方式与服务器通信。 公开列表也仅与最新稳定版本的 ASF 兼容，并且可能拒绝显示过时的机器人，特别是如果它们缺少只能在较新版本中找到的核心功能。
 
@@ -56,7 +56,7 @@ ASF STM 列表暂时只接受 ASF 机器人。 目前无法在我们的列表中
 
 在匹配期间，ASF 机器人会拉取自己的库存，然后与我们的服务器通信，以找到与当前可用的其他机器人所有可能的 `MatchableTypes` 匹配。 由于是直接与我们的服务器通信，此过程只需要一次请求，就可以立即知道是否有可用机器人提供了我们感兴趣的物品——如果找到匹配，ASF 将会自动发送和确认交易报价。
 
-这一模块应该是透明的。 匹配过程会在 ASF 启动后大约 `1` 小时后开始，并且每 `6` 小时重复一次（如果有需要）。 `MatchActively` 功能旨在作为一种长期的周期性措施，确保我们向集齐卡牌套组的方向前进，但是，没有 24/7 运行 ASF 的用户也可以考虑使用 `match` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 此模块的目标用户是主帐户和用于存储的子帐户，但也可以用于任何没有设置 `MatchEverything` 的机器人。 In addition to that, bots with more than `500000` items are not accepted for matching due to excessive overhead, we recommend to split your inventory across several accounts in this case.
+这一模块应该是透明的。 匹配过程会在 ASF 启动后大约 `1` 小时后开始，并且每 `6` 小时重复一次（如果有需要）。 `MatchActively` 功能旨在作为一种长期的周期性措施，确保我们向集齐卡牌套组的方向前进，但是，没有 24/7 运行 ASF 的用户也可以考虑使用 `match` **[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-CN)**。 此模块的目标用户是主帐户和用于存储的子帐户，但也可以用于任何没有设置 `MatchEverything` 的机器人。 除此之外，由于开销过大，我们不接受匹配拥有超过 `500000`  件物品的机器人，我们建议在这种情况下将库存分散到多个帐户下。
 
 ASF 会尽力减少由此选项带来的请求和压力，同时将匹配的效率提升至极限。 用于匹配机器人以及组织整个流程的算法是 ASF 的实现细节，可能会根据用户反馈、具体情况和未来的想法进行更改。
 
@@ -74,7 +74,7 @@ ASF 是并且现在仍然是免费、开放源代码的，一如在 2015 年 10 
 
 在 2022 年 10 月以前的很长一段时间里，`MatchActively` 功能都是 ASF 核心的一部分，供所有人使用。 在 2022 年 10 月，Steam 背后的公司 Valve 对拉取其他机器人的库存实施了非常严格的速率限制，使之前的功能几乎完全失效，没有可能的办法解决该问题。 因此，由于此功能已经完全失效并且无法修复的事实，自 5.4.1.0 版本起，因为已经过时，它必须从 ASF 核心功能中删除。
 
-`MatchActively` 以官方 `ItemsMatcher` 插件的形式复活，使 ASF 仍然有能力进行主动卡片匹配。 复活的 `MatchActively` 功能需要我们在 ASF 后端进行**巨量的工作**，包括全新的托管服务器和上百个用于解析库存的代理，一切都专门用来让 ASF 客户端能像以前一样使用 `MatchActively`。 由于涉及的工作量非常大，并且相关资源（域名、服务器、代理）并非免费，而是需要我们每月付费，我们决定仅将此功能提供给我们的赞助者，也就是已经每月支持 ASF 项目的人，没有他们的支持，我们就无法提供这些付费资源。
+`MatchActively` 以官方 `ItemsMatcher` 插件的形式复活，使 ASF 仍然有能力进行主动卡牌匹配。 复活的 `MatchActively` 功能需要我们在 ASF 后端进行**巨量的工作**，包括全新的托管服务器和上百个用于解析库存的代理，一切都专门用来让 ASF 客户端能像以前一样使用 `MatchActively`。 由于涉及的工作量非常大，并且相关资源（域名、服务器、代理）并非免费，而是需要我们每月付费，我们决定仅将此功能提供给我们的赞助者，也就是已经每月支持 ASF 项目的人，没有他们的支持，我们就无法提供这些付费资源。
 
 我们的目标不是从中获益，而是为了能负担起专门提供这一选项所带来的**月度费用**——因此我们基本上无条件提供功能，但确实必须从中收取一些费用，因为我们不可能仅仅为了此功能可以正常运行就每月自掏腰包支付数百美元。 我们也没有资格讨价还价，这部分成本是 Valve 强加给我们的，如果您出于任何原因决定不能在上述条件下使用我们的插件，那么当然可以完全不使用此功能。
 
