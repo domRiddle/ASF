@@ -8,7 +8,7 @@
 
 顧名思義，公開名單是當前可供使用的ASF STM Bot的名單。 它&#8203;**[位於我們的網站上](https://asf.justarchi.net/STM)**&#8203;進行自動管理，並作為一項公共服務，提供使用&#8203;`MatchActively`&#8203;的ASF使用者及手動匹配的ASF與非ASF使用者使用。
 
-為了要被列在名單中，您需要滿足一系列的需求。 您必須至少在&#8203;`RemoteCommunication`&#8203;中允許&#8203;`PublicListing`&#8203;（預設設定）、在&#8203;`TradingPreferences`&#8203;中啟用&#8203;`SteamTradeMatcher`&#8203;、設定成&#8203;**[公開物品庫](https://steamcommunity.com/my/edit/settings)**&#8203;的隱私設定、&#8203;**[不受限制的](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**&#8203;帳號，且啟用了&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW#asf-雙重驗證)**&#8203;。 當然，您需要至少擁有一件符合&#8203;`MatchableTypes`&#8203;的物品，例如交換卡片。 In addition to that, bots with more than `500000` items are not accepted due to excessive overhead, we recommend to split your inventory across several accounts in this case.
+為了要被列在名單中，您需要滿足一系列的需求。 您必須至少在&#8203;`RemoteCommunication`&#8203;中允許&#8203;`PublicListing`&#8203;（預設設定）、在&#8203;`TradingPreferences`&#8203;中啟用&#8203;`SteamTradeMatcher`&#8203;、設定成&#8203;**[公開物品庫](https://steamcommunity.com/my/edit/settings)**&#8203;的隱私設定、&#8203;**[不受限制的](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)**&#8203;帳號，且啟用了&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW#asf-雙重驗證)**&#8203;。 當然，您需要至少擁有一件符合&#8203;`MatchableTypes`&#8203;的物品，例如交換卡片。 除此之外，由於會造成負擔過重，我們不接受擁有超過&#8203;`500000`&#8203;物品的Bot。我們建議您在這種情形下，將您的物品庫拆分至數個帳號中。
 
 雖然&#8203;`PublicListing`&#8203;預設為啟用，但請注意，如果您沒有滿足所有要求，您將&#8203;**不會**&#8203;被顯示在網站上，特別是要注意&#8203;`SteamTradeMatcher`&#8203;，它在預設情形下並未啟用。 對於不滿足條件的人，即使他們保持啟用&#8203;`PublicListing`&#8203;，ASF也不會以任何方式與伺服器通訊。 公開名單也只會與ASF最新的穩定版相容，並可能拒絕顯示過時的Bot，特別是如果它們缺少只能在新版本中找到的核心功能。
 
@@ -56,7 +56,7 @@ ASF STM名單暫時只接受ASF Bot。 目前無法在我們的名單中顯示�
 
 在匹配期間，ASF Bot將會提取自己的物品庫，然後與我們的伺服器通訊，來從其他當前可用的Bot中找到所有可能的&#8203;`MatchableTypes`&#8203;匹配。 由於直接與我們的伺服器通訊，這個過程只需一個請求，我們就可以立即了解是否有任何可用的Bot能夠提供我們感興趣的東西⸺如果找到匹配物品，ASF將自動發送並確認交易提案。
 
-本模組是透明的。 匹配將在ASF啟動後約&#8203;`1`&#8203;個小時後開始，並且每&#8203;`8`&#8203;個小時重複一次（如果需要）。 `MatchActively`&#8203;功能旨在作為一種長期的、定期的措施，用來確保我們積極朝著收集完整套的目標邁進。不過不是24小時都在執行ASF的使用者，也可以考慮使用&#8203;`match`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;。 這個模組的目標使用者是主要帳號及「用於存放物品的」備用帳號，但亦可被任何未設定成&#8203;`MatchEverything`&#8203;的Bot使用。 In addition to that, bots with more than `500000` items are not accepted for matching due to excessive overhead, we recommend to split your inventory across several accounts in this case.
+本模組是透明的。 匹配將在ASF啟動後約&#8203;`1`&#8203;個小時後開始，並且每&#8203;`8`&#8203;個小時重複一次（如果需要）。 `MatchActively`&#8203;功能旨在作為一種長期的、定期的措施，用來確保我們積極朝著收集完整套的目標邁進。不過不是24小時都在執行ASF的使用者，也可以考慮使用&#8203;`match`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;。 這個模組的目標使用者是主要帳號及「用於存放物品的」備用帳號，但亦可被任何未設定成&#8203;`MatchEverything`&#8203;的Bot使用。 除此之外，由於會造成負擔過重，我們不接受擁有超過&#8203;`500000`&#8203;物品的Bot進行匹配。我們建議您在這種情形下，將您的物品庫拆分至數個帳號中。
 
 ASF會盡力將使用該選項產生的請求量及壓力降至最低，同時盡可能提高匹配效率。 匹配Bot及組織整個流程的演算法是ASF的實作細節，並且可以依據回饋、實際情形及未來的想法而改變。
 
