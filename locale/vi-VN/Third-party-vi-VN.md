@@ -1,6 +1,6 @@
 # Bên thứ ba
 
-Mục này chứa một vài phần mở rộng của bên thứ ba được viết dành riêng (hoặc hầu hết) dành cho việc hoạt động cùng ASF. They range from ASF plugins, through simple web applications and internal libraries for integration, ending with fully-featured bots for other platforms. If you'd like to add something to the list, let us know on Discord or on our Steam group.
+Mục này chứa một vài phần mở rộng của bên thứ ba được viết dành riêng (hoặc hầu hết) dành cho việc hoạt động cùng ASF. Chúng bao gồm từ các trình cắm ASF, thông qua các ứng dụng web đơn giản và thư viện nội bộ để tích hợp, đến các bot đầy đủ tính năng cho các nền tảng khác. Nếu bạn muốn thêm thứ gì đó vào danh sách, hãy cho chúng tôi biết trên Discord hoặc trên nhóm Steam của chúng tôi.
 
 Please note that below programs are **not** maintained by ASF developers and therefore **we give no guarantee about any of them**, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only. You should always ensure that the third-party utility you're about to use is safe and legit enough for you, as you're using all of them at your own risk.
 
