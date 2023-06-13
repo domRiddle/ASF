@@ -2,7 +2,7 @@
 
 Mục này chứa một vài phần mở rộng của bên thứ ba được viết dành riêng (hoặc hầu hết) dành cho việc hoạt động cùng ASF. Chúng bao gồm từ các trình cắm ASF, thông qua các ứng dụng web đơn giản và thư viện nội bộ để tích hợp, đến các bot đầy đủ tính năng cho các nền tảng khác. Nếu bạn muốn thêm thứ gì đó vào danh sách, hãy cho chúng tôi biết trên Discord hoặc trên nhóm Steam của chúng tôi.
 
-Please note that below programs are **not** maintained by ASF developers and therefore **we give no guarantee about any of them**, especially in terms of security, safety or Steam ToS compliance. This list is maintained for reference only. You should always ensure that the third-party utility you're about to use is safe and legit enough for you, as you're using all of them at your own risk.
+Xin lưu ý rằng các chương trình bên dưới **không** được duy trì bởi các nhà phát triển ASF và do đó **chúng tôi không đảm bảo về bất kỳ chương trình nào**, đặc biệt là về bảo mật, an toàn hoặc tuân thủ Điều khoản Dịch vụ Steam. Danh sách này được duy trì chỉ để tham khảo. Bạn phải luôn đảm bảo rằng tiện ích của bên thứ ba mà bạn sắp sử dụng đủ an toàn và hợp pháp đối với bạn, vì bạn đang tự chịu rủi ro khi sử dụng tất cả các tiện ích đó.
 
 ---
 
@@ -10,13 +10,13 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
-- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin for ASF adding functionality of creating booster packs.
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin for ASF to make bot names case-insensitive.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin for ASF to re-implement key redeeming without a command.
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin for ASF to automatically accept trade request for certain type(s) of items.
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
+- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, phần bổ trợ dành cho ASF cho phép bạn quản lý thành tựu Steam.
+- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, phần bổ trợ dành cho ASF để nhận lời chúc mừng sinh nhật.
+- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, phần bổ trợ dành cho ASF bổ sung chức năng tạo các gói bổ sung.
+- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, phần bổ trợ dành cho ASF để đặt tên bot không phân biệt chữ hoa chữ thường.
+- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, phần bổ trợ dành cho ASF để triển khai lại việc kích hoạt mã mà không cần lệnh.
+- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, phần bổ trợ để ASF tự động chấp nhận yêu cầu trao đổi đối với (các) loại mặt hàng nhất định.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, phần bổ trợ dành cho ASF cung cấp lệnh `transfer` nâng cao để chuyển các vật phẩm trên Steam.
 
 ### **[Vita](https://github.com/ezhevita)**
 
