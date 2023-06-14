@@ -35,7 +35,7 @@
 ## 集成
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**，用 Python 编写的，集成 ASF 功能的 Telegram 机器人。
-- **[ASF STM 用户脚本](https://greasyfork.org/zh-CN/scripts/404754-asf-stm)**，使您可以通过浏览器自动向我们的 [**ASF STM 列表**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#公共-asf-stm-列表)内的机器人发送交易报价，而无需使用 ASF 提供的 `MatchActively` 功能。
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** through web browser, without using `MatchActively` feature provided by ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**，另一个用 Python 编写的集成 ASF 最基本功能的 Telegram 机器人。
 
 ---

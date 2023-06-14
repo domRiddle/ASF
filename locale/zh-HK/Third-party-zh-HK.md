@@ -35,7 +35,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 ## 集成
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, 以Python 編寫、集成ASF功能的Telegram 機械人。
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** through web browser, without using `MatchActively` feature provided by ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, 另一個以Python 編寫、集成ASF基礎功能的(迷你）Telegram 機械人。
 
 ---

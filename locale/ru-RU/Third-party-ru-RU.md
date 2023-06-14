@@ -35,7 +35,7 @@
 ## Интеграции
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, бот для telegram, написанный на python и интегрированный с ASF.
-- **[ASF STM](https://greasyfork.org/en/scripts/404754-asf-stm)** - userscript для тех, кто хочет отправлять автоматизированные торговые предложения ботам в нашем **[листинге ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** через веб-браузер без использования функции `MatchActively`, предоставляемой ASF.
+- **[ASF STM](https://greasyfork.org/en/scripts/404754-asf-stm)** - userscript для тех, кто хочет отправлять автоматизированные торговые предложения ботам в нашем **[листинге ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** через веб-браузер без использования функции `MatchActively`, предоставляемой ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, другой (минималистичный) бот для telegram, написанный на python и интегрированный с ASF.
 
 ---

@@ -35,7 +35,7 @@ Vezměte prosím na vědomí, že níže uvedené programy nejsou **** udržová
 ## Integrace
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot napsaný v pythonu s integrací ASF.
-- **[ASF STM uživatelé](https://greasyfork.org/en/scripts/404754-asf-stm)**, pro ty, kteří chtějí prostřednictvím webového prohlížeče posílat botům nabídky automatizovaného obchodu na našem **[seznamu aplikací STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** bez použití `MatchActively` funkce poskytované ASF.
+- **[ASF STM uživatelé](https://greasyfork.org/en/scripts/404754-asf-stm)**, pro ty, kteří chtějí prostřednictvím webového prohlížeče posílat botům nabídky automatizovaného obchodu na našem **[seznamu aplikací STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** bez použití `MatchActively` funkce poskytované ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, další (minimální) telegram bot napsaný v pythonu s funkcí ASF integrace.
 
 ---

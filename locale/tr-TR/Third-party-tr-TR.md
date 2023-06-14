@@ -35,7 +35,7 @@ Lütfen aşağıdaki programların ASF geliştiricileri tarafından **sağlanmad
 ## Entegrasyonlar
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, ASF entegrasyonu için Python programlama dili ile yazılmış Telegram botudur.
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, ASF tarafından sağlanan ` MatchActively` özelliğini kullanmadan **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** listesindeki botlara web tarayıcısı üzerinden otomatik takas teklifleri göndermek isteyenler için hazırlanmış userscript.
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, ASF tarafından sağlanan ` MatchActively` özelliğini kullanmadan **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** listesindeki botlara web tarayıcısı üzerinden otomatik takas teklifleri göndermek isteyenler için hazırlanmış userscript.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, ASF entegrasyonuna sahip, Python programlama dili ile yazılmış başka bir (asgari özelliğe sahip) Telegram botudur.
 
 ---

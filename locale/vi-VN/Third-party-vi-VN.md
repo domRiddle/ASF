@@ -20,23 +20,23 @@ Xin lưu ý rằng các chương trình bên dưới **không** được duy tr�
 
 ### **[Vita](https://github.com/ezhevita)**
 
-- **[FriendAccepter](https://github.com/ezhevita/FriendAccepter)**, plugin for ASF to automatically accept all friend invites.
-- **[GameRemover](https://github.com/ezhevita/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
-- **[GetEmail](https://github.com/ezhevita/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
-- **[ResetAPIKey](https://github.com/ezhevita/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
-- **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, plugin for ASF allowing proxifying WebSocket connections.
+- **[FriendAccepter](https://github.com/ezhevita/FriendAccepter)**, phần bổ trợ để ASF tự động chấp nhận tất cả lời mời kết bạn.
+- **[GameRemover](https://github.com/ezhevita/GameRemover)**, phần bổ trợ dành cho ASF triển khai lệnh xoá giấy phép Steam đối với các phiên bản bot đã chọn.
+- **[GetEmail](https://github.com/ezhevita/GetEmail)**, phần bổ trợ dành cho ASF triển khai lệnh tìm nạp địa chỉ thư điện tử của các phiên bản bot nhất định trực tiếp từ Steam.
+- **[ResetAPIKey](https://github.com/ezhevita/ResetAPIKey)**, phần bổ trợ dành cho ASF triển khai lệnh đặt lại mã API cho các phiên bản bot đã chọn.
+- **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, phần bổ trợ dành cho ASF cho phép các kết nối WebSocket dùng proxy.
 
 ### Khác
 
-- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, phần bổ trợ cho ASF nâng cao nó với nhiều tính năng mới, đặc biệt là các lệnh.
 
 ---
 
-## Integrations
+## Tích hợp
 
-- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot written in python with ASF integration.
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** through web browser, without using `MatchActively` feature provided by ASF.
-- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, another (minimal) telegram bot written in python featuring ASF integration.
+- **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot telegram được viết bằng python có tích hợp ASF.
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** through web browser, without using `MatchActively` feature provided by ASF.
+- **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, một bot telegram (tối giản) khác được viết bằng python có tích hợp ASF.
 
 ---
 

@@ -35,7 +35,7 @@ PLZ NOWT DAT BELOW PROGRAMS R **NOT** MAINTAIND BY ASF DEVELOPERS AN THEREFORE *
 ## INTEGRASHUNS
 
 - **[ASFBOT](https://github.com/dmcallejo/ASFBot)**, TELEGRAM BOT WRITTEN IN PYTHON WIF ASF INTEGRASHUN.
-- **[ASF STM USERSCRIPT](https://greasyfork.org/en/scripts/404754-asf-stm)**, 4 DOSE HOO WANTS 2 SEND AUTOMATD TRADE OFFERS 2 BOTS ON R **[ASF STM LISTIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** THRU WEB BROWSR, WITHOUT USIN `MatchActively` FEACHUR PROVIDD BY ASF.
+- **[ASF STM USERSCRIPT](https://greasyfork.org/en/scripts/404754-asf-stm)**, 4 DOSE HOO WANTS 2 SEND AUTOMATD TRADE OFFERS 2 BOTS ON R **[ASF STM LISTIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** THRU WEB BROWSR, WITHOUT USIN `MatchActively` FEACHUR PROVIDD BY ASF.
 - **[TELEGRAM-ASF](https://github.com/deluxghost/telegram-asf)**, ANOTHR (MINIMAL) TELEGRAM BOT WRITTEN IN PYTHON FEATURIN ASF INTEGRASHUN.
 
 ---

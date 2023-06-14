@@ -35,7 +35,7 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 ## Integrationen
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, ein in Python geschriebener Telegramm-Bot zur ASF-Integration.
-- **[ASF STM Skript](https://greasyfork.org/en/scripts/404754-asf-stm)**, für diejenigen, die automatisierte Handelsangebote an Bots in unsere **[ASF STM Liste](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** über Webbrowser versenden möchten, ohne die `MatchActively` Funktion von ASF zu verwenden.
+- **[ASF STM Skript](https://greasyfork.org/en/scripts/404754-asf-stm)**, für diejenigen, die automatisierte Handelsangebote an Bots in unsere **[ASF STM Liste](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** über Webbrowser versenden möchten, ohne die `MatchActively` Funktion von ASF zu verwenden.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, ein weiterer (minimaler) in Python geschriebener Telegramm-Bot zur ASF-Integration.
 
 ---

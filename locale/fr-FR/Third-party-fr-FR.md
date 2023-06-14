@@ -35,7 +35,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 ## Integrations
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot télégramme écrit en python avec l’intégration de ASF.
-- **[Script utilisateur ASF STM](https://greasyfork.org/en/scripts/404754-asf-stm)**, pour ceux qui veulent envoyer des offres d'échange automatisées aux bots sur notre liste **[ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** via le navigateur Web, sans utiliser la fonction `MatchActively` fournie par ASF.
+- **[Script utilisateur ASF STM](https://greasyfork.org/en/scripts/404754-asf-stm)**, pour ceux qui veulent envoyer des offres d'échange automatisées aux bots sur notre liste **[ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** via le navigateur Web, sans utiliser la fonction `MatchActively` fournie par ASF.
 - **[télégramme-asf](https://github.com/deluxghost/telegram-asf)**, un autre bot de télégramme (minime), écrit en python avec l’intégration de ASF.
 
 ---

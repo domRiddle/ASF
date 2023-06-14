@@ -35,7 +35,7 @@
 ## Ενσωματώσεις
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, telegram bot γραμμένο σε python με ενσωμάτωση ASF.
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, για όσους θέλουν να στείλουν προσφορές αυτοματοποιημένων συναλλαγών σε bots στη δικιά μας **[ASF STM λίστα](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication#public-asf-stm-listing)** μέσω web browser, χωρίς να χρησιμοποιήσετε τη λειτουργία `MatchActively` που παρέχεται από ASF.
+- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, για όσους θέλουν να στείλουν προσφορές αυτοματοποιημένων συναλλαγών σε bots στη δικιά μας **[ASF STM λίστα](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** μέσω web browser, χωρίς να χρησιμοποιήσετε τη λειτουργία `MatchActively` που παρέχεται από ASF.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, ακόμα ένα (βασικό) bot telegram γραμμένο σε python για την ενσωμάτωση του ASF.
 
 ---
