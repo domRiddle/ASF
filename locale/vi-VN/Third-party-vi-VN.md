@@ -35,34 +35,34 @@ Xin lưu ý rằng các chương trình bên dưới **không** được duy tr�
 ## Tích hợp
 
 - **[ASFBot](https://github.com/dmcallejo/ASFBot)**, bot telegram được viết bằng python có tích hợp ASF.
-- **[ASF STM userscript](https://greasyfork.org/en/scripts/404754-asf-stm)**, for those who want to send automated trade offers to bots on our **[ASF STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** through web browser, without using `MatchActively` feature provided by ASF.
+- **[ASF STM userscript](https://greasyfork.org/vi/scripts/404754-asf-stm)**, dành cho những người muốn gửi đề nghị giao dịch tự động tới bot trên **[danh sách ASF STM](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-vi-VN#publiclisting)** của chúng tôi thông qua trình duyệt web mà không sử dụng tính năng `MatchActively` do ASF cung cấp.
 - **[telegram-asf](https://github.com/deluxghost/telegram-asf)**, một bot telegram (tối giản) khác được viết bằng python có tích hợp ASF.
 
 ---
 
-## Libraries
+## Thư viện
 
-- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, python library for further integration with ASF's IPC interface.
-
----
-
-## Packaging
-
-- **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
-- **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, allowing you to easily install ASF on arch linux.
-- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, allowing you to easily install ASF on macOS.
-- **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, allowing you to easily install ASF on distros with Nix.
-- **[NixOS](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, allowing you to configure and install ASF with NixOS.
+- **[ASF-IPC](https://github.com/deluxghost/ASF_IPC)**, thư viện python để tích hợp thêm với giao diện IPC của ASF.
 
 ---
 
-## Tools
+## Đóng gói
 
-- **[Keys extractor](https://ske.xpixv.com)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
-- **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, which allows to manage multiple ASF configs more easily.
+- **[Kho AUR #1](https://aur.archlinux.org/packages/asf)**, cho phép bạn dễ dàng cài đặt ASF trên arch linux.
+- **[Kho AUR #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, cho phép bạn dễ dàng cài đặt ASF trên arch linux.
+- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, cho phép bạn dễ dàng cài đặt ASF trên macOS.
+- **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, cho phép bạn dễ dàng cài đặt ASF trên các bản phân phối với Nix.
+- **[NixOS](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, cho phép bạn định cấu hình và cài đặt ASF với NixOS.
 
 ---
 
-## Want to find more?
+## Công cụ
 
-We recommend **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** topic on GitHub for all projects that integrate with ASF.
+- **[Trình trích mã](https://ske.xpixv.com)**, cho phép bạn sao-dán mã ở nhiều định dạng khác nhau và tạo lệnh `redeem` cho ASF. Kiểm tra **[kho GitHub](https://github.com/PixvIO/SKE)** để biết thêm chi tiết.
+- **[Trình biên tập Cấu hình ASF Hàng loạt](https://github.com/genesix-eu/ASF_MCE)**, cho phép quản lý nhiều cấu hình ASF dễ dàng hơn.
+
+---
+
+## Bạn muốn tìm thêm?
+
+Chúng tôi đề xuất chủ đề **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)** trên GitHub cho tất cả các dự án tích hợp với ASF.
