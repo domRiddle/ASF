@@ -25,7 +25,7 @@ ASF 2FA 是为 ASF 进程提供 2FA 特性支持的内部模块，包括生成�
 - 如果您已经在使用 SteamDesktopAuthenticator、WinAuth 或其他任何可以方便导出 2FA 信息的第三方应用，则只需[**导入**](#导入)到 ASF。
 - 如果您正在使用官方应用，并且不在意是否重置 2FA 凭据，则最好的方式是禁用 2FA，然后通过[**联合身份验证器**](#联合身份验证器)来[**创建**](#创建)新的 2FA 凭据，这将允许您同时使用官方应用和 ASF 2FA。 此方法不需要 root 或进阶知识，只需要按指示操作。
 - 如果您正在使用官方应用，并且不想重新创建您的 2FA 凭据，则您的选项是非常有限的，通常您需要 root 环境，以及一些额外操作来[**导入**](#导入)信息，甚至某些情况下是完全不可能做到的。
-- 如果您还没有使用 2FA，并且不在意由什么应用管理，则可以用[**独立身份验证器**](#独立身份验证器)来管理 ASF 2FA，或将第三方应用[**导入**](#导入)到 ASF，或将[**联合身份验证器**](#联合身份验证器)与官方应用结合起来使用。
+- If you're not using 2FA yet and don't care, you can use ASF 2FA with **[standalone authenticator](#standalone-authenticator)**, third-party app **[duplicating](#import)** to ASF (recommendation #1), or **[joint authenticator](#joint-authenticator)** with official app (recommendation #2).
 
 我们将在下面讨论所有可能的选项和已知的方法。
 

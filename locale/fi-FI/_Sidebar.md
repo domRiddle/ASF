@@ -49,7 +49,7 @@
 
 ## 👷 Kehittäjille
 
-* **[🏗️ Kääntäminen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
-* **[🤝 Osallistumisen ohjeet](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
+* **[🏗️ Kompilaatio](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
+* **[🤝 Osallistumisohjeet](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**
 * **[⚖️ Lisenssi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/License)**
 * **[🏭 Julkaisukierto](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle)**

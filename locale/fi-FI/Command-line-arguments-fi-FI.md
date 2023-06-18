@@ -1,14 +1,14 @@
-# Komentoriviltä syötettävät komennot
+# Komentoriviargumentit
 
-ASF includes support for several command-line arguments that can affect the program runtime. Those can be used by advanced users in order to specify how program should run. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF sisältää tuen useille komentoriviparametreille, jotka voivat vaikuttaa ohjelman suoritusaikaan. Kokeneet käyttäjät voivat käyttää niitä ohjelman toiminnan määrittämiseen. Verrattuna oletustapaan `ASF.json` konfiguraatiotiedoston, komentorivin argumentteja käytetään ydinalustukseen (esim. `--path`), alustakohtaiset asetukset (esim. `--system-required`) tai arkaluonteiset tiedot (esim. `--cryptkey`).
 
 ---
 
 ## Käyttö
 
-Usage depends on your OS and ASF flavour.
+Käyttö riippuu käyttöjärjestelmästäsi ja ASF-maustasi.
 
-Generic:
+Yleiset:
 
 ```shell
 dotnet ArchiSteamFarm.dll --argument --otherOne
@@ -26,23 +26,23 @@ Linux/macOS:
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Command-line arguments are also supported in generic helper scripts such as `ArchiSteamFarm.cmd` or `ArchiSteamFarm.sh`. In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
+Komentoriviargumentteja tuetaan myös yleisissä apuohjelmissa, kuten `ArchiSteamFarm.cmd` tai `ArchiSteamFarm.sh`. Tämän lisäksi voit kanssa käyttää `ASF_ARGS` ympäristöominaisuutta, kuten meidän **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** ja **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** osiossa.
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+Jos argumentissasi on välilyöntejä, älä unohda lainata sitä. Nuo kaksi olevat väärässä:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
 ./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
 ```
 
-However, those two are completely fine:
+Nämä kaksi ovat kuitenkin hyviä:
 
 ```shell
 ./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
 ./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
 ```
 
-## Arguments
+## Argumentit
 
 `--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
 

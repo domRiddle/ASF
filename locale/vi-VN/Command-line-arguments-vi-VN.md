@@ -1,14 +1,14 @@
 # Lệnh khởi chạy
 
-ASF bao gồm hỗ trợ cho một số đối số dòng lệnh có thể ảnh hưởng đến runtime của chương trình. Those can be used by advanced users in order to specify how program should run. In comparison with default way of `ASF.json` configuration file, command-line arguments are used for core initialization (e.g. `--path`), platform-specific settings (e.g. `--system-required`) or sensitive data (e.g. `--cryptkey`).
+ASF bao gồm hỗ trợ cho một số đối số dòng lệnh có thể ảnh hưởng đến runtime của chương trình. Những người dùng nâng cao có thể sử dụng chúng để chỉ định cách chạy chương trình. So với cách mặc định dùng tệp cấu hình `ASF.json`, các đối số dòng lệnh được sử dụng để khởi tạo phần chính (ví dụ: `--path`), cài đặt dành riêng cho nền tảng (ví dụ: <0 >--system-required</code>) hoặc dữ liệu nhạy cảm (ví dụ: `--cryptkey`).
 
 ---
 
 ## Mức sử dụng
 
-Usage depends on your OS and ASF flavour.
+Cách sử dụng tuỳ thuộc vào hệ điều hành và thị hiếu ASF của bạn.
 
-Generic:
+Chung:
 
 ```shell
 dotnet ArchiSteamFarm.dll --argument --otherOne
