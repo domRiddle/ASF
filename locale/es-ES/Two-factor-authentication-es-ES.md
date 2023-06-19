@@ -25,7 +25,7 @@ Hay varias maneras de hacer ASF 2FA sea operativo, aquí incluimos nuestras reco
 - Si ya estás usando SteamDesktopAuthenticator, WinAuth o cualquier otra aplicación de terceros que te permita extraer los detalles 2FA con facilidad, solo **[importa](#importar)** esos a ASF.
 - Si estás usando la aplicación oficial y no te importa restablecer tus credenciales 2FA, la mejor manera es desactivar 2FA, luego **[crear](#creación)** nuevas credenciales 2FA usando **[autenticador conjunto](#autenticador-conjunto)**, lo que te permitirá usar la aplicación oficial y ASF 2FA. Este método no requiere hacer root o conocimientos avanzados, solo seguir las instrucciones.
 - Si estás usando la aplicación oficial y no quieres restablecer tus credenciales 2FA, tus opciones son muy limitadas, normalmente necesitarías hacer root y pasos adicionales para **[importar](#importar)** esos detalles, e incluso con eso podría ser imposible.
-- If you're not using 2FA yet and don't care, you can use ASF 2FA with **[standalone authenticator](#standalone-authenticator)**, third-party app **[duplicating](#import)** to ASF (recommendation #1), or **[joint authenticator](#joint-authenticator)** with official app (recommendation #2).
+- Si todavía no estás usando 2FA y no tienes inconveniente, puedes usar ASF 2FA con **[autenticador independiente](#autenticador-independiente)**, una aplicación de terceros **[duplicada](#importar)** en ASF (recomendación #1), o **[autenticador conjunto](#autenticador-conjunto)** con la aplicación oficial (recomendación #2).
 
 A continuación discutimos todas las opciones posibles y los métodos que conocemos.
 

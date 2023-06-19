@@ -13,26 +13,26 @@
 * **[🏡 Trang chủ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[🔧 Cấu hình](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[💬 Câu hỏi thường gặp](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[⚙️ Thiết lập](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(bắt đầu tại đây)**
+* **[⚙️ Thiết lập](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-vi-VN)** **(bắt đầu tại đây)**
 
 
 ## 👨‍🎓️ Chính
 
-* **[👥 Công cụ kích hoạt game trong nền](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
+* **[👥 Công cụ kích hoạt trò chơi trong nền](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Lệnh](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Khả năng tương thích](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
 * **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[📋 Quản lý](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Hiệu năng](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📡 Liên lạc từ xa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
-* **[👪 Chia sẻ gia đình Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
+* **[👪 Chia sẻ Gia đình Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[🔄 Trao đổi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
 
 ## 🧙 Nâng cao
 
 * **[⌨️ Lệnh khởi chạy](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**
-* **[🚧 Khấu hao](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
+* **[🚧 Không khuyên dùng](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation)**
 * **[🐳 Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker)**
 * **[🤔 Câu hỏi thường gặp Mở rộng](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**
 * **[🚀 Thiết lập hiệu suất cao](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
@@ -40,7 +40,7 @@
 * **[🌐 Bản dịch](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Nhật ký](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
 * **[💾 Thiết lập bộ nhớ thấp](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[🔌 Plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
+* **[🔌 Phần bổ trợ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[🔐 Bảo mật](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[📦 Bên thứ ba](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
