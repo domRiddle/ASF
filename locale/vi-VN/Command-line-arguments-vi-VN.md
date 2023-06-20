@@ -26,13 +26,13 @@ Linux/macOS:
 ./ArchiSteamFarm --argument --otherOne
 ```
 
-Đối số dòng lệnh cũng được hỗ trợ trong tập lệnh trợ giúp thông thường chẳng hạn như `ArchiSteamFarm.cmd` hoặc `ArchiSteamFarm.sh`. In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
+Đối số dòng lệnh cũng được hỗ trợ trong tập lệnh trợ giúp thông thường chẳng hạn như `ArchiSteamFarm.cmd` hoặc `ArchiSteamFarm.sh`. Ngoài ra, bạn cũng có thể sử dụng thuộc tính môi trường `ASF_ARGS`, như đã nêu trong các phần **[quản lý](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** và **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** của chúng tôi.
 
-If your argument includes spaces, don't forget to quote it. Those two are wrong:
+Nếu đối số của bạn bao gồm khoảng trắng, đừng quên đặt nó trong ngoặc kép. Hai cái đó sai:
 
 ```shell
-./ArchiSteamFarm --path /home/archi/My Downloads/ASF # Bad!
-./ArchiSteamFarm --path=/home/archi/My Downloads/ASF # Bad!
+./ArchiSteamFarm --path /home/archi/Tải xuống của Tôi/ASF # Tồi!
+./ArchiSteamFarm --path=/home/archi/Tải xuống của Tôi/ASF # Tồi!
 ```
 
 However, those two are completely fine:
