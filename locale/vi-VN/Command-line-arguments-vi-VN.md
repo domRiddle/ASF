@@ -35,20 +35,20 @@ Nếu đối số của bạn bao gồm khoảng trắng, đừng quên đặt n
 ./ArchiSteamFarm --path=/home/archi/Tải xuống của Tôi/ASF # Tồi!
 ```
 
-However, those two are completely fine:
+Tuy nhiên, hai cái đó hoàn toàn ổn:
 
 ```shell
-./ArchiSteamFarm --path "/home/archi/My Downloads/ASF" # OK
-./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
+./ArchiSteamFarm --path "/home/archi/Tải xuống của Tôi/ASF" # OK
+./ArchiSteamFarm "--path=/home/archi/Tải xuống của Tôi/ASF" # OK
 ```
 
-## Arguments
+## Đối số
 
-`--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
+`--cryptkey <key>` hoặc `--cryptkey=<key>` - sẽ khởi động ASF bằng khoá mật mã tuỳ chỉnh có giá trị `<key>`. Tuỳ chọn này ảnh hưởng đến **[bảo mật](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** và sẽ khiến ASF sử dụng khoá `<key>` tùy chỉnh do bạn cung cấp thay vì khoả mặc định được code cứng trong tệp thực thi. Vì thuộc tính này ảnh hưởng đến khoá mã hoá mặc định (cho mục đích mã hoá) cũng như salt (cho mục đích băm), hãy nhớ rằng mọi thứ được mã hoá/băm bằng khoá này sẽ yêu cầu nó được truyền qua mỗi lần chạy ASF.
 
-It's nice to mention that there are also two other ways to provide this detail: `--cryptkey-file` and `--input-cryptkey`.
+Thật tuyệt khi đề cập rằng cũng có hai cách khác để cung cấp thông tin chi tiết này: `--cryptkey-file` và `--input-cryptkey`.
 
-Due to the nature of this property, it's also possible to set cryptkey by declaring `ASF_CRYPTKEY` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+Do tính chất của thuộc tính này, bạn cũng có thể đặt khoá mã hoá bằng cách khai báo biến môi trường `ASF_CRYPTKEY`, điều này có thể phù hợp hơn cho những người muốn tránh các khía cánh nhạy cảm trong các đối số của tiến trình.
 
 ---
 
