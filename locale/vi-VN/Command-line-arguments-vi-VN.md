@@ -48,13 +48,13 @@ Tuy nhiên, hai cái đó hoàn toàn ổn:
 
 Thật tuyệt khi đề cập rằng cũng có hai cách khác để cung cấp thông tin chi tiết này: `--cryptkey-file` và `--input-cryptkey`.
 
-Do tính chất của thuộc tính này, bạn cũng có thể đặt khoá mã hoá bằng cách khai báo biến môi trường `ASF_CRYPTKEY`, điều này có thể phù hợp hơn cho những người muốn tránh các khía cánh nhạy cảm trong các đối số của tiến trình.
+Do tính chất của thuộc tính này, bạn cũng có thể đặt khoá mã hoá bằng cách khai báo biến môi trường `ASF_CRYPTKEY`, điều này có thể phù hợp hơn cho những người muốn tránh các khía cạnh nhạy cảm trong các đối số của tiến trình.
 
 ---
 
 `--cryptkey-file <path>` hoặc `--cryptkey-file=<path>` - sẽ khởi động ASF bằng khoá mật mã tuỳ chỉnh được đọc từ tập tin `<path>`. Điều này phục vụ cùng một mục đích như `--cryptkey <key>` đã giải thích ở trên, chỉ có cơ chế là khác, vì thuộc tính này sẽ đọc `<key>` từ `<path>` được cung cấp để thay thế.
 
-Due to the nature of this property, it's also possible to set cryptkey file by declaring `ASF_CRYPTKEY_FILE` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+Do tính chất của thuộc tính này, bạn cũng có thể đặt tệp khoá mã hoá bằng cách khai báo biến môi trường `ASF_CRYPTKEY_FILE`, điều này có thể phù hợp hơn cho những người muốn tránh các khía cạnh nhạy cảm trong các đối số của tiến trình.
 
 ---
 
