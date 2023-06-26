@@ -58,7 +58,7 @@ Do tính chất của thuộc tính này, bạn cũng có thể đặt tệp kho
 
 ---
 
-`--ignore-unsupported-environment` - will cause ASF to ignore problems related to running in unsupported environment, which normally is signalized with an error and a forced exit. Unsupported environment includes for example running .NET Framework build on platform that could be running .NET (Core) build instead. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. As of today, **all** of the unsupported environment scenarios can be corrected, such as running `generic` build instead of `generic-netf`. We strongly recommend to fix the outstanding problems instead of declaring this argument.
+`--ignore-unsupported-environment` - sẽ khiến ASF bỏ qua các sự cố liên quan đến việc chạy trong môi trường không được hỗ trợ, thường được báo hiệu bằng lỗi và buộc phải thoát. Môi trường không được hỗ trợ bao gồm ví dụ như chạy bản dựng .NET Framework trên nền tảng mà thay vì đó có thể chạy bản dựng .NET (Core). Mặc dù cờ này sẽ cho phép ASF thử chạy trong các tình huống như vậy, nhưng xin lưu ý rằng chúng tôi không hỗ trợ chính thức những trường hợp đó và bạn đang buộc ASF thực hiện điều đó hoàn toàn **tự chịu rủi ro**. Hiện nay, **tất cả** các tình huống môi trường không được hỗ trợ đều có thể được khắc phục, chẳng hạn như chạy bản dựng `generic` thay vì `generic-netf`. Chúng tôi thực sự khuyên bạn nên khắc phục các sự cố còn tồn tại thay vì sử dụng đối số này.
 
 ---
 
@@ -98,7 +98,7 @@ Due to the nature of this property, it's also possible to set expected path by d
 
 If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[management page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** on this manner.
 
-Examples:
+Ví dụ:
 
 ```shell
 dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path
