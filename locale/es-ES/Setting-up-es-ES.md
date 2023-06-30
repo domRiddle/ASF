@@ -206,12 +206,12 @@ Has configurado ASF con éxito para usar tus cuentas de Steam y ya lo has person
 
 ## Configuración genérica
 
-Esta configuración es para usuarios avanzados que quieren establecer ASF para ejecutarlo en su variante **[genérica](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-ES#gen%C3%A9rico)**. No se recomienda para personas que pueden usar la **[configuración de sistema operativo específico](#configuración-de-sistema-operativo-específico)**.
+Esta configuración es para usuarios avanzados que quieren establecer ASF para ejecutarlo en su variante **[genérica](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-ES#gen%C3%A9rico)**. While being more troublesome in usage than **[OS-specific variants](#os-specific-setup)**, they also come with additional benefits.
 
 Querrás usar la variante `generic` principalmente en esas situaciones (pero puedes usarla de todos modos):
 - Cuando usas un sistema operativo para el cual no compilamos un paquete de sistema operativo específico (tal como Windows de 32-bits)
 - Cuando ya tienes .NET Runtime/SDK, o quieres instalar y usar uno
-- Cuando quieres minimizar el tamaño de la estructura de ASF manejando los requerimientos de runtime por ti mismo
+- When you want to minimize ASF structure size and memory footprint by handling runtime requirements yourself
 - Cuando quieras usar un **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-es-ES)** personalizado que requiera una configuración `generic` de ASF para ejecutarse correctamente (debido a dependencias nativas faltantes)
 
 Sin embargo, ten en cuenta que tú eres responsable del .NET runtime en este caso. Esto significa que si tu .NET SDK (runtime) no está disponible, está desactualizado o roto, ASF no funcionará. Es por eso que no recomendamos esta configuración para usuarios casuales, ya que ahora necesitas asegurarte de que tu .NET SDK (runtime) coincida con los requerimientos de ASF y puede ejecutarlo, en contraposición a que **nosotros** nos aseguremos de que nuestro .NET runtime en conjunto con ASF puede hacerlo.

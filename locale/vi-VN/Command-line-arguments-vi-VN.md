@@ -62,11 +62,11 @@ Do tính chất của thuộc tính này, bạn cũng có thể đặt tệp kho
 
 ---
 
-`--input-cryptkey` - will make ASF ask about the `--cryptkey` during startup. This option might be useful for you if instead of providing cryptkey, whether in environment variables or a file, you'd prefer to not have it saved anywhere and instead input it manually on each ASF run.
+`--input-cryptkey` - sẽ khiến ASF hỏi về `--cryptkey` trong khi khởi động. Tuỳ chọn này có thể hữu ích cho bạn nếu thay vì cung cấp khoá mật mã, dù cho trong biến môi trường hay tệp, bạn lại không muốn lưu nó ở bất kỳ đâu và thay vào đó nhập nó theo cách thủ công trong mỗi lần chạy ASF.
 
 ---
 
-`--minimized` - will make ASF console window minimize shortly after start. Useful mainly in auto-start scenarios, but can also be used outside of those. Currently this switch has effect only on Windows machines.
+`--minimized` - sẽ cực tiểu hoá cửa sổ giao diện dòng lệnh của ASF ngay sau khi khởi động. Hữu ích chủ yếu trong các tình huống tự khởi động, nhưng cũng có thể được sử dụng bên ngoài các tình huống đó. Hiện tại, tuỳ chọn dòng lệnh này chỉ có hiệu lực trên các máy Windows.
 
 ---
 

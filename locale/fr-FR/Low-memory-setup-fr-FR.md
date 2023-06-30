@@ -26,6 +26,7 @@ Below suggestions are divided into a few categories, with varied difficulty.
 
 Below tricks **do not affect performance negatively** and can be safely applied to all setups.
 
+- Run **[generic version](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)** of ASF if possible. Generic version of ASF uses less memory since it doesn't include runtime inside, doesn't come as single file, doesn't need to unpack itself on run, and is therefore smaller and has less memory footprint. OS-specific packages are handy and convenient, but they're also bundled with everything needed to launch ASF, which is something you can take care of yourself and use generic ASF variant instead.
 - Never run more than one ASF instance. ASF is meant to handle unlimited number of bots all at once, and unless you're binding every ASF instance to different interface/IP address, you should have exactly **one** ASF process, with multiple bots (if needed).
 - Make use of `ShutdownOnFarmingFinished`. Active bot takes more resources than deactivated one. It's not a significant save, as the state of bot still needs to be kept, but you're saving some amount of resources, especially all resources related to networking, such as TCP sockets. You can always bring up other bots if needed.
 - Keep your bots number low. Not `Enabled` bot instance takes less resources, as ASF doesn't bother starting it. Also keep in mind that ASF has to create a bot for each of your configs, therefore if you don't need to `start` given bot and you want to save some extra memory, you can temporarily rename `Bot.json` to e.g. `Bot.json.bak` in order to avoid creating state for your disabled bot instance in ASF. This way you won't be able to `start` it without renaming it back, but ASF also won't bother keeping state of this bot in memory, leaving room for other things (very small save, in 99.9% cases you shouldn't bother with it, just keep your bots with `Enabled` of `false`).
@@ -119,7 +120,7 @@ Below tricks **involve serious performance degradation** and should be used with
 
 ## Optimisation recommandée
 
-- Start from simple ASF setup tricks, perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
+- Start from simple ASF setup tricks, use **[generic ASF variant](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)** and check if perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
 - If it's still not enough, enable all configuration properties listed above by setting appropriate `DOTNET_` environment variables. Especially `GCLatencyLevel` offers significant runtime improvements for little cost on performance.
 - If even that didn't help, as a last resort enable `MinMemoryUsage` `OptimizationMode`. This forces ASF to execute almost everything in synchronous matter, making it work much slower but also not relying on thread pool to balance things out when it comes to parallel execution.
 

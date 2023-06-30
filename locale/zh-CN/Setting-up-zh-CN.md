@@ -206,12 +206,12 @@ ASF 是一个控制台应用程序，没有图形用户界面。 然而，我们
 
 ## 安装 Generic 包
 
-这一节是为想要使用 ASF **[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#generic)** 包的高级用户准备的。 如果您可以&#8203;**[安装操作系统包](#安装操作系统包)**，就不建议您安装 Generic 包。
+这一节是为想要使用 ASF **[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN#generic)** 包的高级用户准备的。 While being more troublesome in usage than **[OS-specific variants](#os-specific-setup)**, they also come with additional benefits.
 
 您可能会在以下几种情况选择使用 `generic` 包（当然，没有理由也可以）：
 - 我们没有为您所使用的操作系统（例如 32 位 Windows）提供操作系统包
 - 您已经安装了 .NET 运行时环境/SDK，或者打算安装
-- 您希望自行管理运行时需求来最小化 ASF 的结构
+- When you want to minimize ASF structure size and memory footprint by handling runtime requirements yourself
 - 您想要使用的自定义&#8203;**[插件](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-CN)**&#8203;需要 `generic` 版本的 ASF 才能正常工作（因为缺少本机依赖项）
 
 但是，请注意，此时您需要负责安装管理 .NET 运行时环境。 这意味着，如果您的 .NET SDK（运行时环境）不可用、已过期或者已损坏，ASF 就无法工作。 这就是我们不建议普通用户安装此包的原因，因为现在您需要确保 .NET SDK（运行时环境）符合 ASF 的要求，能够用于运行 ASF，而不是使用**我们**验证过的 ASF 自带的 .NET 运行时环境。

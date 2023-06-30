@@ -206,12 +206,12 @@ Uspješno ste podesili ASF da koristi vaš Steam nalog i uspješno ste ga uredil
 
 ## Opšta podešavanja
 
-Ova podešavanja su za napredne korisnike koji žele da podese ASF za pokretanje na **[opštoj](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** varijanti. Ovo nije preporučeno za ljude koji mogu da koriste **[OS-specifično podešavanje](#os-specific-setup)**.
+Ova podešavanja su za napredne korisnike koji žele da podese ASF za pokretanje na **[opštoj](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** varijanti. While being more troublesome in usage than **[OS-specific variants](#os-specific-setup)**, they also come with additional benefits.
 
 You want to use `generic` variant mainly in those situations (but of course you can use it regardless):
 - Kada koristite OS za koji nema OS-specifičan paket (kao što je 32-bitni Windows)
 - When you already have .NET Runtime/SDK, or want to install and use one
-- Kada želite da smanjite veličinu ASF strukture tako što ćete podesite runtime zahtjeve ručno
+- When you want to minimize ASF structure size and memory footprint by handling runtime requirements yourself
 - When you want to use a custom **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which requires a `generic` setup of ASF to run properly (due to missing native dependencies)
 
 However, keep in mind that you're in charge of .NET runtime in this case. This means that if your .NET SDK (runtime) is unavailable, outdated or broken, ASF won't work. This is why we don't recommend this setup for casual users, since you now need to ensure that your .NET SDK (runtime) matches ASF requirements and can run ASF, as opposed to **us** ensuring that our .NET runtime bundled with ASF can do so.

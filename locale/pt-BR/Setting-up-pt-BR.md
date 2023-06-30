@@ -206,12 +206,12 @@ Você já configurou com sucesso o ASF para que ele use suas contas Steam e voc�
 
 ## Configuração genérica
 
-Esta configuração é para usuários avançados que desejam configurar a versão **[genérica](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** do ASF. Ela não é recomendada para pessoas que podem usar o **[instalador para sistemas operacionais específicos](#instalador-para-sistemas-operacionais-específicos)**.
+Esta configuração é para usuários avançados que desejam configurar a versão **[genérica](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#generic)** do ASF. While being more troublesome in usage than **[OS-specific variants](#os-specific-setup)**, they also come with additional benefits.
 
 Você deve preferir usar a variante `generic` (genérica) nessas situações (mas é claro você pode usá-la independentemente disso):
 - Quando você estiver usando um sistema operacional para o qual não temos um pacote específico (como o Windows 32-bit, por exemplo)
 - When you already have .NET Runtime/SDK, or want to install and use one
-- Quando você deseja minimizar o tamanho da estrutura do ASF lidando com requisitos de tempo de execução você mesmo
+- When you want to minimize ASF structure size and memory footprint by handling runtime requirements yourself
 - Quando você deseja usar um **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** personalizado que requer uma configuração `generic` do ASF para ser executado corretamente (devido à falta de dependências nativas)
 
 However, keep in mind that you're in charge of .NET runtime in this case. This means that if your .NET SDK (runtime) is unavailable, outdated or broken, ASF won't work. This is why we don't recommend this setup for casual users, since you now need to ensure that your .NET SDK (runtime) matches ASF requirements and can run ASF, as opposed to **us** ensuring that our .NET runtime bundled with ASF can do so.

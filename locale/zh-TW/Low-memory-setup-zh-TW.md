@@ -26,6 +26,7 @@ ASF使用的&#8203;**[垃圾回收](https://zh.wikipedia.org/zh-tw/垃圾回收_
 
 下列技巧&#8203;**不會對效能產生負面影響**&#8203;，可以在所有設定下放心使用。
 
+- Run **[generic version](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)** of ASF if possible. Generic version of ASF uses less memory since it doesn't include runtime inside, doesn't come as single file, doesn't need to unpack itself on run, and is therefore smaller and has less memory footprint. OS-specific packages are handy and convenient, but they're also bundled with everything needed to launch ASF, which is something you can take care of yourself and use generic ASF variant instead.
 - 永遠不要執行多個ASF實例。 ASF可以同時處理無限個Bot，除非您需要將每個ASF實例連結至不同的介面／IP地址，否則您只應該擁有&#8203;**一個**&#8203;有多個Bot（如果需要）的ASF程序。
 - 善用&#8203;`ShutdownOnFarmingFinished`&#8203;。 啟用狀態的Bot比未啟用的還要消耗更多資源。 這裡的節省不明顯，因為需保留Bot的狀態，但仍可以節省些許資源，特別是與網路相關的資源，例如TCP Socket。 如果需要，您可以隨時調出其他Bot。
 - 不要擁有過多的Bot。 非&#8203;`Enabled`&#8203;的Bot實例消耗較少資源，因為ASF不會啟動它。 也請注意，ASF會對您的每個設定檔建立一個Bot，因此若您不需要&#8203;`start`&#8203;指定的Bot，且希望節省一些額外的記憶體空間，您可以暫時將&#8203;`Bot.json`&#8203;重新命名成例如&#8203;`Bot.json.bak`&#8203;的名稱，以避免ASF為被您停用的Bot實例建立狀態。 若不將它重新命名回去，您將會無法&#8203;`start`&#8203;它，且ASF也不會在記憶體中保留這個Bot的狀態，能為其他東西留出空間（只節省非常少的空間，在99.9%的情形下您無需這麼做，將您Bot的&#8203;`Enabled`&#8203;設定成&#8203;`false`&#8203;就已經夠了）。
@@ -119,7 +120,7 @@ $Env:DOTNET_gcTrimCommitOnLowMemory=1
 
 ## 最佳化建議
 
-- 從簡單的ASF設定技巧開始，或許您只是用了錯誤的方法使用ASF，例如為您所有的Bot啟動多個程序，或在您只需要自動啟動一兩個Bot的情形下，讓所有Bot都啟動。
+- Start from simple ASF setup tricks, use **[generic ASF variant](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)** and check if perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
 - 若仍然不夠，請透過設定適當的&#8203;`DOTNET_`&#8203;環境變數來啟用上述的所有設定屬性。 特別是&#8203;`GCLatencyLevel`&#8203;能在只犧牲極小效能的情形下明顯改善執行環境。
 - 若仍沒有幫助，作為最後的手段，啟用&#8203;`OptimizationMode`&#8203;的&#8203;`MinMemoryUsage`&#8203;。 這會強迫ASF同步執行幾乎所有東西，使它的運作速度變慢許多，且在平行執行時也不再依賴執行緒集區來平衡。
 

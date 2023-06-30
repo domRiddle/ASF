@@ -26,6 +26,7 @@ ASF 中使用的&#8203;**[垃圾收集](https://en.wikipedia.org/wiki/Garbage_co
 
 以下技巧**不会对性能造成负面影响**，可以在所有情况下安全选用。
 
+- Run **[generic version](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)** of ASF if possible. Generic version of ASF uses less memory since it doesn't include runtime inside, doesn't come as single file, doesn't need to unpack itself on run, and is therefore smaller and has less memory footprint. OS-specific packages are handy and convenient, but they're also bundled with everything needed to launch ASF, which is something you can take care of yourself and use generic ASF variant instead.
 - 永远不要运行多个 ASF 实例。 ASF 可以同时处理无限个机器人，除非您需要将每个 ASF 实例绑定到不同的网络接口或 IP 地址，否则您只需要**一个**有多个机器人的 ASF 进程。
 - 善用 `ShutdownOnFarmingFinished`。 启用的机器人比未启用的消耗更多资源。 尽管效果不明显，因为仍然需要保留机器人的状态，但这仍然可以节约一些资源，尤其是 TCP 套接字等网络相关的资源。 如果需要，您随时可以启用其他机器人。
 - 不要有太多机器人。 未 `Enabled`（启用）的机器人实例消耗较少的资源，因为 ASF 不需要启动它。 还需要注意，ASF 会为每份配置文件创建一个机器人，因此如果您不需要 `start`（运行）指定的机器人，并且希望节省一些内存，您可以临时将 `Bot.json` 重命名为 `Bot.json.bak` 等，以防止 ASF 创建被禁用的机器人。 如果您不将其重命名为原名，就无法 `start`（运行）这个机器人，但 ASF 也不会在内存中为这个机器人保存状态，为其他数据留出空间（非常小的空间，在 99.9% 的情况下您不需要这么做，将机器人的 `Enabled` 设置为 `false` 已经足够）。
@@ -119,7 +120,7 @@ $Env:DOTNET_gcTrimCommitOnLowMemory=1
 
 ## 建议的优化
 
-- 从简单的 ASF 配置开始，也许您只是以错误的方式使用了 ASF，例如为所有的机器人启动多个进程，或者在只需要自动启动一两个机器人的情况下启动了所有机器人。
+- Start from simple ASF setup tricks, use **[generic ASF variant](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#generic-setup)** and check if perhaps you're just using your ASF in a wrong way such as starting the process several times for all of your bots, or keeping all of them active if you need just one or two to autostart.
 - 如果仍然不理想，通过设置合适的 `DOTNET_` 环境变量启用所有上述的配置属性。 特别是 `GCLatencyLevel` 能够在轻微影响性能的情况下显著减少内存用量。
 - 如果这样仍然没有效果，作为最后的手段，您可以启用 `OptimizationMode` 的 `MinMemoryUsage` 选项。 这会强制 ASF 同步执行几乎所有操作，使其运行速度明显变慢，但在并行执行时也不再依赖于线程池来平衡。
 
