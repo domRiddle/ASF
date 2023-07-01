@@ -4,7 +4,7 @@ ASF est propulsé par Crowdin Service, ce qui rend possible pour tout le monde �
 
  Introduction de Crowdin </ 0>.</p> 
 
-If you're interested in what is currently going on, you can check **[ASF Crowdin activity](https://crowdin.com/project/archisteamfarm/activity_stream)**.
+Si vous êtes intéressé par ce qui se passe actuellement, vous pouvez consulter **[L'activité d'ASF Crowdin](https://crowdin.com/project/archisteamfarm/activity_stream)**.
 
 
 
@@ -22,7 +22,7 @@ Notre plate-forme prend en charge la localisation de notre programme principal A
 
 
 
-## Enregistrement …
+## S'inscrire
 
 Si vous souhaitez aider avec ASF, en traduisant, en révisant ou en approuvant les traductions, veuillez vous inscrire sur notre page ** du projet Crowdin </ 0>. L'inscription est facile et absolument gratuite! Après vous être connecté, vous pouvez choisir les langues auxquelles vous souhaitez vous aider, puis passer aux chaînes ASF et aider le reste de la communauté à traduire ASF dans toutes les langues les plus populaires!</p> 
 
@@ -48,10 +48,10 @@ S'il manque encore des chaînes dans la langue de votre choix, vous pouvez les r
   <p spaces-before="0">The number of games to farm is equal to {0}.</p>
 </blockquote>
 
-<p spaces-before="0">Or:</p>
+<p spaces-before="0">Ou :</p>
 
 <blockquote spaces-before="0">
-  <p spaces-before="0">{0} is the number of games to farm.</p>
+  <p spaces-before="0">{0} est le nombre de jeux à farmer.</p>
 </blockquote>
 
 <p spaces-before="0">The flexibility is provided specially for you, so you can slightly reword ASF sentence to fit your language better and move ASF-provided number or other information in a place that fits your translation (instead of translating each part independently). This improves overall translation quality.</p>
@@ -60,9 +60,9 @@ S'il manque encore des chaînes dans la langue de votre choix, vous pouvez les r
 
 <h3 spaces-before="0">Reviewing</h3>
 
-<p spaces-before="0">If your string was already translated by somebody else, you can vote for it. Voting makes it possible to choose the best variant of the translation, instead of sticking with initial suggestion - this enhances overall translation quality even further. You can vote on already available suggestions, or suggest your own translation, which will go through the same process. Eventually, final string will be chosen either based on most voted suggestion, or as a choice of proofreader selected for that language who personally approves given translation (based on your votes as well).</p>
+<p spaces-before="0">Si votre chaîne a déjà été traduite par quelqu'un d'autre, vous pouvez voter pour elle. Le vote permet de choisir la meilleure variante de la traduction, au lieu de s'en tenir à la suggestion initiale, ce qui améliore encore la qualité globale de la traduction. Vous pouvez voter sur les suggestions déjà disponibles ou proposer votre propre traduction, qui sera soumise au même processus. Finalement, la chaîne finale sera choisie soit en fonction de la suggestion la plus votée, soit en fonction du choix du relecteur sélectionné pour cette langue qui approuve personnellement la traduction donnée (en fonction de vos votes également).</p>
 
-<p spaces-before="0"><strong x-id="1">You do not need approval to see your translated strings in ASF</strong>. Approval simply means that somebody trusted from us has reviewed the content, as in - picked the final version of the translation. It's totally fine to have not-approved community-driven translations, where you vote for the best one. As long as it's translated, everything is fine! And if you think that current translation is bad, you can always vote for the better one, or suggest one yourself.</p>
+<p spaces-before="0"><strong x-id="1">Vous n'avez pas besoin d'autorisation pour voir vos chaînes traduites dans ASF</strong>. Approval simply means that somebody trusted from us has reviewed the content, as in - picked the final version of the translation. It's totally fine to have not-approved community-driven translations, where you vote for the best one. As long as it's translated, everything is fine! And if you think that current translation is bad, you can always vote for the better one, or suggest one yourself.</p>
 
 <hr />
 
