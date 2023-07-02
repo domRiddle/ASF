@@ -1,39 +1,39 @@
 # Dviejų lygių autentifikavimas
 
-Steam includes two-factor authentication system known as "Escrow" that requires extra details for various account-related activity. You can read more about it **[here](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)** and **[here](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)**. This page considers that 2FA system as well as our solution that integrates with it, called ASF 2FA.
+Steam apima dviejų lygių autentifikavimo sistemą, vadinamą „sąlyginiu deponavimu“, kuriai reikia papildomos informacijos apie įvairią su paskyra susijusią veiklą. Daugiau apie tai skaitykite **[ čia ](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)** ir **[ čia ](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)**. Šiame puslapyje skaitoma, kad 2FA sistema ir su ja sujungtas mūsų sprendimas vadinamas ASF 2FA.
 
 ---
 
-# ASF logic
+# ASF logika
 
-Regardless if you use ASF 2FA or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. It will ask you for required details when they're needed (such as during logging in). However, those requests can be automated by using ASF 2FA, which will automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+Neatsižvelgiant į tai, ar naudojate ASF 2FA, ar ne, ASF turi tinkamą logiką ir atpažįsta paskyras, apsaugotomis standartiniu 2FA. Ji paprašys pateikti reikiamą informaciją, kai jos reikės (pvz., registruojantis). Tačiau šios užklausos gali būti automatizuotos naudojant ASF 2FA, kuris automatiškai sugeneruos reikiamus atpažinimo ženklus, apsaugos nuo rūpesčių ir įgalins papildomas funkcijas (aprašyta toliau).
 
 ---
 
 # ASF 2FA
 
-ASF 2FA is a built-in module responsible for providing 2FA features to the ASF process, such as generating tokens and accepting confirmations. It works by duplicating your existing authenticator details, so that you can use your current authenticator and ASF 2FA at the same time.
+ASF 2FA yra įtaisytasis modulis, atsakingas už 2FA funkcijų teikimą ASF procesui, pvz., atpažinimo ženklų generavimą ir patvirtinimų priėmimą. Jis veikia dubliuodamas esamą autentifikatoriaus informaciją, kad galėtumėte naudoti esamą autentifikatorių ir ASF 2FA vienu metu.
 
-You can verify whether your bot account is using ASF 2FA already by executing `2fa` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you've already imported your authenticator as ASF 2FA, all standard `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
-
----
-
-# Recommendations
-
-There are a lot of ways to make ASF 2FA operative, here we include our recommendations based on your current situation:
-
-- If you're already using SteamDesktopAuthenticator, WinAuth or any other third-party app that allows you to extract 2FA details with ease, just **[import](#import)** those to ASF.
-- If you're using official app and you don't mind resetting your 2FA credentials, the best way is to disable 2FA, then **[create](#creation)** new 2FA credentials by using **[joint authenticator](#joint-authenticator)**, which will allow you to use official app and ASF 2FA. This method doesn't require root or advanced knowledge, barely following instructions.
-- If you're using official app and don't want to recreate your 2FA credentials, your options are very limited, typically you'll need root and extra fiddling around to **[import](#import)** those details, and even with that it might be impossible.
-- If you're not using 2FA yet and don't care, you can use ASF 2FA with **[standalone authenticator](#standalone-authenticator)**, third-party app **[duplicating](#import)** to ASF (recommendation #1), or **[joint authenticator](#joint-authenticator)** with official app (recommendation #2).
-
-Below we discuss all possible options and known to us methods.
+Galite patikrinti, ar jūsų boto paskyra jau naudoja ASF 2FA, vykdydami `2fa`**[ komandas ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Jei nesate importavę savo autentifikatoriaus kaip ASF 2FA, visos standartinės `2fa` komandos bus neveikiančios, o tai reiškia, kad jūsų paskyra nenaudoja ASF 2FA, todėl jis taip pat negalimas išplėstinėms ASF funkcijoms, kurioms reikalingas modulio veikimas.
 
 ---
 
-## Creation
+# Rekomendacijos
 
-In general, we strongly recommend **[duplicating](#import)** your existing authenticator, since that's the main purpose ASF 2FA was designed for. However, ASF comes with an official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** that further extends ASF 2FA, allowing you to link a completely new authenticator as well. This can be useful in case you're unable or unwilling to use other tools and do not mind ASF 2FA becoming your main (and maybe only) authenticator.
+Yra daug būdų, kaip nustatyti ASF 2FA, čia pateikiame rekomendacijas, pagrįstas jūsų dabartine padėtimi:
+
+- Jei jau naudojate „SteamDesktopAuthenticator“, „WinAuth“ arba bet kurią kitą trečiosios šalies programą, leidžiančią lengvai išskleisti 2FA išsamią informaciją, tiesiog **[ importuoti ](#import)** į ASF.
+- Jei naudojate oficialią programą ir jūs neprieštaraujate iš naujo nustatyti 2FA kredencialus, geriausia išjungti 2FA, tada **[ sukurti ](#creation)** naujus 2FA kredencialus naudojant **[ jungtinį autentifikatorių ](#joint-authenticator)**, kuris leis naudoti oficialią programą ir ASF 2FA. Šiam metodui nereikia bazinių ar išplėstinių žinių, tereikia vadovautis instrukcijomis.
+- Jei naudojate oficialią programėlę ir nenorite iš naujo sukurti 2FA kredencialų, pasirinkimai yra labai riboti, dažniausiai jums reikia gauti aukščiausias teises sistemoje ir atlikti papildomus žingsius kad **[importuoti](#import)** informaciją, net ir tuo atveju tai gali būti neįmanoma.
+- Jei dar nenaudojate 2FA ir jums nesvarbu, galite naudoti ASF 2FA su **[ atskiru autentifikatoriumi ](#standalone-authenticator)**, trečiosios šalies programa **[ dubliuodami ](#import)** su ASF (rekomendacija Nr. 1) arba **[ jungtiniu autentifikatoriumi ](#joint-authenticator)** su oficialia programa (rekomendacija Nr. 2).
+
+Toliau aptarsime visas galimas galimybes ir mums žinomus metodus.
+
+---
+
+## Sukūrimas
+
+Apskritai primygtinai rekomenduojame **[ dubliuoti ](#import)** esamą autentifikatorių, nes tai pagrindinė ASF 2FA paskirtis. However, ASF comes with an official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** that further extends ASF 2FA, allowing you to link a completely new authenticator as well. This can be useful in case you're unable or unwilling to use other tools and do not mind ASF 2FA becoming your main (and maybe only) authenticator.
 
 There are two possible scenarios for adding a two-factor authenticator with the `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**: standalone or joint with the official Steam mobile app. In the second scenario, you will end up with the same authenticator on both the ASF and mobile app; both will generate the same codes, and both will be able to confirm trade offers, Steam Community Market transactions, etc.
 
