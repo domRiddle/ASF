@@ -96,7 +96,7 @@ O arquivo de configuração baseia-se na seguinte estrutura JSON:
 
 `Endpoints` - Esta é uma coleção de endpoints, cada endpoint tendo seu próprio nome exclusivo (como `exemplo-http4`) e a propriedade `Url` que especifica o endereço de escuta `Protocol://Host:Port`. Por padrão, o ASF ouve nos endereços http IPv4 e IPv6, mas nós adicionamos exemplos http para você usar caso necessário. Você deve declarar apenas os endpoints que você precisa, nós incluímos os 4 exemplos acima para que você possa editá-los.
 
-`Host` accepts either `localhost`, a fixed IP address of the interface it should listen on (IPv4/IPv6), or `*` value that binds ASF's http server to all available interfaces. Using other values like `mydomain.com` or `192.168.0.*` acts the same as `*`, there is no IP filtering implemented, therefore be extremely careful when you use `Host` values that allow remote access. Fazer isso vai permitir o acesso a interface IPC do ASF de outros computadores, que pode causar um risco na segurança. Nós recomendamos fortemente usar **ao menos **`IPCPassword` (e de preferência seu firewall também) nesse caso.
+`Host` aceita tanto`localhost`, um endereço IP fixo da interface que deve ouvir em (IPv4/IPv6), ou o valor `*` que liga o servidor http do ASF a todas as interfaces disponíveis. Usar outros valores como `mydomain.com` ou `192.168.0.*` tem o mesmo valor que usar o `*`, não há filtro de IP implementado, portanto, seja extremamente cuidadoso quando usar valores de `Host` que permitem acesso remoto. Fazer isso vai permitir o acesso a interface IPC do ASF de outros computadores, que pode causar um risco na segurança. Nós recomendamos fortemente usar **ao menos **`IPCPassword` (e de preferência seu firewall também) nesse caso.
 
 `KnownNetworks` - Esta variável **opcional** especifica os endereços de rede que consideramos confiáveis. Por padrão, o ASF está configurado para confiar na interface de loopback (`localhost`, mesma máquina) **apenas**. Esta propriedade é usada de duas maneiras. Primeiramente, se você omitir `IPCPassword`, então permitiremos que apenas máquinas de redes conhecidas tenham acesso a API do ASF, e negaremos todas as outras como medida de segurança. Em segundo lugar, essa propriedade é crucial em relação aos proxies reversos que acessam o ASF, já que o ASF honrará seus cabeçalhos somente se o servidor de proxy reverso for de redes conhecidas. Honrar os cabeçalhos é crucial em relação ao mecanismo anti-bruteforce do ASF, pois ao invés de banir o proxy reverso em caso de um problema, ele irá banir o IP especificado pelo proxy reverso como fonte da mensagem original. Tenha muito cuidado com as redes que você especifica aqui, pois isso permite um potencial ataque de falsificação de IP e acesso não autorizado caso a máquina confiável esteja comprometida ou incorretamente configurada.
 
@@ -106,7 +106,7 @@ A menos que você realmente precise especificar um caminho base personalizado, �
 
 ## Configurações de exemplo
 
-### Changing default port
+### Alterando a porta padrão
 
 A configuração a seguir muda a porta padrão de escuta do ASF de `1242` para `1337`. Você pode escolher qualquer porta que você quiser, mas nós recomendamos o intervalo entre `1024-32767`, pois as outras portas normalmente já são **[registradas](https://en.wikipedia.org/wiki/Registered_port)**, e podem por exemplo, exigir acesso `root` no Linux.
 
@@ -249,7 +249,7 @@ server {
 }
 ```
 
-Segue abaixo um exemplo de configuração Apache. Please refer to **[apache documentation](https://httpd.apache.org/docs)** if you need further explanation.
+Segue abaixo um exemplo de configuração Apache. Consulte a **[documentação](https://httpd.apache.org/docs)** do Apache se você precisar de mais informações.
 
 ```apache
 <IfModule mod_ssl.c>
@@ -271,24 +271,24 @@ Segue abaixo um exemplo de configuração Apache. Please refer to **[apache docu
 
 ### Posso acessar a interface IPC através do protocolo HTTPS?
 
-**Yes**, you can achieve it through two different ways. A recommended way would be to use a reverse proxy for that, where you can access your web server through https like usual, and connect through it with ASF's IPC interface on the same machine. Desta forma o seu tráfego será totalmente criptografado e você não precisa modificar o IPC para tal configuração.
+**Sim**, isso pode ser feito de duas formas. O recomendado seria o uso de um proxy reverso, onde você pode acessar seu servidor web através de https como de costume, e se conectar através dele com a interface IPC do ASF no mesmo computador. Desta forma o seu tráfego será totalmente criptografado e você não precisa modificar o IPC para que ele ofereça suporte.
 
-Second way includes specifying a **[custom config](#custom-configuration)** for ASF's IPC interface where you can enable https endpoint and provide appropriate certificate directly to our Kestrel http server. Este modo é recomendado se você não estiver executando nenhum outro servidor web e não quer executar um exclusivamente para o ASF. Caso contrário, é muito mais fácil efetuar uma configuração satisfatória por meio de um mecanismo de proxy reverso.
-
----
-
-### During startup of IPC I'm getting an error: `System.IO.IOException: Failed to bind to address, An attempt was made to access a socket in a way forbidden by its access permissions`
-
-This error indicates that something else on your machine is either already using that port, or reserved it for future use. This could be you if you're attempting to run second ASF instance on the same machine, but most often that's Windows excluding port `1242` from your usage, therefore you'll have to move ASF to another port. In order to do that, follow **[example config](#changing-default-port)** above, and simply try to pick another port, such as `12420`.
-
-Of course you could also try to find out what is blocking port `1242` from ASF usage, and remove that, but that's usually far more troublesome than simply instructing ASF to use another port, so we'll skip elaborating further on that here.
+A segunda forma inclui especificar uma **[configuração personalizada](#configuração-personalizada)** para a interface IPC do ASF, onde você pode habilitar o endpoint https e fornecer um certificado apropriado diretamente para o nosso servidor http Kestrel. Este modo é recomendado se você não estiver executando nenhum outro servidor web e não quer executar um exclusivamente para o ASF. Caso contrário, é muito mais fácil efetuar uma configuração satisfatória por meio de um mecanismo de proxy reverso.
 
 ---
 
-### Why am I getting `403 Forbidden` error when not using `IPCPassword`?
+### Durante a inicialização do IPC, estou recebendo um erro: `System.IO.IOException: Falha ao vincular ao endereço, uma tentativa foi feita para acessar um soquete de uma forma proibida por suas permissões de acesso`
 
-Starting with ASF V5.1.2.1, we've added additional security measure that, by default, allows only loopback interface (`localhost`, your own machine) to access ASF API without `IPCPassword` set in the config. This is because using `IPCPassword` should be a **minimum** security measure set by everybody who decides to expose ASF interface further.
+Este erro indica que outra coisa em sua máquina já está usando essa porta ou reservou-a para uso futuro. Isso pode ocorrer se você estiver tentando rodar uma segunda instância do ASF na mesma máquina, mas provavelmente seja o Windows bloqueando a porta `1242` para uso, portanto você precisará mover o ASF para outra porta. Para fazer isso, siga o **[exemplo de configuração](#alterando-a-porta-padrão)** acima, e simplesmente tente escolher outra porta, como `12420`.
 
-The change was dictated by the fact that massive amount of ASFs hosted globally by unaware users were being taken over for malicious intents, usually leaving people without accounts and without items on them. Now we could say "they could read this page before opening ASF to the entire world", but instead it makes more sense to disallow insecure ASF setups by default, and require from users an action if they explicitly want to allow it, which we elaborate about below.
+É claro que você também pode tentar descobrir o que está bloqueando a porta `1242` e remover o bloqueio, mas isso geralmente é muito mais difícil do que simplesmente instruir o ASF a usar outra porta e não entraremos em detalhes sobre isso.
 
-In particular, you're able to override our decision by specifying the networks which you trust to reach ASF without `IPCPassword` specified, you can set those in `KnownNetworks` property in custom config. However, unless you **really** know what you're doing and fully understand the risks, you should instead use `IPCPassword` as declaring `KnownNetworks` will allow everybody from those networks to access ASF API unconditionally. We're serious, people were already shooting themselves in the foot believing their reverse proxies and iptables rules were secure, but they weren't, `IPCPassword` is the first and sometimes the last guardian, if you decide to opt out of this simple, yet very effective and secure mechanism, you'll have only yourself to blame.
+---
+
+### Por que estou recebendo o erro `403 Forbidden` quando não estou usando `IPCPassword`?
+
+Desde o ASF V5.1.2.1, adicionamos uma medida de segurança adicional que, por padrão, permite apenas uma interface de loopback (`localhost`, seu próprio computador) a acessar a API do ASF sem um `IPCPassword` definido na configuração. Isso porque usar um `IPCPassword` deve ser a **medida mínima** de segurança definida por todos os que decidem expor mais a interface do ASF.
+
+A mudança foi criada pelo fato de que uma enorme quantidade de ASFs hospedados globalmente por usuários desavisados estavam sendo roubados com intenções maliciosas, geralmente deixando as pessoas sem suas contas e sem os itens delas. Nós poderíamos dizer: "eles poderiam ler essa página antes de abrir o ASF para o mundo inteiro", mas faz mais sentido não permitir configurações inseguras do ASF por padrão e exigir dos usuários uma ação se eles explicitamente querem permiti-la, sobre a qual falaremos abaixo.
+
+Em particular, você pode ignorar nossa decisão especificando as redes em que você confia para acessar o ASF sem o `IPCPassword` configurado, você pode definir quais são essas redes na propriedade `KnownNetworks` em sua configuração personalizada. No entanto, a menos que você **realmente** saiba o que está fazendo e entenda completamente os riscos, você deve usar um `IPCPassword` pois declarar `KnownNetworks` permitirá que todos os usuários nessas redes acessem incondicionalmente a API do ASF. Nós estamos falando sério, as pessoas já estavam dando um tiro no pé acreditando que seus proxies reversos e suas regras de ip estavam seguras, mas não estavam, o `IPCPassword` é o primeiro e às vezes o último guardião, se decidir optar por não usar esse mecanismo simples, porém muito eficaz e seguro, você só poderá culpar a si mesmo.
