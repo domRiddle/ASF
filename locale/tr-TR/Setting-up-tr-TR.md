@@ -11,7 +11,7 @@ Ancak bu, PC'nizde kullanamayacağınız veya kullanmanın normalden daha karma�
 ## İşletim sistemine özgü kurulum
 
 Genel olarak, işte önümüzdeki birkaç dakika içinde yapacağımız şey:
-- Install **[.NET prerequisites](#net-prerequisites)**.
+- **[.NET ön gereksinimlerini](#net-prerequisites)** yükleyin.
 - İşletim Sistemi'ne uygun değişkene göre **[en son ASF sürümünü](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** indirin.
 - Arşivi yeni bir lokasyon içerisine çıkartın.
 - **[ASF'yi yapılandırın](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**.
@@ -21,7 +21,7 @@ Yeterince basit görünüyor, değil mi? Öyleyse hadi başlayalım.
 
 ---
 
-### .NET prerequisites
+### .NET ön gereksinimleri
 
 İlk adım, işletim sisteminizin ASF'yi düzgün şekilde başlatabilmesini sağlamaktır. ASF is written in C#, based on .NET platform and may require native libraries that are not available on your platform yet. Depending on whether you use Windows, Linux or macOS, you will have different requirements, although all of them are listed in **[.NET prerequisites](https://docs.microsoft.com/dotnet/core/install)** document that you should follow. Bu, kullanılması gereken referans materyalimizdir, ancak basitlik adına, gerekli tüm paketleri aşağıda ayrıntılı olarak açıkladık, bu nedenle belgenin tamamını okumanıza gerek yok.
 

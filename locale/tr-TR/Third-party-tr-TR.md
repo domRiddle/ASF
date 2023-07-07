@@ -21,14 +21,14 @@ Lütfen aşağıdaki programların ASF geliştiricileri tarafından **sağlanmad
 ### **[Vita](https://github.com/ezhevita)**
 
 - **[FriendAccepter](https://github.com/ezhevita/FriendAccepter)**, Gelen tüm arkadaşlık isteklerini otomatik kabul eden ASF eklentisidir.
-- **[GameRemover](https://github.com/ezhevita/GameRemover)**, plugin for ASF implementing a command to remove Steam licenses for selected bot instances.
-- **[GetEmail](https://github.com/ezhevita/GetEmail)**, plugin for ASF implementing a command to fetch e-mail address of given bot instances directly from Steam.
-- **[ResetAPIKey](https://github.com/ezhevita/ResetAPIKey)**, plugin for ASF implementing a command to reset API key for selected bot instances.
+- **[GameRemover](https://github.com/ezhevita/GameRemover)**, ASF için seçilen bot örnekleri için Steam lisanslarını kaldırmak için bir komut uygulayan eklenti.
+- **[GetEmail](https://github.com/ezhevita/GetEmail)**, verilen bot örneklerinin e-posta adresini doğrudan Steam'den almak için bir komut uygulayan ASF eklentisi.
+- **[ResetAPIKey](https://github.com/ezhevita/ResetAPIKey)**, ASF için seçilen bot örnekleri için API anahtarını sıfırlamak için bir komut uygulayan eklenti.
 - **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, WebSocket bağlantılarının proxy ile sağlanmasına izin veren ASF eklentisidir.
 
 ### Diğer
 
-- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, ASF için özellikle komutlar olmak üzere çeşitli yeni özelliklerle geliştiren eklenti.
 
 ---
 
@@ -50,9 +50,9 @@ Lütfen aşağıdaki programların ASF geliştiricileri tarafından **sağlanmad
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, Arch Linux üzerinde ASF'yi kolayca yüklemenizi sağlar.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, Arch Linux üzerinde ASF'yi kolayca yüklemenizi sağlar.
-- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, allowing you to easily install ASF on macOS.
-- **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, allowing you to easily install ASF on distros with Nix.
-- **[NixOS](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, allowing you to configure and install ASF with NixOS.
+- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, ASF'yi macOS'a kolayca yüklemenizi sağlar.
+- **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, ASF'yi Nix içeren dağıtımlara kolayca yüklemenizi sağlar.
+- **[NixOS](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, ASF'yi NixOS ile yapılandırmanıza ve yüklemenize olanak tanır.
 
 ---
 

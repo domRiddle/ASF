@@ -206,12 +206,12 @@ ASF是一個沒有圖形使用者介面的控制台應用程式。 但是，我�
 
 ## 安裝 Generic 版本套件
 
-這部分是為想要安裝ASF &#8203;**[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#Generic)**&#8203;變體版本的進階使用者所準備的。 While being more troublesome in usage than **[OS-specific variants](#os-specific-setup)**, they also come with additional benefits.
+這部分是為想要安裝ASF &#8203;**[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#Generic)**&#8203;變體版本的進階使用者所準備的。 雖然比起&#8203;**[適用於特定作業系統的版本](#適用於您的作業系統的設定)**&#8203;使用起來更加麻煩，但這也讓它擁有了其他的優點。
 
 您可能會在這些情形下選擇使用&#8203;`Generic`&#8203;變體版本（當然也可以沒有任何原因）：
 - 當套件的建置版本沒有能適用於您的作業系統時（例如32位元Windows）
 - 當您已安裝.NET執行環境／SDK，或打算安裝時
-- When you want to minimize ASF structure size and memory footprint by handling runtime requirements yourself
+- 當您想自行管理執行環境需求，來最小化ASF的結構大小及記憶體使用量時
 - 當您想要使用自訂&#8203;**[外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-TW)**&#8203;，且它需要Generic版本的ASF才能正常運作時（因為缺少原生相依套件）
 
 但是，請注意，在這種情形下您需要自行負責.NET執行環境。 這代表如果您的.NET SDK（執行環境）無法使用、過舊或損毀，ASF就會無法運作。 這就是為什麼我們不建議普通使用者使用這個版本的原因，因為現在您需要確保您的.NET SDK（執行環境）與ASF的要求相符，並能執行ASF，而不是使用&#8203;**我們**&#8203;驗證過的ASF自帶的.NET執行環境。
