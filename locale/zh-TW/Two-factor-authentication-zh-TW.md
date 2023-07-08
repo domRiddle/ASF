@@ -18,12 +18,12 @@ ASF雙重驗證是一個內建模組，負責為ASF程序提供雙重驗證功�
 
 ---
 
-# Recommendations
+# 建議事項
 
-There are a lot of ways to make ASF 2FA operative, here we include our recommendations based on your current situation:
+有很多方式能讓ASF雙重驗證發揮作用，在這裡，我們依據了您的當前情形來提供一些建議：
 
-- If you're already using SteamDesktopAuthenticator, WinAuth or any other third-party app that allows you to extract 2FA details with ease, just **[import](#import)** those to ASF.
-- If you're using official app and you don't mind resetting your 2FA credentials, the best way is to disable 2FA, then **[create](#creation)** new 2FA credentials by using **[joint authenticator](#joint-authenticator)**, which will allow you to use official app and ASF 2FA. This method doesn't require root or advanced knowledge, barely following instructions.
+- 若您當前使用的是SteamDesktopAuthenticator、WinAuth或其他任何使您能夠輕易地匯出雙重驗證詳細資料的第三方應用程式，則只需將它們&#8203;**[匯入](#匯入)**&#8203;至ASF中即可。
+- 若您當前使用的是官方應用程式，且您也不在意重置您的雙重驗證憑證，最好的方式就是停用雙重驗證，然後再透過&#8203;**[聯合驗證器](#joint-authenticator)**&#8203;來&#8203;**[建立](#建立)**&#8203;一個新的雙重驗證憑證，這會使您能夠同時使用官方應用程式及ASF雙重驗證。 這個方式不需要Root或艱深的知識來達成，只需依說明操作即可。
 - If you're using official app and don't want to recreate your 2FA credentials, your options are very limited, typically you'll need root and extra fiddling around to **[import](#import)** those details, and even with that it might be impossible.
 - If you're not using 2FA yet and don't care, you can use ASF 2FA with **[standalone authenticator](#standalone-authenticator)**, third-party app **[duplicating](#import)** to ASF (recommendation #1), or **[joint authenticator](#joint-authenticator)** with official app (recommendation #2).
 
