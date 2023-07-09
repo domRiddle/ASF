@@ -66,7 +66,7 @@ Existem 4 tipos de problemas suportados no momento:
 - Questões gerais: tudo o que não se encaixa em nenhuma das opções abaixo. Em geral este tipo **deve ser evitado**, uma vez que se o seu problema não se encaixa em nenhuma opção abaixo é muito provável que **não** seja uma questão de tradução. Ainda assim, esta opção está disponível para todos os outros casos.
 - A tradução atual está errada - deve ser usado **apenas** se a tradução já foi pré-aprovada pelo revisor, e você acredita que está errada, um erro de digitação, por exemplo, ou você tem uma sugestão válida de como melhorá-la. Ele nunca deve ser usado em traduções que foram aprovadas pela comunidade (votação), já que nesse caso você deve entrar em contato com o usuário de determinada tradução e pedir a correção, ou simplesmente votar para a melhor tradução como indicado na seção de revisão. Vamos remover a aprovação da tradução e notificar o revisor responsável pelo idioma para levar em conta seu comentário e verificar novamente.
 - Falta de informações contextuais - é isso que você deve usar se não tem certeza de que parte do ASF está traduzindo, qual é o contexto ou o propósito da frase. Este tipo deve ser usado apenas para o desenvolvimento do ASF, isso significa que você precisa de assistência técnica já que você não tem certeza de como deve traduzir determinada frase.
-- Erro na frase de origem - deve ser usado somente se você acredita que a frase original (inglês) está incorreta. Quite rare, but not all of us are speaking English natively either, so feel free to use it if you have a general idea how it could be improved. Alternativamente, já que isso está estritamente relacionado com o desenvolvimento, se quiser, você pode usar os nosso **[GitHub issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** para esse propósito.
+- Erro na frase de origem - deve ser usado somente se você acredita que a frase original (inglês) está incorreta. É raro, mas nenhum de nós também é um falante nativo do inglês, então se sinta a vontade para usá-lo se você tiver uma ideia de como ela pode ser melhorada. Alternativamente, já que isso está estritamente relacionado com o desenvolvimento, se quiser, você pode usar os nosso **[GitHub issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** para esse propósito.
 
 ---
 
@@ -247,14 +247,14 @@ Se você acredita que algo inapropriado foi incluso em um bloco de código, ou q
 
 ## Hall da Fama
 
-Gostaríamos de mostrar nossa eterna gratidão a pessoas que gastaram uma grande parte de seu tempo e esforço para melhorar a localização do ASF. Seus esforços foram incríveis e por isso você pode aproveitar traduções completas, incluindo a wiki, na maior parte graças a eles. As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
+Gostaríamos de mostrar nossa eterna gratidão a pessoas que gastaram uma grande parte de seu tempo e esforço para melhorar a localização do ASF. Seus esforços foram incríveis e por isso você pode aproveitar traduções completas, incluindo a wiki, na maior parte graças a eles. Como um sinal de agradecimento, todas as pessoas listadas aqui tem acesso gratuito ao recurso **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)**, bantando **[solicitá-la](https://crowdin.com/messages/create/13177432/240376)**.
 
 | Colaborador                                                | Idiomas          |
 | ---------------------------------------------------------- | ---------------- |
 | **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Espanhol |
 | **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Português (BR)   |
 | **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinês (CN)      |
-| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Chinese (TW)     |
+| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Chinês (TW)      |
 | **[LittleFreak](https://crowdin.com/profile/littlefreak)** | Alemão           |
 | **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russo, Ucraniano |
 | **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, Alemão   |
