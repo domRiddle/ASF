@@ -1,6 +1,6 @@
 # 雙重驗證
 
-Steam含有被稱為「Escrow」的雙重驗證系統，在執行帳號相關的行為時，需要額外的確認資料。 您可以在&#8203;**[這裡](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)**&#8203;以及&#8203;**[這裡](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)**&#8203;閱讀來了解更多相關資訊。 本頁面主要介紹雙重驗證系統，與我們對它的整合方案，即ASF雙重驗證。
+Steam含有被稱為「Escrow」的雙重驗證系統，在執行與帳號相關的行為時，需要確認額外的資料。 您可以閱讀&#8203;**[這裡](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)**&#8203;以及&#8203;**[這裡](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)**&#8203;來了解更多相關資訊。 本頁面主要介紹雙重驗證系統，與我們對它的整合方案，即ASF雙重驗證。
 
 ---
 
@@ -23,21 +23,21 @@ ASF雙重驗證是一個內建模組，負責為ASF程序提供雙重驗證功�
 有很多方式能讓ASF雙重驗證發揮作用，在這裡，我們依據了您的當前情形來提供一些建議：
 
 - 若您當前使用的是SteamDesktopAuthenticator、WinAuth或其他任何使您能夠輕易地匯出雙重驗證詳細資料的第三方應用程式，則只需將它們&#8203;**[匯入](#匯入)**&#8203;至ASF中即可。
-- 若您當前使用的是官方應用程式，且您也不在意重置您的雙重驗證憑證，最好的方式就是停用雙重驗證，然後再透過&#8203;**[聯合驗證器](#joint-authenticator)**&#8203;來&#8203;**[建立](#建立)**&#8203;一個新的雙重驗證憑證，這會使您能夠同時使用官方應用程式及ASF雙重驗證。 這個方式不需要Root或艱深的知識來達成，只需依說明操作即可。
-- If you're using official app and don't want to recreate your 2FA credentials, your options are very limited, typically you'll need root and extra fiddling around to **[import](#import)** those details, and even with that it might be impossible.
-- If you're not using 2FA yet and don't care, you can use ASF 2FA with **[standalone authenticator](#standalone-authenticator)**, third-party app **[duplicating](#import)** to ASF (recommendation #1), or **[joint authenticator](#joint-authenticator)** with official app (recommendation #2).
+- 若您當前使用的是官方應用程式，且您也不在意重置您的雙重驗證憑證，最好的方式就是停用雙重驗證，然後再透過&#8203;**[聯合驗證器](#聯合驗證器)**&#8203;來&#8203;**[建立](#建立)**&#8203;一個新的雙重驗證憑證，這會使您能夠同時使用官方應用程式及ASF雙重驗證。 這個方式不需要Root或艱深的知識來達成，只需依說明操作即可。
+- 若您當前使用的是官方應用程式，但您並不想要重置您的雙重驗證憑證，那麼您的選擇並不多。通常，您會需要Root並執行一些額外操作來&#8203;**[匯入](#匯入)**&#8203;資訊，甚至也有可能會完全無法使用。
+- 若您當前尚未使用雙重驗證，且您並不在意使用何種程式管理，那麼您可以：使用&#8203;**[獨立驗證器](#獨立驗證器)**&#8203;來管理ASF雙重驗證；第三方應用程式&#8203;**[複製](#匯入)**&#8203;到ASF中（建議#1）；或是結合官方應用程式來使用&#8203;**[​聯合驗證器](#​聯合驗證器)**&#8203;（建議#2）。
 
-Below we discuss all possible options and known to us methods.
+我們將在下方討論所有可供使用的方式，及已知方法。
 
 ---
 
 ## 建立
 
-In general, we strongly recommend **[duplicating](#import)** your existing authenticator, since that's the main purpose ASF 2FA was designed for. However, ASF comes with an official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** that further extends ASF 2FA, allowing you to link a completely new authenticator as well. This can be useful in case you're unable or unwilling to use other tools and do not mind ASF 2FA becoming your main (and maybe only) authenticator.
+在一般情形下，我們強烈建議&#8203;**[複製](#匯入)**&#8203;您現有的驗證器，因為這就是設計ASF雙重驗證的主要目的。 但是，ASF提供了官方&#8203;`MobileAuthenticator`&#8203;**[外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-TW)**&#8203;，進一步擴充ASF雙重驗證的功能，使您可以完全重新開始連結一個新的驗證器。 若您無法或不願意使用其他工具，且不介意將ASF雙重驗證做為主要（也可能是唯一）的驗證器，這可能會對您很有幫助。
 
 There are two possible scenarios for adding a two-factor authenticator with the `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**: standalone or joint with the official Steam mobile app. In the second scenario, you will end up with the same authenticator on both the ASF and mobile app; both will generate the same codes, and both will be able to confirm trade offers, Steam Community Market transactions, etc.
 
-### Common steps for both scenarios
+### 所有情境下的通用步驟
 
 No matter if you plan to use ASF as the standalone authenticator or want the same authenticator on the official Steam mobile app, you need to do those initialization steps:
 
@@ -53,13 +53,13 @@ No matter if you plan to use ASF as the standalone authenticator or want the sam
 
 The authenticator details are not operational yet, however, you can review the generated file if you'd like to. If you want to be double safe, you can, for example, already write down the revocation code. The next steps will depend on your selected scenario.
 
-### Standalone authenticator
+### 獨立驗證器
 
 If you want to use ASF as your main (or even only) authenticator, now you need to do the finalization step:
 
 5. Execute the `2fafinalize [Bot] <ActivationCode>` command, replacing `[Bot]` with your bot's name and `<ActivationCode>` with the code you've received through SMS in the previous step.
 
-### Joint authenticator
+### 聯合驗證器
 
 If you want to have the same authenticator in both ASF and the official Steam mobile app, now you need to do the next steps:
 
@@ -69,7 +69,7 @@ If you want to have the same authenticator in both ASF and the official Steam mo
  - Wait until the next 2fa code is shown in the Steam mobile app, and use the command `2fafinalized [Bot] <2fa_code_from_app>` replacing `[Bot]` with your bot's name and `<2fa_code_from_app>` with the code you currently see in the Steam mobile app. If the code generated by ASF and the code you provided are the same, ASF assumes that an authenticator was added correctly and proceeds with importing your newly created authenticator.
  - We strongly recommend to do the above in order to ensure that your credentials are valid. However, if you don't want to (or can't) check if codes are the same and you know what you're doing, you can instead use the command `2fafinalizedforce [Bot]`, replacing `[Bot]` with your bot's name. ASF will assume that the authenticator was added correctly and proceed with importing your newly created authenticator.
 
-### After finalization
+### 在完成之後
 
 Assuming everything worked properly, the previously generated `<Bot>.maFile.PENDING` file was renamed to `<Bot>.maFile.NEW`. 這代表您的雙重驗證憑證現在是有效且正確的了。 We recommend that you create a copy of that file and keep it in **a secure and safe location**. In addition to that, we recommend you open the file in your editor of choice and write down the `revocation_code`, which will allow you to, as the name implies, revoke the authenticator in case you lose it.
 
