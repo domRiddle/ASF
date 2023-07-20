@@ -8,7 +8,7 @@ ASF already tries to prefer performance when it comes to general balanced tuning
 
 ---
 
-## Runtime tuning (advanced)
+## כוונון זמן ריצה (מתקדם)
 
 Below tricks **involve serious memory and startup time increase** and should therefore be used with caution.
 
@@ -77,4 +77,4 @@ $Env:DOTNET_ReadyToRun=0
 - If you can't afford memory increase due to server GC, consider tweaking **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gclatencylevel)** and/or **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup#gcheaphardlimitpercent)** to achieve "the best of both worlds". However, if your memory can afford it, then it's better to keep it at default - server GC already tweaks itself during runtime and is smart enough to use less memory when your OS will truly need it.
 - You can also consider increased optimization for longer startup time with additional tweaking through other `DOTNET_` properties explained above.
 
-Applying recommendations above allows you to have superior ASF performance that should be blazing fast even with hundreds or thousands of enabled bots. CPU should not be a bottleneck anymore, as ASF is able to use your entire CPU power when needed, cutting required time to bare minimum. The next step would be CPU and RAM upgrades.
+Applying recommendations above allows you to have superior ASF performance that should be blazing fast even with hundreds or thousands of enabled bots. CPU should not be a bottleneck anymore, as ASF is able to use your entire CPU power when needed, cutting required time to bare minimum. השלב הבא יהיה שדרוגי מעבד ו-RAM.

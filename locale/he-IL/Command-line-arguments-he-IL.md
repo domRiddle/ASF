@@ -4,11 +4,11 @@ ASF includes support for several command-line arguments that can affect the prog
 
 ---
 
-## Usage
+## שימוש
 
 Usage depends on your OS and ASF flavour.
 
-Generic:
+כללי:
 
 ```shell
 dotnet ArchiSteamFarm.dll --argument --otherOne
@@ -42,7 +42,7 @@ However, those two are completely fine:
 ./ArchiSteamFarm "--path=/home/archi/My Downloads/ASF" # OK
 ```
 
-## Arguments
+## ארגומנטים
 
 `--cryptkey <key>` or `--cryptkey=<key>` - will start ASF with custom cryptographic key of `<key>` value. This option affects **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** and will cause ASF to use your custom provided `<key>` key instead of default one hardcoded into the executable. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
 
@@ -98,7 +98,7 @@ Due to the nature of this property, it's also possible to set expected path by d
 
 If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[management page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** on this manner.
 
-Examples:
+דוגמאות:
 
 ```shell
 dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # Absolute path

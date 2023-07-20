@@ -6,7 +6,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ---
 
-## ASF plugins
+## פלאגינים של ASF
 
 ### **[Ryzhehvost](https://github.com/Ryzhehvost)**
 
@@ -46,7 +46,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ---
 
-## Packaging
+## אריזה
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, allowing you to easily install ASF on arch linux.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, allowing you to easily install ASF on arch linux.
@@ -56,7 +56,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ---
 
-## Tools
+## כלים
 
 - **[Keys extractor](https://ske.xpixv.com)**, allows you to copy-paste keys in various formats and create `redeem` command for ASF. Check **[GitHub repo](https://github.com/PixvIO/SKE)** for more details.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, which allows to manage multiple ASF configs more easily.

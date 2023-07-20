@@ -6,7 +6,7 @@ IPC can be used for a lot of different things, depending on your needs and skill
 
 ---
 
-# Usage
+# שימוש
 
 Unless you manually disabled IPC through `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**, it's enabled by default. ASF will state IPC launch in its log, which you can use for verifying if IPC interface has started properly:
 
@@ -27,7 +27,7 @@ On the highest level there is **[ASF-ui](#asf-ui)** which is based on our ASF AP
 
 ---
 
-# ASF-ui
+# ממשק משתמש ASF
 
 ASF-ui is a community project that aims to create user-friendly graphical web interface for end-users. In order to achieve that, it acts as a frontend to our **[ASF API](#asf-api)**, allowing you to do various actions with ease. This is the default UI that ASF comes with.
 
@@ -35,7 +35,7 @@ As stated above, ASF-ui is a community project that isn't maintained by core ASF
 
 You can use ASF-ui for general management of ASF process. It allows for example to manage bots, modify settings, send commands, and achieve selected other functionality normally available through ASF.
 
-![ASF-ui](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
+![ממשק משתמש ASF](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/bots.png)
 
 ---
 
@@ -47,11 +47,11 @@ Our ASF API can be accessed by sending appropriate requests to appropriate `/Api
 
 For complete documentation of available endpoints, descriptions, requests, responses, http status codes and everything else considering ASF API, please refer to our **[swagger documentation](#swagger-documentation)**.
 
-![ASF API](https://i.imgur.com/yggjf5v.png)
+![ממשק ASF](https://i.imgur.com/yggjf5v.png)
 
 ---
 
-# Custom configuration
+# תצורה מותאמת אישית
 
 Our IPC interface supports extra config file, `IPC.config` that should be put in standard ASF's `config` directory.
 
@@ -147,7 +147,7 @@ If you do not require access from all sources, but for example your LAN only, th
 
 ---
 
-# Authentication
+# אימות
 
 ASF IPC interface by default does not require any sort of authentication, as `IPCPassword` is set to `null`. However, if `IPCPassword` is enabled by being set to any non-empty value, every call to ASF's API requires the password that matches set `IPCPassword`. If you omit authentication or input wrong password, you'll get `401 - Unauthorized` error. After 5 failed authentication attempts (wrong password), you'll get temporarily blocked with `403 - Forbidden` error.
 
