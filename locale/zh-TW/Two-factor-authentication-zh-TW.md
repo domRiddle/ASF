@@ -81,11 +81,11 @@ ASF automatically imports your authenticator once the procedure is done, and the
 
 ## 匯入
 
-匯入過程需要您已經擁有並綁訂了受到ASF支援的可用驗證器。 除了您能自行手動提供所需的憑證外，ASF目前還支援幾種不同的官方或非官方雙重驗證來源：Android、iOS、SteamDesktopAuthenticator與WinAuth。 若您還沒有任何驗證器，則需要先選擇一個可用的驗證器應用程式，並進行設定。 如果您不知道該選擇哪個，我們建議您使用WinAuth，但只要您依說明操作，上述任何一個都能正常運作。
+匯入過程需要您已經擁有並綁定了受到ASF支援的可用驗證器。 除了您能自行手動提供所需的憑證外，ASF目前還支援幾種不同的官方或非官方雙重驗證來源：Android、iOS、SteamDesktopAuthenticator與WinAuth。 若您還沒有任何驗證器，則需要先選擇一個可用的驗證器應用程式，並進行設定。 如果您不知道該選擇哪個，我們建議您使用WinAuth，但只要您依說明操作，上述任何一個都能正常運作。
 
 以下所有指南都需要您已擁有上述工具／應用程式中**在運作且可供使用的**驗證器。 若您匯入了無效的資料，ASF雙重驗證會無法正常運作，因此在嘗試匯入前，請確認您的驗證器能夠正常運作。 這包含測試並驗證下列驗證器功能是否能正常運作：
 - 您能生成權杖，且Steam網路接受這些權杖
-- 您能獲得交易確認，且您的行動驗證器能夠收到它們
+- 您能生成權杖，且Steam網路接受這些權杖
 - 您能接受這些交易確認，且Steam網路能夠正確辨識它們為已確認／已拒絕
 
 檢查上述操作是否有效，來保證您的驗證器運作正常⸺若它們不正常，那麼它們也不會在ASF中運作，您只會浪費時間並給自己帶來額外麻煩。
@@ -94,7 +94,7 @@ ASF automatically imports your authenticator once the procedure is done, and the
 
 ### Android 手機
 
-**The below instructions apply to Steam app in version `2.X`, there are currently limited **[resources](https://github.com/JustArchiNET/ArchiSteamFarm/discussions/2786)** on extracting required details from version `3.0` onwards. 一旦找到普遍可用的方法，我們將更新本章節。 As of today, a workaround would be to intentionally install older version of Steam app, register 2FA and extract the required details first, after which it's possible to update the application to latest version - existing authenticator will continue to work.**
+**&#8203;以下說明適用於&#8203;`2.X`&#8203;版本的Steam應用程式，目前只有**有限的方法，從&#8203;`3.0`&#8203;及以上版本提取所需資源。&#8203;** 一旦找到普遍可用的方法，我們將更新本章節。 迄今為止，暫時的解決方法是故意安裝舊版的Steam應用程式，註冊雙重驗證，提取所需資訊，最後再將應用程式更新到最新版本⸺原有的驗證器將繼續運作。**
 
 在一般情形下，若要從您的Android手機匯入驗證器，您需要擁有&#8203;**[Root](https://zh.wikipedia.org/zh-tw/Root_(Android))**&#8203;權限。 不同的設備具有不同的Root方法，所以無法告訴您如何Root您的設備。 可以造訪&#8203;**[XDA](https://www.xda-developers.com/root)**&#8203;查詢相關指南，以及與Root相關的一般資訊。 若您找不到適用於您設備的指南，請在Google中搜尋。
 
@@ -201,7 +201,7 @@ ASF行動驗證器儲存在config資料夾的&#8203;`BotName.db`&#8203;檔案中
 
 ### 如何移除 ASF 雙重驗證？
 
-只需要關閉ASF，並刪除想要移除ASF雙重驗證的Bot的&#8203;`BotName.db`&#8203;檔案。 這個選項會移除ASF與匯入的雙重驗證的關聯，但不會使您的驗證器解除綁定。 若您打算將您的驗證器解除綁定，除了首先要把它從ASF刪除外，您還需要在原有的設備上（Android、iOS、SDA或WinAuth）解除綁定。若是您因某些原因已無法使用，則應在Steam網站上使用綁定驗證器時收到的恢復代碼。 您不能使用ASF來取消您的驗證器連結，這就是您為什麼要使用通用驗證器。
+只需要關閉ASF，並刪除想要移除ASF雙重驗證的Bot的&#8203;`BotName.db`&#8203;檔案。 這個選項會移除ASF與匯入的雙重驗證的關聯，但不會使您的驗證器解除綁定。 若您打算將您的驗證器解除綁定，除了首先要把它從ASF刪除外，您還需要在原有的設備上（Android、iOS、SDA或WinAuth）解除綁定。若是您因某些原因已無法使用，則應在Steam網站上使用綁定驗證器時收到的恢復代碼。 您無法使用ASF來取消您的驗證器連結，這就是您為什麼要使用通用驗證器。
 
 ---
 

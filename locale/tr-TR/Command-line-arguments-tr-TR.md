@@ -46,13 +46,13 @@ Ancak şu ikisi tamamen hatasızdır:
 
 `--cryptkey <key>` veya `--cryptkey=<key>` - ASF'yi `<key>` değerinde verilen özel kriptografik anahtar ile başlatır. Bu seçenek **[güvenliği](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** etkiler ve ASF'nin içine gömülü kriptografik anahtar yerine sizin verdiğiniz özel `<key>` anahtarı kullanılır. Bu değişken varsayılan şifreleme anahtarını (şifreleme için) ve salt değerini (hashing için) değiştirdiği için, sizin sunduğunuz anahtarla şifrelenen/hashlenen her şeyi kullanabilmek için her defasında ASF'ye bu anahtarı vermek zorunda olacağınızı unutmayın.
 
-It's nice to mention that there are also two other ways to provide this detail: `--cryptkey-file` and `--input-cryptkey`.
+Bu ayrıntıyı sağlamanın iki yolu daha olduğunu belirtmek güzel:`--cryptkey-file` and `--input-cryptkey`.
 
 Bu değişkenin doğası gereği, cryptkey'i `ASF_CRYPTKEY` ortam değişkeni ile de değiştirebilirsiniz, işlem argümanlarında hassas bilgilerin bulunmamasını isteyen kişiler için daha ideal olur.
 
 ---
 
-`--cryptkey-file <path>` or `--cryptkey-file=<path>` - will start ASF with custom cryptographic key read from `<path>` file. This serves the same purpose as `--cryptkey <key>` explained above, only the mechanism differs, as this property will read `<key>` from provided `<path>` instead.
+`--cryptkey-file <path>` ve `--cryptkey-file=<path>` - ASF'yi `<path>` dosyasından okunan özel şifreleme anahtarı ile başlatır. This serves the same purpose as `--cryptkey <key>` explained above, only the mechanism differs, as this property will read `<key>` from provided `<path>` instead.
 
 Due to the nature of this property, it's also possible to set cryptkey file by declaring `ASF_CRYPTKEY_FILE` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
 
@@ -80,7 +80,7 @@ Due to the nature of this property, it's also possible to set the value by decla
 
 ---
 
-`--no-config-watch` - by default ASF sets up a `FileSystemWatcher` over your `config` directory in order to listen for events related to file changes, so it can interactively adapt to them. For example, this includes stopping bots on config deletion, restarting bot on config being changed, or loading keys into **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** once you drop them into the `config` directory. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate (which usually means restarting the process). We recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-config-watch` - by default ASF sets up a `FileSystemWatcher` over your `config` directory in order to listen for events related to file changes, so it can interactively adapt to them. For example, this includes stopping bots on config deletion, restarting bot on config being changed, or loading keys into **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)** once you drop them into the `config` directory. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate (which usually means restarting the process). Yapılandırma olaylarını etkin tutmanızı tavsiye ederiz, ancak bunları devre dışı bırakmak için belirli bir nedeniniz varsa ve bunun yerine asf'nin bunu yapmamasını tercih ediyorsanız, bu anahtarı bu amaca ulaşmak için kullanabilirsiniz.
 
 ---
 

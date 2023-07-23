@@ -8,7 +8,7 @@
 
 ***
 
-## 👨‍🏫Başlangıç
+## 👨‍🏫 Temel
 
 * **[🏡 Ana Sayfa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[🔧 Yapılandırma](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
@@ -21,7 +21,7 @@
 * **[👥 Arkaplan oyun etkinleştirici](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Komutlar](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
 * **[🛠️ Uyumluluk](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)**
-* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
+* **[🧩 ItemsMatcherPlugin Eklentisi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[📋 Yönetim](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Performans](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
 * **[📡 Uzaktan iletişim](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**

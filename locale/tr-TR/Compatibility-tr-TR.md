@@ -1,8 +1,8 @@
 # Uyumluluk
 
-ASF is a C# application that is running on .NET platform. This means that ASF is not compiled directly into **[machine code](https://en.wikipedia.org/wiki/Machine_code)** that is running on your CPU, but into **[CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)** that requires a CIL-compatible runtime for executing it.
+ASF, .NET platformunda çalışan bir C # uygulamasıdır. This means that ASF is not compiled directly into **[machine code](https://en.wikipedia.org/wiki/Machine_code)** that is running on your CPU, but into **[CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language)** that requires a CIL-compatible runtime for executing it.
 
-This approach has gigantic amount of advantages, as CIL is platform-independent, which is why ASF can run natively on many available OSes, especially Windows, Linux and macOS. There is not only no emulation needed, but also support for all platform-related and hardware-related optimizations, such as CPU SSE instructions. Thanks to that, ASF can achieve superior performance and optimization, while still offering a perfect compatibility and reliability.
+CIL platformdan bağımsız olduğu için bu yaklaşımın devasa avantajları vardır, bu nedenle ASF, başta Windows, Linux ve macOS olmak üzere birçok işletim sisteminde yerel olarak çalışabilir. Yalnızca öykünmeye gerek yoktur, aynı zamanda CPU SSE talimatları gibi platformla ilgili ve donanımla ilgili tüm optimizasyonlar için de destek vardır. Bu sayede ASF, mükemmel bir uyumluluk ve güvenilirlik sunarken üstün performans ve optimizasyon sağlayabilir.
 
 This also means that ASF has **no specific OS requirement**, because it requires working **runtime** on that OS and not OS itself. As long as that runtime is executing ASF code properly, it does not matter whether underlying OS is Windows, Linux, macOS, BSD, Sony Playstation 4, Nintendo Wii or your toaster - as long as there is **[.NET for it](https://dotnet.microsoft.com/download/dotnet)**, there is **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** for it (in generic variant).
 
@@ -10,7 +10,7 @@ However, regardless of where you run ASF, you must ensure that your target platf
 
 ---
 
-## ASF packaging
+## ASF Paketleme
 
 ASF comes in 2 main flavours - generic package and OS-specific. Functionality-wise both packages are exactly the same, they're both also capable of automatically updating themselves. The only difference between them is whether or not ASF **generic** package also comes with **OS-specific** runtime to power it.
 

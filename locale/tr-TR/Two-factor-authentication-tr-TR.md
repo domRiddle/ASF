@@ -1,39 +1,39 @@
-# İki aşamalı kimlik doğrulaması
+# İki faktörlü kimlik doğrulama
 
-Steam includes two-factor authentication system known as "Escrow" that requires extra details for various account-related activity. **[Buradan](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)** ve **[buradan](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)** daha fazlasını okuyabilirsiniz. This page considers that 2FA system as well as our solution that integrates with it, called ASF 2FA.
+Steam, hesapla ilgili çeşitli işlemleri gerçekleştirirken ek onay gerektiren "Escrow" adı verilen iki faktörlü kimlik doğrulama doğrulama sistemini destekler. **[Buradan](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)** ve **[buradan](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)** daha fazlasını okuyabilirsiniz. Bu sayfa esas olarak iki adımlı doğrulama sisteminin kendisini ve bu sistem için entegrasyon çözümümüzü, yani ASF iki adımlı doğrulamayı (ASF 2FA) tanıtmaktadır.
 
 ---
 
 # ASF Mantığı
 
-Regardless if you use ASF 2FA or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. İhtiyaç olduğunda sizden gerekli ayrıntıları isteyecektir.(oturum açma sırasında olduğu gibi). However, those requests can be automated by using ASF 2FA, which will automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+ASF iki adımlı doğrulamayı kullanıp kullanmadığınızdan bağımsız olarak, ASF doğru mantığı içerir ve standart iki adımlı doğrulayıcılarla korunan hesapların nasıl ele alınacağını tam olarak anlar. Gerektiğinde sizden gerekli ayrıntıları isteyecektir (örneğin, giriş yaparken). Bununla birlikte, bu istekler, otomatik olarak gerekli belirteçleri oluşturacak, sizi zahmetten kurtaracak ve ekstra işlevsellik sağlayacak (aşağıda açıklanmıştır) ASF 2FA kullanılarak otomatikleştirilebilir.
 
 ---
 
 # ASF 2FA
 
-ASF 2FA is a built-in module responsible for providing 2FA features to the ASF process, such as generating tokens and accepting confirmations. It works by duplicating your existing authenticator details, so that you can use your current authenticator and ASF 2FA at the same time.
+ASF 2FA, ASF sürecine 2FA işlevleri sağlamaktan sorumlu yerleşik bir modüldür, örneğin onayların oluşturulması ve onayların kabulü. Mevcut kimlik doğrulayıcı bilgilerinizi çoğaltarak çalışır, böylece mevcut kimlik doğrulayıcınızı ve ASF 2fa'yı aynı anda kullanabilirsiniz.
 
-Bot hesabınızın ASF 2AD'yi zaten kullandığını `2ad` **[komutlarını](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** yürüterek doğrulayabilirsiniz. Unless you've already imported your authenticator as ASF 2FA, all standard `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
-
----
-
-# Recommendations
-
-There are a lot of ways to make ASF 2FA operative, here we include our recommendations based on your current situation:
-
-- If you're already using SteamDesktopAuthenticator, WinAuth or any other third-party app that allows you to extract 2FA details with ease, just **[import](#import)** those to ASF.
-- If you're using official app and you don't mind resetting your 2FA credentials, the best way is to disable 2FA, then **[create](#creation)** new 2FA credentials by using **[joint authenticator](#joint-authenticator)**, which will allow you to use official app and ASF 2FA. This method doesn't require root or advanced knowledge, barely following instructions.
-- If you're using official app and don't want to recreate your 2FA credentials, your options are very limited, typically you'll need root and extra fiddling around to **[import](#import)** those details, and even with that it might be impossible.
-- If you're not using 2FA yet and don't care, you can use ASF 2FA with **[standalone authenticator](#standalone-authenticator)**, third-party app **[duplicating](#import)** to ASF (recommendation #1), or **[joint authenticator](#joint-authenticator)** with official app (recommendation #2).
-
-Below we discuss all possible options and known to us methods.
+Bot hesabınızın ASF 2AD'yi zaten kullandığını `2ad` **[komutlarını](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** yürüterek doğrulayabilirsiniz. Doğrulayıcıyı ASF 2FA olarak içe aktarmadığınız sürece, tüm standart ` 2fa ` komutları geçersizdir; bu, hesabınızda ASF 2fa'nın etkin olmadığı anlamına gelir, bu nedenle bu modülü gerektiren bazı gelişmiş ASF özellikleri çalışmayacaktır.
 
 ---
 
-## Creation
+# Öneriler
 
-In general, we strongly recommend **[duplicating](#import)** your existing authenticator, since that's the main purpose ASF 2FA was designed for. However, ASF comes with an official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** that further extends ASF 2FA, allowing you to link a completely new authenticator as well. This can be useful in case you're unable or unwilling to use other tools and do not mind ASF 2FA becoming your main (and maybe only) authenticator.
+ASF 2fa'yı çalışır hale getirmenin birçok yolu vardır, burada mevcut durumunuza göre önerilerimizi ekliyoruz:
+
+- Zaten SteamDesktopAuthenticator, WinAuth veya 2FA ayrıntılarını kolaylıkla çıkarmanıza olanak tanıyan başka bir üçüncü taraf uygulaması kullanıyorsanız, bunları asf'ye **[içe aktarın](#import) **.
+- Resmi uygulamayı kullanıyorsanız ve 2FA kimlik bilgilerinizi sıfırlamayı düşünmüyorsanız, en iyi yol 2fa'yı devre dışı bırakmak ve ardından resmi uygulamayı ve ASF 2fa'yı kullanmanıza izin verecek **[joint authenticator](#joint-authenticator)** kullanarak yeni 2FA kimlik bilgileri **[oluşturmaktır](#creation)**. Bu yöntem kök veya ileri bilgi gerektirmez, sadece talimatları izleyin.
+- Resmi uygulamayı kullanıyorsanız ve 2FA kimlik bilgilerinizi yeniden oluşturmak istemiyorsanız, seçenekleriniz çok sınırlıdır, genellikle bu ayrıntıları **[ içe aktarmak ](#import) ** için root ve fazladan uğraşmanız gerekir ve bununla bile imkansız olabilir.
+- Henüz 2FA kullanmıyorsanız ve umursamıyorsanız, ASF 2fa'yı **[standalone authenticator](#standalone-authenticator)**, asf'ye **[duplicating](#import)** üçüncü taraf uygulama (öneri # 1) veya resmi uygulama ile **[joint authenticator](#joint-authenticator)** (öneri # 2) ile kullanabilirsiniz.
+
+Aşağıda tüm olası seçenekleri ve bilinen yöntemleri tartışacağız.
+
+---
+
+## Oluşturma
+
+Genel olarak, ASF 2fa'nın asıl amacı bunun için tasarlandığından, mevcut kimlik doğrulayıcınızı **[çoğaltmanızı](#import)** şiddetle öneririz. Ancak ASF, ASF 2fa'yı daha da genişleten ve tamamen yeni bir kimlik doğrulayıcıyı da bağlamanıza olanak tanıyan resmi bir `Mobil Kimlik Doğrulayıcı` **[eklentisiyle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** birlikte gelir. This can be useful in case you're unable or unwilling to use other tools and do not mind ASF 2FA becoming your main (and maybe only) authenticator.
 
 There are two possible scenarios for adding a two-factor authenticator with the `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**: standalone or joint with the official Steam mobile app. In the second scenario, you will end up with the same authenticator on both the ASF and mobile app; both will generate the same codes, and both will be able to confirm trade offers, Steam Community Market transactions, etc.
 

@@ -545,25 +545,25 @@ ASF提供了數種您能在本文中使用的特殊變數。 `{0}`&#8203;會被�
 
 `ImmutableHashSet<byte>`&#8203;型別，預設值為&#8203;`1, 3, 5`&#8203;的Steam物品類型。 本屬性定義了ASF在獲得物品時的行為⸺這可以是手動使用&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;，也可以透過一個或多個設定屬性來自動獲得。 請注意，不論上述如何設定，ASF都只會處理Steam分類（&#8203;`appID`&#8203;為753）中的社群物品（&#8203;`contextID`&#8203;為6），因此依據定義所有遊戲物品、禮物等物品都會被排除在交易提案之外。
 
-| 值  | 名稱                              | 描述                                   |
-| -- | ------------------------------- | ------------------------------------ |
-| 0  | Unknown（未知）                     | 不符合下列任一項類型的物品                        |
-| 1  | BoosterPack（擴充包）                | 包含三張來自同一遊戲交換卡片的擴充包                   |
-| 2  | Emoticon（表情符號）                  | 在Steam聊天中使用的表情符號                     |
-| 3  | FoilTradingCard（閃亮交換卡片）         | 閃亮版本的&#8203;`TradingCard`&#8203;     |
-| 4  | ProfileBackground（個人檔案背景）       | 在您Steam個人檔案中使用的個人檔案背景                |
-| 5  | TradingCard（交換卡片）               | Steam交換卡片，用於合成徽章（非閃亮卡片）              |
-| 6  | SteamGems（寶石）                   | 用於合成擴充包的Steam寶石，包含一袋寶石               |
-| 7  | SaleItem（特賣物品）                  | Steam特賣期間獲得的特殊物品                     |
-| 8  | Consumable（消耗品）                 | 在使用後會消失的特殊消耗品                        |
-| 9  | ProfileModifier（個人檔案修改器）        | 可以修改Steam個人檔案外觀的特殊物品                 |
-| 10 | Sticker（貼紙）                     | 在Steam聊天中使用的特殊物品                     |
-| 11 | ChatEffect（聊天效果）                | 在Steam聊天中使用的特殊物品                     |
-| 12 | MiniProfileBackground（迷你個人檔案背景） | Steam個人檔案的特殊背景                       |
-| 13 | AvatarProfileFrame（個人檔案圖示邊框）    | Steam個人檔案的特殊圖示邊框                     |
-| 14 | AnimatedAvatar（動畫個人圖示）          | Steam個人檔案的特殊動畫個人圖示                   |
-| 15 | KeyboardSkin（Steam Deck鍵盤）      | Steam Deck的特殊鍵盤外觀                    |
-| 16 | StartupVideo                    | Special startup video for Steam deck |
+| 值  | 名稱                              | 描述                               |
+| -- | ------------------------------- | -------------------------------- |
+| 0  | Unknown（未知）                     | 不符合下列任一項類型的物品                    |
+| 1  | BoosterPack（擴充包）                | 包含三張來自同一遊戲交換卡片的擴充包               |
+| 2  | Emoticon（表情符號）                  | 在Steam聊天中使用的表情符號                 |
+| 3  | FoilTradingCard（閃亮交換卡片）         | 閃亮版本的&#8203;`TradingCard`&#8203; |
+| 4  | ProfileBackground（個人檔案背景）       | 在您Steam個人檔案中使用的個人檔案背景            |
+| 5  | TradingCard（交換卡片）               | Steam交換卡片，用於合成徽章（非閃亮卡片）          |
+| 6  | SteamGems（寶石）                   | 用於合成擴充包的Steam寶石，包含一袋寶石           |
+| 7  | SaleItem（特賣物品）                  | Steam特賣期間獲得的特殊物品                 |
+| 8  | Consumable（消耗品）                 | 在使用後會消失的特殊消耗品                    |
+| 9  | ProfileModifier（個人檔案修改器）        | 可以修改Steam個人檔案外觀的特殊物品             |
+| 10 | Sticker（貼紙）                     | 在Steam聊天中使用的特殊物品                 |
+| 11 | ChatEffect（聊天效果）                | 在Steam聊天中使用的特殊物品                 |
+| 12 | MiniProfileBackground（迷你個人檔案背景） | Steam個人檔案的特殊背景                   |
+| 13 | AvatarProfileFrame（個人檔案圖示邊框）    | Steam個人檔案的特殊圖示邊框                 |
+| 14 | AnimatedAvatar（動畫個人圖示）          | Steam個人檔案的特殊動畫個人圖示               |
+| 15 | KeyboardSkin（鍵盤外觀）              | Steam Deck的特殊鍵盤外觀                |
+| 16 | StartupVideo（啟動動畫）              | Steam Deck的特殊啟動動畫                |
 
 請注意，不論上述如何設定，ASF都只會處理Steam分類（&#8203;`appID`&#8203;為753）中的社群物品（&#8203;`contextID`&#8203;為6），因此依據定義所有遊戲物品、禮物等物品都會被排除在交易提案之外。
 
@@ -575,25 +575,25 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 
 `ImmutableHashSet<byte>`&#8203;型別，預設值為&#8203;`5`&#8203;的Steam物品類型。 本屬性定義了在您啟用&#8203;`TradingPreferences`&#8203;中的&#8203;`SteamTradeMatcher`&#8203;選項時，允許用於匹配的Steam物品類型。 類型定義如下：
 
-| 值  | 名稱                              | 描述                                   |
-| -- | ------------------------------- | ------------------------------------ |
-| 0  | Unknown（未知）                     | 不符合下列任一項類型的物品                        |
-| 1  | BoosterPack（擴充包）                | 包含三張來自同一遊戲交換卡片的擴充包                   |
-| 2  | Emoticon（表情符號）                  | 在Steam聊天中使用的表情符號                     |
-| 3  | FoilTradingCard（閃亮交換卡片）         | 閃亮版本的&#8203;`TradingCard`&#8203;     |
-| 4  | ProfileBackground（個人檔案背景）       | 在您Steam個人檔案中使用的個人檔案背景                |
-| 5  | TradingCard（交換卡片）               | Steam交換卡片，用於合成徽章（非閃亮卡片）              |
-| 6  | SteamGems（寶石）                   | 用於合成擴充包的Steam寶石，包含一袋寶石               |
-| 7  | SaleItem（特賣物品）                  | Steam特賣期間獲得的特殊物品                     |
-| 8  | Consumable（消耗品）                 | 在使用後會消失的特殊消耗品                        |
-| 9  | ProfileModifier（個人檔案修改器）        | 可以修改Steam個人檔案外觀的特殊物品                 |
-| 10 | Sticker（貼紙）                     | 在Steam聊天中使用的特殊物品                     |
-| 11 | ChatEffect（聊天效果）                | 在Steam聊天中使用的特殊物品                     |
-| 12 | MiniProfileBackground（迷你個人檔案背景） | Steam個人檔案的特殊背景                       |
-| 13 | AvatarProfileFrame（個人檔案圖示邊框）    | Steam個人檔案的特殊圖示邊框                     |
-| 14 | AnimatedAvatar（動畫個人圖示）          | Steam個人檔案的特殊動畫個人圖示                   |
-| 15 | KeyboardSkin（Steam Deck鍵盤）      | Steam Deck的特殊鍵盤外觀                    |
-| 16 | StartupVideo                    | Special startup video for Steam deck |
+| 值  | 名稱                              | 描述                               |
+| -- | ------------------------------- | -------------------------------- |
+| 0  | Unknown（未知）                     | 不符合下列任一項類型的物品                    |
+| 1  | BoosterPack（擴充包）                | 包含三張來自同一遊戲交換卡片的擴充包               |
+| 2  | Emoticon（表情符號）                  | 在Steam聊天中使用的表情符號                 |
+| 3  | FoilTradingCard（閃亮交換卡片）         | 閃亮版本的&#8203;`TradingCard`&#8203; |
+| 4  | ProfileBackground（個人檔案背景）       | 在您Steam個人檔案中使用的個人檔案背景            |
+| 5  | TradingCard（交換卡片）               | Steam交換卡片，用於合成徽章（非閃亮卡片）          |
+| 6  | SteamGems（寶石）                   | 用於合成擴充包的Steam寶石，包含一袋寶石           |
+| 7  | SaleItem（特賣物品）                  | Steam特賣期間獲得的特殊物品                 |
+| 8  | Consumable（消耗品）                 | 在使用後會消失的特殊消耗品                    |
+| 9  | ProfileModifier（個人檔案修改器）        | 可以修改Steam個人檔案外觀的特殊物品             |
+| 10 | Sticker（貼紙）                     | 在Steam聊天中使用的特殊物品                 |
+| 11 | ChatEffect（聊天效果）                | 在Steam聊天中使用的特殊物品                 |
+| 12 | MiniProfileBackground（迷你個人檔案背景） | Steam個人檔案的特殊背景                   |
+| 13 | AvatarProfileFrame（個人檔案圖示邊框）    | Steam個人檔案的特殊圖示邊框                 |
+| 14 | AnimatedAvatar（動畫個人圖示）          | Steam個人檔案的特殊動畫個人圖示               |
+| 15 | KeyboardSkin（鍵盤外觀）              | Steam Deck的特殊鍵盤外觀                |
+| 16 | StartupVideo（啟動動畫）              | Steam Deck的特殊啟動動畫                |
 
 當然，您通常在本屬性只應選擇&#8203;`2`&#8203;、&#8203;`3`&#8203;、&#8203;`4`&#8203;及&#8203;`5`&#8203;，因為STM只支援這些類型。 ASF擁有能夠判斷物品稀有度的正確邏輯，因此匹配表情符號或背景也會是安全的，因為ASF只會將來自同一個遊戲、相同類型及稀有度的物品視為相等的。
 
@@ -662,7 +662,7 @@ If you're unsure how to set up this property, it's recommended to use a value of
 
 ---
 
-### `RedeemingPreferences`
+### `RedeemingPreferences（兌換偏好）`
 
 `byte flags`&#8203;型別，預設值為&#8203;`0`&#8203;。 This property defines ASF behaviour when redeeming cd-keys, and is defined as below:
 
@@ -692,7 +692,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 
 ---
 
-### `RemoteCommunication`
+### `RemoteCommunication（遠端通訊）`
 
 `byte flags`&#8203;型別，預設值為&#8203;`3`&#8203;。 This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
 

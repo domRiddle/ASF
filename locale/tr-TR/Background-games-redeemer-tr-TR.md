@@ -12,7 +12,7 @@ Arkaplan oyunları kurtarıcısı, tek bir bot alanına sahip olacak şekilde ya
 
 ### Dosya
 
-ASF, kendi `yapılandırma` dizininde bulunan `BotunuzunAdı.keys` dosyasını tanır. Bu dosya, birbirinden bir sekme (tab) karakteriyle ayrılmış şekilde oyun adı ve cd anahtarlarını girmenizi, farklı oyun anahtarlarını ise yeni satırlara girmenizi bekler. Birden çok sekme (tab) kullanılıyorsa, o halde ilk girdi oyunun adı, son girdi ise bir cd anahtarı olarak kabul edilir ve aradaki her şey göz ardı edilir. Örneğin:
+ASF, kendi `yapılandırma` dizininde `BotName.keys` adlı bir dosyayı, `BotName` botunuzun adı olduğunu görecektir. Bu dosya, birbirinden bir sekme (tab) karakteriyle ayrılmış şekilde oyun adı ve cd anahtarlarını girmenizi, farklı oyun anahtarlarını ise yeni satırlara girmenizi bekler. Birden çok sekme (tab) kullanılıyorsa, o halde ilk girdi oyunun adı, son girdi ise bir cd anahtarı olarak kabul edilir ve aradaki her şey göz ardı edilir. Örneğin:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
