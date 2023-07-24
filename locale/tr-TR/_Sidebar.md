@@ -13,7 +13,7 @@
 * **[🏡 Ana Sayfa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)**
 * **[🔧 Yapılandırma](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**
 * **[💬 SSS](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ)**
-* **[⚙️ Kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up)** **(buradan başlayın)**
+* **[⚙️ Kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-tr-Tr)** **(buradan başlayın)**
 
 
 ## 👨‍🎓️ Temel Özellikler
@@ -38,16 +38,16 @@
 * **[🚀 Yüksek performans kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**
 * **[🌐 Yerelleştirme](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[📝 Günlük kaydı](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[💾 Düşük bellek kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[📝 Günlüğe kaydetme](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
+* **[💾 Düşük bellek kurulumu](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[🔌 Eklentiler](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[🔐 Güvenlik](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[🧩 SteamTokenDumper Eklentisi](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
-* **[📦 Üçüncü-Parti](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[📵 İki adımlı kimlik doğrulama](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[📦 Üçüncü taraf](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
+* **[📵 İki faktörlü kimlik doğrulaması](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 
-## 👷 Geliştirici
+## 👷 Geliştiriciler
 
 * **[🏗️ Derleme](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation)**
 * **[🤝 Katkıda bulunma yönergeleri](https://github.com/JustArchiNET/ArchiSteamFarm/blob/main/.github/CONTRIBUTING.md)**

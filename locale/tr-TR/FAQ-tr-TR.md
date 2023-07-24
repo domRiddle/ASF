@@ -1,6 +1,6 @@
 # SSS
 
-Our basic FAQ covers standard questions and answers that you may have. Az bilinen konular için lütfen **[genişletilmiş SSS sayfa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**mızı ziyaret edin.
+Temel sss'miz, sahip olabileceğiniz standart soruları ve cevapları kapsar. Az bilinen konular için lütfen **[genişletilmiş SSS sayfa](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**mızı ziyaret edin.
 
 # İçindekiler
 
@@ -16,20 +16,20 @@ Our basic FAQ covers standard questions and answers that you may have. Az biline
 
 ### ASF nedir?
 ### Neden program hesabımda çalıştıracak hiçbir şey olmadığı söylüyor?
-### Why ASF doesn't detect all of my games?
+### ASF neden tüm oyunlarımı algılamıyor?
 ### Hesabım neden kısıtlı?
 
 ASF'nin ne olduğunu anlamaya çalışmadan önce, lütfen resmi SSS **[sayfasında](https://steamcommunity.com/tradingcards/faq)** güzelce açıklanmış olan, Steam kartlarının ne olduğunu ve nasıl elde edildiğini anladığınızdan emin olun.
 
 Kısaca, Steam kartları bir oyuna sahip olduğunuzda elde etme hakkı kazandığınız, rozet üretmekte kullanılabilen, Steam topluluk pazarında satılabilen veya seçtiğiniz herhangi başka bir amaç için kullanabilen koleksiyon ürünleridir.
 
-Core points are stated once again here, because people in general don't want to agree with them and prefer to pretend that those do not exist:
+Temel noktalar burada bir kez daha belirtilmiştir, çünkü insanlar genel olarak onlarla aynı fikirde olmak istemezler ve bunların sanki yokmuş gibi davranmayı tercih ederler:
 
-- **You need to own the game on your Steam account in order to be eligible for any card drops from it. Aile paylaşımı kart hakkı vermez.**
-- **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for farming anymore. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
-- **You can't drop cards from F2P games without spending any money in them. This means permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you card drops.**
-- **You can't drop cards on [limited accounts](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), regardless of owned games. Geçmişte mümkündü, ancak artık mümkün değil.**
-- **Paid games that you've obtained for free during a promotion can't be farmed for card drops, regardless of what is displayed on the store page. Geçmişte mümkündü, ancak artık mümkün değil.**
+- **Herhangi bir kart düşüşüne hak kazanabilmek için Steam hesabınızda oyuna sahip olmanız gerekir. Aile paylaşımı kart hakkı vermez.**
+- **Oyuna sonsuz bir çiftçilik yapamazsınız, her oyunda sabit sayıda kart düşüşü vardır. Bütün kartları düşürdüğünüzde (tam setin yaklaşık yarısı), oyuna artık çiftçilik yapamazsınız. Aldığınız kartlara ne olduğunu satıp satmadığınız, takas edip etmediğiniz, üretip üretmediğiniz veya unuttuğunuz önemli değil, kart düşüşleriniz bittiğinde çiftçilik biter.**
+- **F2P oyunlarından hiç para harcamadan kart düşüremezsiniz. (The Descendant hariç). Bu, Team Fortress 2 veya Dota 2 gibi kalıcı olarak F2P oyunları anlamına gelir. F2P oyunlarına sahip olmak size kart düşürme hakkı vermez.**
+- **Sahip olunan oyunlardan bağımsız olarak [sınırlı hesaba](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663) sahipseniz kart düşüremezsiniz. Geçmişte mümkündü, ancak artık mümkün değil.**
+- **Bir promosyon sırasında ücretsiz olarak edindiğiniz ücretli oyunlar, mağaza sayfasında ne görüntülendiğine bakılmaksızın kart düşmeleri için uygun değildir. Geçmişte mümkündü, ancak artık mümkün değil.**
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
 

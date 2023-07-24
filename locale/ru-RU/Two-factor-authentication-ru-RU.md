@@ -18,16 +18,16 @@ ASF 2FA это встроенный модуль, отвечающий за ре
 
 ---
 
-# Recommendations
+# Рекомендации
 
-There are a lot of ways to make ASF 2FA operative, here we include our recommendations based on your current situation:
+Существует множество способов обеспечить работоспособность ASF 2FA, здесь мы приводим наши рекомендации, исходя из вашей текущей ситуации:
 
-- If you're already using SteamDesktopAuthenticator, WinAuth or any other third-party app that allows you to extract 2FA details with ease, just **[import](#import)** those to ASF.
-- If you're using official app and you don't mind resetting your 2FA credentials, the best way is to disable 2FA, then **[create](#creation)** new 2FA credentials by using **[joint authenticator](#joint-authenticator)**, which will allow you to use official app and ASF 2FA. This method doesn't require root or advanced knowledge, barely following instructions.
-- If you're using official app and don't want to recreate your 2FA credentials, your options are very limited, typically you'll need root and extra fiddling around to **[import](#import)** those details, and even with that it might be impossible.
-- If you're not using 2FA yet and don't care, you can use ASF 2FA with **[standalone authenticator](#standalone-authenticator)**, third-party app **[duplicating](#import)** to ASF (recommendation #1), or **[joint authenticator](#joint-authenticator)** with official app (recommendation #2).
+- Если вы уже используете SteamDesktopAuthenticator, WinAuth или любое другое стороннее приложение, позволяющее с легкостью извлекать данные 2FA, просто **[импортируйте](#import)** их в ASF.
+- Если вы используете официальное приложение и не против сбросить учетные данные 2FA, то лучше всего отключить 2FA, затем **[создать](#creation)**новые учетные данные 2FA с помощью **[совместного аутентификатора](#joint-authenticator)**, что позволит вам использовать официальное приложение и ASF 2FA. Этот метод не требует root или продвинутых знаний, достаточно следовать инструкциям.
+- Если вы используете официальное приложение и не хотите заново создавать свои учетные данные 2FA, то ваши возможности очень ограничены: обычно для **[импорта](#import)** этих данных требуется root и дополнительные действия, и даже это может оказаться невозможным.
+- Если вы еще не используете 2FA, то можете использовать ASF 2FA с помощью **[отдельного аутентификатора](#standalone-authenticator)**, стороннего приложения **[дублирующего](#import)** в ASF (рекомендация №1) или **[совместного аутентификатора](#joint-authenticator)** с официальным приложением (рекомендация №2).
 
-Below we discuss all possible options and known to us methods.
+Ниже мы рассмотрим все возможные варианты и известные нам способы.
 
 ---
 

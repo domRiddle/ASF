@@ -1,33 +1,33 @@
 # Lisans
 
-Aksi belirtilmedikçe ASF, **[Apache Lisans 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)** altındadır. For a quick overview what you can and cannot do, you can use **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**.
+Aksi belirtilmedikçe ASF, **[Apache Lisans 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**'ın altında lisanslanmıştır. Yapabilecekleriniz ve yapamayacaklarınız hakkında hızlı bir genel bakış için **[tl;dr Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))**'i kullanabilirsiniz.
 
-ASF license is very permissive and you're allowed to do much more than in standard GPL license, including using ASF in commercial projects without a requirement of making code open-source. In short, as stated by tl;dr Legal:
+ASF lisansı çok izin vericidir ve kodu açık kaynak yapmak zorunda kalmadan ticari projelerde ASF kullanmak da dahil olmak üzere standart GPL lisansından çok daha fazlasını yapmanıza izin verilir. Kısaca tl;dr Legal'in de belirttiği gibi:
 
-> You can do what you like with the software, as long as you include the required notices. This permissive license contains a patent license from the contributors of the code.
+> Gerekli bildirimleri eklediğiniz sürece yazılımla istediğinizi yapabilirsiniz. Bu izin verilen lisans, kodun katkıda bulunanlarından bir patent lisansı içerir.
 
-By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**, we refer to the main project **only**, including its source code, without making any statements about other projects that ASF makes use of (especially libraries, tools, frameworks and frontends, such as **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), which are typically licensed under different terms.
+ASF'nin **[Apache License 2.0](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)** altında lisanslandığını belirterek, ASF'nin kullandığı diğer projeler (özellikle kütüphaneler, araçlar, çerçeveler ve ön uçlar, örneğin ASF-uı) hakkında herhangi bir açıklama yapmadan **yalnızca** kaynak kodu da dahil olmak üzere ana projeye atıfta bulunuruz, genellikle farklı koşullar altında lisanslanır.
 
 -----
 
 ## Notlar
 
-If you're creating your own software/service based on ASF or part of its code, please review point 6 of the license:
+ASF'ye veya kodunun bir kısmına dayalı olarak kendi yazılımınızı / hizmetinizi oluşturuyorsanız, lütfen lisansın 6. noktasını inceleyin:
 
-> Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+> Ticari markalar. Bu Lisans, Eserin kaynağını tanımlamak ve BİLDİRİM dosyasının içeriğini çoğaltmak için makul ve alışılmış kullanım için gerekli olmadıkça, Lisans Verenin ticari adlarını, ticari markalarını, hizmet markalarını veya ürün adlarını kullanma izni vermez.
 
-We do not grant you direct permission to use ASF/ArchiSteamFarm product name in your own software, but we allow using it in some common-sense scenarios:
+ASF / ArchiSteamFarm ürün adını kendi yazılımınızda kullanmanız için size doğrudan izin vermiyoruz, ancak bazı sağduyu senaryolarında kullanmanıza izin veriyoruz:
 
-You **can**:
-- Claim that your software/service **is based on** ASF (or its code)
-- Refer to your software/service as **ASF fork**
-- Claim that your software/service is powered by ASF, if you **didn't** do any changes to the source code
-- Use ASF for various reference purposes, such as linking software/service origin, our wiki, or *"as required for reasonable and customary use in describing the origin of the Work"*
+**Yapabilirsiniz**:
+- Yazılımınızın / hizmetinizin ASF'ye (veya koduna) **dayandığını** belirtmek
+- Yazılımınıza / hizmetinize **ASF çatalı** olarak bahsetmek
+- Kaynak kodunda herhangi bir değişiklik **yapmadıysanız**, yazılımınızın / hizmetinizin ASF tarafından desteklendiğini iddia etmek
+- ASF'yi, yazılım / hizmet kaynağını, wiki'mizi bağlamak gibi çeşitli referans amaçları için veya *"Eserin kaynağını tanımlarken makul ve alışılmış kullanım için gerektiği şekilde"* kullanmak
 
-You **cannot**:
-- Claim that your software/service **is** ASF
-- Refer to your software/service as **ASF**
-- Claim that your software/service is powered by ASF, if you **did** any changes to the source code
-- Use false advertising, such as stating that ASF or its developers are affiliated with your software/service
+**Yapamazsınız**:
+- Yazılımınızın / hizmetinizin ASF **olduğunu** iddia etmek
+- Yazılımınızı / hizmetinizi **ASF** olarak adlandırmak
+- Kaynak kodunda herhangi bir değişiklik **yaptıysanız**, yazılımınızın / hizmetinizin ASF tarafından desteklendiğini iddia etmek
+- ASF'nin veya geliştiricilerinin yazılımınızla / hizmetinizle bağlantılı olduğunu söylemek gibi yanlış tanıtımlar kullanmak
 
-If in doubt, please contact with us, and we'll be happy to answer your legal/licensing questions.
+Kafanıza takılan herhangi bir şey olursa, lütfen bizimle iletişime geçin ve yasal / lisans sorularınızı yanıtlamaktan memnuniyet duyarız.

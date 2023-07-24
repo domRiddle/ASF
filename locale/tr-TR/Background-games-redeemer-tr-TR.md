@@ -1,6 +1,6 @@
-# Arka plan oyun etkinleştirici
+# Arka plan oyunları etkinleştirici
 
-Arkaplan oyunları etkinleştiricisi, arka planda kullanılmak üzere verilen Steam cd-anahtarlarının (isimleri ile birlikte) içe aktarılabilmesini sağlayan özel bir ASF özelliğidir. Bu özellikle, çok sayıda anahtarınız varsa ve tüm toplu işleminiz tamamlanmadan önce `RateLimited` **[durumunu](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** ulaşmayı garantilediyseniz kullanışlıdır.
+Arka plan oyunları etkinleştiricisi, arka planda kullanılmak üzere verilen Steam cd-anahtarlarının (isimleri ile birlikte) içe aktarılabilmesini sağlayan özel bir ASF özelliğidir. Bu özellikle, çok sayıda anahtarınız varsa ve tüm toplu işleminiz tamamlanmadan önce `RateLimited` **[durumunu](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ#what-is-the-meaning-of-status-when-redeeming-a-key)** ulaşmayı garantilediyseniz kullanışlıdır.
 
 Arkaplan oyunları kurtarıcısı, tek bir bot alanına sahip olacak şekilde yapılır, bu da `RedeemingPreferences`'dan yararlanmadığı anlamına gelir. Bu özellik, gerekirse, `redeem` **[komutu](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** ile birlikte (veya bunun yerine) kullanılabilir.
 
