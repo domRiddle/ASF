@@ -16,7 +16,7 @@
 * **[⚙️ Kurulum](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-tr-Tr)** **(buradan başlayın)**
 
 
-## 👨‍🎓️ Temel Özellikler
+## 👨‍🎓️ Başlıca Özellikler
 
 * **[👥 Arkaplan oyun etkinleştirici](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**
 * **[📢 Komutlar](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**
