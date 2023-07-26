@@ -1,6 +1,6 @@
 # Komut satırı argümanları
 
-ASF, program çalışmasını etkileyebilecek bir çok komut satırı argümanını destekler. Gelişmiş kullanıcılar programın nasıl çalışacağını belirtmek için bunları kullanabilir. Varsayılan ayar değiştirme yolu olan `ASF.json` ayar dosyasıyla kıyaslanacak olursa, komut satırı argümanları çekirdek başlatmasını (örn. `--path`), platforma özel ayarlar (örn. `--system-required`) veya hassas bilgileri (örn. `--cryptkey`) programa sunabilir.
+ASF, program çalışma zamanını etkileyebilecek çeşitli komut satırı bağımsız değişkenleri için destek içerir. Bunlar, programın nasıl çalışması gerektiğini belirtmek için ileri düzey kullanıcılar tarafından kullanılabilir. `ASF.json` yapılandırma dosyasının varsayılan yöntemiyle karşılaştırıldığında, komut satırı bağımsız değişkenleri çekirdek başlatma (ör. --`path`), platforma özgü ayarlar (ör. --`system-required`) veya hassas veriler (ör. `--cryptkey`) için kullanılır.
 
 ---
 
@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argüman --başkaArgüman
 ```
 
-Komut satırı argümanları `ArchiSteamFarm.cmd` veya `ArchiSteamFarm.sh` gibi genel yardımcı betik dosyalarında da kullanılır. In addition to that, you can also use `ASF_ARGS` environment property, like stated in our **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** and **[docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** sections.
+Komut satırı argümanları `ArchiSteamFarm.cmd` veya `ArchiSteamFarm.sh` gibi genel yardımcı betik dosyalarında da kullanılır. Buna ek olarak, **[yönetim](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#environment-variables)** ve **[docker ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker#command-line-arguments)** bölümlerimizde belirtildiği gibi `ASF_ARGS` ortam özelliğini de kullanabilirsiniz.
 
 Eğer argümanınızda boşluklar varsa tırnak içinde kullanmayı unutmayın. Şu ikisi hatalıdır:
 
@@ -52,21 +52,21 @@ Bu değişkenin doğası gereği, cryptkey'i `ASF_CRYPTKEY` ortam değişkeni il
 
 ---
 
-`--cryptkey-file <path>` ve `--cryptkey-file=<path>` - ASF'yi `<path>` dosyasından okunan özel şifreleme anahtarı ile başlatır. This serves the same purpose as `--cryptkey <key>` explained above, only the mechanism differs, as this property will read `<key>` from provided `<path>` instead.
+`--cryptkey-file <path>` ve `--cryptkey-file=<path>` - ASF'yi `<path>` dosyasından okunan özel şifreleme anahtarı ile başlatır. Bu, yukarıda açıklanan `--cryptkey <key>` ile aynı amaca hizmet eder, yalnızca mekanizma farklıdır, çünkü bu özellik bunun yerine `<key>` sağlanandan `<path>` okuyacaktır.
 
-Due to the nature of this property, it's also possible to set cryptkey file by declaring `ASF_CRYPTKEY_FILE` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
-
----
-
-`--ignore-unsupported-environment` - will cause ASF to ignore problems related to running in unsupported environment, which normally is signalized with an error and a forced exit. Unsupported environment includes for example running .NET Framework build on platform that could be running .NET (Core) build instead. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. As of today, **all** of the unsupported environment scenarios can be corrected, such as running `generic` build instead of `generic-netf`. We strongly recommend to fix the outstanding problems instead of declaring this argument.
+Bu özelliğin doğası gereği, işlem bağımsız değişkenlerinde hassas ayrıntılardan kaçınmak isteyen kişiler için daha uygun olabilecek `ASF_CRYPTKEY_FILE` ortam değişkeni bildirerek cryptkey dosyasını ayarlamak da mümkündür.
 
 ---
 
-`--input-cryptkey` - will make ASF ask about the `--cryptkey` during startup. This option might be useful for you if instead of providing cryptkey, whether in environment variables or a file, you'd prefer to not have it saved anywhere and instead input it manually on each ASF run.
+`--ignore-unsupported-environment` - ASF'nin normalde bir hata ve zorunlu çıkışla işaretlenen desteklenmeyen ortamda çalışmayla ilgili sorunları görmezden gelmesine neden olur. Desteklenmeyen ortam, örneğin, bunun yerine .NET (Core) derlemesini çalıştırıyor olabilecek platformda .NET Framework derlemesi çalıştırmayı içerir. Bu bayrak ASF'nin bu tür senaryolarda koşmaya çalışmasına izin verecek olsa da, bunları resmi olarak desteklemediğimizi ve ASF'yi tamamen **kendi sorumluluğunuzda** yapmaya zorladığınızı unutmayın. Bugün itibariyle, `generic-netf` yerine `generic` yapı çalıştırma gibi desteklenmeyen **tüm** ortam senaryoları düzeltilebilir. Bu argümanı beyan etmek yerine öne çıkan sorunları düzeltmenizi şiddetle tavsiye ederiz.
 
 ---
 
-`--minimized` - will make ASF console window minimize shortly after start. Useful mainly in auto-start scenarios, but can also be used outside of those. Currently this switch has effect only on Windows machines.
+`--input-cryptkey` - ASF'nin başlatma sırasında `--cryptkey` hakkında soru sormasını sağlar. Bu seçenek, ister ortam değişkenlerinde ister bir dosyada olsun, şifreleme anahtarı sağlamak yerine, herhangi bir yere kaydedilmemesini ve bunun yerine her ASF çalıştırılmasında el ile girilmesini tercih ediyorsanız sizin için yararlı olabilir.
+
+---
+
+`--minimized` - ASF konsol penceresinin başlatıldıktan kısa bir süre sonra simge durumuna küçültülmesini sağlar. Esas olarak otomatik başlatma senaryolarında kullanışlıdır, ancak bunların dışında da kullanılabilir. Şu anda bu anahtarın yalnızca Windows makinelerinde etkisi vardır.
 
 ---
 

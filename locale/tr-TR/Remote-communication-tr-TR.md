@@ -1,6 +1,6 @@
 # Uzaktan iletişim
 
-This section elaborates on remote communication that ASF includes, including further explanation on how one can influence it. While we don't consider anything below as malicious or otherwise unwanted, and neither we're legally obliged to disclose it, we want you to better understand the program functionality especially in regards to your privacy and data being shared.
+Bu bölüm, ASF'nin içerdiği uzaktan iletişim konusunda, onu nasıl etkileyebileceğine dair daha fazla açıklama da dahil olmak üzere ayrıntılı olarak açıklanmaktadır. While we don't consider anything below as malicious or otherwise unwanted, and neither we're legally obliged to disclose it, we want you to better understand the program functionality especially in regards to your privacy and data being shared.
 
 ## Steam
 
