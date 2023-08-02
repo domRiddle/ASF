@@ -8,15 +8,15 @@ Xin lưu ý rằng các chương trình bên dưới **không** được duy tr�
 
 ## Phần mở rộng của ASF
 
-### **[Ryzhehvost](https://github.com/Ryzhehvost)**
+### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, phần bổ trợ dành cho ASF cho phép bạn quản lý thành tựu Steam.
-- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, phần bổ trợ dành cho ASF để nhận lời chúc mừng sinh nhật.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, phần bổ trợ dành cho ASF bổ sung chức năng tạo các gói bổ sung.
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, phần bổ trợ dành cho ASF để đặt tên bot không phân biệt chữ hoa chữ thường.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, phần bổ trợ dành cho ASF để triển khai lại việc kích hoạt mã mà không cần lệnh.
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, phần bổ trợ để ASF tự động chấp nhận yêu cầu trao đổi đối với (các) loại mặt hàng nhất định.
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, phần bổ trợ dành cho ASF cung cấp lệnh `transfer` nâng cao để chuyển các vật phẩm trên Steam.
+- **[ASF-Achievement-Manager](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, phần bổ trợ dành cho ASF cho phép bạn quản lý thành tựu Steam.
+- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, phần bổ trợ dành cho ASF để nhận lời chúc mừng sinh nhật.
+- **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, phần bổ trợ dành cho ASF bổ sung chức năng tạo các gói bổ sung.
+- **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, phần bổ trợ dành cho ASF để đặt tên bot không phân biệt chữ hoa chữ thường.
+- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, phần bổ trợ dành cho ASF để triển khai lại việc kích hoạt mã mà không cần lệnh.
+- **[ItemDispenser](https://github.com/Rudokhvist/ItemDispenser)**, phần bổ trợ để ASF tự động chấp nhận yêu cầu trao đổi đối với (các) loại mặt hàng nhất định.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Rudokhvist/Selective-Loot-and-Transfer-Plugin)**, phần bổ trợ dành cho ASF cung cấp lệnh `transfer` nâng cao để chuyển các vật phẩm trên Steam.
 
 ### **[Vita](https://github.com/ezhevita)**
 

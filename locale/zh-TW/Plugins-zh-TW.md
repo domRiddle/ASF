@@ -107,7 +107,7 @@ dotnet publish 您外掛程式的名稱 -c "Release" -o "out"
 
 ### API 相容性
 
-需要特別為您強調，ASF是一個使用者應用程式，而非一個您能無條件依賴、具有穩定API介面的程式庫。 這代表您無法假定您的外掛程式一經編譯，就能夠在未來所有的ASF版本中持續運作。若您想進一步開發程式，這將是不可能的，我們無法只為了反向相容性，就放棄去適應不斷變化的Steam。 對您來說這應該合乎邏輯，但強調這一點事實很重要。
+需要特別為您強調，ASF是一個使用者應用程式，而非一個您能無條件依賴、具有穩定API介面的程式庫。 This means that you can't assume that your plugin once compiled will keep working with all future ASF releases regardless, it's just impossible if we want to keep developing the program further, and being unable to adapt to ever-ongoing Steam changes for the sake of backwards compatibility is just not appropriate for our case. 對您來說這應該合乎邏輯，但強調這一點事實很重要。
 
 我們會盡最大努力，保持ASF公開的部分能夠正常且穩定運作。但如果有足夠的理由，我們不會害怕去破壞相容性，並且在這個過程中，會遵循我們的&#8203;**[棄用](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-zh-TW)**&#8203;政策。 這對於作為ASF基礎架構的一部份公開給您的內部ASF結構來說特別重要，如上文所述（例如&#8203;`ArchiWebHandler`&#8203;），在未來某個版本中，它們可能會作為ASF增強的一部份而被改進（或因此而被重寫）。 我們將會盡最大努力在更新日誌中適當通知您，並在執行期間適時顯示與過時功能相關的警告。 我們不會故意為了重寫而重寫，因此您可以相信，下一個ASF次版更新不會只因為版本號碼增加，而讓您的外掛程式完全失效。但仍最好留意更新日誌，並偶爾驗證一切是否正常運作。
 

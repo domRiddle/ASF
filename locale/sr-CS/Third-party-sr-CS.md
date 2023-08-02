@@ -8,15 +8,15 @@ Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog 
 
 ## ASF dodaci
 
-### **[Ryzhehvost](https://github.com/Ryzhehvost)**
+### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin za SF koji vam omogućava da upravljate vašim Steam dostignućima.
-- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, dodatak za ASF koji dodaje funkcionalnost za pravljenje booster pakova.
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, dodatak za ASF koji ne mari da li su imena ASF botova velika ili mala.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, dodatak za ASF za re-implementaciju dodavanja ključeva bez komande.
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, dodatak za ASF koji automatski prihvata zahtjeve za razmjenu za određene tipove item-a.
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin za ASF koji obezbeđuje napredni `prenos` komandi za transferovanja Steam itema.
+- **[ASF-Achievement-Manager](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, plugin za SF koji vam omogućava da upravljate vašim Steam dostignućima.
+- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
+- **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, dodatak za ASF koji dodaje funkcionalnost za pravljenje booster pakova.
+- **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, dodatak za ASF koji ne mari da li su imena ASF botova velika ili mala.
+- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, dodatak za ASF za re-implementaciju dodavanja ključeva bez komande.
+- **[ItemDispenser](https://github.com/Rudokhvist/ItemDispenser)**, dodatak za ASF koji automatski prihvata zahtjeve za razmjenu za određene tipove item-a.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Rudokhvist/Selective-Loot-and-Transfer-Plugin)**, plugin za ASF koji obezbeđuje napredni `prenos` komandi za transferovanja Steam itema.
 
 ### **[Vita](https://github.com/ezhevita)**
 

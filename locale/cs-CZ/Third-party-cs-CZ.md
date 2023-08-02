@@ -8,15 +8,15 @@ Vezměte prosím na vědomí, že níže uvedené programy nejsou **** udržová
 
 ## ASF pluginy
 
-### **[Ryzhehvost](https://github.com/Ryzhehvost)**
+### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin pro ASF, který vám umožňuje spravovat Steam úspěchy.
-- **[Narozeninový Plugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin pro ASF, abyste dostávali blahopřání k narozeninám.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin pro ASF přidávající funkci vytváření balíčků boosteru.
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin pro ASF aby názvy botů byly case-insensitive.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, zásuvný modul pro ASF pro opětovnou implementaci výpisu klíče bez příkazu.
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin pro ASF automaticky přijímá žádost o obchod pro určité typy položek.
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin pro ASF poskytuje pokročilý `převodový` příkaz pro přenos položek ze Steamu.
+- **[ASF-Achievement-Manager](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, plugin pro ASF, který vám umožňuje spravovat Steam úspěchy.
+- **[Narozeninový Plugin](https://github.com/Rudokhvist/BirthdayPlugin)**, plugin pro ASF, abyste dostávali blahopřání k narozeninám.
+- **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, plugin pro ASF přidávající funkci vytváření balíčků boosteru.
+- **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, plugin pro ASF aby názvy botů byly case-insensitive.
+- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, zásuvný modul pro ASF pro opětovnou implementaci výpisu klíče bez příkazu.
+- **[ItemDispenser](https://github.com/Rudokhvist/ItemDispenser)**, plugin pro ASF automaticky přijímá žádost o obchod pro určité typy položek.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Rudokhvist/Selective-Loot-and-Transfer-Plugin)**, plugin pro ASF poskytuje pokročilý `převodový` příkaz pro přenos položek ze Steamu.
 
 ### **[Vita](https://github.com/ezhevita)**
 

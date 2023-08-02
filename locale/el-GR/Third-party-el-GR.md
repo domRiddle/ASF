@@ -8,15 +8,15 @@
 
 ## ASF plugins
 
-### **[Ryzhehvost](https://github.com/Ryzhehvost)**
+### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin για το ASF που σας επιτρέπει να διαχειριστείτε τα Steam achievements.
-- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, πρόσθετο για την προσθήκη ASF λειτουργικότητας της δημιουργίας ενισχυτικών πακέτων.
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, πρόσθετο για το ASF για να μην ελέγχει κεφαλαία στα ονόματα IoT.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, πρόσθετο για το ASF για επαναφορά κλειδιού εξαργύρωσης χωρίς εντολή.
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, πρόσθετο για ASF να δέχεται αυτόματα το αίτημα συναλλαγής για ορισμένο(ους) τύπο(ους) αντικειμένου(ων).
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, πρόσθετο για ASF, παρέχει προχωρημένες `transfer` εντολές για μεταφορά αντικειμένων Steam.
+- **[ASF-Achievement-Manager](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, plugin για το ASF που σας επιτρέπει να διαχειριστείτε τα Steam achievements.
+- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
+- **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, πρόσθετο για την προσθήκη ASF λειτουργικότητας της δημιουργίας ενισχυτικών πακέτων.
+- **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, πρόσθετο για το ASF για να μην ελέγχει κεφαλαία στα ονόματα IoT.
+- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, πρόσθετο για το ASF για επαναφορά κλειδιού εξαργύρωσης χωρίς εντολή.
+- **[ItemDispenser](https://github.com/Rudokhvist/ItemDispenser)**, πρόσθετο για ASF να δέχεται αυτόματα το αίτημα συναλλαγής για ορισμένο(ους) τύπο(ους) αντικειμένου(ων).
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Rudokhvist/Selective-Loot-and-Transfer-Plugin)**, πρόσθετο για ASF, παρέχει προχωρημένες `transfer` εντολές για μεταφορά αντικειμένων Steam.
 
 ### **[Vita](https://github.com/ezhevita)**
 

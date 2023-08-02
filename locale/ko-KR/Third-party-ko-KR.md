@@ -8,15 +8,15 @@
 
 ## ASF 플러그인
 
-### **[Ryzhehvost](https://github.com/Ryzhehvost)**
+### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
-- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, 부스터 팩 생성기능을 하는 ASF 플러그인입니다.
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, ASF가 봇 이름을 대소문자 구분없이 사용하도록 하는 플러그인입니다.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, ASF가 명령어 없이 키를 등록하도록 구현하는 플러그인입니다.
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, ASF가 특정 형태의 아이템 거래를 자동으로 수락하는 플러그인입니다.
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
+- **[ASF-Achievement-Manager](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
+- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
+- **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, 부스터 팩 생성기능을 하는 ASF 플러그인입니다.
+- **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, ASF가 봇 이름을 대소문자 구분없이 사용하도록 하는 플러그인입니다.
+- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, ASF가 명령어 없이 키를 등록하도록 구현하는 플러그인입니다.
+- **[ItemDispenser](https://github.com/Rudokhvist/ItemDispenser)**, ASF가 특정 형태의 아이템 거래를 자동으로 수락하는 플러그인입니다.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Rudokhvist/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
 
 ### **[Vita](https://github.com/ezhevita)**
 

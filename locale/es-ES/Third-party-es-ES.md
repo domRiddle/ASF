@@ -8,15 +8,15 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 
 ## Plugins de ASF
 
-### **[Ryzhehvost](https://github.com/Ryzhehvost)**
+### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin para ASF que permite gestionar los logros de Steam.
-- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin de ASF para recibir felicitaciones de cumpleaños.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin para ASF que añade la funcionalidad de crear packs de refuerzo.
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, plugin para ASF para hacer que los nombres de los bots no distingan mayúsculas y minúsculas.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, plugin de ASF para reimplementar la activación de claves sin un comando.
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin de ASF para aceptar automáticamente solicitudes de intercambio para ciertos tipos de artículos.
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin para ASF que proporciona un comando `transfer` avanzado para transferir artículos de Steam.
+- **[ASF-Achievement-Manager](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, plugin para ASF que permite gestionar los logros de Steam.
+- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, plugin de ASF para recibir felicitaciones de cumpleaños.
+- **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, plugin para ASF que añade la funcionalidad de crear packs de refuerzo.
+- **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, plugin para ASF para hacer que los nombres de los bots no distingan mayúsculas y minúsculas.
+- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, plugin de ASF para reimplementar la activación de claves sin un comando.
+- **[ItemDispenser](https://github.com/Rudokhvist/ItemDispenser)**, plugin de ASF para aceptar automáticamente solicitudes de intercambio para ciertos tipos de artículos.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Rudokhvist/Selective-Loot-and-Transfer-Plugin)**, plugin para ASF que proporciona un comando `transfer` avanzado para transferir artículos de Steam.
 
 ### **[Vita](https://github.com/ezhevita)**
 

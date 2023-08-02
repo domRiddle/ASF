@@ -8,15 +8,15 @@ Please note that below programs are **not** maintained by ASF developers and the
 
 ## ASF 外掛程式
 
-### **[Ryzhehvost](https://github.com/Ryzhehvost)**
+### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
-- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, plugin for ASF adding functionality of creating booster packs.
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**，ASF外掛程式，使機械人名稱不必區分大小寫。
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, ASF 外掛程式, 重新實現免命令金鑰兌換。
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, plugin for ASF to automatically accept trade request for certain type(s) of items.
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
+- **[ASF-Achievement-Manager](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, plugin for ASF that allows you to manage Steam achievements.
+- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
+- **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, plugin for ASF adding functionality of creating booster packs.
+- **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**，ASF外掛程式，使機械人名稱不必區分大小寫。
+- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, ASF 外掛程式, 重新實現免命令金鑰兌換。
+- **[ItemDispenser](https://github.com/Rudokhvist/ItemDispenser)**, plugin for ASF to automatically accept trade request for certain type(s) of items.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Rudokhvist/Selective-Loot-and-Transfer-Plugin)**, plugin for ASF providing advanced `transfer` command for transferring Steam items.
 
 ### **[Vita](https://github.com/ezhevita)**
 

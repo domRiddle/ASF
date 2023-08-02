@@ -8,15 +8,15 @@ Lütfen aşağıdaki programların ASF geliştiricileri tarafından **sağlanmad
 
 ## ASF eklentileri
 
-### **[Ryzhehvost](https://github.com/Ryzhehvost)**
+### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF Başarım Yöneticisi](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, Steam başarımlarını yönetmenize izin veren ASF eklentisidir.
-- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, doğum gününüzü kutlaması için bir ASF eklentisidir.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, güçlendirici paketler oluşturma işlevini sağlayan ASF eklentisidir.
-- **[Case-Inresponsive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, bot adlarını büyük/küçük harfe duyarlı hale getiren ASF eklentisidir.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, ürün kodunu komut girmeden uygulamanızı sağlayan ASF eklentisidir.
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, belirli tür(ler) için takas talebini otomatik olarak kabul etmesini sağlayan ASF eklentisidir.
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, gelişmiş `transfer` komutları sağlaması için bir ASF eklentisidir.
+- **[ASF Başarım Yöneticisi](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, Steam başarımlarını yönetmenize izin veren ASF eklentisidir.
+- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, doğum gününüzü kutlaması için bir ASF eklentisidir.
+- **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, güçlendirici paketler oluşturma işlevini sağlayan ASF eklentisidir.
+- **[Case-Inresponsive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, bot adlarını büyük/küçük harfe duyarlı hale getiren ASF eklentisidir.
+- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, ürün kodunu komut girmeden uygulamanızı sağlayan ASF eklentisidir.
+- **[ItemDispenser](https://github.com/Rudokhvist/ItemDispenser)**, belirli tür(ler) için takas talebini otomatik olarak kabul etmesini sağlayan ASF eklentisidir.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Rudokhvist/Selective-Loot-and-Transfer-Plugin)**, gelişmiş `transfer` komutları sağlaması için bir ASF eklentisidir.
 
 ### **[Vita](https://github.com/ezhevita)**
 

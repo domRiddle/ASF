@@ -8,15 +8,15 @@
 
 ## ASF 外掛程式
 
-### **[Ryzhehvost](https://github.com/Ryzhehvost)**
+### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**&#8203;：讓您能透過ASF來管理Steam成就。
-- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**&#8203;：ASF會接收生日祝福。
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**&#8203;：使ASF具有製作擴充包的功能。
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**&#8203;：ASF Bot的名稱將不再區分大小寫。
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**&#8203;：使ASF無需指令，即可重新實現序號啟動。
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**&#8203;：ASF將會自動接受特定類型物品的交易請求。
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**&#8203;：使ASF提供進階的&#8203;`transfer`&#8203;指令來轉移Steam物品。
+- **[ASF-Achievement-Manager](https://github.com/Rudokhvist/ASF-Achievement-Manager)**&#8203;：讓您能透過ASF來管理Steam成就。
+- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**&#8203;：ASF會接收生日祝福。
+- **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**&#8203;：使ASF具有製作擴充包的功能。
+- **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**&#8203;：ASF Bot的名稱將不再區分大小寫。
+- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**&#8203;：使ASF無需指令，即可重新實現序號啟動。
+- **[ItemDispenser](https://github.com/Rudokhvist/ItemDispenser)**&#8203;：ASF將會自動接受特定類型物品的交易請求。
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Rudokhvist/Selective-Loot-and-Transfer-Plugin)**&#8203;：使ASF提供進階的&#8203;`transfer`&#8203;指令來轉移Steam物品。
 
 ### **[Vita](https://github.com/ezhevita)**
 

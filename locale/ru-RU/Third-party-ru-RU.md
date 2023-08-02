@@ -8,15 +8,15 @@
 
 ## Плагины для ASF
 
-### **[Ryzhehvost](https://github.com/Ryzhehvost)**
+### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, плагин для ASF, дающий возможность управлять достижениями Steam.
-- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, плагин для ASF для получения поздравлений с днем рождения.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, плагин для ASF, добавляющий функционал создания наборов карточек из самоцветов.
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, плагин для ASF, который делает имена ботов регистронезависимыми.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, плагин, возвращающий в ASF возможность активации ключей без команды.
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, плагин для ASF, позволяющий автоматически принимать предложения обмена, в которых у него запрашивают предметы заданного(ых) типа(ов).
-- **[ Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, плагин для ASF, предоставляющий расширение команды `transfer` для передачи предметов Steam.
+- **[ASF-Achievement-Manager](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, плагин для ASF, дающий возможность управлять достижениями Steam.
+- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, плагин для ASF для получения поздравлений с днем рождения.
+- **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, плагин для ASF, добавляющий функционал создания наборов карточек из самоцветов.
+- **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, плагин для ASF, который делает имена ботов регистронезависимыми.
+- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, плагин, возвращающий в ASF возможность активации ключей без команды.
+- **[ItemDispenser](https://github.com/Rudokhvist/ItemDispenser)**, плагин для ASF, позволяющий автоматически принимать предложения обмена, в которых у него запрашивают предметы заданного(ых) типа(ов).
+- **[ Selective-Loot-and-Transfer-Plugin](https://github.com/Rudokhvist/Selective-Loot-and-Transfer-Plugin)**, плагин для ASF, предоставляющий расширение команды `transfer` для передачи предметов Steam.
 
 ### **[VITA](https://github.com/ezhevita)**
 

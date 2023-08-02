@@ -8,15 +8,15 @@
 
 ## ASF 插件
 
-### **[Ryzhehvost](https://github.com/Ryzhehvost)**
+### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**，使您可以通过 ASF 管理 Steam 成就的插件。
-- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**，通过 ASF 接收生日祝贺的插件。
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**，使 ASF 能够制作补充包的插件。
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**，使 ASF 机器人名称不区分大小写的插件。
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**，重新实现免命令序列号激活功能的 ASF 插件。
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**，使 ASF 自动接受特定类型物品的交易请求的插件。
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**，为 ASF 提供用于转移 Steam 物品的高级 `transfer` 命令。
+- **[ASF-Achievement-Manager](https://github.com/Rudokhvist/ASF-Achievement-Manager)**，使您可以通过 ASF 管理 Steam 成就的插件。
+- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**，通过 ASF 接收生日祝贺的插件。
+- **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**，使 ASF 能够制作补充包的插件。
+- **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**，使 ASF 机器人名称不区分大小写的插件。
+- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**，重新实现免命令序列号激活功能的 ASF 插件。
+- **[ItemDispenser](https://github.com/Rudokhvist/ItemDispenser)**，使 ASF 自动接受特定类型物品的交易请求的插件。
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Rudokhvist/Selective-Loot-and-Transfer-Plugin)**，为 ASF 提供用于转移 Steam 物品的高级 `transfer` 命令。
 
 ### **[Vita](https://github.com/ezhevita)**
 

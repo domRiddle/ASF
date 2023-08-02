@@ -8,15 +8,15 @@ PLZ NOWT DAT BELOW PROGRAMS R **NOT** MAINTAIND BY ASF DEVELOPERS AN THEREFORE *
 
 ## ASF PLUGINS
 
-### **[RYZHEHVOST](https://github.com/Ryzhehvost)**
+### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Achievement-Manager](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, PLUGIN 4 ASF DAT ALLOWS U 2 MANAGE STEAM ACHIEVEMENTS.
-- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, PLUGIN 4 ASF 2 RECEIV BIRFDAI CONGRATULASHUNS.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, PLUGIN 4 ASF ADDIN FUNCSHUNALITY OV CREATIN BOOSTR PACKZ.
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, PLUGIN 4 ASF 2 MAK BOT NAMEZ CASE-INSENSITIV.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, PLUGIN 4 ASF 2 RE-IMPLEMENT KEY REDEEMIN WITHOUT COMMAND.
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, PLUGIN 4 ASF 2 AUTOMATICALLY ACCEPT TRADE REQUEST 4 CERTAIN TYPE(S) OV ITEMS.
-- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, PLUGIN 4 ASF PROVIDIN ADVANCD `transfer` COMMAND 4 TRANZFERRIN STEAM ITEMS.
+- **[ASF-Achievement-Manager](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, PLUGIN 4 ASF DAT ALLOWS U 2 MANAGE STEAM ACHIEVEMENTS.
+- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, PLUGIN 4 ASF 2 RECEIV BIRFDAI CONGRATULASHUNS.
+- **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, PLUGIN 4 ASF ADDIN FUNCSHUNALITY OV CREATIN BOOSTR PACKZ.
+- **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, PLUGIN 4 ASF 2 MAK BOT NAMEZ CASE-INSENSITIV.
+- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, PLUGIN 4 ASF 2 RE-IMPLEMENT KEY REDEEMIN WITHOUT COMMAND.
+- **[ItemDispenser](https://github.com/Rudokhvist/ItemDispenser)**, PLUGIN 4 ASF 2 AUTOMATICALLY ACCEPT TRADE REQUEST 4 CERTAIN TYPE(S) OV ITEMS.
+- **[Selective-Loot-and-Transfer-Plugin](https://github.com/Rudokhvist/Selective-Loot-and-Transfer-Plugin)**, PLUGIN 4 ASF PROVIDIN ADVANCD `transfer` COMMAND 4 TRANZFERRIN STEAM ITEMS.
 
 ### **[Vita](https://github.com/ezhevita)**
 

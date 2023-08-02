@@ -8,15 +8,15 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 ## ASF-Plugins
 
-### **[Ryzhehvost](https://github.com/Ryzhehvost)**
+### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Errungenschaften-Verwalter](https://github.com/Ryzhehvost/ASF-Achievement-Manager)**, Erweiterung für ASF die Ihnen erlaubt, Ihre Steam Errungenschaften zu verwalten.
-- **[BirthdayPlugin](https://github.com/Ryzhehvost/BirthdayPlugin)**, ASF-Plugin um Geburtstags-Glückwünsche zu erhalten.
-- **[BoosterCreator](https://github.com/Ryzhehvost/BoosterCreator)**, Erweiterung für ASF, das die Funktionalität der Erstellung von Booster-Paketen bereitstellt.
-- **[Case-Insensitive-ASF](https://github.com/Ryzhehvost/Case-Insensitive-ASF)**, Erweiterung für ASF, um Botnamen unabhängig von Groß- und Kleinschreibung zu machen.
-- **[Commandless-Redeem](https://github.com/Ryzhehvost/Commandless-Redeem)**, Plugin für ASF welches die befehllose Produktschlüssel-Aktivierung zu re-implementieren.
-- **[ItemDispenser](https://github.com/Ryzhehvost/ItemDispenser)**, Plugin, damit ASF automatisch Handelsanfragen für bestimmte Artikeltyp(en) akzeptiert.
-- **[Selektive-Loot-und-Übertragungserweiterung](https://github.com/Ryzhehvost/Selective-Loot-and-Transfer-Plugin)**, Erweiterung für ASF die erweiterte Befehle zum Übertragen von Steam-Gegenständen bietet.
+- **[ASF-Errungenschaften-Verwalter](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, Erweiterung für ASF die Ihnen erlaubt, Ihre Steam Errungenschaften zu verwalten.
+- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, ASF-Plugin um Geburtstags-Glückwünsche zu erhalten.
+- **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, Erweiterung für ASF, das die Funktionalität der Erstellung von Booster-Paketen bereitstellt.
+- **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, Erweiterung für ASF, um Botnamen unabhängig von Groß- und Kleinschreibung zu machen.
+- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, Plugin für ASF welches die befehllose Produktschlüssel-Aktivierung zu re-implementieren.
+- **[ItemDispenser](https://github.com/Rudokhvist/ItemDispenser)**, Plugin, damit ASF automatisch Handelsanfragen für bestimmte Artikeltyp(en) akzeptiert.
+- **[Selektive-Loot-und-Übertragungserweiterung](https://github.com/Rudokhvist/Selective-Loot-and-Transfer-Plugin)**, Erweiterung für ASF die erweiterte Befehle zum Übertragen von Steam-Gegenständen bietet.
 
 ### **[Vita](https://github.com/ezhevita)**
 
