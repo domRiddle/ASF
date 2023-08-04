@@ -441,7 +441,7 @@ Bot設定檔具有以下結構：
 
 無效的交易提案是指不被ASF內建模組接受的交易。 關於本問題的更多資訊，可以在&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW)**&#8203;章節中找到，其中明確定義了ASF願意自動接受哪些類型的交易。 有效的交易還會被其他設定所定義，特別是&#8203;`TradingPreferences`&#8203;。 `RejectInvalidTrades`&#8203;會使所有無效的交易提案被拒絕，而不是被忽略。 除非您想要直接拒絕所有ASF未自動接受的交易提案，否則您不應啟用本選項。
 
-無效的群組邀請是指來自&#8203;`SteamMasterClanID`&#8203;群組以外的邀請。 如您所預期的那樣，一般模式下的ASF會忽略這些邀請，使您可以自行決定是否要加入特定的群組。 `RejectInvalidGroupInvites`&#8203;會使這些群組邀請被拒絕，使您無法加入&#8203;`SteamMasterClanID`&#8203;以外的其他任何群組。 除非您想要徹底拒絕所有群組邀請，否則您不應啟用本選項。
+無效的群組邀請是指來自&#8203;`SteamMasterClanID`&#8203;群組以外的邀請。 如您所預期的那樣，一般模式下的ASF會忽略這些邀請，使您能夠自行決定是否要加入特定的群組。 `RejectInvalidGroupInvites`&#8203;會使這些群組邀請被拒絕，使您無法加入&#8203;`SteamMasterClanID`&#8203;以外的其他任何群組。 除非您想要徹底拒絕所有群組邀請，否則您不應啟用本選項。
 
 若您開始對收到新物品的通知感到厭煩時，&#8203;`DismissInventoryNotifications`&#8203;會是一個相當有用的功能。 ASF無法去除通知本身，因為它是您Steam用戶端內建的功能，但它能在收到通知後自動清除通知，這樣就不會留有「新物品在您的物品庫」的通知了。 若您希望自行評估所收到的物品（特別是ASF掛到的卡片），那麼很明顯您不應該啟用本選項。 但如果您快要開始被煩到抓狂了，切記這裡有個選項可以使用。
 
@@ -682,7 +682,7 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 
 `KeepMissingGames`&#8203;會使Bot在無法確定產品序號所啟用的遊戲是否為自身所擁有時，跳過&#8203;`Forwarding`&#8203;。 這基本上代表了&#8203;`Forwarding`&#8203;將&#8203;**只**&#8203;對&#8203;`AlreadyPurchased`&#8203;序號有效，而不再會轉發其他情形的序號，例如&#8203;`DoesNotOwnRequiredApp`&#8203;、&#8203;`RateLimited`&#8203;或&#8203;`RestrictedCountry`&#8203;。 通常您會想要在主要帳號上使用這個選項，來確保當您的Bot暫時觸發&#8203;`RateLimited`&#8203;時，不會將本應在該Bot上兌換的產品序號被轉發。 正如您從描述中所猜測的那樣，若&#8203;`Forwarding`&#8203;沒有被啟用，則本欄位將沒有任何作用。
 
-`AssumeWalletKeyOnBadActivationCode`&#8203;會使&#8203;`BadActivationCode`&#8203;的產品序號被當作&#8203;`CannotRedeemCodeFromClient`&#8203;，並使ASF嘗試將它們作為禮物卡序號兌換。 需要本選項是因為Steam可能將禮物卡序號當作&#8203;`BadActivationCode`&#8203;（而非正確的&#8203;`CannotRedeemCodeFromClient`&#8203;），導致ASF永遠不會去嘗試兌換它們。 但是，我們建議&#8203;**避免**&#8203;使用本設定，因為這會使ASF嘗試將每個無效序號作為禮物卡序號兌換，因而Steam服務傳送大量的（無效）請求，造成所有可能的後果。 作為代替，我們建議您於明確知道在兌換禮物卡序號時，使用&#8203;`ForceAssumeWalletKey` **[`redeem^`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW#redeem-指令中的-modes-引數)**&#8203;模式，這是只在需要時啟用本模式的解決方案。
+`AssumeWalletKeyOnBadActivationCode`&#8203;會使&#8203;`BadActivationCode`&#8203;的產品序號被當作&#8203;`CannotRedeemCodeFromClient`&#8203;，並使ASF嘗試將它們作為禮物卡序號兌換。 需要本選項是因為Steam可能將禮物卡序號當作&#8203;`BadActivationCode`&#8203;（而非正確的&#8203;`CannotRedeemCodeFromClient`&#8203;），導致ASF永遠不會去嘗試兌換它們。 但是，我們建議&#8203;**避免**&#8203;使用本設定，因為這會使ASF嘗試將每個無效序號作為禮物卡序號兌換，因而Steam服務傳送大量的（無效）請求，造成所有可能的後果。 作為代替，我們建議您於明確知道在兌換禮物卡序號時，使用&#8203;`ForceAssumeWalletKey`&#8203;的&#8203;**[`redeem^`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW#redeem-指令中的-modes-引數)**&#8203;模式，這是只在需要時啟用本模式的解決方案。
 
 同時啟用&#8203;`Forwarding`&#8203;與&#8203;`Distributing`&#8203;會在轉發的功能上增加分配的功能，使ASF會先嘗試在所有Bot上兌換一個產品序號（轉發），然後才會使用下一個序號（分配）。 通常您這樣設定是希望使用&#8203;`Forwarding`&#8203;，並改變Bot在使用完序號時的切換行為，不再總依順序使用每一個序號（單獨設定&#8203;`Forwarding`&#8203;的行為）。 在您已知大多數甚至所有產品序號都被綁定到同一款遊戲上時，這項行為會非常有用，因為在這種情形下只使用&#8203;`Forwarding`&#8203;會先在一個Bot上嘗試兌換所有序號（適用於您的序號屬於不同的遊戲時），而同時使用&#8203;Forwarding</code>&#8203; + &#8203;`Distributing`&#8203;將會在兌換下一個序號時切換Bot，將兌換新序號的工作「分配」至另一個Bot上，而不是由初始的Bot繼續（適用於序號為相同遊戲時，能跳過每個序號無意義的兌換嘗試）。
 
@@ -712,80 +712,80 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 
 ### `SendOnFarmingFinished（在掛卡完成時自動發送）`
 
-`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 When ASF is done with farming given account, it can automatically send steam trade containing everything farmed up to this point to user with `Master` permission, which is very convenient if you don't want to bother with trades yourself. 本選項與&#8203;`loot`&#8203;指令作用相同，因此請注意，首先它需要您有帳號的交易合法權限，且使用者具有&#8203;`Master`&#8203;權限，而您可能也要有有效的&#8203;`SteamTradeToken`&#8203;。 In addition to initiating `loot` after finishing farming, ASF will also initiate `loot` on each new items notification (when not farming), and after completing each trade that results in new items (always) when this option is active. This is especially useful for "forwarding" items received from other people to our account.
+`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 在ASF完成指定帳號的掛卡任務後，它能自動將到目前為止所掛出的卡使用交易提案發送給具有&#8203;`Master`&#8203;權限的使用者，若您不想自行發送交易提案，這個功能會對您有所幫助。 本選項與&#8203;`loot`&#8203;指令作用相同，因此請注意，首先它需要您有帳號的交易合法權限，且使用者具有&#8203;`Master`&#8203;權限，而您可能也要有有效的&#8203;`SteamTradeToken`&#8203;。 在本選項啟用時，ASF除了會在掛卡完成後執行&#8203;`loot`&#8203;外，也會在（未掛卡時）每次收到新物品通知後，及在完成產生新物品的交易後執行&#8203;`loot`&#8203;。 這在您把來自其他人的物品「轉發」到自己的帳號中時特別有用。
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 若您不確定如何設定本屬性，請保留預設值&#8203;`false`&#8203;。
-
----
-
-### `SendTradePeriod`
-
-`byte`&#8203;型別，預設值為&#8203;`0`&#8203;。 This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
-
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to confirm manually in timely fashion. 若您不確定如何設定本屬性，請保留預設值&#8203;`0`&#8203;。
+通常您會需要同時使用&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**&#8203;，但若您傾向於手動確認，則這並不是必需的。 若您不確定如何設定本屬性，請保留預設值&#8203;`false`&#8203;。
 
 ---
 
-### `ShutdownOnFarmingFinished`
+### `SendTradePeriod（交易發送小時間隔）`
 
-`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 ASF is "occupying" an account for the whole time of process being active. When given account is done with farming, ASF periodically checks it (every `IdleFarmingPeriod` hours), if perhaps some new games with steam cards were added in the meantime, so it can resume farming of that account without a need to restart the process. This is useful for majority of people, as ASF can automatically resume farming when needed. However, you may actually want to stop the process when given account is fully farmed, you can achieve that by setting this property to `true`. When enabled, ASF will proceed with logging off when account is fully farmed, which means that it won't be periodically checked or occupied anymore. You should decide yourself if you prefer ASF to work on given bot instance for the whole time, or if perhaps ASF should stop it when farming process is done. When all accounts are stopped and process is not running in `--process-required` **[mode](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, ASF will shutdown as well, putting your machine at rest and allowing you to schedule other actions, such as sleep or shutdown at the same moment of last card dropping.
+`byte`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性的運作方式與&#8203;`SendOnFarmingFinished`&#8203;極為相似，只有一處不同⸺不是在掛卡完成時發送交易提案，而是不論我們掛了多少，每隔&#8203;`SendTradePeriod`&#8203;小時就發送一次。 如果您想要固定時間&#8203;`loot`&#8203;您的小號，而不是等到掛卡完成，則這會對您很有幫助。 預設值&#8203;`0`&#8203;會停用本功能，若您想要讓您的Bot向您發送交易提案，例如每天一次，那麼您應該將此處設定成&#8203;`24`&#8203;。
+
+通常您會需要同時使用&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**&#8203;，但若您傾向於手動確認，則這並不是必需的。 若您不確定如何設定本屬性，請保留預設值&#8203;`0`&#8203;。
+
+---
+
+### `ShutdownOnFarmingFinished（在掛卡完成時關閉）`
+
+`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 ASF會在程序執行過程中持續「占用」帳號。 在指定帳號完成掛卡後，ASF會（每隔&#8203;`IdleFarmingPeriod`&#8203;小時）定期檢查，若在該段時間帳號新增了一些帶有Steam交換卡片的遊戲，那麼ASF能夠繼續掛該帳號的卡，而不用重啟整個程序。 這對於大多數人來說應該很有幫助，因為ASF能夠在需要時自動恢復掛卡。 但是，您也可能會希望在指定帳號掛卡完成後停止程序，這需要將本屬性設定成&#8203;`true`&#8203;。 啟用後，ASF將會在掛卡全數完成後登出帳號，這代表該帳號將不再被定期檢查或佔用。 您應該自行決定，會更希望ASF始終對Bot實例運作，或希望ASF在掛卡程序完成後停止它。 在所有帳號都終止運作，且程序未以&#8203;`--process-required`&#8203;的&#8203;**[模式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-zh-TW)**&#8203;執行時，ASF也會自行關閉，讓您的設備休息，使您能夠安排其他操作，例如在最後一張交換卡片掉落後睡眠或關機。
 
 若您不確定如何設定本屬性，請保留預設值&#8203;`false`&#8203;。
 
 ---
 
-### `SkipRefundableGames`
+### `SkipRefundableGames（跳過可退款遊戲）`
 
-`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 This property defines if ASF is permitted to farm games that are still refundable. A refundable game is a game that you bought in last 2 weeks through Steam Store and didn't play for longer than 2 hours yet, as stated on **[Steam refunds](https://store.steampowered.com/steam_refunds)** page. By default when this option is set to `false`, ASF ignores Steam refunds policy entirely and farms everything, as most people would expect. However, you can change this option to `true` if you want to ensure that ASF won't farm any of your refundable games too soon, allowing you to evaluate those games yourself and refund if needed without worrying about ASF affecting playtime negatively. Please note that if you enable this option then games you purchased from Steam Store won't be farmed by ASF for up to 14 days since redeem date, which will show as nothing to farm if your account doesn't own anything else. 若您不確定您是否想要啟用本功能，請保留預設值&#8203;`false`&#8203;。
-
----
-
-### `SteamLogin`
-
-`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 This property defines your steam login - the one you use for logging in to steam. In addition to defining steam login here, you may also keep default value of `null` if you want to enter your steam login on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+`bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 本屬性定義了ASF是否能掛那些仍可退款的遊戲。 所謂可退款的遊戲，是您在過去2週內透過Steam商店購買、且遊玩時數不超過2小時的遊戲，如&#8203;**[Steam退款](https://store.steampowered.com/steam_refunds)**&#8203;頁面所述。 本選項預設值為&#8203;`false`&#8203;，ASF會完全忽略Steam退款政策，掛所有能掛的遊戲，而這也是大多數人所想要的。 但是，如果您想確保ASF不會過快掛您的可退款遊戲，可以將本選項改成&#8203;`true`&#8203;，使您能夠自行體驗遊戲，並在需要時退款，避免ASF影響您的遊玩時數。 請注意，如果您啟用本選項，會從您在Steam商店購買遊戲的14日內，ASF將不會掛該遊戲，若在此期間您的帳號沒有其他可掛的遊戲，ASF將會顯示為閒置。 若您不確定您是否想要啟用本功能，請保留預設值&#8203;`false`&#8203;。
 
 ---
 
-### `SteamMasterClanID`
+### `SteamLogin（Steam 使用者名稱）`
 
-`ulong`&#8203;型別，預設值為&#8203;`0`&#8203;。 This property defines the steamID of the steam group that bot should automatically join, including its group chat. You can check steamID of your group by navigating to its **[page](https://steamcommunity.com/groups/archiasf)**, then adding `/memberslistxml?xml=1` to the end of the link, so the link will look like **[this](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**. Then you can get steamID of your group from the result, it's in `<groupID64>` tag. In above example it would be `103582791440160998`. In addition to trying to join given group at startup, the bot will also automatically accept group invites to this group, which makes it possible for you to invite your bot manually if your group has private membership. If you don't have any group dedicated for your bots, you should keep this property with default value of `0`.
+`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 本屬性定義了您的Steam使用者名稱⸺在登入Steam時使用。 除了在此處定義Steam使用者名稱外，若您想要在每次啟動ASF時手動輸入您的使用者名稱，而不是將它儲存於設定檔中，您也可以保留預設值&#8203;`null`&#8203;。 如果您不想要在設定檔中儲存敏感性資料，這或許是更好的方法。
 
 ---
 
-### `SteamParentalCode`
+### `SteamMasterClanID（Steam 主要群組 ID）`
 
-`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 This property defines your steam parental PIN. ASF requires an access to resources protected by steam parental, therefore if you use that feature, you should provide ASF with parental unlock PIN, so it can operate normally. Default value of `null` means that there is no steam parental PIN required to unlock this account, and this is probably what you want if you don't use steam parental functionality.
+`ulong`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性定義了Bot應自動加入的Steam群組ID及其聊天室。 您可以透過前往群組&#8203;**[page](https://steamcommunity.com/groups/archiasf)**&#8203;首頁，然後在連結的末端加上&#8203;`/memberslistxml?xml=1`&#8203;來查詢群組ID，整個連接將會看起來&#8203;**[像這樣](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**&#8203;。 然後您就可以在結果頁面的&#8203;`<groupID64>`&#8203;標籤下獲得您的群組ID。 在上述範例中，即為&#8203;`103582791440160998`&#8203;。 除了在啟動時嘗試加入指定的群組，Bot還會自動接受來自該群組的邀請，使您能夠在您的群組為私人群組時，手動邀請您的Bot加入。 若您沒有專屬於Bot的群組，則應該維持預設值&#8203;`0`&#8203;。
 
-In limited circumstances, ASF is also able to generate a valid Steam parental code itself, although that requires excessive amount of OS resources and additional time to complete, not to mention that it's not guaranteed to succeed, therefore we recommend to not rely on that feature and instead put valid `SteamParentalCode` in the config for ASF to use. If ASF determines that PIN is required, and it'll be unable to generate one on its own, it'll ask you for input.
+---
+
+### `SteamParentalCode（家庭監護 PIN 碼）`
+
+`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 本屬性定義了您的家庭監護PIN碼。 ASF需要存取由家庭監護系統所保護的資源，因此若您使用了這項功能，您應該提供ASF家庭監護的解鎖PIN碼，使它能夠正常運作。 預設值&#8203;`null`&#8203;代表不需要任何的家庭監護PIN碼來解鎖此帳號，如果您沒有使用Steam的家庭監護功能，就不需要更改。
+
+在有限的情況下，ASF也能夠生成有效的Steam家庭監護PIN碼，但這會需要大量的系統資源及時間來完成，且無法保證能成功，因此我們建議不要依賴這項功能，而是在設定檔中設定有效的&#8203;`SteamParentalCode`&#8203;。 若ASF認為需要PIN碼，且無法自行產生，就會要求您輸入。
 
 ---
 
 ### `SteamPassword（Steam 密碼）`
 
-`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 This property defines your steam password - the one you use for logging in to steam. In addition to defining steam password here, you may also keep default value of `null` if you want to enter your steam password on each ASF startup instead of putting it in the config. This may be useful for you if you don't want to save sensitive data in config file.
+`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 本屬性定義了您的Steam密碼⸺在登入Steam時使用。 除了在此處定義Steam密碼外，若您想要在每次啟動ASF時手動輸入您的密碼，而不是將它儲存於設定檔中，您也可以保留預設值&#8203;`null`&#8203;。 如果您不想要在設定檔中儲存敏感性資料，這或許是更好的方法。
 
 ---
 
-### `SteamTradeToken`
+### `SteamTradeToken（Steam 交易權杖）`
 
-`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 When you have your bot on your friend list, then bot can send a trade to you right away without worrying about trade token, therefore you can leave this property at default value of `null`. If you however decide to NOT have your bot on your friend list, then you will need to generate and fill a trade token as the user that this bot is expecting to send trades to. In other words, this property should be filled with trade token of the account that is defined with `Master` permission in `SteamUserPermissions` of **this** bot instance.
+`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 當您的Bot在您的好友名單中，Bot就能不需交易權杖直接向您發送交易提案，因此您可以保留本屬性的預設值為&#8203;`null`&#8203;。 但若您決定讓Bot不在您的好友名單中，您就需要為想要向其發送交易提案的Bot生成一個交易權杖，並填寫至此處。 也就是說，本屬性應填寫&#8203;**此**&#8203;Bot實例在&#8203;`SteamUserPermissions`&#8203;中設定的&#8203;`Master`&#8203;權限帳號的交易權杖。
 
-In order to find your token, as logged in user with `Master` permission, navigate **[here](https://steamcommunity.com/my/tradeoffers/privacy)** and take a look at your trade URL. The token we're looking for is made out of 8 characters after `&token=` part in your trade URL. You should copy and put those 8 characters here, as `SteamTradeToken`. Do not include whole trading URL, neither `&token=` part, only the token itself (8 characters).
+要找到您的權杖，須以&#8203;`Master`&#8203;權限的使用者登入，並前往&#8203;**[這裡](https://steamcommunity.com/my/tradeoffers/privacy)**&#8203;，然後查看您的交易URL。 我們所尋找的權杖是由8個字元所組成，就在您交易URL的&#8203;`&token=`&#8203;部分後面。 您應該複製這8個字元並於此處貼上，作為&#8203;`SteamTradeToken`&#8203;。 請不要包含整個交易URL，也不需&#8203;`&token=`&#8203;部分，只需要權杖就好（8個字元）。
 
 ---
 
-### `SteamUserPermissions`
+### `SteamUserPermissions（Steam 使用者權限）`
 
-`ImmutableDictionary<ulong, byte>`&#8203;型別，預設值為空。 This property is a dictionary property which maps given Steam user identified by his 64-bit steam ID, to `byte` number that specifies his permission in ASF instance. Currently available bot permissions in ASF are defined as:
+`ImmutableDictionary<ulong, byte>`&#8203;型別，預設值為空。 本屬性為字典屬性，將由64位元的Steam ID所識別的Steam使用者，映射到由&#8203;`byte`&#8203;編號所定義在ASF實例中的權限。 目前在ASF中可用的Bot權限定義如下：
 
-| 值 | 名稱            | 描述                                                                                                                                                                                                 |
-| - | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0 | 無             | No special permission, this is mainly a reference value that is assigned to steam IDs missing in this dictionary - there is no need to define anybody with this permission                         |
-| 1 | FamilySharing | Provides minimum access for family sharing users. Once again, this is mainly a reference value since ASF is capable of automatically discovering steam IDs that we permitted for using our library |
-| 2 | Operator      | Provides basic access to given bot instances, mainly adding licenses and redeeming keys                                                                                                            |
-| 3 | Master        | Provides full access to given bot instance                                                                                                                                                         |
+| 值 | 名稱                  | 描述                                                               |
+| - | ------------------- | ---------------------------------------------------------------- |
+| 0 | 無                   | 無特殊權限，這主要是指派給不在本字典內的Steam ID的參考值⸺您不需要定義具有本項權限的任何人                |
+| 1 | FamilySharing（親友同享） | 為親友同享使用者提供的最低權限。 同樣，這也是個參考值，因為ASF能夠自動發現有權使用我們收藏庫的親友同享帳號的Steam ID |
+| 2 | Operator（管理者）       | 提供指定Bot實例的基本權限，主要包含加入遊戲授權及兌換產品序號                                 |
+| 3 | Master（擁有者）         | 提供指定Bot實例的完整權限                                                   |
 
-In short, this property allows you to handle permissions for given users. Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you may want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. Thanks to that you can easily assign permissions to given users and let them use your bot to some specified by you degree.
+簡而言之，本屬性使您能夠自訂指定使用者的權限。 Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you may want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. Thanks to that you can easily assign permissions to given users and let them use your bot to some specified by you degree.
 
 We recommend to set exactly one user as `Master`, and any amount you wish as `Operators` and below. While it's technically possible to set multiple `Masters` and ASF will work correctly with them, for example by accepting all of their trades sent to the bot, ASF will use only one of them (with lowest steam ID) for every action that requires a single target, for example a `loot` request, so also properties like `SendOnFarmingFinished` or `SendTradePeriod`. If you perfectly understand those limitations, especially the fact that `loot` request will always send items to the `Master` with lowest steam ID, regardless of the `Master` that actually executed the command, then you can define multiple users with `Master` permission here, but we still recommend a single master scheme.
 
