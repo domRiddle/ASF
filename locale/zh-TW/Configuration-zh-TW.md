@@ -718,7 +718,7 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 
 ---
 
-### `SendTradePeriod（交易發送小時間隔）`
+### `SendTradePeriod（交易發送週期）`
 
 `byte`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性的運作方式與&#8203;`SendOnFarmingFinished`&#8203;極為相似，只有一處不同⸺不是在掛卡完成時發送交易提案，而是不論我們掛了多少，每隔&#8203;`SendTradePeriod`&#8203;小時就發送一次。 如果您想要固定時間&#8203;`loot`&#8203;您的小號，而不是等到掛卡完成，則這會對您很有幫助。 預設值&#8203;`0`&#8203;會停用本功能，若您想要讓您的Bot向您發送交易提案，例如每天一次，那麼您應該將此處設定成&#8203;`24`&#8203;。
 
@@ -785,32 +785,32 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 | 2 | Operator（管理者）       | 提供指定Bot實例的基本權限，主要包含加入遊戲授權及兌換產品序號                                 |
 | 3 | Master（擁有者）         | 提供指定Bot實例的完整權限                                                   |
 
-簡而言之，本屬性使您能夠自訂指定使用者的權限。 Permissions are important mainly for access to ASF **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, but also for enabling many ASF features, such as accepting trades. For example you may want to set your own account as `Master`, and give `Operator` access to 2-3 of your friends so they can easily redeem keys for your bot with ASF, while **not** being eligible e.g. for stopping it. Thanks to that you can easily assign permissions to given users and let them use your bot to some specified by you degree.
+簡而言之，本屬性使您能夠自訂指定使用者的權限。 權限設定很重要，主要用於存取ASF&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;，而且也用於啟用許多ASF功能，例如接受交易提案。 舉例來說，您可能會想將自己的帳號設定成&#8203;`Master`&#8203;，並為您的兩到三位朋友提供&#8203;`Operator`&#8203;權限，使他們能夠使用ASF為您的Bot兌換產品序號，但卻&#8203;**無法**&#8203;終止它。 因此，您可以輕鬆將權限指派給指定的使用者，並讓他們在您規定的範圍內使用您的Bot。
 
-We recommend to set exactly one user as `Master`, and any amount you wish as `Operators` and below. While it's technically possible to set multiple `Masters` and ASF will work correctly with them, for example by accepting all of their trades sent to the bot, ASF will use only one of them (with lowest steam ID) for every action that requires a single target, for example a `loot` request, so also properties like `SendOnFarmingFinished` or `SendTradePeriod`. If you perfectly understand those limitations, especially the fact that `loot` request will always send items to the `Master` with lowest steam ID, regardless of the `Master` that actually executed the command, then you can define multiple users with `Master` permission here, but we still recommend a single master scheme.
+我們建議您只設定一個&#8203;`Master`&#8203;，而&#8203;`Operators`&#8203;及更低階的權限則不限量。 雖然以技術層面而言，ASF能設定多個&#8203;`Masters`&#8203;且能正常運作，例如接受發送給那些Bot的所有交易提案；但對於要求為單一目標的每個操作，ASF將只會使用其中一個Bot（擁有最小Steam ID者），例如&#8203;`loot`&#8203;請求，&#8203;`SendOnFarmingFinished`&#8203;或&#8203;`SendTradePeriod`&#8203;屬性等。 若您完全了解這些限制，特別是&#8203;`loot`&#8203;請求將總是會把物品發送給擁有最小Steam ID的&#8203;`Master`&#8203;，而不會管實際執行該指令的&#8203;`Master`&#8203;是誰，那麼，您可以在這裡定義多個&#8203;`Master`&#8203;權限使用者，但我們仍建議您選擇單一Master的方案。
 
-It's nice to note that there is one more extra `Owner` permission, which is declared as `SteamOwnerID` global config property. You can't assign `Owner` permission to anybody here, as `SteamUserPermissions` property defines only permissions that are related to the bot instance, and not ASF as a process. For bot-related tasks, `SteamOwnerID` is treated the same as `Master`, so defining your `SteamOwnerID` here is not necessary.
-
----
-
-### `TradeCheckPeriod`
-
-`byte`&#8203;型別，預設值為&#8203;`60`&#8203;。 Normally ASF handles incoming trade offers right after receiving notification about one, but sometimes because of Steam glitches it can't do it at that time, and such trade offers remain ignored until next trade notification or bot restart occurs, which may lead to trades being cancelled or items not available at that later time. If this parameter is set to a non-zero value, ASF will additionally check for such outstanding trades every `TradeCheckPeriod` minutes. Default value is selected with balance between additional requests to steam servers and losing incoming trades in mind. However, if you are just using ASF to farm cards, and don't plan to automatically process any incoming trades, you may set it to `0` to disable this feature completely. On the other hand, if your bot participates in public [ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting) or provides other automated services as a trade bot, you may want to decrease this parameter to `15` minutes or so, to process all trades in a timely manner.
+值得一提的是，還有一個&#8203;`Owner`&#8203;權限，是於&#8203;`SteamOwnerID`&#8203;全域設定屬性中宣告。 您無法為這裡的任何人指派&#8203;`Owner`&#8203;權限，因為&#8203;`SteamUserPermissions`&#8203;屬性只定義了與Bot實例的權限，而非整個ASF程序。 對於與Bot相關的工作，&#8203;`SteamOwnerID`&#8203;被視為與&#8203;`Master`&#8203;相同，因此也沒有必要在這裡定義您的&#8203;`SteamOwnerID`&#8203;。
 
 ---
 
-### `TradingPreferences`
+### `TradeCheckPeriod（交易檢查週期）`
 
-`byte flags`&#8203;型別，預設值為&#8203;`0`&#8203;。 This property defines ASF behaviour when in trading, and is defined as below:
+`byte`&#8203;型別，預設值為&#8203;`60`&#8203;。 通常ASF會在收到通知後處理收到的交易提案，但有時候也會因Steam故障而未能做到，此時交易提案將會持續被忽略，直到下一個交易通知或Bot重新啟動，這或許會導致交易被取消，或物品在稍後變為無法使用。 若本參數設定成非零值，ASF還將會每隔&#8203;`TradeCheckPeriod`&#8203;分鐘檢查這類未完成的交易。 我們選擇預設值時，已考慮到對Steam伺服器的額外請求及遺失收到的交易提案間的平衡。 但是，如果您的ASF只用來掛卡，且不打算自動處理任何收到的交易，那麼您可以設定成&#8203;`0`&#8203;來完全停用本功能。 除此之外，若您的Bot參與了公開的&#8203;[ASF STM名單](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW#publiclisting)&#8203;，或作為交易機器人來提供其他的自動化服務，您可能會想要將本參數降低到&#8203;`15`&#8203;分鐘左右，以便及時處理交易。
 
-| 值  | 名稱                  | 描述                                                                                                                                                                                                                    |
-| -- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0  | 無                   | No special trading preferences, default                                                                                                                                                                               |
-| 1  | AcceptDonations     | Accepts trades in which we're not losing anything                                                                                                                                                                     |
-| 2  | SteamTradeMatcher   | Passively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** for more info                  |
-| 4  | MatchEverything     | Requires `SteamTradeMatcher` to be set, and in combination with it - also accepts bad trades in addition to good and neutral ones                                                                                     |
-| 8  | DontAcceptBotTrades | Doesn't automatically accept `loot` trades from other bot instances                                                                                                                                                   |
-| 16 | MatchActively       | Actively participates in **[STM](https://www.steamtradematcher.com)**-like trades. Visit **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** for more info |
+---
+
+### `TradingPreferences（交易偏好）`
+
+`byte flags`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性定義了ASF在交易時的行為，定義如下：
+
+| 值  | 名稱                            | 描述                                                                                                                                                                                                            |
+| -- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0  | 無                             | 預設值，無特殊交易偏好                                                                                                                                                                                                   |
+| 1  | AcceptDonations（接受禮物）         | 接受我們不提供任何東西的交易                                                                                                                                                                                                |
+| 2  | SteamTradeMatcher（Steam交易匹配器） | 被動參與&#8203;**[STM](https://www.steamtradematcher.com)**&#8203;交易。 造訪&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW#steamtradematcher)**&#8203;以了解更多資訊                        |
+| 4  | MatchEverything（匹配所有物品）       | 需要設定&#8203;`SteamTradeMatcher`&#8203;，並與其同時使用⸺除了有利及均衡的交易外，亦接受不利交易                                                                                                                                             |
+| 8  | DontAcceptBotTrades（不接受Bot交易） | 不自動接受來自其他Bot實例的&#8203;`loot`&#8203;交易                                                                                                                                                                         |
+| 16 | MatchActively（積極匹配）           | 主動參與&#8203;**[STM](https://www.steamtradematcher.com)**&#8203;交易。 造訪&#8203;**[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW#matchactively)**&#8203;以了解更多資訊 |
 
 請注意，本屬性為&#8203;`flags`&#8203;欄位，因此可以使用所有可用值任意組合。 若您想了解更多，請參閱&#8203;**[旗標映射](#json-映射)**&#8203;。 不啟用任何旗標即為&#8203;`None`&#8203;選項。
 

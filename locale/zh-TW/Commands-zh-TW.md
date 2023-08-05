@@ -296,14 +296,14 @@ owns ASF app/292030,name/Witcher
 
 `<Type>`&#8203;不區分大小寫，定義ASF可識別的輸入類型。 目前ASF可識別以下類型：
 
-| 類型                      | 描述                                                           |
-| ----------------------- | ------------------------------------------------------------ |
-| Login                   | `SteamLogin`&#8203; Bot設定屬性，設定檔遺失時使用此值。                      |
-| Password                | `SteamPassword`&#8203; Bot設定屬性，設定檔遺失時使用此值。                   |
-| SteamGuard              | 如果您未啟用雙重驗證，驗證碼將以電子郵件的方式發送。                                   |
-| SteamParentalCode       | `SteamParentalCode`&#8203; Bot設定屬性，設定檔遺失時使用此值。               |
-| TwoFactorAuthentication | 如果您啟用雙重驗證但並非ASF雙重驗證，雙重驗證權杖將由您的手機生成。                          |
-| DeviceConfirmation      | Determines whether confirmation popup for login was accepted |
+| 類型                      | 描述                                             |
+| ----------------------- | ---------------------------------------------- |
+| Login                   | `SteamLogin`&#8203; Bot設定屬性，設定檔遺失時使用此值。        |
+| Password                | `SteamPassword`&#8203; Bot設定屬性，設定檔遺失時使用此值。     |
+| SteamGuard              | 如果您未啟用雙重驗證，驗證碼將以電子郵件的方式發送。                     |
+| SteamParentalCode       | `SteamParentalCode`&#8203; Bot設定屬性，設定檔遺失時使用此值。 |
+| TwoFactorAuthentication | 如果您啟用雙重驗證但並非ASF雙重驗證，雙重驗證權杖將由您的手機生成。            |
+| DeviceConfirmation      | 決定登入確認請求是否已被接受                                 |
 
 `<Value>`&#8203;是要為指定類型設定的值。 目前所有的值都屬於字串。
 
