@@ -24,7 +24,7 @@
 * **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
 * **[📋 Zarządzanie](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Wydajność](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[Zdalne połączenia](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
+* **[📡 Zdalne połączenia](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
 * **[👪 Udostępnianie gier Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[🔄 Handel](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 

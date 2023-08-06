@@ -748,7 +748,7 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 
 ### `SteamMasterClanID（Steam 主要群組 ID）`
 
-`ulong`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性定義了Bot應自動加入的Steam群組ID及其聊天室。 您可以透過前往群組&#8203;**[page](https://steamcommunity.com/groups/archiasf)**&#8203;首頁，然後在連結的末端加上&#8203;`/memberslistxml?xml=1`&#8203;來查詢群組ID，整個連接將會看起來&#8203;**[像這樣](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**&#8203;。 然後您就可以在結果頁面的&#8203;`<groupID64>`&#8203;標籤下獲得您的群組ID。 在上述範例中，即為&#8203;`103582791440160998`&#8203;。 除了在啟動時嘗試加入指定的群組，Bot還會自動接受來自該群組的邀請，使您能夠在您的群組為私人群組時，手動邀請您的Bot加入。 若您沒有專屬於Bot的群組，則應該維持預設值&#8203;`0`&#8203;。
+`ulong`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性定義了Bot應自動加入的Steam群組ID及其聊天室。 您可以透過前往群組&#8203;**[首頁](https://steamcommunity.com/groups/archiasf)**&#8203;，然後在連結的末端加上&#8203;`/memberslistxml?xml=1`&#8203;來查詢群組ID，整個連接將會看起來&#8203;**[像這樣](https://steamcommunity.com/groups/archiasf/memberslistxml?xml=1)**&#8203;。 然後您就可以在結果頁面的&#8203;`<groupID64>`&#8203;標籤下獲得您的群組ID。 在上述範例中，即為&#8203;`103582791440160998`&#8203;。 除了在啟動時嘗試加入指定的群組，Bot還會自動接受來自該群組的邀請，使您能夠在您的群組為私人群組時，手動邀請您的Bot加入。 若您沒有專屬於Bot的群組，則應該維持預設值&#8203;`0`&#8203;。
 
 ---
 
@@ -814,43 +814,43 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 
 請注意，本屬性為&#8203;`flags`&#8203;欄位，因此可以使用所有可用值任意組合。 若您想了解更多，請參閱&#8203;**[旗標映射](#json-映射)**&#8203;。 不啟用任何旗標即為&#8203;`None`&#8203;選項。
 
-For further explanation of ASF trading logic, and description of every available flag, please visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section.
+若要進一步了解ASF的交易邏輯，與所有可供使用的旗標的說明，請造訪&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW)**&#8203;章節。
 
 ---
 
-### `TransferableTypes`
+### `TransferableTypes（可交易物品類型）`
 
-`ImmutableHashSet<byte>`&#8203;型別，預設值為&#8203;`1, 3, 5`&#8203;的Steam物品類型。 This property defines which Steam item types will be considered for transfering between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF will ensure that only items from `TransferableTypes` will be included in a trade offer, therefore this property allows you to choose what you want to receive in a trade offer that is being sent to one of your bots.
+`ImmutableHashSet<byte>`&#8203;型別，預設值為&#8203;`1, 3, 5`&#8203;的Steam物品類型。 本屬性定義了在使用&#8203;`transfer`**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;時，可在Bot間轉移的物品類型。 ASF會確保只有在&#8203;`TransferableTypes`&#8203;中的物品才會包含在交易提案中，因此本屬性使您能夠選擇您想要Bot在交易提案中收到的物品種類。
 
-| 值  | 名稱                              | 描述                                   |
-| -- | ------------------------------- | ------------------------------------ |
-| 0  | Unknown                         | 不符合下列任一項類型的物品                        |
-| 1  | BoosterPack（擴充包）                | 包含三張來自同一遊戲交換卡片的擴充包                   |
-| 2  | Emoticon（表情符號）                  | 在Steam聊天中使用的表情符號                     |
-| 3  | FoilTradingCard（閃亮交換卡片）         | 閃亮版本的&#8203;`TradingCard`&#8203;     |
-| 4  | ProfileBackground（個人檔案背景）       | 在您Steam個人檔案中使用的個人檔案背景                |
-| 5  | TradingCard（交換卡片）               | Steam交換卡片，用於合成徽章（非閃亮卡片）              |
-| 6  | SteamGems（寶石）                   | 用於合成擴充包的Steam寶石，包含一袋寶石               |
-| 7  | SaleItem（特賣物品）                  | Steam特賣期間獲得的特殊物品                     |
-| 8  | Consumable（消耗品）                 | 在使用後會消失的特殊消耗品                        |
-| 9  | ProfileModifier（個人檔案修改器）        | 可以修改Steam個人檔案外觀的特殊物品                 |
-| 10 | Sticker（貼紙）                     | 可用在 Steam 聊天中的特殊物品                   |
-| 11 | ChatEffect（聊天效果）                | 可用在 Steam 聊天中的特殊物品                   |
-| 12 | MiniProfileBackground（迷你個人檔案背景） | Steam個人檔案的特殊背景                       |
-| 13 | AvatarProfileFrame（個人檔案圖示邊框）    | Steam個人檔案的特殊圖示邊框                     |
-| 14 | AnimatedAvatar（動畫個人圖示）          | Steam個人檔案的特殊動畫個人圖示                   |
-| 15 | KeyboardSkin                    | Steam Deck 的特別鍵盤造型                   |
-| 16 | StartupVideo                    | Special startup video for Steam deck |
+| 值  | 名稱                              | 描述                               |
+| -- | ------------------------------- | -------------------------------- |
+| 0  | Unknown（未知）                     | 不符合下列任一項類型的物品                    |
+| 1  | BoosterPack（擴充包）                | 包含三張來自同一遊戲交換卡片的擴充包               |
+| 2  | Emoticon（表情符號）                  | 在Steam聊天中使用的表情符號                 |
+| 3  | FoilTradingCard（閃亮交換卡片）         | 閃亮版本的&#8203;`TradingCard`&#8203; |
+| 4  | ProfileBackground（個人檔案背景）       | 在您Steam個人檔案中使用的個人檔案背景            |
+| 5  | TradingCard（交換卡片）               | Steam交換卡片，用於合成徽章（非閃亮卡片）          |
+| 6  | SteamGems（寶石）                   | 用於合成擴充包的Steam寶石，包含一袋寶石           |
+| 7  | SaleItem（特賣物品）                  | Steam特賣期間獲得的特殊物品                 |
+| 8  | Consumable（消耗品）                 | 在使用後會消失的特殊消耗品                    |
+| 9  | ProfileModifier（個人檔案修改器）        | 可以修改Steam個人檔案外觀的特殊物品             |
+| 10 | Sticker（貼紙）                     | 在Steam聊天中使用的特殊物品                 |
+| 11 | ChatEffect（聊天效果）                | 在Steam聊天中使用的特殊物品                 |
+| 12 | MiniProfileBackground（迷你個人檔案背景） | Steam個人檔案的特殊背景                   |
+| 13 | AvatarProfileFrame（個人檔案圖示邊框）    | Steam個人檔案的特殊圖示邊框                 |
+| 14 | AnimatedAvatar（動畫個人圖示）          | Steam個人檔案的特殊動畫個人圖示               |
+| 15 | KeyboardSkinKeyboardSkin（鍵盤外觀）  | Steam Deck的特殊鍵盤外觀                |
+| 16 | StartupVideo（啟動動畫）              | Steam Deck的特殊啟動動畫                |
 
 請注意，不論上述如何設定，ASF都只會處理Steam分類（&#8203;`appID`&#8203;為753）中的社群物品（&#8203;`contextID`&#8203;為6），因此依據定義所有遊戲物品、禮物等物品都會被排除在交易提案之外。
 
-Default ASF setting is based on the most common usage of the bot, with transfering only booster packs, and trading cards (including foils). 本處定義的屬性使您能夠依自己所需自訂該行為。 請注意，上述所有未定義的類型都會顯示成&#8203;`Unknown`&#8203;類型，特別是在Valve發布一些新的Steam物品時，ASF也會將它們標示成&#8203;`Unknown`&#8203;，直到它們（在未來的版本中）被加入於本表格中。 That's why in general it's not recommended to include `Unknown` type in your `TransferableTypes`, unless you know what you're doing, and you also understand that ASF will send your entire inventory in a trade offer if Steam Network gets broken again and reports all your items as `Unknown`. My strong suggestion is to not include `Unknown` type in the `TransferableTypes`, even if you expect to transfer everything.
+ASF的預設設定是依據最常見的Bot用法，即只交易擴充包及交換卡片（包含閃亮卡片）。 本處定義的屬性使您能夠依自己所需自訂該行為。 請注意，上述所有未定義的類型都會顯示成&#8203;`Unknown`&#8203;類型，特別是在Valve發布一些新的Steam物品時，ASF也會將它們標示成&#8203;`Unknown`&#8203;，直到它們（在未來的版本中）被加入於本表格中。 這也是在一般情形下不建議在&#8203;`TransferableTypes`&#8203;中選擇&#8203;`Unknown`&#8203;類型的原因，除非您知道自己正在做什麼，且您也了解萬一Steam網路再次損毀時，會將您的所有物品標示成&#8203;`Unknown`&#8203;，並在交易提案中發送出您物品庫中的所有物品。 我強烈建議即使您希望交易所有物品，也不要在&#8203;`TransferableTypes`&#8203;中選擇&#8203;`Unknown`&#8203;類型。
 
 ---
 
-### `UseLoginKeys`
+### `UseLoginKeys（使用登入金鑰）`
 
-`bool`&#8203;型別，預設值為&#8203;`true`&#8203;。 This property defines if ASF should use login keys mechanism for this Steam account. Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
+`bool`&#8203;型別，預設值為&#8203;`true`&#8203;。 本屬性定義了ASF是否應該為此Steam帳號使用登入金鑰機制。 Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
 
 Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
 
