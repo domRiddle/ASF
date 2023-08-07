@@ -850,23 +850,23 @@ ASF的預設設定是依據最常見的Bot用法，即只交易擴充包及交�
 
 ### `UseLoginKeys（使用登入金鑰）`
 
-`bool`&#8203;型別，預設值為&#8203;`true`&#8203;。 本屬性定義了ASF是否應該為此Steam帳號使用登入金鑰機制。 Login keys mechanism works very similar to official Steam client's "remember me" option, which makes it possible for ASF to store and use temporary one-time use login key for next logon attempt, effectively skipping a need of providing password, Steam Guard or 2FA code as long as our login key is valid. Login key is stored in `BotName.db` file and updated automatically. This is why you don't need to provide password/SteamGuard/2FA code after logging in successfully with ASF just once.
+`bool`&#8203;型別，預設值為&#8203;`true`&#8203;。 本屬性定義了ASF是否應該為此Steam帳號使用登入金鑰機制。 登入金鑰的機制運作方式與官方的「記住我」選項非常相似，使得ASF可以儲存並使用一次性登入金鑰來進行下一次的登入嘗試，只要我們的登入金鑰一直有效，就可以跳過提供密碼、Steam Guard或雙重驗證代碼的要求。 登入金鑰儲存於&#8203;`BotName.db`&#8203;檔案中，且會自動更新。 這就是為什麼您在成功登入一次以後，不用再輸入密碼／Steam Guard／雙重驗證代碼的原因。
 
-Login keys are used by default for your convenience, so you don't need to input `SteamPassword`, SteamGuard or 2FA code (when not using **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**) on each login. It's also superior alternative since login key can be used only for a single time and does not reveal your original password in any way. Exactly the same method is being used by your original Steam client, which saves your account name and login key for your next logon attempt, effectively being the same as using `SteamLogin` with `UseLoginKeys` and empty `SteamPassword` in ASF.
+為了使您方便，預設情形下會使用登入金鑰，使您不用在每次登入時都需要輸入&#8203;`SteamPassword`&#8203;、Steam Guard或雙重驗證代碼（在未使用&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**&#8203;時）。 這也是種更佳的代替方式，因為登入金鑰是一次性的，且這不會以任何方式洩漏您的原始密碼。 您的Steam用戶端就是使用完全相同的方式，來儲存您的帳號名稱及登入金鑰，以用於下次登入嘗試，這實際上與在ASF中使用&#8203;`SteamLogin`&#8203;及&#8203;`UseLoginKeys`&#8203;，並留空&#8203;`SteamPassword`&#8203;時完全相同。
 
-However, some people could be concerned even about this little detail, therefore this option is available here for you if you'd like to ensure that ASF won't store any kind of token that would allow resuming previous session after being closed, which will result in full authentication being mandatory on each login attempt. Disabling this option will work exactly the same as not checking "remember me" in official Steam client. Unless you know what you're doing, you should keep it with default value of `true`.
+但是，仍會有某些人擔心這個微不足道的細節，因此如果您想確保ASF不會儲存任何類型的權杖，以在關閉後回復上一個連線階段，可以啟用本選項。這會導致在每次登入嘗試時，都必須經過完整的驗證流程。 停用本選項與在官方Steam用戶端中取消勾選「記住我」的作用是完全相同的。 除非您知道您在做什麼，否則請保留預設值&#8203;`true`&#8203;。
 
 ---
 
-### `UserInterfaceMode`
+### `UserInterfaceMode（使用者介面模式）`
 
-`byte`&#8203;型別，預設值為&#8203;`0`&#8203;。 This property specifies user interface mode that the bot will be announced with after logging in to Steam network. Currently you can choose one of below modes:
+`byte`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性指定了Bot在登入Steam網路後使用的使用者介面模式。 目前您可以選擇下列模式之一：
 
-| 值   | 名稱         |
-| --- | ---------- |
-| `0` | Default    |
-| `1` | BigPicture |
-| `2` | Mobile     |
+| 值   | 名稱                        |
+| --- | ------------------------- |
+| `0` | Default（預設模式）             |
+| `1` | BigPicture（Big Picture模式） |
+| `2` | Mobile（行動裝置）              |
 
 若您不確定如何設定本屬性，請保留預設值&#8203;`0`&#8203;。
 
@@ -874,7 +874,7 @@ However, some people could be concerned even about this little detail, therefore
 
 ## 檔案結構
 
-ASF is using quite simple file structure.
+ASF使用簡單的檔案結構。
 
 ```text
 ├── config
@@ -892,75 +892,75 @@ ASF is using quite simple file structure.
 └── ...
 ```
 
-In order to move ASF to new location, for example another PC, it's enough to move/copy `config` directory alone, and that's the recommended way of doing any form of "ASF backups", since you can always download the remaining (program) part from the GitHub, while not risking corrupting internal ASF files, e.g. through a faulty backup.
+若您需要將ASF移動至新的位置，例如其他PC，則只需移動／複製&#8203;`config`&#8203;資料夾就可以了，且這也是「備份ASF」的建議方式，因為您隨時可以從GitHub下載剩餘的（程式）部分，同時也不會有毀壞ASF內部檔案的風險，例如因錯誤備份的方式。
 
-`log.txt` file holds the log generated by your last ASF run. This file doesn't contain any sensitive information, and is extremely useful when it comes to issues, crashes or simply as an information to you what happened in last ASF run. We will very often ask about this file if you run into issues or bugs. ASF automatically manages this file for you, but you can further tweak ASF **[logging](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)** module if you're advanced user.
+`log.txt`&#8203;檔案儲存著您上一次執行ASF時所產生的紀錄日誌。 本檔案並未包含任何敏感性資訊，在與問題、崩潰相關，或提供上次執行ASF時的資訊時非常有用。 若您遇到的問題或錯誤，我們經常會需要這份檔案。 ASF會自動為您管理這份檔案，但如果您是進階使用者，您也可以進一步調整ASF的&#8203;**[紀錄日誌](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-zh-TW)**&#8203;模組。
 
-`config` directory is the place that holds configuration for ASF, including all of its bots.
+`config`&#8203;資料夾是儲存ASF及其他所有Bot的設定檔的地方。
 
-`ASF.json` is a global ASF configuration file. This config is used for specifying how ASF behaves as a process, which affects all of the bots and program itself. You can find global properties there, such as ASF process owner, auto-updates or debugging.
+`ASF.json`&#8203;是ASF的全域設定檔。 本設定檔是用來定義ASF程序的行為，這會影響所有Bot及程式自身。 您可以在那裡找到全域屬性，例如ASF程序的擁有者、自動更新或除錯設定。
 
-`BotName.json` is a config of given bot instance. This config is used for specifying how given bot instance behaves, therefore those settings are specific to that bot only and not shared across other ones. This allows you to configure bots with various different settings and not necessarily all of them working in exactly the same way. Every bot is named using unique identifier, chosen by you in place of `BotName`.
+`BotName.json`&#8203;是特定Bot實例的設定檔。 本設定檔用於定義特定Bot實例的行為，因此這些設定只會對該Bot有效，而不會共用於其他Bot上。 這使您可以透過設定不同的設定，來使它們不必以完全相同的方式來運作。 每個Bot都使用由您選擇的&#8203;`BotName`&#8203;唯一識別碼命名。
 
-Apart from config files, ASF also uses `config` directory for storing databases.
+除了設定檔外，ASF還使用&#8203;`config`&#8203;資料夾來儲存資料庫。
 
-`ASF.db` is a global ASF database file. It acts as a global persistent storage and is used for saving various information related to ASF process, such as IPs of local Steam servers. **You should not edit this file**.
+`ASF.db`&#8203;是ASF的全域資料庫檔案。 它是一個全域的持久儲存器，用來儲存各種與ASF程序相關的資訊，例如當地的Steam伺服器IP位址。 **您不應該編輯這個檔案**&#8203;。
 
-`BotName.db` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage, such as login keys or ASF 2FA. **You should not edit this file**.
+`BotName.db`&#8203;是特定Bot實例的資料庫。 本檔案用於在持久儲存器中儲存特定Bot實例的關鍵資料，例如登入金鑰或ASF雙重驗證代碼。 **您不應該編輯這個檔案**&#8203;。
 
-`BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using `SteamGuard` mechanism, very similar to Steam `ssfn` file. **You should not edit this file**.
+`BotName.bin`&#8203;是特定Bot實例的特殊檔案，用於儲存Steam Sentry的雜湊資訊。 Sentry雜湊在&#8203;`SteamGuard`&#8203;機制中用於驗證，非常類似於Steam的&#8203;`ssfn`&#8203;檔案。 **您不應該編輯這個檔案**&#8203;。
 
-`BotName.keys` is a special file that can be used for importing keys into **[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**. It's not mandatory and not generated, but recognized by ASF. This file is automatically deleted after keys are successfully imported.
+`BotName.keys`&#8203;是一個特殊檔案，用於向&#8203;**[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**&#8203;匯入產品序號。 它並非必須存在，也並不是由ASF所產生，但ASF會辨識此檔案。 這個檔案會在所有序號都成功匯入後被自動刪除。
 
-`BotName.maFile` is a special file that can be used for importing **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**. It's not mandatory and not generated, but recognized by ASF if your `BotName` does not use ASF 2FA yet. This file is automatically deleted after ASF 2FA is successfully imported.
+`BotName.maFile`&#8203;是一個特殊檔案，用於匯入&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**&#8203;。 它並非必須存在，也並不是由ASF所產生，但如果您的&#8203;`BotName`&#8203;還尚未啟用ASF雙重驗證，ASF會辨識此檔案。 這個檔案會在ASF雙重驗證成功匯入後被自動刪除。
 
 ---
 
 ## JSON 映射
 
-Every configuration property has its type. Type of the property defines values that are valid for it. You can only use values that are valid for given type - if you use invalid value, then ASF won't be able to parse your config.
+每個設定屬性都具有相應的型別。 屬性的型別定義了該屬性的有效值。 您只能使用由指定型別規定的有效值⸺如果您使用了無效值，ASF則會無法剖析您的設定檔。
 
-**We strongly recommend to use ConfigGenerator for generating configs** - it handles most of the low-level stuff (such as types validation) for you, so you only need to input proper values, and you also don't need to understand variable types specified below. This section is mainly for people generating/editing configs manually, so they know what values they can use.
+**我們強烈建議使用設定檔生成器來生成設定檔**&#8203;⸺它能夠幫您處理大部分的底層事務（例如型別驗證），因此您只需要輸入正確的值，而不需要了解下文所述的變數型別。 本章節主要適用於手動生成／編輯設定檔的人，使他們能夠知道哪些值能夠使用。
 
-Types used by ASF are native C# types, which are specified below:
-
----
-
-`bool` - Boolean type accepting only `true` and `false` values.
-
-Example: `"Enabled": true`
+ASF使用了原生的C#型別，具體如下：
 
 ---
 
-`byte` - Unsigned byte type, accepting only integers from `0` to `255` (inclusive).
+`bool`&#8203;⸺布林型別，只接受&#8203;`true`&#8203;及&#8203;`false`&#8203;值。
 
-Example: `"ConnectionTimeout": 90`
-
----
-
-`ushort` - Unsigned short type, accepting only integers from `0` to `65535` (inclusive).
-
-Example: `"WebLimiterDelay": 300`
+範例：&#8203;`"Enabled": true`
 
 ---
 
-`uint` - Unsigned integer type, accepting only integers from `0` to `4294967295` (inclusive).
+`byte`&#8203;⸺無號位元組型別，只接受從&#8203;`0`&#8203;至&#8203;`255`&#8203;（包含）的整數。
+
+範例：&#8203;`"ConnectionTimeout": 90`
 
 ---
 
-`ulong` - Unsigned long integer type, accepting only integers from `0` to `18446744073709551615` (inclusive).
+`ushort`&#8203;⸺無號短整數型別，只接受從&#8203;`0`&#8203;至&#8203;`65535`&#8203;（包含）的整數。
 
-Example: `"SteamMasterClanID": 103582791440160998`
-
----
-
-`string` - String type, accepting any sequence of characters, including empty sequence `""` and `null`. Empty sequence and `null` value are treated the same by ASF, so it's up to your preference which one you want to use (we stick with `null`).
-
-Examples: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MyAccountName"`
+範例：&#8203;`"WebLimiterDelay": 300`
 
 ---
 
-`Guid?` - Nullable UUID type, in JSON encoded as string. UUID is made out of 32 hexadecimal characters, in range from `0` to `9` and `a` to `f`. ASF accepts variety of valid formats - lowercase, uppercase, with and without dashes. In addition to valid UUID, since this property is nullable, a special value of `null` is accepted to indicate lack of UUID to provide.
+`uint`&#8203;⸺無號整數型別，只接受從&#8203;`0`&#8203;至&#8203;`4294967295`&#8203;（包含）的整數。
+
+---
+
+`ulong`&#8203;⸺無號長整數型別，只接受從&#8203;`0`&#8203;至&#8203;`18446744073709551615`&#8203;（包含）的整數。
+
+範例：&#8203;`"SteamMasterClanID": 103582791440160998`
+
+---
+
+`string`&#8203;⸺字串型別，接受任何字元序列，包含空序列&#8203;`""`&#8203;及&#8203;`null`&#8203;。 ASF會將空序列與&#8203;`null`&#8203;值視為相同，因此您可以依據您的偏好選擇使用哪個（我們永遠建議使用&#8203;`null`&#8203;）。
+
+範例：&#8203;`"SteamLogin": null`&#8203;、&#8203;`"SteamLogin": ""`&#8203;、&#8203;`"SteamLogin": "MyAccountName"`
+
+---
+
+`Guid?`&#8203;⸺可為Null的UUID型別，在JSON中被編碼成字串。 UUID由32位元十六進位字元所組成，範圍為&#8203;`0`&#8203;至&#8203;`9`&#8203;及&#8203;`a`&#8203;至&#8203;`f`&#8203;。 ASF接受各種有效格式⸺小寫字母、大寫字母、是否有連字號皆可。 In addition to valid UUID, since this property is nullable, a special value of `null` is accepted to indicate lack of UUID to provide.
 
 Examples: `"LicenseID": null`, `"LicenseID": "f6a0529813f74d119982eb4fe43a9a24"`
 
