@@ -960,19 +960,19 @@ ASF使用了原生的C#型別，具體如下：
 
 ---
 
-`Guid?`&#8203;⸺可為Null的UUID型別，在JSON中被編碼成字串。 UUID由32位元十六進位字元所組成，範圍為&#8203;`0`&#8203;至&#8203;`9`&#8203;及&#8203;`a`&#8203;至&#8203;`f`&#8203;。 ASF接受各種有效格式⸺小寫字母、大寫字母、是否有連字號皆可。 In addition to valid UUID, since this property is nullable, a special value of `null` is accepted to indicate lack of UUID to provide.
+`Guid?`&#8203;⸺可為空值的UUID型別，在JSON中被編碼成字串。 UUID由32位元十六進位字元所組成，範圍為&#8203;`0`&#8203;至&#8203;`9`&#8203;及&#8203;`a`&#8203;至&#8203;`f`&#8203;。 ASF接受各種有效格式⸺小寫字母、大寫字母、是否有連字號皆可。 除了有效的UUID外，本屬性可為空值。也接受特殊值&#8203;`null`&#8203;，用於代表未提供UUID。
 
-Examples: `"LicenseID": null`, `"LicenseID": "f6a0529813f74d119982eb4fe43a9a24"`
-
----
-
-`ImmutableList<valueType>` - Immutable collection (list) of values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`. ASF uses `List` to indicate that given property supports multiple values and that their order might be relevant.
-
-Example for `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
+範例：&#8203;`"LicenseID": null`&#8203;、&#8203;`"LicenseID": "f6a0529813f74d119982eb4fe43a9a24"`
 
 ---
 
-`ImmutableHashSet<valueType>` - Immutable collection (set) of unique values in given `valueType`. In JSON, it's defined as array of elements in given `valueType`. ASF uses `HashSet` to indicate that given property makes sense only for unique values and that their order doesn't matter, therefore it'll intentionally ignore any potential duplicates during parsing (if you happened to supply them anyway).
+`ImmutableList<valueType>`&#8203;⸺給定&#8203;`valueType`&#8203;值的不可變集合（串列）。 在JSON中，它被定義為給定&#8203;`valueType`&#8203;的元素陣列。 ASF使用&#8203;`List`&#8203;來代表指定的屬性支援多個數值，且可能為有序的。
+
+`ImmutableList<byte>`&#8203;的範例：&#8203;`"FarmingOrders": [15, 11, 7]`
+
+---
+
+`ImmutableHashSet<valueType>`&#8203;⸺給定&#8203;`valueType`&#8203;唯一值的不可變集合（集合）。 在JSON中，它被定義為給定&#8203;`valueType`&#8203;的元素陣列。 ASF uses `HashSet` to indicate that given property makes sense only for unique values and that their order doesn't matter, therefore it'll intentionally ignore any potential duplicates during parsing (if you happened to supply them anyway).
 
 Example for `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 
