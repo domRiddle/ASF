@@ -972,21 +972,21 @@ ASF使用了原生的C#型別，具體如下：
 
 ---
 
-`ImmutableHashSet<valueType>`&#8203;⸺給定&#8203;`valueType`&#8203;唯一值的不可變集合（集合）。 在JSON中，它被定義為給定&#8203;`valueType`&#8203;的元素陣列。 ASF uses `HashSet` to indicate that given property makes sense only for unique values and that their order doesn't matter, therefore it'll intentionally ignore any potential duplicates during parsing (if you happened to supply them anyway).
+`ImmutableHashSet<valueType>`&#8203;⸺給定&#8203;`valueType`&#8203;唯一值的不可變集合（集合）。 在JSON中，它被定義為給定&#8203;`valueType`&#8203;的元素陣列。 ASF使用&#8203;`HashSet`&#8203;來代表指定的屬性需為唯一值，且為無序的，因此它會在剖析的時候忽略所有重複值（若您因故提供了重複值）。
 
-Example for `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
-
----
-
-`ImmutableDictionary<keyType, valueType>` - Immutable dictionary (map) that maps a unique key specified in its `keyType`, to value specified in its `valueType`. In JSON, it's defined as an object with key-value pairs. Keep in mind that `keyType` is always quoted in this case, even if it's value type such as `ulong`. There is also a strict requirement of the key being unique across the map, this time enforced by JSON as well.
-
-Example for `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
+`ImmutableHashSet<byte>`&#8203;的範例：&#8203;`"Blacklist": [267420, 303700, 335590]`
 
 ---
 
-`flags` - Flags attribute combines several different properties into one final value by applying bitwise operations. This allows you to choose any possible combination of various different allowed values at the same time. The final value is constructed as a sum of values of all enabled options.
+`ImmutableDictionary<keyType, valueType>`&#8203;⸺將&#8203;`keyType`&#8203;中指定的唯一鍵映射至&#8203;`valueType`&#8203;值的不可變字典（映射表）。 在JSON中，它被定義為具有鍵-值對的物件。 請注意，在這種情形下&#8203;`keyType`&#8203;需要被括住，即使它是例如&#8203;`ulong`&#8203;的實值型別。 還有一個嚴格要求為映射中的鍵須為唯一，這也是由JSON所強制的。
 
-For example, given following values:
+`ImmutableDictionary<ulong, byte>`&#8203;的範例：&#8203;`"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
+
+---
+
+`flags`&#8203;⸺旗標屬性透過位元運算，將數個不同的屬性組合成一個最終值。 這使您能夠同時選擇各種不同的允許值，來使用任意一種組合。 最終值由所有啟用選項的值加總而得。
+
+舉例來說，給定下列值：
 
 | 值 | 名稱 |
 | - | -- |
@@ -995,7 +995,7 @@ For example, given following values:
 | 2 | B  |
 | 4 | C  |
 
-Using `B + C` would result in value of `6`, using `A + C` would result in value of `5`, using `C` would result in value of `4` and so on. This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
+使用&#8203;`B + C`&#8203;會產生&#8203;`6`&#8203;的值，&#8203;`A + C`&#8203;會產生&#8203;`5`&#8203;，而使用&#8203;`C`&#8203;會產生&#8203;`4`&#8203;，依此類推。 This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
 
 So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and `8` possible values overall:
 - `None -> 0`
