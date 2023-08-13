@@ -9,13 +9,13 @@ ASF支援各種指令，以此來控制程序及Bot實例的行為。
 
 請注意，與ASF互動需要您擁有執行相關指令的權限。 查看&#8203;`SteamUserPermissions`&#8203;與&#8203;`SteamOwnerID`&#8203;設定屬性以了解更多。
 
-透過Steam聊天執行的指令都受&#8203;**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#CommandPrefix)**&#8203;的&#8203;`CommandPrefix`&#8203;影響，而該屬性的預設值為&#8203;`!`&#8203;。 這代表當您要執行&#8203;`status`&#8203;指令時，實際應該要傳送&#8203;`!status`&#8203;（或使用您自訂的&#8203;`CommandPrefix`&#8203;）。 而當您使用控制台或IPC時，不強制使用&#8203;`CommandPrefix`&#8203;，可以省略它。
+透過Steam聊天執行的指令都受&#8203;**[全域設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#commandprefix指令前綴#CommandPrefix)**&#8203;的&#8203;`CommandPrefix`&#8203;影響，而該屬性的預設值為&#8203;`!`&#8203;。 這代表當您要執行&#8203;`status`&#8203;指令時，實際應該要傳送&#8203;`!status`&#8203;（或使用您自訂的&#8203;`CommandPrefix`&#8203;）。 而當您使用控制台或IPC時，不強制使用&#8203;`CommandPrefix`&#8203;，可以省略它。
 
 ---
 
 ### 互動式控制台
 
-從V4.0.0.9版本開始，ASF支援互動式控制台。只要您沒有讓它在&#8203;[**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#headless)&#8203;模式下執行， 按下&#8203;`C`&#8203;鍵，就可以啟用指令模式。輸入您的指令，並按下確認鍵確認。
+從V4.0.0.9版本開始，ASF支援互動式控制台。只要您沒有讓它在&#8203;[**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#headless無頭模式)&#8203;模式下執行， 按下&#8203;`C`&#8203;鍵，就可以啟用指令模式。輸入您的指令，並按下確認鍵確認。
 
 ![擷圖](https://i.imgur.com/bH5Gtjq.png)
 

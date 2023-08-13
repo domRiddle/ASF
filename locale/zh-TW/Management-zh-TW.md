@@ -55,7 +55,7 @@ systemctl status ArchiSteamFarm@asf
 
 若您想停止程序，只需執行&#8203;`systemctl stop ArchiSteamFarm@asf`&#8203;。 同樣地，若您想要停用ASF自啟動，就執行&#8203;`systemctl disable ArchiSteamFarm@asf`&#8203;，非常簡單。
 
-請注意，由於我們的&#8203;`systemd`&#8203;服務沒有啟用標準輸入，故您無法使用一般經由控制台的方式輸入資訊。 透過&#8203;`systemd`執行，等同於指定&#8203;**[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#headless)**&#8203;設定。 若您需要在登入期間提供額外資訊，或更好地管理您的ASF程序，幸運的是，我們能夠建議您使用&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**&#8203;，可以輕鬆管理您的ASF。
+請注意，由於我們的&#8203;`systemd`&#8203;服務沒有啟用標準輸入，故您無法使用一般經由控制台的方式輸入資訊。 透過&#8203;`systemd`執行，等同於指定&#8203;**[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#headless無頭模式)**&#8203;設定。 若您需要在登入期間提供額外資訊，或更好地管理您的ASF程序，幸運的是，我們能夠建議您使用&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**&#8203;，可以輕鬆管理您的ASF。
 
 ### 環境變數
 

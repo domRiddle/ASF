@@ -210,7 +210,7 @@ docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/
 
 ## 專業小技巧
 
-當您準備好ASF的Docker容器後，您就不必每次都使用&#8203;`docker run`&#8203;了。 您可以透過&#8203;`docker stop asf`&#8203;及&#8203;`docker start asf`&#8203;簡單地停止／啟動ASF Docker容器。 請注意，如果您使用的不是&#8203;`latest`&#8203;標籤，那麼使用最新版本的ASF仍然需要您再次執行&#8203;`docker stop`&#8203;、&#8203;`docker rm`&#8203;及&#8203;`docker run`&#8203;。 這是因為每次您想要使用包含在映像檔中的ASF版本時，您都必須由新的ASF Docker映像檔重建您的容器。 In `latest` tag, ASF has included capability to auto-update itself, so rebuilding the image is not necessary for using up-to-date ASF (but it's still a good idea to do it from time to time in order to use fresh .NET runtime dependencies and the underlying OS, which might be needed when jumping across major ASF version updates).
+當您準備好ASF的Docker容器後，您就不必每次都使用&#8203;`docker run`&#8203;了。 您可以透過&#8203;`docker stop asf`&#8203;及&#8203;`docker start asf`&#8203;簡單地停止／啟動ASF Docker容器。 請注意，如果您使用的不是&#8203;`latest`&#8203;標籤，那麼使用最新版本的ASF仍然需要您再次執行&#8203;`docker stop`&#8203;、&#8203;`docker rm`&#8203;及&#8203;`docker run`&#8203;。 這是因為每次您想要使用包含在映像檔中的ASF版本時，您都必須由新的ASF Docker映像檔重建您的容器。 在&#8203;`latest`&#8203;標籤中，ASF已包含自我更新的能力，因此使用最新版本的ASF不需要重建映像檔（但偶爾這樣做仍有好處，可以使用新的.NET相依執行環境及底層作業系統，這可能會在跨越ASF主要大版本時會需要）。
 
 如上所述，&#8203;`latest`&#8203;以外標籤的ASF不會自動更新，這代表&#8203;**您**&#8203;必須負責使用最新的&#8203;`justarchi/archisteamfarm`&#8203;儲存庫。 這有很多優點，因為通常應用程式在執行時不應動到自身的程式碼，但我們也理解不必擔心Docker容器內ASF的版本所帶來的便利。 若您需要一個良好的實際範例且正確的Docker用法，我們建議使用&#8203;`released`&#8203;標籤，而不是&#8203;`latest`&#8203;。但如果您不介意，只想讓ASF正常運作並自動更新，那麼&#8203;`latest`&#8203;即可。
 

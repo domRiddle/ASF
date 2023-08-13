@@ -88,7 +88,7 @@ Linux/macOS：
 
 ---
 
-`--no-steam-parental-generation`&#8203;⸺在預設情形下，ASF會自動嘗試生成Steam家長監護PIN碼，如&#8203;**[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#steamparentalcode)**&#8203;組態屬性中所述。 但由於這可能需要過多的作業系統資源，因此這個開關使您能夠停用此行為，這將使ASF跳過自動生成，並直接向使用者詢問PIN碼，與一般情形下的自動生成失敗時相同。 一般而言，我們建議保留啟用生成，除非您有特定的理由停用它，並希望ASF不生成代碼，您可以使用此開關來達成。
+`--no-steam-parental-generation`&#8203;⸺在預設情形下，ASF會自動嘗試生成Steam家長監護PIN碼，如&#8203;**[`SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#steamparentalcode家庭監護-pin-碼)**&#8203;組態屬性中所述。 但由於這可能需要過多的作業系統資源，因此這個開關使您能夠停用此行為，這將使ASF跳過自動生成，並直接向使用者詢問PIN碼，與一般情形下的自動生成失敗時相同。 一般而言，我們建議保留啟用生成，除非您有特定的理由停用它，並希望ASF不生成代碼，您可以使用此開關來達成。
 
 ---
 

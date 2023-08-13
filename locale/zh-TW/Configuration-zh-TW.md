@@ -216,9 +216,9 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 `Guid?`&#8203;型別，預設值為&#8203;`null`&#8203;。 本屬性允許我們的&#8203;**[贊助者](https://github.com/sponsors/JustArchi)**&#8203;使用付費的選擇性功能來增強ASF的運作能力。 在目前，這允許您使用&#8203;`ItemsMatcher`&#8203;外掛程式中的&#8203;**[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW#matchactively)**&#8203;功能。
 
-While we recommend you to utilize GitHub since it offers monthly and one-time tiers, as well as allows full automation and gives you immediate access, we **also** support all other currently-available **[donation options](https://github.com/JustArchiNET/ArchiSteamFarm#archisteamfarm)**. See **[this post](https://github.com/JustArchiNET/ArchiSteamFarm/discussions/2780#discussioncomment-4486091)** for instructions on how to donate using other methods in order to get a manual license valid for given period.
+雖然我們建議您使用GitHub，因為它提供了每月續訂及一次性的階級，並能完全自動化使您享有立即解鎖權限的功能，我們&#8203;**也**&#8203;支援所有其他可供使用的&#8203;**[贊助管道](https://github.com/JustArchiNET/ArchiSteamFarm#archisteamfarm)**&#8203;。 閱讀&#8203;**[這則貼文](https://github.com/JustArchiNET/ArchiSteamFarm/discussions/2780#discussioncomment-4486091)**&#8203;來了解如何透過其他方式贊助，並手動獲得相應時長的授權。
 
-Regardless of the method used, if you're ASF sponsor, you can obtain your license **[here](https://asf.justarchi.net/User/Status)**. 您會需要以GitHub登入來確認您的身分，我們只會請求您的公開唯讀資訊，也就是您的使用者名稱。 `LicenseID`&#8203;由32個十六進制字元組成，例如&#8203;`f6a0529813f74d119982eb4fe43a9a24`&#8203;。
+不論使用何種方式，只要您是ASF贊助者，您就能在&#8203;**[這裡](https://asf.justarchi.net/User/Status)**&#8203;獲得您的授權碼。 您會需要以GitHub登入來確認您的身分，我們只會請求您的公開唯讀資訊，也就是您的使用者名稱。 `LicenseID`&#8203;由32個十六進制字元組成，例如&#8203;`f6a0529813f74d119982eb4fe43a9a24`&#8203;。
 
 **請確保您沒有與其他人共用您的&#8203;`LicenseID`**&#8203;。 因為它是給個人使用的，如果洩漏出去就有可能被撤銷。 如果不幸您意外洩漏了授權碼，您可以在相同地方生成一個新的。
 
@@ -605,7 +605,7 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 
 ### `OnlineFlags（在線旗標）`
 
-`ushort flags`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性可以當作&#8203;**[`OnlineStatus`](#onlinestatus)**&#8203;的補充功能，指定向Steam網路發布額外的在線狀態。 需要&#8203;**[`OnlineStatus`](#onlinestatus)**&#8203;不為&#8203;`Offline`&#8203;，定義如下：
+`ushort flags`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性可以當作&#8203;**[`OnlineStatus`](#onlinestatus在線狀態)**&#8203;的補充功能，指定向Steam網路發布額外的在線狀態。 需要&#8203;**[`OnlineStatus`](#onlinestatus在線狀態)**&#8203;不為&#8203;`Offline`&#8203;，定義如下：
 
 | 值    | 名稱                                  | 描述                 |
 | ---- | ----------------------------------- | ------------------ |
@@ -696,15 +696,15 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 
 `byte flags`&#8203;型別，預設值為&#8203;`3`&#8203;。 本屬性定義了每個Bot在與遠端通訊時的行為，定義如下：
 
-| 值 | 名稱                  | 描述                                                                                                                                                                                                                                   |
-| - | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0 | 無                   | 不允許與第三方通訊，使所選的ASF功能無法使用                                                                                                                                                                                                              |
-| 1 | SteamGroup（Steam群組） | 允許與&#8203;**[ASF的Steam群組](https://steamcommunity.com/groups/archiasf)**&#8203;通訊                                                                                                                                                     |
-| 2 | PublicListing（公開名單） | 允許與&#8203;**[ASF的STM名單](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW#publiclisting)**&#8203;通訊以顯示於名單上，需同時啟用&#8203;**[`TradingPreferences`](#tradingpreferences)**&#8203;中的&#8203;`SteamTradeMatcher` |
+| 值 | 名稱                  | 描述                                                                                                                                                                                                                                       |
+| - | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0 | 無                   | 不允許與第三方通訊，使所選的ASF功能無法使用                                                                                                                                                                                                                  |
+| 1 | SteamGroup（Steam群組） | 允許與&#8203;**[ASF的Steam群組](https://steamcommunity.com/groups/archiasf)**&#8203;通訊                                                                                                                                                         |
+| 2 | PublicListing（公開名單） | 允許與&#8203;**[ASF的STM名單](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW#publiclisting)**&#8203;通訊以顯示於名單上，需同時啟用&#8203;**[`TradingPreferences`](#tradingpreferences交易偏好)**&#8203;中的&#8203;`SteamTradeMatcher` |
 
 請注意，本屬性為&#8203;`flags`&#8203;欄位，因此可以使用所有可用值任意組合。 若您想了解更多，請參閱&#8203;**[旗標映射](#json-映射)**&#8203;。 不啟用任何旗標即為&#8203;`None`&#8203;選項。
 
-本選項並未包含ASF所提供的所有第三方通訊，只包含了那些在其他設定中未包含的選項。 舉例來說，如果您已啟用ASF的自動更新，ASF就會依照您的設定，與GitHub（用於下載）及我們的伺服器（用於核對和驗證）通訊。 同理，在&#8203;**[`TradingPreferences`](#tradingpreferences)**&#8203;中啟用&#8203;`MatchActively`&#8203;就代表了與我們的伺服器通訊，以獲得名單中的Bot，這是該功能所必需的。
+本選項並未包含ASF所提供的所有第三方通訊，只包含了那些在其他設定中未包含的選項。 舉例來說，如果您已啟用ASF的自動更新，ASF就會依照您的設定，與GitHub（用於下載）及我們的伺服器（用於核對和驗證）通訊。 同理，在&#8203;**[`TradingPreferences`](#tradingpreferences交易偏好)**&#8203;中啟用&#8203;`MatchActively`&#8203;就代表了與我們的伺服器通訊，以獲得名單中的Bot，這是該功能所必需的。
 
 有關本項目的詳細說明，請參閱&#8203;**[遠端通訊](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-TW)**&#8203;章節。 除非您有理由編輯此屬性，否則您應維持它為預設值。
 
@@ -995,48 +995,48 @@ ASF使用了原生的C#型別，具體如下：
 | 2 | B  |
 | 4 | C  |
 
-使用&#8203;`B + C`&#8203;會產生&#8203;`6`&#8203;的值，&#8203;`A + C`&#8203;會產生&#8203;`5`&#8203;，而使用&#8203;`C`&#8203;會產生&#8203;`4`&#8203;，依此類推。 This allows you to create any possible combination of enabled values - if you decided to enable all of them, making `None + A + B + C`, you'd get value of `7`. Also notice that flag with value of `0` is enabled by definition in all other available combinations, therefore very often it's a flag that doesn't enable anything specifically (such as `None`).
+使用&#8203;`B + C`&#8203;會產生&#8203;`6`&#8203;的值，&#8203;`A + C`&#8203;會產生&#8203;`5`&#8203;，而使用&#8203;`C`&#8203;會產生&#8203;`4`&#8203;，依此類推。 這使您能夠使用不同的值，來建立任意選項啟用的組合⸺若您決定起用所有選項，只需&#8203;`None + A + B + C`&#8203;，得到&#8203;`7`&#8203;的值。 還須注意，依據定義值為&#8203;`0`&#8203;的旗標會在所有可用組合中啟用，因此這個旗標通常代表不啟用任何功能（例如&#8203;`None`&#8203;）。
 
-So as you can see, in above example we have 3 available flags to switch on/off (`A`, `B`, `C`), and `8` possible values overall:
+如您所見，上述範例中我們有3個可用旗標來啟用／停用（&#8203;`A`&#8203;、&#8203;`b`&#8203;、&#8203;`c`&#8203;），共有&#8203;`8`&#8203;種可能的組合值：
 - `None -> 0`
 - `A -> 1`
 - `B -> 2`
 - `A + B -> 3`
 - `C -> 4`
 - `A + C -> 5`
-- `B + C -> 6`
+- `A + C -> 5`
 - `A + B + C -> 7`
 
-Example: `"SteamProtocols": 7`
+範例：&#8203;`"SteamProtocols": 7`
 
 ---
 
 ## 相容性映射
 
-Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF includes proper logic for handling this string mapping automatically, so `s_` entries in your configs are actually valid and correctly generated. If you're generating configs yourself, we recommend to stick with original `ulong` fields if possible, but if you're unable to do so, you can also follow this scheme and encode them as strings with `s_` prefix added to their names. We hope to resolve this JavaScript limitation eventually.
+由於JavaScript的限制，網頁設定檔生成器無法正確的將簡單的&#8203;`ulong`&#8203;欄位串聯化成JSON，&#8203;`ulong`&#8203;欄位會在設定檔中呈現以&#8203;`s_`&#8203;為前綴的字串。 舉例來說，設定檔生成器會將&#8203;`"SteamOwnerID": 76561198006963719`&#8203;寫入成&#8203;`"s_SteamOwnerID": "76561198006963719"`&#8203;。 ASF擁有正確的邏輯來自動處理這類字串的映射，所以您設定檔中的&#8203;`s_`&#8203;項目是正確生成且有效的。 若您自行生成設定檔，我們建議盡可能保持使用原始的&#8203;`ulong`&#8203;欄位，但如果您無法這樣做，您也可以遵循本方案，並將它編碼成名稱帶有&#8203;`s_`&#8203;前綴的字串。 我們希望未來能夠解決這個JavaScript限制。
 
 ---
 
 ## 設定檔相容性
 
-It's top priority for ASF to remain compatible with older configs. As you should already know, missing config properties are treated the same as they would be defined with their **default values**. Therefore, if new config property gets introduced in new version of ASF, all your configs will remain **compatible** with new version, and ASF will treat that new config property as it'd be defined with its **default value**. You can always add, remove or edit config properties according to your needs.
+維持與舊版的設定檔相容，是ASF的首要任務。 正如您應該已經知道，遺失設定屬性的處理方式相當於使用它們的&#8203;**預設值**&#8203;來定義。 因此，如果新的設定屬性在新版的ASF中被加入，您的所有設定檔將會與新版本維持&#8203;**相容**&#8203;，ASF會將這些新的設定屬性視為使用&#8203;**預設值**&#8203;。 您隨時能依您的需要，增加、移除或編輯設定屬性。
 
-We recommend to limit defined config properties only to those that you want to change, since this way you automatically inherit default values for all other ones, not only keeping your config clean but also increasing compatibility in case we decide to change a default value for property that you don't want to explicitly set yourself (e.g. `WebLimiterDelay`).
+我們建議您只定義您想修改的設定屬性，因為這樣您可以使其他屬性自動繼承預設值，這不只會使您的設定檔保持簡潔，也能在我們決定修改屬性預設值時維持相容性，使您不用手動修改（例如我們修改過&#8203;`WebLimiterDelay`&#8203;的預設值）。
 
-Due to above, ASF will automatically migrate/optimize your configs by reformatting them and removing fields that hold default value. You can disable this behaviour with `--no-config-migrate` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** if you have a specific reason, for example you're providing read-only config files and you don't want ASF to modify them.
+由於上述情形，ASF會自動重新格式化並刪除具有預設值的欄位，來遷移／最佳化您的設定檔。 若您有特殊原因，例如您想提供唯讀的設定檔，不讓ASF來修改它們，可以透過&#8203;`--no-config-migrate`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW#命令列引數)**&#8203;來停用這個行為。
 
 ---
 
 ## 自動重新載入
 
-Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
-- Create (and start, if needed) new bot instance, when you create its config
-- Stop (if needed) and remove old bot instance, when you delete its config
-- Stop (and start, if needed) any bot instance, when you edit its config
-- Restart (if needed) the bot under new name, when you rename its config
+從ASF V2.1.6.2+版本開始，程式可以「動態」修改設定⸺因此ASF能自動：
+- 在您建立設定檔時，建立（並在需要時啟動）新的Bot實例
+- 在您刪除設定檔時，停止（若需要）並移除舊的Bot實例
+- 在您編輯設定檔時，停止（並在需要時啟動）任何Bot實例
+- 在您重新命名設定檔時，以新的名稱重新啟動（若需要）Bot
 
-All of the above is transparent and will be done automatically without a need of restarting the program, or killing other (unaffected) bot instances.
+上述所有行為都是透明的，不需要重新啟動程式或其他（未受影響的）Bot實例即可自動完成。
 
-In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
+此外，若您修改了ASF的核心&#8203;`ASF.json`&#8203;設定檔，ASF也會重新啟動自身（如果&#8203;`AutoRestart`&#8203;允許）。 同理，程式會在您刪除或重新命名時自動退出。
 
-You can disable this behaviour with `--no-config-watch` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** if you have a specific reason, for example you don't want from ASF to react to file changes in `config` folder.
+若您有特殊原因，例如您不想讓ASF對&#8203;`config`&#8203;資料夾的改動做出反應，可以透過&#8203;`--no-config-watch`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW#命令列引數)**&#8203;來停用這個行為。
