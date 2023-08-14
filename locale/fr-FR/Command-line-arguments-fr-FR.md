@@ -48,6 +48,8 @@ Cependant, ces deux la sont complètement valides:
 
  sécurité </ 0> et obligera ASF à utiliser votre clé `<key>` fournie à la place de la clé par défaut codée dans l'exécutable. Puisque cette propriété affecte la clé de chiffrement par défaut (pour le chiffrement) ainsi que son salt (pour le hachage), Gardez à l'esprit que tout ce qui est chiffré/haché avec cette clé nécessitera qu'elle soit transmise à chaque exécution d'ASF.</p> 
 
+There is no requirement on `<key>` length or characters, but for security reasons we recommend to pick long enough passphrase made out of e.g. random 32 characters, for example by using `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` command on Linux.
+
 It's nice to mention that there are also two other ways to provide this detail: `--cryptkey-file` and `--input-cryptkey`.
 
 En raison de la nature de cette propriété, il est également possible de définir la clé de chiffrement en déclarant la variable d'environnement `ASF_CRYPTKEY`, qui peut être plus appropriée pour les personnes qui voudraient éviter de divulguer des informations privées dans les arguments du processus.

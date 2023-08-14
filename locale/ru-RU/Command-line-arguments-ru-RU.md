@@ -46,6 +46,8 @@ Linux/macOS:
 
 `--cryptkey <key>` или `--cryptkey=<key>` - запустит ASF с пользовательским значением ключа шифрования `<key>`. Эта настройка влияет на **[безопасность](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-ru-RU)** и ASF будет использовать данный ключ шифрования `<key>` вместо внедрённого в исполняемый файл. Поскольку эта настройка влияет на ключ шифрования по умолчанию (для шифрования), а также на соль (для хеширования), не забывайте, что для любого шифрования/хеширования этот ключ должен передаваться ASF при каждом запуске.
 
+There is no requirement on `<key>` length or characters, but for security reasons we recommend to pick long enough passphrase made out of e.g. random 32 characters, for example by using `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` command on Linux.
+
 Ещё хотелось бы упомянуть, что есть ещё два аргумента для предоставления ключа шифрования: `--cryptkey-file` и `--input-cryptkey`.
 
 Из-за природы этого параметра также есть возможность задавать ключ шифрования путём задания переменной среды `ASF_CRYPTKEY`, это может оказаться более подходящим для людей, которые хотели бы избежать наличия конфиденциальной информации в аргументах процесса.

@@ -46,6 +46,8 @@ Ancak şu ikisi tamamen hatasızdır:
 
 `--cryptkey <key>` veya `--cryptkey=<key>` - ASF'yi `<key>` değerinde verilen özel kriptografik anahtar ile başlatır. Bu seçenek **[güvenliği](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** etkiler ve ASF'nin içine gömülü kriptografik anahtar yerine sizin verdiğiniz özel `<key>` anahtarı kullanılır. Bu değişken varsayılan şifreleme anahtarını (şifreleme için) ve salt değerini (hashing için) değiştirdiği için, sizin sunduğunuz anahtarla şifrelenen/hashlenen her şeyi kullanabilmek için her defasında ASF'ye bu anahtarı vermek zorunda olacağınızı unutmayın.
 
+There is no requirement on `<key>` length or characters, but for security reasons we recommend to pick long enough passphrase made out of e.g. random 32 characters, for example by using `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` command on Linux.
+
 Bu ayrıntıyı sağlamanın iki yolu daha olduğunu belirtmek güzel:`--cryptkey-file` and `--input-cryptkey`.
 
 Bu değişkenin doğası gereği, cryptkey'i `ASF_CRYPTKEY` ortam değişkeni ile de değiştirebilirsiniz, işlem argümanlarında hassas bilgilerin bulunmamasını isteyen kişiler için daha ideal olur.

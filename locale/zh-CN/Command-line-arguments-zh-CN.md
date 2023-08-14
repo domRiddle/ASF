@@ -46,6 +46,8 @@ Linux/macOS：
 
 `--cryptkey <key>` 或 `--cryptkey=<key>`——将以值为 `<key>` 的自定义密钥启动 ASF。 此参数影响[**安全性**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)且将导致 ASF 使用您所提供的自定义密钥 `<key>` 而非硬编码在程序中的默认密钥。 因为此属性会影响默认加密密钥（用于加密目的）和盐（用于加密目的），请记住，使用此密钥加密/哈希的一切都要求 ASF 每次运行时传入相同的值。
 
+There is no requirement on `<key>` length or characters, but for security reasons we recommend to pick long enough passphrase made out of e.g. random 32 characters, for example by using `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` command on Linux.
+
 需要指出，还有其他两种方式提供此信息：`--cryptkey-file` 和 `--input-cryptkey`。
 
 由于该属性本身的性质，您也可以设置 `ASF_CRYPTKEY` 环境变量来设置此密钥，这更适合想避免在进程参数中暴露敏感信息的用户。

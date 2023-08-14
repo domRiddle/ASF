@@ -46,6 +46,8 @@ Jei argumentai turi tarpus, nepamirškite kabučių. Šie du blogi:
 
 `--cryptkey <key>` arba `--cryptkey=<key>` - paleis ASF su nustatytais kriptografiniais raktais `<key>` verte. Šie nustatymai peveiks **[Saugumą](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** ir privers ASF naudoti pateiktą `<key>` raktą vietoj įprastinio, kuris yra koduotas paleidžiamoje programoje. Since this property affects default encryption key (for encrypting purposes) as well as salt (for hashing purposes), keep in mind that everything encrypted/hashed with this key will require it to be passed on each ASF run.
 
+There is no requirement on `<key>` length or characters, but for security reasons we recommend to pick long enough passphrase made out of e.g. random 32 characters, for example by using `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` command on Linux.
+
 It's nice to mention that there are also two other ways to provide this detail: `--cryptkey-file` and `--input-cryptkey`.
 
 Due to the nature of this property, it's also possible to set cryptkey by declaring `ASF_CRYPTKEY` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.

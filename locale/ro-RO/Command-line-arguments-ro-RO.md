@@ -46,6 +46,8 @@ Cu toate acestea, următoarele sunt complet în regulă:
 
 `--cryptkey <key>` sau `--cryptkey=<key>` - va începe ASF cu cheia criptografică personalizată de `<key>`. Această opțiune afectează **[securitatea](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** și va face ca ASF să utilizeze cheia personalizată oferită `<key>` în loc de cea implicită codificată în executabil. Deoarece această proprietate afectează cheia de criptare implicită (în scopuri de criptare) şi valoarea salt (în scopuri de hashing), ține cont de faptul că totu ce este criptat/hashed cu această cheie necesită ca ea să fie transmisă la fiecare rulare ASF.
 
+There is no requirement on `<key>` length or characters, but for security reasons we recommend to pick long enough passphrase made out of e.g. random 32 characters, for example by using `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` command on Linux.
+
 It's nice to mention that there are also two other ways to provide this detail: `--cryptkey-file` and `--input-cryptkey`.
 
 Datorită naturii acestei proprietăți, este posibilă și setarea cheii de criptare prin declararea variabilei de mediu `ASF_CRYPTKEY`, care ar putea fi mai potrivită pentru persoanele care ar dori să evite detaliile sensibile în argumentele procesului.

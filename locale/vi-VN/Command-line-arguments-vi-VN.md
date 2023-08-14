@@ -46,6 +46,8 @@ Tuy nhiên, hai cái đó hoàn toàn ổn:
 
 `--cryptkey <key>` hoặc `--cryptkey=<key>` - sẽ khởi động ASF bằng khoá mật mã tuỳ chỉnh có giá trị `<key>`. Tuỳ chọn này ảnh hưởng đến **[bảo mật](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** và sẽ khiến ASF sử dụng khoá `<key>` tùy chỉnh do bạn cung cấp thay vì khoả mặc định được code cứng trong tệp thực thi. Vì thuộc tính này ảnh hưởng đến khoá mã hoá mặc định (cho mục đích mã hoá) cũng như salt (cho mục đích băm), hãy nhớ rằng mọi thứ được mã hoá/băm bằng khoá này sẽ yêu cầu nó được truyền qua mỗi lần chạy ASF.
 
+There is no requirement on `<key>` length or characters, but for security reasons we recommend to pick long enough passphrase made out of e.g. random 32 characters, for example by using `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` command on Linux.
+
 Thật tuyệt khi đề cập rằng cũng có hai cách khác để cung cấp thông tin chi tiết này: `--cryptkey-file` và `--input-cryptkey`.
 
 Do tính chất của thuộc tính này, bạn cũng có thể đặt khoá mã hoá bằng cách khai báo biến môi trường `ASF_CRYPTKEY`, điều này có thể phù hợp hơn cho những người muốn tránh các khía cạnh nhạy cảm trong các đối số của tiến trình.

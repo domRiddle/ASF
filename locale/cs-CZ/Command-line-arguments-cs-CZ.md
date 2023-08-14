@@ -46,6 +46,8 @@ Nicméně, dvě jsou zcela v pořádku:
 
 `--cryptkey <key>` nebo `--cryptkey=<key>` - spustí ASF s vlastním kryptografickým klíčem s hodnotou `<key>`. Tato volba ovlivní **[bezpečnost](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** a způsobí, že ASF bude používat vlastní zadaný klíč `<key>`, namísto výchozího klíče, který je pevně nakódováný v programu. Protože tato vlastnost ovlivňuje výchozí šifrovací klíč (pro účely šifrování) i "sůl" (pro účely hashování), mějte na paměti, že vše, co je šifrováno/hashováno tímto klíčem, bude vyžadovat jeho předání při každém spuštění ASF.
 
+There is no requirement on `<key>` length or characters, but for security reasons we recommend to pick long enough passphrase made out of e.g. random 32 characters, for example by using `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` command on Linux.
+
 Je dobré zmínit, že existují také dva další způsoby, jak tento detail poskytnout: `--cryptkey-file` a `--input-cryptkey`.
 
 Vzhledem k povaze této vlastnosti je také možné nastavit cryptkey deklarací proměnné prostředí `ASF_CRYPTKEY`, což může být vhodnější pro ty, kteří se chtějí vyhnout citlivým údajům v argumentech procesu.
