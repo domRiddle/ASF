@@ -46,7 +46,7 @@ Linux/macOS：
 
 `--cryptkey <key>` 或 `--cryptkey=<key>`——将以值为 `<key>` 的自定义密钥启动 ASF。 此参数影响[**安全性**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-CN)且将导致 ASF 使用您所提供的自定义密钥 `<key>` 而非硬编码在程序中的默认密钥。 因为此属性会影响默认加密密钥（用于加密目的）和盐（用于加密目的），请记住，使用此密钥加密/哈希的一切都要求 ASF 每次运行时传入相同的值。
 
-There is no requirement on `<key>` length or characters, but for security reasons we recommend to pick long enough passphrase made out of e.g. random 32 characters, for example by using `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` command on Linux.
+`<key>` 对长度和字符没有要求，但出于安全原因，我们建议选择足够长的口令，例如 32 位随机字符，一种获取方式是在 Linux 上执行 `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` 命令。
 
 需要指出，还有其他两种方式提供此信息：`--cryptkey-file` 和 `--input-cryptkey`。
 
@@ -60,7 +60,7 @@ There is no requirement on `<key>` length or characters, but for security reason
 
 ---
 
-`--ignore-unsupported-environment`——使 ASF 忽略在不支持环境下运行的各种问题，这些环境在正常情况下会导致报错并强制退出。 不支持的环境包括在应该使用 .NET（Core）版本的平台上运行 .NET 框架版本。 此选项将允许 ASF 尝试在这些情况下运行，请注意我们并不支持这些操作，完全是您自己决定强制 ASF 这样运行，因而**风险由您自己承担**。 目前，**所有**在不受支持环境运行的情况都可以被改正，例如运行 `generic`版本而非 `generic-netf` 版本。 我们强烈建议从根本上解决问题，而不是使用这参数。
+`--ignore-unsupported-environment`——使 ASF 忽略在不支持环境下运行的各种问题，这些环境在正常情况下会导致报错并强制退出。 不支持的环境包括在应该使用 .NET（Core）版本的平台上运行 .NET 框架版本。 此选项将允许 ASF 尝试在这些情况下运行，请注意我们并不支持这些操作，完全是您自己决定强制 ASF 这样运行，因而**风险由您自己承担**。 目前，**所有**在不受支持环境运行的情况都可以被改正，例如运行 `generic` 版本而非 `generic-netf` 版本。 我们强烈建议从根本上解决问题，而不是使用这参数。
 
 ---
 
@@ -100,7 +100,7 @@ There is no requirement on `<key>` length or characters, but for security reason
 
 如果您考虑使用命令行参数以运行多个 ASF 实例，我们推荐您阅读本指南的[**管理**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-CN#多实例)页面。
 
-示例:
+示例：
 
 ```shell
 dotnet /opt/ASF/ArchiSteamFarm.dll --path /opt/TargetDirectory # 绝对路径

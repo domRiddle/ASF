@@ -46,7 +46,7 @@ Sin embargo, estos dos están completamente bien:
 
 `--cryptkey <key>` o `--cryptkey=<key>` - lanzará ASF con una clave criptográfica personalizada de valor `<key>`. Esta opción afecta a la **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-ES)** y hará que ASF use la clave personalizada `<key>` que hayas proporcionado, en lugar de la que está establecida por defecto en el ejecutable. Dado que esta propiedad afecta la clave de cifrado predeterminada (para propósitos de cifrado) así como la sal (para propósitos de hashing), ten en cuenta que todo lo cifrado/hasheado con esta clave requerirá ser pasado en cada ejecución de ASF.
 
-There is no requirement on `<key>` length or characters, but for security reasons we recommend to pick long enough passphrase made out of e.g. random 32 characters, for example by using `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` command on Linux.
+No hay requisito de longitud o caracteres para `<key>`, pero por razones de seguridad recomendamos elegir una contraseña suficientemente larga compuesta, por ejemplo, de 32 caracteres aleatorios, una opción sería usar el comando `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` en Linux.
 
 Es bueno mencionar que hay otras dos formas de proporcionar este detalle: `--cryptkey-file` y `--input-cryptkey`.
 
