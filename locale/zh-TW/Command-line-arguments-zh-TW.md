@@ -46,7 +46,7 @@ Linux/macOS：
 
 `--cryptkey<key>`&#8203;或&#8203;`--cryptkey=<key>`&#8203;⸺將以自訂金鑰&#8203;`<key>`&#8203;啟動ASF。 此選項將會影響&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;，並使ASF使用您的自訂金鑰&#8203;`<key>`&#8203;，而不是程式中硬編碼的預設值。 因為此屬性會影響預設加密鍵（用於加密）及&#8203;**[鹽](https://zh.wikipedia.org/zh-tw/%E7%9B%90_(%E5%AF%86%E7%A0%81%E5%AD%A6))**&#8203;（用於雜湊），請注意使用此金鑰加密／雜湊出的一切，ASF在每次執行時都需要給入相同的值。
 
-There is no requirement on `<key>` length or characters, but for security reasons we recommend to pick long enough passphrase made out of e.g. random 32 characters, for example by using `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` command on Linux.
+`<key>`&#8203;不要求長度或字元，但出於安全原因，我們建議選擇足夠長的通行片語，例如隨機的32個字元，在Linux上使用&#8203;`tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo`&#8203;命令可以獲得。
 
 需要再提一點，還有另外兩種方法可以提供此詳細資料：&#8203;`--cryptkey-file`&#8203;與&#8203;`--input-cryptkey`&#8203;。
 
