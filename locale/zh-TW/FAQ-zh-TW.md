@@ -21,35 +21,35 @@
 
 在嘗試了解什麼是ASF之前，你應該先了解什麼是Steam交換卡片以及它的獲得方式，這在官方的&#8203;**[常見問題](https://steamcommunity.com/tradingcards/faq)**&#8203;中有詳細的說明。
 
-Steam 交換卡片是物品庫裡的一個項目，在你擁有一款遊戲時，你可以獲得該遊戲的交換卡片，並使用交換卡片來合成徽章或於社群市集販賣。
+簡而言之，Steam交換卡片是種可收集物品，在您擁有特定的遊戲後即可獲得它們。交換卡片可用於合成徽章、於Steam社群市集中販售，或其他您想對它們做的事。
 
-Core points are stated once again here, because people in general don't want to agree with them and prefer to pretend that those do not exist:
+這裡再次強調核心重點，因為人們通常不想同意，並無視這些事實：
 
-- **You need to own the game on your Steam account in order to be eligible for any card drops from it. 親友同享的遊戲不包含在內。**
-- **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for farming anymore. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
-- **如果您沒有在遊戲內購買，免費遊戲將不會掉落卡片。 This means permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you card drops.**
-- **無論是否擁有遊戲，[受限制的使用者帳戶](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=traditional%20chinese)都無法掉落卡片。 （曾經可以，但現在已經無法掉落了。）**
-- **Paid games that you've obtained for free during a promotion can't be farmed for card drops, regardless of what is displayed on the store page. （曾經可以，但現在已經無法掉落了。）**
+- **您必須在您的Steam帳號上擁有相應的遊戲，才有資格從該遊戲掉落卡片。 親友同享的遊戲不包含在內。**
+- **您無法無限制地掛卡，每款遊戲的交換卡片皆有固定掉落的數量。 只要您掛完這些卡片（約等同於整套卡片的一半數量），這款遊戲將不再能掛出新卡片。 這無關您出售、交易、合成或其他您對已獲得卡牌的行為，只要可掉落的數量用完，這款遊戲就是掛完了。**
+- **如果您沒有在免費遊戲中消費，這類遊戲將不會掉落卡片。 這是指永久免費遊玩的遊戲，例如《絕地要塞2》或《Dota 2》。 擁有免費遊戲無法讓您掉落出卡片。**
+- **不論是否擁有遊戲，&#8203;[受限使用者帳戶](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663&l=traditional%20chinese)都無法掉落交換卡片。 （以前曾可以掉落，但現在已經沒辦法了。）**
+- **不論在商店頁面顯示什麼，您在促銷期間以免費方式獲得的付費遊戲，將無法掉落交換卡片。 （以前曾可以掉落，但現在已經沒辦法了。）**
 
-So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
+如您所見，Steam交換卡片是您遊玩付費遊戲，或在免費遊戲中消費的獎勵。 若您遊玩一款遊戲足夠長的時間，該遊戲的所有卡片最終都會掉落至您的物品庫中，這使您能夠（在獲得另外半套後）有機會完成一個徽章、賣掉它們，或其他任何您想處置的方式。
 
-Now that we've explained the basics of Steam, we can explain ASF. The program itself is quite complex to understand fully, so instead of digging into all the technical details, we'll offer a very simplified explanation below.
+現在我們已經解釋了Steam的基礎知識，接下來要開始說明ASF。 程式本身非常複雜且難以完全理解，所以我們接下來只會簡單介紹，並不會深入解釋完整的技術細節。
 
-ASF logs into your Steam account through our built-in, custom Steam client implementation using your provided credentials. After successfully logging in, it parses your **[badges](https://steamcommunity.com/my/badges)** in order to find games that are available for farming (`X` card drops remaining). After parsing all pages and constructing final list of games that are available, ASF chooses most efficient farming algorithm and starts the process. The process depends upon chosen **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** but usually it consists of playing eligible game and periodically (plus on each item drop) checking if game is fully farmed already - if yes, ASF can proceed with the next title, using the same procedure, until all games are fully farmed.
+ASF使用您提供的憑證，透過我們內建的自訂Steam用戶端來登入您的Steam帳號。 在登入成功後，它會剖析您的&#8203;**[徽章頁面](https://steamcommunity.com/my/badges)**&#8203;，來搜尋可掛卡的遊戲（還有&#8203;`X`&#8203;張卡片會掉落）。 在剖析完所有頁面，並建構出最終的掛卡遊戲清單後，ASF會選擇最有效的掛卡演算法並開始掛卡。 掛卡過程取決於您所選擇的&#8203;**[掛卡演算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;，這通常包含執行所選的遊戲，及定期（與有物品掉落時）檢查該遊戲是否已完成掛卡⸺若已掛完，ASF將會換下一款遊戲繼續掛卡，重複這個過程，直到所有遊戲都完成掛卡。
 
-Keep in mind that explanation above is simplified and doesn't describe dozen of extra features and functions that ASF offers. Visit the rest of **[our wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki)** if you want to know every ASF detail. I tried to make it simple enough to understand for everybody, without bringing in technical details - advanced users are encouraged to dig deeper.
+請注意，上述說明是簡化過的，且也沒有描述ASF所提供的諸多額外功能。 若您想了解ASF的所有細節，請造訪我們&#8203;**[Wiki](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-zh-TW)**&#8203;的其餘頁面。 我盡量在此處以淺顯易懂的方式說明，在不需要知道技術細節的情形下，讓每個人都能理解⸺並鼓勵進階使用者深入研究。
 
-Now as a program - ASF offers some magic. Firsty, it doesn't have to download any of your game files, it can play games right away. Secondly, it's entirely independent of your normal Steam client - you don't need to have Steam client running or even installed at all. Thirdly, it's automated solution - which means that ASF automatically does everything behind your back, without a need of telling it what to do - which saves you hassle and time. Lastly, it doesn't have to trick Steam network by process emulation (which e.g. Idle Master is using), as it can communicate with it directly. It's also super fast and lightweight, being an amazing solution for everybody who wants to get cards easily without much hassle - it comes especially useful by leaving it running in the background while doing something else, or even playing in offline mode.
+作為一個程式，ASF提供了一些魔法。 首先，它不需要下載任何遊戲檔案，就能夠立刻遊玩遊戲。 其次，它完全獨立於您的Steam用戶端⸺您不需要執行Steam用戶端，甚至也不需要安裝。 再者，這是個自動化的解決方案⸺這代表ASF會自動為您處理事情，而不需要您告訴它該如何⸺這為您解決了麻煩並節省了時間。 最後，它毋須使用程序模擬來欺騙Steam網路（而Idle Master正是這樣做），因為ASF能直接與Steam網路通訊。 它很快速、且為輕量級，是個完美的解決方案，讓每個人都能輕鬆獲得交換卡片⸺您可以讓它在後台運作，而去做其他的事情，甚至在離線模式下遊玩。
 
-All of the above is nice, but ASF also has some technical limitations that are enforced by Steam - we can't farm games that you don't own, we can't farm games forever in order to get extra drops past the enforced limit, and we can't farm games while you're playing. All of that should be "logical", considering the way how ASF works, but it's nice to note that ASF doesn't have super-powers and won't do something that is physically impossible, so keep that in mind - it's basically the same as if you told someone to log in on your account from another PC and farm those games for you.
+除了上述優點，ASF也有些因Steam造成的技術限制⸺我們無法掛您並未擁有的遊戲，無法掛出超過限制的額外卡片，亦無法在您遊玩時同時掛卡。 考慮到ASF的運作原理，這些限制應該十分合理。並值得一提的是，ASF並沒有超能力，也無法超越物理限制，所以請注意⸺它就像是您讓別人從另一台PC登入您的帳號，並進行掛卡是一樣的。
 
-So to sum up - ASF is a program that helps you drop those cards you're eligible for, without much hassle. It also offers several other functions, but let's stick to this one for now.
+綜上所述⸺ASF是個能為您省去麻煩，並幫助您掉落可獲得的卡片的程式。 它還提供了一些額外的功能，但讓我們先只專注於掛卡功能中。
 
 ---
 
 ### 我必須輸入我的帳號憑證嗎？
 
-**是的**&#8203;。 ASF requires your account credentials in the same way as official Steam client does, as it's using the same method for Steam network interaction. This however doesn't mean that you have to put your account credentials in ASF configs, you can keep using ASF with `null`/empty `SteamLogin` and/or `SteamPassword`, and input that data on each ASF run, when required (as well as several other login credentials, refer to configuration). This way your details are not saved anywhere, but of course ASF can't autostart without your help. ASF also offers several other ways of increasing your **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input them as-needed when ASF asks for them.
+**是的**&#8203;。 ASF與Steam官方用戶端相同，需要您的帳號憑證，因為它使用了相同的方法來與Steam網路交互。 但這並不代表您就必須將帳號憑證放在ASF設定檔中，可以在&#8203;`SteamLogin`&#8203;及／或&#8203;`SteamPassword`&#8203;屬性保留&#8203;`null`&#8203;或空值，並在每次執行ASF時輸入所需的資訊（及其他相關的登入憑證，請參閱組態設定章節）。 這樣，您的資訊就不會儲存在任何地方，但在這種情形下，如果沒有您的協助，ASF將會無法自動啟動。 ASF also offers several other ways of increasing your **[security](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**, so feel free to read that part of the wiki if you're advanced user. If you're not, and you don't want to put your account credentials in ASF configs, then simply don't do that, and instead input them as-needed when ASF asks for them.
 
 Keep in mind that ASF tool is for your personal use and your credentials are never leaving your computer. You're also not sharing them with anybody, which fulfills **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** - a very important thing that many people forget about. You're not sending your details to our servers or some third-party, only directly to Steam servers operated by Valve. We don't know your credentials and we're also unable to recover them for you, regardless if you put them in your configs or not.
 
