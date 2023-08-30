@@ -6,7 +6,7 @@ ASF支援Steam非互動式（離線）交易。 您可以即刻收到（接受/�
 
 ## 邏輯
 
-ASF 將始終接受所有來自對機械人有`Master`（或更高）訪問權限的用戶的交易項目。 This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
+ASF 將始終接受所有來自對機械人有`Master`（或更高）訪問權限的用户的交易項目。 This allows not only easily looting steam cards farmed by the bot instance, but also allows to easily manage Steam items that bot stashes in the inventory - including those from other games (such as CS:GO).
 
 ASF將拒絕任何來自交易模組黑名單中的用戶（對master無效）的交易報價，無論其內容如何。 Blacklist is stored in standard `BotName.db` database, and can be managed via `tb`, `tbadd` and `tbrm` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. 這應該可以替代Steam 提供的標準用戶屏蔽模塊，請謹慎使用。
 
