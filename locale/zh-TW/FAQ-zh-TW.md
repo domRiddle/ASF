@@ -57,25 +57,25 @@ ASF使用您提供的憑證，透過我們內建的自訂Steam用戶端來登入
 
 ### 我需要等多久，卡片才會掉落？
 
-認真地說，&#8203;**「不論多久，您都必須等待」**&#8203;。 每款遊戲的掛卡難度是由該遊戲的開發者／發行者所訂，只有他們才能決定交換卡片掉落的速率。 大多數的遊戲會每隔約30分鐘掉落一張交換卡片，但也有遊戲會需要您遊玩數個小時後才會開始掉落。 除此之外，若您未具有足夠的遊玩時數，您的帳號可能受到掉卡限制，如&#8203;**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;章節中所述。 請不要嘗試去猜測ASF掛卡所需的時間⸺這無法由您或ASF來決定。 There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section.
+認真地說，&#8203;**「不論多久，您都必須等待」**&#8203;。 每款遊戲的掛卡難度是由該遊戲的開發者／發行者所訂，只有他們才能決定交換卡片掉落的速率。 大多數的遊戲會每隔約30分鐘掉落一張交換卡片，但也有遊戲會需要您遊玩數個小時後才會開始掉落。 除此之外，若您未具有足夠的遊玩時數，您的帳號可能受到掉卡限制，如&#8203;**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;章節中所述。 請不要嘗試去猜測ASF掛卡所需的時間⸺這無法由您或ASF來決定。 您無法加速掛卡進度，也不存在卡片能無法及時掉落的「錯誤」⸺您無法控制交換卡片掉過的過程，ASF也無法。 在最理想的情形下，您將每隔30分鐘獲得一張交換卡片。 而在最差的情形下，可能在您啟動ASF四個小時內都沒有掉落任何卡片。 這些情形都是正常的，且在我們的&#8203;**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;章節中有介紹。
 
 ---
 
 ### 掛卡耗費時間太長，我該怎麼讓它加快速度？
 
-The only thing which heavily affects speed of farming is selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** for your bot instance. Everything else has negligible effect and will not make farming faster, while some actions such as launching ASF process several times will even **make it worse**. If you really have an urge of making every single second from farming process, then ASF allows you to fine-tune some core farming variables such as `FarmingDelay` - all of them are explained in **[configuration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. However, as I said, the effect is negligible, and choosing proper cards farming algorithm for given account is one and the only crucial choice that can heavily affect speed of farming, everything else is pure cosmetic. Instead of worrying about farming speed, just launch ASF and let it do its job - I can assure you that it's doing it in the most effective way I could come up with. The less you care, the more you will be satisfied.
+能嚴重影響掛卡速率的唯一因素是您Bot實例所選擇的&#8203;**[掛卡演算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;。 其他的因素只能帶來微不足道的影響，無法加速掛卡進度，而部分行為例如多次重啟ASF程序，甚至會&#8203;**使進度更為緩慢**&#8203;。 若您真的想要充分地利用掛卡過程的每一秒鐘，ASF允許您微調一些與掛卡相關的變數，例如&#8203;`FarmingDelay`&#8203;⸺這些參數都在&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;中有進一步的說明。 但正如我所說的，這些的影響可說是微不足道，為您的帳號選擇正確的掛卡演算法才是唯一嚴重影響掛卡速率的關鍵因素，其他都只能作為錦上添花之效。 不要過分擔心掛卡速率，只要啟動ASF並讓它自主運作⸺我可以向您保證，這是我能想得到的最有效的掛卡方式。 認真就輸了，隨興就好。
 
 ---
 
 ### 但 ASF 說掛卡會耗費大約 X 個小時！
 
-ASF gives you rough approximation based on number of cards you need to drop, and your chosen algorithm - this is nowhere close to the actual time that you will spend on farming, which is usually longer than this, as ASF assumes best case only, and ignores all Steam Network quirks, internet disconnections, overload of Steam servers and likewise. It should be seen only as a general indicator how long you can expect ASF to be farming, very often in best case, as actual time will differ, even significantly in some cases. Like pointed out above, do not try to guess how long given game will be farmed, it's not up to you, neither ASF to decide.
+ASF會依據您可掉落的交換卡片數量及您選擇的演算法，來預估所需要的時間⸺這與您實際掛卡要花費的時間無關，通常會需要更久的時間⸺因為ASF只會假設最理想的情形，並忽略所有Steam網路異常、網際網路斷線、Steam伺服器超載等問題。 它只應被當成您在理想情形下，來粗估ASF掛卡時間的指標，因為實際情形會有所不同，甚至差異巨大。 如上所述，請不要嘗試去猜測遊戲所需的掛卡時間，因為您無法決定它，ASF也無法。
 
 ---
 
 ### ASF 可以在我的 Android／智慧型手機上執行嗎？
 
-ASF is a C# program that requires working implementation of .NET. Android became a valid platform starting with .NET 6.0, however, there is currently a major blocker in making ASF happen on Android due to **[lack of ASP.NET runtime available on it](https://github.com/dotnet/aspnetcore/issues/35077)**. Even though there isn't a native option available, there are proper and working builds for GNU/Linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
+ASF是個C#程式，需要.NET環境來執行。 從.NET 6.0開始，Android就已成為一個受支援的平台，但因為目前仍&#8203;**[缺少可供使用的ASP.NET執行環境](https://github.com/dotnet/aspnetcore/issues/35077)**&#8203;，在Android執行ASF仍受阻礙。 Even though there isn't a native option available, there are proper and working builds for GNU/Linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
 
 When/If all ASF requirements are satisfied, we'll consider releasing official Android build.
 
