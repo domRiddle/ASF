@@ -75,29 +75,29 @@ ASF會依據您可掉落的交換卡片數量及您選擇的演算法，來預�
 
 ### ASF 可以在我的 Android／智慧型手機上執行嗎？
 
-ASF是個C#程式，需要.NET環境來執行。 從.NET 6.0開始，Android就已成為一個受支援的平台，但因為目前仍&#8203;**[缺少可供使用的ASP.NET執行環境](https://github.com/dotnet/aspnetcore/issues/35077)**&#8203;，在Android執行ASF仍受阻礙。 Even though there isn't a native option available, there are proper and working builds for GNU/Linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
+ASF是個C#程式，需要.NET環境來執行。 從.NET 6.0開始，Android就已成為一個受支援的平台，但因為目前仍&#8203;**[缺少可供使用的ASP.NET執行環境](https://github.com/dotnet/aspnetcore/issues/35077)**&#8203;，在Android執行ASF仍受阻礙。 儘管尚未有原生的選擇，但目前在ARM架構上仍有可運作於GNU/Linux的建置版本，所以完全能夠使用像&#8203;**[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)**&#8203;等方式安裝Linux，然後如平常那樣在Linux chroot中執行ASF。
 
-When/If all ASF requirements are satisfied, we'll consider releasing official Android build.
+在所有ASF的需求都被滿足時，我們就會考慮發布官方版的Android建置版本。
 
 ---
 
 ### ASF 可以掛 Steam 遊戲物品嗎，例如 CS:GO 或 Unturned？
 
-**No**, this is against **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and Valve clearly stated that with last wave of community bans for farming TF2 items. ASF is a Steam cards farming program, not game items farmer - it doesn't have any capability of farming game items, and it's not planned to add such feature in the future, ever, mainly because of violating Steam terms of use. Please do not ask about this - the best you can get is a report from some salty user and you having problems. The same goes for all other types of farming, such as farming drops from CS:GO broadcasts. ASF is focusing on Steam trading cards exclusively.
+**不能**&#8203;，這違反&#8203;**[Steam服務條款](https://store.steampowered.com/subscriber_agreement)**&#8203;，且Valve在上一次對掛機獲得TF2物品的帳號實施大規模社群封鎖時，就明確表示過了。 ASF是一個Steam交換卡片的掛卡程式，而非遊戲物品掛機工具⸺它沒有任何能掛遊戲物品的能力，也無計畫在未來加入這類功能，主要是因為這違反Steam服務條款。 請勿詢問這類問題⸺您能獲得的最佳答案便是來自鄉民的檢舉，使您陷入更大的麻煩。 這同樣適用於其他所有種類的掛機，例如在CS:GO直播中掛機獲取掉落物品。 ASF只會專注於Steam交換卡片上。
 
 ---
 
 ### 我可以選擇要掛哪些遊戲嗎？
 
-**Yes**, through several different ways. If you want to alter the default order of farming queue, then that's what `FarmingOrders` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** can be used for. If you want to manually blacklist given games from being farmed automatically, you can use idle blacklist which is available with `fb` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If you'd like to farm everything but give some apps priority over everything else, that is what idle priority queue available with `fq` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** can be used for. And finally, if you want to farm specific games of your choice only, then you can use `FarmPriorityQueueOnly` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)** in order to achieve this, together with adding your selected apps to idle priority queue.
+**可以**，這有幾種不同的方式。 若您想調整預設的掛卡順序，可以修改&#8203;`FarmingOrders`&#8203;**[Bot組態設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#bot-設定檔)**&#8203;。 若您想手動將某些遊戲列入自動掛卡黑名單，可以使用&#8203;`fb`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;來設定黑名單。 若您想掛所有的卡，但想要先掛某一部份，可以使用&#8203;`fq`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;來管理優先掛卡佇列。 最後，若您只想掛您想要的遊戲，那您可以使用&#8203;`FarmPriorityQueueOnly`&#8203;**[Bot組態設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#bot-設定檔)**&#8203;來達成，並將您所選的應用程式加入至優先掛卡佇列中。
 
-In addition to managing automatic cards farming module which was described above, you can also switch ASF to manual farming mode with `play` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, or use some other misc external settings such as `GamesPlayedWhileIdle` **[bot configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#bot-config)**.
+除了管理上述的自動掛卡模組以外，您也可以使用手動掛卡模式&#8203;`play`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;，或使用一些雜項的外部設定，例如&#8203;`GamesPlayedWhileIdle`&#8203;**[Bot組態設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#bot-設定檔)**&#8203;。
 
 ---
 
 ### 我對掉落的卡片不感興趣，我想改為掛遊戲時數，這可以做到嗎？
 
-Yes, ASF allows you to do that through at least several ways.
+可以，ASF允許您以幾種方式做到。
 
 The best way to achieve that is to make use of **[`GamesPlayedWhileIdle`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#gamesplayedwhileidle)** configuration property, which will play your chosen appIDs when ASF has no cards to farm. If you'd like to play your games all the time, even if you do have card drops from other games, then you can combine it with **[`FarmPriorityQueueOnly`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#farmpriorityqueueonly)**, so ASF will farm only those games for card drops that you explicitly set, or **[`Paused`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#paused)**, which will cause cards farming module to be paused until you unpause it yourself.
 
