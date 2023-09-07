@@ -2,7 +2,7 @@
 
 Essa seção inclui vários adicionais de terceiros escritos exclusivamente (ou principalmente) para serem usados em conjunto com o ASF. Elas variam desde plugins para o ASF à simples aplicações web e bibliotecas internas para maior integração, terminando com bots cheios de recursos para as outras plataformas. Caso deseje adicionar algo à lista, conte-nos em nosso servidor do Discord ou em nosso Grupo Steam.
 
-Por favor, saiba que os programas abaixo **não** são mantidos pelos desenvolvedores do ASF e **nós não nos responsabilizamos por nenhum deles**, especialmente em termos de segurança, confiança ou conformidade com os Termos de Serviço do Steam. Esta lista é mantida apenas para referência. You should always ensure that the third-party utility you're about to use is safe and legit enough for you, as you're using all of them at your own risk.
+Por favor, saiba que os programas abaixo **não** são mantidos pelos desenvolvedores do ASF e **nós não nos responsabilizamos por nenhum deles**, especialmente em termos de segurança, confiança ou conformidade com os Termos de Serviço do Steam. Esta lista é mantida apenas para referência. Você deve sempre garantir que o utilitário de terceiros que você está prestes a usar é seguro e legítimo o suficiente para você, você estará usando-os por sua conta e risco.
 
 ---
 
@@ -11,7 +11,7 @@ Por favor, saiba que os programas abaixo **não** são mantidos pelos desenvolve
 ### **[Rudokhvist](https://github.com/Rudokhvist)**
 
 - **[ASF-Achievement-Manager](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, plugin para o ASF que te permite gerenciar conquistas Steam.
-- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
+- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, plugin para o ASF receber felicitações de aniversário.
 - **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, plugin que adiciona a funcionalidade de criar pacotes de cartas.
 - **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, plugin para tirar a diferenciação que o ASF faz entre maiúsculas e minúsculas nos nomes dos bots.
 - **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, plugin para o ASF reimplementar o resgate de códigos de produto sem a necessidade do uso de comando.
