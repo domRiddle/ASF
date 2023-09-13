@@ -61,7 +61,7 @@ ASF使用您提供的憑證，透過我們內建的自訂Steam用戶端來登入
 
 ---
 
-### 掛卡耗費時間太長，我該怎麼讓它加快速度？
+### 掛卡耗費時間太長，我該怎麼讓它加快速率？
 
 能嚴重影響掛卡速率的唯一因素是您Bot實例所選擇的&#8203;**[掛卡演算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;。 其他的因素只能帶來微不足道的影響，無法加速掛卡進度，而部分行為例如多次重啟ASF程序，甚至會&#8203;**使進度更為緩慢**&#8203;。 若您真的想要充分地利用掛卡過程的每一秒鐘，ASF允許您微調一些與掛卡相關的變數，例如&#8203;`FarmingDelay`&#8203;⸺這些參數都在&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;中有進一步的說明。 但正如我所說的，這些的影響可說是微不足道，為您的帳號選擇正確的掛卡演算法才是唯一嚴重影響掛卡速率的關鍵因素，其他都只能作為錦上添花之效。 不要過分擔心掛卡速率，只要啟動ASF並讓它自主運作⸺我可以向您保證，這是我能想得到的最有效的掛卡方式。 認真就輸了，隨興就好。
 
@@ -163,7 +163,7 @@ ASF也擁有正確的邏輯來處理&#8203;**影集**&#8203;。 Steam上有許�
 
 ---
 
-### ASF 的速度比 Idle Master 快嗎？
+### ASF 的效率比 Idle Master 好嗎？
 
 **是的**&#8203;，但解釋起來稍顯複雜。
 
@@ -175,15 +175,15 @@ ASF並非基於Steam用戶端，而是使用自身的Steam用戶端來實作。 
 
 ### 但是這個差異有這麼明顯嗎？
 
-非也。 The interrupts that are happening with normal steam client and idle master have negligible effect on the card drops, so it's not any noticeable difference that would make ASF superior.
+並沒有。 一般的Steam用戶端與Idle Master所發生的中斷事件對掉卡速率的影響可以忽略不計，因此並沒有非常明顯的差別來讓ASF顯得更優異。
 
-However, there **is** a difference, and you can clearly notice that, as depending on how busy your OS is, cards **will** drop faster, from a few seconds to even a few minutes, if you're extremely unlucky. Although I wouldn't consider using ASF only because it drops cards faster, as both ASF and Idle Master are affected by how steam web works, ASF just interacts with steam web more effectively, while Idle Master can't control what steam client is actually doing (so it's not Idle Master's fault, but steam client's itself).
+但，這仍&#8203;**是個**&#8203;差別，若您的作業系統極端繁忙，您可能會注意到卡片&#8203;**會**&#8203;加速掉落幾秒，甚至幾分鐘。 雖然我不會只因ASF的掉卡速率更快而選擇它，因為ASF與Idle Master都受到Steam網路的影響，但ASF能以更高效的方式與Steam網路互動，而Idle Master卻沒有能力控制Steam用戶端的行為（這不是Idle Master的問題，而是Steam用戶端本身的）。
 
 ---
 
 ### ASF 可以同時掛多個遊戲嗎？
 
-**Yes**, although ASF knows better when to use that feature, based on selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**. Card drops rate when farming multiple games is close to zero, this is why ASF is using multiple games farming exclusively for hours in order to overcome `HoursUntilCardDrops` faster, for up to `32` games at once. This is also why you should focus on configuration part of the ASF, and let algorithms decide what is the best way to achieve the goal - what you think is right, is not necessarily right in reality, farming multiple games at once will not provide you with any card drops.
+**可以**&#8203;，ASF會依據所選的&#8203;**[掛卡演算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**得知使用本功能的時機。 在同時掛多款遊戲時，卡片的掉落率會趨近於零，這就是為什麼ASF只會在批量掛遊玩時數到&#8203;`HoursUntilCardDrops`&#8203;時，才會一次掛最多&#8203;`32`&#8203;款遊戲。 這也是為何您應該只專注於ASF的設定的原因，讓演算法去幫您決定達成目的的最佳解⸺您所認為的方式，實際上不一定是最好的方式，一次掛多款遊戲會讓您掉不了卡。
 
 ---
 
@@ -201,7 +201,7 @@ However, there **is** a difference, and you can clearly notice that, as dependin
 
 ### 我可以在 ASF 掛卡時玩遊戲嗎？
 
-**不**。 ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
+**不能**&#8203;。 ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
 
 Keep in mind that cards drop rate when playing multiple games is close to 0 anyway, therefore there are no direct benefits from being able to do that with IM, while there are strong benefits of no interfering with other games launched with ASF, which is crucial e.g. VAC-wise.
 
