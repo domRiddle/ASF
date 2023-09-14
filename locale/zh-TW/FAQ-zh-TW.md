@@ -183,27 +183,27 @@ ASF並非基於Steam用戶端，而是使用自身的Steam用戶端來實作。 
 
 ### ASF 可以同時掛多個遊戲嗎？
 
-**可以**&#8203;，ASF會依據所選的&#8203;**[掛卡演算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**得知使用本功能的時機。 在同時掛多款遊戲時，卡片的掉落率會趨近於零，這就是為什麼ASF只會在批量掛遊玩時數到&#8203;`HoursUntilCardDrops`&#8203;時，才會一次掛最多&#8203;`32`&#8203;款遊戲。 這也是為何您應該只專注於ASF的設定的原因，讓演算法去幫您決定達成目的的最佳解⸺您所認為的方式，實際上不一定是最好的方式，一次掛多款遊戲會讓您掉不了卡。
+**可以**&#8203;，ASF會依據所選的&#8203;**[掛卡演算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;得知使用本功能的時機。 在同時掛多款遊戲時，卡片的掉落率會趨近於零，這就是為什麼ASF只會在批量掛遊玩時數到&#8203;`HoursUntilCardDrops`&#8203;時，才會一次掛最多&#8203;`32`&#8203;款遊戲。 這也是為何您應該只專注於ASF的設定的原因，讓演算法去幫您決定達成目的的最佳解⸺您所認為的方式，實際上不一定是最好的方式，一次掛多款遊戲會讓您掉不了卡。
 
 ---
 
 ### ASF 可以快速切換遊戲嗎？
 
-**No**, ASF doesn't support, neither encourages usage of **[Steam glitches](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance#steam-glitches)**.
+**不能**&#8203;，ASF既不支援，與不鼓勵使用&#8203;**[Steam故障](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW#steam-故障)**&#8203;。
 
 ---
 
 ### ASF 可以自動為每個尚未加入交換卡片的遊戲掛 X 個小時嗎？
 
-**No**, the whole point of Steam cards system change was to fight with false statistics and ghost players. ASF won't contribute towards that more than necessary, adding such feature is not planned and won't happen. If your game receives card drops in usual way, ASF will farm them as soon as possible.
+**不能**&#8203;，Steam卡片系統的改動主要是用於對付錯誤的統計資訊及非人類玩家。 ASF不會對這類行為作出貢獻，不計劃加入這些功能，它們也不會發生於此。 若遊戲的交換卡片能正常掉落，ASF仍會盡快掛完它們。
 
 ---
 
 ### 我可以在 ASF 掛卡時玩遊戲嗎？
 
-**不能**&#8203;。 ASF unlike IM has independent Steam client included, and Steam network allows only **one Steam client at a time** to play a game. You can however disconnect ASF any time you like by starting a game (and clicking "OK" when asked if Steam network should disconnect other client) - ASF will then patiently wait till you're done playing, and resume the process afterwards. Alternatively, you can still play in offline mode anytime you like, if that is satisfying for you.
+**不能**&#8203;。 ASF與IM不同，含有獨立的Steam用戶端，且Steam網路&#8203;**一次只會允許一個Steam用戶端**&#8203;玩遊戲。 但您可以透過像啟動遊戲等行為來中斷ASF的連線（若Steam詢問您是否要中斷其他連線階段，請點擊「繼續」）⸺ASF將會耐心等待您玩完，並在此之後繼續掛卡。 或您願意的話，也可以在離線模式下遊玩。
 
-Keep in mind that cards drop rate when playing multiple games is close to 0 anyway, therefore there are no direct benefits from being able to do that with IM, while there are strong benefits of no interfering with other games launched with ASF, which is crucial e.g. VAC-wise.
+請注意，同時遊玩多個遊戲，會使掉卡速率掉至0，因此IM在這個功能上沒有辦法提供任何優點，但若您使用ASF，就不會干擾您其他的遊戲，這對於VAC來說非常重要。
 
 ---
 
@@ -213,17 +213,17 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 ### 我會因為使用這個被 VAC 封鎖嗎？
 
-No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor its processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running - this is because **ASF doesn't even require Steam Client being installed at all** in order to work properly. ASF is the only farming program that can currently guarantee being VAC-free.
+不會，這絕無可能，因為ASF（不同於Idle Master或SAM）不會以任何方式干擾Steam用戶端或其程序。 使用ASF完全不可能得到VAC封鎖，即使您在執行ASF的時候進入安全伺服器也不會⸺這是因為&#8203;**ASF完全不需要安裝Steam用戶端**&#8203;也能夠正常運作。 ASF是目前唯一能讓您保證不被VAC的掛卡程式。
 
 ---
 
 ### ASF 會像&#8203;**[此處](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**&#8203;所提到的一樣，使我無法加入 VAC 防護伺服器嗎？
 
-ASF does not require Steam client being running or even installed at all. According to this concept, it should **not** cause any VAC-related issues, because ASF guarantees lack of interfering with Steam client and all its processes - this is the main point when talking about VAC-free guarantee that ASF offers.
+使用ASF不需要同時執行Steam用戶端，甚至根本不需要安裝它。 依據這個概念，它應該&#8203;**無法**&#8203;造成任何與VAC相關的問題，因為ASF能保證不干擾Steam用戶端及其所有程序⸺這是ASF能保證不被VAC的主要原因。
 
-According to users and best of my knowledge, this is the case right now, as nobody reported any issues like stated in the link above while using ASF. We couldn't reproduce the issue above with ASF as well, while clearly reproducing it with Idle Master.
+依據使用者們以及我自己所了解到的，目前的情況就是如此，因為沒有人報告在使用ASF時遇到上述連結中所述的任何問題。 我們亦無法使用ASF重現上述問題，但Idle Master卻能明顯地重現出來。
 
-However, keep in mind that Valve could still add ASF to the blacklist at some point, but it's a complete nonsense as even if they do that, you could still play VAC-secured games from your PC, and use ASF at the same time e.g. on your server, so I'm pretty sure that they know very well that ASF should not be a suspect VAC-wise, and they won't make our lifes harder by blacklisting ASF for no reason. Still, in the worst case you'll be unable to play, like stated above, because VAC-free guarantee of ASF is still here regardless if Steam blacklists ASF binary, or not (and you can still launch ASF on any other machine without Steam client being installed at all). Right now there is no need to do any of that, and let's hope it stays like this.
+但請注意，Valve仍可能在未來把ASF加進黑名單中，但這樣做完全沒有意義，因為即使他們把ASF加入黑名單，您仍然可以在您的PC上遊玩受到VAC保護的遊戲，並同時在伺服器上使用ASF。所以我很確定他們也很清楚ASF不該成為被VAC的嫌疑者，也不會無緣無故將ASF列入黑名單中，而後帶給我們麻煩。 儘管如此，在最糟糕的情況下，您將如同上面所述一樣無法遊玩遊戲，因為不論Steam是否將ASF的二進制檔案列入黑名單，ASF的不受VAC保證仍然有效（您仍然能在其他未安裝Steam用戶端的設備上執行ASF）。 但現在沒有必要去做這些事情，我們都希望維持現狀。
 
 ---
 
@@ -239,16 +239,16 @@ In the end however, it's always a matter of trust to the developer(s) of your ap
 
 ### 我會因為這個被封鎖嗎？
 
-In order to answer that question, we should take a closer look at **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. Steam doesn't prohibit using of multiple accounts, in fact, **[it allows it](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)** implying that you can use same mobile authenticator on more than one account. What it however doesn't allow is sharing accounts with other people, but we're not doing that here.
+要回答這個問題，我們首先需要詳閱&#8203;**[Steam服務條款](https://store.steampowered.com/subscriber_agreement)**&#8203;。 Steam並不禁止玩家開小號，且實際上，還&#8203;**[允許](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)**&#8203;您的多個帳號使用同一個行動驗證器。 但是，它不允許共用帳號，而我們也並未這樣做。
 
-The only real point that considers ASF is the following:
-> You may not use Cheats, automation software (bots), mods, hacks, or any other unauthorized third-party software, to modify or automate any Subscription Marketplace process.
+ASF真正需要考慮的重點如下：
+> You may not use Cheats, automation software (bots), mods, hacks, or any other unauthorized third-party software, to modify or automate any Subscription Marketplace process.（參考翻譯：您不得使用作弊軟體、自動化軟體（機器人）、模組、破解檔案，或其餘任何未經授權的第三方軟體，來修改或自動執行訂閱市集的任何交易過程。）
 
-The question is what in fact is Subscription Marketplace process. As we can read:
+問題是，我們需要知道Subscription Marketplace（訂閱市集）確切代表什麼。 我們可以得知：
 
-> An example of a Subscription Marketplace is the Steam Community Market
+> An example of a Subscription Marketplace is the Steam Community Market（參考翻譯：訂閱市集的其中一個範例是Steam社群市集）
 
-We're not modifying or automating subscription marketplace process, if by subscription marketplace we understand steam community market or steam store. However...
+如果訂閱市集指的就是Steam社群市集或Steam商店，那麼我們不會修改或自動化訂閱市集的交易過程。 然而……
 
 > Valve may cancel your Account or any particular Subscription(s) at any time in the event that (a) Valve ceases providing such Subscriptions to similarly situated Subscribers generally, or (b) you breach any terms of this Agreement (including any Subscription Terms or Rules of Use).
 
