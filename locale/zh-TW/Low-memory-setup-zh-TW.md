@@ -88,8 +88,8 @@ export DOTNET_GCHighMemPercent=0x50 # 80% as hex
 export DOTNET_GCLatencyLevel=0
 export DOTNET_gcTrimCommitOnLowMemory=1
 
-./ArchiSteamFarm # 用於特定作業系統的建置版本
-./ArchiSteamFarm.sh # 用於Generic建置版本
+./ArchiSteamFarm # 用於特定作業系統的組建版本
+./ArchiSteamFarm.sh # 用於 Generic 組建版本
 ```
 
 或在Windows（PowerShell）上：
@@ -102,8 +102,8 @@ $Env:DOTNET_GCHighMemPercent=0x50 # 80% as hex
 $Env:DOTNET_GCLatencyLevel=0
 $Env:DOTNET_gcTrimCommitOnLowMemory=1
 
-.\ArchiSteamFarm.exe # 用於特定作業系統的建置版本
-.\ArchiSteamFarm.cmd # 用於Generic建置版本
+.\ArchiSteamFarm.exe # 用於特定作業系統的組建版本
+.\ArchiSteamFarm.cmd # 用於 Generic 組建版本
 ```
 
 特別是&#8203;`GCLatencyLevel`&#8203;非常有用，我們驗證了執行環境確實能最佳化記憶體中的程式碼，因此即使使用伺服器GC，也能顯著降低了平均記憶體使用量。 若您希望使用&#8203;`OptimizationMode`&#8203;顯著降低ASF記憶體使用量的同時又不會過多降低效能，那麼這是您可以使用的最佳技巧之一。

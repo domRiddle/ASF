@@ -27,7 +27,7 @@
 
 若您已安裝並使用了其他第三方軟體，一些（甚至全部）相依性套件已存在於您的作業系統上，是很正常的。 不過您仍應在作業系統上執行適合的安裝程式，來確保這些軟體確實已被安裝⸺缺少這些相依套件，ASF將完全無法啟動。
 
-請注意，您不需要特地為特定作業系統的建置版本做其他任何事情，特別是.NET SDK的安裝或執行環境，因為它們已包含於作業系統套件中。 您只需要安裝必要的.NET相依需求套件，即可執行ASF裡面自帶的.NET執行環境。
+請注意，您不需要特地為特定作業系統的組建版本做其他任何事情，特別是.NET SDK的安裝或執行環境，因為它們已包含於作業系統套件中。 您只需要安裝必要的.NET相依需求套件，即可執行ASF裡面自帶的.NET執行環境。
 
 #### **[Windows](https://docs.microsoft.com/dotnet/core/install/windows)**&#8203;：
 - **[Microsoft Visual C++可轉散發套件更新](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)**&#8203;（&#8203;**[x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)**&#8203;適用於64位元Windows；&#8203;**[x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)**&#8203;適用於32位元Windows）
@@ -54,7 +54,7 @@
 
 ### 下載
 
-既然我們有了所有的相依性套件，那麼接下來就是下載&#8203;**[ASF最新版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;。 ASF有許多變體版本可供使用，但您應使用符合您作業系統及其架構的版本套件。 舉例來說，假設您使用&#8203;`64`&#8203;位元&#8203;`Win`&#8203;dows，那麼您需使用&#8203;`ASF-win-x64`&#8203;版本的套件。 欲取得關於可用變體的更多資訊，請參閱&#8203;**[相容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW)**&#8203;章節。 ASF也可以執行於沒有提供建置版本的作業系統上，例如&#8203;**32位元Windows**&#8203;，請前往&#8203;**[安裝Generic版本套件](#安裝-generic-版本套件)**&#8203;繼續閱讀。
+既然我們有了所有的相依性套件，那麼接下來就是下載&#8203;**[ASF最新版本](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;。 ASF有許多變體版本可供使用，但您應使用符合您作業系統及其架構的版本套件。 舉例來說，假設您使用&#8203;`64`&#8203;位元&#8203;`Win`&#8203;dows，那麼您需使用&#8203;`ASF-win-x64`&#8203;版本的套件。 欲取得關於可用變體的更多資訊，請參閱&#8203;**[相容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW)**&#8203;章節。 ASF也可以執行於沒有提供組建版本的作業系統上，例如&#8203;**32位元Windows**&#8203;，請前往&#8203;**[安裝Generic版本套件](#安裝-generic-版本套件)**&#8203;繼續閱讀。
 
 ![資源檔案](https://i.imgur.com/Ym2xPE5.png)
 
@@ -209,7 +209,7 @@ ASF是一個沒有圖形使用者介面的控制台應用程式。 但是，我�
 這部分是為想要安裝ASF &#8203;**[Generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#Generic)**&#8203;變體版本的進階使用者所準備的。 雖然比起&#8203;**[適用於特定作業系統的版本](#適用於您的作業系統的設定)**&#8203;使用起來更加麻煩，但這也讓它擁有了其他的優點。
 
 您可能會在這些情形下選擇使用&#8203;`Generic`&#8203;變體版本（當然也可以沒有任何原因）：
-- 當套件的建置版本沒有能適用於您的作業系統時（例如32位元Windows）
+- 當套件的組建版本沒有能適用於您的作業系統時（例如32位元Windows）
 - 當您已安裝.NET執行環境／SDK，或打算安裝時
 - 當您想自行管理執行環境需求，來最小化ASF的結構大小及記憶體使用量時
 - 當您想要使用自訂&#8203;**[外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-TW)**&#8203;，且它需要Generic版本的ASF才能正常運作時（因為缺少原生相依套件）

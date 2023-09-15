@@ -21,12 +21,12 @@ ASF與&#8203;**[GitHub的API](https://api.github.com)**&#8203;通訊，獲取&#8
 ## ASF 伺服器
 
 ASF與&#8203;**[我們自己的伺服器](https://asf.justarchi.net)**&#8203;通訊，以提供進階功能。 特別包含了：
-- 依據我們自己的獨立資料庫，驗證從GitHub下載的ASF建置的核對和，以確保所有下載的建置檔案都是正規的（不含惡意程式、MITM攻擊或其他篡改破壞）
+- 依據我們自己的獨立資料庫，驗證從GitHub下載的ASF組建的核對和，以確保所有下載的組建檔案都是正規的（不含惡意程式、MITM攻擊或其他篡改破壞）
 - 如果您啟用了&#8203;`FilterBadBots`&#8203;全域設定，則會提取用於過濾不良Bot的清單。
 - 如果您在&#8203;**[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#tradingpreferences交易偏好)**&#8203;中啟用&#8203;`SteamTradeMatcher`&#8203;並滿足其他準則，則會在&#8203;**[我們的名單](https://asf.justarchi.net/STM)**&#8203;中顯示您的Bot
 - 如果您在&#8203;**[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#tradingpreferences交易偏好)**&#8203;中啟用&#8203;`MatchActively`&#8203;並滿足其他準則，則會從&#8203;**[我們的名單](https://asf.justarchi.net/STM)**&#8203;中下載當前可交易的Bot來進行交易
 
-作為一項安全措施，您無法停用ASF建置檔案核對和的驗證。 但如果您不想發生這種情形，如上文的GitHub章節中所述，您可以完全停用自動更新。
+作為一項安全措施，您無法停用ASF組建檔案核對和的驗證。 但如果您不想發生這種情形，如上文的GitHub章節中所述，您可以完全停用自動更新。
 
 如果您不想從伺服器提取清單，您可以停用&#8203;`FilterBadBots`&#8203;設定。
 

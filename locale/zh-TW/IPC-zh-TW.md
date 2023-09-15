@@ -23,7 +23,7 @@ ASF的HTTP伺服器現在已在監聽指定的端點。 若您沒有為IPC提供
 
 中階的方式是使用我們的&#8203;**[Swagger文件](#swagger-文件)**&#8203;&#8203;作為ASF API的前端。 它具有完整的ASF API文件，並使您能夠更輕鬆地存取它。 若您計畫開發使用API與ASF通訊的工具、實用程式或專案，就需要查閱它。
 
-在最高階，&#8203;**[ASF-ui](#asf-ui)**&#8203;基於我們的ASF API，並提供使用者友善的方式來執行各種ASF操作。 這是我們為最終使用者設計的預設IPC介面，也是您可以使用ASF API建置的完美範例。 若您願意，您可以與您自己的自訂Web UI一起使用，方法是指定&#8203;`--path`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW#引數)**&#8203;，使用該處的自訂&#8203;`www`&#8203;資料夾。
+在最高階，&#8203;**[ASF-ui](#asf-ui)**&#8203;基於我們的ASF API，並提供使用者友善的方式來執行各種ASF操作。 這是我們為最終使用者設計的預設IPC介面，也是您可以使用ASF API組建的完美範例。 若您願意，您可以與您自己的自訂Web UI一起使用，方法是指定&#8203;`--path`&#8203;**[命令列引數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-zh-TW#引數)**&#8203;，使用該處的自訂&#8203;`www`&#8203;資料夾。
 
 ---
 
