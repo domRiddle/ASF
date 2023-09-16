@@ -34,7 +34,7 @@ ASF預設使用工作站垃圾回收。 這主要是因為記憶體的使用與�
 
 > 這項設定可讓您在.NET 6和更新版本中（PGO），啟用動態或階層式特性指引優化。
 
-預設為停用。 簡而言之，這會使JIT使用更多時間來分析ASF的代碼及其模式，以便為您的典型使用方式來生成最佳化的上級程式碼。 若您想了解更多關於此設定的資訊，請造訪&#8203;**[Performance Improvements in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**&#8203;。
+預設為停用。 簡而言之，這會使JIT使用更多時間來分析ASF的代碼及其模式，以便為您的典型使用方式來生成最佳化的上級程式碼。 若您想深入了解有關此設定的資訊，請造訪&#8203;**[Performance Improvements in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**&#8203;。
 
 ### **[`DOTNET_ReadyToRun`](https://docs.microsoft.com/zh-tw/dotnet/core/run-time-config/compilation#readytorun)**
 

@@ -1,6 +1,6 @@
 # 雙重驗證
 
-Steam含有被稱為「Escrow」的雙重驗證系統，在執行與帳號相關的行為時，需要確認額外的資料。 您可以閱讀&#8203;**[這裡](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)**&#8203;以及&#8203;**[這裡](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)**&#8203;來了解更多相關資訊。 本頁面主要介紹雙重驗證系統，與我們對它的整合方案，即ASF雙重驗證。
+Steam含有被稱為「Escrow」的雙重驗證系統，在執行與帳號相關的行為時，需要確認額外的資料。 您可以閱讀&#8203;**[這裡](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)**&#8203;以及&#8203;**[這裡](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)**&#8203;來深入了解相關資訊。 本頁面主要介紹雙重驗證系統，與我們對它的整合方案，即ASF雙重驗證。
 
 ---
 

@@ -45,9 +45,9 @@ ASF有4種主要類型的&#8203;**[標籤](https://hub.docker.com/r/justarchi/ar
 
 ## 架構
 
-ASF Docker映像檔目前建立於&#8203;`linux`&#8203;平台上，針對3種架構：&#8203;`x64`&#8203;、&#8203;`arm`&#8203;及&#8203;`arm64`&#8203;。 您可以在&#8203;**[相容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW)**&#8203;章節中了解更多。
+ASF Docker映像檔目前建立於&#8203;`linux`&#8203;平台上，針對3種架構：&#8203;`x64`&#8203;、&#8203;`arm`&#8203;及&#8203;`arm64`&#8203;。 您可以在&#8203;**[相容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW)**&#8203;章節中，有著更深入的了解。
 
-從ASF V5.0.2.2版本開始，我們的標籤使用多平台清單，這代表安裝在您設備上的Docker會在拉取時自動選擇適合的映像檔。 若您需要拉取不符合您當前執行平台的特定映像檔，您可以透過適當的Docker命令&#8203;`--platform`&#8203;來切換，例如&#8203;`docker run`&#8203;。 查看關於&#8203;**[映像檔清單](https://docs.docker.com/registry/spec/manifest-v2-2)**&#8203;的Docker文件以了解更多。
+從ASF V5.0.2.2版本開始，我們的標籤使用多平台清單，這代表安裝在您設備上的Docker會在拉取時自動選擇適合的映像檔。 若您需要拉取不符合您當前執行平台的特定映像檔，您可以透過適當的Docker命令&#8203;`--platform`&#8203;來切換，例如&#8203;`docker run`&#8203;。 查看關於&#8203;**[映像檔清單](https://docs.docker.com/registry/spec/manifest-v2-2)**&#8203;的Docker文件來深入了解。
 
 ---
 
