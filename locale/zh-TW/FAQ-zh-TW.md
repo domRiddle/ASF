@@ -429,7 +429,7 @@ ASF團隊建議您執行（包含&#8203;**擁有**&#8203;）&#8203;**最多10個
 
 因此，我&#8203;**強烈建議**&#8203;在每個IP／介面上最多只執行一個ASF實例。 若您擁有多個IP／介面，這就代表您能夠執行多個ASF實例，且每個實例都使用各自獨立的IP／介面，或唯一的&#8203;`WebProxy`&#8203;設定。 否則，執行多個ASF實例就沒有意義，因為在單一IP／介面執行多個實例並不會帶來好處。 ASF並沒有對此進行任何限制，但Steam不會只因您使用了多個ASF實例，就神奇地允許您執行更多的Bot。
 
-Of course, there are still valid use cases for multiple ASF instances on the same network interface, such as hosting ASF service for your friends with each friend having its own unique ASF instance in order to guarantee isolation between bots and even the ASF processes themselves, however, you're not circumventing any Steam limitations this way, that's entirely different purpose.
+當然，仍然有使用同一個網路介面，並合理使用多個ASF實例的範例，例如分別為您的朋友代管ASF服務，並為您的朋友們都使用獨立的ASF實例，以保證每個Bot甚至ASF程序本身都是隔離的，但是，您無法使用這種方式來繞過任何的Steam限制，這是完全不同的目的。
 
 
 
@@ -439,18 +439,18 @@ Of course, there are still valid use cases for multiple ASF instances on the sam
 
 ### 啟用序號時的狀態是什麼意思？
 
-Status indicates how given redeem attempt turned out. There are many different statuses possible, most common ones include:
+狀態代表序號嘗試兌換後的結果。 可能有很種多不同的狀態結果，而其中最常見的包括：
 
-| 狀態                      | 描述                                                                                                                                                                                                                             |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| NoDetail                | "OK" status indicating success - the key was successfully redemeed.                                                                                                                                                            |
-| Timeout                 | Steam network didn't respond in given time, we don't know if the key was redeemed, or not (most likely was, but you can try again).                                                                                            |
-| BadActivationCode       | The provided key is invalid (not recognized as any valid key by Steam network).                                                                                                                                                |
-| DuplicateActivationCode | The provided key was already redeemed by some other account, or revoked by developer/publisher.                                                                                                                                |
-| AlreadyPurchased        | Your account already owns `packageID` that is connected with this key. Keep in mind that this does not indicate whether the key is `DuplicateActivationCode` or not - only that it's valid and it wasn't used in this attempt. |
-| RestrictedCountry       | This is region-locked key and your account is not in the valid region that is permitted to redeem it.                                                                                                                          |
-| DoesNotOwnRequiredApp   | You can't redeem that key as you're missing some other app - mainly base game when you're attempting to redeem DLC package.                                                                                                    |
-| RateLimited             | You made too many redeem attempts and your account was temporarily blocked. 一小時後再試一次。                                                                                                                                          |
+| 狀態                      | 描述                                                                                                                             |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| NoDetail                | 「OK」狀態，代表成功⸺產品序號已被成功兌換。                                                                                                        |
+| Timeout                 | Steam網路未在規定時間內回應，我們無法得知產品序號是否被啟用（很可能被使用了，但您可以再試一次）。                                                                            |
+| BadActivationCode       | 提供的產品序號無效（無法被Steam網路辨識成任何有效的序號）。                                                                                               |
+| DuplicateActivationCode | 所提供的產品序號已被其他帳號兌換過，或已被開發人員／發行者撤銷。                                                                                               |
+| AlreadyPurchased        | 您的帳號已經擁有此產品序號所關聯的&#8203;`packageID`&#8203;。 請注意，本狀態無法代表序號是否為&#8203;`DuplicateActivationCode`&#8203;⸺它只代表序號有效，但在本次的兌換嘗試中沒有被使用掉。 |
+| RestrictedCountry       | 此產品序號擁有區域限制，且您的帳號並不在有效的兌換區域內。                                                                                                  |
+| DoesNotOwnRequiredApp   | 您缺少了啟用此產品序號所需的其他應用程式⸺通常是您在兌換DLC時，缺少遊戲本體。                                                                                       |
+| RateLimited             | 您在短時間內進行了過多的兌換嘗試，您的帳號已被暫時限制。 請於一小時後再試一次。                                                                                       |
 
 
 
@@ -461,21 +461,21 @@ Status indicates how given redeem attempt turned out. There are many different s
 
 ### 你是否附屬於任何掛卡／掛機服務？
 
-**不**。 ASF is not affiliated with any service and all such claims are false. Your Steam account is your property and you can use your account in whatever way you wish, but Valve clearly stated in **[official ToS](https://store.steampowered.com/subscriber_agreement)** that:
+**不**&#8203;。 ASF並不屬於任何服務，任何類似的聲明都是假的。 您的Steam帳號是您的個人財產，您可以透過任何方式來使用您的帳號，但Valve在&#8203;**[官方服務條款](https://store.steampowered.com/subscriber_agreement)**&#8203;中明確說明了：
 
 
 
-> You are responsible for the confidentiality of your login and password and for the security of your computer system. Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, or by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.
+> You are responsible for the confidentiality of your login and password and for the security of your computer system. Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, or by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.<br>（參考翻譯：您有責任保護您的帳號、密碼，與您電腦系統的安全。Valve 不對您帳號密碼的使用負責，也不對因您、或您有意或無意間違反此保密條款，向他人洩漏您的帳號密碼所導致的Steam上的所有通訊及行為負責。）
 
-ASF is licensed on liberal Apache 2.0 License, which allows other developers to further integrate ASF with their own projects and services legally. However, such third-party projects utilizing ASF are not guaranteed to be secure, reviewed, appropriate or legal according to **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. If you want to know our opinion, **we strongly encourage you to NOT share ANY of your account details with third-party services**. If such service turns out to be a **typical scam**, you'll be left alone with the problem, most likely without your Steam account and ASF won't take any responsibility for third-party services claiming to be safe and secure, because ASF team did not authorize neither reviewed any of those. In other words, **you're using them at your own risk, against our suggestion made above**.
+ASF是依據自由的Apache 2.0授權條款所授權，允許其他開發人員合法地將ASF整合進他們自己的專案或服務中。 但是，這些使用ASF的第三方專案無法被保證為安全的、經過審查的、適合的，或合乎&#8203;**[Steam服務條款](https://store.steampowered.com/subscriber_agreement)**&#8203;的。 如果您想知道我們的看法，&#8203;**我們強烈建議您不要與任何第三方服務共用任何您帳號的詳細資料**&#8203;。 若該服務&#8203;**是個經典的詐騙**&#8203;，您很可能會遇到各種問題，通常會是Steam帳號被盜，而ASF並不對任何第三方服務的安全聲明負責，因為ASF團隊從未授權或審查這些服務。 也就是說，&#8203;**若您忽視我們上面的建議，您必須在使用這些服務時自行承擔風險**&#8203;。
 
-In addition to that, official **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** clearly states that:
+除此之外，官方的&#8203;**[Steam服務條款](https://store.steampowered.com/subscriber_agreement)**&#8203;中明確說明了：
 
 
 
-> You may not reveal, share or otherwise allow others to use your password or Account except as otherwise specifically authorized by Valve.
+> You may not reveal, share or otherwise allow others to use your password or Account except as otherwise specifically authorized by Valve.<br>（參考翻譯：除 Valve 另有授權，否則您不得透漏、共用，或以其他方式允許他人使用您的密碼或帳號。）
 
-It's your account and your choice. Just don't say that nobody warned you. ASF as a program meets all rules mentioned above, as you're not sharing your account details with anyone, and you're using the program for your own personal use, but any other "cards farming service" does require from you your account credentials, so it also violates the rule above (actually several of them). Like with **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** evaluation, we're not offering any legal advice, and you should decide yourself if you want to use those services, or not - according to us **it directly violates [Steam ToS](https://store.steampowered.com/subscriber_agreement)** and may result in suspension if Valve finds out. Like pointed out above, **we strongly recommend to NOT use any of such services**.
+這是您的帳號，也是您的選擇。 不要說沒人警告過您。 ASF是個遵守上述所有規章的程式，因為您並未將您的帳號詳細資料共用給任何人，且您以個人用途使用本程式；但其他的「掛卡服務」都會需要您提供您的帳號憑證，因此它們將違反上述規章（實際上違反了數條）。 如同上述的&#8203;**[Steam服務條款](https://store.steampowered.com/subscriber_agreement)**&#8203;解釋相同，我們不提供任何法律諮詢，您應自行決定是否使用這些服務⸺而我們會說&#8203;**它們違反了&#8203;[Steam服務條款](https://store.steampowered.com/subscriber_agreement)**&#8203;，如果Valve發現，您的帳號可能遭到封鎖。 如上文所述，&#8203;**我們強烈建議不要使用這類服務**&#8203;。
 
 
 
@@ -493,11 +493,11 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ### 我有一款遊戲現在已經掛超過 10 個小時了，但我仍然沒有獲得任何卡片！
 
-The reason for that could be related to known issue of Steam, which happens when you have two licenses for the same game, one of which has card drops limited. This usually happens when you activate game for free during a mass giveaway on Steam, and then activate a key for the same game (but without limitations), e.g. from a paid bundle. If such situation happens, Steam reports on badge page that game still has cards to drop, but no matter how much you play the game - cards will never drop due to free license on your account. Since it's not an ASF issue, but a Steam one, we can't somehow circumvent it on ASF's side, and you need to solve it yourself.
+這個問題的原因可能與Steam的一個已知問題相關，當您同時擁有同一款遊戲的兩份授權，但其中一份具有掉卡限制時，就有可能會發生。 造成這個問題的原因，通常是因為您在Steam上先領取了限時免費遊戲，而後又為同一款遊戲啟用了（不具限制的）產品序號，例如經由付費的組合包啟用。 若發生了這種情形，Steam會在徽章頁面上顯示該遊戲仍可掉落卡片，但由於您的帳號擁有免費版授權，不論您玩了多久，卡片都無法掉落。 因為這是Steam的問題而非ASF的，我們無法在ASF中繞過這項問題，您必須自行解決。
 
-There are two ways to solve the issue. Firstly, you can blacklist this game in ASF, either with `fbadd` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** or with `Blacklist` **[configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration)**. This will prevent ASF from trying to farm cards from this game, but will not solve the underlying issue which prevents you from obtaining card drops from the affected game. Secondly, you can use Steam support self-service tool to remove free license from your account, leaving only full license that includes the card drops. In order to do so, firstly visit your **[licenses and product key activations](https://store.steampowered.com/account/licenses)** page and locate both free and paid license for the affected game. Usually it's fairly easy - both have similar name, but free one has "limited free promotional package" or other "promo" in the license name, plus "complimentary" in "acquisition method" field. Sometimes it might be more tricky, for example if free package was in some bundle and has a different name. If you have found two licenses like that - then it's indeed the issue described here, and you can safely remove free license without losing the game.
+有兩種方式能夠解決這項問題。 第一種，您將這款遊戲加入至ASF黑名單中，可使用&#8203;`fbadd`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;或&#8203;`Blacklist`&#8203;**[設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;。 這將阻止ASF嘗試為此款遊戲掛卡，但這種方式治標不治本，並不能幫您解決無法從該遊戲中獲得卡片的問題。 第二種，您可以使用Steam客服中心的自助服務工具來移除免費版授權，並只保留能夠掉卡的完整版授權。 如要使用此方法，請造訪&#8203;**[授權與產品序號啟用](https://store.steampowered.com/account/licenses)**&#8203;頁面，查看受影響遊戲的免費版及付費版授權。 這通常很簡單⸺兩者會有相似的名稱，但免費版會包含「Limited Free Promotional Package」或類似「Promo」的名稱，且「取得方式」的欄位應會顯示為「贈品」。 但也可能稍加麻煩，例如免費版授權被包含在組合包中，或是擁有完全不同的名稱。 若您找到了上述的兩份授權⸺那麼問題的根源確實在此，您可以安全移除免費版授權，並仍保有遊戲。
 
-In order to remove the free license from your account, visit **[Steam support page](https://help.steampowered.com/wizard/HelpWithGame)** and put the affected game name into the search field, the game should be available in "products" section, click on it. Alternatively, you can just use `https://help.steampowered.com/wizard/HelpWithGame?appid=<appID>` link and replace `<appID>` with appID of the game that causes troubles. Afterwards, click on "I want to permanently remove this game from my account" and then select the faulty free license that you've found above, usually the one with "limited free promotional package" in the name (or similar). After removal of the free license, ASF should be able to drop cards from the affected game without issues, you should restart the farming operation after the removal just to be sure that Steam picks up the right license this time.
+若要從帳號中移除免費版授權，請造訪&#8203;**[Steam客服頁面](https://help.steampowered.com/wizard/HelpWithGame)**&#8203;，並在搜尋欄中輸入受影響的遊戲，該遊戲應該會出現在「產品」類別的下方，然後點擊此遊戲。 或者，您也可以直接前往&#8203;`https://help.steampowered.com/wizard/HelpWithGame?appid=<appID>`&#8203;連結，將其中的&#8203;`<appID>`&#8203;取代成受影響遊戲的AppID。 然後，點擊「我想從帳戶中移除這款遊戲」，選擇您在剛才所找到的免費版授權，就是通常在名稱中含有「Limited Free Promotional Package」（或類似文字）的那個。 在移除免費版授權後，ASF應該就能從受影響的遊戲中正常掉卡，您需要在移除授權後重新啟動掛卡操作，以確保Steam這次提供了正確的授權。
 
 
 
@@ -507,23 +507,13 @@ In order to remove the free license from your account, visit **[Steam support pa
 
 ### 我知道有&#8203;`某款`&#8203;遊戲能夠掉落 Steam 交換卡片，但 ASF 並未偵測到！
 
-There are two main reasons here. First and most obvious reason is the fact that you're referring to **Steam store** where given game is announced as card drops enabled game. This is **wrong** assumption, as it simply states that the game **has** card drops included, but not necessarily this function for that game is **enabled** right away. You can read more about this in **[official announcement](https://steamcommunity.com/games/593110/announcements/detail/1954971077935370845)**.
+這有兩個主要的原因。 第一個也是最明顯的原因，您所指的是，這款遊戲的&#8203;**Steam商店**&#8203;頁面中，說明了該款遊戲含有交換卡片。 這是&#8203;**錯誤的**&#8203;假設，因為它只能代表該遊戲&#8203;**支援**&#8203;交換卡片，但不代表該遊戲現在&#8203;**已有**&#8203;卡片功能。 您能閱讀這份&#8203;**[官方公告](https://steamcommunity.com/games/593110/announcements/detail/1954971077935370845)**&#8203;來深入了解更多相關資訊。
 
-In short, card drops icon in Steam store doesn't mean anything, check your **[badge pages](https://steamcommunity.com/my/badges)** for confirmation whether a game has card drops enabled or not - this is also what ASF is doing. If your game doesn't appear on the list as a game with cards possible to drop, then this game is **not** possible to farm, regardless of reason.
+簡而言之，Steam商店中的交換卡片圖示並不能代表什麼，請去檢查您的&#8203;**[徽章頁面](https://steamcommunity.com/my/badges)**&#8203;，才能確認該遊戲是否啟用了卡片掉落⸺這也是ASF所採用的方式。 若您的遊戲沒有出現在可掉卡的清單中，那不論何種原因，這款遊戲都&#8203;**無法**&#8203;掛卡。
 
-Second issue is less obvious, and it's the situation when you can see that your game indeed is available with card drops on your badge page, yet it's not being farmed by ASF right away. Unless you're hitting some other bug, such as ASF being unable to check badge pages (described below), it's simply a cache effect and on ASF side Steam is still reporting outdated badges page. This issue should solve itself sooner or later, when cache gets invalidated. There is also no way to fix this on our side.
+第二個原因並不那麼顯而易見，有時，您的徽章頁面確實顯示了該遊戲可供掉卡，但ASF並未馬上為它掛卡。 除非您是遇到其他錯誤，例如ASF無法檢查徽頁面（詳見下述），否則這只是個快取效應，就是Steam讓ASF取得了舊的徽章頁面。 等快取過期後，這個問題很快就會自行解決。 在我們這邊沒有任何方式能解決。
 
-Of course, all of that assumes that you're running ASF with default untouched settings, since you could also add this game to farming blacklist, use `FarmPriorityQueueOnly`, `SkipRefundableGames` and so on.
-
-
-
----
-
-
-
-### 為什麼透過 ASF 掛的遊戲時數並未增加？
-
-It does, but **not in real-time**. Steam records your playtime in fixed intervals and schedules update for it, but you're not guaranteed to have it updated immediately the moment you quit the session, let alone during such. Just because the playtime isn't updated in real-time doesn't mean that it's not recorded, it's usually updated every 30 minutes or so.
+當然，上述都假設了您使用預設設定執行ASF，因為您也可以透過&#8203;`FarmPriorityQueueOnly`&#8203;、&#8203;`SkipRefundableGames`&#8203;等方式，將遊戲加入掛卡黑名單中。
 
 
 
@@ -531,7 +521,17 @@ It does, but **not in real-time**. Steam records your playtime in fixed interval
 
 
 
-### 紀錄中的警告與錯誤的區別在哪？
+### 為什麼透過 ASF 掛的遊玩時數並未增加？
+
+遊玩時數增加了，但&#8203;**非實時更新**&#8203;。 Steam以固定的時間間隔來記錄您的遊玩時數，並排程更新，這無法保證您在退出遊戲時能立即更新，更不用說在遊玩時了。 遊玩時數非實時更新不代表沒有被記錄，通常它每隔30分鐘左右會更新一次。
+
+
+
+---
+
+
+
+### 紀錄中的 WARN（警告）與 ERROR（錯誤）的區別在哪？
 
 ASF writes to its log a bunch of information on various logging levels. Our objective is to explain **precisely** what ASF is doing, including what Steam issues it has to deal with, or other problems to overcome. Most of the time not everything is relevant, this is why we have two major levels being used in ASF in terms of problems - a warning level, and error level.
 
