@@ -23,7 +23,7 @@ useradd -m asf # 建立您用來執行 ASF 的使用者
 
 其次，若您使用的是ASF的Generic變體版本，您需要確保&#8203;`dotnet`&#8203;命令能被辨識，且位於標準位置之一：&#8203;`/usr/local/bin`&#8203;、&#8203;`/usr/bin`&#8203;或&#8203;`/bin`&#8203;。 這是執行&#8203;`dotnet /路徑/至/ArchiSteamFarm.dll`&#8203;命令的systemd服務所必需的。 檢查&#8203;`dotnet --info`&#8203;是否運作，若是，輸入&#8203;`command -v dotnet`&#8203;以找出它的所在位置。 若您使用官方安裝程式，它應位於&#8203;`/usr/bin/dotnet`&#8203;或其餘兩個位置之一，這樣是沒問題的。 若它位於自訂位置，例如&#8203;`/usr/share/dotnet/dotnet`&#8203;，使用&#8203;`ln -s "$(command -v dotnet)" /usr/bin/dotnet`&#8203;來建立一個symlink。 現在&#8203;`command -v dotnet`&#8203;應該會回報&#8203;`/usr/bin/dotnet`&#8203;，而這也使我們的systemd單元運作。 若您使用適用於特定作業系統的變體版本，則不需在這方面做任何事情。
 
-接下來，&#8203;`cd /etc/systemd/system`&#8203;，然後執行&#8203;`ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`&#8203;，這將建立一個指向我們服務聲明的符號連結，並於&#8203;`systemd`&#8203;中註冊。 符號連結可以使ASF在更新時，自動更新您的&#8203;`systemd`&#8203;單元⸺依據您的情形，您可能想要使用上述方式，或使用&#8203;`cp`&#8203;複製檔案並自行管理。
+接下來，&#8203;`cd /etc/systemd/system`&#8203;，然後執行&#8203;`ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`&#8203;，這將建立一個指向我們服務聲明的符號連結，並於&#8203;`systemd`&#8203;中登錄。 符號連結可以使ASF在更新時，自動更新您的&#8203;`systemd`&#8203;單元⸺依據您的情形，您可能想要使用上述方式，或使用&#8203;`cp`&#8203;複製檔案並自行管理。
 
 然後，確保&#8203;`systemd`&#8203;能夠辨識我們的服務：
 

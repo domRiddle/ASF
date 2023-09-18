@@ -341,75 +341,45 @@ ASF真正需要考慮的重點如下：
 
 ### ASF 能最小化到工作列中嗎？
 
-ASF是個控制台應用程式，沒有可被最小化的圖形化視窗，而控制台視窗是由您的作業系統建立的。 但您可以透過第三方工具來達成，例如Windows的&#8203;**
-
-RBTray</strong></strong>&#8203;，或Linux/macOS的&#8203;**[screen](https://linux.die.net/man/1/screen)**&#8203;。 這只是範例，也有許多相似功能的應用程式。</p> 
-
-
+ASF是個控制台應用程式，沒有可被最小化的圖形化視窗，而控制台視窗是由您的作業系統建立的。 但您可以透過第三方工具來達成，例如Windows的&#8203;**[RBTray](https://github.com/benbuck/rbtray)**&#8203;，或Linux/macOS的&#8203;**[screen](https://linux.die.net/man/1/screen)**&#8203;。 這只是範例，也有許多相似功能的應用程式。
 
 ---
-
-
 
 ### 使用 ASF 是否能為我保有獲得擴充包的資格？
 
 **可以**&#8203;。 ASF使用與官方用戶端相同的方法登入至Steam網路，因此它也有能力為使用ASF的帳號保有獲得擴充包的資格。 此外，保有這份資格甚至不需要登入至Steam社群，所以如果您想要，也能將&#8203;`OnlineStatus`&#8203;設定成&#8203;`Offline`&#8203;。
 
-
-
 ---
-
-
 
 ### 有任何方式與 ASF 通訊嗎？
 
 有的，這有幾種不同的方法。 請前往&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;章節，來深入了解更多資訊。
 
-
-
 ---
-
-
 
 ### 我想要幫助 ASF 翻譯，我需要做什麼？
 
 感謝您的協助！ 您可以在&#8203;**[在地化翻譯](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-zh-TW)**&#8203;章節中，了解更多詳細資訊。
 
-
-
 ---
-
-
 
 ### 我在 ASF 中只有一個（主要）帳號，我仍然能透過 Steam 聊天來傳送指令嗎？
 
 **可以**&#8203;，在&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW#備註)**&#8203;章節中有詳細解釋。 您可以使用Steam群組聊天，但使用&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#asf-ui)**&#8203;可能是個更簡單的方法。
 
-
-
 ---
-
-
 
 ### ASF 似乎已在執行，但我沒有獲得任何掉落卡片！
 
 每款遊戲的掉卡速率有所不同，您可以閱讀&#8203;**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;章節來了解。 這需要一定的時間，通常&#8203;**每款遊戲需要數個小時**&#8203;，您不應期望程式才剛執行幾分鐘，就能掉出卡片。 若您發現ASF主動在檢查卡片狀態，並在一款遊戲掛完後切換至另一款，那代表一切正常。 也有可能您將&#8203;`BotBehaviour`&#8203;設定了&#8203;`DismissInventoryNotifications`&#8203;，這會使您收不到物品庫有新物品的通知。 請前往&#8203;**[組態設定](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW)**&#8203;章節，來了解更多資訊。
 
-
-
 ---
-
-
 
 ### 如何完全終止我的帳號的 ASF 程序？
 
 直接關閉ASF程序即可，例如在Windows上，點擊[X]即可關閉。 如果您只是想要關閉某個Bot，但要讓其他Bot繼續執行，請查閱&#8203;`Enabled`&#8203; &#8203;**[Bot設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#bot-設定檔)**&#8203;，或&#8203;`stop`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;。 如果您只是想要關閉自動掛卡程序，但要讓ASF繼續掛著您的帳號，請使用&#8203;`Paused`&#8203; &#8203;**[Bot設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#bot-設定檔)**&#8203;及&#8203;`pause`&#8203;**[指令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-zh-TW)**&#8203;。
 
-
-
 ---
-
-
 
 ### 我可以在 ASF 上執行多少個 Bot？
 
@@ -417,11 +387,7 @@ ASF程式並沒有Bot實例數量的硬性上限，所以只要您的設備具�
 
 ASF團隊建議您執行（包含&#8203;**擁有**&#8203;）&#8203;**最多10個Bot**&#8203;，如果您擁有超過這個數量，那就需要自行承擔風險，且我們並不為此支援。 這項建議依據Valve的內部指南，以及我們自己的建議。 您有權決定是否要遵守這個規定，即使您的行為會導致Steam帳號被封鎖，ASF也不會阻止您，因為它只是一個工具。 因此，如果您忽視我們的建議，ASF將會對您顯示警告，但您仍可以自由使用並自行承擔風險，我們對此不會提供支援。
 
-
-
 ---
-
-
 
 ### 那我可以同時執行更多個 ASF 實例嗎？
 
@@ -431,11 +397,7 @@ ASF團隊建議您執行（包含&#8203;**擁有**&#8203;）&#8203;**最多10個
 
 當然，仍然有使用同一個網路介面，並合理使用多個ASF實例的範例，例如分別為您的朋友代管ASF服務，並為您的朋友們都使用獨立的ASF實例，以保證每個Bot甚至ASF程序本身都是隔離的，但是，您無法使用這種方式來繞過任何的Steam限制，這是完全不同的目的。
 
-
-
 ---
-
-
 
 ### 啟用序號時的狀態是什麼意思？
 
@@ -452,18 +414,11 @@ ASF團隊建議您執行（包含&#8203;**擁有**&#8203;）&#8203;**最多10個
 | DoesNotOwnRequiredApp   | 您缺少了啟用此產品序號所需的其他應用程式⸺通常是您在兌換DLC時，缺少遊戲本體。                                                                                       |
 | RateLimited             | 您在短時間內進行了過多的兌換嘗試，您的帳號已被暫時限制。 請於一小時後再試一次。                                                                                       |
 
-
-
-
 ---
-
-
 
 ### 你是否附屬於任何掛卡／掛機服務？
 
 **不**&#8203;。 ASF並不屬於任何服務，任何類似的聲明都是假的。 您的Steam帳號是您的個人財產，您可以透過任何方式來使用您的帳號，但Valve在&#8203;**[官方服務條款](https://store.steampowered.com/subscriber_agreement)**&#8203;中明確說明了：
-
-
 
 > You are responsible for the confidentiality of your login and password and for the security of your computer system. Valve is not responsible for the use of your password and Account or for all of the communication and activity on Steam that results from use of your login name and password by you, or by any person to whom you may have intentionally or by negligence disclosed your login and/or password in violation of this confidentiality provision.<br>（參考翻譯：您有責任保護您的帳號、密碼，與您電腦系統的安全。Valve 不對您帳號密碼的使用負責，也不對因您、或您有意或無意間違反此保密條款，向他人洩漏您的帳號密碼所導致的Steam上的所有通訊及行為負責。）
 
@@ -471,25 +426,15 @@ ASF是依據自由的Apache 2.0授權條款所授權，允許其他開發人員�
 
 除此之外，官方的&#8203;**[Steam服務條款](https://store.steampowered.com/subscriber_agreement)**&#8203;中明確說明了：
 
-
-
 > You may not reveal, share or otherwise allow others to use your password or Account except as otherwise specifically authorized by Valve.<br>（參考翻譯：除 Valve 另有授權，否則您不得透漏、共用，或以其他方式允許他人使用您的密碼或帳號。）
 
 這是您的帳號，也是您的選擇。 不要說沒人警告過您。 ASF是個遵守上述所有規章的程式，因為您並未將您的帳號詳細資料共用給任何人，且您以個人用途使用本程式；但其他的「掛卡服務」都會需要您提供您的帳號憑證，因此它們將違反上述規章（實際上違反了數條）。 如同上述的&#8203;**[Steam服務條款](https://store.steampowered.com/subscriber_agreement)**&#8203;解釋相同，我們不提供任何法律諮詢，您應自行決定是否使用這些服務⸺而我們會說&#8203;**它們違反了&#8203;[Steam服務條款](https://store.steampowered.com/subscriber_agreement)**&#8203;，如果Valve發現，您的帳號可能遭到封鎖。 如上文所述，&#8203;**我們強烈建議不要使用這類服務**&#8203;。
 
-
-
 ---
-
-
 
 ## 執行問題
 
-
-
 ---
-
-
 
 ### 我有一款遊戲現在已經掛超過 10 個小時了，但我仍然沒有獲得任何卡片！
 
@@ -499,11 +444,7 @@ ASF是依據自由的Apache 2.0授權條款所授權，允許其他開發人員�
 
 若要從帳號中移除免費版授權，請造訪&#8203;**[Steam客服頁面](https://help.steampowered.com/wizard/HelpWithGame)**&#8203;，並在搜尋欄中輸入受影響的遊戲，該遊戲應該會出現在「產品」類別的下方，然後點擊此遊戲。 或者，您也可以直接前往&#8203;`https://help.steampowered.com/wizard/HelpWithGame?appid=<appID>`&#8203;連結，將其中的&#8203;`<appID>`&#8203;取代成受影響遊戲的AppID。 然後，點擊「我想從帳戶中移除這款遊戲」，選擇您在剛才所找到的免費版授權，就是通常在名稱中含有「Limited Free Promotional Package」（或類似文字）的那個。 在移除免費版授權後，ASF應該就能從受影響的遊戲中正常掉卡，您需要在移除授權後重新啟動掛卡操作，以確保Steam這次提供了正確的授權。
 
-
-
 ---
-
-
 
 ### 我知道有&#8203;`某款`&#8203;遊戲能夠掉落 Steam 交換卡片，但 ASF 並未偵測到！
 
@@ -515,83 +456,59 @@ ASF是依據自由的Apache 2.0授權條款所授權，允許其他開發人員�
 
 當然，上述都假設了您使用預設設定執行ASF，因為您也可以透過&#8203;`FarmPriorityQueueOnly`&#8203;、&#8203;`SkipRefundableGames`&#8203;等方式，將遊戲加入掛卡黑名單中。
 
-
-
 ---
-
-
 
 ### 為什麼透過 ASF 掛的遊玩時數並未增加？
 
 遊玩時數增加了，但&#8203;**非實時更新**&#8203;。 Steam以固定的時間間隔來記錄您的遊玩時數，並排程更新，這無法保證您在退出遊戲時能立即更新，更不用說在遊玩時了。 遊玩時數非實時更新不代表沒有被記錄，通常它每隔30分鐘左右會更新一次。
 
-
-
 ---
-
-
 
 ### 紀錄中的 WARN（警告）與 ERROR（錯誤）的區別在哪？
 
-ASF writes to its log a bunch of information on various logging levels. Our objective is to explain **precisely** what ASF is doing, including what Steam issues it has to deal with, or other problems to overcome. Most of the time not everything is relevant, this is why we have two major levels being used in ASF in terms of problems - a warning level, and error level.
+ASF會以不同的記錄層級向紀錄中寫入大量資訊。 我們的目標是&#8203;**精確的**&#8203;解釋ASF正在做什麼，包含它必須處理的Steam或其他方面的問題。 大多數的時候，並非所有東西都相關，這也是為什麼我們要在ASF中主要使用兩個不同的層級⸺警告與錯誤。
 
-General ASF rule is that warnings are **not** errors, therefore they should **not** be reported. A warning is an indicator to you that something potentially unwanted happen. Whether it was Steam not reacting, API throwing errors or your network connection being down - it's a warning, and it means we expected it to happen, so don't bother ASF development with it. Of course you're free to ask about them or get help by using our support, but you shouldn't assume that those are ASF errors worth reporting (unless we confirm otherwise).
+ASF的一般規則是：警告&#8203;**並非**&#8203;錯誤，因此它們&#8203;**不需要**&#8203;被回報。 警告是向您說明可能發生了預料外的事件。 不論是Steam沒有回應、API擲回錯誤，或是您的網路連線中斷⸺都會產生警告，這代表我們已預期到這種情形會發生，您也不需要為此來打擾ASF開發人員。 當然，您也可以透過我們的支援站來詢問或取得幫助，但請不要把它們當作值得回報的錯誤（除非我們另有確認）。
 
-Errors on the other hand indicate a situation that should not happen, therefore they're worth reporting as long as you made sure that it's not you who is causing them. If it's a common situation that we expect to happen, then it'll be converted to a warning instead. Otherwise, it's possibly a bug that should be corrected, not silently ignored, assuming it's not a result of your own technical issue. For example, putting invalid content in `ASF.json` file will throw an error, as ASF won't be able to parse it, but it was you who put it there, so you should not report that error to us (unless you confirmed that ASF is wrong and your structure is in fact absolutely correct).
+反之，錯誤代表著不該發生的情形，因此只要您確定錯誤並非因你而生，您就應該要回報它們。 如果這是我們可以預期到的情形，那它們就會被轉換成一個警告。 否則，如果它並非是因為您的技術問題所產生，它就很可能是一個待修正的、無法忽略的錯誤。 舉例來說，在&#8203;`ASF.json`&#8203;檔案中放置了無效的內容會擲回一個錯誤，因ASF無法剖析它，但這是您自己所存放的，所以您不該向我們回報這個錯誤（除非您確定您的結構是完全正確的，是ASF發生了錯誤）。
 
-In one TL;DR sentence - report errors, don't report warnings. You can still ask about warnings and receive help in our support sections.
-
-
+用一句話總結⸺回報錯誤，而非警告。 但您仍能在我們的支援站中詢問警告內容，並獲得協助。
 
 ---
-
-
 
 ### 無法開啟 ASF，程式視窗會立刻關閉！
 
-In normal conditions, any ASF crash or exit will generate a `log.txt` in the program's directory for you to view, which can be used for finding the cause of that. In addition to that, a few last log files are also archived in `logs` directory, since the main `log.txt` file is overwritten with each ASF run.
+在正常的情形下，任何ASF的崩潰或退出，都會在程式資料夾中生成一份&#8203;`log.txt`&#8203;以供您查看，這可以用來查詢錯誤發生的原因。 除此之外，一些較舊的紀錄檔會被歸檔至&#8203;`logs`&#8203;資料夾中，因為每次ASF執行時都會覆寫&#8203;`log.txt`&#8203;檔案。
 
-However, if even .NET runtime isn't able to boot on your machine, then `log.txt` will not be generated. If that happens to you then you most likely forgot to install .NET prerequisites, as stated in **[setting up](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up#os-specific-setup)** guide. Other common problems include trying to launch wrong ASF variant for your OS, or in other way missing native .NET runtime dependencies. If the console window closes too soon for you to read the message, then open independent console and launch ASF binary from there. For example on Windows, open ASF directory, hold `Shift`, right click inside the folder and choose "*open command window here*" (or *powershell*), then type into the console `.\ArchiSteamFarm.exe` and confirm with enter. This way you'll get precise message why ASF is not starting properly.
-
-
+但是，如果連.NET執行環境都無法在您的設備上啟動時，就無法生成&#8203;`log.txt`&#8203;。 如果這種情形發生，那麼您很可能忘記安裝在&#8203;**[新手上路](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-zh-TW#適用於您的作業系統的設定)**&#8203;指南中所要求的.NET需求套件。 其他常見問題，包含您嘗試啟動與作業系統不合的ASF版本，或缺少原生的.NET執行環境相依套件。 如果控制台視窗關閉過快，使您無法看到訊息，您可以開啟一個獨立的控制台，然後從中啟動ASF二進制檔案。 舉例來說在Windows上，開啟ASF資料夾，按住&#8203;`Shift`&#8203;，右鍵點擊資料夾空白處，選擇「&#8203;*在此處開啟命令視窗*&#8203;」（或&#8203;*Powershell*&#8203;），在控制台中輸入&#8203;`.\ArchiSteamFarm.exe`&#8203;，然後按下Enter確認。 這樣，您就能獲得ASF無法正常啟動的原因。
 
 ---
-
-
 
 ### 在我遊玩的時候，ASF 會將我的 Steam 用戶端踢下線！ ／&#8203;*此帳號已於另一台電腦中登入*&#8203;
 
-This shows up as a message in Steam overlay that the account is being used somewhere else while you're playing. This issue can have two different reasons.
+若您在遊戲中Steam內嵌介面顯示了這條訊息，代表您的帳號正在其他地方被使用。 造成這個問題的原因有兩種。
 
-One reason is caused by broken packages (games) that specifically don't hold a playing lock properly, yet expect that lock to be possesed by the client. An example of such package would be Skyrim SE. Your Steam client launches the game properly, but that game doesn't register itself as being used. Because of that, ASF sees that it's free to resume the process, which it does, and that kicks you out of Steam network, as Steam suddenly detects that the account is being used in another place.
+其中一個原因是由損毀的（遊戲）檔案所引起，有的遊戲沒有正確的鎖定遊戲狀態，但卻期望用戶端擁有該狀態鎖定。 這種情形的其中一個範例是Skyrim SE。 您的Steam用戶端正確啟動了遊戲，但遊戲並未將自身登錄成使用中。 因此，ASF以為可以安全恢復掛卡程序，並也這樣做，然後就將您踢出Steam網路，因為Steam突然偵測到您的帳號在另一個地方使用著。
 
-Second reason could come up if you're playing on your PC while ASF is waiting (especially on another machine) and you lose your network connection. In this case, Steam network marks you as offline and releases playing lock (like above), which triggers ASF (e.g. on another machine) into resuming farming. When your PC comes back online, Steam can't acquire playing lock anymore (that is now held by ASF, also similar to above) and shows the same message.
+如果ASF在等待期間，您在PC上遊玩的途中失去了網路連線（特別是在另外一台設備上遊玩時），就會出現第二種原因。 在這種情形下，Steam網路會將您標示成離線，並釋放遊戲鎖定狀態（如上），並觸發（另一台設備上的）ASF恢復掛卡。 當您的PC恢復連線後，Steam就無法再次獲得遊戲鎖定（因為此時是ASF持有，類似上述情形），並會顯示與標題相同的錯誤訊息。
 
-Both causes on the ASF side are actually very hard to workaround, as ASF simply resumes farming once Steam network informs it that account is free to be used again. This is what is happening normally when you close the game, but with broken packages this can happen immediately, even if your game is still running. ASF has no way to know whether you got disconnected, stopped playing a game or that you're still playing a game that doesn't hold playing lock appropriately.
+這兩種情形在ASF這邊都難以解決，因為一旦Steam網路傳送出帳號不再被占用的通知，ASF就會直接恢復掛卡。 通常這會發生於您關閉遊戲以後，但如果遊戲檔案損毀，即使您的遊戲正在執行，也可能會立刻發生這種情形。 ASF沒有辦法去確定您是網路斷線、退出遊戲，或是正在遊玩但未擁有正常的遊戲狀態。
 
-The only proper solution to this problem is manually pausing your bot with `pause` before you start playing, and resuming it with `resume` once you're done. Alternatively you can just ignore the problem and act the same as if you played with offline Steam client.
-
-
+唯一的解決方式是您在玩遊戲前，以&#8203;`pause`&#8203;手動暫停您的Bot，然後在玩完後使用&#8203;`resume`&#8203;恢復掛卡。 或者您也可以忽略這個問題，並以離線的Steam用戶端遊玩。
 
 ---
-
-
 
 ### `已與 Steam 中斷連線！`&#8203;：我無法與 Steam 伺服器建立連線。
 
-ASF can only **try** to establish connection with Steam servers, and it can fail due to many reasons, including lack of internet connection, Steam being down, your firewall blocking connection, third-party tools, incorrectly configured routes or temporary failures. You can enable `Debug` mode to check out more verbose log stating exact failure reasons, although usually it's simply caused by your own actions, such as using "CS:GO MM Server Picker" that blacklists a lot of Steam IPs, making it very hard for you to actually reach Steam network.
+ASF只能&#8203;**嘗試**&#8203;與Steam伺服器建立連線，這可能會因各種原因而失敗，包含沒有網際網路連線、Steam服務當機、您的防火牆阻擋了連線、第三方工具、不正確的路由設定，或暫時故障。 您可以啟用&#8203;`Debug`&#8203;模式來查看更詳細的紀錄，其中會說明失敗的確切原因，雖然這通常是由您自己的操作所引起的，例如使用了「CS:GO MM Server Picker」，它會將大量Steam IP列入黑名單，使您難以連線至Steam網路。
 
-ASF will do its best to establish connection, which includes not only asking about updated list of servers but also trying another IP when last one fails, so if it's truly a temporary problem with some specific server or route, ASF will connect sooner or later. However, if you're behind firewall or in some other way unable to reach Steam servers, then obviously you need to fix it yourself, with potential help of `Debug` mode.
+ASF會盡力去建立連線，這不只包含了嘗試獲取最新的伺服器清單，也會在連線失敗時嘗試連線至另一個IP。因此，若只是遇到某個特定伺服器或路由的暫時性問題，ASF最終都能建立連線。 但是，若您處於防火牆中，或因為其他問題導致的無法連線Steam伺服器，那麼很明顯，您需要自行修正問題，&#8203;`Debug`&#8203;模式可以為您提供協助。
 
-It's also possible that your machine is not able to establish connection with Steam servers using default protocol in ASF. You can alter protocols that ASF is permitted to use by modifying `SteamProtocols` global configuration property. For example, if you have problems reaching Steam with `UDP` protocol (e.g. due to firewalls), perhaps you'll have more luck with `TCP` or `WebSocket`.
+您的設備也有可能無法使用ASF中的預設協定，來與Steam伺服器建立連線。 您可以修改&#8203;`SteamProtocols`&#8203;全域設定屬性來更改ASF使用的網路協定。 舉例來說，若您無法使用&#8203;`UDP`&#8203;協定連線至Steam（可能因防火牆阻擋），或許您將它改成&#8203;`TCP`&#8203;或&#8203;`WebSocket`&#8203;就能解決問題。
 
-In a very unlikely situation of having incorrect servers being cached, for example because of moving ASF `config` folder from one machine to another machine located in entirely different country, deleting `ASF.db` in order to refresh Steam servers on the next launch may help. Very often it's not needed and doesn't have to be done, as that list is automatically refreshed on first launch, as well as when the connection is established - we're just mentioning it as a way to purge anything related to list of Steam servers cached by ASF.
-
-
+在幾乎不可能的情形下，也有可能是伺服器快取錯誤，例如將ASF的&#8203;`config`&#8203;資料夾移動至位於另一個國家的設備上，此時將&#8203;`ASF.db`&#8203;刪除，在下一次啟動時重新整理Steam伺服器就可能得到解決。 Very often it's not needed and doesn't have to be done, as that list is automatically refreshed on first launch, as well as when the connection is established - we're just mentioning it as a way to purge anything related to list of Steam servers cached by ASF.
 
 ---
-
-
 
 ### `無法取得徽章頁資訊，我們將稍後再試 ！`
 
@@ -599,11 +516,7 @@ Usually it means that you're using Steam parental PIN to access your account, ye
 
 Other reasons include temporary Steam problem, network issue or likewise. If issue won't solve itself after several hours and you're sure that you configured ASF appropriately, feel free to let us know about that.
 
-
-
 ---
-
-
 
 ### ASF 發生&#8203;`在嘗試 5 次請求後失敗`&#8203;的錯誤！
 
@@ -621,33 +534,22 @@ There is no "golden rule" that works for everybody, because blocks are heavily i
 
 If nothing helps and you have no clue what is broken, you can always enable `Debug` mode and see yourself in ASF log why exactly requests are failing. 範例：
 
-
-
 ```text
 InternalRequest() HEAD https://steamcommunity.com/my/edit/settings
 InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
 ```
 
-
 See that `Forbidden` code? This means that you got temporarily banned for excessive amount of requests, because you didn't tweak `WebLimiterDelay` properly yet (assuming you get the same error code for all other requests as well). There could be other reasons listed there, such as `InternalServerError`, `ServiceUnavailable` and timeouts that indicate Steam maintenance/issues. You can always try to visit the link mentioned by ASF yourself and check if it works - if it doesn't, then you know why ASF can't access that either. If it does, and the same error doesn't go away after a day or two, it may be worth investigating and reporting.
 
 Before doing that you should **make sure that the error is worth reporting in the first place**. If it's mentioned in this FAQ, such as trading-related issue, then that's out. If it's temporary issue that happened once or twice, especially when your network was unstable or Steam was down - that's out. However, if you were able to reproduce your issue several times in a row, across 2 days, restarted ASF as well as your machine in the process and made sure that there is no FAQ entry here to help resolve it, then this may be worth asking about.
 
-
-
 ---
-
-
 
 ### ASF 似乎卡住了，如果我不按下任意鍵，控制台就不會輸出任何東西！
 
 You're most likely using Windows and your console has QuickEdit mode enabled. Refer to **[this](https://stackoverflow.com/questions/30418886/how-and-why-does-quickedit-mode-in-command-prompt-freeze-applications)** question on StackOverflow for technical explanation. You should disable QuickEdit mode by right clicking your ASF console window, opening properties, and unchecking appropriate checkbox.
 
-
-
 ---
-
-
 
 ### ASF 無法接受或提出任何交易請求！
 
@@ -665,11 +567,7 @@ If nothing helped, you can always enable `Debug` mode and check yourself why req
 
 In any case, ASF can only **try** to send a proper request to Steam in order to accept/send trade. Whether Steam accepts that request, or not, is out of the scope of ASF, and ASF will not magically make it work. There's no bug related to that feature, and there is also nothing to improve, because logic is happening outside of ASF. Therefore, do not ask for fixing stuff that is not broken, and also do not ask why ASF can't accept or send trades - **I don't know, and ASF doesn't know either**. Either deal with it, or fix yourself, if you know better.
 
-
-
 ---
-
-
 
 ### 為什麼我每次登入時，都需要輸入雙重驗證／Steam Guard 代碼？ ／&#8203;*移除過期的登入金鑰*&#8203;
 
@@ -679,11 +577,7 @@ You could remove `BotName.db` and `BotName.bin` (if available) of affected accou
 
 As a side note, you can also turn off login keys with `UseLoginKeys` config property set to `false`, but this will not solve the problem, only skip the initial login key failure. ASF is already aware of the issue explained here and will try its best to not use login keys if it can guarantee itself all login credentials, so there is no need to tweak `UseLoginKeys` manually if you can provide all login details together with using ASF 2FA.
 
-
-
 ---
-
-
 
 ### 我遇到了錯誤：&#8203;*無法登入至 Steam：&#8203;`InvalidPassword`&#8203;或&#8203;`RateLimitExceeded`*
 
@@ -706,11 +600,7 @@ Keep in mind that ASF has its own built-in system to react accordingly to steam 
 
 Finally, as with every Steam request - ASF can only **try** to log in, using your provided credentials. Whether that request will succeed or not is out of the scope and logic of ASF - there is no bug, and nothing can be fixed neither improved in this regard.
 
-
-
 ---
-
-
 
 ### `System.IO.IOException: Input/output error`
 
@@ -718,11 +608,7 @@ If this error happened during ASF input (e.g. you can see `Console.ReadLine()` i
 
 If you **expect** this to happen, so you **intend** to run ASF in input-less environment, then you should explicitly tell ASF that it's the case, by setting **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** mode appropriately. This will tell ASF to never ask for user input under any circumstance, allowing you to run ASF in input-less environments safely.
 
-
-
 ---
-
-
 
 ### `System.Net.Http.WinHttpException: A security error occurred`
 
@@ -734,31 +620,19 @@ Obvious solution is to set the date on your machine appropriately. It's highly r
 
 If you made sure that the date on your machine is appropriate and the error doesn't want to go away, SSL certificates that your system trusts could be out-of-date or invalid. In this case you should ensure that your machine can establish secure connections, for example by checking if you can access `https://github.com` with any browser of your choice, or CLI tool such as `curl`. If you confirmed that this works properly, feel free to post issue on our Steam group.
 
-
-
 ---
-
-
 
 ### `System.Threading.Tasks.TaskCanceledException: A task was canceled`
 
 This warning means that Steam did not answer to ASF request in given time. Usually it's caused by Steam networking hiccups and does not affect ASF in any way. In other cases it's the same as request failing after 5 tries. Reporting this issue makes no sense most of the time, as we can't force Steam to respond to our requests.
 
-
-
 ---
-
-
 
 ### `The type initializer for 'System.Security.Cryptography.CngKeyLite' threw an exception`
 
 This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation` Windows service, which provides core cryptography functionality for ASF, without which the program isn't able to run. You can fix this issue by launching `services.msc` and ensuring that `CNG Key Isolation` Windows service doesn't have disabled startup and is currently running.
 
-
-
 ---
-
-
 
 ### ASF 被我的防毒軟體偵測成惡意程式！ 這是怎麼回事？
 
