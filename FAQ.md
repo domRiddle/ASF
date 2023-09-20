@@ -596,7 +596,7 @@ This error can mean a lot of things, some of them include:
 - Too many failed login attempts in short period of time (anti-bruteforce)
 - Too many login attempts in short period of time (rate-limiting)
 - Requirement of captcha to log in (very likely to be caused by two reasons above)
-- Any other reason Steam Network may have preventing you from logging in.
+- Any other reason Steam Network may have preventing you from logging in
 
 In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime. If you hit that issue frequently, perhaps it's wise to increase `LoginLimiterDelay` config property of ASF. Excessive program restarts and other intentional/non-intentional login requests definitely won't help with that issue, so try to avoid it if possible.
 
