@@ -563,36 +563,36 @@ InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
 
 最後請注意，一個帳號只能向另一個帳號發送5筆待處理的交易提案，所以如果您擁有來自某個Bot的5筆（或更多）待處理的交易提案，ASF將會無法發送更多交易。 這不是個常見問題，但仍值得說明一下，特別是您在未使用ASF雙重驗證的情形下，讓ASF自動發送交易提案，又忘記去手動確認它們。
 
-如果無法幫您解決問題，您隨時都能使用&#8203;`Debug`&#8203;模式來自行檢視ASF紀錄，以了解請求失敗的原因。 Please note that Steam talks nonsense most of the time, and provided reason may not make any logical sense, or can be even entirely incorrect - if you decide to interpret that reason, make sure you have decent knowledge about Steam and its quirks. It's also quite common to see that issue with no logical reason, and the only suggested solution in this case is to re-add account to ASF (and wait 7 days again). Sometimes this issue also fixes itself *magically*, the same way it breaks. However, usually it's just either 7-days trade lock, temporary steam problem, or both. It's best to give it a few days before manually checking what is wrong, unless you have some urge to debug the real cause (and usually you'll be forced to wait anyway, because error message won't make any sense, neither help you in the slightest).
+如果無法幫您解決問題，您隨時都能使用&#8203;`Debug`&#8203;模式來自行檢視ASF紀錄，以了解請求失敗的原因。 請注意，Steam在大多數時候都無法提供有幫助的錯誤原因，有可能是毫不相關，甚至是完全錯誤的⸺若您決定要解讀這些資訊，請確保您對Steam及其行為有充足的了解。 某個問題是由沒有邏輯的原因造成的，這個情形也很常見，此時，唯一建議的解決辦法就是將帳號重新加進ASF中（並再等待7天）。 有時候，這些問題也會&#8203;*神奇地*&#8203;自行消失，跟它們出現時一樣。 但最常見的還是7天交易鎖定以及暫時性的Steam問題，或兩者都發生。 在您手動檢查錯誤前，最好等待個幾天，除非您因某些原因而需要立刻除錯（通常除錯完您還是得需等待，因為錯誤訊息可能沒有意義，也無法提供任何幫助）。
 
-In any case, ASF can only **try** to send a proper request to Steam in order to accept/send trade. Whether Steam accepts that request, or not, is out of the scope of ASF, and ASF will not magically make it work. There's no bug related to that feature, and there is also nothing to improve, because logic is happening outside of ASF. Therefore, do not ask for fixing stuff that is not broken, and also do not ask why ASF can't accept or send trades - **I don't know, and ASF doesn't know either**. Either deal with it, or fix yourself, if you know better.
+不論如何，ASF只能&#8203;**嘗試**&#8203;向Steam傳送一個接受／發送交易提案的正確請求。 不論Steam是否接受了請求，ASF都無法改變現狀，也無法神奇地將錯誤變回正常。 這並不是該功能的錯誤，也無任何改進空間，因為這個問題發生於ASF之外。 因此，不要要求我們去修正沒有壞掉的東西，也不要來詢問為什麼ASF無法接受或發送交易提案⸺&#8203;**我不知道，ASF也不知道**&#8203;。 您可以不理會這個錯誤，或您有更好的辦法，可以自行嘗試去修正它。
 
 ---
 
 ### 為什麼我每次登入時，都需要輸入雙重驗證／Steam Guard 代碼？ ／&#8203;*移除過期的登入金鑰*&#8203;
 
-ASF uses login keys (if you kept `UseLoginKeys` enabled) for keeping credentials valid, the same mechanism that Steam uses - 2FA/SteamGuard token is required only once. However, due to Steam network issues and quirks, it's entirely possible that login key is not saved in the network, we've already seen such issues not only with ASF, but with regular steam client as well (a need to input login + password on each run, regardless of "remember me" option).
+ASF使用登入金鑰來維持憑證有效（如果您啟用了&#8203;`UseLoginKeys`&#8203;），這與Steam本身所使用的機制相同⸺只需要輸入一次雙重驗證／Steam Guard代碼即可。 但是，由於Steam網路的問題，有可能登入金鑰沒有被儲存在網路中。這個問題不只有ASF會有，Steam用戶端也有（即使您勾選了「記住我」，也需在每次登入時輸入帳號密碼）。
 
-You could remove `BotName.db` and `BotName.bin` (if available) of affected account and try to link ASF to your account once again, but that likely won't do anything. Some users have reported that **[deauthorizing all devices](https://store.steampowered.com/twofactor/manage)** on Steam side should help, changing password will do the same. However, those are only workarounds that are not even guaranteed to work, the real ASF-based solution is to import your authenticator as **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** - this way ASF can generate tokens automatically when they're needed, and you don't have to input them manually. Usually the issue magically solves itself after some time, so you can simply wait for that to happen. Of course you can also ask Valve for solution, because I can't force Steam network to accept our login keys.
+您可以刪除受影響帳號的&#8203;`BotName.db`&#8203;與&#8203;`BotName.bin`&#8203;（如果存在），然後再次將您的帳號連結至ASF，但這個方式通常不管用。 據部分使用者回報，在Steam上&#8203;**[解除授權所有裝置](https://store.steampowered.com/twofactor/manage)**&#8203;可能有效，也可以嘗試更改密碼。 但這只是些偏方，不見得有效，ASF提供的解決方式是將您的驗證器匯入&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**⸺在需要時ASF就能自動產生權杖，而您就不需要手動輸入代碼了。 通常在一段時間後，該問題會自動消失，所以您也可以等它復原就好。 當然您也可以向Valve尋求解決方式，因為我無法強制要求Steam網路接受我們的登入金鑰。
 
-As a side note, you can also turn off login keys with `UseLoginKeys` config property set to `false`, but this will not solve the problem, only skip the initial login key failure. ASF is already aware of the issue explained here and will try its best to not use login keys if it can guarantee itself all login credentials, so there is no need to tweak `UseLoginKeys` manually if you can provide all login details together with using ASF 2FA.
+順道一提，您也可以將&#8203;`UseLoginKeys`&#8203;設定屬性設定成&#8203;`false`&#8203;來關閉登入金鑰的功能，但這無法解決問題，只能跳過登入金鑰報錯。 ASF知曉這個問題，如果它能自行獲得所有需要的登入憑證，就會盡量不去使用登入金鑰。如果您能使用ASF雙重驗證提供所有的登入資訊，就不需要去手動調整&#8203;`UseLoginKeys`&#8203;了。
 
 ---
 
 ### 我遇到了錯誤：&#8203;*無法登入至 Steam：&#8203;`InvalidPassword`&#8203;或&#8203;`RateLimitExceeded`*
 
-This error can mean a lot of things, some of them include:
+這個錯誤可以代表很多情形，其中包含了：
 
-- Invalid Login/Password combination (obviously)
-- Expired login key used by ASF for logging in
-- Too many failed login attempts in short period of time (anti-bruteforce)
-- Too many login attempts in short period of time (rate-limiting)
-- Requirement of captcha to log in (very likely to be caused by two reasons above)
-- Any other reason Steam Network may have preventing you from logging in.
+- 無效的帳號／密碼（這很明顯）
+- ASF在登入時使用了過期的登入金鑰
+- 在短時間內多次嘗試登入且失敗（防止暴力破解）
+- 在短時間內多次嘗試登入（達到頻率限制）
+- 需要通過人機驗證來登入（很可能是由上面兩種原因所導致的）
+- 任何Steam網路阻擋您登入的其他原因
 
-In case of anti-bruteforce and rate-limiting, problem will disappear after some time, so just wait and don't attempt to log in in the meantime. If you hit that issue frequently, perhaps it's wise to increase `LoginLimiterDelay` config property of ASF. Excessive program restarts and other intentional/non-intentional login requests definitely won't help with that issue, so try to avoid it if possible.
+如果是屬於防暴力破解或達到頻率限制的情形，這個問題在過一段時間之後就會解除，所以請您耐心等待就好，且在此期間不要嘗試去登入。 若您經常遇到這種狀況，或許增加ASF的&#8203;`LoginLimiterDelay`&#8203;設定屬性是明智的選擇。 多次重新啟動程式，或多次有意／無意的登入請求，絕對無法幫忙解決問題，請避免這樣做。
 
-In case of expired login key - ASF will remove old one and ask for new one on next login (which will require from you putting 2FA token if your account is 2FA-protected. If your account is using ASF 2FA, token will be generated and used automatically). This can naturally happen over time, but if you get this issue on each login, it's possible that Steam for some reason decided to ignore our login key save requests, as mentioned in the issue **[above](#why-do-i-have-to-put-2fasteamguard-code-on-each-login--removed-expired-login-key)**. You can of course disable `UseLoginKeys` entirely, but that won't solve the issue, only avoid a need of removing expired login keys each time. The real solution, as per the issue above, is to use ASF 2FA.
+如果是登入金鑰過期的情形⸺ASF將會刪除舊的金鑰，並在下次登入時請求一個新的（若您的帳號使用了雙重驗證保護，會需要您提供雙重驗證代碼。 若您的帳號使用ASF雙重驗證，就能自動產生並使用權杖）。 隨著您的使用，這種情形將會發生，但如果您是在每次登入時都遇到，那麼可能是Steam因某種原因決定忽略我們所儲存的登入金鑰，&#8203;**[如上所述](#為什麼我每次登入時都需要輸入雙重驗證steam-guard-代碼-移除過期的登入金鑰)**&#8203;。 You can of course disable `UseLoginKeys` entirely, but that won't solve the issue, only avoid a need of removing expired login keys each time. The real solution, as per the issue above, is to use ASF 2FA.
 
 And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials. ASF can't guess on its own whether `InvalidPassword` means invalid credentials, or any of the reasons listed above, therefore it'll keep trying until it succeeds.
 

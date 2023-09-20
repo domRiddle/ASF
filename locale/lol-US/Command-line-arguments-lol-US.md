@@ -46,7 +46,7 @@ HOWEVR, DOSE 2 R COMPLETELY FINE:
 
 `--cryptkey <key>` OR `--cryptkey=<key>` - WILL START ASF WIF CUSTOM CRYPTOGRAFIC KEY OV `<key>` VALUE. DIS OPSHUN AFFECTS **[SECURITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-lol-US)** AN WILL CAUSE ASF 2 USE UR CUSTOM PROVIDD `<key>` KEY INSTEAD OV DEFAULT WAN HARDCODD INTO TEH EXECUTABLE. SINCE DIS PROPERTY AFFECTS DEFAULT ENCRYPSHUN KEY (4 ENCRYPTIN PURPOSEZ) AS WELL AS SALT (4 HASHIN PURPOSEZ), KEEP IN MIND DAT EVRYTHIN ENCRYPTD/HASHD WIF DIS KEY WILL REQUIRE IT 2 BE PASD ON EACH ASF RUN.
 
-There is no requirement on `<key>` length or characters, but for security reasons we recommend to pick long enough passphrase made out of e.g. random 32 characters, for example by using `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` command on Linux.
+THAR IZ NO REQUIREMENT ON `<key>` LENGTH OR CHARACTERS, BUT 4 SECURITY REASONS WE RECOMMEND 2 PICK LONG ENOUGH PASFRASE MADE OUT OV E.G. RANDOM 32 CHARACTERS, 4 EXAMPLE BY USIN `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` COMMAND ON LINUX.
 
 IZ NICE 2 MENSHUN DAT THAR R ALSO 2 OTHR WAYS 2 PROVIDE DIS DETAIL: `--cryptkey-file` AN `--input-cryptkey`.
 
