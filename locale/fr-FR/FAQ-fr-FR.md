@@ -710,7 +710,7 @@ Cette erreur peut signifier beaucoup de choses, parmi lesquelles:
 - Trop de tentatives de connexion infructueuses sur une courte période (anti-bruteforce)
 - Trop de tentatives de connexion sur une courte période (limitation du débit)
 - Obligation de captcha pour se connecter (très probablement pour deux raisons ci-dessus)
-- Any other reason Steam Network may have preventing you from logging in.
+- Any other reason Steam Network may have preventing you from logging in
 
 En cas d'anti-bruteforce et de limitation de débit, le problème disparaîtra au bout d'un certain temps, alors attendez et ne tentez pas de vous connecter entre-temps. Si vous rencontrez souvent ce problème, il est peut-être sage d'augmenter la propriété de configuration `LoginLimiterDelay` de ASF. Les redémarrages de programme excessifs et les autres demandes de connexion intentionnelles / non intentionnelles ne vous aideront certainement pas à résoudre ce problème, essayez donc de l'éviter si possible.
 

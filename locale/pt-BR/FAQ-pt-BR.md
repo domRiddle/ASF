@@ -588,7 +588,7 @@ Este erro pode ocorrer por muitos motivos, alguns deles podem ser:
 - Muitas tentativas de conexão em um curto período de tempo (prevenção de força bruta)
 - Muitas tentativas falhas de conexão em um curto período de tempo (limite de tentativas)
 - Exigência de captcha para se conectar (muito provavelmente causado por um dos dois motivos acima)
-- Qualquer outro motivo pelo qual a Rede Steam pode estar te impedindo de se conectar.
+- Qualquer outro motivo pelo qual a Rede Steam pode estar te impedindo de se conectar
 
 No caso da força bruta e do limitador de tentativas, o problema vai desaparecer depois de algum tempo, então espere. Se você tem esse problema com frequência, talvez seja aconselhável aumentar o parâmetro `LoginLimiterDelay` na configuração do ASF. Reiniciar excessivamente o programa e outras solicitações de conexão, intencionais ou não, definitivamente não vai ajudar em nada, então tente evitá-las se possível.
 

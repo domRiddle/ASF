@@ -588,7 +588,7 @@ Esto error puede significar muchas cosas, algunas de ellas incluyen:
 - Demasiados intentos de inicio de sesión fallidos en un corto período de tiempo (anti fuerza bruta)
 - Demasiados intentos de inicio de sesión en un corto período de tiempo (límite de intentos excedido)
 - Requerimiento de captcha para iniciar sesión (probablemente causado por las dos razones anteriores)
-- Cualquier otra razón por la que la red de Steam te haya impedido iniciar sesión.
+- Cualquier otra razón por la que la red de Steam te haya impedido iniciar sesión
 
 En caso de anti fuerza bruta y límite de intentos excedido, el problema desaparecerá después de algún tiempo, solo espera y no intentes iniciar sesión mientras tanto. Si tienes ese problema con frecuencia, quizás sea aconsejable aumentar la propiedad de configuración de ASF `LoginLimiterDelay`. Reinicios excesivos del programa y otras solicitudes de inicio de sesión intencionales/no intencionales definitivamente no ayudarán con ese problema, así que intenta evitarlo si es posible.
 

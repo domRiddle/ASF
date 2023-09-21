@@ -588,7 +588,7 @@ Dieser Fehler kann vieles bedeuten, unter anderem auch:
 - Zu viele fehlgeschlagene Anmeldeversuche in kurzer Zeit (Anti-Bruteforce)
 - Zu viele Anmeldeversuche in kurzer Zeit (Rate-Limiting/ Anfragelimit)
 - Erfordernis eines Captcha zum Anmelden (sehr wahrscheinlich durch die beiden obigen Gründe verursacht)
-- Alle anderen Gründe, die das Steam-Netzwerk daran hindern könnten, sich anzumelden.
+- Alle anderen Gründe, die das Steam-Netzwerk daran hindern könnten, sich anzumelden
 
 Im Falle von Anti-Bruteforce und Rate-Limiting wird das Problem nach einiger Zeit verschwinden, also warte einfach und versuche dich in der Zwischenzeit nicht anzumelden. Wenn du dieses Problem häufiger hast, ist es vielleicht ratsam, `LoginLimiterDelay` Konfigurationseigenschaft von ASF zu erhöhen. Übermäßige Programmneustarts und andere absichtliche/nicht absichtliche Anmeldeanforderungen werden bei diesem Problem definitiv nicht helfen, also vermeide es, wenn möglich.
 

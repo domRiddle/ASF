@@ -592,21 +592,21 @@ ASF使用登入金鑰來維持憑證有效（如果您啟用了&#8203;`UseLoginK
 
 如果是屬於防暴力破解或達到頻率限制的情形，這個問題在過一段時間之後就會解除，所以請您耐心等待就好，且在此期間不要嘗試去登入。 若您經常遇到這種狀況，或許增加ASF的&#8203;`LoginLimiterDelay`&#8203;設定屬性是明智的選擇。 多次重新啟動程式，或多次有意／無意的登入請求，絕對無法幫忙解決問題，請避免這樣做。
 
-如果是登入金鑰過期的情形⸺ASF將會刪除舊的金鑰，並在下次登入時請求一個新的（若您的帳號使用了雙重驗證保護，會需要您提供雙重驗證代碼。 若您的帳號使用ASF雙重驗證，就能自動產生並使用權杖）。 隨著您的使用，這種情形將會發生，但如果您是在每次登入時都遇到，那麼可能是Steam因某種原因決定忽略我們所儲存的登入金鑰，&#8203;**[如上所述](#為什麼我每次登入時都需要輸入雙重驗證steam-guard-代碼-移除過期的登入金鑰)**&#8203;。 You can of course disable `UseLoginKeys` entirely, but that won't solve the issue, only avoid a need of removing expired login keys each time. The real solution, as per the issue above, is to use ASF 2FA.
+如果是登入金鑰過期的情形⸺ASF將會刪除舊的金鑰，並在下次登入時請求一個新的（若您的帳號使用了雙重驗證保護，會需要您提供雙重驗證代碼。 若您的帳號使用ASF雙重驗證，就能自動產生並使用權杖）。 隨著您的使用，這種情形將會發生，但如果您是在每次登入時都遇到，那麼可能是Steam因某種原因決定忽略我們所儲存的登入金鑰，&#8203;**[如上所述](#為什麼我每次登入時都需要輸入雙重驗證steam-guard-代碼-移除過期的登入金鑰)**&#8203;。 您當然可以完全停用&#8203;`UseLoginKeys`&#8203;，但這並不會解決問題，只會避免每次都提示移除過期的登入金鑰。 依上述說明，真正的解決方式是使用ASF雙重驗證。
 
-And lastly, if you used wrong login + password combination, obviously you need to correct this, or disable bot that is attempting to connect using those credentials. ASF can't guess on its own whether `InvalidPassword` means invalid credentials, or any of the reasons listed above, therefore it'll keep trying until it succeeds.
+最後，如果您使用了錯誤的帳號或密碼，那麼想當然，您需要修正這個問題，或停用使用了這份錯誤憑證的Bot。 ASF無法自行猜測&#8203;`InvalidPassword`&#8203;是代表了錯誤的憑證，或是上述其餘原因，因此它只能繼續嘗試直到登入成功。
 
-Keep in mind that ASF has its own built-in system to react accordingly to steam quirks, eventually it will connect and resume its job, therefore it's not required to do anything if the issue is temporary. Restarting ASF in order to magically fix problems will only make things worse (as new ASF won't know previous ASF state of not being able to log in, and try to connect instead of waiting), so avoid doing that unless you know what you're doing.
+請注意，ASF具有內建系統，可以對Steam的奇外問題做出正確的反應，並在最後能夠恢復連線並繼續運作。因此，如果只是暫時性問題，就不需要進行任何操作。 如果希望依靠重新啟動ASF來修正錯誤，只會讓情況變得更糟（因為新的ASF不知道前一個ASF的狀態是無法登入，會繼續嘗試登入而不會變為等待），所以請避免這樣做，除非您知道自己在做什麼。
 
-Finally, as with every Steam request - ASF can only **try** to log in, using your provided credentials. Whether that request will succeed or not is out of the scope and logic of ASF - there is no bug, and nothing can be fixed neither improved in this regard.
+最後，與每個Steam請求相同⸺ASF只能使用您提供的憑證來&#8203;**嘗試**&#8203;登入。 請求是否成功已超出了ASF的邏輯範圍⸺這並非是個錯誤，也沒有任何地方能夠修正或改進。
 
 ---
 
 ### `System.IO.IOException: Input/output error`
 
-If this error happened during ASF input (e.g. you can see `Console.ReadLine()` in the stacktrace) then it's caused by your environment which prohibits ASF from reading standard input of your console. That can occur due to a lot of reasons, but the most common one is you running ASF in the wrong environment (e.g. in `nohup` or `&` background instead of `screen` on Linux). If ASF can't access its standard input, then you'll see this error logged and ASF's inability to use your details during runtime.
+若這個錯誤發生於ASF輸入期間（例如您在堆疊追踪訊息中看到&#8203;`Console.ReadLine()`&#8203;），那麼它是由您的環境所導致的，環境禁止了ASF讀取控制台標準輸入。 這可能由多種原因引起，但最常見的是您在錯誤的環境中執行ASF（例如在Linux上使用了&#8203;`nohup`&#8203;或&#8203;`&`&#8203;在背景執行，而沒有使用&#8203;`screen`&#8203;）。 若ASF無法存取標準輸入，您就會看到這份錯誤紀錄，且ASF也無法在執行期間向您詢問所需資訊。
 
-If you **expect** this to happen, so you **intend** to run ASF in input-less environment, then you should explicitly tell ASF that it's the case, by setting **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** mode appropriately. This will tell ASF to never ask for user input under any circumstance, allowing you to run ASF in input-less environments safely.
+若您&#8203;**預期**&#8203;這個情形會發生，就是說您&#8203;**有意**&#8203;使ASF在無輸入的環境下執行，那麼您應該要透過設定&#8203;**[Headless</code>](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#headless無頭模式)**模式，來明確告訴ASF。 這會使ASF在任何情形都不會要求使用者輸入，使您能夠在無輸入環境中安全執行ASF。
 
 ---
 
