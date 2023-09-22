@@ -57,7 +57,7 @@ ASF使用您提供的憑證，透過我們內建的自訂Steam用戶端來登入
 
 ### 我需要等多久，卡片才會掉落？
 
-認真地說，&#8203;**「不論多久，您都必須等待」**&#8203;。 每款遊戲的掛卡難度是由該遊戲的開發者／發行者所訂，只有他們才能決定交換卡片掉落的速率。 大多數的遊戲會每隔約30分鐘掉落一張交換卡片，但也有遊戲會需要您遊玩數個小時後才會開始掉落。 除此之外，若您未具有足夠的遊玩時數，您的帳號可能受到掉卡限制，如&#8203;**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;章節中所述。 請不要嘗試去猜測ASF掛卡所需的時間⸺這無法由您或ASF來決定。 您無法加速掛卡進度，也不存在卡片能無法及時掉落的「錯誤」⸺您無法控制交換卡片掉過的過程，ASF也無法。 在最理想的情形下，您將每隔30分鐘獲得一張交換卡片。 而在最差的情形下，可能在您啟動ASF四個小時內都沒有掉落任何卡片。 這些情形都是正常的，且在我們的&#8203;**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;章節中有介紹。
+認真地說，&#8203;**「不論多久，您都必須等待」**&#8203;。 每款遊戲的掛卡難度是由該遊戲的開發人員／發行商所訂，只有他們才能決定交換卡片掉落的速率。 大多數的遊戲會每隔約30分鐘掉落一張交換卡片，但也有遊戲會需要您遊玩數個小時後才會開始掉落。 除此之外，若您未具有足夠的遊玩時數，您的帳號可能受到掉卡限制，如&#8203;**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;章節中所述。 請不要嘗試去猜測ASF掛卡所需的時間⸺這無法由您或ASF來決定。 您無法加速掛卡進度，也不存在卡片能無法及時掉落的「錯誤」⸺您無法控制交換卡片掉落的過程，ASF也無法。 在最理想的情形下，您將每隔30分鐘獲得一張交換卡片。 而在最差的情形下，可能在您啟動ASF四個小時內都沒有掉落任何卡片。 這些情形都是正常的，且在我們的&#8203;**[效能](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-zh-TW)**&#8203;章節中有介紹。
 
 ---
 
@@ -195,7 +195,7 @@ ASF並非基於Steam用戶端，而是使用自身的Steam用戶端來實作。 
 
 ### ASF 可以自動為每個尚未加入交換卡片的遊戲掛 X 個小時嗎？
 
-**不能**&#8203;，Steam卡片系統的改動主要是用於對付錯誤的統計資訊及非人類玩家。 ASF不會對這類行為作出貢獻，不計劃加入這些功能，它們也不會發生於此。 若遊戲的交換卡片能正常掉落，ASF仍會盡快掛完它們。
+**不能**&#8203;，Steam卡片系統的改動主要是用於對付錯誤的統計資訊及非人類玩家。 ASF不會對這類行為作出貢獻、不計劃加入這些功能，它們也不會發生於此。 若遊戲的交換卡片能正常掉落，ASF仍會盡快掛完它們。
 
 ---
 
@@ -231,7 +231,7 @@ ASF並非基於Steam用戶端，而是使用自身的Steam用戶端來實作。 
 
 如果您是要詢問ASF是否為一個安全的軟體，換句話說，想要知道它是否會對您的電腦造成損害、是否會竊取您的個人資料、是否會安裝病毒或任何惡意程式，這個問題的答案是⸺它很安全。 ASF不存有惡意程式、資料竊取、加密貨幣挖礦程式，或任何（及所有）其餘可能被使用者視為有惡意或不想要的可疑行為。 除此之外，我們有一個專門的&#8203;**[遠端通訊](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-zh-TW)**&#8203;章節，它涵蓋了我們的隱私權政策，及超出您能夠設定程式的範圍的ASF行為。
 
-我們的原始碼是開源的，且轉發的二進制檔案總是會由&#8203;**[開放原始碼](https://zh.wikipedia.org/zh-tw/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6)**&#8203;的&#8203;**[自動化且可信的持續整合系統](https://zh.wikipedia.org/zh-tw/%E7%B5%84%E5%BB%BA%E8%87%AA%E5%8B%95%E5%8C%96)**&#8203;編譯，而不是由開發者。 每個組建都可以由我們的組建腳本再現，並會產生完全相同、&#8203;**[確定](https://zh.wikipedia.org/zh-tw/%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%A8%A1%E5%9E%8B)**&#8203;的IL（二進制）程式碼。 若您出於各種原因無法信任我們的組建，您隨時能由原始碼及ASF使用的所有函式庫（例如SteamKit2）來編譯ASF，而這些函式庫也是開源的。
+我們的原始碼是開源的，且轉發的二進制檔案總是會由&#8203;**[開放原始碼](https://zh.wikipedia.org/zh-tw/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6)**&#8203;的&#8203;**[自動化且可信的持續整合系統](https://zh.wikipedia.org/zh-tw/%E7%B5%84%E5%BB%BA%E8%87%AA%E5%8B%95%E5%8C%96)**&#8203;編譯，而不是由開發人員。 每個組建都可以由我們的組建腳本再現，並會產生完全相同、&#8203;**[確定](https://zh.wikipedia.org/zh-tw/%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%A8%A1%E5%9E%8B)**&#8203;的IL（二進制）程式碼。 若您出於各種原因無法信任我們的組建，您隨時能由原始碼及ASF使用的所有函式庫（例如SteamKit2）來編譯ASF，而這些函式庫也是開源的。
 
 但最終，是否要信任應用程式的開發人員始終是個問題，因此您應該自行決定是否將ASF視為安全的，並透過上述的技術來驗證您的決策。 不要盲從⸺自行去檢驗，因為這是唯一能確定事實的方法。
 
@@ -255,7 +255,7 @@ ASF真正需要考慮的重點如下：
 因此，與每款Steam軟體相同，ASF未經Valve授權。如果Valve突然決定要封鎖使用ASF的帳號，我無法像您保證不被終止使用合約。 考慮到目前已有超百萬個Steam帳號使用過ASF，這種情形幾乎不會發生，但不論機率有多低，仍不能排除發生的可能性。
 
 特別是因為：
-> In regard to all Subscriptions, Content and Services that are not authored by Valve, Valve does not screen such third-party content available on Steam or through other sources. Valve assumes no responsibility or liability for such third party content. Some third-party application software is capable of being used by businesses for business purposes - however, you may only acquire such software via Steam for private personal use.<br>（參考翻譯：對於不是由Valve創作的訂閱、內容及服務，Valve 不會篩選由 Steam 或其他來源提供的此類第三方內容。Valve 對此類第三方內容不承擔任何責任。某些第三方應用程式可供企業應用於商業行為⸺但是，您透過 Steam 獲得的這類軟體，僅供個人使用。）
+> In regard to all Subscriptions, Content and Services that are not authored by Valve, Valve does not screen such third-party content available on Steam or through other sources. Valve assumes no responsibility or liability for such third party content. Some third-party application software is capable of being used by businesses for business purposes - however, you may only acquire such software via Steam for private personal use.<br>（參考翻譯：對於不是由 Valve 創作的訂閱、內容及服務，Valve 不會篩選由 Steam 或其他來源提供的此類第三方內容。Valve 對此類第三方內容不承擔任何責任。某些第三方應用程式可供企業應用於商業行為⸺但是，您透過 Steam 獲得的這類軟體，僅供個人使用。）
 
 但如&#8203;**[此處](https://help.steampowered.com/zh-tw/faqs/view/22C0-03D0-AE4B-04E8)**&#8203;所述，Valve早已知曉「Steam掛機程式」的存在，因此，假設您問我，我很確定他們如果認為這些行為不妥，早就會採取相應措施，而不是只說出這種行為會造成有關VAC的問題了。 這裡的關鍵字是&#8203;**Steam**&#8203;掛機程式，例如ASF，而不是&#8203;**遊戲**&#8203;掛機程式。
 
@@ -297,7 +297,7 @@ ASF真正需要考慮的重點如下：
 
 ---
 
-上述所有事件都有一個共通點⸺ASF只是一個工具，如何使用取決於&#8203;**您**&#8203;。 您不會只是因為使用ASF而被封鎖，但有可能會因您的&#8203;**使用方式**&#8203;而被封鎖。 ASF可以只做為一個單一帳號的掛卡協助工具，但也能用於管理成千上萬個機器人的掛卡網路。 在任何情形下，我都不會提供法律諮詢，您應該一開始就決定好自己要如何使用ASF。 我並沒有隱瞞任何對您有幫助的資訊，例如因ASF導致使用者被封鎖的事件等，因為我沒有理由去隱瞞它⸺您可以自行選擇如何處理這些資訊。 若您詢問我有沒有什麼建議⸺那麼您應該要先了解一些常識，避免持有超過我們建議數量的Bot、不要同時發送上百個交易，並始終使用最新版本的ASF，這樣，您&#8203;_應該_&#8203;就不會遇到任何問題。 出於&#8203;**某些原因**&#8203;，這些類似事件總會發生在無視我們建議的人身上，他們會自認為比我們更清楚能夠執行多少個Bot。 不論這算巧合還是有實際上的原因，這都是由您來決定的。 我不會提供任何法律諮詢，而只會向您提供我的想法，您可能會覺得有用，或想要完全忽視它們，並只依據上述事實來操作。
+上述所有事件都有一個共通點⸺ASF只是一個工具，如何使用取決於&#8203;**您**&#8203;。 您不會是只因使用ASF而被封鎖，但有可能會因您的&#8203;**使用方式**&#8203;而被封鎖。 ASF可以只做為一個單一帳號的掛卡協助工具，但也能用於管理成千上萬個機器人的掛卡網路。 在任何情形下，我都不會提供法律諮詢，您應該一開始就決定好自己要如何使用ASF。 我並沒有隱瞞任何對您有幫助的資訊，例如因ASF導致使用者被封鎖的事件等，因為我沒有理由去隱瞞它⸺您可以自行選擇如何處理這些資訊。 若您詢問我有沒有什麼建議⸺那麼您應該要先了解一些常識，避免持有超過我們建議數量的Bot、不要同時發送上百個交易，並始終使用最新版本的ASF，這樣，您&#8203;_應該_&#8203;就不會遇到任何問題。 出於&#8203;**某些原因**&#8203;，這些類似事件總會發生在無視我們建議的人身上，他們會自認為比我們更清楚能夠執行多少個Bot。 不論這算巧合還是有實際上的原因，這都是由您來決定的。 我不會提供任何法律諮詢，而只會向您提供我的想法，您可能會覺得有用，或想要完全忽視它們，並只依據上述事實來操作。
 
 ---
 
@@ -408,7 +408,7 @@ ASF團隊建議您執行（包含&#8203;**擁有**&#8203;）&#8203;**最多10個
 | NoDetail                | 「OK」狀態，代表成功⸺產品序號已被成功兌換。                                                                                                        |
 | Timeout                 | Steam網路未在規定時間內回應，我們無法得知產品序號是否被啟用（很可能被使用了，但您可以再試一次）。                                                                            |
 | BadActivationCode       | 提供的產品序號無效（無法被Steam網路辨識成任何有效的序號）。                                                                                               |
-| DuplicateActivationCode | 所提供的產品序號已被其他帳號兌換過，或已被開發人員／發行者撤銷。                                                                                               |
+| DuplicateActivationCode | 所提供的產品序號已被其他帳號兌換過，或已被開發人員／發行商撤銷。                                                                                               |
 | AlreadyPurchased        | 您的帳號已經擁有此產品序號所關聯的&#8203;`packageID`&#8203;。 請注意，本狀態無法代表序號是否為&#8203;`DuplicateActivationCode`&#8203;⸺它只代表序號有效，但在本次的兌換嘗試中沒有被使用掉。 |
 | RestrictedCountry       | 此產品序號擁有區域限制，且您的帳號並不在有效的兌換區域內。                                                                                                  |
 | DoesNotOwnRequiredApp   | 您缺少了啟用此產品序號所需的其他應用程式⸺通常是您在兌換DLC時，缺少遊戲本體。                                                                                       |
@@ -468,7 +468,7 @@ ASF是依據自由的Apache 2.0授權條款所授權，允許其他開發人員�
 
 ASF會以不同的記錄層級向紀錄中寫入大量資訊。 我們的目標是&#8203;**精確的**&#8203;解釋ASF正在做什麼，包含它必須處理的Steam或其他方面的問題。 大多數的時候，並非所有東西都相關，這也是為什麼我們要在ASF中主要使用兩個不同的層級⸺警告與錯誤。
 
-ASF的一般規則是：警告&#8203;**並非**&#8203;錯誤，因此它們&#8203;**不需要**&#8203;被回報。 警告是向您說明可能發生了預料外的事件。 不論是Steam沒有回應、API擲回錯誤，或是您的網路連線中斷⸺都會產生警告，這代表我們已預期到這種情形會發生，您也不需要為此來打擾ASF開發人員。 當然，您也可以透過我們的支援站來詢問或取得幫助，但請不要把它們當作值得回報的錯誤（除非我們另有確認）。
+ASF的一般規則是：警告&#8203;**並非**&#8203;錯誤，因此它們&#8203;**不需要**&#8203;被回報。 警告是向您說明可能發生了預料外的事件。 不論是Steam沒有回應、API擲回錯誤，或是您的網路連線中斷⸺都會產生警告，這代表我們已預期到這種情形會發生，您也不需要為此來打擾ASF開發人員。 當然，您也可以透過我們的支援站來詢問或取得協助，但請不要把它們當作值得回報的錯誤（除非我們另有確認）。
 
 反之，錯誤代表著不該發生的情形，因此只要您確定錯誤並非因你而生，您就應該要回報它們。 如果這是我們可以預期到的情形，那它們就會被轉換成一個警告。 否則，如果它並非是因為您的技術問題所產生，它就很可能是一個待修正的、無法忽略的錯誤。 舉例來說，在&#8203;`ASF.json`&#8203;檔案中放置了無效的內容會擲回一個錯誤，因ASF無法剖析它，但這是您自己所存放的，所以您不該向我們回報這個錯誤（除非您確定您的結構是完全正確的，是ASF發生了錯誤）。
 
@@ -559,7 +559,7 @@ InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
 
 也請注意，您只能與您的好友，或知道交易連結的人交易。 若您嘗試發起&#8203;*Bot -> Master*&#8203;交易，例如&#8203;`loot`&#8203;，那麼您需要將該Bot加入至您的好友名單中，或是在Bot設定檔中設定&#8203;`SteamTradeToken`&#8203;。 需要確保權杖有效⸺否則，您仍無法發送交易提案。
 
-然後，請記得，新裝置有7天的交易鎖定，因此如果您才剛將帳號加進ASF，請等待7天，之後就能正常運作了。 這項限制&#8203;**同時**&#8203;適用於接受&#8203;**及**&#8203;發送交易提案。 限制不一定會被觸發，有的人就能立刻傳送及接受交易。 不過大多數人都會受到影響，&#8203;**會遇到**&#8203;交易鎖定，即使您可以在同一台設備上的Steam用戶端發送或接受交易提案。 請耐心等待，您無法減少等待期間。 同樣，如果您移除／更改了各種Steam安全性設定，例如雙重驗證、Steam Guard、密碼、電子郵件等，也有可能遇到類似的鎖定。 一般來說，您需要檢查是否能自行從該帳號發送交易提案，如果可以，那麼這很可能就是常見的新設備7天鎖定。
+然後，請記得，新裝置有7天的交易鎖定，因此如果您才剛將帳號加進ASF，請等待7天，之後就能正常運作了。 這項限制&#8203;**同時**&#8203;適用於接受&#8203;**及**&#8203;發送交易提案。 限制不一定會被觸發，有的人就能立刻提出及接受交易。 不過大多數人都會受到影響，&#8203;**會遇到**&#8203;交易鎖定，即使您可以在同一台設備上的Steam用戶端發送或接受交易提案。 請耐心等待，您無法減少等待期間。 同樣，如果您移除／更改了各種Steam安全性設定，例如雙重驗證、Steam Guard、密碼、電子郵件等，也有可能遇到類似的鎖定。 一般來說，您需要檢查是否能自行從該帳號發送交易提案，如果可以，那麼這很可能就是常見的新設備7天鎖定。
 
 最後請注意，一個帳號只能向另一個帳號發送5筆待處理的交易提案，所以如果您擁有來自某個Bot的5筆（或更多）待處理的交易提案，ASF將會無法發送更多交易。 這不是個常見問題，但仍值得說明一下，特別是您在未使用ASF雙重驗證的情形下，讓ASF自動發送交易提案，又忘記去手動確認它們。
 
@@ -596,7 +596,7 @@ ASF使用登入金鑰來維持憑證有效（如果您啟用了&#8203;`UseLoginK
 
 最後，如果您使用了錯誤的帳號或密碼，那麼想當然，您需要修正這個問題，或停用使用了這份錯誤憑證的Bot。 ASF無法自行猜測&#8203;`InvalidPassword`&#8203;是代表了錯誤的憑證，或是上述其餘原因，因此它只能繼續嘗試直到登入成功。
 
-請注意，ASF具有內建系統，可以對Steam的奇外問題做出正確的反應，並在最後能夠恢復連線並繼續運作。因此，如果只是暫時性問題，就不需要進行任何操作。 如果希望依靠重新啟動ASF來修正錯誤，只會讓情況變得更糟（因為新的ASF不知道前一個ASF的狀態是無法登入，會繼續嘗試登入而不會變為等待），所以請避免這樣做，除非您知道自己在做什麼。
+請注意，ASF具有內建系統，可以對Steam的奇怪問題做出正確的反應，並在最後能夠恢復連線然後繼續運作。因此，如果只是暫時性問題，就不需要進行任何操作。 如果希望依靠重新啟動ASF來修正錯誤，只會讓情況變得更糟（因為新的ASF不知道前一個ASF的狀態是無法登入，會繼續嘗試登入而不會變為等待），所以請避免這樣做，除非您知道自己在做什麼。
 
 最後，與每個Steam請求相同⸺ASF只能使用您提供的憑證來&#8203;**嘗試**&#8203;登入。 請求是否成功已超出了ASF的邏輯範圍⸺這並非是個錯誤，也沒有任何地方能夠修正或改進。
 
@@ -606,38 +606,52 @@ ASF使用登入金鑰來維持憑證有效（如果您啟用了&#8203;`UseLoginK
 
 若這個錯誤發生於ASF輸入期間（例如您在堆疊追踪訊息中看到&#8203;`Console.ReadLine()`&#8203;），那麼它是由您的環境所導致的，環境禁止了ASF讀取控制台標準輸入。 這可能由多種原因引起，但最常見的是您在錯誤的環境中執行ASF（例如在Linux上使用了&#8203;`nohup`&#8203;或&#8203;`&`&#8203;在背景執行，而沒有使用&#8203;`screen`&#8203;）。 若ASF無法存取標準輸入，您就會看到這份錯誤紀錄，且ASF也無法在執行期間向您詢問所需資訊。
 
-若您&#8203;**預期**&#8203;這個情形會發生，就是說您&#8203;**有意**&#8203;使ASF在無輸入的環境下執行，那麼您應該要透過設定&#8203;**[Headless</code>](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#headless無頭模式)**模式，來明確告訴ASF。 這會使ASF在任何情形都不會要求使用者輸入，使您能夠在無輸入環境中安全執行ASF。
+若您&#8203;**預期**&#8203;這個情形會發生，就是說您&#8203;**有意**&#8203;使ASF在無輸入的環境下執行，那麼您應該要透過設定&#8203;**[Headless</code>](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#headless無頭模式)**&#8203;模式，來明確告訴ASF。 這會使ASF在任何情形都不會要求使用者輸入，使您能夠在無輸入環境中安全執行ASF。
 
 ---
 
 ### `System.Net.Http.WinHttpException: A security error occurred`
 
-This error happens when ASF can't establish secure connection with given server, almost exclusively because of SSL certificate mistrust.
+在ASF無法與指定的伺服器建立安全連線時，就會發生這個錯誤，通常都是因為不受信任的SSL憑證。
 
-In almost all cases this error is caused by **wrong date/time on your machine**. Every SSL certificate has issued date and expiry date. If your date is invalid and out of those two bounds then the certificate can't be trusted due to a potential **[MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)** attack and ASF refuses to make a connection.
+在大多數情況下，這個錯誤的原因是&#8203;**您設備擁有錯誤的日期／時間**&#8203;。 每個SSL憑證都有頒發日期及到期日期。 若您的日期無效並超出這個範圍，則該證書會因為可能發生的&#8203;**
 
-Obvious solution is to set the date on your machine appropriately. It's highly recommended to use automatic date synchronization, such as native synchronization available on Windows, or `ntpd` on Linux.
+MITM</strong>&#8203;攻擊而不被信任，並使ASF拒絕連線。</p> 
 
-If you made sure that the date on your machine is appropriate and the error doesn't want to go away, SSL certificates that your system trusts could be out-of-date or invalid. In this case you should ensure that your machine can establish secure connections, for example by checking if you can access `https://github.com` with any browser of your choice, or CLI tool such as `curl`. If you confirmed that this works properly, feel free to post issue on our Steam group.
+很明顯，解決方式是為您的設備設定正確的日期。 強烈建議您使用日期自動同步的功能，例如Windows原生的日期同步，或Linux上的&#8203;`ntpd`&#8203;。
+
+若您已確認了設備上的日期是正確的，但錯誤依然還在，那麼您系統信任的SSL憑證可能已經過期或無效了。 在這種情形下，您應該確保您的設備能建立安全連線，例如您能夠使用任意瀏覽器或命令列介面（例如&#8203;`curl`&#8203;）存取&#8203;`https://github.com`&#8203;。 若您確認連線沒有問題，可以在我們的Steam群組中回報問題。
+
+
 
 ---
+
+
 
 ### `System.Threading.Tasks.TaskCanceledException: A task was canceled`
 
-This warning means that Steam did not answer to ASF request in given time. Usually it's caused by Steam networking hiccups and does not affect ASF in any way. In other cases it's the same as request failing after 5 tries. Reporting this issue makes no sense most of the time, as we can't force Steam to respond to our requests.
+這個警告代表Steam沒有在指定的時間內回應ASF的請求。 通常這是由Steam網路不穩所導致的，並不影響ASF。 若是其他原因所造成，那就與「在嘗試5次請求後失敗」的情形相同。 在多數情況下，回報本問題沒有任何用處，因為我們無法強迫Steam回應我們的請求。
+
+
 
 ---
+
+
 
 ### `The type initializer for 'System.Security.Cryptography.CngKeyLite' threw an exception`
 
-This problem is almost exclusively caused by disabled/stopped `CNG Key Isolation` Windows service, which provides core cryptography functionality for ASF, without which the program isn't able to run. You can fix this issue by launching `services.msc` and ensuring that `CNG Key Isolation` Windows service doesn't have disabled startup and is currently running.
+這個問題幾乎只會由停用／停止&#8203;`CNG Key Isolation`&#8203;Windows服務所造成，該服務為ASF提供核心加密功能，ASF無法在沒有該服務的情形下執行。 您可以啟動&#8203;`services.msc`&#8203;，確保&#8203;`CNG Key Isolation`&#8203;Windows服務沒有被停用且正在執行，來修正這個錯誤。
+
+
 
 ---
 
+
+
 ### ASF 被我的防毒軟體偵測成惡意程式！ 這是怎麼回事？
 
-**Ensure that you downloaded ASF from trusted source**. The only official and trusted source is **[ASF releases](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** page on GitHub (and this is also the source for ASF auto-updates) - **any other source is untrusted by definition and can contain malware added by other people** - you should not trust any other download location by definition, and ensure that your ASF always comes from us.
+**確保您從可被信任的來源下載ASF**&#8203;。 唯一可信的官方來源是GitHub上的&#8203;**[ASF發布頁面](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;（這也是ASF自動更新的檔案來源）⸺&#8203;**其他的任何來源都不可信任，並可能會含有其他人加入的惡意程式**&#8203;⸺您不應信任其他位置的載點，並確保您的ASF始終來自於我們。
 
-If you confirmed that ASF is downloaded from trusted source, then very likely it's simply a false positive. This **happened in the past**, **is happening right now**, and **will happen in the future**. If you're worried about actual safety when using ASF, then I suggest scanning ASF with many different AVs for actual detection ratio, for example through **[VirusTotal](https://www.virustotal.com)** (or any other web service of your choice like this).
+若您確認您的ASF是由可信來源下載，那麼這很有可能只是個誤判。 在&#8203;**過去**&#8203;、&#8203;**現在**&#8203;以及**&#8203;未來**&#8203;，都有可能發生。 若您擔心使用ASF的安全性，那麼我建議您使用不同的防毒軟體來掃描ASF，以獲得實際的檢測結果，例如使用&#8203;**[VirusTotal](https://www.virustotal.com)**&#8203;（或任何類似的線上服務）。
 
-If the AV that you're using falsely detects ASF as a malware, then **it's a good idea to send this file sample back to developers of your AV, so they can analyze it and improve their detection engine**, as clearly it's not working as good as you think it does. There is no issue in ASF code, and there is also nothing to fix for us, since we're not distributing malware in the first place, therefore it doesn't make any sense to report those false-positives to us. We highly recommend to send ASF sample for further analysis like stated above, but if you don't want to bother with it, then you can always add ASF to some kind of AV exceptions, disable your AV or simply use another one. Sadly, we're used to AVs being stupid, as every once in a while some AV detects ASF as a virus, which usually lasts very short and is being patched up quickly by the devs, but like we pointed out above - **it happened**, **happens** and **will happen** all the time. ASF doesn't include any malicious code, you can review ASF code and even compile from source yourself. We're not hackers to obfuscate ASF code in order to hide from AV heuristics and false positives, so do not expect from us to fix what is not broken - there is no "virus" for us to fix.
+若防毒軟體將ASF錯誤偵測成惡意程式，那麼&#8203;**您應該將這份檔案樣品回傳給您所使用的防毒軟體的開發人員，這樣他們就能分析ASF並改進他們的偵測引擎**&#8203;，因為很明顯，它並不如您想像中的那樣優良。 ASF的程式碼並沒有問題，也沒有需要我們修正的地方，因為我們並不是在轉發惡意程式，向我們回報這些誤判是沒有任何意義的。 我們強烈建議您依上述說明，傳送ASF樣品來做進一步的分析，但如果您不想這麼麻煩，也可以將ASF加入防毒軟體的白名單中、停用您的防毒軟體，或是直接換一款使用就好。 遺憾的是，我們已經習慣防毒軟體的呆傻，因為每隔一段時間，就會有部分防毒軟體將ASF偵測成病毒，雖然持續時間很短且很快都會被開發人員修正，但就如我上面所說的那樣：在&#8203;**過去**&#8203;、&#8203;**現在**&#8203;以及**&#8203;未來**&#8203;，這都有可能發生。 ASF並沒有任何惡意程式碼，您可以審閱ASF的程式碼，甚至自行從原始碼編譯。 我們並非駭客，不會為了從防毒軟體的掃描及誤判中隱藏自己而混淆ASF的程式碼，所以不要指望我們修正不存在的錯誤⸺我們沒有「病毒」能被修正。

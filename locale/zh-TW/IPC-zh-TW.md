@@ -1,8 +1,8 @@
 # IPC
 
-ASF含有自己獨特的IPC介面，可以用來與程序進一步交互。 IPC全名為&#8203;**[行程間通訊](https://zh.wikipedia.org/zh-tw/行程間通訊)**&#8203;，在最簡單的定義中，這是基於&#8203;**[Kestrel HTTP伺服器](https://github.com/aspnet/KestrelHttpServer)**&#8203;的「ASF Web界面」，可用於與程序間的進一步整合，既作為終端使用者的前端（ASF-ui）， 也做為第三方整合的後端（ASF API）。
+ASF含有自己獨特的IPC介面，可以用來與程序進一步交互。 IPC全名為&#8203;**[行程間通訊](https://zh.wikipedia.org/zh-tw/行程間通訊)**&#8203;，在最簡單的定義中，這是基於&#8203;**[Kestrel HTTP伺服器](https://github.com/aspnet/KestrelHttpServer)**&#8203;的「ASF Web介面」，可用於與程序間的進一步整合，既作為終端使用者的前端（ASF-ui）， 也做為第三方整合的後端（ASF API）。
 
-IPC可以用來做很多不同的事情，這取決於您的需求與能力。 舉例來說，您可以使用它來提取ASF與所有Bot的狀態、傳送ASF指令、提取或編輯全域／特定Bot設定、新增新的Bot、刪除現存的Bot、提交&#8203;**[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**&#8203;序號，或存取ASF的紀錄檔。 所有這些操作都由我們的API公開，這代表您可以編寫自己的工具及腳本與ASF通訊，並在執行期間產生影響。 除此之外，我們的ASF-ui也實現了特定的操作（例如傳送指令），使您可以透過友善的Web界面輕鬆使用它們。
+IPC可以用來做很多不同的事情，這取決於您的需求與能力。 舉例來說，您可以使用它來提取ASF與所有Bot的狀態、傳送ASF指令、提取或編輯全域／特定Bot設定、新增新的Bot、刪除現存的Bot、提交&#8203;**[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**&#8203;序號，或存取ASF的紀錄檔。 所有這些操作都由我們的API公開，這代表您可以編寫自己的工具及腳本與ASF通訊，並在執行期間產生影響。 除此之外，我們的ASF-ui也實現了特定的操作（例如傳送指令），使您可以透過友善的Web介面輕鬆使用它們。
 
 ---
 
