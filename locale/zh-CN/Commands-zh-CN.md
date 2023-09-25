@@ -147,7 +147,7 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 
 首先，您可以使用特殊的关键字 `ASF` 来表示“所有机器人”，所以 `status ASF` 命令与列出所有机器人的命令 `status all,your,bots,listed,here` 是相同的。 这也可以方便地识别您有权操作哪些机器人，因为尽管 `ASF` 关键字的目标是所有机器人，但只有您能够实际发送命令的机器人才会作出响应。
 
-`[Bots]` 参数支持范围语法，您可以很容易地选择一定范围的机器人。 这种情况下，`[Bots]` 的一般语法为 `<FirstBot>..<LastBot>`。 例如，假设您有机器人 `A, B, C, D, E, F`，如果您执行 `status B..E`，效果与执行 `status B,C,D,E` 是相同的。 在使用此语法时，ASF 将会以字母顺序为机器人排序，以决定哪些机器人在指定范围内。 `FirstBot` 和 `LastBot` 必须是 ASF 能够识别的有效机器人名称，否则范围语法将不会生效。
+`[Bots]` 参数支持范围语法，您可以很容易地选择一定范围的机器人。 这种情况下，`[Bots]` 的一般语法为 `[FirstBot]..[LastBot]`。 必须至少定义一个参数。 当使用 `<FirstBot>..` 时，自 `FirstBot` 起的所有机器人都会受影响。 当使用 `..<LastBot>` 时，到 `LastBot` 为止的所有机器人都会受影响。 当使用 `<FirstBot>..<LastBot>` 时，在范围从 `FirstBot` 到 `LastBot` 之内的所有机器人都会受影响。 例如，假设您有机器人 `A, B, C, D, E, F`，如果您执行 `status B..E`，效果与执行 `status B,C,D,E` 是相同的。 在使用此语法时，ASF 将会以字母顺序为机器人排序，以决定哪些机器人在指定范围内。 参数必须是 ASF 能够识别的有效机器人名称，否则范围语法将不会生效。
 
 除了上述的范围语法，`[Bots]` 参数还支持[**正则表达式**](https://en.wikipedia.org/wiki/Regular_expression)匹配。 您可以使用 `r!<Pattern>` 作为机器人名称，其中 `r!` 告诉 ASF 使用正则表达式匹配，而 `<Pattern>` 则是正则表达式。 一个使用正则表达式的例子为 `status r!^\d{3}` 命令，它会向所有名称为 3 个数字的机器人（例如 `123` 和 `981`）发送 `status` 命令。 您可以阅读这份[**文档**](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference)，进一步了解正则表达式的解释和示例。
 
