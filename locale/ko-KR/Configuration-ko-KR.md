@@ -367,6 +367,7 @@ In general, lowering `WebLimiterDelay` under default value is **strongly discour
     "CustomGamePlayedWhileFarming": null,
     "CustomGamePlayedWhileIdle": null,
     "Enabled": false,
+    "EnableRiskyCardsDiscovery": false,
     "FarmingOrders": [],
     "FarmPriorityQueueOnly": false,
     "GamesPlayedWhileIdle": [],
@@ -492,9 +493,19 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 ---
 
+### `EnableRiskyCardsDiscovery`
+
+`bool` 타입으로 기본값은 `false`입니다. This property enables additional fallback which triggers when ASF is unable to load one or more of badge pages and is therefore unable to find games available for farming. In particular, some accounts with massive amount of card drops might cause a situation where loading badge pages is no longer possible (due to overhead), and those accounts are impossible for farming purely because we can't load the information based on which we can start the process. For those handful cases, this option allows alternative algorithm to be used in such situation, which uses a combination of boosters possible to craft and booster packs the account is eligible for, in order to find potentially available games to idle, then spends excessive amount of resources for verifying and fetching required information, and attempts to start the process of farming on limited amount of data and information in order to eventually reach a situation when badge page loads and we'll be able to use normal approach. Please note that when this fallback is used, ASF operates only with limited data, therefore it's completely normal for ASF to find much less drops than in reality - other drops will be found at later stage of farming process.
+
+This option is called "risky" for a very good reason - it's extremely slow and requires significant amount of resources (including network requests) for operation, therefore it's **not recommended** to be enabled, and especially in long-term. You should use this option only if you previously determined that your account suffers from being unable to load badge pages and ASF can't operate on it, always failing to load necessary information to start the process. Even if we made our best to optimize the process as much as possible, it's still possible for this option to backfire, and it might cause unwanted outcomes, such as temporary and maybe even permanent bans from Steam side for sending too many requests and otherwise causing overhead on Steam servers. Therefore, we warn you in advance and we're offering this option with absolutely no guarantees, you're using it at your own risk.
+
+Unless you know what you're doing, you should keep it with default value of `false`.
+
+---
+
 ### `FarmingOrders`
 
-`ImmutableList<byte>` type with default value of being empty. 이 속성값은 해당 봇 계정에서 ASF가 사용할 **선호하는** 농사 순서를 정의합니다. 현재 가능한 농사 순서는 다음과 같습니다.
+`ImmutableList<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. 현재 가능한 농사 순서는 다음과 같습니다.
 
 | 값  | 이름                                       | 설명                               |
 | -- | ---------------------------------------- | -------------------------------- |
@@ -517,7 +528,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 이 속성값은 배열이므로 고정된 순서를 여러 다른 설정을 사용할 수 있게 해 줍니다. 예를 들어 카드 판매가능한 게임을 먼저, 배지 레벨이 높은 게임을 그 다음에, 마지막으로 알파벳순으로 정렬하려고 `15`, `11`, 그리고 `7` 값을 포함할 수 있습니다. As you can guess, the order actually matters, as reverse one (`7`, `11` and `15`) achieves something entirely different (sorts games alphabetically first, and due to game names being unique, the other two are effectively useless). 대부분의 사람들은 한 가지 순서만 사용하지만, 만약 원한다면 추가 매개 변수로 더 깊이있게 정렬할 수 있습니다.
 
-위의 설명에 있는 "시도"라는 단어에 유의하십시오. 실제 ASF의 순서는 선택한 **[카드 농사 알고리즘](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR)**에 심하게 영향을 받고 정렬방식은 동일한 성능측면을 고려한 경우에만 영향을 줍니다. For example, in `Simple` algorithm, selected `FarmingOrders` should be entirely respected in current farming session (as every game has the same performance value), while in `Complex` algorithm actual order is affected by hours first, and then sorted according to chosen `FarmingOrders`. This will lead to different results, as games with existing playtime will have a priority over others, so effectively ASF will prefer games that already passed required `HoursUntilCardDrops` firstly, and only then sorting those games further by your chosen `FarmingOrders`. Likewise, once ASF runs out of already-bumped games, it'll sort remaining queue by hours first (as that will decrease time required for bumping any of remaining titles to `HoursUntilCardDrops`). Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer farming performance over `FarmingOrders`).
+Also notice the word "try" in all above descriptions - the actual ASF order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. For example, in `Simple` algorithm, selected `FarmingOrders` should be entirely respected in current farming session (as every game has the same performance value), while in `Complex` algorithm actual order is affected by hours first, and then sorted according to chosen `FarmingOrders`. This will lead to different results, as games with existing playtime will have a priority over others, so effectively ASF will prefer games that already passed required `HoursUntilCardDrops` firstly, and only then sorting those games further by your chosen `FarmingOrders`. Likewise, once ASF runs out of already-bumped games, it'll sort remaining queue by hours first (as that will decrease time required for bumping any of remaining titles to `HoursUntilCardDrops`). Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer farming performance over `FarmingOrders`).
 
 There is also farming priority queue that is accessible through `fq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If it's used, actual farming order is sorted firstly by performance, then by farming queue, and finally by your `FarmingOrders`.
 
@@ -537,7 +548,7 @@ There is also farming priority queue that is accessible through `fq` **[commands
 
 ### `HoursUntilCardDrops`
 
-`byte` 타입으로 기본값은 `3`입니다. 이 속성값은 이 계정에 카드 획득 제한이 있는지를 정의하고, 만약 제한이 있다면 최초 몇시간인지를 정의합니다. 카드 획득 제한이란, 그 계정에서 한 게임을 적어도 `HoursUntilCardDrops` 시간 동안 플레이하지 않으면 그 게임의 카드가 나오지 않는다는 의미입니다. 아쉽게도 이를 알아낼 수 있는 마법은 없으므로 ASF는 당신에게 의존합니다. 이 속성값은 사용할 **[카드 농사 알고리즘](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-ko-KR)** 에 영향을 줍니다. 이 속성값을 설정하면 이득을 극대화하고 카드농사에 필요한 시간을 최소화합니다. 어떤 값을 사용할지에 대한 명확한 정답은 없고, 오로지 자신의 계정에 달려있음을 기억하십시오. 환불을 한번도 하지 않은 오래된 계정은 제한이 없는 것으로 보이므로 `0` 값을 사용하여야 하고, 새로운 계정과 환불을 받았던 계정은 획득 제한이 있으므로 `3` 값을 사용합니다. 하지만 이것은 단지 이론일 뿐이고 규칙으로 받아들여서는 안됩니다. 이 속성값의 기본값은 "소악(lesser evil)"과 대부분의 사용례에 근거해 설정되었습니다.
+`byte` 타입으로 기본값은 `3`입니다. 이 속성값은 이 계정에 카드 획득 제한이 있는지를 정의하고, 만약 제한이 있다면 최초 몇시간인지를 정의합니다. 카드 획득 제한이란, 그 계정에서 한 게임을 적어도 `HoursUntilCardDrops` 시간 동안 플레이하지 않으면 그 게임의 카드가 나오지 않는다는 의미입니다. 아쉽게도 이를 알아낼 수 있는 마법은 없으므로 ASF는 당신에게 의존합니다. This property affects **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** that will be used. 이 속성값을 설정하면 이득을 극대화하고 카드농사에 필요한 시간을 최소화합니다. 어떤 값을 사용할지에 대한 명확한 정답은 없고, 오로지 자신의 계정에 달려있음을 기억하십시오. 환불을 한번도 하지 않은 오래된 계정은 제한이 없는 것으로 보이므로 `0` 값을 사용하여야 하고, 새로운 계정과 환불을 받았던 계정은 획득 제한이 있으므로 `3` 값을 사용합니다. 하지만 이것은 단지 이론일 뿐이고 규칙으로 받아들여서는 안됩니다. 이 속성값의 기본값은 "소악(lesser evil)"과 대부분의 사용례에 근거해 설정되었습니다.
 
 ---
 
@@ -795,7 +806,7 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 
 ### `TradeCheckPeriod`
 
-`byte` type with default value of `60`. Normally ASF handles incoming trade offers right after receiving notification about one, but sometimes because of Steam glitches it can't do it at that time, and such trade offers remain ignored until next trade notification or bot restart occurs, which may lead to trades being cancelled or items not available at that later time. If this parameter is set to a non-zero value, ASF will additionally check for such outstanding trades every `TradeCheckPeriod` minutes. Default value is selected with balance between additional requests to steam servers and losing incoming trades in mind. However, if you are just using ASF to farm cards, and don't plan to automatically process any incoming trades, you may set it to `0` to disable this feature completely. On the other hand, if your bot participates in public [ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting) or provides other automated services as a trade bot, you may want to decrease this parameter to `15` minutes or so, to process all trades in a timely manner.
+`byte` 타입으로 기본값은 `60`입니다. Normally ASF handles incoming trade offers right after receiving notification about one, but sometimes because of Steam glitches it can't do it at that time, and such trade offers remain ignored until next trade notification or bot restart occurs, which may lead to trades being cancelled or items not available at that later time. If this parameter is set to a non-zero value, ASF will additionally check for such outstanding trades every `TradeCheckPeriod` minutes. Default value is selected with balance between additional requests to steam servers and losing incoming trades in mind. However, if you are just using ASF to farm cards, and don't plan to automatically process any incoming trades, you may set it to `0` to disable this feature completely. On the other hand, if your bot participates in public [ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting) or provides other automated services as a trade bot, you may want to decrease this parameter to `15` minutes or so, to process all trades in a timely manner.
 
 ---
 
@@ -812,9 +823,9 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 | 8  | 봇거래수락안함(DontAcceptBotTrades) | 다른 봇의 `loot` 거래를 자동으로 수락하지 않습니다.                                                                                                                                                                      |
 | 16 | 능동적 매칭(MatchActively)        | **[STM](https://www.steamtradematcher.com)** 과 같은 거래에 능동적으로 참여합니다. Visit **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** for more info |
 
-이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
-For further explanation of ASF trading logic, and description of every available flag, please visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section.
+ASF의 거래 논리, 가능한 모든 플래그의 설명 등에 대한 자세한 내용은 **[거래](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-ko-KR)** 항목에서 확인할 수 있습니다.
 
 ---
 

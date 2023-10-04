@@ -367,6 +367,7 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
     "CustomGamePlayedWhileFarming": null,
     "CustomGamePlayedWhileIdle": null,
     "Enabled": false,
+    "EnableRiskyCardsDiscovery": false,
     "FarmingOrders": [],
     "FarmPriorityQueueOnly": false,
     "GamesPlayedWhileIdle": [],
@@ -492,9 +493,19 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 ---
 
+### `EnableRiskyCardsDiscovery`
+
+預設值為 `false` 的 `bool` 類型。 This property enables additional fallback which triggers when ASF is unable to load one or more of badge pages and is therefore unable to find games available for farming. In particular, some accounts with massive amount of card drops might cause a situation where loading badge pages is no longer possible (due to overhead), and those accounts are impossible for farming purely because we can't load the information based on which we can start the process. For those handful cases, this option allows alternative algorithm to be used in such situation, which uses a combination of boosters possible to craft and booster packs the account is eligible for, in order to find potentially available games to idle, then spends excessive amount of resources for verifying and fetching required information, and attempts to start the process of farming on limited amount of data and information in order to eventually reach a situation when badge page loads and we'll be able to use normal approach. Please note that when this fallback is used, ASF operates only with limited data, therefore it's completely normal for ASF to find much less drops than in reality - other drops will be found at later stage of farming process.
+
+This option is called "risky" for a very good reason - it's extremely slow and requires significant amount of resources (including network requests) for operation, therefore it's **not recommended** to be enabled, and especially in long-term. You should use this option only if you previously determined that your account suffers from being unable to load badge pages and ASF can't operate on it, always failing to load necessary information to start the process. Even if we made our best to optimize the process as much as possible, it's still possible for this option to backfire, and it might cause unwanted outcomes, such as temporary and maybe even permanent bans from Steam side for sending too many requests and otherwise causing overhead on Steam servers. Therefore, we warn you in advance and we're offering this option with absolutely no guarantees, you're using it at your own risk.
+
+Unless you know what you're doing, you should keep it with default value of `false`.
+
+---
+
 ### `FarmingOrders`
 
-`ImmutableList<byte>` type with default value of being empty. 此屬性定義ASF用於給定機械人帳戶的**首選**掛卡順序。 當前可選的掛卡佇列如下：
+`ImmutableList<byte>` type with default value of being empty. This property defines the **preferred** farming order used by ASF for given bot account. 當前可選的掛卡佇列如下：
 
 | 值  | 名稱                        | 描述                       |
 | -- | ------------------------- | ------------------------ |
@@ -517,7 +528,7 @@ ASF provides a few special variables that you can optionally use in your text. `
 
 由於此屬性是一個數組，因此它允許您按固定順序使用多個不同的設置。 例如，您可以設置` 15 `，` 11 `和` 7 `的值，以便先按會掉落可交易卡的遊戲進行排序，然後按徽章級別最高的遊戲進行排序 ，最後按遊戲名稱字母順序排列。 As you can guess, the order actually matters, as reverse one (`7`, `11` and `15`) achieves something entirely different (sorts games alphabetically first, and due to game names being unique, the other two are effectively useless). 大多數人可能只使用其中一個順序，但如果您願意，您還可以通過額外的參數進一步排序。
 
-另請注意以上所有描述中的“嘗試”一詞——實際的ASF順序受所選** [掛卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**的影響，並且排序將僅影響ASF認為性能相同的結果。 例如，在` Simple `算法中，在當前的掛卡會話中應該完全遵循所選的` FarmingOrders `（因為每個遊戲具有相同的性能值），而在` Complex `算法中，實際順序首先受遊戲時間影響，然後根據所選` FarmingOrders `進行排序。 這將導致不同的結果，因為具有遊戲時間的遊戲將優先於其他遊戲，因此ASF將首先優先選擇遊戲時間滿足所需的` HoursUntilCardDrops `的遊戲，然後僅通過您選擇的 `FarmingOrders`進一步對這些遊戲進行排序。 同樣，一旦ASF完成對置頂遊戲的掛卡，它將首先按遊戲時間對剩餘隊列排序（因為這將減少將任何剩餘遊戲掛卡以達` HoursUntilCardDrops `所需的時間）。 Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer farming performance over `FarmingOrders`).
+Also notice the word "try" in all above descriptions - the actual ASF order is heavily affected by selected **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** and sorting will affect only results that ASF considers same performance-wise. 例如，在` Simple `算法中，在當前的掛卡會話中應該完全遵循所選的` FarmingOrders `（因為每個遊戲具有相同的性能值），而在` Complex `算法中，實際順序首先受遊戲時間影響，然後根據所選` FarmingOrders `進行排序。 這將導致不同的結果，因為具有遊戲時間的遊戲將優先於其他遊戲，因此ASF將首先優先選擇遊戲時間滿足所需的` HoursUntilCardDrops `的遊戲，然後僅通過您選擇的 `FarmingOrders`進一步對這些遊戲進行排序。 同樣，一旦ASF完成對置頂遊戲的掛卡，它將首先按遊戲時間對剩餘隊列排序（因為這將減少將任何剩餘遊戲掛卡以達` HoursUntilCardDrops `所需的時間）。 Therefore, this config property is only a **suggestion** that ASF will try to respect, as long as it doesn't affect performance negatively (in this case, ASF will always prefer farming performance over `FarmingOrders`).
 
 There is also farming priority queue that is accessible through `fq` **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. If it's used, actual farming order is sorted firstly by performance, then by farming queue, and finally by your `FarmingOrders`.
 
@@ -537,7 +548,7 @@ There is also farming priority queue that is accessible through `fq` **[commands
 
 ### `HoursUntilCardDrops`
 
-這是一個預設值為`3`的`byte`類型屬性。 此屬性定義帳戶是否有卡片掉落限制，若有，則定義初始小時數。 受限制的卡掉落意味著帳戶在給定的遊戲玩了至少 `hoursuntilcards`小時前不會獲得任何掉落的卡片。 不幸的是，沒有神奇的方法來檢測它，所以ASF依賴於你。 此屬性影響將使用的**[掛卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**。 正確設置此屬性將最大限度地提高效率，並最大限度地減少掛卡所需的時間。 請記住，您是否應該使用何值，這沒有明顯的答案，因為它完全取決於您的帳戶。 從來沒有要求退款的老用戶似乎在卡片掉落上不受限制，所以他們應該使用` 0 `的值，而新帳戶和那些要求退款的人在卡片掉落上有`3`小時的限制。 然而，這只是理論，不應作為一條定理。 此屬性的默認值是基於“兩害相權取其輕”和大多數用例設置的。
+這是一個預設值為`3`的`byte`類型屬性。 此屬性定義帳戶是否有卡片掉落限制，若有，則定義初始小時數。 受限制的卡掉落意味著帳戶在給定的遊戲玩了至少 `hoursuntilcards`小時前不會獲得任何掉落的卡片。 不幸的是，沒有神奇的方法來檢測它，所以ASF依賴於你。 This property affects **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** that will be used. 正確設置此屬性將最大限度地提高效率，並最大限度地減少掛卡所需的時間。 請記住，您是否應該使用何值，這沒有明顯的答案，因為它完全取決於您的帳戶。 從來沒有要求退款的老用戶似乎在卡片掉落上不受限制，所以他們應該使用` 0 `的值，而新帳戶和那些要求退款的人在卡片掉落上有`3`小時的限制。 然而，這只是理論，不應作為一條定理。 此屬性的默認值是基於“兩害相權取其輕”和大多數用例設置的。
 
 ---
 
@@ -795,7 +806,7 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 
 ### `TradeCheckPeriod`
 
-`byte` type with default value of `60`. Normally ASF handles incoming trade offers right after receiving notification about one, but sometimes because of Steam glitches it can't do it at that time, and such trade offers remain ignored until next trade notification or bot restart occurs, which may lead to trades being cancelled or items not available at that later time. If this parameter is set to a non-zero value, ASF will additionally check for such outstanding trades every `TradeCheckPeriod` minutes. Default value is selected with balance between additional requests to steam servers and losing incoming trades in mind. However, if you are just using ASF to farm cards, and don't plan to automatically process any incoming trades, you may set it to `0` to disable this feature completely. On the other hand, if your bot participates in public [ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting) or provides other automated services as a trade bot, you may want to decrease this parameter to `15` minutes or so, to process all trades in a timely manner.
+這是一個預設值為`60`的`byte`類型屬性。 Normally ASF handles incoming trade offers right after receiving notification about one, but sometimes because of Steam glitches it can't do it at that time, and such trade offers remain ignored until next trade notification or bot restart occurs, which may lead to trades being cancelled or items not available at that later time. If this parameter is set to a non-zero value, ASF will additionally check for such outstanding trades every `TradeCheckPeriod` minutes. Default value is selected with balance between additional requests to steam servers and losing incoming trades in mind. However, if you are just using ASF to farm cards, and don't plan to automatically process any incoming trades, you may set it to `0` to disable this feature completely. On the other hand, if your bot participates in public [ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting) or provides other automated services as a trade bot, you may want to decrease this parameter to `15` minutes or so, to process all trades in a timely manner.
 
 ---
 
@@ -812,9 +823,9 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 | 8  | DontAcceptBotTrades | 不自動接受來自其他機械人實例的 `loot` 交易                                                                                                                                                               |
 | 16 | MatchActively       | 主動參與 **[STM](https://www.steamtradematcher.com)**交易。 Visit **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** for more info |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. 不啟用任何標誌會導致` None `選項。
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項。
 
-For further explanation of ASF trading logic, and description of every available flag, please visit **[trading](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)** section.
+有關ASF交易邏輯的進一步說明以及每個可用標誌的說明，請訪問** [交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading) **部分。
 
 ---
 

@@ -367,6 +367,7 @@ La configuración del bot tiene la siguiente estructura:
     "CustomGamePlayedWhileFarming": null,
     "CustomGamePlayedWhileIdle": null,
     "Enabled": false,
+    "EnableRiskyCardsDiscovery": false,
     "FarmingOrders": [],
     "FarmPriorityQueueOnly": false,
     "GamesPlayedWhileIdle": [],
@@ -489,6 +490,16 @@ Tipo `string` con valor predeterminado de `null`. Similar a `CustomGamePlayedWhi
 ### `Enabled`
 
 Tipo `bool` con valor predeterminado de `false`. Esta propiedad define si un bot está habilitado. Una instancia de bot habilitada (`true`) iniciará automáticamente al ejecutar ASF, mientras que una instancia de bot deshabilitada (`false`) tendrá que iniciarse manualmente. Por defecto todos los bots están deshabilitados, así que probablemente quieras cambiar esta propiedad a `true` para todos los bots que deban iniciarse automáticamente.
+
+---
+
+### `EnableRiskyCardsDiscovery`
+
+Tipo `bool` con valor predeterminado de `false`. This property enables additional fallback which triggers when ASF is unable to load one or more of badge pages and is therefore unable to find games available for farming. In particular, some accounts with massive amount of card drops might cause a situation where loading badge pages is no longer possible (due to overhead), and those accounts are impossible for farming purely because we can't load the information based on which we can start the process. For those handful cases, this option allows alternative algorithm to be used in such situation, which uses a combination of boosters possible to craft and booster packs the account is eligible for, in order to find potentially available games to idle, then spends excessive amount of resources for verifying and fetching required information, and attempts to start the process of farming on limited amount of data and information in order to eventually reach a situation when badge page loads and we'll be able to use normal approach. Please note that when this fallback is used, ASF operates only with limited data, therefore it's completely normal for ASF to find much less drops than in reality - other drops will be found at later stage of farming process.
+
+This option is called "risky" for a very good reason - it's extremely slow and requires significant amount of resources (including network requests) for operation, therefore it's **not recommended** to be enabled, and especially in long-term. You should use this option only if you previously determined that your account suffers from being unable to load badge pages and ASF can't operate on it, always failing to load necessary information to start the process. Even if we made our best to optimize the process as much as possible, it's still possible for this option to backfire, and it might cause unwanted outcomes, such as temporary and maybe even permanent bans from Steam side for sending too many requests and otherwise causing overhead on Steam servers. Therefore, we warn you in advance and we're offering this option with absolutely no guarantees, you're using it at your own risk.
+
+Unless you know what you're doing, you should keep it with default value of `false`.
 
 ---
 
@@ -615,7 +626,7 @@ Tipo `ushort flags` con valor predeterminado de `0`. Esta propiedad funciona com
 | 1024  | ClientTypeTenfoot | El cliente está usando Big Picture                  |
 | 2048  | ClientTypeVR      | El cliente está usando un casco de realidad virtual |
 
-Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 El tipo `EPersonaStateFlag` subyacente en el que se basa esta propiedad incluye más banderas disponibles, sin embargo, hasta donde sabemos no tienen ningún efecto actualmente, por lo que fueron omitidas.
 
@@ -638,7 +649,7 @@ Tipo `byte` con valor predeterminado de `1`. Esta propiedad especifica el estatu
 | 6     | LookingToPlay  |
 | 7     | Invisible      |
 
-El estatus `Offline` es extremadamente útil para cuentas principales. Como debes saber, recolectar un juego muestra tu estatus de Steam como "Jugando XXX", lo cual puede ser engañoso para tus amigos, haciéndoles creer que estás jugando un juego cuando en realidad solo lo estás recolectando. Usar el estado `Offline` soluciona ese problema - tu cuenta nunca se mostrará como "Jugando" cuando estés recolectando cromos con ASF. Esto es posible gracias al hecho de que ASF no tiene que iniciar sesión en la Comunidad de Steam para funcionar correctamente, así que estamos de hecho jugando esos juegos, conectados a la red de Steam, pero sin anunciar nuestra presencia en línea. Ten en cuenta que los juegos jugados usando el estatus desconectado seguirán contando para tu tiempo de juego, y mostrados en "Actividad reciente" en tu perfil.
+El estatus `Offline` es extremadamente útil para cuentas principales. Como debes saber, recolectar un juego muestra tu estatus de Steam como "Jugando XXX", lo cual puede ser engañoso para tus amigos, haciéndoles creer que estás jugando un juego cuando en realidad solo lo estás recolectando. Usar el estado `Desconectado` soluciona ese problema - tu cuenta nunca se mostrará como "Jugando" cuando estés recolectando cromos con ASF. Esto es posible gracias al hecho de que ASF no tiene que iniciar sesión en la Comunidad de Steam para funcionar correctamente, así que estamos de hecho jugando esos juegos, conectados a la red de Steam, pero sin anunciar nuestra presencia en línea. Ten en cuenta que los juegos jugados usando el estatus desconectado seguirán contando para tu tiempo de juego, y mostrados en "Actividad reciente" en tu perfil.
 
 Además, esta característica también es importante si quieres recibir notificaciones y mensajes no leídos cuando ASF se esté ejecutando, sin mantener abierto el cliente de Steam al mismo tiempo. Esto se debe a que ASF actúa como un cliente de Steam en sí, y ya sea que ASF quiera o no, Steam le envía todos esos mensajes y otros eventos. Esto no es problema si tienes ASF y el cliente de Steam ejecutándose al mismo tiempo, ya que ambos clientes reciben exactamente los mismos eventos. Sin embargo, si solo se está ejecutando ASF, la red de Steam podría marcar ciertos eventos y mensajes como "entregados", a pesar de que el cliente tradicional de Steam no los reciba debido a que no está abierto. El estatus desconectado también soluciona este problema, ya que ASF nunca es considerado en este caso para ningún evento de la comunidad, así que todos los mensajes no leídos y otros eventos serán marcados apropiadamente como no leídos para cuando regreses.
 
@@ -674,7 +685,7 @@ Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comp
 | 4     | KeepMissingGames                   | Conserva las claves de juegos (potencialmente) no poseídos, dejándolas sin usar                                                                                  |
 | 8     | AssumeWalletKeyOnBadActivationCode | Asume que las claves con el estatus `BadActivationCode` equivalen a `CannotRedeemCodeFromClient`, y por lo tanto intenta activarlas como un código de la cartera |
 
-Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Por favor, ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 `Forwarding` causará que el bot reenvíe una clave que no es posible activar, a otro bot conectado que no tenga ese juego en particular (si es posible comprobarlo). La situación más común es reenviar un juego ya poseído, lo que se indica con el estatus `AlreadyPurchased`, a otro bot al que le falte ese juego en particular, pero esta opción también cubre otros escenarios, tal como `DoesNotOwnRequiredApp` (no poseer el juego base), `RateLimited` (límite de intentos excedido) o `RestrictedCountry` (restricción regional).
 
@@ -842,7 +853,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5`. Esta propie
 | 15    | KeyboardSkin          | Apariencia del teclado para Steam Deck                                              |
 | 16    | StartupVideo          | Video de inicio para Steam Deck                                                     |
 
-Ten en cuenta que independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
+Ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
 
 La configuración por defecto de ASF está basada en el uso más común de un bot, solo transfiriendo packs de refuerzo y cromos (incluyendo los reflectantes). Esta propiedad te permite alterar ese comportamiento de cualquier modo que gustes. Ten en cuenta que todos los tipos no definidos arriba se mostrarán como tipo `Unknown`, lo que es especialmente importante cuando Valve lanza un nuevo artículo de Steam, el cual también será marcado por ASF como `Unknown`, hasta que sea añadido aquí (en futuras versiones). Es por eso que en general no se recomienda incluir el tipo `Unknown` en `TransferableTypes`, a menos que sepas lo que haces, y entiendes que ASF enviará todo tu inventario en una oferta de intercambio si la red de Steam se desconfigura de nuevo y marca todos tus artículos como `Unknown`. Mi recomendación es no incluir el tipo `Unknown` en `TransferableTypes`, incluso si esperas transferir todo.
 
