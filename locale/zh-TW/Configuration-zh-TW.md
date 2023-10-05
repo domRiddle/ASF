@@ -542,7 +542,7 @@ Unless you know what you're doing, you should keep it with default value of `fal
 
 ### `GamesPlayedWhileIdle（閒置時掛卡的遊戲）`
 
-<`ImmutableHashSet<uint>`&#8203;型別，預設值為空。 若ASF沒有遊戲可供掛卡，它可以遊玩您所指定的Steam遊戲（&#8203;`appIDs`&#8203;）。 以這種方式遊玩遊戲會增加您的「遊玩時數」，除此之外，別無他用。 若要使此功能正常運作，您的Steam帳號&#8203;**必須**&#8203;擁有您指定的所有&#8203;`AppIDs`&#8203;的有效許可，包含免費遊戲。 本功能可以與&#8203;`CustomGamePlayedWhileIdle`&#8203;同時啟用，能在遊玩您所指定的遊戲的同時在Steam網路中顯示自訂狀態。但在這種情形下，如同&#8203;`CustomGamePlayedWhileFarming`&#8203;一樣，我們無法保證實際的顯示順序。 請注意，Steam只允許ASF最多同時遊玩&#8203;`32`&#8203;個&#8203;`appIDs`&#8203;，因此您也只能在本屬性中設定最多這個數量的遊戲。
+<`ImmutableHashSet<uint>`&#8203;型別，預設值為空。 若ASF沒有遊戲可供掛卡，它可以遊玩您所指定的Steam遊戲（&#8203;`appIDs`&#8203;）。 以這種方式遊玩遊戲會增加您的「遊玩時數」，除此之外，別無他用。 若要使此功能正常運作，您的Steam帳號&#8203;**必須**&#8203;擁有您指定的所有&#8203;`AppIDs`&#8203;的有效授權，包含免費遊戲。 本功能可以與&#8203;`CustomGamePlayedWhileIdle`&#8203;同時啟用，能在遊玩您所指定的遊戲的同時在Steam網路中顯示自訂狀態。但在這種情形下，如同&#8203;`CustomGamePlayedWhileFarming`&#8203;一樣，我們無法保證實際的顯示順序。 請注意，Steam只允許ASF最多同時遊玩&#8203;`32`&#8203;個&#8203;`appIDs`&#8203;，因此您也只能在本屬性中設定最多這個數量的遊戲。
 
 ---
 
