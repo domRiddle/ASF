@@ -1,29 +1,29 @@
-# İki faktörlü kimlik doğrulama
+# İki adımlı kimlik doğrulama
 
-Steam, hesapla ilgili çeşitli işlemleri gerçekleştirirken ek onay gerektiren "Escrow" adı verilen iki faktörlü kimlik doğrulama doğrulama sistemini destekler. **[Buradan](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)** ve **[buradan](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)** daha fazlasını okuyabilirsiniz. Bu sayfa esas olarak iki adımlı doğrulama sisteminin kendisini ve bu sistem için entegrasyon çözümümüzü, yani ASF iki adımlı doğrulamayı (ASF 2FA) tanıtmaktadır.
+Steam, hesapla ilgili çeşitli işlemleri gerçekleştirirken ek onay gerektiren "Escrow" adı verilen iki faktörlü kimlik doğrulama doğrulama sistemini destekler. **[Buradan](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)** ve **[buradan](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)** daha fazlasını okuyabilirsiniz. Bu sayfa esas olarak iki adımlı doğrulama sisteminin kendisini ve bu sistem için entegrasyon çözümümüzü, yani ASF iki adımlı doğrulamayı (ASF 2AD) tanıtmaktadır.
 
 ---
 
 # ASF Mantığı
 
-ASF iki adımlı doğrulamayı kullanıp kullanmadığınızdan bağımsız olarak, ASF doğru mantığı içerir ve standart iki adımlı doğrulayıcılarla korunan hesapların nasıl ele alınacağını tam olarak anlar. Gerektiğinde sizden gerekli ayrıntıları isteyecektir (örneğin, giriş yaparken). Bununla birlikte, bu istekler, otomatik olarak gerekli belirteçleri oluşturacak, sizi zahmetten kurtaracak ve ekstra işlevsellik sağlayacak (aşağıda açıklanmıştır) ASF 2FA kullanılarak otomatikleştirilebilir.
+ASF iki adımlı doğrulamayı kullanıp kullanmadığınızdan bağımsız olarak, ASF doğru mantığı içerir ve standart iki adımlı doğrulayıcılarla korunan hesapların nasıl ele alınacağını tam olarak anlar. Gerektiğinde sizden gerekli ayrıntıları isteyecektir (örneğin, giriş yaparken). Bununla birlikte, bu istekler, otomatik olarak gerekli belirteçleri oluşturacak, sizi zahmetten kurtaracak ve ekstra işlevsellik sağlayacak (aşağıda açıklanmıştır) ASF 2AD kullanılarak otomatikleştirilebilir.
 
 ---
 
-# ASF 2FA
+# ASF 2AD
 
-ASF 2FA, ASF sürecine 2FA işlevleri sağlamaktan sorumlu yerleşik bir modüldür, örneğin onayların oluşturulması ve onayların kabulü. Mevcut kimlik doğrulayıcı bilgilerinizi çoğaltarak çalışır, böylece mevcut kimlik doğrulayıcınızı ve ASF 2fa'yı aynı anda kullanabilirsiniz.
+ASF 2AD, ASF sürecine 2AD işlevleri sağlamaktan sorumlu yerleşik bir modüldür, örneğin onayların oluşturulması ve onayların kabulü. Mevcut kimlik doğrulayıcı bilgilerinizi çoğaltarak çalışır, böylece mevcut kimlik doğrulayıcınızı ve ASF 2AD'yi aynı anda kullanabilirsiniz.
 
-Bot hesabınızın ASF 2AD'yi zaten kullandığını `2ad` **[komutlarını](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** yürüterek doğrulayabilirsiniz. Doğrulayıcıyı ASF 2FA olarak içe aktarmadığınız sürece, tüm standart ` 2fa ` komutları geçersizdir; bu, hesabınızda ASF 2fa'nın etkin olmadığı anlamına gelir, bu nedenle bu modülü gerektiren bazı gelişmiş ASF özellikleri çalışmayacaktır.
+Bot hesabınızın ASF 2AD'yi zaten kullandığını `2ad` **[komutlarını](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** yürüterek doğrulayabilirsiniz. Doğrulayıcıyı ASF 2AD olarak içe aktarmadığınız sürece, tüm standart ` 2fa ` komutları geçersizdir; bu, hesabınızda ASF 2AD'nin etkin olmadığı anlamına gelir, bu nedenle bu modülü gerektiren bazı gelişmiş ASF özellikleri çalışmayacaktır.
 
 ---
 
 # Öneriler
 
-ASF 2fa'yı çalışır hale getirmenin birçok yolu vardır, burada mevcut durumunuza göre önerilerimizi ekliyoruz:
+ASF 2AD'yi çalışır hale getirmenin birçok yolu vardır, burada mevcut durumunuza göre önerilerimizi ekliyoruz:
 
-- Zaten SteamDesktopAuthenticator, WinAuth veya 2FA ayrıntılarını kolaylıkla çıkarmanıza olanak tanıyan başka bir üçüncü taraf uygulaması kullanıyorsanız, bunları asf'ye **[içe aktarın](#import) **.
-- Resmi uygulamayı kullanıyorsanız ve 2FA kimlik bilgilerinizi sıfırlamayı düşünmüyorsanız, en iyi yol 2fa'yı devre dışı bırakmak ve ardından resmi uygulamayı ve ASF 2fa'yı kullanmanıza izin verecek **[joint authenticator](#joint-authenticator)** kullanarak yeni 2FA kimlik bilgileri **[oluşturmaktır](#creation)**. Bu yöntem kök veya ileri bilgi gerektirmez, sadece talimatları izleyin.
+- SteamDesktopAuthenticator, WinAuth veya 2AD bilgilerinizi kolaylıkla almanızı sağlayan başka bir üçüncü parti uygulama kullanıyorsanız, bunları ASF'nin **[içine aktarmanız](#import)** yeterlidir.
+- Resmi uygulamayı kullanıyorsanız ve 2AD kimlik bilgilerinizi sıfırlamaktan çekinmiyorsanız, en iyi yol 2AD'yi devre dışı bırakmak ve ardından **[ortak kimlik doğrulayıcı](#joint-authenticator)** kullanarak 2AD'yi yeniden **[oluşturmaktır.](#creation)** Böylece hem resmi uygulamayı ASF'nin 2AD özelliğini aynı anda kullanabilirsiniz. Bu yöntem herhangi bir root veya ileri düzey bir bilgi gerektirmez, sadece talimatları takip etmeniz yeterlidir.
 - Resmi uygulamayı kullanıyorsanız ve 2FA kimlik bilgilerinizi yeniden oluşturmak istemiyorsanız, seçenekleriniz çok sınırlıdır, genellikle bu ayrıntıları **[ içe aktarmak ](#import) ** için root ve fazladan uğraşmanız gerekir ve bununla bile imkansız olabilir.
 - Henüz 2FA kullanmıyorsanız ve umursamıyorsanız, ASF 2fa'yı **[standalone authenticator](#standalone-authenticator)**, asf'ye **[duplicating](#import)** üçüncü taraf uygulama (öneri # 1) veya resmi uygulama ile **[joint authenticator](#joint-authenticator)** (öneri # 2) ile kullanabilirsiniz.
 
