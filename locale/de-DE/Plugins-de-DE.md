@@ -14,7 +14,7 @@ Wenn das Plugin erfolgreich geladen wurde siehst du seinen Namen und seine Versi
 
 Du findest einige der vorgestellten Plugins in unserem **[Drittanbieter](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-de-DE#asf-plugins)** Abschnitt.
 
-**Bitte beachte, dass ASF-Plugins möglicherweise gefährlich sein können**. Du solltest immer sicherstellen, dass du Plugins von Entwicklern verwendest denen du vertrauen kannst. Die ASF-Entwickler können Ihrendie üblichen ASF-Vorteile (wie z. B. keine Schadsoftware oder VAC-Freiheit) nicht mehr garantieren, wenn du dich dazu entscheidest benutzerdefinierte Plugins zu verwenden. Wir können auch keine Konfigurationen unterstützen die benutzerdefinierte Plugins verwenden, da du dann keinen originalen ASF-Quellcode mehr verwendest.
+**Bitte beachte, dass ASF-Plugins möglicherweise gefährlich sein können**. Du solltest immer sicherstellen, dass du Plugins von Entwicklern verwendest denen du vertrauen kannst. Die ASF-Entwickler können Ihrendie üblichen ASF-Vorteile (wie z. B. keine Schadsoftware oder VAC-Freiheit) nicht mehr garantieren, wenn du dich dazu entscheidest benutzerdefinierte Plugins zu verwenden. You need to understand that plugins have full control over ASF process once loaded, due to that we're also unable to support setups that utilize custom plugins, since you're no longer running vanilla ASF code.
 
 ---
 

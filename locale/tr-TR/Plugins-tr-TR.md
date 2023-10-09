@@ -14,7 +14,7 @@ Eğer eklenti başarılı bir şekilde yüklendi ise, çıktıda ismini ve versi
 
 Öne çıkan bazı eklentileri **[üçüncü-taraf](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** bölümümüzde bulabilirsiniz.
 
-**Lütfen ASF eklentilerinin kötü amaçlı olabileceğini unutmayın.**. Her zaman güvenebileceğiniz geliştiriciler tarafından yapılan eklentileri kullandığınızdan emin olmalısınız. Herhangi bir özel eklenti kullanmaya karar verirseniz, ASF geliştiricileri artık size normal ASF avantajlarını (kötü amaçlı yazılımın olmaması veya VAC'siz olmama gibi şeyleri) garanti edemez. Ayrıca, ham ASF kodunu çalıştırmadığınız için özel eklentileri kullanan kurulumları da destekleyemiyoruz.
+**Lütfen ASF eklentilerinin kötü amaçlı olabileceğini unutmayın.**. Her zaman güvenebileceğiniz geliştiriciler tarafından yapılan eklentileri kullandığınızdan emin olmalısınız. Herhangi bir özel eklenti kullanmaya karar verirseniz, ASF geliştiricileri artık size normal ASF avantajlarını (kötü amaçlı yazılımın olmaması veya VAC'siz olmama gibi şeyleri) garanti edemez. You need to understand that plugins have full control over ASF process once loaded, due to that we're also unable to support setups that utilize custom plugins, since you're no longer running vanilla ASF code.
 
 ---
 

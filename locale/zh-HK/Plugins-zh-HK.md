@@ -14,7 +14,7 @@ ASF從位於ASF資料夾中的`plugins`目錄中載入外掛程式。 建議為�
 
 您可以在我們的**[第三方工具](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)**部分找到一些特色外掛程式。
 
-**Please note that ASF plugins could be malicious**. 您應該始終確保您使用的外掛程式來自您可以信任的開發人員。 如果您決定使用任何自訂外掛程式，ASF 開發人員將無法再保證您通常的 ASF 優勢（如絕無惡意軟件或避免VAC）。 我們也無法支援使用自訂外掛程式的設置，因為您不再運行原本的 ASF 代碼。
+**Please note that ASF plugins could be malicious**. 您應該始終確保您使用的外掛程式來自您可以信任的開發人員。 如果您決定使用任何自訂外掛程式，ASF 開發人員將無法再保證您通常的 ASF 優勢（如絕無惡意軟件或避免VAC）。 You need to understand that plugins have full control over ASF process once loaded, due to that we're also unable to support setups that utilize custom plugins, since you're no longer running vanilla ASF code.
 
 ---
 

@@ -22,9 +22,9 @@
 * **[📢 Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)**
 * **[🛠️ Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)**
 * **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
-* **[📋 Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
+* **[📋 Verwaltung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
 * **[⏱️ Leistung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📡 Drittanbieterkommunikation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
+* **[📡 Datenverarbeitung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
 * **[👪 Steam Familienbibliothek](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
 * **[🔄 Handel](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
 
@@ -39,12 +39,12 @@
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)**
 * **[🌐 Übersetzung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
 * **[📝 Protokollierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[💾 Speichereffizientes Setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
+* **[💾 Speichereffizientes Einrichtung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
 * **[🔌 Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
 * **[🔐 Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
 * **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
 * **[📦 Drittanbieter](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[📵 Zwei-Faktor-Authentifizierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[📵 Zwei-Faktor-Authentifizierung (2FA)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
 
 
 ## 👷 Entwickler

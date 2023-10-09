@@ -14,7 +14,7 @@ If the plugin was loaded successfully, you'll see its name and version in your l
 
 You can find some featured plugins in our **[third-party](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party#asf-plugins)** section.
 
-**Please note that ASF plugins could be malicious**. You should always ensure that you're using plugins made by developers that you can trust. ASF developers can no longer guarantee you usual ASF benefits (such as lack of malware or being VAC-free) if you decide to use any custom plugins. We're also unable to support setups that utilize custom plugins, since you're no longer running vanilla ASF code.
+**Please note that ASF plugins could be malicious**. You should always ensure that you're using plugins made by developers that you can trust. ASF developers can no longer guarantee you usual ASF benefits (such as lack of malware or being VAC-free) if you decide to use any custom plugins. You need to understand that plugins have full control over ASF process once loaded, due to that we're also unable to support setups that utilize custom plugins, since you're no longer running vanilla ASF code.
 
 ---
 

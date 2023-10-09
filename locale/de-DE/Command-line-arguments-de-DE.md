@@ -46,7 +46,7 @@ Aber diese zwei sind völlig in Ordnung:
 
 `--cryptkey <key>` oder `--cryptkey=<key>` - ASF startet mit dem benutzerdefinierten kryptographischen Schlüssel `<key>`. Diese Option wirkt sich auf die **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE#sicherheit)** aus und veranlasst ASF, den von Ihnen bereitgestellten `<key>` Schlüssel anstelle des standardmäßig fest in die ausführbare Datei einprogrammierten Schlüssels zu verwenden. Beachten Sie bitte, dass sämtliche Verschlüsselungen/Hashs bei jedem ASF-Lauf weitergegeben wird, da diese Eigenschaft den Standard-Verschlüsselungsschlüssel (für Verschlüsselungszwecke) sowie SALT (für Hashing-Zwecke) betrifft.
 
-There is no requirement on `<key>` length or characters, but for security reasons we recommend to pick long enough passphrase made out of e.g. random 32 characters, for example by using `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` command on Linux.
+`<key>` erfordert keine Voraussetzungen bezüglich der Länge oder Zeichen, jedoch empfehlen wir das Passwort etwa unter Verwendung von zufälligen Zeichen zu generieren (beispielsweise mit dem `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` Kommando unter Linux).
 
 Darüber hinaus gibt es auch zwei weitere Möglichkeiten, um diese Angaben bereitzustellen: `--cryptkey-file` und `--input-cryptkey`.
 
@@ -56,7 +56,7 @@ Aufgrund der Natur dieser Eigenschaft ist es auch möglich, einen cryptkey zu se
 
 `--cryptkey-file <path>` oder `--cryptkey-file=<path>` - ASF startet mit dem benutzerdefinierten kryptographischen Schlüssel, der aus der Datei `<path>` gelesen wird. Dies dient dem gleichen Zweck wie `--cryptkey <key>`, wie oben erklärt, mit dem Unterschied, dass mit dieser Eigenschaft der `<key>` aus dem angegebenen `<path>` gelesen wird.
 
-Due to the nature of this property, it's also possible to set cryptkey file by declaring `ASF_CRYPTKEY_FILE` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+Durch die Natur dieser Option ist, es möglich die Umgebungsvariable `ASF_CRYPTKEY_FILE` für den cryptkey zu bestimmen; welcher für jene angemessen ist, die sensible Details in den Verarbeitungsargumenten zu vermeiden.
 
 ---
 
@@ -64,11 +64,11 @@ Due to the nature of this property, it's also possible to set cryptkey file by d
 
 ---
 
-`--input-cryptkey` - will make ASF ask about the `--cryptkey` during startup. This option might be useful for you if instead of providing cryptkey, whether in environment variables or a file, you'd prefer to not have it saved anywhere and instead input it manually on each ASF run.
+`--input-cryptkey` - lässt ASF während des Starts nach `--cryptkey` fragen. Diese Option könnte für Sie nützlich sein; sofern es Ihr Wunsch ist, cryptkey nicht zu speichern (in Umgebungsvariablen oder in einer Datei), sondern stattdessen bei jedem ASF-Lauf manuell einzugeben.
 
 ---
 
-`--minimized` - will make ASF console window minimize shortly after start. Useful mainly in auto-start scenarios, but can also be used outside of those. Currently this switch has effect only on Windows machines.
+`--minimized` - minimiert das ASF-Konsolenfenster direkt nach dem Start minimiert. Hauptsächlich in Autostart-Szenarien nützlich, aber kann auch sonst genutzt werden. Dieser Schalter funktioniert derzeit ausschließlich auf Windows-Geräten.
 
 ---
 
@@ -82,11 +82,11 @@ Aufgrund der Natur dieser Eigenschaft ist es auch möglich, den Wert zu setzen, 
 
 ---
 
-`--no-config-watch` - legt ASF standardmäßig einen `FileSystemWatcher` für Ihre `Konfiguration` fest, um auf Ereignisse im Zusammenhang mit Änderungen der Datei zu hören, sodass diese sich interaktiv anpasst. Dies beinhaltet beispielsweise das Stoppen von Bots beim Löschen der Konfiguration, den Neustart des Bots bei der Änderung der Konfiguration, oder laden von Schlüsseln in **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-de-DE#)** sobald Sie sie in das `Verzeichnis` eingegeben werden. This switch allows you to disable such behaviour, which will cause ASF to completely ignore all the changes in `config` directory, requiring from you to do such actions manually, if deemed appropriate (which usually means restarting the process). We recommend to keep the config events enabled, but if you have a particular reason for disabling them and would instead prefer ASF to not do that, you can use this switch for achieving that purpose.
+`--no-config-watch` - legt ASF standardmäßig einen `FileSystemWatcher` für Ihre `Konfiguration` fest, um auf Ereignisse im Zusammenhang mit Änderungen der Datei zu hören, sodass diese sich interaktiv anpasst. Dies beinhaltet beispielsweise das Stoppen von Bots beim Löschen der Konfiguration, den Neustart des Bots bei der Änderung der Konfiguration, oder laden von Schlüsseln in **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-de-DE#)** sobald Sie sie in das `Verzeichnis` eingegeben werden. Dieser Schalter das Verhalten zu deaktivieren, welches ASF dazu bringt, sämtliche Änderungen im`config`-Ordner komplett zu ignorieren. Folglich müssen Sie fortan diese Aktionen manuell durchführen, sollte dies erforderlich sein (meistens das Neustarten des Prozesses). Wir empfehlen die Konfigurationsereignisse aktiviert zu lassen; haben Sie jedoch einen guten Grund, um dies für ASF zu deaktivieren, so erreichen Sie dies mit diesem Schalter.
 
 ---
 
-`--no-restart` - Diese Option wird hauptsächlich in unseren **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-de-DE)**-Containern genutzt und setzt `AutoRestart` auf `false`. Solange du keinen bestimmten Grund besitzt, solltest du stattdessen die `AutoRestart` Option in deiner Konfiguration verwenden. This switch is here so our docker script won't need to touch your global config in order to adapt it to its own environment. Selbstverständlich können Sie diese Option auch verwenden, wenn Sie ASF in einem Skript ausführen; ansonsten ist die globalen Konfigurationseigenschaft besser geeignet.
+`--no-restart` - Diese Option wird hauptsächlich in unseren **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-de-DE)**-Containern genutzt und setzt `AutoRestart` auf `false`. Solange du keinen bestimmten Grund besitzt, solltest du stattdessen die `AutoRestart` Option in deiner Konfiguration verwenden. Dieser Schalter dient dazu, sodass unser Docker-Skript nicht Ihre globale Konfiguration berühren muss, um es an dessen eigene Umgebung anzupassen. Selbstverständlich können Sie diese Option auch verwenden, wenn Sie ASF in einem Skript ausführen; ansonsten ist die globalen Konfigurationseigenschaft besser geeignet.
 
 ---
 
@@ -98,7 +98,7 @@ Aufgrund der Natur dieser Eigenschaft ist es auch möglich, den Wert zu setzen, 
 
 Aufgrund der Natur dieser Eigenschaft ist es auch möglich, den erwarteten Pfad zu setzen, indem man die Umgebungsvariable `ASF_PATH` deklariert wird, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
 
-If you're considering using this command-line argument for running multiple instances of ASF, we recommend reading our **[management page](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** on this manner.
+Sollten Sie erwägen, dieses Kommandozeilenargument für die Ausführung mehrerer ASF-Instanzen zu verwenden, empfehlen wir Ihnen, sich mit dem Thema **[Verwaltung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Managemen-de-DE#multiple-instances)** zu befassen.
 
 Beispiele:
 
@@ -131,10 +131,10 @@ Wenn du nicht vorhast IPC auszuführen, wird diese Option für dich ziemlich nut
 
 ---
 
-`--service`- Dieser Schalter wird hauptsächlich für unseren `systemd` service und erzwingt den Wert von `Headless` auf `true`. Wenn Sie keinen besonderen Grund haben, sollten Sie stattdessen die `headless` Eigenschaft direkt in Ihrer Konfiguration konfigurieren. This switch is here so our `systemd` service won't need to touch your global config in order to adapt it to its own environment. Of course, if you have a similar need then you may also make use of this switch (otherwise you're better with global config property).
+`--service`- Dieser Schalter wird hauptsächlich für unseren `systemd` service und erzwingt den Wert von `Headless` auf `true`. Wenn Sie keinen besonderen Grund haben, sollten Sie stattdessen die `headless` Eigenschaft direkt in Ihrer Konfiguration konfigurieren. Dieser Schalter existiert, damit unser `systemd` Dienst Ihre globale Konfiguration nicht berühren muss, um sich an seine eigene Umgebung anzupassen. Selbstverständlich können Sie diese Option auch verwenden, wenn Sie einen ähnlichen Anwendungsfall benötigen; ansonsten ist die globale Konfigurationseigenschaft besser geeignet.
 
 ---
 
-`--system-required` - Die Verwendung dieser Option veranlasst ASF, dem Betriebssystem zu signalisieren, dass das System für die gesamte Lebensdauer des Prozesses betriebsbereit sein muss. Derzeit hat diese Option nur auf Windows-Rechnern Auswirkungen, wo sie verhindert, dass dein System in den Ruhezustand wechselt, solange der Prozess läuft. This can be proven especially useful when farming on your PC or laptop during night, as ASF will be able to keep your system awake while it's farming, then, once ASF is done, it'll shutdown itself like usual, making your system allowed to enter into sleep mode again, therefore saving power immediately once farming is finished.
+`--system-required` - Die Verwendung dieser Option veranlasst ASF, dem Betriebssystem zu signalisieren, dass das System für die gesamte Lebensdauer des Prozesses betriebsbereit sein muss. Derzeit hat diese Option nur auf Windows-Rechnern Auswirkungen, wo sie verhindert, dass dein System in den Ruhezustand wechselt, solange der Prozess läuft. Dies kann besonders nützlich sein, wenn Sie nachts auf Ihrem PC oder Laptop am Sammeln sind. ASF ist damit in der Lage, das System während des Sammelns wach zu halten, und sich nach Beendigung des Sammelns wie gewohnt abzuschalten. So kann Ihr System wieder in den Ruhemodus wechseln und somit sofort nach Beendigung des Sammelns Strom sparen.
 
 Bedenke, dass du für ein ordnungsgemäßes automatisches Herunterfahren von ASF weitere Einstellungen benötigst - vor allem `--process-required` sollte vermieden werden und alle deine Bots sollten `ShutdownOnFarmingFinished` aktiv haben. Natürlich ist das automatische Herunterfahren nur eine Möglichkeit für dieses Feature und keine Anforderung, da du dieses Attribut auch zusammen mit z.B. `--process-required` verwenden kannst, was dein System nach dem Start von ASF unbegrenzt wach hält.
