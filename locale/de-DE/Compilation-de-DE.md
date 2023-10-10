@@ -1,6 +1,6 @@
 # Kompilierung
 
-Kompilierung ist der Prozess zur Erstellung von ausführbaren Dateien. Dies ist ratsam, wenn Sie Ihre eigenen Änderungen zu ASF hinzufügen wollen, oder wenn Sie aus irgenIhrem Grund den ausführbaren Dateien der offiziell bereitgestellten **[Versionen](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** nicht vertrauen. Wenn Sie ein einfacher Benutzer und kein Entwickler sind, möchten Sie höchstwahrscheinlich bereits vorkompilierte Binärdateien verwenden. Wenn Sie aber eigenen Dateien verwenden oder etwas Neues lernen möchten, lesen Sie bitte hier weiter.
+Kompilierung ist der Prozess zur Erstellung von ausführbaren Dateien. Dies ist ratsam, wenn Sie ihre eigenen Änderungen zu ASF hinzufügen wollen, oder wenn Sie aus irgendeinem Grund den ausführbaren Dateien der offiziell bereitgestellten **[Versionen](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** nicht vertrauen. Wenn Sie ein einfacher Benutzer und kein Entwickler sind, möchten Sie höchstwahrscheinlich bereits vorkompilierte Binärdateien verwenden. Wenn Sie aber eigenen Dateien verwenden oder etwas Neues lernen möchten, lesen Sie bitte hier weiter.
 
 ASF kann auf allen momentan unterstützten Plattformen kompiliert werden, solange Sie Zugriff auf die benötigten Programme haben.
 
@@ -22,7 +22,7 @@ dotnet publish ArchiSteamFarm -c "Release" -f "net7.0" -o "out/generic"
 
 Für Linux/macOS als Zielplattform können Sie stattdessen das Skript `cc.sh` verwenden, womit dasselbe in komplexerer Weise ausgeführt wird.
 
-Wenn die Kompilierung erfolgreich beendet wurde, finden Sie Ihr ASF in der `source` Version im `ArchiSteamFarm/out/generic` Verzeichnis. Dies gleicht sich mit dem offiziellen `generic` ASF-Build, nur ist hier der `UpdateChannel` und `UpdatePeriod` auf `0` gesetzt, womit ein überschreiben des Selbst-Builds bis zur nächsten Kompilierung vermieden wird.
+Wenn die Kompilierung erfolgreich beendet wurde, finden Sie ihr ASF in der `source` Version im `ArchiSteamFarm/out/generic` Verzeichnis. Dies gleicht sich mit dem offiziellen `generic` ASF-Build, nur ist hier der `UpdateChannel` und `UpdatePeriod` auf `0` gesetzt, womit ein überschreiben des Selbst-Builds bis zur nächsten Kompilierung vermieden wird.
 
 ### Betriebssystemspezifisch
 
@@ -48,11 +48,11 @@ In case of being unable to install .NET Framework or even .NET SDK itself (e.g. 
 msbuild /m /r /t:Publish /p:Configuration=Release /p:TargetFramework=net481 /p:PublishDir=out/generic-netf /p:ASFNetFramework=true ArchiSteamFarm
 ```
 
-### ASF-ui
+### ASF-UI
 
 While the above steps are everything that is required to have a fully working build of ASF, you may *also* be interested in building **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, our graphical web interface. From ASF side, all you need to do is dropping ASF-ui build output in standard `ASF-ui/dist` location, then building ASF with it (again, if needed).
 
-ASF-ui is part of ASF's source tree as a **[git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**, ensure that you've cloned the repo with `git clone --recursive`, as otherwise you'll not have the required files. You'll also need a working NPM, **[Node.js](https://nodejs.org)** comes with it. Wenn Sie Linux/macOS verwenden, empfehlen wir unser `cc. h` Skript, das automatisch den Bau und Versand von ASF-ui abdeckt (falls möglich, das heißt, wenn Sie die Anforderungen erfüllen, die wir gerade erwähnt haben).
+ASF-ui is part of ASF's source tree as a **[git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**, ensure that you've cloned the repo with `git clone --recursive`, as otherwise you'll not have the required files. You'll also need a working NPM, **[Node.js](https://nodejs.org)** comes with it. Wenn Sie Linux/macOS verwenden, empfehlen wir unser `cc. h` Skript, das automatisch den Bau und Versand von ASF-UI abdeckt (falls möglich, das heißt, wenn Sie die Anforderungen erfüllen, die wir gerade erwähnt haben).
 
 In addition to the `cc.sh` script, we also attach the simplified build instructions below, refer to **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** for additional documentation. From ASF's source tree location, so as above, execute the following commands:
 

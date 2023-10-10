@@ -10,7 +10,7 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 ### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Errungenschaften-Verwalter](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, Erweiterung für ASF die Ihnen erlaubt, Ihre Steam Errungenschaften zu verwalten.
+- **[ASF-Errungenschaften-Verwalter](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, Erweiterung für ASF die ihnen erlaubt, ihre Steam Errungenschaften zu verwalten.
 - **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, ASF-Plugin um Geburtstags-Glückwünsche zu erhalten.
 - **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, Erweiterung für ASF, das die Funktionalität der Erstellung von Booster-Paketen bereitstellt.
 - **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, Erweiterung für ASF, um Botnamen unabhängig von Groß- und Kleinschreibung zu machen.
@@ -50,7 +50,7 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 - **[AUR Repository #1](https://aur.archlinux.org/packages/asf)**, erlaubt es dir ASF einfach auf Arch Linux zu installieren.
 - **[AUR Repository #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, erlaubt es dir ASF einfach auf Arch Linux zu installieren.
-- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, erlaubt Ihnen eine einfache Installation von ASF auf macOS.
+- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, erlaubt ihnen eine einfache Installation von ASF auf macOS.
 - **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, so dass Sie ASF einfach auf Distributionen mit Nix installieren können.
 - **[Nix](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, so dass Sie ASF einfach auf Distributionen mit NixOS installieren und konfigurieren können.
 
@@ -58,7 +58,7 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 ## Programme
 
-- **[Keys extractor](https://ske.xpixv.com)**, ermöglicht es IhrenProduktschlüssel in verschiedenen Formaten zu kopieren und einzufügen um den Befehl `redeem` für ASF zu erstellen. Für weitere Details schau Ihrendas **[GitHub Repository](https://github.com/PixvIO/SKE)** an.
+- **[Keys extractor](https://ske.xpixv.com)**, ermöglicht es ihrenProduktschlüssel in verschiedenen Formaten zu kopieren und einzufügen um den Befehl `redeem` für ASF zu erstellen. Für weitere Details schau ihren das **[GitHub Repository](https://github.com/PixvIO/SKE)** an.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, der es ermöglicht mehrere ASF-Konfigurationen einfach zu verwalten.
 
 ---

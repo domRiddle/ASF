@@ -208,7 +208,7 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 ### `IPCPasswordFormat（IPC 密碼格式）`
 
-`byte`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性定義了&#8203;`IPCPassword`&#8203;屬性的格式，使用&#8203;`EHashingMethod`&#8203;作為基本類型。 若需了解更多資訊，請參閱&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;章節，因為您需要確保&#8203;`IPCPassword`&#8203;屬性確實包含匹配`IPCPasswordFormat`&#8203;的密碼。 也就是說，在您更改&#8203;`IPCPasswordFormat`&#8203;的時候，您的&#8203;`IPCPassword`&#8203;就必須&#8203;**已經**&#8203;是您所選的格式了，而不是在更改完成後才是。 除非您知道您在做什麼，否則請保留預設值&#8203;`0`&#8203;。
+`byte`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性定義了&#8203;`IPCPassword`&#8203;屬性的格式，使用&#8203;`EHashingMethod`&#8203;作為基本類型。 若需了解更多資訊，請參閱&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;章節，因為您需要確保&#8203;`IPCPassword`&#8203;屬性確實包含符合`IPCPasswordFormat`&#8203;的密碼。 也就是說，在您更改&#8203;`IPCPasswordFormat`&#8203;的時候，您的&#8203;`IPCPassword`&#8203;就必須&#8203;**已經**&#8203;是您所選的格式了，而不是在更改完成後才是。 除非您知道您在做什麼，否則請保留預設值&#8203;`0`&#8203;。
 
 ---
 
@@ -456,7 +456,7 @@ Bot設定檔具有以下結構：
 
 ### `CompleteTypesToSend（傳送的完成種類）`
 
-`ImmutableHashSet<byte>`&#8203;型別，預設值為空。 在ASF完成收集一套此處設定的物品類型時，它可以透過Steam交易傳送所有收集完成的物品套組自動傳送給具有&#8203;`Master`&#8203;權限的使用者，如果您想將指定的Bot帳號用於例如TM匹配等需求，同時將收集完成的套組移動至另一個帳號上，這將會非常方便。 本選項與&#8203;`loot`&#8203;指令作用相同，因此請注意，首先它需要您有帳號的交易合法權限，且使用者具有&#8203;`Master`&#8203;權限，而您可能也要有有效的&#8203;`SteamTradeToken`&#8203;。
+`ImmutableHashSet<byte>`&#8203;型別，預設值為空。 在ASF完成收集一套此處設定的物品類型時，它可以透過Steam交易傳送所有收集完成的物品套組自動傳送給具有&#8203;`Master`&#8203;權限的使用者，如果您想將指定的Bot帳號用於例如STM比對等需求，同時將收集完成的套組移動至另一個帳號上，這將會非常方便。 本選項與&#8203;`loot`&#8203;指令作用相同，因此請注意，首先它需要您有帳號的交易合法權限，且使用者具有&#8203;`Master`&#8203;權限，而您可能也要有有效的&#8203;`SteamTradeToken`&#8203;。
 
 目前，在本設定中支援下列物品類型：
 
@@ -582,9 +582,9 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 
 ---
 
-### `MatchableTypes（可匹配的種類）`
+### `MatchableTypes（可比對的種類）`
 
-`ImmutableHashSet<byte>`&#8203;型別，預設值為&#8203;`5`&#8203;的Steam物品類型。 本屬性定義了在您啟用&#8203;`TradingPreferences`&#8203;中的&#8203;`SteamTradeMatcher`&#8203;選項時，允許用於匹配的Steam物品類型。 類型定義如下：
+`ImmutableHashSet<byte>`&#8203;型別，預設值為&#8203;`5`&#8203;的Steam物品類型。 本屬性定義了在您啟用&#8203;`TradingPreferences`&#8203;中的&#8203;`SteamTradeMatcher`&#8203;選項時，允許用於比對的Steam物品類型。 類型定義如下：
 
 | 值  | 名稱                              | 描述                               |
 | -- | ------------------------------- | -------------------------------- |
@@ -606,7 +606,7 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 | 15 | KeyboardSkin（鍵盤外觀）              | Steam Deck的特殊鍵盤外觀                |
 | 16 | StartupVideo（啟動動畫）              | Steam Deck的特殊啟動動畫                |
 
-當然，您通常在本屬性只應選擇&#8203;`2`&#8203;、&#8203;`3`&#8203;、&#8203;`4`&#8203;及&#8203;`5`&#8203;，因為STM只支援這些類型。 ASF擁有能夠判斷物品稀有度的正確邏輯，因此匹配表情符號或背景也會是安全的，因為ASF只會將來自同一個遊戲、相同類型及稀有度的物品視為相等的。
+當然，您通常在本屬性只應選擇&#8203;`2`&#8203;、&#8203;`3`&#8203;、&#8203;`4`&#8203;及&#8203;`5`&#8203;，因為STM只支援這些類型。 ASF擁有能夠判斷物品稀有度的正確邏輯，因此比對表情符號或背景也會是安全的，因為ASF只會將來自同一個遊戲、相同類型及稀有度的物品視為相等的。
 
 請注意，&#8203;**ASF並非交易機器人**&#8203;，且&#8203;**不會考慮物品的市場價格**&#8203;。 若您不認為在同一組中稀有度相同的物品是等價的，那麼這個選項並不適合您使用。 如果您決定更改本設定，請先理解並同意此聲明，並再次評估風險。
 
@@ -663,7 +663,7 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 
 ### `PasswordFormat（密碼格式）`
 
-`byte`&#8203;型別，預設值為&#8203;`0`&#8203;（&#8203;`PlainText`&#8203;）。 本屬性定義了&#8203;`SteamPassword`&#8203;屬性的格式，目前的支援值請見&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;章節。 您應該遵循該章節的步驟，因為您需要確保&#8203;`SteamPassword`&#8203;屬性確實含有匹配&#8203;`PasswordFormat`&#8203;的密碼。 也就是說，在您更改&#8203;`PasswordFormat`&#8203;的時候，您的&#8203;`Password`&#8203;就必須&#8203;**已經**&#8203;是您所選的格式了，而不是在更改完成後才是。 除非您知道您在做什麼，否則請保留預設值&#8203;`0`&#8203;。
+`byte`&#8203;型別，預設值為&#8203;`0`&#8203;（&#8203;`PlainText`&#8203;）。 本屬性定義了&#8203;`SteamPassword`&#8203;屬性的格式，目前的支援值請見&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;章節。 您應該遵循該章節的步驟，因為您需要確保&#8203;`SteamPassword`&#8203;屬性確實含有符合&#8203;`PasswordFormat`&#8203;的密碼。 也就是說，在您更改&#8203;`PasswordFormat`&#8203;的時候，您的&#8203;`Password`&#8203;就必須&#8203;**已經**&#8203;是您所選的格式了，而不是在更改完成後才是。 除非您知道您在做什麼，否則請保留預設值&#8203;`0`&#8203;。
 
 ---
 
@@ -818,10 +818,10 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 | -- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0  | 無                             | 預設值，無特殊交易偏好                                                                                                                                                                                                     |
 | 1  | AcceptDonations（接受禮物）         | 接受我們不提供任何東西的交易                                                                                                                                                                                                  |
-| 2  | SteamTradeMatcher（Steam交易匹配器） | 被動參與&#8203;**[STM](https://www.steamtradematcher.com)**&#8203;交易。 造訪&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW#steamtradematcher)**&#8203;以深入了解更多資訊                        |
-| 4  | MatchEverything（匹配所有物品）       | 需要設定&#8203;`SteamTradeMatcher`&#8203;，並與其同時使用⸺除了有利及均衡的交易外，亦接受不利交易                                                                                                                                               |
+| 2  | SteamTradeMatcher（Steam交易比對器） | 被動參與&#8203;**[STM](https://www.steamtradematcher.com)**&#8203;交易。 造訪&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW#steamtradematcher)**&#8203;以深入了解更多資訊                        |
+| 4  | MatchEverything（比對所有物品）       | 需要設定&#8203;`SteamTradeMatcher`&#8203;，並與其同時使用⸺除了有利及均衡的交易外，亦接受不利交易                                                                                                                                               |
 | 8  | DontAcceptBotTrades（不接受Bot交易） | 不自動接受來自其他Bot實例的&#8203;`loot`&#8203;交易                                                                                                                                                                           |
-| 16 | MatchActively（積極匹配）           | 主動參與&#8203;**[STM](https://www.steamtradematcher.com)**&#8203;交易。 造訪&#8203;**[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW#matchactively)**&#8203;以深入了解更多資訊 |
+| 16 | MatchActively（積極比對）           | 主動參與&#8203;**[STM](https://www.steamtradematcher.com)**&#8203;交易。 造訪&#8203;**[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-TW#matchactively)**&#8203;以深入了解更多資訊 |
 
 請注意，本屬性為&#8203;`flags`&#8203;欄位，因此可以使用所有可用值任意組合。 若您想深入了解更多資訊，請參閱&#8203;**[旗標映射](#json-映射)**&#8203;。 不啟用任何旗標即為&#8203;`None`&#8203;選項。
 

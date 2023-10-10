@@ -22,11 +22,11 @@ It's nice to note that ASF was never made to compete with other, similar program
 
 ---
 
-### Okay, wo ist der Haken? Was nützt Ihnen das Teilen von ASF?
+### Okay, wo ist der Haken? Was nützt ihnen das Teilen von ASF?
 
-Es gibt keinen Haken. Ich habe ASF **für mich selbst** erstellt und es mit dem Rest der Community geteilt in der Hoffnung, dass es nützlich sein wird. Genau das Gleiche geschah 1991, als Linus Torvalds **[seinen ersten Linux-Kernel](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)** mit dem Rest der Welt teilte. Es gibt keine versteckte Malware, Data-Mining, Crypto-Mining oder andere Aktivitäten, die mir einen finanziellen Nutzen bringen würden. ASF-Projekt wird vollständig durch nicht-obligatorische Spenden unterstützt, die von glücklichen Benutzern wie Ihnen gesendet werden. Sie können ASF genauso verwenden wie ich es benutze und wenn Sie es mögen, Sie können mir immer einen Kaffee kaufen, der Ihre Dankbarkeit für das, was ich tue, zeigt.
+Es gibt keinen Haken. Ich habe ASF **für mich selbst** erstellt und es mit dem Rest der Community geteilt in der Hoffnung, dass es nützlich sein wird. Genau das Gleiche geschah 1991, als Linus Torvalds **[seinen ersten Linux-Kernel](https://groups.google.com/forum/#!msg/comp.os.Minix/dlNtH7RRrGA/SwRavCzVE7gJ)** mit dem Rest der Welt teilte. Es gibt keine versteckte Malware, Data-Mining, Crypto-Mining oder andere Aktivitäten, die mir einen finanziellen Nutzen bringen würden. ASF-Projekt wird vollständig durch nicht-obligatorische Spenden unterstützt, die von glücklichen Benutzern wie ihnen gesendet werden. Sie können ASF genauso verwenden wie ich es benutze und wenn Sie es mögen, Sie können mir immer einen Kaffee kaufen, der ihre Dankbarkeit für das, was ich tue, zeigt.
 
-Ich benutze auch ASF als perfektes Beispiel für ein modernes C# Projekt, das immer für Perfektion und das bestmögliche Verfahren sorgt, sei es mit Technologie, Projektmanagement oder dem Code selbst. Es ist meine Definition von "Sachen richtig angehen/erledigen". Wenn Sie durch irgenIhren Zufall etwas Nützliches aus meinem Projekt lernen, dann wird das mich nur glücklicher machen.
+Ich benutze auch ASF als perfektes Beispiel für ein modernes C# Projekt, das immer für Perfektion und das bestmögliche Verfahren sorgt, sei es mit Technologie, Projektmanagement oder dem Code selbst. Es ist meine Definition von "Sachen richtig angehen/erledigen". Wenn Sie durch irgendeinen Zufall etwas Nützliches aus meinem Projekt lernen, dann wird das mich nur glücklicher machen.
 
 ---
 
@@ -48,7 +48,7 @@ As of today, there are no known, unpatched security flaws in ASF, and as the pro
 
 ### How do I verify that the downloaded files are genuine?
 
-As part of our releases on GitHub, we utilize a very similar verification process as the one used by **[Debian](https://www.debian.org/CD/verify)**. In every official release starting with ASF V5.1.3.3, in addition to `zip` files you can find `SHA512SUMS` and `SHA512SUMS.sign` files. Laden Sie diese zu Überprüfungszwecken zusammen mit den `zip`-Dateien Ihrer Wahl herunter.
+As part of our releases on GitHub, we utilize a very similar verification process as the one used by **[Debian](https://www.debian.org/CD/verify)**. In every official release starting with ASF V5.1.3.3, in addition to `zip` files you can find `SHA512SUMS` and `SHA512SUMS.sign` files. Laden Sie diese zu Überprüfungszwecken zusammen mit den `zip`-Dateien ihrer Wahl herunter.
 
 Firstly, you should use `SHA512SUMS` file in order to verify that `SHA-512` checksum of the selected `zip` files matches the one we calculated ourselves. On Linux, you can use `sha512sum` utility for that purpose.
 
@@ -163,4 +163,4 @@ Congratulations, you've verified that nobody has tampered with the release you'v
 
 ### Es ist der 1. April und die ASF-Sprache wechselt in etwas Seltsames. Was geht da vor?
 
-CONGRATULASHUNS ZUR ENTDECKUNG UNSERES APRILSCHERZES! Sofern Sie die `CurrentCulture` Einstellung nicht definiert haben, verwendet ASF am 1. April anstelle der System-Sprache die Lokalisation **[LOLcat](https://de.wikipedia.org/wiki/Lolcat)**. Wenn Sie dieses Verhalten deaktivieren möchten, können Sie einfach `CurrentCulture` auf die Lokalisation setzen, das Sie stattdessen verwenden möchten. Schön ist auch, dass Sie unseren Aprilscherz bedingungslos aktivieren können, indem Sie Ihren `CurrentCulture`-Wert auf `qps-Ploc` setzen.
+CONGRATULASHUNS ZUR ENTDECKUNG UNSERES APRILSCHERZES! Sofern Sie die `CurrentCulture` Einstellung nicht definiert haben, verwendet ASF am 1. April anstelle der System-Sprache die Lokalisation **[LOLcat](https://de.wikipedia.org/wiki/Lolcat)**. Wenn Sie dieses Verhalten deaktivieren möchten, können Sie einfach `CurrentCulture` auf die Lokalisation setzen, das Sie stattdessen verwenden möchten. Schön ist auch, dass Sie unseren Aprilscherz bedingungslos aktivieren können, indem Sie ihren `CurrentCulture`-Wert auf `qps-Ploc` setzen.

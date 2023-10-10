@@ -8,7 +8,7 @@ ASF ermöglicht es dir, dein eigenes benutzerdefiniertes Protokollierungsmodul z
 
 Standardmäßig protokolliert ASF in `ColoredConsole` (Standardausgabe) und `File`. `File` Protokollierung beinhaltetet die `log.txt` Datei im Programmverzeichnis und das `logs` Verzeichnis für Archivierungszwecke.
 
-Die Verwendung einer benutzerdefinierten NLog Konfiguration deaktiviert automatisch die standard ASF Konfiguration, welche damit durch Ihre Konfiguration **komplett** überschrieben wird. Das bedeutet, dass, falls Sie z. B. unsere `ColoredConsole` Ausgabe verwenden wollen, Sie diese **selber** definieren müssen. Dies erlaubt dir nicht nur **extra** Protokollierungsziele zu erstellen, sondern auch die **Standardziele** zu verändern oder deaktivieren.
+Die Verwendung einer benutzerdefinierten NLog Konfiguration deaktiviert automatisch die standard ASF Konfiguration, welche damit durch ihre Konfiguration **komplett** überschrieben wird. Das bedeutet, dass, falls Sie z. B. unsere `ColoredConsole` Ausgabe verwenden wollen, Sie diese **selber** definieren müssen. Dies erlaubt dir nicht nur **extra** Protokollierungsziele zu erstellen, sondern auch die **Standardziele** zu verändern oder deaktivieren.
 
 Wenn du die standard ASF-Protokollierung ohne irgendwelche Veränderung verwenden möchtest, musst du nichts tun - auch brauchst du dies nicht in der `NLog.config` definieren. Verwende die `NLog.config` nicht, wenn du die standard ASF-Protokollierung nicht verändern möchtest. Zum Vergleich: Das Äquivalent zur fest definierten standard ASF-Protokollierung wäre:
 
@@ -53,15 +53,15 @@ Wenn du die standard ASF-Protokollierung ohne irgendwelche Veränderung verwende
 
 ## ASF Integration
 
-ASF enthält einige nette Quellcode-Tricks, die die Integration mit NLog verbessern und es Ihrenermöglichen bestimmte Nachrichten leichter zu erfassen.
+ASF enthält einige nette Quellcode-Tricks, die die Integration mit NLog verbessern und es ihren ermöglichen bestimmte Nachrichten leichter zu erfassen.
 
-Die NLog-spezifische `${logger}` Variable wird immer die Quelle der Nachricht anzeigen - es wird entweder `BotName` von einem Ihrer Bots sein, oder `ASF` wenn die Nachricht direkt vom ASF-Prozess kommt. Auf diese Weise kannst du Nachrichten leicht abfangen, die bestimmte Bot(s) oder ASF-Prozesse (nur) berücksichtigen, anstatt sie alle, basierend auf dem Namen des Loggers.
+Die NLog-spezifische `${logger}` Variable wird immer die Quelle der Nachricht anzeigen - es wird entweder `BotName` von einem ihrer Bots sein, oder `ASF` wenn die Nachricht direkt vom ASF-Prozess kommt. Auf diese Weise kannst du Nachrichten leicht abfangen, die bestimmte Bot(s) oder ASF-Prozesse (nur) berücksichtigen, anstatt sie alle, basierend auf dem Namen des Loggers.
 
-ASF versucht, Meldungen entsprechend den von NLog bereitgestellten logging Warnstufen zu kennzeichnen, was es Ihnen ermöglicht, nur bestimmte Meldungen von bestimmten Protokollebenen, statt von allen zu erhalten. Natürlich kann die Protokollierungsstufe für eine bestimmte Nachricht nicht angepasst werden, da es sich um eine ASF-Festlegung handelt, wie ernst die gegebene Nachricht ist, aber du kannst ASF definitiv weniger/mehr leise machen, wie du es für richtig hältst.
+ASF versucht, Meldungen entsprechend den von NLog bereitgestellten logging Warnstufen zu kennzeichnen, was es ihnen ermöglicht, nur bestimmte Meldungen von bestimmten Protokollebenen, statt von allen zu erhalten. Natürlich kann die Protokollierungsstufe für eine bestimmte Nachricht nicht angepasst werden, da es sich um eine ASF-Festlegung handelt, wie ernst die gegebene Nachricht ist, aber du kannst ASF definitiv weniger/mehr leise machen, wie du es für richtig hältst.
 
-ASF protokolliert zusätzliche Informationen, wie z. B. Benutzer-/Chat-Nachrichten auf der `Trace` Protokollierungsebene. Die standardmäßige ASF-Protokollierung protokolliert nur die `Debug` Ebene und darüber, was diese zusätzlichen Informationen verbirgt, da sie für die Mehrheit der Benutzer nicht benötigt werden, sowie die Ausgabe mit potenziell wichtigeren Nachrichten zu mült. Sie können diese Informationen jedoch nutzen, indem du `Trace` Logging-Ebene wieder aktivierst, insbesondere in Kombination mit dem Logging nur eines bestimmten Bots Ihrer Wahl, mit einem bestimmten Event, an dem du interessiert bist.
+ASF protokolliert zusätzliche Informationen, wie z. B. Benutzer-/Chat-Nachrichten auf der `Trace` Protokollierungsebene. Die standardmäßige ASF-Protokollierung protokolliert nur die `Debug` Ebene und darüber, was diese zusätzlichen Informationen verbirgt, da sie für die Mehrheit der Benutzer nicht benötigt werden, sowie die Ausgabe mit potenziell wichtigeren Nachrichten zu mült. Sie können diese Informationen jedoch nutzen, indem du `Trace` Logging-Ebene wieder aktivierst, insbesondere in Kombination mit dem Logging nur eines bestimmten Bots ihrer Wahl, mit einem bestimmten Event, an dem du interessiert bist.
 
-Im Allgemeinen versucht ASF, es Ihrenso einfach und bequem wie möglich zu machen, nur die Nachrichten zu protokollieren, die du willst, anstatt dich zu zwingen, sie manuell durch Drittanbieterprogramme wie `grep` und ähnliche zu filtern. Konfiguriere NLog einfach wie unten beschrieben und du solltest in der Lage sein, auch sehr komplexe Protokollierungsregeln mit benutzerdefinierten Zielen, wie beispielsweise ganze Datenbanken, zu spezifizieren.
+Im Allgemeinen versucht ASF, es ihren so einfach und bequem wie möglich zu machen, nur die Nachrichten zu protokollieren, die du willst, anstatt dich zu zwingen, sie manuell durch Drittanbieterprogramme wie `grep` und ähnliche zu filtern. Konfiguriere NLog einfach wie unten beschrieben und du solltest in der Lage sein, auch sehr komplexe Protokollierungsregeln mit benutzerdefinierten Zielen, wie beispielsweise ganze Datenbanken, zu spezifizieren.
 
 In Bezug auf die Versionierung - ASF versucht immer die aktuellste Version von NLog zu liefern, die zum Zeitpunkt der ASF-Version unter **[NuGet](https://www.nuget.org/packages/NLog)** verfügbar ist. Es sollte kein Problem sein, alle Funktionen zu verwenden, die Sie im NLog-Wiki in ASF finden - stellen Sie sicher, dass Sie auch die neueste ASF verwenden.
 
@@ -126,7 +126,7 @@ Wir können die Konfiguration auch so ändern, dass sie bei mehr als einem Ziel 
 
 Und fertig, wir werden jetzt alles über `ColoredConsole` und `File` protokollieren. Hast du bemerkt, dass du auch benutzerdefinierte `fileName` und zusätzliche Optionen angeben kannst?
 
-Schließlich verwendet ASF verschiedene Protokollebenen, um es Ihrenleichter zu machen, zu verstehen, was vor sich geht. Wir können diese Informationen verwenden, um die Schweregrad-Protokollierung zu ändern. Let's say that we want to log everything (`Trace`) to `File`, but only `Warning` and above **[log level](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** to the `ColoredConsole`. Wir können das erreichen, indem wir unsere `rules` modifizieren:
+Schließlich verwendet ASF verschiedene Protokollebenen, um es ihren leichter zu machen, zu verstehen, was vor sich geht. Wir können diese Informationen verwenden, um die Schweregrad-Protokollierung zu ändern. Let's say that we want to log everything (`Trace`) to `File`, but only `Warning` and above **[log level](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** to the `ColoredConsole`. Wir können das erreichen, indem wir unsere `rules` modifizieren:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -168,19 +168,19 @@ Sie können sehen, wie wir die ASF-Integration oben verwendet haben und leicht z
 
 ## Erweiterte Nutzung
 
-Die obigen Beispiele sind ziemlich einfach und sollen Ihrenzeigen, wie einfach es ist, eigene Protokollierungsregeln zu definieren, die mit ASF verwendet werden können. Sie können NLog für verschiedene Dinge verwenden, einschließlich komplexer Ziele (wie das Führen von Protokollen in `Datenbank`), Protokollrotation (wie das Entfernen alter `File` Protokolle), Verwendung benutzerdefinierter `Layout`s, Deklaration eigener `<when>` Protokollierungsfilter und vieles mehr. Ich empfehle dir, die gesamte **[NLog-Dokumentation](https://github.com/nlog/nlog/wiki/Configuration-file)** durchzulesen, um mehr über jede Option zu erfahren, die dir zur Verfügung steht, damit du das ASF-Logging-Modul so anpassen kannst, wie du willst. Es ist ein wirklich leistungsstarkes Programm und die Anpassung der ASF-Protokollierung war nie einfacher.
+Die obigen Beispiele sind ziemlich einfach und sollen ihren zeigen, wie einfach es ist, eigene Protokollierungsregeln zu definieren, die mit ASF verwendet werden können. Sie können NLog für verschiedene Dinge verwenden, einschließlich komplexer Ziele (wie das Führen von Protokollen in `Datenbank`), Protokollrotation (wie das Entfernen alter `File` Protokolle), Verwendung benutzerdefinierter `Layout`s, Deklaration eigener `<when>` Protokollierungsfilter und vieles mehr. Ich empfehle dir, die gesamte **[NLog-Dokumentation](https://github.com/nlog/nlog/wiki/Configuration-file)** durchzulesen, um mehr über jede Option zu erfahren, die dir zur Verfügung steht, damit du das ASF-Logging-Modul so anpassen kannst, wie du willst. Es ist ein wirklich leistungsstarkes Programm und die Anpassung der ASF-Protokollierung war nie einfacher.
 
 ---
 
 ## Einschränkungen
 
-ASF deaktiviert vorübergehend **alle** Regeln, die `ColoredConsole` oder `Console` Targets beinhalten, wenn Benutzereingaben erwartet werden. Wenn du also die Protokollierung für andere Ziele beibehalten möchtest, auch wenn ASF Benutzereingaben erwartet werden, solltest du diese Ziele mit ihren eigenen Regeln definieren, wie in den obigen Beispielen gezeigt, anstatt viele Ziele in `writeTo` der gleichen Regel zu setzen (es sei denn, dies ist dein gewünschtes Verhalten). Die vorübergehende Deaktivierung von Konsole-Zielen wird durchgeführt, um die Konsole sauber zu halten, wenn auf Benutzereingaben gewartet wird.
+ASF deaktiviert vorübergehend **alle** Regeln, die `ColoredConsole` oder `Console` Targets beinhalten, wenn Benutzereingaben erwartet werden. Wenn du also die Protokollierung für andere Ziele beibehalten möchtest, auch wenn ASF Benutzereingaben erwartet werden, solltest du diese Ziele mit ihren  eigenen Regeln definieren, wie in den obigen Beispielen gezeigt, anstatt viele Ziele in `writeTo` der gleichen Regel zu setzen (es sei denn, dies ist dein gewünschtes Verhalten). Die vorübergehende Deaktivierung von Konsole-Zielen wird durchgeführt, um die Konsole sauber zu halten, wenn auf Benutzereingaben gewartet wird.
 
 ---
 
 ## Chat-Protokollierung
 
-ASF bietet erweiterte Unterstützung für das Chat-Logging, indem es nicht nur alle empfangene/gesendete Nachrichten auf `Trace` Logging-Ebene aufzeichnet, sondern auch zusätzliche Informationen zu ihnen in **[Ereigniss-Eigenschaften](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)** anzeigt. Dies liegt daran, dass wir Chat-Nachrichten ohnehin als Befehle behandeln müssen, sodass es uns nichts kostet, diese Ereignisse zu protokollieren, um es Ihnen zu ermöglichen, zusätzliche Logik hinzuzufügen (z. B. ASF zu einem persönlichen Steam-Chat-Archiv zu machen).
+ASF bietet erweiterte Unterstützung für das Chat-Logging, indem es nicht nur alle empfangene/gesendete Nachrichten auf `Trace` Logging-Ebene aufzeichnet, sondern auch zusätzliche Informationen zu ihnen in **[Ereigniss-Eigenschaften](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)** anzeigt. Dies liegt daran, dass wir Chat-Nachrichten ohnehin als Befehle behandeln müssen, sodass es uns nichts kostet, diese Ereignisse zu protokollieren, um es ihnen zu ermöglichen, zusätzliche Logik hinzuzufügen (z. B. ASF zu einem persönlichen Steam-Chat-Archiv zu machen).
 
 ### Ereigniseigenschaften
 
@@ -224,7 +224,7 @@ The example above will generate `0-0-76561198069026042.txt` file when talking wi
 2018-07-26 01:38:38 /me I'm doing great, how about you? <- 76561198069026042
 ```
 
-Natürlich ist dies nur ein funktionierendes Beispiel mit ein paar schönen Layout-Tricks, die in praktischer Hinsicht gezeigt werden. Sie können diese Idee weiter auf Ihre eigenen Bedürfnisse ausdehnen, wie z. B. zusätzliche Filterung, benutzerdefinierte Reihenfolge, persönliches Layout, Aufnahme nur empfangener Nachrichten und so weiter.
+Natürlich ist dies nur ein funktionierendes Beispiel mit ein paar schönen Layout-Tricks, die in praktischer Hinsicht gezeigt werden. Sie können diese Idee weiter auf ihre eigenen Bedürfnisse ausdehnen, wie z. B. zusätzliche Filterung, benutzerdefinierte Reihenfolge, persönliches Layout, Aufnahme nur empfangener Nachrichten und so weiter.
 
 ---
 
@@ -238,7 +238,7 @@ Um eine maximale Vollständigkeit zu gewährleisten, erfolgt die Definition der 
 
 ### SteamTarget
 
-Wie du erraten kannst, verwendet dieses Ziel Steam-Chat-Nachrichten zum Protokollieren von ASF-Nachrichten. Sie können es so konfigurieren, dass es entweder einen Gruppen-Chat oder einen privaten Chat verwendet. Zusätzlich zur Angabe eines Steam-Ziels für Ihre Nachrichten kannst du auch `botName` des Bots angeben, der diese senden soll.
+Wie du erraten kannst, verwendet dieses Ziel Steam-Chat-Nachrichten zum Protokollieren von ASF-Nachrichten. Sie können es so konfigurieren, dass es entweder einen Gruppen-Chat oder einen privaten Chat verwendet. Zusätzlich zur Angabe eines Steam-Ziels für ihre Nachrichten kannst du auch `botName` des Bots angeben, der diese senden soll.
 
 Wird in allen von ASF verwendeten Umgebungen unterstützt.
 
@@ -278,7 +278,7 @@ _chatGroupID_ - ID des Gruppen-Chats, der als 64-Bit lange unsignierte Ganzzahl 
 
 _steamID_ - SteamID deklariert als 64-Bit lange unsignierte ganze Zahl des Ziel-Steam-Benutzers (wie `SteamOwnerID`), oder Ziel `chatID` (wenn `chatGroupID` eingestellt ist). Erforderlich. Defaults to `0` which disables logging target entirely.
 
-_botName_ - Name of the bot (as it's recognized by ASF, case-sensitive) that will be sending messages to `steamID` declared above. Nicht erforderlich. Standardmäßig ist `null` voreingestellt, was automatisch **jeden** aktuell verbundenen Bot auswählt. Es wird empfohlen, diesen Wert entsprechend einzustellen, da `SteamTarget` nicht viele Steam-Einschränkungen berücksichtigt, wie z. B. die Tatsache, dass du `steamID` des Ziels auf Ihrer Freundeliste haben musst. This variable is defined as [layout](https://github.com/NLog/NLog/wiki/Layouts) type, therefore you can use special syntax in it, such as `${logger}` in order to use the bot that generated the message.
+_botName_ - Name of the bot (as it's recognized by ASF, case-sensitive) that will be sending messages to `steamID` declared above. Nicht erforderlich. Standardmäßig ist `null` voreingestellt, was automatisch **jeden** aktuell verbundenen Bot auswählt. Es wird empfohlen, diesen Wert entsprechend einzustellen, da `SteamTarget` nicht viele Steam-Einschränkungen berücksichtigt, wie z. B. die Tatsache, dass du `steamID` des Ziels auf ihrer Freundeliste haben musst. This variable is defined as [layout](https://github.com/NLog/NLog/wiki/Layouts) type, therefore you can use special syntax in it, such as `${logger}` in order to use the bot that generated the message.
 
 ---
 
@@ -315,7 +315,7 @@ Natürlich verfügt `SteamTarget` über alle typischen Funktionen, die von gener
 
 ### HistoryTarget
 
-Dieses Target wird intern von ASF verwendet, um eine Protokollhistorie mit fester Größe in `/Api/NLog` Endpunkt von **[ASF-API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-api)** bereitzustellen, die anschließend von ASF-ui und anderen Programmen verwendet werden kann. Im Allgemeinen solltest du dieses Target nur dann definieren, wenn du bereits eine benutzerdefinierte NLog-Konfiguration für andere Anpassungen verwendest und das Protokoll auch in der ASF-API angezeigt werden soll, z. B. für ASF-ui. Es kann auch angegeben werden, wenn du das Standardlayout oder `maxCount` der gespeicherten Nachrichten ändern möchtest.
+Dieses Target wird intern von ASF verwendet, um eine Protokollhistorie mit fester Größe in `/Api/NLog` Endpunkt von **[ASF-API](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-api)** bereitzustellen, die anschließend von ASF-UI und anderen Programmen verwendet werden kann. Im Allgemeinen solltest du dieses Target nur dann definieren, wenn du bereits eine benutzerdefinierte NLog-Konfiguration für andere Anpassungen verwendest und das Protokoll auch in der ASF-API angezeigt werden soll, z. B. für ASF-UI. Es kann auch angegeben werden, wenn du das Standardlayout oder `maxCount` der gespeicherten Nachrichten ändern möchtest.
 
 Wird in allen von ASF verwendeten Umgebungen unterstützt.
 
@@ -355,6 +355,6 @@ _maxCount_ - Maximale Anzahl der gespeicherten Protokolle für die Abrufhistorie
 
 ## Vorbehalt
 
-Achte darauf, wenn du dich entscheidest, `Debug` Logging-Ebene oder darunter in Ihrem `SteamTarget` mit `steamID` zu kombinieren, das am ASF-Prozess teilnimmt. Dies kann zu einer möglichen `StackOverflowException` führen, da du eine Endlosschleife erzeugst, in der ASF eine gegebene Nachricht empfängt, sie dann durch Steam protokolliert, was zu einer weiteren Nachricht führt, die protokolliert werden muss. Derzeit ist die einzige Möglichkeit dafür, `Trace` Ebene (wo ASF seine eigenen Chat-Nachrichten aufzeichnet), oder `Debug` Ebene zu protokollieren, während ASF auch im `Debug` Modus ausgeführt wird (wo ASF alle Steam-Pakete aufzeichnet).
+Achte darauf, wenn du dich entscheidest, `Debug` Logging-Ebene oder darunter in ihrem `SteamTarget` mit `steamID` zu kombinieren, das am ASF-Prozess teilnimmt. Dies kann zu einer möglichen `StackOverflowException` führen, da du eine Endlosschleife erzeugst, in der ASF eine gegebene Nachricht empfängt, sie dann durch Steam protokolliert, was zu einer weiteren Nachricht führt, die protokolliert werden muss. Derzeit ist die einzige Möglichkeit dafür, `Trace` Ebene (wo ASF seine eigenen Chat-Nachrichten aufzeichnet), oder `Debug` Ebene zu protokollieren, während ASF auch im `Debug` Modus ausgeführt wird (wo ASF alle Steam-Pakete aufzeichnet).
 
-Kurz gesagt, wenn Ihre `steamID` am gleichen ASF-Prozess teilnimmt, dann sollte die `minlevel` Logging-Ebene Ihres `SteamTarget` `Info` (oder `Debug` sein, wenn du auch nicht ASF im `Debug` Modus) und darüber. Alternativ kannst du Ihre eigenen `<when>` Logging-Filter definieren, um eine unendliche Logging-Schleife zu vermeiden, wenn die Änderung des Levels nicht für Ihren Fall geeignet ist. Dies gilt auch für Gruppen-Chats.
+Kurz gesagt, wenn ihre `steamID` am gleichen ASF-Prozess teilnimmt, dann sollte die `minlevel` Logging-Ebene ihres `SteamTarget` `Info` (oder `Debug` sein, wenn du auch nicht ASF im `Debug` Modus) und darüber. Alternativ kannst du ihre eigenen `<when>` Logging-Filter definieren, um eine unendliche Logging-Schleife zu vermeiden, wenn die Änderung des Levels nicht für ihren Fall geeignet ist. Dies gilt auch für Gruppen-Chats.

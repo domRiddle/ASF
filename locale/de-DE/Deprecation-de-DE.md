@@ -20,7 +20,7 @@ ASF wird zwei Phasen des Verfalls (engl. Deprecation) folgen, die den Übergang 
 
 Stufe 1 tritt ein, wenn ein bestimmtes Feature veraltet ist, mit sofortiger Verfügbarkeit einer anderen Lösung (oder keiner, wenn es keine Pläne zur Wiedereinführung gibt).
 
-Während dieser Phase gibt ASF eine entsprechende Warnung aus, wenn die veraltete Funktion verwendet wird. Solange es möglich ist, wird ASF versuchen das alte Verhalten nachzuahmen und damit kompatibel zu bleiben. ASF wird in Bezug auf diese Funktionalität mindestens bis zur nächsten stabilen Version in Stufe 1 bleiben. Dies ist der Moment, in dem Sie, hoffentlich ohne die Kompatibilität zu beeinträchtigen, in all Ihren Programmen und Strukturen den richtigen Wechsel vornehmen können, um dem neuen Verhalten zu genügen. Sie können bestätigen, dass Sie alle entsprechenden Änderungen vorgenommen haben, indem Sie die Verfallswarnung nicht mehr angezeigt bekommen.
+Während dieser Phase gibt ASF eine entsprechende Warnung aus, wenn die veraltete Funktion verwendet wird. Solange es möglich ist, wird ASF versuchen das alte Verhalten nachzuahmen und damit kompatibel zu bleiben. ASF wird in Bezug auf diese Funktionalität mindestens bis zur nächsten stabilen Version in Stufe 1 bleiben. Dies ist der Moment, in dem Sie, hoffentlich ohne die Kompatibilität zu beeinträchtigen, in all ihren Programmen und Strukturen den richtigen Wechsel vornehmen können, um dem neuen Verhalten zu genügen. Sie können bestätigen, dass Sie alle entsprechenden Änderungen vorgenommen haben, indem Sie die Verfallswarnung nicht mehr angezeigt bekommen.
 
 ### Stufe 2
 
@@ -30,9 +30,9 @@ Stufe 2 ist geplant, nachdem die oben beschriebene Stufe 1 stattgefunden hat und
 
 ## Summary
 
-Sie haben mehr oder weniger einen **ganzen Monat** um einen entsprechenden Wechsel vorzunehmen, was mehr als genug sein sollte, selbst wenn Sie ein gelegentlicher ASF-Benutzer sind. Nach Ablauf dieses Zeitraums garantiert ASF nicht mehr, dass alte Einstellungen funktionieren werden (Stufe 2), wodurch bestimmte Funktionen wirkungsvoll abgeschaltet werden, ohne dass du es bemerkst. Wenn Sie ASF nach mehr als einem Monat Inaktivität starten, wird empfohlen, **[von Grund auf neu zu beginnen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE)**, oder alle verpassten Änderungsprotokolle zu lesen und Ihre Nutzung manuell an die aktuelle anzupassen.
+Sie haben mehr oder weniger einen **ganzen Monat** um einen entsprechenden Wechsel vorzunehmen, was mehr als genug sein sollte, selbst wenn Sie ein gelegentlicher ASF-Benutzer sind. Nach Ablauf dieses Zeitraums garantiert ASF nicht mehr, dass alte Einstellungen funktionieren werden (Stufe 2), wodurch bestimmte Funktionen wirkungsvoll abgeschaltet werden, ohne dass du es bemerkst. Wenn Sie ASF nach mehr als einem Monat Inaktivität starten, wird empfohlen, **[von Grund auf neu zu beginnen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE)**, oder alle verpassten Änderungsprotokolle zu lesen und ihre Nutzung manuell an die aktuelle anzupassen.
 
-In den meisten Fällen wird die Missachtung der Verfallswarnung die allgemeine ASF-Funktionalität nicht beeinschränken, sondern auf das Standardverhalten zurückgreifen (das möglicherweise nicht mit Ihren persönlichen Präferenzen übereinstimmt).
+In den meisten Fällen wird die Missachtung der Verfallswarnung die allgemeine ASF-Funktionalität nicht beeinschränken, sondern auf das Standardverhalten zurückgreifen (das möglicherweise nicht mit ihren persönlichen Präferenzen übereinstimmt).
 
 ---
 

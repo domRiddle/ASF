@@ -14,7 +14,7 @@ ASF 会从 ASF 目录内的 `plugins` 文件夹加载插件。 建议您根据�
 
 我们在&#8203;**[第三方项目](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-zh-CN#asf-插件)**&#8203;章节列出了一些精选插件。
 
-**请注意，ASF 插件可能是有害的**。 您应该始终确保您使用插件来自于您可以信任的开发人员。 如果您决定使用任何自定义插件，ASF 开发者将不再保证您的正常 ASF 权益（例如不保证没有恶意软件或者 VAC 安全）。 You need to understand that plugins have full control over ASF process once loaded, due to that we're also unable to support setups that utilize custom plugins, since you're no longer running vanilla ASF code.
+**请注意，ASF 插件可能是有害的**。 您应该始终确保您使用插件来自于您可以信任的开发人员。 如果您决定使用任何自定义插件，ASF 开发者将不再保证您的正常 ASF 权益（例如不保证没有恶意软件或者 VAC 安全）。 您应当理解，一旦被加载，插件就可以完全控制 ASF 进程，因此我们亦无法对使用自定义插件的 ASF 提供支持，因为您运行的不再是标准 ASF 代码。
 
 ---
 

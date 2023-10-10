@@ -12,22 +12,22 @@ By stating that ASF is licensed under **[Apache License 2.0](https://raw.githubu
 
 ## Anmerkungen
 
-Wenn du Ihre eigene Software/Dienstleistung basierend auf ASF oder einem Teil davon erstellst, lies bitte Punkt 6 der Lizenz:
+Wenn du ihre eigene Software/Dienstleistung basierend auf ASF oder einem Teil davon erstellst, lies bitte Punkt 6 der Lizenz:
 
 > Markenzeichen. Diese Lizenz gewährt keine Erlaubnis zur Verwendung der Markennamen, Warenzeichen, Dienstleistungsmarken oder Produktnamen des Lizenzgebers, es sei denn, dies ist für eine angemessene und übliche Verwendung zur Beschreibung der Herkunft des Werkes und zur Wiedergabe des Inhalts der NOTICE-Datei erforderlich.
 
-Wir erteilen Ihrenkeine direkte Erlaubnis, den ASF/ArchiSteamFarm-Produktnamen in Ihrer eigenen Software zu verwenden, aber wir erlauben die Verwendung in einigen nachvollziehbaren Szenarien:
+Wir erteilen ihren keine direkte Erlaubnis, den ASF/ArchiSteamFarm-Produktnamen in ihrer eigenen Software zu verwenden, aber wir erlauben die Verwendung in einigen nachvollziehbaren Szenarien:
 
 Du **kannst**:
-- Behaupten, dass Ihre Software/Dienstleistung **basierend auf** ASF (oder seinem Quellcode) ist
+- Behaupten, dass ihre Software/Dienstleistung **basierend auf** ASF (oder seinem Quellcode) ist
 - Deine Software/Dienstleistung als **ASF Fork** bezeichnen
-- Behaupten, dass Ihre Software/Dienstleistung von ASF bereitgestellt wird, falls du **keine** Änderungen am Quellcode vorgenommen hast
+- Behaupten, dass ihre Software/Dienstleistung von ASF bereitgestellt wird, falls du **keine** Änderungen am Quellcode vorgenommen hast
 - ASF für verschiedene Referenzzwecke verwenden, wie z. B. die Verknüpfung von Software/Dienstherkunft, unserem Wiki oder *"je nach Bedarf für eine angemessene und übliche Verwendung zur Beschreibung der Herkunft des Werkes"*
 
 Sie **können nicht**:
 - Behaupten, dass dein Programm/Dienst ASF **ist**
 - Deine Software/Dienstleistung als **ASF** bezeichnen
-- Behaupten, dass Ihre Software/Dienstleistung von ASF bereitgestellt wird, falls du **Änderungen** am Quellcode vorgenommen hast
-- Werbebetrug betreiben, wie zum Beispiel behaupten, dass ASF oder deren Entwickler mit Ihrer Software/Dienstleistung zusammenhängen
+- Behaupten, dass ihre Software/Dienstleistung von ASF bereitgestellt wird, falls du **Änderungen** am Quellcode vorgenommen hast
+- Werbebetrug betreiben, wie zum Beispiel behaupten, dass ASF oder deren Entwickler mit ihrer Software/Dienstleistung zusammenhängen
 
-Im Zweifelsfall wenden dich bitte an uns, wir beantworten gerne Ihre Rechts- und Lizenzfragen.
+Im Zweifelsfall wenden dich bitte an uns, wir beantworten gerne ihre Rechts- und Lizenzfragen.

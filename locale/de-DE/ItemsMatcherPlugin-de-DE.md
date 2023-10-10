@@ -37,7 +37,7 @@ Conditionally public info (exposed by Steam to every interested party if you mee
 - Your **[inventory](https://steamcommunity.com/my/inventory/#753_6)** (so people can use `MatchActively` against your items).
 
 Private info (selected data required for providing the functionality) includes:
-- Dein **[Handels-Code](https://steamcommunity.com/my/tradeoffers/privacy)** (damit Leute außerhalb Ihrer Freundesliste IhrenHandelsangebote schicken können)
+- Dein **[Handels-Code](https://steamcommunity.com/my/tradeoffers/privacy)** (damit Leute außerhalb ihrer Freundesliste ihrenHandelsangebote schicken können)
 - Your `MatchableTypes` setting (for display purposes and matching)
 - Your `MatchEverything` setting (for display purposes and matching)
 - Your `MaxTradeHoldDuration` setting (so other people know whether you're willing to accept their trades)
