@@ -6,13 +6,13 @@ Pozadnisko unošenje je napravljeno je da se odnosi na jednog bota, što znači 
 
 ---
 
-## Import
+## Unos
 
 Unošenje se može obaviti na dva načina - pomoću fajla, ili IPC-a.
 
 ### Fajl
 
-ASF prepoznaje u svojem `config` direktorijumu fajl pod nazivod `ImeBota.keys` gdje je `ImeBota` ime vašeg bota. Ovaj fajl ima određenu i fiksnu strukturu sa imenom igrice i ključem, koji su odbojeni tabom i zavšavaju se u novoj liniji kojom tako prikazuju novi unos. Ako je više tabova korišćeno, prvi strana se smatra imenom igrice, druga se smatra ključem, a sve između je ignorisano. For example:
+ASF prepoznaje u svojem `config` direktorijumu fajl pod nazivod `ImeBota.keys` gdje je `ImeBota` ime vašeg bota. Ovaj fajl ima određenu i fiksnu strukturu sa imenom igrice i ključem, koji su odbojeni tabom i zavšavaju se u novoj liniji kojom tako prikazuju novi unos. Ako je više tabova korišćeno, prvi strana se smatra imenom igrice, druga se smatra ključem, a sve između je ignorisano. Na primjer:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -42,11 +42,11 @@ U dodatku sa fajlom za ključeve iznad, ASF takođe posjeduje `GamesToRedeemInBa
 
 Kada su igrice uspješno upešene, biće dodate u red. ASF automatski ide kroz taj red sve doj je bot konektovan sa Steam mrežom, i dok red nije prazan. A key that was attempted to be redeemed and did not result in `RateLimited` is removed from the queue, with its status properly written to a file in `config` directory - either `BotName.keys.used` if the key was used in the process (e.g. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), or `BotName.keys.unused` otherwise. ASF intentionally uses your provided game's name since key is not guaranteed to have a meaningful name returned by Steam network - this way you can tag your keys using even custom names if needed/wanted.
 
-If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty.
+If during the process our account hits `RateLimited` status, the queue is temporarily suspended for a full hour in order to wait for cooldown to disappear. Afterwards, the process continues where it left, until the entire queue is empty or another `RateLimited` occurs.
 
 ---
 
-## Example
+## Primjer
 
 Pretpostavimo da imate listu sa 100 ključeva. Prvo što trebate uraditi je da napravite novi `ImeBota.keys.new` fajl u ASF-ov `config` direktorijumu. We appended `.new` extension in order to let ASF know that it shouldn't pick up this file immediately the moment it's created (as it's new empty file, not ready for import yet).
 

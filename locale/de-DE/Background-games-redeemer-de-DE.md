@@ -42,7 +42,7 @@ Zusätzlich zur Verwendung der oben genannten Produktschlüsseldateien stellt AS
 
 Sobald die Spiele erfolgreich importiert wurden, werden sie der Warteschlange hinzugefügt. ASF arbeitet sich automatisch durch seine Hintergrundwarteschlange, solange der Bot mit dem Steam-Netzwerk verbunden und die Warteschlange nicht leer ist. Ein bei dem Aktivierungsvorgang verwendeter Produktschlüssel, welcher nicht zu einem `RateLimited` führte, wird aus der Warteschlange entfernt und mit seinem Ergebnis ordnungsgemäß in eine Datei im `config` Ordner geschrieben; entweder in `BotName.keys.used`, wenn der Produktschlüssel im Prozess benutzt wurde (z. B. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), oder andernfalls `BotName.keys.unused`. ASF verwendet absichtlich den von ihnen angegebenen Spielenamen, da der Produktschlüssel nicht zwingend einen aussagekräftigen Namen vom Steam-Netzwerk erhäl; auf diese Weise können Sie die Produktschlüssel sogar mit benutzerdefinierten Namen versehen, falls erforderlich/gewünscht.
 
-Wenn während dieses Prozesses unser Konto den Status `RateLimited` erhält, wird die Warteschlange vorübergehend für eine volle Stunde unterbrochen, um die Abklingzeit abzuwarten. Danach wird der Prozess dort fortgesetzt, wo er unterbrochen wurde, bis die gesamte Warteschlange leer ist oder ein neues `RateLimited` auftritt.
+Wenn während dieses Prozesses unser Konto den Status `RateLimited` erhält, wird die Warteschlange vorübergehend für eine volle Stunde unterbrochen, um die Abklingzeit abzuwarten. Danach wird der Prozess dort fortgesetzt, wo er angehalten wurde, bis die gesamte Warteschlange leer ist oder `RateLimited` erneut auftritt.
 
 ---
 

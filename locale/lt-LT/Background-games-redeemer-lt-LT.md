@@ -6,13 +6,13 @@ Pasyvusis žaidimų aktyvatorius yra skirtas naudoti vienam botui, todėl jis n�
 
 ---
 
-## Import
+## Įkėlimas
 
 Įkėlimo procesas galima dvejais būdais - IPC arba naudojantis failu.
 
 ### Failas
 
-ASF pats atpažins savo `konfiguracija` direktorijoje failą, pavadintą `BotName.keys` kur `RobotoVardas` jūsų boto pavadinimas. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Jei keli TAB yra panaudoti, tuomet pirmasis yra laikomas žaidimo pavadiniu, o paskutinis įvestu raktu ir viskas tarp jų yra ignoruojama. For example:
+ASF pats atpažins savo `konfiguracija` direktorijoje failą, pavadintą `BotName.keys` kur `RobotoVardas` jūsų boto pavadinimas. That file has expected and fixed structure of name of the game with cd-key, separated from each other by a tab character and ending with a newline to indicate the next entry. Jei keli TAB yra panaudoti, tuomet pirmasis yra laikomas žaidimo pavadiniu, o paskutinis įvestu raktu ir viskas tarp jų yra ignoruojama. Pavyzdys:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -42,11 +42,11 @@ In addition to using keys file mentioned above, ASF also exposes `GamesToRedeemI
 
 Kai žaidimai yra sėkmingai importuoti, jie yra pridedami į eilę. ASF automatiškai patikrina eilę fone tol, kol botas yra prisijungęs prie Steam tinklo ir eilė nėra tuščia. Raktas, kuris buvo bandytas panaudoti ir negavo rezultato `RateLimited` yra ištrinamas iš eilės su teisingu statusus, įrašytu į failą `config` direktorijoje - arba `BotName.keys.used`, jei buvo panaudoti procese (pvz., `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`) arba `BotName.keys.unused` jei nebuvo. ASF specialiai naudoja vartotoja pateiktą vardą, nes nėra garantijos, jog Steam tinklas atsakys tinkamu ir suprantamu žaidimo vardu - tokiu būdu jūs galit žymėti raktus savo pasirinktais vardais.
 
-Jei proceso metu gaunamas `RateLimited` statusas, eilė yra laikinai sustabdoma vienai valandai, tam jog atsipirkimo laikas sumažėtų. Paskui procesas tęsiamas iki tol, kol eilė yra tuščia.
+Jei proceso metu gaunamas `RateLimited` statusas, eilė yra laikinai sustabdoma vienai valandai, tam jog atsipirkimo laikas sumažėtų. Afterwards, the process continues where it left, until the entire queue is empty or another `RateLimited` occurs.
 
 ---
 
-## Example
+## Pavyzdys
 
 Tarkime jūs turime 100 raktų sąrašą. Pirmiausiau reikėtų sukurti naują `BotName.keys.new` failą ASF `config` direktorijoje. Mes pridedame `.new` išplėtimą (BotName.keys --> BotName.keys.new), kad ASF suprastų jog šio failo nereikėtų skaityti iškarto, kai tik jis yra sukuriamas (nes tai yra naujas failas, neparengtas importuoti).
 

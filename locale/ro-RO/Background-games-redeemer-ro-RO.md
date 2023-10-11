@@ -6,13 +6,13 @@ Activatorul de coduri în plan secundar este făcut să aibă un singur domeniu 
 
 ---
 
-## Import
+## Importă
 
 Procesul de import poate fi realizat prin două căi - fie prin utilizarea unui fișier sau a unui IPC.
 
 ### Fișier
 
-ASF va recunoaște în directorul său `config` un fișier numit `BotName.keys` unde `BotName` este numele botului tău. Acel fișier are o structură fixă compusă din numelui jocului şi cd-key, separate unul de celălalt de un caracter tab şi se termină cu o nouă linie pentru a indica următoarea intrare. Dacă sunt folosite mai multe caractere tab, prima intrare este considerată numele jocului, ultima intrare este considerată o cheie cd-key, și totul în intervalul este ignorat. For example:
+ASF va recunoaște în directorul său `config` un fișier numit `BotName.keys` unde `BotName` este numele botului tău. Acel fișier are o structură fixă compusă din numelui jocului şi cd-key, separate unul de celălalt de un caracter tab şi se termină cu o nouă linie pentru a indica următoarea intrare. Dacă sunt folosite mai multe caractere tab, prima intrare este considerată numele jocului, ultima intrare este considerată o cheie cd-key, și totul în intervalul este ignorat. De exemplu:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -42,11 +42,11 @@ Indiferent de formatul cu care ați decis să rămâneți, ASF va importa fișie
 
 Odată ce jocurile au fost importate cu succes, acestea sunt adăugate la coadă. ASF trece automat prin coada sa de fundal atâta timp cât bot-ul este conectat la rețeaua Steam, iar coada nu este goală. O cheie care a încercat să fie răscumpărată și nu a rezultat în `RateLimited` a fost eliminată din coadă, cu starea sa scrisă corect într-un fișier în directorul `config` - fie `BotName.keys.used` dacă cheia a fost folosită în proces (de ex. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), sau `BotName.keys.unused` în alt caz. ASF folosește în mod intenționat numele jocului furnizat, deoarece cheia nu este garantată pentru a avea un nume semnificativ returnat de rețeaua Steam - în acest fel puteți eticheta cheile folosind chiar nume personalizate, dacă este necesar/dorit.
 
-Dacă în timpul procesului contul nostru lovește starea `RateLimited`, coada de așteptare este suspendată temporar pentru o oră întreagă pentru a aștepta ca procesul de cooldown să dispară. Ulterior, procesul continuă acolo unde a rămas, până când întreaga coadă este goală.
+Dacă în timpul procesului contul nostru lovește starea `RateLimited`, coada de așteptare este suspendată temporar pentru o oră întreagă pentru a aștepta ca procesul de cooldown să dispară. Afterwards, the process continues where it left, until the entire queue is empty or another `RateLimited` occurs.
 
 ---
 
-## Example
+## Exemplu
 
 Să presupunem că ai o listă de 100 de chei. În primul rând ar trebui să creați un nou fișier `BotName.keys.new` în directorul ASF `config`. Am adăugat extensia `.new` pentru a anunța ASF că nu ar trebui să preia acest fișier imediat ce este creat (deoarece este un fișier nou gol, nu este gata pentru import încă).
 

@@ -42,7 +42,7 @@ En plus d'utiliser le fichier de clés mentionné ci dessus, ASF expose égaleme
 
 Une fois les jeux importés, ils sont ajoutés à la file d'attente. ASF parcourt automatiquement sa file d'attente en arrière-plan tant que le bot est connecté au réseau Steam, et tant que la file d'attente n'est pas vide. Une clé qui tente d'être activée sans résulter en `RateLimited` est retirée de la file d'attente, avec son statut rédigé correctement dans un fichier dans le répertoire `config` - soit `BotName.keys.used` si la clé a été utilisée durant le processus (par exemple `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), sinon dans `BotName.keys.unused`. ASF utilise intentionnellement le nom du jeu que vous fournissez, car la clé n'a pas forcément de nom valable fourni par le réseau Steam - vous pouvez ainsi marquer vos clés avec des noms personnalisés si besoin est/si vous le désirez.
 
-Si notre compte atteint le statut `RateLimited` durant le processus, la file d'attente est suspendue temporairement pendant une heure entière, jusqu'à la fin du délai d'attente. Une fois ce délai terminé, le processus continue jusqu'à la fin de la file d'attente.
+Si notre compte atteint le statut `RateLimited` durant le processus, la file d'attente est suspendue temporairement pendant une heure entière, jusqu'à la fin du délai d'attente. Afterwards, the process continues where it left, until the entire queue is empty or another `RateLimited` occurs.
 
 ---
 

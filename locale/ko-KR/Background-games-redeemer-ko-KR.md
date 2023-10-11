@@ -42,7 +42,7 @@ ZXCVB-ASDFG-QWERT
 
 게임을 성공적으로 불러오면 대기열에 추가됩니다. ASF는 봇이 Steam 네트워크에 연결되어있고 대기열이 비어있지 않는 한 계속 백그라운드 대기열을 검토합니다. 등록을 시도하고 `RateLimited` 결과가 나오지 않은 키는 대기열에서 삭제됩니다. 결과는 `config` 디렉토리에 파일로 저장됩니다. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode` 등 키를 사용한 경우`BotName.keys.used` 파일에, 그 외의 경우 `BotName.keys.unused` 에 저장됩니다. Steam 네트워크는 키에 대해 의미있는 게임이름의 회신을 보장하지 않기 때문에 ASF는 사용자가 입력한 게임 이름을 사용합니다. 이렇게 해서 필요하거나 원하는 경우 사용자 지정이름을 사용해서 키를 태그지정할 수 있습니다.
 
-이 과정에서 계정이 `RateLimited` 상태가 되면 쿨다운이 사라지기를 기다리기 위해서 대기열이 임시로 한시간동안 정지됩니다. 그 후에, 멈추었던 곳에서 전체 대기열이 빌때까지 과정을 계속합니다.
+이 과정에서 계정이 `RateLimited` 상태가 되면 쿨다운이 사라지기를 기다리기 위해서 대기열이 임시로 한시간동안 정지됩니다. Afterwards, the process continues where it left, until the entire queue is empty or another `RateLimited` occurs.
 
 ---
 

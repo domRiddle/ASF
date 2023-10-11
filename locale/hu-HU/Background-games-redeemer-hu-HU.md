@@ -42,7 +42,7 @@ A fentebb említett kulcs fájlok mellett az ASF biztosít egy `GamesToRedeemInB
 
 Miután a játékok sikeresen importálva lettek, hozzá lesznek adva a várakozólistához. Az ASF automatikusan végigmegy a háttérbeli várakozólistáján abban az esetben, ha legalább egy bot csatlakozva van a Steam hálózatához és a várakozólista nem üres. Ha a beváltandó kulcs eredménye nem `RateLimited` lett, akkor a várakozólistából törölve lesz, majd az állapota bele lesz írva egy fájlba a `config` könyvtárban - a `BotNeve.keys.used` fájlba ha a kulcs fel lett használva (pl.: `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), vagy a `BotNeve.keys.unused` fájlba. Az ASF tudatosan az általad megadott játék nevet fogja használni, mivel nem garantált, hogy a Steam hálózat értelmes nevet fog visszaadni - így saját magadnak megjelölheted a kulcsaidat, akár egyedi nevekkel, ha szükséged van rá.
 
-Ha a folyamat során az account `RateLimited` státuszt kapna, a várakozólista egy teljesen órán keresztül szüneteltetve lesz, hogy megvárja, míg lejár a státusz. Ezután a processz ott fogja folytatni, ahol abbahagyta, egészen amíg a várakozólista üres nem lesz.
+Ha a folyamat során az account `RateLimited` státuszt kapna, a várakozólista egy teljesen órán keresztül szüneteltetve lesz, hogy megvárja, míg lejár a státusz. Afterwards, the process continues where it left, until the entire queue is empty or another `RateLimited` occurs.
 
 ---
 

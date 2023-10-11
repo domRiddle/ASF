@@ -6,13 +6,13 @@ Produktaktivering i baggrunden er lavet til et enkelt bot-område, hvilket betyd
 
 ---
 
-## Import
+## Importer
 
 Importering's processen kan gøres på to måder - enten ved brug af en fil eller via IPC.
 
 ### Fil
 
-ASF vil i dens `config`-mappe genkende en fil med navnet `BotName.keys` hvor `BotName` er din bots navn. Denne fil har forventet og fast struktur af navnet på spillet med cd-nøglen, adskilt et tab tegn og slutning med en ny linje for at angive starten på den næste indtastning. Hvis der bruges flere tab tegn, ses den første indtastning som spillets navn, sidste indtastning en cd-nøgle og alt imellem disse ignoreres. For example:
+ASF vil i dens `config`-mappe genkende en fil med navnet `BotName.keys` hvor `BotName` er din bots navn. Denne fil har forventet og fast struktur af navnet på spillet med cd-nøglen, adskilt et tab tegn og slutning med en ny linje for at angive starten på den næste indtastning. Hvis der bruges flere tab tegn, ses den første indtastning som spillets navn, sidste indtastning en cd-nøgle og alt imellem disse ignoreres. For eksempel:
 
 ```text
 POSTAL 2    ABCDE-EFGHJ-IJKLM
@@ -42,11 +42,11 @@ Udover brugen af nøglefiler som nævnt ovenfor, kan ASF også bruge `GamesToRed
 
 Når spil er succesfuldt importeret, er de tilføjet til køen. ASF går automatisk igennem dens baggrunds kø så længe at botten er tilsluttet til Steam netværket, og køen ikke er tom. En nøgle, der blev forsøgt at blive indløst og ikke resulterede i `RateLimited` fjernes fra køen, med dens status bliver skrevet ordentligt til en fil i `config` biblioteket - eller `BotName.keys.used` hvis nøglen blev brugt i processen (f.eks. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`) eller <0 >BotName.keys.unused</code> ellers. ASF bruger med vilje det angivne spillets navn, da nøglen ikke garanteres at få et meningsfuldt navn returneret af Steam-netværket - på denne måde kan du tagge dine nøgler ved hjælp af endda tilpassede navne, hvis det er nødvendigt / ønsket.
 
-Hvis vores konto rammer `RateLimited` -status under processen, standses køen midlertidigt i en hel time for at vente på, at cooldown forsvinder. Bagefter fortsætter processen, hvor den var fra, indtil hele køen er tom.
+Hvis vores konto rammer `RateLimited` -status under processen, standses køen midlertidigt i en hel time for at vente på, at cooldown forsvinder. Afterwards, the process continues where it left, until the entire queue is empty or another `RateLimited` occurs.
 
 ---
 
-## Example
+## Eksempel
 
 Lad os antage, at du har en liste med 100 nøgler. Først skal du oprette en ny `BotName.keys.new` fil i ASF `config` biblioteket. Vi tilføjede udvidelsen `.new` for at lade ASF vide, at den ikke skulle hente denne fil med det samme, når den er oprettet (da den er en ny tom fil, ikke klar til import endnu).
 

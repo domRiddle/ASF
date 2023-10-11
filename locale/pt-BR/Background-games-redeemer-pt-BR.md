@@ -42,7 +42,7 @@ Além de usar o arquivo keys mencionado acima, o ASF também exibe o **[API endp
 
 Assim que os jogos são importados com êxito, eles são adicionados à fila. O ASF percorre automaticamente a fila em segundo plano enquanto o bot continuar conectado a Rede Steam e a fila não estiver vazia. Um código de produto que tentou ser resgatado e não resultou em `RateLimited` é removida da lista, com seu status propriamente escrito em um arquivo na pasta `config` - sendo `BotName.keys.used` se o código de produto foi usado no processo (por ex.: `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), ou `BotName.keys.unused` caso contrário. O ASF usa intencionalmente o nome do jogo que você forneceu uma vez que não é garantido que o código de produto retorne um nome correto pela Rede Steam; dessa forma você pode marcar seus códigos de produto com nomes personalizados se precisar/quiser.
 
-Se durante o processo a conta atingir o estado `RateLimited`, a fila é suspensa temporariamente por uma hora inteira para esperar o fim do bloqueio. Depois disso, o processo continua de onde parou, até que a fila inteira esteja vazia.
+Se durante o processo a conta atingir o estado `RateLimited`, a fila é suspensa temporariamente por uma hora inteira para esperar o fim do bloqueio. Afterwards, the process continues where it left, until the entire queue is empty or another `RateLimited` occurs.
 
 ---
 

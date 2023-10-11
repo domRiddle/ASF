@@ -42,7 +42,7 @@ ZXCVB-ASDFG-QWERT
 
 当游戏成功导入后，它们会被加入到队列当中。 只要机器人已连接到 Steam 网络，并且队列不为空，ASF 就会自动处理其后台队列。 如果一个序列号尝试激活完成并且没有返回 `RateLimited` 结果，它将会被移出队列并根据其激活结果写入位于 `config` 文件夹下的文件当中。当序列号被使用时（例如结果为：`NoDetail`、`BadActivationCode`、`DuplicateActivationCode`），将会被写入 `BotName.keys.used` 文件中，否则就会写入 `BotName.keys.unused` 文件中。 由于 Steam 网络不一定会返回序列号对应游戏的正确名称，所以 ASF 会使用您提供的游戏名称。这样您就可以根据需要使用自定义名称标记您的序列号。
 
-如果在激活过程中帐户遇到 `RateLimited` 状态，队列会暂停一小时以等待冷却时间结束。 然后，激活过程将会从中断的地方继续，直到队列为空。
+如果在激活过程中帐户遇到 `RateLimited` 状态，队列会暂停一小时以等待冷却时间结束。 然后，激活过程将会从中断的地方继续，直到队列为空或再次出现 `RateLimited`。
 
 ---
 

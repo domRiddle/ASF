@@ -42,13 +42,13 @@ Bez względu na to, w jakim formacie zdecydowałeś się trzymać, ASF zaimportu
 
 <p spaces-before="0">Pomyślnie zaimportowane gry są dodawane do kolejki. ASF automatycznie przechodzi przez kolejkę tła, dopóki bot jest podłączony do sieci Steam, a kolejka nie jest pusta. Klucz, który próbował zostać wykorzystany i nie spowodował ograniczenia <code> RateLimited </ 0>, został usunięty z kolejki, a jego status został poprawnie zapisany w pliku w katalogu <code> config </ 0> - <code> BotName.keys.used </ 0> jeśli klucz został użyty w procesie (np. <code> BrakDetaila </ 0>, <code> Kod BadActivation </ 0>, <code> DuplicateActivationCode </ 0>) lub <0 > BotName.keys.unused </ 0> inaczej. ASF celowo używa podanej nazwy gry, ponieważ nie ma gwarancji, że kluczowa nazwa zostanie zwrócona przez sieć Steam - w ten sposób możesz oznaczyć klucze używając nawet niestandardowych nazw, jeśli są potrzebne / poszukiwane.</p>
 
-<p spaces-before="0">Jeśli podczas procesu nasze konto osiągnie status <code> RateLimited </ 0>, kolejka zostanie tymczasowo zawieszona na pełną godzinę, aby czekać na zakończenie czasu odnowienia. Potem proces jest kontynuowany, gdzie zostawił, aż cała kolejka jest pusta.</p>
+<p spaces-before="0">Jeśli podczas procesu nasze konto osiągnie status <code> RateLimited </ 0>, kolejka zostanie tymczasowo zawieszona na pełną godzinę, aby czekać na zakończenie czasu odnowienia. Afterwards, the process continues where it left, until the entire queue is empty or another <code>RateLimited` occurs.
 
-<hr />
+---
 
-<h2 spaces-before="0">Przykład</h2>
+## Przykład
 
-<p spaces-before="0">Załóżmy, że masz listę 100 kluczy. Po pierwsze należy utworzyć nowy plik <code>BotName.keys.new` w katalogu `config` ASF. Możemy dołączane `nowe` rozszerzenie w celu niech ASF, wiem, że to nie powinien odebrać ten plik natychmiast w chwili, gdy jest tworzony (jak to jest nowy pusty plik, nie jest gotowy do importu, jeszcze).
+Załóżmy, że masz listę 100 kluczy. Po pierwsze należy utworzyć nowy plik `BotName.keys.new` w katalogu `config` ASF. Możemy dołączane `nowe` rozszerzenie w celu niech ASF, wiem, że to nie powinien odebrać ten plik natychmiast w chwili, gdy jest tworzony (jak to jest nowy pusty plik, nie jest gotowy do importu, jeszcze).
 
 Teraz można otworzyć nasz nowy plik i Kopiuj Wklej listę naszych 100 kluczy, ustalające format, w razie potrzeby. Po poprawki nasz plik `BotName.keys.new` będzie miał dokładnie 100 (lub 101, z ostatni znak nowego wiersza) wierszy, każdy wiersz o strukturze `GameName\tcd-key\n`, gdzie `\t` jest znak tabulacji i `\n` jest znak nowego wiersza.
 

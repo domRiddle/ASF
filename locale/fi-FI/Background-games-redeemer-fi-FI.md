@@ -42,7 +42,7 @@ Edellä mainitun avaimen käytön lisäksi ASF paljastaa myös `PelitToRedeemInB
 
 Kun pelit on tuotu onnistuneesti, ne lisätään jonoon. ASF käy automaattisesti taustajonon läpi niin kauan kuin botti on kytketty Steam-verkkoon, ja jono ei ole tyhjä. Avain, joka pyrittiin lunastamaan ja joka ei johtanut `RateLimited`, poistetaan jonosta, jonka tila on asianmukaisesti kirjoitettu tiedostoon `config` -hakemistossa - joko `BotName. uu. sed` jos avain on käytetty prosessissa (esim. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`) tai `BotName.keys.unused` otherwise. ASF käyttää tarkoituksellisesti tarjotun pelin nimeä, koska avain ei ole taattu, että Steam-verkko palauttaa mielekkään nimen - tällä tavoin voit merkitä avaimia jopa mukautettujen nimien avulla, jos tarvitaan/halutaan.
 
-Jos prosessin aikana tilisi osumia `RateLimited` tila, jono keskeytetään väliaikaisesti koko tunnin ajaksi, jotta jäähtymistä voidaan odottaa häviävän. Jälkeen, prosessi jatkuu minne se lähti, kunnes koko jono on tyhjä.
+Jos prosessin aikana tilisi osumia `RateLimited` tila, jono keskeytetään väliaikaisesti koko tunnin ajaksi, jotta jäähtymistä voidaan odottaa häviävän. Afterwards, the process continues where it left, until the entire queue is empty or another `RateLimited` occurs.
 
 ---
 

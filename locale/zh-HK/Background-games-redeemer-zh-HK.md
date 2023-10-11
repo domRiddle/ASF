@@ -6,13 +6,13 @@
 
 ---
 
-## Import
+## 導入
 
 導入可以通過兩種方式進行──使用文字檔案或 IPC。
 
 ### 檔案：
 
-ASF 會識別`config`目錄下名為 `BotName.keys`的檔案，其中 `BotName`是您的機械人名稱。 該檔案必須按固定格式編寫，每行由遊戲名稱和遊戲序號組成，兩者之間以 Tab 分隔，並以一個分行符號結束，表示開始下一項。 如果使用多個 Tab，則第一個條目會被視為遊戲名稱，最後一個會被視為遊戲序號，中間的所有內容都將被忽略。 For example:
+ASF 會識別`config`目錄下名為 `BotName.keys`的檔案，其中 `BotName`是您的機械人名稱。 該檔案必須按固定格式編寫，每行由遊戲名稱和遊戲序號組成，兩者之間以 Tab 分隔，並以一個分行符號結束，表示開始下一項。 如果使用多個 Tab，則第一個條目會被視為遊戲名稱，最後一個會被視為遊戲序號，中間的所有內容都將被忽略。 範例：
 
 ```text
 POSTAL 2	ABCDE-EFGHJ-IJKLM
@@ -42,11 +42,11 @@ ZXCVB-ASDFG-QWERT
 
 成功導入遊戲後，它們將添加到佇列中。 只要機械人與 Steam 網絡保持連線，且佇列不為空，ASF 就會自動處理後台佇列。 如果ASF嘗試兌換一個序號卻沒有觸發 `RateLimited` ，該序號將會被移出佇列並根據其兌換結果寫入位於 `config` 資料夾中的檔案。當序號被使用時（例如結果為：`NoDetail`、`BadActivationCode`、`DuplicateActivationCode`），兌換將會被寫入 `BotName.keys.used`，否則就會被寫入 `BotName.keys.unused`。 由於 Steam 網絡不一定會回傳序號所屬遊戲的正確名稱，所以 ASF 會使用您提供的遊戲名稱。這樣您就可以根據需要使用自訂名稱標記你的序號。
 
-如果在兌換過程中帳戶觸發 `RateLimited` 狀態，佇列將會暫停一小時以等待冷卻時間結束。 之後，兌換程序將會從中斷的地方繼續，直到佇列完全清空。
+如果在兌換過程中帳戶觸發 `RateLimited` 狀態，佇列將會暫停一小時以等待冷卻時間結束。 Afterwards, the process continues where it left, until the entire queue is empty or another `RateLimited` occurs.
 
 ---
 
-## Example
+## 範例
 
 假設你有一個包含 100 個序號的清單。 首先，您應該在ASF `config` 目錄下創建一個名為 `BotName.keys.new` 的檔案。 我們加上 `.new` 後綴是為了防止 ASF 在建立檔案時立刻讀取該檔案（因為它是一個全新的檔案，尚未準備導入）。
 

@@ -630,7 +630,7 @@ Diese Warnung bedeutet, dass Steam nicht innerhalb einer bestimmten Zeit auf die
 
 ### `The type initializer for 'System.Security.Cryptography.CngKeyLite' threw an exception`
 
-Dieses Problem wird fast ausschließlich durch einem deaktivierten/gestoppten `CNG Key Isolation`-Windows-Dienst, die ASF Kernkryptographie-Funktionalität bietet, ohne dessen das Programm nicht ausführbar ist. Sie können dieses Problem beheben, indem Sie `services.msc` und sicherstellen, dass Windows den `CNG Key Isolation`-Dienst nicht deaktiviert hat und derzeit läuft.
+Dieses Problem wird fast ausschließlich durch einem deaktivierten/gestoppten `CNG Key Isolation`-Windows-Dienst, die ASF Kernkryptografiie-Funktionalität bietet, ohne dessen das Programm nicht ausführbar ist. Sie können dieses Problem beheben, indem Sie `services.msc` und sicherstellen, dass Windows den `CNG Key Isolation`-Dienst nicht deaktiviert hat und derzeit läuft.
 
 ---
 

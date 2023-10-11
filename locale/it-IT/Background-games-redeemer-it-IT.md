@@ -6,7 +6,7 @@ Il riscatto giochi in background è fatto per un singolo bot, questo significa c
 
 ---
 
-## Import
+## Importa
 
 L'importazione può essere effettuata in due modi: usando un file o con IPC.
 
@@ -42,7 +42,7 @@ Oltre ad usare il file delle chiavi sopra menzionato, ASF espone anche **[l'endp
 
 Una volta che i giochi sono importati con successo, sono aggiunti alla coda. ASF passa automaticamente per la sua coda in background finché il bot è connesso alla rete Steam, e la coda non è vuota. Una chiave che si è tentato di riscattare e non è risultata in `RateLimited` è rimossa dalla coda, con il suo stato scritto propriamente in un file nella directory `config` - o `BotName.keys.used` se la chiave era usata nel processo (es. `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`), o altrimenti `BotName.keys.unused`. ASF usa intenzionalmente il nome del gioco fornito essendo la chiave non garantita affinché la rete di Steam restituisca un nome significativo - in questo modo puoi taggare le tue chiavi anche usando nomi personalizzati se necessario/desiderato.
 
-Se durante il processo il nostro profilo colpisce lo stato `RateLimited`, la coda è temporaneamente sospesa per un'ora intera per attendere che il tempo di ricarica scompaia. Successivamente, il processo continua da dove era rimasto, finché l'intera coda non è vuota.
+Se durante il processo il nostro profilo colpisce lo stato `RateLimited`, la coda è temporaneamente sospesa per un'ora intera per attendere che il tempo di ricarica scompaia. Afterwards, the process continues where it left, until the entire queue is empty or another `RateLimited` occurs.
 
 ---
 

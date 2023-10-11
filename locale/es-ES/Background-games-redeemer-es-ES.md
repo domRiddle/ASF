@@ -42,7 +42,7 @@ Además de poder usar el archivo antes mencionado, ASF también posee la **[API 
 
 Una vez que los juegos sean importados exitosamente, serán añadidos a la cola. ASF analizará automáticamente la cola en segundo plano mientras el bot esté conectado a la red de Steam y la cola no esté vacía. Cuando se intente activar una clave y no haya resultado en `RateLimited`, esta será removida de la cola, con el resultado de dicho intento escrito en un archivo en el directorio `config` - ya sea `BotName.keys.used` si la clave fue usada en el proceso (por ejemplo `NoDetail`, `BadActivationCode`, `DuplicateActivationCode`) o `BotName.keys.unused` en caso contrario. ASF intencionalmente usa el nombre de juego que hayas proporcionado ya que la clave no garantiza que la red de Steam devuelva un nombre significativo - de esta forma puedes etiquetar tus claves con nombres personalizados si es necesario/deseado.
 
-Si durante el proceso la cuenta alcanza el estatus `RateLimited`, la cola será temporalmente suspendida por una hora para esperar que el límite de intentos de activación desaparezca. Posteriormente, el proceso continuará donde se quedó, hasta que toda la cola esté vacía.
+Si durante el proceso la cuenta alcanza el estatus `RateLimited`, la cola será temporalmente suspendida por una hora para esperar que el límite de intentos de activación desaparezca. Posteriormente, el proceso continúa donde se quedó, hasta que toda la cola esté vacía o haya otro `RateLimited` (límite de intentos).
 
 ---
 
