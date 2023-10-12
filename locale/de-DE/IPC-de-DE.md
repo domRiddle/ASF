@@ -100,22 +100,22 @@ Die Konfigurationsdatei basiert auf folgender JSON-Struktur:
 
 `KnownNetworks` - This **optional** variable specifies network addresses which we consider trustworthy. By default, ASF is configured to trust loopback interface (`localhost`, same machine) **only**. Diese Eigenschaft wird auf zweierlei Weise genutzt. Firstly, if you omit `IPCPassword`, then we'll allow only machines from known networks to access ASF's API, and deny everybody else as a security measure. Secondly, this property is crucial in regards to reverse-proxies accessing ASF, as ASF will honor its headers only if the reverse-proxy server is from within known networks. Honoring the headers is crucial in regards to ASF's anti-bruteforce mechanism, as instead of banning the reverse-proxy in case of a problem, it'll ban the IP specified by the reverse-proxy as the source of the original message. Be extremely careful with the networks you specify here, as it allows a potential IP spoofing attack and unauthorized access in case the trusted machine is compromised or wrongly configured.
 
-`PathBase` - This is **optional** base path that will be used by IPC interface. Defaults to `/` and shouldn't be required to modify for majority of use cases. Wenn du diese Eigenschaft änderst, hostest du die gesamte IPC-Schnittstelle auf einem benutzerdefinierten Präfix, zum Beispiel `http://localhost:1242/MeinPrefix` anstelle von `http://localhost:1242` allein. Die Verwendung von einem benutzerdefinierten `PathBase` könnte in Kombination mit der spezifischen Einrichtung eines Reverse-Proxy erwünscht sein, bei dem du nur eine bestimmte URL proxyen möchtest, z.B. `meinedomain.com/ASF` statt der gesamten `meinedomain.com` Domain. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
+`PathBase` - This is **optional** base path that will be used by IPC interface. Defaults to `/` and shouldn't be required to modify for majority of use cases. Wenn du diese Eigenschaft änderst, hostest du die gesamte IPC-Schnittstelle auf einem benutzerdefinierten Präfix, zum Beispiel `http://localhost:1242/MeinPrefix` anstelle von `http://localhost:1242` allein. Die Verwendung von einem benutzerdefinierten `PathBase` könnte in Kombination mit der spezifischen Einrichtung eines Reverse-Proxy erwünscht sein, bei dem du nur eine bestimmte URL proxyen möchtest, z. B. `meinedomain.com/ASF` statt der gesamten `meinedomain.com` Domain. Normally that would require from you to write a rewrite rule for your web server that would map `mydomain.com/ASF/Api/X` -> `localhost:1242/Api/X`, but instead you can define a custom `PathBase` of `/ASF` and achieve easier setup of `mydomain.com/ASF/Api/X` -> `localhost:1242/ASF/Api/X`.
 
 Wenn du nicht wirklich einen benutzerdefinierten Basispfad angeben musst, ist es am besten ihn bei der Standardeinstellung zu belassen.
 
-## Example configs
+## Beispielkonfigurationen
 
-### Changing default port
+### Standardport ändern
 
-The following config simply changes default ASF listening port from `1242` to `1337`. You can pick any port you like, but we recommend `1024-32767` range, as other ports are typically **[registered](https://en.wikipedia.org/wiki/Registered_port)**, and may for example require `root` access on Linux.
+Die folgende Konfiguration ändert einfach den ASF Listing-Port von `1242` auf `1337`. Sie können jeden beliebigen Port wählen, aber wir empfehlen `1024-32767` Bereich, da andere Ports normalerweise **[registriert sind](https://de.wikipedia.org/wiki/Liste_der_standardisierten_Ports)** **[(engl. Wikipedia)](https://en.wikipedia.org/wiki/Registered_port)**, und kann zum Beispiel `root` Zugriff unter Linux erfordern.
 
 ```json
 {
     "Kestrel": {
         "Endpoints": {
             "HTTP4": {
-                "Url": "http://127.0.0.1:1337"
+                "Url": "http://127. .0. :1337"
             },
             "HTTP6": {
                 "Url": "http://[::1]:1337"
@@ -127,9 +127,9 @@ The following config simply changes default ASF listening port from `1242` to `1
 
 ---
 
-### Enabling access from all IPs
+### Aktiviere Zugriff von allen IPs
 
-The following config will allow remote access from all sources, therefore you should **ensure that you read and understood our security notice about that**, available above.
+Die folgende Konfiguration ermöglicht den Fernzugriff von allen Quellen. **Daher sollten Sie sicherstellen, dass Sie unsere Sicherheitshinweise gelesen und verstanden haben** (siehe oben).
 
 ```json
 {
@@ -189,7 +189,7 @@ Wenn du dich jedoch dazu entscheidest die standardmäßig eingestellten `localho
 
 Ja, dafür wurde die ASF-API entwickelt und du kannst alles verwenden was fähig ist eine HTTP-Anfrage zu senden um darauf zuzugreifen. Lokale Benutzerskripte folgen der **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** Logik, und wir erlauben den Zugriff von allen Ursprüngen für diese (`*`) solange `IPCPassword` gesetzt ist (als zusätzliche Sicherheitsmaßnahme). Auf diese Weise kannst du verschiedene authentifizierte ASF-API-Anfragen ausführen, ohne dass potenziell bösartige Skripte dies automatisch tun können (da sie dazu dein `IPCPassword` kennen müssten).
 
-### Kann ich aus der Ferne auf die IPC-Schnittstelle von ASF zugreifen, z.B. von einem anderen Gerätaus?
+### Kann ich aus der Ferne auf die IPC-Schnittstelle von ASF zugreifen, z. B. von einem anderen Gerätaus?
 
 Yes, we recommend to use a reverse proxy for that. Auf diese Weise kannst du wie gewohnt auf deinen Webserver zugreifen, der dann auf dem gleichen Gerät auf die IPC-Schnittstelle von ASF zugreift. Andernfalls, wenn du nicht mit einem Reverse-Proxy arbeiten möchtest, kannst du die **[benutzerdefinierte Konfiguration](#benutzerdefinierte-konfiguration)** mit entsprechender URL verwenden. For example, if your machine is in a VPN with `10.8.0.1` address, then you can set `http://10.8.0.1:1242` listening URL in IPC config, which would enable IPC access from within your private VPN, but not from anywhere else.
 
