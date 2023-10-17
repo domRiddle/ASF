@@ -203,8 +203,6 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 Ovenstående indstiller profil til offentlige, ejede spil kun til venner, spilletid til privat, venneliste til offentlig, inventar til offentlig, inventar gaver til privat og profilkommentarer til offentlig. Du kan opnå det samme med numeriske værdier, hvis du vil.
 
-Husk, at child aldrig kan have mere åben tilladelse end parent. Se forholdet til argumenter for tilgængelige indstillinger.
-
 ---
 
 ## `addlicense` Licenser

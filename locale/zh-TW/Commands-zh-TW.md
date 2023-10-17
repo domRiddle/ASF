@@ -203,8 +203,6 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 上述指令會將個人檔案設為公開、遊戲資料設為僅限好友、總遊玩時數為私人、好友名單為公開、物品庫為公開、物品庫禮物為私密、個人檔案留言為私人。 若有需要，您也可以使用數值來實現相同效果。
 
-記住，子選項的權限無法高於父選項。 您可以參閱上述引數選項的子選項關係。
-
 ---
 
 ## `addlicense` 指令中的 Licenses 引數
@@ -253,7 +251,7 @@ owns ASF app/292030,name/Witcher
 
 `redeem^`&#8203;指令使您能夠微調使用於兌換單個產品序號情境的模式。 此指令會臨時覆蓋&#8203;`RedeemingPreferences`&#8203; &#8203;**[Bot設定屬性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#Bot-設定檔)**&#8203;。
 
-`<Modes>` 參數接受多個模式值，通常用逗號分隔。 可用的模式值如下：
+`<Modes>`&#8203;引數接受多個模式值，通常使用逗號分隔。 可用的模式值如下：
 
 | 值    | 名稱                    | 描述                                                            |
 | ---- | --------------------- | ------------------------------------------------------------- |
@@ -272,19 +270,19 @@ owns ASF app/292030,name/Witcher
 
 `redeem^ primary FF,SI key1,key2,key3`
 
-特別注意，進階兌換模式只會替換您&#8203;**在指令中指定**&#8203;的&#8203;`RedeemingPreferences`&#8203;選項。 舉例來說，若您在&#8203;`RedeemingPreferences`&#8203;中啟用了&#8203;`Distributing`&#8203;，那麼無論是否使用&#8203;`FD`&#8203;模式，都不會有任何區別，因為您已經在&#8203;`RedeemingPreferences`&#8203;中啟用了它。 這就是為什麼每個可強制啟用的模式也有一個可強制停用的選項，您可以決定自己是希望在啟用的情況下強制覆蓋，反之亦然。
+需要注意的是，進階兌換模式只會替換您&#8203;**在指令中指定**&#8203;的&#8203;`RedeemingPreferences`&#8203;選項。 舉例來說，若您在&#8203;`RedeemingPreferences`&#8203;中啟用了&#8203;`Distributing`&#8203;，那麼無論是否使用&#8203;`FD`&#8203;模式，都不會有任何區別，因為您已經在&#8203;`RedeemingPreferences`&#8203;中啟用了它。 這就是為什麼每個可強制啟用的模式，也會有一個可強制停用的選項。您可以將被停用的選項強制覆蓋成啟用，相反的狀況亦可。
 
 ---
 
 ## `encrypt` 指令
 
-`encrypt`&#8203;指令使您能夠使用ASF的加密方式加密任意字串。 加密方式&#8203;`<encryptionMethod>`&#8203;必須是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;章節所述方式之一。 我們建議透過安全的通道（ASF控制台、ASF-ui或IPC提供的專用API端點）使用此指令，否則敏感資訊可能會被第三方記錄（例如聊天訊息會被Steam伺服器記錄）。
+`encrypt`&#8203;指令使您能夠使用ASF的加密方式加密任意字串。 加密方式&#8203;`<encryptionMethod>`&#8203;必須是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;章節所述方式之一。 我們建議透過安全的通道（ASF控制台、ASF-ui或IPC提供的專用API端點）使用本指令，否則敏感性資訊可能會被第三方記錄（例如聊天訊息會被Steam伺服器記錄）。
 
 ---
 
 ## `hash` 指令
 
-`hash`&#8203;指令使您能夠使用ASF的雜湊方式，產生任意字串的雜湊值。 雜湊方式&#8203;`<hashingMethod>`&#8203;必須是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;章節所述方式之一。 我們建議透過安全的通道（ASF控制台、ASF-ui或IPC提供的專用API端點）使用本指令，否則敏感性資訊可能會被第三方記錄（例如聊天訊息會被Steam伺服器記錄）。
+`hash`&#8203;指令使您能夠使用ASF的雜湊方式，產生任意字串的雜湊值。 雜湊方式&#8203;`<hashingMethod>`&#8203;必須是&#8203;**[安全性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-zh-TW)**&#8203;章節所述方式之一。 我們建議透過安全的通道（ASF控制台、ASF-ui或IPC提供的專用API端點）使用此指令，否則敏感資訊可能會被第三方記錄（例如聊天訊息會被Steam伺服器記錄）。
 
 ---
 

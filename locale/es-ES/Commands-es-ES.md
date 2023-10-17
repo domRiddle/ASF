@@ -203,8 +203,6 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 Lo anterior establecerá el perfil a público, los juegos poseídos a solo amigos, el tiempo de juego a privado, la lista de amigos a público, el inventario a público, el inventario de regalos a privado y los comentarios en el perfil a público. Puedes lograr lo mismo con valores numéricos si así lo quieres.
 
-Recuerda que el hijo nunca puede tener permisos más abiertos que su padre. Consulta la relación de los argumentos para las opciones disponibles.
-
 ---
 
 ## `addlicense` añadir licencias
@@ -239,7 +237,7 @@ El comando `owns` soporta varios tipos de juegos diferentes para el argumento `<
 | `regex` | `r`   | `regex/^\d{4}:` | **[Expresión regular](https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular)** aplicada al nombre del juego, distingue mayúsculas y minúsculas. Ve la **[documentación](https://docs.microsoft.com/es-es/dotnet/standard/base-types/regular-expression-language-quick-reference)** para la sintaxis completa y más ejemplos. |
 | `name`  | `n`   | `name/Witcher`   | Parte del nombre del juego, no distingue mayúsculas y minúsculas.                                                                                                                                                                                                                                                           |
 
-Recomendamos definir explícitamente el tipo de cada entrada para evitar resultados ambiguos, pero para la retrocompatibilidad, si proporcionas un tipo no válido o lo omites por completo, ASF asumirá que estás solicitando `app` si ingresas un número, y `name` de lo contrario. También puedes consultar uno o más de los juegos al mismo tiempo, usando la coma `,` que es el delimitador estándar de ASF.
+Recomendamos definir explícitamente el tipo de cada entrada para evitar resultados ambiguos, pero para la retrocompatibilidad, si proporcionas un tipo no válido o lo omites por completo, ASF asumirá que estás solicitando `app` si ingresas un número, y `name` de lo contrario. También puedes consultar uno o más de los juegos al mismo tiempo, usando la coma `,` que es el el delimitador estándar de ASF.
 
 Ejemplo de comando completo:
 
@@ -253,7 +251,7 @@ owns ASF app/292030,name/Witcher
 
 El comando `redeem^` te permite ajustar los modos que serán utilizados para un escenario de activación. Esto funciona como una anulación temporal de la **[propiedad de configuración del bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#configuraci%C3%B3n-de-bot)** `RedeemingPreferences`.
 
-El argumento `<Modes>` acepta múltiples valores de modo, separados como es usual por una coma. Los valores de los modos disponibles se especifican a continuación:
+El argumento `<Modes>` acepta múltiples valores de modo, separados como es usual por una coma. Los valores de modo disponibles se especifican a continuación:
 
 | Valor | Nombre                | Descripción                                                                                     |
 | ----- | --------------------- | ----------------------------------------------------------------------------------------------- |
@@ -272,19 +270,19 @@ Por ejemplo, si quisiéramos activar 3 claves en cualquiera de nuestros bots que
 
 `redeem^ primary FF,SI clave1,clave2,clave3`
 
-Es importante notar que la activación avanzada solo anula las `RedeemingPreferences` que **especifiques en el comando**. Por ejemplo, si tienes habilitado `Distributing` en `RedeemingPreferences` entonces no habrá diferencia si usas o no el modo `FD`, porque la distribución ya estará activa, debido a las `RedeemingPreferences` que usas. Por eso cada anulación para habilitar a la fuerza también tiene una para deshabilitar a la fuerza, puedes decidir si prefieres anular deshabilitada con habilitada, o viceversa.
+Es importante notar que la activación avanzada solo anula las `RedeemingPreferences` que **especifiques en el comando**. Por ejemplo, si tienes habilitado `Distributing` en tus `RedeemingPreferences` entonces no habrá diferencia si usas o no el modo `FD`, porque la distribución ya estará activa, debido a las `RedeemingPreferences` que usas. Por eso cada anulación para habilitar a la fuerza también tiene una para deshabilitar a la fuerza, puedes decidir si prefieres anular deshabilitada con habilitada, o viceversa.
 
 ---
 
 ## Comando `encrypt`
 
-El comando `encrypt` te permite cifrar cadenas de caracteres usando los métodos de cifrado de ASF. `<encryptionMethod>` debe ser uno de los métodos de cifrado especificados y explicados en la sección **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-es)**. Recomendamos usar este comando a través de canales seguros (consola de ASF o la interfaz IPC, que también tienen un API endpoint dedicado para ello), ya que de lo contrario los detalles confidenciales podrían ser registrados por terceros (tal como mensajes de chat registrados por los servidores de Steam).
+El comando `encrypt` te permite cifrar cadenas de caracteres usando los métodos de cifrado de ASF. `<encryptionMethod>` debe ser uno de los métodos de cifrado especificados y explicados en la sección **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-ES)**. Recomendamos usar este comando a través de canales seguros (consola de ASF o la interfaz IPC, que también tienen un API endpoint dedicado para ello), ya que de lo contrario los detalles confidenciales podrían ser registrados por terceros (tal como mensajes de chat registrados por los servidores de Steam).
 
 ---
 
 ## Comando `hash`
 
-El comando `hash` te permite generar hashes de cadenas arbitrarias usando los métodos de hash de ASF. `<hashingMethod>` debe ser uno de los métodos de hash especificados y explicados en la sección **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-es)**. Recomendamos usar este comando a través de canales seguros (consola de ASF o la interfaz IPC, que también tienen un API endpoint dedicado para ello), ya que de lo contrario los detalles confidenciales podrían ser registrados por terceros (tal como mensajes de chat registrados por los servidores de Steam).
+El comando `hash` te permite generar hashes de cadenas arbitrarias usando los métodos de hash de ASF. `<hashingMethod>` debe ser uno de los métodos de hash especificados y explicados en la sección **[seguridad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-es-ES)**. Recomendamos usar este comando a través de canales seguros (consola de ASF o la interfaz IPC, que también tienen un API endpoint dedicado para ello), ya que de lo contrario los detalles confidenciales podrían ser registrados por terceros (tal como mensajes de chat registrados por los servidores de Steam).
 
 ---
 

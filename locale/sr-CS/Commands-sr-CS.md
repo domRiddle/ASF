@@ -203,8 +203,6 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 The above will set profile to public, owned games to friends only, playtime to private, friends list to public, inventory to public, inventory gifts to private and profile comments to public. You can achieve the same with numeric values if you want to.
 
-Remember that child can never have more open permission than its parent. Refer to arguments relationship for available options.
-
 ---
 
 ## `addlicense` licence
@@ -241,7 +239,7 @@ addlicense ASF app/292030,sub/47807
 
 We recommend to explicitly define the type of each entry in order to avoid ambiguous results, but for the backwards compatibility, if you supply invalid type or omit it entirely, ASF will assume that you ask for `app` if your input is a number, and `name` otherwise. You can also query one or more of the games at the same time, using standard ASF `,` delimiter.
 
-Kompletan primjer komande:
+Pun primjer komande:
 
 ```text
 owns ASF app/292030,name/Witcher

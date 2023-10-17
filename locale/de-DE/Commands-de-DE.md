@@ -149,23 +149,23 @@ Es gibt zunächst ein spezielles Schlüsselwort `ASF`, das als "alle Bots im Pro
 
 Das Argument `[Bots]` unterstützt eine speziellen "range"-Syntax, der es Ihnen ermöglicht, eine Reihe von Bots einfacher auszuwählen. Die allgemeine Syntax für `[Bots]` in diesem Fall ist `[FirstBot]..[LastBot]`. Mindestens eines der Argumente muss definiert werden. Mit `<FirstBot>..`sind alle Bots beginnend von `FirstBot` betroffen. Bei der Verwendung von `..<LastBot>`sind alle Bots bis `LastBot` betroffen. Nutzen Sie stattdessen `<FirstBot>..<LastBot>`, sind alle Bots im Bereich von `FirstBot` bis `LastBot` betroffen. Wenn Sie zum Beispiel Bots mit den Namen `A, B, C, D, E, F` haben, können Sie `status B..E` ausführen, was in diesem Fall gleich `status B,C,D,E` bedeutet. Bei Verwendung dieser Syntax verwendet ASF die alphabetische Sortierung, um festzustellen, welche Bots sich in dem von ihnen angegebenen Bereich befinden. Argumente müssen gültige Bot-Namen sein, die von ASF erkannt werden, sonst wird die Bereichssyntax komplett übersprungen.
 
-Zusätzlich zum obigen range-syntax unterstützt das `[Bots]` Argument auch **[regex](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck)** Übereinstimmung. Sie können Regex Muster aktivieren, indem Sie `r!<Pattern>` als Bot-Namen verwenden, wobei `r!` der ASF-Aktivator für den Regex Abgleich ist, und `<Pattern>` ihr Regex-Muster darstellt. Ein Beispiel für einen regex-basierten Bot-Befehl wäre `Status r! \d{3}`, der den `Status` an Bots sendet, die einen Namen bestehend aus 3 Ziffern (z. B. `123` und `981`) haben. Zögere nicht einen Blick auf die **[Dokumentation](https://docs.microsoft.com/de-de/dotnet/standard/base-types/regular-expression-language-quick-reference)** zu werfen, um weitere Erklärungen und Beispiele für verfügbare Regex-Muster zu erhalten.
+Zusätzlich zum obigen range-syntax unterstützt das `[Bots]` Argument auch **[regex](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck)** Übereinstimmung. Sie können Regex Muster aktivieren, indem Sie `r!<Pattern>` als Bot-Namen verwenden, wobei `r!` der ASF-Aktivator für den Regex Abgleich ist, und `<Pattern>` ihr Regex-Muster darstellt. Ein Beispiel für einen regex-basierten Bot-Befehl wäre `Status r! \d{3}`, der den `Status` an Bots sendet, die einen Namen bestehend aus 3 Ziffern (z. B. `123` und `981`) haben. Zögern Sie nicht einen Blick auf die **[Dokumentation](https://docs.microsoft.com/de-de/dotnet/standard/base-types/regular-expression-language-quick-reference)** zu werfen, um weitere Erklärungen und Beispiele für verfügbare Regex-Muster zu erhalten.
 
 ---
 
 ## `privacy` Einstellungen
 
-`<Settings>` Argument akzeptiert **bis zu 7** verschiedene Optionen, getrennt wie üblich durch das standard ASF-Trennzeichen, das Komma. Diese sind, in der Reihenfolge:
+`<Settings>` Argument akzeptiert **bis zu 7** verschiedene Optionen, getrennt wie üblich durch das standardmäßige ASF-Trennzeichen, das Komma. Diese sind, in folgender Reihenfolge:
 
-| Argument | Name           | Kind von   |
-| -------- | -------------- | ---------- |
-| 1        | Profile        |            |
-| 2        | OwnedGames     | Profile    |
-| 3        | Playtime       | OwnedGames |
-| 4        | FriendsList    | Profile    |
-| 5        | Inventory      | Profile    |
-| 6        | InventoryGifts | Inventory  |
-| 7        | Comments       | Profile    |
+| Argument | Name           | Untergeordnet von |
+| -------- | -------------- | ----------------- |
+| 1        | Profile        |                   |
+| 2        | OwnedGames     | Profile           |
+| 3        | Playtime       | OwnedGames        |
+| 4        | FriendsList    | Profile           |
+| 5        | Inventory      | Profile           |
+| 6        | InventoryGifts | Inventory         |
+| 7        | Comments       | Profile           |
 
 Für eine Beschreibung der oben genannten Felder besuche bitte die **[Steam Privatsphäre-Einstellungen](https://steamcommunity.com/my/edit/settings)**.
 
@@ -177,7 +177,7 @@ Für alle Argumente sind folgende Werte gültig:
 | 2    | `FriendsOnly` |
 | 3    | `Public`      |
 
-Sie können entweder den case-insensitiven Namen oder den numerischen Wert verwenden. Argumente, die weggelassen wurden, werden standardmäßig auf `Private` gesetzt. Es ist wichtig, die Beziehung zwischen Untergruppe (Kind) und Hauptgruppe (Eltern) von oben genannten Argumenten zu beachten, da das Kind nie mehr Berechtigung haben kann als sein Elternteil. Zum Beispiel können Sie Spiele im Besitz **nicht** auf `Public` haben, während ihr Profil auf `Private` steht.
+Sie können entweder den Namen (unabhängig der Groß-/Kleinschreibung) oder den numerischen Wert verwenden. Argumente, die weggelassen wurden, werden standardmäßig auf `Private` gesetzt. Es ist wichtig, die Beziehung zwischen Untergruppe (Kind) und Hauptgruppe (Eltern) von oben genannten Argumenten zu beachten, da das Kind nie mehr Berechtigung haben kann als sein Elternteil. Zum Beispiel können Sie `Public` Spiele **nicht** besitzen, während ihr Profil auf `Private` steht.
 
 ### Beispiel
 
@@ -188,22 +188,20 @@ privacy Main 1
 privacy Main Private
 ```
 
-Dies liegt daran, dass ASF automatisch alle anderen Einstellungen als `Private` ansieht, sodass es nicht notwendig ist, sie anzugeben. Wenn Sie stattdessen alle Privatsphäre-Einstellungen auf `Public` setzen möchten, dann muss eine der folgenden Optionen verwendet werden:
+Dies liegt daran, dass ASF automatisch alle anderen Einstellungen als `Private` ansieht, sodass es nicht notwendig ist, diese zu spezifizieren. Wenn Sie stattdessen alle Privatsphäre-Einstellungen auf `Public` setzen möchten, dann muss eine der folgenden Optionen verwendet werden:
 
 ```text
 privacy Main 3,3,3,3,3,3,3
 privacy Main Public,Public,Public,Public,Public,Public,Public
 ```
 
-Auf diese Weise können Sie auch einzelne Einstellungen so vornehmen, wieSie möchten:
+Auf diese Weise können Sie auch einzelne Einstellungen so vornehmen, wie Sie möchten:
 
 ```text
 privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 ```
 
 Das oben genannte wird das Profil auf öffentlich setzen, eigene Spiele auf nur für Freunde, Spielzeit auf privat, Freundesliste auf öffentlich, Inventar auf öffentlich, Inventar Geschenke auf privat und Profil-Kommentare auf öffentlich. Das Gleiche kann man mit numerischen Werten erreichen, wenn man dies möchte.
-
-Bedenken Sie , dass ein Kind nie mehr offene Berechtigungen haben kann als sein Elternteil. Schauen Sie sich hierzu die Argumentationsbeziehung für die verfügbaren Optionen an.
 
 ---
 
@@ -216,9 +214,9 @@ Bedenken Sie , dass ein Kind nie mehr offene Berechtigungen haben kann als sein 
 | `app` | `a`   | `app/292030` | Spiel bestimmt durch seine einzigartige `AppID`.                                  |
 | `sub` | `s`   | `sub/47807`  | Paket mit einem oder mehreren Spielen, bestimmt durch seine einzigartige `subID`. |
 
-Die Differenzierung ist wichtig, da ASF die Steam Netzwerk Aktivierung für Apps und die Steam Shop Aktivierung für Pakete verwenden wird. Diese beiden sind nicht miteinander kompatibel, normalerweise werden Apps für Spiele mit kostenlosen Wochenenden und dauerhaft kostenlose Spiele verwendet, und Packages für alles andere.
+Die Differenzierung ist wichtig, da ASF die Aktivierung übers Steam Netzwerk (für Apps) und über den Steam Shop (für Pakete) verwenden wird. Diese beiden sind nicht miteinander kompatibel, normalerweise werden Apps für Spiele mit kostenlosen Wochenenden und dauerhaft kostenlose Spiele verwendet, und Packages für alles andere.
 
-Wir empfehlen, die Art jedes Eintrags explizit zu definieren, um zweideutige Ergebnisse zu vermeiden, aber für die Abwärtskompatibilität, wird ASF, wenn Sie einen ungültigen Typ angeben oder ihn ganz weglassen, davon ausgehen, dass Sie `sub` anfordern. Sie können auch eine oder mehrere Lizenzen gleichzeitig abfragen, indemSie die Standard ASF-Trennzeichen (`,`) verwenden.
+Wir empfehlen, die Art jedes Eintrags explizit zu definieren, um zweideutige Ergebnisse zu vermeiden, aber für die Abwärtskompatibilität, wird ASF, wenn Sie einen ungültigen Typ angeben oder ihn ganz weglassen, davon ausgehen, dassSie `sub` anfordern. Sie können auch eine oder mehrere Lizenzen gleichzeitig abfragen, indem Sie das standarmäßige ASF-Trennzeichen (`,`) verwenden.
 
 Beispiel für einen vollständigen Befehl:
 
@@ -239,7 +237,7 @@ Der `owns` Befehl unterstützt verschiedene Spielarten die für das `<games>` Ar
 | `regex` | `r`   | `regex/^\d{4}:` | **[Regex](https://de.wikipedia.org/wiki/Regulärer_Ausdruck)** der sich auf den Namen des Spiels bezieht, Groß- und Kleinschreibung wird berücksichtigt. Siehe **[docs](https://docs.microsoft.com/de-de/dotnet/standard/base-types/regular-expression-language-quick-reference)** für den vollständige Syntax und weitere Beispiele. |
 | `name`  | `n`   | `name/Witcher`   | Teil des Namens des Spiels, Groß- und Kleinschreibung wird nicht berücksichtigt.                                                                                                                                                                                                                                                     |
 
-Wir empfehlen, die Art jedes Eintrags explizit zu definieren, um zweideutige Ergebnisse zu vermeiden, aber für die Abwärtskompatibilität, wird ASF wenn Sie einen ungültigen Typ angeben oder ihn komplett weglassen davon ausgehen, dass Sie `app` verlangen, wenn ihre Eingabe eine Nummer ist, und `name` falls nicht. Sie können auch eine oder mehrere Lizenzen gleichzeitig abfragen, indemSie die Standard ASF-Trennzeichen (`,`) verwenden.
+Wir empfehlen, die Art jedes Eintrags explizit zu definieren, um zweideutige Ergebnisse zu vermeiden, aber für die Abwärtskompatibilität, wird ASF wenn Sie einen ungültigen Typ angeben oder ihn komplett weglassen, davon ausgehen, dass Sie `app` verlangen, wenn ihre Eingabe eine Nummer ist, und `name` falls nicht. Sie können auch eine oder mehrere Lizenzen gleichzeitig abfragen, indem Sie die Standard ASF-Trennzeichen (`,`) verwenden.
 
 Beispiel für einen vollständigen Befehl:
 
@@ -272,7 +270,7 @@ Zum Beispiel möchten wir drei Produktschlüssel auf einem unserer Bots einlöse
 
 `redeem^ primary FF,SI key1,key2,key3`
 
-Es ist wichtig zu beachten, dass fortgeschrittenes Einlösen nur die `RedeemingPreferences` überschreibt, die Sie **im Befehl haben angegeben haben**. Wenn Sie zum Beispiel `Distributing` in ihren `RedeemingPreferences` aktiviert haben, dann macht es keinen Unterschied, ob der `FD` Modus genutzt wird oder nicht, weil die Verteilung trotzdem bereits aktiv ist, aufgrund der `RedeemingPreferences` die Sie verwenden. Deshalb hat jede zwangsweise aktivierte Überschreibung auch eine zwangsweise deaktivierte. Sie können selbst entscheiden, ob deaktivierte mit aktiviert zu überschrieben werden soll oder umgekehrt.
+Es ist wichtig zu beachten, dass fortgeschrittenes Einlösen nur die `RedeemingPreferences` überschreibt, die Sie **im Befehl angegeben haben**. Wenn Sie zum Beispiel `Distributing` in ihren `RedeemingPreferences` aktiviert haben, dann macht es keinen Unterschied, ob der `FD` Modus genutzt wird oder nicht, weil die Verteilung trotzdem bereits aktiv ist, aufgrund der `RedeemingPreferences` die Sie verwenden. Deshalb hat jede zwangsweise aktivierte Überschreibung auch zwangsläufig eine deaktivierte. Sie können selbst entscheiden, ob die deaktivierte mit der aktivierten überschrieben werden soll oder umgekehrt.
 
 ---
 
@@ -284,7 +282,7 @@ Es ist wichtig zu beachten, dass fortgeschrittenes Einlösen nur die `RedeemingP
 
 ## `hash` Befehl
 
-Der Befehl `hash-` erlaubt Ihnen Hashes beliebiger Zeichenketten mit ASF's hash-Methoden zu generieren. `<hashingMethod>` muss eine der Hashing-Methoden sein, welche im Abschnitt **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE)** angegeben und erklärt ist. Wir empfehlen, diesen Befehl über sichere Kanäle zu verwenden (ASF-Konsole oder IPC-Schnittstelle, für die es auch einen dedizierten API-Endpunkt gibt), da sonst sensible Details von verschiedenen Dritten protokolliert werden könnten (z. B. Chat-Nachrichten, die von Steam-Servern protokolliert werden).
+Der Befehl `hash` erlaubt Ihnen Hashes beliebiger Zeichenketten mit ASF's hash-Methoden zu generieren. `<hashingMethod>` muss eine der Hash-Methoden sein, welche im Abschnitt **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE)** angegeben und erklärt ist. Wir empfehlen, diesen Befehl über sichere Kanäle zu verwenden (ASF-Konsole oder IPC-Schnittstelle, für die es auch einen dedizierten API-Endpunkt gibt), da sonst sensible Details von verschiedenen Dritten protokolliert werden könnten (z. B. Chat-Nachrichten, die von Steam-Servern protokolliert werden).
 
 ---
 
@@ -292,7 +290,7 @@ Der Befehl `hash-` erlaubt Ihnen Hashes beliebiger Zeichenketten mit ASF's hash-
 
 Der Befehl `input` kann nur im `headless` Modus verwendet werden, für die Eingabe von Daten über **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** oder Steam Chat, wenn ASF ohne Unterstützung für Benutzerinteraktion läuft.
 
-Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
+Die allgemeine Syntax ist `input [Bots] <Type> <Value>`.
 
 `<Type>` ist Groß-/Kleinschreibung unabhängig und definiert einen von ASF unterstützten Eingabetyp. Derzeit unterstützt ASF folgende Typen:
 
@@ -302,21 +300,21 @@ Der Allgemeine Syntax ist `Input [Bots] <Type> <Value>`.
 | Password                        | `SteamPassword` Bot-Konfigurationseigenschaft, falls diese in der Konfiguration fehlt.                  |
 | SteamGuard                      | Auth-Code, der an ihre E-Mail gesendet wird, falls Sie 2FA nicht nutzen.                                |
 | SteamParentalCode               | ` SteamParentalCode ` Bot-Konfigurationseigenschaft, falls diese in der Konfiguration fehlt.            |
-| Two-factor Authentication (2FA) | 2FA-Code, der von ihnem Handy generiert wurde, sofern Sie die Standard-2FA benutzt, aber nicht ASF-2FA. |
-| DeviceConfirmation              | Determines whether confirmation popup for login was accepted                                            |
+| Two-factor Authentication (2FA) | 2FA-Code, der von ihrem Handy generiert wurde, sofern Sie den Standard-2FA benutzt, aber nicht ASF-2FA. |
+| DeviceConfirmation              | Legt fest, ob das Pop-up zur Bestätigung für die Anmeldung akzeptiert wurde                             |
 
 `<Value>` ist der Wert, der für einen angegebenen Typ gesetzt werden soll. Derzeit sind alle Werte Zeichenketten.
 
 ### Beispiel
 
-Nehmen wir an, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. We want to launch that bot with `Headless` set to `true`.
+Lass uns annehmen, dass wir einen Bot haben, der durch SteamGuard (nicht im Zwei-Faktor-Modus) geschützt wird. Wir wollen diesen Bot starten während das Konfigurationsfeld `Headless` auf `true` gesetzt ist.
 
 Um das zu tun, müssen wir folgende Befehle ausführen:
 
-`start MySteamGuardBot` -> Bot will attempt to log in, fail due to AuthCode needed, then stop due to running in `Headless` mode. Wir brauchen dies, damit das Steam-Netzwerk uns den Authentisierungscode an unsere E-Mail sendet - wenn es keinen Bedarf dafür gibt, würden wir diesen Schritt komplett überspringen.
+`start MySteamGuardBot` -> Bot wird versuchen sich anzumelden; dies schlägt jedoch fehl, da AuthCode benötigt; schließlich wird der Vorgang gestoppt, da dieser im `Headless`-Modus ausgeführt wird. Wir brauchen dies, damit das Steam-Netzwerk uns den Auth-Code an unsere E-Mail sendet - falls das nicht nötig wäre, würden wir diesen Schritt komplett überspringen.
 
-`input MySteamGuardBot SteamGuard ABCDE` -> We set `SteamGuard` input of `MySteamGuardBot` bot to `ABCDE`. Natürlich sollte `ABCDE` der Code sein, den Sie in ihrer E-Mail erhalten haben.
+`input MySteamGuardBot SteamGuard ABCDE` -> Wir setzen die `SteamGuard` Eingabe vom `MySteamGuardBot` Bot auf `ABCDE`. Natürlich sollte `ABCDE` der Code sein, den Sie in der E-Mail erhalten haben.
 
-`start MySteamGuardBot` -> We start our (stopped) bot again, this time it automatically uses auth code that we set in previous command, properly logging in, then clearing it.
+`start MySteamGuardBot` -> Wir starten erneut unseren (gestoppten) Bot dieses Mal verwendet es automatisch den Auth-Code, den wir im vorherigen Befehl gesetzt haben, ordnungsgemäß einloggen und dann löschen.
 
-Auf dem selben Weg können wir auf Bots, die durch Zwei-Faktor-Authentifizierung geschützt sind (und nicht die 2FA von ASF verwenden), zugreifen und andere Dinge während der Laufzeit tun.
+Auf demselben Weg können wir auf Bots, die durch Zwei-Faktor-Authentifizierung geschützt sind (und nicht die 2FA von ASF verwenden), zugreifen und andere Dinge während der Laufzeit tun.

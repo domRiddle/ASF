@@ -207,8 +207,6 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 Ce qui précède définira le profil comme public, les jeux appartenant à seulement des amis, le temps de jeu privé, la liste d'amis public, l'inventaire public, les cadeaux d'inventaire privé et les commentaires de profil public. Vous pouvez obtenir la même chose avec des valeurs numériques si vous le souhaitez.
 
-Rappelez-vous que l'enfant ne peut jamais avoir plus de permission ouverte que ses parent. Reportez-vous aux arguments pour les options disponibles.
-
 ---
 
 ## `addlicense` licenses

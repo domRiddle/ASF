@@ -203,8 +203,6 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 O comando acima vai definir o perfil como público, jogos na biblioteca como apenas amigos, tempo de jogo como privado, lista de amigos como pública, inventário como público, presentes no inventário como privado e os comentários no perfil como público. Você pode ter o mesmo resultado com valores numéricos, se você quiser.
 
-Lembre-se que um argumento filho nunca pode ter permissão mais ampla que o seu pai. Consulte a relação de argumentos para as opções disponíveis.
-
 ---
 
 ## `addlicense` Adicionar licenças
@@ -216,7 +214,7 @@ O comando `addlicense` suporte dois tipos diferentes de licenças:
 | `app` | `a`     | `app/292030` | `appID` do jogo desejado.                                      |
 | `sub` | `s`     | `sub/47807`  | Pacote contendo um ou mais jogos, determinado por sua `subID`. |
 
-A diferenciação é importante pois o ASF vai usar a rede Steam para ativar apps, e a loja Steam para ativar pacotes. Esses dois tipos são incompatíveis, normalmente você usará apps para jogos que ficam gratuitos durante o fim de semana e/ou permanentemente, e pacotes de outra forma.
+A diferenciação é importante pois o ASF vai usar a Rede Steam para ativar apps, e a Loja Steam para ativar pacotes. Esses dois tipos são incompatíveis, normalmente você usará apps para jogos que ficam gratuitos durante o fim de semana e/ou permanentemente, e pacotes de outra forma.
 
 Recomendamos definir explicitamente o tipo de cada entrada para evitar resultados ambíguos, mas por conta da retrocompatibilidade, se você fornecer um tipo inválido ou omiti-lo completamente, o ASF irá supor que você solicitou pelo `sub`. Você também pode consultar uma ou mais licenças ao mesmo tempo, usando o delimitador padrão do ASF `,`.
 
@@ -251,7 +249,7 @@ owns ASF app/292030,name/Witcher
 
 ## Métodos `redeem^`
 
-O comando `redeem^` permite que você ajuste os métodos que serão usados em um cenário individual de ativação de códigos de produto. Ele funciona como uma substituição temporária do **[parâmetro de configuração do bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-do-bot)** `RedeemingPreferences`.
+O comando `redeem^`permite que você ajuste os métodos que serão usados em um cenário individual de resgate. Ele funciona como uma substituição temporária do **[parâmetro de configuração do bot](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-pt-BR#configura%C3%A7%C3%A3o-do-bot)** `RedeemingPreferences`.
 
 O argumento `<Modes>` aceita vários valores de métodos, como de costume separados por uma vírgula. Valores disponíveis de métodos são especificados abaixo:
 
@@ -268,7 +266,7 @@ O argumento `<Modes>` aceita vários valores de métodos, como de costume separa
 | SKMG  | SkipKeepMissingGames  | Força a desativação da preferência de resgate `KeepMissingGames`                         |
 | V     | Validate              | Valida a formatação correta dos códigos de produto e ignora automaticamente os inválidos |
 
-Por exemplo, digamos que queremos resgatar 3 códigos de produto em qualquer um dos nossos bots que ainda não possuem os jogos, mas não no nosso bot `primary`. Para isso nós podemos usar:
+Por exemplo, gostaríamos de resgatar 3 chaves em qualquer um dos nossos bots que ainda não possuem os jogos, mas não nosso bot `primário`. Para isso nós podemos usar:
 
 `redeem^ primary FF,SI key1,key2,key3`
 
@@ -313,7 +311,7 @@ Digamos que temos um bot que é protegido pelo SteamGuard no modo não-2FA. Nós
 
 Para fazer isso, precisamos executar o seguintes comandos:
 
-`start MySteamGuardBot`-> O bot irá tentar logar, falhar devido a necessidade do AuthCode, e, em seguida, parar devido à execução em modo `Headless`. Precisamos disso para fazer a rede Steam nos enviar o código de autenticação no e-mail - se não houvesse necessidade disso, pularíamos essa etapa inteiramente.
+`start MySteamGuardBot`-> O bot irá tentar logar, falhar devido a necessidade do AuthCode, e, em seguida, parar devido à execução em modo `Headless`. Precisamos disso para fazer a Rede Steam nos enviar o código de autenticação no e-mail - se não houvesse necessidade disso, pularíamos essa etapa inteiramente.
 
 `input MySteamGuardBot SteamGuard ABCDE` -> Definimos a entrada `SteamGuard` do bot `MySteamGuardBot` para `ABCDE`. Claro, `ABCDE` neste caso é o código de autenticação que recebemos no nosso e-mail.
 

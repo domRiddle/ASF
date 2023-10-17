@@ -203,8 +203,6 @@ privacy Main Public,FriendsOnly,Private,Public,Public,Private,Public
 
 上述命令將會設置個人資料為公開、遊戲詳情為僅限好友、遊戲時間為私密、好友列表為公開、物品庫為公開、物品庫禮物為私密、留言為公開。 若有需要，您也可以使用數字值來實現相同效果。
 
-請記住子選項的許可權無法高於父選項。 有關可用選項，請參閱參數關係。
-
 ---
 
 ## `addlicense` licenses
