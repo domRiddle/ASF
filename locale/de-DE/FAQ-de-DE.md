@@ -15,8 +15,8 @@ Unser FAQ umfasst Standardfragen und Antworten, die Sie vielleicht haben. Für w
 ## Allgemein
 
 ### Was ist ASF?
-### Why does the program claim that there is nothing to farm on my account?
-### Why ASF doesn't detect all of my games?
+### Warum behauptet das Programm, dass es auf meinem Konto nichts zum Sammeln gibt?
+### Warum erkennt ASF nicht alle meine Spiele?
 ### Warum ist mein Konto begrenzt?
 
 Bevor Sie versuchen herauszufinden, was ASF ist, sollten Sie sicherstellen, dass Sie verstehen, was Steam Sammelkarten sind und wie man sie erhält, was in der offiziellen FAQ **[hier](https://steamcommunity.com/tradingcards/faq)** gut beschrieben ist.
