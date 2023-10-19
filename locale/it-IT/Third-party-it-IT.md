@@ -2,7 +2,7 @@
 
 Questa sezione include delle estensioni di terze parti scritte esclusivamente (o principalmente) per ASF. Variano da plugin di ASF a semplici applicazioni web e librerie interne per l'integrazione, per poi finire in bot ricchi di funzionalità per altre piattaforme. Se desideri aggiungere qualcosa alla lista, faccelo sapere su Discord o sul nostro gruppo di Steam.
 
-Sei pregato di notare che i seguenti programmi **non** sono mantenuti da sviluppatori di ASF e dunque **non diamo alcuna garanzia su nessuno di essi**, specialmente in termini di sicurezza o conformità ai Termini di Servizio di Steam. L'elenco è mantenuto solo a titolo di riferimento. You should always ensure that the third-party utility you're about to use is safe and legit enough for you, as you're using all of them at your own risk.
+Sei pregato di notare che i seguenti programmi **non** sono mantenuti da sviluppatori di ASF e dunque **non diamo alcuna garanzia su nessuno di essi**, specialmente in termini di sicurezza o conformità ai Termini di Servizio di Steam. L'elenco è mantenuto solo a titolo di riferimento. Dovresti sempre essere sicuro che il programma che stai per utilizzare sia sicuro, poichè li utilizzi a tuo rischio e pericolo.
 
 ---
 
@@ -11,7 +11,7 @@ Sei pregato di notare che i seguenti programmi **non** sono mantenuti da svilupp
 ### **[Rudokhvist](https://github.com/Rudokhvist)**
 
 - **[ASF Achievement Manager](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, plugin per ASF che permette di gestire gli obiettivi di Steam.
-- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, plugin for ASF to receive birthday congratulations.
+- **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, plugin per ASF per ricevere gli auguri di compleanno.
 - **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, plugin di ASF che aggiunge la possibilità di creare booster packs.
 - **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, plugin di ASF per rendere i nomi dei bot non case-sensitive.
 - **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, plugin di ASF che re-implementa il riscatto delle chiavi senza l'utilizzo di un comando.
@@ -28,7 +28,7 @@ Sei pregato di notare che i seguenti programmi **non** sono mantenuti da svilupp
 
 ### Altro
 
-- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin per ASF migliorandolo con varie nuove funzionalità, in particolare i comandi.
 
 ---
 
@@ -50,9 +50,9 @@ Sei pregato di notare che i seguenti programmi **non** sono mantenuti da svilupp
 
 - **[AUR repo #1](https://aur.archlinux.org/packages/asf)**, permette di installare facilmente ASF su Arch Linux.
 - **[AUR repo #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, permette di installare facilmente ASF su Arch Linux.
-- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, allowing you to easily install ASF on macOS.
-- **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, allowing you to easily install ASF on distros with Nix.
-- **[NixOS](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, allowing you to configure and install ASF with NixOS.
+- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, consentendoti di installare facilmente ASF su macOS.
+- **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, consentendo di installare facilmente ASF sulle distribuzioni con Nix.
+- **[NixOS](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, che consente di configurare e installare ASF con NixOS.
 
 ---
 

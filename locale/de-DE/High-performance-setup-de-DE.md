@@ -10,7 +10,7 @@ ASF versucht bereits die Leistung zu bevorzugen, wenn es um die allgemeine ausge
 
 ## Laufzeitoptimierung (Erweitert)
 
-Below tricks **involve serious memory and startup time increase** and should therefore be used with caution.
+Die folgenden Tricks **beanspruchen eine ernsthafte Steigerung der benötigten Speicherzunahme und Startdauer**, weshalb diese mit Vorsicht verwendet werden sollten.
 
 The recommended way of applying those settings is through `DOTNET_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
 

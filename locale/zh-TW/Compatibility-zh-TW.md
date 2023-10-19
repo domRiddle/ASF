@@ -4,7 +4,7 @@ ASF是一個在.NET Core平台上執行的C#應用程式。 這代表ASF並不�
 
 這種方法具有巨大的優勢，因為CIL獨立於平台，這就是為什麼ASF天生就能夠在許多作業系統上執行的原因，特別是Windows、Linux與macOS上。 不僅不需要模擬，同時也支援所有平台相關及硬體相關的最佳化，例如CPU SSE指令。 因此，ASF在表現卓越的效能及最佳化時，同時仍能提供完美的相容性與可靠性。
 
-這也代表執行ASF&#8203;**沒有特定的作業系統需求**&#8203;，因為它需要的只是執行於作業系統上的&#8203;**執行環境**&#8203;，而非作業系統本身。 As long as that runtime is executing ASF code properly, it does not matter whether underlying OS is Windows, Linux, macOS, BSD, Sony Playstation 4, Nintendo Wii or your toaster - as long as there is **[.NET for it](https://dotnet.microsoft.com/download/dotnet)**, there is **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** for it (in `generic` variant).
+這也代表執行ASF&#8203;**沒有特定的作業系統需求**&#8203;，因為它需要的只是執行於作業系統上的&#8203;**執行環境**&#8203;，而非作業系統本身。 只要在執行期間正確執行ASF程式碼，底層的作業系統不論是Windows、Linux、macOS、BSD、Sony Playstation 4、Nintendo Wii，或是您的烤麵包機上，都無所謂。只要有相應的&#8203;**[.NET](https://dotnet.microsoft.com/download/dotnet)**&#8203;，就能執行&#8203;**[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**&#8203;（使用&#8203;`generic`&#8203;變體版本）。
 
 然而，不論您想要在哪個平台上執行ASF，您都需要確保該平台安裝了&#8203;**[.NET需求套件](https://github.com/dotnet/core/blob/main/Documentation/prereqs.md)**&#8203;。 這些都是確保執行環境功能正常所需的底層函式庫，也是ASF第一時間運作的絕對核心。 很有可能您已安裝了其中的一些（甚至全部）。
 

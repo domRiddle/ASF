@@ -4,7 +4,7 @@ ASF 是一个用 C# 语言编写并运行在 .NET 平台上的应用程序。 �
 
 这种方法能够带来巨大的方便。由于 CIL 是跨平台的，这使得 ASF 天然能够运行在许多可供使用的操作系统上，特别是 Windows、Linux 和 macOS 这三个系统。 ASF 不仅不需要通过模拟运行，同时所有对于系统及其相关硬件的优化也对其有效，例如 CPU SSE 指令。 基于此，ASF 在表现出卓越的性能以及优化的同时，仍然能提供完美的兼容性和可靠性。
 
-这也意味着运行 ASF **没有特定的操作系统要求**，因为它需要的只是运行于操作系统上的**运行环境**而非操作系统本身。 As long as that runtime is executing ASF code properly, it does not matter whether underlying OS is Windows, Linux, macOS, BSD, Sony Playstation 4, Nintendo Wii or your toaster - as long as there is **[.NET for it](https://dotnet.microsoft.com/download/dotnet)**, there is **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** for it (in `generic` variant).
+这也意味着运行 ASF **没有特定的操作系统要求**，因为它需要的只是运行于操作系统上的**运行环境**而非操作系统本身。 只要运行环境能够正确地执行 ASF 的代码，底层系统是 Windows、Linux、macOS 还是 BSD，是运行在 Sony Playstation 4、Nintendo Wii 还是您的烤面包机上都无所谓。有供它运行的 **[.NET](https://dotnet.microsoft.com/download/dotnet)** 就有能正常运行的 **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**（`generic` 包）。
 
 但是，无论您想要在哪个平台上运行 ASF，您必须确保该平台安装了 **[.NET 的依赖项](https://github.com/dotnet/core/blob/main/Documentation/prereqs.md)**。 这些都是确保运行环境功能正常的底层库，也是确保 ASF 能够第一时间工作的绝对核心。 通常情况下，部分库（甚至全部）很有可能已经安装在系统内。
 
