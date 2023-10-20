@@ -1,6 +1,6 @@
 # Veröffentlichungszyklus
 
-ASF verwendet die gängige C# Versionierung mit 4 Zahlen, geschrieben als `A.B.C.D`. Jede veröffentlichte Version ist zeitlich fixiert und zeigt auf die Version des Quellcodes, aus dem sie gebaut wurde (zusammen mit dem Release). Wir haben nicht die Absicht eine bisher veröffentlichte Version zu löschen, solange unser Hosting-Provider (GitHub) kein Problem damit hat sie für die Zukunft zu erhalten. Aus diesem Grund kannst du jederzeit zu einer vorherigen Version zurückgehen ohne manuell Kopien anfertigen zu müssen.
+ASF verwendet die gängige C# Versionierung mit 4 Zahlen, geschrieben als `A.B.C.D`. Jede veröffentlichte Version ist zeitlich fixiert und zeigt auf die Version des Quellcodes, aus dem sie gebaut wurde (zusammen mit dem Release). Wir haben nicht die Absicht eine bisher veröffentlichte Version zu löschen, solange unser Hosting-Provider (GitHub) kein Problem damit hat sie für die Zukunft zu erhalten. Aus diesem Grund kannst Du jederzeit zu einer vorherigen Version zurückgehen ohne manuell Kopien anfertigen zu müssen.
 
 Generell versuchen wir bei der Versionierung von ASF unser Bestes, um der **[semver](https://semver.org)**-Spezifikation nach dem muster `MAJOR.MINOR.PATCH` auf den letzten 3 Nummern (`B.C.D`) zu folgen. Diese drei Nummern befinden sich in direktem Zusammenhang mit dem Quellcode von ASF. Die signifikanteste Nummer `A` ist ein Indiz für Änderungen, die über den Quellcode von ASF hinausgehen und üblicherweise direkt das Fundament des Programms beeinflussen.
 

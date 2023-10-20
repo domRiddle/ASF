@@ -67,6 +67,7 @@ ASF 采用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存储其配置�
     "ConnectionTimeout": 90,
     "CurrentCulture": null,
     "Debug": false,
+    "DefaultBot": null,
     "FarmingDelay": 15,
     "FilterBadBots": true,
     "GiftsLimiterDelay": 1,
@@ -153,6 +154,12 @@ ASF 默认有两个黑名单——`SalesBlacklist` 是内置黑名单，无法�
 **警告：**&#8203;启用此模式会在日志中记录**可能敏感**的信息，例如您登录到 Steam 的用户名或密码（为了调试网络问题）。 这些数据会被写入 `debug` 目录和标准的 `log.txt` 文件（此时该文件中的日志会比平时多很多）。 您不应该公开发布 ASF 生成的调试内容，ASF 的开发者始终会提醒您通过电子邮件或者其他安全的方式发送它们。 我们既不会存储。也不会利用这些敏感信息，它们只是调试协程的一部分，并且会与您遇到的问题有关。 我们希望您提供的 ASF 日志未经任何修改，但如果您担心，可以将这些敏感信息编辑掉。
 
 > 您可以使用星号等标记替换掉敏感的细节。 但您需要避免完全删除包含敏感信息的行，因为“它们存在”这一情况本身也可能与问题有关，应该予以保留。
+
+---
+
+### `DefaultBot`
+
+这是一个默认值为 `null` 的 `string` 类型属性。 In some scenarios ASF functions with a concept of a default bot responsible for handling something - for example IPC commands or interactive console when you don't specify target bot. 此属性允许您选择默认机器人来负责处理这些场景，只需要将 `BotName` 放到这里。 如果指定的机器人不存在，或者您正常使用默认值 `null`，ASF 将选择按字母顺序排列的第一个已注册的机器人。 通常情况下，如果您希望在 IPC 或者交互式控制台命令中省略 `[Bots]` 参数，并默认总是选择同一个机器人，则会想要配置此属性。
 
 ---
 

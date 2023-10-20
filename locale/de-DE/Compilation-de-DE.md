@@ -78,7 +78,7 @@ If you'd like to edit ASF code, you can use any .NET compatible IDE for that pur
 
 Falls Sie stattdessen den ASF-Quelltext unter Linux/macOS möchten, empfehlen wir die **[aktuellste Visual Studio Code Version](https://code.visualstudio.com/download)**. Diese Version ist nicht so umfangreich wie das klassische Visual Studio, aber reicht vollkommen aus.
 
-Natürlich sind alle obigen Vorschläge nur Empfehlungen, du kannst verwenden was immer du willst. Am Ende wird sowieso immer `dotnet build` ausgeführt. Wir verwenden **[JetBrains Rider](https://www.jetbrains.com/rider)** für die ASF-Entwicklung, obwohl es keine freie Lösung ist.
+Natürlich sind alle obigen Vorschläge nur Empfehlungen, Du kannst verwenden was immer Du willst. Am Ende wird sowieso immer `dotnet build` ausgeführt. Wir verwenden **[JetBrains Rider](https://www.jetbrains.com/rider)** für die ASF-Entwicklung, obwohl es keine freie Lösung ist.
 
 ---
 

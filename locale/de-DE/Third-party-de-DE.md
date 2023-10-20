@@ -1,6 +1,6 @@
 # Drittanbieter
 
-Dieser Abschnitt enthält verschiedene Ergänzungen von Drittanbietern, die ausschließlich (oder hauptsächlich) für die Verwendung zusammen mit ASF geschrieben wurden. Sie reichen von ASF-Plugins über einfache Webanwendungen und interne Bibliotheken zur Integration bis hin zu voll ausgestatteten Bots für andere Plattformen. Wenn du etwas zur Liste hinzufügen möchtest, lass es uns im Discord oder über unsere Steam-Gruppe wissen.
+Dieser Abschnitt enthält verschiedene Ergänzungen von Drittanbietern, die ausschließlich (oder hauptsächlich) für die Verwendung zusammen mit ASF geschrieben wurden. Sie reichen von ASF-Plugins über einfache Webanwendungen und interne Bibliotheken zur Integration bis hin zu voll ausgestatteten Bots für andere Plattformen. Wenn Du etwas zur Liste hinzufügen möchtest, lass es uns im Discord oder über unsere Steam-Gruppe wissen.
 
 Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern beaufsichtigt werden und **wir daher keine Garantie für sie übernehmen**, insbesondere in Bezug auf die Sicherheit, den Schutz oder die Einhaltung der Steam-Nutzungsbedingungen. Diese Liste wird nur als Referenz gepflegt. Sie sollten immer sicherstellen, dass das Drittanbieter-Programm, das Sie gerade verwenden wollen, sicher ist, da Sie es auf eigene Gefahr verwenden.
 
@@ -10,7 +10,7 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 ### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Errungenschaften-Verwalter](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, Erweiterung für ASF die ihnen erlaubt, ihre Steam Errungenschaften zu verwalten.
+- **[ASF-Errungenschaften-Verwalter](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, Erweiterung für ASF die Ihnen erlaubt, ihre Steam Errungenschaften zu verwalten.
 - **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, ASF-Plugin um Geburtstags-Glückwünsche zu erhalten.
 - **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, Erweiterung für ASF, das die Funktionalität der Erstellung von Booster-Paketen bereitstellt.
 - **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, Erweiterung für ASF, um Botnamen unabhängig von Groß- und Kleinschreibung zu machen.
@@ -48,11 +48,11 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 ## Pakete
 
-- **[AUR Repository #1](https://aur.archlinux.org/packages/asf)**, erlaubt es ihnen ASF einfach auf Arch Linux zu installieren.
-- **[AUR Repository #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, erlaubt es ihnen ASF einfach auf Arch Linux zu installieren.
-- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, erlaubt ihnen eine einfache Installation von ASF auf macOS.
-- **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, so dass Sie ASF einfach auf Distributionen mit Nix installieren können.
-- **[Nix](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, so dass Sie ASF einfach auf Distributionen mit NixOS installieren und konfigurieren können.
+- **[AUR Repository #1](https://aur.archlinux.org/packages/asf)**, erlaubt es Ihnen ASF einfach auf Arch Linux zu installieren.
+- **[AUR Repository #2](https://aur.archlinux.org/packages/archisteamfarm-bin)**, erlaubt es Ihnen ASF einfach auf Arch Linux zu installieren.
+- **[Homebrew](https://formulae.brew.sh/formula/archi-steam-farm)**, erlaubt Ihnen eine einfache Installation von ASF auf macOS.
+- **[Nix](https://search.nixos.org/packages?channel=unstable&show=ArchiSteamFarm&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, sodass Sie ASF einfach auf Distributionen mit Nix installieren können.
+- **[Nix](https://search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=ArchiSteamFarm)**, sodass Sie ASF einfach auf Distributionen mit NixOS installieren und konfigurieren können.
 
 ---
 
@@ -63,6 +63,6 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 ---
 
-## Möchtest du mehr finden?
+## Möchtest Du mehr finden?
 
 Für alle Projekte, die mit ASF in Verbindung stehen, empfehlen wir **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)**-Topic auf GitHub.

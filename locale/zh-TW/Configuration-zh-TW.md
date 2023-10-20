@@ -67,6 +67,7 @@ ASF使用&#8203;**[JSON](https://zh.wikipedia.org/zh-tw/JSON)**&#8203;格式來�
     "ConnectionTimeout": 90,
     "CurrentCulture": null,
     "Debug": false,
+    "DefaultBot": null,
     "FarmingDelay": 15,
     "FilterBadBots": true,
     "GiftsLimiterDelay": 1,
@@ -156,6 +157,12 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 ---
 
+### `DefaultBot（預設 Bot）`
+
+`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 在某些情境下，ASF會需要有「預設Bot」的使用，來處理事件⸺舉例來說，在您未指定目標Bot時的IPC指令或互動式控制台。 This property allows you to choose default bot responsible for handling such scenarios, by putting its `BotName` here. If given bot doesn't exist, or you use a default value of `null`, ASF will pick first registered bot sorted alphabetically instead. Typically you want to make use of this config property if you want to omit `[Bots]` argument in IPC and interactive console commands, and always pick the same bot as the default one for such calls.
+
+---
+
 ### `FarmingDelay（掛卡延時）`
 
 `byte`&#8203;型別，預設值為&#8203;`15`&#8203;。 ASF會在正常運作時每隔&#8203;`FarmingDelay`&#8203;分鐘檢查一次當前掛卡的遊戲是否已掉落所有卡片。 將此屬性設定過低可能會傳送過多的Steam請求，而設定過高可能會使ASF在掛卡完成後仍「掛著」指定遊戲，直到最多滿&#8203;`FarmingDelay`&#8203;分鐘。 預設值應該對於大多數使用者來說是適合的，但如果您有很多個Bot在執行，則可以考慮增加至例如&#8203;`30`&#8203;分鐘，以限制傳送的Steam請求。 值得一提的是，ASF使用基於事件的機制，並在每個Steam物品掉落時檢查遊戲的徽章頁面，所以在一般情形下，&#8203;**我們甚至能不必每隔固定時間去檢查**&#8203;，但由於我們並不完全信任Steam網路⸺如果我們無法在&#8203;`FarmingDelay`&#8203;分鐘內未能檢查卡片是否掉落，我們仍會去檢查遊戲的徽章頁面。 假設Steam網路運作正常，降低此值&#8203;**不會以任何方式提高掛卡效率**&#8203;，而且&#8203;**還會顯著增加網路負擔**&#8203;⸺建議維持預設值&#8203;`15`&#8203;分鐘，並只在需要時才增加它。 除非您有&#8203;**充分的**&#8203;理由編輯此屬性，否則您應維持它為預設值。
@@ -194,7 +201,7 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 ---
 
-### `IPC（行程間通訊）`
+### `IPC`
 
 `bool`&#8203;型別，預設值為&#8203;`true`&#8203;。 本屬性定義了ASF的&#8203;**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**&#8203;伺服器是否與主程序一同啟動。 IPC允許行程間通訊，包含透過啟動本機HTTP伺服器使用&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#asf-ui)**&#8203;。 若您不打算使用任何ASF的第三方IPC整合工具，包含我們的ASF-ui的話，您就可以安全地停用這個選項。 否則，最好保持啟用狀態（預設狀態）。
 
@@ -420,7 +427,7 @@ Bot設定檔具有以下結構：
 
 ### `BotBehaviour（Bot 行為）`
 
-`byte flags`型別&#8203;，預設值為&#8203;`0`&#8203;。 本屬性定義了在各種事件中ASF的自動化行為，定義如下：
+`byte flags`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性定義了在各種事件中ASF的自動化行為，定義如下：
 
 | 值  | 名稱                                     | 描述                                     |
 | -- | -------------------------------------- | -------------------------------------- |

@@ -12,13 +12,13 @@ Unabhängig davon, wo Sie ASF ausführen, müssen Sie jedoch sicherstellen, dass
 
 ## ASF-Pakete
 
-ASF gibt es in 2 Hauptformen - generisches Paket und betriebssystemspezifisch. Aus funktionaler Sicht sind beide Pakete genau gleich. Beide sind auch in der Lage, sich selbst automatisch zu aktualisieren. Der einzige Unterschied zwischen ihnen ist, ob zusätzlich zum **generischen** Paket von ASF auch eine **betriebssystemspezifische** Runtime enthalten ist oder nicht.
+ASF gibt es in 2 Hauptformen - generisches Paket und betriebssystemspezifisch. Aus funktionaler Sicht sind beide Pakete genau gleich. Beide sind auch in der Lage, sich selbst automatisch zu aktualisieren. Der einzige Unterschied zwischen Ihnen ist, ob zusätzlich zum **generischen** Paket von ASF auch eine **betriebssystemspezifische** Runtime enthalten ist oder nicht.
 
 ---
 
 ### Generisch
 
-Das generische Paket ist ein plattformunabhängiger Build, der keinen maschinenspezifischen Code enthält. Dieses Setup erfordert, dass Sie die .NET Core Runtime bereits **in der entsprechenden Version** auf dem Betriebssystem installiert haben. Wir alle wissen, wie lästig es ist, Abhängigkeiten auf dem neuesten Stand zu halten, deshalb ist dieses Paket hauptsächlich für Leute gedacht, die .NET **bereits** verwenden und diese Runtime nicht explizit für ASF zusätzlich pflegen wollen; wenn sie das nutzen können, was sie bereits installiert haben. Das generische Paket ermöglicht es ihnen auch, ASF ** überall dort auszuführen, solange eine funktionierende Implementierung der .NET Runtime zur Verfügung steht**, unabhängig davon, ob es einen betriebssystemspezifischen ASF Build dafür gibt oder nicht.
+Das generische Paket ist ein plattformunabhängiger Build, der keinen maschinenspezifischen Code enthält. Dieses Setup erfordert, dass Sie die .NET Core Runtime bereits **in der entsprechenden Version** auf dem Betriebssystem installiert haben. Wir alle wissen, wie lästig es ist, Abhängigkeiten auf dem neuesten Stand zu halten, deshalb ist dieses Paket hauptsächlich für Leute gedacht, die .NET **bereits** verwenden und diese Runtime nicht explizit für ASF zusätzlich pflegen wollen; wenn sie das nutzen können, was sie bereits installiert haben. Das generische Paket ermöglicht es Ihnen auch, ASF ** überall dort auszuführen, solange eine funktionierende Implementierung der .NET Runtime zur Verfügung steht**, unabhängig davon, ob es einen betriebssystemspezifischen ASF Build dafür gibt oder nicht.
 
 Es wird nicht empfohlen, den generischen Build zu verwenden, wenn Sie ein Gelegenheits- oder sogar fortgeschrittener Benutzer sind, der ASF lediglich ausführen will, ohne sich mit den technischen Details (von .NET) befassen zu müssen. Mit anderen Worten - wenn Sie wissen, worauf Sie sich damit einlassen, dann können Sie es benutzen; sonst ist es viel besser, ein betriebssystemspezifisches Paket zu verwenden, das unten erklärt wird.
 
@@ -34,7 +34,7 @@ Im Laufe der Zeit werden mehr Plattformen von .NET unterstützt und die Kompatib
 
 ### Betriebssystemspezifisch
 
-Das betriebssystemspezifische Paket beinhaltet neben dem verwalteten Code, der im generischen Paket enthalten ist, auch nativen Code für die jeweilige Plattform. Mit anderen Worten, das betriebssystemspezifische Paket **beinhaltet bereits die richtige .NET Runtime**, was es ihnen ermöglicht, den gesamten Installationsprozess komplett zu überspringen und ASF einfach direkt zu starten. Das betriebssystemspezifische Paket, wie man dem Namen entnehmen kann, ist betriebssystemspezifisch und jedes Betriebssystem benötigt eine eigene Version - zum Beispiel Windows benötigt PE32+ `ArchiSteamFarm.exe` Binärdatei während Linux mit Unix ELF `ArchiSteamFarm` Binärdatei arbeitet. Wie Sie vielleicht wissen, sind diese beiden Typen nicht miteinander kompatibel.
+Das betriebssystemspezifische Paket beinhaltet neben dem verwalteten Code, der im generischen Paket enthalten ist, auch nativen Code für die jeweilige Plattform. Mit anderen Worten: das betriebssystemspezifische Paket **beinhaltet bereits die richtige .NET Runtime**, was es Ihnen ermöglicht, den gesamten Installationsprozess komplett zu überspringen und ASF einfach direkt zu starten. Das betriebssystemspezifische Paket, wie man dem Namen entnehmen kann, ist betriebssystemspezifisch und jedes Betriebssystem benötigt eine eigene Version - zum Beispiel Windows benötigt PE32+ `ArchiSteamFarm.exe` Binärdatei während Linux mit Unix ELF `ArchiSteamFarm` Binärdatei arbeitet. Wie Sie vielleicht wissen, sind diese beiden Typen nicht miteinander kompatibel.
 
 ASF ist derzeit in folgenden betriebsystemspezifischen Varianten verfügbar:
 
@@ -54,7 +54,7 @@ Für eine vollständige Liste aller unterstützten Plattformen und Betriebssyste
 
 ## Runtime-Anforderungen
 
-Wenn Sie ein betriebssystemspezifisches Paket verwenden, müssen Sie sich keine Sorgen um die Runtime-Anforderungen machen. ASF wird immer mit der erforderlichen und aktuellen Runtime ausgeliefert, die einwandfrei funktioniert, solange Sie die **[.NET Prerequisites](https://github.com/dotnet/core/blob/main/Documentation/prereqs.md)** installiert und auf dem neuesten Stand haben. Mit anderen Worten, **muss die .NET Runtime oder SDK** nicht installiert werden, da betriebssystemspezifische Builds nur native Betriebssystemabhängigkeiten (Prerequisites) und nichts anderes erfordern.
+Wenn Sie ein betriebssystemspezifisches Paket verwenden, müssen Sie sich keine Sorgen um die Runtime-Anforderungen machen. ASF wird immer mit der erforderlichen und aktuellen Runtime ausgeliefert, die einwandfrei funktioniert, solange Sie die **[.NET Prerequisites](https://github.com/dotnet/core/blob/main/Documentation/prereqs.md)** installiert und auf dem neuesten Stand haben. Mit anderen Worten: **muss die .NET Runtime oder SDK** nicht installiert werden, da betriebssystemspezifische Builds nur native Betriebssystemabhängigkeiten (Prerequisites) und nichts anderes erfordern.
 
 Falls Sie dennoch das **generische** ASF-Paket ausprobieren möchten, dann müssen Sie unbedingt sicherstellen, dass die installierte .NET Runtime die von ASF benötigte Plattform unterstützt.
 

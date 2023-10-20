@@ -50,9 +50,9 @@ Your data is stored for maximum of two weeks since you stop using (announcing on
 
 `MatchActively` setting is active version of **[`SteamTradeMatcher`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading#steamtradematcher)** including interactive matching in which the bot will send trades to other people. It can work standalone, or together with `SteamTradeMatcher` setting. This feature requires `LicenseID` to be set, as it uses third-party server and paid resources to operate.
 
-Um von dieser Option Gebrauch zu machen musst du eine Reihe von Anforderungen erfüllen. At the minimum you must have **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active and at least one valid type in `MatchableTypes`, such as trading cards.
+Um von dieser Option Gebrauch zu machen musst Du eine Reihe von Anforderungen erfüllen. At the minimum you must have **[unrestricted](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663)** account, **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#asf-2fa)** active and at least one valid type in `MatchableTypes`, such as trading cards.
 
-Wenn du alle oben genannten Anforderungen erfüllst, wird ASF regelmäßig mit unserer **[öffentlichen ASF STM Liste](#publiclisting)** kommunizieren um aktiv mit aktuell verfügbaren Bots abzugleichen.
+Wenn Du alle oben genannten Anforderungen erfüllst, wird ASF regelmäßig mit unserer **[öffentlichen ASF STM Liste](#publiclisting)** kommunizieren um aktiv mit aktuell verfügbaren Bots abzugleichen.
 
 During matching, ASF bot will fetch its own inventory, then communicate with our server with it to find all possible `MatchableTypes` matches from other, currently available bots. Thanks to communicating directly with our server, this process requires a single request and we have immediate information whether any available bot offers something interesting for us - if match is found, ASF will send and confirm trade offer automatically.
 

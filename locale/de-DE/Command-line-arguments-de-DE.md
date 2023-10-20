@@ -44,7 +44,7 @@ Aber diese zwei sind völlig in Ordnung:
 
 ## Argumente
 
-`--cryptkey <key>` oder `--cryptkey=<key>` - ASF startet mit dem benutzerdefinierten kryptografiischen Schlüssel `<key>`. Diese Option wirkt sich auf die **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE#sicherheit)** aus und veranlasst ASF, den von ihnen bereitgestellten `<key>` Schlüssel anstelle des standardmäßig fest in die ausführbare Datei einprogrammierten Schlüssels zu verwenden. Beachten Sie bitte, dass sämtliche Verschlüsselungen/Hashs bei jedem ASF-Lauf weitergegeben wird, da diese Eigenschaft den Standard-Schlüssel (für Verschlüsselungszwecke), sowie SALT (für Hash-Zwecke) betrifft.
+`--cryptkey <key>` oder `--cryptkey=<key>` - ASF startet mit dem benutzerdefinierten kryptografiischen Schlüssel `<key>`. Diese Option wirkt sich auf die **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE#sicherheit)** aus und veranlasst ASF, den von Ihnen bereitgestellten `<key>` Schlüssel anstelle des standardmäßig fest in die ausführbare Datei einprogrammierten Schlüssels zu verwenden. Beachten Sie bitte, dass sämtliche Verschlüsselungen/Hashs bei jedem ASF-Lauf weitergegeben wird, da diese Eigenschaft den Standard-Schlüssel (für Verschlüsselungszwecke), sowie SALT (für Hash-Zwecke) betrifft.
 
 `<key>` erfordert keine Voraussetzungen bezüglich der Länge oder Zeichenart, jedoch empfehlen wir das Passwort etwa unter Verwendung von zufälligen Zeichen zu generieren (beispielsweise mit dem `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` Kommando unter Linux).
 
@@ -60,7 +60,7 @@ Durch die Natur dieser Option ist, es möglich die Umgebungsvariable `ASF_CRYPTK
 
 ---
 
-`--ignore-unsupported-environment` - sorgt dafür, dass ASF die Erkennung von nicht unterstützten Umgebungen ignoriert; die normalerweise mit einem Fehler signalisiert und das Beenden erzwingen. Nicht unterstützte Umgebung beinhalten zum Beispiel das Ausführen von .NET Framework Build auf Plattformen, die stattdessen .NET (Core) Build ausführen könnten. Obwohl diese Option ASF die Ausführung in solchen Situationen erlaubt; sollten Sie dennoch beachten, dass wir dies offiziell nicht unterstützen und Sie dies vollständig **auf eigene Gefahr** tun. Ab heute können **alle** der nicht unterstützten Umgebungsszenarien korrigiert werden, etwa das Ausführen von `generic` Build statt `generic-netf`. Wir empfehlen ihnen dringend, die offenen Probleme zu beheben, anstatt dieses Argument anzugeben.
+`--ignore-unsupported-environment` - sorgt dafür, dass ASF die Erkennung von nicht unterstützten Umgebungen ignoriert; die normalerweise mit einem Fehler signalisiert und das Beenden erzwingen. Nicht unterstützte Umgebung beinhalten zum Beispiel das Ausführen von .NET Framework Build auf Plattformen, die stattdessen .NET (Core) Build ausführen könnten. Obwohl diese Option ASF die Ausführung in solchen Situationen erlaubt; sollten Sie dennoch beachten, dass wir dies offiziell nicht unterstützen und Sie dies vollständig **auf eigene Gefahr** tun. Ab heute können **alle** der nicht unterstützten Umgebungsszenarien korrigiert werden, etwa das Ausführen von `generic` Build statt `generic-netf`. Wir empfehlen Ihnen dringend, die offenen Probleme zu beheben, anstatt dieses Argument anzugeben.
 
 ---
 
@@ -90,15 +90,15 @@ Aufgrund der Art dieser Eigenschaft ist es auch möglich, den Wert zu setzen, in
 
 ---
 
-`--no-steam-parental-generation` - standardmäßig wird ASF automatisch versuchen, die Steam-Familien-PINs zu generieren, wie in der Konfigurationseigenschaft **[` SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-de#steamparentalcode)** beschrieben. Da dies jedoch eine übermäßige Menge an Betriebssystem-Ressourcen erfordern kann, erlaubt ihnen dieser Schalter dieses Verhalten zu deaktivieren, was dazu führt, dass ASF die automatische Generierung überspringt, und stattdessen den Benutzer direkt nach der entsprechenden PIN fragt. Dies würde sonst nur passieren, wenn die Auto-Generierung versagt. Wir empfehlen die Generierung aktiviert zu lassen, es sei denn Sie haben einen guten Grund diese zu deaktivieren, und wünschen, dass ASF dies nicht tut.
+`--no-steam-parental-generation` - standardmäßig wird ASF automatisch versuchen, die Steam-Familien-PINs zu generieren, wie in der Konfigurationseigenschaft **[` SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-de#steamparentalcode)** beschrieben. Da dies jedoch eine übermäßige Menge an Betriebssystem-Ressourcen erfordern kann, erlaubt Ihnen dieser Schalter dieses Verhalten zu deaktivieren, was dazu führt, dass ASF die automatische Generierung überspringt, und stattdessen den Benutzer direkt nach der entsprechenden PIN fragt. Dies würde sonst nur passieren, wenn die Auto-Generierung versagt. Wir empfehlen die Generierung aktiviert zu lassen, es sei denn Sie haben einen guten Grund diese zu deaktivieren, und wünschen, dass ASF dies nicht tut.
 
 ---
 
-`--path <path>` oder `--path=<path>` - ASF wechselt beim Start immer in sein eigenes Verzeichnis. Wird dieser Parameter angegeben, so wird ASF nach der Initialisierung zu dem gegebenem Programmverzeichnis navigieren. Dies macht es ihnen möglich andere Verzeichnisse wie z. B. `config`, `plugins` oder `www` (incl. der Datei `NLog.config`) für unterschiedliche Teile der Applikation zu nutzen. Das Kopieren der Binärdateien an diese Stellen ist dadurch nicht mehr nötig. Dies kann besonders nützlich sein, wenn Sie die Binärdatei von der eigentlichen Konfiguration trennen möchten, wie es in Linux-ähnlichen Paketen geschieht. So können Sie eine (aktuelle) Binärdatei mit mehreren verschiedenen Konfigurationen verwenden. Der Pfad kann entweder relativ zum aktuellen Ort der ASF-Binärdatei oder absolut sein. Bedenke Sie auch, dass dieser Befehl auf ein neues "ASF-Startverzeichnis" zeigt - ein Verzeichnis, welches die gleiche Struktur wie der ursprüngliche ASF-Ordner hat, mit einem Verzeichnis `config` darin (siehe Beispiel unten).
+`--path <path>` oder `--path=<path>` - ASF wechselt beim Start immer in sein eigenes Verzeichnis. Wird dieser Parameter angegeben, so wird ASF nach der Initialisierung zu dem gegebenem Programmverzeichnis navigieren. Dies macht es Ihnen möglich andere Verzeichnisse wie z. B. `config`, `plugins` oder `www` (incl. der Datei `NLog.config`) für unterschiedliche Teile der Applikation zu nutzen. Das Kopieren der Binärdateien an diese Stellen ist dadurch nicht mehr nötig. Dies kann besonders nützlich sein, wenn Sie die Binärdatei von der eigentlichen Konfiguration trennen möchten, wie es in Linux-ähnlichen Paketen geschieht. So können Sie eine (aktuelle) Binärdatei mit mehreren verschiedenen Konfigurationen verwenden. Der Pfad kann entweder relativ zum aktuellen Ort der ASF-Binärdatei oder absolut sein. Bedenke Sie auch, dass dieser Befehl auf ein neues "ASF-Startverzeichnis" zeigt - ein Verzeichnis, welches die gleiche Struktur wie der ursprüngliche ASF-Ordner hat, mit einem Verzeichnis `config` darin (siehe Beispiel unten).
 
 Aufgrund der Art dieser Eigenschaft ist es auch möglich, den erwarteten Pfad zu setzen, indem man die Umgebungsvariable `ASF_PATH` deklariert wird, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
 
-Sollten Sie erwägen, dieses Kommandozeilenargument für die Ausführung mehrerer ASF-Instanzen zu verwenden, empfehlen wir ihnen, sich mit dem Thema **[Verwaltung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-de-DE#mehrere-instanzen)** zu befassen.
+Sollten Sie erwägen, dieses Kommandozeilenargument für die Ausführung mehrerer ASF-Instanzen zu verwenden, empfehlen wir Ihnen, sich mit dem Thema **[Verwaltung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-de-DE#mehrere-instanzen)** zu befassen.
 
 Beispiele:
 
@@ -127,7 +127,7 @@ ASF_PATH=/opt/Zielverzeichnis dotnet /opt/ASF/ArchiSteamFarm.dll #Identisch mit 
 
 `--process-required` - Durch die Verwendung dieser Option wird das standardmäßige Herunterfahren von ASF deaktiviert, wenn keine Bots laufen. Dies ist besonders in Kombination mit der **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-de-DE)**-API nützlich, da die Mehrheit der Benutzer erwarten würden, dass ihr Webservice unabhängig von der Anzahl der aktivierten Bots ausgeführt wird. Wenn Sie die Option IPC verwenden oder anderweitig einen ASF-Prozess benötigen, welcher die ganze Zeit läuft, bis Sie ihn selbst beenden, ist dies die richtige Option.
 
-Wenn Sie nicht vorhaben IPC auszuführen, wird diese Option für Sie ziemlich nutzlos sein, da der Prozess bei Bedarf einfach wieder von ihnen gestartet werden kann (im Gegensatz zum Webserver von ASF, wo Sie ihn die ganze Zeit lauschen lassen müssen, um Befehle zu senden).
+Wenn Sie nicht vorhaben IPC auszuführen, wird diese Option für Sie ziemlich nutzlos sein, da der Prozess bei Bedarf einfach wieder von Ihnen gestartet werden kann (im Gegensatz zum Webserver von ASF, wo Sie ihn die ganze Zeit lauschen lassen müssen, um Befehle zu senden).
 
 ---
 

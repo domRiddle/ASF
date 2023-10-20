@@ -67,6 +67,7 @@ In general we strongly recommend using either our ConfigGenerator or ASF-ui, as 
     "ConnectionTimeout": 90,
     "CurrentCulture": null,
     "Debug": false,
+    "DefaultBot": null,
     "FarmingDelay": 15,
     "FilterBadBots": true,
     "GiftsLimiterDelay": 1,
@@ -156,6 +157,12 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ---
 
+### `DefaultBot`
+
+預設值為 `null` 的 `string` 類型。 In some scenarios ASF functions with a concept of a default bot responsible for handling something - for example IPC commands or interactive console when you don't specify target bot. This property allows you to choose default bot responsible for handling such scenarios, by putting its `BotName` here. If given bot doesn't exist, or you use a default value of `null`, ASF will pick first registered bot sorted alphabetically instead. Typically you want to make use of this config property if you want to omit `[Bots]` argument in IPC and interactive console commands, and always pick the same bot as the default one for such calls.
+
+---
+
 ### `FarmingDelay`
 
 這是一個預設值為`15` 的 `byte flags` 類型屬性。 ASF會在工作時每`FarmingDelay`分鐘檢查當前掛卡的遊戲是否已經掉落了所有的卡片。 將此屬性設置得過低可能會導致發送過多的Steam請求，而設置過高可能會導致ASF在掛卡完成之後仍然「工作」達`farmingdelay` 分鐘。 預設值應該是適合大多數用戶的，如果您有許多機械人在運行，則可以考慮將其增加至類似 `30` 分鐘，以限制發送Steam請求。 值得一提的是，ASF使用基於事件的機制，會在收到每個掉落的Steam物品時檢查遊戲徽章頁面，所以通常**我們甚至不需要每隔一定時間檢查**，但由於我們不能完全信任Steam網絡──我們仍然需要手動檢查遊戲徽章頁面，如果我們未能在`FarmingDelay` 分鐘內檢查卡片掉落事件（萬一Steam網路沒有通知我們有關物品掉落或類似的資訊）。 假設Steam網絡工作正常，降低此值 **不會以任何方式提高掛卡效率**，而 **只會顯著增加網絡開銷**──建議保持`15`分鐘的預設值（並僅在需要時才增加它）。 除非您有**強烈**的修改意願，否則應保持它為预設值。
@@ -170,15 +177,15 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ### `GiftsLimiterDelay`
 
-這是一個預設值為`1` 的 `byte flags` 類型屬性。 ASF將確保每兩個連續的對遊戲/序號/許可證的處理（兌換）請求之間至少間隔`GiftsLimiterDelay`秒，以避免觸發速率限制。 除此之外，此預設值還將對遊戲清單查詢請求作全域限制，如`owns`**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**。 除非您有**強烈**的修改意願，否則應保持它為预設值。
+這是一個預設值為`1` 的 `byte flags` 類型屬性。 ASF將確保每兩個連續的對遊戲/序號/許可證的處理（兌換）請求之間至少間隔`GiftsLimiterDelay`秒，以避免觸發速率限制。 In addition to that it'll also be used as global limiter for game list requests, such as the one issued by `owns` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ---
 
 ### `Headless`
 
-預設值為 `false` 的 `bool` 類型。 此屬性定義進程是否應在偵錯模式下運行。 在 Headless 模式下，ASF 假定它在服務器或其他非交互式環境中運行，因此它不會嘗試通過控制台輸入讀取任何信息。 這包括需要的詳細信息（帳戶憑據，如 2FA 代碼，SteamGuard 代碼，密碼或 ASF 運行所需的任何其他變數）以及所有其他控制台輸入（如交互式命令控制台）。 換句話說，` Headless `模式等同於將 ASF 控制台設置為唯讀。 此設置主要用於在其服務器上運行 ASF 的用戶，當 ASF 需要與用戶交互，例如詢問 2FA 代碼時，ASF將通過停止帳戶以中止操作。 除非您在伺服器上運行ASF，並且您以前已確認ASF能夠在non-headless模式下運行，否則應禁用此屬性。 在無頭模式下，任何用戶交互都將被拒絕，如果您的帳戶在啟動過程中需要**任何**來自主控台的輸入，則ASF不會運行。 這對伺服器很有用，因為ASF可以在要求提供憑據時中止登錄帳戶的嘗試，而不是（無限）地等待用戶提供這些憑據。 啟用此模式還允許您使用`input`**[命令](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**替代標準主控台。 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
+預設值為 `false` 的 `bool` 類型。 此屬性定義進程是否應在Headless模式下運行。 在 Headless 模式下，ASF 假定它在服務器或其他非交互式環境中運行，因此它不會嘗試通過控制台輸入讀取任何信息。 這包括需要的詳細信息（帳戶憑據，如 2FA 代碼，SteamGuard 代碼，密碼或 ASF 運行所需的任何其他變數）以及所有其他控制台輸入（如交互式命令控制台）。 換句話說，` Headless `模式等同於將 ASF 控制台設置為唯讀。 此設置主要用於在其服務器上運行 ASF 的用戶，當 ASF 需要與用戶交互，例如詢問 2FA 代碼時，ASF將通過停止帳戶以中止操作。 除非您在伺服器上運行ASF，並且您以前已確認ASF能夠在non-headless模式下運行，否則應禁用此屬性。 Any user interaction will be denied when in headless mode, and your accounts will not run if they require **any** console input during starting. 這對伺服器很有用，因為ASF可以在要求提供憑據時中止登錄帳戶的嘗試，而不是（無限）地等待用戶提供這些憑據。 Enabling this mode will also allow you to use `input` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** which acts as a replacement for standard console input. 如果您不確定該如何設置此屬性，請將其保留為預設值`false`。
 
-如果您在伺服器上運行ASF，可能需要將此屬性與`--process-required`**[命令列參數](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**配合使用。
+If you're running ASF on the server, you probably want to use this option together with `--process-required` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)**.
 
 ---
 
@@ -190,7 +197,7 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ### `InventoryLimiterDelay`
 
-這是一個預設值為`4`的`byte`類型屬性。 ASF will ensure that there will be at least `InventoryLimiterDelay` seconds in between of two consecutive inventory requests to avoid triggering rate-limit - those are being used for fetching Steam inventories, especially during your own commands such as `loot` or `transfer`. 預設值`4`基於連續獲取100多個機械人實例清單的數據設定，應該能滿足大多數 (如果不是全部) 用戶的需求。 但是，如果您的機械人很少，可能希望減少此值，甚至將其更改為`0`，以讓ASF忽略延遲並加快拾取Steam庫存。 不過要注意的是，將此值設置得太低**將會**導致Steam暫時封禁您的IP以徹底防止您獲取您的庫存。 如果您運行大量的的機械人並有大量庫存請求，則可能還需要增加此值，不過在這種情況下，您可能更應該嘗試限制這些請求的數量。 除非您有**強烈**的修改意願，否則應保持它為预設值。
+`byte` type with default value of `4`. ASF will ensure that there will be at least `InventoryLimiterDelay` seconds in between of two consecutive inventory requests to avoid triggering rate-limit - those are being used for fetching Steam inventories, especially during your own commands such as `loot` or `transfer`. Default value of `4` was set based on fetching inventories of over 100 consecutive bot instances, and should satisfy most (if not all) of the users. 但是，如果您的機械人很少，可能希望減少此值，甚至將其更改為`0`，以讓ASF忽略延遲並加快拾取Steam庫存。 不過要注意的是，將此值設置得太低**將會**導致Steam暫時封禁您的IP以徹底防止您獲取您的庫存。 如果您運行大量的的機械人並有大量庫存請求，則可能還需要增加此值，不過在這種情況下，您可能更應該嘗試限制這些請求的數量。 除非您有**強烈**的修改意願，否則應保持它為预設值。
 
 ---
 
@@ -202,7 +209,7 @@ If you're looking for bot-based blacklist instead, take a look at `fb`, `fbadd` 
 
 ### `IPCPassword`
 
-預設值為 `null` 的 `string` 類型。 此屬性為通過IPC執行的每個API定義強制性密碼，作為額外的安全措施。 當此值非空時，所有IPC請求都需要將額外的`password`屬性設置為此處指定的密碼。 預設值為`null`將使ASF跳過密碼驗證而接受所有請求。 除此之外，啟用此選項還啟用了內置的IPC反暴力破解機制，該機制將在偵聽到某`IPAddress`在短時間內發送過多未經授權的請求後，暫時封禁它。 除非您有充分的修改理由，否則應保持它為默認值。
+預設值為 `null` 的 `string` 類型。 此屬性為通過IPC執行的每個API定義強制性密碼，作為額外的安全措施。 當此值非空時，所有IPC請求都需要將額外的`password`屬性設置為此處指定的密碼。 預設值為`null`將使ASF跳過密碼驗證而接受所有請求。 除此之外，啟用此選項還啟用了內置的IPC反暴力破解機制，該機制將在偵聽到某`IPAddress`在短時間內發送過多未經授權的請求後，暫時封禁它。 除非您有充分的修改理由，否則應保持它為預設值。
 
 ---
 
@@ -255,7 +262,7 @@ Unless you want to enable extra ASF functionalities, there is no need for you to
 
 ### `OptimizationMode`
 
-這是一個預設值為`0` 的 `byte flags` 類型。 此屬性定義 ASF 在運行時偏好的優化模式。 當前 ASF 支援兩種模式——`0`，即`MaxPerformance`；`1`，即`MinMemoryUsage`。 預設情況下，ASF希望盡可能多地並行（同時）運行，這通過跨所有 CPU 內核、多個 CPU 執行緒、多個通訊端和多個執行緒池任務的負載平衡工作來提高性能。 For example, ASF will ask for your first badge page when checking for games to farm, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. 這**應該總是**您想想要的，因為它在大多數情況下能使開銷最小化，甚至在單個 CPu 內核和功耗極大的最舊硬體上也能看到異步 ASF 代碼的好處。 但是，由於許多任務是並行處理的，因此 ASF 運行時負責維護它們，例如， 保持套接字打開，線程處於活動狀態並處理正在處理的任務，這可能會不時增加記憶體使用量，如果您受可用記憶體的限制，可能需要將此屬性切換為` 1 ` （` MinMemoryUsage `）以強制 ASF 盡可能少地使用任務，並且通常以同步方式運行可能的並行異步代碼。 只有當您讀過 **[低記憶體設置](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**，並且您有意犧牲巨大的性能提升以減少非常小的記憶體開銷時，才應考慮切換此屬性。 通常，此選項**絕無可能**比使用其他可能方式實現的更強，例如通過限制 ASF 使用或調整運行時的垃圾收集器，如 **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**中所述。 因此，如果您無法通過其他（更優）選項獲得令人滿意的結果，則應使用 `MinMemoryUsage` 作為 **最後手段**。 除非您有**強烈**的修改意願，否則應保持它為预設值。
+這是一個預設值為`0` 的 `byte flags` 類型。 此屬性定義 ASF 在運行時偏好的優化模式。 當前 ASF 支援兩種模式——`0`，即`MaxPerformance`；`1`，即`MinMemoryUsage`。 預設情況下，ASF希望盡可能多地並行（同時）運行，這通過跨所有 CPU 內核、多個 CPU 執行緒、多個通訊端和多個執行緒池任務的負載平衡工作來提高性能。 For example, ASF will ask for your first badge page when checking for games to farm, and then once request arrived, ASF will read from it how many badge pages you actually have, then request each other one concurrently. 這**應該總是**您想想要的，因為它在大多數情況下能使開銷最小化，甚至在單個 CPu 內核和功耗極大的最舊硬體上也能看到異步 ASF 代碼的好處。 但是，由於許多任務是並行處理的，因此 ASF 運行時負責維護它們，例如， 保持套接字打開，線程處於活動狀態並處理正在處理的任務，這可能會不時增加記憶體使用量，如果您受可用記憶體的限制，可能需要將此屬性切換為` 1 ` （` MinMemoryUsage `）以強制 ASF 盡可能少地使用任務，並且通常以同步方式運行可能的並行異步代碼。 You should consider switching this property only if you previously read **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)** and you intentionally want to sacrifice gigantic performance boost, for a very small memory overhead decrease. Usually this option is **much worse** than what you can achieve with other possible ways, such as by limiting your ASF usage or tuning runtime's garbage collector, as explained in **[low-memory setup](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**. Therefore, you should use `MinMemoryUsage` as a **last resort**, right before runtime recompilation, if you couldn't achieve satisfying results with other (much better) options. Unless you have a **strong** reason to edit this property, you should keep it at default.
 
 ---
 
@@ -548,7 +555,7 @@ There is also farming priority queue that is accessible through `fq` **[commands
 
 ### `HoursUntilCardDrops`
 
-這是一個預設值為`3`的`byte`類型屬性。 此屬性定義帳戶是否有卡片掉落限制，若有，則定義初始小時數。 受限制的卡掉落意味著帳戶在給定的遊戲玩了至少 `hoursuntilcards`小時前不會獲得任何掉落的卡片。 不幸的是，沒有神奇的方法來檢測它，所以ASF依賴於你。 This property affects **[cards farming algorithm](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** that will be used. 正確設置此屬性將最大限度地提高效率，並最大限度地減少掛卡所需的時間。 請記住，您是否應該使用何值，這沒有明顯的答案，因為它完全取決於您的帳戶。 從來沒有要求退款的老用戶似乎在卡片掉落上不受限制，所以他們應該使用` 0 `的值，而新帳戶和那些要求退款的人在卡片掉落上有`3`小時的限制。 然而，這只是理論，不應作為一條定理。 此屬性的默認值是基於“兩害相權取其輕”和大多數用例設置的。
+這是一個預設值為`3`的`byte`類型屬性。 此屬性定義帳戶是否有卡片掉落限制，若有，則定義初始小時數。 受限制的卡掉落意味著帳戶在給定的遊戲玩了至少 `hoursuntilcards`小時前不會獲得任何掉落的卡片。 不幸的是，沒有神奇的方法來檢測它，所以ASF依賴於你。 此屬性影響將使用的**[掛卡算法](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**。 正確設置此屬性將最大限度地提高效率，並最大限度地減少掛卡所需的時間。 請記住，您是否應該使用何值，這沒有明顯的答案，因為它完全取決於您的帳戶。 從來沒有要求退款的老用戶似乎在卡片掉落上不受限制，所以他們應該使用` 0 `的值，而新帳戶和那些要求退款的人在卡片掉落上有`3`小時的限制。 然而，這只是理論，不應作為一條定理。 此屬性的默認值是基於“兩害相權取其輕”和大多數用例設置的。
 
 ---
 
@@ -699,13 +706,13 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 
 所有兌換方案的實際順序是按機械人名稱字母順序排列的，不包括不可用的機械人 （未連接，停止或類似情況）。 請記住，每個IP和每個帳戶在一小時内存在兌換次數的限制，並且每次以` OK `結尾的兌換嘗試都會導致失敗。 ASF將盡最大努力減少` AlreadyPurchased `失敗的次數，例如通過嘗試避免將密鑰轉發給已經擁有該特定遊戲的另一個機械人，但由於Steam處理許可證的方式，它並不總能保證工作。 使用兌換標誌（例如` Forwarding `或` Distributing `）將始終增加您觸發` RateLimited `的可能性。
 
-還要記住，您不能將金鑰轉發或分發給您無權訪問的機械人。 This should be obvious, but ensure that you're at least `Operator` of all the bots you want to include in your redeeming process, for example with `status ASF` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**.
+還要記住，您不能將金鑰轉發或分發給您無權訪問的機械人。 這應該是顯而易見的，但請確保您至少要對兌換過程中包含所有的機器人擁有` Operator `訪問權限，例如可以執行` status ASF ` ** <a href =“https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands”>命令</a> **。
 
 ---
 
 ### `RemoteCommunication`
 
-`byte flags` type with default value of `3`. This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
+這是一個預設值為`3` 的 `byte flags` 屬性。 This property defines per-bot ASF behaviour when it comes to communication with remote, third-party services, and is defined as below:
 
 | 值 | 名稱            | 描述                                                                                                                                                                                                                                                                |
 | - | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -713,7 +720,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 | 1 | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                     |
 | 2 | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[flags mapping](#json-mapping)** if you'd like to learn more. 不啟用任何標誌會導致` None `選項。
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項。
 
 This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
 

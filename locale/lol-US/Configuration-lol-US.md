@@ -67,6 +67,7 @@ GLOBAL CONFIG IZ LOCATD IN `ASF.json` FILE AN HAS FOLLOWIN STRUCCHUR:
     "ConnectionTimeout": 90,
     "CurrentCulture": null,
     "Debug": false,
+    "DefaultBot": null,
     "FarmingDelay": 15,
     "FilterBadBots": true,
     "GiftsLimiterDelay": 1,
@@ -153,6 +154,12 @@ IN SHORT, DEFAULT VALUE SHUD BE DESENT 4 MOST CASEZ, BUT U CUD WANTS 2 INCREASE 
 **WARNIN:** ENABLIN DIS MODE INCLUDEZ LOGGIN OV **POTENTIALLY SENSITIV** INFORMASHUN SUCH AS LOGINS AN PASWORDZ DAT URE USIN 4 LOGGIN IN 2 STEAM (DUE 2 NETWORK LOGGIN). DAT DATA IZ WRITTEN 2 BOTH `debug` DIRECTORY, AS WELL AS STANDARD `log.txt` (DAT IZ NAO INTENSHUNALLY MUTCH MOAR VERBOSE 2 LOG DIS INFO). U SHUD NOT POST DEBUG CONTENT GENERATD BY ASF IN ANY PUBLIC LOCASHUN, ASF DEVELOPR SHUD ALWAYS REMIND U OV SENDIN IT 2 HIS E-MAIL, OR OTHR SECURE LOCASHUN. WERE NOT STORIN, NEITHR MAKIN USE OV DOSE SENSITIV DETAILS, THEYRE WRITTEN AS PART OV DEBUG ROUTINEZ SINCE THEIR PRESENCE CUD BE RELEVANT 2 TEH ISSUE DAT IZ AFFECTIN U. WED PREFR IF U DIDNT ALTR ASF LOGGIN IN ANY WAI, BUT IF URE WORRID, URE FREE 2 REDACT DOSE SENSITIV DETAILS APPROPRIATELY.
 
 > REDACTIN INVOLVEZ REPLACIN SENSITIV DETAILS, 4 EXAMPLE WIF STARS. U SHUD REFRAIN FRUM REMOVIN SENSITIV LINEZ ENTIRELY, AS THEIR PURE EXISTENCE CUD BE RELEVANT AN SHUD BE PRESERVD.
+
+---
+
+### `DefaultBot`
+
+`string` TYPE WIF DEFAULT VALUE OV `null`. In some scenarios ASF functions with a concept of a default bot responsible for handling something - for example IPC commands or interactive console when you don't specify target bot. This property allows you to choose default bot responsible for handling such scenarios, by putting its `BotName` here. If given bot doesn't exist, or you use a default value of `null`, ASF will pick first registered bot sorted alphabetically instead. Typically you want to make use of this config property if you want to omit `[Bots]` argument in IPC and interactive console commands, and always pick the same bot as the default one for such calls.
 
 ---
 

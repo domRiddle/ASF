@@ -30,7 +30,7 @@ Stufe 2 ist geplant, nachdem die oben beschriebene Stufe 1 stattgefunden hat und
 
 ## Summary
 
-Sie haben mehr oder weniger einen **ganzen Monat** um einen entsprechenden Wechsel vorzunehmen, was mehr als genug sein sollte, selbst wenn Sie ein gelegentlicher ASF-Benutzer sind. Nach Ablauf dieses Zeitraums garantiert ASF nicht mehr, dass alte Einstellungen funktionieren werden (Stufe 2), wodurch bestimmte Funktionen wirkungsvoll abgeschaltet werden, ohne dass du es bemerkst. Wenn Sie ASF nach mehr als einem Monat Inaktivität starten, wird empfohlen, **[von Grund auf neu zu beginnen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE)**, oder alle verpassten Änderungsprotokolle zu lesen und ihre Nutzung manuell an die aktuelle anzupassen.
+Sie haben mehr oder weniger einen **ganzen Monat** um einen entsprechenden Wechsel vorzunehmen, was mehr als genug sein sollte, selbst wenn Sie ein gelegentlicher ASF-Benutzer sind. Nach Ablauf dieses Zeitraums garantiert ASF nicht mehr, dass alte Einstellungen funktionieren werden (Stufe 2), wodurch bestimmte Funktionen wirkungsvoll abgeschaltet werden, ohne dass Du es bemerkst. Wenn Sie ASF nach mehr als einem Monat Inaktivität starten, wird empfohlen, **[von Grund auf neu zu beginnen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE)**, oder alle verpassten Änderungsprotokolle zu lesen und ihre Nutzung manuell an die aktuelle anzupassen.
 
 In den meisten Fällen wird die Missachtung der Verfallswarnung die allgemeine ASF-Funktionalität nicht beeinschränken, sondern auf das Standardverhalten zurückgreifen (das möglicherweise nicht mit ihren persönlichen Präferenzen übereinstimmt).
 
