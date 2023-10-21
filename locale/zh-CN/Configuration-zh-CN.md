@@ -159,7 +159,7 @@ ASF 默认有两个黑名单——`SalesBlacklist` 是内置黑名单，无法�
 
 ### `DefaultBot`
 
-这是一个默认值为 `null` 的 `string` 类型属性。 In some scenarios ASF functions with a concept of a default bot responsible for handling something - for example IPC commands or interactive console when you don't specify target bot. 此属性允许您选择默认机器人来负责处理这些场景，只需要将 `BotName` 放到这里。 如果指定的机器人不存在，或者您正常使用默认值 `null`，ASF 将选择按字母顺序排列的第一个已注册的机器人。 通常情况下，如果您希望在 IPC 或者交互式控制台命令中省略 `[Bots]` 参数，并默认总是选择同一个机器人，则会想要配置此属性。
+这是一个默认值为 `null` 的 `string` 类型属性。 在某些场景下，如果您没有指定目标机器人，ASF 会以默认机器人的概念处理一些事情——例如 IPC 命令或交互式控制台。 此属性允许您选择默认机器人来负责处理这些场景，只需要将 `BotName` 放到这里。 如果指定的机器人不存在，或者您正常使用默认值 `null`，ASF 将选择按字母顺序排列的第一个已注册的机器人。 通常情况下，如果您希望在 IPC 或者交互式控制台命令中省略 `[Bots]` 参数，并默认总是选择同一个机器人，则会想要配置此属性。
 
 ---
 
