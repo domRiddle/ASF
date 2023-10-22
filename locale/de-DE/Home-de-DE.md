@@ -1,6 +1,6 @@
 # Startseite
 
-Willkommen im ASF-Wiki. Dieses Wiki ist eine Online-Hilfe, welche viele verschiedene Themen wie häufig gestellte Fragen, mögliche Probleme, Verwendung, Einrichtung und vieles mehr abdeckt. Das hier solltest Du lesen, wenn Du wissen möchtest wie ASF funktioniert, insbesondere wie man es installiert, konfiguriert und verwendet.
+Willkommen im ASF-Wiki. Dieses Wiki ist eine Online-Hilfe, welche viele verschiedene Themen mit häufig gestellte Fragen, mögliche Probleme, Verwendung, Einrichtung und vieles mehr abdeckt. Das hier sollten Sie lesen, wenn Sie wissen möchten, wie ASF funktioniert - insbesondere wie man es installiert, konfiguriert und verwendet.
 
 Sie können die Sprache des Wikis ändern, indem Sie `-locale` an die URL der besuchten Seite anhängen. Statt zum Beispiel **[Home](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** können Sie (sofern verfügbar) **[Home-ru-RU](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-ru-RU)** aufrufen, um die russische Version der Startseite zu besuchen. Sprachen, die von unserer Community zu 90% oder mehr übersetzt wurden, werden auch in unserer Wiki-Seitenleiste (rechts) für einen einfachen Zugriff verfügbar sein.
 
