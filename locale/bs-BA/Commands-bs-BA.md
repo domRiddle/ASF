@@ -1,4 +1,4 @@
-# Commands
+# Komande
 
 ASF supports variety of commands, which can be used to control behaviour of the process and bot instances.
 
@@ -13,11 +13,11 @@ Commands executed through Steam chat are affected by `CommandPrefix` **[global c
 
 ---
 
-### Interactive console
+### Interaktivna konzola
 
 Starting with V4.0.0.9, ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Simply press `c` button in order to enable command mode, type your command and confirm with enter.
 
-![Screenshot](https://i.imgur.com/bH5Gtjq.png)
+![Snimak еkrana](https://i.imgur.com/bH5Gtjq.png)
 
 ---
 
@@ -25,7 +25,7 @@ Starting with V4.0.0.9, ASF has support for interactive console, as long as you'
 
 You can execute command to given ASF bot also through Steam chat. Obviously you can't talk to yourself directly, therefore you'll need at least one another bot account if you want to execute commands targetting your main.
 
-![Screenshot](https://i.imgur.com/IvFRJ5S.png)
+![Snimak еkrana](https://i.imgur.com/IvFRJ5S.png)
 
 In similar way you can also use group chat of given Steam group. Keep in mind that this option requires properly set `SteamMasterClanID` property, in which case bot will listen for commands also on group's chat (and join it if needed). This can also be used for "talking to yourself" since it doesn't require a dedicated bot account, as opposed to private chat. You can simply set `SteamMasterClanID` property to your newly-created group, then give yourself access either through `SteamOwnerID` or `SteamUserPermissions` of your own bot. This way ASF bot (you) will join group and chat of your selected group, and listen to commands from your own account. You can join the same group chatroom in order to issue commands to yourself (as you'll be sending command to chatroom, and ASF instance sitting on the same chatroom will receive them, even if it shows only as your account being there).
 
@@ -39,13 +39,13 @@ Please note that sending a command to the group chat acts like a relay. If you'r
 
 The most advanced and flexible way of executing commands, perfect for user interaction (ASF-ui) as well as third-party tools or scripting (ASF API), requires ASF to be run in `IPC` mode, and a client executing command through **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface.
 
-![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
+![Snimak еkrana](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 
 ---
 
-## Commands
+## Komande
 
-| Command                                                              | Access          | Description                                                                                                                                                                                                                                                                                                                         |
+| Komanda                                                              | Pristup         | Opis                                                                                                                                                                                                                                                                                                                                |
 | -------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `2fa [Bots]`                                                         | `Master`        | Generates temporary **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** token for given bot instances.                                                                                                                                                                                         |
 | `2fafinalize [Bots] <ActivationCode>`                          | `Master`        | Finalizes process of assigning new **[2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication#creation)** credentials for given bot instances, using SMS activation code.                                                                                                                                |

@@ -1,4 +1,4 @@
-# Localization
+# Lokalizacija
 
 ASF is powered by Crowdin service, which makes it possible for everybody to help translating ASF into all languages spoken worldwide. For more detailed explanation how Crowdin works, please check out **[Crowdin introduction](https://support.crowdin.com/crowdin-intro)**.
 
@@ -18,7 +18,7 @@ If you'd like to help with ASF, either by translating, reviewing or approving tr
 
 ---
 
-### Translating
+### Prevođenje
 
 If the language of your choice is still missing some strings, you can grab them and start working on the translation. We tried to do our best in terms of flexibility of the translations, therefore many strings include extra variables that ASF will provide during runtime - those are enclosed in brackets with a number, such as `{0}`. This allows you to alter default ASF format of the string, e.g. by moving ASF-provided variable in a place that satisfies your language and your translation, instead of being forced to strict context and format. This is especially important in RTL languages, such as Hebrew.
 
@@ -30,7 +30,7 @@ But based on your language, following sentence could make more sense:
 
 > The number of games to farm is equal to {0}.
 
-Or:
+Ili:
 
 > {0} is the number of games to farm.
 
@@ -56,7 +56,7 @@ General rules apply for proof-reading - do not rush, listen to your users, work 
 
 ---
 
-### Issues
+### Problemi
 
 If you have a problem with particular translation, e.g. you do not know how to translate it, approved translation is incorrect, you need more specific context, or likewise, please post a comment under specific string, and mark it with [X] Issue.
 
@@ -118,7 +118,7 @@ Wiki is a bit special in this regard, since it's online help where you don't nee
 
 ---
 
-### Global links
+### Globalni linkovi
 
 Our crowdin platform also allows you to adapt the original text in order to make it point to new (localized) locations.
 
@@ -151,7 +151,7 @@ In our example above, it's the first case (since only "setting up" is a link), s
 
 ---
 
-![Crowdin 2](https://i.imgur.com/Li5RzS3.png)
+![Crowdin](https://i.imgur.com/Li5RzS3.png)
 
 ---
 
@@ -201,7 +201,7 @@ From there you can easily correct the link to point to new location, without eve
 
 ---
 
-### Local links
+### Lokalni linkovi
 
 Across the wiki you will also find local links that point to particular section of the document. Those links include `#` character, indicating the web browser that it should move towards that section of the document.
 
@@ -229,7 +229,7 @@ This way our local link will keep working, since it'll now point to name of the 
 
 ### Code blocks
 
-Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. For example:
+Be extremely careful when you translate sentences with `<code></code>` blocks inside. Code block indicates fixed ASF code names or terms that should not be translated. Na primjer:
 
 > This is especially useful if you have a lot of keys to redeem and you're guaranteed to hit <code>RateLimited</code> status before you're done with your entire batch.
 
@@ -249,15 +249,15 @@ If you believe that something inappropriate is included in a code block, or that
 
 We'd like to show our eternal gratitude to people that have spent a significant amount of their time and willings to make ASF localization better. Their effort is incredible, and you can enjoy complete translations, including the wiki, mostly thanks to them. As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
 
-| Contributor                                                | Languages          |
-| ---------------------------------------------------------- | ------------------ |
-| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Spanish    |
-| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portuguese (BR)    |
-| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Chinese (CN)       |
-| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Chinese (TW)       |
-| **[LittleFreak](https://crowdin.com/profile/littlefreak)** | German             |
-| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Russian, Ukrainian |
-| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, German     |
-| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Chinese (HK)       |
+| Contributor                                                | Jezici            |
+| ---------------------------------------------------------- | ----------------- |
+| **[Astaroth](https://crowdin.com/profile/astaroth2012)**   | LOLCAT, Španjski  |
+| **[Dead_Sam](https://crowdin.com/profile/Dead_Sam)**       | Portugalski (BR)  |
+| **[deluxghost](https://crowdin.com/profile/deluxghost)**   | Kineski (CN)      |
+| **[DragonTaki](https://crowdin.com/profile/dragontaki)**   | Kineski (TW)      |
+| **[LittleFreak](https://crowdin.com/profile/littlefreak)** | Njemački          |
+| **[Ryzhehvost](https://crowdin.com/profile/Ryzhehvost)**   | Ruski, Ukrajinski |
+| **[MrBurrBurr](https://crowdin.com/profile/MrBurrBurr)**   | LOLCAT, Njemački  |
+| **[XinxingChen](https://crowdin.com/profile/XinxingChen)** | Kineski (HK)      |
 
 Thank you all for improving our ASF localization quality!

@@ -159,7 +159,7 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 ### `DefaultBot（預設 Bot）`
 
-`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 在某些情境下，ASF會需要有「預設Bot」的使用，來處理事件⸺舉例來說，在您未指定目標Bot時的IPC指令或互動式控制台。 This property allows you to choose default bot responsible for handling such scenarios, by putting its `BotName` here. If given bot doesn't exist, or you use a default value of `null`, ASF will pick first registered bot sorted alphabetically instead. Typically you want to make use of this config property if you want to omit `[Bots]` argument in IPC and interactive console commands, and always pick the same bot as the default one for such calls.
+`string`&#8203;型別，預設值為&#8203;`null`&#8203;。 在某些情境下，ASF會需要有「預設Bot」的使用，來處理事件⸺舉例來說，在您未指定目標Bot時的IPC指令或互動式控制台。 本屬性使您能夠選擇預設Bot來處理這些情境下，請將&#8203;`BotName`&#8203;填入這裡。 若設定的Bot不存在，或您使用了預設值&#8203;`null`&#8203;，ASF將會依字母順序選擇第一個登錄的Bot。 Typically you want to make use of this config property if you want to omit `[Bots]` argument in IPC and interactive console commands, and always pick the same bot as the default one for such calls.
 
 ---
 
