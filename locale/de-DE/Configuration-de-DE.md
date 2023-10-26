@@ -333,7 +333,7 @@ Diese Eigenschaft ist als uri-Zeichenfolge definiert:
 
 > Ein URI-String besteht aus einem Schema (unterstützt: http/https/socks4/socks4a/socks5), einem Host und einem optionalen Port. Ein Beispiel für eine komplette uri-Zeichenkette wäre `"http://contoso.com:8080"`.
 
-Wenn ein Proxy eine Benutzer-Authentifizierung erfordert, musst auch `WebProxyUsername` und/oder `WebProxyPassword` eingerichtet sein. Wenn es keinen solchen Bedarf gibt, genügt die Einrichtung dieser Eigenschaft allein.
+Wenn ein Proxy eine Benutzer-Authentifizierung erfordert, musst auch `WebProxyUsername` und/oder `WebProxyPassword` eingerichtet sein. Besteht dafür jedoch kein Bedarf, so genügt die alleinige Einrichtung dieser Eigenschaft.
 
 Im Moment verwendet ASF den Web-Proxy nur für `http` und `https` Anfragen, was **nicht** die interne Steam-Netzwerk-Kommunikation innerhalb des internen Steam-Clients von ASF beinhaltet. Es gibt derzeit keine Pläne dies zu unterstützen, hauptsächlich wegen der fehlenden **[SK2](https://github.com/SteamRE/SteamKit/issues/587#issuecomment-413271550)**-Funktionalität. Wenn Sie dies benötigen/wollen, schlagen wir vor, da anzufangen.
 
