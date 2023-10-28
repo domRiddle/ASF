@@ -19,27 +19,27 @@ Se você quiser usar o registro padrão do ASF sem quaisquer modificações, voc
     <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" />
     <target xsi:type="File" name="File" archiveFileName="${currentdir}/logs/log.{#}.txt" archiveNumbering="Rolling" archiveOldFileOnStartup="true" cleanupFileName="false" concurrentWrites="false" deleteOldFileOnStartup="true" fileName="${currentdir}/log.txt" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxArchiveFiles="10" />
 
-    <!-- Below becomes active when ASF's IPC interface is started -->
+    <!-- A seguir se torna ativo quando a interface IPC do ASF é iniciada -->
     <target type="History" name="History" layout="${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}" maxCount="20" />
   </targets>
 
   <rules>
-    <!-- The following entries specify ASP.NET (IPC) logging, we declare those so our last Debug catch-all doesn't include ASP.NET logs by default -->
+    <!-- As entradas a seguir especificam o registro ASP.NET (IPC), as declaramos para que nosso último ponto de verificação (catch-all) de Debug não inclua logs ASP.NET por padrão -->
     <logger name="Microsoft*" finalMinLevel="Warn" writeTo="ColoredConsole" />
     <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="ColoredConsole" />
     <logger name="System*" finalMinLevel="Warn" writeTo="ColoredConsole" />
 
     <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
 
-    <!-- The following entries specify ASP.NET (IPC) logging, we declare those so our last Debug catch-all doesn't include ASP.NET logs by default -->
+    <!-- As entradas a seguir especificam o registro ASP.NET (IPC), as declaramos para que nosso último ponto de verificação (catch-all) de Debug não inclua logs ASP.NET por padrão -->
     <logger name="Microsoft*" finalMinLevel="Warn" writeTo="File" />
     <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="File" />
     <logger name="System*" finalMinLevel="Warn" writeTo="File" />
 
     <logger name="*" minlevel="Debug" writeTo="File" />
 
-    <!-- Below becomes active when ASF's IPC interface is enabled -->
-    <!-- The following entries specify ASP.NET (IPC) logging, we declare those so our last Debug catch-all doesn't include ASP.NET logs by default -->
+    <!-- A seguir se torna ativo quando a interface IPC do ASF é habilitada -->
+    <!-- As entradas a seguir especificam o registro ASP.NET (IPC), as declaramos para que nosso último ponto de verificação (catch-all) de Debug não inclua logs ASP.NET por padrão -->
     <logger name="Microsoft*" finalMinLevel="Warn" writeTo="History" />
     <logger name="Microsoft.Hosting.Lifetime*" finalMinLevel="Info" writeTo="History" />
     <logger name="System*" finalMinLevel="Warn" writeTo="History" />
@@ -53,17 +53,17 @@ Se você quiser usar o registro padrão do ASF sem quaisquer modificações, voc
 
 ## Integração do ASF
 
-ASF inclui alguns truques legais de código que melhoram sua integração com o NLog, permitindo que você capture mensagens específicas mais facilmente.
+O ASF inclui alguns truques legais de código que melhoram sua integração com o NLog, permitindo que você capture mensagens específicas mais facilmente.
 
 A variável `${logger}` específica do NLog vai sempre distinguir a fonte da mensagem - será sempre o `BotName` de um dos seus bots, ou `ASF` se a mensagem vier diretamente do processo do ASF. Assim você pode capturar facilmente mensagens de bots individuais ou (apenas) do processo do ASF, em vez de todas de uma vez, com base no nome dessa variável.
 
-ASF tries to mark messages appropriately based on NLog-provided logging levels, which makes it possible for you to catch only specific messages from specific log levels instead of all of them. Claro, o nível de registro de uma mensagem específica não pode ser personalizado, uma vez que é uma decisão codificada no ASF a seriedade de determinada mensagem, mas você pode tornar o ASF menos/mais silencioso conforme achar necessário.
+O ASF tenta marcar as mensagens adequadamente com base nos níveis de registro fornecidos pelo NLog, o que torna possível capturar apenas mensagens específicas de níveis de log específicos, em vez de todas elas. Claro, o nível de registro de uma mensagem específica não pode ser personalizado, uma vez que é uma decisão codificada no ASF a seriedade de determinada mensagem, mas você pode tornar o ASF menos/mais silencioso conforme achar necessário.
 
 O ASF registra informações extras, tais como mensagens de usuário/conversa no nível de log `Trace`. O registro padrão do ASF registra apenas o nível `Debug` e acima, que esconde essa informação extra, já que ela não é necessária para a maioria dos usuários, além de atravancar a saída contendo potencialmente mensagens mais importantes. Você pode no entanto fazer uso dessa informação reabilitando o nível de log `Trace`, especialmente em combinação com registrar apenas um bot específico, com o evento que você está interessado.
 
 Em geral, o ASF tenta torná-lo tão fácil e conveniente para você quanto possível, registrando apenas as mensagens que você quer ao invés de forçá-lo a filtrá-las manualmente com alguma ferramenta de terceiros, tal como `grep` e semelhantes. Basta configurar o NLog corretamente conforme descrito abaixo, e você deverá ser capaz de especificar até mesmo regras complexas de registro com destinos personalizados como bancos de dados inteiros.
 
-Em relação a versão o ASF tenta sempre ser fornecido com a versão mais atualizada do NLog disponível na **[NuGet](https://www.nuget.org/packages/NLog)** na data do lançamento do ASF. It should not be a problem to use any feature you can find on NLog wiki in ASF - just make sure you're also using up-to-date ASF.
+Em relação a versão o ASF tenta sempre ser fornecido com a versão mais atualizada do NLog disponível na **[NuGet](https://www.nuget.org/packages/NLog)** na data do lançamento do ASF. Não deve ser um problema usar qualquer recurso que você possa encontrar na Wiki do NLog no ASF - apenas certifique-se de que está usando o ASF atualizado.
 
 Como parte da integração, o ASF também inclui suporte para destinos de registros NLog adicionais, que serão explicados abaixo.
 
@@ -126,7 +126,7 @@ Também podemos modificar a configuração de log para mais de um alvo. Vamos re
 
 Agora nós registraremos tudo no `ColoredConsole` e `File` (arquivo). Você notou que você também pode especificar o nome do arquivo `fileName` e opções extras?
 
-O ASF usa vários níveis de registro para deixar mais fácil para você entender o que está acontecendo. Podemos usar essas informações para modificar a severidade do registro. Let's say that we want to log everything (`Trace`) to `File`, but only `Warning` and above **[log level](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** to the `ColoredConsole`. Podemos fazer isso modificando nossas `rules` (regras):
+O ASF usa vários níveis de registro para deixar mais fácil para você entender o que está acontecendo. Podemos usar essas informações para modificar a severidade do registro. Digamos que desejamos registrar tudo (`Trace`) para `Arquivo`, mas apenas mensagens de aviso (`Warning`) e acima do **[nível de log](https://github.com/NLog/NLog/wiki/Configuration-file#log-levels)** no console colorido (`ColoredConsole`). Podemos fazer isso modificando nossas `rules` (regras):
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

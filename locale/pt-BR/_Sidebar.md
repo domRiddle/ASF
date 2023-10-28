@@ -21,12 +21,12 @@
 * **[👥 Ativador de códigos em segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-pt-BR)**
 * **[📢 Comandos](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-pt-BR)**
 * **[🛠️ Compatibilidade](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**
-* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin)**
-* **[📋 Gerenciamento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management)**
-* **[⏱️ Desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)**
-* **[📡 Comunicação remota](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)**
-* **[👪 Compartilhamento de Biblioteca Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing)**
-* **[🔄 Trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading)**
+* **[🧩 ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-pt-BR)**
+* **[📋 Gerenciamento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-pt-BR)**
+* **[⏱️ Desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-pt-BR)**
+* **[📡 Comunicação remota](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-pt-BR)**
+* **[👪 Compartilhamento de Biblioteca Steam](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Steam-Family-Sharing-pt-BR)**
+* **[🔄 Trocas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-pt-BR)**
 
 
 ## 🧙 Avançado
@@ -37,14 +37,14 @@
 * **[🤔 Perguntas frequentes adicionais](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ-pt-BR)**
 * **[🚀 Configuração de alto desempenho](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/High-performance-setup-pt-BR)**
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-pt-BR)**
-* **[🌐 Localização](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization)**
-* **[📝 Registros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging)**
-* **[💾 Configuração para baixo consumo de memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup)**
-* **[🔌 Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**
-* **[🔐 Segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)**
-* **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin)**
-* **[📦 Aplicativos de terceiros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party)**
-* **[📵 Autenticação em duas etapas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)**
+* **[🌐 Localização](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-pt-BR)**
+* **[📝 Registros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-pt-BR)**
+* **[💾 Configuração para baixo consumo de memória](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-pt-BR)**
+* **[🔌 Plugins](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-pt-BR)**
+* **[🔐 Segurança](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-pt-BR)**
+* **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin-pt-BR)**
+* **[📦 Aplicativos de terceiros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-pt-BR)**
+* **[📵 Autenticação em duas etapas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)**
 
 
 ## 👷 Desenvolvedores
