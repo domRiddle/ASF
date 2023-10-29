@@ -12,7 +12,7 @@ ASF lehnt Handelsangebote, unabhängig vom Inhalt, von jedem (Nicht-Master) Benu
 
 ASF wird alle, an Bots gesendete, `loot` ähnlichen Handelsangebote akzeptieren, es sei denn, `DontAcceptBotTrades` ist in `TradingPreferences` angegeben. Kurz gesagt, der Standardwert `None` in `TradingPreferences` bewirkt, dass ASF automatisch Handelsangebote von Benutzern mit `Master` Zugriff auf den Bot (siehe oben) akzeptiert, sowie alle Spenden-Handelsangebote von anderen Bots die am ASF-Prozess teilnehmen. Wenn Du Spenden-Handelsangebote von anderen Bots deaktivieren möchtest, dann solltest Du `DontAcceptBotTrades` in ihren `TradingPreferences` verwenden.
 
-Wenn Du `AcceptDonations` in ihren `TradingPreferences` aktivierst, akzeptiert ASF auch jedes Spenden-Handelsangebot bei dem das Bot-Konto keine Gegenstände verliert. Diese Eigenschaft betrifft nur Nicht-Bot-Konten, da Bot-Konten von `DontAcceptBotTrades` betroffen sind. `AcceptDonations` ermöglicht es ihren problemlos Spenden von anderen Personen anzunehmen, aber auch von Bots die nicht am ASF-Prozess teilnehmen.
+Wenn Du `AcceptDonations` in ihren `TradingPreferences` aktivierst, akzeptiert ASF auch jedes Spenden-Handelsangebot bei dem das Bot-Konto keine Gegenstände verliert. Diese Eigenschaft (Property) betrifft nur Nicht-Bot-Konten, da Bot-Konten von `DontAcceptBotTrades` betroffen sind. `AcceptDonations` ermöglicht es ihren problemlos Spenden von anderen Personen anzunehmen, aber auch von Bots die nicht am ASF-Prozess teilnehmen.
 
 Es ist gut zu erwähnen, dass `AcceptDonations` kein **[ASF-2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** erfordert, da es keine Bestätigung braucht, wenn wir keine Gegenstände verlieren.
 

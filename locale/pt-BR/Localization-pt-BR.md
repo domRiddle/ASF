@@ -122,7 +122,7 @@ A Wiki é um pouco especial nesse respeito, uma vez que é uma ajuda on-line ond
 
 Nossa plataforma no Crowdin também permite que você adapte o texto original de forma que ele aponte para os idiomas traduzidos.
 
-O ASF inclui links praticamente todas as páginas para facilitar a navegação, bem como uma baarra lateral na direita. O fato interessante é que você pode editar tudo isso, "arrumando" os links para apontarem para as páginas já traduzidas para o seu idioma. É preciso de um pouco de atenção ao fazer isso, mas é possível.
+O ASF inclui links em praticamente todas as páginas para facilitar a navegação, bem como uma barra lateral na direita. O fato interessante é que você pode editar tudo isso, "arrumando" os links para apontarem para as páginas já traduzidas para o seu idioma. É preciso de um pouco de atenção ao fazer isso, mas é possível.
 
 Por exemplo, a **[página inicial](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home)** do ASF (em inglês) inclui o texto:
 
@@ -247,7 +247,7 @@ Se você acredita que algo inapropriado foi incluso em um bloco de código, ou q
 
 ## Hall da Fama
 
-Gostaríamos de mostrar nossa eterna gratidão a pessoas que gastaram uma grande parte de seu tempo e esforço para melhorar a localização do ASF. Seus esforços foram incríveis e por isso você pode aproveitar traduções completas, incluindo a wiki, na maior parte graças a eles. Como um sinal de agradecimento, todas as pessoas listadas aqui tem acesso gratuito ao recurso **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)**, bantando **[solicitá-la](https://crowdin.com/messages/create/13177432/240376)**.
+Gostaríamos de mostrar nossa eterna gratidão a pessoas que gastaram uma grande parte de seu tempo e esforço para melhorar a localização do ASF. Seus esforços foram incríveis e por isso você pode aproveitar traduções completas, incluindo a wiki, na maior parte graças a eles. Como um sinal de agradecimento, todas as pessoas listadas aqui têm acesso gratuito ao recurso **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-pt-BR#matchactively)**, bastando **[solicitá-la](https://crowdin.com/messages/create/13177432/240376)**.
 
 | Colaborador                                                | Idiomas          |
 | ---------------------------------------------------------- | ---------------- |

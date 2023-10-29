@@ -44,17 +44,17 @@ Aber diese zwei sind völlig in Ordnung:
 
 ## Argumente
 
-`--cryptkey <key>` oder `--cryptkey=<key>` - ASF startet mit dem benutzerdefinierten kryptografiischen Schlüssel `<key>`. Diese Option wirkt sich auf die **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE#sicherheit)** aus und veranlasst ASF, den von Ihnen bereitgestellten `<key>` Schlüssel anstelle des standardmäßig fest in die ausführbare Datei einprogrammierten Schlüssels zu verwenden. Beachten Sie bitte, dass sämtliche Verschlüsselungen/Hashs bei jedem ASF-Lauf weitergegeben wird, da diese Eigenschaft den Standard-Schlüssel (für Verschlüsselungszwecke), sowie SALT (für Hash-Zwecke) betrifft.
+`--cryptkey <key>` oder `--cryptkey=<key>` - ASF startet mit dem benutzerdefinierten kryptografiischen Schlüssel `<key>`. Diese Option wirkt sich auf die **[Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE#sicherheit)** aus und veranlasst ASF, den von Ihnen bereitgestellten `<key>` Schlüssel anstelle des standardmäßig fest in die ausführbare Datei einprogrammierten Schlüssels zu verwenden. Beachten Sie bitte, dass sämtliche Verschlüsselungen/Hashs bei jedem ASF-Lauf weitergegeben wird, da diese Eigenschaft (Property) den Standard-Schlüssel (für Verschlüsselungszwecke), sowie SALT (für Hash-Zwecke) betrifft.
 
 `<key>` erfordert keine Voraussetzungen bezüglich der Länge oder Zeichenart, jedoch empfehlen wir das Passwort etwa unter Verwendung von zufälligen Zeichen zu generieren (beispielsweise mit dem `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` Kommando unter Linux).
 
 Darüber hinaus gibt es auch zwei weitere Möglichkeiten, um diese Angaben bereitzustellen: `--cryptkey-file` und `--input-cryptkey`.
 
-Aufgrund der Art dieser Eigenschaft, ist es auch möglich einen cryptkey zu setzen, indem man die Umgebungsvariable `ASF_CRYPTKEY` deklariert, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
+Aufgrund der Art dieser Eigenschaft (Property), ist es auch möglich einen cryptkey zu setzen, indem man die Umgebungsvariable `ASF_CRYPTKEY` deklariert, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
 
 ---
 
-`--cryptkey-file <path>` oder `--cryptkey-file=<path>` - ASF startet mit dem benutzerdefinierten kryptografischen Schlüssel, der aus der Datei `<path>` gelesen wird. Dies dient dem gleichen Zweck wie `--cryptkey <key>` (oben erklärt) mit dem Unterschied, dass mit dieser Eigenschaft der `<key>` aus dem angegebenen `<path>` gelesen wird.
+`--cryptkey-file <path>` oder `--cryptkey-file=<path>` - ASF startet mit dem benutzerdefinierten kryptografischen Schlüssel, der aus der Datei `<path>` gelesen wird. Dies dient dem gleichen Zweck wie `--cryptkey <key>` (oben erklärt) mit dem Unterschied, dass mit dieser Eigenschaft (Property) der `<key>` aus dem angegebenen `<path>` gelesen wird.
 
 Durch die Natur dieser Option ist, es möglich die Umgebungsvariable `ASF_CRYPTKEY_FILE` für den cryptkey zu bestimmen; welcher für jene angemessen ist, die sensible Details in den Verarbeitungsargumenten vermeiden möchten.
 
@@ -72,9 +72,9 @@ Durch die Natur dieser Option ist, es möglich die Umgebungsvariable `ASF_CRYPTK
 
 ---
 
-`--network-group <group>` oder `--network-group=<group>` - führt dazu, dass ASF seine Begrenzer mit einer benutzerdefinierten Netzwerkgruppe mit einem Wert `<group>` initialisiert. Diese Option wirkt sich auf die Ausführung von ASF in **[mehreren Instanzen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-de-DE#mehrere-instanzen)** aus, indem signalisiert wird, dass diese Instanz nur von Instanzen abhängig ist, die dieselbe Netzwerkgruppe teilen und unabhängig vom Rest. In der Regel sollte diese Eigenschaft nur verwendet werden, wenn Sie ASF-Anfragen über einen benutzerdefinierten Mechanismus (z. B. verschiedene IP-Adressen) und eine Netzwerkgruppen selbst einstellen möchten, ohne sich darauf zu verlassen, dass ASF dies automatisch macht (dies berücksichtigt derzeit nur `WebProxy`). Beachten Sie, dass es sich bei der Verwendung einer benutzerdefinierten Netzwerkgruppe um einen eindeutigen Bezeichner innerhalb des lokalen Rechners handelt und ASF keine weiteren Details berücksichtigt, wie z. B. den Wert vom `WebProxy`, wodurch Sie z. B. zwei Instanzen mit unterschiedlichen `WebProxy` Werten starten können, die immernoch voneinander abhängig sind.
+`--network-group <group>` oder `--network-group=<group>` - führt dazu, dass ASF seine Begrenzer mit einer benutzerdefinierten Netzwerkgruppe mit einem Wert `<group>` initialisiert. Diese Option wirkt sich auf die Ausführung von ASF in **[mehreren Instanzen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-de-DE#mehrere-instanzen)** aus, indem signalisiert wird, dass diese Instanz nur von Instanzen abhängig ist, die dieselbe Netzwerkgruppe teilen und unabhängig vom Rest. In der Regel sollte diese Eigenschaft (Property) nur verwendet werden, wenn Sie ASF-Anfragen über einen benutzerdefinierten Mechanismus (z. B. verschiedene IP-Adressen) und eine Netzwerkgruppen selbst einstellen möchten, ohne sich darauf zu verlassen, dass ASF dies automatisch macht (dies berücksichtigt derzeit nur `WebProxy`). Beachten Sie, dass es sich bei der Verwendung einer benutzerdefinierten Netzwerkgruppe um einen eindeutigen Bezeichner innerhalb des lokalen Rechners handelt und ASF keine weiteren Details berücksichtigt, wie z. B. den Wert vom `WebProxy`, wodurch Sie z. B. zwei Instanzen mit unterschiedlichen `WebProxy` Werten starten können, die immernoch voneinander abhängig sind.
 
-Aufgrund der Art dieser Eigenschaft ist es auch möglich, den Wert zu setzen, indem man die Umgebungsvariable `ASF_NETWORK_GROUP` deklariert, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
+Aufgrund der Art dieser Eigenschaft (Property) ist es auch möglich, den Wert zu setzen, indem man die Umgebungsvariable `ASF_NETWORK_GROUP` deklariert, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
 
 ---
 
@@ -86,7 +86,7 @@ Aufgrund der Art dieser Eigenschaft ist es auch möglich, den Wert zu setzen, in
 
 ---
 
-`--no-restart` - Diese Option wird hauptsächlich in unseren **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-de-DE)**-Containern genutzt und setzt `AutoRestart` auf `false`. Wenn Sie keinen besonderen Grund haben, sollten Sie stattdessen `AutoRestart` Eigenschaft direkt in ihrer Konfiguration konfigurieren. Dieser Schalter dient dazu, dass unser Docker-Skript nicht ihre globale Konfiguration berühren muss, um es an dessen eigene Umgebung anzupassen. Selbstverständlich können Sie diese Option auch verwenden, wenn Sie ASF in einem Skript ausführen; ansonsten ist die globale Konfigurationseigenschaft besser geeignet.
+`--no-restart` - Diese Option wird hauptsächlich in unseren **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-de-DE)**-Containern genutzt und setzt `AutoRestart` auf `false`. Wenn Sie keinen besonderen Grund haben, sollten Sie stattdessen `AutoRestart` Eigenschaft (Property) direkt in ihrer Konfiguration konfigurieren. Dieser Schalter dient dazu, dass unser Docker-Skript nicht ihre globale Konfiguration berühren muss, um es an dessen eigene Umgebung anzupassen. Selbstverständlich können Sie diese Option auch verwenden, wenn Sie ASF in einem Skript ausführen; ansonsten ist die globale Konfigurationseigenschaft besser geeignet.
 
 ---
 
@@ -96,7 +96,7 @@ Aufgrund der Art dieser Eigenschaft ist es auch möglich, den Wert zu setzen, in
 
 `--path <path>` oder `--path=<path>` - ASF wechselt beim Start immer in sein eigenes Verzeichnis. Wird dieser Parameter angegeben, so wird ASF nach der Initialisierung zu dem gegebenem Programmverzeichnis navigieren. Dies macht es Ihnen möglich andere Verzeichnisse wie z. B. `config`, `plugins` oder `www` (incl. der Datei `NLog.config`) für unterschiedliche Teile der Applikation zu nutzen. Das Kopieren der Binärdateien an diese Stellen ist dadurch nicht mehr nötig. Dies kann besonders nützlich sein, wenn Sie die Binärdatei von der eigentlichen Konfiguration trennen möchten, wie es in Linux-ähnlichen Paketen geschieht. So können Sie eine (aktuelle) Binärdatei mit mehreren verschiedenen Konfigurationen verwenden. Der Pfad kann entweder relativ zum aktuellen Ort der ASF-Binärdatei oder absolut sein. Bedenke Sie auch, dass dieser Befehl auf ein neues "ASF-Startverzeichnis" zeigt - ein Verzeichnis, welches die gleiche Struktur wie der ursprüngliche ASF-Ordner hat, mit einem Verzeichnis `config` darin (siehe Beispiel unten).
 
-Aufgrund der Art dieser Eigenschaft ist es auch möglich, den erwarteten Pfad zu setzen, indem man die Umgebungsvariable `ASF_PATH` deklariert wird, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
+Aufgrund der Art dieser Eigenschaft (Property) ist es auch möglich, den erwarteten Pfad zu setzen, indem man die Umgebungsvariable `ASF_PATH` deklariert wird, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
 
 Sollten Sie erwägen, dieses Kommandozeilenargument für die Ausführung mehrerer ASF-Instanzen zu verwenden, empfehlen wir Ihnen, sich mit dem Thema **[Verwaltung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-de-DE#mehrere-instanzen)** zu befassen.
 
@@ -131,7 +131,7 @@ Wenn Sie nicht vorhaben IPC auszuführen, wird diese Option für Sie ziemlich nu
 
 ---
 
-`--service`- Dieser Schalter wird hauptsächlich für unseren `systemd` service und erzwingt den Wert von `Headless` auf `true`. Wenn Sie keinen besonderen Grund haben, sollten Sie stattdessen die `headless` Eigenschaft direkt in ihrer Konfiguration einrichten. Dieser Schalter existiert, damit unser `systemd` Dienst ihre globale Konfiguration nicht berühren muss, um sich an seine eigene Umgebung anzupassen. Selbstverständlich können Sie diese Option auch verwenden, wenn Sie einen ähnlichen Anwendungsfall benötigen; ansonsten ist die globale Konfigurationseigenschaft besser geeignet.
+`--service`- Dieser Schalter wird hauptsächlich für unseren `systemd` service und erzwingt den Wert von `Headless` auf `true`. Wenn Sie keinen besonderen Grund haben, sollten Sie stattdessen die `headless` Eigenschaft (Property) direkt in ihrer Konfiguration einrichten. Dieser Schalter existiert, damit unser `systemd` Dienst ihre globale Konfiguration nicht berühren muss, um sich an seine eigene Umgebung anzupassen. Selbstverständlich können Sie diese Option auch verwenden, wenn Sie einen ähnlichen Anwendungsfall benötigen; ansonsten ist die globale Konfigurationseigenschaft besser geeignet.
 
 ---
 

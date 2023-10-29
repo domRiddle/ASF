@@ -14,7 +14,7 @@ Se o plugin foi carregado com êxito, você verá seu nome e versão no log. Voc
 
 Você pode encontrar alguns plugins em destaque na seção **[terceiros](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-pt-br#plugins-para-o-asf)**.
 
-**Por favor, note que alguns plugins podem ser mal intencionados**. Você deve sempre usar apenas plugins de desenvolvedores confiáveis. Os desenvolvedores do ASF não podem garantir os benefícios padrões do ASF (tal como a não presença de malwares ou ser livre de VAC ban) caso você decida usar qualquer plugin personalizado. You need to understand that plugins have full control over ASF process once loaded, due to that we're also unable to support setups that utilize custom plugins, since you're no longer running vanilla ASF code.
+**Por favor, note que alguns plugins podem ser mal intencionados**. Você deve sempre usar apenas plugins de desenvolvedores confiáveis. Os desenvolvedores do ASF não podem garantir os benefícios padrões do ASF (tal como a não presença de malwares ou ser livre de VAC ban) caso você decida usar qualquer plugin personalizado. Você precisa entender que os plugins têm controle total sobre o processo do ASF uma vez carregados, e devido a isso, não podemos oferecer suporte a configurações que utilizam plugins personalizados, uma vez que você não está mais executando o código original do ASF.
 
 ---
 
@@ -47,8 +47,8 @@ Se você fez tudo certo, seu `csproj` será semelhante ao exemplo abaixo:
   <ItemGroup>
     <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
 
-    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
-    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
+    <!-- Se estiver construindo como parte da árvore de origem do ASF, use isto em vez de <Reference> acima -->
+    <!-- <ProjectReference Include="C:\\Caminho\Para\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
   </ItemGroup>
 </Project>
 ```
@@ -108,7 +108,7 @@ Na verdade, a API interna do ASF é a única limitação real quanto ao que seu 
 
 ### Compatibilidade de API
 
-É importante salientar que o ASF é um aplicativo de consumo e não uma biblioteca típica com superfície de API fixa da qual você pode depender incondicionalmente. This means that you can't assume that your plugin once compiled will keep working with all future ASF releases regardless, it's just impossible if we want to keep developing the program further, and being unable to adapt to ever-ongoing Steam changes for the sake of backwards compatibility is just not appropriate for our case. Isto deve ser lógico para você, mas é importante salientar esse fato.
+É importante salientar que o ASF é um aplicativo de consumo e não uma biblioteca típica com superfície de API fixa da qual você pode depender incondicionalmente. Isso significa que você não pode assumir que seu plugin, uma vez compilado, continuará funcionando com todas as futuras versões do ASF, independentemente. Isso é simplesmente impossível se quisermos continuar desenvolvendo o programa, e não ser capaz de se adaptar às constantes mudanças no Steam em nome da compatibilidade com versões anteriores não é apropriado para o nosso caso. Isto deve ser lógico para você, mas é importante salientar esse fato.
 
 Faremos o nosso melhor para manter partes públicas do ASF funcionais e estáveis, mas não teremos medo de quebrar a compatibilidade se surgirem boas razões suficientes, seguindo nossa política de **[depreciação](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Deprecation-pt-BR)** nesse processo. Isto é especialmente importante no que diz respeito às estruturas internas da ASF que são expostas a você como parte da infra-estrutura do ASF, explicadas acima (por exemplo, `ArchiWebHandler`) que podem ser melhoradas (e, portanto, reescritas) como parte de aprimoramentos do ASF em versões futuras. Faremos o possível para informá-lo adequadamente nos logs de alterações e incluir avisos apropriados durante o tempo de execução sobre recursos obsoletos. Não temos intenção de reescrever tudo sem que haja uma necessidade realmente grande, então você pode ter certeza de que a próxima versão menor do ASF não vai simplesmente destruir seu plugin completamente apenas porque ela tem um número de versão maior, mas ficar de olho nos logs de atualização e verificar ocasionalmente se tudo está funcionando bem é uma boa ideia.
 

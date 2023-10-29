@@ -38,7 +38,7 @@ On the other hand, if you notice that **every** game is taking at least `X` amou
 
 Remember that games can have different drop rate, this is why you should test if your theory is right with **at least** 3 games, preferably 5+ to ensure that you're not running into false results by a coincidence. A card drop of one game in less than an hour is a confirmation that your account **is not** restricted and can use `HoursUntilCardDrops` of `0`, but for confirming that your account **is** restricted, you need at least several games that are not dropping cards until you hit a fixed mark.
 
-Es ist wichtig zu beachten, dass in der Vergangenheit `HoursUntilCardDrops` nur `0` oder `2` war und deshalb hatte ASF eine einzige `CardDropsRestricted` Eigenschaft, die es erlaubte, zwischen diesen beiden Werten zu wechseln. Mit den jüngsten Änderungen stellten wir fest, dass jetzt nicht nur die Mehrheit der Benutzer `3` Stunden anstelle der vorherigen `2` benötigt, sondern auch, dass `HoursUntilCardDrops` jetzt dynamisch ist und jeden Wert pro Konto treffen kann.
+Es ist wichtig zu beachten, dass in der Vergangenheit `HoursUntilCardDrops` nur `0` oder `2` war und deshalb hatte ASF eine einzige `CardDropsRestricted` Eigenschaft (Property), die es erlaubte, zwischen diesen beiden Werten zu wechseln. Mit den jüngsten Änderungen stellten wir fest, dass jetzt nicht nur die Mehrheit der Benutzer `3` Stunden anstelle der vorherigen `2` benötigt, sondern auch, dass `HoursUntilCardDrops` jetzt dynamisch ist und jeden Wert pro Konto treffen kann.
 
 Am Ende liegt die Entscheidung natürlich bei dir.
 
