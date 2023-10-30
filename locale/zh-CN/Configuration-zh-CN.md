@@ -289,7 +289,7 @@ ASF 默认有两个黑名单——`SalesBlacklist` 是内置黑名单，无法�
 | 2 | UDP       | **[用户数据报协议](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**       |
 | 4 | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                  |
 
-请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项，并且该选项本身是无效的。
+请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[JSON 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项，并且该选项本身是无效的。
 
 默认情况下，ASF 会使用所有可用的 Steam 协议，作为应对 Steam 服务器宕机以及其他类似问题的手段。 如果您需要将 ASF 限制为只使用其中一个或两个特定的协议，则需要更改此属性。 如果您的防火墙仅开放 TCP 流量，就可能出现这样的情况，您需要让 ASF 不再通过 UDP 进行连接。 但是，除非您正在调试特定问题，否则您通常总是希望 ASF 可以自由使用当前受支持的任何协议，而不仅仅使用其中的一两个。 除非您有**充分的**理由编辑此属性，否则应将其保留为默认值。
 
@@ -439,7 +439,7 @@ ASF 的更新过程会完全更新 ASF 使用的目录结构，但不包括您�
 | 16 | MarkReceivedMessagesAsRead    | 使 ASF 自动将所有消息标记为已读                    |
 | 32 | MarkBotMessagesAsRead         | 使 ASF 自动将来自其他 ASF 机器人（同一个实例下）的消息标记为已读 |
 
-请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
+请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[JSON 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
 
 通常，如果您希望一个 ASF 机器人帐户（而非主帐户）根据情况进行一些自动化操作，则需要修改此属性。 因此，该选项主要用于子帐户，但您也可以为主帐户设定这些属性。
 
@@ -633,7 +633,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 | 1024 | ClientTypeTenfoot | 客户端正在使用大屏幕模式   |
 | 2048 | ClientTypeVR      | 客户端正在使用 VR 头显  |
 
-请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
+请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[JSON 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
 
 此属性底层的 `EPersonaStateFlag` 类型包括更多可用 Flag，但据我们所知，它们目前并不会有实际效果，因而没有在此包含。
 
@@ -692,7 +692,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 | 4 | KeepMissingGames                   | 在转发时保留（可能）未拥有的游戏，使这些序列号不被使用                                                         |
 | 8 | AssumeWalletKeyOnBadActivationCode | 假定 `BadActivationCode` 状态的序列号等同于 `CannotRedeemCodeFromClient` 状态，并因此尝试将其作为钱包礼物卡代码激活 |
 
-请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
+请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[JSON 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
 
 `Forwarding` 会使机器人将无法激活的序列号转发给另一个尚未拥有此游戏的（尽可能事先检查）、已连接并且已登录的机器人。 最常见的情况是将 `AlreadyPurchased`（已拥有）的游戏转发给另一个尚未拥有游戏的机器人，但该选项也同样会转发其他情况下的序列号，例如 `DoesNotOwnRequiredApp`（缺少游戏本体）、`RateLimited`（激活频率限制）或者 `RestrictedCountry`（激活地区限制）。
 
@@ -720,7 +720,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 | 1 | SteamGroup    | 允许与 [**ASF 的 Steam 组**](https://steamcommunity.com/groups/archiasf)通信                                                                                                                                          |
 | 2 | PublicListing | 如果用户还启用了 **[`TradingPreferences`](#tradingpreferences)** 中的 `SteamTradeMatcher`，则允许与 [**ASF STM 列表**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-CN#publiclisting公共列表)通信以展示在列表上 |
 
-请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
+请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[JSON 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
 
 此选项不包含所有 ASF 提供的第三方通信，仅包含其他设置没有隐含的通信。 例如，如果您启用 ASF 自动更新，ASF 就会按照您的设置，与 GitHub（用于下载）和我们的服务器（用于完整性校验）通信。 同样地，在 **[`TradingPreferences`](#tradingpreferences)** 中启用 `MatchActively` 隐含了与我们服务器的通信，即获取列表中的机器人，这也是启用此功能所必需的。
 
@@ -830,7 +830,7 @@ ASF 提供了一些您可以在文本中使用的特殊变量。 `{0}` 会被 AS
 | 8  | DontAcceptBotTrades | 不自动接受来自其他机器人的 `loot` 交易                                                                                                                                                       |
 | 16 | MatchActively       | 以主动方式参与 **[STM](https://www.steamtradematcher.com)** 交易。 访问[**物品匹配插件**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-zh-CN#matchactively主动匹配)了解更多信息 |
 
-请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[flags 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
+请注意，该属性是 `flags` 字段，因此可以设置为可用选项的任意组合。 如果您想了解更多，请阅读 **[JSON 映射](#json-映射)**。 不启用任何 Flag 即为 `None` 选项。
 
 若要了解 ASF 的交易逻辑，以及对于每个 flag 的详细说明，请阅读[**交易**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-CN)章节。
 

@@ -289,7 +289,7 @@ As a side note, this value is also used as load-balancing buffer in all ASF-sche
 | 2 | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
 | 4 | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
 
-이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 어떤 플래그도 활성화하지 않으면 `없음(None)` 옵션과 동일하며, 이는 유효하지 않은 값입니다.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. Check out **[json mapping](#json-mapping)** if you'd like to learn more. 어떤 플래그도 활성화하지 않으면 `없음(None)` 옵션과 동일하며, 이는 유효하지 않은 값입니다.
 
 By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols. 예를들어 방화벽에서 TCP만 활성화하고 ASF가 UDP로 연결을 시도하지 않길 원한다면 이런 수단이 필요할 수 있습니다. 그러나, 특정 문제나 이슈를 디버깅하는 중이 아니라면 거의 항상 ASF가 한두개가 아닌 현재 지원되는 어느 프로토콜이든 자유롭게 사용하길 원할 것입니다. 이 속성값을 변경해야 할 **명확한** 이유가 있지 않다면 기본값을 그대로 유지해야 합니다.
 
@@ -439,11 +439,11 @@ Valve의 이슈, 변화, 문제에 따라 **이 기능이 정상작동할지 보
 | 16 | 받은 메시지 읽은상태로 표시(MarkReceivedMessagesAsRead) | ASF가 모든 도착한 메시지를 자동으로 읽은 상태로 표시합니다.                                                                      |
 | 32 | MarkBotMessagesAsRead                       | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) as read |
 
-이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. Check out **[json mapping](#json-mapping)** if you'd like to learn more. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
 일반적으로 ASF가 활동과 관련하여 일정량 만큼의 자동화를 해주기를 기대한다면 이 속성값을 변경하시기 바랍니다. 이는 주 계정이 아닌 봇 계정에 설정할 것을 권장합니다. 주로 부계정에서 이 속성값을 변경하겠지만 주 계정에서 이 옵션을 선택하는 것은 자유입니다.
 
-ASF의 보통 행동(`없음(None)`)은 카드 농사, `TradingPreferences`에 설정된 경우 `SteamTradeMatcher` 제안 등 사용자가 원하는 것만 자동화합니다. 이는 가장 덜 공격적인 모드이고 계정의 전체 권한을 그대로 가지고 있어 특정한 범위를 벗어난 상호작용을 허락하거나 허락하지 않을지를 스스로 결정할 수 있어서 대부분의 사용자에게 도움이 됩니다.
+Normal (`None`) ASF behaviour is to only automate things that user wants (e.g. cards farming or `SteamTradeMatcher` offers processing, if set in `TradingPreferences`). 이는 가장 덜 공격적인 모드이고 계정의 전체 권한을 그대로 가지고 있어 특정한 범위를 벗어난 상호작용을 허락하거나 허락하지 않을지를 스스로 결정할 수 있어서 대부분의 사용자에게 도움이 됩니다.
 
 유효하지 않은 친구 초대는 `SteamUserPermissions`에 정의된 `가족 공유(FamilySharing)` 이상의 권한을 가진 사용자가 아닌 사람으로 부터 온 친구 초대입니다. 예상하시는 대로 보통 모드에서 ASF는 이 초대를 무시하고 이를 받아들일지 말지 선택권을 당신에게 줍니다. `유효하지 않은 친구초대 거절(RejectInvalidFriendInvites)`은 이러한 초대를 자동으로 거절합니다. 따라서 실제적으로 다른 사람들이 당신을 친구 리스트에 추가하는 옵션을 막습니다. 당신이 `SteamUserPermissions`에 정의한 사람들을 제외하고 그런 요청을 모두 거부합니다. 모든 친구 초대를 완전히 거부하려는 것이 아니라면 이 옵션을 활성화해서는 안됩니다.
 
@@ -633,7 +633,7 @@ Default ASF setting is based on the most common usage of the bot, with looting o
 | 1024 | ClientTypeTenfoot | Client is using big picture               |
 | 2048 | ClientTypeVR      | Client is using VR headset                |
 
-이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. Check out **[json mapping](#json-mapping)** if you'd like to learn more. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
 The underlying `EPersonaStateFlag` type that this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
 
@@ -692,7 +692,7 @@ However, there is one catch with `Invisible` mode - it doesn't go well with prim
 | 4 | KeepMissingGames                   | Keep keys for (potentially) missing games when forwarding, leaving them unused                                                  |
 | 8 | AssumeWalletKeyOnBadActivationCode | Assume that `BadActivationCode` keys are equal to `CannotRedeemCodeFromClient`, and therefore try to redeem them as wallet keys |
 
-이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. Check out **[json mapping](#json-mapping)** if you'd like to learn more. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
 `Forwarding` will cause bot to forward a key that is not possible to redeem, to another connected and logged on bot that is missing that particular game (if possible to check). The most common situation is forwarding `AlreadyPurchased` game to another bot that is missing that particular game, but this option also covers other scenarios, such as `DoesNotOwnRequiredApp`, `RateLimited` or `RestrictedCountry`.
 
@@ -720,7 +720,7 @@ Also keep in mind that you can't forward or distribute keys to bots that you do 
 | 1 | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                     |
 | 2 | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
 
-이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. Check out **[json mapping](#json-mapping)** if you'd like to learn more. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
 This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
 
@@ -830,7 +830,7 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 | 8  | 봇거래수락안함(DontAcceptBotTrades) | 다른 봇의 `loot` 거래를 자동으로 수락하지 않습니다.                                                                                                                                                                      |
 | 16 | 능동적 매칭(MatchActively)        | **[STM](https://www.steamtradematcher.com)** 과 같은 거래에 능동적으로 참여합니다. Visit **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** for more info |
 
-이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. 자세한 내용은 **[플래그 매핑](#json-mapping)** 을 참고하십시오. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
+이 속성값은 `flags` 항목이므로, 가능한 여러 값을 조합할 수 있습니다. Check out **[json mapping](#json-mapping)** if you'd like to learn more. 플래그를 활성화 하지 않으면 `없음(None)`과 같습니다.
 
 ASF의 거래 논리, 가능한 모든 플래그의 설명 등에 대한 자세한 내용은 **[거래](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-ko-KR)** 항목에서 확인할 수 있습니다.
 

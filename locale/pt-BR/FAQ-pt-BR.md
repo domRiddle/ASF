@@ -83,7 +83,7 @@ Quando/Se todos os requisitos do ASF forem satisfeitos, consideraremos lançar u
 
 ### O ASF pode coletar itens de jogos Steam, como CS:GO e Unturned?
 
-**Não**, isso é contra o **[Acordo de Assinatura do Steam](https://store.steampowered.com/subscriber_agreement)** e a Valve deixou isso muito claro com a última onda de banimentos da comunidade por coleta de itens do TF2. O ASF é um programa de coleta automática de Cartas Colecionáveis Steam, não de intens de jogos - ele não tem qualquer capacidade de coletar itens de jogo e não temos planos de adicionar tal característica no futuro, nunca, principalmente por violar os termos de uso do Steam. Não peça isso - o melhor que você vai conseguir é uma denúncia de algum usuário ofendido e um problema por conta disso. O mesmo vale para todos os outros tipos de coleta, como drops de transmissões ao vivo do CS:GO. O ASF é focado exclusivamente em cartas colecionáveis Steam.
+**Não**, isso é contra o **[Acordo de Assinatura do Steam](https://store.steampowered.com/subscriber_agreement)** e a Valve deixou isso muito claro com a última onda de banimentos da comunidade por coleta de itens do TF2. O ASF é um programa de coleta automática de Cartas Colecionáveis Steam, não de itens de jogos - ele não tem qualquer capacidade de coletar itens de jogo e não temos planos de adicionar tal característica no futuro, nunca, principalmente por violar os termos de uso do Steam. Não peça isso - o melhor que você vai conseguir é uma denúncia de algum usuário ofendido e um problema por conta disso. O mesmo vale para todos os outros tipos de coleta, como drops de transmissões ao vivo do CS:GO. O ASF é focado exclusivamente em cartas colecionáveis Steam.
 
 ---
 

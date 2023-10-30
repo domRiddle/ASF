@@ -289,7 +289,7 @@ Tipo `byte flags` con valor predeterminado de `7`. Esta propiedad define los pro
 | 2     | UDP       | **[Protocolo de Datagramas de Usuario](https://es.wikipedia.org/wiki/Protocolo_de_datagramas_de_usuario)**        |
 | 4     | WebSocket | **[WebSocket](https://es.wikipedia.org/wiki/WebSocket)**                                                          |
 
-Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`, y esa opción es inválida por sí misma.
+Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de json](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`, y esa opción es inválida por sí misma.
 
 Por defecto ASF utilizará todos los protocolos de Steam disponibles como una medida para evitar caídas y otros problemas similares de Steam. Normalmente querrás cambiar esta propiedad si deseas limitar ASF para usar solamente uno o dos protocolos específicos. Tal medida podría ser necesaria, por ejemplo, si habilitas solamente el tráfico TCP en tu firewall y no quieres que ASF intente conectarse a través de UDP. Sin embargo, a menos que estés depurando un problema o error en particular, casi siempre querrás asegurarte de que ASF sea libre de usar cualquier protocolo soportado actualmente y no solo uno o dos. A menos que tengas una **buena** razón para editar esta propiedad, deberías dejarla en su valor predeterminado.
 
@@ -439,11 +439,11 @@ Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comp
 | 16    | MarkReceivedMessagesAsRead    | Causará que ASF automáticamente marque como leídos todos los mensajes recibidos                                           |
 | 32    | MarkBotMessagesAsRead         | Causará que ASF automáticamente marque como leídos los mensajes de otros bots de ASF (ejecutándose en la misma instancia) |
 
-Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de json](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 En general, querrás modificar esta propiedad si esperas que ASF tenga cierta cantidad de automatización relacionada con su actividad, como se esperaría de una cuenta bot, pero no de una cuenta principal usada en ASF. Por lo tanto, cambiar esta propiedad tiene sentido principalmente para cuentas alternas, aunque también eres libre de usarla para cuentas principales.
 
-El comportamiento normal (`None`) de ASF es para automatizar solamente cosas que el usuario quiera (por ejemplo, recolección de cromos u ofertas de `SteamTradeMatcher`, si se establece en `TradingPreferences`). Este es el modo menos invasivo, y es beneficioso para la mayoría de los usuarios ya que conservas el control total de tu cuenta y puedes decidir tú mismo si deseas permitir ciertas interacciones fuera del alcance, o no.
+El comportamiento normal (`None`) de ASF es para automatizar solamente cosas que el usuario quiera (por ejemplo, recolección de cromos o el procesamiento de ofertas con `SteamTradeMatcher`, si se establece en `TradingPreferences`). Este es el modo menos invasivo, y es beneficioso para la mayoría de los usuarios ya que conservas el control total de tu cuenta y puedes decidir tú mismo si deseas permitir ciertas interacciones fuera del alcance, o no.
 
 Una solicitud de amistad inválida es una invitación que no proviene de un usuario con permiso `FamilySharing` (definido en `SteamUserPermissions`) o superior. En modo normal ASF ignora esas invitaciones, como se esperaría, dándote la libertad de aceptarlas, o no. `RejectInvalidFriendInvites` causará que esas invitaciones sean rechazadas automáticamente, lo que prácticamente desactivará la opción para otras personas de añadirte a su lista de amigos (ya que ASF rechazará todas esas solicitudes, excepto de las personas definidas en `SteamUserPermissions`). A menos que quieras rechazar todas las solicitudes de amistad, no deberías habilitar esta opción.
 
@@ -633,7 +633,7 @@ Tipo `ushort flags` con valor predeterminado de `0`. Esta propiedad funciona com
 | 1024  | ClientTypeTenfoot | El cliente está usando Big Picture                  |
 | 2048  | ClientTypeVR      | El cliente está usando un casco de realidad virtual |
 
-Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de json](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 El tipo `EPersonaStateFlag` subyacente en el que se basa esta propiedad incluye más banderas disponibles, sin embargo, hasta donde sabemos no tienen ningún efecto actualmente, por lo que fueron omitidas.
 
@@ -692,7 +692,7 @@ Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comp
 | 4     | KeepMissingGames                   | Conserva las claves de juegos (potencialmente) no poseídos, dejándolas sin usar                                                                                  |
 | 8     | AssumeWalletKeyOnBadActivationCode | Asume que las claves con el estatus `BadActivationCode` equivalen a `CannotRedeemCodeFromClient`, y por lo tanto intenta activarlas como un código de la cartera |
 
-Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de json](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 `Forwarding` causará que el bot reenvíe una clave que no es posible activar, a otro bot conectado que no tenga ese juego en particular (si es posible comprobarlo). La situación más común es reenviar un juego ya poseído, lo que se indica con el estatus `AlreadyPurchased`, a otro bot al que le falte ese juego en particular, pero esta opción también cubre otros escenarios, tal como `DoesNotOwnRequiredApp` (no poseer el juego base), `RateLimited` (límite de intentos excedido) o `RestrictedCountry` (restricción regional).
 
@@ -720,7 +720,7 @@ Tipo `byte flags` con valor predeterminado de `3`. Esta propiedad define el comp
 | 1     | SteamGroup    | Permite la comunicación con el **[grupo de ASF en Steam](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                          |
 | 2     | PublicListing | Permite la comunicación con la **[lista STM de ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-es-ES#publiclisting)** para poder ser listado, si el usuario también habilitó `SteamTradeMatcher` en **[`TradingPreferences`](#tradingpreferences)** |
 
-Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de json](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 Esta opción no incluye todas las comunicaciones de terceros ofrecidas por ASF, solo aquellas que no están implícitas en otros ajustes. Por ejemplo, si habilitaste las actualizaciones automáticas, ASF se comunicará con GitHub (para descargas) y con nuestro servidor (para la suma de verificación), según tu configuración. Del mismo modo, habilitar `MatchActively` en **[`TradingPreferences`](#tradingpreferences)** implica la comunicación con nuestro servidor para obtener los bots listados, lo que es necesario para dicha funcionalidad.
 
@@ -830,7 +830,7 @@ Tipo `byte flags` con valor predeterminado de `0`. Esta propiedad define el comp
 | 8     | DontAcceptBotTrades | No acepta automáticamente intercambios `loot` de otras instancias de bot                                                                                                                                                                   |
 | 16    | MatchActively       | Participa activamente en intercambios tipo **[STM](https://www.steamtradematcher.com)**. Visita **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-es-ES#matchactively)** para más información. |
 
-Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de banderas](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
+Ten en cuenta que esta propiedad es de campo `flags`, por lo tanto es posible elegir cualquier combinación de valores disponibles. Revisa **[mapeo de json](#mapeo-json)** si quieres aprender más. No habilitar ninguna bandera es equivalente a la opción `None`.
 
 Para más información sobre la lógica de intercambios de ASF, y descripción de cada bandera disponible, visita la sección de **[intercambios](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-es-ES)**.
 

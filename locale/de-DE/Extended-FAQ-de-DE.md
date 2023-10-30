@@ -10,7 +10,7 @@ ASF wurde von **[Archi](https://github.com/JustArchi)** im Oktober 2015 erschaff
 
 ASF ist jedoch ein Open-Source-Projekt, und ich kann nicht genug ausdrücken, dass ich nicht hinter allem stehe, was man hier sehen kann. Wir haben ein paar **[andere](https://github.com/JustArchiNET?q=ASF-)** ASF-Projekte, die fast ausschließlich von anderen Entwicklern entwickelt werden. Sogar das ASF-Kernprojekt hat eine Vielzahl von **[Mitwirkenden](https://github.com/JustArchiNET/ArchiSteamFarm/graphs/contributors)**, die mir geholfen haben, all dies zu erreichen. Darüber hinaus gibt es mehrere Drittanbieter-Dienste, welche die Entwicklung von ASF unterstützen; insbesondere **[GitHub](https://github.com)**, **[JetBrains](https://www.jetbrains.com)** und **[Crowdin](https://crowdin.com)**. Und natürlich darf man nicht all die fantastischen Bibliotheken und Programme vergessen die ASF überhaupt erst ermöglicht haben. Insbesondere **[Rider](https://www.jetbrains.com/rider)**, welches wir als IDE verwenden und wir lieben die **[ReSharper](https://www.jetbrains.com/resharper)**-Erweiterungen und besonders **[SteamKit2](https://github.com/SteamRE/SteamKit)** (ohne dessen ASF überhaupt nicht existieren würde). ASF also wouldn't be where it is today without my **[sponsors](https://github.com/sponsors/JustArchi)** and various donators, supporting me in everything that I'm doing here.
 
-Vielen Dank an alle, die bei der ASF-Entwicklung geholfen haben! You're awesome :heart:.
+Vielen Dank an alle, die bei der ASF-Entwicklung geholfen haben! Ihr seid super :heart:.
 
 ---
 
@@ -46,7 +46,7 @@ As of today, there are no known, unpatched security flaws in ASF, and as the pro
 
 ---
 
-### How do I verify that the downloaded files are genuine?
+### Wie stelle ich sicher, dass die heruntergeladenen Dateien echt sind?
 
 As part of our releases on GitHub, we utilize a very similar verification process as the one used by **[Debian](https://www.debian.org/CD/verify)**. In every official release starting with ASF V5.1.3.3, in addition to `zip` files you can find `SHA512SUMS` and `SHA512SUMS.sign` files. Laden Sie diese zu Überprüfungszwecken zusammen mit den `zip`-Dateien ihrer Wahl herunter.
 

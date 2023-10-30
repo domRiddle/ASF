@@ -18,7 +18,7 @@ Sie können überprüfen, ob dein Bot-Konto bereits ASF-2FA verwendet, indem Sie
 
 ---
 
-# Recommendations
+# Empfehlungen
 
 There are a lot of ways to make ASF 2FA operative, here we include our recommendations based on your current situation:
 
@@ -53,13 +53,13 @@ Assuming you got a successful reply, the following two things have happened:
 
 The authenticator details are not operational yet, however, you can review the generated file if you'd like to. If you want to be double safe, you can, for example, already write down the revocation code. The next steps will depend on your selected scenario.
 
-### Standalone authenticator
+### Eigenständiger Authentifikator
 
 If you want to use ASF as your main (or even only) authenticator, now you need to do the finalization step:
 
 5. Execute the `2fafinalize [Bot] <ActivationCode>` command, replacing `[Bot]` with your bot's name and `<ActivationCode>` with the code you've received through SMS in the previous step.
 
-### Joint authenticator
+### Gemeinsamer Authentifikator
 
 If you want to have the same authenticator in both ASF and the official Steam mobile app, now you need to do the next steps:
 

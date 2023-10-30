@@ -289,7 +289,7 @@ Unless you want to enable extra ASF functionalities, there is no need for you to
 | 2 | UDP        | **[用戶數據報協議](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**       |
 | 4 | WebSockets | **[WebSockets](https://en.wikipedia.org/wiki/WebSocket)**                 |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項被啟用，並且該選項本身未曾指定有效值。
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[json mapping](#json-mapping)** if you'd like to learn more. 不啟用任何標誌會導致` None `選項被啟用，並且該選項本身未曾指定有效值。
 
 By default ASF will use all available Steam protocols as a measure for fighting with downtimes and other similar Steam issues. Typically you want to change this property if you want to limit ASF into using only one or two specific protocols. 如果您只在防火牆上啟用 TCP 流量，並且不希望 ASF 嘗試通過 UDP 進行連接，則可能需要這樣的措施。 但是，除非您正在調試特定問題或漏洞，否則您幾乎總是希望確保 ASF 可以自由使用當前支持的任何協議，而不僅僅是一個或兩個。 除非您有**強烈**的修改意願，否則應保持它為预設值。
 
@@ -439,11 +439,11 @@ ASF 的更新過程涉及 ASF 正在使用的整個資料夾結構的更新，�
 | 16 | MarkReceivedMessagesAsRead    | 將導致 ASF 自動標記所有消息為已讀                                                                                      |
 | 32 | MarkBotMessagesAsRead         | Will cause ASF to automatically mark messages from other ASF bots (running in the same instance) as read |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項。
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[json mapping](#json-mapping)** if you'd like to learn more. 不啟用任何標誌會導致` None `選項。
 
 一般情況下，如果您希望ASF執行與其活動相關的一定數量的自動化，則需要修改此屬性，因為它可能來自機械人帳戶，而不是ASF中使用的主要帳戶。 因此，更改此屬性主要適用於備用帳戶，儘管您也可以自由使用主帳戶的選定選項。
 
-正常（`None`）模式下的ASF行為只是自動化用戶想要的東西（例如掛卡或` SteamTradeMatcher `交易，如果在` TradingPreferences `中設置）。 這是最少侵入性的模式，它對大多數用戶都有好處，因為您可以完全控制您的帳戶，並且您可以決定是否允許某些超出範圍的交互。
+Normal (`None`) ASF behaviour is to only automate things that user wants (e.g. cards farming or `SteamTradeMatcher` offers processing, if set in `TradingPreferences`). 這是最少侵入性的模式，它對大多數用戶都有好處，因為您可以完全控制您的帳戶，並且您可以決定是否允許某些超出範圍的交互。
 
 無效好友邀請是來自對當前帳戶不具有` FamilySharing `權限（在` SteamUserPermissions `中定義）或更高權限的用戶的好友邀請。 正常模式下的 ASF 會忽略這些邀請，正如您所期望的那樣，讓您可以自由選擇是否接受這些邀請。 啟用` RejectInvalidFriendInvites `會導致這些邀請被自動拒絕，這實際上會禁用其他人將您添加到他們的朋友列表（因為ASF將拒絕所有此類請求，除了` SteamUserPermissions中指定的人員`）。 除非您想徹底拒絕所有好友邀請，否則您不應啟用此選項。
 
@@ -633,7 +633,7 @@ ASF 預設基於機器人的最常見用法，僅拾取擴充包和交易卡片�
 | 1024 | ClientTypeTenfoot | Client is using big picture               |
 | 2048 | ClientTypeVR      | Client is using VR headset                |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項。
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[json mapping](#json-mapping)** if you'd like to learn more. 不啟用任何標誌會導致` None `選項。
 
 The underlying `EPersonaStateFlag` type that this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
 
@@ -692,7 +692,7 @@ The underlying `EPersonaStateFlag` type that this property is based on includes 
 | 4 | KeepMissingGames                   | 轉發時保留（可能）缺少游戲的密鑰，不去激活它                                                                                                          |
 | 8 | AssumeWalletKeyOnBadActivationCode | Assume that `BadActivationCode` keys are equal to `CannotRedeemCodeFromClient`, and therefore try to redeem them as wallet keys |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項。
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[json mapping](#json-mapping)** if you'd like to learn more. 不啟用任何標誌會導致` None `選項。
 
 ` Forwarding `將導致當某機械人（如果檢查到其）缺少該特定遊戲時，將此無法兌換的密鑰轉發給另一個連接並登錄的機械人。 最常見的情況是將` AlreadyPurchased `的遊戲轉發給另一個尚未擁有該特定遊戲的機械人，但此選項還涵蓋其他場景，例如` DoesNotOwnRequiredApp `（尚未擁有遊戲本體），` RateLimited `或` RestrictedCountry `（遊戲鎖區）。
 
@@ -720,7 +720,7 @@ Please notice that this property is `flags` field, therefore it's possible to ch
 | 1 | SteamGroup    | Allows communication with **[ASF's Steam group](https://steamcommunity.com/groups/archiasf)**                                                                                                                                                                     |
 | 2 | PublicListing | Allows communication with **[ASF's STM listing](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#publiclisting)** in order to being listed, if user has also enabled `SteamTradeMatcher` in **[`TradingPreferences`](#tradingpreferences)** |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項。
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[json mapping](#json-mapping)** if you'd like to learn more. 不啟用任何標誌會導致` None `選項。
 
 This option doesn't include every third-party communication offered by ASF, only those that are not implied by other settings. For example, if you've enabled ASF's auto-updates, ASF will communicate with both GitHub (for downloads) and our server (for checksum verification), as per your configuration. Likewise, enabling `MatchActively` in **[`TradingPreferences`](#tradingpreferences)** implies communication with our server to fetch listed bots, which is required for that functionality.
 
@@ -830,7 +830,7 @@ In limited circumstances, ASF is also able to generate a valid Steam parental co
 | 8  | DontAcceptBotTrades | 不自動接受來自其他機械人實例的 `loot` 交易                                                                                                                                                               |
 | 16 | MatchActively       | 主動參與 **[STM](https://www.steamtradematcher.com)**交易。 Visit **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** for more info |
 
-Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. 如果您想了解更多，請查閱**[flags mapping](#json-mapping)**。 不啟用任何標誌會導致` None `選項。
+Please notice that this property is `flags` field, therefore it's possible to choose any combination of available values. Check out **[json mapping](#json-mapping)** if you'd like to learn more. 不啟用任何標誌會導致` None `選項。
 
 有關ASF交易邏輯的進一步說明以及每個可用標誌的說明，請訪問** [交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading) **部分。
 

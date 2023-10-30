@@ -58,7 +58,7 @@ Alle Optionen werden nachfolgend erklärt:
 
 ### `Enabled`
 
-Typ `bool` mit einem Standardwert von `false`. This property acts the same as `SteamTokenDumperPluginEnabled` root-level property explained above, and can be used instead, dedicated to people that would prefer to have entire plugin-related config in its own structure (so most likely those already using other advanced properties explained below).
+Typ `bool` mit dem Standardwert `false`. This property acts the same as `SteamTokenDumperPluginEnabled` root-level property explained above, and can be used instead, dedicated to people that would prefer to have entire plugin-related config in its own structure (so most likely those already using other advanced properties explained below).
 
 ---
 
