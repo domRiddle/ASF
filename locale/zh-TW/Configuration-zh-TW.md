@@ -249,7 +249,7 @@ ASF包含兩個預設的黑名單：&#8203;`SalesBlacklist`&#8203;硬編碼於AS
 
 ### `MaxTradeHoldDuration（交易託管最大期間）`
 
-`byte`&#8203;型別，預設值為&#8203;`15`&#8203;。 本屬性定義了我們願意接受的交易託管最大天數⸺ASF會拒絕保留超過&#8203;`MaxTradeHoldDuration`&#8203;天的交易，如&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW)**&#8203;章節所述。 此選項只會作用於在&#8203;`TradingPreferences`&#8203;中啟用了&#8203;`SteamTradeMatcher`&#8203;的Bot，而不會影響來自&#8203;`Master`&#8203;／&#8203;`SteamOwnerID`&#8203;的交易，也不影響贈禮。 對每個人來說，交易託管是非常惱人的，沒有人想被它打擾。 ASF應在自由的原則下幫助每個人使用，不論是否有交易託管⸺這就是為什麼本選項的預設值為&#8203;`15`&#8203;。 但是，如果您想要拒絕所有具交易託管的交易，您可以在此處設定成&#8203;`0`&#8203;。 請注意以下說明：有時間限制的交換卡片不受此選項影響，且ASF會自動拒絕具有交易託管的交易，如&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW)**&#8203;章節所述，所以沒有必要只因為這個原因而拒絕所有人。 除非您有理由編輯此屬性，否則您應維持它為預設值。
+MaxTradeHoldDuration（交易託管最大期間） 本屬性定義了我們願意接受的交易託管最大天數⸺ASF會拒絕保留超過&#8203;`MaxTradeHoldDuration`&#8203;天的交易，如&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW)**&#8203;章節所述。 此選項只會作用於在&#8203;`TradingPreferences`&#8203;中啟用了&#8203;`SteamTradeMatcher`&#8203;的Bot，而不會影響來自&#8203;`Master`&#8203;／&#8203;`SteamOwnerID`&#8203;的交易，也不影響贈禮。 對每個人來說，交易託管是非常惱人的，沒有人想被它打擾。 ASF應在自由的原則下幫助每個人使用，不論是否有交易託管⸺這就是為什麼本選項的預設值為&#8203;`15`&#8203;。 但是，如果您想要拒絕所有具交易託管的交易，您可以在此處設定成&#8203;`0`&#8203;。 請注意以下說明：有時間限制的交換卡片不受此選項影響，且ASF會自動拒絕具有交易託管的交易，如&#8203;**[交易](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-zh-TW)**&#8203;章節所述，所以沒有必要只因為這個原因而拒絕所有人。 除非您有理由編輯此屬性，否則您應維持它為預設值。
 
 
 ---
