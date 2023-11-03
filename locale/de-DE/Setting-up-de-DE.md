@@ -30,8 +30,8 @@ Es ist völlig normal, dass manche (oder sogar alle) Abhängigkeiten bereits in 
 Keep in mind that you don't need to do anything else for OS-specific builds, especially installing .NET SDK or even runtime, since OS-specific package includes all of that already. You need only .NET prerequisites (dependencies) to run .NET runtime included in ASF.
 
 #### **[Windows](https://docs.microsoft.com/de-de/dotnet/core/install/windows)**:
-- **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)** for 64-bit Windows, **[x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)** for 32-bit Windows)
-- Es wird dringend empfohlen sicherzustellen, dass alle Windows-Updates bereits installiert sind. At the very least you need **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)**, **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, but more updates may be needed. Wenn dein Windows aktuell ist, sind diese bereits alle installiert. Versichere dich, dass Du diese Voraussetzungen erfüllst, bevor Du das Visual C++ Paket installierst.
+- **[Microsoft Visual C++ Redistributable Update](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022)** (**[x64](https://aka.ms/vs/17/release/vc_redist.x64.exe)** für 64-Bit Windows, **[x86](https://aka.ms/vs/17/release/vc_redist.x86.exe)** für 32-Bit Windows)
+- Es wird dringend empfohlen sicherzustellen, dass alle Windows-Updates bereits installiert sind. Du brauchst mindestens **[KB2533623](https://support.microsoft.com/en-us/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot)** und **[KB2999226](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)**, aber evtl. benötigst du mehr Updates. Wenn dein Windows aktuell ist, sind diese bereits alle installiert. Versichere dich, dass Du diese Voraussetzungen erfüllst, bevor Du das Visual C++ Paket installierst.
 
 #### **[Linux](https://docs.microsoft.com/de-de/dotnet/core/install/linux)**:
 Paketnamen hängen von der Linux-Distribution, die Du verwendest, ab. Wir listen nur die Gebräuchlichsten auf. Sie können alle über den nativen Paketmanager für dein Betriebssystem (wie zum Beispiel `apt` unter Debian oder `yum` unter CentOS) installieren.
@@ -45,7 +45,7 @@ Paketnamen hängen von der Linux-Distribution, die Du verwendest, ab. Wir listen
 - `libstdc++6` (`libstdc++`, Version `5.0` oder höher)
 - `zlib1g` (`zlib`)
 
-Zumindest ein Großteil davon sollte bereits nativ auf ihrem System verfügbar sein. The minimal installation of Debian stable required only `libicu67`.
+Zumindest ein Großteil davon sollte bereits nativ auf ihrem System verfügbar sein. Die minimale Installation von Debian Stable erfordert nur `libicu67`.
 
 #### **[macOS](https://docs.microsoft.com/de-de/dotnet/core/install/macos)**:
 - Keine Version von macOS, aber Sie sollten die neueste Version von macOS installiert haben; mindestens 10.15+
@@ -58,7 +58,7 @@ Da wir nun alle benötigten Abhängigkeiten installiert haben, ist der nächste 
 
 ![Assets](https://i.imgur.com/Ym2xPE5.png)
 
-Beginne nach dem Download damit, die Zip-Datei in einen eigenen Ordner zu entpacken. If you require specific tool for that, **[7-zip](https://www.7-zip.org)** will do it, but all standard utilities like `unzip` from Linux/macOS should work without problems as well.
+Beginne nach dem Download damit, die Zip-Datei in einen eigenen Ordner zu entpacken. Wenn Sie dafür ein spezielles Programm benötigen, wird **[7-zip](https://www.7-zip.org)** dies tun aber alle Standardwerkzeuge wie `entpacken` von Linux/macOS sollten ebenfalls problemlos funktionieren.
 
 Stelle bitte sicher, dass Du ASF in **einen eigenen Ordner** entpackst und nicht in einen bereits existenten, der für etwas anderes verwendet wird - ASFs automatische Aktualisierungen werden alle alten Dateien in diesem Ordner löschen, was möglicherweise dazu führen könnte, dass Du Dateien verlierst, die nichts mit ASF zu tun haben aber im selben Ordner sind. Solltest Du zusätzliche Skripte oder Dateien haben, die Du mit ASF verwenden willst, solltest Du sie in den Ordner darüber tun.
 
@@ -102,7 +102,7 @@ Beginne damit, den Namen deines Bot in das rot markierte Feld zu schreiben. Dies
 Nachdem Du dich für einen Namen entschieden hast, aktiviere den `Enabled` Schalter. Hiermit wird festgelegt, ob dein Bot von ASF automatisch nach dem Start (des Programms) gestartet werden soll.
 
 Jetzt kannst Du dich für zwei Dinge entscheiden:
-- Sie können ihren Login in das Feld `SteamLogin` und dein Passwort in das `SteamPassword` Feld eintragen
+- Sie können ihren Benutzernamen in das Feld `SteamLogin` und ihr Passwort in das `SteamPassword` Feld eintragen
 - Oder Du kannst sie leer lassen
 
 Wenn Du das erste tust, kann ASF deine Konto-Anmeldeinformationen während des Startvorgangs automatisch verwenden, sodass Du sie nicht jedes Mal manuell eingeben musst, wenn ASF sie benötigt. Du kannst sie jedoch auch weglassen. In diesem Fall werden sie nicht gespeichert, sodass ASF nicht ohne deine Hilfe automatisch starten kann und Du sie während der Laufzeit eingeben musst.
