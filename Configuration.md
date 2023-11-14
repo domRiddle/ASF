@@ -1047,7 +1047,7 @@ Due to above, ASF will automatically migrate/optimize your configs by reformatti
 
 ## Auto-reload
 
-Starting with ASF V2.1.6.2+, the program is now aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
+ASF is aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
 - Create (and start, if needed) new bot instance, when you create its config
 - Stop (if needed) and remove old bot instance, when you delete its config
 - Stop (and start, if needed) any bot instance, when you edit its config
