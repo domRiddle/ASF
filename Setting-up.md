@@ -38,14 +38,14 @@ Package names depend on the Linux distribution that you're using, we've listed t
 
 - `ca-certificates` (standard trusted SSL certificates to make HTTPS connections)
 - `libc6` (`libc`)
-- `libgcc1` (`libgcc`)
-- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu67`)
+- `libgcc-s1` (`libgcc1`, `libgcc`)
+- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu72`)
 - `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
 - `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, at least `1.1.X` as `1.0.X` may no longer work)
 - `libstdc++6` (`libstdc++`, in version `5.0` or higher)
 - `zlib1g` (`zlib`)
 
-At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu67`.
+At least a majority of those should be already natively available on your system. The minimal installation of Debian stable required only `libicu72`.
 
 #### **[macOS](https://docs.microsoft.com/dotnet/core/install/macos)**:
 - None for now, but you should have latest version of macOS installed, at least 10.15+
