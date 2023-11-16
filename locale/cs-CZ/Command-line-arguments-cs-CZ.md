@@ -60,7 +60,7 @@ Vzhledem k povaze této vlastnosti je také možné nastavit soubor šifrovacíh
 
 ---
 
-`--ignore-unsupported-environment` - způsobí, že ASF bude ignorovat problémy spojené se spuštěním v nepodporovaném prostředí, což je obvykle signalizováno chybou a vynuceným ukončením. Nepodporované prostředí zahrnuje například spuštění .NET Framework buildu na platformě, na které by místo toho mohl být spuštěn .NET (Core) build. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. Od dnešního dne lze opravit **všechny** nepodporovaná prostředí, například spuštěním `generic` buildu místo `generic-netf`. Rozhodně doporučujeme raději opravit nevyřešené problémy namísto nastavování tohoto argumentu.
+`--ignore-unsupported-environment` - způsobí, že ASF bude ignorovat problémy spojené se spuštěním v nepodporovaném prostředí, což je obvykle signalizováno chybou a vynuceným ukončením. Unsupported environment includes for example running `win-x64` OS-specific build on `linux-x64`. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. As of today, **all** of the unsupported environment scenarios can be corrected. Rozhodně doporučujeme raději opravit nevyřešené problémy namísto nastavování tohoto argumentu.
 
 ---
 

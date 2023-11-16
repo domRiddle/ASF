@@ -42,7 +42,7 @@ The purpose of our **[Web-based ConfigGenerator](https://justarchinet.github.io/
 
 Our **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC interface allows you to configure ASF as well, and is superior solution for reconfiguring ASF after generating the initial configs due to the fact that it can edit the configs in-place, as opposed to Web-based ConfigGenerator which generates them statically.
 
-In order to use ASF-ui, you must have our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface enabled itself. `IPC` is enabled by default starting with ASF V5.1.0.0, therefore you can access it right away, as long as you didn't disable it yourself.
+In order to use ASF-ui, you must have our **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interface enabled itself. `IPC` is enabled by default, therefore you can access it right away, as long as you didn't disable it yourself.
 
 After launching the program, simply navigate to ASF's **[IPC address](http://localhost:1242)**. If everything worked properly, you can change ASF configuration from there as well.
 
@@ -1047,7 +1047,7 @@ Due to above, ASF will automatically migrate/optimize your configs by reformatti
 
 ## 자동 재시작
 
-ASF V2.1.6.2 이상 버전부터 실행중간의 환경설정 수정을 감지할 수 있습니다. 이에 따라 ASF는 자동적으로 아래와 같은 행동을 합니다.
+ASF is aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
 - 새로운 봇 환경설정을 만드는 경우 그 봇 인스턴스의 생성 및 시작(필요한 경우)
 - 예전 봇 환경설정을 삭제하는 경우 그 봇 인스턴스의 중지(필요한 경우) 및 제거
 - 봇 환경설정을 수정하는 경우 그 봇 인스턴스의 중지 및 시작(필요한 경우)

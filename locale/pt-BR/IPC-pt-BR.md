@@ -287,7 +287,7 @@ Este erro indica que outra coisa em sua máquina já está usando essa porta ou 
 
 ### Por que estou recebendo o erro `403 Forbidden` quando não estou usando `IPCPassword`?
 
-Desde o ASF V5.1.2.1, adicionamos uma medida de segurança adicional que, por padrão, permite apenas uma interface de loopback (`localhost`, seu próprio computador) a acessar a API do ASF sem um `IPCPassword` definido na configuração. Isso porque usar um `IPCPassword` deve ser a **medida mínima** de segurança definida por todos os que decidem expor mais a interface do ASF.
+ASF includes additional security measure that, by default, allows only loopback interface (`localhost`, your own machine) to access ASF API without `IPCPassword` set in the config. Isso porque usar um `IPCPassword` deve ser a **medida mínima** de segurança definida por todos os que decidem expor mais a interface do ASF.
 
 A mudança foi criada pelo fato de que uma enorme quantidade de ASFs hospedados globalmente por usuários desavisados estavam sendo roubados com intenções maliciosas, geralmente deixando as pessoas sem suas contas e sem os itens delas. Nós poderíamos dizer: "eles poderiam ler essa página antes de abrir o ASF para o mundo inteiro", mas faz mais sentido não permitir configurações inseguras do ASF por padrão e exigir dos usuários uma ação se eles explicitamente querem permiti-la, sobre a qual falaremos abaixo.
 

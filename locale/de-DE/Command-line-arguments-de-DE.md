@@ -60,7 +60,7 @@ Durch die Natur dieser Option ist, es möglich die Umgebungsvariable `ASF_CRYPTK
 
 ---
 
-`--ignore-unsupported-environment` - sorgt dafür, dass ASF die Erkennung von nicht unterstützten Umgebungen ignoriert; die normalerweise mit einem Fehler signalisiert und das Beenden erzwingen. Nicht unterstützte Umgebung beinhalten zum Beispiel das Ausführen von .NET Framework Build auf Plattformen, die stattdessen .NET (Core) Build ausführen könnten. Obwohl diese Option ASF die Ausführung in solchen Situationen erlaubt; sollten Sie dennoch beachten, dass wir dies offiziell nicht unterstützen und Sie dies vollständig **auf eigene Gefahr** tun. Ab heute können **alle** der nicht unterstützten Umgebungsszenarien korrigiert werden, etwa das Ausführen von `generic` Build statt `generic-netf`. Wir empfehlen Ihnen dringend, die offenen Probleme zu beheben, anstatt dieses Argument anzugeben.
+`--ignore-unsupported-environment` - sorgt dafür, dass ASF die Erkennung von nicht unterstützten Umgebungen ignoriert; die normalerweise mit einem Fehler signalisiert und das Beenden erzwingen. Unsupported environment includes for example running `win-x64` OS-specific build on `linux-x64`. Obwohl diese Option ASF die Ausführung in solchen Situationen erlaubt; sollten Sie dennoch beachten, dass wir dies offiziell nicht unterstützen und Sie dies vollständig **auf eigene Gefahr** tun. As of today, **all** of the unsupported environment scenarios can be corrected. Wir empfehlen Ihnen dringend, die offenen Probleme zu beheben, anstatt dieses Argument anzugeben.
 
 ---
 

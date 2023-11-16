@@ -1,6 +1,6 @@
 # Steam Familienbibliothek
 
-ASF unterstützt die Steam-Familienbibliothek seit Version 2.1.5.5.5+. Um zu verstehen wie ASF damit umgeht, solltest Du zunächst lesen wie die **[Steam-Familienbibliothek funktioniert](https://store.steampowered.com/promotion/familysharing)**, welches im Steam-Shop verfügbar ist.
+ASF supports Steam Family Sharing - in order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
 
 ---
 

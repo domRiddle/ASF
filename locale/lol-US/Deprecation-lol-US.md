@@ -1,6 +1,6 @@
 # DEPRECASHUN
 
-STARTIN WIF ASF V3.1.2.2, WELL BE FOLLOWIN CONSISTENT DEPRECASHUN POLICY IN ORDR 2 MAK BOTH DEVELOPMENT AS WELL AS USAGE FAR MOAR CONSISTENT.
+We're doing our best to follow consistent deprecation policy in order to make both development as well as usage far more consistent.
 
 ---
 

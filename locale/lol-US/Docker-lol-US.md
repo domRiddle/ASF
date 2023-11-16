@@ -1,6 +1,6 @@
 # DOCKR
 
-STARTIN WIF VERSHUN 3.0.3.2, ASF IZ NAO ALSO AVAILABLE AS **[DOCKR CONTAINR](https://www.docker.com/what-container)**. R DOCKR PACKAGEZ R CURRENTLY AVAILABLE ON **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** AS WELL AS **[DOCKR HUB](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+ASF is available as **[docker container](https://www.docker.com/what-container)**. R DOCKR PACKAGEZ R CURRENTLY AVAILABLE ON **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** AS WELL AS **[DOCKR HUB](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 IZ IMPORTANT 2 NOWT DAT RUNNIN ASF IN DOCKR CONTAINR IZ CONSIDERD **ADVANCD SETUP**, WHICH IZ **NOT NEEDD** 4 VAST MAJORITY OV USERS, AN TYPICALLY GIVEZ **NO ADVANTAGEZ** OVAR CONTAINR-LES SETUP. IF URE CONSIDERIN DOCKR AS SOLUSHUN 4 RUNNIN ASF AS SERVICE, 4 EXAMPLE MAKIN IT START AUTOMATICALLY WIF UR OS, DEN U SHUD CONSIDR READIN **[MANAGEMENT](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-lol-us#systemd-service-4-linux)** SECSHUN INSTEAD AN SET UP PROPR `systemd` SERVICE WHICH WILL BE **ALMOST ALWAYS** BETTR IDEA THAN RUNNIN ASF IN DOCKR CONTAINR.
 
@@ -47,7 +47,7 @@ WE GENERALLY DISCOURAGE TRYIN `main` BUILDZ, AS DOSE R HER 4 US 2 MARK CURRENT S
 
 ASF DOCKR IMAGE IZ CURRENTLY BUILT ON `linux` PLATFORM TARGETTIN 3 ARCHITECTUREZ - `x64`, `arm` AN `arm64`. U CAN READ MOAR BOUT THEM IN **[COMPATIBILITY](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-lol-US)** SECSHUN.
 
-SINCE ASF VERSHUN V5.0.2.2, R TAGS R USIN MULTI-PLATFORM MANIFEST, WHICH MEANZ DAT DOCKR INSTALLD ON UR MACHINE WILL AUTOMATICALLY SELECT TEH PROPR IMAGE 4 UR PLATFORM WHEN PULLIN TEH IMAGE. IF BY ANY CHANCE UD LIEK 2 PULL SPECIFIC PLATFORM IMAGE WHICH DOESNT MATCH TEH WAN URE CURRENTLY RUNNIN, U CAN DO DAT THRU `--platform` SWITCH IN APPROPRIATE DOCKR COMMANDZ, SUCH AS `docker run`. C DOCKR DOCUMENTASHUN ON **[IMAGE MANIFEST](https://docs.docker.com/registry/spec/manifest-v2-2)** 4 MOAR INFO.
+Our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. IF BY ANY CHANCE UD LIEK 2 PULL SPECIFIC PLATFORM IMAGE WHICH DOESNT MATCH TEH WAN URE CURRENTLY RUNNIN, U CAN DO DAT THRU `--platform` SWITCH IN APPROPRIATE DOCKR COMMANDZ, SUCH AS `docker run`. C DOCKR DOCUMENTASHUN ON **[IMAGE MANIFEST](https://docs.docker.com/registry/spec/manifest-v2-2)** 4 MOAR INFO.
 
 ---
 

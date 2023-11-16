@@ -1,6 +1,6 @@
 # PLUGINS
 
-STARTIN WIF ASF V4, TEH PROGRAM INCLUDEZ SUPPORT 4 CUSTOM PLUGINS DAT CAN BE LOADD DURIN RUNTIME. PLUGINS ALLOW U 2 CUSTOMIZE ASF BEHAVIOUR, 4 EXAMPLE BY ADDIN CUSTOM COMMANDZ, CUSTOM TRADIN LOGIC OR WHOLE INTEGRASHUN WIF THIRD-PARTY SERVICEZ AN APIS.
+ASF includes support for custom plugins that can be loaded during runtime. PLUGINS ALLOW U 2 CUSTOMIZE ASF BEHAVIOUR, 4 EXAMPLE BY ADDIN CUSTOM COMMANDZ, CUSTOM TRADIN LOGIC OR WHOLE INTEGRASHUN WIF THIRD-PARTY SERVICEZ AN APIS.
 
 ---
 
@@ -28,7 +28,7 @@ PLUGINS R STANDARD .NET LIBRARIEZ DAT INHERIT COMMON `IPlugin` INTERFACE WIF ASF
 
 WEVE PREPARD **[ASF-PluginTemplate](https://github.com/JustArchiNET/ASF-PluginTemplate)** 4 U, WHICH U CAN USE AS BASE 4 UR PLUGIN PROJECT. USIN TEH TEMPLATE IZ NOT REQUIREMENT (AS U CAN DO EVRYTHIN FRUM SCRATCH), BUT WE HEAVILY RECOMMEND 2 PICK IT UP AS IT CAN DRASTICALLY KICKSTART UR DEVELOPMENT AN CUT ON TIEM REQUIRD 2 GIT ALL THINGS RITE. SIMPLY CHECK OUT TEH **[README](https://github.com/JustArchiNET/ASF-PluginTemplate/blob/main/README.md)** OV TEH TEMPLATE AN ITLL GUIDE U FURTHR. REGARDLES, WELL COVR TEH BASICS BELOW IN CASE U WANTD 2 START FRUM SCRATCH, OR GIT 2 UNDERSTAND BETTR TEH CONCEPTS USD IN DA PLUGIN TEMPLATE.
 
-UR PROJECT SHUD BE STANDARD .NET LIBRARY TARGETTIN APPROPRIATE FRAMEWORK OV UR TARGET ASF VERSHUN, AS SPECIFID IN DA **[COMPILASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-lol-US)**. WE RECOMMEND U 2 TARGET .NET (CORE), BUT .NET FRAMEWORK PLUGINS R ALSO AVAILABLE.
+UR PROJECT SHUD BE STANDARD .NET LIBRARY TARGETTIN APPROPRIATE FRAMEWORK OV UR TARGET ASF VERSHUN, AS SPECIFID IN DA **[COMPILASHUN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-lol-US)**.
 
 TEH PROJECT MUST REFERENCE MAIN `ArchiSteamFarm` ASSEMBLY, EITHR ITZ PREBUILT `ArchiSteamFarm.dll` LIBRARY DAT UVE DOWNLOADD AS PART OV TEH RELEASE, OR TEH SOURCE PROJECT (E.G. IF U DECIDD 2 ADD ASF TREE AS SUBMODULE). DIS WILL ALLOW U 2 ACCES AN DISCOVR ASF STRUCTUREZ, METHODZ AN PROPERTIEZ, ESPECIALLY CORE `IPlugin` INTERFACE WHICH ULL NED 2 INHERIT FRUM IN DA NEXT STEP. TEH PROJECT MUST ALSO REFERENCE `System.Composition.AttributedModel` AT TEH MINIMUM, WHICH ALLOWS U 2 `[Export]` UR `IPlugin` 4 ASF 2 USE. IN ADDISHUN 2 DAT, U CUD WANTS/NED 2 REFERENCE OTHR COMMON LIBRARIEZ IN ORDR 2 INTERPRET TEH DATA STRUCTUREZ DAT R GIVEN 2 U IN SUM INTERFACEZ, BUT UNLES U NED THEM EXPLICITLY, DAT WILL BE ENOUGH 4 NAO.
 
@@ -37,18 +37,18 @@ IF U DID EVRYTHIN PROPERLY, UR `csproj` WILL BE SIMILAR 2 BELOW:
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="7.0.0" />
+    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
+    <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" />
 
-    <!-- IF BUILDIN AS PART OV ASF SOURCE TREE, USE DIS INSTEAD OV <Reference> ABOOV -->
-    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
+    <!-- If building with downloaded DLL binary, use this instead of <ProjectReference> above -->
+    <!-- <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" /> -->
   </ItemGroup>
 </Project>
 ```

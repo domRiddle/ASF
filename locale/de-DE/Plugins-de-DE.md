@@ -1,6 +1,6 @@
 # Plugins
 
-Ab ASF V4 bietet das Programm Unterstützung für benutzerdefinierte Plugins, die während der Laufzeit geladen werden können. Plugins ermöglichen es dir, das ASF-Verhalten anzupassen, z. B. durch Hinzufügen von benutzerdefinierten Befehlen, einer benutzerdefinierten Handelslogik oder der vollständigen Integration mit Diensten und APIs von Drittanbietern.
+ASF includes support for custom plugins that can be loaded during runtime. Plugins ermöglichen es dir, das ASF-Verhalten anzupassen, z. B. durch Hinzufügen von benutzerdefinierten Befehlen, einer benutzerdefinierten Handelslogik oder der vollständigen Integration mit Diensten und APIs von Drittanbietern.
 
 ---
 
@@ -28,7 +28,7 @@ Plugins sind Standard .NET-Bibliotheken die die übliche `IPlugin`-Schnittstelle
 
 We've prepared **[ASF-PluginTemplate](https://github.com/JustArchiNET/ASF-PluginTemplate)** for you, which you can use as a base for your plugin project. Using the template is not a requirement (as you can do everything from scratch), but we heavily recommend to pick it up as it can drastically kickstart your development and cut on time required to get all things right. Simply check out the **[README](https://github.com/JustArchiNET/ASF-PluginTemplate/blob/main/README.md)** of the template and it'll guide you further. Regardless, we'll cover the basics below in case you wanted to start from scratch, or get to understand better the concepts used in the plugin template.
 
-Dein Projekt sollte eine Standard .NET-Bibliothek sein, die auf das geeignete Framework ihrer Ziel-ASF-Version abzielt, wie in der **[Kompilierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-de-DE)** angegeben. We recommend you to target .NET (Core), but .NET Framework plugins are also available.
+Dein Projekt sollte eine Standard .NET-Bibliothek sein, die auf das geeignete Framework ihrer Ziel-ASF-Version abzielt, wie in der **[Kompilierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compilation-de-DE)** angegeben.
 
 Das Projekt muss auf die Haupt-Assembly `ArchiSteamFarm` verweisen, entweder auf die vorgefertigte `ArchiSteamFarm.dll`-Bibliothek, die Du als Teil der Veröffentlichung heruntergeladen hast, oder auf das Quellprojekt (z. B. wenn Du dich entschieden hast den ASF-Baum als Submodul hinzuzufügen). Dies ermöglicht es ihrenauf ASF-Strukturen, -Methoden und -Eigenschaften zuzugreifen und diese zu entdecken, insbesondere auf das Core `IPlugin`-Interface, von dem Du im nächsten Schritt erben musst. Das Projekt muss auch mindestens `System.Composition.AttributedModel` referenzieren, was es ihren erlaubt, dein `IPlugin` mittels `[Export]` für ASF bereitzustellen. Darüber hinaus kann/muss man auf andere gemeinsame Bibliotheken verweisen, um die Datenstrukturen zu interpretieren, die man in manchen Schnittstellen erhält, aber wenn man sie nicht explizit benötigt, reicht das fürs Erste.
 
@@ -37,18 +37,18 @@ Wenn Du alles richtig gemacht hast wird deine `csproj` Datei ähnlich wie unten 
 ```csproj
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="7.0.0" />
+    <PackageReference Include="System.Composition.AttributedModel" IncludeAssets="compile" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" />
+    <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" />
 
-    <!-- If building as part of ASF source tree, use this instead of <Reference> above -->
-    <!-- <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" /> -->
+    <!-- If building with downloaded DLL binary, use this instead of <ProjectReference> above -->
+    <!-- <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" /> -->
   </ItemGroup>
 </Project>
 ```

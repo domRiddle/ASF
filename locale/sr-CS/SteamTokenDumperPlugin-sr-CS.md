@@ -1,6 +1,6 @@
 # SteamTokenDumperPlugin
 
-`SteamTokenDumperPlugin` je oficijalni ASF **[dodatak](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** koji je dostupan u ASF-u od V4.2.2.2, napravljen od strane naših developera, a koji vam omogućava da doprinesete **[SteamDB](https://steamdb.info)** projektu tako što ćete dijeliti tokene, tokene aplikacija i depot ključeve kojima vaš Steam nalog ima pristup. Više informacija o prikupljenim podacima i o tome zašto SteamDB ima potrebu za njim možete pronaći na SteamDB **[TokenDumper](https://steamdb.info/tokendumper)** stranici. Poslati podaci ne sadrže potencijalno osjetljive informacije, i nema sigurnosnih i rizika privatnosti, kao što je navedeno u opisu iznad.
+`SteamTokenDumperPlugin` is official ASF **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** developed by us, which allows you to contribute to **[SteamDB](https://steamdb.info)** project by sharing package tokens, app tokens and depot keys that your Steam account has access to. Više informacija o prikupljenim podacima i o tome zašto SteamDB ima potrebu za njim možete pronaći na SteamDB **[TokenDumper](https://steamdb.info/tokendumper)** stranici. Poslati podaci ne sadrže potencijalno osjetljive informacije, i nema sigurnosnih i rizika privatnosti, kao što je navedeno u opisu iznad.
 
 ---
 
@@ -38,7 +38,7 @@ U svakom slučaju, SteamDB osoblje vam se unaprijed zahvaljuje na vašoj pomoći
 
 ## Advanced config
 
-Starting with ASF V5.1.0.0, our plugin supports advanced config which might come useful for people that would like to tweak the internals to their preference.
+Our plugin supports advanced config which might come useful for people that would like to tweak the internals to their preference.
 
 The advanced config has the following structure located within `ASF.json`:
 

@@ -1,6 +1,6 @@
 # Steam Token 转存插件
 
-`SteamTokenDumperPlugin` 是由我们开发的 ASF 官方&#8203;**[插件](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-CN)**，自 ASF V4.2.2.2 版本开始可用，您可以通过此插件为 **[SteamDB](https://steamdb.info)** 项目作出贡献，分享您的 Steam 帐户有权访问的 Package Token、App Token 以及 Depot Key。 关于所收集信息的进一步说明，以及为什么 SteamDB 需要这些信息，可以在 SteamDB 的 **[Token Dumper](https://steamdb.info/tokendumper)** 页面查看。 如上所述，所提交的数据不包含任何敏感信息，也不会有安全或隐私风险。
+`SteamTokenDumperPlugin` 是由我们开发的 ASF 官方&#8203;**[插件](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-CN)**，您可以通过此插件为 **[SteamDB](https://steamdb.info)** 项目作出贡献，分享您的 Steam 帐户有权访问的 Package Token、App Token 以及 Depot Key。 关于所收集信息的进一步说明，以及为什么 SteamDB 需要这些信息，可以在 SteamDB 的 **[Token Dumper](https://steamdb.info/tokendumper)** 页面查看。 如上所述，所提交的数据不包含任何敏感信息，也不会有安全或隐私风险。
 
 ---
 
@@ -38,7 +38,7 @@ ASF 会在请求中包含贡献者的 `SteamID`，即您已在 ASF 内设置好�
 
 ## 进阶配置
 
-从 ASF V5.1.0.0 开始，我们的插件支持进阶配置，一些希望调整插件内部设置的用户可能会需要它们。
+我们的插件支持进阶配置，一些希望调整插件内部设置的用户可能会需要它们。
 
 进阶配置在 `ASF.json` 文件中有如下结构：
 

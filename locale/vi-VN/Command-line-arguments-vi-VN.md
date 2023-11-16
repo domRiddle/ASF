@@ -60,7 +60,7 @@ Do tính chất của thuộc tính này, bạn cũng có thể đặt tệp kho
 
 ---
 
-`--ignore-unsupported-environment` - sẽ khiến ASF bỏ qua các sự cố liên quan đến việc chạy trong môi trường không được hỗ trợ, thường được báo hiệu bằng lỗi và buộc phải thoát. Môi trường không được hỗ trợ bao gồm ví dụ như chạy bản dựng .NET Framework trên nền tảng mà thay vì đó có thể chạy bản dựng .NET (Core). Mặc dù cờ này sẽ cho phép ASF thử chạy trong các tình huống như vậy, nhưng xin lưu ý rằng chúng tôi không hỗ trợ chính thức những trường hợp đó và bạn đang buộc ASF thực hiện điều đó hoàn toàn **tự chịu rủi ro**. Hiện nay, **tất cả** các tình huống môi trường không được hỗ trợ đều có thể được khắc phục, chẳng hạn như chạy bản dựng `generic` thay vì `generic-netf`. Chúng tôi thực sự khuyên bạn nên khắc phục các sự cố còn tồn tại thay vì sử dụng đối số này.
+`--ignore-unsupported-environment` - sẽ khiến ASF bỏ qua các sự cố liên quan đến việc chạy trong môi trường không được hỗ trợ, thường được báo hiệu bằng lỗi và buộc phải thoát. Unsupported environment includes for example running `win-x64` OS-specific build on `linux-x64`. Mặc dù cờ này sẽ cho phép ASF thử chạy trong các tình huống như vậy, nhưng xin lưu ý rằng chúng tôi không hỗ trợ chính thức những trường hợp đó và bạn đang buộc ASF thực hiện điều đó hoàn toàn **tự chịu rủi ro**. As of today, **all** of the unsupported environment scenarios can be corrected. Chúng tôi thực sự khuyên bạn nên khắc phục các sự cố còn tồn tại thay vì sử dụng đối số này.
 
 ---
 

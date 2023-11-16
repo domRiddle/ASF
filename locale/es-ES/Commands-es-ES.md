@@ -15,7 +15,7 @@ Los comandos ejecutados por medio del chat de Steam son afectados por la **[prop
 
 ### Consola interactiva
 
-A partir de V4.0.0.9, ASF tiene soporte para consola interactiva, siempre y cuando no lo estés ejecutando en modo [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#headless) Simplemente pulsa el botón `c` para habilitar el modo de comandos, escribe tu comando y confirma con Enter
+ASF tiene soporte para consola interactiva, siempre y cuando no lo estés ejecutando en modo [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-es-ES#headless) Simplemente pulsa el botón `c` para habilitar el modo de comandos, escribe tu comando y confirma con Enter
 
 ![Captura de pantalla](https://i.imgur.com/bH5Gtjq.png)
 

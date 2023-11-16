@@ -1,6 +1,6 @@
 # Atbalsta pārtraukšana
 
-Starting with ASF V3.1.2.2, we'll be following consistent deprecation policy in order to make both development as well as usage far more consistent.
+We're doing our best to follow consistent deprecation policy in order to make both development as well as usage far more consistent.
 
 ---
 
@@ -36,7 +36,7 @@ In most cases, disregarding deprecation warning will not render general ASF func
 
 ---
 
-## Example
+## Piemērs
 
 We moved pre-V3.1.2.2 `--server` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments)** into `IPC` **[global configuration property](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#global-config)**.
 

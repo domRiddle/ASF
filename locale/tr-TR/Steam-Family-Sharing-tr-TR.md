@@ -1,6 +1,6 @@
 # Steam Aile Paylaşımı
 
-ASF, 2.1.5.5+ sürümünden bu yana Steam Aile Paylaşımını destekler. Asf'nin bununla nasıl çalıştığını anlamak için öncelikle Steam Store'da bulunan **[Steam Aile Paylaşımı](https://store.steampowered.com/promotion/familysharing)**'nın nasıl çalıştığını okumalısınız.
+ASF supports Steam Family Sharing - in order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
 
 ---
 

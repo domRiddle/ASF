@@ -1,6 +1,6 @@
 # Docker
 
-A partir da versão 3.0.3.2, o ASF também está disponível como um **[container docker](https://www.docker.com/what-container)**. Nossos pacotes docker estão disponíveis atualmente no **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** e no **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+ASF is available as **[docker container](https://www.docker.com/what-container)**. Nossos pacotes docker estão disponíveis atualmente no **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** e no **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 É importante notar que executar o ASF em um contêiner Docker é considerado uma **configuração avançada**, o que **não é necessário** para a grande maioria dos usuários, e normalmente não dá **nenhuma vantagem** sobre a configuração sem contêiner. Se você está considerando o Docker como uma solução para executar o ASF como serviço, por exemplo, fazendo com que ele inicie automaticamente junto com seu sistema operacional, então você deve considerar ler a seção de **[gerenciamento](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-pt-BR#systemd-service-for-linux)** e configurar um serviço `systemd` adequado, o que será **quase sempre** uma ideia melhor que rodar o ASF em um contêiner Docker.
 
@@ -47,7 +47,7 @@ Nós geralmente desencorajamos o uso de compilações `main`, já que essas comp
 
 A imagem docker do ASF é compilada atualmente na plataforma `linux`, disponível em 3 arquiteturas: `x64`, `arm` e `arm64`. Você pode ler mais sobre elas em **[estatísticas](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-pt-BR)**.
 
-Desde a versão V5.0.2.2 do ASF, nossas tags tem usado um manifesto multi-plataforma, o que significa que o Docker instalado na sua máquina irá selecionar automaticamente a imagem adequada da sua plataforma ao puxar a imagem. Se por acaso você quiser baixar a imagem de alguma plataforma específica que não corresponde à que você está executando atualmente, você pode usar o switch `--platform` nos comandos docker apropriados, tal como `docker run`. Veja a documentação docker em **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** para mais informações.
+Our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. Se por acaso você quiser baixar a imagem de alguma plataforma específica que não corresponde à que você está executando atualmente, você pode usar o switch `--platform` nos comandos docker apropriados, tal como `docker run`. Veja a documentação docker em **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** para mais informações.
 
 ---
 

@@ -60,7 +60,7 @@ Due to the nature of this property, it's also possible to set cryptkey file by d
 
 ---
 
-`--ignore-unsupported-environment`, causerà l'ignoramento del rilevamento degli ambienti non supportati di ASF, che normalmente è segnalato con un errore e l'uscita forzata. L'ambiente non supportato include per esempio l'esecuzione di build versione .NET Framework su piattaforme che potrebbero eseguire build versione .NET (Core). Mentre questo parametro permetterà a ASF di provare a essere eseguito in tali scenari, avvisiamo che non lo supportiamo ufficialmente e stai costringendo ASF a eseguito interamente **a tuo rischio e pericolo**. A partire da oggi, **tutti** gli ambienti non supportati possono essere corretti, come ad esempio l'esecuzione di build `generic` invece di `generic-netf`. Raccomandiamo vivamente di risolvere i problemi in sospeso invece di usare questo parametro.
+`--ignore-unsupported-environment`, causerà l'ignoramento del rilevamento degli ambienti non supportati di ASF, che normalmente è segnalato con un errore e l'uscita forzata. Unsupported environment includes for example running `win-x64` OS-specific build on `linux-x64`. Mentre questo parametro permetterà a ASF di provare a essere eseguito in tali scenari, avvisiamo che non lo supportiamo ufficialmente e stai costringendo ASF a eseguito interamente **a tuo rischio e pericolo**. As of today, **all** of the unsupported environment scenarios can be corrected. Raccomandiamo vivamente di risolvere i problemi in sospeso invece di usare questo parametro.
 
 ---
 

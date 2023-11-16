@@ -38,14 +38,14 @@ Paketnamen hängen von der Linux-Distribution, die Du verwendest, ab. Wir listen
 
 - `ca-certificates` (Standard SSL Zertifikate für HTTPS Verbindungen)
 - `libc6` (`libc`)
-- `libgcc1` (`libgcc`)
-- `libicu` (`icu-libs`, die neueste Version für ihre Distribution, zum Beispiel `libicu67`)
+- `libgcc-s1` (`libgcc1`, `libgcc`)
+- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu72`)
 - `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
-- `libssl1.1` (`libssl`, `openssl-libs`, neueste Version für deine Distribution, mindestens jedoch `1.1.X`, da `1.0.X` eventuell nicht länger funktioniert)
+- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, at least `1.1.X`)
 - `libstdc++6` (`libstdc++`, Version `5.0` oder höher)
 - `zlib1g` (`zlib`)
 
-Zumindest ein Großteil davon sollte bereits nativ auf ihrem System verfügbar sein. Die minimale Installation von Debian Stable erfordert nur `libicu67`.
+Zumindest ein Großteil davon sollte bereits nativ auf ihrem System verfügbar sein. The minimal installation of Debian stable required only `libicu72`.
 
 #### **[macOS](https://docs.microsoft.com/de-de/dotnet/core/install/macos)**:
 - Keine Version von macOS, aber Sie sollten die neueste Version von macOS installiert haben; mindestens 10.15+
@@ -188,7 +188,7 @@ Editing your ASF configs can be done much easier by using our ASF-ui frontend, w
 
 ASF ist eine Konsolenanwendung und beinhaltet keine grafische Benutzeroberfläche. Wir arbeiten jedoch aktiv an unserem IPC-Schnittstellen Frontend **[ASF-UI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-ui)**, was eine sehr gute und benutzerfreundliche Möglichkeit sein kann, auf verschiedene ASF-Funktionen zuzugreifen.
 
-In order to use ASF-ui, you need to have `IPC` enabled, which is the default option starting with ASF V5.1.0.0. Once you launch ASF, you should be able to confirm that it properly started the IPC interface automatically:
+In order to use ASF-ui, you need to have `IPC` enabled, which is the default option. Once you launch ASF, you should be able to confirm that it properly started the IPC interface automatically:
 
 ![IPC](https://i.imgur.com/ZmkO8pk.png)
 

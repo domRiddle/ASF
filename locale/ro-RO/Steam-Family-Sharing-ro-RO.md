@@ -1,6 +1,6 @@
 # Partajarea familiei Steam
 
-ASF suportă Partajarea Familiei Steam de la versiunea 2.1.5.5+. Pentru a înțelege cum funcționează ASF cu aceasta, ar trebui mai întâi să citiţi cum funcţionează **[Partajarea în familie Steam](https://store.steampowered.com/promotion/familysharing)**, care este disponibilă în magazinul Steam.
+ASF supports Steam Family Sharing - in order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
 
 ---
 

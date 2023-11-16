@@ -15,7 +15,7 @@ ASF支援各種命令，這些命令可用於控制進程和機械人實例的�
 
 ### 互動式主控台
 
-Starting with V4.0.0.9, ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Simply press `c` button in order to enable command mode, type your command and confirm with enter.
+ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Simply press `c` button in order to enable command mode, type your command and confirm with enter.
 
 ![截圖](https://i.imgur.com/bH5Gtjq.png)
 

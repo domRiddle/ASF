@@ -15,7 +15,7 @@ Comenzile executate prin chat-ul Steam sunt afectate de **[proprietatea globală
 
 ### Consolă interactivă
 
-Starting with V4.0.0.9, ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Apăsați butonul `c` pentru a activa modul de comandă, introduceți comanda și confirmați apăsând tasta enter.
+ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Apăsați butonul `c` pentru a activa modul de comandă, introduceți comanda și confirmați apăsând tasta enter.
 
 ![Screenshot](https://i.imgur.com/bH5Gtjq.png)
 

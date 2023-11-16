@@ -1,6 +1,6 @@
 # Docker
 
-Bắt đầu từ phiên bản 3.0.3.2, ASF giờ cũng có sẵn như là **[khoang chứa docker](https://www.docker.com/what-container)**. Gói docker của chúng tôi hiện đang có mặt trên **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** cũng như trên **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
+ASF is available as **[docker container](https://www.docker.com/what-container)**. Gói docker của chúng tôi hiện đang có mặt trên **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** cũng như trên **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**.
 
 Điều quan trọng cần lưu ý là việc chạy ASF trong Docker container được coi là **thiết lập nâng cao**, điều này **không cần thiết** cho đại đa số người dùng, và thường **không mang lại lợi gì** so với thiết lập không có container. If you're considering Docker as a solution for running ASF as a service, for example making it start automatically with your OS, then you should consider reading **[management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#systemd-service-for-linux)** section instead and set up a proper `systemd` service which will be **almost always** a better idea than running ASF in a Docker container.
 
@@ -47,7 +47,7 @@ We generally discourage trying `main` builds, as those are here for us to mark c
 
 ASF docker image is currently built on `linux` platform targetting 3 architectures - `x64`, `arm` and `arm64`. You can read more about them in **[compatibility](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility)** section.
 
-Since ASF version V5.0.2.2, our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker run`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
+Our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. If by any chance you'd like to pull a specific platform image which doesn't match the one you're currently running, you can do that through `--platform` switch in appropriate docker commands, such as `docker run`. See docker documentation on **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** for more info.
 
 ---
 

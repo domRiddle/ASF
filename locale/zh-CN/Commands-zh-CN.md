@@ -15,7 +15,7 @@ ASF 支持各种命令，用来控制程序和机器人实例的行为。
 
 ### 交互式控制台
 
-自 V4.0.0.9 版本开始，ASF 支持交互式控制台，只要您没有让 ASF 在 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#headless) 模式下运行。 只需要按下 `c` 键就可以启用命令模式，此时您可以输入命令，并按回车键确认。
+ASF 支持交互式控制台，只要您没有让 ASF 在 [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-CN#headless) 模式下运行。 只需要按下 `c` 键就可以启用命令模式，此时您可以输入命令，并按回车键确认。
 
 ![屏幕截图](https://i.imgur.com/bH5Gtjq.png)
 

@@ -1,6 +1,6 @@
 # Устаревание
 
-Начиная с ASF V3.1.2.2, мы следуем единообразной политике устаревания, чтобы сделать разработку и использование программы более предсказуемым.
+We're doing our best to follow consistent deprecation policy in order to make both development as well as usage far more consistent.
 
 ---
 

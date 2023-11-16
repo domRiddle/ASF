@@ -1,6 +1,6 @@
 # 功能棄用
 
-從ASF V3.1.2.2版本開始，我們將遵循一致的棄用政策，使開發及使用更加一致。
+We're doing our best to follow consistent deprecation policy in order to make both development as well as usage far more consistent.
 
 ---
 

@@ -1,6 +1,6 @@
 # Veraltete Funktionen
 
-Ab ASF V3.1.2.2.2 werden wir eine konsequente Verfallspolitik verfolgen, um sowohl die Entwicklung als auch die Nutzung wesentlich konsistenter zu gestalten.
+We're doing our best to follow consistent deprecation policy in order to make both development as well as usage far more consistent.
 
 ---
 

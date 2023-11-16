@@ -15,7 +15,7 @@ Commands executed through Steam chat are affected by `CommandPrefix` **[global c
 
 ### Interaktywna konsola
 
-Starting with V4.0.0.9, ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Po prostu naciśnij przycisk `c` aby włączyć tryb komend, wpisz komendę oraz potwierdź za pomocą enter.
+ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Po prostu naciśnij przycisk `c` aby włączyć tryb komend, wpisz komendę oraz potwierdź za pomocą enter.
 
 ![Zrzut ekranu](https://i.imgur.com/bH5Gtjq.png)
 

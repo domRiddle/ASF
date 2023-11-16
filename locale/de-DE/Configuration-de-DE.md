@@ -42,7 +42,7 @@ Die Verwendung ist denkbar einfach - man wählt über die entsprechenden Registe
 
 Unsere **[ASF-UI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-ui)** IPC-Schnittstelle erlaubt es Ihnen auch ASF zu konfigurieren und ist eine bessere Lösung für die Neukonfiguration von ASF nach der Generierung der ersten Konfigurationen aufgrund der Tatsache, dass es die Konfigurationen im direkt bearbeiten kann im Gegensatz zum webbasierten Konfigurationsgenerator, welcher sie statisch erzeugt.
 
-Um ASF-ui nutzen zu können, müssen Sie unsere **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** Schnittstelle selbst aktivieren. `IPC` ist standardmäßig ab ASF V5.1.0 aktiviert, sodass Sie sofort darauf zugreifen können, solange Sie selbst es nicht deaktiviert haben.
+Um ASF-ui nutzen zu können, müssen Sie unsere **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** Schnittstelle selbst aktivieren. `IPC` is enabled by default, therefore you can access it right away, as long as you didn't disable it yourself.
 
 Nach dem Start des Programms navigieren Sie einfach zu ASFs **[IPC Adresse](http://localhost:1242)**. Wenn alles richtig funktioniert hat, können Sie auch die ASF-Konfiguration von dort aus ändern.
 
@@ -610,8 +610,8 @@ Typ `ImmutableHashSet<byte>` mit dem Standardwert `5` als Steam-Gegenstands-Typ.
 | 12   | MiniProfilhintergrund | Besonderer Hintergrund für Steam Profile                                                               |
 | 13   | AvatarProfileFrame    | Besonderer Avatarrahmen für das Steam-Profil                                                           |
 | 14   | AnimatedAvatar        | Besonders animierter Avatar für das Steam-Profil                                                       |
-| 15   | KeyboardSkin          | Special keyboard skin for Steam deck                                                                   |
-| 16   | StartupVideo          | Special startup video for Steam deck                                                                   |
+| 15   | KeyboardSkin          | Spezieller Tastatur-Skin für das Steam Deck                                                            |
+| 16   | StartupVideo          | Spezielles Start-Video für das Steam Deck                                                              |
 
 Natürlich beinhalten die Typen, die Sie für diese Eigenschaft (Property) verwenden sollten, typischerweise nur `2`, `3`, `4` und `5`, da nur diese Typen von STM unterstützt werden. ASF beinhaltet die passende Logik, um die Seltenheit der Gegenstände zu ermitteln, daher ist es auch sicher, Emoticons oder Hintergründe zu vergleichen, da ASF nur die Gegenstände aus dem gleichen Spiel und Typ, die auch die gleiche Seltenheit aufweisen, als fair erachten wird.
 
@@ -857,8 +857,8 @@ Typ `ImmutableHashSet<byte>` mit dem Standardwert `1, 3, 5` als Steam-Gegenstand
 | 12   | MiniProfilhintergrund | Besonderer Hintergrund für Steam Profile                                                               |
 | 13   | AvatarProfileFrame    | Besonderer Avatarrahmen für das Steam-Profil                                                           |
 | 14   | AnimatedAvatar        | Besonders animierter Avatar für das Steam-Profil                                                       |
-| 15   | KeyboardSkin          | Special keyboard skin for Steam deck                                                                   |
-| 16   | StartupVideo          | Special startup video for Steam deck                                                                   |
+| 15   | KeyboardSkin          | Spezieller Tastatur-Skin für das Steam Deck                                                            |
+| 16   | StartupVideo          | Spezielles Start-Video für das Steam Deck                                                              |
 
 Bitte bedenke, dass ASF unabhängig von den obigen Einstellungen nur nach Steam (`appID` von 753) Community (`contextID` von 6) Gegenständen fragt, sodass alle Spiel-Gegenstände und Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
 
@@ -1047,7 +1047,7 @@ Due to above, ASF will automatically migrate/optimize your configs by reformatti
 
 ## Automatisches Nachladen
 
-Ab ASF V2.1.6.2+ ist es möglich, dass Konfigurationen "on-the-fly" geändert werden - dadurch wird ASF automatisch:
+ASF is aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
 - Eine neue Bot-Instanz erstellen (und startet sie bei Bedarf), wenn Sie die Konfiguration erstellen
 - Stoppt (falls erforderlich) und entfernt alte Bot-Instanz, wenn Sie ihre Konfiguration löschen
 - Stoppt (und startet bei Bedarf) eine beliebige Bot-Instanz, wenn Sie ihre Konfiguration bearbeiteen

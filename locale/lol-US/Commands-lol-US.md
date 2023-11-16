@@ -15,7 +15,7 @@ COMMANDZ EXECUTD THRU STEAM CHAT R AFFECTD BY `CommandPrefix` **[GLOBAL CONFIGUR
 
 ### INTERACTIV CONSOLE
 
-Starting with V4.0.0.9, ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. SIMPLY PRES `c` BUTN IN ORDR 2 ENABLE COMMAND MODE, TYPE UR COMMAND AN CONFIRM WIF ENTR.
+ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. SIMPLY PRES `c` BUTN IN ORDR 2 ENABLE COMMAND MODE, TYPE UR COMMAND AN CONFIRM WIF ENTR.
 
 ![Screenshot](https://i.imgur.com/bH5Gtjq.png)
 

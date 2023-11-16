@@ -60,7 +60,7 @@ Debido a la naturaleza de esta propiedad, también es posible establecer el arch
 
 ---
 
-`--ignore-unsupported-environment` - causará que ASF ignore problemas relacionados con ejecutarse en un entorno no soportado, lo que normalmente se indica con un error y un cierre forzado. Un entorno no soportado incluye, por ejemplo, ejecutar una compilación .NET Framework en una plataforma que en su lugar podría estar ejecutando una compilación .NET (Core). Aunque esta opción permitirá que ASF intente ejecutarse en tales escenarios, ten en cuenta que no los soportamos oficialmente y estás forzando a ASF a hacerlo completamente **bajo tu propio riesgo**. Al día de hoy, **todos** los escenarios de entorno no soportado pueden ser corregidos, tal como ejecutar la compilación `generic` en lugar de `generic-netf`. Recomendamos encarecidamente solucionar los problemas relevantes en lugar de usar este argumento.
+`--ignore-unsupported-environment` - causará que ASF ignore problemas relacionados con ejecutarse en un entorno no soportado, lo que normalmente se indica con un error y un cierre forzado. Un entorno no soportado incluye, por ejemplo, ejecutar la compilación de sistema operativo específico `win-x64` en `linux-x64`. Aunque esta opción permitirá que ASF intente ejecutarse en tales escenarios, ten en cuenta que no los soportamos oficialmente y estás forzando a ASF a hacerlo completamente **bajo tu propio riesgo**. Al día de hoy, **todos** los escenarios de entorno no soportado pueden ser corregidos. Recomendamos encarecidamente solucionar los problemas relevantes en lugar de usar este argumento.
 
 ---
 

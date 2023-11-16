@@ -60,7 +60,7 @@ Linux/macOS：
 
 ---
 
-`--ignore-unsupported-environment`&#8203;⸺使ASF忽略在不支援環境中執行的各種問題。而在原本的情形下，會顯示程式出錯並強制退出。 不支援的環境包含並例如，應該在.NET (Core)平台執行的組建版本，卻執行於.NET Framework平台上。 雖然此旗標使ASF能夠嘗試在這些情境中執行，但請注意，我們不正式支援此行為。若您強制ASF這樣做，&#8203;**後果自負**&#8203;。 截至今日，&#8203;**所有**&#8203;不受支援環境的情形都可以被修正，例如執行&#8203;`generic`&#8203;組建版本，而不是&#8203;`generic-netf`&#8203;。 我們強烈建議從根本上修正問題，而非去使用這個引數。
+`--ignore-unsupported-environment`&#8203;⸺使ASF忽略在不支援環境中執行的各種問題。而在原本的情形下，會顯示程式出錯並強制退出。 Unsupported environment includes for example running `win-x64` OS-specific build on `linux-x64`. 雖然此旗標使ASF能夠嘗試在這些情境中執行，但請注意，我們不正式支援此行為。若您強制ASF這樣做，&#8203;**後果自負**&#8203;。 As of today, **all** of the unsupported environment scenarios can be corrected. 我們強烈建議從根本上修正問題，而非去使用這個引數。
 
 ---
 

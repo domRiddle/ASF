@@ -1,6 +1,6 @@
 # Dépréciation
 
-Depuis ASF V3.1.2.2, nous suivons une politique de désapprobation cohérente afin de rendre le développement et l’utilisation beaucoup plus cohérents.
+We're doing our best to follow consistent deprecation policy in order to make both development as well as usage far more consistent.
 
 ---
 

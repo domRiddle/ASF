@@ -1,6 +1,6 @@
 # Steam Family Sharing
 
-ASF đã hỗ trợ Steam Family Sharing từ bản 2.1.5.5 trở đi. Để hiểu tại sao ASF lại hoạt động được với Family Sharing, bạn nên đọc cách mà **[Steam Family Sharing](https://store.steampowered.com/promotion/familysharing)** hoạt động trước, đồng thời bạn có thể đọc nó ở cửa hàng Steam.
+ASF supports Steam Family Sharing - in order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
 
 ---
 

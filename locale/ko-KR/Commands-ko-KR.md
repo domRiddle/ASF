@@ -15,7 +15,7 @@ Steam 채팅으로 실행된 명령어들은 기본값으로 `!`으로 지정된
 
 ### 대화형 콘솔
 
-Starting with V4.0.0.9, ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Simply press `c` button in order to enable command mode, type your command and confirm with enter.
+ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Simply press `c` button in order to enable command mode, type your command and confirm with enter.
 
 ![스크린샷](https://i.imgur.com/bH5Gtjq.png)
 

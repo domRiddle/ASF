@@ -15,7 +15,7 @@ ASF支援各種指令，以此來控制程序及Bot實例的行為。
 
 ### 互動式控制台
 
-從V4.0.0.9版本開始，ASF支援互動式控制台。只要您沒有讓ASF在&#8203;[**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#headless無頭模式)&#8203;模式下執行， 按下&#8203;`C`&#8203;鍵，就可以啟用指令模式。輸入您的指令，並按下確認鍵確認。
+ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. 按下&#8203;`C`&#8203;鍵，就可以啟用指令模式。輸入您的指令，並按下確認鍵確認。
 
 ![擷圖](https://i.imgur.com/bH5Gtjq.png)
 

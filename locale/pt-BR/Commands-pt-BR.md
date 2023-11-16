@@ -15,7 +15,7 @@ Os comandos executados através do chat Steam são afetados pela **[propriedade 
 
 ### Console interativo
 
-A partir da versão 4.0.0.9, o ASF oferece suporte para o console interativo, desde que você não esteja executando o ASF no modo [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless). Simplesmente pressione o botão `c` para ativar o modo de comando, digite seu comando e confirme com enter.
+ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Simplesmente pressione o botão `c` para ativar o modo de comando, digite seu comando e confirme com enter.
 
 ![Captura da tela](https://i.imgur.com/bH5Gtjq.png)
 

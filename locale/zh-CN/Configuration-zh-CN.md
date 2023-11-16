@@ -42,7 +42,7 @@ ASF 采用 **[JSON](https://en.wikipedia.org/wiki/JSON)** 格式存储其配置�
 
 我们的 **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** IPC 接口同样支持配置 ASF，并且特别适合在第一次配置之后修改配置内容，因为与在线配置文件生成器总是生成新文件不同，ASF-ui 可以在原地直接编辑配置文件。
 
-要使用 ASF-ui，首先您需要启用 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 接口本身。 自 ASF V5.1.0.0 版本开始，`IPC` 已默认启用，因此只要您没有手动禁用它，就可以直接开始访问。
+要使用 ASF-ui，首先您需要启用 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 接口本身。 `IPC` 默认启用，因此只要您没有手动禁用它，就可以直接开始访问。
 
 程序启动后，直接访问 ASF 的 **[IPC 地址](http://localhost:1242)**。 如果一切都正常工作，您也可以在这里更改 ASF 配置。
 
@@ -1047,7 +1047,7 @@ ASF 使用原生的 C# 类型系统，包括：
 
 ## 自动重载
 
-自 ASF V2.1.6.2 开始，程序将会在配置文件被修改时进行动态操作——即 ASF 会自动：
+ASF 会在配置文件被修改时进行动态操作——即 ASF 会自动：
 - 在您新建机器人配置文件时，创建（并在需要时启动）新机器人实例
 - 在您删除机器人配置文件时，停止（如果需要）并删除旧机器人实例
 - 在您编辑机器人配置文件时，停止（并在需要时启动）机器人实例

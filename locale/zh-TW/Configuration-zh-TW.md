@@ -42,7 +42,7 @@ ASF使用&#8203;**[JSON](https://zh.wikipedia.org/zh-tw/JSON)**&#8203;格式來�
 
 我們的&#8203;**[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW#asf-ui)**&#8203; IPC介面也允許您設定ASF，且這是在生成初始設定檔後修改設定的最佳方式，因為與設定檔生成器網頁工具總是生成新的檔案不同，這可以在原地直接編輯設定檔。
 
-為了使用ASF-ui，您必須先啟用&#8203;**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**&#8203;介面自身。 從ASF V5.1.0.0版本開始，&#8203;`IPC`&#8203;預設為啟用，因此只要您沒有把它停用，就可以直接存取它。
+為了使用ASF-ui，您必須先啟用&#8203;**[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-zh-TW)**&#8203;介面自身。 `IPC` is enabled by default, therefore you can access it right away, as long as you didn't disable it yourself.
 
 在啟動程式後，直接前往ASF的&#8203;**[IPC位址](http://localhost:1242)**&#8203;。 若一切運作正常，您可以在這裡修改ASF設定。
 
@@ -1047,7 +1047,7 @@ ASF使用了原生的C#型別，具體如下：
 
 ## 自動重新載入
 
-從ASF V2.1.6.2+版本開始，程式可以「動態」修改設定⸺因此ASF能自動：
+ASF is aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
 - 在您建立設定檔時，建立新的Bot實例（並在需要時啟動）
 - 在您刪除設定檔時，（並在需要時）停止並移除舊的Bot實例
 - 在您編輯設定檔時，停止任何Bot實例（並在需要時重啟）

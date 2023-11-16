@@ -1,6 +1,6 @@
 # Docker
 
-从 3.0.3.2 版本开始，ASF 也可以在 **[Docker 容器](https://www.docker.com/what-container)**&#8203;中运行。 我们的 Docker 仓库同时部署于 **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** 和 **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**。
+ASF 可以作为 [**Docker 容器**](https://www.docker.com/what-container)运行。 我们的 Docker 仓库同时部署于 **[ghcr.io](https://github.com/orgs/JustArchiNET/packages/container/archisteamfarm/versions)** 和 **[Docker Hub](https://hub.docker.com/r/justarchi/archisteamfarm)**。
 
 重要的是，在 Docker 容器内运行 ASF 被认为是**进阶安装方式**，绝大多数用户是**不需要的**，与非容器方式相比，也没有明显优势。 如果您认为 Docker 是让 ASF 作为服务运行的一种方案，例如让它自动随操作系统一同启动，那么您可以考虑阅读[**管理**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-zh-CN#linux-的-systemd-服务)章节，正确设置 `systemd` 服务来代替，这种方案**通常总是**比在 Docker 内运行 ASF 更好。
 
@@ -47,7 +47,7 @@ ASF 有 4 种主要的&#8203;**[分支](https://hub.docker.com/r/justarchi/archi
 
 ASF Docker 映像目前基于 `linux` 平台构建，指向 3 种架构——`x64`、`arm` 和 `arm64`。 您可以阅读&#8203;**[兼容性](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-CN)**&#8203;章节了解更多。
 
-从 ASF V5.0.2.2 版本开始，我们的标签已使用多平台 Manifest，这意味着您机器上的 Docker 会在您拉取时自动按照平台选择合适的映像。 如果您需要拉取某个不符合当前平台的映像，您可以为相应的 docker 命令，例如 `docker run` 指定 `--platform` 参数。 您可以查看 Docker 的 **[Image Manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** 文档了解更多。
+我们的标签使用多平台 Manifest，这意味着您机器上的 Docker 会在您拉取时自动按照平台选择合适的映像。 如果您需要拉取某个不符合当前平台的映像，您可以为相应的 docker 命令，例如 `docker run` 指定 `--platform` 参数。 您可以查看 Docker 的 **[Image Manifest](https://docs.docker.com/registry/spec/manifest-v2-2)** 文档了解更多。
 
 ---
 

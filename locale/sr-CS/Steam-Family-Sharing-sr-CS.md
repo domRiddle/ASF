@@ -1,6 +1,6 @@
 # Steam porodično dijeljenje
 
-ASF podržav Steam porodično dijeljenje od verzije 2.1.5.5+. Da bi ste razumjeli kako ASF radi sa njim, morate prvo pročitati kako **[Steam porodično dijeljenje](https://store.steampowered.com/promotion/familysharing)** radi, a to je dostupno na Steam prodavnici.
+ASF supports Steam Family Sharing - in order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
 
 ---
 

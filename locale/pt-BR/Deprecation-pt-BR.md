@@ -1,6 +1,6 @@
 # Depreciação
 
-Desde o ASF V3.1.2.2 estamos seguindo uma política de depreciação a fim de manter tanto o desenvolvimento quanto o uso mais consistente.
+We're doing our best to follow consistent deprecation policy in order to make both development as well as usage far more consistent.
 
 ---
 
