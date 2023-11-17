@@ -39,13 +39,13 @@ Los nombres de los paquetes dependen de la distribución de Linux que estés usa
 - `ca-certificates` (certificados estándar SSL confiables para hacer conexiones HTTPS)
 - `libc6` (`libc`)
 - `libgcc-s1` (`libgcc1`, `libgcc`)
-- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu72`)
+- `libicu` (`icu-libs`, última versión para tu distribución, por ejemplo `libicu72`)
 - `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
-- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, at least `1.1.X`)
+- `libssl1.1` (`libssl`, `openssl-libs`, última versión para tu distribución, por lo menos `1.1.X`)
 - `libstdc++6` (`libstdc++`, en versión `5.0` o superior)
 - `zlib1g` (`zlib`)
 
-Al menos la mayoría de estas deberían estar disponibles nativamente en tu sistema. The minimal installation of Debian stable required only `libicu72`.
+Al menos la mayoría de estas deberían estar disponibles nativamente en tu sistema. La instalación mínima de Debian estable requería solamente `libicu72`.
 
 #### **[macOS](https://docs.microsoft.com/es-es/dotnet/core/install/macos)**:
 - Ninguno por ahora, pero debes tener instalada la última versión de macOS, al menos 10.15+
@@ -188,7 +188,7 @@ Editar tus configuraciones de ASF se puede hacer más fácilmente usando nuestro
 
 ASF es una aplicación de consola y no incluye una interfaz gráfica de usuario. Sin embargo, estamos trabajando en el frontend **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES#asf-ui)** para nuestra interfaz IPC, la cual puede ser una manera muy decente y amigable para acceder a varias funciones de ASF.
 
-In order to use ASF-ui, you need to have `IPC` enabled, which is the default option. Una vez que inicies ASF, deberías poder comprobar que inició automáticamente de forma correcta la interfaz IPC:
+Para usar ASF-ui, necesitas tener `IPC` habilitado, que es la opción por defecto. Una vez que inicies ASF, deberías poder comprobar que inició automáticamente de forma correcta la interfaz IPC:
 
 ![IPC](https://i.imgur.com/ZmkO8pk.png)
 

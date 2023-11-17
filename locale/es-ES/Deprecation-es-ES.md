@@ -1,6 +1,6 @@
 # Obsolescencia
 
-We're doing our best to follow consistent deprecation policy in order to make both development as well as usage far more consistent.
+Hacemos todo lo posible para seguir una política de obsolescencia consistente para hacer que tanto el desarrollo como el uso sean mucho más consistentes.
 
 ---
 

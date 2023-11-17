@@ -42,7 +42,7 @@ El uso es bastante simple - elige si quieres generar una configuración de `ASF`
 
 Nuestra interfaz IPC **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES#asf-ui)** también permite configurar ASF, y es una herramienta superior para reconfigurar ASF después de generar las configuraciones iniciales ya que puede editarlas al vuelo, contrario al ConfigGenerator basado en la web que las genera de forma estática.
 
-Para poder usar ASF-ui, debes tener nuestra interfaz **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES)** habilitada. `IPC` is enabled by default, therefore you can access it right away, as long as you didn't disable it yourself.
+Para poder usar ASF-ui, debes tener nuestra interfaz **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES)** habilitada. `IPC` está habilitado por defecto, por lo tanto puedes acceder a él inmediatamente, siempre y cuando no lo hayas deshabilitado.
 
 Después de ejecutar el programa, simplemente navega a la **[dirección IPC](http://localhost:1242)** de ASF. Si todo funcionó correctamente, también puedes cambiar la configuración de ASF desde ahí.
 
@@ -1047,7 +1047,7 @@ Debido a lo anterior, ASF automáticamente migrará/optimizará tus configuracio
 
 ## Recarga automática
 
-ASF is aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
+ASF es consciente de las configuraciones siendo modificadas "al vuelo" - gracias a eso, ASF automáticamente:
 - Crea (e inicia, si es necesario) una nueva instancia de bot, cuando creas su archivo de configuración
 - Detiene (si es necesario) y elimina una instancia de bot antigua, cuando eliminas su archivo de configuración
 - Detiene (e inicia, si es necesario) cualquier instancia de bot, cuando editas su archivo de configuración

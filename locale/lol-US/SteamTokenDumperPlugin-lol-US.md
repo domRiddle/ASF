@@ -1,6 +1,6 @@
 # STEAMTOKENDUMPERPLUGIN
 
-`SteamTokenDumperPlugin` is official ASF **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** developed by us, which allows you to contribute to **[SteamDB](https://steamdb.info)** project by sharing package tokens, app tokens and depot keys that your Steam account has access to. TEH EXTENDD INFO ON COLLECTD DATA AN Y STEAMDB NEEDZ IT CAN BE FINDZ ON STEAMDBS **[TOKEN DUMPR](https://steamdb.info/tokendumper)** PAEG. TEH SUBMITTD DATA DOESNT INCLUDE ANY POTENTIALLY-SENSITIV INFORMASHUN, AN POSESEZ NO SECURITY/PRIVACY RISK, AS STATD IN ABOOV DESCRIPSHUN.
+`SteamTokenDumperPlugin` IZ OFFISHUL ASF **[PLUGIN](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-lol-US)** DEVELOPD BY US, WHICH ALLOWS U 2 CONTRIBUTE 2 **[STEAMDB](https://steamdb.info)** PROJECT BY SHARIN PACKAGE TOKENS, APP TOKENS AN DEPOT KEYS DAT UR STEAM AKOWNT HAS ACCES 2. TEH EXTENDD INFO ON COLLECTD DATA AN Y STEAMDB NEEDZ IT CAN BE FINDZ ON STEAMDBS **[TOKEN DUMPR](https://steamdb.info/tokendumper)** PAEG. TEH SUBMITTD DATA DOESNT INCLUDE ANY POTENTIALLY-SENSITIV INFORMASHUN, AN POSESEZ NO SECURITY/PRIVACY RISK, AS STATD IN ABOOV DESCRIPSHUN.
 
 ---
 
@@ -38,7 +38,7 @@ IN ANY CASE, STEAMDB STAFF WUD LIEK 2 THANK U IN ADVANCE 4 UR HALP. TEH SUBMITTD
 
 ## ADVANCD CONFIG
 
-Our plugin supports advanced config which might come useful for people that would like to tweak the internals to their preference.
+R PLUGIN SUPPORTS ADVANCD CONFIG WHICH MITE COME USEFUL 4 PEEPS DAT WUD LIEK 2 TWEAK TEH INTERNALS 2 THEIR PREFERENCE.
 
 TEH ADVANCD CONFIG HAS TEH FOLLOWIN STRUCCHUR LOCATD WITHIN `ASF.json`:
 

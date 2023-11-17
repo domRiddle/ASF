@@ -47,7 +47,7 @@ Generalmente no recomendamos probar las compilaciones `main`, ya que estas son p
 
 La imagen docker ASF se compila actualmente en la plataforma `linux` teniendo como objetivo tres arquitecturas - `x64`, `arm` y `arm64`. Puedes leer más acerca de ellas en la sección de **[compatibilidad](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-es-ES)**.
 
-Our tags are using multi-platform manifest, which means that Docker installed on your machine will automatically select the proper image for your platform when pulling the image. Si por algún motivo deseas extraer una imagen de plataforma específica que no coincida con la que estás ejecutando, puedes hacerlo mediante el modificador `--platform` con los comandos docker apropiados, tal como `docker run`. Para más información revisa la documentación docker en **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)**.
+Nuestras etiquetas usan un manifiesto multiplataforma, lo que significa que Docker instalado en tu máquina automáticamente seleccionará la imagen adecuada para tu plataforma al requerir la imagen. Si por algún motivo deseas extraer una imagen de plataforma específica que no coincida con la que estás ejecutando, puedes hacerlo mediante el modificador `--platform` con los comandos docker apropiados, tal como `docker run`. Para más información revisa la documentación docker en **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)**.
 
 ---
 

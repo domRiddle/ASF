@@ -1,6 +1,6 @@
 # Plugins
 
-ASF includes support for custom plugins that can be loaded during runtime. Los plugins permiten personalizar el comportamiento de ASF, por ejemplo añadiendo comandos personalizados, lógica de intercambio personalizada o integración con servicios de terceros y APIs.
+ASF incluye soporte para plugins personalizados que pueden ser cargados durante el tiempo de ejecución. Los plugins permiten personalizar el comportamiento de ASF, por ejemplo añadiendo comandos personalizados, lógica de intercambio personalizada o integración con servicios de terceros y APIs.
 
 ---
 
@@ -47,7 +47,7 @@ Si hiciste todo correctamente, tu `csproj` será similar al siguiente:
   <ItemGroup>
     <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" />
 
-    <!-- If building with downloaded DLL binary, use this instead of <ProjectReference> above -->
+    <!-- Si se compila con el DLL descargado, usa esto en lugar de <ProjectReference> -->
     <!-- <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" /> -->
   </ItemGroup>
 </Project>

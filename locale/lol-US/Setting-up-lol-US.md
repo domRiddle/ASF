@@ -39,13 +39,13 @@ PACKAGE NAMEZ DEPEND ON TEH LINUX DISTRIBUSHUN DAT URE USIN, WEVE LISTD TEH MOST
 - `ca-certificates` (STANDARD TRUSTD SSL CERTIFICATEZ 2 MAK HTTPS CONNECSHUNS)
 - `libc6` (`libc`)
 - `libgcc-s1` (`libgcc1`, `libgcc`)
-- `libicu` (`icu-libs`, latest version for your distribution, for example `libicu72`)
+- `libicu` (`icu-libs`, LATEST VERSHUN 4 UR DISTRIBUSHUN, 4 EXAMPLE `libicu72`)
 - `libgssapi-krb5-2` (`libkrb5-3`, `krb5-libs`)
-- `libssl1.1` (`libssl`, `openssl-libs`, latest version for your distribution, at least `1.1.X`)
+- `libssl1.1` (`libssl`, `openssl-libs`, LATEST VERSHUN 4 UR DISTRIBUSHUN, AT LEAST `1.1.X`)
 - `libstdc++6` (`libstdc++`, IN VERSHUN `5.0` OR HIGHR)
 - `zlib1g` (`zlib`)
 
-AT LEAST MAJORITY OV DOSE SHUD BE ALREADY NATIVELY AVAILABLE ON UR SISTEM. The minimal installation of Debian stable required only `libicu72`.
+AT LEAST MAJORITY OV DOSE SHUD BE ALREADY NATIVELY AVAILABLE ON UR SISTEM. TEH MINIMAL INSTALLASHUN OV DEBIAN STABLE REQUIRD ONLY `libicu72`.
 
 #### **[MACOS](https://docs.microsoft.com/dotnet/core/install/macos)**:
 - NONE 4 NAO, BUT U SHUD HAS LATEST VERSHUN OV MACOS INSTALLD, AT LEAST 10.15+
@@ -188,7 +188,7 @@ EDITIN UR ASF CONFIGS CAN BE DUN MUTCH EASIR BY USIN R ASF-UI FRONTEND, WHICH WI
 
 ASF IZ CONSOLE APP AN DOESNT INCLUDE GRAFICAL USR INTERFACE. HOWEVR, WERE ACTIVELY WERKIN ON **[ASF-UI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-lol-US#asf-ui)** FRONTEND 2 R IPC INTERFACE, WHICH CAN BE VRY DESENT AN USR-FRIENDLY WAI 2 ACCES VARIOUS ASF FEATUREZ.
 
-In order to use ASF-ui, you need to have `IPC` enabled, which is the default option. ONCE U LAUNCH ASF, U SHUD BE ABLE 2 CONFIRM DAT IT PROPERLY STARTD TEH IPC INTERFACE AUTOMATICALLY:
+IN ORDR 2 USE ASF-UI, U NED 2 HAS `IPC` ENABLD, WHICH IZ TEH DEFAULT OPSHUN. ONCE U LAUNCH ASF, U SHUD BE ABLE 2 CONFIRM DAT IT PROPERLY STARTD TEH IPC INTERFACE AUTOMATICALLY:
 
 ![IPC](https://i.imgur.com/ZmkO8pk.png)
 

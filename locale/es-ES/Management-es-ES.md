@@ -134,7 +134,7 @@ Eso sería hacerlo manualmente, es mucho más fácil usar nuestro **servicio [`s
 
 ### Yo sé más y todavía quiero ejecutar como `root`
 
-ASF doesn't forcefully stop you from doing so, only displays a warning with a short notice. Solo no te sorprendas si un día debido a un error en el programa hace estallar todo tu sistema operativo con una pérdida total de datos - has sido avisado.
+ASF no evitará que lo hagas, solamente mostrará una advertencia con un pequeño aviso. Solo no te sorprendas si un día debido a un error en el programa hace estallar todo tu sistema operativo con una pérdida total de datos - has sido avisado.
 
 ---
 

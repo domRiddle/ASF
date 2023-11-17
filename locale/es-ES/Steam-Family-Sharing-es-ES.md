@@ -1,6 +1,6 @@
 # Préstamo familiar de Steam
 
-ASF supports Steam Family Sharing - in order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
+ASF soporta el Préstamo Familiar de Steam - para entender cómo funciona ASF en este caso, primero debes leer cómo **[funciona el Préstamo Familiar de Steam](https://store.steampowered.com/promotion/familysharing)**, que está disponible en la tienda de Steam.
 
 ---
 

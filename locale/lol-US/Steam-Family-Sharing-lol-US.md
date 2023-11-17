@@ -1,6 +1,6 @@
 # STEAM PPLZ SHARIN
 
-ASF supports Steam Family Sharing - in order to understand how ASF works with that, you should firstly read how **[Steam Family Sharing works](https://store.steampowered.com/promotion/familysharing)**, which is available on Steam store.
+ASF SUPPORTS STEAM PPLZ SHARIN - IN ORDR 2 UNDERSTAND HOW ASF WERKZ WID DAT, U SHUD FIRSTLY READ HOW **[STEAM PPLZ SHARIN WERKZ](https://store.steampowered.com/promotion/familysharing)**, WHICH IZ AVAILABLE ON STEAM STORE.
 
 ---
 

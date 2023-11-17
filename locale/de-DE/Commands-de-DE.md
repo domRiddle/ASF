@@ -15,7 +15,7 @@ Befehle die über den Steam-Chat ausgeführt werden, sind von der **[globalen Ko
 
 ### Interaktive Konsole
 
-ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. Drücken Sie einfach `c` um den Befehlsmodus zu aktivieren; geben Sie ihren Befehl ein und bestätigen Sie mit dem Eintrag.
+ASF unterstützt die interaktive Konsole, solange Sie nicht ASF im [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#headless)-Modus ausführen. Drücken Sie einfach `c` um den Befehlsmodus zu aktivieren; geben Sie ihren Befehl ein und bestätigen Sie mit dem Eintrag.
 
 ![Screenshot](https://i.imgur.com/bH5Gtjq.png)
 

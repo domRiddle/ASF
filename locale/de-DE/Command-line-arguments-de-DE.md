@@ -60,7 +60,7 @@ Durch die Natur dieser Option ist, es möglich die Umgebungsvariable `ASF_CRYPTK
 
 ---
 
-`--ignore-unsupported-environment` - sorgt dafür, dass ASF die Erkennung von nicht unterstützten Umgebungen ignoriert; die normalerweise mit einem Fehler signalisiert und das Beenden erzwingen. Unsupported environment includes for example running `win-x64` OS-specific build on `linux-x64`. Obwohl diese Option ASF die Ausführung in solchen Situationen erlaubt; sollten Sie dennoch beachten, dass wir dies offiziell nicht unterstützen und Sie dies vollständig **auf eigene Gefahr** tun. As of today, **all** of the unsupported environment scenarios can be corrected. Wir empfehlen Ihnen dringend, die offenen Probleme zu beheben, anstatt dieses Argument anzugeben.
+`--ignore-unsupported-environment` - sorgt dafür, dass ASF die Erkennung von nicht unterstützten Umgebungen ignoriert; die normalerweise mit einem Fehler signalisiert und das Beenden erzwingen. Nicht unterstützte Umgebung beinhaltet beispielsweise das Ausführen des `win-x64` OS-spezifischen Builds auf `linux-x64`. Obwohl diese Option ASF die Ausführung in solchen Situationen erlaubt; sollten Sie dennoch beachten, dass wir dies offiziell nicht unterstützen und Sie dies vollständig **auf eigene Gefahr** tun. Ab sofort können **alle** nicht unterstützten Umgebungsszenarien korrigiert werden. Wir empfehlen Ihnen dringend, die offenen Probleme zu beheben, anstatt dieses Argument anzugeben.
 
 ---
 
