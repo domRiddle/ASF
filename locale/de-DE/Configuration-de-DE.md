@@ -42,7 +42,7 @@ Die Verwendung ist denkbar einfach - man wählt über die entsprechenden Registe
 
 Unsere **[ASF-UI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-ui)** IPC-Schnittstelle erlaubt es Ihnen auch ASF zu konfigurieren und ist eine bessere Lösung für die Neukonfiguration von ASF nach der Generierung der ersten Konfigurationen aufgrund der Tatsache, dass es die Konfigurationen im direkt bearbeiten kann im Gegensatz zum webbasierten Konfigurationsgenerator, welcher sie statisch erzeugt.
 
-Um ASF-ui nutzen zu können, müssen Sie unsere **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** Schnittstelle selbst aktivieren. `IPC` is enabled by default, therefore you can access it right away, as long as you didn't disable it yourself.
+Um ASF-ui nutzen zu können, müssen Sie unsere **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** Schnittstelle selbst aktivieren. `IPC` ist standardmäßig aktiviert, sodass Sie sofort darauf zugreifen können, solange Sie es nicht selbst deaktiviert haben.
 
 Nach dem Start des Programms navigieren Sie einfach zu ASFs **[IPC Adresse](http://localhost:1242)**. Wenn alles richtig funktioniert hat, können Sie auch die ASF-Konfiguration von dort aus ändern.
 
@@ -591,7 +591,7 @@ Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bo
 
 ### `MatchableTypes`
 
-Typ `ImmutableHashSet<byte>` mit dem Standardwert `5` als Steam-Gegenstands-Typ. Diese Eigenschaft (Property) definiert, welche Steam Gegenstands-Arten angepasst werden dürfen, wenn die Option `SteamTradeMatcher` in `TradingPreferences` aktiviert ist. Die Arten sind wie folgt definiert:
+Typ `ImmutableHashSet<byte>` mit dem Standardwert `5` als Steam-Gegenstands-Typ. Diese Eigenschaft (Property) definiert, welche Steam Gegenstands-Arten zusammengestellt werden dürfen, wenn die Option `SteamTradeMatcher` in `TradingPreferences` aktiviert ist. Die Arten sind wie folgt definiert:
 
 | Wert | Name                  | Beschreibung                                                                                           |
 | ---- | --------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -599,7 +599,7 @@ Typ `ImmutableHashSet<byte>` mit dem Standardwert `5` als Steam-Gegenstands-Typ.
 | 1    | BoosterPack           | Booster Pack mit 3 zufälligen Karten aus einem Spiel                                                   |
 | 2    | Emoticon              | Emoticon zur Verwendung im Steam-Chat                                                                  |
 | 3    | FoilTradingCard       | Glanz-Variante von `TradingCard`                                                                       |
-| 4    | ProfileBackground     | Profilhintergrund zur Verwendung in deinem Steam-Profil                                                |
+| 4    | ProfileBackground     | Profilhintergrund zur Verwendung im Steam-Profil                                                       |
 | 5    | TradingCard           | Steam-Sammel-Karte, die für die Herstellung von Abzeichen (Nicht-Glanz) verwendet werden               |
 | 6    | SteamGems             | Steam-Edelsteine, die für die Herstellung von Booster Packs verwendet werden, inklusive Edelsteinsäcke |
 | 7    | SaleItem              | Spezialgegenstände, die während des Steam-Sales vergeben werden                                        |
@@ -611,33 +611,33 @@ Typ `ImmutableHashSet<byte>` mit dem Standardwert `5` als Steam-Gegenstands-Typ.
 | 13   | AvatarProfileFrame    | Besonderer Avatarrahmen für das Steam-Profil                                                           |
 | 14   | AnimatedAvatar        | Besonders animierter Avatar für das Steam-Profil                                                       |
 | 15   | KeyboardSkin          | Spezieller Tastatur-Skin für das Steam Deck                                                            |
-| 16   | StartupVideo          | Spezielles Start-Video für das Steam Deck                                                              |
+| 16   | StartupVideo          | Spezielle Start-Animation für das Steam Deck                                                           |
 
 Natürlich beinhalten die Typen, die Sie für diese Eigenschaft (Property) verwenden sollten, typischerweise nur `2`, `3`, `4` und `5`, da nur diese Typen von STM unterstützt werden. ASF beinhaltet die passende Logik, um die Seltenheit der Gegenstände zu ermitteln, daher ist es auch sicher, Emoticons oder Hintergründe zu vergleichen, da ASF nur die Gegenstände aus dem gleichen Spiel und Typ, die auch die gleiche Seltenheit aufweisen, als fair erachten wird.
 
-Bitte bedenke, dass **ASF kein Handelsbot** ist und **sich NICHT um den Marktpreis schert.**. Wenn Sie Gegenstände der gleichen Seltenheit aus dem gleichen Set nicht als preislich gleichwertig betrachten, dann ist diese Option NICHT in ihrem Sinne. Bitte überlegen Sie sich zweimal, ob Sie diese Erklärung verstehen und damit einverstanden sind, bevor Sie diese Einstellung ändern.
+Bitte bedenken Sie, dass **ASF kein Handelsbot** ist und **sich NICHT um den Marktpreis schert.**. Wenn Sie Gegenstände der gleichen Seltenheit aus dem gleichen Set nicht als preislich gleichwertig betrachten, dann ist diese Option NICHT in ihrem Sinne. Bitte überlegen Sie sich zweimal, ob Sie diese Erklärung verstehen und damit einverstanden sind, bevor Sie diese Einstellung ändern.
 
-Wenn Du nicht weißt, was Du tust, solltest Du es bei dem Standardwert `5` belassen.
+Wenn Sie nicht wissen, was Sie tun, sollten Sie den Standardwert bei `5` belassen.
 
 ---
 
 ### `OnlineFlags`
 
-`ushort flags` type with default value of `0`. This property works as supplement to **[`OnlineStatus`](#onlinestatus)** and specifies additional online presence features announced to Steam network. Requires **[`OnlineStatus`](#onlinestatus)** other than `Offline`, and is defined as below:
+Typ `ushort flags` mit dem Standardwert `0`. Diese Eigenschaft funktioniert als Ergänzung zu **[`OnlineStatus`](#onlinestatus)** und gibt zusätzliche Online-Präsenzfunktionen an, die im Steam Netzwerk angekündigt wurden. Erfordert, dass **[`OnlineStatus`](#onlinestatus)** nicht `Offline` ist und ist wie unten definiert:
 
-| Wert | Name              | Beschreibung                              |
-| ---- | ----------------- | ----------------------------------------- |
-| 0    | None              | No special online presence flags, default |
-| 256  | ClientTypeWeb     | Client is using web interface             |
-| 512  | ClientTypeMobile  | Client is using mobile app                |
-| 1024 | ClientTypeTenfoot | Client is using big picture               |
-| 2048 | ClientTypeVR      | Client is using VR headset                |
+| Wert | Name              | Beschreibung                                    |
+| ---- | ----------------- | ----------------------------------------------- |
+| 0    | None              | Keine speziellen Online-Präsenz-Flags, Standard |
+| 256  | ClientTypeWeb     | Client verwendet Webschnittstelle               |
+| 512  | ClientTypeMobile  | Client verwendet mobile App                     |
+| 1024 | ClientTypeTenfoot | Der Kunde benutzt den BigPicture-Modus          |
+| 2048 | ClientTypeVR      | Client verwendet ein VR-Headset                 |
 
-Bitte bedenken Sie, dass diese Eigenschaft (Property) das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Schlagen Sie gerne **[json mapping](#json-mapping)** nach, wenn Sie mehr erfahren möchten. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
+Bitte bedenken Sie, dass diese Eigenschaft (Property) ein Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Schlagen Sie gerne **[json mapping](#json-mapping)** nach, wenn Sie mehr erfahren möchten. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
 
-The underlying `EPersonaStateFlag` type that this property is based on includes more available flags, however, to the best of our knowledge they have absolutely no effect as of today, therefore they were cut for visibility.
+Das zugrunde liegende `EPersonaStateFlag` Typ, auf dem diese Eigenschaft basiert, enthält mehr verfügbare Flags. Doch nach bestem Wissen haben sie ab heute überhaupt keine Wirkung; deshalb wurden sie wegen ihrer Sichtbarkeit abgeschnitten.
 
-Wenn Du Dir nicht sicher bist, wie Du diese Eigenschaft (Property) einstellen sollst, belasse sie bei dem Standardwert `0`.
+Belassen Sie den Standardwert `0`, wenn Sie sich nicht sicher sind, wie Sie diese Eigenschaft einstellen sollen.
 
 ---
 
@@ -656,13 +656,13 @@ Typ `byte` mit einem Standardwert `1`. Diese Eigenschaft (Property) gibt den Sta
 | 6    | LookingToPlay  |
 | 7    | Invisible      |
 
-`Offline` Status ist extrem nützlich für primäre Konten. Wie Sie wissen sollten, zeigt das Sammeln eines Spiels tatsächlich den Steam-Status als "Spielt: XXX" an, was für Freunde irreführend sein kann und sie verwirrt, dass Sie ein Spiel spielen, während eigentlich nur gesammelt wird. Die Verwendung des `Offline`-Status löst dieses Problem. Das Konto wird nie als "im Spiel" angezeigt, wenn Sie Steam-Karten mit ASF sammeln. Dies ist dank der Tatsache möglich, dass sich ASF nicht in Steam Community anmelden muss, um richtig zu funktionieren. Also spielen wir tatsächlich diese Spiele, sind mit dem Steam-Netzwerk verbunden, aber ohne unsere Online-Präsenz überhaupt bekannt zu geben. Bedenken Sie, dass gespielte Spiele im Offline-Status immer noch auf die gesamte Spielzeit zählen und in dem Profil als "kürzlich gespielt" angezeigt werden.
+`Offline` Status ist extrem nützlich für primäre Konten. Wie Sie wissen sollten, zeigt das Sammeln eines Spiels tatsächlich den Steam-Status als "Spielt: XXX" an, was für Freunde irreführend sein kann und sie verwirrt, dass Sie ein Spiel spielen, während eigentlich nur gesammelt wird. Die Verwendung des `Offline`-Status löst dieses Problem. Das Konto wird nie als "im Spiel" angezeigt, wenn Sie Steam-Karten mit ASF sammeln. Dies ist dank der Tatsache möglich, dass sich ASF nicht in die Steam-Community anmelden muss, um richtig zu funktionieren. Also spielen wir tatsächlich diese Spiele, sind mit dem Steam-Netzwerk verbunden, aber ohne unsere Online-Präsenz überhaupt bekannt zu geben. Bedenken Sie, dass gespielte Spiele im Offline-Status immer noch auf die gesamte Spielzeit zählen und in dem Profil als "kürzlich gespielt" angezeigt werden.
 
-Darüber hinaus ist diese Funktion auch wichtig, wenn Sie Benachrichtigungen und ungelesene Nachrichten erhalten möchten, während ASF läuft, ohne den Steam-Client gleichzeitig offen zu halten. Dies liegt daran, dass ASF selbst als Steam-Client fungiert, und ob ASF es möchte oder nicht, Steam sendet all diese Nachrichten (und andere Ereignisse) an ihn. Dies ist kein Problem, wenn Sie sowohl ASF als auch den eigenen Steam-Client ausführen, da beide Clients genau die gleichen Ereignisse empfangen. Wenn jedoch nur ASF läuft, könnte das Steam-Netzwerk bestimmte Ereignisse und Nachrichten als "zugestellt" markieren, obwohl der herkömmlicher Steam-Client diese nicht erhält, weil er nicht anwesend ist. Der Offline-Status löst auch dieses Problem, da ASF in diesem Fall nie für Community-Events in Betracht gezogen wird, sodass alle ungelesenen Nachrichten und andere Ereignisse bei ihrer Rückkehr ordnungsgemäß als ungelesen markiert werden.
+Darüber hinaus ist diese Funktion auch wichtig, wenn Sie Benachrichtigungen und ungelesene Nachrichten erhalten möchten, während ASF läuft, ohne den Steam-Client gleichzeitig geöffnet zu lassen. Dies liegt daran, dass ASF selbst als Steam-Client fungiert, und ob ASF es möchte oder nicht, Steam sendet all diese Nachrichten (und andere Ereignisse) an ihn. Dies ist kein Problem, wenn Sie sowohl ASF als auch den eigenen Steam-Client ausführen, da beide Clients genau die gleichen Ereignisse empfangen. Wenn jedoch nur ASF läuft, könnte das Steam-Netzwerk bestimmte Ereignisse und Nachrichten als "zugestellt" markieren, obwohl der herkömmliche Steam-Client diese nicht erhält, weil er nicht anwesend ist. Der Offline-Status löst auch dieses Problem, da ASF in diesem Fall nie für Community-Events in Betracht gezogen wird, sodass alle ungelesenen Nachrichten und andere Ereignisse bei ihrer Rückkehr ordnungsgemäß als ungelesen markiert werden.
 
-Es ist wichtig zu beachten, dass ASF, das im `Offline` Modus läuft, **nicht** in der Lage sein wird, Befehle auf herkömmliche Weise im Steam-Chat zu empfangen, da der Chat sowie die gesamte Community-Präsenz in der Tat völlig offline ist. Eine Lösung für dieses Problem ist die Verwendung des Modus `Invisible`, der auf ähnliche Weise funktioniert (nicht den Status offenbart), aber die Fähigkeit behält, Nachrichten zu empfangen und zu beantworten (also auch das Potenzial, Benachrichtigungen und ungelesene Nachrichten wie oben beschrieben zu verwerfen). Der Modus `Invisible` ist am sinnvollsten bei Alternativ-Konten, die statusmäßig unsichtbar bleiben sollen, aber trotzdem in der Lage sind, Befehle zu senden.
+Es ist wichtig zu beachten, dass ASF, das im `Offline` Modus läuft, **nicht** in der Lage sein wird, Befehle auf herkömmliche Weise im Steam-Chat zu empfangen, da der Chat sowie die gesamte Community-Präsenz in der Tat völlig offline ist. Eine Lösung für dieses Problem ist die Verwendung des Modus `Invisible`, der auf ähnliche Weise funktioniert (nicht den Status offenbaren), aber die Fähigkeit behält, Nachrichten zu empfangen und zu beantworten (also auch das Potenzial, Benachrichtigungen und ungelesene Nachrichten wie oben beschrieben zu verwerfen). Der Modus `Invisible` ist am sinnvollsten bei Alternativ-Konten, die statusmäßig unsichtbar bleiben sollen, aber trotzdem in der Lage sind, Befehle zu senden.
 
-Es gibt jedoch einen Haken beim `Invisible` Modus - er funktioniert nicht gut mit primären Konten. Dies liegt daran, dass **jede** Steam-Sitzung, die derzeit online ist, den Status **anzeigt**, auch wenn ASF selbst es nicht tut. Dies wird durch Begrenzung/Fehler des Steam-Netzwerks verursacht, die auf der ASF-Seite nicht behoben werden können, sodass Sie, wenn Sie den `Invisible`-Modus verwenden möchten, auch sicherstellen müssen, dass **alle** andere Sitzungen zum gleichen Konto auch den `Invisible`-Modus verwenden. Dies trifft auf Alternativ-Konten zu, bei denen ASF hoffentlich die einzige aktive Sitzung ist, aber bei primären Konten werden Sie es fast immer vorziehen, sich ihren Freunden als `Online` anzuzeigen, indem nur die Aktivität von ASF versteckt wird, und in diesem Fall wird der `Invisible`-Modus für Sie völlig nutzlos sein (wir empfehlen, stattdessen den `Offline`-Modus zu verwenden). Hoffentlich wird diese Beschränkung/Fehler in Zukunft von Valve behoben, aber ich würde nicht erwarten, dass das irgendwann bald passieren wird...
+Es gibt jedoch einen Haken beim `Invisible` Modus - er funktioniert nicht gut mit primären Konten. Dies liegt daran, dass **jede** Steam-Sitzung, die derzeit online ist, den Status **anzeigt**, auch wenn ASF selbst es nicht tut. Dies wird durch Begrenzung/Fehler des Steam-Netzwerks verursacht, die seitens ASF-Seite nicht behoben werden können, sodass Sie, wenn Sie den `Invisible`-Modus verwenden möchten, auch sicherstellen müssen, dass **alle** andere Sitzungen zum gleichen Konto auch den `Invisible`-Modus verwenden. Dies trifft auf Alternativ-Konten zu, bei denen ASF hoffentlich die einzige aktive Sitzung ist, aber bei primären Konten werden Sie es fast immer vorziehen, sich ihren Freunden als `Online` anzuzeigen, indem nur die Aktivität von ASF versteckt wird, und in diesem Fall wird der `Invisible`-Modus für Sie völlig nutzlos sein (wir empfehlen, stattdessen den `Offline`-Modus zu verwenden). Hoffentlich wird diese Beschränkung/Fehler in Zukunft von Valve behoben, aber ich würde nicht erwarten, dass dies zeitnah passieren wird...
 
 Wenn Sie sich nicht sicher sind, wie Sie diese Eigenschaft (Property) einrichten sollen, wird empfohlen, einen Wert von `0` (`Offline`) für primäre Konten und den Standard `1` (`Online`) anderweitig zu verwenden.
 
