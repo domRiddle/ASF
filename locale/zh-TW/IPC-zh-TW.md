@@ -287,7 +287,7 @@ server {
 
 ### 為什麼我在不使用 `IPCPassword` 時，收到 `403 Forbidden` 錯誤？
 
-ASF includes additional security measure that, by default, allows only loopback interface (`localhost`, your own machine) to access ASF API without `IPCPassword` set in the config. 這是因為使用&#8203;`IPCPassword`&#8203;應該是每個決定進一步公開ASF介面的人所需的&#8203;**最低限度**&#8203;安全措施。
+ASF包含了了額外的安全措施。在預設情形下，只允許回送介面（&#8203;`localhost`&#8203;，您自己的設備）在不設定&#8203;`IPCPassword`&#8203;的情形下存取ASF API。 這是因為使用&#8203;`IPCPassword`&#8203;應該是每個決定進一步公開ASF介面的人所需的&#8203;**最低限度**&#8203;安全措施。
 
 之所以做出這個改動，是因為大量不知情的使用者代管的ASF被惡意接管，通常會導致他們失去自己的帳號及物品。 雖然我們可以說「他們應當在向全世界公開ASF之前閱讀本頁面」，但預設成不允許不安全的ASF設定則更為合理，且使用者確切想要允許它時，就需要使用者執行操作，我們在下列有詳細的說明。
 

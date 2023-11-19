@@ -60,7 +60,7 @@ Linux/macOS：
 
 ---
 
-`--ignore-unsupported-environment`&#8203;⸺使ASF忽略在不支援環境中執行的各種問題。而在原本的情形下，會顯示程式出錯並強制退出。 Unsupported environment includes for example running `win-x64` OS-specific build on `linux-x64`. 雖然此旗標使ASF能夠嘗試在這些情境中執行，但請注意，我們不正式支援此行為。若您強制ASF這樣做，&#8203;**後果自負**&#8203;。 As of today, **all** of the unsupported environment scenarios can be corrected. 我們強烈建議從根本上修正問題，而非去使用這個引數。
+`--ignore-unsupported-environment`&#8203;⸺使ASF忽略在不支援環境中執行的各種問題。而在原本的情形下，會顯示程式出錯並強制退出。 不支援包含例如在&#8203;`linux-x64`&#8203;上執行適用於&#8203;`win-x64`&#8203;版本的組建等的情形。 雖然此旗標使ASF能夠嘗試在這些情境中執行，但請注意，我們不正式支援此行為。若您強制ASF這樣做，&#8203;**後果自負**&#8203;。 目前，&#8203;**所有**&#8203;不受支援環境的情形皆可被修正。 我們強烈建議從根本上修正問題，而非去使用這個引數。
 
 ---
 

@@ -29,7 +29,7 @@ dotnet publish ArchiSteamFarm -c "Release" -o "out/generic"
 若您有需要，也可以生成適用於特定作業系統的.NET套件。 在一般情形下，不需要這樣做，因為您剛剛編譯了&#8203;`generic`&#8203;版本，您可以使用已安裝用於編譯的.NET執行環境來執行，但以防萬一您想要：
 
 ```shell
-dotnet publish ArchiSteamFarm -c "Release" -o "out/linux-x64" -r "linux-x64"
+dotnet publish ArchiSteamFarm -c "Release" -o "out/generic"
 ```
 
 當然，您需要將&#8203;`linux-x64`&#8203;取代成您所需目標的作業系統架構，例如&#8203;`win-x64`&#8203;。 這個組建版本也將停用自動更新。
@@ -43,13 +43,13 @@ ASF-ui作為&#8203;**[Git Submodule](https://git-scm.com/book/en/v2/Git-Tools-Su
 除了&#8203;`cc.sh`&#8203;腳本，我們也在下文附上簡明組建說明，請參閱&#8203;**[ASF-ui儲存庫](https://github.com/JustArchiNET/ASF-ui)**&#8203;以獲得更多說明文件。 從ASF的Source Tree位置，同上所述，執行以下命令：
 
 ```shell
-rm -rf "ASF-ui/dist" # ASF-ui doesn't clean itself after old build
+rm -rf "ASF-ui/dist" # ASF-ui 不會自行清除舊組建版本
 
 npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
-rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
-dotnet publish ArchiSteamFarm -c "Release" -o "out/generic" # Or accordingly to what you need as per the above
+rm -rf "out/generic/www" # 確保我們的組建輸出不會含有舊檔案
+dotnet publish ArchiSteamFarm -c "Release" -o "out/generic" # 或依據上文選擇您所需的
 ```
 
 您現在應該可以在&#8203;`out/generic/www`&#8203;資料夾中找到ASF-ui檔案了。 ASF能向您的瀏覽器伺服這些檔案。
@@ -76,6 +76,6 @@ dotnet publish ArchiSteamFarm -c "Release" -o "out/generic" # Or accordingly to 
 
 ## 官方發布版本
 
-Official ASF releases are compiled by **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)**, with latest .NET SDK that matches ASF **[runtime requirements](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility#runtime-requirements)**. 通過測試後，所有套件會都作為發布版本部署，並放置在GitHub上。 這也保證了透明度，因為GitHub都會使用官方開源來進行所有的組建，並且您也可以檢查GitHub部件的核對和及GitHub的發布資源。 除了私人的開發過程及除錯外，ASF開發人員不會自行編譯或發布組建版本。
+官方ASF發布版本由&#8203;**[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions)**&#8203;編譯，並帶有符合ASF&#8203;**[執行環境](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-zh-TW#執行環境需求)**&#8203;的最新.NET SDK。 通過測試後，所有套件會都作為發布版本部署，並放置在GitHub上。 這也保證了透明度，因為GitHub都會使用官方開源來進行所有的組建，並且您也可以檢查GitHub部件的核對和及GitHub的發布資源。 除了私人的開發過程及除錯外，ASF開發人員不會自行編譯或發布組建版本。
 
-In addition to the above, ASF maintainers manually validate and publish build checksums on independent from GitHub, remote ASF server, as additional security measure. 現有的ASF必須執行此步驟，才能將該版本視為自動更新功能的有效候選版本。
+除了上述情形外，ASF維護人員會在獨立於GitHub的遠端ASF伺服器上手動驗證並發布組建核對和，作為額外的安全措施。 現有的ASF必須執行此步驟，才能將該版本視為自動更新功能的有效候選版本。
