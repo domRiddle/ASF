@@ -195,7 +195,7 @@ Jedoch **gibt es** einen Unterschied, und Du kannst deutlich feststellen, dass, 
 
 ### Can ASF automatically play each game for X hours before cards are added?
 
-**Nein**, der Sinn der Systemumstellung von Steam-Karten war es, mit falschen Statistiken und Geisterspielern zu kämpfen. ASF wird nicht mehr als nötig dazu beitragen, denn das Hinzufügen eines solchen Features ist nicht geplant und wird nicht geschehen. If your game receives card drops in usual way, ASF will farm them as soon as possible.
+**Nein**, der Sinn der Systemumstellung von Steam-Karten war es, mit falschen Statusstiken und Geisterspielern zu kämpfen. ASF wird nicht mehr als nötig dazu beitragen, denn das Hinzufügen eines solchen Features ist nicht geplant und wird nicht geschehen. If your game receives card drops in usual way, ASF will farm them as soon as possible.
 
 ---
 
@@ -401,7 +401,7 @@ Natürlich gibt es immer noch sinnvolle Anwendungsfälle für mehrere ASF-Instan
 
 ### Was bedeutet Status beim Einlösen eines Produktschlüssels?
 
-Der Status zeigt an, wie sich der gegebene Einlösungsversuch ausgewirkt hat. Es gibt viele verschiedene Stati, darunter die gängigsten:
+Der Status zeigt an, wie sich der gegebene Einlösungsversuch ausgewirkt hat. Es gibt viele verschiedene Status, darunter die gängigsten:
 
 | Status                  | Beschreibung                                                                                                                                                                                                                                                         |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -1,23 +1,23 @@
-# FAQ
+# (FAQ) Često Postavljana Pitanja
 
-Our basic FAQ covers standard questions and answers that you may have. For a less common matters, please visit our **[extended FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)** instead.
+Naš osnovni FAQ obuhvata standardna pitanja i odgovore koje možete imati. Za rjeđa postavljena pitanja, posjetite **[prošireni FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Extended-FAQ)**.
 
-# Table of contents
+# Sadržaj
 
-* [General](#general)
-* [Comparison with similar tools](#comparison-with-similar-tools)
-* [Security / Privacy / VAC / Bans / ToS](#security--privacy--vac--bans--tos)
-* [Misc](#misc)
-* [Issues](#issues)
+* [Opšte](#general)
+* [Upoređivanje sa sličnim alatkama](#comparison-with-similar-tools)
+* [Sigurnost / Privatnost / VAC / Banovi / ToS](#security--privacy--vac--bans--tos)
+* [Razno](#misc)
+* [Problemi](#issues)
 
 ---
 
-## General
+## Opšte
 
-### What is ASF?
+### Šta je ASF?
 ### Why does the program claim that there is nothing to farm on my account?
-### Why ASF doesn't detect all of my games?
-### Why is my account limited?
+### Zašto ASF ne detektuje sve moje igre?
+### Zašto je moj nalog limitiran?
 
 Before trying to understand what ASF is, you should make sure that you understand what Steam cards are, and how to obtain them, which is nicely described in official FAQ **[here](https://steamcommunity.com/tradingcards/faq)**.
 
@@ -55,7 +55,7 @@ Keep in mind that ASF tool is for your personal use and your credentials are nev
 
 ---
 
-### How long do I have to wait for cards to drop?
+### Koliko dugo treba da čekam da dobijem kartice?
 
 **As long as it takes** - seriously. Every game has different farming difficulty set by developer/publisher, and it's totally up to them how fast cards are being dropped. Majority of the games follow 1 drop per 30 minutes of playing, but there are also games requiring from you to play even several hours before dropping a card. In addition to that, your account could be restricted from receiving card drops from games you didn't play for enough time yet, as stated in **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section. Do not attempt to make guesses how long ASF should farm given title - it's not up to you, neither ASF to decide. There is nothing you can do to make it faster, and there is no "bug" related to cards not being dropped in timely fashion - you do not control cards dropping process, neither does ASF. In the best case, you'll receive average of 1 drop per 30 minutes. In the worst case, you won't receive any card even for 4 hours since starting ASF. Both of those situations are normal and covered in our **[performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance)** section.
 
@@ -73,7 +73,7 @@ ASF gives you rough approximation based on number of cards you need to drop, and
 
 ---
 
-### Can ASF work on my android/smartphone?
+### Da li može ASF raditi na mome androidu/pametnom telefonu?
 
 ASF is a C# program that requires working implementation of .NET. Android became a valid platform starting with .NET 6.0, however, there is currently a major blocker in making ASF happen on Android due to **[lack of ASP.NET runtime available on it](https://github.com/dotnet/aspnetcore/issues/35077)**. Even though there isn't a native option available, there are proper and working builds for GNU/Linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
 
@@ -97,7 +97,7 @@ In addition to managing automatic cards farming module which was described above
 
 ### I'm not interested in card drops, I'd like to farm hours played instead, is that possible?
 
-Yes, ASF allows you to do that through at least several ways.
+Da, ASF Vam omogućava da radite to kroz par različitih naćina.
 
 The best way to achieve that is to make use of **[`GamesPlayedWhileIdle`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#gamesplayedwhileidle)** configuration property, which will play your chosen appIDs when ASF has no cards to farm. If you'd like to play your games all the time, even if you do have card drops from other games, then you can combine it with **[`FarmPriorityQueueOnly`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#farmpriorityqueueonly)**, so ASF will farm only those games for card drops that you explicitly set, or **[`Paused`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#paused)**, which will cause cards farming module to be paused until you unpause it yourself.
 
@@ -111,7 +111,7 @@ Yes, ASF is not even bothering with downloading actual game files, so it will wo
 
 ---
 
-## Comparison with similar tools
+## Upoređivanje sa sličnim alatkama
 
 ---
 
@@ -163,7 +163,7 @@ We could now go on and on with entire **[ASF wiki](https://github.com/JustArchiN
 
 ---
 
-### Is ASF faster than Idle Master?
+### Da li je ASF brži od Idle Master-a?
 
 **Yes**, although the explanation is rather complicated.
 
@@ -207,11 +207,11 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 ---
 
-## Security / Privacy / VAC / Bans / ToS
+## Sigurnost / Privatnost / VAC / Banovi / ToS
 
 ---
 
-### Can I get VAC ban for using this?
+### Da li mogu dobiti VAC ban zbog korištenja ove alatke?
 
 No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor its processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running - this is because **ASF doesn't even require Steam Client being installed at all** in order to work properly. ASF is the only farming program that can currently guarantee being VAC-free.
 
@@ -227,7 +227,7 @@ However, keep in mind that Valve could still add ASF to the blacklist at some po
 
 ---
 
-### Is it safe?
+### Da li je sigurno?
 
 If you ask if ASF is safe as a software, which means that it won't cause any damage to your computer, won't steal your private data, install viruses or any other stuff like that - it is safe. ASF is free of malware, data stealing, cryptocurrency miners and any (and all) other doubtful behaviour that can be considered malicious or unwanted by the user. In addition to that we have a dedicated **[remote communication](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication)** section which covers our privacy policy and ASF behaviour that goes beyond what you configured the program to do yourself.
 
@@ -237,7 +237,7 @@ In the end however, it's always a matter of trust to the developer(s) of your ap
 
 ---
 
-### Can I get banned for this?
+### Da li mogu dobiti ban zbog ovoga?
 
 In order to answer that question, we should take a closer look at **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. Steam doesn't prohibit using of multiple accounts, in fact, **[it allows it](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)** implying that you can use same mobile authenticator on more than one account. What it however doesn't allow is sharing accounts with other people, but we're not doing that here.
 
@@ -267,7 +267,7 @@ You're using this software at your own risk. It's very unlikely that you can get
 
 ---
 
-### Did somebody get banned for it?
+### Da li je neko dobio ban zbog ovoga?
 
 **Yes**, we had at least a few incidents so far that resulted in some kind of Steam suspension. Whether ASF itself was the root cause or not is entirely different story that we'll probably never get to know.
 
@@ -307,7 +307,7 @@ You can find detailed explanation in **[remote communication](https://github.com
 
 ---
 
-## Misc
+## Razno
 
 ---
 
@@ -317,7 +317,7 @@ Yes, and that version is not unsupported in any way, just not officially built. 
 
 ---
 
-### ASF is great! Can I make a donation?
+### ASF je odličan! Da li mogu napraviti donaciju?
 
 Yes, and we're very happy to hear that you're enjoying our project! You can find various donation possibilities under every **[release](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** and also **[on the main page](https://github.com/JustArchiNET/ArchiSteamFarm)**. It's nice to note that in addition to generic money donations we also accept Steam items, so nothing is stopping you from donating skins, keys or a small part of the cards that you've farmed with ASF if you'd like to. Thank you in advance for your generosity!
 
@@ -381,7 +381,7 @@ Simply shutdown the ASF process, for example by clicking [X] on Windows. If inst
 
 ---
 
-### How many bots can I run with ASF?
+### Koliko botova mogu imati sa ASF?
 
 ASF as a program doesn't have any hard upper limit of bot instances, so you can run as much as you have memory on your machine, however, you're still being limited by the Steam network and other Steam services. Currently you can run up to 100-200 bots with a single IP and a single ASF instance. It's possible to run more bots with more IPs and more ASF instances, by working around IP limitations. Keep in mind that if you're using that big amount of bots, you should control their number yourself, such as making sure that all of them in fact are logging in and working at the same time. ASF was not tweaked for that huge number of bots, and the general rule applies that **the more bots you have, the more issues you'll encounter**. Also notice that the limit above in general depends on many internal factors, it's approximation rather than a strict limit - you will most likely be able to run more/less bots than specified above.
 
@@ -432,7 +432,7 @@ It's your account and your choice. Just don't say that nobody warned you. ASF as
 
 ---
 
-## Issues
+## Problemi
 
 ---
 
