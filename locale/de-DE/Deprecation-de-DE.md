@@ -1,12 +1,12 @@
 # Veraltete Funktionen
 
-We're doing our best to follow consistent deprecation policy in order to make both development as well as usage far more consistent.
+Wir tun unser Bestes, um die konsequente Verfallspolitik zu verfolgen, um sowohl die Entwicklung als auch die Nutzung wesentlich konsistenter zu gestalten.
 
 ---
 
 ## Was ist Verfall (engl. Deprecation)?
 
-Verfall (engl. Deprecation) beschreibt den Prozess kleinere oder größere Änderungen vorzunehmen, die zuvor verwendete Optionen, Argumente, Funktionalitäten oder Anwendungsfälle obsolet machen. Verfall (engl. Deprecation) bedeutet in der Regel, dass eine bestimmte Sache einfach in eine andere (ähnliche) Form umgeschrieben wurde und Sie sollten rechtzeitig dafür sorgen, dass Sie sie entsprechend umstellen. In diesem Fall geht es einfach darum, die gegebene Funktionalität an einen geeigneteren Ort zu verlagern.
+Verfall (engl. Deprecation) beschreibt den Prozess kleinerer oder größerer Änderungen, die zuvor verwendete Optionen, Argumente, Funktionalitäten oder Anwendungsfälle obsolet machen. Verfall (engl. Deprecation) bedeutet in der Regel, dass eine bestimmte Sache einfach in eine andere (ähnliche) Form umgeschrieben wurde und Sie sollten rechtzeitig dafür sorgen, dass Sie sie entsprechend umstellen. In diesem Fall geht es einfach darum, die gegebene Funktionalität an einen geeigneteren Ort zu verlagern.
 
 ASF verändert sich schnell und strebt immer danach besser zu werden. Dies bedeutet leider, dass wir eventuell einige bestehende Funktionen ändern oder in ein anderes Teilstück des Programms verschieben müssen, damit es von neuen Funktionen, Kompatibilität oder Stabilität profitieren kann. Dank dessen müssen wir nicht an veralteten oder einfach schmerzhaft falschen Entscheidungen festhalten die wir vor Jahren getroffen haben. Wir versuchen immer einen vernünftigen Ersatz anzubieten, der der erwarteten Nutzung der zuvor verfügbaren Funktionalität entspricht, weshalb der Verfall (engl. Deprecation) meist harmlos ist und kleine Korrekturen für die vorherige Benutzung erfordert.
 

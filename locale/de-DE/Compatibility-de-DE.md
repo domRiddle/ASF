@@ -1,6 +1,6 @@
 # Kompatibilität
 
-ASF ist eine C#-Anwendung, welche mit der .NET-Plattform ausgeführt wird. Das bedeutet, dass ASF nicht direkt in **[Maschinencode](https://en.wikipedia.org/wiki/Machine_code)** kompiliert wird, der auf der CPU läuft, sondern in **[CIL](https://de.wikipedia.org/wiki/Common_Intermediate_Language)**, welche eine CIL-kompatible Runtime für dessen Ausführung benötigt.
+ASF ist eine C#-Anwendung, welche mit der .NET-Plattform ausgeführt wird. Das bedeutet, dass ASF nicht direkt in **[Maschinencode](https://de.wikipedia.org/wiki/Machine_code)** kompiliert wird, der auf der CPU läuft, sondern in **[CIL](https://de.wikipedia.org/wiki/Common_Intermediate_Language)**, welche eine CIL-kompatible Runtime für dessen Ausführung benötigt.
 
 Dieser Ansatz hat enorme Vorteile, da CIL plattformunabhängig ist. Aus diesem Grund kann ASF nativ auf vielen verfügbaren Betriebssystemen, insbesondere Windows, Linux und macOS, ausgeführt werden. Es wird nicht nur keine Emulation benötigt, sondern auch Unterstützung für alle plattformbezogenen und hardwarebezogenen Optimierungen, wie z. B. CPU-SSE-Anweisungen. Dank dessen kann ASF eine überlegene Leistung und Optimierung erreichen, während es gleichzeitig eine perfekte Kompatibilität und Zuverlässigkeit bietet.
 

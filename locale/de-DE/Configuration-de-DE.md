@@ -285,9 +285,9 @@ Typ `byte flags` mit einem Standardwert `7`. Diese Eigenschaft (Property) defini
 | Wert | Name      | Beschreibung                                                                                     |
 | ---- | --------- | ------------------------------------------------------------------------------------------------ |
 | 0    | None      | Kein Protokoll                                                                                   |
-| 1    | TCP       | **[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)** |
-| 2    | UDP       | **[User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol)**               |
-| 4    | WebSocket | **[WebSocket](https://en.wikipedia.org/wiki/WebSocket)**                                         |
+| 1    | TCP       | **[Transmission Control Protocol](https://de.wikipedia.org/wiki/Transmission_Control_Protocol)** |
+| 2    | UDP       | **[User Datagram Protocol](https://de.wikipedia.org/wiki/User_Datagram_Protocol)**               |
+| 4    | WebSocket | **[WebSocket](https://de.wikipedia.org/wiki/WebSocket)**                                         |
 
 Bitte bedenken Sie, dass diese Eigenschaft (Property) das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Schlagen Sie gerne **[json mapping](#json-mapping)** nach, wenn Sie mehr erfahren möchten. Sofern keine der "Flags" führt zur Option `None`, welche an sich bereits ungültig ist.
 
@@ -472,7 +472,7 @@ Momentan werden folgende Gegenstandsarten in dieser Einstellung unterstützt:
 | 3    | FoilTradingCard | Glanz-Variante von `TradingCard`                                                       |
 | 5    | TradingCard     | Steam-Sammelkarte, die für die Herstellung von Abzeichen (ohne Glanz) verwendet werden |
 
-Bitte bedenken Sie, dass ASF unabhängig von den obigen Einstellungen nur nach Steam (`appID` von 753) Community (`contextID` von 6)-Gegenständen fragt, sodass alle Spiel-Gegenstände /-Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
+Please note that regardless of the settings above, ASF will only ask for **[Steam community items](https://steamcommunity.com/my/inventory/#753_6)** (`appID` of 753, `contextID` of 6), so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
 Aufgrund der zusätzlichen Mehrbelastung durch Verwendung dieser Option wird es empfohlen, diese Einstellung nur auf Bot-Konten zu verwenden, die eine realistische Chance haben, Sets selbst zu beenden. Es ergibt beispielsweise keinen Sinn, diese Eigenschaft (Property) zu aktivieren, wenn bereits `SendOnFarmingFinished`, `SendTradePeriod` oder `loot` auf üblicher Basis verwendet wird.
 
@@ -583,7 +583,7 @@ Typ `ImmutableHashSet<byte>` mit dem Standardwert `1, 3, 5` als Steam-Gegenstand
 | 15   | KeyboardSkin          | Spezieller Tastatur-Skin für das Steam Deck                                                   |
 | 16   | StartupVideo          | Spezielles Start-Video für das Steam Deck                                                     |
 
-Bitte beachten Sie, dass ASF unabhängig von den obigen Einstellungen nur nach Community (`contextID` von 6) Gegenständen für Steam (`appID` von 753) fragt, sodass alle Spielgegenstände und Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
+Please note that regardless of the settings above, ASF will only ask for **[Steam community items](https://steamcommunity.com/my/inventory/#753_6)** (`appID` of 753, `contextID` of 6), so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
 Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bots, wobei nur Boosterpacks und handelbare Sammelkarten (einschließlich Glanzkarten) geöffnet werden. Die hier definierte Eigenschaft (Property) ermöglicht es Ihnen, dieses Verhalten so zu verändern, dass es Sie zufrieden stellt. Bitte bedenken Sie, dass alle nicht oben definierten Typen als `Unknown` angezeigt werden, was besonders wichtig ist, wenn Valve einen neuen Steam-Gegenstand veröffentlicht, der ebenfalls von ASF als `Unknown` markiert wird, bis er hier (in einer zukünftigen Version) hinzugefügt wird. Deshalb ist es im Allgemeinen nicht empfehlenswert, `Unknown` in Ihren `LootableTypes` einzugeben, es sei denn, Sie wissen genau, was Sie tun und verstehen auch, dass ASF das gesamtes Inventar in einem Handelsangebot versenden wird, wenn das Steam-Netzwerk wieder unterbrochen wird und alle Ihre Gegenstände als `Unknown` meldet. Mein nachdrücklicher Vorschlag ist, `Unknown` nicht in das Feld `LootableTypes` einzutragen, selbst wenn Sie alles übertragen möchten.
 
@@ -732,7 +732,7 @@ Weitere Erläuterungen zu diesem Thema finden Sie im Abschnitt **[Fernkommunikat
 
 Typ `bool` mit dem Standardwert `false`. Wenn ASF mit dem Sammeln des angegebenen Kontos fertig ist, kann es automatisch ein Steam-Handelsangebot mit allem, was bis zu diesem Punkt gesammelt wurde, an den Benutzer mit der Berechtigung `Master` senden; was sehr praktisch ist, falls Sie sich nicht selbst mit den Handelsangeboten beschäftigen möchten. Diese Option funktioniert genauso wie der `loot`-Befehl. Beachten Sie deshalb, dass Sie einen Benutzer mit der Berechtigung `Master` benötigen; möglicherweise benötigen Sie zusätzlich einen gültigen `SteamTradeToken`, sowie ein Konto, das überhaupt zum Handel zugelassen ist. Zusätzlich zum Einleiten von `loot` nach Beendigung des Sammelns initiiert ASF auch `loot` bei jeder Benachrichtigung über neue Gegenstände (wenn nicht am Sammeln) und nach Abschluss jedes Handelsangebotes, der zu neuen Gegenständen führt (immer), wenn diese Option aktiv ist. Dies ist besonders nützlich, um erhaltene Gegenstände von anderen Personen an unser Konto "weiterzuleiten".
 
-Normalerweise sollten Sie **[ASF-2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** zusammen mit dieser Funktion verwenden; obwohl es keine Voraussetzung ist, wenn Sie beabsichtigen, manuell und rechtzeitig zu bestätigen. Wenn Sie sich nicht sicher sind, wie Sie diese Eigenschaft (Property) einstellen sollen, belassen Sie diese bei dem Standardwert `false`.
+Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to handle 2FA confirmations manually in timely fashion. Wenn Sie sich nicht sicher sind, wie Sie diese Eigenschaft (Property) einstellen sollen, belassen Sie diese bei dem Standardwert `false`.
 
 ---
 
@@ -740,7 +740,7 @@ Normalerweise sollten Sie **[ASF-2FA](https://github.com/JustArchiNET/ArchiSteam
 
 Typ `byte` mit einem Standardwert `0`. Diese Eigenschaft (Property) funktioniert sehr ähnlich wie die Eigenschaft (Property) `SendOnFarmingFinished`, mit einem Unterschied - anstatt Handelsangebote zu senden, wenn das Sammeln abgeschlossen ist, können wir sie auch alle `SendTradePeriod` Stunden senden- unabhängig davon, wie viel wir noch zu sammeln haben. Dies ist nützlich, wenn Sie den normalen `loot` Befehl auf Alternativ-Konten ausführen wollen, anstatt darauf zu warten, dass das Sammeln beenden wird. Der Standardwert von `0` deaktiviert diese Funktion. Wenn Sie möchten, dass ein Bot Ihnen z. B. jeden Tag Handelsangebote sendet, sollten Sie hier `24` eintragen.
 
-Normalerweise sollten Sie **[ASF-2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** zusammen mit dieser Funktion verwenden; obwohl es keine Voraussetzung ist, wenn Sie beabsichtigen, manuell und rechtzeitig zu bestätigen. Belassen Sie den Standardwert `0`, wenn Sie sich nicht sicher sind, wie Sie diese Eigenschaft einstellen sollen.
+Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to handle 2FA confirmations manually in timely fashion. Belassen Sie den Standardwert `0`, wenn Sie sich nicht sicher sind, wie Sie diese Eigenschaft einstellen sollen.
 
 ---
 
@@ -821,14 +821,14 @@ Typ `byte` mit dem Standardwert `60`. Normalerweise verarbeitet ASF eingehende H
 
 Typ `byte flags` mit dem Standardwert `0`. Diese Eigenschaft (Property) definiert das ASF-Verhalten beim Handeln und ist wie folgt definiert:
 
-| Wert | Name                | Beschreibung                                                                                                                                                                                                                     |
-| ---- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | None                | Keine besonderen Handelspräferenzen, Standard                                                                                                                                                                                    |
-| 1    | AcceptDonations     | Akzeptiert Handelsangebote, bei denen wir nichts verlieren                                                                                                                                                                       |
-| 2    | SteamTradeMatcher   | Nimmt passiv an **[STM](https://www.steamtradematcher.com)**-artigen Handelsangeboten teil. Besuche **[Handeln](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-de-DE#steamtradematcher)** für weitere Informationen |
-| 4    | MatchEverything     | Erfordert das Setzen von `SteamTradeMatcher` und akzeptiert dabei neben guten und neutralen auch schlechte Handelsangebote                                                                                                       |
-| 8    | DontAcceptBotTrades | Akzeptiert keine automatischen `loot` Handelsangebote von anderen Bot-Instanzen                                                                                                                                                  |
-| 16   | MatchActively       | Nimmt aktiv an **[STM](https://www.steamtradematcher.com)**-artigen Handelsangeboten teil. Visit **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** for more info    |
+| Wert | Name                | Beschreibung                                                                                                                                                                                                                                     |
+| ---- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0    | None                | Keine besonderen Handelspräferenzen, Standard                                                                                                                                                                                                    |
+| 1    | AcceptDonations     | Akzeptiert Handelsangebote, bei denen wir nichts verlieren                                                                                                                                                                                       |
+| 2    | SteamTradeMatcher   | Nimmt passiv an **[STM](https://www.steamtradematcher.com)**-artigen Handelsangeboten teil. Besuchen Sie **[Handeln](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Trading-de-DE#steamtradematcher)** für weitere Informationen            |
+| 4    | MatchEverything     | Erfordert das Setzen von `SteamTradeMatcher` und akzeptiert dabei neben guten und neutralen auch schlechte Handelsangebote                                                                                                                       |
+| 8    | DontAcceptBotTrades | Akzeptiert keine automatischen `loot` Handelsangebote von anderen Bot-Instanzen                                                                                                                                                                  |
+| 16   | MatchActively       | Nimmt aktiv an **[STM](https://www.steamtradematcher.com)**-artigen Handelsangeboten teil. Besuchen Sie **[ItemsMatcherPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** für weitere Informationen |
 
 Bitte bedenken Sie, dass diese Eigenschaft (Property) das Feld `flags` ist, daher ist es möglich, eine beliebige Kombination von verfügbaren Werten auszuwählen. Schlagen Sie gerne **[json mapping](#json-mapping)** nach, wenn Sie mehr erfahren möchten. Wenn keines der Flags aktiviert wird, wird die Option `None` verwendet.
 
@@ -838,7 +838,7 @@ Für weitere Erläuterungen zur ASF-Handelslogik und zur Beschreibung jedes verf
 
 ### `TransferableTypes`
 
-Typ `ImmutableHashSet<byte>` mit dem Standardwert `1, 3, 5` als Steam-Gegenstands-Typ. This property defines which Steam item types will be considered for transfering between bots, during `transfer` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**. ASF wird sicherstellen, dass nur Gegenstände von `TransferableTypes` in ein Handelsangebot aufgenommen werden, daher kannst Du mit dieser Eigenschaft (Property) wählen, was Du in einem Handelsangebot erhalten möchtest, das an einen deiner Bots gesendet wird.
+Typ `ImmutableHashSet<byte>` mit dem Standardwert `1, 3, 5` als Steam-Gegenstands-Typ. Diese Eigenschaft definiert, welche Steam-Gegenstands-Typen für die Übertragung zwischen Bots beim `transfer` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** berücksichtigt werden. ASF wird sicherstellen, dass nur Gegenstände von `TransferableTypes` in ein Handelsangebot aufgenommen werden, daher können Sie mit dieser Eigenschaft (Property) wählen, was in einem Handelsangebot erhalten sein darf, das an einen ihrer Bots gesendet wird.
 
 | Wert | Name                  | Beschreibung                                                                                           |
 | ---- | --------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -846,39 +846,39 @@ Typ `ImmutableHashSet<byte>` mit dem Standardwert `1, 3, 5` als Steam-Gegenstand
 | 1    | BoosterPack           | Booster Pack mit 3 zufälligen Karten aus einem Spiel                                                   |
 | 2    | Emoticon              | Emoticon zur Verwendung im Steam-Chat                                                                  |
 | 3    | FoilTradingCard       | Glanz-Variante von `TradingCard`                                                                       |
-| 4    | ProfileBackground     | Profilhintergrund zur Verwendung in deinem Steam-Profil                                                |
+| 4    | ProfileBackground     | Profilhintergrund zur Verwendung in Ihrem Steam-Profil                                                 |
 | 5    | TradingCard           | Steam-Sammel-Karte, die für die Herstellung von Abzeichen (Nicht-Glanz) verwendet werden               |
 | 6    | SteamGems             | Steam-Edelsteine, die für die Herstellung von Booster Packs verwendet werden, inklusive Edelsteinsäcke |
 | 7    | SaleItem              | Spezialgegenstände, die während des Steam-Sales vergeben werden                                        |
 | 8    | Consumable            | Spezielle Verbrauchsgegenstände, die nach dem Gebrauch wieder verschwinden                             |
 | 9    | ProfileModifier       | Spezialgegenstände, welche das Aussehen des Steam-Profils verändern können                             |
-| 10   | Aufkleber             | Spezialgegenstände, welche im Steam-Chat verwendet werden können                                       |
+| 10   | Sticker               | Spezialgegenstände, welche im Steam-Chat verwendet werden können                                       |
 | 11   | ChatEffect            | Spezialgegenstände, welche im Steam-Chat verwendet werden können                                       |
-| 12   | MiniProfilhintergrund | Besonderer Hintergrund für Steam Profile                                                               |
+| 12   | MiniProfileBackground | Besonderer Hintergrund für Steam-Profile                                                               |
 | 13   | AvatarProfileFrame    | Besonderer Avatarrahmen für das Steam-Profil                                                           |
 | 14   | AnimatedAvatar        | Besonders animierter Avatar für das Steam-Profil                                                       |
 | 15   | KeyboardSkin          | Spezieller Tastatur-Skin für das Steam Deck                                                            |
-| 16   | StartupVideo          | Spezielles Start-Video für das Steam Deck                                                              |
+| 16   | StartupVideo          | Spezielle Start-Animation für das Steam Deck                                                           |
 
-Bitte bedenke, dass ASF unabhängig von den obigen Einstellungen nur nach Steam (`appID` von 753) Community (`contextID` von 6) Gegenständen fragt, sodass alle Spiel-Gegenstände und Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
+Please note that regardless of the settings above, ASF will only ask for **[Steam community items](https://steamcommunity.com/my/inventory/#753_6)** (`appID` of 753, `contextID` of 6), so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
-Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bot, wobei nur Booster Packs und Trading Cards (einschließlich Folienkarten) gehandelt werden. Die hier definierte Eigenschaft (Property) ermöglicht es Ihnen, dieses Verhalten so zu verändern, dass es Sie zufrieden stellt. Bitte bedenken Sie, dass alle nicht oben definierten Typen als `Unknown` angezeigt werden, was besonders wichtig ist, wenn Valve einen neuen Steam-Gegenstand veröffentlicht, der ebenfalls von ASF als `Unknown` markiert wird, bis er hier (in einer zukünftigen Version) hinzugefügt wird. Deshalb ist es im Allgemeinen nicht empfehlenswert, `Unknown` in deinen `TransferableTypes` einzugeben, es sei denn, Du weißt, was Du tust, und Du verstehst auch, dass ASF dein gesamtes Inventar in einem Handelsangebot versenden wird, wenn das Steam-Netzwerk wieder unterbrochen wird und alle deine Gegenstände als `Unknown` meldet. Mein nachdrücklicher Vorschlag ist, `Unknown` nicht in das Feld `TransferableTypes` einzutragen, selbst wenn Du alles übertragen möchtest.
+Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bots, wobei nur Booster Packs und Sammelkarten (einschließlich Folienkarten) gehandelt werden. Die hier definierte Eigenschaft (Property) ermöglicht es Ihnen, dieses Verhalten so zu verändern, dass es Sie zufrieden stellt. Bitte bedenken Sie, dass alle nicht oben definierten Typen als `Unknown` angezeigt werden, was besonders wichtig ist, wenn Valve einen neuen Steam-Gegenstand veröffentlicht, der ebenfalls von ASF als `Unknown` markiert wird, bis er hier (in einer zukünftigen Version) hinzugefügt wird. Deshalb ist es im Allgemeinen nicht empfehlenswert, `Unknown` in einen `TransferableTypes` einzugeben, es sei denn, Sie wissen, was Sie tun und verstehen auch, dass ASF ihr gesamtes Inventar in einem Handelsangebot versenden wird, wenn das Steam-Netzwerk wieder fehleraft wird und alle Gegenstände als `Unknown` meldet. Mein nachdrücklicher Vorschlag ist, `Unknown` nicht in das Feld `TransferableTypes` einzutragen, selbst wenn Sie alles übertragen möchten.
 
 ---
 
 ### `UseLoginKeys`
 
-Typ `bool` mit dem Standardwert `true`. Diese Eigenschaft (Property) legt fest, ob ASF den Anmelde-Schlüssel-Mechanismus für dieses Steam-Konto verwenden soll. Der Anmelde-Schlüssel-Mechanismus funktioniert sehr ähnlich wie die "Remember me"-Option des offiziellen Steam-Clients, die es ASF ermöglicht, einen temporären, einmaligen Anmelde-Schlüssel für den nächsten Anmeldeversuch zu speichern und zu verwenden, wodurch die Angabe von Passwort, Steam Guard oder 2FA-Code übergangen wird, solange unser Anmelde-Schlüssel gültig ist. Der Anmelde-Schlüssel wird in der Datei `BotName.db` gespeichert und automatisch aktualisiert. Aus diesem Grund musst Du kein Passwort/SteamGuard/2FA-Code angeben, nachdem Du dich nur einmal erfolgreich mit ASF angemeldet hast.
+Typ `bool` mit dem Standardwert `true`. Diese Eigenschaft (Property) legt fest, ob ASF den Anmeldeschlüssel-Mechanismus für dieses Steam-Konto verwenden soll. Der Anmeldeschlüssel-Mechanismus funktioniert sehr ähnlich wie die "Angemeldet bleiben"-Option des offiziellen Steam-Clients, die es ASF ermöglicht, einen temporären, einmaligen Anmeldeschlüssel für den nächsten Anmeldeversuch zu speichern und zu verwenden, wodurch die Angabe von Passwort, Steam Guard oder 2FA-Code übergangen wird, solange unser Anmeldeschlüssel gültig ist. Der Anmeldeschlüssel wird in der Datei `BotName.db` gespeichert und automatisch aktualisiert. Aus diesem Grund müssen Sie kein Passwort/SteamGuard/2FA-Code angeben, nachdem Sie sich nur einmal erfolgreich mit ASF angemeldet haben.
 
-Die Anmelde-Schlüssel werden standardmäßig für deine Bequemlichkeit verwendet, sodass Du nicht bei jedem Anmeldevorgang `SteamPassword`, SteamGuard oder 2FA-Code (wenn Du nicht **[ASF-2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** verwendest) eingeben musst. Es ist auch eine überlegene Alternative, da der Anmelde-Schlüssel nur einmalig verwendet werden kann und dein ursprüngliches Passwort in keiner Weise offenbart. Genau die gleiche Methode wird von deinem ursprünglichen Steam-Client verwendet, der deinen Konto-Namen und Anmelde-Schlüssel für deinen nächsten Anmeldeversuch speichert, was praktisch die gleiche ist wie die Verwendung von `SteamLogin` mit `UseLoginKeys` und leerem `SteamPassword` in ASF.
+Die Anmelde-Schlüssel werden standardmäßig für Ihre Bequemlichkeit verwendet, sodass Sie nicht bei jedem Anmeldevorgang `SteamPassword`, SteamGuard oder 2FA-Code eingeben müssen, sofern Sie nicht **[ASF-2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** verwenden. Es ist auch eine überlegene Alternative, da der Anmeldeschlüssel nur einmalig verwendet werden kann und das ursprüngliche Passwort in keiner Weise offenbart. Genau die gleiche Methode wird vom ursprünglichen Steam-Client verwendet, der den Konto-Namen und Anmeldeschlüssel für Ihren nächsten Anmeldeversuch speichert, was praktisch die gleiche ist, wie die Verwendung von `SteamLogin` mit `UseLoginKeys` und leerem `SteamPassword` in ASF.
 
-Einige Leute sind jedoch vielleicht sogar über dieses kleine Detail besorgt, deshalb steht diese Option hier zur Verfügung, wenn Sie sicherstellen möchten, dass ASF keine Art von Daten speichert, die es ermöglichen würden, die vorherige Sitzung nach dem Schließen wieder aufzunehmen, was dazu führt, dass eine vollständige Authentifizierung bei jedem Anmeldeversuch obligatorisch ist. Das Deaktivieren dieser Option funktioniert genau so, wie wenn Du "Remember me" im offiziellen Steam-Client nicht aktivierst. Wenn Du nicht weißt, was Du tust, solltest Du es bei dem Standardwert `true` belassen.
+Einige Leute sind jedoch vielleicht sogar über dieses kleine Detail besorgt, deshalb steht diese Option hier zur Verfügung, wenn Sie sicherstellen möchten, dass ASF keine Art von Daten speichert, die es ermöglichen würden, die vorherige Sitzung nach dem Schließen wieder aufzunehmen, was dazu führt, dass eine vollständige Authentifizierung bei jedem Anmeldeversuch obligatorisch ist. Das Deaktivieren dieser Option funktioniert genau so, wie wenn Sie "Angemeldet bleiben" im offiziellen Steam-Client deaktiviert lassen. Wenn Sie nicht wissen, was Sie tun, sollten Sie den Standardwert `true` belassen.
 
 ---
 
 ### `UserInterfaceMode`
 
-Typ `byte` mit einem Standardwert `0`. This property specifies user interface mode that the bot will be announced with after logging in to Steam network. Currently you can choose one of below modes:
+Typ `byte` mit einem Standardwert `0`. Diese Eigenschaft (Property) spezifiziert die Bedienoberfläche, mit dem der Bot nach der Anmeldung im Steam-Netzwerk angekündigt wird. Derzeit können Sie einen der folgenden Optionen wählen:
 
 | Wert | Name       |
 | ---- | ---------- |
@@ -886,7 +886,7 @@ Typ `byte` mit einem Standardwert `0`. This property specifies user interface mo
 | `1`  | BigPicture |
 | `2`  | Mobile     |
 
-Wenn Du Dir nicht sicher bist, wie Du diese Eigenschaft (Property) einstellen sollst, belasse sie bei dem Standardwert `0`.
+Wenn Sie sich nicht sicher sind, wie Sie diese Eigenschaft (Property) einstellen sollen, belassen Sie diese bei dem Standardwert `0`.
 
 ---
 
@@ -912,33 +912,33 @@ ASF benutzt eine einfache Dateistruktur.
 
 Um ASF an einen neuen Ort zu verschieben, z. B. auf einen anderen PC, genügt es, das Verzeichnis `config` allein zu verschieben/kopieren, und das ist die empfohlene Art und Weise, jede Form von "ASF-Backups" durchzuführen, da man immer den verbleibenden (Programm-)Teil von GitHub herunterladen kann, ohne zu riskieren, interne ASF-Dateien zu beschädigen, z. B. durch ein fehlerhaftes Backup.
 
-Die `log.txt` Datei enthält das Protokoll, das durch deinen letzten ASF-Lauf erzeugt wurde. Diese Datei enthält keine sensiblen Informationen und ist äußerst nützlich, wenn es um Probleme, Abstürze oder einfach nur als Information an dich geht, was im letzten ASF-Lauf passiert ist. Wir werden sehr oft nach dieser Datei fragen, wenn Sie auf Probleme oder Fehler stoßen. ASF verwaltet diese Datei automatisch für dich, aber Du kannst die ASF **[Protokollierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-de-DE)**s-Modul weiter optimieren, wenn Du ein fortgeschrittener Benutzer bist.
+Die `log.txt` Datei enthält das Protokoll, das durch Ihre letzte ASF-Ausführung erzeugt wurde. Diese Datei enthält keine sensiblen Informationen und ist äußerst nützlich, wenn es um Probleme, Abstürze oder einfach nur als Information an Sie geht, was während der letzten Ausführung von ASF passiert ist. Wir werden sehr oft nach dieser Datei fragen, wenn Sie auf Probleme oder Fehler stoßen. ASF verwaltet diese Datei automatisch für Sie, aber Sie können die ASF **[Protokollierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-de-DE#Protokollierung)**s-Modul weiter optimieren, wenn Sie ein fortgeschrittener Benutzer sind.
 
 `config` Verzeichnis ist der Ort, der die Konfiguration für ASF enthält, einschließlich aller seiner Bots.
 
-`ASF.json` ist eine globale ASF-Konfigurationsdatei. Diese Konfiguration wird verwendet, um anzugeben, wie sich ASF als Prozess verhält, was alle Bots und das Programm selbst betrifft. Dort findest Du globale Eigenschaften wie ASF-Prozesseigentümer, automatische Aktualisierungen oder Debugging.
+`ASF.json` ist eine globale ASF-Konfigurationsdatei. Diese Konfiguration wird verwendet, um anzugeben, wie sich ASF als Prozess verhält, was alle Bots und das Programm selbst betrifft. Dort finden Sie globale Eigenschaften, wie ASF-Prozesseigentümer, automatische Aktualisierungen oder Debugging.
 
-`BotName.json` ist eine Konfiguration der gegebenen Bot-Instanz. Diese Konfiguration wird verwendet, um das Verhalten einer gegebenen Bot-Instanz festzulegen, daher sind diese Einstellungen nur für diesen Bot spezifisch und nicht für andere bestimmt. Dies ermöglicht es dir, Bots mit verschiedenen Einstellungen zu konfigurieren, und nicht unbedingt alle funktionieren auf die gleiche Weise. Jeder Bot wird mit einer eindeutigen Kennzeichnung benannt, die Sie anstelle von `BotName` auswählen.
+`BotName.json` ist eine Konfiguration der gegebenen Bot-Instanz. Diese Konfiguration wird verwendet, um das Verhalten einer gegebenen Bot-Instanz festzulegen, daher sind diese Einstellungen nur für diesen Bot spezifisch und nicht für andere bestimmt. Dies ermöglicht es Ihnen, Bots mit verschiedenen Einstellungen zu konfigurieren, und nicht unbedingt alle funktionieren auf die gleiche Weise. Jeder Bot wird mit einer eindeutigen Kennzeichnung benannt, die Sie anstelle von `BotName` auswählen.
 
 Neben den Konfigurationsdateien verwendet ASF auch das Verzeichnis `config` zum Speichern von Datenbanken.
 
-`ASF.db` ist eine globale ASF-Datenbankdatei. Es fungiert als globaler dauerhafter Speicher und wird zum Speichern verschiedener Informationen im Zusammenhang mit dem ASF-Prozess verwendet, wie z.B. IPs von lokalen Steam-Servern. **Du solltest diese Datei nicht bearbeiten**.
+`ASF.db` ist eine globale ASF-Datenbankdatei. Es fungiert als globaler dauerhafter Speicher und wird zum Speichern verschiedener Informationen im Zusammenhang mit dem ASF-Prozess verwendet, wie z.B. IPs von lokalen Steam-Servern. **Sie sollten diese Datei nicht bearbeiten**.
 
-`BotName.db` ist eine Datenbank der jeweiligen Bot-Instanz. Diese Datei wird verwendet, um wichtige Daten der jeweiligen Bot-Instanz im dauerhaften Speicher zu speichern, wie z.B. Anmelde-Schlüssel oder ASF 2FA. **Du solltest diese Datei nicht bearbeiten**.
+`BotName.db` ist eine Datenbank der jeweiligen Bot-Instanz. Diese Datei wird verwendet, um wichtige Daten der jeweiligen Bot-Instanz im dauerhaften Speicher zu speichern, wie z.B. Anmeldeschlüssel oder ASF 2FA. **Sie sollten diese Datei nicht bearbeiten**.
 
-`BotName.bin` ist eine spezielle Datei der jeweiligen Bot-Instanz, die Informationen über den Steam-Sentry-Hash enthält. Der Sentry-Hash wird für die Authentifizierung mit dem `SteamGuard` Mechanismus verwendet, sehr ähnlich Steam-Datei `ssfn`. **Du solltest diese Datei nicht bearbeiten**.
+`BotName.bin` ist eine spezielle Datei der jeweiligen Bot-Instanz, die Informationen über den Steam-Sentry-Hash enthält. Der Sentry-Hash wird für die Authentifizierung mit dem `SteamGuard` Mechanismus verwendet, sehr ähnlich der Steam-Datei `ssfn`. **Sie sollten diese Datei nicht bearbeiten**.
 
 `BotName.keys` ist eine spezielle Datei, die zum Importieren von Produkt-Schlüsseln in den **[Hintergrundproduktschlüsselaktivierer ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-de-DE)** verwendet werden kann. Es ist nicht zwingend erforderlich und wird nicht generiert, aber von ASF anerkannt. Diese Datei wird nach dem erfolgreichen Import der Produkt-Schlüssel automatisch gelöscht.
 
-`BotName.maFile` ist eine spezielle Datei, die für den Import von **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** verwendet werden kann. Es ist nicht zwingend erforderlich und wird nicht generiert, aber von ASF erkannt, wenn dein `BotName` ASF 2FA noch nicht verwendet. Diese Datei wird nach erfolgreichem Import von ASF 2FA automatisch gelöscht.
+`BotName.maFile` ist eine spezielle Datei, die für den Import von **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** verwendet werden kann. Es ist nicht zwingend erforderlich und wird nicht generiert, aber von ASF erkannt, wenn Ihr `BotName` ASF-2FA noch nicht verwendet. Diese Datei wird nach erfolgreichem Import von ASF 2FA automatisch gelöscht.
 
 ---
 
 ## JSON-Strukturierung
 
-Jede Konfigurationseigenschaft hat ihren Typ. Der Typ der Eigenschaft (Property) definiert Werte, die für sie gültig sind. Du kannst nur Werte verwenden, die für einen bestimmten Typ gültig sind - wenn Du einen ungültigen Wert verwendest, dann kann ASF deine Konfiguration nicht verarbeiten.
+Jede Konfigurationseigenschaft hat ihren Typ. Der Typ der Eigenschaft (Property) definiert Werte, die für sie gültig sind. Sie können nur Werte verwenden, die für einen bestimmten Typ gültig sind - wenn Sie einen ungültigen Wert verwenden, dann kann ASF die Konfiguration nicht auslesen.
 
-**Wir empfehlen dringend, den Konfigurationsgenerator für die Generierung von Konfigurationen zu verwenden** - er handhabt den größten Teil des Low-Level-Sachen (wie z. B. die Typ-Validierung) für dich, sodass Du nur die richtigen Werte eingeben musst, und Du musst auch die unten angegebenen Variablentypen nicht verstehen. Dieser Abschnitt ist hauptsächlich für Personen gedacht, die Konfigurationen manuell erstellen/bearbeiten, damit sie wissen, welche Werte sie verwenden können.
+**Wir empfehlen dringend, den ConfigGenerator für die Generierung von Konfigurationen** zu verwenden. Dieser handhabt den größten Teil der Low-Level-Aufgaben (wie z. B. die Typ-Validierung) für Sie, sodass Sie nur die richtigen Werte eingeben und auch die unten angegebenen Variablentypen nicht verstehen müssen. Dieser Abschnitt ist hauptsächlich für Personen gedacht, die Konfigurationen manuell erstellen/bearbeiten, damit sie wissen, welche Werte sie verwenden können.
 
 Die von ASF verwendeten Typen sind native C#-Typen, die im Folgenden aufgeführt werden:
 
@@ -956,17 +956,17 @@ Beispiel: `"ConnectionTimeout": 90`
 
 ---
 
-`ushort` - Unsignierter Short-Typ der nur ganze Zahlen von `0` bis `65535` (einschließlich) akzeptiert.
+`ushort` - Unsignierter Short-Typ der nur ganze Zahlen von `0` bis (einschließlich) `65535` akzeptiert.
 
 Beispiel: `"WebLimiterDelay": 300`
 
 ---
 
-`uint` - Unsignierter Ganzzahl-Typ, der nur ganze Zahlen von `0` bis `4294967295` (einschließlich) akzeptiert.
+`uint` - Unsignierter Ganzzahl-Typ (integer), der nur ganze Zahlen von `0` bis (einschließlich) `4294967295` akzeptiert.
 
 ---
 
-`ulong` - Unsignierter long integer Typ, der nur ganze Zahlen von `0` bis `18446744073709551615` (einschließlich) akzeptiert.
+`ulong` - Unsignierter long integer Typ, der nur ganze Zahlen von `0` bis (einschließlich) `18446744073709551615` akzeptiert.
 
 Beispiel: `"SteamMasterClanID": 103582791440160998`
 
@@ -978,31 +978,31 @@ Beispiele: `"SteamLogin": null`, `"SteamLogin": ""`, `"SteamLogin": "MeinLogin"`
 
 ---
 
-`Guid?` - Nullable UUID type, in JSON encoded as string. UUID is made out of 32 hexadecimal characters, in range from `0` to `9` and `a` to `f`. ASF accepts variety of valid formats - lowercase, uppercase, with and without dashes. In addition to valid UUID, since this property is nullable, a special value of `null` is accepted to indicate lack of UUID to provide.
+`Guid?` - Nullwerte zulassender UUID-Typ, in JSON-kodiert als Zeichenkette. UUID besteht aus 32 Hexadezimalzeichen, im Bereich von `0` bis `9` und `` bis `f`. ASF akzeptiert verschiedene gültige Formate - Kleinbuchstaben, Großbuchstaben, mit und ohne Bindestriche. Zusätzlich zu gültiger UUUID, da diese Eigenschaft nulllable ist, ein spezieller Wert von `Null` wird akzeptiert, um einen Mangel an UUID anzugeben.
 
-Examples: `"LicenseID": null`, `"LicenseID": "f6a0529813f74d119982eb4fe43a9a24"`
+Beispiele: `"LicenseID": null`, `"LicenseID": "f6a0529813f74d119982eb4fe43a9a24"`
 
 ---
 
-`ImmutableList<valueType>` - Unveränderliche Sammlung (set) von eindeutigen Werten im gegebenen `valueType`. In JSON ist es definiert als Array (Anordnung) von Elementen in gegebenem `valueType`. ASF verwendet `list` um anzugeben, dass die angegebene Eigenschaft (Property) mehrere Werte unterstützt und deren Reihenfolge relevant sein kann.
+`ImmutableList<valueType>` - Unveränderliche Sammlung (set) von eindeutigen Werten im gegebenen `valueType`. In JSON ist es definiert als Array (Anordnung) von Elementen im gegebene `valueType`. ASF verwendet `list` um anzugeben, dass die angegebene Eigenschaft (Property) mehrere Werte unterstützt und deren Reihenfolge relevant sein kann.
 
 Beispiel für `ImmutableList<byte>`: `"FarmingOrders": [15, 11, 7]`
 
 ---
 
-`ImmutableHashSet<valueType>` - Unveränderliche Sammlung (Satz) von eindeutigen Werten in gegebenen `valueType`. In JSON ist es definiert als Array (Anordnung) von Elementen in gegebenem `valueType`. ASF verwendet `HashSet`, um anzugeben, dass eine angegebene Eigenschaft (Property) nur für eindeutige Werte Sinn macht (und deren Reihenfolge unwichtig ist). Daher ignoriert es bewusst alle potenziellen Duplikate während des Parsen (falls sie trotzdem angegeben wurden).
+`ImmutableHashSet<valueType>` - Unveränderliche Sammlung (Satz) von eindeutigen Werten in gegebenen `valueType`. In JSON ist es definiert als Array (Anordnung) von Elementen vom gegebenen `valueType`. ASF verwendet `HashSet`, um anzugeben, dass eine angegebene Eigenschaft (Property) nur für eindeutige Werte Sinn ergibt (und deren Reihenfolge unwichtig ist). Daher ignoriert es bewusst alle potenziellen Duplikate während des Parsen (falls sie trotzdem angegeben wurden).
 
 Beispiel für `ImmutableHashSet<uint>`: `"Blacklist": [267420, 303700, 335590]`
 
 ---
 
-`ImmutableDictionary<keyType, valueType>` - Unveränderliches Wörterbuch (Map) das einen in seinem `keyType` angegebenen einzigartigen Schlüssel auf den in seinem `valueType` angegebenen Wert abbildet. In JSON wird es als Objekt mit Schlüssel-Wert-Paaren definiert. Bedenke, dass `keyType` in diesem Fall immer angegeben wird, auch wenn es sich um einen Wert-Typ wie `ulong` handelt. Es gibt auch eine strenge Anforderung, dass der Schlüssel auf der gesamten map eindeutig ist, diesmal ebenfalls von JSON durchgesetzt.
+`ImmutableDictionary<keyType, valueType>` - Unveränderliches Wörterbuch (Map) das einen in seinem `keyType` angegebenen einzigartigen Schlüssel auf den in seinem `valueType` angegebenen Wert abbildet. In JSON wird es als Objekt mit Schlüssel-Wert-Paaren definiert. Bedenken Sie, dass `keyType` in diesem Fall immer angegeben wird, auch wenn es sich um einen Wert-Typ wie `ulong` handelt. Es gibt auch eine strenge Anforderung, dass der Schlüssel auf der gesamten map (Zuordnung) eindeutig ist, diesmal ebenfalls von JSON erzwungen.
 
 Beispiel für `ImmutableDictionary<ulong, byte>`: `"SteamUserPermissions": { "76561198174813138": 3, "76561198174813137": 1 }`
 
 ---
 
-`flags` - Das Attribut Flags kombiniert mehrere verschiedene Eigenschaften zu einem Endwert, indem es bitweise Operationen anwendet. Auf diese Weise kannst Du jede mögliche Kombination aus verschiedenen zulässigen Werten gleichzeitig wählen. Der Endwert wird als Summe aller Werte der aktivierten Optionen berechnet.
+`flags` - Das Attribut Flags kombiniert mehrere verschiedene Eigenschaften zu einem Endwert, indem es bitweise Operationen anwendet. Auf diese Weise könne Sie jede mögliche Kombination aus verschiedenen zulässigen Werten gleichzeitig wählen. Der Endwert wird als Summe aller Werte der aktivierten Optionen berechnet.
 
 Zum Beispiel, wenn folgende Werte angegeben werden:
 
@@ -1013,7 +1013,7 @@ Zum Beispiel, wenn folgende Werte angegeben werden:
 | 2    | B    |
 | 4    | C    |
 
-Die Verwendung von `B + C` würde zu einem Wert von `6` führen, die Verwendung von `A + C` würde zu einem Wert von `5` führen, die Verwendung von `C` würde zu einem Wert von `4`führen und so weiter. Dies ermöglicht es dir, jede mögliche Kombination von aktivierten Werten zu erstellen - wenn Du dich dazu entschieden hast, alle zu aktivieren, indem Du `None + A + B + C` wählst, bekommst Du den Wert von `7`. Außerdem ist zu beachten, dass das Flag mit dem Wert `0` per Definition in allen anderen verfügbaren Kombinationen aktiviert ist, daher ist es sehr oft ein Flag, das nichts Bestimmtes aktiviert (wie `None`).
+Die Verwendung von `B + C` würde zu einem Wert von `6` führen, die Verwendung von `A + C` würde einem Wert von `5` ergeben, die Verwendung von `C` würde zu einem Wert von `4` führen und so weiter. Dies ermöglicht es Ihnen, jede mögliche Kombination von aktivierten Werten zu erstellen - wenn Sie sich dazu entschieden haben, alle zu aktivieren, indem Sie `None + A + B + C` wählen, erhalten Sie den Wert von `7`. Außerdem ist zu beachten, dass das Flag mit dem Wert `0` per Definition in allen anderen verfügbaren Kombinationen aktiviert ist, daher ist es sehr oft ein Flag, das nichts Bestimmtes aktiviert (wie `None`).
 
 Wie Sie sehen können, haben wir im obigen Beispiel 3 verfügbare Flags zum Ein- und Ausschalten (`A`, `B`, `C`), und `8` mögliche Werte insgesamt:
 - `None -> 0`
@@ -1031,30 +1031,30 @@ Zum Beispiel: `"SteamProtocols": 7`
 
 ## Kompatibilitätsstrukturierung
 
-Due to JavaScript limitations of being unable to properly serialize simple `ulong` fields in JSON when using web-based ConfigGenerator, `ulong` fields will be rendered as strings with `s_` prefix in the resulting config. This includes for example `"SteamOwnerID": 76561198006963719` that will be written by our ConfigGenerator as `"s_SteamOwnerID": "76561198006963719"`. ASF enthält die richtige Logik für die automatische Verarbeitung dieses Zeichenketten-Mappings, sodass `s_` Einträge in deine Konfigurationen tatsächlich gültig und korrekt generiert sind. Wenn Du selbst Konfigurationen generierst, empfehlen wir, nach Möglichkeit an den ursprünglichen `ulong` Feldern festzuhalten, aber wenn Du dazu nicht in der Lage bist, kannst Du auch diesem Schema folgen und sie als Zeichenketten mit `s_` Präfix an ihren Namen kodieren. Wir hoffen, diese JavaScript-Einschränkung irgendwann aufheben zu können.
+Aufgrund von JavaScript-Einschränkungen können Eigenschaften (Property) mit einfachen `ulong` Felder in JSON nicht korrekt serialisiert werden, wenn der webbasierte ConfigGenerator verwendet wird. Daher werden `ulong` Felder als Strings mit `s_` Präfix in der resultierenden Konfiguration dargestellt. Dazu gehört zum Beispiel `"SteamOwnerID": 76561198006963719`, die von unserem Konfigurationsgenerator als `"s_SteamOwnerID" geschrieben wird: "76561198006963719"`. ASF enthält die richtige Logik für die automatische Verarbeitung dieses Zeichenketten-Mappings, sodass `s_` Einträge in Ihren Konfigurationen tatsächlich gültig und korrekt generiert sind. Wenn Sie selbst Konfigurationen generieren, empfehlen wir, nach Möglichkeit an den ursprünglichen `ulong` Feldern festzuhalten, aber wenn Sie dazu nicht in der Lage sind, können Sie auch diesem Schema folgen und sie als Zeichenketten mit dem `s_` Präfix an ihren Namen kodieren. Wir hoffen, diese JavaScript-Einschränkung irgendwann aufheben zu können.
 
 ---
 
 ## Konfigurationskompatibilität
 
-Es ist für ASF oberste Priorität, mit älteren Konfigurationen kompatibel zu bleiben. Wie Sie wissen sollten, werden fehlende Konfigurationseigenschaften mit den jeweiligen **Standardwerten** ausgeführt. Wenn also eine neue Konfigurationseigenschaft in einer neuen Version von ASF eingeführt wird, bleiben all deine Konfigurationen **kompatibel** mit der neuen Version, und ASF wird diese neue Konfigurationseigenschaft so behandeln, wie sie mit ihrem **Standardwert** definiert wäre. Du kannst jederzeit Konfigurationseigenschaften nach deinen Wünschen hinzufügen, entfernen oder bearbeiten.
+Es ist für ASF oberste Priorität, mit älteren Konfigurationen kompatibel zu bleiben. Wie Sie bereits wissen sollten, werden fehlende Konfigurationseigenschaften mit den jeweiligen **Standardwerten** ausgeführt. Wenn also eine neue Konfigurationseigenschaft in einer neuen Version von ASF eingeführt wird, bleiben all deine Konfigurationen **kompatibel** mit der neuen Version, und ASF wird diese neue Konfigurationseigenschaft so behandeln, wie sie mit ihrem **Standardwert** definiert wäre. Sie können jederzeit Konfigurationseigenschaften nach Ihren Wünschen hinzufügen, entfernen oder bearbeiten.
 
 Wir empfehlen, definierte Konfigurationseigenschaften nur auf die zu ändernden Eigenschaften zu beschränken, da Sie auf diese Weise automatisch Standardwerte für alle anderen vererben, nicht nur ihre Konfiguration sauber halten, sondern auch die Kompatibilität erhöhen, falls wir beschließen, einen Standardwert für Eigenschaften zu ändern, die Sie nicht explizit selbst festlegen möchten (z. B. `WebLimiterDelay`).
 
-Due to above, ASF will automatically migrate/optimize your configs by reformatting them and removing fields that hold default value. You can disable this behaviour with `--no-config-migrate` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** if you have a specific reason, for example you're providing read-only config files and you don't want ASF to modify them.
+Aufgrund der oben genannten Umstände wird ASF Ihre Konfigurationen automatisch migrieren/optimieren, indem sie sie neu formatieren und Felder mit Standardwert entfernen. Sie können dieses Verhalten mit `--no-config-migrate` **[Kommandozeilenargument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-de-DE#arguments)** deaktivieren, wenn Sie einen bestimmten Grund haben. Zum Beispiel stellen Sie schreibgeschützte Konfigurationsdateien zur Verfügung und Sie möchten nicht, dass ASF diese modifiziert.
 
 ---
 
 ## Automatisches Nachladen
 
-ASF is aware of configs being modified "on-the-fly" - thanks to that, ASF will automatically:
-- Eine neue Bot-Instanz erstellen (und startet sie bei Bedarf), wenn Sie die Konfiguration erstellen
+ASF bemerkt Änderungen an den Konfigurationen "on-the-fly" - dank dem ASF automatisch:
+- Eine neue Bot-Instanz erstellen (und startet diese bei Bedarf), wenn Sie die Konfiguration erstellen
 - Stoppt (falls erforderlich) und entfernt alte Bot-Instanz, wenn Sie ihre Konfiguration löschen
 - Stoppt (und startet bei Bedarf) eine beliebige Bot-Instanz, wenn Sie ihre Konfiguration bearbeiteen
 - Startet den Bot (falls erforderlich) unter neuem Namen neu, wenn Sie seine Konfiguration umbenennen
 
 All dies ist transparent und wird automatisch durchgeführt, ohne dass das Programm neu gestartet oder andere (nicht betroffene) Bot-Instanzen beendet werden müssen.
 
-In addition to that, ASF will also restart itself (if `AutoRestart` permits) if you modify core ASF `ASF.json` config. Likewise, program will quit if you delete or rename it.
+Darüber hinaus wird sich ASF auch selbst neu starten (wenn `AutoRestart` es erlaubt), wenn Sie die ASF-Kern-Konfiguration `ASF.json` ändern. Ebenso wird das Programm beendet, wenn Sie es löschen oder umbenennen.
 
-You can disable this behaviour with `--no-config-watch` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments#arguments)** if you have a specific reason, for example you don't want from ASF to react to file changes in `config` folder.
+Sie können dieses Verhalten mit `--no-config-watch` **[Kommandozeilenargument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-de-DE#arguments)** deaktivieren, wenn Sie einen bestimmten Grund haben. Zum Beispiel wollen Sie von ASF nicht auf Dateiänderungen im Ordner `config` reagieren.

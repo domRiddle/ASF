@@ -41,7 +41,7 @@ Sie können ASF-UI für die allgemeine Verwaltung des ASF-Prozesses verwenden. E
 
 # ASF-API
 
-Unsere ASF-API ist eine typische **[RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)** Web-API, die auf JSON als primärem Datenformat basiert. Wir tun unser Bestes, um die Antwort genau zu beschreiben, indem wir sowohl HTTP-Statuscodes (wo zutreffend) als auch eine Antwort verwenden, die Du selbst analysieren kannst, um zu wissen, ob die Anfrage erfolgreich war und wenn nicht, warum.
+Unsere ASF-API ist eine typische **[RESTful](https://de.wikipedia.org/wiki/Representational_state_transfer)** Web-API, die auf JSON als primärem Datenformat basiert. Wir tun unser Bestes, um die Antwort genau zu beschreiben, indem wir sowohl HTTP-Statuscodes (wo zutreffend) als auch eine Antwort verwenden, die Du selbst analysieren kannst, um zu wissen, ob die Anfrage erfolgreich war und wenn nicht, warum.
 
 Auf unsere ASF-API kann zugegriffen werden, indem entsprechende Anfragen an entsprechende `/Api` Endpunkte gesendet werden. Sie können diese API-Endpunkte verwenden um ihre eigenen Hilfsskripte, Programme, Benutzeroberflächen und ähnliches zu erstellen. Das ist genau das, was unser ASF-UI unter der Haube leistet und jedes andere Programm kann das gleiche erreichen. ASF-API wird offiziell vom ASF-Kernteam unterstützt und gepflegt.
 
@@ -108,7 +108,7 @@ Wenn Du nicht wirklich einen benutzerdefinierten Basispfad angeben musst, ist es
 
 ### Standardport ändern
 
-Die folgende Konfiguration ändert einfach den ASF Listing-Port von `1242` auf `1337`. Sie können jeden beliebigen Port wählen, aber wir empfehlen `1024-32767` Bereich, da andere Ports normalerweise **[registriert sind](https://de.wikipedia.org/wiki/Liste_der_standardisierten_Ports)** **[(engl. Wikipedia)](https://en.wikipedia.org/wiki/Registered_port)**, und kann zum Beispiel `root` Zugriff unter Linux erfordern.
+Die folgende Konfiguration ändert einfach den ASF Listing-Port von `1242` auf `1337`. Sie können jeden beliebigen Port wählen, aber wir empfehlen `1024-32767` Bereich, da andere Ports normalerweise **[registriert sind](https://de.wikipedia.org/wiki/Liste_der_standardisierten_Ports)** **[(engl. Wikipedia)](https://de.wikipedia.org/wiki/Registered_port)**, und kann zum Beispiel `root` Zugriff unter Linux erfordern.
 
 ```json
 {
@@ -187,7 +187,7 @@ Wenn Du dich jedoch dazu entscheidest die standardmäßig eingestellten `localho
 
 ### Kann ich mit eigenen Programmen oder Benutzerskripten auf die ASF-API zugreifen?
 
-Ja, dafür wurde die ASF-API entwickelt und Du kannst alles verwenden was fähig ist eine HTTP-Anfrage zu senden um darauf zuzugreifen. Lokale Benutzerskripte folgen der **[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)** Logik, und wir erlauben den Zugriff von allen Ursprüngen für diese (`*`) solange `IPCPassword` gesetzt ist (als zusätzliche Sicherheitsmaßnahme). Auf diese Weise kannst Du verschiedene authentifizierte ASF-API-Anfragen ausführen, ohne dass potenziell bösartige Skripte dies automatisch tun können (da sie dazu dein `IPCPassword` kennen müssten).
+Ja, dafür wurde die ASF-API entwickelt und Du kannst alles verwenden was fähig ist eine HTTP-Anfrage zu senden um darauf zuzugreifen. Lokale Benutzerskripte folgen der **[CORS](https://de.wikipedia.org/wiki/Cross-origin_resource_sharing)** Logik, und wir erlauben den Zugriff von allen Ursprüngen für diese (`*`) solange `IPCPassword` gesetzt ist (als zusätzliche Sicherheitsmaßnahme). Auf diese Weise kannst Du verschiedene authentifizierte ASF-API-Anfragen ausführen, ohne dass potenziell bösartige Skripte dies automatisch tun können (da sie dazu dein `IPCPassword` kennen müssten).
 
 ### Kann ich aus der Ferne auf die IPC-Schnittstelle von ASF zugreifen, z. B. von einem anderen Gerätaus?
 
@@ -195,7 +195,7 @@ Yes, we recommend to use a reverse proxy for that. Auf diese Weise kannst Du wie
 
 ### Kann ich die IPC-Schnittstelle von ASF hinter einem Reverse-Proxy wie Apache oder Nginx verwenden?
 
-**Ja**, unser IPC ist vollständig kompatibel mit einem solchen Setup, sodass Du ihn auch vor deinen eigenen Programmen hosten kannst, für zusätzliche Sicherheit und Kompatibilität, wenn Du möchtest. Im Allgemeinen ist der Kestrel http-Server von ASF sehr sicher und birgt kein Risiko, wenn er direkt mit dem Internet verbunden ist, aber wenn man ihn hinter einen Reverse-Proxy wie Apache oder Nginx stellt, kann er zusätzliche Funktionen bieten die sonst nicht möglich wären, wie z. B. die Sicherung der ASF-Schnittstelle mit einer **[Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)**.
+**Ja**, unser IPC ist vollständig kompatibel mit einem solchen Setup, sodass Du ihn auch vor deinen eigenen Programmen hosten kannst, für zusätzliche Sicherheit und Kompatibilität, wenn Du möchtest. Im Allgemeinen ist der Kestrel http-Server von ASF sehr sicher und birgt kein Risiko, wenn er direkt mit dem Internet verbunden ist, aber wenn man ihn hinter einen Reverse-Proxy wie Apache oder Nginx stellt, kann er zusätzliche Funktionen bieten die sonst nicht möglich wären, wie z. B. die Sicherung der ASF-Schnittstelle mit einer **[Basic Authentication](https://de.wikipedia.org/wiki/Basic_access_authentication)**.
 
 Beispielhafte Nginx-Konfiguration findest Du unten. Wir haben den vollen `server` Block eingefügt, obwohl Du dich hauptsächlich für `location` interessierst. Bitte lies die **[nginx-Dokumentation](https://nginx.org/en/docs)** falls Du weitere Erklärungen brauchst.
 

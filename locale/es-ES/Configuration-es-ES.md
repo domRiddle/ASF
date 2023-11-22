@@ -472,7 +472,7 @@ A día de hoy, los siguientes tipos de artículos están soportados en esta conf
 | 3     | FoilTradingCard | Variante reflectante de `TradingCard`                          |
 | 5     | TradingCard     | Cromo de Steam, usado para fabricar insignias (no reflectante) |
 
-Por favor, ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` of 6) de Steam (`appID` of 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
+Please note that regardless of the settings above, ASF will only ask for **[Steam community items](https://steamcommunity.com/my/inventory/#753_6)** (`appID` of 753, `contextID` of 6), so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
 Debido a la sobrecarga adicional por el uso de esta opción, se recomienda usarla solamente en cuentas bot que tienen una posibilidad realista de completar sets - por ejemplo, no tiene sentido activarla si ya estás usando `SendOnFarmingFinished`, `SendTradePeriod` o el comando `loot` de forma habitual.
 
@@ -583,7 +583,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5`. Esta propie
 | 15    | KeyboardSkin          | Apariencia del teclado para Steam Deck                                              |
 | 16    | StartupVideo          | Video de inicio para Steam Deck                                                     |
 
-Ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
+Please note that regardless of the settings above, ASF will only ask for **[Steam community items](https://steamcommunity.com/my/inventory/#753_6)** (`appID` of 753, `contextID` of 6), so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
 La configuración por defecto de ASF está basada en el uso más común de un bot, solo saqueando (loot) packs de refuerzo y cromos (incluyendo los reflectantes). Esta propiedad te permite alterar ese comportamiento de cualquier modo que gustes. Ten en cuenta que todos los tipos no definidos arriba se mostrarán como tipo `Unknown`, lo que es especialmente importante cuando Valve lanza un nuevo artículo de Steam, el cual también será marcado por ASF como `Unknown`, hasta que sea añadido aquí (en futuras versiones). Es por eso que en general no se recomienda incluir el tipo `Unknown` en `LootableTypes`, a menos que sepas lo que haces, y entiendes que ASF enviará todo tu inventario en una oferta de intercambio si la red de Steam tiene errores y marca todos tus artículos como `Unknown`. Mi recomendación es no incluir el tipo `Unknown` en `LootableTypes`, incluso si esperas saquear todo (lo demás).
 
@@ -732,7 +732,7 @@ Más información al respecto se encuentra disponible en la sección de **[comun
 
 Tipo `bool` con valor predeterminado de `false`. Cuando ASF termine de recolectar una determinada cuenta, puede enviar automáticamente un intercambio que contenga todo lo recolectado hasta este punto al usuario con permisos `Master`, lo cual es conveniente si no quieres molestarte haciendo los intercambios tú mismo. Esta opción funciona igual que el comando `loot`, por lo tanto, ten en cuenta que requiere establecer un usuario con permiso `Master`, también es posible que necesites un `SteamTradeToken` válido, así como usar una cuenta que sea elegible para intercambios en primer lugar. Además de iniciar `loot` después de terminar la recolección, ASF también iniciará `loot` en cada notificación de nuevos artículos (cuando no está recolectando), y después de completar cada intercambio que resulte en nuevos artículos (siempre) cuando esta opción está activa. Esto es especialmente útil para "reenviar" artículos recibidos de otras personas a nuestra cuenta.
 
-Normalmente querrás usar **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-ES)** junto con esta función, aunque no es un requisito si tienes intención de confirmar manualmente de forma oportuna. Si no estás seguro de cómo establecer esta propiedad, déjala con su valor predeterminado de `false`.
+Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to handle 2FA confirmations manually in timely fashion. Si no estás seguro de cómo establecer esta propiedad, déjala con su valor predeterminado de `false`.
 
 ---
 
@@ -740,7 +740,7 @@ Normalmente querrás usar **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteam
 
 Tipo `byte` con valor predeterminado de `0`. Esta propiedad funciona de forma muy similar a la propiedad `SendOnFarmingFinished`, con una diferencia - en lugar de enviar un intercambio cuando se termine de recolectar, también podemos enviarlo cada `SendTradePeriod` horas, independientemente de cuánto falte por recolectar. Esto es útil si quieres saquear (`loot`) tus cuentas alternas de forma habitual en lugar de esperar a que terminen de recolectar. El valor predeterminado de `0` desactiva esta función, si quieres que tu bot te envíe un intercambio, por ejemplo, cada día, debes poner aquí `24`.
 
-Normalmente querrás usar **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-ES)** junto con esta función, aunque no es un requisito si tienes intención de confirmar manualmente de forma oportuna. Si no estás seguro de cómo establecer esta propiedad, déjala con su valor predeterminado de `0`.
+Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to handle 2FA confirmations manually in timely fashion. Si no estás seguro de cómo establecer esta propiedad, déjala con su valor predeterminado de `0`.
 
 ---
 
@@ -860,7 +860,7 @@ Tipo `ImmutableHashSet<byte>` con valor predeterminado de `1, 3, 5`. Esta propie
 | 15    | KeyboardSkin          | Apariencia del teclado para Steam Deck                                              |
 | 16    | StartupVideo          | Video de inicio para Steam Deck                                                     |
 
-Ten en cuenta que, independientemente de los ajustes anteriores, ASF solo solicitará artículos de la comunidad (`contextID` de 6) de Steam (`appID` de 753), por lo que todos los artículos de juegos, regalos y demás, están excluidos de la oferta por definición.
+Please note that regardless of the settings above, ASF will only ask for **[Steam community items](https://steamcommunity.com/my/inventory/#753_6)** (`appID` of 753, `contextID` of 6), so all game items, gifts and likewise, are excluded from the trade offer by definition.
 
 La configuración por defecto de ASF está basada en el uso más común de un bot, solo transfiriendo packs de refuerzo y cromos (incluyendo los reflectantes). Esta propiedad te permite alterar ese comportamiento de cualquier modo que gustes. Ten en cuenta que todos los tipos no definidos arriba se mostrarán como tipo `Unknown`, lo que es especialmente importante cuando Valve lanza un nuevo artículo de Steam, el cual también será marcado por ASF como `Unknown`, hasta que sea añadido aquí (en futuras versiones). Es por eso que en general no se recomienda incluir el tipo `Unknown` en `TransferableTypes`, a menos que sepas lo que haces, y entiendes que ASF enviará todo tu inventario en una oferta de intercambio si la red de Steam se desconfigura de nuevo y marca todos tus artículos como `Unknown`. Mi recomendación es no incluir el tipo `Unknown` en `TransferableTypes`, incluso si esperas transferir todo.
 
