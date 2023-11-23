@@ -6,7 +6,7 @@ Hacemos todo lo posible para seguir una política de obsolescencia consistente p
 
 ## ¿Qué es la obsolescencia?
 
-La obsolescencia es el proceso de hacer cambios pequeños o grandes que vuelven obsoletos las opciones, argumentos, funcionalidades o casos de uso previos. La obsolescencia normalmente significa que una cosa determinada fue reescrita en otra forma (similar), y debes asegurarte de manera oportuna de cambiar a la nueva forma. En este caso, es simplemente mover una funcionalidad determinada a un lugar más apropiado.
+Deprecation is the process of smaller or bigger breaking changes that render previously used options, arguments, functionalities or usage cases obsolete. La obsolescencia normalmente significa que una cosa determinada fue reescrita en otra forma (similar), y debes asegurarte de manera oportuna de cambiar a la nueva forma. En este caso, es simplemente mover una funcionalidad determinada a un lugar más apropiado.
 
 ASF cambia rápidamente y siempre busca mejorar. Esto lamentablemente significa que podemos cambiar o mover alguna funcionalidad existente a otro segmento del programa para que se beneficie de nuevas características, compatibilidad o estabilidad. Gracias a eso no necesitamos apegarnos a decisiones de desarrollo obsoletas o simplemente equivocadas que hayamos tomado hace años. Siempre intentamos proporcionar un reemplazo razonable que se ajuste al uso de funcionalidades previamente disponibles, por lo cual la obsolescencia es mayormente inofensiva y requiere pequeños arreglos a lo que se usaba con anterioridad.
 

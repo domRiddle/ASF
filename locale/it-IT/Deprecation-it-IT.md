@@ -6,7 +6,7 @@ We're doing our best to follow consistent deprecation policy in order to make bo
 
 ## Cos'è la deprecazione?
 
-La deprecazione è il processo di apportare modifiche di rottura più piccole o più grandi che rendano obsoleti opzioni, argomenti, funzionalità o casi d'uso precedentemente usati. La deprecazione di solito significa che la cosa data è semplicemente stata riscritta in un'altra forma (simile) e dovresti assicurarti in modo tempestivo di eseguire il passaggio appropriato a esso. In questo caso, è semplicemente spostare la funzionalità in un luogo più appropriato.
+Deprecation is the process of smaller or bigger breaking changes that render previously used options, arguments, functionalities or usage cases obsolete. La deprecazione di solito significa che la cosa data è semplicemente stata riscritta in un'altra forma (simile) e dovresti assicurarti in modo tempestivo di eseguire il passaggio appropriato a esso. In questo caso, è semplicemente spostare la funzionalità in un luogo più appropriato.
 
 ASF cambia rapidamente e colpisce sempre per diventare migliore. Questo purtroppo significa che potremmo modificare o spostare alcune funzionalità esistenti in un altro segmento del programma perché benefici da nuove funzionalità, per compatibilità o stabilità. Grazie a questo non dobbiamo attenerci a decisioni di sviluppo obsolete o semplicemente dolorosamente sbagliate fatte anni fa. Proviamo sempre a fornire sostituzioni ragionevoli adeguate all'uso previsto della funzionalità precedentemente disponibile, poiché la deprecazione è principalmente innocua e richiede piccole correzioni dall'uso precedente.
 

@@ -6,7 +6,7 @@ We're doing our best to follow consistent deprecation policy in order to make bo
 
 ## Ce este deprecierea?
 
-Deprecierea este procesul de a aduce schimbări mai mici sau mai mari care fac ca opțiunile, argumentele, funcționalitățile sau cazurile de utilizare folosite anterior să fie scoase din uz. De obicei, deprecierea înseamnă că acel lucru a fost pur și simplu rescris într-o altă formă (similară), și ar trebui să vă asigurați în timp util că veți comuta în mod corespunzător. În acest caz, se mută pur și simplu funcționalitatea dată într-un loc mai potrivit.
+Deprecation is the process of smaller or bigger breaking changes that render previously used options, arguments, functionalities or usage cases obsolete. De obicei, deprecierea înseamnă că acel lucru a fost pur și simplu rescris într-o altă formă (similară), și ar trebui să vă asigurați în timp util că veți comuta în mod corespunzător. În acest caz, se mută pur și simplu funcționalitatea dată într-un loc mai potrivit.
 
 ASF se schimbă rapid și întotdeauna încearcă să devină mai bun. Din păcate, acest lucru înseamnă că putem schimba sau muta unele funcționalități existente într-un alt segment al programului pentru a beneficia de noi caracteristici, compatibilitate sau stabilitate. Datorită acestui lucru nu trebuie să rămânem cu decizii de dezvoltare învechite sau pur și simplu greșite pe care le-am luat cu ani în urmă. Încercăm întotdeauna să oferim un înlocuitor rezonabil care să corespundă utilizării așteptate a funcționalității disponibile anterior, Din acest motiv, deprecierea este în mare parte inofensivă și necesită mici reparații în raport cu utilizarea anterioară.
 

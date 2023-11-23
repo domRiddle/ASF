@@ -2,17 +2,17 @@
 
 Diese Seite widmet sich der Konfiguration von ASF. Es dient als eine lückenlose Dokumentation des `config` Verzeichnisses, sodass Sie ASF auf ihre Bedürfnisse abstimmen können.
 
-* **[Einleitung](#introduction)**
-* **[Web-basierter Konfigurationsgenerator](#web-based-configgenerator)**
-* **[ASF-UI-Einstellungen](#asf-ui-configuration)**
-* **[Manuelle Konfiguration](#manual-configuration)**
-* **[Globale Konfiguration](#global-config)**
-* **[Bot-Konfiguration](#bot-config)**
-* **[Datei-Struktur](#file-structure)**
-* **[JSON-Strukturierung](#json-mapping)**
-* **[Kompatibilitätsstrukturierung](#compatibility-mapping)**
-* **[Konfigurationskompatibilität](#configs-compatibility)**
-* **[Automatisches Nachladen](#auto-reload)**
+* **[Einleitung](#einleitung)**
+* **[Web-basierter Konfigurationsgenerator](#web-basierter-konfigurationsgenerator)**
+* **[ASF-UI-Einstellungen](asf-ui-einstellungen)**
+* **[Manuelle Konfiguration](#manuelle-konfiguration)**
+* **[Globale Konfiguration](#globale-konfiguration)**
+* **[Bot-Konfiguration](#bot-konfiguration)**
+* **[Datei-Struktur](#datei-struktur)**
+* **[JSON-Strukturierung](#json-strukturierung)**
+* **[Kompatibilitätsstrukturierung](#kompatibilitätsstrukturierung)**
+* **[Konfigurationskompatibilität](#konfigurationskompatibilität)**
+* **[Automatisches Nachladen](#automatisches-nachladen)**
 
 ---
 
@@ -472,7 +472,7 @@ Momentan werden folgende Gegenstandsarten in dieser Einstellung unterstützt:
 | 3    | FoilTradingCard | Glanz-Variante von `TradingCard`                                                       |
 | 5    | TradingCard     | Steam-Sammelkarte, die für die Herstellung von Abzeichen (ohne Glanz) verwendet werden |
 
-Please note that regardless of the settings above, ASF will only ask for **[Steam community items](https://steamcommunity.com/my/inventory/#753_6)** (`appID` of 753, `contextID` of 6), so all game items, gifts and likewise, are excluded from the trade offer by definition.
+Bitte bedenken Sie, dass ASF unabhängig von den obigen Einstellungen nur nach Steam **Community-Gegenständen[](https://steamcommunity.com/my/inventory/#753_6)** (`appID` von 753, `contextID` von 6)-Gegenständen fragt, sodass alle Spiel-Gegenstände /-Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
 
 Aufgrund der zusätzlichen Mehrbelastung durch Verwendung dieser Option wird es empfohlen, diese Einstellung nur auf Bot-Konten zu verwenden, die eine realistische Chance haben, Sets selbst zu beenden. Es ergibt beispielsweise keinen Sinn, diese Eigenschaft (Property) zu aktivieren, wenn bereits `SendOnFarmingFinished`, `SendTradePeriod` oder `loot` auf üblicher Basis verwendet wird.
 
@@ -583,7 +583,7 @@ Typ `ImmutableHashSet<byte>` mit dem Standardwert `1, 3, 5` als Steam-Gegenstand
 | 15   | KeyboardSkin          | Spezieller Tastatur-Skin für das Steam Deck                                                   |
 | 16   | StartupVideo          | Spezielles Start-Video für das Steam Deck                                                     |
 
-Please note that regardless of the settings above, ASF will only ask for **[Steam community items](https://steamcommunity.com/my/inventory/#753_6)** (`appID` of 753, `contextID` of 6), so all game items, gifts and likewise, are excluded from the trade offer by definition.
+Bitte bedenken Sie, dass ASF unabhängig von den obigen Einstellungen nur nach Steam **Community-Gegenständen[](https://steamcommunity.com/my/inventory/#753_6)** (`appID` von 753, `contextID` von 6)-Gegenständen fragt, sodass alle Spiel-Gegenstände /-Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
 
 Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bots, wobei nur Boosterpacks und handelbare Sammelkarten (einschließlich Glanzkarten) geöffnet werden. Die hier definierte Eigenschaft (Property) ermöglicht es Ihnen, dieses Verhalten so zu verändern, dass es Sie zufrieden stellt. Bitte bedenken Sie, dass alle nicht oben definierten Typen als `Unknown` angezeigt werden, was besonders wichtig ist, wenn Valve einen neuen Steam-Gegenstand veröffentlicht, der ebenfalls von ASF als `Unknown` markiert wird, bis er hier (in einer zukünftigen Version) hinzugefügt wird. Deshalb ist es im Allgemeinen nicht empfehlenswert, `Unknown` in Ihren `LootableTypes` einzugeben, es sei denn, Sie wissen genau, was Sie tun und verstehen auch, dass ASF das gesamtes Inventar in einem Handelsangebot versenden wird, wenn das Steam-Netzwerk wieder unterbrochen wird und alle Ihre Gegenstände als `Unknown` meldet. Mein nachdrücklicher Vorschlag ist, `Unknown` nicht in das Feld `LootableTypes` einzutragen, selbst wenn Sie alles übertragen möchten.
 
@@ -732,7 +732,7 @@ Weitere Erläuterungen zu diesem Thema finden Sie im Abschnitt **[Fernkommunikat
 
 Typ `bool` mit dem Standardwert `false`. Wenn ASF mit dem Sammeln des angegebenen Kontos fertig ist, kann es automatisch ein Steam-Handelsangebot mit allem, was bis zu diesem Punkt gesammelt wurde, an den Benutzer mit der Berechtigung `Master` senden; was sehr praktisch ist, falls Sie sich nicht selbst mit den Handelsangeboten beschäftigen möchten. Diese Option funktioniert genauso wie der `loot`-Befehl. Beachten Sie deshalb, dass Sie einen Benutzer mit der Berechtigung `Master` benötigen; möglicherweise benötigen Sie zusätzlich einen gültigen `SteamTradeToken`, sowie ein Konto, das überhaupt zum Handel zugelassen ist. Zusätzlich zum Einleiten von `loot` nach Beendigung des Sammelns initiiert ASF auch `loot` bei jeder Benachrichtigung über neue Gegenstände (wenn nicht am Sammeln) und nach Abschluss jedes Handelsangebotes, der zu neuen Gegenständen führt (immer), wenn diese Option aktiv ist. Dies ist besonders nützlich, um erhaltene Gegenstände von anderen Personen an unser Konto "weiterzuleiten".
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to handle 2FA confirmations manually in timely fashion. Wenn Sie sich nicht sicher sind, wie Sie diese Eigenschaft (Property) einstellen sollen, belassen Sie diese bei dem Standardwert `false`.
+Normalerweise sollten Sie **[ASF-2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** zusammen mit dieser Funktion verwenden; obwohl es keine Voraussetzung ist, wenn Sie beabsichtigen, die 2FA Bestätigung manuell und rechtzeitig durchzuführen. Wenn Sie sich nicht sicher sind, wie Sie diese Eigenschaft (Property) einstellen sollen, belassen Sie diese bei dem Standardwert `false`.
 
 ---
 
@@ -740,7 +740,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 Typ `byte` mit einem Standardwert `0`. Diese Eigenschaft (Property) funktioniert sehr ähnlich wie die Eigenschaft (Property) `SendOnFarmingFinished`, mit einem Unterschied - anstatt Handelsangebote zu senden, wenn das Sammeln abgeschlossen ist, können wir sie auch alle `SendTradePeriod` Stunden senden- unabhängig davon, wie viel wir noch zu sammeln haben. Dies ist nützlich, wenn Sie den normalen `loot` Befehl auf Alternativ-Konten ausführen wollen, anstatt darauf zu warten, dass das Sammeln beenden wird. Der Standardwert von `0` deaktiviert diese Funktion. Wenn Sie möchten, dass ein Bot Ihnen z. B. jeden Tag Handelsangebote sendet, sollten Sie hier `24` eintragen.
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to handle 2FA confirmations manually in timely fashion. Belassen Sie den Standardwert `0`, wenn Sie sich nicht sicher sind, wie Sie diese Eigenschaft einstellen sollen.
+Normalerweise sollten Sie **[ASF-2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** zusammen mit dieser Funktion verwenden; obwohl es keine Voraussetzung ist, wenn Sie beabsichtigen, die 2FA Bestätigung manuell und rechtzeitig durchzuführen. Belassen Sie den Standardwert `0`, wenn Sie sich nicht sicher sind, wie Sie diese Eigenschaft einstellen sollen.
 
 ---
 
@@ -860,7 +860,7 @@ Typ `ImmutableHashSet<byte>` mit dem Standardwert `1, 3, 5` als Steam-Gegenstand
 | 15   | KeyboardSkin          | Spezieller Tastatur-Skin für das Steam Deck                                                            |
 | 16   | StartupVideo          | Spezielle Start-Animation für das Steam Deck                                                           |
 
-Please note that regardless of the settings above, ASF will only ask for **[Steam community items](https://steamcommunity.com/my/inventory/#753_6)** (`appID` of 753, `contextID` of 6), so all game items, gifts and likewise, are excluded from the trade offer by definition.
+Bitte bedenken Sie, dass ASF unabhängig von den obigen Einstellungen nur nach Steam **Community-Gegenständen[](https://steamcommunity.com/my/inventory/#753_6)** (`appID` von 753, `contextID` von 6)-Gegenständen fragt, sodass alle Spiel-Gegenstände /-Geschenke und dergleichen per Definition aus dem Handelsangebot ausgeschlossen sind.
 
 Die Standard-ASF-Einstellung basiert auf der gebräuchlichsten Verwendung des Bots, wobei nur Booster Packs und Sammelkarten (einschließlich Folienkarten) gehandelt werden. Die hier definierte Eigenschaft (Property) ermöglicht es Ihnen, dieses Verhalten so zu verändern, dass es Sie zufrieden stellt. Bitte bedenken Sie, dass alle nicht oben definierten Typen als `Unknown` angezeigt werden, was besonders wichtig ist, wenn Valve einen neuen Steam-Gegenstand veröffentlicht, der ebenfalls von ASF als `Unknown` markiert wird, bis er hier (in einer zukünftigen Version) hinzugefügt wird. Deshalb ist es im Allgemeinen nicht empfehlenswert, `Unknown` in einen `TransferableTypes` einzugeben, es sei denn, Sie wissen, was Sie tun und verstehen auch, dass ASF ihr gesamtes Inventar in einem Handelsangebot versenden wird, wenn das Steam-Netzwerk wieder fehleraft wird und alle Gegenstände als `Unknown` meldet. Mein nachdrücklicher Vorschlag ist, `Unknown` nicht in das Feld `TransferableTypes` einzutragen, selbst wenn Sie alles übertragen möchten.
 

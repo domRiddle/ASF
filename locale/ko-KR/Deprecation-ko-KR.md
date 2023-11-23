@@ -6,7 +6,7 @@ We're doing our best to follow consistent deprecation policy in order to make bo
 
 ## 사용 중단이란?
 
-사용 중단은 이전에 사용되던 옵션, 인자, 기능이나 사용되지 않는 사용례를 변경하는 작거나 큰 변화의 과정입니다. 사용 중단은 보통 주어진 것이 단순히 다른 유사한 형태로 다시 쓰여졌다는 것을 뜻하고, 이를 적절한 시기에 적절히 전환해야 합니다. 이 경우 더 적절한 장소로 기능을 단순히 옮겼습니다.
+Deprecation is the process of smaller or bigger breaking changes that render previously used options, arguments, functionalities or usage cases obsolete. 사용 중단은 보통 주어진 것이 단순히 다른 유사한 형태로 다시 쓰여졌다는 것을 뜻하고, 이를 적절한 시기에 적절히 전환해야 합니다. 이 경우 더 적절한 장소로 기능을 단순히 옮겼습니다.
 
 ASF는 급속히 변화하고 항상 더 나아집니다. 이는 슬프게도 새로운 기능, 호환성 또는 안정성을 위해 우리가 기존의 기능을 변경하거나 프로그램의 다른 부분으로 옮길수도 있다는 뜻입니다. 그 덕에 쓰이지 않거나 단순히 몇년전의 잘못된 의사결정에 매달리지 않아도 됩니다. 우리는 항상 기존에 가능했던 기능의 예상되는 사용법에 맞는 합리적인 대체를 제공하려고 노력하고 있습니다. 따라서 사용 중단은 대부분 무해하고 이전의 사용법에 작은 수정만을 필요로 합니다.
 

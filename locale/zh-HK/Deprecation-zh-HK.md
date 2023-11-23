@@ -6,7 +6,7 @@ We're doing our best to follow consistent deprecation policy in order to make bo
 
 ## 什麼是棄用？
 
-棄用是重大更改（增刪）的過程，這些更改使以前使用的一些選項、參數、功能或使用方式過時。 棄用通常意味著給定的內容被簡單地重寫為另一個（類似）表單, 您應該及時確保您對其進行適當的切換。 在這種情況下，它只是將給定的功能移動到更合適的位置。
+Deprecation is the process of smaller or bigger breaking changes that render previously used options, arguments, functionalities or usage cases obsolete. 棄用通常意味著給定的內容被簡單地重寫為另一個（類似）表單, 您應該及時確保您對其進行適當的切換。 在這種情況下，它只是將給定的功能移動到更合適的位置。
 
 ASF 版本迭代迅速，總是追求卓越。 This sadly means that we may change or move some existing functionality into another segment of the program in order for it to benefit from new features, compatibility or stability. 正因如此，我們不需要堅持我們多年前做出的過時或錯誤的發展決定。 我們一直在努力提供合理的替換方案，以兼容以前可用的功能，這就是為什麼棄用大多是無害的，僅需要對以前的邏輯進行小的修復。
 
