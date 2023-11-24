@@ -10,7 +10,7 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 ### **[Rudokhvist](https://github.com/Rudokhvist)**
 
-- **[ASF-Errungenschaften-Verwalter](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, Erweiterung für ASF die Ihnen erlaubt, ihre Steam Errungenschaften zu verwalten.
+- **[ASF-Errungenschaften-Verwalter](https://github.com/Rudokhvist/ASF-Achievement-Manager)**, Erweiterung für ASF die Ihnen erlaubt, Ihre Steam Errungenschaften zu verwalten.
 - **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, ASF-Plugin um Geburtstags-Glückwünsche zu erhalten.
 - **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, Erweiterung für ASF, das die Funktionalität der Erstellung von Booster-Paketen bereitstellt.
 - **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, Erweiterung für ASF, um Botnamen unabhängig von Groß- und Kleinschreibung zu machen.
@@ -58,7 +58,7 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 ## Programme
 
-- **[Keys extractor](https://ske.xpixv.com)**, ermöglicht es ihren Produktschlüssel in verschiedenen Formaten zu kopieren und einzufügen um den Befehl `redeem` für ASF zu erstellen. Für weitere Details schau ihren das **[GitHub Repository](https://github.com/PixvIO/SKE)** an.
+- **[Keys extractor](https://ske.xpixv.com)**, ermöglicht es Ihren Produktschlüssel in verschiedenen Formaten zu kopieren und einzufügen um den Befehl `redeem` für ASF zu erstellen. Für weitere Details schau Ihren das **[GitHub Repository](https://github.com/PixvIO/SKE)** an.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, welcher es ermöglicht mehrere ASF-Konfigurationen einfach zu verwalten.
 
 ---

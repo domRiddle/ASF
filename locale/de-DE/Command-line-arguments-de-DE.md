@@ -1,4 +1,4 @@
-# Befehlszeilen-Argumente
+# Befehlszeilenargumente
 
 ASF unterstützt mehrere Befehlszeilenargumente, die die Programm-Runtime beeinflussen können. Diese können von fortgeschrittenen Benutzern verwendet werden, um festzulegen, wie das Programm arbeiten soll. Im Vergleich zum gängigen Standardweg über die Konfigurationsdatei `ASF.json` werden Befehlszeilenargumente für die Kerninitialisierung (z. B. `--path`), plattformspezifische Einstellungen (z. B. `--system-required`) oder sensible Daten (z. B. `--cryptkey`) verwendet.
 
@@ -28,7 +28,7 @@ Linux/macOS:
 
 Die Befehlszeilenargumente werden auch in allgemeinen Hilfsskripten wie zum Beispiel `ArchiSteamFarm.cmd` oder `ArchiSteamFarm.sh` unterstützt. Darüber hinaus können Sie auch die Umgebungsvariable `ASF_ARGS` verwenden, wie es in den Abschnitten **[Verwaltung ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-de-DE#environment-variables)** und **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-de-DE#command-line-arguments)** beschrieben ist.
 
-Vergessen Sie nicht, Anführungszeichen zu setzen, falls ihr Argument Leerzeichen enthält. Diese beiden Beispiele sind fehlerhaft:
+Vergessen Sie nicht, Anführungszeichen zu setzen, falls Ihr Argument Leerzeichen enthält. Diese beiden Beispiele sind fehlerhaft:
 
 ```shell
 ./ArchiSteamFarm --path /home/archi/Meine Downloads/ASF # Falsch!
@@ -60,11 +60,11 @@ Durch die Natur dieser Option ist, es möglich die Umgebungsvariable `ASF_CRYPTK
 
 ---
 
-`--ignore-unsupported-environment` - sorgt dafür, dass ASF die Erkennung von nicht unterstützten Umgebungen ignoriert; die normalerweise mit einem Fehler signalisiert und das Beenden erzwingen. Nicht unterstützte Umgebung beinhaltet beispielsweise das Ausführen des `win-x64` OS-spezifischen Builds auf `linux-x64`. Obwohl diese Option ASF die Ausführung in solchen Situationen erlaubt; sollten Sie dennoch beachten, dass wir dies offiziell nicht unterstützen und Sie dies vollständig **auf eigene Gefahr** tun. Ab sofort können **alle** nicht unterstützten Umgebungsszenarien korrigiert werden. Wir empfehlen Ihnen dringend, die offenen Probleme zu beheben, anstatt dieses Argument anzugeben.
+`--ignore-unsupported-environment` - sorgt dafür, dass ASF die Erkennung von nicht unterstützten Umgebungen ignoriert; die normalerweise mit einem Fehler signalisiert und das Beenden erzwingen. Eine nicht unterstützte Umgebung beinhaltet beispielsweise das Ausführen des `win-x64` OS-spezifischen Builds auf `linux-x64`. Obwohl diese Option ASF die Ausführung in solchen Situationen erlaubt; sollten Sie dennoch beachten, dass wir dies offiziell nicht unterstützen und Sie dies vollständig **auf eigene Gefahr** tun. Ab sofort können **alle** nicht unterstützten Umgebungsszenarien korrigiert werden. Wir empfehlen Ihnen dringend, die offenen Probleme zu beheben, anstatt dieses Argument anzugeben.
 
 ---
 
-`--input-cryptkey` - lässt ASF während des Starts nach `--cryptkey` fragen. Diese Option könnte für Sie nützlich sein; sofern es ihr Wunsch ist, cryptkey nicht zu speichern (in Umgebungsvariablen oder einer Datei), sondern stattdessen bei jedem ASF-Lauf manuell einzugeben.
+`--input-cryptkey` - lässt ASF während des Starts nach `--cryptkey` fragen. Diese Option könnte für Sie nützlich sein; sofern es Ihr Wunsch ist, cryptkey nicht zu speichern (in Umgebungsvariablen oder einer Datei), sondern stattdessen bei jedem ASF-Lauf manuell einzugeben.
 
 ---
 
@@ -78,15 +78,15 @@ Aufgrund der Art dieser Eigenschaft (Property) ist es auch möglich, den Wert zu
 
 ---
 
-`--no-config-migrate` - ASF migriert standardmäßig ihre Konfigurationsdateien automatisch in die neueste Syntax. Diese Option verhindert das. Migration beinhaltet die Umwandlung veralteter Eigenschaften in Neue, das Entfernen von Eigenschaften mit Standardwerten (da diese keine Wirkung haben), sowie die Bereinigung der Datei im Allgemeinen (Korrektur der Einrückung und ähnliches). Dies ist fast immer eine gute Idee, aber Sie könnten eine bestimmte Situation haben, in der Sie es vorziehen würden, wenn ASF die Konfigurationsdateien niemals automatisch überschreibt. Zum Beispiel: Vielleicht möchten Sie `chmod 400` (nur für den Eigentümer lesbar) auf ihre Konfigurationsdateien anwenden oder `chattr +i` anwenden; was dazu führt, dass für jeden Schreibzugriff verweigert wird, z. B. als Sicherheitsmaßnahme. Wir empfehlen die Konfigurationsdatei-Migration aktiviert zu lassen, es sei denn Sie haben einen guten Grund diese zu deaktivieren, und wünschen, dass ASF diese auslässt.
+`--no-config-migrate` - ASF migriert standardmäßig Ihre Konfigurationsdateien automatisch in die neueste Syntax. Diese Option verhindert das. Migration beinhaltet die Umwandlung veralteter Eigenschaften in Neue, das Entfernen von Eigenschaften mit Standardwerten (da diese keine Wirkung haben), sowie die Bereinigung der Datei im Allgemeinen (Korrektur der Einrückung und ähnliches). Dies ist fast immer eine gute Idee, aber Sie könnten eine bestimmte Situation haben, in der Sie es vorziehen würden, wenn ASF die Konfigurationsdateien niemals automatisch überschreibt. Zum Beispiel: Vielleicht möchten Sie `chmod 400` (nur für den Eigentümer lesbar) auf Ihre Konfigurationsdateien anwenden oder `chattr +i` anwenden; was dazu führt, dass für jeden Schreibzugriff verweigert wird, z. B. als Sicherheitsmaßnahme. Wir empfehlen die Konfigurationsdatei-Migration aktiviert zu lassen, es sei denn Sie haben einen guten Grund diese zu deaktivieren, und wünschen, dass ASF diese auslässt.
 
 ---
 
-`--no-config-watch` - legt ASF standardmäßig einen `FileSystemWatcher` für ihre `Konfiguration` fest, um auf Ereignisse im Zusammenhang mit Änderungen der Datei zu hören, sodass diese sich interaktiv anpasst. Dies beinhaltet beispielsweise das Stoppen von Bots beim Löschen der Konfiguration, den Neustart des Bots bei der Änderung der Konfiguration, oder laden von Schlüsseln in **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-de-DE#)** sobald Sie sie in das `Verzeichnis` eingegeben werden. Dieser Schalter erlaubt es Ihnen, dieses Verhalten zu deaktivieren, sodass ASF alle Änderungen im `config`-Ordner ignoriert, wodurch alle Aktionen manuell ausgeführt werden müssen, sofern sie erforderlich sein (meistens das Neustarten des Vorgangs). Wir empfehlen die Konfigurationsereignisse aktiviert zu lassen; haben Sie jedoch einen guten Grund, um dies für ASF zu deaktivieren, so erreichen Sie dies mit diesem Schalter.
+`--no-config-watch` - legt ASF standardmäßig einen `FileSystemWatcher` für Ihre `Konfiguration` fest, um auf Ereignisse im Zusammenhang mit Änderungen der Datei zu hören, sodass diese sich interaktiv anpasst. Dies beinhaltet beispielsweise das Stoppen von Bots beim Löschen der Konfiguration, den Neustart des Bots bei der Änderung der Konfiguration, oder laden von Schlüsseln in **[BGR](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-de-DE)** sobald Sie sie in das `Verzeichnis` eingegeben werden. Dieser Schalter erlaubt es Ihnen, dieses Verhalten zu deaktivieren, sodass ASF alle Änderungen im `config`-Ordner ignoriert, wodurch alle Aktionen manuell ausgeführt werden müssen, sofern sie erforderlich sein (meistens das Neustarten des Vorgangs). Wir empfehlen die Konfigurationsereignisse aktiviert zu lassen; haben Sie jedoch einen guten Grund, um dies für ASF zu deaktivieren, so erreichen Sie dies mit diesem Schalter.
 
 ---
 
-`--no-restart` - Diese Option wird hauptsächlich in unseren **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-de-DE)**-Containern genutzt und setzt `AutoRestart` auf `false`. Wenn Sie keinen besonderen Grund haben, sollten Sie stattdessen `AutoRestart` Eigenschaft (Property) direkt in ihrer Konfiguration konfigurieren. Dieser Schalter dient dazu, dass unser Docker-Skript nicht ihre globale Konfiguration berühren muss, um es an dessen eigene Umgebung anzupassen. Selbstverständlich können Sie diese Option auch verwenden, wenn Sie ASF in einem Skript ausführen; ansonsten ist die globale Konfigurationseigenschaft besser geeignet.
+`--no-restart` - Diese Option wird hauptsächlich in unseren **[Docker](https://github.com/JustArchi/ArchiSteamFarm/wiki/Docker-de-DE)**-Containern genutzt und setzt `AutoRestart` auf `false`. Wenn Sie keinen besonderen Grund haben, sollten Sie stattdessen `AutoRestart` Eigenschaft (Property) direkt in Ihrer Konfiguration konfigurieren. Dieser Schalter dient dazu, dass unser Docker-Skript nicht Ihre globale Konfiguration berühren muss, um es an dessen eigene Umgebung anzupassen. Selbstverständlich können Sie diese Option auch verwenden, wenn Sie ASF in einem Skript ausführen; ansonsten ist die globale Konfigurationseigenschaft besser geeignet.
 
 ---
 
@@ -98,7 +98,7 @@ Aufgrund der Art dieser Eigenschaft (Property) ist es auch möglich, den Wert zu
 
 Aufgrund der Art dieser Eigenschaft (Property) ist es auch möglich, den erwarteten Pfad zu setzen, indem man die Umgebungsvariable `ASF_PATH` deklariert wird, was für Personen, die sensible Details in den Prozessargumenten vermeiden wollen, besser geeignet sein kann.
 
-Sollten Sie erwägen, dieses Kommandozeilenargument für die Ausführung mehrerer ASF-Instanzen zu verwenden, empfehlen wir Ihnen, sich mit dem Thema **[Verwaltung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-de-DE#mehrere-instanzen)** zu befassen.
+Sollten Sie erwägen, dieses Befehlszeilenargument für die Ausführung mehrerer ASF-Instanzen zu verwenden, empfehlen wir Ihnen, sich mit dem Thema **[Verwaltung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-de-DE#mehrere-instanzen)** zu befassen.
 
 Beispiele:
 
@@ -125,16 +125,16 @@ ASF_PATH=/opt/Zielverzeichnis dotnet /opt/ASF/ArchiSteamFarm.dll #Identisch mit 
 
 ---
 
-`--process-required` - Durch die Verwendung dieser Option wird das standardmäßige Herunterfahren von ASF deaktiviert, wenn keine Bots laufen. Dies ist besonders in Kombination mit der **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-de-DE)**-API nützlich, da die Mehrheit der Benutzer erwarten würden, dass ihr Webservice unabhängig von der Anzahl der aktivierten Bots ausgeführt wird. Wenn Sie die Option IPC verwenden oder anderweitig einen ASF-Prozess benötigen, welcher die ganze Zeit läuft, bis Sie ihn selbst beenden, ist dies die richtige Option.
+`--process-required` - Durch die Verwendung dieser Option wird das standardmäßige Herunterfahren von ASF deaktiviert, wenn keine Bots laufen. Dies ist besonders in Kombination mit der **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-de-DE)**-API nützlich, da die Mehrheit der Benutzer erwarten würden, dass Ihr Webservice unabhängig von der Anzahl der aktivierten Bots ausgeführt wird. Wenn Sie die Option IPC verwenden oder anderweitig einen ASF-Prozess benötigen, welcher die ganze Zeit läuft, bis Sie ihn selbst beenden, ist dies die richtige Option.
 
 Wenn Sie nicht vorhaben IPC auszuführen, wird diese Option für Sie ziemlich nutzlos sein, da der Prozess bei Bedarf einfach wieder von Ihnen gestartet werden kann (im Gegensatz zum Webserver von ASF, wo Sie ihn die ganze Zeit lauschen lassen müssen, um Befehle zu senden).
 
 ---
 
-`--service`- Dieser Schalter wird hauptsächlich für unseren `systemd` service und erzwingt den Wert von `Headless` auf `true`. Wenn Sie keinen besonderen Grund haben, sollten Sie stattdessen die `headless` Eigenschaft (Property) direkt in ihrer Konfiguration einrichten. Dieser Schalter existiert, damit unser `systemd` Dienst ihre globale Konfiguration nicht berühren muss, um sich an seine eigene Umgebung anzupassen. Selbstverständlich können Sie diese Option auch verwenden, wenn Sie einen ähnlichen Anwendungsfall benötigen; ansonsten ist die globale Konfigurationseigenschaft besser geeignet.
+`--service`- Dieser Schalter wird hauptsächlich für unseren `systemd` service und erzwingt den Wert von `Headless` auf `true`. Wenn Sie keinen besonderen Grund haben, sollten Sie stattdessen die `headless` Eigenschaft (Property) direkt in Ihrer Konfiguration einrichten. Dieser Schalter existiert, damit unser `systemd` Dienst Ihre globale Konfiguration nicht berühren muss, um sich an seine eigene Umgebung anzupassen. Selbstverständlich können Sie diese Option auch verwenden, wenn Sie einen ähnlichen Anwendungsfall benötigen; ansonsten ist die globale Konfigurationseigenschaft besser geeignet.
 
 ---
 
-`--system-required` - Die Verwendung dieser Option veranlasst ASF, dem Betriebssystem zu signalisieren, dass das System für die gesamte Lebensdauer des Prozesses betriebsbereit sein muss. Derzeit hat dieser Schalter nur Auswirkungen auf Windows-Maschinen, auf denen es ihrem System untersagt, in den Schlafmodus zu gehen, solange der Prozess läuft. Dies kann besonders nützlich sein, wenn Sie nachts auf ihrem PC oder Laptop am Sammeln sind. ASF ist damit in der Lage, das System während des Sammelns wach zu halten, und sich nach Beendigung des Sammelns wie gewohnt abzuschalten. So kann ihr System wieder in den Ruhemodus wechseln und somit sofort nach Beendigung des Sammelns Strom sparen.
+`--system-required` - Die Verwendung dieser Option veranlasst ASF, dem Betriebssystem zu signalisieren, dass das System für die gesamte Lebensdauer des Prozesses betriebsbereit sein muss. Derzeit hat dieser Schalter nur Auswirkungen auf Windows-Maschinen, auf denen es Ihrem System untersagt, in den Schlafmodus zu gehen, solange der Prozess läuft. Dies kann besonders nützlich sein, wenn Sie nachts auf Ihrem PC oder Laptop am Sammeln sind. ASF ist damit in der Lage, das System während des Sammelns wach zu halten, und sich nach Beendigung des Sammelns wie gewohnt abzuschalten. So kann Ihr System wieder in den Ruhemodus wechseln und somit sofort nach Beendigung des Sammelns Strom sparen.
 
-Beachten Sie, dass Sie für ein ordnungsgemäßes automatisches Herunterfahren von ASF weitere Einstellungen benötigen - vor allem `--process-required` sollte vermieden werden und alle Bots sollten `ShutdownOnFarmingFinished` aktiv haben. Natürlich ist das automatische Herunterfahren nur eine Möglichkeit für dieses Feature und keine Anforderung, da Sie dieses Attribut auch zusammen mit z. B. `--process-required` verwenden können, was ihr System nach dem Start von ASF unbegrenzt wach hält.
+Beachten Sie, dass Sie für ein ordnungsgemäßes automatisches Herunterfahren von ASF weitere Einstellungen benötigen - vor allem `--process-required` sollte vermieden werden und alle Bots sollten `ShutdownOnFarmingFinished` aktiv haben. Natürlich ist das automatische Herunterfahren nur eine Möglichkeit für dieses Feature und keine Anforderung, da Sie dieses Attribut auch zusammen mit z. B. `--process-required` verwenden können, was Ihr System nach dem Start von ASF unbegrenzt wach hält.
