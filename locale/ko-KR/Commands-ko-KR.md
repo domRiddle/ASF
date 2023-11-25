@@ -177,7 +177,7 @@ While valid values for all of them are:
 | 2 | `FriendsOnly` |
 | 3 | `Public`      |
 
-You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
+You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned setting while having `Private` profile setting.
 
 ### 예시
 

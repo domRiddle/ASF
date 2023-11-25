@@ -148,7 +148,7 @@ ASF allows you to pass **[command-line arguments](https://github.com/JustArchiNE
 docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --name asf --pull always justarchi/archisteamfarm
 ```
 
-This will properly pass your `--cryptkey` argument to ASF process being run inside docker container, as well as other args. Hvis du er avanceret bruger, kan du selvfølgelig også ændre `ENTRYPOINT` eller tilføje `CMD` og videregive dine brugerdefinerede argumenter selv.
+This will properly pass your `--cryptkey` argument to ASF process being run inside docker container, as well as other args. Of course, if you're advanced user, then you can also modify `ENTRYPOINT` or add `CMD` and pass your custom arguments yourself.
 
 Unless you want to provide custom encryption key or other advanced options, usually you don't need to include any special environment variables, as our docker containers are already configured to run with a sane expected default options of `--no-restart` `--process-required` `--system-required`, so those flags do not need to be specified explicitly in `ASF_ARGS`.
 

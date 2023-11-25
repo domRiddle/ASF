@@ -54,7 +54,7 @@ Bu değişkenin doğası gereği, cryptkey'i `ASF_CRYPTKEY` ortam değişkeni il
 
 ---
 
-`--cryptkey-file <path>` ve `--cryptkey-file=<path>` - ASF'yi `<path>` dosyasından okunan özel şifreleme anahtarı ile başlatır. Bu, yukarıda açıklanan `--cryptkey <key>` ile aynı amaca hizmet eder, yalnızca mekanizma farklıdır, çünkü bu özellik bunun yerine `<key>` sağlanandan `<path>` okuyacaktır.
+`--cryptkey-file <path>` ve `--cryptkey-file=<path>` - ASF'yi `<path>` dosyasından okunan özel şifreleme anahtarı ile başlatır. Bu, yukarıda açıklanan `--cryptkey <key>` ile aynı amaca hizmet eder, yalnızca mekanizma farklıdır, çünkü bu özellik bunun yerine `<key>` sağlanandan `<path>` okuyacaktır. If you're using this together with `--path`, consider declaring `--path` first so relative paths can work correctly.
 
 Bu özelliğin doğası gereği, işlem bağımsız değişkenlerinde hassas ayrıntılardan kaçınmak isteyen kişiler için daha uygun olabilecek `ASF_CRYPTKEY_FILE` ortam değişkeni bildirerek cryptkey dosyasını ayarlamak da mümkündür.
 

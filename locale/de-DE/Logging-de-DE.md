@@ -162,7 +162,7 @@ Zuletzt, lasst uns etwas weiter fortgeschrittenes tun und alle Nachrichten in ei
 </nlog>
 ```
 
-Sie können sehen, wie wir die ASF-Integration oben verwendet haben und leicht zu unterscheidende Quelle der Nachricht basierend auf der `${logger}` Eigenschaft (Property).
+Sie können sehen, wie wir die ASF-Integration oben verwendet haben und leicht zu unterscheidende Quelle der Nachricht basierend auf der `${logger}` Variable.
 
 ---
 
@@ -180,7 +180,7 @@ ASF deaktiviert vorübergehend **alle** Regeln, die `ColoredConsole` oder `Conso
 
 ## Chat-Protokollierung
 
-ASF bietet erweiterte Unterstützung für das Chat-Logging, indem es nicht nur alle empfangene/gesendete Nachrichten auf `Trace` Logging-Ebene aufzeichnet, sondern auch zusätzliche Informationen zu Ihnen in **[Ereigniss-Eigenschaft (Property)en](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)** anzeigt. Dies liegt daran, dass wir Chat-Nachrichten ohnehin als Befehle behandeln müssen, sodass es uns nichts kostet, diese Ereignisse zu protokollieren, um es Ihnen zu ermöglichen, zusätzliche Logik hinzuzufügen (z. B. ASF zu einem persönlichen Steam-Chat-Archiv zu machen).
+ASF bietet erweiterte Unterstützung für das Chat-Logging, indem es nicht nur alle empfangene/gesendete Nachrichten auf `Trace` Logging-Ebene aufzeichnet, sondern auch zusätzliche Informationen zu Ihnen in **[Ereignis-Variablen](https://github.com/NLog/NLog/wiki/EventProperties-Layout-Renderer)** anzeigt. Dies liegt daran, dass wir Chat-Nachrichten ohnehin als Befehle behandeln müssen, sodass es uns nichts kostet, diese Ereignisse zu protokollieren, um es Ihnen zu ermöglichen, zusätzliche Logik hinzuzufügen (z. B. ASF zu einem persönlichen Steam-Chat-Archiv zu machen).
 
 ### Ereigniseigenschaften
 
@@ -274,7 +274,7 @@ _layout_ - Der zu rendernde Text. [Layout](https://github.com/NLog/NLog/wiki/Lay
 
 ##### SteamTarget Optionen
 
-_chatGroupID_ - ID des Gruppen-Chats, der als 64-Bit lange unsignierte Ganzzahl deklariert wurde. Nicht erforderlich. Standardmäßig ist `0` voreingestellt, was die Gruppen-Chat-Funktion deaktiviert und stattdessen privaten Chat verwendet. Wenn aktiviert (auf einen Nicht-Nullwert gesetzt), fungiert die folgende Eigenschaft (Property) `steamID` als `chatID` und gibt die ID des Kanals in diesem `chatGroupID` an, an den der Bot Nachrichten senden soll.
+_chatGroupID_ - ID des Gruppen-Chats, der als 64-Bit lange unsignierte Ganzzahl deklariert wurde. Nicht erforderlich. Standardmäßig ist `0` voreingestellt, was die Gruppen-Chat-Funktion deaktiviert und stattdessen privaten Chat verwendet. Wenn aktiviert (auf einen Nicht-Nullwert gesetzt), fungiert die folgende Variable `steamID` als `chatID` und gibt die ID des Kanals in diesem `chatGroupID` an, an den der Bot Nachrichten senden soll.
 
 _steamID_ - SteamID deklariert als 64-Bit lange unsignierte ganze Zahl des Ziel-Steam-Benutzers (wie `SteamOwnerID`), oder Ziel `chatID` (wenn `chatGroupID` eingestellt ist). Erforderlich. Defaults to `0` which disables logging target entirely.
 

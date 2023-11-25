@@ -114,7 +114,7 @@ Insbesondere `GCLatencyLevel` wird sehr nützlich sein, da wir überprüft haben
 
 Die folgenden Tricks **führen zu einer ernsthaften Leistungsabnahme** und sollten mit Vorsicht angewendet werden.
 
-- Als letzten Ausweg kannst Du ASF für `MinMemoryUsage` durch `OptimizationMode` in der **[globalen KonfigurationsEigenschaft (Property)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#global-config)** einstellen. Lesen Sie sorgfältig seinen Zweck, da dies eine ernsthafte Leistungseinbuße ist und fast keine Vorteile für den Speicher hat. Dies ist normalerweise **das Letzte, was Du tun willst**, lange nachdem Du die **[Laufzeitoptimierung](#runtime-tuning-advanced)** durchgeführt hast, um sicherzustellen, dass Du keine andere Wahl hast. Unless absolutely critical for your setup, we discourage using `MinMemoryUsage`, even in memory-constrained environments.
+- Als letzten Ausweg können Sie ASF für `MinMemoryUsage` durch `OptimizationMode` in der **[globalen Konfigurationsvariable](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#global-config)** einstellen. Lesen Sie sorgfältig seinen Zweck, da dies eine ernsthafte Leistungseinbuße ist und fast keine Vorteile für den Speicher hat. Dies ist normalerweise **das Letzte, was Du tun willst**, lange nachdem Du die **[Laufzeitoptimierung](#runtime-tuning-advanced)** durchgeführt hast, um sicherzustellen, dass Du keine andere Wahl hast. Unless absolutely critical for your setup, we discourage using `MinMemoryUsage`, even in memory-constrained environments.
 
 ---
 

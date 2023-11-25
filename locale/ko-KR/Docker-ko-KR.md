@@ -148,7 +148,7 @@ ASF는 환경변수를 통해 **[명령줄 인자](https://github.com/JustArchiN
 docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --name asf --pull always justarchi/archisteamfarm
 ```
 
-이렇게 하면 `--cryptkey` 인자 뿐 아니라 다른 인자들도 도커 컨테이너 내부에서 실행되는 ASF 프로세스로 전달할 것입니다. Of course, if you're advanced user then you can also modify `ENTRYPOINT` or add `CMD` and pass your custom arguments yourself.
+이렇게 하면 `--cryptkey` 인자 뿐 아니라 다른 인자들도 도커 컨테이너 내부에서 실행되는 ASF 프로세스로 전달할 것입니다. Of course, if you're advanced user, then you can also modify `ENTRYPOINT` or add `CMD` and pass your custom arguments yourself.
 
 Unless you want to provide custom encryption key or other advanced options, usually you don't need to include any special environment variables, as our docker containers are already configured to run with a sane expected default options of `--no-restart` `--process-required` `--system-required`, so those flags do not need to be specified explicitly in `ASF_ARGS`.
 

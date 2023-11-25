@@ -54,7 +54,7 @@ Do tính chất của thuộc tính này, bạn cũng có thể đặt khoá mã
 
 ---
 
-`--cryptkey-file <path>` hoặc `--cryptkey-file=<path>` - sẽ khởi động ASF bằng khoá mật mã tuỳ chỉnh được đọc từ tập tin `<path>`. Điều này phục vụ cùng một mục đích như `--cryptkey <key>` đã giải thích ở trên, chỉ có cơ chế là khác, vì thuộc tính này sẽ đọc `<key>` từ `<path>` được cung cấp để thay thế.
+`--cryptkey-file <path>` hoặc `--cryptkey-file=<path>` - sẽ khởi động ASF bằng khoá mật mã tuỳ chỉnh được đọc từ tập tin `<path>`. Điều này phục vụ cùng một mục đích như `--cryptkey <key>` đã giải thích ở trên, chỉ có cơ chế là khác, vì thuộc tính này sẽ đọc `<key>` từ `<path>` được cung cấp để thay thế. If you're using this together with `--path`, consider declaring `--path` first so relative paths can work correctly.
 
 Do tính chất của thuộc tính này, bạn cũng có thể đặt tệp khoá mã hoá bằng cách khai báo biến môi trường `ASF_CRYPTKEY_FILE`, điều này có thể phù hợp hơn cho những người muốn tránh các khía cạnh nhạy cảm trong các đối số của tiến trình.
 

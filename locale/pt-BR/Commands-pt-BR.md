@@ -177,7 +177,7 @@ Enquanto os valores válidos para todas elas são:
 | 2     | `FriendsOnly` |
 | 3     | `Public`      |
 
-Você pode tanto usar um nome que não distingue maiúsculas de minúsculas, quanto um valor numérico. Argumentos que foram omitidos serão definidos por padrão como `Privado`. É importante notar a relação entre argumentos filhos e pais especificados acima, uma vez que um filho nunca pode ter permissão mais ampla que o seu pai. Por exemplo, você **não pode** ter jogos `Públicos` se o seu perfil for `privado`.
+Você pode tanto usar um nome que não distingue maiúsculas de minúsculas, quanto um valor numérico. Argumentos que foram omitidos serão definidos por padrão como `Privado`. É importante notar a relação entre argumentos filhos e pais especificados acima, uma vez que um filho nunca pode ter permissão mais ampla que o seu pai. For example, you **can't** have `Public` games owned setting while having `Private` profile setting.
 
 ### Exemplo
 

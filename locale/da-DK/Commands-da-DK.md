@@ -177,7 +177,7 @@ While valid values for all of them are:
 | 2     | `FriendsOnly` |
 | 3     | `Public`      |
 
-Du kan enten bruge et bogstavs følsomt navn eller en numerisk værdi. Argumenter, der blev udeladt, indstilles som standard til `Private`. Det er vigtigt at bemærke forholdet mellem child og parent til de argumenter, der er specificeret ovenfor, da child aldrig kan have mere åben tilladelse end parent. For example, you **can't** have `Public` games owned while having `Private` profile.
+Du kan enten bruge et bogstavs følsomt navn eller en numerisk værdi. Argumenter, der blev udeladt, indstilles som standard til `Private`. Det er vigtigt at bemærke forholdet mellem child og parent til de argumenter, der er specificeret ovenfor, da child aldrig kan have mere åben tilladelse end parent. For example, you **can't** have `Public` games owned setting while having `Private` profile setting.
 
 ### Eksempel
 

@@ -177,7 +177,7 @@ Mientras que los valores válidos para todos ellos son:
 | 2     | `FriendsOnly` |
 | 3     | `Public`      |
 
-Puedes usar un nombre, sin distinción de mayúsculas y minúsculas, o un valor numérico. Los argumentos omitidos por defecto se establecerán a `Private` privado. Es importante tener en cuenta la relación entre padre e hijo de los argumentos especificados anteriormente, ya que el hijo nunca puede tener permisos más abiertos que el padre. Por ejemplo, **no** puedes tener juegos poseídos en `Public` público teniendo el perfil en `Private` privado.
+Puedes usar un nombre, sin distinción de mayúsculas y minúsculas, o un valor numérico. Los argumentos omitidos por defecto se establecerán a `Private` privado. Es importante tener en cuenta la relación entre padre e hijo de los argumentos especificados anteriormente, ya que el hijo nunca puede tener permisos más abiertos que el padre. Por ejemplo,  **no puedes** tener juegos poseídos en `Public` y al mismo tiempo tener el perfil en `Private`.
 
 ### Ejemplo
 

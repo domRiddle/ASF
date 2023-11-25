@@ -177,7 +177,7 @@ In addition to range syntax above, `[Bots]` argument also supports **[regex](htt
 | 2 | `FriendsOnly` |
 | 3 | `Public`      |
 
-您可以使用它們的名稱（不區分大小寫）或者數值。 省略的參數將會被設置為預設值 `Private`。 請謹記上述參數的從屬關係非常重要，因為子選項無法擁有比父選項更高的許可權。 例如，如果您將個人資料設置為 `Private`，就**無法**再將遊戲詳情設置為 `Public`。
+您可以使用它們的名稱（不區分大小寫）或者數值。 省略的參數將會被設置為預設值 `Private`。 請謹記上述參數的從屬關係非常重要，因為子選項無法擁有比父選項更高的許可權。 For example, you **can't** have `Public` games owned setting while having `Private` profile setting.
 
 ### 範例
 

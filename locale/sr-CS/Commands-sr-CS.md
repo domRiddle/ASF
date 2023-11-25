@@ -177,7 +177,7 @@ Dok su pravilne vrijednosti za sve njih:
 | 2          | `FriendsOnly` |
 | 3          | `Public`      |
 
-Možete koristiti ili imena koja se mogu pisati i velikim i malim slovima, ili brojeve. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
+Možete koristiti ili imena koja se mogu pisati i velikim i malim slovima, ili brojeve. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned setting while having `Private` profile setting.
 
 ### Primjer
 

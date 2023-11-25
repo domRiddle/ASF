@@ -54,7 +54,7 @@ Debido a la naturaleza de esta propiedad, también es posible establecer la clav
 
 ---
 
-`--cryptkey-file <path>` o `--cryptkey-file=<path>` - lanzará ASF con una clave criptográfica personalizada leída desde el archivo `<path>`. Esto tiene el mismo propósito que `--cryptkey <key>` el cual se explicó anteriormente, solo el mecanismo difiere, ya que en cambio esta propiedad leerá `<key>` del `<path>` proporcionado.
+`--cryptkey-file <path>` o `--cryptkey-file=<path>` - lanzará ASF con una clave criptográfica personalizada leída desde el archivo `<path>`. Esto tiene el mismo propósito que `--cryptkey <key>` el cual se explicó anteriormente, solo el mecanismo difiere, ya que en cambio esta propiedad leerá `<key>` del `<path>` proporcionado. Si usas esto junto con `--path`, considera declarar primero `--path` para que las rutas relativas puedan funcionar correctamente.
 
 Debido a la naturaleza de esta propiedad, también es posible establecer el archivo de la clave de cifrado declarando la variable de entorno `ASF_CRYPTKEY_FILE`, lo que podría ser más apropiado para quienes deseen evitar información sensible en los argumentos del proceso.
 

@@ -171,13 +171,13 @@ For description of above fields, please visit **[Steam privacy settings](https:/
 
 While valid values for all of them are:
 
-| Value | Ime           |
-| ----- | ------------- |
-| 1     | `Private`     |
-| 2     | `FriendsOnly` |
-| 3     | `Public`      |
+| Vrijednost | Ime           |
+| ---------- | ------------- |
+| 1          | `Private`     |
+| 2          | `FriendsOnly` |
+| 3          | `Public`      |
 
-You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned while having `Private` profile.
+You can use either a case-insensitive name, or a numeric value. Arguments that were omitted will default to being set to `Private`. It's important to note relation between child and parent of arguments specified above, as child can never have more open permission than its parent. For example, you **can't** have `Public` games owned setting while having `Private` profile setting.
 
 ### Example
 
@@ -253,18 +253,18 @@ owns ASF app/292030,name/Witcher
 
 `<Modes>` argument accepts multiple mode values, separated as usual by a comma. Available mode values are specified below:
 
-| Value | Ime                   | Opis                                                                            |
-| ----- | --------------------- | ------------------------------------------------------------------------------- |
-| FAWK  | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
-| FD    | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
-| FF    | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
-| FKMG  | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
-| SAWK  | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
-| SD    | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
-| SF    | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
-| SI    | SkipInitial           | Skips key redemption on initial bot                                             |
-| SKMG  | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
-| V     | Validate              | Validates keys for proper format and automatically skips invalid ones           |
+| Vrijednost | Ime                   | Opis                                                                            |
+| ---------- | --------------------- | ------------------------------------------------------------------------------- |
+| FAWK       | ForceAssumeWalletKey  | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be enabled  |
+| FD         | ForceDistributing     | Forces `Distributing` redeeming preference to be enabled                        |
+| FF         | ForceForwarding       | Forces `Forwarding` redeeming preference to be enabled                          |
+| FKMG       | ForceKeepMissingGames | Forces `KeepMissingGames` redeeming preference to be enabled                    |
+| SAWK       | SkipAssumeWalletKey   | Forces `AssumeWalletKeyOnBadActivationCode` redeeming preference to be disabled |
+| SD         | SkipDistributing      | Forces `Distributing` redeeming preference to be disabled                       |
+| SF         | SkipForwarding        | Forces `Forwarding` redeeming preference to be disabled                         |
+| SI         | SkipInitial           | Skips key redemption on initial bot                                             |
+| SKMG       | SkipKeepMissingGames  | Forces `KeepMissingGames` redeeming preference to be disabled                   |
+| V          | Validate              | Validates keys for proper format and automatically skips invalid ones           |
 
 For example, we'd like to redeem 3 keys on any of our bots that don't own games yet, but not our `primary` bot. For achieving that we can use:
 

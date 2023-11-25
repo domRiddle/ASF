@@ -27,7 +27,7 @@ Sehr ähnlich wie oben, zeigt dieser *Tag* immer auf die neueste **[veröffentli
 
 Unter den verfügbaren **Tags** ist dieses das Einzige, welches automatische Updates enthält und auf die **[stable](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**-ASF-Version verweist. Der Zweck dieses **Tags** ist es, einen funktionierenden (Standard)-Docker-Container zur Verfügung zu stellen, der selbstständig in der Lage ist, eine aktualisierte, OS-spezifische ASF-Instanz auszuführen. Dadurch muss das Image (Abbild)  nicht so oft auf den neuesten Stand gebracht werden, da die enthaltene ASF-Version immer in der Lage ist, sich bei Bedarf selbst zu aktualisieren. Natürlich kann `UpdatePeriod` problemlos ausgeschaltet werden (eingestellt auf `0`), aber in diesem Fall sollten Sie wahrscheinlich stattdessen die eingefrorene Version `A.B.C.D` verwenden. Ebenso können Sie den Standard `UpdateChannel` ändern, um stattdessen ein automatisches Aktualisieren des `released` *Tags* durchzuführen.
 
-Aufgrund der Tatsache, dass die Version `latest` automatisch aktualisiert werden kann, enthält es ein spärliches Betriebssystem inklusive einer OS-spezifischen `Linux` ASF Version; im Gegensatz zu allen anderen *Tags*, die OS mit .NET Laufzeit und `generische` ASF Version. Dies liegt daran, dass eine neuere (aktualisierte) ASF-Version möglicherweise auch eine neuere Laufzeitumgebung erfordert als die, mit der das Build kompiliert werden könnte. Ansonsten würde dies einen Neuaufbau des Images von Grund auf erfordern, wodurch der geplante Anwendungsfall hinfällig wäre.
+Aufgrund der Tatsache, dass die Version `latest` automatisch aktualisiert werden kann, enthält es ein spärliches Betriebssystem, inklusive einer OS-spezifischen `Linux` ASF Version; im Gegensatz zu allen anderen *Tags*, die OS mit .NET Laufzeit und `generic` ASF Version beinhalten. Dies liegt daran, dass eine neuere (aktualisierte) ASF-Version möglicherweise auch eine neuere Laufzeitumgebung erfordert als die, mit der das Build kompiliert werden könnte. Ansonsten würde dies einen Neuaufbau des Images von Grund auf erfordern, wodurch der geplante Anwendungsfall hinfällig wäre.
 
 ### `A.B.C.D`
 
@@ -150,7 +150,7 @@ docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --
 
 Dies wird sowohl das Argument `--cryptkey` korrekt an den ASF-Prozess übergeben, der im Docker-Container ausgeführt wird, als auch andere Argumente. Falls Sie ein fortgeschrittener Benutzer sind, können Sie natürlich auch den `ENTRYPOINT` bearbeiten oder eine `CMD` hinzufügen und Ihre Argumente selbst übergeben.
 
-Sofern Sie keinen benutzerdefinierten Verschlüsselungsschlüssel oder andere erweiterte Optionen bereitstellen möchten, müssen Sie in der Regel keine speziellen Umgebungsvariablen einfügen, da unsere Docker-Container bereits so konfiguriert sind, dass sie mit einer vernünftig erwarteten Standardoption von `--no-restart`, `--process-required` und `--system-required`; sodass diese Flags nicht explizit in `ASF_ARGS` angegeben werden müssen.
+Sofern Sie keinen benutzerdefinierten Verschlüsselungsschlüssel oder andere erweiterte Optionen bereitstellen möchten, müssen Sie in der Regel keine speziellen Umgebungsvariablen einfügen, da unsere Docker-Container bereits so konfiguriert sind, dass sie mit einer vernünftig erwarteten Standardoption ausgeführt werden `--no-restart` `--process-required` und `--system-required`; sodass diese Flags nicht explizit in `ASF_ARGS` angegeben werden müssen.
 
 ---
 
@@ -172,7 +172,7 @@ Um das oben Gesagte zu erreichen, sollten Sie eine **[benutzerspezifische IPC-Ko
 }
 ```
 
-Sobald wir IPC auf einer Nicht-Loopback-Schnittstelle eingerichtet haben, ist es notwendig Docker mitzuteilen, dass er den ASF-Port `1242/tcp` entweder mit dem Schalter `-P` oder `-p` zuordnen soll.
+Sobald wir IPC auf einer Nicht-Loopback-Schnittstelle eingerichtet haben, ist es notwendig Docker mitzuteilen, dass er den ASF-Port `1242/tcp` (entweder mit dem Schalter `-P` oder `-p`) zuordnen soll.
 
 Dieser Befehl würde die ASF-IPC-Schnittstelle beispielsweise (nur) zum Host-Computer freigeben:
 

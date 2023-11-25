@@ -54,7 +54,7 @@ Devido à natureza desta propriedade, também é possível definir a cryptkey de
 
 ---
 
-`--cryptkey-file <path>` ou `--cryptkey-file=<path>` - inicializará o ASF com uma chave de criptografia personalizado lida à partir do arquivo `<path>`. Isso tem a mesma função que `--cryptkey <key>` explicado acima, apenas o mecanismo difere, já que esta propriedade vai ler a `<key>` dà partir do `<path>` indicado.
+`--cryptkey-file <path>` ou `--cryptkey-file=<path>` - inicializará o ASF com uma chave de criptografia personalizado lida à partir do arquivo `<path>`. Isso tem a mesma função que `--cryptkey <key>` explicado acima, apenas o mecanismo difere, já que esta propriedade vai ler a `<key>` dà partir do `<path>` indicado. If you're using this together with `--path`, consider declaring `--path` first so relative paths can work correctly.
 
 Devido à natureza desta propriedade, também é possível definir ao arquivo cryptkey' declarando a variável de ambiente `ASF_CRYPTKEY_FILE`, que pode ser mais apropriada para pessoas que gostariam de evitar dados confidenciais nos argumentos do processo.
 

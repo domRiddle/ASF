@@ -54,7 +54,7 @@ Vzhledem k povaze této vlastnosti je také možné nastavit cryptkey deklarací
 
 ---
 
-`--cryptkey-file <path>` nebo `--cryptkey-file=<path>` - spustí ASF s vlastním kryptografickým klíčem načteným ze souboru `<path>`. Slouží ke stejnému účelu jako `--cryptkey <key>` vysvětlený výše, liší se pouze mechanismem, protože tato vlastnost bude místo toho číst `<key>` z poskytnutého `<path>`.
+`--cryptkey-file <path>` nebo `--cryptkey-file=<path>` - spustí ASF s vlastním kryptografickým klíčem načteným ze souboru `<path>`. Slouží ke stejnému účelu jako `--cryptkey <key>` vysvětlený výše, liší se pouze mechanismem, protože tato vlastnost bude místo toho číst `<key>` z poskytnutého `<path>`. If you're using this together with `--path`, consider declaring `--path` first so relative paths can work correctly.
 
 Vzhledem k povaze této vlastnosti je také možné nastavit soubor šifrovacího klíče deklarací proměnné prostředí `ASF_CRYPTKEY_FILE`, což může být vhodnější pro ty, kteří se chtějí vyhnout citlivým údajům v argumentech procesu.
 

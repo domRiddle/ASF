@@ -54,7 +54,7 @@ Linux/macOS：
 
 ---
 
-`--cryptkey-file<path>`&#8203;或&#8203;`--cryptkey-file=<path>`&#8203;⸺將使用從&#8203;`<path>`&#8203;檔案中讀取的自訂加密金鑰&#8203;`<path>`&#8203;啟動ASF。 這與上述說明的&#8203;`--cryptkey<key>`&#8203;的目的相同。但機制不同，因為此屬性是從&#8203;`<path>`&#8203;讀取&#8203;`<key>`&#8203;。
+`--cryptkey-file<path>`&#8203;或&#8203;`--cryptkey-file=<path>`&#8203;⸺將使用從&#8203;`<path>`&#8203;檔案中讀取的自訂加密金鑰&#8203;`<path>`&#8203;啟動ASF。 這與上述說明的&#8203;`--cryptkey<key>`&#8203;的目的相同。但機制不同，因為此屬性是從&#8203;`<path>`&#8203;讀取&#8203;`<key>`&#8203;。 If you're using this together with `--path`, consider declaring `--path` first so relative paths can work correctly.
 
 由於此屬性的性質，它還能透過宣告&#8203;`ASF_CRYPTKEY_FILE`&#8203;環境變數來設定cryptkey檔案，這更適合希望在程序引數中，不包含敏感資訊的使用者。
 

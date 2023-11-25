@@ -181,7 +181,7 @@ Tandis que les valeurs valides pour tous sont:
 | 2       | `AmisSeulement` |
 | 3       | `Publique`      |
 
-Vous pouvez utiliser un nom ne tenant pas compte de la casse ou une valeur numérique. Les arguments qui ont été omis seront par défaut définis sur ` Privé </ 0>. Il est important de noter la relation entre l'enfant et le parent des arguments spécifiés ci-dessus, car l'enfant ne peut jamais avoir plus de permission ouverte que ses parent. Par exemple, vous <strong x-id="1"> ne pouvez pas </strong> posséder des jeux <code> publics ` avec un profil ` privé `.
+Vous pouvez utiliser un nom ne tenant pas compte de la casse ou une valeur numérique. Les arguments qui ont été omis seront par défaut définis sur ` Privé </ 0>. Il est important de noter la relation entre l'enfant et le parent des arguments spécifiés ci-dessus, car l'enfant ne peut jamais avoir plus de permission ouverte que ses parent. For example, you <strong x-id="1">can't</strong> have <code>Public` games owned setting while having `Private` profile setting.
 
 ### Exemple
 

@@ -148,7 +148,7 @@ ASF允許您透過環境變數向Docker容器傳遞&#8203;**[命令列引數](ht
 docker run -it -e "ASF_CRYPTKEY=MyPassword" -e "ASF_ARGS=--no-config-migrate" --name asf --pull always justarchi/archisteamfarm
 ```
 
-這會正確把您的&#8203;`--cryptkey`&#8203;及其他引數傳遞給Docker容器中執行的ASF程序。 當然，如果您是進階使用者，那麼您也可以修改&#8203;`ENTRYPOINT`&#8203;，或是加入&#8203;`CMD`&#8203;來手動傳遞自訂引數。
+這會正確把您的&#8203;`--cryptkey`&#8203;及其他引數傳遞給Docker容器中執行的ASF程序。 Of course, if you're advanced user, then you can also modify `ENTRYPOINT` or add `CMD` and pass your custom arguments yourself.
 
 除非您想要提供自訂加密鍵或其他進階選項，否則通常您不需要任何特殊的環境變數，因為我們的Docker容器已經設定成使用&#8203;`--no-restart`&#8203; &#8203;`--process-required`&#8203; &#8203;`--system-required`&#8203;合理的預設選項執行，因此就不需要在&#8203;`ASF_ARGS`&#8203;中指定這些旗標。
 

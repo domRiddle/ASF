@@ -148,7 +148,7 @@ O ASF te permite passar **[argumentos de linha de comando](https://github.com/Ju
 docker run -it -e "ASF_CRYPTKEY=MinhaSenha" -e "ASF_ARGS=--no-config-migrate" --name asf --pull always justarchi/archisteamfarm
 ```
 
-Esse comando passará seu argumento `--cryptkey` para o processo do ASF sendo executado dentro do contêiner docker, assim como outros argumentos. Claro, se você for um usuário avançado então você também pode mudar o `ENTRYPOINT` ou adicionar `CMD` e passar seus argumentos personalizados você mêsmo.
+Esse comando passará seu argumento `--cryptkey` para o processo do ASF sendo executado dentro do contêiner docker, assim como outros argumentos. Of course, if you're advanced user, then you can also modify `ENTRYPOINT` or add `CMD` and pass your custom arguments yourself.
 
 A menos que você deseje fornecer chaves de criptografia personalizadas ou outras opções avançadas, geralmente você não precisa incluir variáveis de ambiente especiais, pois nossos contêineres docker já estão configurados para serem executados usando as opções padrões `--no-restart` `--process-required` `--system-required`, portanto esses argumentos não precisam ser especificados explicitamente em `ASF_ARGS`.
 

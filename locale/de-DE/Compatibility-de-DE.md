@@ -1,6 +1,6 @@
 # Kompatibilität
 
-ASF ist eine C#-Anwendung, welche mit der .NET-Plattform ausgeführt wird. Das bedeutet, dass ASF nicht direkt in **[Maschinencode](https://de.wikipedia.org/wiki/Machine_code)** kompiliert wird, der auf der CPU läuft, sondern in **[CIL](https://de.wikipedia.org/wiki/Common_Intermediate_Language)**, welche eine CIL-kompatible Runtime für dessen Ausführung benötigt.
+ASF ist eine C#-Anwendung, welche mit der .NET-Plattform ausgeführt wird. Das bedeutet, dass ASF nicht direkt in **[Maschinencode](https://de.wikipedia.org/wiki/Machine_code)** kompiliert wird, der auf deiner CPU läuft, sondern in **[CIL](https://de.wikipedia.org/wiki/Common_Intermediate_Language)**, welche eine CIL-kompatible Runtime für Ihre Ausführung benötigt.
 
 Dieser Ansatz hat enorme Vorteile, da CIL plattformunabhängig ist. Aus diesem Grund kann ASF nativ auf vielen verfügbaren Betriebssystemen, insbesondere Windows, Linux und macOS, ausgeführt werden. Es wird nicht nur keine Emulation benötigt, sondern auch Unterstützung für alle plattformbezogenen und hardwarebezogenen Optimierungen, wie z. B. CPU-SSE-Anweisungen. Dank dessen kann ASF eine überlegene Leistung und Optimierung erreichen, während es gleichzeitig eine perfekte Kompatibilität und Zuverlässigkeit bietet.
 
@@ -50,6 +50,6 @@ Wenn Sie ein betriebssystemspezifisches Paket verwenden, müssen Sie sich keine 
 
 Falls Sie dennoch das **generische** ASF-Paket ausprobieren möchten, dann müssen Sie unbedingt sicherstellen, dass die installierte .NET Runtime die von ASF benötigte Plattform unterstützt.
 
-ASF als Programm ist derzeit auf **.NET Core 8.0** (`.NET 7.0`) ausgerichtet, könnte aber in Zukunft eine neuere Plattform erfordern. `net8.0` wird seit 8.0.100 SDK (8.0.0 Runtime) unterstützt, wobei ASF ** die letzte Runtime zum Zeitpunkt der Kompilierung** bevorzugt; also sollten Sie sicherstellen, dass Ihnen**[die neueste SDK](https://dotnet.microsoft.com/download)** (oder zumindest die Runtime) für Ihr Gerät zur Verfügung steht. Die generische ASF-Variante kann den Start verweigern, wenn die installierte Laufzeitumgebung älter ist als die minimale Runtime, die während der Kompilierung bekannt ist.
+ASF als Programm ist derzeit auf **.NET Core 8.0** (`.NET 7.0`) ausgerichtet, könnte aber in Zukunft eine neuere Plattform erfordern. `net8.0` wird seit 8.0.100 SDK (8.0.0 Runtime) unterstützt, wobei ASF ** die letzte Runtime zum Zeitpunkt der Kompilierung** bevorzugt; also sollten Sie sicherstellen, dass Ihnen **[die neueste SDK](https://dotnet.microsoft.com/download)** (oder zumindest die Runtime) für Ihr Gerät zur Verfügung steht. Die generische ASF-Variante kann den Start verweigern, wenn die installierte Laufzeitumgebung älter ist als die minimale Runtime, die während der Kompilierung bekannt ist.
 
 Im Zweifelsfall sollten Sie überprüfen, was unsere **[kontinuierliche Integration](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** für die Kompilierung und Bereitstellung von ASF-Versionen auf GitHub verwendet. Sie können `dotnet --info` in jedem Build als Teil des .NET Verifizierungsschritts finden.
