@@ -177,7 +177,7 @@ ASF 会将命令末尾超出规定范围的多余参数连接到符合语法规�
 | 2 | `FriendsOnly（仅限好友）` |
 | 3 | `Public（公开）`        |
 
-您可以使用它们的名称（不区分大小写）或者数字值。 被省略的参数将会被设置为默认值 `Private`。 上述参数的从属关系是非常重要的，因为子选项无法拥有比父选项更高的权限。 For example, you **can't** have `Public` games owned setting while having `Private` profile setting.
+您可以使用它们的名称（不区分大小写）或者数字值。 被省略的参数将会被设置为默认值 `Private`。 上述参数的从属关系是非常重要的，因为子选项无法拥有比父选项更高的权限。 例如，如果您将个人资料设置为 `Private`，就**无法**再将游戏详情设置为 `Public`。
 
 ### 范例
 

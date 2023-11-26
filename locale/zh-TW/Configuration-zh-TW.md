@@ -472,7 +472,7 @@ Bot設定檔具有以下結構：
 | 3 | FoilTradingCard（閃亮交換卡片） | 閃亮版本的&#8203;`TradingCard`&#8203; |
 | 5 | TradingCard（交換卡片）       | Steam交換卡片，用於合成徽章（非閃亮卡片）          |
 
-Please note that regardless of the settings above, ASF will only ask for **[Steam community items](https://steamcommunity.com/my/inventory/#753_6)** (`appID` of 753, `contextID` of 6), so all game items, gifts and likewise, are excluded from the trade offer by definition.
+請注意，不論上述如何設定，ASF都只會處理&#8203;**[Steam社群物品](https://steamcommunity.com/my/inventory/#753_6)**&#8203;（&#8203;`appID`&#8203;為753，&#8203;`contextID`&#8203;為6），因此依據定義所有遊戲物品、禮物等物品都會被排除在交易提案之外。
 
 由於使用本選項會造成額外負擔，我們建議您只在有機會收集完成物品的Bot帳號上使用⸺舉例來說，若您平常已在使用&#8203;`SendOnFarmingFinished`&#8203;、&#8203;`SendTradePeriod`&#8203;或&#8203;`loot`&#8203;指令，就沒有必要使用本選項。
 
@@ -583,7 +583,7 @@ ASF提供了數種您能在本文中使用的特殊變數。 `{0}`&#8203;會被�
 | 15 | KeyboardSkin（鍵盤外觀）              | Steam Deck的特殊鍵盤外觀                |
 | 16 | StartupVideo（啟動動畫）              | Steam Deck的特殊啟動動畫                |
 
-Please note that regardless of the settings above, ASF will only ask for **[Steam community items](https://steamcommunity.com/my/inventory/#753_6)** (`appID` of 753, `contextID` of 6), so all game items, gifts and likewise, are excluded from the trade offer by definition.
+請注意，不論上述如何設定，ASF都只會處理&#8203;**[Steam社群物品](https://steamcommunity.com/my/inventory/#753_6)**&#8203;（&#8203;`appID`&#8203;為753，&#8203;`contextID`&#8203;為6），因此依據定義所有遊戲物品、禮物等物品都會被排除在交易提案之外。
 
 ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交換卡片（包含閃亮卡片）。 本處定義的屬性使您能夠依自己所需自訂該行為。 請注意，上述所有未定義的類型都會顯示成&#8203;`Unknown`&#8203;類型，特別是在Valve發布一些新的Steam物品時，ASF也會將它們標示成&#8203;`Unknown`&#8203;，直到它們（在未來的版本中）被加入於本表格中。 這也是在一般情形下不建議在&#8203;`LootableTypes`&#8203;中選擇&#8203;`Unknown`&#8203;類型的原因，除非您知道自己正在做什麼，且您也了解萬一Steam網路再次損毀時，會將您的所有物品標示成&#8203;`Unknown`&#8203;，並在交易提案中發送出您物品庫中的所有物品。 我強烈建議即使您希望獲得所有（其他的）物品，也不要在&#8203;`LootableTypes`&#8203;中選擇&#8203;`Unknown`&#8203;類型。
 
@@ -732,7 +732,7 @@ ASF的預設設定是依據最常見的Bot用法，即只獲得擴充包及交�
 
 `bool`&#8203;型別，預設值為&#8203;`false`&#8203;。 在ASF完成指定帳號的掛卡任務後，它能自動將到目前為止所掛出的卡使用交易提案發送給具有&#8203;`Master`&#8203;權限的使用者，若您不想自行發送交易提案，這個功能會對您有所幫助。 本選項與&#8203;`loot`&#8203;指令作用相同，因此請注意，首先它需要您有帳號的交易合法權限，且使用者具有&#8203;`Master`&#8203;權限，而您可能也要有有效的&#8203;`SteamTradeToken`&#8203;。 在本選項啟用時，ASF除了會在掛卡完成後執行&#8203;`loot`&#8203;外，也會在（未掛卡時）每次收到新物品通知後，及在完成產生新物品的交易後執行&#8203;`loot`&#8203;。 這在您把來自其他人的物品「轉發」到自己的帳號中時特別有用。
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to handle 2FA confirmations manually in timely fashion. 若您不確定如何設定本屬性，請保留預設值&#8203;`false`&#8203;。
+通常您會需要同時使用&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**&#8203;，但若您傾向於手動確認雙重驗證，則這並不是必需的。 若您不確定如何設定本屬性，請保留預設值&#8203;`false`&#8203;。
 
 ---
 
@@ -740,7 +740,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 
 `byte`&#8203;型別，預設值為&#8203;`0`&#8203;。 本屬性的運作方式與&#8203;`SendOnFarmingFinished`&#8203;極為相似，只有一處不同⸺不是在掛卡完成時發送交易提案，而是不論我們掛了多少，每隔&#8203;`SendTradePeriod`&#8203;小時就發送一次。 如果您想要固定時間&#8203;`loot`&#8203;您的小號，而不是等到掛卡完成，則這會對您很有幫助。 預設值&#8203;`0`&#8203;會停用本功能，若您想要讓您的Bot向您發送交易提案，例如每天一次，那麼您應該將此處設定成&#8203;`24`&#8203;。
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to handle 2FA confirmations manually in timely fashion. 若您不確定如何設定本屬性，請保留預設值&#8203;`0`&#8203;。
+通常您會需要同時使用&#8203;**[ASF雙重驗證](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-zh-TW)**&#8203;，但若您傾向於手動確認雙重驗證，則這並不是必需的。 若您不確定如何設定本屬性，請保留預設值&#8203;`0`&#8203;。
 
 ---
 
@@ -860,7 +860,7 @@ Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSt
 | 15 | KeyboardSkinKeyboardSkin（鍵盤外觀）  | Steam Deck的特殊鍵盤外觀                |
 | 16 | StartupVideo（啟動動畫）              | Steam Deck的特殊啟動動畫                |
 
-Please note that regardless of the settings above, ASF will only ask for **[Steam community items](https://steamcommunity.com/my/inventory/#753_6)** (`appID` of 753, `contextID` of 6), so all game items, gifts and likewise, are excluded from the trade offer by definition.
+請注意，不論上述如何設定，ASF都只會處理&#8203;**[Steam社群物品](https://steamcommunity.com/my/inventory/#753_6)**&#8203;（&#8203;`appID`&#8203;為753，&#8203;`contextID`&#8203;為6），因此依據定義所有遊戲物品、禮物等物品都會被排除在交易提案之外。
 
 ASF的預設設定是依據最常見的Bot用法，即只交易擴充包及交換卡片（包含閃亮卡片）。 本處定義的屬性使您能夠依自己所需自訂該行為。 請注意，上述所有未定義的類型都會顯示成&#8203;`Unknown`&#8203;類型，特別是在Valve發布一些新的Steam物品時，ASF也會將它們標示成&#8203;`Unknown`&#8203;，直到它們（在未來的版本中）被加入於本表格中。 這也是在一般情形下不建議在&#8203;`TransferableTypes`&#8203;中選擇&#8203;`Unknown`&#8203;類型的原因，除非您知道自己正在做什麼，且您也了解萬一Steam網路再次損毀時，會將您的所有物品標示成&#8203;`Unknown`&#8203;，並在交易提案中發送出您物品庫中的所有物品。 我強烈建議即使您希望交易所有物品，也不要在&#8203;`TransferableTypes`&#8203;中選擇&#8203;`Unknown`&#8203;類型。
 
