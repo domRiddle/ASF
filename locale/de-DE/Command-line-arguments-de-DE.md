@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argument --weiteresArgument
 ```
 
-Die Befehlszeilenargumente werden auch in allgemeinen Hilfsskripten wie zum Beispiel `ArchiSteamFarm.cmd` oder `ArchiSteamFarm.sh` unterstützt. Darüber hinaus können Sie auch die Umgebungsvariable `ASF_ARGS` verwenden, wie es in den Abschnitten **[Verwaltung ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-de-DE#environment-variables)** und **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-de-DE#command-line-arguments)** beschrieben ist.
+Die Befehlszeilenargumente werden auch in allgemeinen Hilfsskripten wie zum Beispiel `ArchiSteamFarm.cmd` oder `ArchiSteamFarm.sh` unterstützt. Darüber hinaus können Sie auch die Umgebungsvariable `ASF_ARGS` verwenden, wie es in den Abschnitten **[Verwaltung ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-de-DE#umgebungsvariablen)** und **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-de-DE#befehlszeilenargumente)** beschrieben ist.
 
 Vergessen Sie nicht, Anführungszeichen zu setzen, falls Ihr Argument Leerzeichen enthält. Diese beiden Beispiele sind fehlerhaft:
 

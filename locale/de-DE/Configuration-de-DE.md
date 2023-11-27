@@ -44,13 +44,13 @@ Unsere **[ASF-UI](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#
 
 Um ASF-ui nutzen zu können, müssen Sie unsere **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** Schnittstelle selbst aktivieren. `IPC` ist standardmäßig aktiviert, sodass Sie sofort darauf zugreifen können, solange Sie es nicht selbst deaktiviert haben.
 
-Nach dem Start des Programms navigieren Sie einfach zu ASFs **[IPC Adresse](http://localhost:1242)**. Wenn alles richtig funktioniert hat, können Sie auch die ASF-Konfiguration von dort aus ändern.
+Nach dem Start des Programms navigieren Sie einfach zu ASFs **[IPC-Adresse](http://localhost:1242)**. Wenn alles richtig funktioniert hat, können Sie auch die ASF-Konfiguration von dort aus ändern.
 
 ---
 
 ## Manuelle Konfiguration
 
-Im Allgemeinen empfehlen wir dringend entweder unseren Konfigurationsgenerator oder ASF-ui zu verwenden, da es viel einfacher ist und sicherstellt, dass Sie keinen Fehler in der JSON-Struktur machen; aber wenn Sie aus irgendeinem Grund nicht wollen, dann können Sie auch die richtigen Konfigurationen manuell erstellen. Für einen guten Start mit einer angemessenen JSON-Strukturierung, finden Sie die unten entsprechende JSON-Beispiele. Sie können den Inhalt in eine Datei kopieren und ihn als Basis für Ihre Konfiguration verwenden. Da Sie keine unserer Frontends verwenden, stellen Sie sicher, dass die Konfiguration **[valid (gültig) ](https://jsonlint.com)**ist, da ASF diese nicht lädt, wenn es nicht geparst werden kann. Auch wenn es sich um ein gültiges JSON handelt, müssen Sie auch sicherstellen, dass alle Eigenschaften den korrekten Typ haben, wie von ASF verlangt. Mehr Informationen bezüglich der korrekten JSON-Strukturierung aller verfügbaren Felder erhalten Sie im diesbezüglichen Abschnitt **[JSON-Strukturierung](#json-strukturierung)** und unserer Dokumentation unten.
+Im Allgemeinen empfehlen wir dringend entweder unseren Konfigurationsgenerator oder ASF-ui zu verwenden, da es viel einfacher ist und sicherstellt, dass Sie keinen Fehler in der JSON-Struktur machen; aber wenn Sie aus irgendeinem Grund nicht wollen, dann können Sie auch die richtigen Konfigurationen manuell erstellen. Für einen guten Start mit einer angemessenen JSON-Strukturierung, finden Sie die unten entsprechende JSON-Beispiele. Sie können den Inhalt in eine Datei kopieren und ihn als Basis für Ihre Konfiguration verwenden. Da Sie keine unserer Frontends verwenden, stellen Sie sicher, dass die Konfiguration **[valid (gültig)](https://jsonlint.com)** ist, da ASF diese nicht lädt, wenn es nicht geparst werden kann. Auch wenn es sich um ein gültiges JSON handelt, müssen Sie auch sicherstellen, dass alle Eigenschaften den korrekten Typ haben, wie von ASF verlangt. Mehr Informationen bezüglich der korrekten JSON-Strukturierung aller verfügbaren Felder erhalten Sie im diesbezüglichen Abschnitt **[JSON-Strukturierung](#json-strukturierung)** und unserer Dokumentation unten.
 
 ---
 
