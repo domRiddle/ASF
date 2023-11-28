@@ -219,6 +219,8 @@ API key provides ASF a way to access selected read-only information that is not 
 
 Of course, if your API key got leaked, we recommend to secure your account and revoke the old one, which is completely supported by ASF - it'll generate a new one on the next run. It's not possible for ASF to entirely ignore using API keys though.
 
+---
+
 ### Can I get VAC ban for using this?
 
 No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor its processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running - this is because **ASF doesn't even require Steam Client being installed at all** in order to work properly. ASF is the only farming program that can currently guarantee being VAC-free.
