@@ -58,7 +58,7 @@ Vezměte prosím na vědomí, že níže uvedené programy nejsou **** udržová
 
 ## Nástroje
 
-- **[Extraktor kláves](https://ske.xpixv.com)**, umožňuje kopírovat klíče v různých formátech a vytvořit příkaz `redeem` pro ASF. Zkontrolujte **[GitHub repozitář](https://github.com/PixvIO/SKE)** pro více informací.
+- **[Extraktor kláves](https://umaim.github.io/SKE)**, umožňuje kopírovat klíče v různých formátech a vytvořit příkaz `redeem` pro ASF. Zkontrolujte **[GitHub repozitář](https://github.com/PixvIO/SKE)** pro více informací.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, který umožňuje snadněji spravovat více konfigurací ASF.
 
 ---

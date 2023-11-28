@@ -14,7 +14,7 @@ Unabhängig von der Plattform benötigen Sie die vollständige .NET SDK (nicht n
 
 ## Kompilierung
 
-Sofern Ihr .NET Core SDK funktionsfähig und in der entsprechenden Version ist, navigieren Sie einfach zum Quell-ASF-Verzeichnis (geklont oder heruntergeladen und entpacktes ASF-Repository) und führen Sie folgendes aus:
+Sofern Ihr .NET Core SDK funktionsfähig und in der entsprechenden Version vorliegt, navigieren Sie einfach zum Quell-ASF-Verzeichnis (geklont oder heruntergeladen und entpacktes ASF-Repository) und führen Sie Folgendes aus:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -o "out/generic"
@@ -70,7 +70,7 @@ Natürlich sind alle obigen Vorschläge nur Empfehlungen, Sie können verwenden,
 
 ## Tags
 
-Der Zweig `main` ist nicht unbedingt in einem Zustand, der eine erfolgreiche Kompilierung oder eine fehlerfreie ASF-Ausführung überhaupt erst ermöglicht, da es sich um einen Entwicklungszweig handelt, wie in unserem **[Veröffentlichungszyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-de-DE)** beschrieben. Für die Kompilierung oder Referenz von ASF aus dem Quelltext, sollten Sie ein angemessenes **[Tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** verwenden, welches zumindest eine erfolgreiche Kompilierung, und höchstwahrscheinlich problemlose Ausführung (falls das Build als stable release markiert wurde), garantiert. Um die aktuelle "Gesundheit" des Verzeichnisbaumes zu überprüfen, können Sie unser CI - **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/ci.yml?query=branch%3Amain)** verwenden.
+Der Zweig `main` ist nicht unbedingt in einem Zustand, der eine erfolgreiche Kompilierung oder eine fehlerfreie ASF-Ausführung überhaupt erst ermöglicht, da es sich um einen Entwicklungszweig handelt, wie in unserem **[Veröffentlichungszyklus](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-de-DE)** beschrieben. Für die Kompilierung oder Referenz von ASF aus dem Quelltext, sollten Sie ein angemessenes **[Tag](https://github.com/JustArchiNET/ArchiSteamFarm/tags)** verwenden, welches zumindest eine erfolgreiche Kompilierung, und höchstwahrscheinlich problemlose Ausführung (falls das Build als stable release markiert wurde), garantiert. Um die aktuelle "Gesundheit" des Verzeichnisbaumes zu überprüfen, können Sie unser **[GitHub](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/ci.yml?query=branch%3Amain)**-CI verwenden.
 
 ---
 

@@ -900,10 +900,8 @@ ASF usa una estructura de archivos bastante sencilla.
 │     ├── ASF.db
 │     ├── Bot1.json
 │     ├── Bot1.db
-│     ├── Bot1.bin
 │     ├── Bot2.json
 │     ├── Bot2.db
-│     ├── Bot2.bin
 │     └── ...
 ├── ArchiSteamFarm.dll
 ├── log.txt
@@ -925,8 +923,6 @@ Aparte de los archivos de configuración, ASF también usa el directorio `config
 `ASF.db` es un archivo de base de datos global de ASF. Actúa como un almacenamiento global persistente y se utiliza para guardar información diversa relacionada con el proceso de ASF, como la IP de los servidores locales de Steam. **No debes editar este archivo**.
 
 `BotName.db` es la base de datos de una determinada instancia de bot. Este archivo se utiliza para almacenar información crucial sobre una determinada instancia de bot en almacenamiento persistente, como claves de acceso o ASF 2FA. **No debes editar este archivo**.
-
-`BotName.bin` es un archivo especial de una determinada instancia de bot, que contiene información sobre el sentry hash de Steam. Sentry hash se utiliza para autenticación usando el mecanismo `SteamGuard`, muy similar al archivo `ssfn` de Steam. **No debes editar este archivo**.
 
 `BotName.keys` es un archivo especial que puede ser usado para importar claves al **[activador de juegos en segundo plano](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-es-ES)**. No es obligatorio y no se genera, pero ASF lo reconoce. Este archivo se elimina automáticamente después de que las claves son importadas exitosamente.
 

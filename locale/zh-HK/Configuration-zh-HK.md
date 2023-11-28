@@ -900,10 +900,8 @@ ASF 使用的檔結構相當簡單。
 │     ├── ASF.db
 │     ├── Bot1.json
 │     ├── Bot1.db
-│     ├── Bot1.bin
 │     ├── Bot2.json
 │     ├── Bot2.db
-│     ├── Bot2.bin
 │     └── ...
 ├── ArchiSteamFarm.dll
 ├── log.txt
@@ -925,8 +923,6 @@ ASF及其所有機械人配置保存於` config `目錄中。
 `ASF.db` 是一個全域ASF數據庫檔。 它充當全域持久存儲，用於保存與 ASF 進程相關的各種信息，例如本地 Steam 伺服器的IP地址。 **您不應對此檔進行任何改變**。
 
 ` BotName.db `是給定機械人實例的數據庫。 此檔用於在持久存儲有關給定機械人實例的關鍵數據，如登錄金鑰或 ASF 2FA 代碼。 **您不應對此檔進行任何改變**。
-
-` BotName.bin `是給定機械人實例的特殊檔案，其中包含有關Steam sentry的哈希信息。 Sentry哈希用於使用` SteamGuard `機制進行身份驗證，非常類似於Steam ` ssfn `檔案。 **您不應對此檔進行任何改變**。
 
 `BotName.keys` 是一個用於將序號導入 **[後台序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**的特殊檔。 It's not mandatory and not generated, but recognized by ASF. 成功導入金鑰後，此檔將自動被刪除。
 

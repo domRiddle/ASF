@@ -58,7 +58,7 @@
 
 ## Εργαλεία
 
-- **[Keys extractor](https://ske.xpixv.com)**, σας επιτρέπει να αντιγράψετε τα κλειδιά σε διάφορες μορφές και να δημιουργήσετε `redeem` εντολή για το ASF. Ελέγξτε το **[GitHub repo](https://github.com/PixvIO/SKE)** για περισσότερες λεπτομέρειες.
+- **[Keys extractor](https://umaim.github.io/SKE)**, σας επιτρέπει να αντιγράψετε τα κλειδιά σε διάφορες μορφές και να δημιουργήσετε `redeem` εντολή για το ASF. Ελέγξτε το **[GitHub repo](https://github.com/PixvIO/SKE)** για περισσότερες λεπτομέρειες.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, το οποίο επιτρέπει την εύκολη διαχείριση πολλαπλών ASF ρυθμίσεων.
 
 ---

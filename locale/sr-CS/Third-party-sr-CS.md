@@ -58,7 +58,7 @@ Zapamtite da programi ispod **nisu** održavati od strane ASF developera i zbog 
 
 ## Alati
 
-- **[Keys extractor](https://ske.xpixv.com)**, omogućava vam da kopirate ključeve u različitim formama i da napravite `redeem` komande za ASF. Pogledajte **[GitHubrepo](https://github.com/PixvIO/SKE)** za više detalja.
+- **[Keys extractor](https://umaim.github.io/SKE)**, omogućava vam da kopirate ključeve u različitim formama i da napravite `redeem` komande za ASF. Pogledajte **[GitHubrepo](https://github.com/PixvIO/SKE)** za više detalja.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, omogućava vam da mnogo lakše podesite više ASF konfiguracija.
 
 ---

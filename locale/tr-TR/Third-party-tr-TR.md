@@ -58,7 +58,7 @@ Lütfen aşağıdaki programların ASF geliştiricileri tarafından **sağlanmad
 
 ## Araçlar
 
-- **[Keys extractor](https://ske.xpixv.com)**, anahtarları çeşitli biçimlerde kopyalayıp yapıştırmanızı sağlayan ve `ürün kodunu aktifleştir` komutunu oluşturan ASF aracı. Daha fazla bilgi için **[GitHub repo](https://github.com/PixvIO/SKE)**'sunu ziyaret edin.
+- **[Keys extractor](https://umaim.github.io/SKE)**, anahtarları çeşitli biçimlerde kopyalayıp yapıştırmanızı sağlayan ve `ürün kodunu aktifleştir` komutunu oluşturan ASF aracı. Daha fazla bilgi için **[GitHub repo](https://github.com/PixvIO/SKE)**'sunu ziyaret edin.
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**, birden çok ASF yapılandırmasını daha kolay yönetmenizi sağlayan ASF aracı.
 
 ---

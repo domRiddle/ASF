@@ -463,7 +463,7 @@ If you're unsure how to configure this option, it's best to leave it at default.
 
 ### `CompleteTypesToSend`
 
-параметр типу `ImmutableHashSet<byte>` з пустим значенням за замовчуванням. When ASF is done with completing a given set of item types specified here, it can automatically send steam trade with all finished sets to the user with `Master` permission, which is very convenient if you'd like to utilize given bot account for e.g. STM matching, while moving finished sets to some other account. This option works the same as `loot` command, therefore keep in mind that it requires user with `Master` permission set, you may also need a valid `SteamTradeToken`, as well as using an account that is eligible for trading in the first place.
+параметр типу `ImmutableHashSet<byte>` з пустим значенням за замовчуванням. When ASF is done with completing a given set of item types specified here, it can automatically send steam trade with all finished sets to the user with `Master` permission, which is very convenient if you'd like to utilize given bot account for e.g. STM matching, while moving finished sets to some other account. Ця функція працює так само як і команда `loot`, тож майте на увазі, що вона потребує користувача з набором дозволів рівня `Master`, вам також може знадобитися як дійсний `SteamTradeToken`, так і обліковий запис із розблокованою можливістю обмінів.
 
 As of today, the following item types are supported in this setting:
 
@@ -740,7 +740,7 @@ Further explanation on this subject is available in **[remote communication](htt
 
 параметр типу `byte` зі значенням за замовчуванням `0`. This property works very similar to `SendOnFarmingFinished` property, with one difference - instead of sending trade when farming is done, we can also send it every `SendTradePeriod` hours, regardless of how much we have to farm left. This is useful if you want to `loot` your alt accounts on usual basis instead of waiting for it to finish farming. Default value of `0` disables this feature, if you want your bot to send you trade e.g. every day, you should put `24` here.
 
-Typically you'll want to use **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** together with this feature, although it's not a requirement if you intend to handle 2FA confirmations manually in timely fashion. If you're not sure how to set this property, leave it with default value of `0`.
+Зазвичай вам потрібно використовувати **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication)** разом із цією функцією, хоча це не є обов'язковою вимогою, якщо ви маєте намір своєчасно обробляти запити 2FA вручну. If you're not sure how to set this property, leave it with default value of `0`.
 
 ---
 
@@ -900,10 +900,8 @@ ASF is using quite simple file structure.
 │     ├── ASF.db
 │     ├── Bot1.json
 │     ├── Bot1.db
-│     ├── Bot1.bin
 │     ├── Bot2.json
 │     ├── Bot2.db
-│     ├── Bot2.bin
 │     └── ...
 ├── ArchiSteamFarm.dll
 ├── log.txt
@@ -925,8 +923,6 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 `ASF.db` is a global ASF database file. It acts as a global persistent storage and is used for saving various information related to ASF process, such as IPs of local Steam servers. **You should not edit this file**.
 
 `BotName.db` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage, such as login keys or ASF 2FA. **You should not edit this file**.
-
-`BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using `SteamGuard` mechanism, very similar to Steam `ssfn` file. **You should not edit this file**.
 
 `BotName.keys` is a special file that can be used for importing keys into **[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**. It's not mandatory and not generated, but recognized by ASF. This file is automatically deleted after keys are successfully imported.
 

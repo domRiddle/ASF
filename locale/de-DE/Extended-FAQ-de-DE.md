@@ -106,11 +106,11 @@ gpg:          There is no indication that the signature belongs to the owner.
 Primary key fingerprint: 224D A6DB 47A3 935B DCC3  BE17 A3D1 81DF 2D55 4CCF
 ```
 
-This has verified that the `SHA512SUMS.sign` holds a valid signature of our `224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF` key for `SHA512SUMS` file that you've verified against.
+Damit wurde bestätigt, dass `SHA512SUMS.sign` eine gültige Signatur von Ihrem Schlüssel `224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF` für die Datei `SHA512SUMS` ist, welche Sie soeben verifizierten.
 
-You could be wondering where the last warning comes from. You've successfully imported our key, but didn't decide to trust it just yet. While this is not mandatory, we can cover it as well. Normally this includes verifying through different channel (e.g. phone call, SMS) that the key is valid, then signing the key with your own to trust it. For this example, you can consider this wiki entry as such (very weak) different channel, since the original key comes from **[ArchiBot's profile](https://github.com/JustArchi-ArchiBot)**. In any case we'll assume that you have enough of confidence as it is.
+Man könnte sich fragen, woher die letzte Warnung kommt. Sie haben unseren Schlüssel erfolgreich importiert, aber noch nicht entschieden, ihm zu vertrauen. Auch wenn dies nicht zwingend vorgeschrieben ist, können wir uns auch damit befassen. Normalerweise beinhaltet dies die Überprüfung über verschiedene Kanäle (z. B. Anruf, SMS), dass der Schlüssel gültig ist, dann unterschreiben Sie den Schlüssel mit Ihrem eigenen, um ihm zu vertrauen. In diesem Beispiel können Sie diesen Wiki-Eintrag als einen weiteren (sehr schwachen) Kanal ansehen, da der Originalschlüssel von **[ArchiBots Profil](https://github.com/JustArchi-ArchiBot)** kommt. Auf jeden Fall gehen wir davon aus, dass Sie genug Vertrauen haben, wie es ist.
 
-Firstly, **[generate private key for yourself](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Generating_an_OpenPGP_Key)**, if you don't have one just yet. We'll use `--quick-gen-key` as a quick example.
+Erstens, **[generieren Sie einen privaten Schlüssel für sich selbst](https://help.ubuntu.com/community/GnuPrivacyGuardHowto#Generating_an_OpenPGP_Key)**, falls Sie noch keinen haben. Wir werden `--quick-gen-key` als schnelles Beispiel verwenden.
 
 ```
 $ gpg --batch --passphrase '' --quick-gen-key "$(whoami)"
@@ -155,7 +155,7 @@ gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [full]
 ```
 
-Beachten Sie den `[unknown]` Vertrauens-Indikator, der in `[full]` wechselt, sobald Sie unseren Schlüssel mit Ihren unterzeichnet haben.
+Beachten Sie den `[unknown]` Vertrauens-Indikator, der zu `[full]` wechselt, sobald Sie unseren Schlüssel mit Ihren unterzeichnet haben.
 
 Herzlichen Glückwunsch, Sie haben verifiziert, dass niemand die von Ihnen heruntergeladene Version manipuliert hat! 👍
 

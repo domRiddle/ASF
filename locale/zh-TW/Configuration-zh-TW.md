@@ -900,10 +900,8 @@ ASF使用簡單的檔案結構。
 │     ├── ASF.db
 │     ├── Bot1.json
 │     ├── Bot1.db
-│     ├── Bot1.bin
 │     ├── Bot2.json
 │     ├── Bot2.db
-│     ├── Bot2.bin
 │     └── ...
 ├── ArchiSteamFarm.dll
 ├── log.txt
@@ -925,8 +923,6 @@ ASF使用簡單的檔案結構。
 `ASF.db`&#8203;是ASF的全域資料庫檔案。 它是一個全域的持久儲存器，用來儲存各種與ASF程序相關的資訊，例如當地的Steam伺服器IP位址。 **您不應該編輯這個檔案**&#8203;。
 
 `BotName.db`&#8203;是特定Bot實例的資料庫。 本檔案用於在持久儲存器中儲存特定Bot實例的關鍵資料，例如登入金鑰或ASF雙重驗證代碼。 **您不應該編輯這個檔案**&#8203;。
-
-`BotName.bin`&#8203;是特定Bot實例的特殊檔案，用於儲存Steam Sentry的雜湊資訊。 Sentry雜湊在&#8203;`SteamGuard`&#8203;機制中用於驗證，非常類似於Steam的&#8203;`ssfn`&#8203;檔案。 **您不應該編輯這個檔案**&#8203;。
 
 `BotName.keys`&#8203;是一個特殊檔案，用於向&#8203;**[背景序號啟動器](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-TW)**&#8203;匯入產品序號。 它並非必須存在，也並不是由ASF所產生，但ASF會辨識此檔案。 這個檔案會在所有序號都成功匯入後被自動刪除。
 

@@ -58,7 +58,7 @@
 
 ## 工具
 
-- **[Keys extractor](https://ske.xpixv.com)**&#8203;：讓您能複製貼上含有各種格式的序號，並使ASF建立&#8203;`redeem`&#8203;指令。 前往&#8203;**[GitHub repo](https://github.com/PixvIO/SKE)**&#8203;以了解更多。
+- **[Keys extractor](https://umaim.github.io/SKE)**&#8203;：讓您能複製貼上含有各種格式的序號，並使ASF建立&#8203;`redeem`&#8203;指令。 前往&#8203;**[GitHub repo](https://github.com/PixvIO/SKE)**&#8203;以了解更多。
 - **[ASF Mass Config Editor](https://github.com/genesix-eu/ASF_MCE)**&#8203;：讓您能更方便地管理多個ASF設定檔。
 
 ---

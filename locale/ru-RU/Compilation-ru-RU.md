@@ -43,13 +43,13 @@ ASF-ui является частью дерева ASF в виде ** [ git submo
 В дополнение к скрипту `cc.sh`, мы также приложим упрощенные инструкции по сборке ниже, см. **[ASF-ui repo](https://github.com/JustArchiNET/ASF-ui)** для дополнительной документации. Из корневой директории ASF выполните следующие команды:
 
 ```shell
-rm -rf "ASF-ui/dist" # ASF-ui doesn't clean itself after old build
+rm -rf "ASF-ui/dist" # ASF-ui не удаляется после старой сборки
 
 npm ci --prefix ASF-ui
 npm run-script deploy --prefix ASF-ui
 
-rm -rf "out/generic/www" # Ensure that our build output is clean of the old files
-dotnet publish ArchiSteamFarm -c "Release" -o "out/generic" # Or accordingly to what you need as per the above
+rm -rf "out/generic/www" # Убедитесь, что выходные данные сборки не содержат старых файлов
+dotnet publish ArchiSteamFarm -c "Release" -o "out/generic" # Или то что вам нужно, из указаного выше
 ```
 
 Теперь вы сможете найти файлы ASF-ui в папке `out/generic/www`. ASF сможет передать эти файлы вашему браузеру.

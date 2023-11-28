@@ -900,10 +900,8 @@ ASF is using quite simple file structure.
 │     ├── ASF.db
 │     ├── Bot1.json
 │     ├── Bot1.db
-│     ├── Bot1.bin
 │     ├── Bot2.json
 │     ├── Bot2.db
-│     ├── Bot2.bin
 │     └── ...
 ├── ArchiSteamFarm.dll
 ├── log.txt
@@ -925,8 +923,6 @@ Apart from config files, ASF also uses `config` directory for storing databases.
 `ASF.db` is a global ASF database file. It acts as a global persistent storage and is used for saving various information related to ASF process, such as IPs of local Steam servers. **You should not edit this file**.
 
 `BotName.db` is a database of given bot instance. This file is used for storing crucial data about given bot instance in persistent storage, such as login keys or ASF 2FA. **You should not edit this file**.
-
-`BotName.bin` is a special file of given bot instance, which holds information about Steam sentry hash. Sentry hash is used for authenticating using `SteamGuard` mechanism, very similar to Steam `ssfn` file. **You should not edit this file**.
 
 `BotName.keys` is a special file that can be used for importing keys into **[background games redeemer](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer)**. It's not mandatory and not generated, but recognized by ASF. This file is automatically deleted after keys are successfully imported.
 

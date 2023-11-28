@@ -900,10 +900,8 @@ ASF 采用这种很简单的文件结构：
 │     ├── ASF.db
 │     ├── Bot1.json
 │     ├── Bot1.db
-│     ├── Bot1.bin
 │     ├── Bot2.json
 │     ├── Bot2.db
-│     ├── Bot2.bin
 │     └── ...
 ├── ArchiSteamFarm.dll
 ├── log.txt
@@ -925,8 +923,6 @@ ASF 采用这种很简单的文件结构：
 `ASF.db` 是 ASF 的全局数据库。 它是一个全局的持久存储数据库，其中包含各种与 ASF 进程相关的信息，例如当地 Steam 服务器的 IP 地址。 **您不应该编辑这个文件**。
 
 `BotName.db` 是给定机器人实例的数据库。 此文件将给定机器人实例的关键数据，例如登录密钥或者 ASF 2FA，存储在持久存储数据库内。 **您不应该编辑这个文件**。
-
-`BotName.bin` 是给定机器人实例的一个特殊文件，用于存储 Steam Sentry Hash。 Sentry Hash 用于 `SteamGuard` 机制进行认证，非常类似于 Steam 的 `ssfn` 文件。 **您不应该编辑这个文件**。
 
 `BotName.keys` 是一个特殊文件，用于向[**后台游戏激活器**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-zh-CN)中导入序列号。 此文件既非必须也非由 ASF 生成，ASF 会读取此文件。 此文件将会在序列号导入成功后被自动删除。
 

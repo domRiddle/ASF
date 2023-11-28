@@ -58,7 +58,7 @@ Xin lưu ý rằng các chương trình bên dưới **không** được duy tr�
 
 ## Công cụ
 
-- **[Trình trích mã](https://ske.xpixv.com)**, cho phép bạn sao-dán mã ở nhiều định dạng khác nhau và tạo lệnh `redeem` cho ASF. Kiểm tra **[kho GitHub](https://github.com/PixvIO/SKE)** để biết thêm chi tiết.
+- **[Trình trích mã](https://umaim.github.io/SKE)**, cho phép bạn sao-dán mã ở nhiều định dạng khác nhau và tạo lệnh `redeem` cho ASF. Kiểm tra **[kho GitHub](https://github.com/PixvIO/SKE)** để biết thêm chi tiết.
 - **[Trình biên tập Cấu hình ASF Hàng loạt](https://github.com/genesix-eu/ASF_MCE)**, cho phép quản lý nhiều cấu hình ASF dễ dàng hơn.
 
 ---

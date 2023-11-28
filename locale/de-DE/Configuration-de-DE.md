@@ -327,7 +327,7 @@ Wenn Sie keinen Grund haben diese Variable zu bearbeiten, sollte der Standardwer
 
 ### `WebProxy`
 
-Typ `string` mit einem Standardwert `null`. Diese Variable definiert eine Web-Proxy-Adresse, die für alle internen http/ https-Anfragen verwendet wird, die von ASFs `HttpClient` gesendet werden, insbesondere für Dienste wie `github.com`, `steamcommunity.com` und `store.steampowered.com`. Das Weiterleiten (über Proxy) von ASF-Anfragen im Allgemeinen hat keine Vorteile, aber es ist äußerst nützlich, um verschiedene Arten von Firewalls zu umgehen, insbesondere die große Firewall von China.
+Typ `string` mit einem Standardwert `null`. Diese Variable definiert eine Web-Proxy-Adresse, die für alle internen http/ https-Anfragen verwendet wird, die von ASFs `HttpClient` gesendet werden, insbesondere für Dienste wie `github.com`, `steamcommunity.com` und `store.steampowered.com`. Das Umleiten (über Proxy) von ASF-Anfragen im Allgemeinen hat keine Vorteile, aber es ist äußerst nützlich, um verschiedene Arten von Firewalls zu umgehen, insbesondere die große Firewall von China.
 
 Diese Variable ist als uri-Zeichenfolge definiert:
 
@@ -805,7 +805,7 @@ Typ `ImmutableDictionary<ulong, byte>` mit einem leeren Standardwert. Diese Vari
 
 Kurz gesagt, diese Variable ermöglicht es Ihnen, Berechtigungen für bestimmte Benutzer zu verwalten. Berechtigungen sind vor allem für den Zugriff auf ASF **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** wichtig, aber auch für die Aktivierung vieler ASF-Funktionen, wie z. B. die Annahme von Handelsangeboten. Zum Beispiel könnten Sie Ihr eigenes Konto als `Master` einrichten und `Operator`-Zugang zu 2-3 Freunden geben, damit diese leicht Produktschlüssel für Ihren Bot mit ASF einlösen können, während Freunde **nicht** berechtigt sind, z. B. den Bot zu stoppen. Dank dessen können Sie bestimmten Benutzern einfach Berechtigungen zuweisen und sie den Bot verwenden lassen.
 
-Wir empfehlen, genau einen Benutzer als `Master` und eine beliebige Anzahl von `Operators` und darunter einzutragen. Während es technisch möglich ist, mehrere `Masters` einzustellen und ASF korrekt mit Ihnen arbeiten wird, z.B. indem es alle Ihre an den Bot gesendeten Handelsangebote akzeptiert, wird ASF nur einen von Ihnen (mit der niedrigsten Steam-ID) für jede Aktion verwenden, die ein einzelnes Ziel erfordert, z.B. eine `loot` Anfrage, also auch Eigenschaften wie `SendOnFarmingFinished` oder `SendTradePeriod`. Wenn Sie diese Einschränkungen perfekt verstehen, insbesondere die Tatsache, dass die `loot` Anfrage immer Elemente an den `Master` mit der niedrigsten Steam-ID sendet, unabhängig von dem `Master`, der den Befehl tatsächlich ausgeführt hat, dann können Sie hier mehrere Benutzer mit der Berechtigung `Master` definieren. Aber wir empfehlen trotzdem ein einfaches Master-Schema.
+Wir empfehlen, genau einen Benutzer als `Master` und eine beliebige Anzahl von `Operators` und darunter einzutragen. Während es technisch möglich ist, mehrere `Masters` einzustellen und ASF korrekt mit Ihnen arbeiten wird, z. B. indem es alle Ihre an den Bot gesendeten Handelsangebote akzeptiert, wird ASF nur einen von Ihnen (mit der niedrigsten Steam-ID) für jede Aktion verwenden, die ein einzelnes Ziel erfordert, z. B. eine `loot` Anfrage, als auch Eigenschaften wie `SendOnFarmingFinished` oder `SendTradePeriod`. Wenn Sie diese Einschränkungen perfekt verstehen, insbesondere die Tatsache, dass die `loot` Anfrage immer Elemente an den `Master` mit der niedrigsten Steam-ID sendet, unabhängig von dem `Master`, der den Befehl tatsächlich ausgeführt hat, dann können Sie hier mehrere Benutzer mit der Berechtigung `Master` definieren. Aber wir empfehlen trotzdem ein einfaches Master-Schema.
 
 Es ist gut zu wissen, dass es noch eine weitere zusätzliche `Owner` Berechtigung gibt, die als globale Konfigurationseigenschaft `SteamOwnerID` deklariert ist. Hier können Sie niemandem die Berechtigung `Owner` zuweisen, da die Eigenschaft `SteamUserPermissions` nur Berechtigungen definiert, die sich auf die Bot-Instanz beziehen, und nicht ASF als Prozess. Für Bot-bezogene Aufgaben wird die `SteamOwnerID` genauso behandelt wie `Master`, sodass die Angabe einer `SteamOwnerID` hier nicht erforderlich ist.
 
@@ -900,10 +900,8 @@ ASF benutzt eine einfache Dateistruktur.
 │     ├── ASF.db
 │     ├── Bot1.json
 │     ├── Bot1.db
-│     ├── Bot1.bin
 │     ├── Bot2.json
 │     ├── Bot2.db
-│     ├── Bot2.bin
 │     └── ...
 ├── ArchiSteamFarm.dll
 ├── log.txt
@@ -925,8 +923,6 @@ Neben den Konfigurationsdateien verwendet ASF auch das Verzeichnis `config` zum 
 `ASF.db` ist eine globale ASF-Datenbankdatei. Es fungiert als globaler dauerhafter Speicher und wird zum Speichern verschiedener Informationen im Zusammenhang mit dem ASF-Prozess verwendet, wie z.B. IPs von lokalen Steam-Servern. **Sie sollten diese Datei nicht bearbeiten**.
 
 `BotName.db` ist eine Datenbank der jeweiligen Bot-Instanz. Diese Datei wird verwendet, um wichtige Daten der jeweiligen Bot-Instanz im dauerhaften Speicher zu speichern, wie z.B. Anmeldeschlüssel oder ASF 2FA. **Sie sollten diese Datei nicht bearbeiten**.
-
-`BotName.bin` ist eine spezielle Datei der jeweiligen Bot-Instanz, die Informationen über den Steam-Sentry-Hash enthält. Der Sentry-Hash wird für die Authentifizierung mit dem `SteamGuard` Mechanismus verwendet, sehr ähnlich der Steam-Datei `ssfn`. **Sie sollten diese Datei nicht bearbeiten**.
 
 `BotName.keys` ist eine spezielle Datei, die zum Importieren von Produkt-Schlüsseln in den **[Hintergrundproduktschlüsselaktivierer ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-de-DE)** verwendet werden kann. Es ist nicht zwingend erforderlich und wird nicht generiert, aber von ASF anerkannt. Diese Datei wird nach dem erfolgreichen Import der Produkt-Schlüssel automatisch gelöscht.
 
