@@ -211,6 +211,16 @@ ASF 不基于 Steam 客户端，而是使用自己的 Steam 客户端实现。 �
 
 ---
 
+### ASF 似乎每次运行都会生成 API 密钥，为什么？
+
+ASF 的一些功能需要有 **[API 密钥](https://steamcommunity.com/dev/apikey)**。 如果您尚未分配 API 密钥，ASF 会在登录到您的帐户之后生成一个新密钥并使用。
+
+API 密钥为 ASF 提供了一种获取特定只读信息的方式，这些信息不可能通过其他方式获取。 与互联网上一些人说的相反，仅仅生成 API 密钥这件事并不是安全问题——因为能够建立 Steam Web 会话并访问到这个密钥的任何人，已经能够**完全控制您的帐户，比仅持有 API 密钥所能做到的事情还要糟糕**。 通过删除 API 密钥的方式来“保护”帐户毫无意义，相反，您应该注意[**设置强密码**](https://store.steampowered.com/account)、[**启用 2FA**](https://store.steampowered.com/twofactor/manage)、[**取消您不认识设备的授权**](https://help.steampowered.com/faqs/view/06B0-26E6-2CF8-254C#deauthorize)，并确保[**远离常见的诈骗，特别是钓鱼网站**](https://help.steampowered.com/en/faqs/view/70E6-991B-233B-A37B)。
+
+当然，如果您的 API 密钥泄露，我们建议您立刻保护您的账户并撤销旧密钥，ASF 完全支持这种操作——它会在下一次运行时生成一个新密钥。 但 ASF 无法完全跳过使用 API 密钥——假如我们能通过其他方式获取所需的信息，ASF 一开始就不会去生成密钥。
+
+---
+
 ### 我会因使用 ASF 受到 VAC 封禁吗？
 
 不，这是不可能的，因为 ASF（与 Idle Master 和 SAM 不同）不会以任何手段干预 Steam 客户端及其进程。 使用 ASF 不可能受到 VAC 封禁，即使您在运行 ASF 的同时进入安全服务器游玩也不会——因为 **ASF 甚至不需要您安装 Steam 客户端**也可以正常工作。 ASF 是目前唯一能够保证 VAC 安全的挂卡程序。

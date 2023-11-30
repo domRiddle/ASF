@@ -1,6 +1,6 @@
 # Steam Token 輸出外掛程式
 
-`SteamTokenDumperPlugin` is official ASF **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** developed by us, which allows you to contribute to **[SteamDB](https://steamdb.info)** project by sharing package tokens, app tokens and depot keys that your Steam account has access to. 關於所收集的資料的進一步說明，以及為什麼SteamDB需要這些資訊，可以在SteamDB的&#8203;**[Token Dumper](https://steamdb.info/tokendumper)**&#8203;頁面上查看。 如上所述，提交的資料不包含任何敏感資訊，也不存在安全／隱私風險。
+`SteamTokenDumperPlugin`&#8203;是由我們所開發的ASF官方&#8203;**[外掛程式](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-zh-TW)**，它可以使您透過分享組合包權杖、應用程式權杖及Depot金鑰，來對&#8203;**[SteamDB](https://steamdb.info)**&#8203;專案提供貢獻。 關於所收集的資料的進一步說明，以及為什麼SteamDB需要這些資訊，可以在SteamDB的&#8203;**[Token Dumper](https://steamdb.info/tokendumper)**&#8203;頁面上查看。 如上所述，提交的資料不包含任何敏感資訊，也不存在安全／隱私風險。
 
 ---
 
@@ -38,7 +38,7 @@ ASF會在請求中包含貢獻者的&#8203;`steamID`&#8203;，即您在ASF中設
 
 ## 進階設定
 
-Our plugin supports advanced config which might come useful for people that would like to tweak the internals to their preference.
+我們的外掛程式支援進階設定，這對於希望依據自己的偏好調整內部結構的人可能會很有用。
 
 進階設定在&#8203;`ASF.json`&#8203;中有下列結構：
 

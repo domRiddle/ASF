@@ -211,6 +211,16 @@ Ten en cuenta que la tasa de obtención de cromos al jugar múltiples juegos es 
 
 ---
 
+### ASF parece generar una clave API en cada ejecución, ¿por qué sucede eso?
+
+ASF requiere la **[clave API](https://steamcommunity.com/dev/apikey)** para varias de sus funciones. Si aún no tienes una clave API, ASF generará una nueva automáticamente y la usará después de iniciar sesión en tu cuenta.
+
+La clave API proporciona a ASF una forma de acceder a información de solo lectura que no es posible obtener de otra manera. Contrario a lo que algunas personas en internet dicen, el solo hecho de tener una clave API generada no es un problema de seguridad - porque cualquiera que haya establecido una sesión web de Steam para siquiera acceder a esa clave, ya tiene **control total sobre tu cuenta y puede hacer peores cosas que solamente con la clave API**. "Proteger" tu cuenta eliminando la clave API no tiene ningún sentido, en su lugar, deberías enfocarte en una **[contraseña fuerte](https://store.steampowered.com/account)**,  **[tener 2FA activo](https://store.steampowered.com/twofactor/manage)**, **[desautorizar todos los dispositivos que no reconozcas](https://help.steampowered.com/es/faqs/view/06B0-26E6-2CF8-254C#deauthorize)**, y asegurarte de **[evitar estafas comunes, especialmente sitios de phishing](https://help.steampowered.com/en/faqs/view/70E6-991B-233B-A37B)**.
+
+Por supuesto, si tu clave API se filtra, recomendamos proteger tu cuenta y revocar la anterior inmediatamente, lo cual está completamente soportado por ASF - generará una nueva en la siguiente ejecución. No es posible para ASF omitir por completo el uso de la clave API - si pudiéramos acceder a la información que necesitamos de otra forma, ASF no necesitaría generar esa clave.
+
+---
+
 ### ¿Puedo obtener VAC ban por usar esto?
 
 No, no es posible porque ASF (a diferencia de Idle Master o SAM) no interfiere de ninguna manera con el cliente de Steam ni sus procesos. Es físicamente imposible obtener ban VAC por usar ASF, incluso si juegas en servidores seguros mientras ASF se está ejecutando - esto es porque **ASF ni siquiera requiere que el Cliente de Steam esté instalado** para funcionar correctamente. ASF es el único programa de recolección que actualmente garantiza ser libre de VAC.

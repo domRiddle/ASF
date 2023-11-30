@@ -211,6 +211,16 @@ KEEP IN MIND DAT CARDZ DROP RATE WHEN PLAYIN MULTIPLE GAMEZ IZ CLOSE 2 0 ANYWAY,
 
 ---
 
+### ASF seems to generate API key on each run, why is that?
+
+ASF requires **[API key](https://steamcommunity.com/dev/apikey)** for several of its functionalities. If you don't have API key assigned yet, ASF will automatically generate a new one and use it after logging in to your account.
+
+API key provides ASF a way to access selected read-only information that is not possible to be fetched otherwise. Contrary to what some people on the internet say, the alone fact of having API key generated is not a security issue - because everybody who has established a Steam web session to even access that key, already has **full control over your account and can do much worse than what he can do with API key alone**. "Protecting" your account by removing API key makes zero sense, rather, you should focus on **[strong password](https://store.steampowered.com/account)**, **[2FA active](https://store.steampowered.com/twofactor/manage)**, **[deauthorizing all devices you do not recognize](https://help.steampowered.com/faqs/view/06B0-26E6-2CF8-254C#deauthorize)**, and ensuring that you **[avoid common scams, especially phishing sites](https://help.steampowered.com/en/faqs/view/70E6-991B-233B-A37B)**.
+
+Of course, if your API key got leaked, we recommend to secure your account and revoke the old one immediately, which is completely supported by ASF - it'll generate a new one on the next run. It's not possible for ASF to entirely skip using API keys though - if we could access the information we need through different way, ASF wouldn't need to generate that key to begin with.
+
+---
+
 ### I CAN GIT VAC BAN 4 USIN DIS?
 
 NO, IZ NOT POSIBLE CUZ ASF (UNLIKE IDLE MASTAH OR SAM) DOEZ NOT INTERFERE IN ANY WAI WIF STEAM CLIENT NOR ITZ PROCESEZ. IZ FYSICALLY IMPOSIBLE 2 GIT VAC BAN 4 USIN ASF, EVEN DURIN PLAYIN ON SECURD SERVERS WHILE ASF IZ RUNNIN - DIS AR TEH CUZ **ASF DOESNT EVEN REQUIRE STEAM CLIENT BEAN INSTALLD AT ALL** IN ORDR 2 WERK PROPERLY. ASF IZ TEH ONLY FARMIN PROGRAM DAT CAN CURRENTLY GUARANTEE BEAN VAC-FREE.

@@ -1,6 +1,6 @@
 # 功能棄用
 
-We're doing our best to follow consistent deprecation policy in order to make both development as well as usage far more consistent.
+我們盡可能遵循一致的棄用政策，使開發及使用更加一致。
 
 ---
 

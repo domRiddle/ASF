@@ -15,7 +15,7 @@ ASF支援各種指令，以此來控制程序及Bot實例的行為。
 
 ### 互動式控制台
 
-ASF has support for interactive console, as long as you're not running ASF in [**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless) mode. 按下&#8203;`C`&#8203;鍵，就可以啟用指令模式。輸入您的指令，並按下確認鍵確認。
+ASF支援互動式控制台。只要您沒有讓ASF在&#8203;[**`Headless`**](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-zh-TW#headless無頭模式)&#8203;模式下執行， 按下&#8203;`C`&#8203;鍵，就可以啟用指令模式。輸入您的指令，並按下確認鍵確認。
 
 ![擷圖](https://i.imgur.com/bH5Gtjq.png)
 
@@ -177,7 +177,7 @@ ASF會將超出指令範圍的多餘引數「連接」至符合語法的最後�
 | 2 | `FriendsOnly（僅限好友）` |
 | 3 | `Public（公開）`        |
 
-您可以使用它們的名稱（不區分大小寫）或數值。 未賦值的引數將會被設為預設值&#8203;`Private`&#8203;。 特別注意，上述引數的從屬關係非常重要，因為子選項無法擁有比父選項還高的權限。 For example, you **can't** have `Public` games owned setting while having `Private` profile setting.
+您可以使用它們的名稱（不區分大小寫）或數值。 未賦值的引數將會被設為預設值&#8203;`Private`&#8203;。 特別注意，上述引數的從屬關係非常重要，因為子選項無法擁有比父選項還高的權限。 舉例來說，您&#8203;**無法**&#8203;在個人檔案設定成&#8203;`Private`&#8203;時，將遊戲資料設定成&#8203;`Public`&#8203;。
 
 ### 範例
 

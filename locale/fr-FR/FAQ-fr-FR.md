@@ -211,6 +211,16 @@ N'oubliez pas que le taux d'obtention des cartes lorsque vous jouez à plusieurs
 
 ---
 
+### ASF seems to generate API key on each run, why is that?
+
+ASF requires **[API key](https://steamcommunity.com/dev/apikey)** for several of its functionalities. If you don't have API key assigned yet, ASF will automatically generate a new one and use it after logging in to your account.
+
+API key provides ASF a way to access selected read-only information that is not possible to be fetched otherwise. Contrary to what some people on the internet say, the alone fact of having API key generated is not a security issue - because everybody who has established a Steam web session to even access that key, already has **full control over your account and can do much worse than what he can do with API key alone**. "Protecting" your account by removing API key makes zero sense, rather, you should focus on **[strong password](https://store.steampowered.com/account)**, **[2FA active](https://store.steampowered.com/twofactor/manage)**, **[deauthorizing all devices you do not recognize](https://help.steampowered.com/faqs/view/06B0-26E6-2CF8-254C#deauthorize)**, and ensuring that you **[avoid common scams, especially phishing sites](https://help.steampowered.com/en/faqs/view/70E6-991B-233B-A37B)**.
+
+Of course, if your API key got leaked, we recommend to secure your account and revoke the old one immediately, which is completely supported by ASF - it'll generate a new one on the next run. It's not possible for ASF to entirely skip using API keys though - if we could access the information we need through different way, ASF wouldn't need to generate that key to begin with.
+
+---
+
 ### Puis-je obtenir une interdiction VAC en utilsant ASF ?
 
 Non, ce n'est pas possible car ASF (contrairement à Idle Master ou SAM) n'interfère en aucune manière avec le client Steam ni avec ses processus. Il est physiquement impossible d’obtenir une interdiction VAC pour utiliser ASF, même lorsque vous jouez sur des serveurs sécurisés lorsque ASF est en cours d’exécution, car **ASF ne nécessite même pas l’installation de Steam Client** pour fonctionner correctement. ASF est le seul programme de farming pouvant actuellement garantir l’absence de ban VAC.

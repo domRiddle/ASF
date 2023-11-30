@@ -30,7 +30,7 @@ Generic套件與平台無關，所以它不包含任何給特定設備使用的�
 
 ASF目前擁有以下特定作業系統的變體版本：
 
-- `linux-arm` works on 32-bit ARM-based (ARMv7+) GNU/Linux OSes with glibc 2.23/musl 1.2.2 and newer. 這個變體版本涵蓋了例如Raspberry Pi 2（或更新版本的）平台，&#8203;**並不**&#8203;支援較舊的ARM架構，例如Raspberry Pi 0中的ARMv6 & 1，它也不適用於未實作所需GNU/Linux環境的作業系統（例如Android）。
+- `linux-arm`&#8203;支援包含glibc 2.23/musl 1.2.2及更新版本的32位元基於ARM（ARMv7+）的GNU/Linux作業系統。 這個變體版本涵蓋了例如Raspberry Pi 2（或更新版本的）平台，&#8203;**並不**&#8203;支援較舊的ARM架構，例如Raspberry Pi 0中的ARMv6 & 1，它也不適用於未實作所需GNU/Linux環境的作業系統（例如Android）。
 - `linux-arm64`&#8203;支援包含glibc 2.23/musl 1.2.2及更新版本的64位元基於ARM（ARMv8）的GNU/Linux作業系統。 這個變體版本涵蓋了例如Raspberry Pi 3（或更新版本的）平台，&#8203;**並不**&#8203;支援未具備所需64位元函式庫的32位元作業系統（例如32位元的Raspberry Pi OS），它也不適用於未實作所需GNU/Linux環境的作業系統（例如Android）。
 - `linux-x64`&#8203;支援包含glibc 2.23/musl 1.2.2及更新版本的64位元的GNU/Linux作業系統。
 - `osx-arm64`&#8203;支援64位元基於ARM（Apple silicon）的macOS 11及更新版本的作業系統。
@@ -50,6 +50,6 @@ ASF目前擁有以下特定作業系統的變體版本：
 
 但是，如果您嘗試執行&#8203;**Generic**&#8203; ASF套件，則必須確保您的.NET執行環境支援ASF所需的平台。
 
-ASF as a program is targeting **.NET 8.0** (`net8.0`) right now, but it may target newer platform in the future. `net8.0` is supported since 8.0.100 SDK (8.0.0 runtime), although ASF might prefer **latest runtime at the moment of compilation**, so you should ensure that you have **[latest SDK](https://dotnet.microsoft.com/download)** (or at least runtime) available for your machine. 若您的執行環境低於編譯期間指定的最低支援版本，Generic ASF變體版本可能會拒絕啟動。
+作為一個程式，ASF目前針對的是&#8203;**.NET 8.0**&#8203;（&#8203;`net8.0`&#8203;），但它可能在未來針對更新的平台。 從8.0.100 SDK（8.0.0執行環境）就開始支援&#8203;`net8.0`&#8203;，儘管ASF可能偏好&#8203;**最新的執行環境**&#8203;，所以您應該確保你有&#8203;**[最新的SDK](https://dotnet.microsoft.com/download)**&#8203;（或最新的執行環境）可用於您的設備。 若您的執行環境低於編譯期間指定的最低支援版本，Generic ASF變體版本可能會拒絕啟動。
 
 如有疑問，您可以造訪我們用於編譯並在GitHub上部署新版本的&#8203;**[持續整合程序](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)**&#8203;。 作為.NET驗證步驟的一部分，您可以在每個組建版本中找到&#8203;`dotnet --info`&#8203;輸出。

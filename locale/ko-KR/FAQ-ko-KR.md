@@ -211,6 +211,16 @@ Keep in mind that cards drop rate when playing multiple games is close to 0 anyw
 
 ---
 
+### ASF seems to generate API key on each run, why is that?
+
+ASF requires **[API key](https://steamcommunity.com/dev/apikey)** for several of its functionalities. If you don't have API key assigned yet, ASF will automatically generate a new one and use it after logging in to your account.
+
+API key provides ASF a way to access selected read-only information that is not possible to be fetched otherwise. Contrary to what some people on the internet say, the alone fact of having API key generated is not a security issue - because everybody who has established a Steam web session to even access that key, already has **full control over your account and can do much worse than what he can do with API key alone**. "Protecting" your account by removing API key makes zero sense, rather, you should focus on **[strong password](https://store.steampowered.com/account)**, **[2FA active](https://store.steampowered.com/twofactor/manage)**, **[deauthorizing all devices you do not recognize](https://help.steampowered.com/faqs/view/06B0-26E6-2CF8-254C#deauthorize)**, and ensuring that you **[avoid common scams, especially phishing sites](https://help.steampowered.com/en/faqs/view/70E6-991B-233B-A37B)**.
+
+Of course, if your API key got leaked, we recommend to secure your account and revoke the old one immediately, which is completely supported by ASF - it'll generate a new one on the next run. It's not possible for ASF to entirely skip using API keys though - if we could access the information we need through different way, ASF wouldn't need to generate that key to begin with.
+
+---
+
 ### ASF를 사용하면 VAC 차단을 받나요?
 
 No, it's not possible because ASF (unlike Idle Master or SAM) does not interfere in any way with steam client nor its processes. It's physically impossible to get VAC ban for using ASF, even during playing on secured servers while ASF is running - this is because **ASF doesn't even require Steam Client being installed at all** in order to work properly. ASF is the only farming program that can currently guarantee being VAC-free.

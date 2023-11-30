@@ -1,6 +1,6 @@
 # 外掛程式
 
-ASF includes support for custom plugins that can be loaded during runtime. 外掛程式使您能夠自訂ASF的行為，例如加入自訂指令、自訂交易邏輯，或與第三方服務或是API進行整體整合。
+ASF支援可在執行期間載入的自訂外掛程式。 外掛程式使您能夠自訂ASF的行為，例如加入自訂指令、自訂交易邏輯，或與第三方服務或是API進行整體整合。
 
 ---
 
@@ -47,7 +47,7 @@ ASF會從您的ASF資料夾中的&#8203;`plugins`&#8203;資料夾載入外掛程
   <ItemGroup>
     <ProjectReference Include="C:\\Path\To\ArchiSteamFarm\ArchiSteamFarm.csproj" ExcludeAssets="all" Private="false" />
 
-    <!-- If building with downloaded DLL binary, use this instead of <ProjectReference> above -->
+    <!-- 若要使用下載的 DLL 二進制檔案來組建，使用下列設定來取代上方的 <ProjectReference> 引數 -->
     <!-- <Reference Include="ArchiSteamFarm" HintPath="C:\\Path\To\Downloaded\ArchiSteamFarm.dll" /> -->
   </ItemGroup>
 </Project>

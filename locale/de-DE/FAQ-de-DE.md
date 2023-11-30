@@ -21,7 +21,7 @@ Unser FAQ umfasst Standardfragen und Antworten, die Sie vielleicht haben. Für w
 
 Bevor Sie versuchen herauszufinden, was ASF ist, sollten Sie sicherstellen, dass Sie verstehen, was Steam Sammelkarten sind und wie man sie erhält, was in der offiziellen FAQ **[hier](https://steamcommunity.com/tradingcards/faq)** gut beschrieben ist.
 
-Kurz gesagt, Steam-Sammelkarten sind sammelbare Gegenstände, welche Sie sammeln können, wenn Sie ein bestimmtes Spiel besitzen, und können für die Herstellung von Abzeichen, den Verkauf auf dem Steam-Markt oder für jeden anderen Zweck Ihrer Wahl verwendet werden.
+Kurz gesagt, Steam-Sammelkarten sind sammelbare Gegenstände, welche Sie erhalten können, wenn Sie ein bestimmtes Spiel besitzen, und können für die Herstellung von Abzeichen, den Verkauf auf dem Steam-Markt oder für jeden anderen Zweck Ihrer Wahl verwendet werden.
 
 Hier werden noch einmal die Kernpunkte genannt, weil Leute im Allgemeinen nicht mit ihnen einverstanden sind und bevorzugt so tun, als würden diese nicht existieren:
 
@@ -33,7 +33,7 @@ Hier werden noch einmal die Kernpunkte genannt, weil Leute im Allgemeinen nicht 
 
 Steam-Sammelkarten sind folglich eine Belohnung dafür, dass Sie gekaufte Spiele spielen oder Geld in F2P-Spiele investieren. Sobald Sie ein Spiel lange genug spielen, werden alle Karten für dieses Spiel irgendwann im Inventar freigeschaltet. Damit können Sie beispielsweise ein Abzeichen vervollständigen (nach dem Erhalt der restlichen erforderlichen Karten) oder handeln.
 
-Nun, da wir die Grundlagen von Steam erklärt haben, können wir ASF erklären. Das Programm selbst ist sehr komplex und dementsprechend relativ schwer zu verstehen. Anstatt hier alle technischen Details anzugeben, geben wir weiter unten lieber einen Überblick mit einfachen Erklärungen.
+Nun, da wir die Grundlagen von Steam erklärt haben, können wir ASF aufklären. Das Programm selbst ist sehr komplex und dementsprechend relativ schwer zu verstehen. Anstatt hier alle technischen Details anzugeben, geben wir weiter unten lieber einen Überblick mit einfachen Erklärungen.
 
 ASF meldet sich über unseren integrierten Mini-Steam-Client mit den von Ihnen angegebenen Anmeldeinformationen beim Steam-Konto an. Nach dem erfolgreichen Login durchsucht es Ihre **[Abzeichen](https://steamcommunity.com/my/badges)**, um herauszufinden welche Spiele noch gesammelt werden können (`X` Kartenfunde verbleibend). Nachdem alle Seiten analysiert und eine endgültige Liste der verfügbaren Spiele erstellt wurde, wählt ASF den effizientesten Sammel-Algorithmus aus und startet den Prozess. Der Prozess hängt von dem gewählten **[Karten-Sammel-Algorithmus](https://github. com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE#Leistung)** ab, aber normalerweise besteht er aus dem Spielen des geeigneten Spiels und der periodischen (plus bei jedem Kartendrop) Überprüfung, ob das Spiel bereits vollständig gesammelt wurde - wenn ja, kann ASF mit dem nächsten Spiel fortfahren, mit dem gleichen Verfahren, bis alle Spiele vollständig im gesammelt wurden.
 
@@ -208,6 +208,16 @@ Beachten Sie, dass die Drop-Rate der Karten, wenn Sie mehrere Spiele spielen, oh
 ---
 
 ## Sicherheit / Datenschutz / VAC / Sperren / Nutzungsbedingungen
+
+---
+
+### Warum scheint ASF bei jedem Start API-Schlüssel zu generieren?
+
+ASF benötigt den **[API-Schlüssel](https://steamcommunity.com/dev/apikey)** für mehrere seiner Funktionalitäten. Wenn Sie noch keinen API-Schlüssel zugewiesen haben, wird ASF automatisch einen neuen generieren und ihn nach der Anmeldung in Ihrem Konto verwenden.
+
+Der API-Schlüssel bietet ASF eine Möglichkeit, auf ausgewählte schreibgeschützte Informationen zuzugreifen, die sonst nicht abgerufen werden könnten. Im Gegensatz zu dem, was einige Menschen im Internet sagen die einzige Tatsache, dass API-Schlüssel generiert wird, ist kein Sicherheitsproblem - weil jeder, der eine Steam Web-Sitzung eingerichtet hat, um auch auf diesen Schlüssel zuzugreifen, hat bereits **volle Kontrolle über Ihr Konto und kann viel schlimmeres anstellen als das, was wir allein mit dem API-Schlüssel** erreichen können. "Schützen" Sie Ihr Kontos durch das Entfernen des API-Schlüssels ist eher sinnlos. Verlassen Sie sich eher auf ein **[starkes Passwort](https://store.steampowered.com/account)**, **[ aktiviertes 2FA](https://store.steampowered.com/twofactor/manage)**, **[Deauthorisieren aller Geräte, die Sie nicht erkennen](https://help.steampowered.com/faqs/view/06B0-26E6-2CF8-254C#deauthorize)**, und stellen sicher, dass Sie **[ häufige Betrügereien - insbesondere Phishing-Websites](https://help.steampowered.com/en/faqs/view/70E6-991B-233B-A37B)** - vermeiden.
+
+Falls Ihr API-Schlüssel durchgesickert ist, empfehlen wir Ihnen natürlich, Ihr Konto zu sichern und den alten sofort zu widerrufen, was komplett von ASF unterstützt wird - es wird einen neuen Schlüssel beim nächsten Lauf generieren. Es ist für ASF allerdings nicht möglich, komplett auf die Verwendung von API-Schlüsseln zu verzichten - wenn wir auf die Informationen mit einer anderen Methode zugreifen könnten, müsste ASF diesen Schlüssel nicht generieren, um mit ihm zu beginnen.
 
 ---
 
