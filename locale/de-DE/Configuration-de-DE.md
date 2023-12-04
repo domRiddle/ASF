@@ -125,7 +125,7 @@ Typ `string` mit einem Standardwert `!`. Diese Variable spezifiziert das **grö�
 
 ### `ConfirmationsLimiterDelay`
 
-Typ `byte` mit einem Standardwert `10`. ASF wird sicherstellen, dass mindestens `ConfirmationsLimiterDelay` Sekunden zwischen zwei aufeinanderfolgenden 2FA-Bestätigungen liegen, die Anfragen abrufen, um eine Auslösung des Anfragelimits zu vermeiden - diese werden von **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** während z. B. des Befehls `2faok`, sowie bei verschiedenen handelsbezogenen Operationen nach Bedarf verwendet. Der Standardwert wurde auf Basis unserer Tests festgelegt und sollte nicht verringert werden, wenn Sie auf keine Probleme stoßen möchten. Sofern Sie keinen **triftigen** Grund haben diese Variable zu bearbeiten, sollte der Standardwert belassen werden.
+Typ `byte` mit einem Standardwert `10`. ASF wird sicherstellen, dass mindestens `ConfirmationsLimiterDelay` Sekunden zwischen zwei aufeinanderfolgenden 2FA-Bestätigungen liegen, die Anfragen abrufen, um eine Auslösung des Anfragelimits zu vermeiden - diese werden von **[ASF-2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** während z. B. des Befehls `2faok`, sowie bei verschiedenen handelsbezogenen Operationen nach Bedarf verwendet. Der Standardwert wurde auf Basis unserer Tests festgelegt und sollte nicht verringert werden, wenn Sie auf keine Probleme stoßen möchten. Sofern Sie keinen **triftigen** Grund haben diese Variable zu bearbeiten, sollte der Standardwert belassen werden.
 
 ---
 
@@ -922,11 +922,11 @@ Neben den Konfigurationsdateien verwendet ASF auch das Verzeichnis `config` zum 
 
 `ASF.db` ist eine globale ASF-Datenbankdatei. Es fungiert als globaler dauerhafter Speicher und wird zum Speichern verschiedener Informationen im Zusammenhang mit dem ASF-Prozess verwendet, wie z.B. IPs von lokalen Steam-Servern. **Sie sollten diese Datei nicht bearbeiten**.
 
-`BotName.db` ist eine Datenbank der jeweiligen Bot-Instanz. Diese Datei wird verwendet, um wichtige Daten der jeweiligen Bot-Instanz im dauerhaften Speicher zu speichern, wie z.B. Anmeldeschlüssel oder ASF 2FA. **Sie sollten diese Datei nicht bearbeiten**.
+`BotName.db` ist eine Datenbank der jeweiligen Bot-Instanz. Diese Datei wird verwendet, um wichtige Daten der jeweiligen Bot-Instanz im dauerhaften Speicher zu speichern, wie z.B. Anmeldeschlüssel oder ASF-2FA. **Sie sollten diese Datei nicht bearbeiten**.
 
 `BotName.keys` ist eine spezielle Datei, die zum Importieren von Produkt-Schlüsseln in den **[Hintergrundproduktschlüsselaktivierer ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Background-games-redeemer-de-DE)** verwendet werden kann. Es ist nicht zwingend erforderlich und wird nicht generiert, aber von ASF anerkannt. Diese Datei wird nach dem erfolgreichen Import der Produkt-Schlüssel automatisch gelöscht.
 
-`BotName.maFile` ist eine spezielle Datei, die für den Import von **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** verwendet werden kann. Es ist nicht zwingend erforderlich und wird nicht generiert, aber von ASF erkannt, wenn Ihr `BotName` ASF-2FA noch nicht verwendet. Diese Datei wird nach erfolgreichem Import von ASF 2FA automatisch gelöscht.
+`BotName.maFile` ist eine spezielle Datei, die für den Import von **[ASF-2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** verwendet werden kann. Es ist nicht zwingend erforderlich und wird nicht generiert, aber von ASF erkannt, wenn Ihr `BotName` ASF-2FA noch nicht verwendet. Diese Datei wird nach erfolgreichem Import von ASF-2FA automatisch gelöscht.
 
 ---
 

@@ -123,7 +123,7 @@ Vorrausgesezt Sie haben die richtige Datei mit gültigen Geheimnissen importiert
 
 Für iOS kannst Du **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)** verwenden. Dies ist möglich, da Du entschlüsselte Backups erstellen, auf deinem PC installieren und das Programm verwenden kannst, um Steam-Daten zu extrahieren, die sonst unmöglich zu bekommen sind (zumindest ohne Jailbreak, aufgrund der iOS-Verschlüsselung).
 
-Gehe zu der **[neuesten Version](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** um das Programm herunterzuladen. Sobald Du die Daten extrahiert hast kannst Du sie z. B. in WinAuth, dann von WinAuth nach ASF kopieren (obwohl Du auch einfach generiertes json kopieren kannst, beginnend mit `{` endend mit `}` in `BotName.maFile` und wie üblich vorgehen). Wenn Du mich fragst, empfehle ich dir dringend zuerst nach WinAuth zu importieren und dann sicherzustellen, dass sowohl das Erzeugen von Codes als auch das Akzeptieren von Bestätigungen richtig funktioniert, damit Du sicher sein kannst, dass alles in Ordnung ist. Wenn deine Anmeldeinformationen ungültig sind wird ASF 2FA nicht ordnungsgemäß funktionieren, daher ist es viel besser den ASF-Importschritt als letzten Schritt durchzuführen.
+Gehe zu der **[neuesten Version](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** um das Programm herunterzuladen. Sobald Du die Daten extrahiert hast kannst Du sie z. B. in WinAuth, dann von WinAuth nach ASF kopieren (obwohl Du auch einfach generiertes json kopieren kannst, beginnend mit `{` endend mit `}` in `BotName.maFile` und wie üblich vorgehen). Wenn Du mich fragst, empfehle ich dir dringend zuerst nach WinAuth zu importieren und dann sicherzustellen, dass sowohl das Erzeugen von Codes als auch das Akzeptieren von Bestätigungen richtig funktioniert, damit Du sicher sein kannst, dass alles in Ordnung ist. Wenn deine Anmeldeinformationen ungültig sind wird ASF-2FA nicht ordnungsgemäß funktionieren, daher ist es viel besser den ASF-Importschritt als letzten Schritt durchzuführen.
 
 Für Fragen/Probleme besuche bitte **[issues](https://github.com/CaitSith2/ios-steamguard-extractor/issues)**.
 
@@ -144,13 +144,13 @@ Wenn Du alles richtig gemacht hast, starte ASF und Du solltest es merken:
 [*] INFO: ImportAuthenticator() <1> Import vom mobilen Authentifikator erfolgreich abgeschlossen!
 ```
 
-Von nun an sollte dein ASF 2FA für dieses Konto einsatzbereit sein.
+Von nun an sollte dein ASF-2FA für dieses Konto einsatzbereit sein.
 
 ---
 
 ### WinAuth
 
-Erstelle zunächst eine neue leere `BotName.maFile` Datei im ASF-Konfigurationsverzeichnis, wobei `BotName` der Name deines Bot ist, dem Du ASF 2FA hinzufügst. Bedenke, dass es `BotName.maFile` und NICHT `BotName.maFile.txt` sein sollte, Windows mag es bekannte Erweiterungen standardmäßig zu verstecken. Wenn Du einen falschen Namen angibst wird er nicht von ASF ausgewählt.
+Erstelle zunächst eine neue leere `BotName.maFile` Datei im ASF-Konfigurationsverzeichnis, wobei `BotName` der Name deines Bot ist, dem Du ASF-2FA hinzufügst. Bedenke, dass es `BotName.maFile` und NICHT `BotName.maFile.txt` sein sollte, Windows mag es bekannte Erweiterungen standardmäßig zu verstecken. Wenn Du einen falschen Namen angibst wird er nicht von ASF ausgewählt.
 
 Nun starte WinAuth wie gewohnt. Nach einem Rechtsklick auf das Steam-Symbol wähle "Show SteamGuard and Recovery Code". Dann setze einen Haken bei "Allow copy". Du solltest bemerken, dass dir die JSON-Struktur am unteren Rand des Fensters vertraut ist, beginnend mit `{`. Kopiere den gesamten Text in die `BotName.maFile` Datei, die Du im vorherigen Schritt erstellt hast.
 
@@ -161,13 +161,13 @@ Wenn Du alles richtig gemacht hast, starte ASF und Du solltest es merken:
 [*] INFO: ImportAuthenticator() <1> Import vom mobilen Authentifikator erfolgreich abgeschlossen!
 ```
 
-Von nun an sollte dein ASF 2FA für dieses Konto einsatzbereit sein.
+Von nun an sollte dein ASF-2FA für dieses Konto einsatzbereit sein.
 
 ---
 
 ## Fertig
 
-Von diesem Moment an funktionieren alle `2fa` Befehle so, wie sie auf Ihrem herkömmlichen 2FA-Gerät ausgeführt werden. Du kannst sowohl ASF 2FA als auch den Authentifikator deiner Wahl (Android, iOS, SDA oder WinAuth) verwenden, um Codes zu generieren und Bestätigungen zu akzeptieren.
+Von diesem Moment an funktionieren alle `2fa` Befehle so, wie sie auf Ihrem herkömmlichen 2FA-Gerät ausgeführt werden. Du kannst sowohl ASF-2FA als auch den Authentifikator deiner Wahl (Android, iOS, SDA oder WinAuth) verwenden, um Codes zu generieren und Bestätigungen zu akzeptieren.
 
 Wenn Du einen Authentifikator auf deinem Handy hast, kannst Du optional SteamDesktopAuthenticator und/oder WinAuth entfernen, da wir ihn nicht mehr benötigen. Allerdings schlage ich vor es für alle Fälle aufzubewahren, ganz zu schweigen davon, dass es praktischer ist als ein normaler Steam-Authentifikator. Just keep in mind that ASF 2FA is **NOT** a general purpose authenticator, it doesn't include all data that authenticator should have, but limited subset of original `maFile`. It's not possible to convert ASF 2FA back to original authenticator, therefore always make sure that you have general-purpose authenticator or `maFile` in other place, such as in WinAuth/SDA, or on your phone.
 
@@ -177,43 +177,43 @@ Wenn Du einen Authentifikator auf deinem Handy hast, kannst Du optional SteamDes
 
 ### Wie nutzt ASF das 2FA-Modul?
 
-Wenn ASF 2FA verfügbar ist wird ASF es für die automatische Bestätigung von Handelsangeboten verwenden, die von ASF gesendet bzw. akzeptiert werden. Es wird auch in der Lage sein bei Bedarf automatisch 2FA-Codes zu generieren, z. B. um sich anzumelden. Darüber hinaus ermöglicht ASF 2FA auch die Verwendung von `2fa`-Befehlen. Das sollte vorerst alles sein, falls ich nichts vergessen habe - im Grunde genommen verwendet ASF das 2FA-Modul bei Bedarf.
+Wenn ASF-2FA verfügbar ist wird ASF es für die automatische Bestätigung von Handelsangeboten verwenden, die von ASF gesendet bzw. akzeptiert werden. Es wird auch in der Lage sein bei Bedarf automatisch 2FA-Codes zu generieren, z. B. um sich anzumelden. Darüber hinaus ermöglicht ASF-2FA auch die Verwendung von `2fa`-Befehlen. Das sollte vorerst alles sein, falls ich nichts vergessen habe - im Grunde genommen verwendet ASF das 2FA-Modul bei Bedarf.
 
 ---
 
 ### Was ist wenn ich einen 2FA-Code benötige?
 
-Du benötigst einen 2FA-Code, um auf das 2FA-geschützte Konto zuzugreifen, das auch jedes Konto mit ASF 2FA einbezieht. Du solltest Codes im Authentifikator generieren, den Du für den Import benutzt hast, aber Du kannst auch temporäre Codes über den Befehl `2fa` erzeugen, der über den Chat an den angegebenen Bot gesendet wird. Du kannst auch den Befehl `2fa <BotNames>` verwenden, um temporäre Codes für bestimmte Bot-Instanzen zu erzeugen. Das sollte ausreichen, damit Du z. B. über den Browser auf Bot-Konten zugreifen kannst, aber wie oben erwähnt, solltest Du stattdessen deinen benutzerfreundlichen Authentifikator (Android, iOS, SDA oder WinAuth) verwenden.
+Du benötigst einen 2FA-Code, um auf das 2FA-geschützte Konto zuzugreifen, das auch jedes Konto mit ASF-2FA einbezieht. Du solltest Codes im Authentifikator generieren, den Du für den Import benutzt hast, aber Du kannst auch temporäre Codes über den Befehl `2fa` erzeugen, der über den Chat an den angegebenen Bot gesendet wird. Du kannst auch den Befehl `2fa <BotNames>` verwenden, um temporäre Codes für bestimmte Bot-Instanzen zu erzeugen. Das sollte ausreichen, damit Du z. B. über den Browser auf Bot-Konten zugreifen kannst, aber wie oben erwähnt, solltest Du stattdessen deinen benutzerfreundlichen Authentifikator (Android, iOS, SDA oder WinAuth) verwenden.
 
 ---
 
 ### Kann ich nach dem Import zu ASF-2FA meinen Original-Authentifikator verwenden?
 
-Ja, dein Original-Authentifikator bleibt funktionsfähig und Du kannst ihn zusammen mit ASF 2FA verwenden. Das ist der springende Punkt des Verfahrens - wir importieren deine Authentifikationsinformationen in ASF damit ASF sie nutzen und ausgewählte Bestätigungen in deinem Namen akzeptieren kann.
+Ja, dein Original-Authentifikator bleibt funktionsfähig und Du kannst ihn zusammen mit ASF-2FA verwenden. Das ist der springende Punkt des Verfahrens - wir importieren deine Authentifikationsinformationen in ASF damit ASF sie nutzen und ausgewählte Bestätigungen in deinem Namen akzeptieren kann.
 
 ---
 
 ### Wo wird der ASF Mobile Authenticator gespeichert?
 
-ASF Mobile Authenticator wird in der Datei `BotName.db` in deinem Konfigurationsverzeichnis gespeichert, zusammen mit einigen anderen wichtigen Daten, die sich auf das angegebene Konto beziehen. Wenn Du ASF 2FA entfernen möchtest, lies das untenstehende.
+ASF Mobile Authenticator wird in der Datei `BotName.db` in deinem Konfigurationsverzeichnis gespeichert, zusammen mit einigen anderen wichtigen Daten, die sich auf das angegebene Konto beziehen. Wenn Du ASF-2FA entfernen möchtest, lies das untenstehende.
 
 ---
 
 ### Wie entferne ich ASF-2FA?
 
-Stoppe einfach ASF und entferne die zugehörige `BotName.db` Datei des Bots mit der verlinkten ASF 2FA, die Du entfernen möchtest. Diese Option entfernt die zugehörige importierte 2FA mit ASF, entfernt aber NICHT deinen Authentifikator. Wenn Du stattdessen deinen Authentifikator entfernen möchtest, solltest Du ihn nicht nur von ASF entfernen (zuerst), sondern auch in einem Authentifikator deiner Wahl (Android, iOS, SDA oder WinAuth) entfernen, oder - wenn Du aus irgendeinem Grund nicht kannst, einen Widerrufscode verwenden, den Du während der Verknüpfung dieses Authentifikators auf der Steam-Webseite erhalten hast. Es ist nicht möglich, Ihren Authentifikator über ASF zu entfernen, dafür sollte der bereits vorhandene Standard-Authentifikator verwendet werden.
+Stoppe einfach ASF und entferne die zugehörige `BotName.db` Datei des Bots mit der verlinkten ASF-2FA, die Du entfernen möchtest. Diese Option entfernt die zugehörige importierte 2FA mit ASF, entfernt aber NICHT deinen Authentifikator. Wenn Du stattdessen deinen Authentifikator entfernen möchtest, solltest Du ihn nicht nur von ASF entfernen (zuerst), sondern auch in einem Authentifikator deiner Wahl (Android, iOS, SDA oder WinAuth) entfernen, oder - wenn Du aus irgendeinem Grund nicht kannst, einen Widerrufscode verwenden, den Du während der Verknüpfung dieses Authentifikators auf der Steam-Webseite erhalten hast. Es ist nicht möglich, Ihren Authentifikator über ASF zu entfernen, dafür sollte der bereits vorhandene Standard-Authentifikator verwendet werden.
 
 ---
 
 ### Ich habe den Authentifikator in SDA/WinAuth verlinkt und dann in ASF importiert. Kann ich ihn jetzt entfernen und auf meinem Handy wieder verlinken?
 
-**Nein**. ASF **importiert** deine Authentifikatordaten um sie zu verwenden. Wenn Du deinen Authentifikator entfernst, dann wirst Du damit auch bewirken, dass ASF 2FA nicht mehr funktioniert, egal ob Du ihn zuerst entfernst, wie in der obigen Frage angegeben ist oder nicht. Wenn Du deinen Authentifikator sowohl auf deinem Handy als auch auf ASF (plus optional in SDA/WinAuth) verwenden möchtest, dann musst Du deinen Authentifikator von deinem Handy **importieren** und keinen neuen in SDA/WinAuth erstellen. Du kannst nur **einen** verknüpften Authentifikator haben, deshalb **importiert** ASF den Authentifikator und seine Daten, um ihn als ASF-2FA zu verwenden - es ist **derselbe** Authentifikator der nur an zwei Stellen existiert. Wenn Du dich dazu entscheidest deine mobilen Authentifizierungsdaten zu entfernen - unabhängig davon, in welcher Weise, wird ASF 2FA die Funktionalität einstellen, da die zuvor kopierten mobilen Authentifizierungsdaten nicht mehr gültig sind. Um ASF 2FA zusammen mit dem Authentifikator auf deinem Handy verwenden zu können musst Du es aus Android/iOS importieren, was oben beschrieben ist.
+**Nein**. ASF **importiert** deine Authentifikatordaten um sie zu verwenden. Wenn Du deinen Authentifikator entfernst, dann wirst Du damit auch bewirken, dass ASF-2FA nicht mehr funktioniert, egal ob Du ihn zuerst entfernst, wie in der obigen Frage angegeben ist oder nicht. Wenn Du deinen Authentifikator sowohl auf deinem Handy als auch auf ASF (plus optional in SDA/WinAuth) verwenden möchtest, dann musst Du deinen Authentifikator von deinem Handy **importieren** und keinen neuen in SDA/WinAuth erstellen. Du kannst nur **einen** verknüpften Authentifikator haben, deshalb **importiert** ASF den Authentifikator und seine Daten, um ihn als ASF-2FA zu verwenden - es ist **derselbe** Authentifikator der nur an zwei Stellen existiert. Wenn Du dich dazu entscheidest deine mobilen Authentifizierungsdaten zu entfernen - unabhängig davon, in welcher Weise, wird ASF-2FA die Funktionalität einstellen, da die zuvor kopierten mobilen Authentifizierungsdaten nicht mehr gültig sind. Um ASF-2FA zusammen mit dem Authentifikator auf deinem Handy verwenden zu können musst Du es aus Android/iOS importieren, was oben beschrieben ist.
 
 ---
 
 ### Ist die Verwendung von ASF-2FA besser als die Verwendung von WinAuth/SDA/Anderer Authentifikator um alle Bestätigungen zu akzeptieren?
 
-**Ja**, auf verschiedene Arten. Die erste und wichtigste - die Verwendung von ASF-2FA erhöht **erheblich** deine Sicherheit, da das ASF-2FA-Modul sicherstellt, dass ASF nur automatisch seine eigenen Bestätigungen akzeptiert, sodass selbst wenn der Angreifer ein schädliches Handelsangebot sendet, ASF-2FA dieses Handelsangebot **nicht** akzeptiert, da er nicht von ASF generiert wurde. Zusätzlich zum Sicherheitsteil bringt die Verwendung von ASF 2FA auch Performance-/Optimierungsvorteile, da ASF 2FA Bestätigungen unmittelbar nach der Generierung abruft und akzeptiert und nur dann, im Gegensatz zur ineffizienten Abfrage der Bestätigungen alle X Minuten, die z. B. von SDA oder WinAuth durchgeführt wird. Kurz gesagt, es gibt keinen Grund den Authentifikator eines Drittanbieters dem von ASF 2FA vorzuziehen, wenn Du vorhast von ASF generierte Bestätigungen zu automatisieren - genau dafür ist ASF 2FA gedacht und die Verwendung steht nicht im Konflikt mit der Bestätigung von allem anderen in einem Authentifikator deiner Wahl. Wir empfehlen nachdrücklich ASF 2FA für die gesamte ASF-Aktivität zu verwenden - dies ist viel sicherer als jede andere Lösung.
+**Ja**, auf verschiedene Arten. Die erste und wichtigste - die Verwendung von ASF-2FA erhöht **erheblich** deine Sicherheit, da das ASF-2FA-Modul sicherstellt, dass ASF nur automatisch seine eigenen Bestätigungen akzeptiert, sodass selbst wenn der Angreifer ein schädliches Handelsangebot sendet, ASF-2FA dieses Handelsangebot **nicht** akzeptiert, da er nicht von ASF generiert wurde. Zusätzlich zum Sicherheitsteil bringt die Verwendung von ASF-2FA auch Performance-/Optimierungsvorteile, da ASF-2FA Bestätigungen unmittelbar nach der Generierung abruft und akzeptiert und nur dann, im Gegensatz zur ineffizienten Abfrage der Bestätigungen alle X Minuten, die z. B. von SDA oder WinAuth durchgeführt wird. Kurz gesagt, es gibt keinen Grund den Authentifikator eines Drittanbieters dem von ASF-2FA vorzuziehen, wenn Du vorhast von ASF generierte Bestätigungen zu automatisieren - genau dafür ist ASF-2FA gedacht und die Verwendung steht nicht im Konflikt mit der Bestätigung von allem anderen in einem Authentifikator deiner Wahl. Wir empfehlen nachdrücklich ASF-2FA für die gesamte ASF-Aktivität zu verwenden - dies ist viel sicherer als jede andere Lösung.
 
 ---
 
