@@ -211,16 +211,6 @@ Tenha em mente que a taxa de coleta de cartas quando se joga múltiplos jogos é
 
 ---
 
-### ASF seems to generate API key on each run, why is that?
-
-ASF requires **[API key](https://steamcommunity.com/dev/apikey)** for several of its functionalities. If you don't have API key assigned yet, ASF will automatically generate a new one and use it after logging in to your account.
-
-API key provides ASF a way to access selected read-only information that is not possible to be fetched otherwise. Contrary to what some people on the internet say, the alone fact of having API key generated is not a security issue - because everybody who has established a Steam web session to even access that key, already has **full control over your account and can do much worse than what he can do with API key alone**. "Protecting" your account by removing API key makes zero sense, rather, you should focus on **[strong password](https://store.steampowered.com/account)**, **[2FA active](https://store.steampowered.com/twofactor/manage)**, **[deauthorizing all devices you do not recognize](https://help.steampowered.com/faqs/view/06B0-26E6-2CF8-254C#deauthorize)**, and ensuring that you **[avoid common scams, especially phishing sites](https://help.steampowered.com/en/faqs/view/70E6-991B-233B-A37B)**.
-
-Of course, if your API key got leaked, we recommend to secure your account and revoke the old one immediately, which is completely supported by ASF - it'll generate a new one on the next run. It's not possible for ASF to entirely skip using API keys though - if we could access the information we need through different way, ASF wouldn't need to generate that key to begin with.
-
----
-
 ### Posso ser banido pelo VAC por isso?
 
 Não, isso não é possível porque o ASF (diferente do Idle Master ou SAM) não interfere com o cliente Steam nem com os seus processos. É fisicamente impossível tomar um banimento VAC por usar o ASF, mesmo jogando em servidores seguros enquanto o ASF estiver rodando - isso porque **o ASF nem mesmo precisa que o cliente Steam esteja instalado** para funcionar corretamente. O ASF é o único programa de coleta que pode garantir ser livre de banimento VAC.
@@ -563,7 +553,7 @@ Você provavelmente está usando o Windows e seu console está com modo de ediç
 
 ### O ASF não pode aceita ou envia trocas!
 
-O óbvio primeiro: novas contas são limitadas. Até que você desbloqueie a conta colocando pelo menos $5 (dólares) na sua Carteira Steam ou gastando esse valor na loja, o ASF não pode aceitar nem enviar trocas usando essa conta. Neste caso, o ASF indicará que esse inventário parece vazio, porque todas as cartas nele não são trocáveis. Também não será possível receber qualquer troca, já que para isso o ASF precisa ser capaz de obter uma chave de API e esse recurso é desabilitado em contas limitadas. Resumindo, trocas estão fora de questão para contas limitadas, sem exceções.
+O óbvio primeiro: novas contas são limitadas. Até que você desbloqueie a conta colocando pelo menos $5 (dólares) na sua Carteira Steam ou gastando esse valor na loja, o ASF não pode aceitar nem enviar trocas usando essa conta. Neste caso, o ASF indicará que esse inventário parece vazio, porque todas as cartas nele não são trocáveis.
 
 Depois, se você não usa o **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-pt-BR)**, é possível que o ASF tenha aceitado/enviado a troca, mas você precisa confirmar ela através de seu e-mail. Do mesmo jeito, se você usa o 2FA padrão, você precisa confirmar a troca pelo autenticador. As confirmações são **obrigatórias**, então se você não quer aceitá-las manualmente, considere importar seu autenticador para o ASF 2FA.
 

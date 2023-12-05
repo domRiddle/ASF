@@ -211,16 +211,6 @@ ASF не основан на клиенте Steam, в нём используе�
 
 ---
 
-### ASF seems to generate API key on each run, why is that?
-
-ASF requires **[API key](https://steamcommunity.com/dev/apikey)** for several of its functionalities. If you don't have API key assigned yet, ASF will automatically generate a new one and use it after logging in to your account.
-
-API key provides ASF a way to access selected read-only information that is not possible to be fetched otherwise. Contrary to what some people on the internet say, the alone fact of having API key generated is not a security issue - because everybody who has established a Steam web session to even access that key, already has **full control over your account and can do much worse than what he can do with API key alone**. "Protecting" your account by removing API key makes zero sense, rather, you should focus on **[strong password](https://store.steampowered.com/account)**, **[2FA active](https://store.steampowered.com/twofactor/manage)**, **[deauthorizing all devices you do not recognize](https://help.steampowered.com/faqs/view/06B0-26E6-2CF8-254C#deauthorize)**, and ensuring that you **[avoid common scams, especially phishing sites](https://help.steampowered.com/en/faqs/view/70E6-991B-233B-A37B)**.
-
-Of course, if your API key got leaked, we recommend to secure your account and revoke the old one immediately, which is completely supported by ASF - it'll generate a new one on the next run. It's not possible for ASF to entirely skip using API keys though - if we could access the information we need through different way, ASF wouldn't need to generate that key to begin with.
-
----
-
 ### Могу ли я получить VAC бан за использование ASF?
 
 Нет, это невозможно, поскольку ASF (в отличии от IdleMaster и SAM) никак не взаимодействует с клиентом Steam и его процессами. Физически невозможно получить VAC за использование ASF, даже во время использования защищённых серверов со включенным ASF - просто потому что **ASF даже не нужно чтобы клиент Steam был установлен** для нормальной работы. ASF единственная программа для фарма, которая может полностью гарантировать невозможность VAC-бана.
@@ -563,7 +553,7 @@ InternalRequest() Forbidden <- HEAD https://steamcommunity.com/my/edit/settings
 
 ### ASF не может принимать и отправлять запросы обмена!
 
-Начнем с очевидного - новые аккаунты в стим имеют ограничения. Пока вы не разблокируете аккаунт пополнив кошелёк Steam или потратив в магазине эквивалент 5$, ASF не может принимать или отправлять запросы c этого аккаунта. В этом случае ASF будет писать что инвентарь пуст, поскольку все карточки нельзя обменять. Также ASF не сможет получить никакие обмены, поскольку это требует возможности получить ключ API, а эта возможность отключена для ограниченных аккаунтов. Короче говоря - обмены не работают на ограниченных аккаунтах, без исключений.
+Начнем с очевидного - новые аккаунты в стим имеют ограничения. Пока вы не разблокируете аккаунт пополнив кошелёк Steam или потратив в магазине эквивалент 5$, ASF не может принимать или отправлять запросы c этого аккаунта. В этом случае ASF будет писать что инвентарь пуст, поскольку все карточки нельзя обменять.
 
 Далее, если вы не пользуетесь **[2ФА ASF](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-ru-RU)**, возможно что ASF на самом деле принял/отправил обмен, но вам нужно подтвердить обмен через e-mail. Аналогично, если вы пользуетесь классической 2ФА, вам нужно подтвердить обмен в вашем аутентификаторе. Подтверждения сейчас **обязательные**, поэтому если вы не хотите подтверждать обмены самостоятельно - подумайте о импорте аутентифицатора в 2ФА ASF.
 

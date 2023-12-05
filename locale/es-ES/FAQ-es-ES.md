@@ -211,16 +211,6 @@ Ten en cuenta que la tasa de obtención de cromos al jugar múltiples juegos es 
 
 ---
 
-### ASF parece generar una clave API en cada ejecución, ¿por qué sucede eso?
-
-ASF requiere la **[clave API](https://steamcommunity.com/dev/apikey)** para varias de sus funciones. Si aún no tienes una clave API, ASF generará una nueva automáticamente y la usará después de iniciar sesión en tu cuenta.
-
-La clave API proporciona a ASF una forma de acceder a información de solo lectura que no es posible obtener de otra manera. Contrario a lo que algunas personas en internet dicen, el solo hecho de tener una clave API generada no es un problema de seguridad - porque cualquiera que haya establecido una sesión web de Steam para siquiera acceder a esa clave, ya tiene **control total sobre tu cuenta y puede hacer peores cosas que solamente con la clave API**. "Proteger" tu cuenta eliminando la clave API no tiene ningún sentido, en su lugar, deberías enfocarte en una **[contraseña fuerte](https://store.steampowered.com/account)**,  **[tener 2FA activo](https://store.steampowered.com/twofactor/manage)**, **[desautorizar todos los dispositivos que no reconozcas](https://help.steampowered.com/es/faqs/view/06B0-26E6-2CF8-254C#deauthorize)**, y asegurarte de **[evitar estafas comunes, especialmente sitios de phishing](https://help.steampowered.com/en/faqs/view/70E6-991B-233B-A37B)**.
-
-Por supuesto, si tu clave API se filtra, recomendamos proteger tu cuenta y revocar la anterior inmediatamente, lo cual está completamente soportado por ASF - generará una nueva en la siguiente ejecución. No es posible para ASF omitir por completo el uso de la clave API - si pudiéramos acceder a la información que necesitamos de otra forma, ASF no necesitaría generar esa clave.
-
----
-
 ### ¿Puedo obtener VAC ban por usar esto?
 
 No, no es posible porque ASF (a diferencia de Idle Master o SAM) no interfiere de ninguna manera con el cliente de Steam ni sus procesos. Es físicamente imposible obtener ban VAC por usar ASF, incluso si juegas en servidores seguros mientras ASF se está ejecutando - esto es porque **ASF ni siquiera requiere que el Cliente de Steam esté instalado** para funcionar correctamente. ASF es el único programa de recolección que actualmente garantiza ser libre de VAC.
@@ -563,7 +553,7 @@ Lo más probable es que utilices Windows y que tu consola tenga el modo de edici
 
 ### ¡ASF no puede aceptar o enviar intercambios!
 
-Primero lo obvio - las cuentas nuevas empiezan como limitadas. Hasta que desbloquees la cuenta añadiendo a la cartera o gastando en la tienda $5 dólares estadounidenses (o lo equivalente en tu moneda), ASF no puede aceptar ni enviar intercambios usando esta cuenta. En este caso, ASF declarará que el inventario está vacío, porque cada cromo en él es no intercambiable. Tampoco será posible recibir ningún intercambio, ya que eso requiere que ASF pueda obtener la clave API, y la funcionalidad de clave API está deshabilitada para las cuentas limitadas. En resumen - los intercambios están descartados para todas las cuentas limitadas, sin excepciones.
+Primero lo obvio - las cuentas nuevas empiezan como limitadas. Hasta que desbloquees la cuenta añadiendo a la cartera o gastando en la tienda $5 dólares estadounidenses (o lo equivalente en tu moneda), ASF no puede aceptar ni enviar intercambios usando esta cuenta. En este caso, ASF declarará que el inventario está vacío, porque cada cromo en él es no intercambiable.
 
 Además, si no usas **[ASF 2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-es-ES)**, es posible que ASF de hecho acepte/envíe intercambios, pero necesitas confirmarlos a través de tu correo electrónico. Del mismo modo, si usas la autenticación de dos factores clásica, necesitas confirmar el intercambio a través de tu autenticador. Las confirmaciones son **obligatorias** ahora, si no las quieres aceptar por ti mismo, considera importar tu autenticador a ASF 2FA.
 
