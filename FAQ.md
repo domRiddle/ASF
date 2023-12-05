@@ -77,7 +77,7 @@ ASF gives you rough approximation based on number of cards you need to drop, and
 
 ASF is a C# program that requires working implementation of .NET. Android became a valid platform starting with .NET 6.0, however, there is currently a major blocker in making ASF happen on Android due to **[lack of ASP.NET runtime available on it](https://github.com/dotnet/aspnetcore/issues/35077)**. Even though there isn't a native option available, there are proper and working builds for GNU/Linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
 
-When/If all ASF requirements are satisfied, we'll consider releasing official Android build.
+When/If all ASF requirements are satisfied, we'll consider releasing an official Android build.
 
 ---
 
