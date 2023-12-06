@@ -50,7 +50,7 @@ Wenn während dieses Prozesses unser Konto den Status `RateLimited` erhält, wir
 
 Nehmen wir an, Sie haben eine Liste mit 100 Produktschlüsseln. Zuerst sollten Sie eine neue `BotName.keys.new`-Datei im ASF-Verzeichnis `config` erstellen. Wir fügen die Erweiterung `.new` hinzu, um ASF wissen zu lassen, dass es diese Datei nicht sofort beim Erstellen einlesen soll (da es sich um eine neue leere Datei handelt, die noch nicht für den Import bereit ist).
 
-Nun können wir unsere neue Datei öffnen und dort unsere Liste der 100 Produktschlüssel entsprechend der oben beschriebenen Struktur einfügen und bei Bedarf das Format korrigieren. Nach etwaig nötigen Korrekturen umfasst unsere Datei `BotName.keys.new` genau 100 Zeilen (oder 101, wenn man die letzte Zeile hinzuzählt), wobei jede Zeile als `Spielname\tProduktschlüssel\n` strukturiert ist (wobei `\t` ein Tabulatorzeichen und `\n` ein Zeilenumbruch darstellt).
+Nun können wir unsere neue Datei öffnen und dort unsere Liste der 100 Produktschlüssel entsprechend der oben erläuterten Struktur einfügen und bei Bedarf das Format korrigieren. Nach etwaig nötigen Korrekturen umfasst unsere Datei `BotName.keys.new` genau 100 Zeilen (oder 101, wenn man die letzte Zeile hinzuzählt), wobei jede Zeile als `Spielname\tProduktschlüssel\n` strukturiert ist (wobei `\t` ein Tabulatorzeichen und `\n` ein Zeilenumbruch darstellt).
 
 Jetzt können Sie diese Datei von `BotName.keys.new` in `BotName.keys` umbenennen, um ASF mitzuteilen, dass sie bereit ist, eingelesen zu werden. In diesem Augenblick importiert ASF die Datei automatisch (ohne Neustart) und löscht sie anschließend, um zu bestätigen, dass alle unsere Spiele eingelesen und der Warteschlange hinzugefügt wurden.
 

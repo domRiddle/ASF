@@ -16,7 +16,7 @@ Wenn Du `AcceptDonations` in Ihren `TradingPreferences` aktivierst, akzeptiert A
 
 Es ist gut zu erwähnen, dass `AcceptDonations` kein **[ASF-2FA](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Two-factor-authentication-de-DE)** erfordert, da es keine Bestätigung braucht, wenn wir keine Gegenstände verlieren.
 
-Sie können die ASF-Handelsmöglichkeiten auch weiter anpassen, indem Du die `TradingPreferences` entsprechend anpasst. Eine der Hauptfunktionen von `TradingPreferences` ist die Option `SteamTradeMatcher`, die ASF veranlasst, eine eingebaute Logik für die Annahme von Handelsangeboten zu verwenden, die dir hilft, fehlende Abzeichen zu vervollständigen, was besonders nützlich in Zusammenarbeit mit dem öffentlichen Inserieren von **[SteamTradeMatcher](https://www.steamtradematcher.com)** ist, aber auch ohne diese arbeiten kann. Es wird im Folgenden näher beschrieben.
+Sie können die ASF-Handelsmöglichkeiten auch weiter anpassen, indem Du die `TradingPreferences` entsprechend anpasst. Eine der Hauptfunktionen von `TradingPreferences` ist die Option `SteamTradeMatcher`, die ASF veranlasst, eine eingebaute Logik für die Annahme von Handelsangeboten zu verwenden, die dir hilft, fehlende Abzeichen zu vervollständigen, was besonders nützlich in Zusammenarbeit mit dem öffentlichen Inserieren von **[SteamTradeMatcher](https://www.steamtradematcher.com)** ist, aber auch ohne diese arbeiten kann. Es wird im Folgenden näher erläutert.
 
 ---
 

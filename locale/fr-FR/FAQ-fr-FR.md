@@ -28,7 +28,7 @@ Core points are stated once again here, because people in general don't want to 
 - **You need to own the game on your Steam account in order to be eligible for any card drops from it. Le partage familial ne compte pas.**
 - **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for farming anymore. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
 - **You can't drop cards from F2P games without spending any money in them. This means permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you card drops.**
-- **You can't drop cards on [limited accounts](https://support.steampowered.com/kb_article.php?ref=3330-iagk-7663), regardless of owned games. C'était possible dans le passé, mais ce n'est plus le cas.**
+- **You can't drop cards on [limited accounts](https://help.steampowered.com/faqs/view/71D3-35C2-AD96-AA3A), regardless of owned games. C'était possible dans le passé, mais ce n'est plus le cas.**
 - **Paid games that you've obtained for free during a promotion can't be farmed for card drops, regardless of what is displayed on the store page. C'était possible dans le passé, mais ce n'est plus le cas.**
 
 So as you can see, Steam cards are awarded to you for playing a game that you bought, or F2P game that you've put money into. If you play such game long enough, all cards for that game will eventually drop to your inventory, making it possible for you to complete a badge (after obtaining the remaining half of the set), sell them, or do whatever else you want.
@@ -77,7 +77,7 @@ ASF vous donne une idée approximative basée sur le nombre de cartes que vous d
 
 ASF is a C# program that requires working implementation of .NET. Android became a valid platform starting with .NET 6.0, however, there is currently a major blocker in making ASF happen on Android due to **[lack of ASP.NET runtime available on it](https://github.com/dotnet/aspnetcore/issues/35077)**. Even though there isn't a native option available, there are proper and working builds for GNU/Linux on ARM architecture, so it's totally possible to use something like **[Linux Deploy](https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy)** for installing Linux, then using ASF in such Linux chroot as usual.
 
-When/If all ASF requirements are satisfied, we'll consider releasing official Android build.
+When/If all ASF requirements are satisfied, we'll consider releasing an official Android build.
 
 ---
 
@@ -117,7 +117,7 @@ Oui, ASF ne se soucie même pas de télécharger des fichiers de jeu réels. Il 
 
 ### ASF est-il similaire à Idle Master?
 
-The only similarity is the general purpose of both programs, which is farming Steam games in order to receive card drops. Everything else, including the actual farming method, used algorithms, program structure, functionality, compatibility, ending with the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation - IM is running on .NET Framework, ASF on .NET (Core). ASF a été créé pour résoudre des problèmes de IM qu'il n'était pas possible de résoudre avec une simple modification de code. C’est pourquoi ASF a été écrit à partir de rien, sans utiliser une seule ligne de code ni une idée générale de la part de IM, car ce code et ces idées étaient totalement erronés. pour commencer. IM et ASF sont comme Windows et Linux - les deux sont des systèmes d'exploitation et peuvent être installés sur votre PC, mais ils ne partagent presque rien les uns avec les autres, mis à part le même objectif.
+The only similarity is the general purpose of both programs, which is farming Steam games in order to receive card drops. Everything else, including the actual farming method, program structure, functionality, compatibility, used algorithms, especially the source code itself, is entirely different and those two programs have nothing common with each other, even the core foundation - IM is running on .NET Framework, ASF on .NET (Core). ASF a été créé pour résoudre des problèmes de IM qu'il n'était pas possible de résoudre avec une simple modification de code. C’est pourquoi ASF a été écrit à partir de rien, sans utiliser une seule ligne de code ni une idée générale de la part de IM, car ce code et ces idées étaient totalement erronés. pour commencer. IM et ASF sont comme Windows et Linux - les deux sont des systèmes d'exploitation et peuvent être installés sur votre PC, mais ils ne partagent presque rien les uns avec les autres, mis à part le même objectif.
 
 C'est aussi pourquoi vous ne devriez pas comparer ASS à IM en fonction des attentes de IM. Vous devez traiter ASF et IM comme des programmes entièrement indépendants dotés de leurs propres ensembles exclusifs de fonctionnalités. Certaines d’entre elles se chevauchent en fait et vous pouvez trouver une caractéristique particulière dans les deux, mais très rarement, car ASF remplit son objectif avec une approche totalement différente de celle de IM.
 
@@ -135,7 +135,7 @@ En outre, ASF est **beaucoup plus stable et fiable** en ce qui concerne les prob
 
 Those are 3 **very important** points why you should consider using ASF, as they directly affect everybody farming Steam cards and there is no way to say "this doesn't consider me", since Steam maintenances and quirks are happening to everybody. There are dozen of extra less and more important reasons which you may learn about in the rest of the FAQ. En bref, **oui**, vous devez utiliser ASF même lorsque vous n’avez besoin d’aucune fonctionnalité ASF supplémentaire par rapport à IM.
 
-In addition to that, IM is officially discontinued and can break completely in the future, without anybody bothering to fix it, considering existence of much more powerful solutions (not only ASF). IM ne fonctionne déjà pas pour beaucoup de gens, et ce nombre ne fait qu'augmenter, pas diminuer. Évitez d’abord d’utiliser des logiciels obsolètes, pas seulement IM, mais également tous les autres programmes obsolètes. Non maintiens actif signifie que personne ne se soucie de savoir si cela fonctionne ou non, personne ne le vérifie et **personne n'est responsable de sa fonctionnalité**, ce qui est crucial pour la sécurité. It's enough that there will be a critical bug causing actual problems to Steam infrastructure - with nobody fixing it, Steam can issue another ban wave in which you'll get hit without even being aware of this being an issue, as already happened to people using, guess what, obsolete version of ASF.
+In addition to that, IM is officially discontinued and can break completely in the future, without anybody bothering to fix it, considering existence of much more powerful solutions (not only ASF). IM ne fonctionne déjà pas pour beaucoup de gens, et ce nombre ne fait qu'augmenter, pas diminuer. Évitez d’abord d’utiliser des logiciels obsolètes, pas seulement IM, mais également tous les autres programmes obsolètes. No active maintainer means that nobody cares whether it works or not and **nobody is responsible for its functionality**, which is a crucial matter in terms of security. It's enough that there will be a critical bug causing actual problems to Steam infrastructure - with nobody fixing it, Steam can issue another ban wave in which you'll get hit without even being aware of this being an issue, as already happened to people using, guess what, obsolete version of ASF.
 
 ---
 
@@ -145,7 +145,7 @@ Cela dépend de ce que vous considérez comme "intéressant" pour vous. If you p
 
 First and foremost, you have some built-in features mentioned **[above](#is-it-worth-it-to-use-asf-if-im-currently-using-idle-master-and-it-works-fine-for-me)** that are core for farming regardless of your end-goal, and very often that alone is already enough to consider using ASF. Mais vous le savez déjà, passons donc à des fonctionnalités plus intéressantes:
 
-- **You can farm offline** (`OnlineStatus` of `Offline` feature). Farming offline makes it possible for you to skip your Steam in-game status entirely, which allows you to farm with ASF while showing "Online" on Steam at the same time, without your friends even noticing that ASF is playing a game on your behalf. Cette fonctionnalité est supérieure, car elle vous permet de rester en ligne sur votre client Steam, sans gêner vos amis avec des modifications constantes du jeu, ni les induire en erreur en leur faisant croire que vous jouez à un jeu alors qu'en réalité vous ne le faite pas. Ce seul point justifie l'utilisation d'ASF si vous respectez vos propres amis, mais ce n'est qu'un début. Il est également agréable de noter que cette fonctionnalité n'a rien à voir avec les paramètres de confidentialité de Steam. Si vous lancez le jeu vous-même, vous vous présenterez correctement dans le jeu à vos amis, rendant uniquement la partie ASF invisible et n'affectant en rien votre compte. .
+- **You can farm offline** (`OnlineStatus` in `Offline` setting). Farming offline makes it possible for you to skip your Steam in-game status entirely, which allows you to farm with ASF while showing "Online" on Steam at the same time, without your friends even noticing that ASF is playing a game on your behalf. Cette fonctionnalité est supérieure, car elle vous permet de rester en ligne sur votre client Steam, sans gêner vos amis avec des modifications constantes du jeu, ni les induire en erreur en leur faisant croire que vous jouez à un jeu alors qu'en réalité vous ne le faite pas. Ce seul point justifie l'utilisation d'ASF si vous respectez vos propres amis, mais ce n'est qu'un début. Il est également agréable de noter que cette fonctionnalité n'a rien à voir avec les paramètres de confidentialité de Steam. Si vous lancez le jeu vous-même, vous vous présenterez correctement dans le jeu à vos amis, rendant uniquement la partie ASF invisible et n'affectant en rien votre compte. .
 
 - **You can skip refundable games** (`SkipRefundableGames` feature). ASF has proper built-in logic for refundable games and you can configure ASF to not farm refundable games automatically. Cela vous permet d’évaluer vous-même si votre jeu nouvellement acheté dans le magasin Steam valait votre argent, sans qu'ASF ne tente de lui retirer des cartes dès que possible. Si vous y jouez plus de 2 heures ou 2 semaines après votre achat, ASF procédera au farming ce jeu car il ne sera plus remboursable. Jusque-là, vous avez le plein contrôle, que vous en appréciez ou non, et vous pouvez facilement vous le faire rembourser si nécessaire, sans avoir à mettre manuellement ce jeu en liste noire ou à ne pas utiliser ASF pendant toute sa durée.
 
@@ -217,7 +217,7 @@ Non, ce n'est pas possible car ASF (contrairement à Idle Master ou SAM) n'inter
 
 ---
 
-### Est-ce que l’utilisation d’ASF peut m’empêcher de jouer sur des serveurs sécurisés par VAC, comme indiqué **[ici](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**?
+### Est-ce que l’utilisation d’ASF peut m’empêcher de jouer sur des serveurs sécurisés par VAC, comme indiqué **[ici](https://help.steampowered.com/faqs/view/22C0-03D0-AE4B-04E8)**?
 
 ASF ne nécessite pas l'exécution du client Steam, ni même son installation. Selon ce concept, **cela** ne devrait pas causer de problèmes liés à VAC, car ASF garantit l'absence d'interférences avec le client Steam et tous ses processus. C'est le point principal en parlant de la garantie sans ban VAC qu'ASF offre.
 
@@ -239,7 +239,7 @@ In the end however, it's always a matter of trust to the developer(s) of your ap
 
 ### Puis-je être banni pour cela?
 
-Pour répondre à cette question, examinons de plus près **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. Steam n’interdit pas l’utilisation de plusieurs comptes. En fait, **[elle le permet](https://support.steampowered.com/kb_article.php?ref=8625-WRAH-9030#share)**, ce qui implique que vous pouvez utiliser le même authentificateur de mobile sur plusieurs comptes. Cependant, cela ne permet pas de partager des comptes avec d'autres personnes, mais nous ne le faisons pas ici.
+Pour répondre à cette question, examinons de plus près **[Steam ToS](https://store.steampowered.com/subscriber_agreement)**. Steam n’interdit pas l’utilisation de plusieurs comptes. En fait, **[elle le permet](https://help.steampowered.com/faqs/view/7EFD-3CAE-64D3-1C31#share)**, ce qui implique que vous pouvez utiliser le même authentificateur de mobile sur plusieurs comptes. Cependant, cela ne permet pas de partager des comptes avec d'autres personnes, mais nous ne le faisons pas ici.
 
 Le seul véritable point qui tient compte d’ASF est le suivant :
 > Vous n'êtes pas autorisé à utiliser des astuces, des logiciels d'automatisation (bots), des mods, des hacks ou tout autre logiciel tiers non autorisé pour modifier ou automatiser un processus du marché des abonnements.
@@ -257,7 +257,7 @@ Par conséquent, comme avec tous les logiciels Steam, ASF n’est pas autorisé 
 Spécialement parce que:
 > In regard to all Subscriptions, Content and Services that are not authored by Valve, Valve does not screen such third-party content available on Steam or through other sources. Valve n'assume aucune responsabilité pour ce contenu tiers. Some third-party application software is capable of being used by businesses for business purposes - however, you may only acquire such software via Steam for private personal use.
 
-However, Valve clearly acknowledges "Steam idlers" existing, as stated **[here](https://support.steampowered.com/kb_article.php?ref=2117-ilzv-2837)**, so if you asked me, I'm pretty sure that if they weren't fine with them, they'd already do something instead of pointing out that they could cause problems VAC-wise. Le mot clé ici est **utilisateurs de Steam**, par exemple  de ASF, et non **utilisateurs de jeu**.
+However, Valve clearly acknowledges "Steam idlers" existing, as stated **[here](https://help.steampowered.com/faqs/view/22C0-03D0-AE4B-04E8)**, so if you asked me, I'm pretty sure that if they weren't fine with them, they'd already do something instead of pointing out that they could cause problems VAC-wise. Le mot clé ici est **utilisateurs de Steam**, par exemple  de ASF, et non **utilisateurs de jeu**.
 
 Please note that above is only our interpretation of **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and various points - ASF is licensed under Apache 2.0 License, which clearly states:
 
@@ -369,7 +369,7 @@ ASF est une application console, il n'y a pas de fenêtre à minimiser, car cell
 
 ### Est-ce que le fait d’utiliser ASF préserve l’éligibilité pour recevoir des boosters?
 
-**Oui**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` of `Offline` if you'd like to.
+**Oui**. ASF is using the same method to log in to Steam network as the official client, therefore it also preserves ability to receive booster packs for accounts that are being used in ASF. Moreover, preserving that ability doesn't even require logging in into Steam community, so you can safely use `OnlineStatus` in `Offline` setting if you'd like to.
 
 
 

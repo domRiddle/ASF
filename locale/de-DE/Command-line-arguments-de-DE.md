@@ -26,7 +26,7 @@ Linux/macOS:
 ./ArchiSteamFarm --argument --weiteresArgument
 ```
 
-Die Befehlszeilenargumente werden auch in allgemeinen Hilfsskripten wie zum Beispiel `ArchiSteamFarm.cmd` oder `ArchiSteamFarm.sh` unterstützt. Darüber hinaus können Sie auch die Umgebungsvariable `ASF_ARGS` verwenden, wie es in den Abschnitten **[Verwaltung ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-de-DE#umgebungsvariablen)** und **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-de-DE#befehlszeilenargumente)** beschrieben ist.
+Die Befehlszeilenargumente werden auch in allgemeinen Hilfsskripten wie zum Beispiel `ArchiSteamFarm.cmd` oder `ArchiSteamFarm.sh` unterstützt. Darüber hinaus können Sie auch die Umgebungsvariable `ASF_ARGS` verwenden, wie es in den Abschnitten **[Verwaltung ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-de-DE#umgebungsvariablen)** und **[Docker](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker-de-DE#befehlszeilenargumente)** erläutert ist.
 
 Vergessen Sie nicht, Anführungszeichen zu setzen, falls Ihr Argument Leerzeichen enthält. Diese beiden Beispiele sind fehlerhaft:
 
@@ -90,7 +90,7 @@ Aufgrund der Art dieser Variable ist es auch möglich, den Wert zu setzen, indem
 
 ---
 
-`--no-steam-parental-generation` - standardmäßig wird ASF automatisch versuchen, die Steam-Familien-PINs zu generieren, wie in der Konfigurationseigenschaft **[` SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-de#steamparentalcode)** beschrieben. Da dies jedoch eine übermäßige Menge an Betriebssystem-Ressourcen erfordern kann, erlaubt Ihnen dieser Schalter dieses Verhalten zu deaktivieren, was dazu führt, dass ASF die automatische Generierung überspringt, und stattdessen den Benutzer direkt nach der entsprechenden PIN fragt. Dies würde sonst nur passieren, wenn die Auto-Generierung versagt. Wir empfehlen die Generierung aktiviert zu lassen, es sei denn Sie haben einen guten Grund diese zu deaktivieren, und wünschen, dass ASF dies nicht tut.
+`--no-steam-parental-generation` - standardmäßig wird ASF automatisch versuchen, die Steam-Familien-PINs zu generieren, wie in der Konfigurationseigenschaft **[` SteamParentalCode`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-de#steamparentalcode)** erläutert. Da dies jedoch eine übermäßige Menge an Betriebssystem-Ressourcen erfordern kann, erlaubt Ihnen dieser Schalter dieses Verhalten zu deaktivieren, was dazu führt, dass ASF die automatische Generierung überspringt, und stattdessen den Benutzer direkt nach der entsprechenden PIN fragt. Dies würde sonst nur passieren, wenn die Auto-Generierung versagt. Wir empfehlen die Generierung aktiviert zu lassen, es sei denn Sie haben einen guten Grund diese zu deaktivieren, und wünschen, dass ASF dies nicht tut.
 
 ---
 

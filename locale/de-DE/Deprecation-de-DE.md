@@ -24,7 +24,7 @@ Während dieser Phase gibt ASF eine entsprechende Warnung aus, wenn die veraltet
 
 ### Stufe 2
 
-Stufe 2 ist geplant, nachdem die oben beschriebene Stufe 1 stattgefunden hat und wird in einer stabilen Version freigegeben. In diesem Abschnitt wird die vollständige Entfernung der veralteten Feature-Existenz eingeführt. Das bedeutet, dass ASF nicht einmal bestätigt, dass Sie veraltete Features verwenden, geschweige denn sie anerkennen, da sie im aktuellen Code einfach nicht existieren. ASF gibt keine Warnung mehr aus, da es nicht mehr erkennt was Sie beabsichtigen.
+Stufe 2 ist geplant, nachdem die oben erläuterte Stufe 1 stattgefunden hat und wird in einer stabilen Version freigegeben. In diesem Abschnitt wird die vollständige Entfernung der veralteten Feature-Existenz eingeführt. Das bedeutet, dass ASF nicht einmal bestätigt, dass Sie veraltete Features verwenden, geschweige denn sie anerkennen, da sie im aktuellen Code einfach nicht existieren. ASF gibt keine Warnung mehr aus, da es nicht mehr erkennt was Sie beabsichtigen.
 
 ---
 
@@ -46,4 +46,4 @@ Stufe 1 fand in der Version V3.1.2.2 statt, wo wir der Verwendung von `--server`
 
 ### Stufe 2
 
-Stufe 2 fand in der Version V3.1.3.0 statt, direkt nach der stabilen V3.1.2.9 mit Stufe 1, wie oben beschrieben. Stufe 2 hatte zur Folge, dass ASF das Argument `--server` überhaupt nicht mehr anerkannte und es wie jedes andere ungültig übergebene Argument, welches keine Auswirkungen auf das Programm mehr hat, behandelte. Für diejenige, die immer noch nicht `--server` in `IPC: true` geändert haben, führte dies dazu, dass IPC ganz und gar nicht mehr funktionierte, da ASF keine entsprechende Zuordnung mehr durchführte.
+Stufe 2 fand in der Version V3.1.3.0 statt, direkt nach der stabilen V3.1.2.9 mit Stufe 1, wie oben erläutert. Stufe 2 hatte zur Folge, dass ASF das Argument `--server` überhaupt nicht mehr anerkannte und es wie jedes andere ungültig übergebene Argument, welches keine Auswirkungen auf das Programm mehr hat, behandelte. Für diejenige, die immer noch nicht `--server` in `IPC: true` geändert haben, führte dies dazu, dass IPC ganz und gar nicht mehr funktionierte, da ASF keine entsprechende Zuordnung mehr durchführte.

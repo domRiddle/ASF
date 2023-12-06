@@ -36,6 +36,14 @@ En cualquier caso, el personal de SteamDB te agradece de antemano por tu ayuda. 
 
 ---
 
+## Comando
+
+El plugin STD viene con un comando adicional para ASF, `!std [Bots]`,  que te permite activar bajo demanda la actualización y el envío para los bots seleccionados. Usar el comando no requiere que esté habilitado en la configuración, lo que te permite omitir la recolección y envío automáticos, y controlar el proceso manualmente. Naturalmente, también puede ser ejecutado estando habilitado en la configuración, lo que activará los procesos de recolección y envío normales antes de lo esperado.
+
+Recomendamos `!std ASF` para activar la actualización para todos los bots disponibles. Sin embargo, también puedes activarlo para los seleccionados si lo deseas.
+
+---
+
 ## Configuración avanzada
 
 Nuestro plugin soporta una configuración avanzada que puede ser útil para las personas que deseen hacer ajustes de acuerdo a sus preferencias.

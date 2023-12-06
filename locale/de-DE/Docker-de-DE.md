@@ -121,9 +121,9 @@ Dies erlaubt ASF Dateien zu erstellen, die das Volume (Laufwerk) im Docker-Conta
 
 ## Synchronisation mehrerer Instanzen
 
-ASF unterstützt die Synchronisation mehrerer Instanzen, wie im Abschnitt **[Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#mehrere-instanzen)** beschrieben. Beim Ausführen von ASF im Docker-Container, können Sie optional "opt-in" in den Prozess einschalten für den Fall, dass Sie mehrere Container mit ASF (synchronisiert) verwenden möchten.
+ASF unterstützt die Synchronisation mehrerer Instanzen, wie im Abschnitt **[Management](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#mehrere-instanzen)** erläutert. Beim Ausführen von ASF im Docker-Container, können Sie optional "opt-in" in den Prozess einschalten für den Fall, dass Sie mehrere Container mit ASF (synchronisiert) verwenden möchten.
 
-Standardmäßig ist jede ASF in einem eigenständigen Docker-Container und das bedeutet, dass keine Synchronisation stattfindet. Um die Synchronisation zwischen Ihnen zu aktivieren, müssen Sie den Pfad `/tmp/ASF` in jedem ASF Container, den Sie synchronisieren möchten, zu einem gemeinsamen Pfad (im Lese-Schreib-Modus) des Docker-Hosts einbinden. Dies wird genauso wie bei der Bindung eines Volumes (Laufwerk) erreicht (wie oben beschrieben), nur mit verschiedenen Pfaden:
+Standardmäßig ist jede ASF in einem eigenständigen Docker-Container und das bedeutet, dass keine Synchronisation stattfindet. Um die Synchronisation zwischen Ihnen zu aktivieren, müssen Sie den Pfad `/tmp/ASF` in jedem ASF Container, den Sie synchronisieren möchten, zu einem gemeinsamen Pfad (im Lese-Schreib-Modus) des Docker-Hosts einbinden. Dies wird genauso wie bei der Bindung eines Volumes (Laufwerk) erreicht (wie oben erläutert), nur mit verschiedenen Pfaden:
 
 ```shell
 mkdir -p /tmp/ASF-g1
@@ -192,7 +192,7 @@ Wenn man das gesamte obige Wissen kombiniert, würde ein Beispiel für ein kompl
 docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Dies setzt voraus, dass Sie einen einzigen ASF-Container mit allen ASF-Konfigurationsdateien in `/home/archi/ASF/config` verwenden. Sie sollten den Konfigurationspfad zu dem ändern, der zu Ihrem Rechner passt. Dieses Setup ist auch für die optionale IPC-Nutzung bereit, wenn Sie sich entschieden haben, `IPC.config` in Ihr Konfigurationsverzeichnis mit einem Inhalt wie unten beschrieben aufzunehmen:
+Dies setzt voraus, dass Sie einen einzigen ASF-Container mit allen ASF-Konfigurationsdateien in `/home/archi/ASF/config` verwenden. Sie sollten den Konfigurationspfad zu dem ändern, der zu Ihrem Rechner passt. Dieses Setup ist auch für die optionale IPC-Nutzung bereit, wenn Sie sich entschieden haben, `IPC.config` in Ihr Konfigurationsverzeichnis mit einem Inhalt wie unten erläutert aufzunehmen:
 
 ```json
 {

@@ -207,7 +207,7 @@ Stoppe einfach ASF und entferne die zugehörige `BotName.db` Datei des Bots mit 
 
 ### Ich habe den Authentifikator in SDA/WinAuth verlinkt und dann in ASF importiert. Kann ich ihn jetzt entfernen und auf meinem Handy wieder verlinken?
 
-**Nein**. ASF **importiert** deine Authentifikatordaten um sie zu verwenden. Wenn Du deinen Authentifikator entfernst, dann wirst Du damit auch bewirken, dass ASF-2FA nicht mehr funktioniert, egal ob Du ihn zuerst entfernst, wie in der obigen Frage angegeben ist oder nicht. Wenn Du deinen Authentifikator sowohl auf deinem Handy als auch auf ASF (plus optional in SDA/WinAuth) verwenden möchtest, dann musst Du deinen Authentifikator von deinem Handy **importieren** und keinen neuen in SDA/WinAuth erstellen. Du kannst nur **einen** verknüpften Authentifikator haben, deshalb **importiert** ASF den Authentifikator und seine Daten, um ihn als ASF-2FA zu verwenden - es ist **derselbe** Authentifikator der nur an zwei Stellen existiert. Wenn Du dich dazu entscheidest deine mobilen Authentifizierungsdaten zu entfernen - unabhängig davon, in welcher Weise, wird ASF-2FA die Funktionalität einstellen, da die zuvor kopierten mobilen Authentifizierungsdaten nicht mehr gültig sind. Um ASF-2FA zusammen mit dem Authentifikator auf deinem Handy verwenden zu können musst Du es aus Android/iOS importieren, was oben beschrieben ist.
+**Nein**. ASF **importiert** deine Authentifikatordaten um sie zu verwenden. Wenn Du deinen Authentifikator entfernst, dann wirst Du damit auch bewirken, dass ASF-2FA nicht mehr funktioniert, egal ob Du ihn zuerst entfernst, wie in der obigen Frage angegeben ist oder nicht. Wenn Du deinen Authentifikator sowohl auf deinem Handy als auch auf ASF (plus optional in SDA/WinAuth) verwenden möchtest, dann musst Du deinen Authentifikator von deinem Handy **importieren** und keinen neuen in SDA/WinAuth erstellen. Du kannst nur **einen** verknüpften Authentifikator haben, deshalb **importiert** ASF den Authentifikator und seine Daten, um ihn als ASF-2FA zu verwenden - es ist **derselbe** Authentifikator der nur an zwei Stellen existiert. Wenn Du dich dazu entscheidest deine mobilen Authentifizierungsdaten zu entfernen - unabhängig davon, in welcher Weise, wird ASF-2FA die Funktionalität einstellen, da die zuvor kopierten mobilen Authentifizierungsdaten nicht mehr gültig sind. Um ASF-2FA zusammen mit dem Authentifikator auf deinem Handy verwenden zu können musst Du es aus Android/iOS importieren, was oben erläutert ist.
 
 ---
 
@@ -219,7 +219,7 @@ Stoppe einfach ASF und entferne die zugehörige `BotName.db` Datei des Bots mit 
 
 ## Erweiterte Einstellungen
 
-Wenn Du ein fortgeschrittener Benutzer bist, kannst Du die maFile-Datei auch manuell generieren. Dies kann in dem Fall verwendet werden, wenn Du den Authentifikator aus anderen, als den oben beschriebenen Quellen, importieren möchtest. Es sollte eine **[gültige JSON-Struktur](https://jsonlint.com)** aufweisen:
+Wenn Du ein fortgeschrittener Benutzer bist, kannst Du die maFile-Datei auch manuell generieren. Dies kann in dem Fall verwendet werden, wenn Du den Authentifikator aus anderen, als den oben erläuterten Quellen, importieren möchtest. Es sollte eine **[gültige JSON-Struktur](https://jsonlint.com)** aufweisen:
 
 ```json
 {
@@ -228,4 +228,4 @@ Wenn Du ein fortgeschrittener Benutzer bist, kannst Du die maFile-Datei auch man
 }
 ```
 
-Standard-Authentifikatordaten haben mehr Felder - sie werden von ASF beim Import völlig ignoriert, da sie nicht benötigt werden. Du musst sie nicht entfernen - ASF benötigt nur gültiges JSON mit den 2 oben beschriebenen Pflichtfeldern und wird zusätzliche Felder (falls vorhanden) ignorieren. Natürlich musst Du im obigen Beispiel `STRING` Platzhalter durch gültige Werte für dein Konto ersetzen. Each `STRING` should be base64-encoded representation of bytes the appropriate private key is made of.
+Standard-Authentifikatordaten haben mehr Felder - sie werden von ASF beim Import völlig ignoriert, da sie nicht benötigt werden. Du musst sie nicht entfernen - ASF benötigt nur gültiges JSON mit den 2 oben erläuterten Pflichtfeldern und wird zusätzliche Felder (falls vorhanden) ignorieren. Natürlich musst Du im obigen Beispiel `STRING` Platzhalter durch gültige Werte für dein Konto ersetzen. Each `STRING` should be base64-encoded representation of bytes the appropriate private key is made of.

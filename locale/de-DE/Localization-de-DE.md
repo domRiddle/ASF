@@ -165,7 +165,7 @@ Unabhängig vom Fall solltest Du zuerst den Quelltext kopieren und wie gewohnt �
 
 Wenn es sich bei dem Link um einen generischen Link handelt, der außerhalb des Wikis liegt (z. B. auf die neueste ASF-Version), kannst Du ihn so lassen wie er ist, da Du ihn in diesem Fall nicht bearbeiten solltest. Sie können ihn speichern und weitermachen.
 
-Wenn der Link jedoch weiter **innerhalb** des Wikis zeigt, wie der oben genannte, kannst Du ihn tatsächlich korrigieren, um auf einen neuen (lokalisierten) Pfad zu verweisen. Du erreichst dies, indem Du `-locale` sorgfältig an die Ziel-URL im `<a>`-Tag anhängst, wie unten beschrieben:
+Wenn der Link jedoch weiter **innerhalb** des Wikis zeigt, wie der oben genannte, kannst Du ihn tatsächlich korrigieren, um auf einen neuen (lokalisierten) Pfad zu verweisen. Du erreichst dies, indem Du `-locale` sorgfältig an die Ziel-URL im `<a>`-Tag anhängst, wie unten erläutert:
 
 ---
 
