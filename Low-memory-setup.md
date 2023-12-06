@@ -58,7 +58,7 @@ The "hard" memory limit for ASF process, this setting tunes GC to use only a sub
 
 On the other hand, setting this value high enough is a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing the program to do its job as efficiently as possible.
 
-### [`DOTNET_GCConserveMemory`](https://learn.microsoft.com/dotnet/core/runtime-config/garbage-collector#conserve-memory)
+### [`GCConserveMemory`](https://learn.microsoft.com/dotnet/core/runtime-config/garbage-collector#conserve-memory)
 
 > Configures the garbage collector to conserve memory at the expense of more frequent garbage collections and possibly longer pause times.
 
