@@ -58,6 +58,12 @@ The "hard" memory limit for ASF process, this setting tunes GC to use only a sub
 
 On the other hand, setting this value high enough is a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing the program to do its job as efficiently as possible.
 
+### [`DOTNET_GCConserveMemory`](https://learn.microsoft.com/en-us/dotnet/core/runtime-config/garbage-collector#conserve-memory)
+
+> Configures the garbage collector to conserve memory at the expense of more frequent garbage collections and possibly longer pause times.
+
+A value between 0-9 can be used. The bigger the value, the more GC will optimize memory over performance.
+
 ### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 
 > Specifies the amount of memory used after which GC becomes more aggressive.
@@ -85,6 +91,7 @@ You can enable selected properties by setting appropriate environment variables.
 export DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
 export DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
+export DOTNET_GCConserveMemory=9
 export DOTNET_GCLatencyLevel=0
 export DOTNET_gcTrimCommitOnLowMemory=1
 
@@ -99,6 +106,7 @@ Or on Windows (powershell):
 $Env:DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
 $Env:DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
+$Env:DOTNET_GCConserveMemory=9
 $Env:DOTNET_GCLatencyLevel=0
 $Env:DOTNET_gcTrimCommitOnLowMemory=1
 
