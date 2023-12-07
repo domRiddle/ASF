@@ -46,9 +46,9 @@ Das bedeutet, dass der Speicher am meisten ansteigt, wenn es sich bei ASF um das
 
 Die folgenden Tricks **führen auch zur Leistungsminderung** und sollten mit Vorsicht angewendet werden.
 
-The recommended way of applying those settings is through `DOTNET_` environment properties. Of course, you could also use other methods, e.g. `runtimeconfig.json`, but some settings are impossible to be set this way, and on top of that ASF will replace your custom `runtimeconfig.json` with its own on the next update, therefore we recommend environment properties that you can set easily prior to launching the process.
+Die empfohlene Methode, diese Einstellungen anzuwenden, ist über `DOTNET_` Umgebungseigenschaften. Natürlich können Sie auch andere Methoden verwenden, z.B. `runtimeconfig.json`, aber einige Einstellungen können auf diese Weise nicht gesetzt werden, und darüber hinaus ersetzt ASF Ihre benutzerdefinierte `runtimeconfig.json` mit der Eigenen beim nächsten Update; daher empfehlen wir Umgebungsvariablen, die Sie leicht einstellen können, bevor Sie den Prozess starten.
 
-.NET runtime allows you to **[tweak garbage collector](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector)** in a lot of ways, effectively fine-tuning the GC process according to your needs. We've documented below properties that are especially important in our opinion.
+.NET Laufzeit ermöglicht Ihnen den **[Garbage Collector](https://learn.microsoft.com/de-de/dotnet/core/runtime-config/garbage-collector)** auf viele Arten zu optimieren - stellen Sie den GC-Prozess effizient nach Ihren Bedürfnissen ein. Wir haben nachfolgend Variablen dokumentiert, die unserer Meinung nach besonders wichtig sind.
 
 ### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
@@ -58,13 +58,19 @@ The "hard" memory limit for ASF process, this setting tunes GC to use only a sub
 
 On the other hand, setting this value high enough is a perfect way to ensure that ASF will never use more memory than you can realistically afford, giving your machine some breathing room even under heavy load, while still allowing the program to do its job as efficiently as possible.
 
+### [`GCConserveMemory`](https://learn.microsoft.com/dotnet/core/runtime-config/garbage-collector#conserve-memory)
+
+> Konfiguriert den Garbage Collector auf Kosten häufigerer Müllsammlungen und möglicherweise längerer Pausenzeiten.
+
+Ein Wert zwischen 0-9 kann verwendet werden. Je größer der Wert, desto mehr optimiert GC den Speicher über die Performance.
+
 ### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 
 > Specifies the amount of memory used after which GC becomes more aggressive.
 
 This setting configures the memory threshold of your whole OS, which once passed, causes GC to become more aggressive and attempt to help the OS lower the memory load by running more intensive GC process and in result releasing more free memory back to the OS. It's a good idea to set this property to maximum amount of memory (as percentage) which you consider "critical" for your whole OS performance. Default is 90%, and usually you want to keep it in 80-97% range, as too low value will cause unnecessary aggression from the GC and performance degradation for no reason, while too high value will put unnecessary load on your OS, considering ASF could release some of its memory to help.
 
-### **[`GCLatencyLevel`](https://github.com/dotnet/runtime/blob/4b90e803262cb5a045205d946d800f9b55f88571/src/coreclr/gc/gcpriv.h#L375-L398)**
+### **[`GCLatencyLevel`](https://github.com/dotnet/runtime/blob/a1d48d6c00b5aecc063d1a58b0d9281c611ada91/src/coreclr/gc/gcpriv.h#L445-L468)**
 
 > Gibt die GC-Latenzstufe an, für die Du optimieren möchtest.
 
@@ -78,13 +84,14 @@ This offers little improvement, but may make GC even more aggressive when system
 
 ---
 
-You can enable selected properties by setting appropriate environment variables. Zum Beispiel unter Linux (Shell):
+Sie können die ausgewählten Eigenschaften aktivieren, indem Sie entsprechende Umgebungsvariablen setzen. Zum Beispiel unter Linux (Shell):
 
 ```shell
-# Don't forget to tune those if you're planning to make use of them
+# Vergessen Sie nicht dies anzupassen wenn Sie es verwenden möchten
 export DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
 export DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
+export DOTNET_GCConserveMemory=9
 export DOTNET_GCLatencyLevel=0
 export DOTNET_gcTrimCommitOnLowMemory=1
 
@@ -95,10 +102,11 @@ export DOTNET_gcTrimCommitOnLowMemory=1
 Oder unter Windows (Powershell):
 
 ```powershell
-# Don't forget to tune those if you're planning to make use of them
+# Vergessen Sie nicht dies anzupassen wenn Sie es verwenden möchten
 $Env:DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
 $Env:DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
+$Env:DOTNET_GCConserveMemory=9
 $Env:DOTNET_GCLatencyLevel=0
 $Env:DOTNET_gcTrimCommitOnLowMemory=1
 
