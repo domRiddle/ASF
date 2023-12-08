@@ -66,7 +66,7 @@ Es gibt 4 Typen von Problemen, die wir unterstützen:
 - generelle Frage - Für alles, was keinen der anderen Typen betrifft. Dieser Typ **sollte vermieden** werden, weil es dann höchstwahrscheinlich **kein** Übersetzungsproblem ist. Trotzdem ist diese Möglichkeit für alle anderen Fälle offen.
 - Die aktuelle Übersetzung ist falsch - Dies sollte **nur** verwendet werden, wenn die Übersetzung von einem Korrekturleser genehmigt wurde und Du glaubst, dass sie falsch ist, weil sie etwa einen Tippfehler beinhaltet oder Du einen guten Vorschlag hast sie zu verbessern. Dieser Typ sollte nie bei Übersetzungen verwendet werden, die durch Community-Stimmen gewählt wurden, in welchem Fall Du den Benutzer der die Übersetzung geschrieben hat kontaktieren und ihn um eine Korrektur bitten oder einfach für eine bessere Übersetzung stimmen solltest. Wir entfernen die Freigabe der Übersetzung und benachrichtigen den für die Sprache zuständigen Korrekturleser, um Ihren Kommentar zu berücksichtigen und erneut zu überprüfen.
 - Fehlender Kontext - Dies ist, was Du verwenden solltest, wenn Du nicht sicher bist, welchen Teil von ASF Du übersetzt und was der Kontext der gegebenen Zeichenkette oder sein Sinn ist. Dieser Typ sollte nur für die Entwicklung von ASF verwendet werden, da er bedeutet, dass Du technische Hilfe benötigst, weil Du nicht sicher bist, wie die Zeichenkette zu übersetzen ist.
-- Fehler in der Quell-Zeichenkette - Dies sollte nur verwendet werden, wenn Du denkst, dass das Original (Englisch) falsch ist. Quite rare, but not all of us are speaking English natively either, so feel free to use it if you have a general idea how it could be improved. Da dies eng mit der Entwicklung verbunden ist, können Sie alternativ unsere **[GitHub Issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** für diesen Zweck verwenden, wenn Sie es wünschen.
+- Fehler in der Quell-Zeichenkette - Dies sollte nur verwendet werden, wenn Du denkst, dass das Original (Englisch) falsch ist. Sehr selten, aber nicht bei jedem ist Englisch unsere Muttersprache, von daher zögern Sie nicht diesen zu verwenden, wenn Sie eine generelle Idee haben, wie man es verbessern könnte. Da dies eng mit der Entwicklung verbunden ist, können Sie alternativ unsere **[GitHub Issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** für diesen Zweck verwenden, wenn Sie es wünschen.
 
 ---
 
@@ -84,7 +84,7 @@ ASF wird die Sprache **so bald wie möglich** beinhalten, was bedeutet, dass sie
 
 ## Fehlende Sprachen
 
-Standardmäßig verfügt das ASF-Projekt nur Übersetzungen für die 30 meistgesprochenen Sprachen der Welt. Wenn Du eine weitere (oder einen lokalen Dialekt zu einer existierenden) hinzufügen willst, **[lass es uns bitte wissen](https://crowdin.com/messages/create/13177432/240376)** und wir werden sie schnellstmöglichst hinzufügen. Wir wollen nicht mehrere hundert verschiedene Sprachen, wenn sie keiner übersetzt. Deshalb haben wir sie auf diese Anzahl reduziert. Bitte zögere nicht uns zu kontaktieren, wenn Du eine nicht gelistete Sprache übersetzen willst. Für uns ist es sehr einfach eine weitere hinzuzufügen. Achte einfach darauf, dass Du den tatsächlichen Willen und die Entschlossenheit hast ASF in Ihre Sprache zu übersetzen bevor Du dich entscheidest mit uns Kontakt aufzunehmen.
+Standardmäßig verfügt das ASF-Projekt nur Übersetzungen für die 30 meistgesprochenen Sprachen der Welt. Wenn Du eine weitere (oder einen lokalen Dialekt zu einer existierenden) hinzufügen willst, **[lass es uns bitte wissen](https://crowdin.com/messages/create/13177432/240376)** und wir werden sie schnellstmöglichst hinzufügen. Wir möchten nicht mehrere hundert verschiedene Sprachen, wenn sie keiner übersetzt. Deshalb haben wir sie auf diese Anzahl reduziert. Bitte zögere nicht uns zu kontaktieren, wenn Du eine nicht gelistete Sprache übersetzen willst. Für uns ist es sehr einfach eine weitere hinzuzufügen. Achte einfach darauf, dass Du den tatsächlichen Willen und die Entschlossenheit hast ASF in Ihre Sprache zu übersetzen bevor Du dich entscheidest mit uns Kontakt aufzunehmen.
 
 Für eine komplette Liste der verfügbaren Sprachen, in die ASF übersetzt werden kann, **[klicke hier](https://developer.crowdin.com/language-codes)**.
 
@@ -145,7 +145,7 @@ Auf Crowdin solltest Du zuerst zu Ihren Editor-Einstellungen gehen und sicherste
 Nun, während der Übersetzung auf Crowdin, je nach Formatierung, siehst Du ASF-Links im Text entweder als:
 
 * Zeichenkette, die zusammen mit HTML-Tags übersetzt werden soll (Überwiegend von Zeichenketten, bei denen nur ein Teil des Satzes ein Link ist)
-* Alone string to translate, with link included in `Hidden texts` -> `Link addresses` (rare, where entire string is a link, most common in sidebar - those require proofreader access to translate, sadly)
+* Einzelne zu übersetzende Zeichenkette, mit Link in `Hidden texts` (versteckter Text) -> `Link addresses` (selten, wo die gesamte Zeichenkette ein Link ist, am häufigsten in der Seitenleiste. Leider haben nur Korrekturleser die Möglichkeit diese zu übersetzen)
 
 In unserem obigen Beispiel ist dies der erste Fall (da nur "Installation" ein Link ist), sodass wir es in Crowdin folgendermaßen sehen werden:
 
@@ -185,7 +185,7 @@ Und schließlich in den Wiki-Text:
 
 > Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.
 
-When no HTML is present (second case), this is even easier since you can just go to `Hidden texts` -> `Link addresses`.
+Wenn kein HTML vorhanden ist (zweiter Fall), ist das noch einfacher, da Sie einfach zu `Hidden texts` -> `Link addresses` gehen können.
 
 ---
 
@@ -247,7 +247,7 @@ Wenn Du glaubst, dass etwas Unangemessenes in einem Codeblock enthalten ist oder
 
 ## Ruhmeshalle
 
-Wir möchten unseren ewigen Dank denjenigen Menschen zeigen, die sehr viel Ihrer Zeit und Bereitschaft gegeben haben um die ASF Übersetzung zu verbessern. Ihr Aufwand ist unglaublich, und Sie können sich an kompletten Übersetzungen erfreuen, einschließlich des Wikis, hauptsächlich dank Ihnen. As a token of appreciation, all people listed here are offered free access to **[`MatchActively`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin#matchactively)** feature upon a **[request](https://crowdin.com/messages/create/13177432/240376)**.
+Wir möchten unseren ewigen Dank denjenigen Menschen zeigen, die sehr viel Ihrer Zeit und Bereitschaft gegeben haben, um die ASF Übersetzung zu verbessern. Ihr Aufwand ist unglaublich, und Sie können sich an kompletten Übersetzungen erfreuen, einschließlich des Wikis, hauptsächlich dank Ihnen. Als Zeichen der Wertschätzung, erhalten alle hier aufgeführten Personen freien Zugang zu **[``](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/ItemsMatcherPlugin-de-DE#matchactively)** Funktion auf **[Anfrage](https://crowdin.com/messages/create/13177432/240376)**.
 
 | Mitwirkender                                               | Sprachen             |
 | ---------------------------------------------------------- | -------------------- |

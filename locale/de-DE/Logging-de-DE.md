@@ -8,7 +8,7 @@ ASF ermöglicht es dir, dein eigenes benutzerdefiniertes Protokollierungsmodul z
 
 Standardmäßig protokolliert ASF in `ColoredConsole` (Standardausgabe) und `File`. `File` Protokollierung beinhaltetet die `log.txt` Datei im Programmverzeichnis und das `logs` Verzeichnis für Archivierungszwecke.
 
-Die Verwendung einer benutzerdefinierten NLog Konfiguration deaktiviert automatisch die standard ASF Konfiguration, welche damit durch Ihre Konfiguration **komplett** überschrieben wird. Das bedeutet, dass, falls Sie z. B. unsere `ColoredConsole` Ausgabe verwenden wollen, Sie diese **selber** definieren müssen. Dies erlaubt dir nicht nur **extra** Protokollierungsziele zu erstellen, sondern auch die **Standardziele** zu verändern oder deaktivieren.
+Die Verwendung einer benutzerdefinierten NLog Konfiguration deaktiviert automatisch die standard ASF Konfiguration, welche damit durch Ihre Konfiguration **komplett** überschrieben wird. Das bedeutet, dass, falls Sie z. B. unsere `ColoredConsole` Ausgabe verwenden möchten, Sie diese **selber** definieren müssen. Dies erlaubt dir nicht nur **extra** Protokollierungsziele zu erstellen, sondern auch die **Standardziele** zu verändern oder deaktivieren.
 
 Wenn Du die standard ASF-Protokollierung ohne irgendwelche Veränderung verwenden möchtest, musst Du nichts tun - auch brauchst Du dies nicht in der `NLog.config` definieren. Verwende die `NLog.config` nicht, wenn Du die standard ASF-Protokollierung nicht verändern möchtest. Zum Vergleich: Das Äquivalent zur fest definierten standard ASF-Protokollierung wäre:
 
@@ -90,7 +90,7 @@ Die Erklärung der obigen Konfiguration ist ziemlich einfach - wir definieren ei
 
 Wenn Du ASF jetzt mit obiger `NLog.config` startest, wird nur `ColoredConsole` target aktiv sein, und ASF wird nicht in `File` schreiben, unabhängig von der fest programmierten ASF NLog Konfiguration.
 
-Nehmen wir an, wir mögen das Standardformat `${longdate}|${level:uppercase=true}|${logger}|${message}` nicht und wir wollen nur die Meldung protokollieren. Wir können dies tun, indem wir **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** unseres targets ändern.
+Nehmen wir an, wir mögen das Standardformat `${longdate}|${level:uppercase=true}|${logger}|${message}` nicht und wir möchten nur die Meldung protokollieren. Wir können dies tun, indem wir **[Layout](https://github.com/nlog/nlog/wiki/Layouts)** unseres targets ändern.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

@@ -58,11 +58,11 @@ ASF 中使用的&#8203;**[垃圾收集](https://en.wikipedia.org/wiki/Garbage_co
 
 另一方面，如果您希望 ASF 不会使用超出您可接受范围的内存，让您的设备在高负载的情况下依然有喘息的空间，但仍然允许程序尽可能高效率地完成它的任务，就可以合理调高这个选项。
 
-### [`GCConserveMemory`](https://learn.microsoft.com/dotnet/core/runtime-config/garbage-collector#conserve-memory)
+### [`配置垃圾回收器来节省内存`](https://learn.microsoft.com/dotnet/core/runtime-config/garbage-collector#conserve-memory)
 
-> Configures the garbage collector to conserve memory at the expense of more frequent garbage collections and possibly longer pause times.
+> 调整垃圾收集器以在更频繁的垃圾收集和可能更长的暂停时间的代价下节省内存
 
-A value between 0-9 can be used. The bigger the value, the more GC will optimize memory over performance.
+可以使用0-9之间的数值 数值越大，GC会在内存性能方面进行更多的优化
 
 ### [`GCHighMemPercent`](https://docs.microsoft.com/zh-cn/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 
@@ -87,7 +87,7 @@ A value between 0-9 can be used. The bigger the value, the more GC will optimize
 您可以通过环境变量启用指定的 GC 选项。 例如，在 Linux 上（Shell）：
 
 ```shell
-# Don't forget to tune those if you're planning to make use of them
+# 如要使用此功能，不要忘记调整此数值
 export DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
 export DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
@@ -102,7 +102,7 @@ export DOTNET_gcTrimCommitOnLowMemory=1
 或者在 Windows 上（Powershell）：
 
 ```powershell
-# Don't forget to tune those if you're planning to make use of them
+# 如要使用此功能，不要忘记调整此数值
 $Env:DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
 $Env:DOTNET_GCHighMemPercent=0x50 # 80% as hex
 

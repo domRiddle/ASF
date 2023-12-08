@@ -79,7 +79,7 @@ docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 
 Wenn Sie ASF im Docker-Container verwenden, dann müssen Sie natürlich das Programm selbst konfigurieren. Sie können es auf verschiedene Weise erreichen, aber die empfohlene wäre, das ASF `config` Verzeichnis auf dem lokalen Geräte zu erstellen und es dann als gemeinsames Volume (Laufwerk) im ASF-Docker-Container zu mounten.
 
-Zum Beispiel gehen wir davon aus, dass sich Ihr ASF-Konfigurationsordner im Verzeichnis `/home/archi/ASF/config` befindet. Dieses Verzeichnis enthält den Kern `ASF.json` sowie Bots, die wir ausführen wollen. Jetzt müssen wir nur noch dieses Verzeichnis als Shared Volume (gemeinsames Laufwerk) in unserem Docker-Container anhängen, wo ASF sein Konfigurationsverzeichnis erwartet (`/app/config`).
+Zum Beispiel gehen wir davon aus, dass sich Ihr ASF-Konfigurationsordner im Verzeichnis `/home/archi/ASF/config` befindet. Dieses Verzeichnis enthält den Kern `ASF.json` sowie Bots, die wir ausführen möchten. Jetzt müssen wir nur noch dieses Verzeichnis als Shared Volume (gemeinsames Laufwerk) in unserem Docker-Container anhängen, wo ASF sein Konfigurationsverzeichnis erwartet (`/app/config`).
 
 ```shell
 docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
@@ -87,7 +87,7 @@ docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always ju
 
 Und das war's! Jetzt verwendet Ihr ASF-Docker-Container das freigegebene Verzeichnis mit Ihrem lokalen Geräte im Lese-/Schreibmodus, was alles ist, was Sie für die Konfiguration von ASF brauchen. Auf ähnliche Weise können Sie andere Volumes (Laufwerk) einhängen, die Sie mit ASF teilen möchten, wie `/app/logs` oder `/app/plugins/MyCustomPluginDirectory`.
 
-Natürlich ist dies nur ein konkreter Weg, um das zu erreichen, was wir wollen. Nichts hält Sie davon ab, z. B. eine eigene `Dockerfile` zu erstellen, die Ihre Konfigurationsdateien in das Verzeichnis `/app/config` im ASF Docker-Container kopiert. Wir behandeln in diesem Leitfaden nur die grundlegende Anwendung.
+Natürlich ist dies nur ein konkreter Weg, um das zu erreichen, was wir möchten. Nichts hält Sie davon ab, z. B. eine eigene `Dockerfile` zu erstellen, die Ihre Konfigurationsdateien in das Verzeichnis `/app/config` im ASF Docker-Container kopiert. Wir behandeln in diesem Leitfaden nur die grundlegende Anwendung.
 
 ### Zugriffsrechte für Volumes
 
@@ -136,7 +136,7 @@ Wir empfehlen das ASF-Verzeichnis `/tmp/ASF` auch an ein temporäres `/tmp` Verz
 
 Wie Sie vermutlich am Beispiel oben erraten haben, ist es auch möglich, zwei oder mehr "Synchronisierungsgruppen" zu erstellen, indem Sie verschiedene Docker Host-Pfade in ASFs `/tmp/ASF` einbinden.
 
-Das Einbinden von `/tmp/ASF` ist komplett optional und aktuell nicht empfehlenswert, es sei denn, Sie möchten explizit zwei oder mehr ASF-Container synchronisieren. Wir raten davon ab, `/tmp/ASF` für den Einsatz mit einem Container einzubinden, da es absolut keine Vorteile bringt, wenn Sie nur einen ASF-Container laufen lassen wollen, und es könnte tatsächlich zu Problemen führen, die sonst Vermeidbar wären.
+Das Einbinden von `/tmp/ASF` ist komplett optional und aktuell nicht empfehlenswert, es sei denn, Sie möchten explizit zwei oder mehr ASF-Container synchronisieren. Wir raten davon ab, `/tmp/ASF` für den Einsatz mit einem Container einzubinden, da es absolut keine Vorteile bringt, wenn Sie nur einen ASF-Container laufen lassen möchten, und es könnte tatsächlich zu Problemen führen, die sonst Vermeidbar wären.
 
 ---
 
