@@ -1,6 +1,6 @@
 # Veraltete Funktionen
 
-Wir tun unser Bestes, um die konsequente Verfallspolitik zu verfolgen, um sowohl die Entwicklung als auch die Nutzung wesentlich konsistenter zu gestalten.
+Wir tun unser Bestes, um die konsequente Verfallspolitik zu verfolgen, um sowohl die Entwicklung , als auch die Nutzung wesentlich konsistenter zu gestalten.
 
 ---
 
