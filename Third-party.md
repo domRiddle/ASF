@@ -35,6 +35,7 @@ Please note that below programs are **not** maintained by ASF developers and the
 ### Other
 
 - **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin for ASF enhancing it with various new features, especially commands.
+- **[ASFFreeGames](https://github.com/maxisoft/ASFFreeGames)**, plugin for ASF allowing one to automatically collect free steam games posted on reddit.
 
 ---
 
