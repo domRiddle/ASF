@@ -261,7 +261,9 @@ However, Valve clearly acknowledges "Steam idlers" existing, as stated **[here](
 
 Please note that above is only our interpretation of **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and various points - ASF is licensed under Apache 2.0 License, which clearly states:
 
-> Unless required by applicable law or agreed to in writing, ASF is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+```
+Unless required by applicable law or agreed to in writing, ASF is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+```
 
 You're using this software at your own risk. It's very unlikely that you can get banned for that, but if you do, you can blame only yourself for that.
 
