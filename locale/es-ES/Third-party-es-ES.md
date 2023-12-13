@@ -10,9 +10,9 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 
 ### **[Citrinate](https://github.com/Citrinate)**
 
-- **[BoosterManager](https://github.com/Citrinate/BoosterManager)**, plugin for ASF providing an easy-to-use interface for turning gems into booster packs as well as various features for managing inventories and market listings.
-- **[CS2Interface](https://github.com/Citrinate/CS2Interface)**, plugin for ASF that allows you to interact with Counter-Strike 2 using **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**.
-- **[FreePackages](https://github.com/Citrinate/FreePackages)**, plugin for ASF that finds free packages on Steam and adds them to your account.
+- **[BoosterManager](https://github.com/Citrinate/BoosterManager)**, plugin para ASF que proporciona una interfaz sencilla de usar para convertir gemas en packs de refuerzo, así como otras funciones para administrar inventarios y anuncios del mercado.
+- **[CS2Interface](https://github.com/Citrinate/CS2Interface)**, plugin para ASF que permite interactuar con Counter-Strike 2 usando **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-es-ES)**.
+- **[FreePackages](https://github.com/Citrinate/FreePackages)**, plugin para ASF que busca paquetes gratuitos en Steam y los añade a tu cuenta.
 
 ### **[Rudokhvist](https://github.com/Rudokhvist)**
 
@@ -35,7 +35,7 @@ Por favor, ten en cuenta que los siguientes programas **no** son mantenidos por 
 ### Otros
 
 - **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, plugin para ASF que lo mejora con diversas nuevas funciones, especialmente comandos.
-- **[ASFFreeGames](https://github.com/maxisoft/ASFFreeGames)**, plugin for ASF allowing one to automatically collect free steam games posted on reddit.
+- **[ASFFreeGames](https://github.com/maxisoft/ASFFreeGames)**, plugin para ASF que permite obtener automáticamente juegos de Steam gratis publicados en Reddit.
 
 ---
 

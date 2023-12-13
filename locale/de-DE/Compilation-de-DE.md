@@ -26,7 +26,7 @@ Wenn die Kompilierung erfolgreich beendet wurde, finden Sie Ihr ASF in der `sour
 
 ### Betriebssystemspezifisch
 
-Sie können auch das betriebssystemspezifische .NET Paket erstellen, falls es einen bestimmten Grund dazu gibt. Im Allgemeinen sollten Sie das nicht tun, weil Sie gerade die `generic` Version kompiliert haben, welche Sie mit Ihrer bereits installierten .NET Laufzeit ausführen können. Aber nur für den Fall, dass Sie es dennoch möchten:
+Sie können auch das betriebssystemspezifische .NET Paket erstellen, falls es einen bestimmten Grund dazu gibt. Im Allgemeinen sollten Sie das nicht tun, weil Sie gerade die `generic` Version kompiliert haben, welche Sie mit Ihrer bereits installierten .NET Runtime ausführen können. Aber nur für den Fall, dass Sie es dennoch möchten:
 
 ```shell
 dotnet publish ArchiSteamFarm -c "Release" -o "out/linux-x64" -r "linux-x64"

@@ -46,9 +46,9 @@ Das bedeutet, dass der Speicher am meisten ansteigt, wenn es sich bei ASF um das
 
 Die folgenden Tricks **führen auch zur Leistungsminderung** und sollten mit Vorsicht angewendet werden.
 
-Die empfohlene Methode, diese Einstellungen anzuwenden, ist über `DOTNET_` Umgebungseigenschaften. Natürlich können Sie auch andere Methoden verwenden, z.B. `runtimeconfig.json`, aber einige Einstellungen können auf diese Weise nicht gesetzt werden, und darüber hinaus ersetzt ASF Ihre benutzerdefinierte `runtimeconfig.json` mit der Eigenen beim nächsten Update; daher empfehlen wir Umgebungsvariablen, die Sie leicht einstellen können, bevor Sie den Prozess starten.
+Die empfohlene Methode, diese Einstellungen anzuwenden, ist über `DOTNET_` Umgebungsvariablen. Natürlich können Sie auch andere Methoden verwenden, z.B. `runtimeconfig.json`, aber einige Einstellungen können auf diese Weise nicht gesetzt werden, und darüber hinaus ersetzt ASF Ihre benutzerdefinierte `runtimeconfig.json` mit der Eigenen beim nächsten Update; daher empfehlen wir Umgebungsvariablen, die Sie leicht einstellen können, bevor Sie den Prozess starten.
 
-.NET Laufzeit ermöglicht Ihnen den **[Garbage Collector](https://learn.microsoft.com/de-de/dotnet/core/runtime-config/garbage-collector)** auf viele Arten zu optimieren - stellen Sie den GC-Prozess effizient nach Ihren Bedürfnissen ein. Wir haben nachfolgend Variablen dokumentiert, die unserer Meinung nach besonders wichtig sind.
+.NET Runtime ermöglicht Ihnen den **[Garbage Collector](https://learn.microsoft.com/de-de/dotnet/core/runtime-config/garbage-collector)** auf viele Arten zu optimieren - stellen Sie den GC-Prozess effizient nach Ihren Bedürfnissen ein. Wir haben nachfolgend Variablen dokumentiert, die unserer Meinung nach besonders wichtig sind.
 
 ### [`GCHeapHardLimitPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#heap-limit-percent)
 
