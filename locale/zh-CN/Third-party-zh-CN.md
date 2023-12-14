@@ -10,9 +10,9 @@
 
 ### **[Citrinate](https://github.com/Citrinate)**
 
-- **[BoosterManager](https://github.com/Citrinate/BoosterManager)**, plugin for ASF providing an easy-to-use interface for turning gems into booster packs as well as various features for managing inventories and market listings.
-- **[CS2Interface](https://github.com/Citrinate/CS2Interface)**, plugin for ASF that allows you to interact with Counter-Strike 2 using **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)**.
-- **[FreePackages](https://github.com/Citrinate/FreePackages)**, plugin for ASF that finds free packages on Steam and adds them to your account.
+- **[BoosterManager](https://github.com/Citrinate/BoosterManager)**，此插件为 ASF 提供易于使用的界面，将宝石转换为补充包，同时提供各种管理库存和市场的功能。
+- **[CS2Interface](https://github.com/Citrinate/CS2Interface)**，允许您通过 **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** 操作反恐精英 2 的 ASF 插件。
+- **[FreePackages](https://github.com/Citrinate/FreePackages)**，使 ASF 在 Steam 寻找免费游戏并添加到帐户的插件。
 
 ### **[Rudokhvist](https://github.com/Rudokhvist)**
 
@@ -35,7 +35,7 @@
 ### 其他
 
 - **[ASFEnhance](https://github.com/chr233/ASFEnhance)**，ASF 增强插件，包含各种新功能和新命令。
-- **[ASFFreeGames](https://github.com/maxisoft/ASFFreeGames)**, plugin for ASF allowing one to automatically collect free steam games posted on reddit.
+- **[ASFFreeGames](https://github.com/maxisoft/ASFFreeGames)**，此插件允许 ASF 自动收集在 Reddit 上发布的免费 Steam 游戏。
 
 ---
 

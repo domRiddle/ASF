@@ -261,7 +261,11 @@ However, Valve clearly acknowledges "Steam idlers" existing, as stated **[here](
 
 Please note that above is only our interpretation of **[Steam ToS](https://store.steampowered.com/subscriber_agreement)** and various points - ASF is licensed under Apache 2.0 License, which clearly states:
 
-> Sauf stipulation contraire de la loi en vigueur ou convenue par écrit, ASF est distribuée "EN L'ÉTAT", SANS AUCUNE GARANTIE NI CONDITION, de manière expresse ou implicite.
+```
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+```
 
 Vous utilisez ce logiciel à vos risques et périls. Il est très peu probable que vous puissiez être banni pour cela, mais si vous le faites, vous ne pouvez vous en prendre qu'à vous-même.
 
@@ -275,7 +279,7 @@ First case involved a guy with over 1000+ bots getting trade banned (together wi
 
 > Bonjour XXX, Merci d'avoir contacté le support Steam. Il semble que ce compte ait été utilisé pour gérer un réseau de comptes bot. L'utilisation de bots est une violation du contrat Steam.
 
-S'il vous plaît, faites preuve de bon sens et ne présumez pas que vous pouvez faire de telles choses folles uniquement parce qu'ASF vous permet de le faire. Faire `loot ASF` sur plus de 1 000 bots peut facilement être considéré comme une attaque **[DDoS](https://en.wikipedia.org/wiki/DDoS)**, et personnellement, je ne suis pas choqué que quelqu'un ait été banni pour une telle chose. Veuillez garder à l’esprit le bon sens et le minimum d’utilisation équitable concernant le service Steam, et **probablement** tous ira bien.
+S'il vous plaît, faites preuve de bon sens et ne présumez pas que vous pouvez faire de telles choses folles uniquement parce qu'ASF vous permet de le faire. Faire `loot ASF` sur plus de 1 000 bots peut facilement être considéré comme une attaque **[DDoS](https://en.wikipedia.org/wiki/DDoS)**, et personnellement, je ne suis pas choqué que quelqu'un ait été banni pour une telle chose. Keep minimum of fair use in regards to Steam service, and **most likely** you'll be fine.
 
 Second case involved a guy with 170+ bots getting banned during Steam's 2017 Winter Sale.
 
@@ -297,7 +301,7 @@ It's hard to say whether increase in concurrent accounts online was the direct r
 
 ---
 
-Tous les incidents ci-dessus ont une chose en commun: ASF n’est qu’un outil et **votre décision** de décider de l’utilisation qui en est faite. Vous n'êtes pas banni pour utiliser ASF directement, mais pour **comment** vous l'utilisez. It can be a helper tool farming just one single account, or a massive farming network made from thousands of bots. Dans aucun de ces cas, je ne donne de conseils juridiques et vous devez d’abord décider vous-même de votre utilisation de ASF. Je ne cache aucune information qui pourrait vous aider, par exemple. le fait qu'ASF ait banni certaines personnes, car je n'ai aucune raison de le faire - c'est à vous de choisir ce que vous voulez faire avec ces informations. If you ask me - use some common sense, avoid owning more bots than our recommendation, do not send hundreds of trades at the same time, always use up-to-date ASF version and you _should_ be fine. Every single incident of this nature for **some reason** always happened to people that have disregarded our recommendation and decided that they know better than us how many bots they can run. Que ce soit juste une coïncidence ou un facteur réel, c'est à vous de décider. Je ne vous offre aucun conseil juridique, je ne fais que vous donner mes pensées que vous pouvez trouver utiles, ou les ignorer entièrement et ne traiter que des faits liés ci-dessus.
+Tous les incidents ci-dessus ont une chose en commun: ASF n’est qu’un outil et **votre décision** de décider de l’utilisation qui en est faite. Vous n'êtes pas banni pour utiliser ASF directement, mais pour **comment** vous l'utilisez. It can be a helper tool farming just one single account, or a massive farming network made from thousands of bots. In any case, I'm not offering legal advice, and you should decide yourself about your ASF usage in the first place. Je ne cache aucune information qui pourrait vous aider, par exemple. le fait qu'ASF ait banni certaines personnes, car je n'ai aucune raison de le faire - c'est à vous de choisir ce que vous voulez faire avec ces informations. If you ask me - use some common sense, avoid owning more bots than our recommendation, do not send hundreds of trades at the same time, always use up-to-date ASF version and you _should_ be fine. Every single incident of this nature for **some reason** always happened to people that have disregarded our recommendation and decided that they know better than us how many bots they can run. Que ce soit juste une coïncidence ou un facteur réel, c'est à vous de décider. Je ne vous offre aucun conseil juridique, je ne fais que vous donner mes pensées que vous pouvez trouver utiles, ou les ignorer entièrement et ne traiter que des faits liés ci-dessus.
 
 ---
 

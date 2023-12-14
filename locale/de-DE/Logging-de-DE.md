@@ -76,13 +76,13 @@ Lass uns mit etwas einfachem anfangen. Wir werden nur **[ColoredConsole](https:/
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xsi:schemaLocation="NLog NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
-  <targets>
-    <target xsi:type="ColoredConsole" name="ColoredConsole" />
-  </targets>
+ <targets>
+  <target xsi:type="ColoredConsole" name="ColoredConsole" />
+ </targets>
 
-  <rules>
-    <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
-  </rules>
+ <rules>
+  <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
+ </rules>
 </nlog>
 ```
 
@@ -95,13 +95,13 @@ Nehmen wir an, wir mögen das Standardformat `${longdate}|${level:uppercase=true
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xsi:schemaLocation="NLog NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
-  <targets>
-    <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${message}" />
-  </targets>
+ <targets>
+  <target xsi:type="ColoredConsole" name="ColoredConsole" layout="${message}" />
+ </targets>
 
-  <rules>
-    <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
-  </rules>
+ <rules>
+  <logger name="*" minlevel="Debug" writeTo="ColoredConsole" />
+ </rules>
 </nlog>
 ```
 
@@ -174,7 +174,7 @@ Die obigen Beispiele sind ziemlich einfach und sollen Ihren zeigen, wie einfach 
 
 ## Einschränkungen
 
-ASF deaktiviert vorübergehend **alle** Regeln, die `ColoredConsole` oder `Console` Targets beinhalten, wenn Benutzereingaben erwartet werden. Wenn Du also die Protokollierung für andere Ziele beibehalten möchtest, auch wenn ASF Benutzereingaben erwartet werden, solltest Du diese Ziele mit Ihren  eigenen Regeln definieren, wie in den obigen Beispielen gezeigt, anstatt viele Ziele in `writeTo` der gleichen Regel zu setzen (es sei denn, dies ist dein gewünschtes Verhalten). Die vorübergehende Deaktivierung von Konsole-Zielen wird durchgeführt, um die Konsole sauber zu halten, wenn auf Benutzereingaben gewartet wird.
+ASF deaktiviert vorübergehend **alle** Regeln, die `ColoredConsole` oder `Console` Targets beinhalten, wenn Benutzereingaben erwartet werden. Wenn Du also die Protokollierung für andere Ziele beibehalten möchtest, auch wenn ASF Benutzereingaben erwartet werden, solltest Du diese Ziele mit Ihren eigenen Regeln definieren, wie in den obigen Beispielen gezeigt, anstatt viele Ziele in `writeTo` der gleichen Regel zu setzen (es sei denn, dies ist dein gewünschtes Verhalten). Die vorübergehende Deaktivierung von Konsole-Zielen wird durchgeführt, um die Konsole sauber zu halten, wenn auf Benutzereingaben gewartet wird.
 
 ---
 
@@ -247,12 +247,12 @@ Wird in allen von ASF verwendeten Umgebungen unterstützt.
 #### Konfigurationssyntax
 ```xml
 <targets>
-  <target type="Steam"
-          name="String"
-          layout="Layout"
-          chatGroupID="Ulong"
-          steamID="Ulong"
-          botName="Layout" />
+ <target type="Steam"
+     name="String"
+     layout="Layout"
+     chatGroupID="Ulong"
+     steamID="Ulong"
+     botName="Layout" />
 </targets>
 ```
 
@@ -289,13 +289,13 @@ Um alle Nachrichten von `Debug` Ebene und darüber, von dem Bot namens `MyBot` z
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <nlog xmlns="https://nlog-project.org/schemas/NLog.xsd" xsi:schemaLocation="NLog NLog.xsd" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
-  <targets>
-    <target type="Steam" name="Steam" steamID="76561198006963719" botName="MyBot" />
-  </targets>
+ <targets>
+  <target type="Steam" name="Steam" steamID="76561198006963719" botName="MyBot" />
+ </targets>
 
-  <rules>
-    <logger name="*" minlevel="Debug" writeTo="Steam" />
-  </rules>
+ <rules>
+  <logger name="*" minlevel="Debug" writeTo="Steam" />
+ </rules>
 </nlog>
 ```
 
@@ -324,10 +324,10 @@ Wird in allen von ASF verwendeten Umgebungen unterstützt.
 #### Konfigurationssyntax
 ```xml
 <targets>
-  <target type="History"
-          name="String"
-          layout="Layout"
-          maxCount="Byte" />
+ <target type="History"
+     name="String"
+     layout="Layout"
+     maxCount="Byte" />
 </targets>
 ```
 

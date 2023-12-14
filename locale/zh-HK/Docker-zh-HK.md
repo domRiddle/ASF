@@ -85,7 +85,7 @@ docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-就是這樣，現在您的ASF docker容器將在讀寫模式下使用與本地計算機的共享目錄，這是配置ASF所需的一切。 In similar way you can mount other volumes that you'd like to share with ASF, such as `/app/logs` or `/app/plugins/MyCustomPluginDirectory`.
+就是這樣，現在您的ASF docker容器將在讀寫模式下使用與本地計算機的共享目錄，這是配置ASF所需的一切。 In similar way you can mount other volumes that you'd like to share with ASF, such as `/app/logs` or `/app/plugins/MyCustomPluginDirectory` (you don't want to override `/app/plugins` itself, since this way you'll remove plugins that ship with ASF by default).
 
 Of course, this is just one specific way to achieve what we want, nothing is stopping you from e.g. creating your own `Dockerfile` that will copy your config files into `/app/config` directory inside ASF docker container. 此指南僅涵蓋基本用法。
 
@@ -189,10 +189,10 @@ If you set everything properly, `docker run` command above will make **[IPC](htt
 綜上所述，完整設置的範例如下所示：
 
 ```shell
-docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
+docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config -v /home/archi/ASF/plugins:/app/plugins/custom --name asf --pull always justarchi/archisteamfarm
 ```
 
-This assumes that you'll use a single ASF container, with all ASF config files in `/home/archi/ASF/config`. You should modify the config path to the one that matches your machine. This setup is also ready for optional IPC usage if you've decided to include `IPC.config` in your config directory with a content like below:
+This assumes that you'll use a single ASF container, with all ASF config files in `/home/archi/ASF/config`. You should modify the config path to the one that matches your machine. It's also possible to provide custom plugins for ASF, which you can put in `/home/archi/ASF/plugins`. This setup is also ready for optional IPC usage if you've decided to include `IPC.config` in your config directory with a content like below:
 
 ```json
 {

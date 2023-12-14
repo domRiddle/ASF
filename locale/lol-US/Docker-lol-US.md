@@ -85,7 +85,7 @@ IF URE USIN ASF IN DOCKR CONTAINR DEN OBVIOUSLY U NED 2 CONFIGURE TEH PROGRAM IT
 docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-AN THAZ IT, NAO UR ASF DOCKR CONTAINR WILL USE SHARD DIRECTORY WIF UR LOCAL MACHINE IN READ-RITE MODE, WHICH IZ EVRYTHIN U NED 4 CONFIGURIN ASF. IN SIMILAR WAI U CAN MOUNT OTHR VOLUMEZ DAT UD LIEK 2 SHARE WIF ASF, SUCH AS `/app/logs` OR `/app/plugins/MyCustomPluginDirectory`.
+AN THAZ IT, NAO UR ASF DOCKR CONTAINR WILL USE SHARD DIRECTORY WIF UR LOCAL MACHINE IN READ-RITE MODE, WHICH IZ EVRYTHIN U NED 4 CONFIGURIN ASF. In similar way you can mount other volumes that you'd like to share with ASF, such as `/app/logs` or `/app/plugins/MyCustomPluginDirectory` (you don't want to override `/app/plugins` itself, since this way you'll remove plugins that ship with ASF by default).
 
 OV COURSE, DIS AR TEH JUS WAN SPECIFIC WAI 2 ACHIEVE WUT WE WANTS, NOTHIN IZ STOPPIN U FRUM E.G. CREATIN UR OWN `Dockerfile` DAT WILL COPY UR CONFIG FILEZ INTO `/app/config` DIRECTORY INSIDE ASF DOCKR CONTAINR. WERE ONLY COVERIN BASIC USAGE IN DIS GUIDE.
 
@@ -189,10 +189,10 @@ IF U SET EVRYTHIN PROPERLY, `docker run` COMMAND ABOOV WILL MAK **[IPC](https://
 COMBININ WHOLE KNOWLEDGE ABOOV, AN EXAMPLE OV COMPLETE SETUP WUD LOOK LIEK DIS:
 
 ```shell
-docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
+docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config -v /home/archi/ASF/plugins:/app/plugins/custom --name asf --pull always justarchi/archisteamfarm
 ```
 
-DIS ASSUMEZ DAT ULL USE SINGLE ASF CONTAINR, WIF ALL ASF CONFIG FILEZ IN `/home/archi/ASF/config`. U SHUD MODIFY TEH CONFIG PATH 2 TEH WAN DAT MATCHEZ UR MACHINE. DIS SETUP IZ ALSO READY 4 OPSHUNAL IPC USAGE IF UVE DECIDD 2 INCLUDE `IPC.config` IN UR CONFIG DIRECTORY WIF CONTENT LIEK BELOW:
+DIS ASSUMEZ DAT ULL USE SINGLE ASF CONTAINR, WIF ALL ASF CONFIG FILEZ IN `/home/archi/ASF/config`. U SHUD MODIFY TEH CONFIG PATH 2 TEH WAN DAT MATCHEZ UR MACHINE. It's also possible to provide custom plugins for ASF, which you can put in `/home/archi/ASF/plugins`. DIS SETUP IZ ALSO READY 4 OPSHUNAL IPC USAGE IF UVE DECIDD 2 INCLUDE `IPC.config` IN UR CONFIG DIRECTORY WIF CONTENT LIEK BELOW:
 
 ```json
 {

@@ -85,7 +85,7 @@ docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-就这样，现在 ASF Docker 容器将会以读写模式使用您本地的共享目录，您可以在其中对 ASF 进行一切配置。 您可以用同样方式挂载 ASF 的其他目录，例如 `/app/logs` 或 `/app/plugins/MyCustomPluginDirectory`。
+就这样，现在 ASF Docker 容器将会以读写模式使用您本地的共享目录，您可以在其中对 ASF 进行一切配置。 您可以用同样方式挂载 ASF 的其他目录，例如 `/app/logs` 或 `/app/plugins/MyCustomPluginDirectory`（您不应该覆盖 `/app/plugins` 本身，否则就会删除 ASF 自带的插件）。
 
 当然，这只是其中一种方法，如果您打算创建自己的 `Dockerfile` 将配置文件复制到 ASF 容器内的 `/app/config` 目录，我们也无法阻止您。 我们只会在本指南中介绍基本用法。
 
@@ -189,10 +189,10 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull alway
 结合上述的全部内容，完整安装的一个示例如下所示：
 
 ```shell
-docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
+docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config -v /home/archi/ASF/plugins:/app/plugins/custom --name asf --pull always justarchi/archisteamfarm
 ```
 
-此示例假定您将使用单个 ASF 容器，所有配置文件都放在 `/home/archi/ASF/config`。 您需要修改此处的配置文件路径以匹配您的环境。 如果您打算编写内容如下的 `IPC.config` 配置文件，则此 ASF 也能够正常启用 IPC 接口：
+此示例假定您将使用单个 ASF 容器，所有配置文件都放在 `/home/archi/ASF/config`。 您需要修改此处的配置文件路径以匹配您的环境。 您也可以为 ASF 提供自定义插件，将他们放在 `/home/archi/ASF/plugins`。 如果您打算编写内容如下的 `IPC.config` 配置文件，则此 ASF 也能够正常启用 IPC 接口：
 
 ```json
 {

@@ -261,7 +261,13 @@ ASF 真正需要关注的重点是：
 
 请注意，上文只是我们对 **[Steam 订户协议](https://store.steampowered.com/subscriber_agreement)**&#8203;及其各条目的解释——ASF 本身依据 Apache 2.0 许可证授权，其中明确规定：
 
-> Unless required by applicable law or agreed to in writing, ASF is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.（参考译文：除非适用法律要求或书面同意，否则 ASF 将按“原样”分发，不附带任何明示或暗示的担保或条件。）
+```
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+（参考译文：除非适用法律要求或书面同意，否则以此许可证发布的软件将按“原样”分发，
+不附带任何明示或暗示的担保或条件。）
+```
 
 您使用此软件的风险由您自己承担。 您不可能因此受到封禁，但如果您被封禁了，原因只能是您自己。
 
@@ -275,7 +281,7 @@ ASF 真正需要关注的重点是：
 
 > Hello XXX, Thank you for contacting Steam Support.（译文：感谢您联系 Steam 客服。） It looks like this account was used to manage a network of bot accounts.（译文：看起来您的帐户被用于管理一个机器人帐户网络。） Botting is a violation of the Steam Subscriber Agreement.（译文：使用机器人违反了 Steam 订户协议。）
 
-请您了解一些常识，不要因为 ASF 允许您做，就做这种疯狂的事情。 对超过 1000 个机器人发起 `loot ASF` 请求完全可以视为一次 **[DDoS](https://en.wikipedia.org/wiki/DDoS)** 攻击，就我个人而言，我并不惊讶有人因为这种事情被封禁。 请了解有关 Steam 服务的一些基本常识，只要您不滥用 Steam 服务，就**几乎不可能**遇到问题。
+请您了解一些常识，不要因为 ASF 允许您做，就做这种疯狂的事情。 对超过 1000 个机器人发起 `loot ASF` 请求完全可以视为一次 **[DDoS](https://en.wikipedia.org/wiki/DDoS)** 攻击，就我个人而言，我并不惊讶有人因为这种事情被封禁。 只要保证在合理范围内使用 Steam 服务，就**几乎不可能**遇到问题。
 
 第二起事件是一名拥有超过 170 个机器人的用户在 2017 年 Steam 冬季特卖期间被封禁。
 

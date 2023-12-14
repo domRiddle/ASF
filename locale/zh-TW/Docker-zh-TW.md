@@ -85,7 +85,7 @@ docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-就是這樣，現在您的ASF Docker容器將會以讀寫模式使用您本機電腦的共用資料夾，這是設定ASF的一切。 您可以使用相同的方式掛載您想要與ASF共用的其他卷，例如&#8203;`/app/logs`&#8203;或&#8203;`/app/plugins/MyCustomPluginDirectory`&#8203;。
+就是這樣，現在您的ASF Docker容器將會以讀寫模式使用您本機電腦的共用資料夾，這是設定ASF的一切。 您可以使用相同的方式掛載您想要與ASF共用的其他卷，例如&#8203;`/app/logs`&#8203;或&#8203;`/app/plugins/MyCustomPluginDirectory`&#8203;（您不應複寫&#8203;`/app/plugins`&#8203;自身，否則會移除ASF自帶的外掛程式）。
 
 當然，這只是達成我們目標的一種特定方式，沒有什麼阻止您使用其他方法，例如建立您自己的&#8203;`Dockerfile`&#8203;將您的設定檔複製至ASF Docker容器中的&#8203;`/app/config`&#8203;資料夾中。 本指南只會涵蓋基礎用法。
 
@@ -189,10 +189,10 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull alway
 綜上所述，完整設定的範例如下所示：
 
 ```shell
-docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
+docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config -v /home/archi/ASF/plugins:/app/plugins/custom --name asf --pull always justarchi/archisteamfarm
 ```
 
-這假定您將使用單一ASF容器，且所有ASF設定檔都位於&#8203;`/home/archi/ASF/config`&#8203;中。 您應該將設定的路徑更改成與您設備相符的路徑。 若您決定將&#8203;`IPC.config`&#8203;包含在您的設定資料夾中，此設定也可以用於IPC，內容如下所示：
+這假定您將使用單一ASF容器，且所有ASF設定檔都位於&#8203;`/home/archi/ASF/config`&#8203;中。 您應該將設定的路徑更改成與您設備相符的路徑。 您也可以提供ASF自訂外掛程式，將它們放置於&#8203;`/home/archi/ASF/plugins`&#8203;。 若您決定將&#8203;`IPC.config`&#8203;包含在您的設定資料夾中，此設定也可以用於IPC，內容如下所示：
 
 ```json
 {

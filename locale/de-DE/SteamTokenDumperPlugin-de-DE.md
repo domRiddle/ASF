@@ -10,7 +10,7 @@ Das `SteamTokenDumperPlugin` ist in der Releaseversion von ASF enthalten, jedoch
 
 ```json
 {
-  "SteamTokenDumperPluginEnabled": true
+ "SteamTokenDumperPluginEnabled": true
 }
 ```
 

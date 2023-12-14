@@ -63,14 +63,14 @@ Auf Windows können wir das über Powershell erledigen, auch wenn Sie manuell mi
 ```
 PS > Get-Content SHA512SUMS | Select-String -Pattern ASF-linux-x64.zip
 
-f605e573cc5e044dd6fadbc44f6643829d11360a2c6e4915b0c0b8f5227bc2a257568a014d3a2c0612fa73907641d0cea455138d2e5a97186a0b417abad45ed9  ASF-linux-x64.zip
+f605e573cc5e044dd6fadbc44f6643829d11360a2c6e4915b0c0b8f5227bc2a257568a014d3a2c0612fa73907641d0cea455138d2e5a97186a0b417abad45ed9 ASF-linux-x64.zip
 
 
 PS > Get-FileHash -Algorithm SHA512 -Path ASF-linux-x64.zip
 
-Algorithm       Hash                                                                   Path
----------       ----                                                                   ----
-SHA512          F605E573CC5E044DD6FADBC44F6643829D11360A2C6E4915B0C0B8F5227BC2A2575... ASF-linux-x64.zip
+Algorithm    Hash                                  Path
+---------    ----                                  ----
+SHA512     F605E573CC5E044DD6FADBC44F6643829D11360A2C6E4915B0C0B8F5227BC2A2575... ASF-linux-x64.zip
 ```
 
 Auf diese Weise haben wir sichergestellt, dass alles, was in `SHA512SUMS` geschrieben wurde, mit den resultierenden Dateien übereinstimmt und diese nicht manipuliert wurden. Es ist jedoch noch nicht bewiesen, dass `SHA512SUMS` Datei wirklich von uns kommt. Dazu verwenden wir die Datei `SHA512SUMS.sign`, die digitale PGP-Signaturen enthält, welche die Authentizität von `SHA512SUMS` nachweisen. Wir können das `gpg`-Dienstprogramm für diesen Zweck verwenden, sowohl auf **[Linux](https://gnupg.org/download/index.html)** und **[Windows](https://gpg4win.org)** (ändern Sie den Befehl `gpg` in `gpg.exe` unter Windows).
@@ -78,7 +78,7 @@ Auf diese Weise haben wir sichergestellt, dass alles, was in `SHA512SUMS` geschr
 ```
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
 gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
-gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
+gpg:        using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg: Can't check signature: No public key
 ```
 
@@ -90,7 +90,7 @@ $ gpg --import ArchiBot_public.asc
 gpg: /home/archi/.gnupg/trustdb.gpg: trustdb created
 gpg: key A3D181DF2D554CCF: public key "ArchiBot <ArchiBot@JustArchi.net>" imported
 gpg: Total number processed: 1
-gpg:               imported: 1
+gpg:        imported: 1
 
 ```
 
@@ -99,11 +99,11 @@ Schließlich können Sie die `SHA512SUMS` Datei erneut überprüfen:
 ```
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
 gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
-gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
+gpg:        using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [unknown]
 gpg: WARNING: This key is not certified with a trusted signature!
-gpg:          There is no indication that the signature belongs to the owner.
-Primary key fingerprint: 224D A6DB 47A3 935B DCC3  BE17 A3D1 81DF 2D55 4CCF
+gpg:     There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 224D A6DB 47A3 935B DCC3 BE17 A3D1 81DF 2D55 4CCF
 ```
 
 Damit wurde bestätigt, dass `SHA512SUMS.sign` eine gültige Signatur von Ihrem Schlüssel `224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF` für die Datei `SHA512SUMS` ist, welche Sie soeben verifizierten.
@@ -125,20 +125,20 @@ Jetzt können Sie unseren Schlüssel mit Ihrem unterschreiben, um ihm zu vertrau
 ```
 $ gpg --sign-key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 
-pub  ed25519/A3D181DF2D554CCF
-     created: 2021-05-22  expires: never       usage: SC
-     trust: unknown       validity: unknown
-sub  cv25519/E527A892E05B2F38
-     created: 2021-05-22  expires: never       usage: E
+pub ed25519/A3D181DF2D554CCF
+   created: 2021-05-22 expires: never    usage: SC
+   trust: unknown    validity: unknown
+sub cv25519/E527A892E05B2F38
+   created: 2021-05-22 expires: never    usage: E
 [ unknown] (1). ArchiBot <ArchiBot@JustArchi.net>
 
 
-pub  ed25519/A3D181DF2D554CCF
-     created: 2021-05-22  expires: never       usage: SC
-     trust: unknown       validity: unknown
- Primary key fingerprint: 224D A6DB 47A3 935B DCC3  BE17 A3D1 81DF 2D55 4CCF
+pub ed25519/A3D181DF2D554CCF
+   created: 2021-05-22 expires: never    usage: SC
+   trust: unknown    validity: unknown
+ Primary key fingerprint: 224D A6DB 47A3 935B DCC3 BE17 A3D1 81DF 2D55 4CCF
 
-     ArchiBot <ArchiBot@JustArchi.net>
+   ArchiBot <ArchiBot@JustArchi.net>
 
 Are you sure that you want to sign this key with your
 key "archi" (E4E763905FAD148B)
@@ -151,7 +151,7 @@ Fertig; nach dem Vertrauen in unseren Schlüssel sollte `gpg` bei der Überprüf
 ```
 $ gpg --verify SHA512SUMS.sign SHA512SUMS
 gpg: Signature made Mon 02 Aug 2021 00:34:18 CEST
-gpg:                using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
+gpg:        using EDDSA key 224DA6DB47A3935BDCC3BE17A3D181DF2D554CCF
 gpg: Good signature from "ArchiBot <ArchiBot@JustArchi.net>" [full]
 ```
 

@@ -155,7 +155,7 @@ Authentication can be done through two separate ways.
 
 ## `Authentication` header
 
-In general you should use HTTP request headers, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword'` as a parameter. This way authentication is passed in the headers of the request, where it in fact should take place.
+In general you should use **[HTTP request headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)**, by setting `Authentication` field with your password as a value. The way of doing that depends on the actual tool you're using for accessing ASF's IPC interface, for example if you're using `curl` then you should add `-H 'Authentication: MyPassword'` as a parameter. This way authentication is passed in the headers of the request, where it in fact should take place.
 
 ## `password` parameter in query string
 

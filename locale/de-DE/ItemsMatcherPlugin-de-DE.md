@@ -1,6 +1,6 @@
 # ItemsMatcherPlugin
 
-`ItemsMatcherPlugin` is official ASF **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** that extends ASF with ASF STM listing features. In particular, this includes `PublicListing` in **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#remotecommunication)** and `MatchActively` in **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#tradingpreferences)**. ASF comes with `ItemsMatcherPlugin` bundled together with the release, therefore it's ready for usage right away.
+`ItemsMatcherPlugin` ist offizielles ASF-**[Plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-de-DE)**, das ASF um ASF STM Funktionen erweitert. Insbesondere beinhaltet dies `PublicListing` in **[`RemoteCommunication`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#remotecommunication)** und `MatchActively` für **[`TradingPreferences`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#tradingpreferences)**. ASF wird gebündelt mit `ItemsMatcherPlugin` veröffentlicht und ist daher sofort einsatzbereit.
 
 ---
 

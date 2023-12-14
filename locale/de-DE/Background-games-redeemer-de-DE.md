@@ -15,10 +15,10 @@ Der Importvorgang kann auf zwei Arten durchgeführt werden - entweder mittels ei
 ASF erkennt in seinem `config`-Verzeichnis eine Datei mit dem Namen `BotName.keys`, wobei `BotName` der Name Ihres Bots ist. Diese Datei hat eine erwartete und feste Struktur, bestehend aus dem Namen des Spiels und dessen Produktschlüssel, getrennt von einander durch ein Tab-Zeichen und endend mit einem Zeilenumbruch zur Kennzeichnung des nächsten Eintrags. Wenn mehrere Tabulatoren verwendet werden, dann gilt der erste Eintrag als Spielname, der letzte Eintrag als Produktschlüssel und alles dazwischen wird ignoriert. Zum Beispiel:
 
 ```text
-POSTAL 2    ABCDE-EFGHJ-IJKLM
+POSTAL 2  ABCDE-EFGHJ-IJKLM
 Domino Craft VR 12345-67890-ZXCVB
 A Week of Circus Terror POIUY-KJHGD-QWERT
-Terraria    DasWirdIgnoriert   DasWirdAuchIgnoriert    ZXCVB-ASDFG-QWERT
+Terraria  DasWirdIgnoriert  DasWirdAuchIgnoriert  ZXCVB-ASDFG-QWERT
 ```
 
 Alternativ können Sie auch nur Produktschlüssel als Format verwenden (immer noch mit einem Zeilenumbruch zwischen jedem Eintrag). Um den richtigen Namen zu finden, versucht ASF in diesem Fall, die Antwort von Steam (falls möglich) zu erhalten. Für jede Art von Produktschlüsselkennzeichnung empfehlen wir Ihnen, Ihre Produktschlüssel selbst zu benennen, da Pakete, die bei Steam eingelöst werden, nicht der Logik der Spiele folgen müssen, die sie aktivieren, sodass Sie je nachdem, was der Entwickler angegeben hat, korrekte Spielnamen, benutzerdefinierte Paketnamen (z. B. Humble Indie Bundle 18) oder völlig falsche und möglicherweise sogar gefährliche (z. B. Half-Life 4) sehen könnten.

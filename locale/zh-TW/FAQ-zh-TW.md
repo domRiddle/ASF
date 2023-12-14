@@ -261,7 +261,9 @@ ASF真正需要考慮的重點如下：
 
 請注意，上述說明只是我們對&#8203;**[Steam服務條款](https://store.steampowered.com/subscriber_agreement)**&#8203;及其部分條文的解釋⸺ASF是依據Apache 2.0授權條款所授權，其中明確規定了：
 
-> Unless required by applicable law or agreed to in writing, ASF is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<br>（參考翻譯：除非適用法律要求或書面同意，否則 ASF 均按「原始形式」轉發，不附帶任何明示或暗示的擔保或條件。）
+```
+Unless required by applicable law or agreed to in writing, ASF is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<br>（參考翻譯：除非適用法律要求或書面同意，否則依本授權條款發布的軟體均按「原始形式」轉發，不附帶任何明示或暗示的擔保或條件。）
+```
 
 您使用本軟體的風險是由您自己所承擔。 您不太可能會因此受到封鎖，但萬一您還是被封鎖了，那麼您也只能怪您自己。
 
@@ -275,7 +277,7 @@ ASF真正需要考慮的重點如下：
 
 > XXX 您好， 感謝您聯絡 Steam 支援團隊。 看起來這個帳號被用來管理一個機器人帳號網路。 使用機器人是違反 Steam 訂戶協議的。
 
-請帶上您的腦子好好想想，不要只因為ASF能讓您這樣做，就做出這類瘋狂的事情。 對超過1000個Bot使用&#8203;`loot ASF`&#8203;很容易被視為一次&#8203;**[DDoS](https://zh.wikipedia.org/zh-tw/%E9%98%BB%E6%96%B7%E6%9C%8D%E5%8B%99%E6%94%BB%E6%93%8A)**&#8203;攻擊，對我來說，我並不驚訝有人因為這類事情而被封鎖。 請記住關於Steam服務的一些基本常識，只要不濫用，就&#8203;**基本不可能**&#8203;遇到問題。
+請帶上您的腦子好好想想，不要只因為ASF能讓您這樣做，就做出這類瘋狂的事情。 對超過1000個Bot使用&#8203;`loot ASF`&#8203;很容易被視為一次&#8203;**[DDoS](https://zh.wikipedia.org/zh-tw/%E9%98%BB%E6%96%B7%E6%9C%8D%E5%8B%99%E6%94%BB%E6%93%8A)**&#8203;攻擊，對我來說，我並不驚訝有人因為這類事情而被封鎖。 只要在合理範圍內使用Steam服務，不濫用，就&#8203;**基本不可能**&#8203;遇到問題。
 
 第二起案例是一名擁有超過170個Bot的使用者，在Steam 2017年冬季特賣期間被封鎖。
 

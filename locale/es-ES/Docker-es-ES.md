@@ -85,7 +85,7 @@ Por ejemplo, supongamos que tu carpeta de configuraciones de ASF está en el dir
 docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Y eso es todo, ahora el contenedor docker ASF usará el directorio compartido con tu máquina local en modo lectura-escritura, que es todo lo que necesitas para configurar ASF. De igual manera puedes montar otros volúmenes que quieras compartir con ASF, tal como `/app/logs` o `/app/plugins/MyCustomPluginDirectory`.
+Y eso es todo, ahora el contenedor docker ASF usará el directorio compartido con tu máquina local en modo lectura-escritura, que es todo lo que necesitas para configurar ASF. De manera similar puedes montar otros volúmenes que quieras compartir con ASF, tal como `/app/logs` o `/app/plugins/MyCustomPluginDirectory` (no querrás anular el propio `/app/plugins`, ya que así eliminarás plugins que vienen por defecto con ASF).
 
 Por supuesto, esta solo es una forma específica de lograr lo que queremos, nada te impide, por ejemplo, crear tu propio `Dockerfile` que copiará tus archivos de configuración en el directorio `/app/config` dentro del contenedor docker ASF. Solo estamos cubriendo el uso básico en esta guía.
 
@@ -189,10 +189,10 @@ Si estableciste todo correctamente, el comando `docker run` hará que la interfa
 Combinando todo el conocimiento anterior, un ejemplo de configuración completa se vería así:
 
 ```shell
-docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
+docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config -v /home/archi/ASF/plugins:/app/plugins/custom --name asf --pull always justarchi/archisteamfarm
 ```
 
-Esto asume que usarás un solo contenedor de ASF, con todos los archivos de configuración de ASF en `/home/archi/ASF/config`. Debes modificar la ruta de configuración a la que coincide con tu máquina. Esta configuración también está lista para el uso opcional de IPC si decidiste incluir `IPC.config` en tu directorio de configuración con un contenido como el siguiente:
+Esto asume que usarás un solo contenedor de ASF, con todos los archivos de configuración de ASF en `/home/archi/ASF/config`. Debes modificar la ruta de configuración a la que coincide con tu máquina. También es posible proporcionar plugins personalizados para ASF, los cuales puedes colocar en `/home/archi/ASF/plugins`. Esta configuración también está lista para el uso opcional de IPC si decidiste incluir `IPC.config` en tu directorio de configuración con un contenido como el siguiente:
 
 ```json
 {

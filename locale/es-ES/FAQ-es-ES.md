@@ -261,7 +261,11 @@ Sin embargo, Valve claramente admite la existencia de los "recolectores de Steam
 
 Ten en cuenta que lo anterior solo es nuestra interpretación de los **[Términos de Servicio de Steam](https://store.steampowered.com/subscriber_agreement/spanish)** y varios puntos - ASF está bajo la licencia Apache 2.0, que claramente establece:
 
-> A menos que sea requerido por una ley aplicable o aceptado por escrito, ASF se distribuye "TAL CUAL", SIN GARANTÍAS O CONDICIONES DE NINGÚN TIPO, ya sea expresa o implícitamente.
+```
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+```
 
 Usas este software bajo tu propio riesgo. Es muy improbable que puedas ser baneado por eso, pero si lo eres, solo puedes culparte a ti mismo.
 
@@ -275,7 +279,7 @@ El primer caso involucra a individuo con más de 1000 bots que recibió un bloqu
 
 > Hola XXX, Gracias por contactar con el Soporte de Steam. Parece que esta cuenta fue usada para administrar una red de bots. Usar bots es una violación al Acuerdo de Suscriptor a Steam.
 
-Por favor, usa algo de sentido común y no asumas que puedes hacer tales locuras solo porque ASF te permite hacerlo. Ejecutar el comando `loot ASF` en más de 1000 bots fácilmente puede ser considerado como un ataque **[DDoS](https://es.wikipedia.org/wiki/Ataque_de_denegaci%C3%B3n_de_servicio)**, y personalmente no me sorprende que alguien haya sido baneado por ello. Ten en cuenta el sentido común y un uso justo en lo que respecta al servicio de Steam, y **muy probablemente** estarás bien.
+Por favor, usa algo de sentido común y no asumas que puedes hacer tales locuras solo porque ASF te permite hacerlo. Ejecutar el comando `loot ASF` en más de 1000 bots fácilmente puede ser considerado como un ataque **[DDoS](https://es.wikipedia.org/wiki/Ataque_de_denegaci%C3%B3n_de_servicio)**, y personalmente no me sorprende que alguien haya sido baneado por ello. Mantén por lo menos un uso justo en lo que respecta al servicio de Steam, y **muy probablemente** estarás bien.
 
 El segundo caso involucró a un sujeto con más de 170 bots que fue baneado durante las Rebajas de Invierno de Steam 2017.
 
@@ -297,7 +301,7 @@ Es difícil decir si el aumento de las cuentas en línea simultáneamente fue la
 
 ---
 
-Todos lo incidentes anteriores tienen algo en común - ASF solo es una herramienta y es **tu** decisión cómo vas a usarlo. No serás baneado solo por usar ASF, sino por **cómo** lo usas. Puede ser una herramienta útil para recolectar una sola cuenta, o una red masiva de recolección formada por miles de bots. En cualquiera de los casos, no estoy ofreciendo asesoría legal, y tú debes decidir cómo usar ASF. No estoy ocultando ninguna información que podría ayudarte, por ejemplo, el hecho de que ASF hizo que baneen a algunas personas, no tengo razón para hacerlo - es tu decisión lo que quieras hacer con esa información. Si me preguntas - usa un poco de sentido común, evita tener más bots de los que recomendamos, no envíes cientos de intercambios al mismo tiempo, siempre usa una versión actualizada de ASF y _deberías_ estar bien. Cada incidente de esta naturaleza por **alguna razón** siempre le ha ocurrido a personas que ignoraron nuestra recomendación y decidieron que saben mejor que nosotros cuántos bots pueden ejecutar. Ya sea solo una coincidencia o un factor real, depende de ti decidirlo. No estoy ofreciendo ningún consejo legal, solo manifiesto una opinión que te puede ser útil, o la puedes ignorar completamente y basarte solo en los hechos relacionados anteriormente.
+Todos lo incidentes anteriores tienen algo en común - ASF solo es una herramienta y es **tu** decisión cómo vas a usarlo. No serás baneado solo por usar ASF, sino por **cómo** lo usas. Puede ser una herramienta útil para recolectar una sola cuenta, o una red masiva de recolección formada por miles de bots. En cualquiera caso, no estoy ofreciendo asesoría legal, y tú debes decidir cómo usar ASF. No estoy ocultando ninguna información que podría ayudarte, por ejemplo, el hecho de que ASF hizo que baneen a algunas personas, no tengo razón para hacerlo - es tu decisión lo que quieras hacer con esa información. Si me preguntas - usa un poco de sentido común, evita tener más bots de los que recomendamos, no envíes cientos de intercambios al mismo tiempo, siempre usa una versión actualizada de ASF y _deberías_ estar bien. Cada incidente de esta naturaleza por **alguna razón** siempre le ha ocurrido a personas que ignoraron nuestra recomendación y decidieron que saben mejor que nosotros cuántos bots pueden ejecutar. Ya sea solo una coincidencia o un factor real, depende de ti decidirlo. No estoy ofreciendo ningún consejo legal, solo manifiesto una opinión que te puede ser útil, o la puedes ignorar completamente y basarte solo en los hechos relacionados anteriormente.
 
 ---
 

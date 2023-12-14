@@ -60,38 +60,38 @@ Die globale Konfiguration befindet sich in der Datei `ASF.json` und hat folgende
 
 ```json
 {
-    "AutoRestart": true,
-    "Blacklist": [],
-    "CommandPrefix": "!",
-    "ConfirmationsLimiterDelay": 10,
-    "ConnectionTimeout": 90,
-    "CurrentCulture": null,
-    "Debug": false,
-    "DefaultBot": null,
-    "FarmingDelay": 15,
-    "FilterBadBots": true,
-    "GiftsLimiterDelay": 1,
-    "Headless": false,
-    "IdleFarmingPeriod": 8,
-    "InventoryLimiterDelay": 4,
-    "IPC": true,
-    "IPCPassword": null,
-    "IPCPasswordFormat": 0,
-    "LicenseID": null,
-    "LoginLimiterDelay": 10,
-    "MaxFarmingTime": 10,
-    "MaxTradeHoldDuration": 15,
-    "MinFarmingDelayAfterBlock": 60,
-    "OptimizationMode": 0,
-    "SteamMessagePrefix": "/me ",
-    "SteamOwnerID": 0,
-    "SteamProtocols": 7,
-    "UpdateChannel": 1,
-    "UpdatePeriod": 24,
-    "WebLimiterDelay": 300,
-    "WebProxy": null,
-    "WebProxyPassword": null,
-    "WebProxyUsername": null
+  "AutoRestart": true,
+  "Blacklist": [],
+  "CommandPrefix": "!",
+  "ConfirmationsLimiterDelay": 10,
+  "ConnectionTimeout": 90,
+  "CurrentCulture": null,
+  "Debug": false,
+  "DefaultBot": null,
+  "FarmingDelay": 15,
+  "FilterBadBots": true,
+  "GiftsLimiterDelay": 1,
+  "Headless": false,
+  "IdleFarmingPeriod": 8,
+  "InventoryLimiterDelay": 4,
+  "IPC": true,
+  "IPCPassword": null,
+  "IPCPasswordFormat": 0,
+  "LicenseID": null,
+  "LoginLimiterDelay": 10,
+  "MaxFarmingTime": 10,
+  "MaxTradeHoldDuration": 15,
+  "MinFarmingDelayAfterBlock": 60,
+  "OptimizationMode": 0,
+  "SteamMessagePrefix": "/me ",
+  "SteamOwnerID": 0,
+  "SteamProtocols": 7,
+  "UpdateChannel": 1,
+  "UpdatePeriod": 24,
+  "WebLimiterDelay": 300,
+  "WebProxy": null,
+  "WebProxyPassword": null,
+  "WebProxyUsername": null
 }
 ```
 
@@ -367,41 +367,41 @@ Die Bot-Konfiguration hat folgende Struktur:
 
 ```json
 {
-    "AcceptGifts": false,
-    "AutoSteamSaleEvent": false,
-    "BotBehaviour": 0,
-    "CompleteTypesToSend": [],
-    "CustomGamePlayedWhileFarming": null,
-    "CustomGamePlayedWhileIdle": null,
-    "Enabled": false,
-    "EnableRiskyCardsDiscovery": false,
-    "FarmingOrders": [],
-    "FarmPriorityQueueOnly": false,
-    "GamesPlayedWhileIdle": [],
-    "HoursUntilCardDrops": 3,
-    "LootableTypes": [1, 3, 5],
-    "MatchableTypes": [5],
-    "OnlineFlags": 0,
-    "OnlineStatus": 1,
-    "PasswordFormat": 0,
-    "Paused": false,
-    "RedeemingPreferences": 0,
-    "RemoteCommunication": 3,
-    "SendOnFarmingFinished": false,
-    "SendTradePeriod": 0,
-    "ShutdownOnFarmingFinished": false,
-    "SkipRefundableGames": false,
-    "SteamLogin": null,
-    "SteamMasterClanID": 0,
-    "SteamParentalCode": null,
-    "SteamPassword": null,
-    "SteamTradeToken": null,
-    "SteamUserPermissions": {},
-    "TradeCheckPeriod": 60,
-    "TradingPreferences": 0,
-    "TransferableTypes": [1, 3, 5],
-    "UseLoginKeys": true,
-    "UserInterfaceMode": 0
+  "AcceptGifts": false,
+  "AutoSteamSaleEvent": false,
+  "BotBehaviour": 0,
+  "CompleteTypesToSend": [],
+  "CustomGamePlayedWhileFarming": null,
+  "CustomGamePlayedWhileIdle": null,
+  "Enabled": false,
+  "EnableRiskyCardsDiscovery": false,
+  "FarmingOrders": [],
+  "FarmPriorityQueueOnly": false,
+  "GamesPlayedWhileIdle": [],
+  "HoursUntilCardDrops": 3,
+  "LootableTypes": [1, 3, 5],
+  "MatchableTypes": [5],
+  "OnlineFlags": 0,
+  "OnlineStatus": 1,
+  "PasswordFormat": 0,
+  "Paused": false,
+  "RedeemingPreferences": 0,
+  "RemoteCommunication": 3,
+  "SendOnFarmingFinished": false,
+  "SendTradePeriod": 0,
+  "ShutdownOnFarmingFinished": false,
+  "SkipRefundableGames": false,
+  "SteamLogin": null,
+  "SteamMasterClanID": 0,
+  "SteamParentalCode": null,
+  "SteamPassword": null,
+  "SteamTradeToken": null,
+  "SteamUserPermissions": {},
+  "TradeCheckPeriod": 60,
+  "TradingPreferences": 0,
+  "TransferableTypes": [1, 3, 5],
+  "UseLoginKeys": true,
+  "UserInterfaceMode": 0
 }
 ```
 
@@ -896,13 +896,13 @@ ASF benutzt eine einfache Dateistruktur.
 
 ```text
 ├── config
-│     ├── ASF.json
-│     ├── ASF.db
-│     ├── Bot1.json
-│     ├── Bot1.db
-│     ├── Bot2.json
-│     ├── Bot2.db
-│     └── ...
+│   ├── ASF.json
+│   ├── ASF.db
+│   ├── Bot1.json
+│   ├── Bot1.db
+│   ├── Bot2.json
+│   ├── Bot2.db
+│   └── ...
 ├── ArchiSteamFarm.dll
 ├── log.txt
 └── ...

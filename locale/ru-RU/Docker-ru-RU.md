@@ -85,7 +85,7 @@ docker run -it --name asf --pull always --rm justarchi/archisteamfarm:released
 docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Вот и всё, теперь ваш контейнер docker с ASF будет использовать общую папку с вашей локальной машины в режиме чтения и записи, а это всё что вам нужно для конфигурирования ASF. Аналогичным образом вы можете смонтировать другие тома, которые вы хотите сделать общими с ASF, например `/app/logs` или `/app/plugins/MyCustomPluginDirectory`.
+Вот и всё, теперь ваш контейнер docker с ASF будет использовать общую папку с вашей локальной машины в режиме чтения и записи, а это всё что вам нужно для конфигурирования ASF. In similar way you can mount other volumes that you'd like to share with ASF, such as `/app/logs` or `/app/plugins/MyCustomPluginDirectory` (you don't want to override `/app/plugins` itself, since this way you'll remove plugins that ship with ASF by default).
 
 Разумеется, это только один из возможных способов получить желаемое, никто не мешает вам, к примеру, создать свой собственный `Dockerfile` который будет копировать файлы конфигурации в папку `/app/config` в контейнере docker с ASF. В этой инструкции мы описываем только основы использования.
 
@@ -189,10 +189,10 @@ docker run -it -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 --name asf --pull alway
 Объединив знания, полученные выше, мы можем сделать полный пример конфигурации, он будет выглядеть примерно так:
 
 ```shell
-docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
+docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config -v /home/archi/ASF/plugins:/app/plugins/custom --name asf --pull always justarchi/archisteamfarm
 ```
 
-Предполагается, что вы будете использовать один ASF контейнер со всеми конфигурационными файлами ASF в `/home/archi/ASF/config`. Вам нужно изменить путь к конфигурационным файлам на соответствующий вашей машине. Эта конфигурация также готова к использованию IPC если вы решите включить в вашу папку конфигурации файл `IPC.config` со следующим содержимым:
+Предполагается, что вы будете использовать один ASF контейнер со всеми конфигурационными файлами ASF в `/home/archi/ASF/config`. Вам нужно изменить путь к конфигурационным файлам на соответствующий вашей машине. It's also possible to provide custom plugins for ASF, which you can put in `/home/archi/ASF/plugins`. Эта конфигурация также готова к использованию IPC если вы решите включить в вашу папку конфигурации файл `IPC.config` со следующим содержимым:
 
 ```json
 {

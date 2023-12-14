@@ -261,7 +261,11 @@ No entanto, a Valve reconhece claramente a existência de "Steam Idlers" (progra
 
 Perceba que o que foi dito acima é apenas a nossa interpretação do **[Acordo de Assinatura do Steam](https://store.steampowered.com/subscriber_agreement)** e alguns pontos - o ASF é licenciado pela Licença Apache 2.0, que diz claramente:
 
-> A menos que exigido por lei ou acordado por escrito, o ASF é distribuído "COMO ESTÁ", SEM GARANTIAS OU CONDIÇÕES DE QUALQUER TIPO, expressas ou implícitas.
+```
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+```
 
 Você está usando este software por sua conta e risco. É muito improvável que você seja banido por isso, mas se isso acontecer, você pode culpar apenas a si mesmo.
 
@@ -275,7 +279,7 @@ O primeiro caso foi de um cara com mais de 1000 bots que teve um bloqueio de tro
 
 > Olá, XXX, Obrigado por contatar o Suporte Steam. Parece que esta conta foi usada para gerenciar uma rede de contas bot. O uso de bots viola o Acordo de Assinatura do Steam.
 
-Por favor, use o bom senso e não assuma que você pode fazer essas coisas malucas só porque o ASF te dá essa possibilidade. Usar o `loot ASF` em mais de mil de bots pode ser facilmente considerado um ataque **[DDoS](https://pt.wikipedia.org/wiki/Ataque_de_nega%C3%A7%C3%A3o_de_servi%C3%A7o#Ataque_distribu%C3%ADdo)** e eu pessoalmente não estou chocado que alguém foi banido para uma coisa dessas. Use sempre o bom senso e um mínimo de uso justo em relação ao serviço do Steam, e **provavelmente** você estará seguro.
+Por favor, use o bom senso e não assuma que você pode fazer essas coisas malucas só porque o ASF te dá essa possibilidade. Usar o `loot ASF` em mais de mil de bots pode ser facilmente considerado um ataque **[DDoS](https://pt.wikipedia.org/wiki/Ataque_de_nega%C3%A7%C3%A3o_de_servi%C3%A7o#Ataque_distribu%C3%ADdo)** e eu pessoalmente não estou chocado que alguém foi banido para uma coisa dessas. Keep minimum of fair use in regards to Steam service, and **most likely** you'll be fine.
 
 O segundo caso foi de um cara com mais de 170 bots que foi banido durante a Promoção de Inverno 2017 do Steam.
 
@@ -297,7 +301,7 @@ O caso mais recente aconteceu por volta de junho de 2021, de acordo com o usuár
 
 ---
 
-Todos os incidentes acima têm uma coisa em comum - o ASF é apenas uma ferramenta e é **sua** a decisão de como utilizá-la. Você não será banido por usar o ASF, mas por **como** você o usa. Ele pode ser uma ferramenta auxiliar na coleta de apenas uma conta ou de uma rede massiva de coleta com milhares de bots. Em qualquer dos casos, eu não estou oferecendo aconselhamento legal e você deve decidir por sua conta como você usará o ASF. Não estou escondendo nenhuma informação que poderia te ajudar, o fato do ASF ter causado o banimento de algumas pessoas por exemplo, uma vez que eu não tenho motivo para isso; é escolha sua o que você quer fazer com essa informação. Se quiser minha opinião: use o bom senso, evite ter mais bot que a quantidade que recomendamos, não envie centenas de trocas ao mesmo tempo, sempre utilize o ASF atualizado e tudo _deverá_ dar certo. Todo incidente dessa natureza, por **alguma razão**, sempre aconteceu com pessoas que ignoraram nossa recomendação e decidiram que sabem melhor que nós quantos bots podem ser executados. Se isso é apenas coincidência ou algum fator real, cabe a você decidir. Não estou oferecendo qualquer aconselhamento legal, estou apenas compartilhando meus pensamentos, você pode achá-los úteis ou ignorá-los totalmente e considerar apenas os fatos acima relacionados.
+Todos os incidentes acima têm uma coisa em comum - o ASF é apenas uma ferramenta e é **sua** a decisão de como utilizá-la. Você não será banido por usar o ASF, mas por **como** você o usa. Ele pode ser uma ferramenta auxiliar na coleta de apenas uma conta ou de uma rede massiva de coleta com milhares de bots. In any case, I'm not offering legal advice, and you should decide yourself about your ASF usage in the first place. Não estou escondendo nenhuma informação que poderia te ajudar, o fato do ASF ter causado o banimento de algumas pessoas por exemplo, uma vez que eu não tenho motivo para isso; é escolha sua o que você quer fazer com essa informação. Se quiser minha opinião: use o bom senso, evite ter mais bot que a quantidade que recomendamos, não envie centenas de trocas ao mesmo tempo, sempre utilize o ASF atualizado e tudo _deverá_ dar certo. Todo incidente dessa natureza, por **alguma razão**, sempre aconteceu com pessoas que ignoraram nossa recomendação e decidiram que sabem melhor que nós quantos bots podem ser executados. Se isso é apenas coincidência ou algum fator real, cabe a você decidir. Não estou oferecendo qualquer aconselhamento legal, estou apenas compartilhando meus pensamentos, você pode achá-los úteis ou ignorá-los totalmente e considerar apenas os fatos acima relacionados.
 
 ---
 

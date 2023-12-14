@@ -6,17 +6,17 @@ Die ASF-Lizenz ist sehr freizügig und Sie dürfen viel mehr tun als in der Stan
 
 > Sie können mit der Software tun was Sie möchten, solange Sie die erforderlichen Hinweise beifügen. Diese freizügige Lizenz enthält eine Patent-Lizenz von den Mitwirkenden des Quellcodes.
 
-Durch die Ankündigung, dass ASF unter **[Apache License 2.0 lizenziert ist](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**, verweisen wir auf das Hauptprojekt **nur**, einschließlich des Quellcodes ohne irgendwelche Aussagen zu anderen Projekten, die ASF nutzt, abzugeben (insbesondere Bibliotheken, Werkzeuge, Frameworks und Frontends, wie **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), die normalerweise unter verschiedenen Bedingungen lizenziert sind.
+Durch die Ankündigung, dass ASF unter **[Apache License 2.0 lizenziert ist](https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/LICENSE.txt)**, verweisen wir **nur** auf das Hauptprojekt, einschließlich des Quellcodes ohne irgendwelche Aussagen zu anderen Projekten, die ASF nutzt, abzugeben (insbesondere Bibliotheken, Werkzeuge, Frameworks und Frontends, wie **[ASF-ui](https://github.com/JustArchiNET/ASF-ui)**), die normalerweise unter verschiedenen Bedingungen lizenziert sind.
 
 -----
 
 ## Anmerkungen
 
-Wenn Sie Ihre eigene Software/Dienstleistung basierend auf ASF oder einem Teil davon erstellen, lesenSie  bitte Punkt 6 der Lizenz:
+Wenn Sie Ihre eigene Software/Dienstleistung basierend auf ASF oder einem Teil davon erstellen, lesenSie bitte Punkt 6 der Lizenz:
 
 > Markenzeichen. Diese Lizenz gewährt keine Erlaubnis zur Verwendung der Markennamen, Warenzeichen, Dienstleistungsmarken oder Produktnamen des Lizenzgebers, es sei denn, dies ist für eine angemessene und übliche Verwendung zur Beschreibung der Herkunft des Werkes und zur Wiedergabe des Inhalts der NOTICE-Datei erforderlich.
 
-Wir erteilen Ihren keine direkte Erlaubnis, den ASF/ArchiSteamFarm-Produktnamen in Ihrer eigenen Software zu verwenden, aber wir erlauben die Verwendung in einigen nachvollziehbaren Szenarien:
+Wir erteilen Ihnen keine direkte Erlaubnis, den ASF/ArchiSteamFarm-Produktnamen in Ihrer eigenen Software zu verwenden, aber wir erlauben die Verwendung in einigen nachvollziehbaren Szenarien:
 
 Sie **können**:
 - Behaupten, dass Ihre Software/Dienstleistung **basierend auf** ASF (oder seinem Quellcode) ist
@@ -25,7 +25,7 @@ Sie **können**:
 - ASF für verschiedene Referenzzwecke verwenden, wie z. B. die Verknüpfung von Software/Dienstherkunft, unserem Wiki oder *"je nach Bedarf für eine angemessene und übliche Verwendung zur Beschreibung der Herkunft des Werkes"*
 
 Sie **können nicht**:
-- Behaupten, dass dein Programm/Dienst ASF **ist**
+- Behaupten, dass Ihr Programm/Dienst ASF **ist**
 - Ihre Software/Dienstleistung als **ASF** bezeichnen
 - Behaupten, dass Ihre Software/Dienstleistung von ASF bereitgestellt wird, falls Sie **Änderungen** am Quellcode vorgenommen haben
 - Werbebetrug betreiben, wie zum Beispiel behaupten, dass ASF oder deren Entwickler mit Ihrer Software/Dienstleistung zusammenhängen

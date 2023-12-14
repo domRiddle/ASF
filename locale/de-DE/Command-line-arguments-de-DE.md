@@ -110,28 +110,28 @@ ASF_PATH=/opt/Zielverzeichnis dotnet /opt/ASF/ArchiSteamFarm.dll #Identisch mit 
 
 ```text
 ├── /opt
-│     ├── ASF
-│     │     ├── ArchiSteamFarm.dll
-│     │     └── ...
-│     └── Zielverzeichnis
-│           ├── config
-│           ├── logs (generiert)
-│           ├── plugins (optional)
-│           ├── www (optional)
-│           ├── log.txt (generiert)
-│           └── NLog.config (optional)
+│   ├── ASF
+│   │   ├── ArchiSteamFarm.dll
+│   │   └── ...
+│   └── Zielverzeichnis
+│      ├── config
+│      ├── logs (generiert)
+│      ├── plugins (optional)
+│      ├── www (optional)
+│      ├── log.txt (generiert)
+│      └── NLog.config (optional)
 └── ...
 ```
 
 ---
 
-`--process-required` - Durch die Verwendung dieser Option wird das standardmäßige Herunterfahren von ASF deaktiviert, wenn keine Bots laufen. Dies ist besonders in Kombination mit der **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-de-DE)**-API nützlich, da die Mehrheit der Benutzer erwarten würden, dass Ihr Webservice unabhängig von der Anzahl der aktivierten Bots ausgeführt wird. Wenn Sie die Option IPC verwenden oder anderweitig einen ASF-Prozess benötigen, welcher die ganze Zeit läuft, bis Sie ihn selbst beenden, ist dies die richtige Option.
+`--process-required` - Durch die Verwendung dieser Option wird das standardmäßige Herunterfahren von ASF deaktiviert, wenn keine Bots laufen. Dies ist besonders in Kombination mit der **[IPC](https://github.com/JustArchi/ArchiSteamFarm/wiki/IPC-de-DE)**-API nützlich, da die Mehrheit der Benutzer erwarten würden, dass Ihr WebDienst unabhängig von der Anzahl der aktivierten Bots ausgeführt wird. Wenn Sie die Option IPC verwenden oder anderweitig einen ASF-Prozess benötigen, welcher die ganze Zeit läuft, bis Sie ihn selbst beenden, ist dies die richtige Option.
 
 Wenn Sie nicht vorhaben IPC auszuführen, wird diese Option für Sie ziemlich nutzlos sein, da der Prozess bei Bedarf einfach wieder von Ihnen gestartet werden kann (im Gegensatz zum Webserver von ASF, wo Sie ihn die ganze Zeit lauschen lassen müssen, um Befehle zu senden).
 
 ---
 
-`--service`- Dieser Schalter wird hauptsächlich für unseren `systemd` service und erzwingt den Wert von `Headless` auf `true`. Wenn Sie keinen besonderen Grund haben, sollten Sie stattdessen die `headless` Variable direkt in Ihrer Konfiguration einrichten. Dieser Schalter existiert, damit unser `systemd` Dienst Ihre globale Konfiguration nicht berühren muss, um sich an seine eigene Umgebung anzupassen. Selbstverständlich können Sie diese Option auch verwenden, wenn Sie einen ähnlichen Anwendungsfall benötigen; ansonsten ist die globale Konfigurationseigenschaft besser geeignet.
+`--service`- Dieser Schalter wird hauptsächlich für unseren `systemd` Dienst und erzwingt den Wert von `Headless` auf `true`. Wenn Sie keinen besonderen Grund haben, sollten Sie stattdessen die `headless` Variable direkt in Ihrer Konfiguration einrichten. Dieser Schalter existiert, damit unser `systemd` Dienst Ihre globale Konfiguration nicht berühren muss, um sich an seine eigene Umgebung anzupassen. Selbstverständlich können Sie diese Option auch verwenden, wenn Sie einen ähnlichen Anwendungsfall benötigen; ansonsten ist die globale Konfigurationseigenschaft besser geeignet.
 
 ---
 

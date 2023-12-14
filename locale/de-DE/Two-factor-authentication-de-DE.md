@@ -123,7 +123,7 @@ Vorrausgesezt Sie haben die richtige Datei mit gültigen Geheimnissen importiert
 
 Für iOS kannst Du **[ios-steamguard-extractor](https://github.com/CaitSith2/ios-steamguard-extractor)** verwenden. Dies ist möglich, da Du entschlüsselte Backups erstellen, auf deinem PC installieren und das Programm verwenden kannst, um Steam-Daten zu extrahieren, die sonst unmöglich zu bekommen sind (zumindest ohne Jailbreak, aufgrund der iOS-Verschlüsselung).
 
-Gehe zu der **[neuesten Version](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** um das Programm herunterzuladen. Sobald Du die Daten extrahiert hast kannst Du sie z. B. in WinAuth, dann von WinAuth nach ASF kopieren (obwohl Du auch einfach generiertes json kopieren kannst, beginnend mit `{` endend mit `}` in `BotName.maFile` und wie üblich vorgehen). Wenn Du mich fragst, empfehle ich dir dringend zuerst nach WinAuth zu importieren und dann sicherzustellen, dass sowohl das Erzeugen von Codes , als auch das Akzeptieren von Bestätigungen richtig funktioniert, damit Du sicher sein kannst, dass alles in Ordnung ist. Wenn deine Anmeldeinformationen ungültig sind wird ASF-2FA nicht ordnungsgemäß funktionieren, daher ist es viel besser den ASF-Importschritt als letzten Schritt durchzuführen.
+Gehe zu der **[neuesten Version](https://github.com/CaitSith2/ios-steamguard-extractor/releases/latest)** um das Programm herunterzuladen. Sobald Du die Daten extrahiert hast kannst Du sie z. B. in WinAuth, dann von WinAuth nach ASF kopieren (obwohl Du auch einfach generiertes json kopieren kannst, beginnend mit `{` endend mit `}` in `BotName.maFile` und wie üblich vorgehen). Wenn Du mich fragst, empfehle ich dir dringend zuerst nach WinAuth zu importieren und dann sicherzustellen, dass sowohl das Erzeugen von Codes, als auch das Akzeptieren von Bestätigungen richtig funktioniert, damit Du sicher sein kannst, dass alles in Ordnung ist. Wenn deine Anmeldeinformationen ungültig sind wird ASF-2FA nicht ordnungsgemäß funktionieren, daher ist es viel besser den ASF-Importschritt als letzten Schritt durchzuführen.
 
 Für Fragen/Probleme besuche bitte **[issues](https://github.com/CaitSith2/ios-steamguard-extractor/issues)**.
 
@@ -167,7 +167,7 @@ Von nun an sollte dein ASF-2FA für dieses Konto einsatzbereit sein.
 
 ## Fertig
 
-Von diesem Moment an funktionieren alle `2fa` Befehle so, wie sie auf Ihrem herkömmlichen 2FA-Gerät ausgeführt werden. Du kannst sowohl ASF-2FA , als auch den Authentifikator deiner Wahl (Android, iOS, SDA oder WinAuth) verwenden, um Codes zu generieren und Bestätigungen zu akzeptieren.
+Von diesem Moment an funktionieren alle `2fa` Befehle so, wie sie auf Ihrem herkömmlichen 2FA-Gerät ausgeführt werden. Du kannst sowohl ASF-2FA, als auch den Authentifikator deiner Wahl (Android, iOS, SDA oder WinAuth) verwenden, um Codes zu generieren und Bestätigungen zu akzeptieren.
 
 Wenn Du einen Authentifikator auf deinem Handy hast, kannst Du optional SteamDesktopAuthenticator und/oder WinAuth entfernen, da wir ihn nicht mehr benötigen. Allerdings schlage ich vor es für alle Fälle aufzubewahren, ganz zu schweigen davon, dass es praktischer ist als ein normaler Steam-Authentifikator. Just keep in mind that ASF 2FA is **NOT** a general purpose authenticator, it doesn't include all data that authenticator should have, but limited subset of original `maFile`. It's not possible to convert ASF 2FA back to original authenticator, therefore always make sure that you have general-purpose authenticator or `maFile` in other place, such as in WinAuth/SDA, or on your phone.
 
@@ -207,7 +207,7 @@ Stoppe einfach ASF und entferne die zugehörige `BotName.db` Datei des Bots mit 
 
 ### Ich habe den Authentifikator in SDA/WinAuth verlinkt und dann in ASF importiert. Kann ich ihn jetzt entfernen und auf meinem Handy wieder verlinken?
 
-**Nein**. ASF **importiert** deine Authentifikatordaten um sie zu verwenden. Wenn Du deinen Authentifikator entfernst, dann wirst Du damit auch bewirken, dass ASF-2FA nicht mehr funktioniert, egal ob Du ihn zuerst entfernst, wie in der obigen Frage angegeben ist oder nicht. Wenn Du deinen Authentifikator sowohl auf deinem Handy , als auch auf ASF (plus optional in SDA/WinAuth) verwenden möchtest, dann musst Du deinen Authentifikator von deinem Handy **importieren** und keinen neuen in SDA/WinAuth erstellen. Du kannst nur **einen** verknüpften Authentifikator haben, deshalb **importiert** ASF den Authentifikator und seine Daten, um ihn als ASF-2FA zu verwenden - es ist **derselbe** Authentifikator der nur an zwei Stellen existiert. Wenn Du dich dazu entscheidest deine mobilen Authentifizierungsdaten zu entfernen - unabhängig davon, in welcher Weise, wird ASF-2FA die Funktionalität einstellen, da die zuvor kopierten mobilen Authentifizierungsdaten nicht mehr gültig sind. Um ASF-2FA zusammen mit dem Authentifikator auf deinem Handy verwenden zu können musst Du es aus Android/iOS importieren, was oben erläutert ist.
+**Nein**. ASF **importiert** deine Authentifikatordaten um sie zu verwenden. Wenn Du deinen Authentifikator entfernst, dann wirst Du damit auch bewirken, dass ASF-2FA nicht mehr funktioniert, egal ob Du ihn zuerst entfernst, wie in der obigen Frage angegeben ist oder nicht. Wenn Du deinen Authentifikator sowohl auf deinem Handy, als auch auf ASF (plus optional in SDA/WinAuth) verwenden möchtest, dann musst Du deinen Authentifikator von deinem Handy **importieren** und keinen neuen in SDA/WinAuth erstellen. Du kannst nur **einen** verknüpften Authentifikator haben, deshalb **importiert** ASF den Authentifikator und seine Daten, um ihn als ASF-2FA zu verwenden - es ist **derselbe** Authentifikator der nur an zwei Stellen existiert. Wenn Du dich dazu entscheidest deine mobilen Authentifizierungsdaten zu entfernen - unabhängig davon, in welcher Weise, wird ASF-2FA die Funktionalität einstellen, da die zuvor kopierten mobilen Authentifizierungsdaten nicht mehr gültig sind. Um ASF-2FA zusammen mit dem Authentifikator auf deinem Handy verwenden zu können musst Du es aus Android/iOS importieren, was oben erläutert ist.
 
 ---
 
@@ -223,8 +223,8 @@ Wenn Du ein fortgeschrittener Benutzer bist, kannst Du die maFile-Datei auch man
 
 ```json
 {
-  "shared_secret": "STRING",
-  "identity_secret": "STRING"
+ "shared_secret": "STRING",
+ "identity_secret": "STRING"
 }
 ```
 

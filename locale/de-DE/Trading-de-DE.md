@@ -1,12 +1,12 @@
 # Handel
 
-ASF beinhaltet Unterstützung für Steam nicht-interaktive (Offline-) Handelsangebote. Sowohl das Empfangen (Akzeptieren/Ablehnen) , als auch das Senden von Handelsangeboten ist sofort verfügbar und erfordert keine spezielle Konfiguration, außer natürlich ein uneingeschränktes Steam-Konto (eins das bereits 5€ im Shop ausgegeben hat). Für eingeschränkte Konten steht nur eine begrenzte Handelsfunktionalität zur Verfügung.
+ASF beinhaltet Unterstützung für Steam nicht-interaktive (Offline-) Handelsangebote. Sowohl das Empfangen (Akzeptieren/Ablehnen), als auch das Senden von Handelsangeboten ist sofort verfügbar und erfordert keine spezielle Konfiguration, außer natürlich ein uneingeschränktes Steam-Konto (eins das bereits 5€ im Shop ausgegeben hat). Für eingeschränkte Konten steht nur eine begrenzte Handelsfunktionalität zur Verfügung.
 
 ---
 
 ## Logik
 
-ASF akzeptiert immer alle Handelsangebote, unabhängig von Gegenständen, die vom Benutzer mit `Master` (oder höherem) Zugriff an den Bot gesendet werden. Dies erlaubt nicht nur einfaches Transferieren von Steam-Sammelkarten, die vom Bot gesammelt wurden, sondern auch  eine einfache Verwaltung von anderen Steam-Gegenständen, die sich im Inventar des Bots befinden - inklusive der Gegenstände aus anderen Spielen (wie zum Beispiel CS:GO).
+ASF akzeptiert immer alle Handelsangebote, unabhängig von Gegenständen, die vom Benutzer mit `Master` (oder höherem) Zugriff an den Bot gesendet werden. Dies erlaubt nicht nur einfaches Transferieren von Steam-Sammelkarten, die vom Bot gesammelt wurden, sondern auch eine einfache Verwaltung von anderen Steam-Gegenständen, die sich im Inventar des Bots befinden - inklusive der Gegenstände aus anderen Spielen (wie zum Beispiel CS:GO).
 
 ASF lehnt Handelsangebote, unabhängig vom Inhalt, von jedem (Nicht-Master) Benutzer ab, der auf der schwarzen Liste des Handelsmoduls steht. Die schwarze Liste ist standardmäßig in der Datenbank `BotName.db` gespeichert und kann über die **[Befehle](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** `tb`, `tbadd` und `tbrm` verwaltet werden. Dies sollte als Alternative zu dem standardmäßig von Steam angebotenen Blocken eines Benutzers funktionieren - Verwendung mit Bedacht.
 

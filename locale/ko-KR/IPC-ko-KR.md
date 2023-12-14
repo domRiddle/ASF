@@ -155,7 +155,7 @@ ASF IPC 인터페이스는 기본적으로 `IPCPassword`가 `null`로 설정되�
 
 ## `Authentication` 헤더
 
-일반적으로는 `Authentication` 항목에 암호를 값으로 넣어서 HTTP 요청 헤더를 사용해야 합니다. 이 방법은 ASF IPC 인터페이스에 접근하는 실제 도구에 따라 다릅니다. 예를 들어 `curl`을 사용한다면 `-H 'Authentication: MyPassword'` 를 인자로 넣어야 합니다. 이 방법으로 실제 인증이 일어나야 하는 요청의 헤더 부분에서 인증이 통과됩니다.
+In general you should use **[HTTP request headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)**, by setting `Authentication` field with your password as a value. 이 방법은 ASF IPC 인터페이스에 접근하는 실제 도구에 따라 다릅니다. 예를 들어 `curl`을 사용한다면 `-H 'Authentication: MyPassword'` 를 인자로 넣어야 합니다. 이 방법으로 실제 인증이 일어나야 하는 요청의 헤더 부분에서 인증이 통과됩니다.
 
 ## 쿼리문 내의 `password` 매개변수
 

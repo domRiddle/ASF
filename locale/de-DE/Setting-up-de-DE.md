@@ -66,17 +66,17 @@ Eine Beispiel-Struktur würde wie folgt aussehen:
 
 ```text
 C:\ASF (wo Sie Ihre eigenen Dateien speichern)
-    ├── ASF shortcut.lnk (optional)
-    ├── Config shortcut.lnk (optional)
-    ├── Commands.txt (optional)
-    ├── MyExtraScript.bat (optional)
-    ├── (...) (alle anderen Dateien Ihrer Wahl, optional)
-    └── Core (nur ASF gewidmet, wo Sie das Archiv extrahieren)
-         ├── ArchiSteamFarm(.exe)
-         ├── config
-         ├── logs
-         ├── plugins
-         └── (...)
+  ├── ASF shortcut.lnk (optional)
+  ├── Config shortcut.lnk (optional)
+  ├── Commands.txt (optional)
+  ├── MyExtraScript.bat (optional)
+  ├── (...) (alle anderen Dateien Ihrer Wahl, optional)
+  └── Core (nur ASF gewidmet, wo Sie das Archiv extrahieren)
+     ├── ArchiSteamFarm(.exe)
+     ├── config
+     ├── logs
+     ├── plugins
+     └── (...)
 ```
 
 ---
@@ -151,7 +151,7 @@ Dies schließt unseren sehr einfachen Einrichtungsleitfaden ab. Du kannst nun en
 
 #### Auf mehreren Konten gleichzeitig sammeln
 
-ASF supports farming more than one account at a time, which is its primary function. Du kannst weitere Konten zu ASF hinzufügen, indem Du mehr Bot-Konfigurationsdateien erzeugst, genau so wie Du deine erste vor wenigen Minuten generiert hast. Du musst nur zwei Dinge sicherstellen:
+ASF supports farming more than one account at a time, which is its primary function. Du kannst weitere Konten zu ASF hinzufügen, indem Du mehr Bot-Konfigurationsdateien erzeugst, genau so, wie Du deine erste vor wenigen Minuten generiert hast. Du musst nur zwei Dinge sicherstellen:
 
 - Eindeutiger Bot-Name, wenn Du bereits Ihren ersten Bot "HauptKonto" genannt hast, kannst Du keinen weiteren so nennen.
 - Gültige Anmeldedaten, wie z. B. `SteamLogin`, `SteamPassword` und `SteamParentalCode` (bei Verwendung der Steam Parental Einstellungen)

@@ -155,7 +155,7 @@ A autenticação pode ser feita de duas formas diferentes.
 
 ## `Authentication` (autenticação) de cabeçalho
 
-Em geral, você deve usar cabeçalhos de solicitação HTTP, configurando o campo `Authentication` com sua senha como um valor. A maneira de fazer isso depende da ferramenta que você está usando para acessar a interface IPC do ASF, por exemplo, se você estiver usando `curl`, então você deve adicionar `-H 'Authentication: MyPassword'` como um parâmetro. Dessa forma a autenticação será passada nos cabeçalhos da solicitação, onde ele de fato deve ocorrer.
+In general you should use **[HTTP request headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)**, by setting `Authentication` field with your password as a value. A maneira de fazer isso depende da ferramenta que você está usando para acessar a interface IPC do ASF, por exemplo, se você estiver usando `curl`, então você deve adicionar `-H 'Authentication: MyPassword'` como um parâmetro. Dessa forma a autenticação será passada nos cabeçalhos da solicitação, onde ele de fato deve ocorrer.
 
 ## Parâmetro `password` na string de consulta
 

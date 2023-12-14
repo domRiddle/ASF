@@ -4,7 +4,7 @@ ASF ist als **[Docker Container](https://www.docker.com/what-container)** verfü
 
 Es ist wichtig zu beachten, dass ASF im Docker Container als **erweitertes Setup** angesehen wird, was für die überwiegende Mehrheit der Benutzer **nicht benötigt wird** und gibt in der Regel **keine Vorteile** gegenüber einer containerlosen Einrichtung. Wenn Sie Docker als eine Lösung für den Betrieb von ASF als Dienst betrachten, zum Beispiel indem Sie ihn automatisch mit Ihrem Betriebssystem starten, dann sollten Sie möglicherweise stattdessen den Abschnitt **[Verwaltung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management-de-DE#systemd-service-f%C3%BCr-linux)** lesen, und einen korrekten `systemd` Dienst einrichten, der **fast immer** eine bessere Lösung ist, als ASF in einem Docker Container auszuführen.
 
-Die Ausführung von ASF im Docker-Container beinhaltet in der Regel **mehrere neue Probleme und Probleme**, die Sie selbst bewältigen und lösen müssen. Aus diesem Grund empfehlen wir Ihnen **sehr** dies zu vermeiden; es sei denn, Sie haben bereits Docker-Kenntnisse und benötigen keine Hilfe beim Verständnis seiner internen Daten, über die wir hier im ASF Wiki nicht eingehen. Dieser Abschnitt ist hauptsächlich für gültige Anwendungsfälle sehr komplexer Setups. Zum Beispiel in Bezug auf erweiterte Vernetzung oder Sicherheit über Standard-Sandboxing hinaus, die ASF im `systemd` Service beinhaltet (der bereits eine überlegene Prozessisolierung durch sehr fortgeschrittene Sicherheitsmechanismen sicherstellt). Für diese wenigen Nutzer erklären wir hier bessere ASF-Konzepte in bezüglich der Docker-Kompatibilität und nur das. Voraussetzung ist, dass Sie selbst über adäquate Docker Kenntnisse verfügen, wenn Sie sich dafür entscheiden, es zusammen mit ASF zu verwenden.
+Die Ausführung von ASF im Docker-Container beinhaltet in der Regel **mehrere neue Probleme und Probleme**, die Sie selbst bewältigen und lösen müssen. Aus diesem Grund empfehlen wir Ihnen **sehr** dies zu vermeiden; es sei denn, Sie haben bereits Docker-Kenntnisse und benötigen keine Hilfe beim Verständnis seiner internen Daten, über die wir hier im ASF Wiki nicht eingehen. Dieser Abschnitt ist hauptsächlich für gültige Anwendungsfälle sehr komplexer Setups. Zum Beispiel in Bezug auf erweiterte Vernetzung oder Sicherheit über Standard-Sandboxing hinaus, die ASF im `systemd` Dienst beinhaltet (der bereits eine überlegene Prozessisolierung durch sehr fortgeschrittene Sicherheitsmechanismen sicherstellt). Für diese wenigen Nutzer erklären wir hier bessere ASF-Konzepte in bezüglich der Docker-Kompatibilität und nur das. Voraussetzung ist, dass Sie selbst über adäquate Docker Kenntnisse verfügen, wenn Sie sich dafür entscheiden, es zusammen mit ASF zu verwenden.
 
 ---
 
@@ -15,23 +15,23 @@ ASF ist über vier Haupttypen von ***[Tags](https://hub.docker.com/r/justarchi/a
 
 ### `main`
 
-Dieser *Tag* verweist immer auf den ASF, der vom letzten Commit (Änderung) im `main` erstellt wurde; was genauso funktioniert, wie das Erfassen neuester Artefakte direkt aus unserer **[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** Pipeline. Normalerweise sollten Sie dieses *Tag* vermeiden, da es die höchste Stufe von fehlerhafter Software ist, die für Entwickler und fortgeschrittene Benutzer zu Entwicklungszwecken bestimmt ist. Das Image (Abbild)  wird mit jedem Commit im `main`-GitHub-Zweig aktualisiert, daher können Sie hier sehr oft mit Updates (und Problemen) rechnen. Es liegt an uns, den aktuellen Stand des ASF-Projekts zu markieren, der nicht unbedingt garantiert stabil oder getestet ist, wie in unserem Veröffentlichungszyklus dargelegt. Dieses *Tag* sollte nicht in einer Produktionsumgebung verwendet werden.
+Dieser *Tag* verweist immer auf den ASF, der vom letzten Commit (Änderung) im `main` erstellt wurde; was genauso funktioniert, wie das Erfassen neuester Artefakte direkt aus unserer **[CI](https://github.com/JustArchiNET/ArchiSteamFarm/actions/workflows/publish.yml?query=branch%3Amain)** Pipeline. Normalerweise sollten Sie dieses *Tag* vermeiden, da es die höchste Stufe von fehlerhafter Software ist, die für Entwickler und fortgeschrittene Benutzer zu Entwicklungszwecken bestimmt ist. Das Image (Abbild) wird mit jedem Commit im `main`-GitHub-Zweig aktualisiert, daher können Sie hier sehr oft mit Updates (und Problemen) rechnen. Es liegt an uns, den aktuellen Stand des ASF-Projekts zu markieren, der nicht unbedingt garantiert stabil oder getestet ist, wie in unserem Veröffentlichungszyklus dargelegt. Dieses *Tag* sollte nicht in einer Produktionsumgebung verwendet werden.
 
 
 ### `released`
 
-Sehr ähnlich wie oben, zeigt dieser *Tag* immer auf die neueste **[veröffentlichte](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** ASF-Version (einschließlich Vorabversionen). Im Vergleich zum `main`-*Tag* wird dieses Image (Abbild)  jedes Mal aktualisiert, wenn ein neuer GitHub-*Tag* gepusht (verfügbar) wird. Geeignet für Fortgeschrittene und Power-User, die es lieben, am Rande dessen zu leben, was als stabil und zugleich frisch angesehen werden kann. Dies würden wir empfehlen, wenn Sie nicht den `latest` *Tag* verwenden möchten. In der Praxis funktioniert es genauso wie ein fortlaufender *Tag* mit dem Hinweis auf die neueste `A.B.C.D` Version zum Zeitpunkt des Downloads (`pull`). Bitte bedenken Sie, dass die Verwendung dieses *Tags* gleichbedeutend mit der Verwendung unserer **[Vorveröffentlichungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-de-DE)** ist.
+Sehr ähnlich wie oben, zeigt dieser *Tag* immer auf die neueste **[veröffentlichte](https://github.com/JustArchiNET/ArchiSteamFarm/releases)** ASF-Version (einschließlich Vorabversionen). Im Vergleich zum `main`-*Tag* wird dieses Image (Abbild) jedes Mal aktualisiert, wenn ein neuer GitHub-*Tag* gepusht (verfügbar) wird. Geeignet für Fortgeschrittene und Power-User, die es lieben, am Rande dessen zu leben, was als stabil und zugleich frisch angesehen werden kann. Dies würden wir empfehlen, wenn Sie nicht den `latest` *Tag* verwenden möchten. In der Praxis funktioniert es genauso wie ein fortlaufender *Tag* mit dem Hinweis auf die neueste `A.B.C.D` Version zum Zeitpunkt des Downloads (`pull`). Bitte bedenken Sie, dass die Verwendung dieses *Tags* gleichbedeutend mit der Verwendung unserer **[Vorveröffentlichungen](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Release-cycle-de-DE)** ist.
 
 
 ### `latest`
 
-Unter den verfügbaren **Tags** ist dieses das Einzige, welches automatische Updates enthält und auf die **[stable](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**-ASF-Version verweist. Der Zweck dieses **Tags** ist es, einen funktionierenden (Standard)-Docker-Container zur Verfügung zu stellen, der selbstständig in der Lage ist, eine aktualisierte, OS-spezifische ASF-Instanz auszuführen. Dadurch muss das Image (Abbild)  nicht so oft auf den neuesten Stand gebracht werden, da die enthaltene ASF-Version immer in der Lage ist, sich bei Bedarf selbst zu aktualisieren. Natürlich kann `UpdatePeriod` problemlos ausgeschaltet werden (eingestellt auf `0`), aber in diesem Fall sollten Sie wahrscheinlich stattdessen die eingefrorene Version `A.B.C.D` verwenden. Ebenso können Sie den Standard `UpdateChannel` ändern, um stattdessen ein automatisches Aktualisieren des `released` *Tags* durchzuführen.
+Unter den verfügbaren **Tags** ist dieses das Einzige, welches automatische Updates enthält und auf die **[stable](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)**-ASF-Version verweist. Der Zweck dieses **Tags** ist es, einen funktionierenden (Standard)-Docker-Container zur Verfügung zu stellen, der selbstständig in der Lage ist, eine aktualisierte, OS-spezifische ASF-Instanz auszuführen. Dadurch muss das Image (Abbild) nicht so oft auf den neuesten Stand gebracht werden, da die enthaltene ASF-Version immer in der Lage ist, sich bei Bedarf selbst zu aktualisieren. Natürlich kann `UpdatePeriod` problemlos ausgeschaltet werden (eingestellt auf `0`), aber in diesem Fall sollten Sie wahrscheinlich stattdessen die eingefrorene Version `A.B.C.D` verwenden. Ebenso können Sie den Standard `UpdateChannel` ändern, um stattdessen ein automatisches Aktualisieren des `released` *Tags* durchzuführen.
 
 Aufgrund der Tatsache, dass die Version `latest` automatisch aktualisiert werden kann, enthält es ein spärliches Betriebssystem, inklusive einer OS-spezifischen `Linux` ASF Version; im Gegensatz zu allen anderen *Tags*, die OS mit .NET Runtime und `generic` ASF Version beinhalten. Dies liegt daran, dass eine neuere (aktualisierte) ASF-Version möglicherweise auch eine neuere Laufzeitumgebung erfordert als die, mit der das Build kompiliert werden könnte. Ansonsten würde dies einen Neuaufbau des Images von Grund auf erfordern, wodurch der geplante Anwendungsfall hinfällig wäre.
 
 ### `A.B.C.D`
 
-Im Vergleich zu den oben genannten *Tags* ist dieser *Tag* vollständig eingefroren, was bedeutet, dass das Image (Abbild)  nach der Veröffentlichung nicht mehr aktualisiert wird. Dies funktioniert ähnlich wie bei unseren GitHub-Versionen, die nach der ersten Version nie wieder berührt werden, was Ihnen eine stabile und gefrorene Umgebung garantiert. Normalerweise sollten Sie dieses *Tag* verwenden, wenn Sie eine bestimmte ASF-Version verwenden und auf automatische Aktualisierungen verzichten möchten (die beispielsweise im *Tag* `latest` angeboten werden).
+Im Vergleich zu den oben genannten *Tags* ist dieser *Tag* vollständig eingefroren, was bedeutet, dass das Image (Abbild) nach der Veröffentlichung nicht mehr aktualisiert wird. Dies funktioniert ähnlich wie bei unseren GitHub-Versionen, die nach der ersten Version nie wieder berührt werden, was Ihnen eine stabile und gefrorene Umgebung garantiert. Normalerweise sollten Sie dieses *Tag* verwenden, wenn Sie eine bestimmte ASF-Version verwenden und auf automatische Aktualisierungen verzichten möchten (die beispielsweise im *Tag* `latest` angeboten werden).
 
 ---
 
@@ -45,9 +45,9 @@ Wir raten generell davon ab, `main` Builds auszuprobieren, da diese für uns hie
 
 ## Architekturen
 
-ASF Docker Image (Abbild)  ist derzeit auf `Linux` Plattform für 3 Architekturen verfügbar - `x64`, `arm` und `arm64`. Sie können im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)** mehr darüber lesen.
+ASF Docker Image (Abbild) ist derzeit auf `Linux` Plattform für 3 Architekturen verfügbar - `x64`, `arm` und `arm64`. Sie können im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)** mehr darüber lesen.
 
-Unsere **Tag*s* verwenden das Multi-Plattform-Manifest, was bedeutet, dass Docker auf Ihrem Rechner automatisch das passende Image (Abbild)  für Ihre Plattform auswählt, wenn Sie dieses herunterladen. Wenn Sie ein bestimmtes Plattform-Image (Abbild)  beziehen möchten, welches nicht dem entspricht, das Sie gerade verwenden, können Sie dies mittels `--platform` in den geeigneten Docker-Befehlen erreichen, wie zum Beispiel `Docker run`. Mehr Informationen hierzu finden Sie in der Docker Dokumentation unter **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)**.
+Unsere **Tag*s* verwenden das Multi-Plattform-Manifest, was bedeutet, dass Docker auf Ihrem Rechner automatisch das passende Image (Abbild) für Ihre Plattform auswählt, wenn Sie dieses herunterladen. Wenn Sie ein bestimmtes Plattform-Image (Abbild) beziehen möchten, welches nicht dem entspricht, das Sie gerade verwenden, können Sie dies mittels `--platform` in den geeigneten Docker-Befehlen erreichen, wie zum Beispiel `Docker run`. Mehr Informationen hierzu finden Sie in der Docker Dokumentation unter **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)**.
 
 ---
 
@@ -85,7 +85,7 @@ Zum Beispiel gehen wir davon aus, dass sich Ihr ASF-Konfigurationsordner im Verz
 docker run -it -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
 ```
 
-Und das war's! Jetzt verwendet Ihr ASF-Docker-Container das freigegebene Verzeichnis mit Ihrem lokalen Geräte im Lese-/Schreibmodus, was alles ist, was Sie für die Konfiguration von ASF brauchen. Auf ähnliche Weise können Sie andere Volumes (Laufwerk) einhängen, die Sie mit ASF teilen möchten, wie `/app/logs` oder `/app/plugins/MyCustomPluginDirectory`.
+Und das war's! Jetzt verwendet Ihr ASF-Docker-Container das freigegebene Verzeichnis mit Ihrem lokalen Geräte im Lese-/Schreibmodus, was alles ist, was Sie für die Konfiguration von ASF brauchen. Auf ähnliche Weise können Sie andere Volumes einhängen, die Sie mit ASF teilen möchten, etwa `/app/logs` oder `/app/plugins/MyCustomPluginDirectory` (Sie möchten nicht `/app/plugins` selbst überschreiben, da Sie auf diese Weise Plugins entfernen, die standardmäßig mit ASF gebündelt sind).
 
 Natürlich ist dies nur ein konkreter Weg, um das zu erreichen, was wir möchten. Nichts hält Sie davon ab, z. B. eine eigene `Dockerfile` zu erstellen, die Ihre Konfigurationsdateien in das Verzeichnis `/app/config` im ASF Docker-Container kopiert. Wir behandeln in diesem Leitfaden nur die grundlegende Anwendung.
 
@@ -162,13 +162,13 @@ Um das oben Gesagte zu erreichen, sollten Sie eine **[benutzerspezifische IPC-Ko
 
 ```json
 {
-  "Kestrel": {
-    "Endpoints": {
-      "HTTP": {
-        "Url": "http://*:1242"
-      }
-    }
+ "Kestrel": {
+  "Endpoints": {
+   "HTTP": {
+    "Url": "http://*:1242"
+   }
   }
+ }
 }
 ```
 
@@ -189,20 +189,20 @@ Wenn Sie alles richtig eingestellt haben, wird der oben gezeigte `docker run` Be
 Wenn man das gesamte obige Wissen kombiniert, würde ein Beispiel für ein komplettes Setup so aussehen:
 
 ```shell
-docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config --name asf --pull always justarchi/archisteamfarm
+docker run -p 127.0.0.1:1242:1242 -p [::1]:1242:1242 -v /home/archi/ASF/config:/app/config -v /home/archi/ASF/plugins:/app/plugins/custom --name asf --pull always justarchi/archisteamfarm
 ```
 
-Dies setzt voraus, dass Sie einen einzigen ASF-Container mit allen ASF-Konfigurationsdateien in `/home/archi/ASF/config` verwenden. Sie sollten den Konfigurationspfad zu dem ändern, der zu Ihrem Rechner passt. Dieses Setup ist auch für die optionale IPC-Nutzung bereit, wenn Sie sich entschieden haben, `IPC.config` in Ihr Konfigurationsverzeichnis mit einem Inhalt wie unten erläutert aufzunehmen:
+Dies setzt voraus, dass Sie einen einzigen ASF-Container mit allen ASF-Konfigurationsdateien in `/home/archi/ASF/config` verwenden. Sie sollten den Konfigurationspfad zu dem ändern, der zu Ihrem Rechner passt. Es ist auch möglich, eigene Plugins für ASF bereitzustellen, indem Sie diese in `/home/archi/ASF/plugins` Einfügen. Dieses Setup ist auch für die optionale IPC-Nutzung bereit, wenn Sie sich entschieden haben, `IPC.config` in Ihr Konfigurationsverzeichnis mit einem Inhalt wie unten erläutert aufzunehmen:
 
 ```json
 {
-  "Kestrel": {
-    "Endpoints": {
-      "HTTP": {
-        "Url": "http://*:1242"
-      }
-    }
+ "Kestrel": {
+  "Endpoints": {
+   "HTTP": {
+    "Url": "http://*:1242"
+   }
   }
+ }
 }
 ```
 
