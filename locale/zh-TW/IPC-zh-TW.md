@@ -155,7 +155,7 @@ ASF-ui是一個社群專案，旨在為最終使用者建立使用者友善的�
 
 ## `Authentication` 表頭資料
 
-In general you should use **[HTTP request headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)**, by setting `Authentication` field with your password as a value. 具體方式取決於您用於存取ASF的IPC介面的實際工具，例如假設您使用&#8203;`curl`&#8203;，那麼您應加入&#8203;`-H 'Authentication: MyPassword'`&#8203;作為參數。 這種方式的驗證資訊會在請求的頭欄位中傳遞，這也是它應該在的地方。
+在一般情形下，您應使用&#8203;**[HTTP請求頭欄位](https://zh.wikipedia.org/zh-tw/HTTP%E5%A4%B4%E5%AD%97%E6%AE%B5)**&#8203;，將您的密碼設定成&#8203;`Authentication`&#8203;欄位的值。 具體方式取決於您用於存取ASF的IPC介面的實際工具，例如假設您使用&#8203;`curl`&#8203;，那麼您應加入&#8203;`-H 'Authentication: MyPassword'`&#8203;作為參數。 這種方式的驗證資訊會在請求的頭欄位中傳遞，這也是它應該在的地方。
 
 ## Query 字串中的 `password` 參數
 

@@ -155,7 +155,7 @@ Die Authentifizierung kann auf zwei verschiedene Arten erfolgen.
 
 ## `Authentication` Header
 
-In general you should use **[HTTP request headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)**, by setting `Authentication` field with your password as a value. Die Vorgehensweise hängt davon ab, mit welchem Programm Sie auf die IPC-Schnittstelle von ASF zugreifen, z. B. wenn Sie `curl` verwenden, dann sollten Sie `-H 'Authentication: MeinPasswort'` als Parameter hinzufügen. Auf diese Weise wird die Authentifizierung in den Headern der Anfrage übergeben, wo sie tatsächlich stattfinden soll.
+Im Allgemeinen sollten Sie **[HTTP request header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)** verwenden, indem Sie `Authentication` mit Ihrem Passwort als Wert einstellen. Die Vorgehensweise hängt davon ab, mit welchem Programm Sie auf die IPC-Schnittstelle von ASF zugreifen, z. B. wenn Sie `curl` verwenden, dann sollten Sie `-H 'Authentication: MeinPasswort'` als Parameter hinzufügen. Auf diese Weise wird die Authentifizierung in den Headern der Anfrage übergeben, wo sie tatsächlich stattfinden soll.
 
 ## `password` Parameter im Query-String
 
@@ -273,7 +273,7 @@ Im Folgenden finden Sie ein Beispiel für die Apache-Konfiguration. Bitte lesen 
 
 **Ja**, Sie können dies auf zweierlei Weise erreichen. Eine empfohlene Methode wäre die Verwendung eines Reverse-Proxy, bei dem Sie sich wie üblich über https auf Ihren Webserver zugreifen und über ihn mit der IPC-Schnittstelle von ASF auf demselben Gerät verbinden können. Auf diese Weise ist Ihr Datenverkehr vollständig verschlüsselt und Sie müssen IPC keineswegs ändern, um ein solches Setup zu unterstützen.
 
-Die zweite Möglichkeit besteht darin eine **[benutzerdefinierte Konfiguration](#benutzerdefinierte-konfiguration)** für die IPC-Schnittstelle von ASF zu spezifizieren, wo Sie https-Endpunkt aktivieren und das entsprechende Zertifikat direkt an unseren Kestrel http-Server senden können. Dieser Weg wird empfohlen, wenn Sie keinen anderen Webserver betreiben und auch keinen ausschließlich für ASF betreiben möchten. Andernfalls ist es viel einfacher ein befriedigendes Setup zu erreichen, indem man einen Reverse-Proxy-Mechanismus verwendet.
+Die zweite Möglichkeit besteht darin eine **[benutzerdefinierte Konfiguration](#benutzerdefinierte-konfiguration)** für die IPC-Schnittstelle von ASF zu spezifizieren, wo Sie http-Endpunkt aktivieren und das entsprechende Zertifikat direkt an unseren Kestrel http-Server senden können. Dieser Weg wird empfohlen, wenn Sie keinen anderen Webserver betreiben und auch keinen ausschließlich für ASF betreiben möchten. Andernfalls ist es viel einfacher ein befriedigendes Setup zu erreichen, indem man einen Reverse-Proxy-Mechanismus verwendet.
 
 ---
 
