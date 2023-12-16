@@ -10,9 +10,9 @@ Podrška za Steam porodično dijeljenje je transparentna u ASF-u, što znači da
 
 ASF prepoznaje ako neko igra i neće ga izbaciti iz igrice ako pokrenete igricu. ASF će biti kao primarni profil koji ima ključ, pa ako je taj ključ u vašem posjedovanju, ili u posjedovanju nekog sa kim je podijeljen, ASF neće farmati, odnosno, čekaće da se ključ oslobodi.
 
-U dodatku sa ovim iznad, ASF će pristupiti vašim **[podešavanjima dijeljenja](https://store.steampowered.com/account/managedevices)**, iz kojih će moći da uzme do 5 `steamID`-ova dozvoljenih da koriste kolekciju igrica. Ovim korisnicima koji imaju dozvoli da koriste `FamilySharing` biće dostupne **[komande](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, posebno komanda koja im omogućava `pause~` naredbu bot profilu koji dijeli igrice sa njima, što im omogućava da pauziraju automatsko farmanje kartica da bi mogli da pokrenu igricu koja se dijeli sa njima.
+In addition to above, after logging in, ASF will access your **[family sharing settings](https://store.steampowered.com/account/managedevices)**, from which it'll extract up to 5 `steamIDs` allowed to use your library. Ovim korisnicima koji imaju dozvoli da koriste `FamilySharing` biće dostupne **[komande](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**, posebno komanda koja im omogućava `pause~` naredbu bot profilu koji dijeli igrice sa njima, što im omogućava da pauziraju automatsko farmanje kartica da bi mogli da pokrenu igricu koja se dijeli sa njima.
 
-Povezivanje obje funkcionalnosti dozvoljava vašim prijateljima da `pause~` vaše farmanje kartica, pokrenu igricu, igraju koliko oće, pa kad završe proces će se automatski nastaviti u ASF. Naravno, slanje `pause~` nije potrebno ako ASF ne farma nešto trenutno, zato što vaši prijatelji mogu pokrenuti igricu odmah, i oni neće biti izbačeni iz igrice.
+Connecting both functionalities described above allows your friends to `pause~` your cards farming process, start a game, play as long as they wish, and then after they're done playing, cards farming process will be automatically resumed by ASF. Naravno, slanje `pause~` nije potrebno ako ASF ne farma nešto trenutno, zato što vaši prijatelji mogu pokrenuti igricu odmah, i oni neće biti izbačeni iz igrice.
 
 ---
 

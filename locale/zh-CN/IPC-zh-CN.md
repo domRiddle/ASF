@@ -155,7 +155,7 @@ ASF-ui 是一个社区项目，主要为最终用户提供了一个用户友好�
 
 ## `Authentication` 请求头
 
-In general you should use **[HTTP request headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)**, by setting `Authentication` field with your password as a value. 具体的方法取决于您访问 ASF IPC 接口的具体工具，例如，假如您使用 `curl`，就应该添加 `-H 'Authentication: MyPassword'` 命令行参数。 在这种方法中，验证信息被放在请求头部中传送，这也正是这类信息应该在的地方。
+通常您应该使用 [**HTTP 请求头**](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)方法，将 `Authentication` 头的值设置为您的密码。 具体的方法取决于您访问 ASF IPC 接口的具体工具，例如，假如您使用 `curl`，就应该添加 `-H 'Authentication: MyPassword'` 命令行参数。 在这种方法中，验证信息被放在请求头部中传送，这也正是这类信息应该在的地方。
 
 ## `password` 请求参数
 

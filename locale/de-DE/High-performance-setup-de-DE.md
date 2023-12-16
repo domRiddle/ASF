@@ -1,4 +1,4 @@
-# Hochperformantes Setup
+# Hochperformantes Einrichtung
 
 Dies ist genau das Gegenteil des **[speichereffizienten Setups](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE#speichereffizientes-setup)** und normalerweise möchten Sie diesen Tipps folgen, wenn Sie die ASF-Leistung (in Bezug auf die CPU-Geschwindigkeit) weiter steigern möchten - meist auf Kosten einer erhöhten Speichernutzung.
 

@@ -10,17 +10,11 @@ ASF中對 Steam 親友同享功能的支援是透明的, 這意味著它不會�
 
 ASF中包括適當的邏輯, 當它監測到庫被親友同享用戶鎖定時，不會因為啟動遊戲而將他們 "踢" 出遊戲會話。 ASF的行為與持有鎖的主帳戶完全相同，因此，如果您的Steam用戶端或您的親友同享用戶持有該鎖，ASF將不會嘗試進行掛卡，而是等待帳戶解鎖。
 
-除上述內容外, 登錄後, ASF 還將訪問您的 **
+In addition to above, after logging in, ASF will access your **[family sharing settings](https://store.steampowered.com/account/managedevices)**, from which it'll extract up to 5 `steamIDs` allowed to use your library. 這些用戶被授予使用 **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**的 `FamilySharing` 許可權，特別是允許他們對與他們共用遊戲的機械人帳戶使用 `pause~` 命令，這讓機械人暫停自動掛卡模組，以使他們可以啟動一個親友共享的遊戲。
 
-games sharing settings </0 >, 它將從中提取多達 5個被允許使用您的庫的用戶的`steamID` 。 這些用戶被授予使用 **[commands](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)**的 `FamilySharing` 許可權，特別是允許他們對與他們共用遊戲的機械人帳戶使用 `pause~` 命令，這讓機械人暫停自動掛卡模組，以使他們可以啟動一個親友共享的遊戲。</p> 
-
-上述兩個功能配合使用，可以讓您的朋友執行 `pause~` 暂停您的掛卡過程, 開始遊戲, 玩到天昏地暗, 他們退出遊戲後, ASF將自動復原掛卡過程。 當然, 如果ASF目前沒有積極地進行任何掛卡活動, 則不需要發佈 `pause~`, 因為您的朋友可以立即啟動遊戲, 並且上述邏輯可確保他們不會被踢出會話。
-
-
+Connecting both functionalities described above allows your friends to `pause~` your cards farming process, start a game, play as long as they wish, and then after they're done playing, cards farming process will be automatically resumed by ASF. 當然, 如果ASF目前沒有積極地進行任何掛卡活動, 則不需要發佈 `pause~`, 因為您的朋友可以立即啟動遊戲, 並且上述邏輯可確保他們不會被踢出會話。
 
 ---
-
-
 
 ## 限制
 
