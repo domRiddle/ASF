@@ -349,12 +349,12 @@ _layout_ - Der zu rendernde Text. [Layout](https://github.com/NLog/NLog/wiki/Lay
 
 ##### HistoryTarget Optionen
 
-_maxCount_ - Maximale Anzahl der gespeicherten Protokolle für die Abrufhistorie. Nicht erforderlich. Die Standardeinstellung ist `20`, was eine gute Balance für die Bereitstellung der Anfangshistorie ist, während die Speichernutzung, die sich aus den Speicheranforderungen ergibt, immer noch im Auge behalten wird. Muss größer als `0` sein.
+_maxCount_ - Maximale Anzahl der gespeicherten Protokolle für die Abrufhistorie. Nicht erforderlich. Der Standardwert `20` ist eine gute Balance für die Bereitstellung der Anfangshistorie, während die Speichernutzung, die sich aus den Speicheranforderungen ergibt, weiterhin überwacht wird. Muss größer als `0` sein.
 
 ---
 
 ## Vorbehalt
 
-Achte darauf, wenn Sie sich entscheiden, `Debug` Logging-Ebene oder darunter in Ihrem `SteamTarget` mit `steamID` zu kombinieren, das am ASF-Prozess teilnimmt. Dies kann zu einer möglichen `StackOverflowException` führen, da Sie eine Endlosschleife erzeugen, in der ASF eine gegebene Nachricht empfängt, sie dann durch Steam protokolliert, was zu einer weiteren Nachricht führt, die protokolliert werden muss. Derzeit ist die einzige Möglichkeit dafür, `Trace` Ebene (wo ASF seine eigenen Chat-Nachrichten aufzeichnet), oder `Debug` Ebene zu protokollieren, während ASF auch im `Debug` Modus ausgeführt wird (wo ASF alle Steam-Pakete aufzeichnet).
+Achten Sie darauf, wenn Sie sich entscheiden, die Protokoll-Ebene(n) `Debug` (oder darunter) in Ihrem `SteamTarget` mit `steamID` zu kombinieren, das am ASF-Prozess teilnimmt. Dies kann zu einer möglichen `StackOverflowException` (Ausnahme) führen, da Sie eine Endlosschleife erzeugen, in der ASF eine gegebene Nachricht empfängt, sie dann durch Steam protokolliert, was zu einer weiteren Nachricht führt, die protokolliert werden muss. Derzeit sind die einzigen Möglichkeiten dafür die Protokollierung der Ebenen `Trace` (wo ASF seine eigenen Chat-Nachrichten aufzeichnet), oder `Debug` (im `Debug` Modus ausgeführt, wo ASF alle Steam-Pakete aufzeichnet).
 
-Kurz gesagt, wenn Ihre `steamID` am gleichen ASF-Prozess teilnimmt, dann sollte die `minlevel` Logging-Ebene Ihres `SteamTarget` `Info` (oder `Debug` sein, wenn Sie auch nicht ASF im `Debug` Modus) und darüber. Alternativ können Sie Ihre eigenen `<when>` Logging-Filter definieren, um eine unendliche Logging-Schleife zu vermeiden, wenn die Änderung des Levels nicht für Ihren Fall geeignet ist. Dies gilt auch für Gruppen-Chats.
+Kurz gesagt, wenn Ihre `steamID` am gleichen ASF-Prozess teilnimmt - dann sollte die `minlevel` Protokoll-Ebene Ihres `SteamTarget` - `Info` (oder im `Debug`, falls Sie ASF nicht im `Debug` Modus ausführen) sein, oder darüber. Alternativ können Sie Ihre eigenen `<when>` Protokoll-Filter definieren, um eine unendliche Schleife beim Protokollieren zu vermeiden, wenn die Änderung der Ebene nicht für Ihren Fall geeignet ist. Dies gilt auch für Gruppen-Chats.

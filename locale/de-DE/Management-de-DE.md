@@ -8,14 +8,14 @@ Dieser Abschnitt beschäftigt sich mit dem Thema, den ASF-Prozess optimal zu ver
 
 In den `generic` und `Linux` Varianten kommt ASF mit der Datei `ArchiSteamFarm@.service`, welche eine Konfigurationsdatei des Dienstes für **[`systemd`](https://systemd.io)** ist. Wenn Sie ASF als Dienst ausführen möchten, zum Beispiel um ihn nach dem Start Ihres Rechners automatisch zu starten, dann ist ein richtiger `systemd` Dienst wohl der beste Weg, dies zu erreichen. Daher empfehlen wir dies dringend, anstatt sie durch `nohup`, `screen` oder ähnlichem selbst zu verwalten.
 
-Firstly, create the account for the user you want to run ASF under, assuming it doesn't exist yet. We'll use `asf` user for this example, if you decided to use a different one, you'll need to substitute `asf` user in all of our examples below with your selected one. Our service does not allow you to run ASF as `root`, since it's considered a **[bad practice](#never-run-asf-as-administrator)**.
+Zuerst erstellen Sie das Konto für den Benutzer, unter dem Sie ASF betreiben möchten, sofern es noch nicht existiert. Wir verwenden für dieses Beispiel den Benutzer `asf`, wenn Sie sich für einen anderen entschieden haben Sie müssen `asf` in all unseren Beispielen durch Ihren ausgewählten Benutzer ersetzen. Unser Service erlaubt es Ihnen niemals, ASF mit `root` auszuführen, da es als **[schlechte Praxis](#f%C3%BChren-sie-asf-niemals-als-administrator-aus)** gilt.
 
 ```sh
 su # ODER sudo -i, um in die Root-Shell zu gelangen
 useradd -m asf # Erstellen Sie ein Konto unter dem Sie ASF ausführen wollen
 ```
 
-Next, unpack ASF to `/home/asf/ArchiSteamFarm` folder. The folder structure is important for our service unit, it should be `ArchiSteamFarm` folder in your `$HOME`, so `/home/<user>`. If you did everything correctly, there will be `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` file existing. If you're using `linux` variant and didn't unpack the file on Linux, but for example used file transfer from Windows, then you'll also need to `chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm`.
+Als nächstes entpacken Sie ASF in den Ordner `/home/asf/ArchiSteamFarm`. Die Ordnerstruktur ist wichtig für unsere Service-Einheit, es sollte in Ihrem Ordner `ArchiSteamFarm` Ordner `$HOME` sein; also `/home/<user>`. If you did everything correctly, there will be `/home/asf/ArchiSteamFarm/ArchiSteamFarm@.service` file existing. If you're using `linux` variant and didn't unpack the file on Linux, but for example used file transfer from Windows, then you'll also need to `chmod +x /home/asf/ArchiSteamFarm/ArchiSteamFarm`.
 
 We'll do all below actions as `root`, so get to its shell with `su` or `sudo -i`.
 
@@ -25,7 +25,7 @@ Secondly, if you're using generic variant of ASF, you need to ensure `dotnet` co
 
 Next, `cd /etc/systemd/system` and execute `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .`, this will create a symbolic link to our service declaration and register it in `systemd`. Symbolic link will allow ASF to update your `systemd` unit automatically as part of ASF update - depending on your situation, you may want to use that approach, or simply `cp` the file and manage it yourself however you'd like.
 
-Afterwards, ensure that `systemd` recognizes our service:
+Stellen Sie anschließend sicher, dass `systemd` unseren Dienst erkennt:
 
 ```
 systemctl status ArchiSteamFarm@asf
@@ -51,7 +51,7 @@ systemctl status ArchiSteamFarm@asf
 (...)
 ```
 
-If `systemd` states `active (running)`, it means everything went well, and you can verify that ASF process should be up and running, for example with `journalctl -r`, as ASF by default also writes to its console output, which is recorded by `systemd`. If you're satisfied with the setup you have right now, you can tell `systemd` to automatically start your service during boot, by executing `systemctl enable ArchiSteamFarm@asf` command. That's all.
+If `systemd` states `active (running)`, it means everything went well, and you can verify that ASF process should be up and running, for example with `journalctl -r`, as ASF by default also writes to its console output, which is recorded by `systemd`. If you're satisfied with the setup you have right now, you can tell `systemd` to automatically start your service during boot, by executing `systemctl enable ArchiSteamFarm@asf` command. Das war's!
 
 If by any chance you'd like to stop the process, simply execute `systemctl stop ArchiSteamFarm@asf`. Likewise, if you want to disable ASF from being started automatically on boot, `systemctl disable ArchiSteamFarm@asf` will do that for you, it's very simple.
 
@@ -61,7 +61,7 @@ Please note that, as there is no standard input enabled for our `systemd` servic
 
 Es ist möglich, zusätzliche Umgebungsvariablen für unseren `systemd`-Dienst bereitzustellen. Das ist für Sie interessant, wenn Sie zum Beispiel ein benutzerdefiniertes `--cryptkey` **[Befehlszeilenargument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-de-DE#argumente)**verwenden möchten - spezifizieren Sie daher `ASF_CRYPTKEY` Umgebungsvariable.
 
-Um benutzerdefinierte Umgebungsvariablen bereitzustellen, muss der Ordner `/etc/asf` (falls er nicht existiert), mit `mkdir -p /etc/asf` erstellt werden. We recommend to `chown -hR root:root /etc/asf && chmod 700 /etc/asf` to ensure that only `root` user has access to read those files, because they might contain sensitive properties such as `ASF_CRYPTKEY`. Afterwards, write to a `/etc/asf/<user>` file, where `<user>` is the user you're running the service under (`asf` in our example above, so `/etc/asf/asf`).
+Um benutzerdefinierte Umgebungsvariablen bereitzustellen, muss der Ordner `/etc/asf` (falls er nicht existiert), mit `mkdir -p /etc/asf` erstellt werden. Wir empfehlen `chown -hR root:root /etc/asf && chmod 700 /etc/asf` um sicherzustellen, dass nur der Benutzer `root` Zugang zum Lesen dieser Dateien hat; da diese empfindliche Eigenschaften (z. B. `ASF_CRYPTKEY`) enthalten könnten. Afterwards, write to a `/etc/asf/<user>` file, where `<user>` is the user you're running the service under (`asf` in our example above, so `/etc/asf/asf`).
 
 The file should contain all environment variables that you'd like to provide to the process. Those that do not have a dedicated environment variable, can be declared in `ASF_ARGS`:
 
@@ -81,13 +81,13 @@ Thanks to the flexibility of `systemd`, it's possible to overwrite part of ASF u
 In this example, we'd like to modify default ASF `systemd` unit behaviour from restarting only on success, to restarting also on fatal crashes. In order to do so, we'll override `Restart` property under `[Service]` from default of `on-success` to `always`. Simply execute `systemctl edit ArchiSteamFarm@asf`, naturally replacing `asf` with the target user of your service. Then add your changes as indicated by `systemd` in proper section:
 
 ```sh
-### Editing /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
-### Anything between here and the comment below will become the new contents of the file
+### Bearbeite /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
+### Alles zwischen diesem Kommentar und unten wird zur neuen Datei
 
 [Service]
 Restart=always
 
-### Lines below this comment will be discarded
+### Zeilen werden verworfen
 
 ### /etc/systemd/system/ArchiSteamFarm@asf.service
 # [Install]
@@ -124,10 +124,10 @@ After doing that, you should no longer get any kind of issue related to ASF not 
 ### Ich verwende `root`, weil ich nicht weiß, wie ich es sonst tun soll
 
 ```sh
-su # Or sudo -i, to get into root shell
-useradd -m asf # Create account you intend to run ASF under
-chown -hR asf:asf /path/to/ASF # Ensure your new user has access to the ASF directory
-su asf -c /path/to/ASF/ArchiSteamFarm # Or sudo -u asf /path/to/ASF/ArchiSteamFarm, to actually start the program under your user
+su # oder sudo -i, um in die Root-Shell zu gelangen
+useradd -m asf # Erstelle einen Account den Sie unter
+chown -hR asf:asf /path/zu/ASF ausführen möchten # Stellen Sie sicher dass dein neuer Benutzer Zugriff auf das ASF-Verzeichnis hat
+su asf -c /path/zu/ASF/ArchiSteamFarm hat # Oder sudo -u asf /path/zu/ASF/ArchiSteamFarm um das Programm tatsächlich unter Ihrem Benutzer zu starten
 ```
 
 That would be doing it manually, it's much easier to use our **[`systemd` service](#systemd-service-for-linux)** explained above.
