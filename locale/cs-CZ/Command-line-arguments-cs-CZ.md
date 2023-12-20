@@ -46,7 +46,7 @@ Nicméně, dvě jsou zcela v pořádku:
 
 `--cryptkey <key>` nebo `--cryptkey=<key>` - spustí ASF s vlastním kryptografickým klíčem s hodnotou `<key>`. Tato volba ovlivní **[bezpečnost](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security)** a způsobí, že ASF bude používat vlastní zadaný klíč `<key>`, namísto výchozího klíče, který je pevně nakódováný v programu. Protože tato vlastnost ovlivňuje výchozí šifrovací klíč (pro účely šifrování) i "sůl" (pro účely hashování), mějte na paměti, že vše, co je šifrováno/hashováno tímto klíčem, bude vyžadovat jeho předání při každém spuštění ASF.
 
-There is no requirement on `<key>` length or characters, but for security reasons we recommend to pick long enough passphrase made out of e.g. random 32 characters, for example by using `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` command on Linux.
+Na délku nebo počet znaků `<key>` nejsou kladeny žádné požadavky, ale z bezpečnostních důvodů doporučujeme zvolit dostatečně dlouhou heslovou frázi složenou např. z náhodných 32 znaků, např. pomocí příkazu `tr -dc A-Za-z0-9 < /dev/urandom | head -c 32; echo` v systému Linux.
 
 Je dobré zmínit, že existují také dva další způsoby, jak tento detail poskytnout: `--cryptkey-file` a `--input-cryptkey`.
 
@@ -54,13 +54,13 @@ Vzhledem k povaze této vlastnosti je také možné nastavit cryptkey deklarací
 
 ---
 
-`--cryptkey-file <path>` nebo `--cryptkey-file=<path>` - spustí ASF s vlastním kryptografickým klíčem načteným ze souboru `<path>`. Slouží ke stejnému účelu jako `--cryptkey <key>` vysvětlený výše, liší se pouze mechanismem, protože tato vlastnost bude místo toho číst `<key>` z poskytnutého `<path>`. If you're using this together with `--path`, consider declaring `--path` first so relative paths can work correctly.
+`--cryptkey-file <path>` nebo `--cryptkey-file=<path>` - spustí ASF s vlastním kryptografickým klíčem načteným ze souboru `<path>`. Slouží ke stejnému účelu jako `--cryptkey <key>` vysvětlený výše, liší se pouze mechanismem, protože tato vlastnost bude místo toho číst `<key>` z poskytnutého `<path>`. Pokud tuto funkci používáte společně s příkazem `--path`, zvažte nejprve deklarování příkazu `--path`, aby mohly správně fungovat relativní cesty.
 
 Vzhledem k povaze této vlastnosti je také možné nastavit soubor šifrovacího klíče deklarací proměnné prostředí `ASF_CRYPTKEY_FILE`, což může být vhodnější pro ty, kteří se chtějí vyhnout citlivým údajům v argumentech procesu.
 
 ---
 
-`--ignore-unsupported-environment` - způsobí, že ASF bude ignorovat problémy spojené se spuštěním v nepodporovaném prostředí, což je obvykle signalizováno chybou a vynuceným ukončením. Unsupported environment includes for example running `win-x64` OS-specific build on `linux-x64`. While this flag will allow ASF to attempt running in such scenarios, be advised that we do not support those officially and you're forcing ASF to do it entirely **at your own risk**. As of today, **all** of the unsupported environment scenarios can be corrected. Rozhodně doporučujeme raději opravit nevyřešené problémy namísto nastavování tohoto argumentu.
+`--ignore-unsupported-environment` - způsobí, že ASF bude ignorovat problémy spojené se spuštěním v nepodporovaném prostředí, což je obvykle signalizováno chybou a vynuceným ukončením. Mezi nepodporovaná prostředí patří například spuštění `win-x64` buildu na `linux-x64`. Tento příznak sice umožní, aby se ASF pokusil o spuštění v takových situacích, ale upozorňujeme, že tyto případy oficiálně nepodporujeme a nutíte k tomu ASF zcela **na vlastní riziko**. As of today, **all** of the unsupported environment scenarios can be corrected. Rozhodně doporučujeme raději opravit nevyřešené problémy namísto nastavování tohoto argumentu.
 
 ---
 
@@ -68,13 +68,13 @@ Vzhledem k povaze této vlastnosti je také možné nastavit soubor šifrovacíh
 
 ---
 
-`--minimized` - will make ASF console window minimize shortly after start. Useful mainly in auto-start scenarios, but can also be used outside of those. Currently this switch has effect only on Windows machines.
+`--minimized` - způsobí, že se okno konzole ASF krátce po spuštění minimalizuje. Toto chování je užitečné hlavně v případě automatického spuštění, ale lze je použít i mimo ně. V současné době má tento příznak vliv pouze na Windows zařízeních.
 
 ---
 
-`--network-group <group>` nebo `--network-group=<group>` - způsobí, že ASF inicializuje své omezovače s vlastní síťovou skupinou o hodnotě `<group>`. Tato možnost ovlivňuje běh ASF ve **[více instancích](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** tím, že signalizuje, že daná instance je závislá pouze na sdílené síťové skupině, a nezávislá na ostatních. Obvykle chcete tuto vlastnost použít pouze v případě, že směrujete požadavky ASF prostřednictvím vlastního mechanismu (např. různé IP adresy) a chcete sami nastavit síťové skupiny, aniž byste se spoléhali na to, že to ASF udělá automaticky (což v současné době zahrnuje pouze zohlednění `WebProxy`). Keep in mind that when using a custom network group, this is unique identifier within the local machine, and ASF will not take into account any other details, such as `WebProxy` value, allowing you to e.g. start two instances with different `WebProxy` values which are still dependent on each other.
+`--network-group <group>` nebo `--network-group=<group>` - způsobí, že ASF inicializuje své omezovače s vlastní síťovou skupinou o hodnotě `<group>`. Tato možnost ovlivňuje běh ASF ve **[více instancích](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#multiple-instances)** tím, že signalizuje, že daná instance je závislá pouze na sdílené síťové skupině, a nezávislá na ostatních. Obvykle chcete tuto vlastnost použít pouze v případě, že směrujete požadavky ASF prostřednictvím vlastního mechanismu (např. různé IP adresy) a chcete sami nastavit síťové skupiny, aniž byste se spoléhali na to, že to ASF udělá automaticky (což v současné době zahrnuje pouze zohlednění `WebProxy`). Mějte na paměti, že při použití vlastní síťové skupiny se jedná o jedinečný identifikátor v rámci místního počítače a ASF nebude brát v úvahu žádné další údaje, jako je hodnota `WebProxy`, což vám umožní např. spustit dvě instance s různými hodnotami `WebProxy`, které jsou na sobě stále závislé.
 
-Due to the nature of this property, it's also possible to set the value by declaring `ASF_NETWORK_GROUP` environment variable, which may be more appropriate for people that would want to avoid sensitive details in the process arguments.
+Vzhledem k povaze této vlastnosti je možné hodnotu nastavit také deklarací proměnné prostředí `ASF_NETWORK_GROUP`, což může být vhodnější pro ty, kteří se chtějí vyhnout citlivým údajům v argumentech procesu.
 
 ---
 

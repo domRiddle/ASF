@@ -97,7 +97,7 @@ Nach dem Öffnen der Seite klicke auf "Bot". Du solltest nun eine ähnliche Seit
 
 Wenn die Version von ASF, die Du gerade heruntergeladen hast, älter ist als der Konfigurationsgenerator, der standardmäßig verwendet wird, wähle einfach deine ASF-Version aus dem Dropdown-Menü. Dies kann passieren, da der Konfigurationsgenerator zum Erzeugen von Konfigurationen für neuere (Vorabversionen) ASF-Versionen verwendet werden kann, die noch nicht als stabil markiert wurden. Du hast die neueste stabile Version von ASF heruntergeladen, die auf Ihre zuverlässige Funktion überprüft wurde.
 
-Beginne damit, den Namen deines Bot in das rot markierte Feld zu schreiben. Dies kann jeder beliebige Name sein, den Du verwenden möchtest, wie z. B. dein Spitzname, Kontoname, eine Nummer oder etwas anderes. Es gibt nur ein Wort, das Du nicht verwenden kannst, nämlich `ASF`, da dieses Schlüsselwort für die globale Konfigurationsdatei reserviert ist. Außerdem kann dein Bot-Name nicht mit einem Punkt beginnen (ASF ignoriert diese Dateien absichtlich). Wir empfehlen dir auch keine Leerzeichen zu verwenden. Du solltest bei Bedarf `_` als Trennzeichen verwenden.
+Beginne damit, den Namen deines Bot in das rot markierte Feld zu schreiben. Dies kann jeder beliebige Name sein, den Du verwenden möchtest, wie z. B. dein Spitzname, Kontoname, eine Nummer oder etwas anderes. Es gibt nur ein Wort, das Du nicht verwenden kannst, nämlich `ASF`, da dieses Schlüsselwort für die globale Konfigurationsdatei reserviert ist. Außerdem kann dein Bot-Name nicht mit einem Punkt beginnen (ASF ignoriert diese Dateien absichtlich). Wir empfehlen dir auch keine Leerzeichen zu verwenden. Du solltest bei Bedarf `_` als Trennzeichen verwenden.
 
 Nachdem Du dich für einen Namen entschieden hast, aktiviere den `Enabled` Schalter. Hiermit wird festgelegt, ob dein Bot von ASF automatisch nach dem Start (des Programms) gestartet werden soll.
 
@@ -109,7 +109,7 @@ Wenn Du das erste tust, kann ASF deine Konto-Anmeldeinformationen während des S
 
 ASF benötigt deine Anmeldeinformationen, da es seine eigene Implementierung des Steam-Clients beinhaltet und die gleichen Details benötigt, die Du selbst benutzt um dich anzumelden. Deine Anmeldeinformationen werden nirgends außer auf deinem PC im `config` ASF-Verzeichnis gespeichert. Unser Web-Konfigurationsgenerator ist client-basiert, was bedeutet, dass der Programmcode lokal in deinem Browser ausgeführt wird, um gültige ASF-Konfigurationen zu generieren, ohne dass Du Details eingibst, die deinen PC überhaupt erst verlassen, sodass Du dir keine Sorgen über einen möglichen Verlust vertraulicher Daten machen musst. Dennoch, wenn Du aus irgendeinem Grund deine Zugangsdaten dort nicht eingeben möchtest, verstehen wir das, und Du kannst sie später manuell in generierte Dateien einfügen, oder sie ganz weglassen und sie nur in die ASF-Befehlszeile eingeben. Mehr zu Sicherheitsfragen findest Du im Abschnitt **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**.
 
-Du kannst auch nur ein Feld leer lassen, wie z. B. `SteamPassword`. ASF kann dann dein Login automatisch verwenden, fragt aber trotzdem nach dem Passwort (ähnlich wie beim Steam Client). Wenn Du die Steam-Familienansicht benutzt um das Konto freizuschalten musst Du es in das Feld `SteamParentalCode` eingeben.
+Du kannst auch nur ein Feld leer lassen, wie z. B. `SteamPassword`. ASF kann dann dein Login automatisch verwenden, fragt aber trotzdem nach dem Passwort (ähnlich wie beim Steam Client). Wenn Du die Steam-Familienansicht benutzt um das Konto freizuschalten musst Du es in das Feld `SteamParentalCode` eingeben.
 
 Nach der Entscheidung und den optionalen Details wird deine Webseite nun ähnlich wie die untenstehende aussehen:
 
@@ -154,7 +154,7 @@ Dies schließt unseren sehr einfachen Einrichtungsleitfaden ab. Du kannst nun en
 ASF supports farming more than one account at a time, which is its primary function. Du kannst weitere Konten zu ASF hinzufügen, indem Du mehr Bot-Konfigurationsdateien erzeugst, genau so, wie Du deine erste vor wenigen Minuten generiert hast. Du musst nur zwei Dinge sicherstellen:
 
 - Eindeutiger Bot-Name, wenn Du bereits Ihren ersten Bot "HauptKonto" genannt hast, kannst Du keinen weiteren so nennen.
-- Gültige Anmeldedaten, wie z. B. `SteamLogin`, `SteamPassword` und `SteamParentalCode` (bei Verwendung der Steam Parental Einstellungen)
+- Gültige Anmeldedaten, wie z. B. `SteamLogin`, `SteamPassword` und `SteamParentalCode` (bei Verwendung der Steam Parental Einstellungen)
 
 Mit anderen Worten, gehe einfach erneut zur Konfiguration und mache genau das Gleiche, nur für dein zweites oder drittes Konto. Vergiss nicht für alle deine Bots eindeutige Namen zu verwenden.
 
@@ -209,7 +209,7 @@ Du hast ASF bereits erfolgreich so eingestellt, dass es deine Steam-Konten nutzt
 Dieses Setup richtet sich an fortgeschrittene Benutzer, die ASF so einrichten möchten, dass es in der Variante **[generic](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE#generic)** ausgeführt wird. While being more troublesome in usage than **[OS-specific variants](#os-specific-setup)**, they also come with additional benefits.
 
 You want to use `generic` variant mainly in those situations (but of course you can use it regardless):
-- Wenn Du ein Betriebssystem verwendest, für das wir kein betriebssystemspezifisches Paket erstellen (z. B. 32-Bit Windows)
+- Wenn Du ein Betriebssystem verwendest, für das wir kein betriebssystemspezifisches Paket erstellen (z. B. 32-Bit Windows)
 - When you already have .NET Runtime/SDK, or want to install and use one
 - When you want to minimize ASF structure size and memory footprint by handling runtime requirements yourself
 - When you want to use a custom **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** which requires a `generic` setup of ASF to run properly (due to missing native dependencies)
@@ -226,4 +226,4 @@ Mit zusätzlichen Schritten:
 - **[ASF konfigurieren](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**.
 - Starte ASF entweder mit einem Hilfsskript oder führe `dotnet /pfad/zu/ArchiSteamFarm.dll` aus Ihrer Lieblingsshell heraus manuell aus.
 
-Hilfs-Skripte (z. B. `ArchiSteamFarm.cmd` für Windows und `ArchiSteamFarm.sh` Linux/macOS befinden sich neben der `ArchiSteamFarm.dll` Binärdatei - diese sind lediglich in der `generic` Variante enthalten. Sie können diese verwenden, wenn Sie den Befehl `dotnet` nicht manuell ausführen möchten. Obviously helper scripts won't work if you didn't install .NET SDK and you don't have `dotnet` executable available in your `PATH`. Hilfs-Skripte sind völlig optional verwendbar, Sie können jederzeit `dotnet /pfad/zu/ArchiSteamFarm.dll` manuell eingeben.
+Hilfs-Skripte (z. B. `ArchiSteamFarm.cmd` für Windows und `ArchiSteamFarm.sh` Linux/macOS befinden sich neben der `ArchiSteamFarm.dll` Binärdatei - diese sind lediglich in der `generic` Variante enthalten. Sie können diese verwenden, wenn Sie den Befehl `dotnet` nicht manuell ausführen möchten. Obviously helper scripts won't work if you didn't install .NET SDK and you don't have `dotnet` executable available in your `PATH`. Hilfs-Skripte sind völlig optional verwendbar, Sie können jederzeit `dotnet /pfad/zu/ArchiSteamFarm.dll` manuell eingeben.

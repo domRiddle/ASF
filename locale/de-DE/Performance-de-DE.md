@@ -32,7 +32,7 @@ Dies ist einer der Gründe, warum Du keinen Karten-Sammel-Algorithmus wählst, s
 
 Make sure you have some games with **no playtime recorded** to farm, preferably 5+, and run ASF with `HoursUntilCardDrops` of `0`. Es wäre eine gute Idee, wenn Du während des Sammelns nichts spielen würdest, um genauere Ergebnisse zu erzielen (am besten ASF nachts laufen lassen). Lass ASF diese 5 Spiele sammeln und schaue Ihren danach das Protokoll an, um die Ergebnisse zu sehen.
 
-ASF zeigt deutlich an, wann eine Karte für ein bestimmtes Spiel gesammelt wurde. Du möchtest den schnellsten Karten Drop den ASF erreicht hat. Wenn dein Konto beispielsweise uneingeschränkt ist, sollte ein erster Karten Drop nach etwa 30 Minuten seit Beginn des Sammelns erfolgen. If you notice **at least one** game that did drop card in those initial 30 minutes, then this is an indicator that your account is **not** restricted and should use `HoursUntilCardDrops` of `0`.
+ASF zeigt deutlich an, wann eine Karte für ein bestimmtes Spiel gesammelt wurde. Du möchtest den schnellsten Karten Drop den ASF erreicht hat. Wenn dein Konto beispielsweise uneingeschränkt ist, sollte ein erster Karten Drop nach ungefähr 30 Minuten seit Beginn des Sammelns erfolgen. If you notice **at least one** game that did drop card in those initial 30 minutes, then this is an indicator that your account is **not** restricted and should use `HoursUntilCardDrops` of `0`.
 
 On the other hand, if you notice that **every** game is taking at least `X` amount of hours before it drops its first card, then this is an indicator to you what you should set `HoursUntilCardDrops` to. Die Mehrheit (wenn nicht gar alle) der eingeschränkten Benutzer benötigen mindestens `3` Stunden Spielzeit, damit die Karten gesammelt werden und dies ist auch der Standardwert für die Einstellung `HoursUntilCardDrops`.
 
@@ -56,7 +56,7 @@ E ist gut zu wissen, dass ASF ebenfalls einen manuellen Sammelmodus besitzt, wel
 
 ## Steam Pannen
 
-Der Algorithmus zum Sammeln von Karten funktioniert nicht immer so, wie er sollte, und es ist durchaus möglich, dass verschiedene Steam-Pannen auftreten, wie z. B. Karten, die auf eingeschränkten Konten gesammelt werden, Karten, die beim Schließen/Schalten des Spiels gesammelt werden, Karten, die beim Spielen überhaupt nicht gesammelt werden, und ebenso.
+Der Algorithmus zum Sammeln von Karten funktioniert nicht immer so, wie er sollte, und es ist durchaus möglich, dass verschiedene Steam-Pannen auftreten, wie z. B. Karten, die auf eingeschränkten Konten gesammelt werden, Karten, die beim Schließen/Schalten des Spiels gesammelt werden, Karten, die beim Spielen überhaupt nicht gesammelt werden, und ebenso.
 
 This section is mainly for people that are wondering why ASF doesn't do **X**, such as rapidly switching games to farm cards faster.
 

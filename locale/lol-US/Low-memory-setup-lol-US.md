@@ -87,7 +87,7 @@ DIS OFFERS LIL IMPROOVEMENT, BUT CUD MAK GC EVEN MOAR AGGRESIV WHEN SISTEM WILL 
 U CAN ENABLE SELECTD PROPERTIEZ BY SETTIN APPROPRIATE ENVIRONMENT VARIABLEZ. 4 EXAMPLE, ON LINUX (SHELL):
 
 ```shell
-# Don't forget to tune those if you're planning to make use of them
+# DOAN FORGET 2 TUNE DOSE IF URE PLANNIN 2 MAK USE OV THEM
 export DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
 export DOTNET_GCHighMemPercent=0x50 # 80% as hex
 
@@ -102,7 +102,7 @@ export DOTNET_gcTrimCommitOnLowMemory=1
 OR ON WINDOWS (POWERSHELL):
 
 ```powershell
-# Don't forget to tune those if you're planning to make use of them
+# DOAN FORGET 2 TUNE DOSE IF URE PLANNIN 2 MAK USE OV THEM
 $Env:DOTNET_GCHeapHardLimitPercent=0x4B # 75% as hex
 $Env:DOTNET_GCHighMemPercent=0x50 # 80% as hex
 

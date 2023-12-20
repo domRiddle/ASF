@@ -57,7 +57,7 @@ TEH AUTHENTICATOR DETAILS R NOT OPERASHUNAL YET, HOWEVR, U CAN REVIEW TEH GENERA
 
 IF U WANTS 2 USE ASF AS UR MAIN (OR EVEN ONLY) AUTHENTICATOR, NAO U NED 2 DO TEH FINALIZASHUN STEP:
 
-5. Execute the `2fafinalize [Bot] <ActivationCode>` command, replacing `[Bot]` with your bot's name and `<ActivationCode>` with the code you've received through SMS or e-mail in the previous step.
+5. EXECUTE TEH `2fafinalize [Bot] <ActivationCode>` COMMAND, REPLACIN `[Bot]` WIF UR BOTS NAYM AN `<ActivationCode>` WIF TEH CODE UVE RECEIVD THRU SMS RO MALI IN DA PREVIOUS STEP.
 
 ### JOINT AUTHENTICATOR
 

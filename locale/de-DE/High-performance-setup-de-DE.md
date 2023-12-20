@@ -1,6 +1,6 @@
 # Hochperformantes Einrichtung
 
-Dies ist genau das Gegenteil des **[speichereffizienten Setups](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE#speichereffizientes-setup)** und normalerweise möchten Sie diesen Tipps folgen, wenn Sie die ASF-Leistung (in Bezug auf die CPU-Geschwindigkeit) weiter steigern möchten - meist auf Kosten einer erhöhten Speichernutzung.
+Dies ist genau das Gegenteil des **[speichereffizienten Setups](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE#speichereffizientes-setup)** und normalerweise möchten Sie diesen Tipps folgen, wenn Sie die ASF-Leistung (in Bezug auf die CPU-Geschwindigkeit) weiter steigern möchten – meist auf Kosten einer erhöhten Speichernutzung.
 
 ---
 
@@ -14,7 +14,7 @@ Die folgenden Tricks **beanspruchen eine ernsthafte Steigerung der benötigten S
 
 Die empfohlene Methode, diese Einstellungen anzuwenden, ist über `DOTNET_` Umgebungsvariablen. Natürlich können Sie auch andere Methoden verwenden (z.B. `runtimeconfig.json`), aber einige Einstellungen können auf diese Weise nicht gesetzt werden, und darüber hinaus ersetzt ASF Ihre benutzerdefinierte `runtimeconfig.json` mit der Eigenen beim nächsten Update; daher empfehlen wir Umgebungsvariablen, die Sie leicht einstellen können, bevor Sie den Prozess starten.
 
-.NET Runtime ermöglicht Ihnen den **[Garbage Collector](https://learn.microsoft.com/de-de/dotnet/core/runtime-config/garbage-collector)** auf viele Arten zu optimieren - stellen Sie den GC-Prozess effizient nach Ihren Bedürfnissen ein. Wir haben nachfolgend Variablen dokumentiert, die unserer Meinung nach besonders wichtig sind.
+.NET Runtime ermöglicht Ihnen den **[Garbage Collector](https://learn.microsoft.com/de-de/dotnet/core/runtime-config/garbage-collector)** auf viele Arten zu optimieren – stellen Sie den GC-Prozess effizient nach Ihren Bedürfnissen ein. Wir haben nachfolgend Variablen dokumentiert, die unserer Meinung nach besonders wichtig sind.
 
 ### [`gcServer`](https://learn.microsoft.com/de-de/dotnet/core/runtime-config/garbage-collector#flavors-of-garbage-collection)
 
@@ -34,7 +34,7 @@ Wenn jedoch der Speicher kein Problem für Sie ist (da GC immer noch Ihren verf�
 
 > Diese Einstellung ermöglicht eine dynamische oder gestaffelt profilorientierte Optimierung (PGO) in .NET 6 und höher Versionen.
 
-Standardmäßig deaktiviert. Kurz gesagt - dies wird dazu führen, dass JIT mehr Zeit mit der Analyse des ASF-Codes und dessen Muster verbringt, um überlegenen Code zu generieren, der für Ihre typische Verwendung optimiert wurde. Wenn Sie mehr über diese Einstellung erfahren möchten, besuchen Sie **[Leistungsverbesserungen in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**.
+Standardmäßig deaktiviert. Kurz gesagt – dies wird dazu führen, dass JIT mehr Zeit mit der Analyse des ASF-Codes und dessen Muster verbringt, um überlegenen Code zu generieren, der für Ihre typische Verwendung optimiert wurde. Wenn Sie mehr über diese Einstellung erfahren möchten, besuchen Sie **[Leistungsverbesserungen in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**.
 
 ### **[`DOTNET_ReadyToRun`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#readytorun)**
 
@@ -73,8 +73,8 @@ $Env:DOTNET_ReadyToRun=0
 ## Empfohlene Optimierung
 
 - Vergewissern Sie sich, dass Sie den Standardwert `MaxPerformance` für `OptimizationMode` verwenden. Dies ist bei weitem die wichtigste Einstellung, da die Verwendung des Wertes `MinMemoryUsage` dramatische Auswirkungen auf die Leistung hat.
-- Aktiviert den Server GC. Server GC kann sofort als aktiv angesehen werden - durch eine signifikante Speichererhöhung im Vergleich zum Arbeitsstation-GC. Dies erstellt einen GC-Thread für jeden CPU-Thread, den Ihr Gerät besitzt, um GC-Operationen parallel mit maximaler Geschwindigkeit durchzuführen.
-- Wenn Sie sich aufgrund von Server GC keine Speichererhöhung leisten können, könnten Sie die Änderung von **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE#gclatencylevel)** und/oder **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE#gcheaphardlimitpercent)** erwägen, um das Beste beider Welten zu erreichen. Wenn Ihr Speicher es sich jedoch leisten kann, dann ist es besser, es bei der Standardeinstellung zu belassen - Server GC optimiert sich bereits während der Laufzeit und ist intelligent genug um weniger Speicher zu verbrauchen, wenn das Betriebssystem es wirklich benötigt.
+- Aktiviert den Server GC. Server GC kann sofort als aktiv angesehen werden – durch eine signifikante Speichererhöhung im Vergleich zum Arbeitsstation-GC. Dies erstellt einen GC-Thread für jeden CPU-Thread, den Ihr Gerät besitzt, um GC-Operationen parallel mit maximaler Geschwindigkeit durchzuführen.
+- Wenn Sie sich aufgrund von Server GC keine Speichererhöhung leisten können, könnten Sie die Änderung von **[`GCLatencyLevel`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE#gclatencylevel)** und/oder **[`GCHeapHardLimitPercent`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE#gcheaphardlimitpercent)** erwägen, um das Beste beider Welten zu erreichen. Wenn Ihr Speicher es sich jedoch leisten kann, dann ist es besser, es bei der Standardeinstellung zu belassen – Server GC optimiert sich bereits während der Laufzeit und ist intelligent genug um weniger Speicher zu verbrauchen, wenn das Betriebssystem es wirklich benötigt.
 - Sie können auch eine erhöhte Optimierung für längere Startzeiten in Betracht ziehen, indem Sie durch weitere `DOTNET_` Variablen (oben erklärt) zusätzlich einstellen.
 
 Die oben genannten Empfehlungen ermöglichen Ihnen eine überlegene ASF-Leistung, die auch mit Hunderten oder Tausenden von aktivierten Bots schnell sein sollte. Die CPU sollte kein Engpass mehr sein, da ASF in der Lage ist, bei Bedarf die gesamte CPU-Leistung zu nutzen, was die benötigte Zeit auf ein Minimum reduziert. Der nächste Schritt wären CPU und RAM Upgrades.

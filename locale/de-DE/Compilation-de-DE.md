@@ -32,7 +32,7 @@ Sie können auch das betriebssystemspezifische .NET Paket erstellen, falls es ei
 dotnet publish ArchiSteamFarm -c "Release" -o "out/linux-x64" -r "linux-x64"
 ```
 
-Natürlich sollten Sie `linux-x64` durch eine Betriebssystemarchitektur ersetzen, die Sie anvisieren, wie etwa `win-x64`. Auch in diesem Build werden Aktualisierungen deaktiviert sein.
+Natürlich sollten Sie `linux-x64` durch eine Betriebssystemarchitektur ersetzen, die Sie anvisieren, wie z. B. `win-x64`. Auch in diesem Build werden Aktualisierungen deaktiviert sein.
 
 ### ASF-UI
 
