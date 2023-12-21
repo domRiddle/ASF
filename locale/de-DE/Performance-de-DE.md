@@ -56,7 +56,7 @@ E ist gut zu wissen, dass ASF ebenfalls einen manuellen Sammelmodus besitzt, wel
 
 ## Steam Pannen
 
-Der Algorithmus zum Sammeln von Karten funktioniert nicht immer so, wie er sollte, und es ist durchaus möglich, dass verschiedene Steam-Pannen auftreten, wie z. B. Karten, die auf eingeschränkten Konten gesammelt werden, Karten, die beim Schließen/Schalten des Spiels gesammelt werden, Karten, die beim Spielen überhaupt nicht gesammelt werden, und ebenso.
+Der Algorithmus zum Sammeln von Karten funktioniert nicht immer so, wie er sollte, und es ist durchaus möglich, dass verschiedene Steam-Pannen auftreten, z. B. Karten, die auf eingeschränkten Konten gesammelt werden, Karten, die beim Schließen/Schalten des Spiels gesammelt werden, Karten, die beim Spielen überhaupt nicht gesammelt werden, und ebenso.
 
 This section is mainly for people that are wondering why ASF doesn't do **X**, such as rapidly switching games to farm cards faster.
 

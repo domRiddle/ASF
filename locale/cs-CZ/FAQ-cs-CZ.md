@@ -16,7 +16,7 @@ Toto FAQ obsahuje odpovědi na obyklé otázky. Pro méně obvyklé dotazy navš
 
 ### Co je ASF?
 ### Proč program tvrdí, že na mém účtu není nic k farmení?
-### Why ASF doesn't detect all of my games?
+### Proč ASF nedetekuje všechny mé hry?
 ### Proč je můj účet omezený?
 
 Dříve než se pokusíte pochopit, co je ASF, měli byste se ujistit, že rozumíte tomu, co jsou Steam karty a jak je získat, což je dobře popsáno v oficiálním FAQ **[zde](https://steamcommunity.com/tradingcards/faq)**.
@@ -25,8 +25,8 @@ Ve zkratce, Steam karty jsou sbíratelné položky, které můžete získat při
 
 Core points are stated once again here, because people in general don't want to agree with them and prefer to pretend that those do not exist:
 
-- **You need to own the game on your Steam account in order to be eligible for any card drops from it. Rodinné sdílení se nepočítá.**
-- **You can't farm the game infinitely, every game has fixed number of card drops. Once you drop all of them (around a half of the full set), the game is not a candidate for farming anymore. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
+- **Musíte být vlastníkem hry, abyste byl způsobilý pro získání karet. Rodinné sdílení se nepočítá.**
+- **Nemůžete farmit hru donekonečna, každá hra má pevně stanovený počet karet, který lze získat. Once you drop all of them (around a half of the full set), the game is not a candidate for farming anymore. It doesn't matter whether you've sold, traded, crafted or forgot what happened to those cards you've obtained, once you run out of card drops, the game is finished.**
 - **You can't drop cards from F2P games without spending any money in them. This means permanently F2P games like Team Fortress 2 or Dota 2. Owning F2P games does not grant you card drops.**
 - **You can't drop cards on [limited accounts](https://help.steampowered.com/faqs/view/71D3-35C2-AD96-AA3A), regardless of owned games. It was possible in the past, but it's no longer the case.**
 - **Paid games that you've obtained for free during a promotion can't be farmed for card drops, regardless of what is displayed on the store page. It was possible in the past, but it's no longer the case.**

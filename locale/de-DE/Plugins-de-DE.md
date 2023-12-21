@@ -6,7 +6,7 @@ ASF includes support for custom plugins that can be loaded during runtime. Plugi
 
 ## Für Benutzer
 
-ASF lädt Plugins aus dem Verzeichnis `plugins`, das sich in Ihrem ASF-Ordner befindet. Es wird empfohlen, für jedes Plugin das Du verwenden möchtest ein eigenes Verzeichnis zu erstellen, das auf seinem Namen basieren kann, wie z. B. `MeinPlugin`. Dies führt zur finalen Baumstruktur von `plugins/MeinPlugin`. Schließlich sollten alle Binärdateien des Plugins in diesem speziellen Ordner abgelegt werden. ASF wird dein Plugin nach dem Neustart ordnungsgemäß erkennen und verwenden.
+ASF lädt Plugins aus dem Verzeichnis `plugins`, das sich in Ihrem ASF-Ordner befindet. Es wird empfohlen, für jedes Plugin das Du verwenden möchtest ein eigenes Verzeichnis zu erstellen, das auf seinem Namen basieren kann, z. B. `MeinPlugin`. Dies führt zur finalen Baumstruktur von `plugins/MeinPlugin`. Schließlich sollten alle Binärdateien des Plugins in diesem speziellen Ordner abgelegt werden. ASF wird dein Plugin nach dem Neustart ordnungsgemäß erkennen und verwenden.
 
 Normalerweise veröffentlichen Plugin-Entwickler Ihre Plugins in Form einer `zip`-Datei mit bereits vorbereiteter Struktur für Sie, sodass es genügt, das Zip-Archiv in das Verzeichnis `plugins` zu entpacken, welches automatisch den entsprechenden Ordner erstellt.
 
@@ -14,7 +14,7 @@ Wenn das Plugin erfolgreich geladen wurde siehst Du seinen Namen und seine Versi
 
 Du findest einige der vorgestellten Plugins in unserem **[Drittanbieter](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Third-party-de-DE#asf-plugins)** Abschnitt.
 
-**Bitte beachte, dass ASF-Plugins möglicherweise gefährlich sein können**. Du solltest immer sicherstellen, dass Du Plugins von Entwicklern verwendest denen Du vertrauen kannst. Die ASF-Entwickler können Ihren die üblichen ASF-Vorteile (wie z. B. keine Schadsoftware oder VAC-Freiheit) nicht mehr garantieren, wenn Du dich dazu entscheidest benutzerdefinierte Plugins zu verwenden. You need to understand that plugins have full control over ASF process once loaded, due to that we're also unable to support setups that utilize custom plugins, since you're no longer running vanilla ASF code.
+**Bitte beachte, dass ASF-Plugins möglicherweise gefährlich sein können**. Du solltest immer sicherstellen, dass Du Plugins von Entwicklern verwendest denen Du vertrauen kannst. Die ASF-Entwickler können Ihren die üblichen ASF-Vorteile (z. B. keine Schadsoftware oder VAC-Freiheit) nicht mehr garantieren, wenn Du dich dazu entscheidest benutzerdefinierte Plugins zu verwenden. You need to understand that plugins have full control over ASF process once loaded, due to that we're also unable to support setups that utilize custom plugins, since you're no longer running vanilla ASF code.
 
 ---
 

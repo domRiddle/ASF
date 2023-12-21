@@ -94,7 +94,7 @@ Die Konfigurationsdatei basiert auf folgender JSON-Struktur:
 }
 ```
 
-`Endpoints` ist eine Sammlung von Endpunkten, wobei jeder Endpunkt seinen eigenen eindeutigen Namen hat (wie z. B. `example-http4`) und eine `Url` Variable, welche die `Protokoll://Host:Port` Abhöradresse angibt. Standardmäßig hört ASF auf IPv4- und IPv6-Http-Adressen, aber wir haben https-Beispiele hinzugefügt, die Sie bei Bedarf verwenden können. Sie sollten nur die Endpunkte deklarieren, die Sie benötigen. Wir haben oben vier Beispiele hinzugefügt damit Sie diese leichter bearbeiten können.
+`Endpoints` ist eine Sammlung von Endpunkten, wobei jeder Endpunkt seinen eigenen eindeutigen Namen hat (z. B. `example-http4`) und eine `Url` Variable, welche die `Protokoll://Host:Port` Abhöradresse angibt. Standardmäßig hört ASF auf IPv4- und IPv6-Http-Adressen, aber wir haben https-Beispiele hinzugefügt, die Sie bei Bedarf verwenden können. Sie sollten nur die Endpunkte deklarieren, die Sie benötigen. Wir haben oben vier Beispiele hinzugefügt damit Sie diese leichter bearbeiten können.
 
 Ein `Host` akzeptiert entweder `localhost` (eine feste IP-Adresse der Schnittstelle), auf der er lauschen soll (IPv4/IPv6), oder den Wert `*`, der den HTTP-Server von ASF an alle verfügbaren Schnittstellen bindet. Die Verwendung anderer Werte (wie `mydomain.com` oder `192.168.0.`) agiert wie `*`; die IP-Filterung ist damit deaktiviert. Seien Sie daher äußerst vorsichtig, wenn Sie `Host` Werte verwenden, die einen entfernten Zugriff ermöglichen. Dadurch wird der Zugriff auf die IPC-Schnittstelle von ASF von anderen Geräten aus ermöglicht, was ein Sicherheitsrisiko darstellen kann. In diesem Fall empfehlen wir dringend **mindestens** die Nutzung von `IPCPassword` (und vorzugsweise auch einer eigenen Firewall).
 
@@ -279,7 +279,7 @@ Die zweite Möglichkeit besteht darin eine **[benutzerdefinierte Konfiguration](
 
 ### Beim Starten des IPC erhalte ich den Fehler: `System.IO.IOException: Failed to bind to address, An attempt was made to access a socket in a way forbidden by its access permissions`
 
-Dieser Fehler deutet darauf hin, dass etwas anderes auf Ihrem Gerät diesen Port bereits verwendet oder für zukünftige Nutzung reserviert hat. Dies könnte passieren, wenn Sie versuchen, eine zweite ASF-Instanz auf demselben Gerät auszuführen; aber am häufigsten schließt Windows den Port `1242` von Ihrer Nutzung aus, daher müssen Sie ASF auf einen anderen Port einstellen. Um dies zu erreichen, folgen Sie die **[Beispiel-Konfiguration](#changing-default-port)** oben, und versuchen Sie einfach einen anderen Port auszuwählen (wie z. B. `12420`).
+Dieser Fehler deutet darauf hin, dass etwas anderes auf Ihrem Gerät diesen Port bereits verwendet oder für zukünftige Nutzung reserviert hat. Dies könnte passieren, wenn Sie versuchen, eine zweite ASF-Instanz auf demselben Gerät auszuführen; aber am häufigsten schließt Windows den Port `1242` von Ihrer Nutzung aus, daher müssen Sie ASF auf einen anderen Port einstellen. Um dies zu erreichen, folgen Sie die **[Beispiel-Konfiguration](#changing-default-port)** oben, und versuchen Sie einfach einen anderen Port auszuwählen (z. B. `12420`).
 
 Natürlich können Sie auch versuchen herauszufinden, was den Port `1242` von der ASF-Nutzung blockiert und dies beheben, aber das ist in der Regel viel schwieriger, als ASF einfach anzuweisen, einen anderen Port zu verwenden; also verzichten wir hier auf weitere Erklärungen zu diesen Punkt.
 

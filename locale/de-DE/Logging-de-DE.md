@@ -59,7 +59,7 @@ Die NLog-spezifische Variable `${logger}` wird immer die Quelle der Nachricht an
 
 ASF versucht, Meldungen entsprechend den von NLog bereitgestellten logging (Protokoll) Warnstufen zu kennzeichnen, was es Ihnen ermöglicht, nur bestimmte Meldungen von bestimmten Protokollebenen, statt von allen zu erhalten. Natürlich kann die Protokollierungsstufe für eine bestimmte Nachricht nicht angepasst werden, da es sich um eine ASF-Festlegung handelt, wie ernst die gegebene Nachricht ist, aber Sie können ASF definitiv die Priorität erhöhen/verringern, wie Sie es für richtig halten.
 
-ASF protokolliert zusätzliche Informationen, wie z. B. Benutzer-/Chat-Nachrichten auf der `Trace` Protokollierungsebene. Die standardmäßige ASF-Protokollierung schreibt nur die Ebene `Debug` und darüber; weshalb diese Informationen verborgen werden, da sie für die Mehrheit der Benutzer nicht benötigt werden, sowie die Ausgabe mit potenziell wichtigeren Nachrichten "zumüllt". Sie können diese Informationen jedoch nutzen, indem Sie Logging-Ebene `Trace` wieder aktivieren, insbesondere in Kombination mit dem Protokollierung eines einzigen bestimmten Bots Ihrer Wahl, mit einem bestimmten Event, an dem Sie interessiert sind.
+ASF protokolliert zusätzliche Informationen, z. B. Benutzer-/Chat-Nachrichten auf der `Trace` Protokollierungsebene. Die standardmäßige ASF-Protokollierung schreibt nur die Ebene `Debug` und darüber; weshalb diese Informationen verborgen werden, da sie für die Mehrheit der Benutzer nicht benötigt werden, sowie die Ausgabe mit potenziell wichtigeren Nachrichten "zumüllt". Sie können diese Informationen jedoch nutzen, indem Sie Logging-Ebene `Trace` wieder aktivieren, insbesondere in Kombination mit dem Protokollierung eines einzigen bestimmten Bots Ihrer Wahl, mit einem bestimmten Event, an dem Sie interessiert sind.
 
 Im Allgemeinen versucht ASF, es Ihnen so einfach und bequem wie möglich zu machen, nur die Nachrichten zu protokollieren, die Sie wünschen, anstatt Sie zu zwingen, diese manuell durch Drittanbieterprogramme wie `grep` (oder ähnliche) zu filtern. Konfigurieren Sie NLog einfach wie unten erläutert und Sie sollten in der Lage sein, auch sehr komplexe Protokollierungsregeln mit benutzerdefinierten Zielen, wie beispielsweise ganze Datenbanken, zu spezifizieren.
 
@@ -224,13 +224,13 @@ Das obige Beispiel erzeugt die Datei `0-0-76561198069026042.txt`, wenn man mit *
 2018-07-26 01:38:38 /me Mir geht es gut, und dir? <- 76561198069026042
 ```
 
-Natürlich ist dies nur ein funktionierendes Beispiel mit ein paar schönen Layout-Tricks, die in praktischer Hinsicht gezeigt werden. Sie können diese Idee weiter auf Ihre eigenen Bedürfnisse ausdehnen, wie z. B. zusätzliche Filterung, benutzerdefinierte Reihenfolge, persönliches Layout, Aufnahme nur empfangener Nachrichten, etc.
+Natürlich ist dies nur ein funktionierendes Beispiel mit ein paar schönen Layout-Tricks, die in praktischer Hinsicht gezeigt werden. Sie können diese Idee weiter auf Ihre eigenen Bedürfnisse ausdehnen, z. B. zusätzliche Filterung, benutzerdefinierte Reihenfolge, persönliches Layout, Aufnahme nur empfangener Nachrichten, etc.
 
 ---
 
 ## ASF-Ziele
 
-Zusätzlich zu den standardmäßigen NLog-Protokollierungszielen (wie z. B. `ColoredConsole` und `File` siehe oben) können Sie auch benutzerdefinierte ASF-Protokollierungsziele verwenden.
+Zusätzlich zu den standardmäßigen NLog-Protokollierungszielen (z. B. `ColoredConsole` und `File` siehe oben) können Sie auch benutzerdefinierte ASF-Protokollierungsziele verwenden.
 
 Um die maximale Vollständigkeit zu gewährleisten, erfolgt die Definition der ASF-Ziele nach der NLog-Dokumentationskonvention.
 
@@ -278,7 +278,7 @@ _chatGroupID_ - ID des Gruppen-Chats, der als 64-Bit lange, unsignierte Ganzzahl
 
 _steamID_ - SteamID deklariert als 64-Bit lange unsignierte ganze Zahl des Ziel-Steam-Benutzers (wie `SteamOwnerID`), oder Ziel `chatID` (wenn `chatGroupID` eingestellt ist). Erforderlich. Standardwert von `0`, wodurch das Protokollierungsziel vollständig deaktiviert wird.
 
-_botName_ - Name des Bots (wie er von ASF erkannt wird, Groß-/Kleinschreibung beachten), der Nachrichten an `steamID` senden wird; oben erklärt. Nicht erforderlich. Standardmäßig ist `null` voreingestellt, was automatisch **jeden** aktuell verbundenen Bot auswählt. Es wird empfohlen, diesen Wert entsprechend einzustellen, da `SteamTarget` nicht viele Steam-Einschränkungen berücksichtigt, wie z. B. die Tatsache, dass Sie `steamID` des Ziels auf Ihrer Freundeliste haben müssen. Diese Variable ist als [Layout](https://github.com/NLog/NLog/wiki/Layouts) Typ definiert, daher können Sie in ihr eine spezielle Syntax verwenden zum Beispiel `${logger}` um den Bot zu verwenden, der die Nachricht generiert hat.
+_botName_ - Name des Bots (wie er von ASF erkannt wird, Groß-/Kleinschreibung beachten), der Nachrichten an `steamID` senden wird; oben erklärt. Nicht erforderlich. Standardmäßig ist `null` voreingestellt, was automatisch **jeden** aktuell verbundenen Bot auswählt. Es wird empfohlen, diesen Wert entsprechend einzustellen, da `SteamTarget` nicht viele Steam-Einschränkungen berücksichtigt, z. B. die Tatsache, dass Sie `steamID` des Ziels auf Ihrer Freundeliste haben müssen. Diese Variable ist als [Layout](https://github.com/NLog/NLog/wiki/Layouts) Typ definiert, daher können Sie in ihr eine spezielle Syntax verwenden zum Beispiel `${logger}` um den Bot zu verwenden, der die Nachricht generiert hat.
 
 ---
 

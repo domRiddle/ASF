@@ -51,9 +51,9 @@ systemctl status ArchiSteamFarm@asf
 (...)
 ```
 
-If `systemd` states `active (running)`, it means everything went well, and you can verify that ASF process should be up and running, for example with `journalctl -r`, as ASF by default also writes to its console output, which is recorded by `systemd`. If you're satisfied with the setup you have right now, you can tell `systemd` to automatically start your service during boot, by executing `systemctl enable ArchiSteamFarm@asf` command. Das war’s!
+Wenn `systemd` `active (running)` angibt, bedeutet es, dass alles gut gelaufen ist und Sie überprüfen können, ob der ASF-Prozess gestartet werden sollte, zum Beispiel mit `Journalctl -r`, da ASF standardmäßig auch auf seine Konsolenausgabe schreibt, die von `systemd` aufgezeichnet wird. Sollten Sie mit der aktuellen Einrichtung zufrieden sein, können Sie `systemd` mitteilen, den Dienst automatisch beim Booten zu starten, indem Sie den Befehl `systemctl enable ArchiSteamFarm@asf` ausführen. Das war’s!
 
-If by any chance you'd like to stop the process, simply execute `systemctl stop ArchiSteamFarm@asf`. Likewise, if you want to disable ASF from being started automatically on boot, `systemctl disable ArchiSteamFarm@asf` will do that for you, it's very simple.
+Den Prozess können Sie bedarfsweise `systemctl stop ArchiSteamFarm@asf`. Genauso, wenn Sie ASF beim Booten deaktivieren wollen, `systemctl disable ArchiSteamFarm@asf` wird das für Sie erledigen, es ist sehr einfach.
 
 Please note that, as there is no standard input enabled for our `systemd` service, you won't be able to input your details through the console in usual way. Running through `systemd` is equivalent to specifying **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** setting and comes with all its implications. Fortunately for you, it's very easy to manage your ASF through **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, which we recommend in case you need to supply additional details during login or otherwise manage your ASF process further.
 
