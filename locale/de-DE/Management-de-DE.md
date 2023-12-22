@@ -55,7 +55,7 @@ Wenn `systemd` `active (running)` angibt, bedeutet es, dass alles gut gelaufen i
 
 Den Prozess können Sie bedarfsweise `systemctl stop ArchiSteamFarm@asf`. Genauso, wenn Sie ASF beim Booten deaktivieren wollen, `systemctl disable ArchiSteamFarm@asf` wird das für Sie erledigen, es ist sehr einfach.
 
-Please note that, as there is no standard input enabled for our `systemd` service, you won't be able to input your details through the console in usual way. Running through `systemd` is equivalent to specifying **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** setting and comes with all its implications. Fortunately for you, it's very easy to manage your ASF through **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**, which we recommend in case you need to supply additional details during login or otherwise manage your ASF process further.
+Da jedoch keine Standardeingabe für unseren `systemd` Dienst aktiviert ist, gilt es zu beachten, dass Sie Ihre Daten nicht in gewohnter Weise über die Konsole eingeben können. Running through `systemd` is equivalent to specifying **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** setting and comes with all its implications. Zum Glück für Sie ist es sehr einfach, ASF über die **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**zu verwalten, welche wir empfehlen, falls Sie weitere Details beim Login angeben oder Ihren ASF-Prozess anderweitig weiter verwalten müssen.
 
 ### Umgebungsvariablen
 
@@ -78,7 +78,7 @@ ASF_NETWORK_GROUP="my_network_group"
 
 Dank der Flexibilität von `systemd` ist es möglich, einen Teil der ASF-Einheit zu überschreiben, während dabei die Originaldatei zu bewahrt wird und ASF zum Beispiel als Teil von Auto-Updates sich zu aktualisieren.
 
-In this example, we'd like to modify default ASF `systemd` unit behaviour from restarting only on success, to restarting also on fatal crashes. In order to do so, we'll override `Restart` property under `[Service]` from default of `on-success` to `always`. Simply execute `systemctl edit ArchiSteamFarm@asf`, naturally replacing `asf` with the target user of your service. Then add your changes as indicated by `systemd` in proper section:
+In diesem Beispiel möchten wir das Standardverhalten (nur bei Erfolg neu starten) von ASF in `systemd` ändern, um den Neustart auch bei fatalen Abstürzen zu ermöglichen. Wir verwenden dazu die Funktion `Restart` des `[Service]` vom Standard (`on-success`) überschreiben und verwenden stattdessen `always`. Führen Sie einfach `systemctl edit ArchiSteamFarm@asf` aus; natürlich muss `asf` durch den Zielbenutzer Ihres Dienstes ersetzt werden. Fügen Sie dann Ihre Änderungen, wie sie von `systemd` angegeben wurden, in den richtigen Abschnitt ein:
 
 ```sh
 ### Bearbeite /etc/systemd/system/ArchiSteamFarm@asf.service.d/override.conf
@@ -105,13 +105,13 @@ Restart=always
 
 And that's it, now your unit acts the same as if it had only `Restart=always` under `[Service]`.
 
-Of course, alternative is to `cp` the file and manage it yourself, but this allows you for flexible changes even if you decided to keep original ASF unit, for example with a symlink.
+Natürlich können Sie alternativ die Datei `cp` (kopieren) und selbst verwalten; allerdings ermöglicht die ursprüngliche ASF-Einheit (z. B. mit einem Symlink) Ihnen flexible Änderungen vorzunehmen, wenn Sie sich entschieden haben, dieses Original zu behalten.
 
 ---
 
 ## Führen Sie ASF niemals als Administrator aus!
 
-ASF includes its own validation whether the process is being run as administrator (`root`) or not. Running as root is **not** required for any kind of operation done by the ASF process, assuming properly configured environment it's operating in, and therefore should be regarded as a **bad practice**. Es ist wichtig, dass ASF unter Windows niemals mit der Einstellung „als Administrator ausführen“ ausgeführt wird und unter Unix ASF sollte ein eigenes Benutzerkonto für sich selbst existieren, oder wiederverwenden Sie Ihr eigenes im Falle eines Desktop-Systems.
+ASF enthält eine eigene Validierung, ob der Prozess als Administrator ausgeführt wird (`root`) oder nicht. Die Ausführung als `root` ist für **keine** der Operationen des ASF-Prozesses erforderlich; angenommen, die Umgebung ist richtig konfiguriert, in der sie aktiv ist, sollte die Ausführung unter `root` daher als eine **schlechte Praxis** angesehen werden. Es ist wichtig, dass ASF unter Windows niemals mit der Einstellung „als Administrator ausführen“ ausgeführt wird und unter Unix ASF sollte ein eigenes Benutzerkonto für sich selbst existieren, oder wiederverwenden Sie Ihr eigenes im Falle eines Desktop-Systems.
 
 Für weitere Erläuterungen dazu, *warum* wir die Ausführung von ASF als root nicht empfehlen, können Sie **[Superuser](https://stackovercoder.com.de/superuser/218379/why-is-it-bad-to-run-as-root)** und andere Ressourcen nachschlagen. Falls Sie weiterhin nicht überzeugt sind, fragen Sie sich, was mit Ihrem Gerät passieren würde, wenn der ASF-Prozess direkt nach dem Start den Befehl `rm -rf /*` ausführt.
 

@@ -1,12 +1,12 @@
 # SteamTokenDumperPlugin
 
-`SteamTokenDumperPlugin` is official ASF **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** developed by us, which allows you to contribute to **[SteamDB](https://steamdb.info)** project by sharing package tokens, app tokens and depot keys that your Steam account has access to. Informationen zu den gesammelten Daten und warum SteamDB diese benötigt, findest Du auf der **[Token Dumper](https://steamdb.info/tokendumper)** Website von SteamDB. Die übermittelten Daten enthalten demnach keine potentiell sensiblen Informationen und bergen kein Sicherheits-/Datenschutzrisiko.
+`SteamTokenDumperPlugin` ist eine offizielles ASF-**[Plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-de-DE)**, welches von uns entwickelt wird. Dies erlaubt es Ihnen, zum Projekt **[SteamDB](https://steamdb.info)** beizutragen, indem Sie Paket- und App-Tokens sowie Depot-Schlüssel, auf die Ihr Steam-Konto Zugriff hat, teilen. Informationen zu den gesammelten Daten und warum SteamDB diese benötigt, findest Du auf der **[Token Dumper](https://steamdb.info/tokendumper)** Website von SteamDB. Die übermittelten Daten enthalten demnach keine potentiell sensiblen Informationen und bergen kein Sicherheits-/Datenschutzrisiko.
 
 ---
 
-## Aktivierung des Plugins
+## Aktivierung der Erweiterung
 
-Das `SteamTokenDumperPlugin` ist in der Releaseversion von ASF enthalten, jedoch ist das Plugin standardmäßig deaktiviert. Sie können das Plugin aktivieren, indem Sie die globale ASF Konfigurationseigenschaft `SteamTokenDumperPluginEnabled` auf `true` setzen. Im JSON-Syntax:
+Das `SteamTokenDumperPlugin` ist in der Releaseversion von ASF enthalten, jedoch ist die Erweiterung standardmäßig deaktiviert. Sie können die Erweiterung aktivieren, indem Sie die globale ASF Konfigurationseigenschaft `SteamTokenDumperPluginEnabled` auf `true` setzen. Im JSON-Syntax:
 
 ```json
 {
@@ -14,17 +14,17 @@ Das `SteamTokenDumperPlugin` ist in der Releaseversion von ASF enthalten, jedoch
 }
 ```
 
-Beim Start von ASF teilt das Plugin über den Standard-Protokollierungsmechanismus mit, ob es erfolgreich aktiviert wurde. Sie können das Plugin auch über unseren webbasierten Konfigurationsgenerator aktivieren.
+Beim Start von ASF teilt die Erweiterung über den Standard-Protokollierungsmechanismus mit, ob es erfolgreich aktiviert wurde. Sie können die Erweiterung auch über unseren webbasierten Konfigurationsgenerator aktivieren.
 
 ---
 
 ## Technische Details
 
-Nach der Aktivierung verwendet das Plugin die Bots, die Sie in ASF betreiben, zur Datenerfassung in Form von Paket- und App-Tokens sowie Depot-Schlüsseln, auf die Ihre Bots Zugriff haben. Das Datenerfassungsmodul umfasst passive und aktive Routinen, die den durch die Datenerfassung verursachten zusätzlichen Aufwand minimieren sollen.
+Nach der Aktivierung verwendet die Erweiterung die Bots, die Sie in ASF betreiben, zur Datenerfassung in Form von Paket- und App-Tokens sowie Depot-Schlüsseln, auf die Ihre Bots Zugriff haben. Das Datenerfassungsmodul umfasst passive und aktive Routinen, die den durch die Datenerfassung verursachten zusätzlichen Aufwand minimieren sollen.
 
-Um den geplanten Anwendungsfall zu erfüllen, wird zusätzlich zu der oben erläuterten Datenerfassungsroutine die Einreichungsroutine initialisiert, die dafür verantwortlich ist, zu bestimmen, welche Daten auf periodischer Basis an SteamDB übermittelt werden müssen. Diese Routine wird innerhalb von `1` Stunde nach dem Start von ASF ausgelöst und wiederholt sich alle `24` Stunden. Das Plugin wird sein Bestes tun, um die Menge der zu sendenden Daten zu minimieren. Daher ist es möglich, dass einige Daten, die das Plugin sammelt, als unbrauchbar zur Übermittlung eingestuft und daher übersprungen werden (z. B. ein App-Update, das das Zugriffstoken nicht ändert).
+Um den geplanten Anwendungsfall zu erfüllen, wird zusätzlich zu der oben erläuterten Datenerfassungsroutine die Einreichungsroutine initialisiert, die dafür verantwortlich ist, zu bestimmen, welche Daten auf periodischer Basis an SteamDB übermittelt werden müssen. Diese Routine wird innerhalb von `1` Stunde nach dem Start von ASF ausgelöst und wiederholt sich alle `24` Stunden. Die Erweiterung wird sein Bestes tun, um die Menge der zu sendenden Daten zu minimieren. Daher ist es möglich, dass einige Daten, die die Erweiterung sammelt, als unbrauchbar zur Übermittlung eingestuft und daher übersprungen werden (z. B. ein App-Update, das das Zugriffstoken nicht ändert).
 
-Das Plugin verwendet eine dauerhafte Cache-Datenbank, die in `config/SteamTokenDumper.cache` gespeichert ist, die einen ähnlichen Zweck wie `config/ASF.db` für ASF erfüllt. Die Datei wird verwendet, um die gesammelten und übermittelten Daten aufzuzeichnen und den Arbeitsaufwand, der bei verschiedenen ASF-Ausführungen anfällt, zu minimieren. Das Entfernen der Datei führt dazu, dass der Prozess von Grund auf neu gestartet wird, was nach Möglichkeit vermieden werden sollte.
+Die Erweiterung verwendet eine dauerhafte Cache-Datenbank, die in `config/SteamTokenDumper.cache` gespeichert ist, die einen ähnlichen Zweck wie `config/ASF.db` für ASF erfüllt. Die Datei wird verwendet, um die gesammelten und übermittelten Daten aufzuzeichnen und den Arbeitsaufwand, der bei verschiedenen ASF-Ausführungen anfällt, zu minimieren. Das Entfernen der Datei führt dazu, dass der Prozess von Grund auf neu gestartet wird, was nach Möglichkeit vermieden werden sollte.
 
 ---
 
@@ -38,15 +38,15 @@ In jedem Fall möchten sich die SteamDB-Mitarbeiter im Voraus für Ihre Hilfe be
 
 ## Befehl
 
-STD plugin comes with extra ASF command, `!std [Bots]`, which allows you to trigger refresh and submission for selected bots on demand. Using the command doesn't require enabled config, which allows you to skip automatic gathering and submission, and control the process yourself manually. Naturally it can also be executed with enabled config, which will simply trigger the usual gathering and submission procedures earlier than expected.
+Das STD-Plugin verfügt über einen zusätzlichen ASF-Befehl, `!std [Bots]`, mit dem Sie bei Bedarf Aktualisierungen und Einreichungen für ausgewählte Bots auslösen können. Die Verwendung des Befehls erfordert keine aktivierte Konfiguration, was es Ihnen erlaubt, die automatische Sammlung und Einreichung zu überspringen und den Prozess selbst manuell zu steuern. Natürlich kann es auch mit aktivierter Konfiguration ausgeführt werden, was einfach die üblichen Sammel- und Einreichungsverfahren früher als erwartet auslöst.
 
-We recommend `!std ASF` in order to trigger refresh for all available bots. However, you can also trigger it for selected ones if you'd like to.
+Wir empfehlen `!std ASF` um eine Aktualisierung für alle verfügbaren Bots auszulösen. Sie können es aber auch für ausgewählte auslösen, wenn Sie es möchten.
 
 ---
 
 ## Erweiterte Einstellungen
 
-Our plugin supports advanced config which might come useful for people that would like to tweak the internals to their preference.
+Unsere Erweiterung unterstützt fortgeschrittene Konfigurationen, die für Leute nützlich sein könnten, die die interne Funktion nach ihren Wünschen anpassen möchten.
 
 Die erweiterte Konfiguration hat folgende Struktur innerhalb von `ASF.json`:
 
@@ -94,9 +94,9 @@ Typ `bool` mit dem Standardwert `true`. This property acts very similar to `Secr
 
 ---
 
-## Further explanation
+## Weitere Erklärungen
 
-At the root level, every Steam account owns a set of packages (licenses, subscriptions), which are classified by their `packageID` (also known as `subID`). Every package may contain several apps classified by their `appID`. Every app may then include several depots classified by their `depotID`.
+At the root level, every Steam account owns a set of packages (licenses, subscriptions), which are classified by their `packageID` (also known as `subID`). Every package may contain several apps classified by their `appID`. Jede App kann dann mehrere Depots enthalten, die durch ihre `DepotID` klassifiziert wird.
 
 ```text
 ├── sub/124923

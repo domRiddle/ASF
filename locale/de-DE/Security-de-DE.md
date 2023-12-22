@@ -84,32 +84,32 @@ ASF unterstützt derzeit die folgenden Hashmethoden als Parameter für `EHashing
 
 Die genaue Beschreibung und Unterschiede zwischen diesen sind nachfolgend verfügbar.
 
-In order to generate a hash, e.g. for `IPCPassword` usage, you should execute `hash` **[command](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands)** with the appropriate hashing method that you chose and your original plain-text password. Afterwards, put the hashed string that you've got as `IPCPassword` ASF config property, and finally change `IPCPasswordFormat` to the one that matches your chosen hashing method.
+Um ein Hash zu generieren, z. B. um es mit `IPCPassword` zu verwenden, müssen Sie den `hash` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** mit der gewünschten Hash-Methode und Ihrem ursprünglichen Klartext-Passwort ausführen. Danach setzen Sie die gehashte Zeichenfolge, die Ihnen als `IPCPassword` ASF-Konfigurationsvariable vorliegt, und schließlich ändern Sie `PasswordFormat` auf dasjenige, das Ihrer gewählten Hash-Methode entspricht.
 
 ---
 
 ### `PlainText`
 
-This is the most simple and insecure way of hashing a password, defined as `EHashingMethod` of `0`. ASF will generate hash matching the original input. Sie ist am einfachsten zu benutzen und zu 100% kompatibel mit allen Setups, daher ist sie eine Standardmethode zum Speichern von Geheimnissen, völlig unsicher für eine sichere Speicherung.
+Dies ist die einfachste und zugleich unsicherste Methode das Passwort zu speichern, festgelegt durch `EHashingMethod`, mit dem Wert von `0`. ASF wird eine Hash generieren, die mit der ursprünglichen Eingabe übereinstimmt. Sie ist am einfachsten zu benutzen und zu 100% kompatibel mit allen Setups, daher ist sie eine Standardmethode zum Speichern von Geheimnissen, völlig unsicher für eine sichere Speicherung.
 
 ---
 
 ### `SCrypt`
 
-Considered secure by today standards, **[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** way of hashing the password is defined as `EHashingMethod` of `1`. ASF will use the `SCrypt` implementation using `8` blocks, `8192` iterations, `32` hash length and encryption key as a salt to generate the array of bytes. The resulting bytes will then be encoded as **[base64](https://en.wikipedia.org/wiki/Base64)** string.
+Considered secure by today standards, **[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** way of hashing the password is defined as `EHashingMethod` of `1`. ASF verwendet die Implementierung `SCrypt` mit `8` Blöcken, `8192` Iterationen, `32` Hashlänge und Verschlüsselungsschlüssel als **[Salt](https://www. security-insider. de/was-ist-ein-salt-a-1052450/), um das Array von Bytes zu erzeugen. The resulting bytes will then be encoded as **[base64](https://en.wikipedia.org/wiki/Base64)** string.</p>
 
-ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure. If used properly, guarantees decent security for safe storage.
+ASF erlaubt es Ihnen, den Schlüssel (**[Salt](https://www. security-insider. de/was-ist-ein-salt-a-1052450/)) mit dem **[Befehlszeilenargument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-de-DE)** `--cryptkey` anzugeben, den Sie für maximale Sicherheit verwenden sollten. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure. Bei ordnungsgemäßer Verwendung garantiert eine angemessene Sicherheit für eine sichere Speicherung.</p>
 
 ---
 
 ### `Pbkdf2`
 
-Considered weak by today standards, **[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** way of hashing the password is defined as `EHashingMethod` of `2`. ASF will use the `Pbkdf2` implementation using `10000` iterations, `32` hash length and encryption key as a salt, with `SHA-256` as a hmac algorithm to generate the array of bytes. The resulting bytes will then be encoded as **[base64](https://en.wikipedia.org/wiki/Base64)** string.
+Considered weak by today standards, **[Pbkdf2](https://en.wikipedia.org/wiki/PBKDF2)** way of hashing the password is defined as `EHashingMethod` of `2`. ASF wird die `Pbkdf2` Implementierung mit `10000` Iterationen verwenden `32` Hashlänge und Verschlüsselungsschlüssel als **[Salt](https://www. security-insider. de/was-ist-ein-salt-a-1052450/), mit `SHA-256` als hmac Algorithmus, um das Array von Bytes zu erzeugen. The resulting bytes will then be encoded as **[base64](https://en.wikipedia.org/wiki/Base64)** string.</p>
 
-ASF allows you to specify salt for this method via `--cryptkey` **[command-line argument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments)**, which you should use for maximum security. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure.
+ASF erlaubt es Ihnen, den Schlüssel (**[Salt](https://www. security-insider. de/was-ist-ein-salt-a-1052450/)) mit dem **[Befehlszeilenargument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-Line-Arguments-de-DE)** `--cryptkey` anzugeben, den Sie für maximale Sicherheit verwenden sollten. If you decide to omit it, ASF will use its own key which is **known** and hardcoded into the application, meaning hashing will be less secure.</p>
 
 ---
 
 ## Empfehlung
 
-If you'd like to use a hashing method for storing some secrets, such as `IPCPassword`, we recommend to use `SCrypt` with custom salt, as it provides a very decent security against brute-forcing attempts. `Pbkdf2` is offered only for compatibility reasons, mainly because we already have a working (and needed) implementation of it for other use cases across Steam platform (e.g. parental pins). It's still considered secure, but weak compared to alternatives (e.g. `SCrypt`).
+Wenn Sie eine Hashing-Methode verwenden möchten, um einige Geheimnisse zu speichern, wie z. B. `IPCPassword`, empfehlen wir, `SCrypt` mit benutzerdefinierten **[Salt](https://www. security-insider. de/was-ist-ein-salt-a-1052450/) zu verwenden, da es eine ausgezeichnete Sicherheit gegen brute force Attacken bietet. `Pbkdf2` wird nur aus Kompatibilitätsgründen angeboten, vor allem weil wir bereits eine funktionierende (und erforderliche) Implementierung für andere Anwendungsfälle auf der Steam Plattform haben (z. B. Familienansicht-Pin). Es wird immer noch als sicher angesehen, aber im Vergleich zu anderen Möglichkeiten schwach (z. B. `SCrypt`).</p>
