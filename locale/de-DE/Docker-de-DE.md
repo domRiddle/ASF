@@ -45,7 +45,7 @@ Wir raten generell davon ab, `main` Builds auszuprobieren, da diese für uns hie
 
 ## Architekturen
 
-ASF Docker Image (Abbild) ist derzeit auf `Linux` Plattform für 3 Architekturen verfügbar - `x64`, `arm` und `arm64`. Sie können im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)** mehr darüber lesen.
+ASF Docker Image (Abbild) ist derzeit auf `Linux` Plattform für 3 Architekturen verfügbar – `x64`, `arm` und `arm64`. Sie können im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)** mehr darüber lesen.
 
 Unsere **Tag*s* verwenden das Multi-Plattform-Manifest, was bedeutet, dass Docker auf Ihrem Rechner automatisch das passende Image (Abbild) für Ihre Plattform auswählt, wenn Sie dieses herunterladen. Wenn Sie ein bestimmtes Plattform-Image (Abbild) beziehen möchten, welches nicht dem entspricht, das Sie gerade verwenden, können Sie dies mittels `--platform` in den geeigneten Docker-Befehlen erreichen, wie zum Beispiel `Docker run`. Mehr Informationen hierzu finden Sie in der Docker Dokumentation unter **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)**.
 
@@ -57,7 +57,7 @@ Für eine vollständige Referenz sollten Sie die **[offizielle Docker-Dokumentat
 
 ### Hallo ASF!
 
-Zuallererst sollten wir überprüfen, ob unser Docker momentan überhaupt funktioniert. Das wird als unser ASF "Hallo Welt" dienen:
+Zuallererst sollten wir überprüfen, ob unser Docker momentan überhaupt funktioniert. Das wird als unser ASF „Hallo Welt“ dienen:
 
 ```shell
 docker run -it --name asf --pull always --rm justarchi/archisteamfarm
@@ -65,7 +65,7 @@ docker run -it --name asf --pull always --rm justarchi/archisteamfarm
 
 `docker run` erstellt einen neuen ASF Docker-Container für Sie und führt ihn im Vordergrund aus (`-it`). `--pull always` sorgt dafür, dass das aktuelle Image (Abbild) zuerst bezogen und `--rm` stellt sicher, dass unser Container nach dem Stoppen gereinigt wird, da wir gerade testen, ob alles im Moment gut funktioniert.
 
-Wenn alles erfolgreich geendet hat, nachdem Sie alle Schichten und den Start-Container geholt haben, sollten Sie feststellen, dass ASF richtig gestartet wurde und uns mitgeteilt hat, dass es keine definierten Bots gibt; was gut ist - wir haben verifiziert, dass ASF im Docker richtig funktioniert. Drücken Sie `CTRL+P`, dann `STRG+Q` um den Vordergrund-Docker-Container zu beenden, dann stoppen Sie den ASF-Container mit `docker stop asf`.
+Wenn alles erfolgreich geendet hat, nachdem Sie alle Schichten und den Start-Container geholt haben, sollten Sie feststellen, dass ASF richtig gestartet wurde und uns mitgeteilt hat, dass es keine definierten Bots gibt; was gut ist – wir haben verifiziert, dass ASF im Docker richtig funktioniert. Drücken Sie `CTRL+P`, dann `STRG+Q` um den Vordergrund-Docker-Container zu beenden, dann stoppen Sie den ASF-Container mit `docker stop asf`.
 
 Wenn Sie sich den Befehl genauer ansehen, werden Sie feststellen, dass wir kein *Tag* deklariert haben, da es automatisch auf `latest` voreingestellt ist. Sofern Sie ein anderes Schlagwort als `latest` verwenden möchten, zum Beispiel `released`, dann sollten Sie es explizit erklären:
 
@@ -121,7 +121,7 @@ Dies erlaubt ASF Dateien zu erstellen, die das Volume (Laufwerk) im Docker-Conta
 
 ## Synchronisation mehrerer Instanzen
 
-ASF unterstützt die Synchronisation mehrerer Instanzen, wie im Abschnitt **[Verwaltung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#mehrere-instanzen)** erläutert. Beim Ausführen von ASF im Docker-Container, können Sie optional "opt-in" in den Prozess einschalten für den Fall, dass Sie mehrere Container mit ASF (synchronisiert) verwenden möchten.
+ASF unterstützt die Synchronisation mehrerer Instanzen, wie im Abschnitt **[Verwaltung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Management#mehrere-instanzen)** erläutert. Beim Ausführen von ASF im Docker-Container, können Sie optional „opt-in“ in den Prozess einschalten für den Fall, dass Sie mehrere Container mit ASF (synchronisiert) verwenden möchten.
 
 Standardmäßig ist jede ASF in einem eigenständigen Docker-Container und das bedeutet, dass keine Synchronisation stattfindet. Um die Synchronisation zwischen Ihnen zu aktivieren, müssen Sie den Pfad `/tmp/ASF` in jedem ASF Container, den Sie synchronisieren möchten, zu einem gemeinsamen Pfad (im Lese-Schreib-Modus) des Docker-Hosts einbinden. Dies wird genauso wie bei der Bindung eines Volumes (Laufwerk) erreicht (wie oben erläutert), nur mit verschiedenen Pfaden:
 
@@ -134,7 +134,7 @@ docker run -v /tmp/ASF-g1:/tmp/ASF -v /home/john/ASF/config:/app/config --name a
 
 Wir empfehlen das ASF-Verzeichnis `/tmp/ASF` auch an ein temporäres `/tmp` Verzeichnis auf Ihrem Rechner zu binden, aber Sie können natürlich jedes andere wählen, die Ihren Zweck erfüllt. Jeder ASF-Container, der synchronisiert werden soll, sollte sein `/tmp/ASF` Verzeichnis mit anderen Containern teilen, die am gleichen Synchronisierungsprozess teilnehmen.
 
-Wie Sie vermutlich am Beispiel oben erraten haben, ist es auch möglich, zwei oder mehr "Synchronisierungsgruppen" zu erstellen, indem Sie verschiedene Docker Host-Pfade in ASFs `/tmp/ASF` einbinden.
+Wie Sie vermutlich am Beispiel oben erraten haben, ist es auch möglich, zwei oder mehr „Synchronisierungsgruppen“ zu erstellen, indem Sie verschiedene Docker Host-Pfade in ASFs `/tmp/ASF` einbinden.
 
 Das Einbinden von `/tmp/ASF` ist komplett optional und aktuell nicht empfehlenswert, es sei denn, Sie möchten explizit zwei oder mehr ASF-Container synchronisieren. Wir raten davon ab, `/tmp/ASF` für den Einsatz mit einem Container einzubinden, da es absolut keine Vorteile bringt, wenn Sie nur einen ASF-Container laufen lassen möchten, und es könnte tatsächlich zu Problemen führen, die sonst Vermeidbar wären.
 
@@ -212,6 +212,6 @@ Dies setzt voraus, dass Sie einen einzigen ASF-Container mit allen ASF-Konfigura
 
 Wenn Sie Ihren ASF-Docker-Container bereits startklar haben, müssen Sie nicht jedes Mal `docker run` verwenden. Sie können den ASF-Docker-Container einfach mit `docker stop asf` und `docker start asf` stoppen/starten. Beachten Sie, dass, wenn Sie nicht den `latest` *Tag* verwenden, die Verwendung des aktuellen ASF von Ihnen immer noch `docker stop` und `docker rm` benötigt wird. Schließlich starten Sie mit `docker start` erneut. Dies liegt daran, dass Sie Ihren Container jedes Mal aus einem frischen ASF-Docker-Image neu erstellen müssen, wenn Sie die in diesem Image (Abbild) enthaltene ASF-Version verwenden möchten. Beim *Tag* `neuestem` hat ASF die Fähigkeit eingebaut, sich selbst zu aktualisieren, sodass der Wiederaufbau des Bildes nicht notwendig ist, um die aktuelle ASF zu verwenden (aber es ist immer noch eine gute Idee, es von Zeit zu Zeit zu tun, um .NET Laufzeitabhängigkeiten und das zugrundeliegende Betriebssystem aktuell zu halten, das benötigt werden könnte, wenn Sie wichtige ASF-Versionsupdates überspringen).
 
-Wie oben angedeutet, wird sich ASF in einem anderen *Tag* als `latest` nicht automatisch aktualisieren, was bedeutet, dass **Sie** dafür verantwortlich sind, ein aktuelles `justarchi/archisteamfarm` Repository zu verwenden. Dies hat viele Vorteile, da die Anwendung typischerweise nicht Ihren eigenen Quellcode berühren sollte, wenn sie ausgeführt wird, aber wir verstehen auch Komfort, der dadurch entsteht, dass Sie sich nicht um die ASF-Version in Ihrem Docker-Container kümmern müssen. Wenn Sie sich um gute Praktiken und die korrekte Verwendung von Dockern kümmern, dann schlagen wir Ihnen den `released` *Tag* - anstelle von `latest` - vor; aber wenn Sie sich für ASF lediglich automatische Updates und Funktionalität wünschen, dann reicht `latest` aus.
+Wie oben angedeutet, wird sich ASF in einem anderen *Tag* als `latest` nicht automatisch aktualisieren, was bedeutet, dass **Sie** dafür verantwortlich sind, ein aktuelles `justarchi/archisteamfarm` Repository zu verwenden. Dies hat viele Vorteile, da die Anwendung typischerweise nicht Ihren eigenen Quellcode berühren sollte, wenn sie ausgeführt wird, aber wir verstehen auch Komfort, der dadurch entsteht, dass Sie sich nicht um die ASF-Version in Ihrem Docker-Container kümmern müssen. Wenn Sie sich um gute Praktiken und die korrekte Verwendung von Dockern kümmern, dann schlagen wir Ihnen den `released` *Tag* – anstelle von `latest` – vor; aber wenn Sie sich für ASF lediglich automatische Updates und Funktionalität wünschen, dann reicht `latest` aus.
 
 Sie sollten ASF typischerweise im Docker-Container mit der globalen Konfiguration `Headless: true` ausführen. Dies wird ASF klar signalisieren, dass Sie nicht hier sind, um fehlende Details zu liefern und es sollte nicht nach diesen fragen. Natürlich sollten Sie für die Erstkonfiguration in Betracht ziehen, diese Option bei `false` zu belassen, damit Sie Dinge einfach einrichten können, aber auf lange Sicht sind Sie typischerweise nicht an die ASF-Konsole gebunden, deshalb wäre es sinnvoll, ASF darüber zu informieren und `input` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE#input-befehl)** zu verwenden, wenn Bedarf entsteht. Auf diese Weise muss ASF nicht ewig auf Benutzereingaben warten, die nicht erfolgen (und dabei Ressourcen verschwenden). Dies ermöglicht es, dass ASF im nicht-interaktiven Modus innerhalb eines Containers ausgeführt werden kann, was entscheidend ist, z. B. in Bezug auf die Weiterleitungssignale, die es ASF ermöglichen, auf Anfrage von `docker stop asf` angemessen zu schließen.

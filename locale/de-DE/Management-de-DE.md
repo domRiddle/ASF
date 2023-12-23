@@ -8,7 +8,7 @@ Dieser Abschnitt beschäftigt sich mit dem Thema, den ASF-Prozess optimal zu ver
 
 In den `generic` und `Linux` Varianten kommt ASF mit der Datei `ArchiSteamFarm@.service`, welche eine Konfigurationsdatei des Dienstes für **[`systemd`](https://systemd.io)** ist. Wenn Sie ASF als Dienst ausführen möchten, zum Beispiel um ihn nach dem Start Ihres Gerätes automatisch auszuführen, dann ist ein richtiger `systemd` Dienst wohl der beste Weg, dies zu erreichen. Daher empfehlen wir dies dringend, anstatt sie durch `nohup`, `screen` oder ähnlichem selbst zu verwalten.
 
-Zuerst erstellen Sie das Konto für den Benutzer, unter dem Sie ASF betreiben möchten (sofern es noch nicht existiert). Wir verwenden für dieses Beispiel den Benutzer `asf`. Wenn Sie sich für einen anderen entschieden haben, müssen Sie `asf` in all unseren Beispielen durch Ihren ausgewählten Benutzer ersetzen. Unser Dienst erlaubt es Ihnen niemals, ASF mit `root` auszuführen, da es als **[schlechte Praxis](#f%C3%BChren-sie-asf-niemals-als-administrator-aus)** gilt.
+Zuerst erstellen Sie das Konto für den Benutzer, unter dem Sie ASF betreiben möchten (sofern es bislang nicht existiert). Wir verwenden für dieses Beispiel den Benutzer `asf`. Wenn Sie sich für einen anderen entschieden haben, müssen Sie `asf` in all unseren Beispielen durch Ihren ausgewählten Benutzer ersetzen. Unser Dienst erlaubt es Ihnen niemals, ASF mit `root` auszuführen, da es als **[schlechte Praxis](#f%C3%BChren-sie-asf-niemals-als-administrator-aus)** gilt.
 
 ```sh
 su # ODER sudo -i, um in die Root-Shell zu gelangen
@@ -21,7 +21,7 @@ Wir werden alle folgenden Aktionen als `root` ausführen. Bitte wechseln Sie in 
 
 Zunächst ist es eine gute Idee, sicherzustellen, dass unser Ordner noch zu unserem Benutzer `asf` gehört; dazu führen wir einmalig den Befehl `chown -hR asf:asf /home/asf/ArchiSteamFarm` aus. Die Berechtigungen könnten falsch sein, z. B. wenn Sie die Zip-Datei als `root` heruntergeladen und/oder entpackt haben.
 
-Außerdem, falls Sie eine generische ASF-Variante verwenden, müssen Sie sicherstellen, dass der Befehl `dotnet` erkannt wird und innerhalb eines der Standardorte: `/usr/local/bin`, `/usr/bin` oder `/bin` ist. Für unseren systemd-Dienst ist der Befehl `dotnet /path/to/ArchiSteamFarm.dll` erforderlich. Überprüfen Sie, ob `dotnet --info` für Sie funktioniert; falls ja, geben Sie `command -v dotnet` ein, um herauszufinden, wo es sich befindet. Falls Sie den offiziellen Installationsassistenten verwendet haben, sollte es sich wie gewünscht entweder unter `usr/bin/dotnet` oder einem der beiden anderen Verzeichnisse vorhanden sein. Bei Verwendung eines benutzerdefinierten Ortes (wie z.B. code/usr/share/dotnet/dotnet/code) erstellen wir dafür einen <a href="https://de.wikipedia.org/wiki/Symbolische_Verkn%C3%BCpfung"Symlink</a> mit `ln -s "$(command -v dotnet)" /usr/bin/dotnet`. Nun sollte `command -v dotnet` `/usr/bin/dotnet` anzeigen, womit auch unsere systemd-Einheit funktioniert. Wenn Sie eine OS-spezifische Version verwenden, müssen Sie sich keine Gedanken darüber machen.
+Außerdem, falls Sie eine generische ASF-Variante verwenden, müssen Sie sicherstellen, dass der Befehl `dotnet` erkannt wird und innerhalb eines der Standardorte: `/usr/local/bin`, `/usr/bin` oder `/bin` ist. Für unseren systemd-Dienst ist der Befehl `dotnet /path/to/ArchiSteamFarm.dll` erforderlich. Überprüfen Sie, ob `dotnet --info` für Sie funktioniert; falls ja, geben Sie `command -v dotnet` ein, um herauszufinden, wo es sich befindet. Falls Sie den offiziellen Installationsassistenten verwendet haben, sollte es sich wie gewünscht entweder unter `usr/bin/dotnet` oder einem der beiden anderen Verzeichnisse vorhanden sein. Bei Verwendung eines benutzerdefinierten Ortes (wie z.B. code/usr/share/dotnet/dotnet/code) erstellen wir dafür einen **[Symlink](https://de.wikipedia.org/wiki/Symbolische_Verkn%C3%BCpfung)** mit `ln -s "$(command -v dotnet)" /usr/bin/dotnet`. Nun sollte `command -v dotnet` `/usr/bin/dotnet` anzeigen, womit auch unsere systemd-Einheit funktioniert. Wenn Sie eine OS-spezifische Version verwenden, müssen Sie sich keine Gedanken darüber machen.
 
 Als Nächstes `cd /etc/systemd/system` und führen Sie `ln -s /home/asf/ArchiSteamFarm/ArchiSteamFarm\@.service .` aus; damit ein symbolischer Link zu unserer Service-Deklaration erstellt und in `systemd` registriert wird. Der symbolische Link wird es ASF erlauben, Ihre `systemd` Einheit automatisch als Teil des ASF Updates zu aktualisieren – je nach Situation. Sie können diesen Ansatz verwenden oder einfach `cp` die Datei verwenden und sie selbst verwalten, sofern Sie möchten.
 
@@ -55,11 +55,11 @@ Wenn `systemd` `active (running)` angibt, bedeutet es, dass alles gut gelaufen i
 
 Den Prozess können Sie bedarfsweise `systemctl stop ArchiSteamFarm@asf`. Genauso, wenn Sie ASF beim Booten deaktivieren wollen, `systemctl disable ArchiSteamFarm@asf` wird das für Sie erledigen, es ist sehr einfach.
 
-Da jedoch keine Standardeingabe für unseren `systemd` Dienst aktiviert ist, gilt es zu beachten, dass Sie Ihre Daten nicht in gewohnter Weise über die Konsole eingeben können. Running through `systemd` is equivalent to specifying **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** setting and comes with all its implications. Zum Glück für Sie ist es sehr einfach, ASF über die **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)**zu verwalten, welche wir empfehlen, falls Sie weitere Details beim Login angeben oder Ihren ASF-Prozess anderweitig weiter verwalten müssen.
+Da jedoch keine Standardeingabe für unseren `systemd` Dienst aktiviert ist, gilt es zu beachten, dass Sie Ihre Daten nicht in gewohnter Weise über die Konsole eingeben können. Running through `systemd` is equivalent to specifying **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** setting and comes with all its implications. Zum Glück für Sie ist es sehr einfach, ASF über die **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** zu verwalten, welche wir empfehlen, falls Sie weitere Details beim Login angeben oder Ihren ASF-Prozess anderweitig weiter verwalten müssen.
 
 ### Umgebungsvariablen
 
-Es ist möglich, zusätzliche Umgebungsvariablen für unseren `systemd`-Dienst bereitzustellen. Das ist für Sie interessant, wenn Sie zum Beispiel ein benutzerdefiniertes `--cryptkey` **[Befehlszeilenargument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-de-DE#argumente)**verwenden möchten – spezifizieren Sie daher `ASF_CRYPTKEY` Umgebungsvariable.
+Es ist möglich, zusätzliche Umgebungsvariablen für unseren `systemd`-Dienst bereitzustellen. Das ist für Sie interessant, wenn Sie etwa ein benutzerdefiniertes `--cryptkey` **[Befehlszeilenargument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-de-DE#argumente)** verwenden möchten – spezifizieren Sie daher `ASF_CRYPTKEY` Umgebungsvariable.
 
 Um benutzerdefinierte Umgebungsvariablen bereitzustellen, muss der Ordner `/etc/asf` (falls er nicht existiert), mit `mkdir -p /etc/asf` erstellt werden. Wir empfehlen `chown -hR root:root /etc/asf && chmod 700 /etc/asf` um sicherzustellen, dass nur der Benutzer `root` Zugang zum Lesen dieser Dateien hat; da diese empfindliche Eigenschaften (z. B. `ASF_CRYPTKEY`) enthalten könnten. Afterwards, write to a `/etc/asf/<user>` file, where `<user>` is the user you're running the service under (`asf` in our example above, so `/etc/asf/asf`).
 
@@ -103,7 +103,7 @@ Restart=always
 # (...)
 ```
 
-And that's it, now your unit acts the same as if it had only `Restart=always` under `[Service]`.
+Und das war es. Jetzt agiert Ihre Einheit so, als hätte sie nur `Restart=always` unter `[Service]`.
 
 Natürlich können Sie alternativ die Datei `cp` (kopieren) und selbst verwalten; allerdings ermöglicht die ursprüngliche ASF-Einheit (z. B. mit einem Symlink) Ihnen flexible Änderungen vorzunehmen, wenn Sie sich entschieden haben, dieses Original zu behalten.
 

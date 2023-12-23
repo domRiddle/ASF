@@ -4,7 +4,7 @@ ASF ist eine C#-Anwendung, welche mit der .NET-Plattform ausgeführt wird. Das b
 
 Dieser Ansatz hat enorme Vorteile, da CIL plattformunabhängig ist. Aus diesem Grund kann ASF nativ auf vielen verfügbaren Betriebssystemen, insbesondere Windows, Linux und macOS, ausgeführt werden. Es wird nicht nur keine Emulation benötigt, sondern auch Unterstützung für alle plattformbezogenen und hardwarebezogenen Optimierungen, z. B. CPU-SSE-Anweisungen. Dank dessen kann ASF eine überlegene Leistung und Optimierung erreichen, während es gleichzeitig eine perfekte Kompatibilität und Zuverlässigkeit bietet.
 
-Das bedeutet auch, dass ASF **keine spezifische Betriebssystem-Anforderung** hat, weil es die funktionierende **Runtime** auf diesem Betriebssystem benötigt und nicht das Betriebssystem selbst. Solange die Laufzeitumgebung den ASF-Code korrekt ausführt, spielt es keine Rolle, ob das Betriebssystem Windows, Linux ist macOS, BSD, Sony Playstation 4, Nintendo Wii oder ein Toaster ist - solange es **[.NET](https://dotnet.microsoft.com/download/dotnet)** dafür gibt, existiert **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** dafür (als `generic` Variante).
+Das bedeutet auch, dass ASF **keine spezifische Betriebssystem-Anforderung** hat, weil es die funktionierende **Runtime** auf diesem Betriebssystem benötigt und nicht das Betriebssystem selbst. Solange die Laufzeitumgebung den ASF-Code korrekt ausführt, spielt es keine Rolle, ob das Betriebssystem Windows, Linux ist macOS, BSD, Sony Playstation 4, Nintendo Wii oder ein Toaster ist – solange es **[.NET](https://dotnet.microsoft.com/download/dotnet)** dafür gibt, existiert **[ASF](https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest)** dafür (als `generic` Variante).
 
 Unabhängig davon, wo Sie ASF ausführen, müssen Sie jedoch sicherstellen, dass auf Ihrer Zielplattform **[.NET-Voraussetzungen](https://github.com/dotnet/core/blob/main/Documentation/prereqs.md)** installiert sind. Diese sind Low-Level-Bibliotheken, welche für eine einwandfreie Laufzeitfunktionalität benötigt werden und unerlässlich für die bloße Funktion von ASF sind. Sehr wahrscheinlich haben Sie bereits einige (oder sogar alle) davon installiert.
 
@@ -12,7 +12,7 @@ Unabhängig davon, wo Sie ASF ausführen, müssen Sie jedoch sicherstellen, dass
 
 ## ASF-Pakete
 
-ASF gibt es in 2 Hauptformen - generisches Paket und betriebssystemspezifisch. Aus funktionaler Sicht sind beide Pakete genau gleich. Beide sind auch in der Lage, sich selbst automatisch zu aktualisieren. Der einzige Unterschied zwischen Ihnen ist, ob zusätzlich zum **generischen** Paket von ASF auch eine **betriebssystemspezifische** Runtime enthalten ist oder nicht.
+ASF gibt es in 2 Hauptformen – generisches Paket und betriebssystemspezifisch. Aus funktionaler Sicht sind beide Pakete genau gleich. Beide sind auch in der Lage, sich selbst automatisch zu aktualisieren. Der einzige Unterschied zwischen Ihnen ist, ob zusätzlich zum **generischen** Paket von ASF auch eine **betriebssystemspezifische** Runtime enthalten ist oder nicht.
 
 ---
 
@@ -20,13 +20,13 @@ ASF gibt es in 2 Hauptformen - generisches Paket und betriebssystemspezifisch. A
 
 Das generische Paket ist ein plattformunabhängiger Build, der keinen maschinenspezifischen Code enthält. Dieses Setup erfordert, dass Sie die .NET Core Runtime bereits **in der entsprechenden Version** auf dem Betriebssystem installiert haben. Wir alle wissen, wie lästig es ist, Abhängigkeiten auf dem neuesten Stand zu halten, deshalb ist dieses Paket hauptsächlich für Leute gedacht, die .NET **bereits** verwenden und diese Runtime nicht explizit für ASF zusätzlich pflegen möchten; wenn sie das nutzen können, was sie bereits installiert haben. Das generische Paket ermöglicht es Ihnen auch, ASF ** überall dort auszuführen, solange eine funktionierende Implementierung der .NET Runtime zur Verfügung steht**, unabhängig davon, ob es einen betriebssystemspezifischen ASF Build dafür gibt oder nicht.
 
-Es wird nicht empfohlen, den generischen Build zu verwenden, wenn Sie ein Gelegenheits- oder sogar fortgeschrittener Benutzer sind, der ASF lediglich ausführen will, ohne sich mit den technischen Details (von .NET) befassen zu müssen. Mit anderen Worten - wenn Sie wissen, worauf Sie sich damit einlassen, dann können Sie es benutzen; sonst ist es viel besser, ein betriebssystemspezifisches Paket zu verwenden, das unten erklärt wird.
+Es wird nicht empfohlen, den generischen Build zu verwenden, wenn Sie ein Gelegenheits- oder sogar fortgeschrittener Benutzer sind, der ASF lediglich ausführen will, ohne sich mit den technischen Details (von .NET) befassen zu müssen. Mit anderen Worten – wenn Sie wissen, worauf Sie sich damit einlassen, dann können Sie es benutzen; sonst ist es viel besser, ein betriebssystemspezifisches Paket zu verwenden, das unten erklärt wird.
 
 ---
 
 ### Betriebssystemspezifisch
 
-Das betriebssystemspezifische Paket beinhaltet neben dem verwalteten Code, der im generischen Paket enthalten ist, auch nativen Code für die jeweilige Plattform. Mit anderen Worten: das betriebssystemspezifische Paket **beinhaltet bereits die richtige .NET Runtime**, was es Ihnen ermöglicht, den gesamten Installationsprozess komplett zu überspringen und ASF einfach direkt zu starten. Das betriebssystemspezifische Paket, wie man dem Namen entnehmen kann, ist betriebssystemspezifisch und jedes Betriebssystem benötigt eine eigene Version - zum Beispiel Windows benötigt PE32+ `ArchiSteamFarm.exe` Binärdatei während Linux mit Unix ELF `ArchiSteamFarm` Binärdatei arbeitet. Wie Sie vielleicht wissen, sind diese beiden Typen nicht miteinander kompatibel.
+Das betriebssystemspezifische Paket beinhaltet neben dem verwalteten Code, der im generischen Paket enthalten ist, auch nativen Code für die jeweilige Plattform. Mit anderen Worten: das betriebssystemspezifische Paket **beinhaltet bereits die richtige .NET Runtime**, was es Ihnen ermöglicht, den gesamten Installationsprozess komplett zu überspringen und ASF einfach direkt zu starten. Das betriebssystemspezifische Paket, wie man dem Namen entnehmen kann, ist betriebssystemspezifisch und jedes Betriebssystem benötigt eine eigene Version – zum Beispiel Windows benötigt PE32+ `ArchiSteamFarm.exe` Binärdatei während Linux mit Unix ELF `ArchiSteamFarm` Binärdatei arbeitet. Wie Sie vielleicht wissen, sind diese beiden Typen nicht miteinander kompatibel.
 
 ASF ist derzeit in folgenden betriebsystemspezifischen Varianten verfügbar:
 

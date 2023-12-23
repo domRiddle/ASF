@@ -46,7 +46,7 @@ Und um es noch schlimmer zu machen – ich habe Fälle erlebt in denen Leute von
 
 ---
 
-Standardmäßig geht ASF davon aus, dass `HoursUntilCardDrops` `3` ist, da der negative Effekt der Einstellung auf `3`, wenn er kleiner sein sollte, kleiner ist als umgekehrt. Dies liegt daran, dass wir im schlimmsten Fall `3` Stunden Sammeln pro `32` Spiele verschwenden, verglichen mit dem Verschwenden von `3` Stunden Sammeln pro Spiel, wenn `HoursUntilCardDrops` standardmäßig auf `0` eingestellt wurde. Sie sollten diese Variable jedoch immer noch so einstellen, dass sie mit Ihrem Konto übereinstimmt, um maximale Effizienz zu erreichen, da dies nur eine blinde Vermutung ist, die auf potenziellen Nachteilen und der Mehrheit der Benutzer basiert (daher versuchen wir, standardmäßig das "kleineres Übel" zu wählen).
+Standardmäßig geht ASF davon aus, dass `HoursUntilCardDrops` `3` ist, da der negative Effekt der Einstellung auf `3`, wenn er kleiner sein sollte, kleiner ist als umgekehrt. Dies liegt daran, dass wir im schlimmsten Fall `3` Stunden Sammeln pro `32` Spiele verschwenden, verglichen mit dem Verschwenden von `3` Stunden Sammeln pro Spiel, wenn `HoursUntilCardDrops` standardmäßig auf `0` eingestellt wurde. Sie sollten diese Variable jedoch immer noch so einstellen, dass sie mit Ihrem Konto übereinstimmt, um maximale Effizienz zu erreichen, da dies nur eine blinde Vermutung ist, die auf potenziellen Nachteilen und der Mehrheit der Benutzer basiert (daher versuchen wir, standardmäßig das „kleineres Übel“ zu wählen).
 
 Im Moment reichen zwei der oben genannten Algorithmen für alle derzeit möglichen Kontoszenarien aus, um so effektiv wie möglich zu wirtschaften, daher ist es nicht geplant, weitere hinzuzufügen.
 

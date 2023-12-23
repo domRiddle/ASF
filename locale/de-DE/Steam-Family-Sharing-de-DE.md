@@ -1,12 +1,12 @@
 # Steam Familienbibliothek
 
-ASF unterstützt die Steam Familienbibliothek - um zu verstehen, wie ASF damit umgeht, sollten Sie zunächst lesen wie die **[Steam-Familienbibliothek funktioniert](https://store.steampowered.com/promotion/familysharing)**, welche im Steam-Shop verfügbar ist.
+ASF unterstützt die Steam Familienbibliothek – um zu verstehen, wie ASF damit umgeht, sollten Sie zunächst lesen wie die **[Steam-Familienbibliothek funktioniert](https://store.steampowered.com/promotion/familysharing)**, welche im Steam-Shop verfügbar ist.
 
 ---
 
 ## ASF
 
-Die Unterstützung für das Steam-Familienbibliothek-Feature in ASF ist transparent, d.h. es werden keine neuen Bot/Prozesskonfigurationseigenschaften eingeführt - es funktioniert sofort als zusätzliche integrierte Funktionalität.
+Die Unterstützung für das Steam-Familienbibliothek-Feature in ASF ist transparent, d.h. es werden keine neuen Bot/Prozesskonfigurationseigenschaften eingeführt – es funktioniert sofort als zusätzliche integrierte Funktionalität.
 
 ASF beinhaltet eine entsprechende Logik, um zu erkennen, dass die Bibliothek von Familienmitgliedern gesperrt ist, sodass Sie nicht durch den Start eines Spiels aus der Spielsitzung geworfen werden. ASF verhält sich genau so, wie mit dem primären Konto, das die Sperre hält. Daher wird ASF, wenn diese Sperre entweder von Ihrem Steam-Client oder von einem der Benutzer Ihrer Familie gehalten wird nicht versuchen, einen Sammelprozess zu starten, sondern darauf warten, dass die Sperre freigegeben wird.
 

@@ -1,12 +1,12 @@
 # Zwei-Faktor-Authentifizierung (2FA)
 
-Steam includes two-factor authentication system known as "Escrow" that requires extra details for various account-related activity. Sie können **[hier](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)** und **[hier](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)** mehr darüber lesen. This page considers that 2FA system as well as our solution that integrates with it, called ASF 2FA.
+Steam beinhaltet das Zwei-Faktor-Authentifizierungssystem, bekannt als „Escrow“, das zusätzliche Details für verschiedene kontenbezogene Aktivitäten erfordert. Sie können **[hier](https://help.steampowered.com/faqs/view/2E6E-A02C-5581-8904)** und **[hier](https://help.steampowered.com/faqs/view/34A1-EA3F-83ED-54AB)** mehr darüber lesen. Diese Seite befasst sich mit dem 2FA-System sowie unserer Lösung, die mit ihm integriert wird (ASF-2FA).
 
 ---
 
 # ASF-Logik
 
-Regardless if you use ASF 2FA or not, ASF includes proper logic and is fully aware of accounts protected by standard 2FA. Es fragt Sie nach den erforderlichen Details, sobald diese benötigt werden (z. B. beim Anmelden). However, those requests can be automated by using ASF 2FA, which will automatically generate required tokens, saving you hassle and enabling extra functionality (described below).
+Unabhängig davon, ob Sie ASF-2FA verwenden oder nicht, enthält ASF die passende Logik und ist sich bewusst, dass die Konten durch das Standard 2FA geschützt sind. Es fragt Sie nach den erforderlichen Details, sobald diese benötigt werden (z. B. beim Anmelden). Es ist jedoch möglich, diese Anfragen durch ASF-2FA zu automatisieren, wodurch automatisch Token generiert, Ihnen lästige Aufgaben abgenommen und zusätzliche Funktionen hinzugefügt werden (Erläuterungen siehe unten).
 
 ---
 
@@ -106,7 +106,7 @@ Angenommen, Du hast dein Handy erfolgreich gerootet, solltest Du danach einen be
 
 Nachdem Du Ihren Root-Explorer geöffnet hast, navigiere zum Ordner `/data/data`. Beachte, dass das Verzeichnis `/data/data` geschützt ist und Du ohne Root-Zugriff nicht darauf zugreifen kannst. Dort angekommen, findest Du den Ordner `com.valvesoftware.android.steam.community` und kopierst ihn auf Ihre `/sdcard`, die auf Ihren internen Speicher verweist. Danach solltest Du dein Handy an Ihren PC anschließen und den Ordner wie gewohnt von Ihrem internen Speicher kopieren können. Wenn der Ordner zufällig nicht sichtbar ist, obwohl Du Ihren sicher bist, dass Du ihn an die richtige Stelle kopiert hast, versuche zuerst dein Handy neu zu starten.
 
-Nun kannst Du wählen, ob Du Ihren Authentifikator zuerst in WinAuth und dann in ASF oder sofort in ASF importieren möchtest. Die erste Option ist benutzerfreundlicher und ermöglicht es dir deinen Authentifikator auch auf deinem PC zu duplizieren, sodass Du Bestätigungen vornehmen und Codes an 3 verschiedenen Stellen generieren kannst – deinem Handy, deinem PC und ASF. Wenn Du das tun möchtest, öffne einfach WinAuth, füge einen neuen Steam-Authentifikator hinzu und wähle die Option "Import aus Android". Anschließend folge den Anweisungen, indem Du auf die Dateien zugreifst, die Du oben erhalten hast. Danach kannst Du diesen Authentifikator von WinAuth nach ASF importieren, was im speziellen WinAuth-Abschnitt weiter unten erläutert wird.
+Nun kannst Du wählen, ob Du Ihren Authentifikator zuerst in WinAuth und dann in ASF oder sofort in ASF importieren möchtest. Die erste Option ist benutzerfreundlicher und ermöglicht es dir deinen Authentifikator auch auf deinem PC zu duplizieren, sodass Du Bestätigungen vornehmen und Codes an 3 verschiedenen Stellen generieren kannst – deinem Handy, deinem PC und ASF. Wenn Du das tun möchtest, öffne einfach WinAuth, füge einen neuen Steam-Authentifikator hinzu und wähle die Option „Import aus Android“. Anschließend folge den Anweisungen, indem Du auf die Dateien zugreifst, die Du oben erhalten hast. Danach kannst Du diesen Authentifikator von WinAuth nach ASF importieren, was im speziellen WinAuth-Abschnitt weiter unten erläutert wird.
 
 If you don't want to or don't need to go through WinAuth, then simply copy `files/Steamguard-<SteamID>` file from our protected directory, where `SteamID` is your 64-bit Steam identificator of the account that you want to add (if more than one, because if you have only one account then this will be the only file). Du musst diese Datei in das ASF-Verzeichnis `config` kopieren. Sobald Du das getan hast, benenne die Datei um in `BotName.maFile`, wobei `BotName` der Name Ihres Bot ist, dem Du ASF-2FA hinzufügst. Nach diesem Schritt starte ASF – es sollte die `.maFile` erkennen und importieren.
 
@@ -152,7 +152,7 @@ Von nun an sollte dein ASF-2FA für dieses Konto einsatzbereit sein.
 
 Erstelle zunächst eine neue leere `BotName.maFile` Datei im ASF-Konfigurationsverzeichnis, wobei `BotName` der Name deines Bot ist, dem Du ASF-2FA hinzufügst. Bedenke, dass es `BotName.maFile` und NICHT `BotName.maFile.txt` sein sollte, Windows mag es bekannte Erweiterungen standardmäßig zu verstecken. Wenn Du einen falschen Namen angibst wird er nicht von ASF ausgewählt.
 
-Nun starte WinAuth wie gewohnt. Nach einem Rechtsklick auf das Steam-Symbol wähle "Show SteamGuard and Recovery Code". Dann setze einen Haken bei "Allow copy". Du solltest bemerken, dass dir die JSON-Struktur am unteren Rand des Fensters vertraut ist, beginnend mit `{`. Kopiere den gesamten Text in die `BotName.maFile` Datei, die Du im vorherigen Schritt erstellt hast.
+Nun starte WinAuth wie gewohnt. Nach einem Rechtsklick auf das Steam-Symbol wähle „Show SteamGuard and Recovery Code“. Dann setze einen Haken bei „Allow copy“. Du solltest bemerken, dass dir die JSON-Struktur am unteren Rand des Fensters vertraut ist, beginnend mit `{`. Kopiere den gesamten Text in die `BotName.maFile` Datei, die Du im vorherigen Schritt erstellt hast.
 
 Wenn Du alles richtig gemacht hast, starte ASF und Du solltest es merken:
 

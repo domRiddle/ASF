@@ -39,7 +39,7 @@
 * **[🔗 IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)**
 * **[🌐 Übersetzung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Localization-de-DE)**
 * **[📝 Protokollierung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Logging-de-DE)**
-* **[💾 Speichereffizientes Einrichtung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE)**
+* **[💾 Speichereffiziente Einrichtung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE)**
 * **[🔌 Erweiterungen (Plugins)](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins-de-DE)**
 * **[🔐 Sicherheit](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Security-de-DE)**
 * **[🧩 SteamTokenDumperPlugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/SteamTokenDumperPlugin-de-DE)**

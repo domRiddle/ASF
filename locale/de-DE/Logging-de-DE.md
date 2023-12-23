@@ -10,7 +10,7 @@ Standardmäßig protokolliert ASF in `ColoredConsole` (Standardausgabe) und `Fil
 
 Die Verwendung einer benutzerdefinierten NLog Konfiguration deaktiviert automatisch die standard ASF Konfiguration, welche dami **komplett** durch Ihre Konfiguration überschrieben wird. Das bedeutet, dass, falls Sie z. B. unsere `ColoredConsole` Ausgabe verwenden möchten, Sie diese **selber** definieren müssen. Dies erlaubt es Ihnen nicht nur **extra** Protokollierungsziele hinzuzufügen, sondern auch die **Standardziele** zu verändern oder deaktivieren.
 
-Wenn Sie die standard ASF-Protokollierung ohne irgendwelche Veränderung verwenden möchten, müssen Sie nichts tun - auch brauchen Sie dies nicht in der `NLog.config` zu definieren. Verwenden Sie die `NLog.config` nicht, wenn Sie die standardmäßige ASF-Protokollierung nicht verändern möchten. Zum Vergleich: Das Äquivalent zur fest definierten ASF-Protokollierung (Standard) wäre:
+Wenn Sie die standard ASF-Protokollierung ohne irgendwelche Veränderung verwenden möchten, müssen Sie nichts tun – auch brauchen Sie dies nicht in der `NLog.config` zu definieren. Verwenden Sie die `NLog.config` nicht, wenn Sie die standardmäßige ASF-Protokollierung nicht verändern möchten. Zum Vergleich: Das Äquivalent zur fest definierten ASF-Protokollierung (Standard) wäre:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -55,15 +55,15 @@ Wenn Sie die standard ASF-Protokollierung ohne irgendwelche Veränderung verwend
 
 ASF enthält einige nette Quellcode-Tricks, die die Integration mit NLog verbessern und es Ihnen ermöglichen bestimmte Nachrichten leichter zu erfassen.
 
-Die NLog-spezifische Variable `${logger}` wird immer die Quelle der Nachricht anzeigen - es wird entweder `BotName` von einem Ihrer Bots sein, oder `ASF` wenn die Nachricht direkt vom ASF-Prozess kommt. Auf diese Weise können Sie Nachrichten leicht abfangen, die bestimmte Bot(s) oder ASF-Prozesse (nur) berücksichtigen, anstatt sie alle, basierend auf dem Namen des Loggers.
+Die NLog-spezifische Variable `${logger}` wird immer die Quelle der Nachricht anzeigen – es wird entweder `BotName` von einem Ihrer Bots sein, oder `ASF` wenn die Nachricht direkt vom ASF-Prozess kommt. Auf diese Weise können Sie Nachrichten leicht abfangen, die bestimmte Bot(s) oder ASF-Prozesse (nur) berücksichtigen, anstatt sie alle, basierend auf dem Namen des Loggers.
 
 ASF versucht, Meldungen entsprechend den von NLog bereitgestellten logging (Protokoll) Warnstufen zu kennzeichnen, was es Ihnen ermöglicht, nur bestimmte Meldungen von bestimmten Protokollebenen, statt von allen zu erhalten. Natürlich kann die Protokollierungsstufe für eine bestimmte Nachricht nicht angepasst werden, da es sich um eine ASF-Festlegung handelt, wie ernst die gegebene Nachricht ist, aber Sie können ASF definitiv die Priorität erhöhen/verringern, wie Sie es für richtig halten.
 
-ASF protokolliert zusätzliche Informationen, z. B. Benutzer-/Chat-Nachrichten auf der `Trace` Protokollierungsebene. Die standardmäßige ASF-Protokollierung schreibt nur die Ebene `Debug` und darüber; weshalb diese Informationen verborgen werden, da sie für die Mehrheit der Benutzer nicht benötigt werden, sowie die Ausgabe mit potenziell wichtigeren Nachrichten "zumüllt". Sie können diese Informationen jedoch nutzen, indem Sie Logging-Ebene `Trace` wieder aktivieren, insbesondere in Kombination mit dem Protokollierung eines einzigen bestimmten Bots Ihrer Wahl, mit einem bestimmten Event, an dem Sie interessiert sind.
+ASF protokolliert zusätzliche Informationen, z. B. Benutzer-/Chat-Nachrichten auf der `Trace` Protokollierungsebene. Die standardmäßige ASF-Protokollierung schreibt nur die Ebene `Debug` und darüber; weshalb diese Informationen verborgen werden, da sie für die Mehrheit der Benutzer nicht benötigt werden, sowie die Ausgabe mit potenziell wichtigeren Nachrichten „zumüllt“. Sie können diese Informationen jedoch nutzen, indem Sie Logging-Ebene `Trace` wieder aktivieren, insbesondere in Kombination mit dem Protokollierung eines einzigen bestimmten Bots Ihrer Wahl, mit einem bestimmten Event, an dem Sie interessiert sind.
 
 Im Allgemeinen versucht ASF, es Ihnen so einfach und bequem wie möglich zu machen, nur die Nachrichten zu protokollieren, die Sie wünschen, anstatt Sie zu zwingen, diese manuell durch Drittanbieterprogramme wie `grep` (oder ähnliche) zu filtern. Konfigurieren Sie NLog einfach wie unten erläutert und Sie sollten in der Lage sein, auch sehr komplexe Protokollierungsregeln mit benutzerdefinierten Zielen, wie beispielsweise ganze Datenbanken, zu spezifizieren.
 
-In Bezug auf die Versionierung versucht ASF immer die aktuellste Version von NLog zu liefern, die zum Zeitpunkt der ASF-Version unter **[NuGet](https://www.nuget.org/packages/NLog)** verfügbar ist. Es sollte kein Problem sein, alle Funktionen zu verwenden, die Sie im NLog-Wiki über ASF finden - stellen Sie sicher, dass Sie auch die neueste ASF verwenden.
+In Bezug auf die Versionierung versucht ASF immer die aktuellste Version von NLog zu liefern, die zum Zeitpunkt der ASF-Version unter **[NuGet](https://www.nuget.org/packages/NLog)** verfügbar ist. Es sollte kein Problem sein, alle Funktionen zu verwenden, die Sie im NLog-Wiki über ASF finden – stellen Sie sicher, dass Sie auch die neueste ASF verwenden.
 
 Im Rahmen der ASF-Integration bietet ASF auch Unterstützung für zusätzliche ASF-NLog-Protokollierungsziele, die im Folgenden erläutert werden.
 
@@ -86,7 +86,7 @@ Lassen Sie uns mit etwas Einfachem anfangen. Wir werden nur **[ColoredConsole](h
 </nlog>
 ```
 
-Die Erklärung der obigen Konfiguration ist ziemlich einfach - wir definieren ein **Protokollziel**, das `ColoredConsole` ist, dann leiten wir **alle "Schreiber"** (`*`) der Ebene `Debug` und höher zum Ziel `ColoredConsole` um, das wir zuvor definiert haben. Das ist alles.
+Die Erklärung der obigen Konfiguration ist ziemlich einfach – wir definieren ein **Protokollziel**, das `ColoredConsole` ist, dann leiten wir **alle „Schreiber“** (`*`) der Ebene `Debug` und höher zum Ziel `ColoredConsole` um, das wir zuvor definiert haben. Das ist alles.
 
 Wenn Sie ASF jetzt mit obiger `NLog.config` starten, wird nur `ColoredConsole` target aktiv sein, und ASF wird nicht in `File` schreiben, unabhängig von der fest programmierten ASF NLog Konfiguration.
 
@@ -105,7 +105,7 @@ Nehmen wir an, wir mögen das Standardformat `${longdate}|${level:uppercase=true
 </nlog>
 ```
 
-Wenn Sie ASF jetzt starten, werden Sie feststellen, dass Datum, Level und Logger-Name verschwunden sind - und nur noch ASF-Nachrichten im Format `Function() Message` übrigbleiben.
+Wenn Sie ASF jetzt starten, werden Sie feststellen, dass Datum, Level und Logger-Name verschwunden sind – und nur noch ASF-Nachrichten im Format `Function() Message` übrigbleiben.
 
 Wir können die Konfiguration auch so ändern, dass sie mehr als ein Ziel protokolliert. Hier protokollieren wir gleichzeitig `ColoredConsole` und **[File](https://github.com/nlog/nlog/wiki/File-target)**.
 
@@ -215,7 +215,7 @@ Dieses Beispiel basiert auf unserem `ColoredConsole` Basisbeispiel oben. Bevor S
 </nlog>
 ```
 
-Wir haben mit unserem einfachen Beispiel `ColoredConsole` begonnen und es weiter ausgebaut. In erster Linie haben wir eine permanente Chat-Logdatei für jeden Gruppenkanal und Steam-Benutzer erstellt - dies ist möglich dank zusätzlicher Eigenschaften, die ASF uns auf ausgefallene Weise zur Verfügung stellt. Wir haben uns auch für ein benutzerdefiniertes Layout entschieden, das nur das aktuelle Datum, die Nachricht, die gesendet/empfangen Information und den Steam-Benutzer selbst schreibt. Schließlich haben wir unsere Chat-Protokollierungsregel nur für die Ebene `Trace` aktiviert, nur für unseren `MainAccount` Bot und nur für Funktionen im Zusammenhang mit der Chat-Protokollierung (`OnIncoming*`, der für den Empfang von Nachrichten und Echos verwendet wird, und `SendMessage*` für das Senden von ASF-Nachrichten).
+Wir haben mit unserem einfachen Beispiel `ColoredConsole` begonnen und es weiter ausgebaut. In erster Linie haben wir eine permanente Chat-Logdatei für jeden Gruppenkanal und Steam-Benutzer erstellt – dies ist möglich dank zusätzlicher Eigenschaften, die ASF uns auf ausgefallene Weise zur Verfügung stellt. Wir haben uns auch für ein benutzerdefiniertes Layout entschieden, das nur das aktuelle Datum, die Nachricht, die gesendet/empfangen Information und den Steam-Benutzer selbst schreibt. Schließlich haben wir unsere Chat-Protokollierungsregel nur für die Ebene `Trace` aktiviert, nur für unseren `MainAccount` Bot und nur für Funktionen im Zusammenhang mit der Chat-Protokollierung (`OnIncoming*`, der für den Empfang von Nachrichten und Echos verwendet wird, und `SendMessage*` für das Senden von ASF-Nachrichten).
 
 Das obige Beispiel erzeugt die Datei `0-0-76561198069026042.txt`, wenn man mit **[ArchiBot](https://steamcommunity.com/profiles/76561198069026042)** spricht:
 
@@ -263,22 +263,22 @@ Lesen Sie  mehr über die Verwendung der [Konfigurationsdatei](https://github.co
 #### Parameter
 
 ##### Allgemeine Optionen
-_name_ - Name des Ziels.
+_name_ – Name des Ziels.
 
 ---
 
 ##### Layout Optionen
-_layout_ - Der zu rendernde Text. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Erforderlich. Standard: `${level:uppercase=true}|${logger}|${message}`
+_layout_ – Der zu rendernde Text. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Erforderlich. Standard: `${level:uppercase=true}|${logger}|${message}`
 
 ---
 
 ##### SteamTarget Optionen
 
-_chatGroupID_ - ID des Gruppen-Chats, der als 64-Bit lange, unsignierte Ganzzahl deklariert wurde. Nicht erforderlich. Standardmäßig ist `0` voreingestellt, was die Gruppen-Chat-Funktion deaktiviert und stattdessen einen privaten Chat verwendet. Wenn aktiviert (auf einen Nicht-Nullwert gesetzt), fungiert die folgende Variable `steamID` als `chatID` und gibt die ID des Kanals in diesem `chatGroupID` an, an den der Bot Nachrichten senden soll.
+_chatGroupID_ – ID des Gruppen-Chats, der als 64-Bit lange, unsignierte Ganzzahl deklariert wurde. Nicht erforderlich. Standardmäßig ist `0` voreingestellt, was die Gruppen-Chat-Funktion deaktiviert und stattdessen einen privaten Chat verwendet. Wenn aktiviert (auf einen Nicht-Nullwert gesetzt), fungiert die folgende Variable `steamID` als `chatID` und gibt die ID des Kanals in diesem `chatGroupID` an, an den der Bot Nachrichten senden soll.
 
-_steamID_ - SteamID deklariert als 64-Bit lange unsignierte ganze Zahl des Ziel-Steam-Benutzers (wie `SteamOwnerID`), oder Ziel `chatID` (wenn `chatGroupID` eingestellt ist). Erforderlich. Standardwert von `0`, wodurch das Protokollierungsziel vollständig deaktiviert wird.
+_steamID_ – SteamID deklariert als 64-Bit lange unsignierte ganze Zahl des Ziel-Steam-Benutzers (wie `SteamOwnerID`), oder Ziel `chatID` (wenn `chatGroupID` eingestellt ist). Erforderlich. Standardwert von `0`, wodurch das Protokollierungsziel vollständig deaktiviert wird.
 
-_botName_ - Name des Bots (wie er von ASF erkannt wird, Groß-/Kleinschreibung beachten), der Nachrichten an `steamID` senden wird; oben erklärt. Nicht erforderlich. Standardmäßig ist `null` voreingestellt, was automatisch **jeden** aktuell verbundenen Bot auswählt. Es wird empfohlen, diesen Wert entsprechend einzustellen, da `SteamTarget` nicht viele Steam-Einschränkungen berücksichtigt, z. B. die Tatsache, dass Sie `steamID` des Ziels auf Ihrer Freundeliste haben müssen. Diese Variable ist als [Layout](https://github.com/NLog/NLog/wiki/Layouts) Typ definiert, daher können Sie in ihr eine spezielle Syntax verwenden zum Beispiel `${logger}` um den Bot zu verwenden, der die Nachricht generiert hat.
+_botName_ – Name des Bots (wie er von ASF erkannt wird, Groß-/Kleinschreibung beachten), der Nachrichten an `steamID` senden wird; oben erklärt. Nicht erforderlich. Standardmäßig ist `null` voreingestellt, was automatisch **jeden** aktuell verbundenen Bot auswählt. Es wird empfohlen, diesen Wert entsprechend einzustellen, da `SteamTarget` nicht viele Steam-Einschränkungen berücksichtigt, z. B. die Tatsache, dass Sie `steamID` des Ziels auf Ihrer Freundeliste haben müssen. Diese Variable ist als [Layout](https://github.com/NLog/NLog/wiki/Layouts) Typ definiert, daher können Sie in ihr eine spezielle Syntax verwenden zum Beispiel `${logger}` um den Bot zu verwenden, der die Nachricht generiert hat.
 
 ---
 
@@ -338,18 +338,18 @@ Lesen Sie  mehr über die Verwendung der [Konfigurationsdatei](https://github.co
 #### Parameter
 
 ##### Allgemeine Optionen
-_name_ - Name des Ziels.
+_name_ – Name des Ziels.
 
 ---
 
 ##### Layout Optionen
-_layout_ - Der zu rendernde Text. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Erforderlich. Standard: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
+_layout_ – Der zu rendernde Text. [Layout](https://github.com/NLog/NLog/wiki/Layouts) Erforderlich. Standard: `${date:format=yyyy-MM-dd HH\:mm\:ss}|${processname}-${processid}|${level:uppercase=true}|${logger}|${message}${onexception:inner= ${exception:format=toString,Data}}`
 
 ---
 
 ##### HistoryTarget Optionen
 
-_maxCount_ - Maximale Anzahl der gespeicherten Protokolle für die Abrufhistorie. Nicht erforderlich. Der Standardwert `20` ist eine gute Balance für die Bereitstellung der Anfangshistorie, während die Speichernutzung, die sich aus den Speicheranforderungen ergibt, weiterhin überwacht wird. Muss größer als `0` sein.
+_maxCount_ – Maximale Anzahl der gespeicherten Protokolle für die Abrufhistorie. Nicht erforderlich. Der Standardwert `20` ist eine gute Balance für die Bereitstellung der Anfangshistorie, während die Speichernutzung, die sich aus den Speicheranforderungen ergibt, weiterhin überwacht wird. Muss größer als `0` sein.
 
 ---
 
@@ -357,4 +357,4 @@ _maxCount_ - Maximale Anzahl der gespeicherten Protokolle für die Abrufhistorie
 
 Achten Sie darauf, wenn Sie sich entscheiden, die Protokoll-Ebene(n) `Debug` (oder darunter) in Ihrem `SteamTarget` mit `steamID` zu kombinieren, das am ASF-Prozess teilnimmt. Dies kann zu einer möglichen `StackOverflowException` (Ausnahme) führen, da Sie eine Endlosschleife erzeugen, in der ASF eine gegebene Nachricht empfängt, sie dann durch Steam protokolliert, was zu einer weiteren Nachricht führt, die protokolliert werden muss. Derzeit sind die einzigen Möglichkeiten dafür die Protokollierung der Ebenen `Trace` (wo ASF seine eigenen Chat-Nachrichten aufzeichnet), oder `Debug` (im `Debug` Modus ausgeführt, wo ASF alle Steam-Pakete aufzeichnet).
 
-Kurz gesagt, wenn Ihre `steamID` am gleichen ASF-Prozess teilnimmt - dann sollte die `minlevel` Protokoll-Ebene Ihres `SteamTarget` - `Info` (oder im `Debug`, falls Sie ASF nicht im `Debug` Modus ausführen) sein, oder darüber. Alternativ können Sie Ihre eigenen `<when>` Protokoll-Filter definieren, um eine unendliche Schleife beim Protokollieren zu vermeiden, wenn die Änderung der Ebene nicht für Ihren Fall geeignet ist. Dies gilt auch für Gruppen-Chats.
+Kurz gesagt, wenn Ihre `steamID` am gleichen ASF-Prozess teilnimmt – dann sollte die `minlevel` Protokoll-Ebene Ihres `SteamTarget` – `Info` (oder im `Debug`, falls Sie ASF nicht im `Debug` Modus ausführen) sein, oder darüber. Alternativ können Sie Ihre eigenen `<when>` Protokoll-Filter definieren, um eine unendliche Schleife beim Protokollieren zu vermeiden, wenn die Änderung der Ebene nicht für Ihren Fall geeignet ist. Dies gilt auch für Gruppen-Chats.
