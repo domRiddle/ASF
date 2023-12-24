@@ -5,7 +5,7 @@ ASF unterstützt eine Vielzahl von Befehlen, mit denen das Verhalten der Prozess
 Die folgenden Befehle können auf verschiedene Weise an den Bot gesendet werden:
 - Durch die interaktive ASF-Konsole
 - Durch den privaten Steam-Chat / Gruppen-Chat
-- Durch unsere **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** Schnittstelle
+- Durch unsere **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)**-Schnittstelle
 
 Bedenken Sie, dass die ASF-Interaktion von Ihnen verlangt, dass Sie für den Befehl gemäß den ASF-Berechtigungen berechtigt sind. Weitere Informationen finden Sie in den Konfigurationseigenschaften `SteamUserPermissions` und `SteamOwnerID`.
 
@@ -37,7 +37,7 @@ Bitte bedenken Sie, dass das Senden eines Befehls an den Gruppen-Chat wie ein Re
 
 ### IPC
 
-Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeignet für die Benutzerinteraktion (ASF-UI), für Drittanbieter-Programme oder Skripte (ASF-API). Diese Variante erfordert, dass ASF im `IPC` Modus ausgeführt wird und einen Client der Befehle über die **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)** Schnittstelle ausführt.
+Die fortschrittlichste und flexibelste Art der Befehlsausführung. Perfekt geeignet für die Benutzerinteraktion (ASF-UI), für Drittanbieter-Programme oder Skripte (ASF-API). Diese Variante erfordert, dass ASF im `IPC` Modus ausgeführt wird und einen Client der Befehle über die **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE)**-Schnittstelle ausführt.
 
 ![Screenshot](https://raw.githubusercontent.com/JustArchiNET/ASF-ui/main/.github/previews/commands.png)
 

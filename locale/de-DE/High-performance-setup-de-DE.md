@@ -1,6 +1,6 @@
 # Hochperformantes Einrichtung
 
-Dies ist genau das Gegenteil des **[speichereffizienten Setups](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE#speichereffizientes-setup)** und normalerweise möchten Sie diesen Tipps folgen, wenn Sie die ASF-Leistung (in Bezug auf die CPU-Geschwindigkeit) weiter steigern möchten – meist auf Kosten einer erhöhten Speichernutzung.
+Dies ist genau das Gegenteil der **[speichereffizienten Einrichtung](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Low-memory-setup-de-DE#speichereffizientes-setup)** und normalerweise möchten Sie diesen Tipps folgen, wenn Sie die ASF-Leistung (in Bezug auf die CPU-Geschwindigkeit) weiter steigern möchten – meist auf Kosten einer erhöhten Speichernutzung.
 
 ---
 
@@ -30,13 +30,13 @@ Server GC selbst führt nicht zu einer sehr großen Speicherzunahme, wenn er ein
 
 Wenn jedoch der Speicher kein Problem für Sie ist (da GC immer noch Ihren verfügbaren Speicher berücksichtigt und sich selbst optimiert), dann ist es jedoch eine viel bessere Idee, diese Variablen überhaupt nicht zu ändern, um eine überlegene Leistung im Ergebnis zu erzielen.
 
-### **[`DOTNET_TieredPGO`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#profile-guided-optimization)**
+### **[`DOTNET_TieredPGO`](https://learn.microsoft.com/de-de/dotnet/core/runtime-config/compilation#profile-guided-optimization)**
 
 > Diese Einstellung ermöglicht eine dynamische oder gestaffelt profilorientierte Optimierung (PGO) in .NET 6 und höher Versionen.
 
 Standardmäßig deaktiviert. Kurz gesagt – dies wird dazu führen, dass JIT mehr Zeit mit der Analyse des ASF-Codes und dessen Muster verbringt, um überlegenen Code zu generieren, der für Ihre typische Verwendung optimiert wurde. Wenn Sie mehr über diese Einstellung erfahren möchten, besuchen Sie **[Leistungsverbesserungen in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6)**.
 
-### **[`DOTNET_ReadyToRun`](https://docs.microsoft.com/dotnet/core/run-time-config/compilation#readytorun)**
+### **[`DOTNET_ReadyToRun`](https://learn.microsoft.com/de-de/dotnet/core/runtime-config/compilation#readytorun)**
 
 > Legt fest, ob die .NET Core Laufzeit vorkompilierten Code für Abbilder (Images) mit verfügbaren ReadyToRun-Daten verwendet. Deaktivieren dieser Option erzwingt die Laufzeit von JIT-Framework-Code.
 

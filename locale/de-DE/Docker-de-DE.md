@@ -47,7 +47,7 @@ Wir raten generell davon ab, `main` Builds auszuprobieren, da diese für uns hie
 
 ASF Docker Image (Abbild) ist derzeit auf `Linux` Plattform für 3 Architekturen verfügbar – `x64`, `arm` und `arm64`. Sie können im Abschnitt **[Kompatibilität](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Compatibility-de-DE)** mehr darüber lesen.
 
-Unsere **Tag*s* verwenden das Multi-Plattform-Manifest, was bedeutet, dass Docker auf Ihrem Rechner automatisch das passende Image (Abbild) für Ihre Plattform auswählt, wenn Sie dieses herunterladen. Wenn Sie ein bestimmtes Plattform-Image (Abbild) beziehen möchten, welches nicht dem entspricht, das Sie gerade verwenden, können Sie dies mittels `--platform` in den geeigneten Docker-Befehlen erreichen, wie zum Beispiel `Docker run`. Mehr Informationen hierzu finden Sie in der Docker Dokumentation unter **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)**.
+Unsere *Tag(s)* verwenden das Multi-Plattform-Manifest, was bedeutet, dass Docker auf Ihrem Rechner automatisch das passende Image (Abbild) für Ihre Plattform auswählt, wenn Sie dieses herunterladen. Wenn Sie ein bestimmtes Plattform-Image (Abbild) beziehen möchten, welches nicht dem entspricht, das Sie gerade verwenden, können Sie dies mittels `--platform` in den geeigneten Docker-Befehlen erreichen, wie zum Beispiel `Docker run`. Mehr Informationen hierzu finden Sie in der Docker Dokumentation unter **[image manifest](https://docs.docker.com/registry/spec/manifest-v2-2)**.
 
 ---
 

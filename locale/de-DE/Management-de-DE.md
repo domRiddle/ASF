@@ -55,13 +55,13 @@ Wenn `systemd` `active (running)` angibt, bedeutet es, dass alles gut gelaufen i
 
 Den Prozess können Sie bedarfsweise `systemctl stop ArchiSteamFarm@asf`. Genauso, wenn Sie ASF beim Booten deaktivieren wollen, `systemctl disable ArchiSteamFarm@asf` wird das für Sie erledigen, es ist sehr einfach.
 
-Da jedoch keine Standardeingabe für unseren `systemd` Dienst aktiviert ist, gilt es zu beachten, dass Sie Ihre Daten nicht in gewohnter Weise über die Konsole eingeben können. Running through `systemd` is equivalent to specifying **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration#headless)** setting and comes with all its implications. Zum Glück für Sie ist es sehr einfach, ASF über die **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** zu verwalten, welche wir empfehlen, falls Sie weitere Details beim Login angeben oder Ihren ASF-Prozess anderweitig weiter verwalten müssen.
+Da jedoch keine Standardeingabe für unseren `systemd` Dienst aktiviert ist, gilt es zu beachten, dass Sie Ihre Daten nicht in gewohnter Weise über die Konsole eingeben können. Die Ausführung über `Systemd` ist gleichbedeutend mit der Angabe der Einstellung **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#headless)** und kommt mit all seinen Implikationen. Zum Glück für Sie ist es sehr einfach, ASF über die **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** zu verwalten, welche wir empfehlen, falls Sie weitere Details beim Login angeben oder Ihren ASF-Prozess anderweitig weiter verwalten müssen.
 
 ### Umgebungsvariablen
 
 Es ist möglich, zusätzliche Umgebungsvariablen für unseren `systemd`-Dienst bereitzustellen. Das ist für Sie interessant, wenn Sie etwa ein benutzerdefiniertes `--cryptkey` **[Befehlszeilenargument](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Command-line-arguments-de-DE#argumente)** verwenden möchten – spezifizieren Sie daher `ASF_CRYPTKEY` Umgebungsvariable.
 
-Um benutzerdefinierte Umgebungsvariablen bereitzustellen, muss der Ordner `/etc/asf` (falls er nicht existiert), mit `mkdir -p /etc/asf` erstellt werden. Wir empfehlen `chown -hR root:root /etc/asf && chmod 700 /etc/asf` um sicherzustellen, dass nur der Benutzer `root` Zugang zum Lesen dieser Dateien hat; da diese empfindliche Eigenschaften (z. B. `ASF_CRYPTKEY`) enthalten könnten. Afterwards, write to a `/etc/asf/<user>` file, where `<user>` is the user you're running the service under (`asf` in our example above, so `/etc/asf/asf`).
+Um benutzerdefinierte Umgebungsvariablen bereitzustellen, muss der Ordner `/etc/asf` (falls er nicht existiert), mit `mkdir -p /etc/asf` erstellt werden. Wir empfehlen `chown -hR root:root /etc/asf && chmod 700 /etc/asf` um sicherzustellen, dass nur der Benutzer `root` Zugang zum Lesen dieser Dateien hat; da diese empfindliche Eigenschaften (z. B. `ASF_CRYPTKEY`) enthalten könnten. Anschließend schreiben Sie in die Datei `/etc/asf/<user>`, in welcher `<user>` der Anwender ist, unter dem Ihr Dienst ausgeführt wird (in unserem Beispiel `asf`, folglich `/etc/asf/asf`).
 
 Die Datei sollte alle Umgebungsvariablen enthalten, die Sie dem Prozess zur Verfügung stellen möchten. Diejenigen, die keine eigene Umgebungsvariable haben, können in `ASF_ARGS` deklariert werden:
 
@@ -117,7 +117,7 @@ Für weitere Erläuterungen dazu, *warum* wir die Ausführung von ASF als root n
 
 ### Ich nutze `root`, weil ASF nicht in seine Dateien schreiben kann
 
-Das bedeutet, dass Sie falsch konfigurierte Datei-Berechtigungen haben, auf die ASF zugreifen möchte. You should login as `root` account (either with `su` or `sudo -i`) and then **correct** the permissions by issuing `chown -hR asf:asf /path/to/ASF` command, substituting `asf:asf` with the user that you'll run ASF under, and `/path/to/ASF` accordingly. If by any chance you're using custom `--path` telling ASF user to use the different directory, you should execute the same command again for that path as well.
+Das bedeutet, dass Sie falsch konfigurierte Datei-Berechtigungen haben, auf die ASF zugreifen möchte. Sie sollten sich als Anwender `root` anmelden (entweder mit `su` oder `sudo - i`) und **korrigieren ** dann die Berechtigung über den Befehl `chown -hR asf:asf /path/to/ASF` – ersetzen Sie `asf:asf` mit dem Benutzer, unter dem Sie ASF ausführen und `/path/to/ASF` entsprechend. Wenn Sie zufällig einen benutzerdefinierten `--path` verwenden und ASF Benutzer auffordern, das andere Verzeichnis zu verwenden, sollten Sie den gleichen Befehl auch für diesen Pfad erneut ausführen.
 
 Danach sollten Sie keine Schwierigkeiten mehr haben, die damit zusammenhängen, dass ASF nicht in der Lage ist, über seine eigenen Dateien zu schreiben; weil Sie soeben den Besitzer von allem, was ASF interessiert, für den Benutzer geändert haben.
 
