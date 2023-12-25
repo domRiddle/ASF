@@ -60,9 +60,9 @@ ON TEH OTHR HAND, SETTIN DIS VALUE HIGH ENOUGH IZ PERFIK WAI 2 ENSURE DAT ASF WI
 
 ### [`GCConserveMemory`](https://learn.microsoft.com/dotnet/core/runtime-config/garbage-collector#conserve-memory)
 
-> Configures the garbage collector to conserve memory at the expense of more frequent garbage collections and possibly longer pause times.
+> CONFIGUREZ TEH GARBAGE COLLECTOR 2 CONSERVE MEMS AT TEH EXPENSE OV MOAR FREQUENT GARBAGE COLLECSHUNS AN POSIBLY LONGR PAUSE TIEMS.
 
-A value between 0-9 can be used. The bigger the value, the more GC will optimize memory over performance.
+A VALUE TWEEN 0-9 CAN BE USD. TEH BIGGR TEH VALUE, TEH MOAR GC WILL OPTIMIZE MEMS OVAR PERFORMANCE.
 
 ### [`GCHighMemPercent`](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#high-memory-percent)
 

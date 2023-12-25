@@ -55,7 +55,7 @@ Wenn `systemd` `active (running)` angibt, bedeutet es, dass alles gut gelaufen i
 
 Den Prozess können Sie bedarfsweise `systemctl stop ArchiSteamFarm@asf`. Genauso, wenn Sie ASF beim Booten deaktivieren wollen, `systemctl disable ArchiSteamFarm@asf` wird das für Sie erledigen, es ist sehr einfach.
 
-Da jedoch keine Standardeingabe für unseren `systemd` Dienst aktiviert ist, gilt es zu beachten, dass Sie Ihre Daten nicht in gewohnter Weise über die Konsole eingeben können. Die Ausführung über `Systemd` ist gleichbedeutend mit der Angabe der Einstellung **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#headless)** und kommt mit all seinen Implikationen. Zum Glück für Sie ist es sehr einfach, ASF über die **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC#asf-ui)** zu verwalten, welche wir empfehlen, falls Sie weitere Details beim Login angeben oder Ihren ASF-Prozess anderweitig weiter verwalten müssen.
+Da jedoch keine Standardeingabe für unseren `systemd` Dienst aktiviert ist, gilt es zu beachten, dass Sie Ihre Daten nicht in gewohnter Weise über die Konsole eingeben können. Die Ausführung über `Systemd` ist gleichbedeutend mit der Angabe der Einstellung **[`Headless: true`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#headless)** und kommt mit all seinen Implikationen. Zum Glück für Sie ist es sehr einfach, ASF über die **[ASF-ui](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC-de-DE#asf-ui)** zu verwalten, welche wir empfehlen, falls Sie weitere Details beim Anmeldevorgang angeben oder Ihren ASF-Prozess anderweitig weiter verwalten müssen.
 
 ### Umgebungsvariablen
 

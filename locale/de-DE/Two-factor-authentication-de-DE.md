@@ -12,56 +12,56 @@ Unabhängig davon, ob Sie ASF-2FA verwenden oder nicht, enthält ASF die passend
 
 # ASF-2FA
 
-ASF 2FA is a built-in module responsible for providing 2FA features to the ASF process, such as generating tokens and accepting confirmations. It works by duplicating your existing authenticator details, so that you can use your current authenticator and ASF 2FA at the same time.
+ASF-2FA ist ein eingebautes Modul, das für die Bereitstellung von 2FA-Funktionen für den ASF-Prozess verantwortlich ist, wie das Erzeugen von Codes und das Annehmen von Bestätigungen. Es funktioniert durch das Duplizieren Ihres bestehenden Authentifikators, sodass Sie Ihren aktuellen Steam Guard und ASF-2FA gleichzeitig verwenden können.
 
-Sie können überprüfen, ob dein Bot-Konto bereits ASF-2FA verwendet, indem Sie den `2fa` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** ausführen. Unless you've already imported your authenticator as ASF 2FA, all standard `2fa` commands will be non-operative, which means that your account is not using ASF 2FA, therefore it's also unavailable for advanced ASF features that require the module to be operative.
+Sie können überprüfen, ob dein Bot-Konto bereits ASF-2FA verwendet, indem Sie den `2fa` **[Befehl](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Commands-de-DE)** ausführen. Wenn Sie Ihren Authentifikator nicht bereits als ASF-2FA importiert haben, sind alle standardmäßigen `2fa`-Befehle nicht funktionsfähig, was bedeutet, dass Ihr Konto ASF-2FA nicht verwendet und es deshalb nicht für erweiterte ASF-Funktionen verfügbar ist, die den Betrieb des Moduls erfordern.
 
 ---
 
 # Empfehlungen
 
-There are a lot of ways to make ASF 2FA operative, here we include our recommendations based on your current situation:
+Wir bieten Ihnen eine Vielzahl an Möglichkeiten, ASF 2FA operativ zu behandeln. Unsere Empfehlungen basieren auf Ihrer aktuellen Situation:
 
-- If you're already using SteamDesktopAuthenticator, WinAuth or any other third-party app that allows you to extract 2FA details with ease, just **[import](#import)** those to ASF.
-- If you're using official app and you don't mind resetting your 2FA credentials, the best way is to disable 2FA, then **[create](#creation)** new 2FA credentials by using **[joint authenticator](#joint-authenticator)**, which will allow you to use official app and ASF 2FA. This method doesn't require root or advanced knowledge, barely following instructions.
-- If you're using official app and don't want to recreate your 2FA credentials, your options are very limited, typically you'll need root and extra fiddling around to **[import](#import)** those details, and even with that it might be impossible.
+- Falls Sie bereits SteamDesktopAuthenticator, WinAuth oder eine andere Drittanbieter-App verwenden, mit der Sie 2FA-Details problemlos extrahieren können, nur **[importieren Sie](#import)** diese zu ASF.
+- Wenn Sie die offizielle App verwenden und Sie nichts dagegen haben, Ihre 2FA-Anmeldeinformationen zurückzusetzen; dann ist es der beste Weg, 2FA zu deaktivieren, dann **[](#erstellung)** neue 2FA-Anmeldedaten mit **[gemeinsamer Authentifikator](#gemeinsamer-authentifikator)**, mit der Sie die offizielle App und ASF 2FA verwenden können. Diese Methode erfordert kein root oder fortgeschrittenes Wissen, kaum den Anweisungen.
+- Wenn Sie die offizielle App verwenden und Ihre 2FA-Anmeldeinformationen nicht neu erstellen möchten, sind Ihre Optionen sehr begrenzt, typischerweise benötigen Sie root und zusätzliches Experimentieren, um **[zu importieren](#importieren)** diese Details, und sogar mit diesem könnte es unmöglich sein.
 - If you're not using 2FA yet and don't care, you can use ASF 2FA with **[standalone authenticator](#standalone-authenticator)**, third-party app **[duplicating](#import)** to ASF (recommendation #1), or **[joint authenticator](#joint-authenticator)** with official app (recommendation #2).
 
-Below we discuss all possible options and known to us methods.
+Im Folgenden diskutieren wir alle möglichen Optionen und bekannten Methoden.
 
 ---
 
 ## Erstellung
 
-In general, we strongly recommend **[duplicating](#import)** your existing authenticator, since that's the main purpose ASF 2FA was designed for. However, ASF comes with an official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** that further extends ASF 2FA, allowing you to link a completely new authenticator as well. This can be useful in case you're unable or unwilling to use other tools and do not mind ASF 2FA becoming your main (and maybe only) authenticator.
+In general, we strongly recommend **[duplicating](#import)** your existing authenticator, since that's the main purpose ASF 2FA was designed for. However, ASF comes with an official `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)** that further extends ASF 2FA, allowing you to link a completely new authenticator as well. Dies kann hilfreich sein, wenn Sie nicht bereit oder in der Lage sind, andere Tools zu verwenden und es keine Einwände gibt, dass ASF-2FA Ihr (möglicherweise einziger) Hauptauthentifikator sein wird.
 
 There are two possible scenarios for adding a two-factor authenticator with the `MobileAuthenticator` **[plugin](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Plugins)**: standalone or joint with the official Steam mobile app. In the second scenario, you will end up with the same authenticator on both the ASF and mobile app; both will generate the same codes, and both will be able to confirm trade offers, Steam Community Market transactions, etc.
 
-### Common steps for both scenarios
+### Gemeinsame Schritte für beide Szenarien
 
-No matter if you plan to use ASF as the standalone authenticator or want the same authenticator on the official Steam mobile app, you need to do those initialization steps:
+Egal, ob Sie vorhaben ASF als alleinstehenden Authentifikator verwenden oder die gleiche 2FA in der offiziellen Steam App zu nutzen, – Sie müssen diese Initialisierungsschritte machen:
 
-1. Create an ASF bot for the target account, start it, and log in, which you probably already did.
+1. Erstellen Sie einen ASF-Bot für das Zielkonto, starten Sie ihn und melden Sie sich an (was Sie wahrscheinlich bereits getan haben).
 2. Optional weisen Sie dem Konto **[hier](https://store.steampowered.com/phone/manage)** eine funktionierende und operative Telefonnummer zu, die vom Bot verwendet werden soll. Dies erlaubt Ihnen den Empfang von SMS-Code, sowie bei Bedarf die Wiederherstellung, aber es ist erforderlich.
-3. Ensure you're not using 2FA yet for your account, if you do, disable it first.
+3. Stellen Sie sicher, dass Sie 2FA bisher nicht für Ihr Konto verwenden; deaktivieren Sie es zuerst, falls doch.
 4. Execute the `2fainit [Bot]` command, replacing `[Bot]` with your bot's name.
 
-Assuming you got a successful reply, the following two things have happened:
+Angenommenen, Sie haben eine erfolgreiche Antwort erhalten; dann sind die folgenden zwei Dinge passiert:
 
 - A new `<Bot>.maFile.PENDING` file was generated by ASF in your `config` directory.
 - SMS wurde von Steam an die Telefonnummer gesendet, die Sie für das oben genannte Konto zugewiesen haben. Wenn Sie keine Telefonnummer angegeben haben, wurde stattdessen eine E-Mail an die E-Mail-Adresse des Kontos gesendet.
 
-The authenticator details are not operational yet, however, you can review the generated file if you'd like to. If you want to be double safe, you can, for example, already write down the revocation code. The next steps will depend on your selected scenario.
+Die Authentifizierungsdetails sind noch nicht funktionsfähig, aber Sie können die generierte Datei überprüfen, wenn Sie es wünschen. Für den Fall, dass Sie doppelte Sicherheit wünschen, können Sie den Widerrufscode bereits notieren. Die nächsten Schritte hängen von Ihrem gewählten Szenario ab.
 
 ### Eigenständiger Authentifikator
 
-If you want to use ASF as your main (or even only) authenticator, now you need to do the finalization step:
+Wenn Sie ASF als (möglicherweise einzigen) Hauptauthentifikator verwenden möchten, müssen Sie jetzt den Finalisierungsschritt machen:
 
 5. Führt den Befehl `2fafinalize [Bot] <ActivationCode>` aus; ersetzt `[Bot]` mit dem Namen Ihres Bots und `<ActivationCode>` mit dem Code, den Sie im vorherigen Schritt per SMS oder E-Mail erhalten haben.
 
 ### Gemeinsamer Authentifikator
 
-If you want to have the same authenticator in both ASF and the official Steam mobile app, now you need to do the next steps:
+Wenn Sie den identischen Authentifikator sowohl in der ASF, als auch in der offiziellen Steam Mobile App haben möchten, dann sind jetzt die nächsten Schritte erforderlich:
 
 5. Ignoriere die SMS oder den E-Mail-Code, den Sie nach dem vorherigen Schritt erhalten haben.
 6. Install the Steam mobile app if it's not installed yet, and open it. Navigate to the Steam Guard tab and add a new authenticator by following the app's instructions.
@@ -69,7 +69,7 @@ If you want to have the same authenticator in both ASF and the official Steam mo
  - Wait until the next 2fa code is shown in the Steam mobile app, and use the command `2fafinalized [Bot] <2fa_code_from_app>` replacing `[Bot]` with your bot's name and `<2fa_code_from_app>` with the code you currently see in the Steam mobile app. If the code generated by ASF and the code you provided are the same, ASF assumes that an authenticator was added correctly and proceeds with importing your newly created authenticator.
  - We strongly recommend to do the above in order to ensure that your credentials are valid. However, if you don't want to (or can't) check if codes are the same and you know what you're doing, you can instead use the command `2fafinalizedforce [Bot]`, replacing `[Bot]` with your bot's name. ASF will assume that the authenticator was added correctly and proceed with importing your newly created authenticator.
 
-### After finalization
+### Nach Abschluss
 
 Assuming everything worked properly, the previously generated `<Bot>.maFile.PENDING` file was renamed to `<Bot>.maFile.NEW`. This indicates that your 2FA credentials are now valid and active. We recommend that you create a copy of that file and keep it in **a secure and safe location**. In addition to that, we recommend you open the file in your editor of choice and write down the `revocation_code`, which will allow you to, as the name implies, revoke the authenticator in case you lose it.
 
@@ -81,7 +81,7 @@ ASF automatically imports your authenticator once the procedure is done, and the
 
 ## Importieren
 
-Import process requires already linked and operational authenticator that is supported by ASF. ASF currently supports a few different official and unofficial sources of 2FA - Android, iOS, SteamDesktopAuthenticator and WinAuth, on top of manual method which allows you to provide required credentials yourself. If you don't have any authenticator yet, you need to choose one of available apps and set it up firstly. Wenn Du nicht genau weißt welchen Du auswählen sollst, empfehlen wir WinAuth, aber alle der oben genannten Möglichkeiten funktionieren gut, wenn Du die Anweisungen befolgst.
+Der Import erfordert bereits einen verknüpften und funktionsfähigen Authentifikator, der von ASF unterstüzt wird. ASF unterstützt derzeit ein paar verschiedene offizielle und inoffiziell 2FA-Quellen – Android, iOS, SteamDesktopAuthenticator und WinAuth, zusätzlich zur manuellen Methode, die es Ihnen erlaubt, die benötigten Anmeldedaten selbst zur Verfügung zu stellen. Sofern Sie noch keinen Authentifikator haben, müssen Sie einen davon auswählen und ihn zuerst einrichten. Wenn Du nicht genau weißt welchen Du auswählen sollst, empfehlen wir WinAuth, aber alle der oben genannten Möglichkeiten funktionieren gut, wenn Du die Anweisungen befolgst.
 
 Alle folgenden Anleitungen erfordern von dir, dass Du bereits einen **funktionierenden und betriebsbereiten** Authentifikator hast, der mit dem gegebenen Programm/Anwendung verwendet wird. ASF-2FA funktioniert nicht ordnungsgemäß, wenn Du ungültige Daten importierst. Stelle daher sicher, dass dein Authentifikator ordnungsgemäß funktioniert bevor Du versuchst ihn zu importieren. Dies beinhaltet das Testen und Überprüfen, ob die folgenden Authentifikator-Funktionen ordnungsgemäß funktionieren:
 - Du kannst Codes generieren und diese Codes werden vom Steam-Netzwerk akzeptiert
@@ -100,7 +100,7 @@ Im Allgemeinen benötigst Du für den Import des Authentifikators von Ihrem Andr
 
 Zumindest ist es offiziell nicht möglich, auf geschützte Steam-Dateien ohne Root zuzugreifen. Die einzige offizielle nicht-root Methode zum Extrahieren von Steam-Dateien ist das Erstellen von unverschlüsselten `/data` Backups, auf die eine oder andere Weise und das manuelle Abrufen entsprechender Dateien auf dem PC. Aber da so etwas stark von Ihrem Handyhersteller abhängt und **nicht** in Android-Standard ist, werden wir es hier nicht weiter erörtern. Wenn Du das Glück hast eine solche Funktionalität zu haben, kannst Du sie nutzen, aber die Mehrheit der Benutzer hat so etwas nicht.
 
-Unofficially, it is possible to extract the needed files without root access, by installing or downgrading your Steam app to version `2.1` (or earlier), setting up mobile authenticator and then creating a snapshot of the app (together with the `data` files that we need) through `adb backup`. Da es sich jedoch um eine schwerwiegende Sicherheitsverletzung und eine gänzlich nicht unterstützte Methode zum Extrahieren der Dateien handelt, werden wir nicht weiter darauf eingehen. Valve hat diese Sicherheitslücke in neueren Versionen aus einem bestimmten Grund deaktiviert und wir erwähnen sie nur als Möglichkeit. Still, it might be possible to do a clean install of that version, link new authenticator, extract the required files, and then upgrade the app, which should be just enough, but you're on your own with this method anyway.
+Inoffiziell ist es möglich, die benötigten Dateien ohne Root-Zugriff zu extrahieren, indem man die Steam-App mit der Version `2.1` (oder früher) installiert oder heruntergestuft, einen mobilen Authentifikator installieren und dann einen Snapshot der App (zusammen mit den von uns benötigten Dateien `data`) über `adb backup` erstellt. Da es sich jedoch um eine schwerwiegende Sicherheitsverletzung und eine gänzlich nicht unterstützte Methode zum Extrahieren der Dateien handelt, werden wir nicht weiter darauf eingehen. Valve hat diese Sicherheitslücke in neueren Versionen aus einem bestimmten Grund deaktiviert und wir erwähnen sie nur als Möglichkeit. Trotzdem ist es möglich, eine saubere Installation dieser Version durchzuführen, einen neuen Authentifikator zu verknüpfen, die erforderlichen Dateien zu extrahieren und dann aktualisieren Sie die App. Dies sollte ausreichen, aber Sie sind mit dieser Methode auf sich allein gestellt.
 
 Angenommen, Du hast dein Handy erfolgreich gerootet, solltest Du danach einen beliebigen auf dem Markt erhältlichen Root-Explorer herunterladen, z. B. **[dieser ](https://play.google.com/store/apps/details?id=com.jrummy.root.browserfree)** (oder einen anderen Ihrer Wahl). Sie können auch über ADB (Android Debug Bridge) oder jede andere Ihren zur Verfügung stehende Methode auf die geschützten Dateien zugreifen, wir machen es über den Explorer, da es definitiv der benutzerfreundlichste Weg ist.
 
@@ -108,7 +108,7 @@ Nachdem Du Ihren Root-Explorer geöffnet hast, navigiere zum Ordner `/data/data`
 
 Nun kannst Du wählen, ob Du Ihren Authentifikator zuerst in WinAuth und dann in ASF oder sofort in ASF importieren möchtest. Die erste Option ist benutzerfreundlicher und ermöglicht es dir deinen Authentifikator auch auf deinem PC zu duplizieren, sodass Du Bestätigungen vornehmen und Codes an 3 verschiedenen Stellen generieren kannst – deinem Handy, deinem PC und ASF. Wenn Du das tun möchtest, öffne einfach WinAuth, füge einen neuen Steam-Authentifikator hinzu und wähle die Option „Import aus Android“. Anschließend folge den Anweisungen, indem Du auf die Dateien zugreifst, die Du oben erhalten hast. Danach kannst Du diesen Authentifikator von WinAuth nach ASF importieren, was im speziellen WinAuth-Abschnitt weiter unten erläutert wird.
 
-If you don't want to or don't need to go through WinAuth, then simply copy `files/Steamguard-<SteamID>` file from our protected directory, where `SteamID` is your 64-bit Steam identificator of the account that you want to add (if more than one, because if you have only one account then this will be the only file). Du musst diese Datei in das ASF-Verzeichnis `config` kopieren. Sobald Du das getan hast, benenne die Datei um in `BotName.maFile`, wobei `BotName` der Name Ihres Bot ist, dem Du ASF-2FA hinzufügst. Nach diesem Schritt starte ASF – es sollte die `.maFile` erkennen und importieren.
+Wenn Sie sich nicht mit WinAuth befassen möchten, dann kopieren Sie einfach die Datei `files/Steamguard-<SteamID>` aus unserem geschützten Verzeichnis; wobei `SteamID` Ihre 64-Bit Steam-Identifikation des Kontos ist, das Sie hinzufügen möchten (falls mehr als eine, denn wenn Sie nur ein Konto haben, dann ist dies die einzige Datei). Du musst diese Datei in das ASF-Verzeichnis `config` kopieren. Sobald Du das getan hast, benenne die Datei um in `BotName.maFile`, wobei `BotName` der Name Ihres Bot ist, dem Du ASF-2FA hinzufügst. Nach diesem Schritt starte ASF – es sollte die `.maFile` erkennen und importieren.
 
 ```text
 [*] INFO: ImportAuthenticator() <1> Konvertiere .maFile in ASF-Format...
@@ -131,11 +131,11 @@ Für Fragen/Probleme besuche bitte **[issues](https://github.com/CaitSith2/ios-s
 
 ---
 
-### SteamDesktopAuthenticator
+### SteamDesktopAuthenticator (SDA)
 
 Wenn Du deinen Authentifikator bereits in SDA laufen hast, solltest Du beachten, dass es eine `steamID.maFile` Datei im Ordner `maFiles` gibt. Make sure that `maFile` is in unencrypted form, as ASF can't decrypt SDA files - unencrypted file content should start with `{` and end with `}` character. If needed, you can remove the encryption from SDA settings first, and enable it again when you're done. Once the file is in unencrypted form, copy it to `config` directory of ASF.
 
-You can now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Alternativ kannst Du es so lassen wie es ist, ASF wird es dann nach dem Einloggen automatisch auswählen. Renaming the file helps ASF by making it possible to use ASF 2FA before logging in, if you don't do that, then the file can be picked only after ASF successfully logs in (as ASF doesn't know `steamID` of your account before in fact logging in).
+You can now rename `steamID.maFile` to `BotName.maFile` in ASF config directory, where `BotName` is the name of your bot you're adding ASF 2FA to. Alternativ kannst Du es so lassen wie es ist, ASF wird es dann nach dem Einloggen automatisch auswählen. Die Datei umzubenennen, erlaubt ASF die Verwendung der ASF-2FA vor dem Einloggen. Falls Sie dies unterlassen, dann kann die Datei erst ausgewählt werden, sobald ASF sich erfolgreich einloggt hat (da ASF `steamID` Ihres Kontos nicht kennt, bevor Sie sich tatsächlich anmelden).
 
 Wenn Du alles richtig gemacht hast, starte ASF und Du solltest es merken:
 
@@ -228,4 +228,4 @@ Wenn Du ein fortgeschrittener Benutzer bist, kannst Du die maFile-Datei auch man
 }
 ```
 
-Standard-Authentifikatordaten haben mehr Felder – sie werden von ASF beim Import völlig ignoriert, da sie nicht benötigt werden. Du musst sie nicht entfernen – ASF benötigt nur gültiges JSON mit den 2 oben erläuterten Pflichtfeldern und wird zusätzliche Felder (falls vorhanden) ignorieren. Natürlich musst Du im obigen Beispiel `STRING` Platzhalter durch gültige Werte für dein Konto ersetzen. Each `STRING` should be base64-encoded representation of bytes the appropriate private key is made of.
+Standard-Authentifikatordaten haben mehr Felder – sie werden von ASF beim Import völlig ignoriert, da sie nicht benötigt werden. Du musst sie nicht entfernen – ASF benötigt nur gültiges JSON mit den 2 oben erläuterten Pflichtfeldern und wird zusätzliche Felder (falls vorhanden) ignorieren. Natürlich musst Du im obigen Beispiel `STRING` Platzhalter durch gültige Werte für dein Konto ersetzen. Jede `STRING` sollte base64 kodierte Darstellung von Bytes sein, aus denen der entsprechende private Schlüssel besteht.

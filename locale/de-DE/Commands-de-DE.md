@@ -9,7 +9,7 @@ Die folgenden Befehle können auf verschiedene Weise an den Bot gesendet werden:
 
 Bedenken Sie, dass die ASF-Interaktion von Ihnen verlangt, dass Sie für den Befehl gemäß den ASF-Berechtigungen berechtigt sind. Weitere Informationen finden Sie in den Konfigurationseigenschaften `SteamUserPermissions` und `SteamOwnerID`.
 
-Befehle die über den Steam-Chat ausgeführt werden, sind von der **[globalen Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#commandprefix)** `CommandPrefix` betroffen, welche standardmäßig `!` ist. Das bedeutet, dass Sie beispielsweise für die Ausführung von dem Befehl `status` tatsächlich `!status` (oder einen benutzerdefinierten `CommandPrefix` Ihrer Wahl) verwenden müssen. `CommandPrefix` ist bei Verwendung von IPC oder der Konsole nicht zwingend erforderlich und kann weggelassen werden.
+Befehle, die über den Steam-Chat ausgeführt werden, sind von der **[globalen Konfigurationseigenschaft](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#commandprefix)** `CommandPrefix` betroffen, welche standardmäßig `!` ist. Das bedeutet, dass Sie beispielsweise für die Ausführung von dem Befehl `status` tatsächlich `!status` (oder einen benutzerdefinierten `CommandPrefix` Ihrer Wahl) verwenden müssen. `CommandPrefix` ist bei Verwendung von IPC oder der Konsole nicht zwingend erforderlich und kann weggelassen werden.
 
 ---
 

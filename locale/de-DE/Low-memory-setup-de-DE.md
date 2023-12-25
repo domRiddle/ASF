@@ -80,7 +80,7 @@ Diese undokumentierte Eigenschaft ist für ASF von großer Bedeutung, da sie die
 
 > Wenn wir die Einstellung vorgenommen haben, trimmen wir den verpflichteten „Raum“ aggressiver für das flüchtige Segment. Dies wird verwendet, um viele Instanzen von Serverprozessen auszuführen, bei denen sie so wenig Speicher wie möglich gebunden halten möchten.
 
-Dies bietet kleine Verbesserung(en), kann aber GC noch aggressiver machen, wenn das System wenig Speicher hat, insbesondere für ASF, welches Threadpool-Aufgaben stark nutzt.
+Dies bietet kleine Verbesserung(en), kann aber GC noch aggressiver machen, wenn das System wenig Speicher hat, insbesondere für ASF, welche Threadpool-Aufgaben stark nutzt.
 
 ---
 
@@ -128,7 +128,7 @@ Die folgenden Tricks **führen zu einer ernsthaften Leistungsabnahme** und sollt
 
 ## Empfohlene Optimierung
 
-- Beginnen Sie mit einfachen ASF Einrichtungstricks, verwenden Sie die **[`generic` ASF-Variante](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE#generic-setup)** und überprüfen Sie, ob Sie vielleicht einfach nur Ihren ASF auf eine falsche Weise verwenden; z. B. durch mehrmaliges Starten des Prozesses für alle Bots, oder dem Weiterbetrieb aller unnötigen Bots, wenn Sie nur ein oder zwei im Autostart benötigen.
+- Beginnen Sie mit einfachen ASF Einrichtungstricks, verwenden Sie die **[`generic` ASF-Variante](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-de-DE#generic-setup)** und überprüfen Sie, ob Sie vielleicht einfach nur Ihre ASF auf eine falsche Weise verwenden; z. B. durch mehrmaliges Starten des Prozesses für alle Bots, oder dem Weiterbetrieb aller unnötigen Bots, wenn Sie nur ein oder zwei im Autostart benötigen.
 - Wenn es immer noch nicht ausreicht, aktivieren Sie alle oben aufgeführten Konfigurationseigenschaften, indem Sie die entsprechenden `DOTNET` Umgebungsvariablen einstellen. Insbesondere `GCLatencyLevel` bietet signifikante Laufzeitverbesserungen bei geringen Leistungskosten.
 - Wenn auch das nicht geholfen hat, aktiviere Sie als letztes Mittel `MinMemoryUsage` `OptimizationMode`. Dies zwingt ASF, fast alles in synchroner Angelegenheit auszuführen, was es viel langsamer macht, aber auch nicht auf Thread-Pool angewiesen ist, um die Dinge auszugleichen, wenn es um die parallele Ausführung geht.
 
