@@ -122,7 +122,7 @@ Das Wiki ist in dieser Hinsicht etwas Besonderes, da es eine Online-Hilfe ist, b
 
 Unsere Crowdin-Plattform ermöglicht es Ihren auch, den Originaltext so anzupassen, dass er auf neue (lokalisierte) Standorte verweist.
 
-ASF enthält Links auf fast jeder Seite zur leichteren Navigation sowie eine Seitenleiste auf der rechten Seite. Die fantastische Tatsache ist, dass Sie all das bearbeiten können, indem Sie Links „fixierst“, um auf richtige lokalisierte Seiten für Ihre Sprache zu verweisen. Es erfordert ein wenig Vorsicht, wenn Sie das tust, aber es ist möglich.
+ASF enthält Links auf fast jeder Seite zur leichteren Navigation sowie eine Seitenleiste auf der rechten Seite. Die fantastische Tatsache ist, dass Sie all das bearbeiten können, indem Sie Links „fixieren“, um auf richtige lokalisierte Seiten für Ihre Sprache zu verweisen. Es erfordert ein wenig Vorsicht, wenn Sie das tust, aber es ist möglich.
 
 Zum Beispiel enthält die **[Startseite](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE)** von ASF folgenden Text:
 
@@ -173,9 +173,9 @@ Wenn der Link jedoch weiter **innerhalb** des Wikis zeigt, wie der oben genannte
 
 ---
 
-Achte darauf, dass Ihre URL tatsächlich existiert, denn wenn Sie einen Fehler machen wird dieser Link nicht mehr funktionieren. Wenn Sie erfolgreich warst, haben Sie jetzt eine voll funktionsfähige Übersetzung mit einem Link, der auf die übersetzte (in unserem Fall `Setting-up-pl-PL`) Seite zeigt.
+Achte darauf, dass Ihre URL tatsächlich existiert, denn wenn Sie einen Fehler machen wird dieser Link nicht mehr funktionieren. Wenn Sie erfolgreich waren, haben Sie jetzt eine voll funktionsfähige Übersetzung mit einem Link, der auf die übersetzte (in unserem Fall `Setting-up-pl-PL`) Seite zeigt.
 
-Wenn Sie die obigen Schritte ausführst, wird unser HTML-Code korrekt zurück in Markdown übersetzt:
+Wenn Sie die obigen Schritte ausführen, wird unser HTML-Code korrekt zurück in Markdown übersetzt:
 
 ```markdown
 Jeśli jesteś nowym użytkownikiem, zalecamy rozpoczęcie od korzystania z **[przewodnika po konfiguracji](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up-pl-PL)**.

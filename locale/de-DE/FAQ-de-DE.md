@@ -608,7 +608,7 @@ Abschließend kann sich ASF, wie bei jeder Steam-Anfrage, nur **versuchen** mit 
 
 ### `System.IO.IOException: Input/output error`
 
-Wenn dieser Fehler während der ASF-Eingabe aufgetreten ist (z. B. wenn Sie `Console.ReadLine()` im Stacktrace sehen können), dann wird er durch Ihre Umgebung verursacht, die es ASF verbietet, die Standardeingabe Ihrer Konsole zu lesen. Das kann aus vielen Gründen passieren, aber der häufigste ist, dass Sie ASF in der falschen Umgebung verwenden (z. B. in `nohup` oder `&` Hintergrund anstelle von `screen` unter Linux). Wenn ASF nicht auf die Standardeingabe zugreifen kann, wird dieser Fehler protokolliert und ASF kann Ihre Daten während der Ausführung nicht verwenden.
+Wenn dieser Fehler während der ASF-Eingabe aufgetreten ist (z. B. wenn Sie `Console.ReadLine()` im Stacktrace sehen können), dann wird er durch Ihre Umgebung verursacht, die es ASF verbietet, die Standardeingabe Ihrer Konsole zu lesen. Das kann aus vielen Gründen passieren, aber der häufigste ist, dass Sie ASF in der falschen Umgebung verwenden (z. B. in `nohup` oder `&` Hintergrund anstelle von `screen` unter Linux). Wenn ASF nicht auf die StandarIhrgabe zugreifen kann, wird dieser Fehler protokolliert und ASF kann Ihre Daten während der Ausführung nicht verwenden.
 
 Wenn Sie **erwarten**, dass dies geschieht, dann **möchten** Sie ASF in einer eingabefreien Umgebung ausführen; daher sollten Sie ASF ausdrücklich sagen, dass dies der Fall ist, indem Sie den **[`Headless`](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE#headless)**-Modus entsprechend einstellen. Um für Sie ein sicheres Ausführen in eingabefreien Umgebungen zu gewährleisten, wird ASF damit angehalten, niemals nach weiteren Benutzereingaben zu fragen.
 

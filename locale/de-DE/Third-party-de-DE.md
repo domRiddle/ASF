@@ -1,6 +1,6 @@
 # Drittanbieter
 
-Dieser Abschnitt enthält verschiedene Ergänzungen von Drittanbietern, die ausschließlich (oder hauptsächlich) für die Verwendung zusammen mit ASF geschrieben wurden. Sie reichen von ASF-Erweiterungen über einfache Webanwendungen und interne Bibliotheken zur Integration bis hin zu voll ausgestatteten Bots für andere Plattformen. Wenn Du etwas zur Liste hinzufügen möchtest, lass es uns im Discord oder über unsere Steam-Gruppe wissen.
+Dieser Abschnitt enthält verschiedene Ergänzungen von Drittanbietern, die ausschließlich (oder hauptsächlich) für die Verwendung zusammen mit ASF geschrieben wurden. Sie reichen von ASF-Erweiterungen über einfache Webanwendungen und interne Bibliotheken zur Integration bis hin zu voll ausgestatteten Bots für andere Plattformen. Wenn Sie etwas zur Liste hinzufügen möchten, lass es uns im Discord oder über unsere Steam-Gruppe wissen.
 
 Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern beaufsichtigt werden und **wir daher keine Garantie für sie übernehmen**, insbesondere in Bezug auf die Sicherheit, den Schutz oder die Einhaltung der Steam-Nutzungsbedingungen. Diese Liste wird nur als Referenz gepflegt. Sie sollten immer sicherstellen, dass das Drittanbieter-Programm, das Sie gerade verwenden möchten, sicher ist, da Sie es auf eigene Gefahr verwenden.
 
@@ -65,11 +65,11 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 
 ## Programme
 
-- **[Keys extractor](https://umaim.github.io/SKE)**, ermöglicht es Ihren Produktschlüssel in verschiedenen Formaten zu kopieren und einzufügen um den Befehl `redeem` für ASF zu erstellen. Für weitere Details schau Ihren das **[GitHub Repository](https://github.com/PixvIO/SKE)** an.
+- **[Keys extractor](https://umaim.github.io/SKE)**, ermöglicht es Ihren Produktschlüssel in verschiedenen Formaten zu kopieren und einzufügen um den Befehl `redeem` für ASF zu erstellen. Für weitere Details schauen Sie sich das **[GitHub Repository](https://github.com/PixvIO/SKE)** an.
 - **[ASF-Stapelkonfigurationsbearbeitung](https://github.com/genesix-eu/ASF_MCE)**, welcher es ermöglicht mehrere ASF-Konfigurationen einfach zu verwalten.
 
 ---
 
-## Möchtest Du mehr finden?
+## Möchten Sie mehr finden?
 
 Für alle Projekte, die mit ASF in Verbindung stehen, empfehlen wir **[ArchiSteamFarm](https://github.com/topics/archisteamfarm)**-Topic auf GitHub.

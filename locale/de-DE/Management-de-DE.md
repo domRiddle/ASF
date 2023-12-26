@@ -126,7 +126,7 @@ Danach sollten Sie keine Schwierigkeiten mehr haben, die damit zusammenhängen, 
 ```sh
 su # oder sudo -i, um in die Root-Shell zu gelangen
 useradd -m asf # Erstelle einen Account den Sie unter
-chown -hR asf:asf /path/zu/ASF ausführen möchten # Stellen Sie sicher dass dein neuer Benutzer Zugriff auf das ASF-Verzeichnis hat
+chown -hR asf:asf /path/zu/ASF ausführen möchten # Stellen Sie sicher dass Ihr neuer Benutzer Zugriff auf das ASF-Verzeichnis hat
 su asf -c /path/zu/ASF/ArchiSteamFarm hat # Oder sudo -u asf /path/zu/ASF/ArchiSteamFarm um das Programm tatsächlich unter Ihrem Benutzer zu starten
 ```
 

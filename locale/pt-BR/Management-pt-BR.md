@@ -1,12 +1,12 @@
 # Gerenciamento
 
-This section covers subjects related to managing the ASF process in optimal way. While not strictly mandatory for usage, it includes bunch of tips, tricks and good practices that we'd like to share, especially for system administrators, people packaging the ASF for usage in third-party repositories, as well as advanced users and alike.
+Esta seção abrange assuntos relacionados ao gerenciamento do processo do ASF de forma ideal. Embora não seja estritamente obrigatório para o uso, ele inclui várias dicas, truques e boas práticas que gostaríamos de compartilhar, especialmente para administradores de sistema, pessoas empacotando o ASF para uso em repositórios de terceiros, bem como usuários avançados e afins.
 
 ---
 
-## `systemd` service for Linux
+## Serviço `systemd` para Linux
 
-In `generic` and `linux` variants, ASF comes with `ArchiSteamFarm@.service` file, which is a configuration file of the service for **[`systemd`](https://systemd.io)**. If you'd like to run ASF as a service, for example in order to launch it automatically after startup of your machine, then a proper `systemd` service is arguably the best way to do it, therefore we highly recommend it instead of managing it on your own through `nohup`, `screen` or alike.
+Nas variantes `generic` e `linux`, o ASF vem com o arquivo `ArchiSteamFarm@.service` que é um arquivo de configuração do serviço para o **[`systemd`](https://systemd.io)**. Se você quiser executar o ASF como um serviço, por exemplo, para executá-lo automaticamente após a inicialização do seu computador, então um serviço `systemd` adequado é provavelmente a melhor maneira de fazer isso, por isso, recomendamos fortemente ele ao invés de fazer o gerenciamento sozinho através do `nohup`, `screen` ou similar.
 
 Firstly, create the account for the user you want to run ASF under, assuming it doesn't exist yet. We'll use `asf` user for this example, if you decided to use a different one, you'll need to substitute `asf` user in all of our examples below with your selected one. Our service does not allow you to run ASF as `root`, since it's considered a **[bad practice](#never-run-asf-as-administrator)**.
 
