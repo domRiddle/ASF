@@ -2,7 +2,7 @@
 
 ASF wird von dem Dienst Crowdin unterstützt, wodurch es jedem ermöglicht wird ASF in alle weltweit gesprochenen Sprachen zu übersetzen. Für eine detailliertere Erklärung, wie Crowdin funktioniert, lesen Sie sich bitte die **[Einführung in Crowdin](https://support.crowdin.com/crowdin-intro)** durch.
 
-Wenn Sie daran interessiert sind, was zurzeit vor sich geht, können Sie die **[aktuellen ASF Crowdin Aktivitäten](https://crowdin.com/project/archisteamfarm/activity_stream)** ansehen.
+Falls Sie daran interessiert sind, was zurzeit passiert, können Sie sich die **[aktuellen ASF Crowdin Aktivitäten](https://crowdin.com/project/archisteamfarm/activity_stream)** ansehen.
 
 ---
 
@@ -48,24 +48,24 @@ Wenn Ihre Zeichenkette bereits von jemand anderem übersetzt wurde, können Sie 
 
 ### Korrekturlesen
 
-Es ist eine gute Idee eine konsistente Übersetzung zu haben, selbst, wenn es möglicherweise die Freiheiten der oben erklärten Community-Rezensierung oder des Stimmprozesses einschränken könnte. Das ist hauptsächlich weil falsche Übersetzungen, die nicht notwendigerweise schlecht sind, so viele Stimmen bekommen könnten, dass es nicht möglich ist eine bessere Übersetzung vorzuschlagen, selbst, wenn diese jemand hat.
+Es ist eine gute Idee eine konsistente Übersetzung zu haben, selbst, wenn es möglicherweise die Freiheiten der oben erklärten Community-Rezensierung oder des Stimmprozesses einschränken könnte. Dies ist hauptsächlich darauf zurückzuführen, dass falsche Übersetzungen so viele Stimmen erhalten könnten, dass es nicht möglich ist, eine bessere Übersetzung vorzuschlagen, selbst wenn diese jemand hat.
 
-Wenn Sie bereits in der Vergangenheit Beiträge auf Crowdin oder einer anderen Übersetzungsplattform übersetzt haben, die wir verifizieren und vertrauensvoll nennen können, würden wir uns freuen, Ihren Korrekturleser-Zugriff zu der Sprache zu geben, die Sie übersetzt, damit es Ihren möglich ist gegebene Übersetzungen zu genehmigen oder konsistenter zu gestalten. Korrekturlesen ist keine einfache Aufgabe, besonders, weil ASF von Zeit zu Zeit sehr „technisch“ und schwer zu übersetzen sein kann, aber wir verstehen, dass es für eine perfekte Übersetzung oft nötig ist. Wenn Sie uns helfen können eine Sprache Korrektur zu lesen, bitten wir Sie: **[uns zu informieren](https://crowdin.com/messages/create/13177432/240376)**, bedenken Sie aber, dass Sie Ihre Anfrage mit vergangenen Beiträgen, die wir verifizieren können (z. B. bei ASF oder anderen Projekten auf Crowdin zu helfen), stützen müssen. Wir könnten auch fortgeschrittenen Benutzern das initiale Korrekturlesen erlauben, wenn wir sie persönlich kennen und sie mit dem Rest der Community kooperieren können, um ASF in der gegebenen Sprache bestmöglich zu übersetzen.
+Wenn Sie bereits in der Vergangenheit Beiträge auf Crowdin oder einer anderen Übersetzungsplattform übersetzt haben, die wir verifizieren und vertrauensvoll nennen können, würden wir uns freuen, Ihren Korrekturleser-Zugriff zu der Sprache zu geben, die Sie übersetzt, damit es Ihren möglich ist, gegebene Übersetzungen zu genehmigen oder konsistenter zu gestalten. Korrekturlesen ist keine einfache Aufgabe, besonders, weil ASF vereinzelt sehr „technisch“ und schwer zu übersetzen sein kann, aber wir verstehen, dass es für eine perfekte Übersetzung oft nötig ist. Wenn Sie uns helfen können eine Sprache Korrektur zu lesen, bitten wir Sie: **[uns zu informieren](https://crowdin.com/messages/create/13177432/240376)**, bedenken Sie aber, dass Sie Ihre Anfrage mit vergangenen Beiträgen, die wir verifizieren können (z. B. bei ASF oder anderen Projekten auf Crowdin zu helfen), stützen müssen. Wir könnten auch fortgeschrittenen Benutzern das initiale Korrekturlesen erlauben, wenn wir sie persönlich kennen und sie mit dem Rest der Community kooperieren können, um ASF in der gegebenen Sprache bestmöglich zu übersetzen.
 
-Die generellen Regeln gelten auch für das Korrekturlesen – nehmen Sie sich Zeit, auf andere Benutzer zu hören, arbeiten Sie als Projektmanager, Probleme lösen und stellen Sie sicher, dass Sie die Dinge besser machen und nicht schlimmer.
+Generellen Regeln gelten auch für das Korrekturlesen – nehmen Sie sich Zeit, auf andere Benutzer zu hören, Sie müssen als Projektmanager arbeiten, Probleme lösen und sicherstellen, dass Sie die Dinge besser machen – nicht schlimmer.
 
 ---
 
 ### Probleme
 
-Wenn Sie ein Problem mit einer bestimmten Übersetzung haben, weil Sie zum Beispiel nicht weißt, wie sie zu übersetzen ist, eine genehmigte Übersetzung falsch ist, Sie mehr Kontext benötigen oder Ähnliches, dann Poste bitte einen Kommentar unter dem betroffenen String und markiere ihn mit [X] als ein Problem.
+Wenn Sie ein Problem mit einer bestimmten Übersetzung haben, weil Sie zum Beispiel nicht wissen, wie sie zu übersetzen ist, dann ist eine genehmigte Übersetzung falsch. Falls Sie mehr Kontext benötigen oder Ähnliches, dann schreiben Sie bitte einen Kommentar unter dem betroffenen String und markiere ihn mit [X] als ein Problem besteht.
 
-**Bitte vermeide das [x] wenn Sie keine technische Erklärung oder Aktion eines Admins benötigen**. Es steht Ihnen frei, Kommentare für Diskussionen zu verwenden, die sich auf die Übersetzung der gegebenen Zeichenkette beziehen, aber „issue“ sollte nur verwendet werden, wenn Sie weitere technische Erklärungen oder Korrekturen durch den Administrator benötigen, und es wird typischerweise jemanden betreffen, der nicht einmal die Sprache spricht, in die Sie übersetzen, also bleiben Sie bitte bei Englisch, wenn Sie mit „issue“ kommentieren (damit wir verstehen können, worum es geht).
+**Bitte vermeiden Sie das [x], wenn Sie keine technische Erklärung oder Aktion eines Admins benötigen**. Es steht Ihnen frei, Kommentare für Diskussionen zu verwenden, die sich auf die Übersetzung der gegebenen Zeichenkette beziehen, aber „issue“ sollte nur verwendet werden, wenn Sie weitere technische Erklärungen oder Korrekturen durch den Administrator benötigen, und es wird typischerweise jemanden betreffen, der nicht einmal die Sprache spricht, in die Sie übersetzen, also bleiben Sie bitte bei Englisch, wenn Sie mit „issue“ kommentieren (damit wir verstehen können, worum es geht).
 
-Es gibt 4 Typen von Problemen, die wir unterstützen:
+Wir unterstützen vier verschiedene Arten von Problemen:
 - generelle Frage – Für alles, was keinen der anderen Typen betrifft. Dieser Typ **sollte vermieden** werden, weil es dann höchstwahrscheinlich **kein** Übersetzungsproblem ist. Trotzdem ist diese Möglichkeit für alle anderen Fälle offen.
-- Die aktuelle Übersetzung ist falsch – Dies sollte **nur** verwendet werden, wenn die Übersetzung von einem Korrekturleser genehmigt wurde und Sie glauben, dass sie falsch ist, weil sie etwa einen Tippfehler beinhaltet oder Sie einen guten Vorschlag haben sie zu verbessern. Dieser Typ sollte nie bei Übersetzungen verwendet werden, die durch Community-Stimmen gewählt wurden, in welchem Fall Sie den Benutzer der die Übersetzung geschrieben hat kontaktieren und ihn um eine Korrektur bitten oder einfach für eine bessere Übersetzung stimmen sollten. Wir entfernen die Freigabe der Übersetzung und benachrichtigen den für die Sprache zuständigen Korrekturleser, um Ihren Kommentar zu berücksichtigen und erneut zu überprüfen.
-- Fehlender Kontext – Dies ist, was Sie verwenden sollten, wenn Sie nicht sicher sind, welchen Teil von ASF Sie übersetzt und was der Kontext der gegebenen Zeichenkette oder sein Sinn ist. Dieser Typ sollte nur für die Entwicklung von ASF verwendet werden, da er bedeutet, dass Sie technische Hilfe benötigen, weil Sie nicht sicher sind, wie die Zeichenkette zu übersetzen ist.
+- Die aktuelle Übersetzung ist falsch – Dies sollte **nur** verwendet werden, wenn die Übersetzung von einem Korrekturleser genehmigt wurde und Sie glauben, dass sie falsch ist, weil sie etwa einen Tippfehler beinhaltet oder Sie einen guten Verbesserungsvorschlag haben. Dieser Typ sollte nie bei Übersetzungen verwendet werden, die durch Community-Stimmen gewählt wurden, in welchem Fall Sie den Benutzer der die Übersetzung geschrieben hat kontaktieren und ihn um eine Korrektur bitten oder einfach für eine bessere Übersetzung stimmen sollten. Wir entfernen die Freigabe der Übersetzung und benachrichtigen den für die Sprache zuständigen Korrekturleser, um Ihren Kommentar zu berücksichtigen und erneut zu überprüfen.
+- Fehlender Kontext – Dies ist, was Sie verwenden sollten, wenn Sie nicht sicher sind, welchen Teil von ASF Sie übersetzt und was der Kontext der gegebenen Zeichenkette oder dessen Sinn ist. Dieser Typ sollte nur für die Entwicklung von ASF verwendet werden, da er bedeutet, dass Sie technische Hilfe benötigen, weil Sie nicht sicher sind, wie die Zeichenkette zu übersetzen ist.
 - Fehler in der Quell-Zeichenkette – Dies sollte nur verwendet werden, wenn Sie denken, dass das Original (Englisch) falsch ist. Sehr selten, aber nicht bei jedem ist Englisch unsere Muttersprache, von daher zögern Sie nicht diesen zu verwenden, wenn Sie eine generelle Idee haben, wie man es verbessern könnte. Da dies eng mit der Entwicklung verbunden ist, können Sie alternativ unsere **[GitHub Issues](https://github.com/JustArchiNET/ArchiSteamFarm/issues/new/choose)** für diesen Zweck verwenden, wenn Sie es wünschen.
 
 ---
@@ -74,19 +74,19 @@ Es gibt 4 Typen von Problemen, die wir unterstützen:
 
 Jede Sprache hat zwei Zustände des Fortschritts – Übersetzung und Korrekturlesen.
 
-Eine Sprache gilt als **übersetzt** wenn Ihr Übersetzungsfortschritt 100% erreicht. Zu diesem Zeitpunkt hat jede übersetzbare Zeichenkette die von ASF verwendet wird eine entsprechende Bedeutung, was wunderbar ist. Allerdings heißt das nicht, dass das kein Raum für Verbesserungen lässt – das weitere Stimmen ist durchgehend aktiviert und Sie können immer noch Vorschläge für bessere Übersetzungen einbringen und für existierende Stimmen. Bitte bedenke, dass bereits fertig übersetzte Sprachen immer noch unter 100% fallen können, wenn wir während der Entwicklung existierende Zeichenketten ändern oder neue hinzufügen. Sie können entsprechende Crowdin-Benachrichtigungen aktivieren, wenn Sie in einem solchen Fall eine E-Mail erhalten wollen.
+Eine Sprache gilt als **übersetzt⁣, sobald der Übersetzungsfortschritt 100 % erreicht. Zu diesem Zeitpunkt hat jede übersetzbare Zeichenkette, die von ASF verwendet wird, eine entsprechende Bedeutung, was wunderbar ist. Allerdings heißt das nicht, dass kein Raum für Verbesserungen bleibt– das Abstimmen ist durchgehend aktiviert und Sie können immer noch Vorschläge für bessere Übersetzungen einbringen und für existierende Stimmen. Bitte bedenken Sie, dass bereits fertig übersetzte Sprachen immer noch unter 100 % fallen können, wenn wir während der Entwicklung existierende Zeichenketten ändern oder neue hinzufügen. Sie können entsprechende Crowdin-Benachrichtigungen aktivieren, wenn Sie in einem solchen Fall eine E-Mail erhalten wollen.</p>
 
 Gewählte Sprachen können entsprechende Korrekturleser haben, die Übersetzungen validieren und endgültige Versionen auswählen. Dies ist der letzte Schritt nach der Übersetzung und erlaubt weitere Verbesserungen.
 
-ASF wird die Sprache **so bald wie möglich** beinhalten, was bedeutet, dass sie nicht genehmigt oder zu 100% übersetzt werden muss. Die tatsächlich verwendeten Zeichenketten sind immer die am beliebtesten im Bezug auf Stimmen, außer der gewählte Korrekturleser hat anders entschieden (sehr selten). Daher können Sie sehen, dass Ihre Bemühungen bereits im nächsten ASF-Release enthalten sind – unsere automatisierten Systeme pflegen täglich die Übersetzungen von Crowdin im ASF-Verzeichnis ein.
+ASF wird die Sprache **so bald wie möglich** übernehmen, was bedeutet, dass sie nicht genehmigt oder zu 100 % übersetzt werden muss. Die tatsächlich verwendeten Zeichenketten sind immer die am beliebtesten In Bezug auf Stimmen, außer der gewählte Korrekturleser hat anders entschieden (sehr selten). Daher können Sie sehen, dass Ihre Bemühungen bereits im nächsten ASF-Release enthalten sind – unsere automatisierten Systeme pflegen täglich die Übersetzungen von Crowdin im ASF-Verzeichnis ein.
 
 ---
 
 ## Fehlende Sprachen
 
-Standardmäßig verfügt das ASF-Projekt nur Übersetzungen für die 30 meistgesprochenen Sprachen der Welt. Wenn Sie eine weitere (oder einen lokalen Dialekt zu einer existierenden) hinzufügen wollen, **[lassen Sie  es uns bitte wissen](https://crowdin.com/messages/create/13177432/240376)** und wir werden sie schnellstmöglichst hinzufügen. Wir möchten nicht mehrere hundert verschiedene Sprachen, wenn sie keiner übersetzt. Deshalb haben wir sie auf diese Anzahl reduziert. Bitte zögere nicht uns zu kontaktieren, wenn Sie eine nicht gelistete Sprache übersetzen wollen. Für uns ist es sehr einfach eine weitere hinzuzufügen. Achte einfach darauf, dass Sie den tatsächlichen Willen und die Entschlossenheit haben ASF in Ihre Sprache zu übersetzen bevor Sie sich entscheiden mit uns Kontakt aufzunehmen.
+Standardmäßig verfügt das ASF-Projekt nur Übersetzungen für die 30 meistgesprochenen Sprachen der Welt. Wenn Sie eine weitere (oder einen lokalen Dialekt zu einer existierenden) hinzufügen wollen, **[lassen Sie es uns bitte wissen](https://crowdin.com/messages/create/13177432/240376)** und wir kümmern uns schnellstmöglich darum. Wir möchten nicht mehrere hundert verschiedene Sprachen, wenn sie keiner übersetzt. Deshalb haben wir sie auf diese Anzahl reduziert. Bitte zögern Sie nicht uns zu kontaktieren, wenn Sie eine nicht gelistete Sprache übersetzen wollen. Für uns ist es sehr einfach eine weitere hinzuzufügen. Achten Sie einfach darauf, dass Sie den tatsächlichen Willen und die Entschlossenheit haben, ASF in Ihre Sprache zu übersetzen, bevor Sie sich entscheiden, mit uns Kontakt aufzunehmen.
 
-Für eine komplette Liste der verfügbaren Sprachen, in die ASF übersetzt werden kann, **[klicke hier](https://developer.crowdin.com/language-codes)**.
+Für eine komplette Liste der verfügbaren Sprachen, in die ASF übersetzt werden kann, **[klicken Sie hier](https://developer.crowdin.com/language-codes)**.
 
 ---
 
@@ -98,7 +98,7 @@ Wir tun unser Bestes, um Ihren eine flexible Lokalisierung anzubieten, und so la
 
 > Released {PLURAL:n|{n} month|{n} months} ago
 
-`PLURAL` Schlüsselwort wird hier besonders behandelt, da es Ihren erlaubt, alle Pluralformen einzubeziehen, die Ihre Sprache unterstützt. Wenn Sie einen Blick auf CLDR wirfst, wirst Sie sehen, dass es im Englischen nur 2 kardinale Formen gibt – „eine“ und „andere“. Und wie Sie oben sehen können, haben wir beide definiert – `{n} month` und `{n} months`.
+`PLURAL` Schlüsselwort wird hier besonders behandelt, da es Ihnen erlaubt, alle Pluralformen einzubeziehen, die Ihre Sprache unterstützt. Wenn Sie einen Blick auf CLDR werfen, werden Sie sehen, dass es im Englischen nur 2 kardinale Formen gibt – „eine“ und „andere“. Und wie Sie oben sehen können, haben wir beide definiert – `{n} month` und `{n} months`.
 
 Unsere polnische Sprache umfasst jedoch 4 von ihnen – „eine“, „wenige“, „viele“ und „andere“. Das bedeutet, dass wir alle für die vollständige Umsetzung definieren sollten. Unsere Übersetzungsprogramme sind bereits intelligent genug, um eine geeignete Pluralform basierend auf Sprachregeln auszuwählen, sodass Sie nur alle diese in der Übersetzung definieren müsssen:
 
@@ -106,7 +106,7 @@ Unsere polnische Sprache umfasst jedoch 4 von ihnen – „eine“, „wenige“
 
 Auf diese Weise haben wir alle 4 Pluralformen für unsere polnische Sprache definiert, und da unsere Lokalisierungsbibliothek bereits die genauen Regeln kennt, wird sie die richtige Form für die angegebene `{n}` Nummer korrekt verwenden.
 
-Es ist nicht zwingend erforderlich alle von Ihrer Sprache verwendeten Pluralformen zu definieren. Wenn sie fehlt, verwendet unsere Lokalisierungsbibliothek die zuletzt definierte Form an Ihrer Stelle. Es ist eine gute Idee, alle von Ihrer Sprache verwendeten Pluralformen zu definieren, aber in einigen Fällen können die verbleibenden Pluralformen die gleichen sein wie die letzten, in diesem Fall ist es nicht notwendig, sie zu wiederholen. In unserem obigen Beispiel war es zwingend erforderlich, da die „andere“ Form im Polnischen für Monate „miesiąca“ ist und nicht „miesięcy“ wie in „vielen“.
+Es ist nicht zwingend erforderlich, alle von Ihrer Sprache verwendeten Pluralformen zu definieren. Wenn sie fehlt, verwendet unsere Lokalisierungsbibliothek die zuletzt definierte Form an Ihrer Stelle. Es ist eine gute Idee, alle von Ihrer Sprache verwendeten Pluralformen zu definieren, aber in einigen Fällen können die verbleibenden Pluralformen die gleichen sein wie die letzten, in diesem Fall ist es nicht notwendig, sie zu wiederholen. In unserem obigen Beispiel war es zwingend erforderlich, da die „andere“ Form im Polnischen für Monate „miesiąca“ ist und nicht „miesięcy“ wie in „vielen“.
 
 ---
 
@@ -122,7 +122,7 @@ Das Wiki ist in dieser Hinsicht etwas Besonderes, da es eine Online-Hilfe ist, b
 
 Unsere Crowdin-Plattform ermöglicht es Ihren auch, den Originaltext so anzupassen, dass er auf neue (lokalisierte) Standorte verweist.
 
-ASF enthält Links auf fast jeder Seite zur leichteren Navigation sowie eine Seitenleiste auf der rechten Seite. Die fantastische Tatsache ist, dass Sie all das bearbeiten können, indem Sie Links „fixieren“, um auf richtige lokalisierte Seiten für Ihre Sprache zu verweisen. Es erfordert ein wenig Vorsicht, wenn Sie das tust, aber es ist möglich.
+ASF enthält Links auf fast jeder Seite zur leichteren Navigation sowie eine Seitenleiste auf der rechten Seite. Die fantastische Tatsache ist, dass Sie all das bearbeiten können, indem Sie Links „fixieren“, um auf richtige lokalisierte Seiten für Ihre Sprache zu verweisen. Es erfordert ein wenig Vorsicht, wenn Sie das tun, aber es ist möglich.
 
 Zum Beispiel enthält die **[Startseite](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Home-de-DE)** von ASF folgenden Text:
 
@@ -173,7 +173,7 @@ Wenn der Link jedoch weiter **innerhalb** des Wikis zeigt, wie der oben genannte
 
 ---
 
-Achte darauf, dass Ihre URL tatsächlich existiert, denn wenn Sie einen Fehler machen wird dieser Link nicht mehr funktionieren. Wenn Sie erfolgreich waren, haben Sie jetzt eine voll funktionsfähige Übersetzung mit einem Link, der auf die übersetzte (in unserem Fall `Setting-up-pl-PL`) Seite zeigt.
+Achten Sie darauf, dass Ihre URL tatsächlich existiert, denn wenn Sie einen Fehler machen wird dieser Link nicht mehr funktionieren. Wenn Sie erfolgreich waren, haben Sie jetzt eine voll funktionsfähige Übersetzung mit einem Link, der auf die übersetzte (in unserem Fall `Setting-up-pl-PL`) Seite zeigt.
 
 Wenn Sie die obigen Schritte ausführen, wird unser HTML-Code korrekt zurück in Markdown übersetzt:
 

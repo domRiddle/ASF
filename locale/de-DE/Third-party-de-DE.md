@@ -11,8 +11,8 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 ### **[Citrinate](https://github.com/Citrinate)**
 
 - **[BoosterManager](https://github.com/Citrinate/BoosterManager)**,  Erweiterung für ASF bietet eine einfach zu bedienende Schnittstelle zur Umwandlung von Edelsteinen in Boosterpacks sowie verschiedene Funktionen zur Verwaltung von Lagerbeständen und Marktlistungen.
-- **[CS2Interface](https://github.com/Citrinate/CS2Interface)**, Erweiterungfür ASF, mit dem Sie mit Counter Strike 2 über **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interagieren können.
-- **[FreePackages](https://github.com/Citrinate/FreePackages)**, Erweiterungfür ASF, das kostenlose Pakete auf Steam findet und diese zu Ihrem Account hinzufügt.
+- **[CS2Interface](https://github.com/Citrinate/CS2Interface)**, Erweiterung für ASF, mit dem Sie mit Counter Strike 2 über **[IPC](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/IPC)** interagieren können.
+- **[FreePackages](https://github.com/Citrinate/FreePackages)**, Erweiterung für ASF, das kostenlose Pakete auf Steam findet und diese zu Ihrem Account hinzufügt.
 
 ### **[Rudokhvist](https://github.com/Rudokhvist)**
 
@@ -20,7 +20,7 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 - **[BirthdayPlugin](https://github.com/Rudokhvist/BirthdayPlugin)**, ASF-Erweiterungum Geburtstags-Glückwünsche zu erhalten.
 - **[BoosterCreator](https://github.com/Rudokhvist/BoosterCreator)**, Erweiterung für ASF, das die Funktionalität der Erstellung von Booster-Paketen bereitstellt.
 - **[Case-Insensitive-ASF](https://github.com/Rudokhvist/Case-Insensitive-ASF)**, Erweiterung für ASF, um Botnamen unabhängig von Groß- und Kleinschreibung zu machen.
-- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, Erweiterungfür ASF welches die befehllose Produktschlüssel-Aktivierung zu re-implementiert.
+- **[Commandless-Redeem](https://github.com/Rudokhvist/Commandless-Redeem)**, Erweiterung für ASF welches die befehllose Produktschlüssel-Aktivierung zu re-implementiert.
 - **[ItemDispenser](https://github.com/Rudokhvist/ItemDispenser)**, Plugin, damit ASF automatisch Handelsanfragen für bestimmte Artikeltyp(en) akzeptiert.
 - **[Selektive-Loot-und-Übertragungserweiterung](https://github.com/Rudokhvist/Selective-Loot-and-Transfer-Plugin)**, Erweiterung für ASF, die erweiterte Befehle zum Übertragen von Steam-Gegenständen bietet.
 
@@ -30,12 +30,12 @@ Bitte beachte, dass die folgenden Programme **nicht** von den ASF-Entwicklern be
 - **[Spielentferner](https://github.com/ezhevita/GameRemover)**, Erweiterung für ASF, die einen Befehl implementiert, um Steam-Lizenzen von ausgewählten Bots zu entfernen.
 - **[Email-abrufen](https://github.com/ezhevita/GetEmail)**, Erweiterung für ASF, die einen Befehl implementiert, der die E-Mail-Adressen der Bot-Instanzen direkt von Steam abruft.
 - **[API-Schlüssel-zurücksetzen](https://github.com/ezhevita/ResetAPIKey)**, Erweiterung für ASF, die einen Befehl implementiert, den API Schlüssel für ausgewählte Bot-Instanzen zurückzusetzen.
-- **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, Erweiterungfür ASF erlaubt das Umleiten (Proxy) von WebSocket-Verbindungen.
+- **[SteamKitProxyInjection](https://github.com/ezhevita/SteamKitProxyInjection)**, Erweiterung für ASF erlaubt das Umleiten (Proxy) von WebSocket-Verbindungen.
 
 ### Sonstiges
 
-- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, Plugin, welches ASF um verschiedene neue Funktionen (insbesondere Befehle) erweitert.
-- **[ASFFreeGames](https://github.com/maxisoft/ASFFreeGames)**, Erweiterungfür ASF erlaubt es einem automatisch kostenlose Steamspiele zu sammeln, die auf Reddit bekannt gegeben wurden.
+- **[ASFEnhance](https://github.com/chr233/ASFEnhance)**, Plugin, welches ASF um verschiedene neue Funktionen (insbesondere Befehle) ergänzt.
+- **[ASFFreeGames](https://github.com/maxisoft/ASFFreeGames)**, Erweiterung für ASF erlaubt es einem automatisch kostenlose Steamspiele zu sammeln, die auf Reddit bekannt gegeben wurden.
 
 ---
 

@@ -20,7 +20,7 @@ Um ein verschlüsseltes Password zu generieren, z. B. um es mit `SteamPassword`
 
 ### `PlainText`
 
-Dies ist die einfachste und zugleich unsicherste Methode das Passwort zu speichern, festgelegt durch `PasswordFormat` mit einem Wert von `0`. ASF erwartet, dass die Zeichenkette ein Klartext ist – ein Passwort in seiner direkten Form. Sie ist am einfachsten zu benutzen und zu 100% kompatibel mit allen Setups, daher ist sie eine Standardmethode zum Speichern von Geheimnissen, völlig unsicher für eine sichere Speicherung.
+Dies ist die einfachste und zugleich unsicherste Methode das Passwort zu speichern, festgelegt durch `PasswordFormat` mit einem Wert von `0`. ASF erwartet, dass die Zeichenkette ein Klartext ist – ein Passwort in seiner direkten Form. Sie ist am einfachsten zu benutzen und zu 100 % kompatibel mit allen Setups, daher ist sie eine Standardmethode zum Speichern von Geheimnissen, völlig unsicher für eine sichere Speicherung.
 
 ---
 
@@ -90,7 +90,7 @@ Um ein Hash zu generieren, z. B. um es mit `IPCPassword` zu verwenden, müssen 
 
 ### `PlainText`
 
-Dies ist die einfachste und zugleich unsicherste Methode das Passwort zu speichern, festgelegt durch `EHashingMethod`, mit dem Wert von `0`. ASF wird eine Hash generieren, die mit der ursprünglichen Eingabe übereinstimmt. Sie ist am einfachsten zu benutzen und zu 100% kompatibel mit allen Setups, daher ist sie eine Standardmethode zum Speichern von Geheimnissen, völlig unsicher für eine sichere Speicherung.
+Dies ist die einfachste und zugleich unsicherste Methode das Passwort zu speichern, festgelegt durch `EHashingMethod`, mit dem Wert von `0`. ASF wird eine Hash generieren, die mit der ursprünglichen Eingabe übereinstimmt. Sie ist am einfachsten zu benutzen und zu 100 % kompatibel mit allen Setups, daher ist sie eine Standardmethode zum Speichern von Geheimnissen, völlig unsicher für eine sichere Speicherung.
 
 ---
 

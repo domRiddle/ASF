@@ -105,7 +105,7 @@ Jetzt können Sie sich für zwei Dinge entscheiden:
 - Sie können Ihren Benutzernamen in das Feld `SteamLogin` und Ihr Passwort in das `SteamPassword` Feld eintragen
 - Oder Sie können sie leer lassen
 
-Wenn Sie das erste tust, kann ASF Ihre Konto-Anmeldeinformationen während des Startvorgangs automatisch verwenden, sodass Sie sie nicht jedes Mal manuell eingeben musst, wenn ASF sie benötigt. Sie können sie jedoch auch weglassen. In diesem Fall werden sie nicht gespeichert, sodass ASF nicht ohne Ihre Hilfe automatisch starten kann und Sie sie während der Laufzeit eingeben musst.
+Wenn Sie das erste tun, kann ASF Ihre Konto-Anmeldeinformationen während des Startvorgangs automatisch verwenden, sodass Sie sie nicht jedes Mal manuell eingeben musst, wenn ASF sie benötigt. Sie können sie jedoch auch weglassen. In diesem Fall werden sie nicht gespeichert, sodass ASF nicht ohne Ihre Hilfe automatisch starten kann und Sie sie während der Laufzeit eingeben musst.
 
 ASF benötigt Ihre AnmelIhrformationen, da es seine eigene Implementierung des Steam-Clients beinhaltet und die gleichen Details benötigt, die Sie selbst benutzt um dich anzumelden. Ihre Anmeldeinformationen werden nirgends außer auf Ihrem PC im `config` ASF-Verzeichnis gespeichert. Unser Web-Konfigurationsgenerator ist client-basiert, was bedeutet, dass der Programmcode lokal in Ihrem Browser ausgeführt wird, um gültige ASF-Konfigurationen zu generieren, ohne dass Sie Details eingibst, die Ihren PC überhaupt erst verlassen, sodass Sie sich keine Sorgen über einen möglichen Verlust vertraulicher Daten machen musst. Dennoch, wenn Sie aus irgendeinem Grund Ihre Zugangsdaten dort nicht eingeben möchten, verstehen wir das, und Sie können sie später manuell in generierte Dateien einfügen, oder sie ganz weglassen und sie nur in die ASF-Befehlszeile eingeben. Mehr zu Sicherheitsfragen finden Sie im Abschnitt **[Konfiguration](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Configuration-de-DE)**.
 
@@ -133,15 +133,15 @@ Nach diesem Schritt, vorausgesetzt, Sie haben alle erforderlichen Abhängigkeite
 
 ![ASF](https://i.imgur.com/u5hrSFz.png)
 
-Wenn Sie `SteamLogin` und `SteamPassword` für ASF angegeben haben, wirst Sie nur nach Ihrem SteamGuard-Code gefragt (E-Mail, 2FA oder keine, abhängig von Ihren Steam-Einstellungen). Wenn Sie es nicht getan haben, wirst Sie auch nach Ihrem Steam-Login und Passwort gefragt.
+Wenn Sie `SteamLogin` und `SteamPassword` für ASF angegeben haben, werden Sie nur nach Ihrem SteamGuard-Code gefragt (E-Mail, 2FA oder keine, abhängig von Ihren Steam-Einstellungen). Wenn Sie es nicht getan haben, werden Sie auch nach Ihrem Steam-Login und Passwort gefragt.
 
 Jetzt wäre ein guter Zeitpunkt, um unseren Abschnitt **[Telekommunikation](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Remote-communication-de-DE)** zu überprüfen, wenn Sie sich Sorgen darüber machen, dass ASF programmiert ist, inklusive Aktionen, die es in Ihrem Namen erledigen wird, wie in unserer Steam-Gruppe.
 
-Nachdem Sie das anfängliche Anmeldeportal passiert haben, (davon ausgegangen, dass Ihre Daten korrekt sind) wirst Sie erfolgreich angemeldet und ASF beginnt mit den Standardeinstellungen, die Sie bisher nicht geändert haben, zu sammeln:
+Nachdem Sie das anfängliche Anmeldeportal passiert haben, (davon ausgegangen, dass Ihre Daten korrekt sind) werden Sie erfolgreich angemeldet und ASF beginnt mit den Standardeinstellungen, die Sie bisher nicht geändert haben, zu sammeln:
 
 ![ASF 2](https://i.imgur.com/Cb7DBl4.png)
 
-Dies beweist, dass ASF nun erfolgreich seine Arbeit auf Ihrem Konto erledigt, sodass Sie nun das Programm minimieren und etwas anderes tun können. Nach einiger Zeit (je nach **[Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE)**) wirst Sie sehen, wie Steam-Karten langsam gesammelt werden. Natürlich müssen Sie dafür zulässige Spiele zum Sammeln besitzen, die auf Ihrer **[Abzeichen-Seite](https://steamcommunity.com/my/badges)** Folgendes zeigen: „Sie können noch X weitere Kartenfunde vom Spielen dieses Spiels bekommen“. Wenn es keine Spiele zum Sammeln gibt, dann wird ASF feststellen, dass es nichts zu tun gibt, wie in unserem **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-de-DE#was-ist-asf)** beschrieben.
+Dies beweist, dass ASF nun erfolgreich seine Arbeit auf Ihrem Konto erledigt, sodass Sie nun das Programm minimieren und etwas anderes tun können. Nach einiger Zeit (je nach **[Performance](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Performance-de-DE)**) werden Sie sehen, wie Steam-Karten langsam gesammelt werden. Natürlich müssen Sie dafür zulässige Spiele zum Sammeln besitzen, die auf Ihrer **[Abzeichen-Seite](https://steamcommunity.com/my/badges)** Folgendes zeigen: „Sie können noch X weitere Kartenfunde vom Spielen dieses Spiels bekommen“. Wenn es keine Spiele zum Sammeln gibt, dann wird ASF feststellen, dass es nichts zu tun gibt, wie in unserem **[FAQ](https://github.com/JustArchiNET/ArchiSteamFarm/wiki/FAQ-de-DE#was-ist-asf)** beschrieben.
 
 Dies schließt unseren sehr einfachen Einrichtungsleitfaden ab. Sie können nun entscheiden, ob Sie ASF weiter konfigurieren möchten oder ob Sie es in den Standardeinstellungen seine Arbeit tun lassen möchten. Wir werden noch ein paar grundlegende Details besprechen und Ihnen dann das gesamte Wiki zur Verfügung stellen.
 
@@ -164,7 +164,7 @@ Mit anderen Worten, gehe einfach erneut zur Konfiguration und mache genau das Gl
 
 Sie können bestehende Einstellungen auf die gleiche Weise ändern, indem Sie eine neue Konfigurationsdatei erzeugen. Wenn Sie unseren Web-Konfigurationsgenerator bislang nicht geschlossen haben, klicke auf „Zu den erweiterten Einstellungen umschalten“ und sehen Sie sich an, was Sie entdecken können. Für diese Anleitung werden wir die Einstellung `CustomGamePlayedWhileFarming` ändern, mit der Sie einstellen können, dass der benutzerdefinierte Name angezeigt wird, wenn ASF am Sammeln ist, anstatt das aktuelle Spiel anzuzeigen.
 
-Also lass uns das tun, wenn Sie ASF ausführen und das Sammeln beginnst, wirst Sie in den Standardeinstellungen sehen, dass dein Steam-Konto jetzt im Spiel ist:
+Also lass uns das tun, wenn Sie ASF ausführen und das Sammeln beginnst, werden Sie in den Standardeinstellungen sehen, dass dein Steam-Konto jetzt im Spiel ist:
 
 ![Steam](https://i.imgur.com/1VCDrGC.png)
 
@@ -174,7 +174,7 @@ Lass uns das jetzt ändern. Aktiviere die erweiterten Einstellungen im Webkonfig
 
 Nun können Sie die neue Konfigurationsdatei auf genau die gleiche Weise herunterladen, dann **überschreibe** Ihre alte Konfigurationsdatei mit der neuen. Sie können natürlich auch Ihre alte Konfigurationsdatei löschen und an Ihre Stelle die neue einfügen.
 
-Sobald Sie das getan haben und ASF erneut starten, wirst Sie feststellen, dass ASF nun Ihren benutzerdefinierten Text an der vorherigen Stelle anzeigt:
+Sobald Sie das getan haben und ASF erneut starten, werden Sie feststellen, dass ASF nun Ihren benutzerdefinierten Text an der vorherigen Stelle anzeigt:
 
 ![Steam 2](https://i.imgur.com/vZg0G8P.png)
 
